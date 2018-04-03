@@ -1,5 +1,5 @@
 .class public Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
-.super Lcom/android/systemui/statusbar/phone/IconMerger;
+.super Landroid/widget/LinearLayout;
 .source "DeskIconMerger.java"
 
 
@@ -8,69 +8,25 @@
 
 .field private mIconMinCount:I
 
+.field private mIconSize:I
+
 .field private mIsExpanded:Z
 
-.field private mMaxWidth:I
+.field private mMoreView:Landroid/view/View;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/IconMerger;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+    invoke-direct {p0, p1, p2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->reloadDimens()V
 
     return-void
 .end method
 
-.method private calculateMaxWidth()V
-    .locals 2
-
-    iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->mIsExpanded:Z
-
-    if-eqz v1, :cond_0
-
-    iget v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->mIconMaxCount:I
-
-    :goto_0
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->getChildCount()I
-
-    move-result v1
-
-    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
-
-    move-result v0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->getFullIconWidth()I
-
-    move-result v1
-
-    mul-int/2addr v1, v0
-
-    iput v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->mMaxWidth:I
-
-    return-void
-
-    :cond_0
-    iget v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->mIconMinCount:I
-
-    goto :goto_0
-.end method
-
-
-# virtual methods
-.method public checkOverflow()V
-    .locals 1
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->getMaxWidth()I
-
-    move-result v0
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->checkOverflow(I)V
-
-    return-void
-.end method
-
-.method protected checkOverflow(I)V
+.method private checkOverflow(I)V
     .locals 8
 
     const/16 v6, 0x8
@@ -124,7 +80,7 @@
     const/4 v3, 0x1
 
     :goto_1
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->getFullIconWidth()I
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->getIconSize()I
 
     move-result v7
 
@@ -153,7 +109,7 @@
     goto :goto_1
 
     :cond_5
-    move v2, v5
+    const/4 v2, 0x0
 
     goto :goto_2
 
@@ -163,7 +119,7 @@
     goto :goto_3
 .end method
 
-.method protected getFullIconWidth()I
+.method private getIconSize()I
     .locals 1
 
     iget v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->mIconSize:I
@@ -171,14 +127,40 @@
     return v0
 .end method
 
-.method public getMaxWidth()I
+
+# virtual methods
+.method public collapse(Z)V
     .locals 1
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->calculateMaxWidth()V
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->mIsExpanded:Z
 
-    iget v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->mMaxWidth:I
+    if-eqz v0, :cond_0
 
-    return v0
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->mIsExpanded:Z
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->updateWidth()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public expand(Z)V
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->mIsExpanded:Z
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->mIsExpanded:Z
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->updateWidth()V
+
+    :cond_0
+    return-void
 .end method
 
 .method public isExpanded()Z
@@ -189,32 +171,17 @@
     return v0
 .end method
 
-.method protected onMeasure(II)V
-    .locals 2
+.method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
+    .locals 0
 
-    invoke-super {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/IconMerger;->onMeasure(II)V
+    invoke-super {p0, p1}, Landroid/widget/LinearLayout;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->getMeasuredWidth()I
-
-    move-result v0
-
-    iget v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->mMaxWidth:I
-
-    if-le v0, v1, :cond_0
-
-    iget v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->mMaxWidth:I
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->getMeasuredHeight()I
-
-    move-result v1
-
-    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->setMeasuredDimension(II)V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->reloadDimens()V
 
     return-void
 .end method
 
-.method protected reloadDimens()V
+.method public reloadDimens()V
     .locals 2
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->getContext()Landroid/content/Context;
@@ -225,7 +192,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0665
+    const v1, 0x7f070115
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -233,15 +200,7 @@
 
     iput v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->mIconSize:I
 
-    const v1, 0x7f0d0666
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v1
-
-    iput v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->mIconHPadding:I
-
-    const v1, 0x7f0c0097
+    const v1, 0x7f0b0016
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -249,7 +208,7 @@
 
     iput v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->mIconMinCount:I
 
-    const v1, 0x7f0c0098
+    const v1, 0x7f0b0015
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -257,26 +216,55 @@
 
     iput v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->mIconMaxCount:I
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->calculateMaxWidth()V
+    return-void
+.end method
+
+.method public setOverflowIndicator(Landroid/view/View;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->mMoreView:Landroid/view/View;
 
     return-void
 .end method
 
-.method public setExpanded(Z)V
-    .locals 1
+.method public updateWidth()V
+    .locals 4
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->mIsExpanded:Z
+    iget-boolean v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->mIsExpanded:Z
 
-    if-eq v0, p1, :cond_0
+    if-eqz v3, :cond_0
 
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->mIsExpanded:Z
+    iget v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->mIconMaxCount:I
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->calculateMaxWidth()V
+    :goto_0
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->getChildCount()I
 
-    iget v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->mMaxWidth:I
+    move-result v3
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->checkOverflow(I)V
+    invoke-static {v1, v3}, Ljava/lang/Math;->min(II)I
+
+    move-result v1
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->getIconSize()I
+
+    move-result v3
+
+    mul-int v0, v3, v1
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->checkOverflow(I)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v2
+
+    iput v0, v2, Landroid/view/ViewGroup$LayoutParams;->width:I
+
+    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    return-void
 
     :cond_0
-    return-void
+    iget v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->mIconMinCount:I
+
+    goto :goto_0
 .end method

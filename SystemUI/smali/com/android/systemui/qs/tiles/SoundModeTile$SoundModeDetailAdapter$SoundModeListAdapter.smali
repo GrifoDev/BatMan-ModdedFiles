@@ -43,17 +43,19 @@
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 10
 
-    const/16 v9, 0x21
-
-    const/4 v0, 0x1
-
-    const/4 v6, 0x0
-
     invoke-super {p0, p1, p2, p3}, Landroid/widget/ArrayAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v6
 
-    check-cast v5, Landroid/widget/CheckedTextView;
+    check-cast v6, Landroid/widget/CheckedTextView;
+
+    const/4 v7, 0x1
+
+    invoke-virtual {v6, v7}, Landroid/widget/CheckedTextView;->setSingleLine(Z)V
+
+    sget-object v7, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
+
+    invoke-virtual {v6, v7}, Landroid/widget/CheckedTextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
     iget-object v7, p0, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter$SoundModeListAdapter;->this$1:Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;
 
@@ -71,108 +73,159 @@
 
     iget-object v7, v7, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/SoundModeTile;
 
-    invoke-static {v7}, Lcom/android/systemui/qs/tiles/SoundModeTile;->-get3(Lcom/android/systemui/qs/tiles/SoundModeTile;)Landroid/content/Context;
+    invoke-static {v7}, Lcom/android/systemui/qs/tiles/SoundModeTile;->-get5(Lcom/android/systemui/qs/tiles/SoundModeTile;)Landroid/content/Context;
 
     move-result-object v7
 
-    const v8, 0x7f0f042b
+    const v8, 0x7f1208be
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object v1
-
-    iget-object v7, p0, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter$SoundModeListAdapter;->this$1:Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;
-
-    iget-object v7, v7, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/SoundModeTile;
-
-    invoke-static {v7}, Lcom/android/systemui/qs/tiles/SoundModeTile;->-get3(Lcom/android/systemui/qs/tiles/SoundModeTile;)Landroid/content/Context;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v7
-
-    const-string/jumbo v8, "mode_ringer_time_on"
-
-    invoke-static {v7, v8, v6}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v7
-
-    if-ne v7, v0, :cond_1
-
-    :goto_0
-    if-eqz v0, :cond_0
-
-    iget-object v6, p0, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter$SoundModeListAdapter;->this$1:Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;
-
-    invoke-static {v6}, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;->-wrap1(Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;)Ljava/lang/String;
-
     move-result-object v2
 
-    if-eqz v2, :cond_0
-
-    new-instance v3, Landroid/text/SpannableString;
-
-    invoke-direct {v3, v2}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
-
-    const-string/jumbo v6, "("
-
-    invoke-virtual {v2, v6}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result v4
-
-    new-instance v6, Landroid/text/style/TextAppearanceSpan;
-
     iget-object v7, p0, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter$SoundModeListAdapter;->this$1:Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;
 
     iget-object v7, v7, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/SoundModeTile;
 
-    invoke-static {v7}, Lcom/android/systemui/qs/tiles/SoundModeTile;->-get3(Lcom/android/systemui/qs/tiles/SoundModeTile;)Landroid/content/Context;
+    invoke-static {v7}, Lcom/android/systemui/qs/tiles/SoundModeTile;->-wrap0(Lcom/android/systemui/qs/tiles/SoundModeTile;)Z
 
-    move-result-object v7
+    move-result v1
 
-    const v8, 0x10301b3
-
-    invoke-direct {v6, v7, v8}, Landroid/text/style/TextAppearanceSpan;-><init>(Landroid/content/Context;I)V
-
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
-
-    move-result v7
-
-    invoke-virtual {v3, v6, v4, v7, v9}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
-
-    new-instance v6, Landroid/text/style/ForegroundColorSpan;
+    if-eqz v1, :cond_0
 
     iget-object v7, p0, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter$SoundModeListAdapter;->this$1:Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;
+
+    invoke-static {v7}, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;->-wrap1(Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;)Ljava/lang/String;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_0
+
+    new-instance v4, Landroid/text/SpannableString;
+
+    invoke-direct {v4, v3}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
+
+    const-string/jumbo v7, "("
+
+    invoke-virtual {v3, v7}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+
+    move-result v5
+
+    new-instance v7, Landroid/text/style/TextAppearanceSpan;
 
     iget-object v8, p0, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter$SoundModeListAdapter;->this$1:Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;
 
     iget-object v8, v8, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/SoundModeTile;
 
-    invoke-static {v8}, Lcom/android/systemui/qs/tiles/SoundModeTile;->-get3(Lcom/android/systemui/qs/tiles/SoundModeTile;)Landroid/content/Context;
+    invoke-static {v8}, Lcom/android/systemui/qs/tiles/SoundModeTile;->-get5(Lcom/android/systemui/qs/tiles/SoundModeTile;)Landroid/content/Context;
 
     move-result-object v8
 
-    invoke-static {v7, v8}, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;->-wrap0(Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;Landroid/content/Context;)I
+    const v9, 0x10301b3
 
-    move-result v7
+    invoke-direct {v7, v8, v9}, Landroid/text/style/TextAppearanceSpan;-><init>(Landroid/content/Context;I)V
 
-    invoke-direct {v6, v7}, Landroid/text/style/ForegroundColorSpan;-><init>(I)V
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
 
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
+    move-result v8
 
-    move-result v7
+    const/16 v9, 0x21
 
-    invoke-virtual {v3, v6, v4, v7, v9}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
+    invoke-virtual {v4, v7, v5, v8, v9}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
-    invoke-virtual {v5, v3}, Landroid/widget/CheckedTextView;->setText(Ljava/lang/CharSequence;)V
+    new-instance v7, Landroid/text/style/ForegroundColorSpan;
+
+    iget-object v8, p0, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter$SoundModeListAdapter;->this$1:Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;
+
+    iget-object v9, p0, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter$SoundModeListAdapter;->this$1:Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;
+
+    iget-object v9, v9, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/SoundModeTile;
+
+    invoke-static {v9}, Lcom/android/systemui/qs/tiles/SoundModeTile;->-get5(Lcom/android/systemui/qs/tiles/SoundModeTile;)Landroid/content/Context;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;->-wrap0(Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;Landroid/content/Context;)I
+
+    move-result v8
+
+    invoke-direct {v7, v8}, Landroid/text/style/ForegroundColorSpan;-><init>(I)V
+
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
+
+    move-result v8
+
+    const/16 v9, 0x21
+
+    invoke-virtual {v4, v7, v5, v8, v9}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
+
+    invoke-virtual {v6, v4}, Landroid/widget/CheckedTextView;->setText(Ljava/lang/CharSequence;)V
 
     :cond_0
-    return-object v5
+    sget-boolean v7, Lcom/android/systemui/Rune;->QPANEL_SUPPORT_VOLUME_PANEL_SOUND_MODE_TILE:Z
+
+    if-eqz v7, :cond_1
+
+    iget-object v7, p0, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter$SoundModeListAdapter;->this$1:Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;
+
+    invoke-virtual {v7}, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;->isSystemSettingAllSoundOff()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_1
+
+    if-nez p1, :cond_1
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v6, v7}, Landroid/widget/CheckedTextView;->setEnabled(Z)V
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v6, v7}, Landroid/widget/CheckedTextView;->setChecked(Z)V
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v6, v7}, Landroid/widget/CheckedTextView;->setClickable(Z)V
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v6, v7}, Landroid/widget/CheckedTextView;->setFocusable(Z)V
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v6, v7}, Landroid/widget/CheckedTextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v6, v7}, Landroid/widget/CheckedTextView;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v6, v7}, Landroid/widget/CheckedTextView;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
+
+    iget-object v7, p0, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter$SoundModeListAdapter;->this$1:Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;
+
+    iget-object v7, v7, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/SoundModeTile;
+
+    invoke-static {v7}, Lcom/android/systemui/qs/tiles/SoundModeTile;->-get5(Lcom/android/systemui/qs/tiles/SoundModeTile;)Landroid/content/Context;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v7
+
+    const v8, 0x7f060209
+
+    const/4 v9, 0x0
+
+    invoke-virtual {v7, v8, v9}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
+
+    move-result v0
+
+    invoke-virtual {v6, v0}, Landroid/widget/CheckedTextView;->setTextColor(I)V
 
     :cond_1
-    move v0, v6
-
-    goto :goto_0
+    return-object v6
 .end method

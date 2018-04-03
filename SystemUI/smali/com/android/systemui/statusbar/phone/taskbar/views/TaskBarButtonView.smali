@@ -3,7 +3,7 @@
 .source "TaskBarButtonView.java"
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/phone/ButtonDispatcher$ButtonInterface;
+.implements Lcom/android/systemui/plugins/statusbar/phone/NavBarButtonProvider$ButtonInterface;
 
 
 # annotations
@@ -31,6 +31,8 @@
 
 .field private mGestureAborted:Z
 
+.field private mLayoutDirection:I
+
 .field private mLongClicked:Z
 
 .field private mRightButtonClicked:Z
@@ -55,14 +57,6 @@
     .locals 1
 
     iget v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mCode:I
-
-    return v0
-.end method
-
-.method static synthetic -get2(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mSupportsLongpress:Z
 
     return v0
 .end method
@@ -173,6 +167,20 @@
 
     iput-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mAudioManager:Landroid/media/AudioManager;
 
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/res/Configuration;->getLayoutDirection()I
+
+    move-result v2
+
+    iput v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mLayoutDirection:I
+
     return-void
 .end method
 
@@ -197,31 +205,45 @@
 
     invoke-super {p0}, Landroid/widget/ImageView;->onAttachedToWindow()V
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->getRootView()Landroid/view/View;
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->getParent()Landroid/view/ViewParent;
 
     move-result-object v0
 
+    :goto_0
     if-eqz v0, :cond_0
 
     instance-of v1, v0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
+    xor-int/lit8 v1, v1, 0x1
+
     if-eqz v1, :cond_0
+
+    invoke-interface {v0}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :cond_0
+    instance-of v1, v0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    if-eqz v1, :cond_1
 
     check-cast v0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mTaskBarView:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
-    :goto_0
+    :goto_1
     return-void
 
-    :cond_0
-    const-string/jumbo v1, "TaskBarButtonView"
+    :cond_1
+    const-string/jumbo v1, "[DS]TaskBarButtonView"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "onAttachedToWindow(). Cannot find root view, root="
+    const-string/jumbo v3, "onAttachedToWindow(). Cannot find parent view, getParent="
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -237,7 +259,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
@@ -245,9 +267,26 @@
 
     invoke-super {p0, p1}, Landroid/widget/ImageView;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
+    iget v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mLayoutDirection:I
+
+    invoke-virtual {p1}, Landroid/content/res/Configuration;->getLayoutDirection()I
+
+    move-result v1
+
+    if-eq v0, v1, :cond_0
+
+    invoke-virtual {p1}, Landroid/content/res/Configuration;->getLayoutDirection()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mLayoutDirection:I
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->invalidate()V
+
+    :cond_0
     iget v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mContentDescriptionRes:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mContext:Landroid/content/Context;
 
@@ -259,7 +298,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    :cond_0
+    :cond_1
     return-void
 .end method
 
@@ -272,7 +311,7 @@
 
     iget v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mCode:I
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     new-instance v0, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
 
@@ -284,15 +323,8 @@
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mSupportsLongpress:Z
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->isLongClickable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    :cond_0
     new-instance v0, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
 
     const/16 v1, 0x20
@@ -301,7 +333,7 @@
 
     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->addAction(Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;)V
 
-    :cond_1
+    :cond_0
     return-void
 .end method
 
@@ -312,77 +344,80 @@
 
     const/4 v9, 0x2
 
-    const/4 v6, 0x1
+    const/4 v5, 0x1
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
+
+    const/high16 v6, 0x3f000000    # 0.5f
+
+    invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->setAlpha(F)V
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->isContextClickable()Z
 
-    move-result v4
+    move-result v6
 
-    if-eqz v4, :cond_0
+    if-eqz v6, :cond_0
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getButtonState()I
 
-    move-result v4
+    move-result v6
 
-    if-eq v4, v9, :cond_4
+    if-eq v6, v9, :cond_2
 
     :cond_0
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mTaskBarView:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mTaskBarView:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
-    if-eqz v4, :cond_1
+    if-eqz v6, :cond_1
 
-    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mTaskBarView:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mTaskBarView:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->getId()I
 
-    move-result v8
+    move-result v7
 
-    iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mSupportsLongpress:Z
+    iget-boolean v8, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mSupportsLongpress:Z
 
-    if-eqz v4, :cond_3
+    xor-int/lit8 v8, v8, 0x1
 
-    move v4, v5
-
-    :goto_0
-    invoke-virtual {v7, v8, v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->closeAllExcept(IZ)V
+    invoke-virtual {v6, v7, v8}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->closeAllExcept(IZ)V
 
     :cond_1
+    :goto_0
+    iput-boolean v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mGestureAborted:Z
+
     :goto_1
-    iput-boolean v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mGestureAborted:Z
+    iget-boolean v6, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mGestureAborted:Z
+
+    if-eqz v6, :cond_4
+
+    return v4
 
     :cond_2
-    iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mGestureAborted:Z
-
-    if-eqz v4, :cond_5
-
-    return v5
-
-    :cond_3
-    move v4, v6
+    iput-boolean v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mRightButtonClicked:Z
 
     goto :goto_0
 
-    :cond_4
-    iput-boolean v6, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mRightButtonClicked:Z
+    :cond_3
+    const/high16 v6, 0x3f800000    # 1.0f
+
+    invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->setAlpha(F)V
 
     goto :goto_1
 
-    :cond_5
-    sget-boolean v4, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->DEBUG:Z
+    :cond_4
+    sget-boolean v6, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->DEBUG:Z
 
-    if-eqz v4, :cond_6
+    if-eqz v6, :cond_5
 
-    if-eq v0, v9, :cond_6
+    if-eq v0, v9, :cond_5
 
-    const-string/jumbo v4, "TaskBarButtonView"
+    const-string/jumbo v6, "[DS]TaskBarButtonView"
 
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -402,32 +437,32 @@
 
     move-result-object v7
 
-    invoke-static {v4, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_6
+    :cond_5
     packed-switch v0, :pswitch_data_0
 
     :goto_2
-    return v6
+    return v5
 
     :pswitch_0
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v8
+    move-result-wide v6
 
-    iput-wide v8, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mDownTime:J
+    iput-wide v6, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mDownTime:J
 
-    iput-boolean v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mLongClicked:Z
+    iput-boolean v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mLongClicked:Z
 
-    invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->setPressed(Z)V
+    invoke-virtual {p0, v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->setPressed(Z)V
 
-    iget v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mCode:I
+    iget v6, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mCode:I
 
-    if-eqz v4, :cond_7
+    if-eqz v6, :cond_6
 
-    iget-wide v8, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mDownTime:J
+    iget-wide v6, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mDownTime:J
 
-    invoke-virtual {p0, v5, v5, v8, v9}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->sendEvent(IIJ)V
+    invoke-virtual {p0, v4, v4, v6, v7}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->sendEvent(IIJ)V
 
     :goto_3
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mCheckLongPress:Ljava/lang/Runnable;
@@ -438,83 +473,83 @@
 
     invoke-static {}, Landroid/view/ViewConfiguration;->getLongPressTimeout()I
 
-    move-result v5
+    move-result v6
 
-    int-to-long v8, v5
+    int-to-long v6, v6
 
-    invoke-virtual {p0, v4, v8, v9}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {p0, v4, v6, v7}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->postDelayed(Ljava/lang/Runnable;J)Z
 
     goto :goto_2
 
-    :cond_7
-    invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->performHapticFeedback(I)Z
+    :cond_6
+    invoke-virtual {p0, v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->performHapticFeedback(I)Z
 
     goto :goto_3
 
     :pswitch_1
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
-    move-result v4
+    move-result v6
 
-    float-to-int v2, v4
+    float-to-int v2, v6
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
-    move-result v4
+    move-result v6
 
-    float-to-int v3, v4
+    float-to-int v3, v6
 
-    iget v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mTouchSlop:I
+    iget v6, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mTouchSlop:I
 
-    neg-int v4, v4
+    neg-int v6, v6
 
-    if-lt v2, v4, :cond_8
+    if-lt v2, v6, :cond_7
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->getWidth()I
 
-    move-result v4
+    move-result v6
 
     iget v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mTouchSlop:I
 
-    add-int/2addr v4, v7
+    add-int/2addr v6, v7
 
-    if-ge v2, v4, :cond_8
+    if-ge v2, v6, :cond_7
 
-    iget v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mTouchSlop:I
+    iget v6, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mTouchSlop:I
 
-    neg-int v4, v4
+    neg-int v6, v6
 
-    if-lt v3, v4, :cond_8
+    if-lt v3, v6, :cond_7
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->getHeight()I
 
-    move-result v4
+    move-result v6
 
     iget v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mTouchSlop:I
 
-    add-int/2addr v4, v7
+    add-int/2addr v6, v7
 
-    if-ge v3, v4, :cond_8
+    if-ge v3, v6, :cond_7
 
-    move v5, v6
+    move v4, v5
 
-    :cond_8
-    invoke-virtual {p0, v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->setPressed(Z)V
+    :cond_7
+    invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->setPressed(Z)V
 
     goto :goto_2
 
     :pswitch_2
-    invoke-virtual {p0, v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->setPressed(Z)V
+    invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->setPressed(Z)V
 
-    iput-boolean v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mRightButtonClicked:Z
+    iput-boolean v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mRightButtonClicked:Z
 
     iget v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mCode:I
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_8
 
-    invoke-virtual {p0, v6, v10}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->sendEvent(II)V
+    invoke-virtual {p0, v5, v10}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->sendEvent(II)V
 
-    :cond_9
+    :cond_8
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mCheckLongPress:Ljava/lang/Runnable;
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->removeCallbacks(Ljava/lang/Runnable;)Z
@@ -524,23 +559,26 @@
     :pswitch_3
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->isPressed()Z
 
-    move-result v4
+    move-result v6
 
-    if-eqz v4, :cond_a
+    if-eqz v6, :cond_b
 
-    iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mLongClicked:Z
+    iget-boolean v6, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mLongClicked:Z
 
-    if-eqz v4, :cond_d
+    xor-int/lit8 v6, v6, 0x1
 
-    :cond_a
-    const/4 v1, 0x0
+    if-eqz v6, :cond_b
+
+    iget-boolean v6, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mRightButtonClicked:Z
+
+    xor-int/lit8 v1, v6, 0x1
 
     :goto_4
-    sget-boolean v4, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->DEBUG:Z
+    sget-boolean v6, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->DEBUG:Z
 
-    if-eqz v4, :cond_b
+    if-eqz v6, :cond_9
 
-    const-string/jumbo v4, "TaskBarButtonView"
+    const-string/jumbo v6, "[DS]TaskBarButtonView"
 
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -586,26 +624,26 @@
 
     move-result-object v7
 
-    invoke-static {v4, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_b
-    invoke-virtual {p0, v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->setPressed(Z)V
+    :cond_9
+    invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->setPressed(Z)V
 
-    iput-boolean v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mRightButtonClicked:Z
+    iput-boolean v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mRightButtonClicked:Z
 
-    iget v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mCode:I
+    iget v6, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mCode:I
 
-    if-eqz v4, :cond_f
+    if-eqz v6, :cond_d
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_c
 
-    invoke-virtual {p0, v6, v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->sendEvent(II)V
+    invoke-virtual {p0, v5, v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->sendEvent(II)V
 
-    invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->sendAccessibilityEvent(I)V
+    invoke-virtual {p0, v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->sendAccessibilityEvent(I)V
 
-    invoke-virtual {p0, v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->playSoundEffect(I)V
+    invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->playSoundEffect(I)V
 
-    :cond_c
+    :cond_a
     :goto_5
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mCheckLongPress:Ljava/lang/Runnable;
 
@@ -613,30 +651,28 @@
 
     goto/16 :goto_2
 
-    :cond_d
-    iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mRightButtonClicked:Z
-
-    if-nez v4, :cond_a
-
-    const/4 v1, 0x1
+    :cond_b
+    const/4 v1, 0x0
 
     goto :goto_4
 
-    :cond_e
+    :cond_c
     iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mLongClicked:Z
 
-    if-eqz v4, :cond_c
+    if-eqz v4, :cond_a
 
-    invoke-virtual {p0, v6, v10}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->sendEvent(II)V
+    invoke-virtual {p0, v5, v10}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->sendEvent(II)V
 
     goto :goto_5
 
-    :cond_f
-    if-eqz v1, :cond_c
+    :cond_d
+    if-eqz v1, :cond_a
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->performClick()Z
 
     goto :goto_5
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -751,7 +787,7 @@
 
     if-eqz v2, :cond_0
 
-    const-string/jumbo v2, "TaskBarButtonView"
+    const-string/jumbo v2, "[DS]TaskBarButtonView"
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -822,7 +858,7 @@
 
     and-int/lit16 v2, v0, 0x80
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
     const/4 v10, 0x1
 
@@ -863,12 +899,48 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/hardware/input/InputManager;->injectInputEvent(Landroid/view/InputEvent;I)Z
 
-    return-void
+    if-lez p1, :cond_1
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->mCode:I
+
+    sparse-switch v2, :sswitch_data_0
 
     :cond_1
+    :goto_1
+    return-void
+
+    :cond_2
     const/4 v10, 0x0
 
     goto :goto_0
+
+    :sswitch_0
+    const-string/jumbo v2, "103"
+
+    const-string/jumbo v4, "1501"
+
+    invoke-static {v2, v4}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarAnalytics;->sendEventLog(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_1
+
+    :sswitch_1
+    const-string/jumbo v2, "103"
+
+    const-string/jumbo v4, "1502"
+
+    invoke-static {v2, v4}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarAnalytics;->sendEventLog(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_1
+
+    nop
+
+    :sswitch_data_0
+    .sparse-switch
+        0x3 -> :sswitch_1
+        0xbb -> :sswitch_0
+    .end sparse-switch
 .end method
 
 .method public setCarMode(Z)V
@@ -877,23 +949,13 @@
     return-void
 .end method
 
-.method public setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+.method public setDarkIntensity(F)V
     .locals 0
-
-    invoke-super {p0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     return-void
 .end method
 
-.method public setImageResource(I)V
-    .locals 0
-
-    invoke-super {p0, p1}, Landroid/widget/ImageView;->setImageResource(I)V
-
-    return-void
-.end method
-
-.method public setLandscape(Z)V
+.method public setVertical(Z)V
     .locals 0
 
     return-void

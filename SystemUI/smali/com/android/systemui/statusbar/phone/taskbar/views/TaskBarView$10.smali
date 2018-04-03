@@ -1,14 +1,11 @@
 .class Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$10;
-.super Ljava/lang/Object;
+.super Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;
 .source "TaskBarView.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->moveScrollPosition(ZLandroid/view/View;)V
+    value = Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->showContextMenu(IFFLcom/android/systemui/statusbar/phone/taskbar/data/AppItem;Landroid/view/View;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,40 +17,30 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
-.field final synthetic val$finalScrollPosition:I
-
-.field final synthetic val$toRightEdge:Z
-
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;ZI)V
+.method constructor <init>(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;Landroid/content/Context;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$10;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
-    iput-boolean p2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$10;->val$toRightEdge:Z
-
-    iput p3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$10;->val$finalScrollPosition:I
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, p2}, Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;-><init>(Landroid/content/Context;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 3
+.method public onTouchEvent(Landroid/view/MotionEvent;)Z
+    .locals 2
 
-    const/4 v2, 0x0
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$10;->val$toRightEdge:Z
+    move-result v0
 
-    if-eqz v0, :cond_2
+    const/4 v1, 0x4
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$10;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
-
-    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->mContentScrollView:Landroid/widget/HorizontalScrollView;
+    if-ne v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$10;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
@@ -61,34 +48,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
-
-    const/16 v0, 0x11
-
-    :goto_0
-    invoke-virtual {v1, v0}, Landroid/widget/HorizontalScrollView;->fullScroll(I)Z
-
-    :cond_0
-    :goto_1
-    return-void
-
-    :cond_1
-    const/16 v0, 0x42
-
-    goto :goto_0
-
-    :cond_2
-    iget v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$10;->val$finalScrollPosition:I
-
-    if-ltz v0, :cond_0
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$10;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
-    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->mContentScrollView:Landroid/widget/HorizontalScrollView;
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->closeContextMenu()V
 
-    iget v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$10;->val$finalScrollPosition:I
+    :cond_0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, v1, v2}, Landroid/widget/HorizontalScrollView;->smoothScrollTo(II)V
-
-    goto :goto_1
+    return v0
 .end method

@@ -17,7 +17,7 @@
 .method public onCreatePreferences(Landroid/os/Bundle;Ljava/lang/String;)V
     .locals 1
 
-    const v0, 0x7f09000a
+    const v0, 0x7f16000c
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/tuner/OtherPrefs;->addPreferencesFromResource(I)V
 

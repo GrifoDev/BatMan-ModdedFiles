@@ -64,7 +64,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/screenshot/ScreenshotEditResolveActivity;->mUri:Landroid/net/Uri;
 
-    const-string/jumbo v2, "image/png"
+    const-string/jumbo v2, "image/jpeg"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
 
@@ -132,7 +132,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/screenshot/ScreenshotEditResolveActivity;->mUri:Landroid/net/Uri;
 
-    const-string/jumbo v2, "image/png"
+    const-string/jumbo v2, "image/jpeg"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
 
@@ -200,7 +200,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/screenshot/ScreenshotEditResolveActivity;->mUri:Landroid/net/Uri;
 
-    const-string/jumbo v2, "image/png"
+    const-string/jumbo v2, "image/jpeg"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
 
@@ -243,7 +243,7 @@
 .method private doFinish()V
     .locals 1
 
-    const v0, 0x7f0f02ff
+    const v0, 0x7f12079e
 
     invoke-static {p0, v0}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
 
@@ -603,7 +603,7 @@
 
     move-object/from16 v21, v0
 
-    const-string/jumbo v22, "image/png"
+    const-string/jumbo v22, "image/jpeg"
 
     move-object/from16 v0, v21
 
@@ -933,17 +933,23 @@
 
     move-result v21
 
-    if-eqz v21, :cond_9
+    if-eqz v21, :cond_a
 
     invoke-static {v6}, Lcom/android/systemui/screenshot/ScreenshotUtils;->isUltraPowerSavingMode(Landroid/content/Context;)Z
 
     move-result v21
 
+    if-eqz v21, :cond_9
+
+    invoke-static {v6}, Lcom/android/systemui/screenshot/ScreenshotUtils;->isReserveBatteryForCallMode(Landroid/content/Context;)Z
+
+    move-result v21
+
     if-eqz v21, :cond_8
 
-    const v21, 0x7f0f030c
+    const v21, 0x7f1201d9
 
-    const v22, 0x7f0f0310
+    const v22, 0x7f12092a
 
     move-object/from16 v0, p0
 
@@ -992,9 +998,9 @@
     .catch Landroid/content/ActivityNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
 
     :cond_8
-    const v21, 0x7f0f030a
+    const v21, 0x7f1201d9
 
-    const v22, 0x7f0f0310
+    const v22, 0x7f120710
 
     move-object/from16 v0, p0
 
@@ -1007,9 +1013,24 @@
     goto/16 :goto_2
 
     :cond_9
-    const v21, 0x7f0f0312
+    const v21, 0x7f1201d9
 
-    const v22, 0x7f0f0310
+    const v22, 0x7f120297
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v21
+
+    move/from16 v2, v22
+
+    invoke-static {v0, v1, v2}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;II)V
+
+    goto/16 :goto_2
+
+    :cond_a
+    const v21, 0x7f1201da
+
+    const v22, 0x7f1207dc
 
     move-object/from16 v0, p0
 

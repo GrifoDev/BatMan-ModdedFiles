@@ -23,9 +23,9 @@
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
 
-    const v0, 0x7f0a000a
+    const v0, 0x7f11000a
 
-    const v1, 0x7f0a0009
+    const v1, 0x7f110009
 
     invoke-direct {p0, p1, v0, v1}, Lcom/android/systemui/infinity/common/ShaderProgram;-><init>(Landroid/content/Context;II)V
 

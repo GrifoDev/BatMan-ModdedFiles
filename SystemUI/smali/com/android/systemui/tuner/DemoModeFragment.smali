@@ -234,9 +234,9 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    const-string/jumbo v2, "datatypel"
+    const-string/jumbo v2, "datatype"
 
-    const-string/jumbo v3, ""
+    const-string/jumbo v3, "lte"
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
@@ -466,7 +466,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/tuner/DemoModeFragment;->mEnabledSwitch:Landroid/support/v14/preference/SwitchPreference;
 
-    const v4, 0x7f0f059b
+    const v4, 0x7f12029e
 
     invoke-virtual {v3, v4}, Landroid/support/v14/preference/SwitchPreference;->setTitle(I)V
 
@@ -482,7 +482,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/tuner/DemoModeFragment;->mOnSwitch:Landroid/support/v14/preference/SwitchPreference;
 
-    const v4, 0x7f0f059c
+    const v4, 0x7f1209cc
 
     invoke-virtual {v3, v4}, Landroid/support/v14/preference/SwitchPreference;->setTitle(I)V
 

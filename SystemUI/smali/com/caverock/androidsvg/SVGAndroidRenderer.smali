@@ -371,9 +371,9 @@
 .end method
 
 .method private addObjectToClip(Lcom/caverock/androidsvg/SVG$SvgObject;ZLandroid/graphics/Path;Landroid/graphics/Matrix;)V
-    .locals 4
+    .locals 3
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     invoke-direct {p0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->display()Z
 
@@ -399,23 +399,23 @@
 
     if-nez v0, :cond_5
 
-    const-string/jumbo v0, "Invalid %s element found in clipPath definition"
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
-
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    aput-object v2, v1, v3
+    aput-object v1, v0, v2
 
-    invoke-static {v0, v1}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v1, "Invalid %s element found in clipPath definition"
+
+    invoke-static {v1, v0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
 
     :goto_0
     invoke-direct {p0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->clipStatePop()V
@@ -428,11 +428,11 @@
     :cond_1
     if-nez p2, :cond_2
 
-    const-string/jumbo v0, "<use> elements inside a <clipPath> cannot reference another <use>"
+    new-array v0, v2, [Ljava/lang/Object;
 
-    new-array v1, v3, [Ljava/lang/Object;
+    const-string/jumbo v1, "<use> elements inside a <clipPath> cannot reference another <use>"
 
-    invoke-static {v0, v1}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v1, v0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_0
 
@@ -728,9 +728,9 @@
 .end method
 
 .method private addObjectToClip(Lcom/caverock/androidsvg/SVG$Use;Landroid/graphics/Path;Landroid/graphics/Matrix;)V
-    .locals 5
+    .locals 4
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
@@ -765,7 +765,7 @@
 
     invoke-direct {p0, p1}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->checkForClipPath(Lcom/caverock/androidsvg/SVG$SvgElement;)V
 
-    invoke-direct {p0, v0, v4, p2, p3}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->addObjectToClip(Lcom/caverock/androidsvg/SVG$SvgObject;ZLandroid/graphics/Path;Landroid/graphics/Matrix;)V
+    invoke-direct {p0, v0, v3, p2, p3}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->addObjectToClip(Lcom/caverock/androidsvg/SVG$SvgObject;ZLandroid/graphics/Path;Landroid/graphics/Matrix;)V
 
     return-void
 
@@ -783,17 +783,17 @@
     goto :goto_0
 
     :cond_3
-    const-string/jumbo v1, "Use reference \'%s\' not found"
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    iget-object v2, p1, Lcom/caverock/androidsvg/SVG$Use;->href:Ljava/lang/String;
 
-    iget-object v3, p1, Lcom/caverock/androidsvg/SVG$Use;->href:Ljava/lang/String;
+    aput-object v2, v1, v3
 
-    aput-object v3, v2, v4
+    const-string/jumbo v2, "Use reference \'%s\' not found"
 
-    invoke-static {v1, v2}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v2, v1}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -2066,21 +2066,11 @@
 .end method
 
 .method private checkForClipPath(Lcom/caverock/androidsvg/SVG$SvgElement;Lcom/caverock/androidsvg/SVG$Box;)V
-    .locals 10
+    .locals 11
 
-    const/4 v7, 0x1
+    const/4 v8, 0x1
 
-    const/4 v6, 0x0
-
-    iget-object v8, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
-
-    iget-object v8, v8, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
-
-    iget-object v8, v8, Lcom/caverock/androidsvg/SVG$Style;->clipPath:Ljava/lang/String;
-
-    if-eqz v8, :cond_2
-
-    iget-object v8, p1, Lcom/caverock/androidsvg/SVG$SvgElement;->document:Lcom/caverock/androidsvg/SVG;
+    const/4 v7, 0x0
 
     iget-object v9, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
@@ -2088,75 +2078,85 @@
 
     iget-object v9, v9, Lcom/caverock/androidsvg/SVG$Style;->clipPath:Ljava/lang/String;
 
-    invoke-virtual {v8, v9}, Lcom/caverock/androidsvg/SVG;->resolveIRI(Ljava/lang/String;)Lcom/caverock/androidsvg/SVG$SvgObject;
+    if-eqz v9, :cond_2
 
-    move-result-object v4
+    iget-object v9, p1, Lcom/caverock/androidsvg/SVG$SvgElement;->document:Lcom/caverock/androidsvg/SVG;
 
-    if-eqz v4, :cond_3
+    iget-object v10, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
-    move-object v1, v4
+    iget-object v10, v10, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    check-cast v1, Lcom/caverock/androidsvg/SVG$ClipPath;
+    iget-object v10, v10, Lcom/caverock/androidsvg/SVG$Style;->clipPath:Ljava/lang/String;
 
-    iget-object v8, v1, Lcom/caverock/androidsvg/SVG$ClipPath;->children:Ljava/util/List;
+    invoke-virtual {v9, v10}, Lcom/caverock/androidsvg/SVG;->resolveIRI(Ljava/lang/String;)Lcom/caverock/androidsvg/SVG$SvgObject;
 
-    invoke-interface {v8}, Ljava/util/List;->isEmpty()Z
+    move-result-object v5
 
-    move-result v8
+    if-eqz v5, :cond_3
 
-    if-nez v8, :cond_4
+    move-object v2, v5
 
-    iget-object v8, v1, Lcom/caverock/androidsvg/SVG$ClipPath;->clipPathUnitsAreUser:Ljava/lang/Boolean;
+    check-cast v2, Lcom/caverock/androidsvg/SVG$ClipPath;
 
-    if-nez v8, :cond_5
+    iget-object v9, v2, Lcom/caverock/androidsvg/SVG$ClipPath;->children:Ljava/util/List;
+
+    invoke-interface {v9}, Ljava/util/List;->isEmpty()Z
+
+    move-result v9
+
+    if-nez v9, :cond_4
+
+    iget-object v9, v2, Lcom/caverock/androidsvg/SVG$ClipPath;->clipPathUnitsAreUser:Ljava/lang/Boolean;
+
+    if-nez v9, :cond_5
 
     :cond_0
-    move v5, v7
+    move v6, v8
 
     :goto_0
-    instance-of v8, p1, Lcom/caverock/androidsvg/SVG$Group;
+    instance-of v9, p1, Lcom/caverock/androidsvg/SVG$Group;
 
-    if-nez v8, :cond_6
+    if-nez v9, :cond_6
 
     :cond_1
     invoke-direct {p0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->clipStatePush()V
 
-    if-eqz v5, :cond_7
+    if-eqz v6, :cond_7
 
     :goto_1
-    iget-object v6, v1, Lcom/caverock/androidsvg/SVG$ClipPath;->transform:Landroid/graphics/Matrix;
+    iget-object v7, v2, Lcom/caverock/androidsvg/SVG$ClipPath;->transform:Landroid/graphics/Matrix;
 
-    if-nez v6, :cond_8
+    if-nez v7, :cond_8
 
     :goto_2
-    invoke-direct {p0, v1}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->findInheritFromAncestorState(Lcom/caverock/androidsvg/SVG$SvgObject;)Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
+    invoke-direct {p0, v2}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->findInheritFromAncestorState(Lcom/caverock/androidsvg/SVG$SvgObject;)Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
-    move-result-object v6
+    move-result-object v7
 
-    iput-object v6, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
+    iput-object v7, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
-    invoke-direct {p0, v1}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->checkForClipPath(Lcom/caverock/androidsvg/SVG$SvgElement;)V
+    invoke-direct {p0, v2}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->checkForClipPath(Lcom/caverock/androidsvg/SVG$SvgElement;)V
 
-    new-instance v2, Landroid/graphics/Path;
+    new-instance v3, Landroid/graphics/Path;
 
-    invoke-direct {v2}, Landroid/graphics/Path;-><init>()V
+    invoke-direct {v3}, Landroid/graphics/Path;-><init>()V
 
-    iget-object v6, v1, Lcom/caverock/androidsvg/SVG$ClipPath;->children:Ljava/util/List;
+    iget-object v7, v2, Lcom/caverock/androidsvg/SVG$ClipPath;->children:Ljava/util/List;
 
-    invoke-interface {v6}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v7}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v6
+    move-result-object v0
 
     :goto_3
-    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v8
+    move-result v7
 
-    if-nez v8, :cond_9
+    if-nez v7, :cond_9
 
-    iget-object v6, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->canvas:Landroid/graphics/Canvas;
+    iget-object v7, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->canvas:Landroid/graphics/Canvas;
 
-    invoke-virtual {v6, v2}, Landroid/graphics/Canvas;->clipPath(Landroid/graphics/Path;)Z
+    invoke-virtual {v7, v3}, Landroid/graphics/Canvas;->clipPath(Landroid/graphics/Path;)Z
 
     invoke-direct {p0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->clipStatePop()V
 
@@ -2166,9 +2166,7 @@
     return-void
 
     :cond_3
-    const-string/jumbo v8, "ClipPath reference \'%s\' not found"
-
-    new-array v7, v7, [Ljava/lang/Object;
+    new-array v8, v8, [Ljava/lang/Object;
 
     iget-object v9, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
@@ -2176,38 +2174,38 @@
 
     iget-object v9, v9, Lcom/caverock/androidsvg/SVG$Style;->clipPath:Ljava/lang/String;
 
-    aput-object v9, v7, v6
+    aput-object v9, v8, v7
 
-    invoke-static {v8, v7}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v7, "ClipPath reference \'%s\' not found"
+
+    invoke-static {v7, v8}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
 
     return-void
 
     :cond_4
-    iget-object v7, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->canvas:Landroid/graphics/Canvas;
+    iget-object v8, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->canvas:Landroid/graphics/Canvas;
 
-    invoke-virtual {v7, v6, v6, v6, v6}, Landroid/graphics/Canvas;->clipRect(IIII)Z
+    invoke-virtual {v8, v7, v7, v7, v7}, Landroid/graphics/Canvas;->clipRect(IIII)Z
 
     return-void
 
     :cond_5
-    iget-object v8, v1, Lcom/caverock/androidsvg/SVG$ClipPath;->clipPathUnitsAreUser:Ljava/lang/Boolean;
+    iget-object v9, v2, Lcom/caverock/androidsvg/SVG$ClipPath;->clipPathUnitsAreUser:Ljava/lang/Boolean;
 
-    invoke-virtual {v8}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual {v9}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v8
+    move-result v9
 
-    if-nez v8, :cond_0
+    if-nez v9, :cond_0
 
-    move v5, v6
+    move v6, v7
 
     goto :goto_0
 
     :cond_6
-    if-nez v5, :cond_1
+    if-nez v6, :cond_1
 
-    const-string/jumbo v8, "<clipPath clipPathUnits=\"objectBoundingBox\"> is not supported when referenced from container elements (like %s)"
-
-    new-array v7, v7, [Ljava/lang/Object;
+    new-array v8, v8, [Ljava/lang/Object;
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -2217,56 +2215,58 @@
 
     move-result-object v9
 
-    aput-object v9, v7, v6
+    aput-object v9, v8, v7
 
-    invoke-static {v8, v7}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->warn(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v7, "<clipPath clipPathUnits=\"objectBoundingBox\"> is not supported when referenced from container elements (like %s)"
+
+    invoke-static {v7, v8}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->warn(Ljava/lang/String;[Ljava/lang/Object;)V
 
     return-void
 
     :cond_7
-    new-instance v3, Landroid/graphics/Matrix;
+    new-instance v4, Landroid/graphics/Matrix;
 
-    invoke-direct {v3}, Landroid/graphics/Matrix;-><init>()V
+    invoke-direct {v4}, Landroid/graphics/Matrix;-><init>()V
 
-    iget v6, p2, Lcom/caverock/androidsvg/SVG$Box;->minX:F
+    iget v7, p2, Lcom/caverock/androidsvg/SVG$Box;->minX:F
 
-    iget v8, p2, Lcom/caverock/androidsvg/SVG$Box;->minY:F
+    iget v9, p2, Lcom/caverock/androidsvg/SVG$Box;->minY:F
 
-    invoke-virtual {v3, v6, v8}, Landroid/graphics/Matrix;->preTranslate(FF)Z
+    invoke-virtual {v4, v7, v9}, Landroid/graphics/Matrix;->preTranslate(FF)Z
 
-    iget v6, p2, Lcom/caverock/androidsvg/SVG$Box;->width:F
+    iget v7, p2, Lcom/caverock/androidsvg/SVG$Box;->width:F
 
-    iget v8, p2, Lcom/caverock/androidsvg/SVG$Box;->height:F
+    iget v9, p2, Lcom/caverock/androidsvg/SVG$Box;->height:F
 
-    invoke-virtual {v3, v6, v8}, Landroid/graphics/Matrix;->preScale(FF)Z
+    invoke-virtual {v4, v7, v9}, Landroid/graphics/Matrix;->preScale(FF)Z
 
-    iget-object v6, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->canvas:Landroid/graphics/Canvas;
+    iget-object v7, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->canvas:Landroid/graphics/Canvas;
 
-    invoke-virtual {v6, v3}, Landroid/graphics/Canvas;->concat(Landroid/graphics/Matrix;)V
+    invoke-virtual {v7, v4}, Landroid/graphics/Canvas;->concat(Landroid/graphics/Matrix;)V
 
     goto :goto_1
 
     :cond_8
-    iget-object v6, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->canvas:Landroid/graphics/Canvas;
+    iget-object v7, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->canvas:Landroid/graphics/Canvas;
 
-    iget-object v8, v1, Lcom/caverock/androidsvg/SVG$ClipPath;->transform:Landroid/graphics/Matrix;
+    iget-object v9, v2, Lcom/caverock/androidsvg/SVG$ClipPath;->transform:Landroid/graphics/Matrix;
 
-    invoke-virtual {v6, v8}, Landroid/graphics/Canvas;->concat(Landroid/graphics/Matrix;)V
+    invoke-virtual {v7, v9}, Landroid/graphics/Canvas;->concat(Landroid/graphics/Matrix;)V
 
     goto :goto_2
 
     :cond_9
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lcom/caverock/androidsvg/SVG$SvgObject;
+    check-cast v1, Lcom/caverock/androidsvg/SVG$SvgObject;
 
-    new-instance v8, Landroid/graphics/Matrix;
+    new-instance v7, Landroid/graphics/Matrix;
 
-    invoke-direct {v8}, Landroid/graphics/Matrix;-><init>()V
+    invoke-direct {v7}, Landroid/graphics/Matrix;-><init>()V
 
-    invoke-direct {p0, v0, v7, v2, v8}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->addObjectToClip(Lcom/caverock/androidsvg/SVG$SvgObject;ZLandroid/graphics/Path;Landroid/graphics/Matrix;)V
+    invoke-direct {p0, v1, v8, v3, v7}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->addObjectToClip(Lcom/caverock/androidsvg/SVG$SvgObject;ZLandroid/graphics/Path;Landroid/graphics/Matrix;)V
 
     goto :goto_3
 .end method
@@ -2380,15 +2380,15 @@
 
     if-lt v0, v2, :cond_0
 
-    const-string/jumbo v2, ";base64"
+    add-int/lit8 v2, v0, -0x7
 
-    add-int/lit8 v3, v0, -0x7
+    invoke-virtual {p1, v2, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    invoke-virtual {p1, v3, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v3
+    const-string/jumbo v3, ";base64"
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
@@ -2709,26 +2709,26 @@
     return-void
 
     :cond_0
-    const-string/jumbo v2, "%s reference \'%s\' not found"
-
     const/4 v1, 0x2
 
-    new-array v3, v1, [Ljava/lang/Object;
+    new-array v2, v1, [Ljava/lang/Object;
+
+    const-string/jumbo v3, "%s reference \'%s\' not found"
 
     if-nez p1, :cond_1
 
     const-string/jumbo v1, "Stroke"
 
     :goto_3
-    aput-object v1, v3, v5
+    aput-object v1, v2, v5
 
-    const/4 v1, 0x1
+    iget-object v1, p3, Lcom/caverock/androidsvg/SVG$PaintReference;->href:Ljava/lang/String;
 
-    iget-object v4, p3, Lcom/caverock/androidsvg/SVG$PaintReference;->href:Ljava/lang/String;
+    const/4 v4, 0x1
 
-    aput-object v4, v3, v1
+    aput-object v1, v2, v4
 
-    invoke-static {v2, v3}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v3, v2}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p3, Lcom/caverock/androidsvg/SVG$PaintReference;->fallback:Lcom/caverock/androidsvg/SVG$SvgPaint;
 
@@ -3013,13 +3013,13 @@
     :catch_0
     move-exception v0
 
-    const-string/jumbo v3, "Not enough memory to create temporary bitmaps for mask processing"
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    new-array v3, v3, [Ljava/lang/Object;
 
-    new-array v4, v4, [Ljava/lang/Object;
+    const-string/jumbo v4, "Not enough memory to create temporary bitmaps for mask processing"
 
-    invoke-static {v3, v4}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v4, v3}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
 
     throw v0
 .end method
@@ -3104,13 +3104,13 @@
 .method private static varargs error(Ljava/lang/String;[Ljava/lang/Object;)V
     .locals 2
 
-    const-string/jumbo v0, "SVGAndroidRenderer"
-
     invoke-static {p0, p1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v1, "SVGAndroidRenderer"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method
@@ -3195,9 +3195,9 @@
 .method private fillInChainedGradientFields(Lcom/caverock/androidsvg/SVG$GradientElement;Ljava/lang/String;)V
     .locals 6
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
     iget-object v3, p1, Lcom/caverock/androidsvg/SVG$GradientElement;->document:Lcom/caverock/androidsvg/SVG;
 
@@ -3267,33 +3267,33 @@
     return-void
 
     :cond_0
-    const-string/jumbo v3, "Gradient reference \'%s\' not found"
+    new-array v3, v5, [Ljava/lang/Object;
 
-    new-array v4, v4, [Ljava/lang/Object;
+    aput-object p2, v3, v4
 
-    aput-object p2, v4, v5
+    const-string/jumbo v4, "Gradient reference \'%s\' not found"
 
-    invoke-static {v3, v4}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->warn(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v4, v3}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->warn(Ljava/lang/String;[Ljava/lang/Object;)V
 
     return-void
 
     :cond_1
-    const-string/jumbo v3, "Gradient href attributes must point to other gradient elements"
+    new-array v3, v4, [Ljava/lang/Object;
 
-    new-array v4, v5, [Ljava/lang/Object;
+    const-string/jumbo v4, "Gradient href attributes must point to other gradient elements"
 
-    invoke-static {v3, v4}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v4, v3}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
 
     return-void
 
     :cond_2
-    const-string/jumbo v3, "Circular reference in gradient href attribute \'%s\'"
+    new-array v3, v5, [Ljava/lang/Object;
 
-    new-array v4, v4, [Ljava/lang/Object;
+    aput-object p2, v3, v4
 
-    aput-object p2, v4, v5
+    const-string/jumbo v4, "Circular reference in gradient href attribute \'%s\'"
 
-    invoke-static {v3, v4}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v4, v3}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
 
     return-void
 
@@ -3477,9 +3477,9 @@
 .method private fillInChainedPatternFields(Lcom/caverock/androidsvg/SVG$Pattern;Ljava/lang/String;)V
     .locals 5
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     iget-object v2, p1, Lcom/caverock/androidsvg/SVG$Pattern;->document:Lcom/caverock/androidsvg/SVG;
 
@@ -3561,33 +3561,33 @@
     return-void
 
     :cond_0
-    const-string/jumbo v2, "Pattern reference \'%s\' not found"
+    new-array v2, v4, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    aput-object p2, v2, v3
 
-    aput-object p2, v3, v4
+    const-string/jumbo v3, "Pattern reference \'%s\' not found"
 
-    invoke-static {v2, v3}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->warn(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v3, v2}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->warn(Ljava/lang/String;[Ljava/lang/Object;)V
 
     return-void
 
     :cond_1
-    const-string/jumbo v2, "Pattern href attributes must point to other pattern elements"
+    new-array v2, v3, [Ljava/lang/Object;
 
-    new-array v3, v4, [Ljava/lang/Object;
+    const-string/jumbo v3, "Pattern href attributes must point to other pattern elements"
 
-    invoke-static {v2, v3}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v3, v2}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
 
     return-void
 
     :cond_2
-    const-string/jumbo v2, "Circular reference in pattern href attribute \'%s\'"
+    new-array v2, v4, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    aput-object p2, v2, v3
 
-    aput-object p2, v3, v4
+    const-string/jumbo v3, "Circular reference in pattern href attribute \'%s\'"
 
-    invoke-static {v2, v3}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v3, v2}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
 
     return-void
 
@@ -3670,750 +3670,79 @@
 .end method
 
 .method private fillWithPattern(Lcom/caverock/androidsvg/SVG$SvgElement;Landroid/graphics/Path;Lcom/caverock/androidsvg/SVG$Pattern;)V
-    .locals 33
+    .locals 34
 
     move-object/from16 v0, p3
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->patternUnitsAreUser:Ljava/lang/Boolean;
 
-    move-object/from16 v28, v0
+    move-object/from16 v29, v0
 
-    if-nez v28, :cond_2
+    if-nez v29, :cond_2
 
     :cond_0
-    const/16 v17, 0x0
+    const/16 v18, 0x0
 
     :goto_0
     move-object/from16 v0, p3
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->href:Ljava/lang/String;
 
-    move-object/from16 v28, v0
+    move-object/from16 v29, v0
 
-    if-nez v28, :cond_3
+    if-nez v29, :cond_3
 
     :goto_1
-    if-nez v17, :cond_4
+    if-nez v18, :cond_4
 
     move-object/from16 v0, p3
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->x:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v28, v0
+    move-object/from16 v29, v0
 
-    if-nez v28, :cond_9
+    if-nez v29, :cond_9
 
-    const/16 v26, 0x0
+    const/16 v27, 0x0
 
     :goto_2
     move-object/from16 v0, p3
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->y:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v28, v0
+    move-object/from16 v29, v0
 
-    if-nez v28, :cond_a
+    if-nez v29, :cond_a
 
-    const/16 v27, 0x0
+    const/16 v28, 0x0
 
     :goto_3
     move-object/from16 v0, p3
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->width:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v28, v0
+    move-object/from16 v29, v0
 
-    if-nez v28, :cond_b
+    if-nez v29, :cond_b
 
-    const/16 v25, 0x0
+    const/16 v26, 0x0
 
     :goto_4
     move-object/from16 v0, p3
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->height:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v28, v0
+    move-object/from16 v29, v0
 
-    if-nez v28, :cond_c
+    if-nez v29, :cond_c
 
-    const/4 v10, 0x0
+    const/4 v11, 0x0
 
     :goto_5
     move-object/from16 v0, p1
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
 
-    move-object/from16 v28, v0
-
-    move-object/from16 v0, v28
-
-    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->minX:F
-
-    move/from16 v28, v0
-
-    move-object/from16 v0, p1
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
-
-    move-object/from16 v29, v0
-
-    move-object/from16 v0, v29
-
-    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->width:F
-
-    move/from16 v29, v0
-
-    mul-float v29, v29, v26
-
-    add-float v26, v28, v29
-
-    move-object/from16 v0, p1
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
-
-    move-object/from16 v28, v0
-
-    move-object/from16 v0, v28
-
-    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->minY:F
-
-    move/from16 v28, v0
-
-    move-object/from16 v0, p1
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
-
-    move-object/from16 v29, v0
-
-    move-object/from16 v0, v29
-
-    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->height:F
-
-    move/from16 v29, v0
-
-    mul-float v29, v29, v27
-
-    add-float v27, v28, v29
-
-    move-object/from16 v0, p1
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
-
-    move-object/from16 v28, v0
-
-    move-object/from16 v0, v28
-
-    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->width:F
-
-    move/from16 v28, v0
-
-    mul-float v25, v25, v28
-
-    move-object/from16 v0, p1
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
-
-    move-object/from16 v28, v0
-
-    move-object/from16 v0, v28
-
-    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->height:F
-
-    move/from16 v28, v0
-
-    mul-float v10, v10, v28
-
-    :goto_6
-    const/16 v28, 0x0
-
-    cmpl-float v28, v25, v28
-
-    if-eqz v28, :cond_1
-
-    const/16 v28, 0x0
-
-    cmpl-float v28, v10, v28
-
-    if-nez v28, :cond_d
-
-    :cond_1
-    return-void
-
-    :cond_2
-    move-object/from16 v0, p3
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->patternUnitsAreUser:Ljava/lang/Boolean;
-
-    move-object/from16 v28, v0
-
-    invoke-virtual/range {v28 .. v28}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v28
-
-    if-eqz v28, :cond_0
-
-    const/16 v17, 0x1
-
-    goto/16 :goto_0
-
-    :cond_3
-    move-object/from16 v0, p3
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->href:Ljava/lang/String;
-
-    move-object/from16 v28, v0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p3
-
-    move-object/from16 v2, v28
-
-    invoke-direct {v0, v1, v2}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->fillInChainedPatternFields(Lcom/caverock/androidsvg/SVG$Pattern;Ljava/lang/String;)V
-
-    goto/16 :goto_1
-
-    :cond_4
-    move-object/from16 v0, p3
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->x:Lcom/caverock/androidsvg/SVG$Length;
-
-    move-object/from16 v28, v0
-
-    if-nez v28, :cond_5
-
-    const/16 v26, 0x0
-
-    :goto_7
-    move-object/from16 v0, p3
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->y:Lcom/caverock/androidsvg/SVG$Length;
-
-    move-object/from16 v28, v0
-
-    if-nez v28, :cond_6
-
-    const/16 v27, 0x0
-
-    :goto_8
-    move-object/from16 v0, p3
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->width:Lcom/caverock/androidsvg/SVG$Length;
-
-    move-object/from16 v28, v0
-
-    if-nez v28, :cond_7
-
-    const/16 v25, 0x0
-
-    :goto_9
-    move-object/from16 v0, p3
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->height:Lcom/caverock/androidsvg/SVG$Length;
-
-    move-object/from16 v28, v0
-
-    if-nez v28, :cond_8
-
-    const/4 v10, 0x0
-
-    :goto_a
-    goto :goto_6
-
-    :cond_5
-    move-object/from16 v0, p3
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->x:Lcom/caverock/androidsvg/SVG$Length;
-
-    move-object/from16 v28, v0
-
-    move-object/from16 v0, v28
-
-    move-object/from16 v1, p0
-
-    invoke-virtual {v0, v1}, Lcom/caverock/androidsvg/SVG$Length;->floatValueX(Lcom/caverock/androidsvg/SVGAndroidRenderer;)F
-
-    move-result v26
-
-    goto :goto_7
-
-    :cond_6
-    move-object/from16 v0, p3
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->y:Lcom/caverock/androidsvg/SVG$Length;
-
-    move-object/from16 v28, v0
-
-    move-object/from16 v0, v28
-
-    move-object/from16 v1, p0
-
-    invoke-virtual {v0, v1}, Lcom/caverock/androidsvg/SVG$Length;->floatValueY(Lcom/caverock/androidsvg/SVGAndroidRenderer;)F
-
-    move-result v27
-
-    goto :goto_8
-
-    :cond_7
-    move-object/from16 v0, p3
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->width:Lcom/caverock/androidsvg/SVG$Length;
-
-    move-object/from16 v28, v0
-
-    move-object/from16 v0, v28
-
-    move-object/from16 v1, p0
-
-    invoke-virtual {v0, v1}, Lcom/caverock/androidsvg/SVG$Length;->floatValueX(Lcom/caverock/androidsvg/SVGAndroidRenderer;)F
-
-    move-result v25
-
-    goto :goto_9
-
-    :cond_8
-    move-object/from16 v0, p3
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->height:Lcom/caverock/androidsvg/SVG$Length;
-
-    move-object/from16 v28, v0
-
-    move-object/from16 v0, v28
-
-    move-object/from16 v1, p0
-
-    invoke-virtual {v0, v1}, Lcom/caverock/androidsvg/SVG$Length;->floatValueY(Lcom/caverock/androidsvg/SVGAndroidRenderer;)F
-
-    move-result v10
-
-    goto :goto_a
-
-    :cond_9
-    move-object/from16 v0, p3
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->x:Lcom/caverock/androidsvg/SVG$Length;
-
-    move-object/from16 v28, v0
-
-    const/high16 v29, 0x3f800000    # 1.0f
-
-    move-object/from16 v0, v28
-
-    move-object/from16 v1, p0
-
-    move/from16 v2, v29
-
-    invoke-virtual {v0, v1, v2}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;F)F
-
-    move-result v26
-
-    goto/16 :goto_2
-
-    :cond_a
-    move-object/from16 v0, p3
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->y:Lcom/caverock/androidsvg/SVG$Length;
-
-    move-object/from16 v28, v0
-
-    const/high16 v29, 0x3f800000    # 1.0f
-
-    move-object/from16 v0, v28
-
-    move-object/from16 v1, p0
-
-    move/from16 v2, v29
-
-    invoke-virtual {v0, v1, v2}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;F)F
-
-    move-result v27
-
-    goto/16 :goto_3
-
-    :cond_b
-    move-object/from16 v0, p3
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->width:Lcom/caverock/androidsvg/SVG$Length;
-
-    move-object/from16 v28, v0
-
-    const/high16 v29, 0x3f800000    # 1.0f
-
-    move-object/from16 v0, v28
-
-    move-object/from16 v1, p0
-
-    move/from16 v2, v29
-
-    invoke-virtual {v0, v1, v2}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;F)F
-
-    move-result v25
-
-    goto/16 :goto_4
-
-    :cond_c
-    move-object/from16 v0, p3
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->height:Lcom/caverock/androidsvg/SVG$Length;
-
-    move-object/from16 v28, v0
-
-    const/high16 v29, 0x3f800000    # 1.0f
-
-    move-object/from16 v0, v28
-
-    move-object/from16 v1, p0
-
-    move/from16 v2, v29
-
-    invoke-virtual {v0, v1, v2}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;F)F
-
-    move-result v10
-
-    goto/16 :goto_5
-
-    :cond_d
-    move-object/from16 v0, p3
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->preserveAspectRatio:Lcom/caverock/androidsvg/PreserveAspectRatio;
-
-    move-object/from16 v28, v0
-
-    if-nez v28, :cond_10
-
-    sget-object v18, Lcom/caverock/androidsvg/PreserveAspectRatio;->LETTERBOX:Lcom/caverock/androidsvg/PreserveAspectRatio;
-
-    :goto_b
-    invoke-direct/range {p0 .. p0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->statePush()V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->canvas:Landroid/graphics/Canvas;
-
-    move-object/from16 v28, v0
-
-    move-object/from16 v0, v28
-
-    move-object/from16 v1, p2
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Canvas;->clipPath(Landroid/graphics/Path;)Z
-
-    new-instance v6, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v6, v0}, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;-><init>(Lcom/caverock/androidsvg/SVGAndroidRenderer;)V
-
-    invoke-static {}, Lcom/caverock/androidsvg/SVG$Style;->getDefaultStyle()Lcom/caverock/androidsvg/SVG$Style;
-
-    move-result-object v28
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v28
-
-    invoke-direct {v0, v6, v1}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->updateStyle(Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;Lcom/caverock/androidsvg/SVG$Style;)V
-
-    iget-object v0, v6, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
-
-    move-object/from16 v28, v0
-
-    const/16 v29, 0x0
-
-    invoke-static/range {v29 .. v29}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v29
-
-    move-object/from16 v0, v29
-
-    move-object/from16 v1, v28
-
-    iput-object v0, v1, Lcom/caverock/androidsvg/SVG$Style;->overflow:Ljava/lang/Boolean;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p3
-
-    invoke-direct {v0, v1, v6}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->findInheritFromAncestorState(Lcom/caverock/androidsvg/SVG$SvgObject;Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;)Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
-
-    move-result-object v28
-
-    move-object/from16 v0, v28
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
-
-    move-object/from16 v0, p1
-
-    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
-
-    move-object/from16 v0, p3
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->patternTransform:Landroid/graphics/Matrix;
-
-    move-object/from16 v28, v0
-
-    if-nez v28, :cond_11
-
-    :cond_e
-    :goto_c
-    iget v0, v15, Lcom/caverock/androidsvg/SVG$Box;->minX:F
-
-    move/from16 v28, v0
-
-    sub-float v28, v28, v26
-
-    div-float v28, v28, v25
-
-    move/from16 v0, v28
-
-    float-to-double v0, v0
-
-    move-wide/from16 v28, v0
-
-    invoke-static/range {v28 .. v29}, Ljava/lang/Math;->floor(D)D
-
-    move-result-wide v28
-
-    move-wide/from16 v0, v28
-
-    double-to-float v0, v0
-
-    move/from16 v28, v0
-
-    mul-float v28, v28, v25
-
-    add-float v13, v26, v28
-
-    iget v0, v15, Lcom/caverock/androidsvg/SVG$Box;->minY:F
-
-    move/from16 v28, v0
-
-    sub-float v28, v28, v27
-
-    div-float v28, v28, v10
-
-    move/from16 v0, v28
-
-    float-to-double v0, v0
-
-    move-wide/from16 v28, v0
-
-    invoke-static/range {v28 .. v29}, Ljava/lang/Math;->floor(D)D
-
-    move-result-wide v28
-
-    move-wide/from16 v0, v28
-
-    double-to-float v0, v0
-
-    move/from16 v28, v0
-
-    mul-float v28, v28, v10
-
-    add-float v14, v27, v28
-
-    invoke-virtual {v15}, Lcom/caverock/androidsvg/SVG$Box;->maxX()F
-
-    move-result v21
-
-    invoke-virtual {v15}, Lcom/caverock/androidsvg/SVG$Box;->maxY()F
-
-    move-result v7
-
-    new-instance v22, Lcom/caverock/androidsvg/SVG$Box;
-
-    const/16 v28, 0x0
-
-    const/16 v29, 0x0
-
-    move-object/from16 v0, v22
-
-    move/from16 v1, v28
-
-    move/from16 v2, v29
-
-    move/from16 v3, v25
-
-    invoke-direct {v0, v1, v2, v3, v10}, Lcom/caverock/androidsvg/SVG$Box;-><init>(FFFF)V
-
-    move/from16 v24, v14
-
-    :goto_d
-    cmpg-float v28, v24, v7
-
-    if-gez v28, :cond_1e
-
-    move/from16 v23, v13
-
-    :goto_e
-    cmpg-float v28, v23, v21
-
-    if-gez v28, :cond_1d
-
-    move/from16 v0, v23
-
-    move-object/from16 v1, v22
-
-    iput v0, v1, Lcom/caverock/androidsvg/SVG$Box;->minX:F
-
-    move/from16 v0, v24
-
-    move-object/from16 v1, v22
-
-    iput v0, v1, Lcom/caverock/androidsvg/SVG$Box;->minY:F
-
-    invoke-direct/range {p0 .. p0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->statePush()V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
-
-    move-object/from16 v28, v0
-
-    move-object/from16 v0, v28
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
-
-    move-object/from16 v28, v0
-
-    move-object/from16 v0, v28
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Style;->overflow:Ljava/lang/Boolean;
-
-    move-object/from16 v28, v0
-
-    invoke-virtual/range {v28 .. v28}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v28
-
-    if-eqz v28, :cond_17
-
-    :goto_f
-    move-object/from16 v0, p3
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->viewBox:Lcom/caverock/androidsvg/SVG$Box;
-
-    move-object/from16 v28, v0
-
-    if-nez v28, :cond_18
-
-    move-object/from16 v0, p3
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->patternContentUnitsAreUser:Ljava/lang/Boolean;
-
-    move-object/from16 v28, v0
-
-    if-nez v28, :cond_19
-
-    :cond_f
-    const/16 v16, 0x1
-
-    :goto_10
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->canvas:Landroid/graphics/Canvas;
-
-    move-object/from16 v28, v0
-
-    move-object/from16 v0, v28
-
-    move/from16 v1, v23
-
-    move/from16 v2, v24
-
-    invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->translate(FF)V
-
-    if-eqz v16, :cond_1a
-
-    :goto_11
-    invoke-direct/range {p0 .. p0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->pushLayer()Z
-
-    move-result v9
-
-    move-object/from16 v0, p3
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->children:Ljava/util/List;
-
-    move-object/from16 v28, v0
-
-    invoke-interface/range {v28 .. v28}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v28
-
-    :goto_12
-    invoke-interface/range {v28 .. v28}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v29
-
-    if-nez v29, :cond_1b
-
-    if-nez v9, :cond_1c
-
-    :goto_13
-    invoke-direct/range {p0 .. p0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->statePop()V
-
-    add-float v23, v23, v25
-
-    goto :goto_e
-
-    :cond_10
-    move-object/from16 v0, p3
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->preserveAspectRatio:Lcom/caverock/androidsvg/PreserveAspectRatio;
-
-    move-object/from16 v18, v0
-
-    goto/16 :goto_b
-
-    :cond_11
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->canvas:Landroid/graphics/Canvas;
-
-    move-object/from16 v28, v0
-
-    move-object/from16 v0, p3
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->patternTransform:Landroid/graphics/Matrix;
-
-    move-object/from16 v29, v0
-
-    invoke-virtual/range {v28 .. v29}, Landroid/graphics/Canvas;->concat(Landroid/graphics/Matrix;)V
-
-    new-instance v12, Landroid/graphics/Matrix;
-
-    invoke-direct {v12}, Landroid/graphics/Matrix;-><init>()V
-
-    move-object/from16 v0, p3
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->patternTransform:Landroid/graphics/Matrix;
-
-    move-object/from16 v28, v0
-
-    move-object/from16 v0, v28
-
-    invoke-virtual {v0, v12}, Landroid/graphics/Matrix;->invert(Landroid/graphics/Matrix;)Z
-
-    move-result v28
-
-    if-eqz v28, :cond_e
-
-    const/16 v28, 0x8
-
-    move/from16 v0, v28
-
-    new-array v0, v0, [F
-
-    move-object/from16 v19, v0
-
-    const/16 v28, 0x0
-
-    move-object/from16 v0, p1
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
-
     move-object/from16 v29, v0
 
     move-object/from16 v0, v29
@@ -4422,397 +3751,21 @@
 
     move/from16 v29, v0
 
-    aput v29, v19, v28
-
-    const/16 v28, 0x1
-
     move-object/from16 v0, p1
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
 
-    move-object/from16 v29, v0
+    move-object/from16 v30, v0
 
-    move-object/from16 v0, v29
-
-    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->minY:F
-
-    move/from16 v29, v0
-
-    aput v29, v19, v28
-
-    const/16 v28, 0x2
-
-    move-object/from16 v0, p1
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
-
-    move-object/from16 v29, v0
-
-    invoke-virtual/range {v29 .. v29}, Lcom/caverock/androidsvg/SVG$Box;->maxX()F
-
-    move-result v29
-
-    aput v29, v19, v28
-
-    const/16 v28, 0x3
-
-    move-object/from16 v0, p1
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
-
-    move-object/from16 v29, v0
-
-    move-object/from16 v0, v29
-
-    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->minY:F
-
-    move/from16 v29, v0
-
-    aput v29, v19, v28
-
-    const/16 v28, 0x4
-
-    move-object/from16 v0, p1
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
-
-    move-object/from16 v29, v0
-
-    invoke-virtual/range {v29 .. v29}, Lcom/caverock/androidsvg/SVG$Box;->maxX()F
-
-    move-result v29
-
-    aput v29, v19, v28
-
-    const/16 v28, 0x5
-
-    move-object/from16 v0, p1
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
-
-    move-object/from16 v29, v0
-
-    invoke-virtual/range {v29 .. v29}, Lcom/caverock/androidsvg/SVG$Box;->maxY()F
-
-    move-result v29
-
-    aput v29, v19, v28
-
-    const/16 v28, 0x6
-
-    move-object/from16 v0, p1
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
-
-    move-object/from16 v29, v0
-
-    move-object/from16 v0, v29
-
-    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->minX:F
-
-    move/from16 v29, v0
-
-    aput v29, v19, v28
-
-    const/16 v28, 0x7
-
-    move-object/from16 v0, p1
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
-
-    move-object/from16 v29, v0
-
-    invoke-virtual/range {v29 .. v29}, Lcom/caverock/androidsvg/SVG$Box;->maxY()F
-
-    move-result v29
-
-    aput v29, v19, v28
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v12, v0}, Landroid/graphics/Matrix;->mapPoints([F)V
-
-    new-instance v20, Landroid/graphics/RectF;
-
-    const/16 v28, 0x0
-
-    aget v28, v19, v28
-
-    const/16 v29, 0x1
-
-    aget v29, v19, v29
-
-    const/16 v30, 0x0
-
-    aget v30, v19, v30
-
-    const/16 v31, 0x1
-
-    aget v31, v19, v31
-
-    move-object/from16 v0, v20
-
-    move/from16 v1, v28
-
-    move/from16 v2, v29
-
-    move/from16 v3, v30
-
-    move/from16 v4, v31
-
-    invoke-direct {v0, v1, v2, v3, v4}, Landroid/graphics/RectF;-><init>(FFFF)V
-
-    const/4 v11, 0x2
-
-    :goto_14
-    const/16 v28, 0x6
-
-    move/from16 v0, v28
-
-    if-le v11, v0, :cond_12
-
-    new-instance v15, Lcom/caverock/androidsvg/SVG$Box;
-
-    move-object/from16 v0, v20
-
-    iget v0, v0, Landroid/graphics/RectF;->left:F
-
-    move/from16 v28, v0
-
-    move-object/from16 v0, v20
-
-    iget v0, v0, Landroid/graphics/RectF;->top:F
-
-    move/from16 v29, v0
-
-    move-object/from16 v0, v20
-
-    iget v0, v0, Landroid/graphics/RectF;->right:F
-
-    move/from16 v30, v0
-
-    move-object/from16 v0, v20
-
-    iget v0, v0, Landroid/graphics/RectF;->left:F
-
-    move/from16 v31, v0
-
-    sub-float v30, v30, v31
-
-    move-object/from16 v0, v20
-
-    iget v0, v0, Landroid/graphics/RectF;->bottom:F
-
-    move/from16 v31, v0
-
-    move-object/from16 v0, v20
-
-    iget v0, v0, Landroid/graphics/RectF;->top:F
-
-    move/from16 v32, v0
-
-    sub-float v31, v31, v32
-
-    move/from16 v0, v28
-
-    move/from16 v1, v29
-
-    move/from16 v2, v30
-
-    move/from16 v3, v31
-
-    invoke-direct {v15, v0, v1, v2, v3}, Lcom/caverock/androidsvg/SVG$Box;-><init>(FFFF)V
-
-    goto/16 :goto_c
-
-    :cond_12
-    aget v28, v19, v11
-
-    move-object/from16 v0, v20
-
-    iget v0, v0, Landroid/graphics/RectF;->left:F
-
-    move/from16 v29, v0
-
-    cmpg-float v28, v28, v29
-
-    if-gez v28, :cond_13
-
-    aget v28, v19, v11
-
-    move/from16 v0, v28
-
-    move-object/from16 v1, v20
-
-    iput v0, v1, Landroid/graphics/RectF;->left:F
-
-    :cond_13
-    aget v28, v19, v11
-
-    move-object/from16 v0, v20
-
-    iget v0, v0, Landroid/graphics/RectF;->right:F
-
-    move/from16 v29, v0
-
-    cmpl-float v28, v28, v29
-
-    if-lez v28, :cond_14
-
-    aget v28, v19, v11
-
-    move/from16 v0, v28
-
-    move-object/from16 v1, v20
-
-    iput v0, v1, Landroid/graphics/RectF;->right:F
-
-    :cond_14
-    add-int/lit8 v28, v11, 0x1
-
-    aget v28, v19, v28
-
-    move-object/from16 v0, v20
-
-    iget v0, v0, Landroid/graphics/RectF;->top:F
-
-    move/from16 v29, v0
-
-    cmpg-float v28, v28, v29
-
-    if-gez v28, :cond_15
-
-    add-int/lit8 v28, v11, 0x1
-
-    aget v28, v19, v28
-
-    move/from16 v0, v28
-
-    move-object/from16 v1, v20
-
-    iput v0, v1, Landroid/graphics/RectF;->top:F
-
-    :cond_15
-    add-int/lit8 v28, v11, 0x1
-
-    aget v28, v19, v28
-
-    move-object/from16 v0, v20
-
-    iget v0, v0, Landroid/graphics/RectF;->bottom:F
-
-    move/from16 v29, v0
-
-    cmpl-float v28, v28, v29
-
-    if-lez v28, :cond_16
-
-    add-int/lit8 v28, v11, 0x1
-
-    aget v28, v19, v28
-
-    move/from16 v0, v28
-
-    move-object/from16 v1, v20
-
-    iput v0, v1, Landroid/graphics/RectF;->bottom:F
-
-    :cond_16
-    add-int/lit8 v11, v11, 0x2
-
-    goto/16 :goto_14
-
-    :cond_17
-    move-object/from16 v0, v22
-
-    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->minX:F
-
-    move/from16 v28, v0
-
-    move-object/from16 v0, v22
-
-    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->minY:F
-
-    move/from16 v29, v0
-
-    move-object/from16 v0, v22
+    move-object/from16 v0, v30
 
     iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->width:F
 
     move/from16 v30, v0
 
-    move-object/from16 v0, v22
+    mul-float v30, v30, v27
 
-    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->height:F
-
-    move/from16 v31, v0
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v28
-
-    move/from16 v2, v29
-
-    move/from16 v3, v30
-
-    move/from16 v4, v31
-
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->setClipRect(FFFF)V
-
-    goto/16 :goto_f
-
-    :cond_18
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->canvas:Landroid/graphics/Canvas;
-
-    move-object/from16 v28, v0
-
-    move-object/from16 v0, p3
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->viewBox:Lcom/caverock/androidsvg/SVG$Box;
-
-    move-object/from16 v29, v0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v22
-
-    move-object/from16 v2, v29
-
-    move-object/from16 v3, v18
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->calculateViewBoxTransform(Lcom/caverock/androidsvg/SVG$Box;Lcom/caverock/androidsvg/SVG$Box;Lcom/caverock/androidsvg/PreserveAspectRatio;)Landroid/graphics/Matrix;
-
-    move-result-object v29
-
-    invoke-virtual/range {v28 .. v29}, Landroid/graphics/Canvas;->concat(Landroid/graphics/Matrix;)V
-
-    goto/16 :goto_11
-
-    :cond_19
-    move-object/from16 v0, p3
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->patternContentUnitsAreUser:Ljava/lang/Boolean;
-
-    move-object/from16 v28, v0
-
-    invoke-virtual/range {v28 .. v28}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v28
-
-    if-nez v28, :cond_f
-
-    const/16 v16, 0x0
-
-    goto/16 :goto_10
-
-    :cond_1a
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->canvas:Landroid/graphics/Canvas;
-
-    move-object/from16 v28, v0
+    add-float v27, v29, v30
 
     move-object/from16 v0, p1
 
@@ -4822,7 +3775,7 @@
 
     move-object/from16 v0, v29
 
-    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->width:F
+    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->minY:F
 
     move/from16 v29, v0
 
@@ -4838,20 +3791,1075 @@
 
     move/from16 v30, v0
 
-    invoke-virtual/range {v28 .. v30}, Landroid/graphics/Canvas;->scale(FF)V
+    mul-float v30, v30, v28
+
+    add-float v28, v29, v30
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
+
+    move-object/from16 v29, v0
+
+    move-object/from16 v0, v29
+
+    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->width:F
+
+    move/from16 v29, v0
+
+    mul-float v26, v26, v29
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
+
+    move-object/from16 v29, v0
+
+    move-object/from16 v0, v29
+
+    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->height:F
+
+    move/from16 v29, v0
+
+    mul-float v11, v11, v29
+
+    :goto_6
+    const/16 v29, 0x0
+
+    cmpl-float v29, v26, v29
+
+    if-eqz v29, :cond_1
+
+    const/16 v29, 0x0
+
+    cmpl-float v29, v11, v29
+
+    if-nez v29, :cond_d
+
+    :cond_1
+    return-void
+
+    :cond_2
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->patternUnitsAreUser:Ljava/lang/Boolean;
+
+    move-object/from16 v29, v0
+
+    invoke-virtual/range {v29 .. v29}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v29
+
+    if-eqz v29, :cond_0
+
+    const/16 v18, 0x1
+
+    goto/16 :goto_0
+
+    :cond_3
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->href:Ljava/lang/String;
+
+    move-object/from16 v29, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p3
+
+    move-object/from16 v2, v29
+
+    invoke-direct {v0, v1, v2}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->fillInChainedPatternFields(Lcom/caverock/androidsvg/SVG$Pattern;Ljava/lang/String;)V
+
+    goto/16 :goto_1
+
+    :cond_4
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->x:Lcom/caverock/androidsvg/SVG$Length;
+
+    move-object/from16 v29, v0
+
+    if-nez v29, :cond_5
+
+    const/16 v27, 0x0
+
+    :goto_7
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->y:Lcom/caverock/androidsvg/SVG$Length;
+
+    move-object/from16 v29, v0
+
+    if-nez v29, :cond_6
+
+    const/16 v28, 0x0
+
+    :goto_8
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->width:Lcom/caverock/androidsvg/SVG$Length;
+
+    move-object/from16 v29, v0
+
+    if-nez v29, :cond_7
+
+    const/16 v26, 0x0
+
+    :goto_9
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->height:Lcom/caverock/androidsvg/SVG$Length;
+
+    move-object/from16 v29, v0
+
+    if-nez v29, :cond_8
+
+    const/4 v11, 0x0
+
+    :goto_a
+    goto :goto_6
+
+    :cond_5
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->x:Lcom/caverock/androidsvg/SVG$Length;
+
+    move-object/from16 v29, v0
+
+    move-object/from16 v0, v29
+
+    move-object/from16 v1, p0
+
+    invoke-virtual {v0, v1}, Lcom/caverock/androidsvg/SVG$Length;->floatValueX(Lcom/caverock/androidsvg/SVGAndroidRenderer;)F
+
+    move-result v27
+
+    goto :goto_7
+
+    :cond_6
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->y:Lcom/caverock/androidsvg/SVG$Length;
+
+    move-object/from16 v29, v0
+
+    move-object/from16 v0, v29
+
+    move-object/from16 v1, p0
+
+    invoke-virtual {v0, v1}, Lcom/caverock/androidsvg/SVG$Length;->floatValueY(Lcom/caverock/androidsvg/SVGAndroidRenderer;)F
+
+    move-result v28
+
+    goto :goto_8
+
+    :cond_7
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->width:Lcom/caverock/androidsvg/SVG$Length;
+
+    move-object/from16 v29, v0
+
+    move-object/from16 v0, v29
+
+    move-object/from16 v1, p0
+
+    invoke-virtual {v0, v1}, Lcom/caverock/androidsvg/SVG$Length;->floatValueX(Lcom/caverock/androidsvg/SVGAndroidRenderer;)F
+
+    move-result v26
+
+    goto :goto_9
+
+    :cond_8
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->height:Lcom/caverock/androidsvg/SVG$Length;
+
+    move-object/from16 v29, v0
+
+    move-object/from16 v0, v29
+
+    move-object/from16 v1, p0
+
+    invoke-virtual {v0, v1}, Lcom/caverock/androidsvg/SVG$Length;->floatValueY(Lcom/caverock/androidsvg/SVGAndroidRenderer;)F
+
+    move-result v11
+
+    goto :goto_a
+
+    :cond_9
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->x:Lcom/caverock/androidsvg/SVG$Length;
+
+    move-object/from16 v29, v0
+
+    const/high16 v30, 0x3f800000    # 1.0f
+
+    move-object/from16 v0, v29
+
+    move-object/from16 v1, p0
+
+    move/from16 v2, v30
+
+    invoke-virtual {v0, v1, v2}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;F)F
+
+    move-result v27
+
+    goto/16 :goto_2
+
+    :cond_a
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->y:Lcom/caverock/androidsvg/SVG$Length;
+
+    move-object/from16 v29, v0
+
+    const/high16 v30, 0x3f800000    # 1.0f
+
+    move-object/from16 v0, v29
+
+    move-object/from16 v1, p0
+
+    move/from16 v2, v30
+
+    invoke-virtual {v0, v1, v2}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;F)F
+
+    move-result v28
+
+    goto/16 :goto_3
+
+    :cond_b
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->width:Lcom/caverock/androidsvg/SVG$Length;
+
+    move-object/from16 v29, v0
+
+    const/high16 v30, 0x3f800000    # 1.0f
+
+    move-object/from16 v0, v29
+
+    move-object/from16 v1, p0
+
+    move/from16 v2, v30
+
+    invoke-virtual {v0, v1, v2}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;F)F
+
+    move-result v26
+
+    goto/16 :goto_4
+
+    :cond_c
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->height:Lcom/caverock/androidsvg/SVG$Length;
+
+    move-object/from16 v29, v0
+
+    const/high16 v30, 0x3f800000    # 1.0f
+
+    move-object/from16 v0, v29
+
+    move-object/from16 v1, p0
+
+    move/from16 v2, v30
+
+    invoke-virtual {v0, v1, v2}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;F)F
+
+    move-result v11
+
+    goto/16 :goto_5
+
+    :cond_d
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->preserveAspectRatio:Lcom/caverock/androidsvg/PreserveAspectRatio;
+
+    move-object/from16 v29, v0
+
+    if-nez v29, :cond_10
+
+    sget-object v19, Lcom/caverock/androidsvg/PreserveAspectRatio;->LETTERBOX:Lcom/caverock/androidsvg/PreserveAspectRatio;
+
+    :goto_b
+    invoke-direct/range {p0 .. p0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->statePush()V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->canvas:Landroid/graphics/Canvas;
+
+    move-object/from16 v29, v0
+
+    move-object/from16 v0, v29
+
+    move-object/from16 v1, p2
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Canvas;->clipPath(Landroid/graphics/Path;)Z
+
+    new-instance v7, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v7, v0}, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;-><init>(Lcom/caverock/androidsvg/SVGAndroidRenderer;)V
+
+    invoke-static {}, Lcom/caverock/androidsvg/SVG$Style;->getDefaultStyle()Lcom/caverock/androidsvg/SVG$Style;
+
+    move-result-object v29
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v29
+
+    invoke-direct {v0, v7, v1}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->updateStyle(Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;Lcom/caverock/androidsvg/SVG$Style;)V
+
+    iget-object v0, v7, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+
+    move-object/from16 v29, v0
+
+    const/16 v30, 0x0
+
+    invoke-static/range {v30 .. v30}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v30
+
+    move-object/from16 v0, v30
+
+    move-object/from16 v1, v29
+
+    iput-object v0, v1, Lcom/caverock/androidsvg/SVG$Style;->overflow:Ljava/lang/Boolean;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p3
+
+    invoke-direct {v0, v1, v7}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->findInheritFromAncestorState(Lcom/caverock/androidsvg/SVG$SvgObject;Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;)Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
+
+    move-result-object v29
+
+    move-object/from16 v0, v29
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
+
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->patternTransform:Landroid/graphics/Matrix;
+
+    move-object/from16 v29, v0
+
+    if-nez v29, :cond_11
+
+    :cond_e
+    :goto_c
+    move-object/from16 v0, v16
+
+    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->minX:F
+
+    move/from16 v29, v0
+
+    sub-float v29, v29, v27
+
+    div-float v29, v29, v26
+
+    move/from16 v0, v29
+
+    float-to-double v0, v0
+
+    move-wide/from16 v30, v0
+
+    invoke-static/range {v30 .. v31}, Ljava/lang/Math;->floor(D)D
+
+    move-result-wide v30
+
+    move-wide/from16 v0, v30
+
+    double-to-float v0, v0
+
+    move/from16 v29, v0
+
+    mul-float v29, v29, v26
+
+    add-float v14, v27, v29
+
+    move-object/from16 v0, v16
+
+    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->minY:F
+
+    move/from16 v29, v0
+
+    sub-float v29, v29, v28
+
+    div-float v29, v29, v11
+
+    move/from16 v0, v29
+
+    float-to-double v0, v0
+
+    move-wide/from16 v30, v0
+
+    invoke-static/range {v30 .. v31}, Ljava/lang/Math;->floor(D)D
+
+    move-result-wide v30
+
+    move-wide/from16 v0, v30
+
+    double-to-float v0, v0
+
+    move/from16 v29, v0
+
+    mul-float v29, v29, v11
+
+    add-float v15, v28, v29
+
+    invoke-virtual/range {v16 .. v16}, Lcom/caverock/androidsvg/SVG$Box;->maxX()F
+
+    move-result v22
+
+    invoke-virtual/range {v16 .. v16}, Lcom/caverock/androidsvg/SVG$Box;->maxY()F
+
+    move-result v8
+
+    new-instance v23, Lcom/caverock/androidsvg/SVG$Box;
+
+    const/16 v29, 0x0
+
+    const/16 v30, 0x0
+
+    move-object/from16 v0, v23
+
+    move/from16 v1, v29
+
+    move/from16 v2, v30
+
+    move/from16 v3, v26
+
+    invoke-direct {v0, v1, v2, v3, v11}, Lcom/caverock/androidsvg/SVG$Box;-><init>(FFFF)V
+
+    move/from16 v25, v15
+
+    :goto_d
+    cmpg-float v29, v25, v8
+
+    if-gez v29, :cond_1e
+
+    move/from16 v24, v14
+
+    :goto_e
+    cmpg-float v29, v24, v22
+
+    if-gez v29, :cond_1d
+
+    move/from16 v0, v24
+
+    move-object/from16 v1, v23
+
+    iput v0, v1, Lcom/caverock/androidsvg/SVG$Box;->minX:F
+
+    move/from16 v0, v25
+
+    move-object/from16 v1, v23
+
+    iput v0, v1, Lcom/caverock/androidsvg/SVG$Box;->minY:F
+
+    invoke-direct/range {p0 .. p0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->statePush()V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
+
+    move-object/from16 v29, v0
+
+    move-object/from16 v0, v29
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+
+    move-object/from16 v29, v0
+
+    move-object/from16 v0, v29
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Style;->overflow:Ljava/lang/Boolean;
+
+    move-object/from16 v29, v0
+
+    invoke-virtual/range {v29 .. v29}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v29
+
+    if-eqz v29, :cond_17
+
+    :goto_f
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->viewBox:Lcom/caverock/androidsvg/SVG$Box;
+
+    move-object/from16 v29, v0
+
+    if-nez v29, :cond_18
+
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->patternContentUnitsAreUser:Ljava/lang/Boolean;
+
+    move-object/from16 v29, v0
+
+    if-nez v29, :cond_19
+
+    :cond_f
+    const/16 v17, 0x1
+
+    :goto_10
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->canvas:Landroid/graphics/Canvas;
+
+    move-object/from16 v29, v0
+
+    move-object/from16 v0, v29
+
+    move/from16 v1, v24
+
+    move/from16 v2, v25
+
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->translate(FF)V
+
+    if-eqz v17, :cond_1a
+
+    :goto_11
+    invoke-direct/range {p0 .. p0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->pushLayer()Z
+
+    move-result v10
+
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->children:Ljava/util/List;
+
+    move-object/from16 v29, v0
+
+    invoke-interface/range {v29 .. v29}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v6
+
+    :goto_12
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v29
+
+    if-nez v29, :cond_1b
+
+    if-nez v10, :cond_1c
+
+    :goto_13
+    invoke-direct/range {p0 .. p0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->statePop()V
+
+    add-float v24, v24, v26
+
+    goto :goto_e
+
+    :cond_10
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->preserveAspectRatio:Lcom/caverock/androidsvg/PreserveAspectRatio;
+
+    move-object/from16 v19, v0
+
+    goto/16 :goto_b
+
+    :cond_11
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->canvas:Landroid/graphics/Canvas;
+
+    move-object/from16 v29, v0
+
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->patternTransform:Landroid/graphics/Matrix;
+
+    move-object/from16 v30, v0
+
+    invoke-virtual/range {v29 .. v30}, Landroid/graphics/Canvas;->concat(Landroid/graphics/Matrix;)V
+
+    new-instance v13, Landroid/graphics/Matrix;
+
+    invoke-direct {v13}, Landroid/graphics/Matrix;-><init>()V
+
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->patternTransform:Landroid/graphics/Matrix;
+
+    move-object/from16 v29, v0
+
+    move-object/from16 v0, v29
+
+    invoke-virtual {v0, v13}, Landroid/graphics/Matrix;->invert(Landroid/graphics/Matrix;)Z
+
+    move-result v29
+
+    if-eqz v29, :cond_e
+
+    const/16 v29, 0x8
+
+    move/from16 v0, v29
+
+    new-array v0, v0, [F
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
+
+    move-object/from16 v29, v0
+
+    move-object/from16 v0, v29
+
+    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->minX:F
+
+    move/from16 v29, v0
+
+    const/16 v30, 0x0
+
+    aput v29, v20, v30
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
+
+    move-object/from16 v29, v0
+
+    move-object/from16 v0, v29
+
+    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->minY:F
+
+    move/from16 v29, v0
+
+    const/16 v30, 0x1
+
+    aput v29, v20, v30
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
+
+    move-object/from16 v29, v0
+
+    const/16 v30, 0x2
+
+    invoke-virtual/range {v29 .. v29}, Lcom/caverock/androidsvg/SVG$Box;->maxX()F
+
+    move-result v29
+
+    aput v29, v20, v30
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
+
+    move-object/from16 v29, v0
+
+    move-object/from16 v0, v29
+
+    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->minY:F
+
+    move/from16 v29, v0
+
+    const/16 v30, 0x3
+
+    aput v29, v20, v30
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
+
+    move-object/from16 v29, v0
+
+    const/16 v30, 0x4
+
+    invoke-virtual/range {v29 .. v29}, Lcom/caverock/androidsvg/SVG$Box;->maxX()F
+
+    move-result v29
+
+    aput v29, v20, v30
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
+
+    move-object/from16 v29, v0
+
+    invoke-virtual/range {v29 .. v29}, Lcom/caverock/androidsvg/SVG$Box;->maxY()F
+
+    move-result v29
+
+    const/16 v30, 0x5
+
+    aput v29, v20, v30
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
+
+    move-object/from16 v29, v0
+
+    move-object/from16 v0, v29
+
+    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->minX:F
+
+    move/from16 v29, v0
+
+    const/16 v30, 0x6
+
+    aput v29, v20, v30
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
+
+    move-object/from16 v29, v0
+
+    const/16 v30, 0x7
+
+    invoke-virtual/range {v29 .. v29}, Lcom/caverock/androidsvg/SVG$Box;->maxY()F
+
+    move-result v29
+
+    aput v29, v20, v30
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v13, v0}, Landroid/graphics/Matrix;->mapPoints([F)V
+
+    new-instance v21, Landroid/graphics/RectF;
+
+    const/16 v29, 0x0
+
+    aget v29, v20, v29
+
+    const/16 v30, 0x1
+
+    aget v30, v20, v30
+
+    const/16 v31, 0x0
+
+    aget v31, v20, v31
+
+    const/16 v32, 0x1
+
+    aget v32, v20, v32
+
+    move-object/from16 v0, v21
+
+    move/from16 v1, v29
+
+    move/from16 v2, v30
+
+    move/from16 v3, v31
+
+    move/from16 v4, v32
+
+    invoke-direct {v0, v1, v2, v3, v4}, Landroid/graphics/RectF;-><init>(FFFF)V
+
+    const/4 v12, 0x2
+
+    :goto_14
+    const/16 v29, 0x6
+
+    move/from16 v0, v29
+
+    if-le v12, v0, :cond_12
+
+    new-instance v16, Lcom/caverock/androidsvg/SVG$Box;
+
+    move-object/from16 v0, v21
+
+    iget v0, v0, Landroid/graphics/RectF;->left:F
+
+    move/from16 v29, v0
+
+    move-object/from16 v0, v21
+
+    iget v0, v0, Landroid/graphics/RectF;->top:F
+
+    move/from16 v30, v0
+
+    move-object/from16 v0, v21
+
+    iget v0, v0, Landroid/graphics/RectF;->right:F
+
+    move/from16 v31, v0
+
+    move-object/from16 v0, v21
+
+    iget v0, v0, Landroid/graphics/RectF;->left:F
+
+    move/from16 v32, v0
+
+    sub-float v31, v31, v32
+
+    move-object/from16 v0, v21
+
+    iget v0, v0, Landroid/graphics/RectF;->bottom:F
+
+    move/from16 v32, v0
+
+    move-object/from16 v0, v21
+
+    iget v0, v0, Landroid/graphics/RectF;->top:F
+
+    move/from16 v33, v0
+
+    sub-float v32, v32, v33
+
+    move-object/from16 v0, v16
+
+    move/from16 v1, v29
+
+    move/from16 v2, v30
+
+    move/from16 v3, v31
+
+    move/from16 v4, v32
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/caverock/androidsvg/SVG$Box;-><init>(FFFF)V
+
+    goto/16 :goto_c
+
+    :cond_12
+    aget v29, v20, v12
+
+    move-object/from16 v0, v21
+
+    iget v0, v0, Landroid/graphics/RectF;->left:F
+
+    move/from16 v30, v0
+
+    cmpg-float v29, v29, v30
+
+    if-gez v29, :cond_13
+
+    aget v29, v20, v12
+
+    move/from16 v0, v29
+
+    move-object/from16 v1, v21
+
+    iput v0, v1, Landroid/graphics/RectF;->left:F
+
+    :cond_13
+    aget v29, v20, v12
+
+    move-object/from16 v0, v21
+
+    iget v0, v0, Landroid/graphics/RectF;->right:F
+
+    move/from16 v30, v0
+
+    cmpl-float v29, v29, v30
+
+    if-lez v29, :cond_14
+
+    aget v29, v20, v12
+
+    move/from16 v0, v29
+
+    move-object/from16 v1, v21
+
+    iput v0, v1, Landroid/graphics/RectF;->right:F
+
+    :cond_14
+    add-int/lit8 v29, v12, 0x1
+
+    aget v29, v20, v29
+
+    move-object/from16 v0, v21
+
+    iget v0, v0, Landroid/graphics/RectF;->top:F
+
+    move/from16 v30, v0
+
+    cmpg-float v29, v29, v30
+
+    if-gez v29, :cond_15
+
+    add-int/lit8 v29, v12, 0x1
+
+    aget v29, v20, v29
+
+    move/from16 v0, v29
+
+    move-object/from16 v1, v21
+
+    iput v0, v1, Landroid/graphics/RectF;->top:F
+
+    :cond_15
+    add-int/lit8 v29, v12, 0x1
+
+    aget v29, v20, v29
+
+    move-object/from16 v0, v21
+
+    iget v0, v0, Landroid/graphics/RectF;->bottom:F
+
+    move/from16 v30, v0
+
+    cmpl-float v29, v29, v30
+
+    if-lez v29, :cond_16
+
+    add-int/lit8 v29, v12, 0x1
+
+    aget v29, v20, v29
+
+    move/from16 v0, v29
+
+    move-object/from16 v1, v21
+
+    iput v0, v1, Landroid/graphics/RectF;->bottom:F
+
+    :cond_16
+    add-int/lit8 v12, v12, 0x2
+
+    goto/16 :goto_14
+
+    :cond_17
+    move-object/from16 v0, v23
+
+    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->minX:F
+
+    move/from16 v29, v0
+
+    move-object/from16 v0, v23
+
+    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->minY:F
+
+    move/from16 v30, v0
+
+    move-object/from16 v0, v23
+
+    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->width:F
+
+    move/from16 v31, v0
+
+    move-object/from16 v0, v23
+
+    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->height:F
+
+    move/from16 v32, v0
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v29
+
+    move/from16 v2, v30
+
+    move/from16 v3, v31
+
+    move/from16 v4, v32
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->setClipRect(FFFF)V
+
+    goto/16 :goto_f
+
+    :cond_18
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->canvas:Landroid/graphics/Canvas;
+
+    move-object/from16 v29, v0
+
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->viewBox:Lcom/caverock/androidsvg/SVG$Box;
+
+    move-object/from16 v30, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v30
+
+    move-object/from16 v3, v19
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->calculateViewBoxTransform(Lcom/caverock/androidsvg/SVG$Box;Lcom/caverock/androidsvg/SVG$Box;Lcom/caverock/androidsvg/PreserveAspectRatio;)Landroid/graphics/Matrix;
+
+    move-result-object v30
+
+    invoke-virtual/range {v29 .. v30}, Landroid/graphics/Canvas;->concat(Landroid/graphics/Matrix;)V
+
+    goto/16 :goto_11
+
+    :cond_19
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Pattern;->patternContentUnitsAreUser:Ljava/lang/Boolean;
+
+    move-object/from16 v29, v0
+
+    invoke-virtual/range {v29 .. v29}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v29
+
+    if-nez v29, :cond_f
+
+    const/16 v17, 0x0
+
+    goto/16 :goto_10
+
+    :cond_1a
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->canvas:Landroid/graphics/Canvas;
+
+    move-object/from16 v29, v0
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
+
+    move-object/from16 v30, v0
+
+    move-object/from16 v0, v30
+
+    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->width:F
+
+    move/from16 v30, v0
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
+
+    move-object/from16 v31, v0
+
+    move-object/from16 v0, v31
+
+    iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->height:F
+
+    move/from16 v31, v0
+
+    invoke-virtual/range {v29 .. v31}, Landroid/graphics/Canvas;->scale(FF)V
 
     goto/16 :goto_11
 
     :cond_1b
-    invoke-interface/range {v28 .. v28}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v9
 
-    check-cast v8, Lcom/caverock/androidsvg/SVG$SvgObject;
+    check-cast v9, Lcom/caverock/androidsvg/SVG$SvgObject;
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v8}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->render(Lcom/caverock/androidsvg/SVG$SvgObject;)V
+    invoke-direct {v0, v9}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->render(Lcom/caverock/androidsvg/SVG$SvgObject;)V
 
     goto/16 :goto_12
 
@@ -4865,7 +4873,7 @@
     goto/16 :goto_13
 
     :cond_1d
-    add-float v24, v24, v10
+    add-float v25, v25, v11
 
     goto/16 :goto_d
 
@@ -4896,23 +4904,23 @@
 .end method
 
 .method private findInheritFromAncestorState(Lcom/caverock/androidsvg/SVG$SvgObject;Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;)Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    new-instance v1, Ljava/util/ArrayList;
+    new-instance v2, Ljava/util/ArrayList;
 
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
     :goto_0
-    instance-of v2, p1, Lcom/caverock/androidsvg/SVG$SvgElementBase;
+    instance-of v3, p1, Lcom/caverock/androidsvg/SVG$SvgElementBase;
 
-    if-nez v2, :cond_0
+    if-nez v3, :cond_0
 
     :goto_1
-    iget-object v2, p1, Lcom/caverock/androidsvg/SVG$SvgObject;->parent:Lcom/caverock/androidsvg/SVG$SvgContainer;
+    iget-object v3, p1, Lcom/caverock/androidsvg/SVG$SvgObject;->parent:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
-    if-eqz v2, :cond_1
+    if-eqz v3, :cond_1
 
     iget-object p1, p1, Lcom/caverock/androidsvg/SVG$SvgObject;->parent:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -4921,68 +4929,68 @@
     goto :goto_0
 
     :cond_0
-    move-object v2, p1
+    move-object v3, p1
 
-    check-cast v2, Lcom/caverock/androidsvg/SVG$SvgElementBase;
+    check-cast v3, Lcom/caverock/androidsvg/SVG$SvgElementBase;
 
-    invoke-interface {v1, v3, v2}, Ljava/util/List;->add(ILjava/lang/Object;)V
+    invoke-interface {v2, v4, v3}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
     goto :goto_1
 
     :cond_1
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v0
 
     :goto_2
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
     if-nez v3, :cond_2
 
-    iget-object v2, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->document:Lcom/caverock/androidsvg/SVG;
+    iget-object v3, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->document:Lcom/caverock/androidsvg/SVG;
 
-    invoke-virtual {v2}, Lcom/caverock/androidsvg/SVG;->getRootElement()Lcom/caverock/androidsvg/SVG$Svg;
+    invoke-virtual {v3}, Lcom/caverock/androidsvg/SVG;->getRootElement()Lcom/caverock/androidsvg/SVG$Svg;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget-object v2, v2, Lcom/caverock/androidsvg/SVG$Svg;->viewBox:Lcom/caverock/androidsvg/SVG$Box;
+    iget-object v3, v3, Lcom/caverock/androidsvg/SVG$Svg;->viewBox:Lcom/caverock/androidsvg/SVG$Box;
 
-    iput-object v2, p2, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->viewBox:Lcom/caverock/androidsvg/SVG$Box;
+    iput-object v3, p2, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->viewBox:Lcom/caverock/androidsvg/SVG$Box;
 
-    iget-object v2, p2, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->viewBox:Lcom/caverock/androidsvg/SVG$Box;
+    iget-object v3, p2, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->viewBox:Lcom/caverock/androidsvg/SVG$Box;
 
-    if-eqz v2, :cond_3
+    if-eqz v3, :cond_3
 
     :goto_3
-    iget-object v2, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->canvasViewPort:Lcom/caverock/androidsvg/SVG$Box;
+    iget-object v3, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->canvasViewPort:Lcom/caverock/androidsvg/SVG$Box;
 
-    iput-object v2, p2, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->viewPort:Lcom/caverock/androidsvg/SVG$Box;
+    iput-object v3, p2, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->viewPort:Lcom/caverock/androidsvg/SVG$Box;
 
-    iget-object v2, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
+    iget-object v3, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
-    iget-boolean v2, v2, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->directRendering:Z
+    iget-boolean v3, v3, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->directRendering:Z
 
-    iput-boolean v2, p2, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->directRendering:Z
+    iput-boolean v3, p2, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->directRendering:Z
 
     return-object p2
 
     :cond_2
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lcom/caverock/androidsvg/SVG$SvgElementBase;
+    check-cast v1, Lcom/caverock/androidsvg/SVG$SvgElementBase;
 
-    invoke-direct {p0, p2, v0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->updateStyleForElement(Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;Lcom/caverock/androidsvg/SVG$SvgElementBase;)V
+    invoke-direct {p0, p2, v1}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->updateStyleForElement(Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;Lcom/caverock/androidsvg/SVG$SvgElementBase;)V
 
     goto :goto_2
 
     :cond_3
-    iget-object v2, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->canvasViewPort:Lcom/caverock/androidsvg/SVG$Box;
+    iget-object v3, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->canvasViewPort:Lcom/caverock/androidsvg/SVG$Box;
 
-    iput-object v2, p2, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->viewBox:Lcom/caverock/androidsvg/SVG$Box;
+    iput-object v3, p2, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->viewBox:Lcom/caverock/androidsvg/SVG$Box;
 
     goto :goto_3
 .end method
@@ -5312,21 +5320,21 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->href:Ljava/lang/String;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    if-nez v21, :cond_3
+    if-nez v22, :cond_3
 
     :goto_0
     move-object/from16 v0, p3
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->gradientUnitsAreUser:Ljava/lang/Boolean;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    if-nez v21, :cond_4
+    if-nez v22, :cond_4
 
     :cond_0
-    const/16 v19, 0x0
+    const/16 v20, 0x0
 
     :goto_1
     if-nez p1, :cond_5
@@ -5335,24 +5343,24 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
     :goto_2
-    if-nez v19, :cond_6
+    if-nez v20, :cond_6
 
     move-object/from16 v0, p3
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->x1:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    if-nez v21, :cond_b
+    if-nez v22, :cond_b
 
     const/4 v4, 0x0
 
@@ -5361,9 +5369,9 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->y1:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    if-nez v21, :cond_c
+    if-nez v22, :cond_c
 
     const/4 v5, 0x0
 
@@ -5372,9 +5380,9 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->x2:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    if-nez v21, :cond_d
+    if-nez v22, :cond_d
 
     const/high16 v6, 0x3f800000    # 1.0f
 
@@ -5383,9 +5391,9 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->y2:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    if-nez v21, :cond_e
+    if-nez v22, :cond_e
 
     const/4 v7, 0x0
 
@@ -5398,85 +5406,85 @@
 
     invoke-direct {v0, v1}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->findInheritFromAncestorState(Lcom/caverock/androidsvg/SVG$SvgObject;)Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
-    move-result-object v21
+    move-result-object v22
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
-    new-instance v15, Landroid/graphics/Matrix;
+    new-instance v16, Landroid/graphics/Matrix;
 
-    invoke-direct {v15}, Landroid/graphics/Matrix;-><init>()V
+    invoke-direct/range {v16 .. v16}, Landroid/graphics/Matrix;-><init>()V
 
-    if-eqz v19, :cond_f
+    if-eqz v20, :cond_f
 
     :goto_7
     move-object/from16 v0, p3
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->gradientTransform:Landroid/graphics/Matrix;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    if-nez v21, :cond_10
+    if-nez v22, :cond_10
 
     :goto_8
     move-object/from16 v0, p3
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->children:Ljava/util/List;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    invoke-interface/range {v21 .. v21}, Ljava/util/List;->size()I
+    invoke-interface/range {v22 .. v22}, Ljava/util/List;->size()I
 
-    move-result v16
+    move-result v17
 
-    if-eqz v16, :cond_11
+    if-eqz v17, :cond_11
 
-    move/from16 v0, v16
+    move/from16 v0, v17
 
     new-array v8, v0, [I
 
-    move/from16 v0, v16
+    move/from16 v0, v17
 
     new-array v9, v0, [F
 
-    const/4 v13, 0x0
+    const/4 v14, 0x0
 
-    const/high16 v14, -0x40800000    # -1.0f
+    const/high16 v15, -0x40800000    # -1.0f
 
     move-object/from16 v0, p3
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->children:Ljava/util/List;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    invoke-interface/range {v21 .. v21}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v22 .. v22}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v21
+    move-result-object v11
 
     :goto_9
-    invoke-interface/range {v21 .. v21}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v22
 
     if-nez v22, :cond_13
 
-    cmpl-float v21, v4, v6
+    cmpl-float v22, v4, v6
 
-    if-nez v21, :cond_1
+    if-nez v22, :cond_1
 
-    cmpl-float v21, v5, v7
+    cmpl-float v22, v5, v7
 
-    if-eqz v21, :cond_17
+    if-eqz v22, :cond_17
 
     :cond_1
-    const/16 v21, 0x1
+    const/16 v22, 0x1
 
-    move/from16 v0, v16
+    move/from16 v0, v17
 
-    move/from16 v1, v21
+    move/from16 v1, v22
 
     if-eq v0, v1, :cond_17
 
@@ -5486,9 +5494,9 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->spreadMethod:Lcom/caverock/androidsvg/SVG$GradientSpread;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    if-nez v21, :cond_18
+    if-nez v22, :cond_18
 
     :cond_2
     :goto_a
@@ -5498,9 +5506,11 @@
 
     invoke-direct/range {v3 .. v10}, Landroid/graphics/LinearGradient;-><init>(FFFF[I[FLandroid/graphics/Shader$TileMode;)V
 
-    invoke-virtual {v3, v15}, Landroid/graphics/LinearGradient;->setLocalMatrix(Landroid/graphics/Matrix;)V
+    move-object/from16 v0, v16
 
-    move-object/from16 v0, v17
+    invoke-virtual {v3, v0}, Landroid/graphics/LinearGradient;->setLocalMatrix(Landroid/graphics/Matrix;)V
+
+    move-object/from16 v0, v18
 
     invoke-virtual {v0, v3}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
 
@@ -5511,13 +5521,13 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->href:Ljava/lang/String;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p3
 
-    move-object/from16 v2, v21
+    move-object/from16 v2, v22
 
     invoke-direct {v0, v1, v2}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->fillInChainedGradientFields(Lcom/caverock/androidsvg/SVG$GradientElement;Ljava/lang/String;)V
 
@@ -5528,15 +5538,15 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->gradientUnitsAreUser:Ljava/lang/Boolean;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v21
+    move-result v22
 
-    if-eqz v21, :cond_0
+    if-eqz v22, :cond_0
 
-    const/16 v19, 0x1
+    const/16 v20, 0x1
 
     goto/16 :goto_1
 
@@ -5545,28 +5555,28 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->fillPaint:Landroid/graphics/Paint;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
     goto/16 :goto_2
 
     :cond_6
     invoke-virtual/range {p0 .. p0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->getCurrentViewPortInUserUnits()Lcom/caverock/androidsvg/SVG$Box;
 
-    move-result-object v20
+    move-result-object v21
 
     move-object/from16 v0, p3
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->x1:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    if-nez v21, :cond_7
+    if-nez v22, :cond_7
 
     const/4 v4, 0x0
 
@@ -5575,9 +5585,9 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->y1:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    if-nez v21, :cond_8
+    if-nez v22, :cond_8
 
     const/4 v5, 0x0
 
@@ -5586,11 +5596,11 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->x2:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    if-nez v21, :cond_9
+    if-nez v22, :cond_9
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     iget v6, v0, Lcom/caverock/androidsvg/SVG$Box;->width:F
 
@@ -5599,9 +5609,9 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->y2:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    if-nez v21, :cond_a
+    if-nez v22, :cond_a
 
     const/4 v7, 0x0
 
@@ -5613,9 +5623,9 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->x1:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     move-object/from16 v1, p0
 
@@ -5630,9 +5640,9 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->y1:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     move-object/from16 v1, p0
 
@@ -5647,9 +5657,9 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->x2:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     move-object/from16 v1, p0
 
@@ -5664,9 +5674,9 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->y2:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     move-object/from16 v1, p0
 
@@ -5681,15 +5691,15 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->x1:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    const/high16 v22, 0x3f800000    # 1.0f
+    const/high16 v23, 0x3f800000    # 1.0f
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     move-object/from16 v1, p0
 
-    move/from16 v2, v22
+    move/from16 v2, v23
 
     invoke-virtual {v0, v1, v2}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;F)F
 
@@ -5702,15 +5712,15 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->y1:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    const/high16 v22, 0x3f800000    # 1.0f
+    const/high16 v23, 0x3f800000    # 1.0f
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     move-object/from16 v1, p0
 
-    move/from16 v2, v22
+    move/from16 v2, v23
 
     invoke-virtual {v0, v1, v2}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;F)F
 
@@ -5723,15 +5733,15 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->x2:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    const/high16 v22, 0x3f800000    # 1.0f
+    const/high16 v23, 0x3f800000    # 1.0f
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     move-object/from16 v1, p0
 
-    move/from16 v2, v22
+    move/from16 v2, v23
 
     invoke-virtual {v0, v1, v2}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;F)F
 
@@ -5744,15 +5754,15 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->y2:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    const/high16 v22, 0x3f800000    # 1.0f
+    const/high16 v23, 0x3f800000    # 1.0f
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     move-object/from16 v1, p0
 
-    move/from16 v2, v22
+    move/from16 v2, v23
 
     invoke-virtual {v0, v1, v2}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;F)F
 
@@ -5765,37 +5775,41 @@
 
     iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->minX:F
 
-    move/from16 v21, v0
+    move/from16 v22, v0
 
     move-object/from16 v0, p2
 
     iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->minY:F
 
-    move/from16 v22, v0
+    move/from16 v23, v0
 
-    move/from16 v0, v21
+    move-object/from16 v0, v16
 
     move/from16 v1, v22
 
-    invoke-virtual {v15, v0, v1}, Landroid/graphics/Matrix;->preTranslate(FF)Z
+    move/from16 v2, v23
+
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Matrix;->preTranslate(FF)Z
 
     move-object/from16 v0, p2
 
     iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->width:F
 
-    move/from16 v21, v0
+    move/from16 v22, v0
 
     move-object/from16 v0, p2
 
     iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->height:F
 
-    move/from16 v22, v0
+    move/from16 v23, v0
 
-    move/from16 v0, v21
+    move-object/from16 v0, v16
 
     move/from16 v1, v22
 
-    invoke-virtual {v15, v0, v1}, Landroid/graphics/Matrix;->preScale(FF)Z
+    move/from16 v2, v23
+
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Matrix;->preScale(FF)Z
 
     goto/16 :goto_7
 
@@ -5804,11 +5818,13 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->gradientTransform:Landroid/graphics/Matrix;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v16
 
-    invoke-virtual {v15, v0}, Landroid/graphics/Matrix;->preConcat(Landroid/graphics/Matrix;)Z
+    move-object/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Matrix;->preConcat(Landroid/graphics/Matrix;)Z
 
     goto/16 :goto_8
 
@@ -5821,13 +5837,13 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v22
 
     iput-boolean v0, v1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->hasStroke:Z
 
@@ -5839,33 +5855,33 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v22
 
     iput-boolean v0, v1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->hasFill:Z
 
     goto :goto_f
 
     :cond_13
-    invoke-interface/range {v21 .. v21}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v11
+    move-result-object v12
 
-    check-cast v11, Lcom/caverock/androidsvg/SVG$SvgObject;
+    check-cast v12, Lcom/caverock/androidsvg/SVG$SvgObject;
 
-    move-object/from16 v18, v11
+    move-object/from16 v19, v12
 
-    check-cast v18, Lcom/caverock/androidsvg/SVG$Stop;
+    check-cast v19, Lcom/caverock/androidsvg/SVG$Stop;
 
-    if-nez v13, :cond_15
+    if-nez v14, :cond_15
 
     :cond_14
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Stop;->offset:Ljava/lang/Float;
 
@@ -5875,9 +5891,9 @@
 
     move-result v22
 
-    aput v22, v9, v13
+    aput v22, v9, v14
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Stop;->offset:Ljava/lang/Float;
 
@@ -5885,7 +5901,7 @@
 
     invoke-virtual/range {v22 .. v22}, Ljava/lang/Float;->floatValue()F
 
-    move-result v14
+    move-result v15
 
     :goto_10
     invoke-direct/range {p0 .. p0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->statePush()V
@@ -5900,7 +5916,7 @@
 
     move-object/from16 v1, v22
 
-    move-object/from16 v2, v18
+    move-object/from16 v2, v19
 
     invoke-direct {v0, v1, v2}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->updateStyleForElement(Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;Lcom/caverock/androidsvg/SVG$SvgElementBase;)V
 
@@ -5918,11 +5934,11 @@
 
     move-object/from16 v0, v22
 
-    iget-object v12, v0, Lcom/caverock/androidsvg/SVG$Style;->stopColor:Lcom/caverock/androidsvg/SVG$SvgPaint;
+    iget-object v13, v0, Lcom/caverock/androidsvg/SVG$Style;->stopColor:Lcom/caverock/androidsvg/SVG$SvgPaint;
 
-    check-cast v12, Lcom/caverock/androidsvg/SVG$Colour;
+    check-cast v13, Lcom/caverock/androidsvg/SVG$Colour;
 
-    if-eqz v12, :cond_16
+    if-eqz v13, :cond_16
 
     :goto_11
     move-object/from16 v0, p0
@@ -5957,22 +5973,22 @@
 
     shl-int/lit8 v22, v22, 0x18
 
-    iget v0, v12, Lcom/caverock/androidsvg/SVG$Colour;->colour:I
+    iget v0, v13, Lcom/caverock/androidsvg/SVG$Colour;->colour:I
 
     move/from16 v23, v0
 
     or-int v22, v22, v23
 
-    aput v22, v8, v13
+    aput v22, v8, v14
 
-    add-int/lit8 v13, v13, 0x1
+    add-int/lit8 v14, v14, 0x1
 
     invoke-direct/range {p0 .. p0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->statePop()V
 
     goto/16 :goto_9
 
     :cond_15
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Stop;->offset:Ljava/lang/Float;
 
@@ -5982,29 +5998,29 @@
 
     move-result v22
 
-    cmpl-float v22, v22, v14
+    cmpl-float v22, v22, v15
 
     if-gez v22, :cond_14
 
-    aput v14, v9, v13
+    aput v15, v9, v14
 
     goto :goto_10
 
     :cond_16
-    sget-object v12, Lcom/caverock/androidsvg/SVG$Colour;->BLACK:Lcom/caverock/androidsvg/SVG$Colour;
+    sget-object v13, Lcom/caverock/androidsvg/SVG$Colour;->BLACK:Lcom/caverock/androidsvg/SVG$Colour;
 
     goto :goto_11
 
     :cond_17
     invoke-direct/range {p0 .. p0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->statePop()V
 
-    add-int/lit8 v21, v16, -0x1
+    add-int/lit8 v22, v17, -0x1
 
-    aget v21, v8, v21
+    aget v22, v8, v22
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
-    move/from16 v1, v21
+    move/from16 v1, v22
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
@@ -6015,13 +6031,13 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->spreadMethod:Lcom/caverock/androidsvg/SVG$GradientSpread;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    sget-object v22, Lcom/caverock/androidsvg/SVG$GradientSpread;->reflect:Lcom/caverock/androidsvg/SVG$GradientSpread;
+    sget-object v23, Lcom/caverock/androidsvg/SVG$GradientSpread;->reflect:Lcom/caverock/androidsvg/SVG$GradientSpread;
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v23
 
     if-eq v0, v1, :cond_19
 
@@ -6029,13 +6045,13 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgLinearGradient;->spreadMethod:Lcom/caverock/androidsvg/SVG$GradientSpread;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    sget-object v22, Lcom/caverock/androidsvg/SVG$GradientSpread;->repeat:Lcom/caverock/androidsvg/SVG$GradientSpread;
+    sget-object v23, Lcom/caverock/androidsvg/SVG$GradientSpread;->repeat:Lcom/caverock/androidsvg/SVG$GradientSpread;
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v23
 
     if-ne v0, v1, :cond_2
 
@@ -6930,21 +6946,21 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgRadialGradient;->href:Ljava/lang/String;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    if-nez v20, :cond_2
+    if-nez v21, :cond_2
 
     :goto_0
     move-object/from16 v0, p3
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgRadialGradient;->gradientUnitsAreUser:Ljava/lang/Boolean;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    if-nez v20, :cond_3
+    if-nez v21, :cond_3
 
     :cond_0
-    const/16 v19, 0x0
+    const/16 v20, 0x0
 
     :goto_1
     if-nez p1, :cond_4
@@ -6953,24 +6969,24 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
     :goto_2
-    if-nez v19, :cond_5
+    if-nez v20, :cond_5
 
     move-object/from16 v0, p3
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgRadialGradient;->cx:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    if-nez v20, :cond_9
+    if-nez v21, :cond_9
 
     const/high16 v4, 0x3f000000    # 0.5f
 
@@ -6979,9 +6995,9 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgRadialGradient;->cy:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    if-nez v20, :cond_a
+    if-nez v21, :cond_a
 
     const/high16 v5, 0x3f000000    # 0.5f
 
@@ -6990,9 +7006,9 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgRadialGradient;->r:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    if-nez v20, :cond_b
+    if-nez v21, :cond_b
 
     const/high16 v6, 0x3f000000    # 0.5f
 
@@ -7005,82 +7021,82 @@
 
     invoke-direct {v0, v1}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->findInheritFromAncestorState(Lcom/caverock/androidsvg/SVG$SvgObject;)Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
-    move-result-object v20
+    move-result-object v21
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
-    new-instance v15, Landroid/graphics/Matrix;
+    new-instance v16, Landroid/graphics/Matrix;
 
-    invoke-direct {v15}, Landroid/graphics/Matrix;-><init>()V
+    invoke-direct/range {v16 .. v16}, Landroid/graphics/Matrix;-><init>()V
 
-    if-eqz v19, :cond_c
+    if-eqz v20, :cond_c
 
     :goto_6
     move-object/from16 v0, p3
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgRadialGradient;->gradientTransform:Landroid/graphics/Matrix;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    if-nez v20, :cond_d
+    if-nez v21, :cond_d
 
     :goto_7
     move-object/from16 v0, p3
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgRadialGradient;->children:Ljava/util/List;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    invoke-interface/range {v20 .. v20}, Ljava/util/List;->size()I
+    invoke-interface/range {v21 .. v21}, Ljava/util/List;->size()I
 
-    move-result v16
+    move-result v17
 
-    if-eqz v16, :cond_e
+    if-eqz v17, :cond_e
 
-    move/from16 v0, v16
+    move/from16 v0, v17
 
     new-array v7, v0, [I
 
-    move/from16 v0, v16
+    move/from16 v0, v17
 
     new-array v8, v0, [F
 
-    const/4 v13, 0x0
+    const/4 v14, 0x0
 
-    const/high16 v14, -0x40800000    # -1.0f
+    const/high16 v15, -0x40800000    # -1.0f
 
     move-object/from16 v0, p3
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgRadialGradient;->children:Ljava/util/List;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    invoke-interface/range {v20 .. v20}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v21 .. v21}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v20
+    move-result-object v10
 
     :goto_8
-    invoke-interface/range {v20 .. v20}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v21
 
     if-nez v21, :cond_10
 
-    const/16 v20, 0x0
+    const/16 v21, 0x0
 
-    cmpl-float v20, v6, v20
+    cmpl-float v21, v6, v21
 
-    if-eqz v20, :cond_14
+    if-eqz v21, :cond_14
 
-    const/16 v20, 0x1
+    const/16 v21, 0x1
 
-    move/from16 v0, v16
+    move/from16 v0, v17
 
-    move/from16 v1, v20
+    move/from16 v1, v21
 
     if-eq v0, v1, :cond_14
 
@@ -7090,9 +7106,9 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgRadialGradient;->spreadMethod:Lcom/caverock/androidsvg/SVG$GradientSpread;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    if-nez v20, :cond_15
+    if-nez v21, :cond_15
 
     :cond_1
     :goto_9
@@ -7102,9 +7118,11 @@
 
     invoke-direct/range {v3 .. v9}, Landroid/graphics/RadialGradient;-><init>(FFF[I[FLandroid/graphics/Shader$TileMode;)V
 
-    invoke-virtual {v3, v15}, Landroid/graphics/RadialGradient;->setLocalMatrix(Landroid/graphics/Matrix;)V
+    move-object/from16 v0, v16
 
-    move-object/from16 v0, v17
+    invoke-virtual {v3, v0}, Landroid/graphics/RadialGradient;->setLocalMatrix(Landroid/graphics/Matrix;)V
+
+    move-object/from16 v0, v18
 
     invoke-virtual {v0, v3}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
 
@@ -7115,13 +7133,13 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgRadialGradient;->href:Ljava/lang/String;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p3
 
-    move-object/from16 v2, v20
+    move-object/from16 v2, v21
 
     invoke-direct {v0, v1, v2}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->fillInChainedGradientFields(Lcom/caverock/androidsvg/SVG$GradientElement;Ljava/lang/String;)V
 
@@ -7132,15 +7150,15 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgRadialGradient;->gradientUnitsAreUser:Ljava/lang/Boolean;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v20
+    move-result v21
 
-    if-eqz v20, :cond_0
+    if-eqz v21, :cond_0
 
-    const/16 v19, 0x1
+    const/16 v20, 0x1
 
     goto/16 :goto_1
 
@@ -7149,40 +7167,40 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->fillPaint:Landroid/graphics/Paint;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
     goto/16 :goto_2
 
     :cond_5
-    new-instance v12, Lcom/caverock/androidsvg/SVG$Length;
-
-    const/high16 v20, 0x42480000    # 50.0f
+    new-instance v13, Lcom/caverock/androidsvg/SVG$Length;
 
     sget-object v21, Lcom/caverock/androidsvg/SVG$Unit;->percent:Lcom/caverock/androidsvg/SVG$Unit;
 
-    move/from16 v0, v20
+    const/high16 v22, 0x42480000    # 50.0f
+
+    move/from16 v0, v22
 
     move-object/from16 v1, v21
 
-    invoke-direct {v12, v0, v1}, Lcom/caverock/androidsvg/SVG$Length;-><init>(FLcom/caverock/androidsvg/SVG$Unit;)V
+    invoke-direct {v13, v0, v1}, Lcom/caverock/androidsvg/SVG$Length;-><init>(FLcom/caverock/androidsvg/SVG$Unit;)V
 
     move-object/from16 v0, p3
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgRadialGradient;->cx:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    if-nez v20, :cond_6
+    if-nez v21, :cond_6
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v12, v0}, Lcom/caverock/androidsvg/SVG$Length;->floatValueX(Lcom/caverock/androidsvg/SVGAndroidRenderer;)F
+    invoke-virtual {v13, v0}, Lcom/caverock/androidsvg/SVG$Length;->floatValueX(Lcom/caverock/androidsvg/SVGAndroidRenderer;)F
 
     move-result v4
 
@@ -7191,13 +7209,13 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgRadialGradient;->cy:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    if-nez v20, :cond_7
+    if-nez v21, :cond_7
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v12, v0}, Lcom/caverock/androidsvg/SVG$Length;->floatValueY(Lcom/caverock/androidsvg/SVGAndroidRenderer;)F
+    invoke-virtual {v13, v0}, Lcom/caverock/androidsvg/SVG$Length;->floatValueY(Lcom/caverock/androidsvg/SVGAndroidRenderer;)F
 
     move-result v5
 
@@ -7206,13 +7224,13 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgRadialGradient;->r:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    if-nez v20, :cond_8
+    if-nez v21, :cond_8
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v12, v0}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;)F
+    invoke-virtual {v13, v0}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;)F
 
     move-result v6
 
@@ -7224,9 +7242,9 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgRadialGradient;->cx:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     move-object/from16 v1, p0
 
@@ -7241,9 +7259,9 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgRadialGradient;->cy:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     move-object/from16 v1, p0
 
@@ -7258,9 +7276,9 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgRadialGradient;->r:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     move-object/from16 v1, p0
 
@@ -7275,15 +7293,15 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgRadialGradient;->cx:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    const/high16 v21, 0x3f800000    # 1.0f
+    const/high16 v22, 0x3f800000    # 1.0f
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     move-object/from16 v1, p0
 
-    move/from16 v2, v21
+    move/from16 v2, v22
 
     invoke-virtual {v0, v1, v2}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;F)F
 
@@ -7296,15 +7314,15 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgRadialGradient;->cy:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    const/high16 v21, 0x3f800000    # 1.0f
+    const/high16 v22, 0x3f800000    # 1.0f
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     move-object/from16 v1, p0
 
-    move/from16 v2, v21
+    move/from16 v2, v22
 
     invoke-virtual {v0, v1, v2}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;F)F
 
@@ -7317,15 +7335,15 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgRadialGradient;->r:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    const/high16 v21, 0x3f800000    # 1.0f
+    const/high16 v22, 0x3f800000    # 1.0f
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     move-object/from16 v1, p0
 
-    move/from16 v2, v21
+    move/from16 v2, v22
 
     invoke-virtual {v0, v1, v2}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;F)F
 
@@ -7338,37 +7356,41 @@
 
     iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->minX:F
 
-    move/from16 v20, v0
+    move/from16 v21, v0
 
     move-object/from16 v0, p2
 
     iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->minY:F
 
-    move/from16 v21, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v20
+    move-object/from16 v0, v16
 
     move/from16 v1, v21
 
-    invoke-virtual {v15, v0, v1}, Landroid/graphics/Matrix;->preTranslate(FF)Z
+    move/from16 v2, v22
+
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Matrix;->preTranslate(FF)Z
 
     move-object/from16 v0, p2
 
     iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->width:F
 
-    move/from16 v20, v0
+    move/from16 v21, v0
 
     move-object/from16 v0, p2
 
     iget v0, v0, Lcom/caverock/androidsvg/SVG$Box;->height:F
 
-    move/from16 v21, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v20
+    move-object/from16 v0, v16
 
     move/from16 v1, v21
 
-    invoke-virtual {v15, v0, v1}, Landroid/graphics/Matrix;->preScale(FF)Z
+    move/from16 v2, v22
+
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Matrix;->preScale(FF)Z
 
     goto/16 :goto_6
 
@@ -7377,11 +7399,13 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgRadialGradient;->gradientTransform:Landroid/graphics/Matrix;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v16
 
-    invoke-virtual {v15, v0}, Landroid/graphics/Matrix;->preConcat(Landroid/graphics/Matrix;)Z
+    move-object/from16 v1, v21
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Matrix;->preConcat(Landroid/graphics/Matrix;)Z
 
     goto/16 :goto_7
 
@@ -7394,13 +7418,13 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    const/16 v21, 0x0
+    const/16 v22, 0x0
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     iput-boolean v0, v1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->hasStroke:Z
 
@@ -7412,33 +7436,33 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    const/16 v21, 0x0
+    const/16 v22, 0x0
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     iput-boolean v0, v1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->hasFill:Z
 
     goto :goto_d
 
     :cond_10
-    invoke-interface/range {v20 .. v20}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v10
+    move-result-object v11
 
-    check-cast v10, Lcom/caverock/androidsvg/SVG$SvgObject;
+    check-cast v11, Lcom/caverock/androidsvg/SVG$SvgObject;
 
-    move-object/from16 v18, v10
+    move-object/from16 v19, v11
 
-    check-cast v18, Lcom/caverock/androidsvg/SVG$Stop;
+    check-cast v19, Lcom/caverock/androidsvg/SVG$Stop;
 
-    if-nez v13, :cond_12
+    if-nez v14, :cond_12
 
     :cond_11
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Stop;->offset:Ljava/lang/Float;
 
@@ -7448,9 +7472,9 @@
 
     move-result v21
 
-    aput v21, v8, v13
+    aput v21, v8, v14
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Stop;->offset:Ljava/lang/Float;
 
@@ -7458,7 +7482,7 @@
 
     invoke-virtual/range {v21 .. v21}, Ljava/lang/Float;->floatValue()F
 
-    move-result v14
+    move-result v15
 
     :goto_e
     invoke-direct/range {p0 .. p0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->statePush()V
@@ -7473,7 +7497,7 @@
 
     move-object/from16 v1, v21
 
-    move-object/from16 v2, v18
+    move-object/from16 v2, v19
 
     invoke-direct {v0, v1, v2}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->updateStyleForElement(Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;Lcom/caverock/androidsvg/SVG$SvgElementBase;)V
 
@@ -7491,11 +7515,11 @@
 
     move-object/from16 v0, v21
 
-    iget-object v11, v0, Lcom/caverock/androidsvg/SVG$Style;->stopColor:Lcom/caverock/androidsvg/SVG$SvgPaint;
+    iget-object v12, v0, Lcom/caverock/androidsvg/SVG$Style;->stopColor:Lcom/caverock/androidsvg/SVG$SvgPaint;
 
-    check-cast v11, Lcom/caverock/androidsvg/SVG$Colour;
+    check-cast v12, Lcom/caverock/androidsvg/SVG$Colour;
 
-    if-eqz v11, :cond_13
+    if-eqz v12, :cond_13
 
     :goto_f
     move-object/from16 v0, p0
@@ -7530,22 +7554,22 @@
 
     shl-int/lit8 v21, v21, 0x18
 
-    iget v0, v11, Lcom/caverock/androidsvg/SVG$Colour;->colour:I
+    iget v0, v12, Lcom/caverock/androidsvg/SVG$Colour;->colour:I
 
     move/from16 v22, v0
 
     or-int v21, v21, v22
 
-    aput v21, v7, v13
+    aput v21, v7, v14
 
-    add-int/lit8 v13, v13, 0x1
+    add-int/lit8 v14, v14, 0x1
 
     invoke-direct/range {p0 .. p0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->statePop()V
 
     goto/16 :goto_8
 
     :cond_12
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$Stop;->offset:Ljava/lang/Float;
 
@@ -7555,29 +7579,29 @@
 
     move-result v21
 
-    cmpl-float v21, v21, v14
+    cmpl-float v21, v21, v15
 
     if-gez v21, :cond_11
 
-    aput v14, v8, v13
+    aput v15, v8, v14
 
     goto :goto_e
 
     :cond_13
-    sget-object v11, Lcom/caverock/androidsvg/SVG$Colour;->BLACK:Lcom/caverock/androidsvg/SVG$Colour;
+    sget-object v12, Lcom/caverock/androidsvg/SVG$Colour;->BLACK:Lcom/caverock/androidsvg/SVG$Colour;
 
     goto :goto_f
 
     :cond_14
     invoke-direct/range {p0 .. p0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->statePop()V
 
-    add-int/lit8 v20, v16, -0x1
+    add-int/lit8 v21, v17, -0x1
 
-    aget v20, v7, v20
+    aget v21, v7, v21
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
-    move/from16 v1, v20
+    move/from16 v1, v21
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
@@ -7588,13 +7612,13 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgRadialGradient;->spreadMethod:Lcom/caverock/androidsvg/SVG$GradientSpread;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    sget-object v21, Lcom/caverock/androidsvg/SVG$GradientSpread;->reflect:Lcom/caverock/androidsvg/SVG$GradientSpread;
+    sget-object v22, Lcom/caverock/androidsvg/SVG$GradientSpread;->reflect:Lcom/caverock/androidsvg/SVG$GradientSpread;
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v22
 
     if-eq v0, v1, :cond_16
 
@@ -7602,13 +7626,13 @@
 
     iget-object v0, v0, Lcom/caverock/androidsvg/SVG$SvgRadialGradient;->spreadMethod:Lcom/caverock/androidsvg/SVG$GradientSpread;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    sget-object v21, Lcom/caverock/androidsvg/SVG$GradientSpread;->repeat:Lcom/caverock/androidsvg/SVG$GradientSpread;
+    sget-object v22, Lcom/caverock/androidsvg/SVG$GradientSpread;->repeat:Lcom/caverock/androidsvg/SVG$GradientSpread;
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v22
 
     if-ne v0, v1, :cond_1
 
@@ -7982,11 +8006,11 @@
     goto :goto_0
 
     :cond_2
-    const-string/jumbo v9, "TSpan render"
+    new-array v9, v12, [Ljava/lang/Object;
 
-    new-array v11, v12, [Ljava/lang/Object;
+    const-string/jumbo v11, "TSpan render"
 
-    invoke-static {v9, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v11, v9}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     invoke-direct {p0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->statePush()V
 
@@ -8246,17 +8270,17 @@
     if-nez v3, :cond_13
 
     :cond_12
-    const-string/jumbo v9, "Tref reference \'%s\' not found"
+    const/4 v9, 0x1
 
-    const/4 v10, 0x1
+    new-array v9, v9, [Ljava/lang/Object;
 
-    new-array v10, v10, [Ljava/lang/Object;
+    iget-object v10, v5, Lcom/caverock/androidsvg/SVG$TRef;->href:Ljava/lang/String;
 
-    iget-object v11, v5, Lcom/caverock/androidsvg/SVG$TRef;->href:Ljava/lang/String;
+    aput-object v10, v9, v12
 
-    aput-object v11, v10, v12
+    const-string/jumbo v10, "Tref reference \'%s\' not found"
 
-    invoke-static {v9, v10}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v10, v9}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_8
 
@@ -8376,19 +8400,19 @@
     if-nez v0, :cond_4
 
     :cond_3
-    const-string/jumbo v1, "Mask reference \'%s\' not found"
+    new-array v1, v6, [Ljava/lang/Object;
 
-    new-array v2, v6, [Ljava/lang/Object;
+    iget-object v2, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
-    iget-object v3, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
+    iget-object v2, v2, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iget-object v3, v3, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    iget-object v2, v2, Lcom/caverock/androidsvg/SVG$Style;->mask:Ljava/lang/String;
 
-    iget-object v3, v3, Lcom/caverock/androidsvg/SVG$Style;->mask:Ljava/lang/String;
+    aput-object v2, v1, v4
 
-    aput-object v3, v2, v4
+    const-string/jumbo v2, "Mask reference \'%s\' not found"
 
-    invoke-static {v1, v2}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v2, v1}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
@@ -8417,13 +8441,13 @@
 .method private render(Lcom/caverock/androidsvg/SVG$Circle;)V
     .locals 4
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    const-string/jumbo v2, "Circle render"
+    new-array v2, v2, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    const-string/jumbo v3, "Circle render"
 
-    invoke-static {v2, v3}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v3, v2}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v2, p1, Lcom/caverock/androidsvg/SVG$Circle;->r:Lcom/caverock/androidsvg/SVG$Length;
 
@@ -8529,13 +8553,13 @@
 .method private render(Lcom/caverock/androidsvg/SVG$Ellipse;)V
     .locals 4
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    const-string/jumbo v2, "Ellipse render"
+    new-array v2, v2, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    const-string/jumbo v3, "Ellipse render"
 
-    invoke-static {v2, v3}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v3, v2}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v2, p1, Lcom/caverock/androidsvg/SVG$Ellipse;->rx:Lcom/caverock/androidsvg/SVG$Length;
 
@@ -8653,13 +8677,13 @@
 .method private render(Lcom/caverock/androidsvg/SVG$Group;)V
     .locals 3
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    const-string/jumbo v1, "Group render"
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "Group render"
 
-    invoke-static {v1, v2}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v2, v1}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
@@ -8718,11 +8742,11 @@
 
     const/4 v11, 0x0
 
-    const-string/jumbo v9, "Image render"
+    new-array v9, v11, [Ljava/lang/Object;
 
-    new-array v10, v11, [Ljava/lang/Object;
+    const-string/jumbo v10, "Image render"
 
-    invoke-static {v9, v10}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v10, v9}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v9, p1, Lcom/caverock/androidsvg/SVG$Image;->width:Lcom/caverock/androidsvg/SVG$Length;
 
@@ -8926,17 +8950,17 @@
     return-void
 
     :cond_6
-    const-string/jumbo v8, "Could not locate image \'%s\'"
+    const/4 v8, 0x1
 
-    const/4 v9, 0x1
+    new-array v8, v8, [Ljava/lang/Object;
 
-    new-array v9, v9, [Ljava/lang/Object;
+    iget-object v9, p1, Lcom/caverock/androidsvg/SVG$Image;->href:Ljava/lang/String;
 
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVG$Image;->href:Ljava/lang/String;
+    aput-object v9, v8, v11
 
-    aput-object v10, v9, v11
+    const-string/jumbo v9, "Could not locate image \'%s\'"
 
-    invoke-static {v8, v9}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v9, v8}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
 
     return-void
 
@@ -9011,13 +9035,13 @@
 .method private render(Lcom/caverock/androidsvg/SVG$Line;)V
     .locals 4
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    const-string/jumbo v2, "Line render"
+    new-array v2, v2, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    const-string/jumbo v3, "Line render"
 
-    invoke-static {v2, v3}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v3, v2}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v2, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
@@ -9096,13 +9120,13 @@
 .method private render(Lcom/caverock/androidsvg/SVG$Path;)V
     .locals 4
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    const-string/jumbo v2, "Path render"
+    new-array v2, v2, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    const-string/jumbo v3, "Path render"
 
-    invoke-static {v2, v3}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v3, v2}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v2, p1, Lcom/caverock/androidsvg/SVG$Path;->d:Lcom/caverock/androidsvg/SVG$PathDefinition;
 
@@ -9243,13 +9267,13 @@
 .method private render(Lcom/caverock/androidsvg/SVG$PolyLine;)V
     .locals 5
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    const-string/jumbo v3, "PolyLine render"
+    new-array v3, v3, [Ljava/lang/Object;
 
-    new-array v4, v4, [Ljava/lang/Object;
+    const-string/jumbo v4, "PolyLine render"
 
-    invoke-static {v3, v4}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v4, v3}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v3, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
@@ -9368,13 +9392,13 @@
 .method private render(Lcom/caverock/androidsvg/SVG$Polygon;)V
     .locals 5
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    const-string/jumbo v3, "Polygon render"
+    new-array v3, v3, [Ljava/lang/Object;
 
-    new-array v4, v4, [Ljava/lang/Object;
+    const-string/jumbo v4, "Polygon render"
 
-    invoke-static {v3, v4}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v4, v3}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v3, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
@@ -9493,13 +9517,13 @@
 .method private render(Lcom/caverock/androidsvg/SVG$Rect;)V
     .locals 4
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    const-string/jumbo v2, "Rect render"
+    new-array v2, v2, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    const-string/jumbo v3, "Rect render"
 
-    invoke-static {v2, v3}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v3, v2}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v2, p1, Lcom/caverock/androidsvg/SVG$Rect;->width:Lcom/caverock/androidsvg/SVG$Length;
 
@@ -9651,13 +9675,13 @@
 
     const/4 v6, 0x0
 
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
-    const-string/jumbo v7, "Svg render"
+    new-array v7, v7, [Ljava/lang/Object;
 
-    new-array v8, v8, [Ljava/lang/Object;
+    const-string/jumbo v8, "Svg render"
 
-    invoke-static {v7, v8}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v8, v7}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     if-nez p2, :cond_1
 
@@ -10060,13 +10084,13 @@
 .method private render(Lcom/caverock/androidsvg/SVG$Switch;)V
     .locals 3
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    const-string/jumbo v1, "Switch render"
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "Switch render"
 
-    invoke-static {v1, v2}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v2, v1}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
@@ -10121,13 +10145,13 @@
 
     const/4 v6, 0x0
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    const-string/jumbo v4, "Symbol render"
+    new-array v4, v4, [Ljava/lang/Object;
 
-    new-array v5, v5, [Ljava/lang/Object;
+    const-string/jumbo v5, "Symbol render"
 
-    invoke-static {v4, v5}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v5, v4}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     if-nez p2, :cond_1
 
@@ -10308,11 +10332,11 @@
 
     const/4 v11, 0x0
 
-    const-string/jumbo v8, "Text render"
+    new-array v8, v11, [Ljava/lang/Object;
 
-    new-array v10, v11, [Ljava/lang/Object;
+    const-string/jumbo v10, "Text render"
 
-    invoke-static {v8, v10}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v10, v8}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v8, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
@@ -10576,11 +10600,11 @@
 
     const/4 v11, 0x0
 
-    const-string/jumbo v9, "Use render"
+    new-array v9, v11, [Ljava/lang/Object;
 
-    new-array v10, v11, [Ljava/lang/Object;
+    const-string/jumbo v10, "Use render"
 
-    invoke-static {v9, v10}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v10, v9}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v9, p1, Lcom/caverock/androidsvg/SVG$Use;->width:Lcom/caverock/androidsvg/SVG$Length;
 
@@ -10696,17 +10720,17 @@
     return-void
 
     :cond_5
-    const-string/jumbo v8, "Use reference \'%s\' not found"
+    const/4 v8, 0x1
 
-    const/4 v9, 0x1
+    new-array v8, v8, [Ljava/lang/Object;
 
-    new-array v9, v9, [Ljava/lang/Object;
+    iget-object v9, p1, Lcom/caverock/androidsvg/SVG$Use;->href:Ljava/lang/String;
 
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVG$Use;->href:Ljava/lang/String;
+    aput-object v9, v8, v11
 
-    aput-object v10, v9, v11
+    const-string/jumbo v9, "Use reference \'%s\' not found"
 
-    invoke-static {v8, v9}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v9, v8}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
 
     return-void
 
@@ -10831,14 +10855,14 @@
     :goto_0
     invoke-interface {p1}, Lcom/caverock/androidsvg/SVG$SvgContainer;->getChildren()Ljava/util/List;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v0
 
     :goto_1
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
@@ -10855,13 +10879,13 @@
     goto :goto_0
 
     :cond_1
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lcom/caverock/androidsvg/SVG$SvgObject;
+    check-cast v1, Lcom/caverock/androidsvg/SVG$SvgObject;
 
-    invoke-direct {p0, v0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->render(Lcom/caverock/androidsvg/SVG$SvgObject;)V
+    invoke-direct {p0, v1}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->render(Lcom/caverock/androidsvg/SVG$SvgObject;)V
 
     goto :goto_1
 
@@ -11580,9 +11604,9 @@
 .end method
 
 .method private renderMarkers(Lcom/caverock/androidsvg/SVG$GraphicsElement;)V
-    .locals 13
+    .locals 12
 
-    const/4 v12, 0x1
+    const/4 v9, 0x1
 
     const/4 v11, 0x0
 
@@ -11718,19 +11742,19 @@
 
     if-nez v6, :cond_4
 
-    const-string/jumbo v7, "Marker reference \'%s\' not found"
+    new-array v7, v9, [Ljava/lang/Object;
 
-    new-array v8, v12, [Ljava/lang/Object;
+    iget-object v8, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
-    iget-object v9, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
+    iget-object v8, v8, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iget-object v9, v9, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    iget-object v8, v8, Lcom/caverock/androidsvg/SVG$Style;->markerStart:Ljava/lang/String;
 
-    iget-object v9, v9, Lcom/caverock/androidsvg/SVG$Style;->markerStart:Ljava/lang/String;
+    aput-object v8, v7, v11
 
-    aput-object v9, v8, v11
+    const-string/jumbo v8, "Marker reference \'%s\' not found"
 
-    invoke-static {v7, v8}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v8, v7}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_0
 
@@ -11756,19 +11780,19 @@
 
     if-nez v6, :cond_6
 
-    const-string/jumbo v7, "Marker reference \'%s\' not found"
+    new-array v7, v9, [Ljava/lang/Object;
 
-    new-array v8, v12, [Ljava/lang/Object;
+    iget-object v8, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
-    iget-object v9, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
+    iget-object v8, v8, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iget-object v9, v9, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    iget-object v8, v8, Lcom/caverock/androidsvg/SVG$Style;->markerMid:Ljava/lang/String;
 
-    iget-object v9, v9, Lcom/caverock/androidsvg/SVG$Style;->markerMid:Ljava/lang/String;
+    aput-object v8, v7, v11
 
-    aput-object v9, v8, v11
+    const-string/jumbo v8, "Marker reference \'%s\' not found"
 
-    invoke-static {v7, v8}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v8, v7}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_1
 
@@ -11794,19 +11818,19 @@
 
     if-nez v6, :cond_8
 
-    const-string/jumbo v7, "Marker reference \'%s\' not found"
+    new-array v7, v9, [Ljava/lang/Object;
 
-    new-array v8, v12, [Ljava/lang/Object;
+    iget-object v8, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
-    iget-object v9, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
+    iget-object v8, v8, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iget-object v9, v9, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    iget-object v8, v8, Lcom/caverock/androidsvg/SVG$Style;->markerEnd:Ljava/lang/String;
 
-    iget-object v9, v9, Lcom/caverock/androidsvg/SVG$Style;->markerEnd:Ljava/lang/String;
+    aput-object v8, v7, v11
 
-    aput-object v9, v8, v11
+    const-string/jumbo v8, "Marker reference \'%s\' not found"
 
-    invoke-static {v7, v8}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v8, v7}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_2
 
@@ -11895,13 +11919,13 @@
 .method private renderMask(Lcom/caverock/androidsvg/SVG$Mask;Lcom/caverock/androidsvg/SVG$SvgElement;)V
     .locals 12
 
-    const-string/jumbo v6, "Mask render"
+    const/4 v6, 0x0
 
-    const/4 v7, 0x0
+    new-array v6, v6, [Ljava/lang/Object;
 
-    new-array v7, v7, [Ljava/lang/Object;
+    const-string/jumbo v7, "Mask render"
 
-    invoke-static {v6, v7}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v7, v6}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v6, p1, Lcom/caverock/androidsvg/SVG$Mask;->maskUnitsAreUser:Ljava/lang/Boolean;
 
@@ -12239,127 +12263,127 @@
 .end method
 
 .method private renderSwitchChild(Lcom/caverock/androidsvg/SVG$Switch;)V
-    .locals 14
+    .locals 15
 
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
-    move-result-object v10
+    move-result-object v13
 
-    invoke-virtual {v10}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+    invoke-virtual {v13}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+
+    move-result-object v5
+
+    iget-object v13, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->document:Lcom/caverock/androidsvg/SVG;
+
+    invoke-virtual {v13}, Lcom/caverock/androidsvg/SVG;->getFileResolver()Lcom/caverock/androidsvg/SVGExternalFileResolver;
+
+    move-result-object v6
+
+    invoke-virtual/range {p1 .. p1}, Lcom/caverock/androidsvg/SVG$Switch;->getChildren()Ljava/util/List;
+
+    move-result-object v13
+
+    invoke-interface {v13}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    iget-object v10, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->document:Lcom/caverock/androidsvg/SVG;
-
-    invoke-virtual {v10}, Lcom/caverock/androidsvg/SVG;->getFileResolver()Lcom/caverock/androidsvg/SVGExternalFileResolver;
-
-    move-result-object v3
-
-    invoke-virtual {p1}, Lcom/caverock/androidsvg/SVG$Switch;->getChildren()Ljava/util/List;
-
-    move-result-object v10
-
-    invoke-interface {v10}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v10
-
     :cond_0
-    invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v11
+    move-result v13
 
-    if-nez v11, :cond_1
+    if-nez v13, :cond_1
 
     :goto_0
     return-void
 
     :cond_1
-    invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v3
 
-    check-cast v0, Lcom/caverock/androidsvg/SVG$SvgObject;
+    check-cast v3, Lcom/caverock/androidsvg/SVG$SvgObject;
 
-    instance-of v11, v0, Lcom/caverock/androidsvg/SVG$SvgConditional;
+    instance-of v13, v3, Lcom/caverock/androidsvg/SVG$SvgConditional;
 
-    if-eqz v11, :cond_0
+    if-eqz v13, :cond_0
 
-    move-object v1, v0
+    move-object v4, v3
 
-    check-cast v1, Lcom/caverock/androidsvg/SVG$SvgConditional;
+    check-cast v4, Lcom/caverock/androidsvg/SVG$SvgConditional;
 
-    invoke-interface {v1}, Lcom/caverock/androidsvg/SVG$SvgConditional;->getRequiredExtensions()Ljava/lang/String;
+    invoke-interface {v4}, Lcom/caverock/androidsvg/SVG$SvgConditional;->getRequiredExtensions()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v13
 
-    if-nez v11, :cond_0
+    if-nez v13, :cond_0
 
-    invoke-interface {v1}, Lcom/caverock/androidsvg/SVG$SvgConditional;->getSystemLanguage()Ljava/util/Set;
+    invoke-interface {v4}, Lcom/caverock/androidsvg/SVG$SvgConditional;->getSystemLanguage()Ljava/util/Set;
+
+    move-result-object v12
+
+    if-nez v12, :cond_4
+
+    :goto_1
+    invoke-interface {v4}, Lcom/caverock/androidsvg/SVG$SvgConditional;->getRequiredFeatures()Ljava/util/Set;
 
     move-result-object v9
 
-    if-nez v9, :cond_4
-
-    :goto_1
-    invoke-interface {v1}, Lcom/caverock/androidsvg/SVG$SvgConditional;->getRequiredFeatures()Ljava/util/Set;
-
-    move-result-object v6
-
-    if-nez v6, :cond_5
+    if-nez v9, :cond_5
 
     :goto_2
-    invoke-interface {v1}, Lcom/caverock/androidsvg/SVG$SvgConditional;->getRequiredFormats()Ljava/util/Set;
+    invoke-interface {v4}, Lcom/caverock/androidsvg/SVG$SvgConditional;->getRequiredFormats()Ljava/util/Set;
 
-    move-result-object v7
+    move-result-object v10
 
-    if-nez v7, :cond_7
+    if-nez v10, :cond_7
 
     :cond_2
-    invoke-interface {v1}, Lcom/caverock/androidsvg/SVG$SvgConditional;->getRequiredFonts()Ljava/util/Set;
+    invoke-interface {v4}, Lcom/caverock/androidsvg/SVG$SvgConditional;->getRequiredFonts()Ljava/util/Set;
 
-    move-result-object v8
+    move-result-object v11
 
-    if-nez v8, :cond_8
+    if-nez v11, :cond_8
 
     :cond_3
-    invoke-direct {p0, v0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->render(Lcom/caverock/androidsvg/SVG$SvgObject;)V
+    invoke-direct {p0, v3}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->render(Lcom/caverock/androidsvg/SVG$SvgObject;)V
 
     goto :goto_0
 
     :cond_4
-    invoke-interface {v9}, Ljava/util/Set;->isEmpty()Z
+    invoke-interface {v12}, Ljava/util/Set;->isEmpty()Z
 
-    move-result v11
+    move-result v13
 
-    if-nez v11, :cond_0
+    if-nez v13, :cond_0
 
-    invoke-interface {v9, v2}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    invoke-interface {v12, v5}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    move-result v11
+    move-result v13
 
-    if-eqz v11, :cond_0
+    if-eqz v13, :cond_0
 
     goto :goto_1
 
     :cond_5
-    sget-object v11, Lcom/caverock/androidsvg/SVGAndroidRenderer;->supportedFeatures:Ljava/util/HashSet;
+    sget-object v13, Lcom/caverock/androidsvg/SVGAndroidRenderer;->supportedFeatures:Ljava/util/HashSet;
 
-    if-eqz v11, :cond_6
+    if-eqz v13, :cond_6
 
     :goto_3
-    invoke-interface {v6}, Ljava/util/Set;->isEmpty()Z
+    invoke-interface {v9}, Ljava/util/Set;->isEmpty()Z
 
-    move-result v11
+    move-result v13
 
-    if-nez v11, :cond_0
+    if-nez v13, :cond_0
 
-    sget-object v11, Lcom/caverock/androidsvg/SVGAndroidRenderer;->supportedFeatures:Ljava/util/HashSet;
+    sget-object v13, Lcom/caverock/androidsvg/SVGAndroidRenderer;->supportedFeatures:Ljava/util/HashSet;
 
-    invoke-virtual {v11, v6}, Ljava/util/HashSet;->containsAll(Ljava/util/Collection;)Z
+    invoke-virtual {v13, v9}, Ljava/util/HashSet;->containsAll(Ljava/util/Collection;)Z
 
-    move-result v11
+    move-result v13
 
-    if-eqz v11, :cond_0
+    if-eqz v13, :cond_0
 
     goto :goto_2
 
@@ -12369,90 +12393,90 @@
     goto :goto_3
 
     :cond_7
-    invoke-interface {v7}, Ljava/util/Set;->isEmpty()Z
+    invoke-interface {v10}, Ljava/util/Set;->isEmpty()Z
 
-    move-result v11
+    move-result v13
 
-    if-nez v11, :cond_0
+    if-nez v13, :cond_0
 
-    if-eqz v3, :cond_0
+    if-eqz v6, :cond_0
 
-    invoke-interface {v7}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {v10}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v11
+    move-result-object v0
 
     :goto_4
-    invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v12
+    move-result v13
 
-    if-eqz v12, :cond_2
+    if-eqz v13, :cond_2
 
-    invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v8
 
-    check-cast v5, Ljava/lang/String;
+    check-cast v8, Ljava/lang/String;
 
-    invoke-virtual {v3, v5}, Lcom/caverock/androidsvg/SVGExternalFileResolver;->isFormatSupported(Ljava/lang/String;)Z
+    invoke-virtual {v6, v8}, Lcom/caverock/androidsvg/SVGExternalFileResolver;->isFormatSupported(Ljava/lang/String;)Z
 
-    move-result v12
+    move-result v13
 
-    if-eqz v12, :cond_0
+    if-eqz v13, :cond_0
 
     goto :goto_4
 
     :cond_8
-    invoke-interface {v8}, Ljava/util/Set;->isEmpty()Z
+    invoke-interface {v11}, Ljava/util/Set;->isEmpty()Z
 
-    move-result v11
+    move-result v13
 
-    if-nez v11, :cond_0
+    if-nez v13, :cond_0
 
-    if-eqz v3, :cond_0
+    if-eqz v6, :cond_0
 
-    invoke-interface {v8}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {v11}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v11
+    move-result-object v1
 
     :goto_5
-    invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v12
+    move-result v13
 
-    if-eqz v12, :cond_3
+    if-eqz v13, :cond_3
 
-    invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v7
 
-    check-cast v4, Ljava/lang/String;
-
-    iget-object v12, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
-
-    iget-object v12, v12, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
-
-    iget-object v12, v12, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
-
-    invoke-virtual {v12}, Ljava/lang/Integer;->intValue()I
-
-    move-result v12
+    check-cast v7, Ljava/lang/String;
 
     iget-object v13, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
     iget-object v13, v13, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iget-object v13, v13, Lcom/caverock/androidsvg/SVG$Style;->fontStyle:Lcom/caverock/androidsvg/SVG$Style$FontStyle;
+    iget-object v13, v13, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
 
-    invoke-static {v13}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v13}, Ljava/lang/Integer;->intValue()I
+
+    move-result v13
+
+    iget-object v14, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
+
+    iget-object v14, v14, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+
+    iget-object v14, v14, Lcom/caverock/androidsvg/SVG$Style;->fontStyle:Lcom/caverock/androidsvg/SVG$Style$FontStyle;
+
+    invoke-static {v14}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-virtual {v6, v7, v13, v14}, Lcom/caverock/androidsvg/SVGExternalFileResolver;->resolveFont(Ljava/lang/String;ILjava/lang/String;)Landroid/graphics/Typeface;
 
     move-result-object v13
 
-    invoke-virtual {v3, v4, v12, v13}, Lcom/caverock/androidsvg/SVGExternalFileResolver;->resolveFont(Ljava/lang/String;ILjava/lang/String;)Landroid/graphics/Typeface;
-
-    move-result-object v12
-
-    if-eqz v12, :cond_0
+    if-eqz v13, :cond_0
 
     goto :goto_5
 .end method
@@ -12464,11 +12488,11 @@
 
     const/4 v11, 0x0
 
-    const-string/jumbo v8, "TextPath render"
+    new-array v8, v11, [Ljava/lang/Object;
 
-    new-array v10, v11, [Ljava/lang/Object;
+    const-string/jumbo v10, "TextPath render"
 
-    invoke-static {v8, v10}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v10, v8}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v8, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->state:Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;
 
@@ -12565,17 +12589,17 @@
     return-void
 
     :cond_2
-    const-string/jumbo v8, "TextPath reference \'%s\' not found"
+    const/4 v8, 0x1
 
-    const/4 v9, 0x1
+    new-array v8, v8, [Ljava/lang/Object;
 
-    new-array v9, v9, [Ljava/lang/Object;
+    iget-object v9, p1, Lcom/caverock/androidsvg/SVG$TextPath;->href:Ljava/lang/String;
 
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVG$TextPath;->href:Ljava/lang/String;
+    aput-object v9, v8, v11
 
-    aput-object v10, v9, v11
+    const-string/jumbo v9, "TextPath reference \'%s\' not found"
 
-    invoke-static {v8, v9}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v9, v8}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->error(Ljava/lang/String;[Ljava/lang/Object;)V
 
     return-void
 
@@ -12684,11 +12708,11 @@
 
     if-nez v2, :cond_0
 
-    const-string/jumbo v2, "Masks are not supported when using getPicture()"
+    new-array v2, v0, [Ljava/lang/Object;
 
-    new-array v3, v0, [Ljava/lang/Object;
+    const-string/jumbo v3, "Masks are not supported when using getPicture()"
 
-    invoke-static {v2, v3}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->warn(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v3, v2}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->warn(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_0
 
@@ -13313,43 +13337,43 @@
 
     aput v5, v3, v8
 
-    const/4 v5, 0x2
+    iget-object v5, p1, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
 
-    iget-object v6, p1, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
+    const/4 v6, 0x2
 
-    invoke-virtual {v6}, Lcom/caverock/androidsvg/SVG$Box;->maxX()F
+    invoke-virtual {v5}, Lcom/caverock/androidsvg/SVG$Box;->maxX()F
 
-    move-result v6
+    move-result v5
 
-    aput v6, v3, v5
+    aput v5, v3, v6
 
-    const/4 v5, 0x3
+    iget-object v5, p1, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
 
-    iget-object v6, p1, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
+    iget v5, v5, Lcom/caverock/androidsvg/SVG$Box;->minY:F
 
-    iget v6, v6, Lcom/caverock/androidsvg/SVG$Box;->minY:F
+    const/4 v6, 0x3
 
-    aput v6, v3, v5
+    aput v5, v3, v6
 
-    const/4 v5, 0x4
+    iget-object v5, p1, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
 
-    iget-object v6, p1, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
+    const/4 v6, 0x4
 
-    invoke-virtual {v6}, Lcom/caverock/androidsvg/SVG$Box;->maxX()F
+    invoke-virtual {v5}, Lcom/caverock/androidsvg/SVG$Box;->maxX()F
 
-    move-result v6
+    move-result v5
 
-    aput v6, v3, v5
+    aput v5, v3, v6
 
-    const/4 v5, 0x5
+    iget-object v5, p1, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
 
-    iget-object v6, p1, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
+    invoke-virtual {v5}, Lcom/caverock/androidsvg/SVG$Box;->maxY()F
 
-    invoke-virtual {v6}, Lcom/caverock/androidsvg/SVG$Box;->maxY()F
+    move-result v5
 
-    move-result v6
+    const/4 v6, 0x5
 
-    aput v6, v3, v5
+    aput v5, v3, v6
 
     iget-object v5, p1, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
 
@@ -13357,15 +13381,15 @@
 
     aput v5, v3, v9
 
-    const/4 v5, 0x7
+    iget-object v5, p1, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
 
-    iget-object v6, p1, Lcom/caverock/androidsvg/SVG$SvgElement;->boundingBox:Lcom/caverock/androidsvg/SVG$Box;
+    const/4 v6, 0x7
 
-    invoke-virtual {v6}, Lcom/caverock/androidsvg/SVG$Box;->maxY()F
+    invoke-virtual {v5}, Lcom/caverock/androidsvg/SVG$Box;->maxY()F
 
-    move-result v6
+    move-result v5
 
-    aput v6, v3, v5
+    aput v5, v3, v6
 
     iget-object v5, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->canvas:Landroid/graphics/Canvas;
 
@@ -13508,1239 +13532,1677 @@
 .end method
 
 .method private updateStyle(Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;Lcom/caverock/androidsvg/SVG$Style;)V
-    .locals 13
+    .locals 17
 
-    const-wide/16 v10, 0x1000
+    const-wide/16 v14, 0x1000
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_1
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_1
 
     :goto_0
-    const-wide/16 v10, 0x800
+    const-wide/16 v14, 0x800
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_2
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_2
 
     :goto_1
-    const-wide/16 v10, 0x1
+    const-wide/16 v14, 0x1
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_3
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_3
 
     :goto_2
-    const-wide/16 v10, 0x4
+    const-wide/16 v14, 0x4
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_5
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_5
 
     :goto_3
-    const-wide/16 v10, 0x1805
+    const-wide/16 v14, 0x1805
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_6
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_6
 
     :goto_4
-    const-wide/16 v10, 0x2
+    const-wide/16 v14, 0x2
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_7
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_7
 
     :goto_5
-    const-wide/16 v10, 0x8
+    const-wide/16 v14, 0x8
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_8
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_8
 
     :goto_6
-    const-wide/16 v10, 0x10
+    const-wide/16 v14, 0x10
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_a
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_a
 
     :goto_7
-    const-wide/16 v10, 0x1818
+    const-wide/16 v14, 0x1818
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_b
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_b
 
     :goto_8
-    const-wide v10, 0x800000000L
+    const-wide v14, 0x800000000L
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_c
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_c
 
     :goto_9
-    const-wide/16 v10, 0x20
+    const-wide/16 v14, 0x20
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_d
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_d
 
     :goto_a
-    const-wide/16 v10, 0x40
+    const-wide/16 v14, 0x40
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_e
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_e
 
     :goto_b
-    const-wide/16 v10, 0x80
+    const-wide/16 v14, 0x80
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_f
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_f
 
     :goto_c
-    const-wide/16 v10, 0x100
+    const-wide/16 v14, 0x100
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_10
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_10
 
     :goto_d
-    const-wide/16 v10, 0x200
+    const-wide/16 v14, 0x200
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_11
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_11
 
     :goto_e
-    const-wide/16 v10, 0x400
+    const-wide/16 v14, 0x400
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_12
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_12
 
     :goto_f
-    const-wide/16 v10, 0x600
+    const-wide/16 v14, 0x600
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_13
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_13
 
     :goto_10
-    const-wide/16 v10, 0x4000
+    const-wide/16 v14, 0x4000
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_19
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_19
 
     :goto_11
-    const-wide/16 v10, 0x2000
+    const-wide/16 v14, 0x2000
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_1a
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_1a
 
     :goto_12
-    const-wide/32 v10, 0x8000
+    const-wide/32 v14, 0x8000
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_1b
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_1b
 
     :goto_13
-    const-wide/32 v10, 0x10000
+    const-wide/32 v14, 0x10000
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_20
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_20
 
     :goto_14
-    const-wide/32 v10, 0x1a000
+    const-wide/32 v14, 0x1a000
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_21
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_21
 
     :goto_15
-    const-wide/32 v10, 0x20000
+    const-wide/32 v14, 0x20000
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_27
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_27
 
     :cond_0
     :goto_16
-    const-wide v10, 0x1000000000L
+    const-wide v14, 0x1000000000L
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_2c
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_2c
 
     :goto_17
-    const-wide/32 v10, 0x40000
+    const-wide/32 v14, 0x40000
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_2d
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_2d
 
     :goto_18
-    const-wide/32 v10, 0x80000
+    const-wide/32 v14, 0x80000
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_2e
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_2e
 
     :goto_19
-    const-wide/32 v10, 0x200000
+    const-wide/32 v14, 0x200000
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_2f
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_2f
 
     :goto_1a
-    const-wide/32 v10, 0x400000
+    const-wide/32 v14, 0x400000
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_30
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_30
 
     :goto_1b
-    const-wide/32 v10, 0x800000
+    const-wide/32 v14, 0x800000
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_31
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_31
 
     :goto_1c
-    const-wide/32 v10, 0x1000000
+    const-wide/32 v14, 0x1000000
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_32
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_32
 
     :goto_1d
-    const-wide/32 v10, 0x2000000
+    const-wide/32 v14, 0x2000000
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_33
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_33
 
     :goto_1e
-    const-wide/32 v10, 0x100000
+    const-wide/32 v14, 0x100000
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_34
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_34
 
     :goto_1f
-    const-wide/32 v10, 0x10000000
+    const-wide/32 v14, 0x10000000
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_35
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_35
 
     :goto_20
-    const-wide/32 v10, 0x20000000
+    const-wide/32 v14, 0x20000000
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_36
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_36
 
     :goto_21
-    const-wide/32 v10, 0x40000000
+    const-wide/32 v14, 0x40000000
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_37
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_37
 
     :goto_22
-    const-wide/32 v10, 0x4000000
+    const-wide/32 v14, 0x4000000
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_38
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_38
 
     :goto_23
-    const-wide/32 v10, 0x8000000
+    const-wide/32 v14, 0x8000000
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_39
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_39
 
     :goto_24
-    const-wide v10, 0x200000000L
+    const-wide v14, 0x200000000L
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_3a
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_3a
 
     :goto_25
-    const-wide v10, 0x400000000L
+    const-wide v14, 0x400000000L
 
-    invoke-direct {p0, p2, v10, v11}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+    move-object/from16 v0, p0
 
-    move-result v10
+    move-object/from16 v1, p2
 
-    if-nez v10, :cond_3b
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->isSpecified(Lcom/caverock/androidsvg/SVG$Style;J)Z
+
+    move-result v14
+
+    if-nez v14, :cond_3b
 
     :goto_26
     return-void
 
     :cond_1
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->color:Lcom/caverock/androidsvg/SVG$Colour;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->color:Lcom/caverock/androidsvg/SVG$Colour;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->color:Lcom/caverock/androidsvg/SVG$Colour;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->color:Lcom/caverock/androidsvg/SVG$Colour;
 
     goto/16 :goto_0
 
     :cond_2
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->opacity:Ljava/lang/Float;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->opacity:Ljava/lang/Float;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->opacity:Ljava/lang/Float;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->opacity:Ljava/lang/Float;
 
     goto/16 :goto_1
 
     :cond_3
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->fill:Lcom/caverock/androidsvg/SVG$SvgPaint;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->fill:Lcom/caverock/androidsvg/SVG$SvgPaint;
+    move-object/from16 v0, p2
 
-    iget-object v10, p2, Lcom/caverock/androidsvg/SVG$Style;->fill:Lcom/caverock/androidsvg/SVG$SvgPaint;
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->fill:Lcom/caverock/androidsvg/SVG$SvgPaint;
 
-    if-nez v10, :cond_4
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->fill:Lcom/caverock/androidsvg/SVG$SvgPaint;
 
-    const/4 v10, 0x0
+    move-object/from16 v0, p2
+
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVG$Style;->fill:Lcom/caverock/androidsvg/SVG$SvgPaint;
+
+    if-nez v14, :cond_4
+
+    const/4 v14, 0x0
 
     :goto_27
-    iput-boolean v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->hasFill:Z
+    move-object/from16 v0, p1
+
+    iput-boolean v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->hasFill:Z
 
     goto/16 :goto_2
 
     :cond_4
-    const/4 v10, 0x1
+    const/4 v14, 0x1
 
     goto :goto_27
 
     :cond_5
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->fillOpacity:Ljava/lang/Float;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->fillOpacity:Ljava/lang/Float;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->fillOpacity:Ljava/lang/Float;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->fillOpacity:Ljava/lang/Float;
 
     goto/16 :goto_3
 
     :cond_6
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v10, v10, Lcom/caverock/androidsvg/SVG$Style;->fill:Lcom/caverock/androidsvg/SVG$SvgPaint;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    const/4 v11, 0x1
+    iget-object v14, v14, Lcom/caverock/androidsvg/SVG$Style;->fill:Lcom/caverock/androidsvg/SVG$SvgPaint;
 
-    invoke-direct {p0, p1, v11, v10}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->setPaintColour(Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;ZLcom/caverock/androidsvg/SVG$SvgPaint;)V
+    const/4 v15, 0x1
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    invoke-direct {v0, v1, v15, v14}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->setPaintColour(Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;ZLcom/caverock/androidsvg/SVG$SvgPaint;)V
 
     goto/16 :goto_4
 
     :cond_7
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->fillRule:Lcom/caverock/androidsvg/SVG$Style$FillRule;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->fillRule:Lcom/caverock/androidsvg/SVG$Style$FillRule;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->fillRule:Lcom/caverock/androidsvg/SVG$Style$FillRule;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->fillRule:Lcom/caverock/androidsvg/SVG$Style$FillRule;
 
     goto/16 :goto_5
 
     :cond_8
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->stroke:Lcom/caverock/androidsvg/SVG$SvgPaint;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->stroke:Lcom/caverock/androidsvg/SVG$SvgPaint;
+    move-object/from16 v0, p2
 
-    iget-object v10, p2, Lcom/caverock/androidsvg/SVG$Style;->stroke:Lcom/caverock/androidsvg/SVG$SvgPaint;
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->stroke:Lcom/caverock/androidsvg/SVG$SvgPaint;
 
-    if-nez v10, :cond_9
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->stroke:Lcom/caverock/androidsvg/SVG$SvgPaint;
 
-    const/4 v10, 0x0
+    move-object/from16 v0, p2
+
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVG$Style;->stroke:Lcom/caverock/androidsvg/SVG$SvgPaint;
+
+    if-nez v14, :cond_9
+
+    const/4 v14, 0x0
 
     :goto_28
-    iput-boolean v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->hasStroke:Z
+    move-object/from16 v0, p1
+
+    iput-boolean v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->hasStroke:Z
 
     goto/16 :goto_6
 
     :cond_9
-    const/4 v10, 0x1
+    const/4 v14, 0x1
 
     goto :goto_28
 
     :cond_a
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->strokeOpacity:Ljava/lang/Float;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->strokeOpacity:Ljava/lang/Float;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->strokeOpacity:Ljava/lang/Float;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->strokeOpacity:Ljava/lang/Float;
 
     goto/16 :goto_7
 
     :cond_b
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v10, v10, Lcom/caverock/androidsvg/SVG$Style;->stroke:Lcom/caverock/androidsvg/SVG$SvgPaint;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    const/4 v11, 0x0
+    iget-object v14, v14, Lcom/caverock/androidsvg/SVG$Style;->stroke:Lcom/caverock/androidsvg/SVG$SvgPaint;
 
-    invoke-direct {p0, p1, v11, v10}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->setPaintColour(Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;ZLcom/caverock/androidsvg/SVG$SvgPaint;)V
+    const/4 v15, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    invoke-direct {v0, v1, v15, v14}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->setPaintColour(Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;ZLcom/caverock/androidsvg/SVG$SvgPaint;)V
 
     goto/16 :goto_8
 
     :cond_c
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->vectorEffect:Lcom/caverock/androidsvg/SVG$Style$VectorEffect;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->vectorEffect:Lcom/caverock/androidsvg/SVG$Style$VectorEffect;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->vectorEffect:Lcom/caverock/androidsvg/SVG$Style$VectorEffect;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->vectorEffect:Lcom/caverock/androidsvg/SVG$Style$VectorEffect;
 
     goto/16 :goto_9
 
     :cond_d
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->strokeWidth:Lcom/caverock/androidsvg/SVG$Length;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->strokeWidth:Lcom/caverock/androidsvg/SVG$Length;
+    move-object/from16 v0, p2
 
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->strokeWidth:Lcom/caverock/androidsvg/SVG$Length;
 
-    iget-object v11, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->strokeWidth:Lcom/caverock/androidsvg/SVG$Length;
 
-    iget-object v11, v11, Lcom/caverock/androidsvg/SVG$Style;->strokeWidth:Lcom/caverock/androidsvg/SVG$Length;
+    move-object/from16 v0, p1
 
-    invoke-virtual {v11, p0}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;)F
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
 
-    move-result v11
+    move-object/from16 v0, p1
 
-    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setStrokeWidth(F)V
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+
+    iget-object v15, v15, Lcom/caverock/androidsvg/SVG$Style;->strokeWidth:Lcom/caverock/androidsvg/SVG$Length;
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v15, v0}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;)F
+
+    move-result v15
+
+    invoke-virtual {v14, v15}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
     goto/16 :goto_a
 
     :cond_e
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->strokeLineCap:Lcom/caverock/androidsvg/SVG$Style$LineCaps;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->strokeLineCap:Lcom/caverock/androidsvg/SVG$Style$LineCaps;
+    move-object/from16 v0, p2
 
-    sget-object v10, Lcom/caverock/androidsvg/SVGAndroidRenderer$1;->$SwitchMap$com$caverock$androidsvg$SVG$Style$LineCaps:[I
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->strokeLineCap:Lcom/caverock/androidsvg/SVG$Style$LineCaps;
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->strokeLineCap:Lcom/caverock/androidsvg/SVG$Style$LineCaps;
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->strokeLineCap:Lcom/caverock/androidsvg/SVG$Style$LineCaps;
 
-    invoke-virtual {v11}, Lcom/caverock/androidsvg/SVG$Style$LineCaps;->ordinal()I
+    sget-object v14, Lcom/caverock/androidsvg/SVGAndroidRenderer$1;->$SwitchMap$com$caverock$androidsvg$SVG$Style$LineCaps:[I
 
-    move-result v11
+    move-object/from16 v0, p2
 
-    aget v10, v10, v11
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->strokeLineCap:Lcom/caverock/androidsvg/SVG$Style$LineCaps;
 
-    packed-switch v10, :pswitch_data_0
+    invoke-virtual {v15}, Lcom/caverock/androidsvg/SVG$Style$LineCaps;->ordinal()I
+
+    move-result v15
+
+    aget v14, v14, v15
+
+    packed-switch v14, :pswitch_data_0
 
     goto/16 :goto_b
 
     :pswitch_0
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
+    move-object/from16 v0, p1
 
-    sget-object v11, Landroid/graphics/Paint$Cap;->BUTT:Landroid/graphics/Paint$Cap;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
+    sget-object v15, Landroid/graphics/Paint$Cap;->BUTT:Landroid/graphics/Paint$Cap;
+
+    invoke-virtual {v14, v15}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
 
     goto/16 :goto_b
 
     :pswitch_1
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
+    move-object/from16 v0, p1
 
-    sget-object v11, Landroid/graphics/Paint$Cap;->ROUND:Landroid/graphics/Paint$Cap;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
+    sget-object v15, Landroid/graphics/Paint$Cap;->ROUND:Landroid/graphics/Paint$Cap;
+
+    invoke-virtual {v14, v15}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
 
     goto/16 :goto_b
 
     :pswitch_2
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
+    move-object/from16 v0, p1
 
-    sget-object v11, Landroid/graphics/Paint$Cap;->SQUARE:Landroid/graphics/Paint$Cap;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
+    sget-object v15, Landroid/graphics/Paint$Cap;->SQUARE:Landroid/graphics/Paint$Cap;
+
+    invoke-virtual {v14, v15}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
 
     goto/16 :goto_b
 
     :cond_f
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->strokeLineJoin:Lcom/caverock/androidsvg/SVG$Style$LineJoin;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->strokeLineJoin:Lcom/caverock/androidsvg/SVG$Style$LineJoin;
+    move-object/from16 v0, p2
 
-    sget-object v10, Lcom/caverock/androidsvg/SVGAndroidRenderer$1;->$SwitchMap$com$caverock$androidsvg$SVG$Style$LineJoin:[I
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->strokeLineJoin:Lcom/caverock/androidsvg/SVG$Style$LineJoin;
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->strokeLineJoin:Lcom/caverock/androidsvg/SVG$Style$LineJoin;
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->strokeLineJoin:Lcom/caverock/androidsvg/SVG$Style$LineJoin;
 
-    invoke-virtual {v11}, Lcom/caverock/androidsvg/SVG$Style$LineJoin;->ordinal()I
+    sget-object v14, Lcom/caverock/androidsvg/SVGAndroidRenderer$1;->$SwitchMap$com$caverock$androidsvg$SVG$Style$LineJoin:[I
 
-    move-result v11
+    move-object/from16 v0, p2
 
-    aget v10, v10, v11
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->strokeLineJoin:Lcom/caverock/androidsvg/SVG$Style$LineJoin;
 
-    packed-switch v10, :pswitch_data_1
+    invoke-virtual {v15}, Lcom/caverock/androidsvg/SVG$Style$LineJoin;->ordinal()I
+
+    move-result v15
+
+    aget v14, v14, v15
+
+    packed-switch v14, :pswitch_data_1
 
     goto/16 :goto_c
 
     :pswitch_3
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
+    move-object/from16 v0, p1
 
-    sget-object v11, Landroid/graphics/Paint$Join;->MITER:Landroid/graphics/Paint$Join;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setStrokeJoin(Landroid/graphics/Paint$Join;)V
+    sget-object v15, Landroid/graphics/Paint$Join;->MITER:Landroid/graphics/Paint$Join;
+
+    invoke-virtual {v14, v15}, Landroid/graphics/Paint;->setStrokeJoin(Landroid/graphics/Paint$Join;)V
 
     goto/16 :goto_c
 
     :pswitch_4
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
+    move-object/from16 v0, p1
 
-    sget-object v11, Landroid/graphics/Paint$Join;->ROUND:Landroid/graphics/Paint$Join;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setStrokeJoin(Landroid/graphics/Paint$Join;)V
+    sget-object v15, Landroid/graphics/Paint$Join;->ROUND:Landroid/graphics/Paint$Join;
+
+    invoke-virtual {v14, v15}, Landroid/graphics/Paint;->setStrokeJoin(Landroid/graphics/Paint$Join;)V
 
     goto/16 :goto_c
 
     :pswitch_5
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
+    move-object/from16 v0, p1
 
-    sget-object v11, Landroid/graphics/Paint$Join;->BEVEL:Landroid/graphics/Paint$Join;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setStrokeJoin(Landroid/graphics/Paint$Join;)V
+    sget-object v15, Landroid/graphics/Paint$Join;->BEVEL:Landroid/graphics/Paint$Join;
+
+    invoke-virtual {v14, v15}, Landroid/graphics/Paint;->setStrokeJoin(Landroid/graphics/Paint$Join;)V
 
     goto/16 :goto_c
 
     :cond_10
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->strokeMiterLimit:Ljava/lang/Float;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->strokeMiterLimit:Ljava/lang/Float;
+    move-object/from16 v0, p2
 
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->strokeMiterLimit:Ljava/lang/Float;
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->strokeMiterLimit:Ljava/lang/Float;
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->strokeMiterLimit:Ljava/lang/Float;
 
-    invoke-virtual {v11}, Ljava/lang/Float;->floatValue()F
+    move-object/from16 v0, p1
 
-    move-result v11
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setStrokeMiter(F)V
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->strokeMiterLimit:Ljava/lang/Float;
+
+    invoke-virtual {v15}, Ljava/lang/Float;->floatValue()F
+
+    move-result v15
+
+    invoke-virtual {v14, v15}, Landroid/graphics/Paint;->setStrokeMiter(F)V
 
     goto/16 :goto_d
 
     :cond_11
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->strokeDashArray:[Lcom/caverock/androidsvg/SVG$Length;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->strokeDashArray:[Lcom/caverock/androidsvg/SVG$Length;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->strokeDashArray:[Lcom/caverock/androidsvg/SVG$Length;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->strokeDashArray:[Lcom/caverock/androidsvg/SVG$Length;
 
     goto/16 :goto_e
 
     :cond_12
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->strokeDashOffset:Lcom/caverock/androidsvg/SVG$Length;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->strokeDashOffset:Lcom/caverock/androidsvg/SVG$Length;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->strokeDashOffset:Lcom/caverock/androidsvg/SVG$Length;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->strokeDashOffset:Lcom/caverock/androidsvg/SVG$Length;
 
     goto/16 :goto_f
 
     :cond_13
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v10, v10, Lcom/caverock/androidsvg/SVG$Style;->strokeDashArray:[Lcom/caverock/androidsvg/SVG$Length;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    if-eqz v10, :cond_14
+    iget-object v14, v14, Lcom/caverock/androidsvg/SVG$Style;->strokeDashArray:[Lcom/caverock/androidsvg/SVG$Length;
 
-    const/4 v6, 0x0
-
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
-
-    iget-object v10, v10, Lcom/caverock/androidsvg/SVG$Style;->strokeDashArray:[Lcom/caverock/androidsvg/SVG$Length;
-
-    array-length v8, v10
-
-    rem-int/lit8 v10, v8, 0x2
-
-    if-eqz v10, :cond_15
-
-    mul-int/lit8 v0, v8, 0x2
-
-    :goto_29
-    new-array v7, v0, [F
-
-    const/4 v5, 0x0
-
-    :goto_2a
-    if-lt v5, v0, :cond_16
+    if-eqz v14, :cond_14
 
     const/4 v10, 0x0
 
-    cmpl-float v10, v6, v10
+    move-object/from16 v0, p1
 
-    if-nez v10, :cond_17
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
+    iget-object v14, v14, Lcom/caverock/androidsvg/SVG$Style;->strokeDashArray:[Lcom/caverock/androidsvg/SVG$Length;
 
-    const/4 v11, 0x0
+    array-length v12, v14
 
-    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setPathEffect(Landroid/graphics/PathEffect;)Landroid/graphics/PathEffect;
+    rem-int/lit8 v14, v12, 0x2
+
+    if-eqz v14, :cond_15
+
+    mul-int/lit8 v4, v12, 0x2
+
+    :goto_29
+    new-array v11, v4, [F
+
+    const/4 v9, 0x0
+
+    :goto_2a
+    if-lt v9, v4, :cond_16
+
+    const/4 v14, 0x0
+
+    cmpl-float v14, v10, v14
+
+    if-nez v14, :cond_17
+
+    move-object/from16 v0, p1
+
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
+
+    const/4 v15, 0x0
+
+    invoke-virtual {v14, v15}, Landroid/graphics/Paint;->setPathEffect(Landroid/graphics/PathEffect;)Landroid/graphics/PathEffect;
 
     goto/16 :goto_10
 
     :cond_14
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
+    move-object/from16 v0, p1
 
-    const/4 v11, 0x0
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setPathEffect(Landroid/graphics/PathEffect;)Landroid/graphics/PathEffect;
+    const/4 v15, 0x0
+
+    invoke-virtual {v14, v15}, Landroid/graphics/Paint;->setPathEffect(Landroid/graphics/PathEffect;)Landroid/graphics/PathEffect;
 
     goto/16 :goto_10
 
     :cond_15
-    move v0, v8
+    move v4, v12
 
     goto :goto_29
 
     :cond_16
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v10, v10, Lcom/caverock/androidsvg/SVG$Style;->strokeDashArray:[Lcom/caverock/androidsvg/SVG$Length;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    rem-int v11, v5, v8
+    iget-object v14, v14, Lcom/caverock/androidsvg/SVG$Style;->strokeDashArray:[Lcom/caverock/androidsvg/SVG$Length;
 
-    aget-object v10, v10, v11
+    rem-int v15, v9, v12
 
-    invoke-virtual {v10, p0}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;)F
+    aget-object v14, v14, v15
 
-    move-result v10
+    move-object/from16 v0, p0
 
-    aput v10, v7, v5
+    invoke-virtual {v14, v0}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;)F
 
-    aget v10, v7, v5
+    move-result v14
 
-    add-float/2addr v6, v10
+    aput v14, v11, v9
 
-    add-int/lit8 v5, v5, 0x1
+    aget v14, v11, v9
+
+    add-float/2addr v10, v14
+
+    add-int/lit8 v9, v9, 0x1
 
     goto :goto_2a
 
     :cond_17
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v10, v10, Lcom/caverock/androidsvg/SVG$Style;->strokeDashOffset:Lcom/caverock/androidsvg/SVG$Length;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    invoke-virtual {v10, p0}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;)F
+    iget-object v14, v14, Lcom/caverock/androidsvg/SVG$Style;->strokeDashOffset:Lcom/caverock/androidsvg/SVG$Length;
 
-    move-result v9
+    move-object/from16 v0, p0
 
-    const/4 v10, 0x0
+    invoke-virtual {v14, v0}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;)F
 
-    cmpg-float v10, v9, v10
+    move-result v13
 
-    if-gez v10, :cond_18
+    const/4 v14, 0x0
 
-    rem-float v10, v9, v6
+    cmpg-float v14, v13, v14
 
-    add-float v9, v6, v10
+    if-gez v14, :cond_18
+
+    rem-float v14, v13, v10
+
+    add-float v13, v10, v14
 
     :cond_18
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
+    move-object/from16 v0, p1
 
-    new-instance v11, Landroid/graphics/DashPathEffect;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
 
-    invoke-direct {v11, v7, v9}, Landroid/graphics/DashPathEffect;-><init>([FF)V
+    new-instance v15, Landroid/graphics/DashPathEffect;
 
-    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setPathEffect(Landroid/graphics/PathEffect;)Landroid/graphics/PathEffect;
+    invoke-direct {v15, v11, v13}, Landroid/graphics/DashPathEffect;-><init>([FF)V
+
+    invoke-virtual {v14, v15}, Landroid/graphics/Paint;->setPathEffect(Landroid/graphics/PathEffect;)Landroid/graphics/PathEffect;
 
     goto/16 :goto_10
 
     :cond_19
-    invoke-virtual {p0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->getCurrentFontSize()F
+    invoke-virtual/range {p0 .. p0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->getCurrentFontSize()F
 
-    move-result v1
+    move-result v5
 
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->fontSize:Lcom/caverock/androidsvg/SVG$Length;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->fontSize:Lcom/caverock/androidsvg/SVG$Length;
+    move-object/from16 v0, p2
 
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->fillPaint:Landroid/graphics/Paint;
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->fontSize:Lcom/caverock/androidsvg/SVG$Length;
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->fontSize:Lcom/caverock/androidsvg/SVG$Length;
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->fontSize:Lcom/caverock/androidsvg/SVG$Length;
 
-    invoke-virtual {v11, p0, v1}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;F)F
+    move-object/from16 v0, p1
 
-    move-result v11
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->fillPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setTextSize(F)V
+    move-object/from16 v0, p2
 
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->fontSize:Lcom/caverock/androidsvg/SVG$Length;
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->fontSize:Lcom/caverock/androidsvg/SVG$Length;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v11, p0, v1}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;F)F
+    invoke-virtual {v15, v0, v5}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;F)F
 
-    move-result v11
+    move-result v15
 
-    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setTextSize(F)V
+    invoke-virtual {v14, v15}, Landroid/graphics/Paint;->setTextSize(F)V
+
+    move-object/from16 v0, p1
+
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
+
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->fontSize:Lcom/caverock/androidsvg/SVG$Length;
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v15, v0, v5}, Lcom/caverock/androidsvg/SVG$Length;->floatValue(Lcom/caverock/androidsvg/SVGAndroidRenderer;F)F
+
+    move-result v15
+
+    invoke-virtual {v14, v15}, Landroid/graphics/Paint;->setTextSize(F)V
 
     goto/16 :goto_11
 
     :cond_1a
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->fontFamily:Ljava/util/List;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->fontFamily:Ljava/util/List;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->fontFamily:Ljava/util/List;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->fontFamily:Ljava/util/List;
 
     goto/16 :goto_12
 
     :cond_1b
-    iget-object v10, p2, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
+    move-object/from16 v0, p2
 
-    invoke-virtual {v10}, Ljava/lang/Integer;->intValue()I
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
 
-    move-result v10
+    invoke-virtual {v14}, Ljava/lang/Integer;->intValue()I
 
-    const/4 v11, -0x1
+    move-result v14
 
-    if-eq v10, v11, :cond_1e
+    const/4 v15, -0x1
+
+    if-eq v14, v15, :cond_1e
 
     :cond_1c
-    iget-object v10, p2, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
+    move-object/from16 v0, p2
 
-    invoke-virtual {v10}, Ljava/lang/Integer;->intValue()I
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
 
-    move-result v10
+    invoke-virtual {v14}, Ljava/lang/Integer;->intValue()I
 
-    const/4 v11, 0x1
+    move-result v14
 
-    if-eq v10, v11, :cond_1f
+    const/4 v15, 0x1
+
+    if-eq v14, v15, :cond_1f
 
     :cond_1d
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
 
     goto/16 :goto_13
 
     :cond_1e
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v10, v10, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    invoke-virtual {v10}, Ljava/lang/Integer;->intValue()I
+    iget-object v14, v14, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
 
-    move-result v10
+    invoke-virtual {v14}, Ljava/lang/Integer;->intValue()I
 
-    const/16 v11, 0x64
+    move-result v14
 
-    if-le v10, v11, :cond_1c
+    const/16 v15, 0x64
 
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    if-le v14, v15, :cond_1c
 
-    iget-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
+    move-object/from16 v0, p1
 
-    invoke-virtual {v11}, Ljava/lang/Integer;->intValue()I
+    iget-object v2, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    move-result v11
+    iget-object v14, v2, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
 
-    add-int/lit8 v11, v11, -0x64
+    invoke-virtual {v14}, Ljava/lang/Integer;->intValue()I
 
-    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result v14
 
-    move-result-object v11
+    add-int/lit8 v14, v14, -0x64
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
+    invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v14
+
+    iput-object v14, v2, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
 
     goto/16 :goto_13
 
     :cond_1f
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v10, v10, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    invoke-virtual {v10}, Ljava/lang/Integer;->intValue()I
+    iget-object v14, v14, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
 
-    move-result v10
+    invoke-virtual {v14}, Ljava/lang/Integer;->intValue()I
 
-    const/16 v11, 0x384
+    move-result v14
 
-    if-ge v10, v11, :cond_1d
+    const/16 v15, 0x384
 
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    if-ge v14, v15, :cond_1d
 
-    iget-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
+    move-object/from16 v0, p1
 
-    invoke-virtual {v11}, Ljava/lang/Integer;->intValue()I
+    iget-object v2, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    move-result v11
+    iget-object v14, v2, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
 
-    add-int/lit8 v11, v11, 0x64
+    invoke-virtual {v14}, Ljava/lang/Integer;->intValue()I
 
-    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result v14
 
-    move-result-object v11
+    add-int/lit8 v14, v14, 0x64
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
+    invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v14
+
+    iput-object v14, v2, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
 
     goto/16 :goto_13
 
     :cond_20
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->fontStyle:Lcom/caverock/androidsvg/SVG$Style$FontStyle;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->fontStyle:Lcom/caverock/androidsvg/SVG$Style$FontStyle;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->fontStyle:Lcom/caverock/androidsvg/SVG$Style$FontStyle;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->fontStyle:Lcom/caverock/androidsvg/SVG$Style$FontStyle;
 
     goto/16 :goto_14
 
     :cond_21
-    const/4 v2, 0x0
+    const/4 v6, 0x0
 
-    const/4 v3, 0x0
+    const/4 v7, 0x0
 
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v10, v10, Lcom/caverock/androidsvg/SVG$Style;->fontFamily:Ljava/util/List;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    if-nez v10, :cond_23
+    iget-object v14, v14, Lcom/caverock/androidsvg/SVG$Style;->fontFamily:Ljava/util/List;
+
+    if-nez v14, :cond_23
 
     :cond_22
-    if-eqz v3, :cond_26
+    if-eqz v7, :cond_26
 
     :goto_2b
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->fillPaint:Landroid/graphics/Paint;
+    move-object/from16 v0, p1
 
-    invoke-virtual {v10, v3}, Landroid/graphics/Paint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->fillPaint:Landroid/graphics/Paint;
 
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
+    invoke-virtual {v14, v7}, Landroid/graphics/Paint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
 
-    invoke-virtual {v10, v3}, Landroid/graphics/Paint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
+    move-object/from16 v0, p1
+
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v14, v7}, Landroid/graphics/Paint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
 
     goto/16 :goto_15
 
     :cond_23
-    iget-object v10, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->document:Lcom/caverock/androidsvg/SVG;
+    move-object/from16 v0, p0
 
-    if-eqz v10, :cond_22
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->document:Lcom/caverock/androidsvg/SVG;
 
-    iget-object v10, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->document:Lcom/caverock/androidsvg/SVG;
+    if-eqz v14, :cond_22
 
-    invoke-virtual {v10}, Lcom/caverock/androidsvg/SVG;->getFileResolver()Lcom/caverock/androidsvg/SVGExternalFileResolver;
+    move-object/from16 v0, p0
 
-    move-result-object v2
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->document:Lcom/caverock/androidsvg/SVG;
 
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    invoke-virtual {v14}, Lcom/caverock/androidsvg/SVG;->getFileResolver()Lcom/caverock/androidsvg/SVGExternalFileResolver;
 
-    iget-object v10, v10, Lcom/caverock/androidsvg/SVG$Style;->fontFamily:Ljava/util/List;
+    move-result-object v6
 
-    invoke-interface {v10}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    move-object/from16 v0, p1
 
-    move-result-object v10
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    :goto_2c
-    invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
+    iget-object v14, v14, Lcom/caverock/androidsvg/SVG$Style;->fontFamily:Ljava/util/List;
 
-    move-result v11
-
-    if-eqz v11, :cond_22
-
-    invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Ljava/lang/String;
-
-    iget-object v11, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
-
-    iget-object v11, v11, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
-
-    iget-object v12, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
-
-    iget-object v12, v12, Lcom/caverock/androidsvg/SVG$Style;->fontStyle:Lcom/caverock/androidsvg/SVG$Style$FontStyle;
-
-    invoke-direct {p0, v4, v11, v12}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->checkGenericFont(Ljava/lang/String;Ljava/lang/Integer;Lcom/caverock/androidsvg/SVG$Style$FontStyle;)Landroid/graphics/Typeface;
+    invoke-interface {v14}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    if-eqz v3, :cond_25
+    :goto_2c
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_22
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Ljava/lang/String;
+
+    move-object/from16 v0, p1
+
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+
+    iget-object v14, v14, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
+
+    move-object/from16 v0, p1
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+
+    iget-object v15, v15, Lcom/caverock/androidsvg/SVG$Style;->fontStyle:Lcom/caverock/androidsvg/SVG$Style$FontStyle;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v8, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->checkGenericFont(Ljava/lang/String;Ljava/lang/Integer;Lcom/caverock/androidsvg/SVG$Style$FontStyle;)Landroid/graphics/Typeface;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_25
 
     :cond_24
     :goto_2d
-    if-nez v3, :cond_22
+    if-nez v7, :cond_22
 
     goto :goto_2c
 
     :cond_25
-    if-eqz v2, :cond_24
+    if-eqz v6, :cond_24
 
-    iget-object v11, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, v11, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    invoke-virtual {v11}, Ljava/lang/Integer;->intValue()I
+    iget-object v14, v14, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
 
-    move-result v11
+    invoke-virtual {v14}, Ljava/lang/Integer;->intValue()I
 
-    iget-object v12, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-result v14
 
-    iget-object v12, v12, Lcom/caverock/androidsvg/SVG$Style;->fontStyle:Lcom/caverock/androidsvg/SVG$Style$FontStyle;
+    move-object/from16 v0, p1
 
-    invoke-static {v12}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    move-result-object v12
+    iget-object v15, v15, Lcom/caverock/androidsvg/SVG$Style;->fontStyle:Lcom/caverock/androidsvg/SVG$Style$FontStyle;
 
-    invoke-virtual {v2, v4, v11, v12}, Lcom/caverock/androidsvg/SVGExternalFileResolver;->resolveFont(Ljava/lang/String;ILjava/lang/String;)Landroid/graphics/Typeface;
+    invoke-static {v15}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v15
+
+    invoke-virtual {v6, v8, v14, v15}, Lcom/caverock/androidsvg/SVGExternalFileResolver;->resolveFont(Ljava/lang/String;ILjava/lang/String;)Landroid/graphics/Typeface;
+
+    move-result-object v7
 
     goto :goto_2d
 
     :cond_26
-    const-string/jumbo v10, "sans-serif"
+    move-object/from16 v0, p1
 
-    iget-object v11, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iget-object v11, v11, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
+    iget-object v14, v14, Lcom/caverock/androidsvg/SVG$Style;->fontWeight:Ljava/lang/Integer;
 
-    iget-object v12, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v12, v12, Lcom/caverock/androidsvg/SVG$Style;->fontStyle:Lcom/caverock/androidsvg/SVG$Style$FontStyle;
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    invoke-direct {p0, v10, v11, v12}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->checkGenericFont(Ljava/lang/String;Ljava/lang/Integer;Lcom/caverock/androidsvg/SVG$Style$FontStyle;)Landroid/graphics/Typeface;
+    iget-object v15, v15, Lcom/caverock/androidsvg/SVG$Style;->fontStyle:Lcom/caverock/androidsvg/SVG$Style$FontStyle;
 
-    move-result-object v3
+    const-string/jumbo v16, "sans-serif"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v16
+
+    invoke-direct {v0, v1, v14, v15}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->checkGenericFont(Ljava/lang/String;Ljava/lang/Integer;Lcom/caverock/androidsvg/SVG$Style$FontStyle;)Landroid/graphics/Typeface;
+
+    move-result-object v7
 
     goto :goto_2b
 
     :cond_27
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->textDecoration:Lcom/caverock/androidsvg/SVG$Style$TextDecoration;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->textDecoration:Lcom/caverock/androidsvg/SVG$Style$TextDecoration;
+    move-object/from16 v0, p2
 
-    iget-object v11, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->fillPaint:Landroid/graphics/Paint;
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->textDecoration:Lcom/caverock/androidsvg/SVG$Style$TextDecoration;
 
-    iget-object v10, p2, Lcom/caverock/androidsvg/SVG$Style;->textDecoration:Lcom/caverock/androidsvg/SVG$Style$TextDecoration;
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->textDecoration:Lcom/caverock/androidsvg/SVG$Style$TextDecoration;
 
-    sget-object v12, Lcom/caverock/androidsvg/SVG$Style$TextDecoration;->LineThrough:Lcom/caverock/androidsvg/SVG$Style$TextDecoration;
+    move-object/from16 v0, p1
 
-    if-eq v10, v12, :cond_28
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->fillPaint:Landroid/graphics/Paint;
 
-    const/4 v10, 0x0
+    move-object/from16 v0, p2
+
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVG$Style;->textDecoration:Lcom/caverock/androidsvg/SVG$Style$TextDecoration;
+
+    sget-object v16, Lcom/caverock/androidsvg/SVG$Style$TextDecoration;->LineThrough:Lcom/caverock/androidsvg/SVG$Style$TextDecoration;
+
+    move-object/from16 v0, v16
+
+    if-eq v14, v0, :cond_28
+
+    const/4 v14, 0x0
 
     :goto_2e
-    invoke-virtual {v11, v10}, Landroid/graphics/Paint;->setStrikeThruText(Z)V
+    invoke-virtual {v15, v14}, Landroid/graphics/Paint;->setStrikeThruText(Z)V
 
-    iget-object v11, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->fillPaint:Landroid/graphics/Paint;
+    move-object/from16 v0, p1
 
-    iget-object v10, p2, Lcom/caverock/androidsvg/SVG$Style;->textDecoration:Lcom/caverock/androidsvg/SVG$Style$TextDecoration;
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->fillPaint:Landroid/graphics/Paint;
 
-    sget-object v12, Lcom/caverock/androidsvg/SVG$Style$TextDecoration;->Underline:Lcom/caverock/androidsvg/SVG$Style$TextDecoration;
+    move-object/from16 v0, p2
 
-    if-eq v10, v12, :cond_29
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVG$Style;->textDecoration:Lcom/caverock/androidsvg/SVG$Style$TextDecoration;
 
-    const/4 v10, 0x0
+    sget-object v16, Lcom/caverock/androidsvg/SVG$Style$TextDecoration;->Underline:Lcom/caverock/androidsvg/SVG$Style$TextDecoration;
+
+    move-object/from16 v0, v16
+
+    if-eq v14, v0, :cond_29
+
+    const/4 v14, 0x0
 
     :goto_2f
-    invoke-virtual {v11, v10}, Landroid/graphics/Paint;->setUnderlineText(Z)V
+    invoke-virtual {v15, v14}, Landroid/graphics/Paint;->setUnderlineText(Z)V
 
-    sget v10, Landroid/os/Build$VERSION;->SDK_INT:I
+    sget v14, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    const/16 v11, 0x11
+    const/16 v15, 0x11
 
-    if-lt v10, v11, :cond_0
+    if-lt v14, v15, :cond_0
 
-    iget-object v11, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
+    move-object/from16 v0, p1
 
-    iget-object v10, p2, Lcom/caverock/androidsvg/SVG$Style;->textDecoration:Lcom/caverock/androidsvg/SVG$Style$TextDecoration;
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
 
-    sget-object v12, Lcom/caverock/androidsvg/SVG$Style$TextDecoration;->LineThrough:Lcom/caverock/androidsvg/SVG$Style$TextDecoration;
+    move-object/from16 v0, p2
 
-    if-eq v10, v12, :cond_2a
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVG$Style;->textDecoration:Lcom/caverock/androidsvg/SVG$Style$TextDecoration;
 
-    const/4 v10, 0x0
+    sget-object v16, Lcom/caverock/androidsvg/SVG$Style$TextDecoration;->LineThrough:Lcom/caverock/androidsvg/SVG$Style$TextDecoration;
+
+    move-object/from16 v0, v16
+
+    if-eq v14, v0, :cond_2a
+
+    const/4 v14, 0x0
 
     :goto_30
-    invoke-virtual {v11, v10}, Landroid/graphics/Paint;->setStrikeThruText(Z)V
+    invoke-virtual {v15, v14}, Landroid/graphics/Paint;->setStrikeThruText(Z)V
 
-    iget-object v11, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
+    move-object/from16 v0, p1
 
-    iget-object v10, p2, Lcom/caverock/androidsvg/SVG$Style;->textDecoration:Lcom/caverock/androidsvg/SVG$Style$TextDecoration;
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->strokePaint:Landroid/graphics/Paint;
 
-    sget-object v12, Lcom/caverock/androidsvg/SVG$Style$TextDecoration;->Underline:Lcom/caverock/androidsvg/SVG$Style$TextDecoration;
+    move-object/from16 v0, p2
 
-    if-eq v10, v12, :cond_2b
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVG$Style;->textDecoration:Lcom/caverock/androidsvg/SVG$Style$TextDecoration;
 
-    const/4 v10, 0x0
+    sget-object v16, Lcom/caverock/androidsvg/SVG$Style$TextDecoration;->Underline:Lcom/caverock/androidsvg/SVG$Style$TextDecoration;
+
+    move-object/from16 v0, v16
+
+    if-eq v14, v0, :cond_2b
+
+    const/4 v14, 0x0
 
     :goto_31
-    invoke-virtual {v11, v10}, Landroid/graphics/Paint;->setUnderlineText(Z)V
+    invoke-virtual {v15, v14}, Landroid/graphics/Paint;->setUnderlineText(Z)V
 
     goto/16 :goto_16
 
     :cond_28
-    const/4 v10, 0x1
+    const/4 v14, 0x1
 
     goto :goto_2e
 
     :cond_29
-    const/4 v10, 0x1
+    const/4 v14, 0x1
 
     goto :goto_2f
 
     :cond_2a
-    const/4 v10, 0x1
+    const/4 v14, 0x1
 
     goto :goto_30
 
     :cond_2b
-    const/4 v10, 0x1
+    const/4 v14, 0x1
 
     goto :goto_31
 
     :cond_2c
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->direction:Lcom/caverock/androidsvg/SVG$Style$TextDirection;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->direction:Lcom/caverock/androidsvg/SVG$Style$TextDirection;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->direction:Lcom/caverock/androidsvg/SVG$Style$TextDirection;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->direction:Lcom/caverock/androidsvg/SVG$Style$TextDirection;
 
     goto/16 :goto_17
 
     :cond_2d
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->textAnchor:Lcom/caverock/androidsvg/SVG$Style$TextAnchor;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->textAnchor:Lcom/caverock/androidsvg/SVG$Style$TextAnchor;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->textAnchor:Lcom/caverock/androidsvg/SVG$Style$TextAnchor;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->textAnchor:Lcom/caverock/androidsvg/SVG$Style$TextAnchor;
 
     goto/16 :goto_18
 
     :cond_2e
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->overflow:Ljava/lang/Boolean;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->overflow:Ljava/lang/Boolean;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->overflow:Ljava/lang/Boolean;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->overflow:Ljava/lang/Boolean;
 
     goto/16 :goto_19
 
     :cond_2f
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->markerStart:Ljava/lang/String;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->markerStart:Ljava/lang/String;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->markerStart:Ljava/lang/String;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->markerStart:Ljava/lang/String;
 
     goto/16 :goto_1a
 
     :cond_30
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->markerMid:Ljava/lang/String;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->markerMid:Ljava/lang/String;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->markerMid:Ljava/lang/String;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->markerMid:Ljava/lang/String;
 
     goto/16 :goto_1b
 
     :cond_31
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->markerEnd:Ljava/lang/String;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->markerEnd:Ljava/lang/String;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->markerEnd:Ljava/lang/String;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->markerEnd:Ljava/lang/String;
 
     goto/16 :goto_1c
 
     :cond_32
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->display:Ljava/lang/Boolean;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->display:Ljava/lang/Boolean;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->display:Ljava/lang/Boolean;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->display:Ljava/lang/Boolean;
 
     goto/16 :goto_1d
 
     :cond_33
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->visibility:Ljava/lang/Boolean;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->visibility:Ljava/lang/Boolean;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->visibility:Ljava/lang/Boolean;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->visibility:Ljava/lang/Boolean;
 
     goto/16 :goto_1e
 
     :cond_34
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->clip:Lcom/caverock/androidsvg/SVG$CSSClipRect;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->clip:Lcom/caverock/androidsvg/SVG$CSSClipRect;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->clip:Lcom/caverock/androidsvg/SVG$CSSClipRect;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->clip:Lcom/caverock/androidsvg/SVG$CSSClipRect;
 
     goto/16 :goto_1f
 
     :cond_35
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->clipPath:Ljava/lang/String;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->clipPath:Ljava/lang/String;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->clipPath:Ljava/lang/String;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->clipPath:Ljava/lang/String;
 
     goto/16 :goto_20
 
     :cond_36
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->clipRule:Lcom/caverock/androidsvg/SVG$Style$FillRule;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->clipRule:Lcom/caverock/androidsvg/SVG$Style$FillRule;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->clipRule:Lcom/caverock/androidsvg/SVG$Style$FillRule;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->clipRule:Lcom/caverock/androidsvg/SVG$Style$FillRule;
 
     goto/16 :goto_21
 
     :cond_37
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->mask:Ljava/lang/String;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->mask:Ljava/lang/String;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->mask:Ljava/lang/String;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->mask:Ljava/lang/String;
 
     goto/16 :goto_22
 
     :cond_38
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->stopColor:Lcom/caverock/androidsvg/SVG$SvgPaint;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->stopColor:Lcom/caverock/androidsvg/SVG$SvgPaint;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->stopColor:Lcom/caverock/androidsvg/SVG$SvgPaint;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->stopColor:Lcom/caverock/androidsvg/SVG$SvgPaint;
 
     goto/16 :goto_23
 
     :cond_39
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->stopOpacity:Ljava/lang/Float;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->stopOpacity:Ljava/lang/Float;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->stopOpacity:Ljava/lang/Float;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->stopOpacity:Ljava/lang/Float;
 
     goto/16 :goto_24
 
     :cond_3a
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->viewportFill:Lcom/caverock/androidsvg/SVG$SvgPaint;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->viewportFill:Lcom/caverock/androidsvg/SVG$SvgPaint;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->viewportFill:Lcom/caverock/androidsvg/SVG$SvgPaint;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->viewportFill:Lcom/caverock/androidsvg/SVG$SvgPaint;
 
     goto/16 :goto_25
 
     :cond_3b
-    iget-object v10, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    move-object/from16 v0, p1
 
-    iget-object v11, p2, Lcom/caverock/androidsvg/SVG$Style;->viewportFillOpacity:Ljava/lang/Float;
+    iget-object v14, v0, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    iput-object v11, v10, Lcom/caverock/androidsvg/SVG$Style;->viewportFillOpacity:Ljava/lang/Float;
+    move-object/from16 v0, p2
+
+    iget-object v15, v0, Lcom/caverock/androidsvg/SVG$Style;->viewportFillOpacity:Ljava/lang/Float;
+
+    iput-object v15, v14, Lcom/caverock/androidsvg/SVG$Style;->viewportFillOpacity:Ljava/lang/Float;
 
     goto/16 :goto_26
 
@@ -14764,76 +15226,76 @@
 .method private updateStyleForElement(Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;Lcom/caverock/androidsvg/SVG$SvgElementBase;)V
     .locals 4
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    iget-object v2, p2, Lcom/caverock/androidsvg/SVG$SvgElementBase;->parent:Lcom/caverock/androidsvg/SVG$SvgContainer;
+    iget-object v3, p2, Lcom/caverock/androidsvg/SVG$SvgElementBase;->parent:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
-    if-eqz v2, :cond_1
+    if-eqz v3, :cond_1
 
     :goto_0
-    iget-object v2, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
+    iget-object v3, p1, Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    invoke-virtual {v2, v0}, Lcom/caverock/androidsvg/SVG$Style;->resetNonInheritingProperties(Z)V
+    invoke-virtual {v3, v1}, Lcom/caverock/androidsvg/SVG$Style;->resetNonInheritingProperties(Z)V
 
-    iget-object v2, p2, Lcom/caverock/androidsvg/SVG$SvgElementBase;->baseStyle:Lcom/caverock/androidsvg/SVG$Style;
+    iget-object v3, p2, Lcom/caverock/androidsvg/SVG$SvgElementBase;->baseStyle:Lcom/caverock/androidsvg/SVG$Style;
 
-    if-nez v2, :cond_2
+    if-nez v3, :cond_2
 
     :goto_1
-    iget-object v2, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->document:Lcom/caverock/androidsvg/SVG;
+    iget-object v3, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->document:Lcom/caverock/androidsvg/SVG;
 
-    invoke-virtual {v2}, Lcom/caverock/androidsvg/SVG;->hasCSSRules()Z
+    invoke-virtual {v3}, Lcom/caverock/androidsvg/SVG;->hasCSSRules()Z
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_3
+    if-nez v3, :cond_3
 
     :cond_0
-    iget-object v2, p2, Lcom/caverock/androidsvg/SVG$SvgElementBase;->style:Lcom/caverock/androidsvg/SVG$Style;
+    iget-object v3, p2, Lcom/caverock/androidsvg/SVG$SvgElementBase;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    if-nez v2, :cond_5
+    if-nez v3, :cond_5
 
     :goto_2
     return-void
 
     :cond_1
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
     goto :goto_0
 
     :cond_2
-    iget-object v2, p2, Lcom/caverock/androidsvg/SVG$SvgElementBase;->baseStyle:Lcom/caverock/androidsvg/SVG$Style;
+    iget-object v3, p2, Lcom/caverock/androidsvg/SVG$SvgElementBase;->baseStyle:Lcom/caverock/androidsvg/SVG$Style;
 
-    invoke-direct {p0, p1, v2}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->updateStyle(Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;Lcom/caverock/androidsvg/SVG$Style;)V
+    invoke-direct {p0, p1, v3}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->updateStyle(Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;Lcom/caverock/androidsvg/SVG$Style;)V
 
     goto :goto_1
 
     :cond_3
-    iget-object v2, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->document:Lcom/caverock/androidsvg/SVG;
+    iget-object v3, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer;->document:Lcom/caverock/androidsvg/SVG;
 
-    invoke-virtual {v2}, Lcom/caverock/androidsvg/SVG;->getCSSRules()Ljava/util/List;
+    invoke-virtual {v3}, Lcom/caverock/androidsvg/SVG;->getCSSRules()Ljava/util/List;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v0
 
     :cond_4
     :goto_3
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
     if-eqz v3, :cond_0
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Lcom/caverock/androidsvg/CSSParser$Rule;
+    check-cast v2, Lcom/caverock/androidsvg/CSSParser$Rule;
 
-    iget-object v3, v1, Lcom/caverock/androidsvg/CSSParser$Rule;->selector:Lcom/caverock/androidsvg/CSSParser$Selector;
+    iget-object v3, v2, Lcom/caverock/androidsvg/CSSParser$Rule;->selector:Lcom/caverock/androidsvg/CSSParser$Selector;
 
     invoke-static {v3, p2}, Lcom/caverock/androidsvg/CSSParser;->ruleMatch(Lcom/caverock/androidsvg/CSSParser$Selector;Lcom/caverock/androidsvg/SVG$SvgElementBase;)Z
 
@@ -14841,16 +15303,16 @@
 
     if-eqz v3, :cond_4
 
-    iget-object v3, v1, Lcom/caverock/androidsvg/CSSParser$Rule;->style:Lcom/caverock/androidsvg/SVG$Style;
+    iget-object v3, v2, Lcom/caverock/androidsvg/CSSParser$Rule;->style:Lcom/caverock/androidsvg/SVG$Style;
 
     invoke-direct {p0, p1, v3}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->updateStyle(Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;Lcom/caverock/androidsvg/SVG$Style;)V
 
     goto :goto_3
 
     :cond_5
-    iget-object v2, p2, Lcom/caverock/androidsvg/SVG$SvgElementBase;->style:Lcom/caverock/androidsvg/SVG$Style;
+    iget-object v3, p2, Lcom/caverock/androidsvg/SVG$SvgElementBase;->style:Lcom/caverock/androidsvg/SVG$Style;
 
-    invoke-direct {p0, p1, v2}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->updateStyle(Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;Lcom/caverock/androidsvg/SVG$Style;)V
+    invoke-direct {p0, p1, v3}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->updateStyle(Lcom/caverock/androidsvg/SVGAndroidRenderer$RendererState;Lcom/caverock/androidsvg/SVG$Style;)V
 
     goto :goto_2
 .end method
@@ -14972,13 +15434,13 @@
 .method private static varargs warn(Ljava/lang/String;[Ljava/lang/Object;)V
     .locals 2
 
-    const-string/jumbo v0, "SVGAndroidRenderer"
-
     invoke-static {p0, p1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v1, "SVGAndroidRenderer"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method
@@ -15086,13 +15548,13 @@
     return-void
 
     :cond_0
-    const-string/jumbo v0, "Nothing to render. Document is empty."
+    const/4 v0, 0x0
 
-    const/4 v2, 0x0
+    new-array v0, v0, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "Nothing to render. Document is empty."
 
-    invoke-static {v0, v2}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->warn(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v2, v0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->warn(Ljava/lang/String;[Ljava/lang/Object;)V
 
     return-void
 

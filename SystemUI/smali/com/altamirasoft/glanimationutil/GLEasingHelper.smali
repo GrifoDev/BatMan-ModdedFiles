@@ -2,6 +2,9 @@
 .super Ljava/lang/Object;
 .source "GLEasingHelper.java"
 
+# interfaces
+.implements Lcom/altamirasoft/glanimationutil/GLAnimatorFrameListener;
+
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;

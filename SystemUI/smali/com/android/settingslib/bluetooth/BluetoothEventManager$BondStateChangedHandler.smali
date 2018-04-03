@@ -43,12 +43,21 @@
 .method private showUnbondMessage(Landroid/content/Context;Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;I)V
     .locals 11
 
-    const/4 v10, 0x2
+    const/4 v10, 0x1
 
-    const/4 v9, 0x1
+    const/4 v9, 0x0
 
-    const/4 v8, 0x0
+    if-nez p1, :cond_0
 
+    const-string/jumbo v7, "BluetoothEventManager"
+
+    const-string/jumbo v8, "showUnbondMessage: context is null"
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
     invoke-virtual {p2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getName()Ljava/lang/String;
 
     move-result-object v5
@@ -56,76 +65,94 @@
     packed-switch p3, :pswitch_data_0
 
     :pswitch_0
-    const-string/jumbo v6, "BluetoothEventManager"
+    const-string/jumbo v7, "BluetoothEventManager"
 
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "showUnbondMessage: Not displaying any message for reason: "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :pswitch_1
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "showUnbondMessage: Not displaying any message for reason: "
+    const-string/jumbo v8, "\u200e"
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
 
-    invoke-virtual {v7, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, "\u200e"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
 
     invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :pswitch_1
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "\u200e"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "\u200e"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v5
 
-    sget v6, Lcom/android/settingslib/R$string;->bluetooth_pairing_pin_error_message:I
+    sget v7, Lcom/android/settingslib/R$string;->bluetooth_pairing_pin_error_message:I
 
-    new-array v7, v10, [Ljava/lang/Object;
+    new-array v8, v10, [Ljava/lang/Object;
 
-    aput-object v5, v7, v8
+    aput-object v5, v8, v9
 
-    aput-object v5, v7, v9
-
-    invoke-virtual {p1, v6, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p1, v7, v8}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
 
     invoke-static {p1, v3}, Lcom/android/settingslib/bluetooth/Utils;->showError(Landroid/content/Context;Ljava/lang/String;)V
 
-    const-string/jumbo v6, "com.android.bluetooth"
+    const-string/jumbo v7, "com.android.bluetooth"
 
-    const-string/jumbo v7, "BEMC"
+    const-string/jumbo v8, "BEMC"
 
-    const-string/jumbo v8, "1_bluetooth_message_pairing_pin_error"
+    const-string/jumbo v9, "1_bluetooth_message_pairing_pin_error"
 
-    invoke-static {p1, v6, v7, v8}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {p1, v7, v8, v9}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    sget v7, Lcom/android/settingslib/R$string;->screen_bluetooth_global:I
+
+    invoke-virtual {p1, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    sget v8, Lcom/android/settingslib/R$string;->event_bluetooth_bemc:I
+
+    invoke-virtual {p1, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v8
+
+    sget v9, Lcom/android/settingslib/R$string;->detail_bluetooth_bemc_pairing_pin_error:I
+
+    invoke-virtual {p1, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v7, v8, v9}, Lcom/samsung/android/settingslib/bluetooth/BluetoothSALogger;->insertSALog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 
@@ -134,14 +161,34 @@
 
     const-string/jumbo v1, "2_bluetooth_message_pairing_rejected"
 
+    sget v7, Lcom/android/settingslib/R$string;->detail_bluetooth_bemc_pairing_rejected:I
+
+    invoke-virtual {p1, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v6
+
     :goto_0
     invoke-static {p1, v5, v2}, Lcom/android/settingslib/bluetooth/Utils;->showError(Landroid/content/Context;Ljava/lang/String;I)V
 
-    const-string/jumbo v6, "com.android.bluetooth"
+    const-string/jumbo v7, "com.android.bluetooth"
 
-    const-string/jumbo v7, "BEMC"
+    const-string/jumbo v8, "BEMC"
 
-    invoke-static {p1, v6, v7, v1}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {p1, v7, v8, v1}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    sget v7, Lcom/android/settingslib/R$string;->screen_bluetooth_global:I
+
+    invoke-virtual {p1, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    sget v8, Lcom/android/settingslib/R$string;->event_bluetooth_bemc:I
+
+    invoke-virtual {p1, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8, v6}, Lcom/samsung/android/settingslib/bluetooth/BluetoothSALogger;->insertSALog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 
@@ -152,62 +199,90 @@
 
     invoke-static {v0}, Lcom/android/settingslib/bluetooth/Utils;->isBlackListDevice(Landroid/bluetooth/BluetoothDevice;)Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_0
+    if-eqz v7, :cond_1
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "\u200e"
+    const-string/jumbo v8, "\u200e"
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    const-string/jumbo v7, "\u200e"
+    const-string/jumbo v8, "\u200e"
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
-    sget v6, Lcom/android/settingslib/R$string;->bluetooth_pairing_device_down_black_list_error_message:I
+    sget v7, Lcom/android/settingslib/R$string;->bluetooth_pairing_device_down_black_list_error_message:I
 
-    new-array v7, v10, [Ljava/lang/Object;
+    const/4 v8, 0x2
 
-    aput-object v5, v7, v8
+    new-array v8, v8, [Ljava/lang/Object;
 
-    aput-object v5, v7, v9
+    aput-object v5, v8, v9
 
-    invoke-virtual {p1, v6, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    aput-object v5, v8, v10
+
+    invoke-virtual {p1, v7, v8}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v4
 
     invoke-static {p1, v4}, Lcom/android/settingslib/bluetooth/Utils;->showError(Landroid/content/Context;Ljava/lang/String;)V
 
-    const-string/jumbo v6, "com.android.bluetooth"
+    const-string/jumbo v7, "com.android.bluetooth"
 
-    const-string/jumbo v7, "BEMC"
+    const-string/jumbo v8, "BEMC"
 
-    const-string/jumbo v8, "3_bluetooth_message_pairing_device_down"
+    const-string/jumbo v9, "3_bluetooth_message_pairing_device_down"
 
-    invoke-static {p1, v6, v7, v8}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {p1, v7, v8, v9}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    sget v7, Lcom/android/settingslib/R$string;->screen_bluetooth_global:I
+
+    invoke-virtual {p1, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    sget v8, Lcom/android/settingslib/R$string;->event_bluetooth_bemc:I
+
+    invoke-virtual {p1, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v8
+
+    sget v9, Lcom/android/settingslib/R$string;->detail_bluetooth_bemc_pairing_device_down:I
+
+    invoke-virtual {p1, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v7, v8, v9}, Lcom/samsung/android/settingslib/bluetooth/BluetoothSALogger;->insertSALog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 
-    :cond_0
+    :cond_1
     sget v2, Lcom/android/settingslib/R$string;->bluetooth_pairing_device_down_error_message:I
 
     const-string/jumbo v1, "3_bluetooth_message_pairing_device_down"
+
+    sget v7, Lcom/android/settingslib/R$string;->detail_bluetooth_bemc_pairing_device_down:I
+
+    invoke-virtual {p1, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v6
 
     goto :goto_0
 
@@ -216,7 +291,13 @@
 
     const-string/jumbo v1, "4_bluetooth_message_pairing_error"
 
-    goto :goto_0
+    sget v7, Lcom/android/settingslib/R$string;->detail_bluetooth_bemc_pairing_error:I
+
+    invoke-virtual {p1, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    goto/16 :goto_0
 
     nop
 
@@ -261,7 +342,7 @@
 
     iget-object v5, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager$BondStateChangedHandler;->this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
 
-    invoke-static {v5}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->-get1(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
+    invoke-static {v5}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->-get2(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
     move-result-object v5
 
@@ -350,7 +431,7 @@
     :cond_3
     iget-object v5, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager$BondStateChangedHandler;->this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
 
-    invoke-static {v5}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->-get1(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
+    invoke-static {v5}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->-get2(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
     move-result-object v5
 
@@ -405,7 +486,13 @@
     invoke-virtual {v1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->refresh()V
 
     :cond_6
-    invoke-virtual {v1, v0}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->onBondingStateChanged(I)V
+    const-string/jumbo v5, "android.bluetooth.device.extra.REASON"
+
+    invoke-virtual {p2, v5, v9}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v4
+
+    invoke-virtual {v1, v0, v4}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->onBondingStateChanged(II)V
 
     iget-object v5, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager$BondStateChangedHandler;->this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
 
@@ -458,12 +545,6 @@
     const/16 v5, 0xa
 
     if-ne v0, v5, :cond_8
-
-    const-string/jumbo v5, "android.bluetooth.device.extra.REASON"
-
-    invoke-virtual {p2, v5, v9}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v4
 
     invoke-direct {p0, p1, v1, v4}, Lcom/android/settingslib/bluetooth/BluetoothEventManager$BondStateChangedHandler;->showUnbondMessage(Landroid/content/Context;Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;I)V
 

@@ -581,7 +581,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, p1}, Ljava/lang/Class;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
     move-result v1
 
@@ -932,6 +932,55 @@
     iput v2, p0, Landroid/graphics/RectF;->bottom:F
 
     invoke-virtual {p0, v0, v1}, Landroid/graphics/RectF;->offset(FF)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public static scaleRectAboutTopCenter(Landroid/graphics/RectF;F)V
+    .locals 4
+
+    const/4 v3, 0x0
+
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    cmpl-float v1, p1, v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p0}, Landroid/graphics/RectF;->centerX()F
+
+    move-result v0
+
+    neg-float v1, v0
+
+    invoke-virtual {p0, v1, v3}, Landroid/graphics/RectF;->offset(FF)V
+
+    iget v1, p0, Landroid/graphics/RectF;->left:F
+
+    mul-float/2addr v1, p1
+
+    iput v1, p0, Landroid/graphics/RectF;->left:F
+
+    iget v1, p0, Landroid/graphics/RectF;->right:F
+
+    mul-float/2addr v1, p1
+
+    iput v1, p0, Landroid/graphics/RectF;->right:F
+
+    iget v1, p0, Landroid/graphics/RectF;->top:F
+
+    invoke-virtual {p0}, Landroid/graphics/RectF;->height()F
+
+    move-result v2
+
+    mul-float/2addr v2, p1
+
+    add-float/2addr v1, v2
+
+    iput v1, p0, Landroid/graphics/RectF;->bottom:F
+
+    invoke-virtual {p0, v0, v3}, Landroid/graphics/RectF;->offset(FF)V
 
     :cond_0
     return-void

@@ -122,11 +122,11 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils$3;->this$0:Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;
 
-    invoke-static {v4}, Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;->-get2(Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;)Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    invoke-static {v4}, Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;->-get3(Lcom/android/systemui/statusbar/phone/DcmKeyguardMascotUtils;)Lcom/android/systemui/statusbar/phone/StatusBar;
 
     move-result-object v4
 
-    invoke-virtual {v4, v3, v7}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->startActivity(Landroid/content/Intent;Z)V
+    invoke-virtual {v4, v3, v7}, Lcom/android/systemui/statusbar/phone/StatusBar;->startActivity(Landroid/content/Intent;Z)V
 
     :cond_1
     return-void

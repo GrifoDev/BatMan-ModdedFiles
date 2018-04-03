@@ -175,7 +175,7 @@
 .method public getTextureLockId()I
     .locals 1
 
-    const v0, 0x7f020293
+    const v0, 0x7f080370
 
     return v0
 .end method

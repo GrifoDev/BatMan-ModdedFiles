@@ -3,7 +3,7 @@
 .source "QSDetail.java"
 
 # interfaces
-.implements Lcom/android/systemui/qs/QSPanel$Callback;
+.implements Lcom/android/systemui/qs/QSDetail$Callback;
 
 
 # annotations
@@ -34,20 +34,6 @@
 
 
 # virtual methods
-.method public onDisableStateChanged(Z)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QSDetail$1;->this$0:Lcom/android/systemui/qs/QSDetail;
-
-    new-instance v1, Lcom/android/systemui/qs/QSDetail$1$4;
-
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/qs/QSDetail$1$4;-><init>(Lcom/android/systemui/qs/QSDetail$1;Z)V
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/QSDetail;->post(Ljava/lang/Runnable;)Z
-
-    return-void
-.end method
-
 .method public onScanStateChanged(Z)V
     .locals 2
 
@@ -62,7 +48,21 @@
     return-void
 .end method
 
-.method public onShowingDetail(Lcom/android/systemui/qs/QSTile$DetailAdapter;IIZ)V
+.method public onScrollToDetail(II)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QSDetail$1;->this$0:Lcom/android/systemui/qs/QSDetail;
+
+    new-instance v1, Lcom/android/systemui/qs/QSDetail$1$5;
+
+    invoke-direct {v1, p0, p1, p2}, Lcom/android/systemui/qs/QSDetail$1$5;-><init>(Lcom/android/systemui/qs/QSDetail$1;II)V
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/QSDetail;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
+.method public onShowingDetail(Lcom/android/systemui/plugins/qs/DetailAdapter;IIZ)V
     .locals 7
 
     iget-object v6, p0, Lcom/android/systemui/qs/QSDetail$1;->this$0:Lcom/android/systemui/qs/QSDetail;
@@ -79,7 +79,7 @@
 
     move v5, p4
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/qs/QSDetail$1$2;-><init>(Lcom/android/systemui/qs/QSDetail$1;Lcom/android/systemui/qs/QSTile$DetailAdapter;IIZ)V
+    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/qs/QSDetail$1$2;-><init>(Lcom/android/systemui/qs/QSDetail$1;Lcom/android/systemui/plugins/qs/DetailAdapter;IIZ)V
 
     invoke-virtual {v6, v0}, Lcom/android/systemui/qs/QSDetail;->post(Ljava/lang/Runnable;)Z
 
@@ -100,14 +100,14 @@
     return-void
 .end method
 
-.method public onUpdatingDetail(Lcom/android/systemui/qs/QSTile$DetailAdapter;)V
+.method public onUpdatingDetail(Lcom/android/systemui/plugins/qs/DetailAdapter;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSDetail$1;->this$0:Lcom/android/systemui/qs/QSDetail;
 
-    new-instance v1, Lcom/android/systemui/qs/QSDetail$1$5;
+    new-instance v1, Lcom/android/systemui/qs/QSDetail$1$4;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/qs/QSDetail$1$5;-><init>(Lcom/android/systemui/qs/QSDetail$1;Lcom/android/systemui/qs/QSTile$DetailAdapter;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/qs/QSDetail$1$4;-><init>(Lcom/android/systemui/qs/QSDetail$1;Lcom/android/systemui/plugins/qs/DetailAdapter;)V
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/qs/QSDetail;->post(Ljava/lang/Runnable;)Z
 

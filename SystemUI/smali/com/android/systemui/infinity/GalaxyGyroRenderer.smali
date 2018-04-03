@@ -321,7 +321,7 @@
 
     sget-object v1, Lcom/android/systemui/infinity/GalaxyWallpaperService$Mode;->LOCK:Lcom/android/systemui/infinity/GalaxyWallpaperService$Mode;
 
-    if-ne v0, v1, :cond_8
+    if-ne v0, v1, :cond_7
 
     iget-boolean v0, p0, Lcom/android/systemui/infinity/GalaxyGyroRenderer;->isAnimating:Z
 
@@ -388,7 +388,35 @@
 
     iget-boolean v0, p0, Lcom/android/systemui/infinity/GalaxyGyroRenderer;->isPendingAnimation:Z
 
-    if-eqz v0, :cond_7
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_6
+
+    iget-object v0, p0, Lcom/android/systemui/infinity/GalaxyGyroRenderer;->gyroData:[F
+
+    aget v0, v0, v4
+
+    invoke-static {v0}, Ljava/lang/Math;->abs(F)F
+
+    move-result v0
+
+    const v1, 0x3dcccccd    # 0.1f
+
+    cmpl-float v0, v0, v1
+
+    if-lez v0, :cond_6
+
+    iput-boolean v4, p0, Lcom/android/systemui/infinity/GalaxyGyroRenderer;->isPendingAnimation:Z
+
+    iget-object v0, p0, Lcom/android/systemui/infinity/GalaxyGyroRenderer;->handler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/systemui/infinity/GalaxyGyroRenderer;->combackRunnable:Ljava/lang/Runnable;
+
+    const-wide/16 v2, 0x1388
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    goto/16 :goto_0
 
     :cond_6
     iget-boolean v0, p0, Lcom/android/systemui/infinity/GalaxyGyroRenderer;->isPendingAnimation:Z
@@ -420,33 +448,6 @@
     goto/16 :goto_0
 
     :cond_7
-    iget-object v0, p0, Lcom/android/systemui/infinity/GalaxyGyroRenderer;->gyroData:[F
-
-    aget v0, v0, v4
-
-    invoke-static {v0}, Ljava/lang/Math;->abs(F)F
-
-    move-result v0
-
-    const v1, 0x3dcccccd    # 0.1f
-
-    cmpl-float v0, v0, v1
-
-    if-lez v0, :cond_6
-
-    iput-boolean v4, p0, Lcom/android/systemui/infinity/GalaxyGyroRenderer;->isPendingAnimation:Z
-
-    iget-object v0, p0, Lcom/android/systemui/infinity/GalaxyGyroRenderer;->handler:Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/android/systemui/infinity/GalaxyGyroRenderer;->combackRunnable:Ljava/lang/Runnable;
-
-    const-wide/16 v2, 0x1388
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    goto/16 :goto_0
-
-    :cond_8
     iget-object v0, p0, Lcom/android/systemui/infinity/GalaxyGyroRenderer;->gyroData:[F
 
     aget v1, v0, v5

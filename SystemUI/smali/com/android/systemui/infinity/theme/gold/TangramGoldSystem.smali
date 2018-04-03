@@ -8,6 +8,16 @@
 
 .field private static final VERTEX_DATA:[[F
 
+.field public static final mapHeight:F = 1899.0f
+
+.field public static final mapWidth:F = 3395.0f
+
+.field public static final previewHeight:F = 2960.0f
+
+.field public static final previewWidth:F = 1440.0f
+
+.field public static final textureId:I = 0x7f080374
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -676,146 +686,148 @@
 .end method
 
 .method protected getTextureMapData()Lcom/android/systemui/infinity/tangram/TangramMapData;
-    .locals 11
+    .locals 12
 
-    const v10, 0x45543000    # 3395.0f
+    const v11, 0x45543000    # 3395.0f
 
-    const/high16 v9, 0x45390000    # 2960.0f
+    const/high16 v10, 0x45390000    # 2960.0f
 
-    const v8, 0x44ed6000    # 1899.0f
+    const v9, 0x44ed6000    # 1899.0f
 
-    const/high16 v7, 0x44b40000    # 1440.0f
+    const/high16 v8, 0x44b40000    # 1440.0f
 
-    const/high16 v6, 0x3f000000    # 0.5f
+    const/high16 v7, 0x3f000000    # 0.5f
 
     new-instance v0, Lcom/android/systemui/infinity/tangram/TangramMapData;
 
     invoke-direct {v0}, Lcom/android/systemui/infinity/tangram/TangramMapData;-><init>()V
 
-    const v3, 0x7f020297
+    const v4, 0x7f080374
 
-    iput v3, v0, Lcom/android/systemui/infinity/tangram/TangramMapData;->mapId:I
+    iput v4, v0, Lcom/android/systemui/infinity/tangram/TangramMapData;->mapId:I
 
-    iput v10, v0, Lcom/android/systemui/infinity/tangram/TangramMapData;->mapWidth:F
+    iput v11, v0, Lcom/android/systemui/infinity/tangram/TangramMapData;->mapWidth:F
 
-    iput v8, v0, Lcom/android/systemui/infinity/tangram/TangramMapData;->mapHeight:F
+    iput v9, v0, Lcom/android/systemui/infinity/tangram/TangramMapData;->mapHeight:F
 
-    iput v9, v0, Lcom/android/systemui/infinity/tangram/TangramMapData;->previewHeight:F
+    iput v10, v0, Lcom/android/systemui/infinity/tangram/TangramMapData;->previewHeight:F
 
-    iput v7, v0, Lcom/android/systemui/infinity/tangram/TangramMapData;->previewWidth:F
+    iput v8, v0, Lcom/android/systemui/infinity/tangram/TangramMapData;->previewWidth:F
 
-    sget-object v3, Lcom/android/systemui/infinity/theme/gold/TangramGoldSystem;->VERTEX_DATA:[[F
+    sget-object v4, Lcom/android/systemui/infinity/theme/gold/TangramGoldSystem;->VERTEX_DATA:[[F
 
-    iput-object v3, v0, Lcom/android/systemui/infinity/tangram/TangramMapData;->VERTEX_DATA:[[F
+    iput-object v4, v0, Lcom/android/systemui/infinity/tangram/TangramMapData;->VERTEX_DATA:[[F
+
+    const v3, 0x40038e39
 
     const/4 v1, 0x0
 
     :goto_0
-    sget-object v3, Lcom/android/systemui/infinity/theme/gold/TangramGoldSystem;->PSD_VERTEX_DATA:[[F
+    sget-object v4, Lcom/android/systemui/infinity/theme/gold/TangramGoldSystem;->PSD_VERTEX_DATA:[[F
 
-    array-length v3, v3
+    array-length v4, v4
 
-    if-ge v1, v3, :cond_5
+    if-ge v1, v4, :cond_5
 
     const/4 v2, 0x0
 
     :goto_1
-    sget-object v3, Lcom/android/systemui/infinity/theme/gold/TangramGoldSystem;->PSD_VERTEX_DATA:[[F
-
-    aget-object v3, v3, v1
-
-    array-length v3, v3
-
-    if-ge v2, v3, :cond_4
-
-    rem-int/lit8 v3, v2, 0x4
-
-    if-nez v3, :cond_0
-
-    iget-object v3, v0, Lcom/android/systemui/infinity/tangram/TangramMapData;->VERTEX_DATA:[[F
-
-    aget-object v3, v3, v1
-
     sget-object v4, Lcom/android/systemui/infinity/theme/gold/TangramGoldSystem;->PSD_VERTEX_DATA:[[F
 
     aget-object v4, v4, v1
 
-    aget v4, v4, v2
+    array-length v4, v4
 
-    div-float/2addr v4, v7
+    if-ge v2, v4, :cond_4
 
-    sub-float/2addr v4, v6
+    rem-int/lit8 v4, v2, 0x4
 
-    aput v4, v3, v2
+    if-nez v4, :cond_0
+
+    iget-object v4, v0, Lcom/android/systemui/infinity/tangram/TangramMapData;->VERTEX_DATA:[[F
+
+    aget-object v4, v4, v1
+
+    sget-object v5, Lcom/android/systemui/infinity/theme/gold/TangramGoldSystem;->PSD_VERTEX_DATA:[[F
+
+    aget-object v5, v5, v1
+
+    aget v5, v5, v2
+
+    div-float/2addr v5, v8
+
+    sub-float/2addr v5, v7
+
+    aput v5, v4, v2
 
     :cond_0
-    rem-int/lit8 v3, v2, 0x4
+    rem-int/lit8 v4, v2, 0x4
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    if-ne v3, v4, :cond_1
+    if-ne v4, v5, :cond_1
 
-    iget-object v3, v0, Lcom/android/systemui/infinity/tangram/TangramMapData;->VERTEX_DATA:[[F
-
-    aget-object v3, v3, v1
-
-    sget-object v4, Lcom/android/systemui/infinity/theme/gold/TangramGoldSystem;->PSD_VERTEX_DATA:[[F
+    iget-object v4, v0, Lcom/android/systemui/infinity/tangram/TangramMapData;->VERTEX_DATA:[[F
 
     aget-object v4, v4, v1
 
-    aget v4, v4, v2
+    sget-object v5, Lcom/android/systemui/infinity/theme/gold/TangramGoldSystem;->PSD_VERTEX_DATA:[[F
 
-    div-float/2addr v4, v9
+    aget-object v5, v5, v1
 
-    sub-float v4, v6, v4
+    aget v5, v5, v2
 
-    const v5, 0x40038e39
+    div-float/2addr v5, v10
 
-    mul-float/2addr v4, v5
+    sub-float v5, v7, v5
 
-    aput v4, v3, v2
+    const v6, 0x40038e39
+
+    mul-float/2addr v5, v6
+
+    aput v5, v4, v2
 
     :cond_1
-    rem-int/lit8 v3, v2, 0x4
+    rem-int/lit8 v4, v2, 0x4
 
-    const/4 v4, 0x2
+    const/4 v5, 0x2
 
-    if-ne v3, v4, :cond_2
+    if-ne v4, v5, :cond_2
 
-    iget-object v3, v0, Lcom/android/systemui/infinity/tangram/TangramMapData;->VERTEX_DATA:[[F
-
-    aget-object v3, v3, v1
-
-    sget-object v4, Lcom/android/systemui/infinity/theme/gold/TangramGoldSystem;->PSD_VERTEX_DATA:[[F
+    iget-object v4, v0, Lcom/android/systemui/infinity/tangram/TangramMapData;->VERTEX_DATA:[[F
 
     aget-object v4, v4, v1
 
-    aget v4, v4, v2
+    sget-object v5, Lcom/android/systemui/infinity/theme/gold/TangramGoldSystem;->PSD_VERTEX_DATA:[[F
 
-    div-float/2addr v4, v10
+    aget-object v5, v5, v1
 
-    aput v4, v3, v2
+    aget v5, v5, v2
+
+    div-float/2addr v5, v11
+
+    aput v5, v4, v2
 
     :cond_2
-    rem-int/lit8 v3, v2, 0x4
+    rem-int/lit8 v4, v2, 0x4
 
-    const/4 v4, 0x3
+    const/4 v5, 0x3
 
-    if-ne v3, v4, :cond_3
+    if-ne v4, v5, :cond_3
 
-    iget-object v3, v0, Lcom/android/systemui/infinity/tangram/TangramMapData;->VERTEX_DATA:[[F
-
-    aget-object v3, v3, v1
-
-    sget-object v4, Lcom/android/systemui/infinity/theme/gold/TangramGoldSystem;->PSD_VERTEX_DATA:[[F
+    iget-object v4, v0, Lcom/android/systemui/infinity/tangram/TangramMapData;->VERTEX_DATA:[[F
 
     aget-object v4, v4, v1
 
-    aget v4, v4, v2
+    sget-object v5, Lcom/android/systemui/infinity/theme/gold/TangramGoldSystem;->PSD_VERTEX_DATA:[[F
 
-    div-float/2addr v4, v8
+    aget-object v5, v5, v1
 
-    aput v4, v3, v2
+    aget v5, v5, v2
+
+    div-float/2addr v5, v9
+
+    aput v5, v4, v2
 
     :cond_3
     add-int/lit8 v2, v2, 0x1
@@ -828,9 +840,9 @@
     goto :goto_0
 
     :cond_5
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    iput v3, v0, Lcom/android/systemui/infinity/tangram/TangramMapData;->objectType:I
+    iput v4, v0, Lcom/android/systemui/infinity/tangram/TangramMapData;->objectType:I
 
     return-object v0
 .end method

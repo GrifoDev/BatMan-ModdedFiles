@@ -66,6 +66,24 @@
 
     iget-object v4, p0, Lcom/android/settingslib/bluetooth/A2dpProfile$A2dpServiceListener;->this$0:Lcom/android/settingslib/bluetooth/A2dpProfile;
 
+    iget-object v5, p0, Lcom/android/settingslib/bluetooth/A2dpProfile$A2dpServiceListener;->this$0:Lcom/android/settingslib/bluetooth/A2dpProfile;
+
+    iget-object v5, v5, Lcom/android/settingslib/bluetooth/A2dpProfile;->mWrapperFactory:Lcom/android/settingslib/bluetooth/BluetoothA2dpWrapper$Factory;
+
+    iget-object v6, p0, Lcom/android/settingslib/bluetooth/A2dpProfile$A2dpServiceListener;->this$0:Lcom/android/settingslib/bluetooth/A2dpProfile;
+
+    invoke-static {v6}, Lcom/android/settingslib/bluetooth/A2dpProfile;->-get4(Lcom/android/settingslib/bluetooth/A2dpProfile;)Landroid/bluetooth/BluetoothA2dp;
+
+    move-result-object v6
+
+    invoke-interface {v5, v6}, Lcom/android/settingslib/bluetooth/BluetoothA2dpWrapper$Factory;->getInstance(Landroid/bluetooth/BluetoothA2dp;)Lcom/android/settingslib/bluetooth/BluetoothA2dpWrapper;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Lcom/android/settingslib/bluetooth/A2dpProfile;->-set2(Lcom/android/settingslib/bluetooth/A2dpProfile;Lcom/android/settingslib/bluetooth/BluetoothA2dpWrapper;)Lcom/android/settingslib/bluetooth/BluetoothA2dpWrapper;
+
+    iget-object v4, p0, Lcom/android/settingslib/bluetooth/A2dpProfile$A2dpServiceListener;->this$0:Lcom/android/settingslib/bluetooth/A2dpProfile;
+
     invoke-static {v4}, Lcom/android/settingslib/bluetooth/A2dpProfile;->-get4(Lcom/android/settingslib/bluetooth/A2dpProfile;)Landroid/bluetooth/BluetoothA2dp;
 
     move-result-object v4

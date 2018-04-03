@@ -11,8 +11,7 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/keyguard/KeyguardCarrierView$1;,
-        Lcom/android/keyguard/KeyguardCarrierView$2;,
-        Lcom/android/keyguard/KeyguardCarrierView$3;
+        Lcom/android/keyguard/KeyguardCarrierView$2;
     }
 .end annotation
 
@@ -22,8 +21,6 @@
 
 
 # instance fields
-.field private final mBroadcastReceiver:Landroid/content/BroadcastReceiver;
-
 .field private mCallback:Lcom/android/keyguard/KeyguardSecurityCallback;
 
 .field private final mContext:Landroid/content/Context;
@@ -44,11 +41,13 @@
 
 .field private mPhoneNumber:Ljava/lang/String;
 
+.field private mPhoneState:I
+
 .field mPhoneStateListener:Landroid/telephony/PhoneStateListener;
 
-.field private mUnlockButton:Landroid/widget/Button;
+.field mTelephony:Landroid/telephony/TelephonyManager;
 
-.field mtelephony:Landroid/telephony/TelephonyManager;
+.field private mUnlockButton:Landroid/widget/Button;
 
 
 # direct methods
@@ -60,34 +59,18 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Lcom/android/keyguard/KeyguardCarrierView;)Landroid/content/Context;
-    .locals 1
+.method static synthetic -set0(Lcom/android/keyguard/KeyguardCarrierView;I)I
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mContext:Landroid/content/Context;
+    iput p1, p0, Lcom/android/keyguard/KeyguardCarrierView;->mPhoneState:I
 
-    return-object v0
-.end method
-
-.method static synthetic -get2(Lcom/android/keyguard/KeyguardCarrierView;)Lcom/android/internal/widget/LockPatternUtils;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    return-object v0
-.end method
-
-.method static synthetic -get3(Lcom/android/keyguard/KeyguardCarrierView;)Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mPhoneNumber:Ljava/lang/String;
-
-    return-object v0
+    return p1
 .end method
 
 .method static synthetic -wrap0(Lcom/android/keyguard/KeyguardCarrierView;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardCarrierView;->setCarrierLockPlusInfo()V
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardCarrierView;->registerPhoneStateListener()V
 
     return-void
 .end method
@@ -95,12 +78,28 @@
 .method static synthetic -wrap1(Lcom/android/keyguard/KeyguardCarrierView;)V
     .locals 0
 
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardCarrierView;->setCarrierLockPlusInfo()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap2(Lcom/android/keyguard/KeyguardCarrierView;)V
+    .locals 0
+
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardCarrierView;->setVisibleOwnerCallButton()V
 
     return-void
 .end method
 
-.method static synthetic -wrap2(Lcom/android/keyguard/KeyguardCarrierView;I)V
+.method static synthetic -wrap3(Lcom/android/keyguard/KeyguardCarrierView;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardCarrierView;->unregisterPhoneStateListener()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap4(Lcom/android/keyguard/KeyguardCarrierView;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardCarrierView;->updateButtonVisibility(I)V
@@ -139,79 +138,65 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 4
 
+    const/4 v3, 0x0
+
     invoke-direct {p0, p1, p2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    const-string/jumbo v1, "0000"
+    iput v3, p0, Lcom/android/keyguard/KeyguardCarrierView;->mPhoneState:I
 
-    iput-object v1, p0, Lcom/android/keyguard/KeyguardCarrierView;->mPhoneNumber:Ljava/lang/String;
+    const-string/jumbo v2, "0000"
 
-    const/4 v1, 0x0
+    iput-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mPhoneNumber:Ljava/lang/String;
 
-    iput-boolean v1, p0, Lcom/android/keyguard/KeyguardCarrierView;->mIsShowingOwnerCallButton:Z
+    iput-boolean v3, p0, Lcom/android/keyguard/KeyguardCarrierView;->mIsShowingOwnerCallButton:Z
 
-    new-instance v1, Lcom/android/keyguard/KeyguardCarrierView$1;
+    new-instance v2, Lcom/android/keyguard/KeyguardCarrierView$1;
 
-    invoke-direct {v1, p0}, Lcom/android/keyguard/KeyguardCarrierView$1;-><init>(Lcom/android/keyguard/KeyguardCarrierView;)V
+    invoke-direct {v2, p0}, Lcom/android/keyguard/KeyguardCarrierView$1;-><init>(Lcom/android/keyguard/KeyguardCarrierView;)V
 
-    iput-object v1, p0, Lcom/android/keyguard/KeyguardCarrierView;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
+    iput-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
 
-    new-instance v1, Lcom/android/keyguard/KeyguardCarrierView$2;
+    new-instance v2, Lcom/android/keyguard/KeyguardCarrierView$2;
 
-    invoke-direct {v1, p0}, Lcom/android/keyguard/KeyguardCarrierView$2;-><init>(Lcom/android/keyguard/KeyguardCarrierView;)V
+    invoke-direct {v2, p0}, Lcom/android/keyguard/KeyguardCarrierView$2;-><init>(Lcom/android/keyguard/KeyguardCarrierView;)V
 
-    iput-object v1, p0, Lcom/android/keyguard/KeyguardCarrierView;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
-
-    new-instance v1, Lcom/android/keyguard/KeyguardCarrierView$3;
-
-    invoke-direct {v1, p0}, Lcom/android/keyguard/KeyguardCarrierView$3;-><init>(Lcom/android/keyguard/KeyguardCarrierView;)V
-
-    iput-object v1, p0, Lcom/android/keyguard/KeyguardCarrierView;->mInfoCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+    iput-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mInfoCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardCarrierView;->mContext:Landroid/content/Context;
 
-    new-instance v1, Lcom/android/internal/widget/LockPatternUtils;
+    new-instance v2, Lcom/android/internal/widget/LockPatternUtils;
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Lcom/android/keyguard/KeyguardCarrierView;->mContext:Landroid/content/Context;
 
-    invoke-direct {v1, v2}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
+    invoke-direct {v2, v3}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
 
-    iput-object v1, p0, Lcom/android/keyguard/KeyguardCarrierView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    iput-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    const-string/jumbo v1, "com.sec.android.CarrierLock.DISABLED"
+    const-string/jumbo v2, "com.sec.android.CarrierLock.DISABLED"
 
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    const-string/jumbo v1, "com.sec.android.FindingLostPhonePlus.SUBSCRIBE"
+    const-string/jumbo v2, "com.sec.android.FindingLostPhonePlus.SUBSCRIBE"
 
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierView;->mContext:Landroid/content/Context;
+    const-string/jumbo v2, "android.intent.action.ACTION_SUBINFO_RECORD_UPDATED"
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
+    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    new-instance v1, Lcom/android/keyguard/KeyguardCarrierView$3;
 
-    const-string/jumbo v1, "phone"
+    invoke-direct {v1, p0}, Lcom/android/keyguard/KeyguardCarrierView$3;-><init>(Lcom/android/keyguard/KeyguardCarrierView;)V
 
-    invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mContext:Landroid/content/Context;
 
-    move-result-object v1
+    invoke-virtual {v2, v1, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    check-cast v1, Landroid/telephony/TelephonyManager;
-
-    iput-object v1, p0, Lcom/android/keyguard/KeyguardCarrierView;->mtelephony:Landroid/telephony/TelephonyManager;
-
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierView;->mtelephony:Landroid/telephony/TelephonyManager;
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
-
-    const/4 v3, 0x1
-
-    invoke-virtual {v1, v2, v3}, Landroid/telephony/TelephonyManager;->listen(Landroid/telephony/PhoneStateListener;I)V
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardCarrierView;->registerPhoneStateListener()V
 
     return-void
 .end method
@@ -371,6 +356,46 @@
     return v1
 .end method
 
+.method private registerPhoneStateListener()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mTelephony:Landroid/telephony/TelephonyManager;
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v1, "phone"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/telephony/TelephonyManager;
+
+    iput-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mTelephony:Landroid/telephony/TelephonyManager;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mTelephony:Landroid/telephony/TelephonyManager;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mTelephony:Landroid/telephony/TelephonyManager;
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierView;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v1, v2}, Landroid/telephony/TelephonyManager;->listen(Landroid/telephony/PhoneStateListener;I)V
+
+    :cond_1
+    return-void
+.end method
+
 .method private setCarrierLockPlusInfo()V
     .locals 4
 
@@ -394,46 +419,125 @@
 .end method
 
 .method private setVisibleOwnerCallButton()V
-    .locals 2
+    .locals 5
 
-    const/4 v1, 0x0
+    const/4 v4, 0x0
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mOwnerCallButton:Landroid/widget/Button;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierView;->mOwnerCallButton:Landroid/widget/Button;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_2
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mtelephony:Landroid/telephony/TelephonyManager;
+    const/4 v0, 0x0
 
-    if-eqz v0, :cond_1
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierView;->mTelephony:Landroid/telephony/TelephonyManager;
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mtelephony:Landroid/telephony/TelephonyManager;
+    if-eqz v1, :cond_0
 
-    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getServiceState()I
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierView;->mTelephony:Landroid/telephony/TelephonyManager;
 
-    move-result v0
+    invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->getServiceState()Landroid/telephony/ServiceState;
 
-    if-nez v0, :cond_1
-
-    iget-boolean v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mIsShowingOwnerCallButton:Z
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mOwnerCallButton:Landroid/widget/Button;
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
+    move-result-object v0
 
     :cond_0
+    if-eqz v0, :cond_1
+
+    const-string/jumbo v1, "KeyguardCarrierView"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "setVisibleOwnerCallButton state = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v0}, Landroid/telephony/ServiceState;->getState()I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, ", CallButton ="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-boolean v3, p0, Lcom/android/keyguard/KeyguardCarrierView;->mIsShowingOwnerCallButton:Z
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    if-eqz v0, :cond_3
+
+    invoke-virtual {v0}, Landroid/telephony/ServiceState;->getState()I
+
+    move-result v1
+
+    if-nez v1, :cond_3
+
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardCarrierView;->mIsShowingOwnerCallButton:Z
+
+    if-eqz v1, :cond_3
+
+    iget v1, p0, Lcom/android/keyguard/KeyguardCarrierView;->mPhoneState:I
+
+    const/4 v2, 0x2
+
+    if-eq v1, v2, :cond_3
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierView;->mOwnerCallButton:Landroid/widget/Button;
+
+    invoke-virtual {v1, v4}, Landroid/widget/Button;->setVisibility(I)V
+
+    :cond_2
     :goto_0
     return-void
 
-    :cond_1
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mOwnerCallButton:Landroid/widget/Button;
+    :cond_3
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierView;->mOwnerCallButton:Landroid/widget/Button;
 
-    const/16 v1, 0x8
+    const/16 v2, 0x8
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/Button;->setVisibility(I)V
 
     goto :goto_0
+.end method
+
+.method private unregisterPhoneStateListener()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mTelephony:Landroid/telephony/TelephonyManager;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mTelephony:Landroid/telephony/TelephonyManager;
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierView;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Landroid/telephony/TelephonyManager;->listen(Landroid/telephony/PhoneStateListener;I)V
+
+    :cond_0
+    return-void
 .end method
 
 .method private updateButtonVisibility(I)V
@@ -825,6 +929,92 @@
     goto/16 :goto_0
 .end method
 
+.method synthetic lambda$-com_android_keyguard_KeyguardCarrierView_6328(Landroid/view/View;)V
+    .locals 6
+
+    new-instance v1, Landroid/content/Intent;
+
+    const-string/jumbo v2, "android.intent.action.CALL_PRIVILEGED"
+
+    const-string/jumbo v3, "tel"
+
+    iget-object v4, p0, Lcom/android/keyguard/KeyguardCarrierView;->mPhoneNumber:Ljava/lang/String;
+
+    const/4 v5, 0x0
+
+    invoke-static {v3, v4, v5}, Landroid/net/Uri;->fromParts(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-direct {v1, v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+
+    const/high16 v2, 0x10000000
+
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    :try_end_0
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "KeyguardCarrierView"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Can\'t find the component "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
+.method synthetic lambda$-com_android_keyguard_KeyguardCarrierView_6926(Landroid/view/View;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/widget/LockPatternUtils;->isCarrierPasswordSaved(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mCallback:Lcom/android/keyguard/KeyguardSecurityCallback;
+
+    sget-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->CarrierPassword:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+
+    invoke-interface {v0, v1}, Lcom/android/keyguard/KeyguardSecurityCallback;->showBackupSecurity(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public needsInput()Z
     .locals 1
 
@@ -852,7 +1042,7 @@
 .end method
 
 .method protected onDetachedFromWindow()V
-    .locals 3
+    .locals 2
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onDetachedFromWindow()V
 
@@ -866,19 +1056,8 @@
 
     invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->removeCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mtelephony:Landroid/telephony/TelephonyManager;
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardCarrierView;->unregisterPhoneStateListener()V
 
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierView;->mtelephony:Landroid/telephony/TelephonyManager;
-
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierView;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Landroid/telephony/TelephonyManager;->listen(Landroid/telephony/PhoneStateListener;I)V
-
-    :cond_0
     return-void
 .end method
 
@@ -907,7 +1086,7 @@
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardCarrierView;->setCarrierLockPlusInfo()V
 
-    sget v2, Lcom/android/keyguard/R$id;->carrier_owner_info:I
+    const v2, 0x7f0a00cd
 
     invoke-virtual {p0, v2}, Lcom/android/keyguard/KeyguardCarrierView;->findViewById(I)Landroid/view/View;
 
@@ -917,7 +1096,7 @@
 
     iput-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mOwnerInfo:Landroid/widget/TextView;
 
-    sget v2, Lcom/android/keyguard/R$id;->carrier_owner_call_button:I
+    const v2, 0x7f0a00cc
 
     invoke-virtual {p0, v2}, Lcom/android/keyguard/KeyguardCarrierView;->findViewById(I)Landroid/view/View;
 
@@ -927,7 +1106,7 @@
 
     iput-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mOwnerCallButton:Landroid/widget/Button;
 
-    sget v2, Lcom/android/keyguard/R$id;->carrier_unlock_button:I
+    const v2, 0x7f0a00cf
 
     invoke-virtual {p0, v2}, Lcom/android/keyguard/KeyguardCarrierView;->findViewById(I)Landroid/view/View;
 
@@ -937,7 +1116,7 @@
 
     iput-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mUnlockButton:Landroid/widget/Button;
 
-    sget v2, Lcom/android/keyguard/R$id;->carrier_emergency_button:I
+    const v2, 0x7f0a00c9
 
     invoke-virtual {p0, v2}, Lcom/android/keyguard/KeyguardCarrierView;->findViewById(I)Landroid/view/View;
 
@@ -977,9 +1156,9 @@
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mOwnerCallButton:Landroid/widget/Button;
 
-    new-instance v3, Lcom/android/keyguard/KeyguardCarrierView$4;
+    new-instance v3, Lcom/android/keyguard/-$Lambda$8HpOCX-czRDQ8N9TlNIc-ybLUlQ;
 
-    invoke-direct {v3, p0}, Lcom/android/keyguard/KeyguardCarrierView$4;-><init>(Lcom/android/keyguard/KeyguardCarrierView;)V
+    invoke-direct {v3, p0}, Lcom/android/keyguard/-$Lambda$8HpOCX-czRDQ8N9TlNIc-ybLUlQ;-><init>(Ljava/lang/Object;)V
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -992,14 +1171,14 @@
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardCarrierView;->mUnlockButton:Landroid/widget/Button;
 
-    new-instance v3, Lcom/android/keyguard/KeyguardCarrierView$5;
+    new-instance v3, Lcom/android/keyguard/-$Lambda$8HpOCX-czRDQ8N9TlNIc-ybLUlQ$1;
 
-    invoke-direct {v3, p0}, Lcom/android/keyguard/KeyguardCarrierView$5;-><init>(Lcom/android/keyguard/KeyguardCarrierView;)V
+    invoke-direct {v3, p0}, Lcom/android/keyguard/-$Lambda$8HpOCX-czRDQ8N9TlNIc-ybLUlQ$1;-><init>(Ljava/lang/Object;)V
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_3
-    sget v2, Lcom/android/keyguard/R$id;->carrier_text:I
+    const v2, 0x7f0a00ce
 
     invoke-virtual {p0, v2}, Lcom/android/keyguard/KeyguardCarrierView;->findViewById(I)Landroid/view/View;
 
@@ -1009,7 +1188,7 @@
 
     if-eqz v0, :cond_4
 
-    sget v2, Lcom/android/keyguard/KeyguardRune;->CONFIG_STATUSBAR_SIDE_PADDING:I
+    sget v2, Lcom/android/systemui/Rune;->STATBAR_CONFIG_STATUSBAR_SIDE_PADDING:I
 
     int-to-float v2, v2
 
@@ -1069,11 +1248,7 @@
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardCarrierView;->mContext:Landroid/content/Context;
-
-    invoke-static {v1}, Lcom/android/keyguard/KeyguardRune;->isNavigationBarExist(Landroid/content/Context;)Z
-
-    move-result v1
+    sget-boolean v1, Lcom/android/systemui/Rune;->NAVBAR_ENABLED:Z
 
     if-eqz v1, :cond_0
 
@@ -1145,10 +1320,4 @@
     const/4 v0, 0x0
 
     return v0
-.end method
-
-.method public updateChildViewsLook()V
-    .locals 0
-
-    return-void
 .end method

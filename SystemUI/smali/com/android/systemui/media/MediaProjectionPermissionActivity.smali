@@ -481,7 +481,7 @@
 
     aput-object v6, v20, v21
 
-    const v21, 0x7f0f054e
+    const v21, 0x7f120713
 
     move-object/from16 v0, p0
 
@@ -550,7 +550,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f0f0551
+    const v21, 0x7f120712
 
     move-object/from16 v0, v20
 
@@ -574,7 +574,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f040160
+    const v21, 0x7f0d017b
 
     invoke-virtual/range {v20 .. v21}, Landroid/app/AlertDialog$Builder;->setView(I)Landroid/app/AlertDialog$Builder;
 
@@ -628,7 +628,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f130434
+    const v21, 0x7f0a0416
 
     invoke-virtual/range {v20 .. v21}, Landroid/app/AlertDialog;->findViewById(I)Landroid/view/View;
 

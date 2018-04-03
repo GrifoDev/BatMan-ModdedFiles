@@ -39,11 +39,11 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout$1;->this$0:Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->-wrap9(Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;)V
+    invoke-static {v0}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->-wrap11(Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout$1;->this$0:Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->-wrap7(Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;)V
+    invoke-static {v0}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->-wrap9(Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout$1;->this$0:Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;
 

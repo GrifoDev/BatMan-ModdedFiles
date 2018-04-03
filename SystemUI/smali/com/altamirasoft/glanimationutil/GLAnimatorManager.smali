@@ -3,6 +3,7 @@
 .source "GLAnimatorManager.java"
 
 # interfaces
+.implements Lcom/altamirasoft/glanimationutil/GLAnimatorFrameListener;
 .implements Lcom/altamirasoft/glanimationutil/GLEasingHelper$EasingListener;
 .implements Lcom/altamirasoft/glanimationutil/GLCalculateHelper$CalculateListener;
 .implements Lcom/altamirasoft/glanimationutil/GLValueAnimator$AnimatorListener;
@@ -540,11 +541,11 @@
 
     aput v1, v0, v2
 
-    const/4 v1, 0x1
+    const/high16 v1, 0x3f800000    # 1.0f
 
-    const/high16 v2, 0x3f800000    # 1.0f
+    const/4 v2, 0x1
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
     invoke-static {v0}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 

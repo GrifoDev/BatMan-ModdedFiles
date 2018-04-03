@@ -12,7 +12,15 @@
 .end annotation
 
 
+# static fields
+.field public static final WPAPER_SUPPORT_INCONSISTENCY_WALLPAPER:Z
+
+.field private static mIsSupportHomeWallpaperTiltEffect:Z
+
+
 # instance fields
+.field mDesktopModeManager:Lcom/samsung/android/desktopmode/SemDesktopModeManager;
+
 .field private mDisplayManager:Landroid/hardware/display/DisplayManager;
 
 .field mEngine:Lcom/android/systemui/ImageWallpaper$DrawableEngine;
@@ -39,10 +47,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Lcom/android/systemui/ImageWallpaper;)I
+.method static synthetic -get1()Z
     .locals 1
 
-    iget v0, p0, Lcom/android/systemui/ImageWallpaper;->mLastKeyboard:I
+    sget-boolean v0, Lcom/android/systemui/ImageWallpaper;->mIsSupportHomeWallpaperTiltEffect:Z
 
     return v0
 .end method
@@ -50,12 +58,20 @@
 .method static synthetic -get2(Lcom/android/systemui/ImageWallpaper;)I
     .locals 1
 
+    iget v0, p0, Lcom/android/systemui/ImageWallpaper;->mLastKeyboard:I
+
+    return v0
+.end method
+
+.method static synthetic -get3(Lcom/android/systemui/ImageWallpaper;)I
+    .locals 1
+
     iget v0, p0, Lcom/android/systemui/ImageWallpaper;->mNewKeyboard:I
 
     return v0
 .end method
 
-.method static synthetic -get3(Lcom/android/systemui/ImageWallpaper;)Z
+.method static synthetic -get4(Lcom/android/systemui/ImageWallpaper;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/systemui/ImageWallpaper;->mTiltChanged:Z
@@ -63,7 +79,7 @@
     return v0
 .end method
 
-.method static synthetic -get4(Lcom/android/systemui/ImageWallpaper;)Z
+.method static synthetic -get5(Lcom/android/systemui/ImageWallpaper;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/systemui/ImageWallpaper;->mWallpaperTiltSettingEnabled:Z
@@ -111,6 +127,34 @@
     return p1
 .end method
 
+.method static constructor <clinit>()V
+    .locals 2
+
+    const/4 v0, 0x0
+
+    sput-boolean v0, Lcom/android/systemui/ImageWallpaper;->mIsSupportHomeWallpaperTiltEffect:Z
+
+    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "SEC_FLOATING_FEATURE_LOCKSCREEN_CONFIG_WALLPAPER_STYLE"
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "INCONSISTENCY"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/systemui/ImageWallpaper;->WPAPER_SUPPORT_INCONSISTENCY_WALLPAPER:Z
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -129,24 +173,35 @@
     return-void
 .end method
 
-.method private static isEmulator()Z
+.method public static isInterruptGyroSensorSupported(Landroid/content/Context;)Z
     .locals 3
 
-    const-string/jumbo v0, "1"
+    const-string/jumbo v2, "sensor"
 
-    const-string/jumbo v1, "ro.kernel.qemu"
-
-    const-string/jumbo v2, "0"
-
-    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    check-cast v1, Landroid/hardware/SensorManager;
 
-    move-result v0
+    if-eqz v1, :cond_0
 
-    return v0
+    const v2, 0x1002b
+
+    invoke-virtual {v1, v2}, Landroid/hardware/SensorManager;->getDefaultSensor(I)Landroid/hardware/Sensor;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v2, 0x1
+
+    return v2
+
+    :cond_0
+    const/4 v2, 0x0
+
+    return v2
 .end method
 
 
@@ -188,6 +243,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    sget-boolean v0, Lcom/android/systemui/ImageWallpaper;->WPAPER_SUPPORT_INCONSISTENCY_WALLPAPER:Z
+
+    if-nez v0, :cond_0
+
     iget-object v0, p0, Lcom/android/systemui/ImageWallpaper;->mEngine:Lcom/android/systemui/ImageWallpaper$DrawableEngine;
 
     invoke-virtual {v0, p1}, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->onConfigurationChanged(Landroid/content/res/Configuration;)V
@@ -211,19 +270,28 @@
 
     iput-object v0, p0, Lcom/android/systemui/ImageWallpaper;->mWallpaperManager:Landroid/app/WallpaperManager;
 
-    invoke-static {}, Lcom/android/systemui/ImageWallpaper;->isEmulator()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
     invoke-static {}, Landroid/app/ActivityManager;->isHighEndGfx()Z
 
     move-result v0
 
     iput-boolean v0, p0, Lcom/android/systemui/ImageWallpaper;->mIsHwAccelerated:Z
 
-    :cond_0
+    invoke-static {p0}, Lcom/android/systemui/ImageWallpaper;->isInterruptGyroSensorSupported(Landroid/content/Context;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/systemui/ImageWallpaper;->mIsSupportHomeWallpaperTiltEffect:Z
+
+    const-string/jumbo v0, "desktopmode"
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/ImageWallpaper;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/samsung/android/desktopmode/SemDesktopModeManager;
+
+    iput-object v0, p0, Lcom/android/systemui/ImageWallpaper;->mDesktopModeManager:Lcom/samsung/android/desktopmode/SemDesktopModeManager;
+
     return-void
 .end method
 

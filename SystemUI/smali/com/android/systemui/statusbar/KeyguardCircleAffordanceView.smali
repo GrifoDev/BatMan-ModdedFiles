@@ -1,5 +1,5 @@
 .class public Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
-.super Landroid/widget/ImageView;
+.super Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 .source "KeyguardCircleAffordanceView.java"
 
 
@@ -13,6 +13,7 @@
         Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$14;,
         Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$1;,
         Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$2;,
+        Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$30;,
         Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$3;,
         Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$4;,
         Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$5;,
@@ -32,6 +33,8 @@
 
 
 # instance fields
+.field private mAlphaAnimator:Landroid/animation/ValueAnimator;
+
 .field private mAlphaEndListener:Landroid/animation/AnimatorListenerAdapter;
 
 .field private mArrowContainer:Lcom/android/systemui/statusbar/AffordanceArrowContainer;
@@ -78,9 +81,19 @@
 
 .field private mCircleAnimator:Landroid/animation/ValueAnimator;
 
+.field private mCircleColor:I
+
 .field private mCircleEndListener:Landroid/animation/AnimatorListenerAdapter;
 
 .field private final mCirclePaint:Landroid/graphics/Paint;
+
+.field private mCircleRadius:F
+
+.field private mCircleStartRadius:F
+
+.field private mCircleStartValue:F
+
+.field private mCircleWillBeHidden:Z
 
 .field private mClipDistance:F
 
@@ -88,9 +101,9 @@
 
 .field private final mColorInterpolator:Landroid/animation/ArgbEvaluator;
 
-.field private mCubicEaseIn:Lcom/android/systemui/statusbar/phone/CubicEaseIn;
+.field private mCubicEaseIn:Lcom/samsung/android/graphics/spr/animation/interpolator/CubicEaseIn;
 
-.field private mCubicEaseOut:Lcom/android/systemui/statusbar/phone/CubicEaseOut;
+.field private mCubicEaseOut:Lcom/samsung/android/graphics/spr/animation/interpolator/CubicEaseOut;
 
 .field private mDCircleAlpha:I
 
@@ -114,6 +127,8 @@
 
 .field private mDisplay:Landroid/view/Display;
 
+.field private mFinishing:Z
+
 .field private mFling:Z
 
 .field private mFlingAnimationUtils:Lcom/android/systemui/statusbar/FlingAnimationUtils;
@@ -121,6 +136,50 @@
 .field protected mHelperCallback:Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$Callback;
 
 .field private mHintAnimation:Z
+
+.field private mHwCenterX:Landroid/graphics/CanvasProperty;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/graphics/CanvasProperty",
+            "<",
+            "Ljava/lang/Float;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private mHwCenterY:Landroid/graphics/CanvasProperty;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/graphics/CanvasProperty",
+            "<",
+            "Ljava/lang/Float;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private mHwCirclePaint:Landroid/graphics/CanvasProperty;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/graphics/CanvasProperty",
+            "<",
+            "Landroid/graphics/Paint;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private mHwCircleRadius:Landroid/graphics/CanvasProperty;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/graphics/CanvasProperty",
+            "<",
+            "Ljava/lang/Float;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private mIconAlphaAnimator:Landroid/animation/ValueAnimator;
 
@@ -141,6 +200,10 @@
 .field private mIsShortcutForPhone:Z
 
 .field private mJustClicked:Z
+
+.field private mLaunchingAffordance:Z
+
+.field private mMaxCircleSize:F
 
 .field private mMaxRadius:F
 
@@ -186,23 +249,21 @@
 
 .field private mScaleEndListener:Landroid/animation/AnimatorListenerAdapter;
 
-.field private mSettingsHelper:Lcom/android/keyguard/util/SettingsHelper;
+.field private mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
 
 .field private mShaderPreview:Z
 
-.field private mShortcutCallback:Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
+.field private mShortcutCallback:Lcom/android/systemui/util/SettingsHelper$OnChangedCallback;
 
 .field private mShortcutForCamera:Z
 
 .field private mSineIn33:Landroid/view/animation/Interpolator;
 
-.field private mSineIn80:Landroid/view/animation/Interpolator;
-
 .field private mSineOut33:Landroid/view/animation/Interpolator;
 
-.field private mSineOut80:Landroid/view/animation/Interpolator;
-
 .field private mStoppingAndHiding:Z
+
+.field private mSupportHardware:Z
 
 .field private mTempPoint:[I
 
@@ -340,10 +401,10 @@
     return v0
 .end method
 
-.method static synthetic -get22(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Lcom/android/keyguard/util/SettingsHelper;
+.method static synthetic -get22(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Lcom/android/systemui/util/SettingsHelper;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mSettingsHelper:Lcom/android/keyguard/util/SettingsHelper;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
 
     return-object v0
 .end method
@@ -404,10 +465,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get6(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/content/Context;
+.method static synthetic -get6()Landroid/content/Context;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
+    sget-object v0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -439,204 +500,20 @@
 .method static synthetic -set0(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
     .locals 0
 
+    iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mAlphaAnimator:Landroid/animation/ValueAnimator;
+
+    return-object p1
+.end method
+
+.method static synthetic -set1(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
+    .locals 0
+
     iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mBlinkAnimator:Landroid/animation/ValueAnimator;
 
     return-object p1
 .end method
 
-.method static synthetic -set1(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCArrowAlpha:I
-
-    return p1
-.end method
-
-.method static synthetic -set10(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mDCircleRadius:F
-
-    return p1
-.end method
-
-.method static synthetic -set11(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mDeviceInteractive:Z
-
-    return p1
-.end method
-
-.method static synthetic -set12(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mFling:Z
-
-    return p1
-.end method
-
-.method static synthetic -set13(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mHintAnimation:Z
-
-    return p1
-.end method
-
-.method static synthetic -set14(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mIconAlphaAnimator:Landroid/animation/ValueAnimator;
-
-    return-object p1
-.end method
-
-.method static synthetic -set15(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mImageScale:F
-
-    return p1
-.end method
-
-.method static synthetic -set16(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mInitialTouchX:F
-
-    return p1
-.end method
-
-.method static synthetic -set17(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mInitialTouchY:F
-
-    return p1
-.end method
-
-.method static synthetic -set18(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mIsSecure:Z
-
-    return p1
-.end method
-
-.method static synthetic -set19(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mJustClicked:Z
-
-    return p1
-.end method
-
-.method static synthetic -set2(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCArrowAlphaAnimator:Landroid/animation/ValueAnimator;
-
-    return-object p1
-.end method
-
-.method static synthetic -set20(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mOldDistance:F
-
-    return p1
-.end method
-
-.method static synthetic -set21(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Landroid/animation/Animator;)Landroid/animation/Animator;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewClipper:Landroid/animation/Animator;
-
-    return-object p1
-.end method
-
-.method static synthetic -set22(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewShrinker:Landroid/animation/ValueAnimator;
-
-    return-object p1
-.end method
-
-.method static synthetic -set23(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewShrinkerAlpha:Landroid/animation/ValueAnimator;
-
-    return-object p1
-.end method
-
-.method static synthetic -set24(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mScaleAnimator:Landroid/animation/ValueAnimator;
-
-    return-object p1
-.end method
-
-.method static synthetic -set26(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mTouchCancelled:Z
-
-    return p1
-.end method
-
-.method static synthetic -set27(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mTrusted:Z
-
-    return p1
-.end method
-
-.method static synthetic -set3(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCArrowScale:F
-
-    return p1
-.end method
-
-.method static synthetic -set4(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCArrowScaleAnimator:Landroid/animation/ValueAnimator;
-
-    return-object p1
-.end method
-
-.method static synthetic -set5(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleAnimator:Landroid/animation/ValueAnimator;
-
-    return-object p1
-.end method
-
-.method static synthetic -set6(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mClipDistance:F
-
-    return p1
-.end method
-
-.method static synthetic -set7(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mDCircleAlpha:I
-
-    return p1
-.end method
-
-.method static synthetic -set8(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
+.method static synthetic -set10(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mDCircleAlphaAnimator:Landroid/animation/ValueAnimator;
@@ -644,12 +521,228 @@
     return-object p1
 .end method
 
-.method static synthetic -set9(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
+.method static synthetic -set11(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mDCircleAnimator:Landroid/animation/ValueAnimator;
 
     return-object p1
+.end method
+
+.method static synthetic -set12(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mDCircleRadius:F
+
+    return p1
+.end method
+
+.method static synthetic -set13(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mDeviceInteractive:Z
+
+    return p1
+.end method
+
+.method static synthetic -set14(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mFinishing:Z
+
+    return p1
+.end method
+
+.method static synthetic -set15(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mFling:Z
+
+    return p1
+.end method
+
+.method static synthetic -set16(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mHintAnimation:Z
+
+    return p1
+.end method
+
+.method static synthetic -set17(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mIconAlphaAnimator:Landroid/animation/ValueAnimator;
+
+    return-object p1
+.end method
+
+.method static synthetic -set18(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mImageScale:F
+
+    return p1
+.end method
+
+.method static synthetic -set19(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mInitialTouchX:F
+
+    return p1
+.end method
+
+.method static synthetic -set2(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCArrowAlpha:I
+
+    return p1
+.end method
+
+.method static synthetic -set20(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mInitialTouchY:F
+
+    return p1
+.end method
+
+.method static synthetic -set21(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mIsSecure:Z
+
+    return p1
+.end method
+
+.method static synthetic -set22(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mJustClicked:Z
+
+    return p1
+.end method
+
+.method static synthetic -set23(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mOldDistance:F
+
+    return p1
+.end method
+
+.method static synthetic -set24(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Landroid/animation/Animator;)Landroid/animation/Animator;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewClipper:Landroid/animation/Animator;
+
+    return-object p1
+.end method
+
+.method static synthetic -set25(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewShrinker:Landroid/animation/ValueAnimator;
+
+    return-object p1
+.end method
+
+.method static synthetic -set26(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewShrinkerAlpha:Landroid/animation/ValueAnimator;
+
+    return-object p1
+.end method
+
+.method static synthetic -set27(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mScaleAnimator:Landroid/animation/ValueAnimator;
+
+    return-object p1
+.end method
+
+.method static synthetic -set28(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mStoppingAndHiding:Z
+
+    return p1
+.end method
+
+.method static synthetic -set29(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mTouchCancelled:Z
+
+    return p1
+.end method
+
+.method static synthetic -set3(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCArrowAlphaAnimator:Landroid/animation/ValueAnimator;
+
+    return-object p1
+.end method
+
+.method static synthetic -set30(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mTrusted:Z
+
+    return p1
+.end method
+
+.method static synthetic -set4(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCArrowScale:F
+
+    return p1
+.end method
+
+.method static synthetic -set5(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCArrowScaleAnimator:Landroid/animation/ValueAnimator;
+
+    return-object p1
+.end method
+
+.method static synthetic -set6(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleAnimator:Landroid/animation/ValueAnimator;
+
+    return-object p1
+.end method
+
+.method static synthetic -set7(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleRadius:F
+
+    return p1
+.end method
+
+.method static synthetic -set8(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mClipDistance:F
+
+    return p1
+.end method
+
+.method static synthetic -set9(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mDCircleAlpha:I
+
+    return p1
 .end method
 
 .method static synthetic -wrap0(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Z
@@ -730,6 +823,14 @@
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->trackMovement(Landroid/view/MotionEvent;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap18(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->updateIconColor()V
 
     return-void
 .end method
@@ -841,25 +942,23 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
     .locals 11
 
-    const v9, 0x3f547ae1    # 0.83f
+    const v7, 0x3e2e147b    # 0.17f
 
-    const v8, 0x3e2e147b    # 0.17f
+    const/4 v9, 0x0
 
     const/4 v4, 0x1
 
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
     const/4 v10, 0x0
 
-    invoke-direct {p0, p1, p2, p3, p4}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
     iput-boolean v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mDeviceInteractive:Z
 
     iput-boolean v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mTouchCancelled:Z
 
-    const/4 v3, 0x0
-
-    iput v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mOldDistance:F
+    iput v9, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mOldDistance:F
 
     iput-boolean v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mIsPainterReady:Z
 
@@ -869,7 +968,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewClipRect:Landroid/graphics/RectF;
 
-    iput-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPaintPreview:Landroid/graphics/Paint;
+    iput-object v8, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPaintPreview:Landroid/graphics/Paint;
 
     const/high16 v3, -0x40800000    # -1.0f
 
@@ -893,7 +992,7 @@
 
     invoke-direct {v3, p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$1;-><init>(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)V
 
-    iput-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mShortcutCallback:Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
+    iput-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mShortcutCallback:Lcom/android/systemui/util/SettingsHelper$OnChangedCallback;
 
     const/4 v3, 0x2
 
@@ -985,9 +1084,19 @@
 
     iput-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mUpdateMonitorCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
-    iput-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCirclePaint:Landroid/graphics/Paint;
+    const-string/jumbo v3, "SEP"
 
-    iput-object v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mColorInterpolator:Landroid/animation/ArgbEvaluator;
+    sget-object v5, Lcom/android/systemui/Rune;->KEYWI_VALUE_SHORTCUT_STYLE:Ljava/lang/String;
+
+    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    iput-object v8, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCirclePaint:Landroid/graphics/Paint;
+
+    iput-object v8, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mColorInterpolator:Landroid/animation/ArgbEvaluator;
 
     iput v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mInverseColor:I
 
@@ -995,7 +1104,7 @@
 
     iput v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mNormalColor:I
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
+    sput-object p1, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
 
     new-instance v3, Landroid/graphics/Paint;
 
@@ -1007,27 +1116,25 @@
 
     invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
-
-    invoke-static {v3}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lcom/android/keyguard/util/SettingsHelper;->isWhiteKeyguardWallpaper()Z
+    invoke-virtual {v3}, Lcom/android/systemui/util/SettingsHelper;->isWhiteKeyguardWallpaper()Z
 
     move-result v3
 
     if-eqz v3, :cond_0
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
+    sget-object v3, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v5, 0x7f0b0129
+    const v5, 0x7f0601ba
 
-    invoke-virtual {v3, v5, v7}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
+    invoke-virtual {v3, v5, v8}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
     move-result v0
 
@@ -1048,31 +1155,11 @@
 
     new-instance v3, Landroid/view/animation/PathInterpolator;
 
-    const v5, 0x3e4ccccd    # 0.2f
-
-    const/high16 v6, 0x3f800000    # 1.0f
-
-    invoke-direct {v3, v8, v8, v5, v6}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
-
-    iput-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mSineOut80:Landroid/view/animation/Interpolator;
-
-    new-instance v3, Landroid/view/animation/PathInterpolator;
-
-    const v5, 0x3f4ccccd    # 0.8f
-
-    const/4 v6, 0x0
-
-    invoke-direct {v3, v5, v6, v9, v9}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
-
-    iput-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mSineIn80:Landroid/view/animation/Interpolator;
-
-    new-instance v3, Landroid/view/animation/PathInterpolator;
-
     const v5, 0x3f2b851f    # 0.67f
 
     const/high16 v6, 0x3f800000    # 1.0f
 
-    invoke-direct {v3, v8, v8, v5, v6}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+    invoke-direct {v3, v7, v7, v5, v6}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
 
     iput-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mSineOut33:Landroid/view/animation/Interpolator;
 
@@ -1080,33 +1167,35 @@
 
     const v5, 0x3ea8f5c3    # 0.33f
 
-    const/4 v6, 0x0
+    const v6, 0x3f547ae1    # 0.83f
 
-    invoke-direct {v3, v5, v6, v9, v9}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+    const v7, 0x3f547ae1    # 0.83f
+
+    invoke-direct {v3, v5, v9, v6, v7}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
 
     iput-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mSineIn33:Landroid/view/animation/Interpolator;
 
-    new-instance v3, Lcom/android/systemui/statusbar/phone/CubicEaseIn;
+    new-instance v3, Lcom/samsung/android/graphics/spr/animation/interpolator/CubicEaseIn;
 
-    invoke-direct {v3}, Lcom/android/systemui/statusbar/phone/CubicEaseIn;-><init>()V
+    invoke-direct {v3}, Lcom/samsung/android/graphics/spr/animation/interpolator/CubicEaseIn;-><init>()V
 
-    iput-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCubicEaseIn:Lcom/android/systemui/statusbar/phone/CubicEaseIn;
+    iput-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCubicEaseIn:Lcom/samsung/android/graphics/spr/animation/interpolator/CubicEaseIn;
 
-    new-instance v3, Lcom/android/systemui/statusbar/phone/CubicEaseOut;
+    new-instance v3, Lcom/samsung/android/graphics/spr/animation/interpolator/CubicEaseOut;
 
-    invoke-direct {v3}, Lcom/android/systemui/statusbar/phone/CubicEaseOut;-><init>()V
+    invoke-direct {v3}, Lcom/samsung/android/graphics/spr/animation/interpolator/CubicEaseOut;-><init>()V
 
-    iput-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCubicEaseOut:Lcom/android/systemui/statusbar/phone/CubicEaseOut;
+    iput-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCubicEaseOut:Lcom/samsung/android/graphics/spr/animation/interpolator/CubicEaseOut;
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
+    sget-object v3, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v5, 0x7f020338
+    const v5, 0x7f080411
 
-    invoke-virtual {v3, v5, v7}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v3, v5, v8}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
@@ -1118,13 +1207,13 @@
 
     iput-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCArrowBitmap:Landroid/graphics/Bitmap;
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
+    sget-object v3, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v5, 0x7f0d030c
+    const v5, 0x7f070178
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1170,13 +1259,13 @@
 
     iput v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCArrowDiagSize:F
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
+    sget-object v3, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v5, 0x7f0d03dc
+    const v5, 0x7f0701a3
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1200,7 +1289,7 @@
 
     new-instance v3, Lcom/android/systemui/statusbar/FlingAnimationUtils;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
+    sget-object v5, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
 
     const v6, 0x3ecccccd    # 0.4f
 
@@ -1238,7 +1327,7 @@
 
     iput-boolean v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mTrusted:Z
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
+    sget-object v3, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
 
     const-string/jumbo v5, "window"
 
@@ -1262,13 +1351,13 @@
 
     if-nez v3, :cond_1
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
+    sget-object v3, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v5, 0x7f120026
+    const v5, 0x7f05000b
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1277,17 +1366,15 @@
     :goto_1
     sput-boolean v3, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mIsLockscreenRotatable:Z
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
-
-    invoke-static {v3}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
 
     move-result-object v3
 
-    iput-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mSettingsHelper:Lcom/android/keyguard/util/SettingsHelper;
+    iput-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mSettingsHelper:Lcom/android/keyguard/util/SettingsHelper;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mShortcutCallback:Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
+    iget-object v5, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mShortcutCallback:Lcom/android/systemui/util/SettingsHelper$OnChangedCallback;
 
     new-array v4, v4, [Landroid/net/Uri;
 
@@ -1299,20 +1386,21 @@
 
     aput-object v6, v4, v10
 
-    invoke-virtual {v3, v5, v4}, Lcom/android/keyguard/util/SettingsHelper;->registerCallback(Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;[Landroid/net/Uri;)V
+    invoke-virtual {v3, v5, v4}, Lcom/android/systemui/util/SettingsHelper;->registerCallback(Lcom/android/systemui/util/SettingsHelper$OnChangedCallback;[Landroid/net/Uri;)V
 
+    :goto_2
     return-void
 
     :cond_0
-    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
+    sget-object v3, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v5, 0x7f0b0018
+    const v5, 0x7f0601b9
 
-    invoke-virtual {v3, v5, v7}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
+    invoke-virtual {v3, v5, v8}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
     move-result v0
 
@@ -1322,6 +1410,73 @@
     move v3, v4
 
     goto :goto_1
+
+    :cond_2
+    iput-object v8, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCArrowPaint:Landroid/graphics/Paint;
+
+    iput v9, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mDCircleMaxRadius:F
+
+    iput-object v8, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mDCirclePaint:Landroid/graphics/Paint;
+
+    new-instance v3, Landroid/graphics/Paint;
+
+    invoke-direct {v3}, Landroid/graphics/Paint;-><init>()V
+
+    iput-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCirclePaint:Landroid/graphics/Paint;
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCirclePaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+
+    const/4 v3, -0x1
+
+    iput v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleColor:I
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCirclePaint:Landroid/graphics/Paint;
+
+    iget v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleColor:I
+
+    invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setColor(I)V
+
+    const/4 v3, -0x1
+
+    iput v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mNormalColor:I
+
+    const/high16 v3, -0x1000000
+
+    iput v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mInverseColor:I
+
+    sget-object v3, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const v4, 0x7f070176
+
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v3
+
+    iput v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mMinBackgroundRadius:I
+
+    new-instance v3, Landroid/animation/ArgbEvaluator;
+
+    invoke-direct {v3}, Landroid/animation/ArgbEvaluator;-><init>()V
+
+    iput-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mColorInterpolator:Landroid/animation/ArgbEvaluator;
+
+    new-instance v3, Lcom/android/systemui/statusbar/FlingAnimationUtils;
+
+    sget-object v4, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
+
+    const v5, 0x3e99999a    # 0.3f
+
+    invoke-direct {v3, v4, v5}, Lcom/android/systemui/statusbar/FlingAnimationUtils;-><init>(Landroid/content/Context;F)V
+
+    iput-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mFlingAnimationUtils:Lcom/android/systemui/statusbar/FlingAnimationUtils;
+
+    goto :goto_2
 .end method
 
 .method private cancelAllAnimators()V
@@ -1743,6 +1898,68 @@
     return-void
 .end method
 
+.method private drawBackgroundCircle(Landroid/graphics/Canvas;)V
+    .locals 5
+
+    iget v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleRadius:F
+
+    const/4 v2, 0x0
+
+    cmpl-float v1, v1, v2
+
+    if-gtz v1, :cond_0
+
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mFinishing:Z
+
+    if-eqz v1, :cond_1
+
+    :cond_0
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mFinishing:Z
+
+    if-eqz v1, :cond_2
+
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mSupportHardware:Z
+
+    if-eqz v1, :cond_2
+
+    move-object v0, p1
+
+    check-cast v0, Landroid/view/DisplayListCanvas;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mHwCenterX:Landroid/graphics/CanvasProperty;
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mHwCenterY:Landroid/graphics/CanvasProperty;
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mHwCircleRadius:Landroid/graphics/CanvasProperty;
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mHwCirclePaint:Landroid/graphics/CanvasProperty;
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/view/DisplayListCanvas;->drawCircle(Landroid/graphics/CanvasProperty;Landroid/graphics/CanvasProperty;Landroid/graphics/CanvasProperty;Landroid/graphics/CanvasProperty;)V
+
+    :cond_1
+    :goto_0
+    return-void
+
+    :cond_2
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->updateCircleColor()V
+
+    iget v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCenterX:I
+
+    int-to-float v1, v1
+
+    iget v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCenterY:I
+
+    int-to-float v2, v2
+
+    iget v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleRadius:F
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCirclePaint:Landroid/graphics/Paint;
+
+    invoke-virtual {p1, v1, v2, v3, v4}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
+
+    goto :goto_0
+.end method
+
 .method private drawCircle(Landroid/graphics/Canvas;)V
     .locals 4
 
@@ -1918,6 +2135,75 @@
     goto :goto_0
 .end method
 
+.method private getAnimatorToRadius(F)Landroid/animation/ValueAnimator;
+    .locals 5
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    const-string/jumbo v3, "SEP"
+
+    sget-object v4, Lcom/android/systemui/Rune;->KEYWI_VALUE_SHORTCUT_STYLE:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v1, 0x0
+
+    return-object v1
+
+    :cond_0
+    const/4 v3, 0x2
+
+    new-array v3, v3, [F
+
+    iget v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleRadius:F
+
+    aput v4, v3, v2
+
+    aput p1, v3, v1
+
+    invoke-static {v3}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleAnimator:Landroid/animation/ValueAnimator;
+
+    iget v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleRadius:F
+
+    iput v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleStartValue:F
+
+    const/4 v3, 0x0
+
+    cmpl-float v3, p1, v3
+
+    if-nez v3, :cond_1
+
+    :goto_0
+    iput-boolean v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleWillBeHidden:Z
+
+    new-instance v1, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$33;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$33;-><init>(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)V
+
+    invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleEndListener:Landroid/animation/AnimatorListenerAdapter;
+
+    invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+
+    return-object v0
+
+    :cond_1
+    move v1, v2
+
+    goto :goto_0
+.end method
+
 .method private getCurrentVelocity(FF)F
     .locals 10
 
@@ -1980,9 +2266,9 @@
 .method private getEndListener(Ljava/lang/Runnable;)Landroid/animation/Animator$AnimatorListener;
     .locals 1
 
-    new-instance v0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$26;
+    new-instance v0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$27;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$26;-><init>(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Ljava/lang/Runnable;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$27;-><init>(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Ljava/lang/Runnable;)V
 
     return-object v0
 .end method
@@ -1990,10 +2276,21 @@
 .method private getMaxCircleSize()F
     .locals 8
 
+    const-string/jumbo v4, "SEP"
+
+    sget-object v5, Lcom/android/systemui/Rune;->KEYWI_VALUE_SHORTCUT_STYLE:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
     const/4 v4, 0x2
 
     new-array v1, v4, [I
 
+    :cond_0
     iget-object v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mTempPoint:[I
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getLocationInWindow([I)V
@@ -2051,6 +2348,20 @@
     return v4
 .end method
 
+.method private getRtAnimatorToRadius(F)Landroid/animation/Animator;
+    .locals 2
+
+    new-instance v0, Landroid/view/RenderNodeAnimator;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mHwCircleRadius:Landroid/graphics/CanvasProperty;
+
+    invoke-direct {v0, v1, p1}, Landroid/view/RenderNodeAnimator;-><init>(Landroid/graphics/CanvasProperty;F)V
+
+    invoke-virtual {v0, p0}, Landroid/view/RenderNodeAnimator;->setTarget(Landroid/view/View;)V
+
+    return-object v0
+.end method
+
 .method private initAnimatedValues()V
     .locals 2
 
@@ -2083,6 +2394,48 @@
     return-void
 .end method
 
+.method private initHwProperties()V
+    .locals 1
+
+    iget v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCenterX:I
+
+    int-to-float v0, v0
+
+    invoke-static {v0}, Landroid/graphics/CanvasProperty;->createFloat(F)Landroid/graphics/CanvasProperty;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mHwCenterX:Landroid/graphics/CanvasProperty;
+
+    iget v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCenterY:I
+
+    int-to-float v0, v0
+
+    invoke-static {v0}, Landroid/graphics/CanvasProperty;->createFloat(F)Landroid/graphics/CanvasProperty;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mHwCenterY:Landroid/graphics/CanvasProperty;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCirclePaint:Landroid/graphics/Paint;
+
+    invoke-static {v0}, Landroid/graphics/CanvasProperty;->createPaint(Landroid/graphics/Paint;)Landroid/graphics/CanvasProperty;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mHwCirclePaint:Landroid/graphics/CanvasProperty;
+
+    iget v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleRadius:F
+
+    invoke-static {v0}, Landroid/graphics/CanvasProperty;->createFloat(F)Landroid/graphics/CanvasProperty;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mHwCircleRadius:Landroid/graphics/CanvasProperty;
+
+    return-void
+.end method
+
 .method private initVelocityTracker()V
     .locals 1
 
@@ -2107,7 +2460,7 @@
 .method private isInCallForOnlyTablet()Z
     .locals 2
 
-    sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->IS_TABLET_DEVICE:Z
+    sget-boolean v1, Lcom/android/systemui/Rune;->IS_TABLET_DEVICE:Z
 
     if-eqz v1, :cond_0
 
@@ -2115,7 +2468,7 @@
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
+    sget-object v1, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
 
     invoke-static {v1}, Landroid/telecom/TelecomManager;->from(Landroid/content/Context;)Landroid/telecom/TelecomManager;
 
@@ -2138,45 +2491,44 @@
 .end method
 
 .method private isSecure()Z
-    .locals 3
+    .locals 1
 
-    const/4 v0, 0x1
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mIsSecure:Z
 
-    const/4 v1, 0x0
+    if-eqz v0, :cond_1
 
-    iget-boolean v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mIsSecure:Z
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mTrusted:Z
 
-    if-eqz v2, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    iget-boolean v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mTrusted:Z
+    if-eqz v0, :cond_1
 
-    if-eqz v2, :cond_2
+    sget-boolean v0, Lcom/android/systemui/Rune;->SECURITY_SUPPORT_ATT_LOCK_TIMEOUT:Z
 
-    :cond_0
-    move v0, v1
+    if-eqz v0, :cond_0
 
-    :cond_1
+    sget-object v0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getSwipeLockBeforeTimeout()Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
     :goto_0
     return v0
 
-    :cond_2
-    sget-boolean v2, Lcom/android/keyguard/KeyguardRune;->SUPPORT_ATT_LOCK_TIMEOUT:Z
+    :cond_0
+    const/4 v0, 0x1
 
-    if-eqz v2, :cond_1
+    goto :goto_0
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
-
-    invoke-static {v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getSwipeLockBeforeTimeout()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    move v0, v1
+    :cond_1
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
@@ -2412,7 +2764,7 @@
 .method private setArrowImageAlpha(I)V
     .locals 1
 
-    sget-boolean v0, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SKIP_SHORTCUT_ARROW_SHOWING_VI:Z
+    sget-boolean v0, Lcom/android/systemui/Rune;->KEYWI_SUPPORT_SHORTCUT_CUE:Z
 
     if-eqz v0, :cond_0
 
@@ -2727,7 +3079,7 @@
 
     if-eqz p1, :cond_2
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCubicEaseOut:Lcom/android/systemui/statusbar/phone/CubicEaseOut;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCubicEaseOut:Lcom/samsung/android/graphics/spr/animation/interpolator/CubicEaseOut;
 
     :goto_2
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
@@ -2761,15 +3113,296 @@
     goto :goto_1
 
     :cond_2
-    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCubicEaseIn:Lcom/android/systemui/statusbar/phone/CubicEaseIn;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCubicEaseIn:Lcom/samsung/android/graphics/spr/animation/interpolator/CubicEaseIn;
 
     goto :goto_2
 .end method
 
 .method private setCircleRadius(FZZ)V
-    .locals 0
+    .locals 14
 
+    const-string/jumbo v10, "GED"
+
+    sget-object v11, Lcom/android/systemui/Rune;->KEYWI_VALUE_SHORTCUT_STYLE:Ljava/lang/String;
+
+    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_1
+
+    iget-object v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleAnimator:Landroid/animation/ValueAnimator;
+
+    if-eqz v10, :cond_0
+
+    iget-boolean v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleWillBeHidden:Z
+
+    if-nez v10, :cond_2
+
+    :cond_0
+    iget-object v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleAnimator:Landroid/animation/ValueAnimator;
+
+    if-nez v10, :cond_3
+
+    iget v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleRadius:F
+
+    const/4 v11, 0x0
+
+    cmpl-float v10, v10, v11
+
+    if-nez v10, :cond_3
+
+    const/4 v7, 0x1
+
+    :goto_0
+    const/4 v10, 0x0
+
+    cmpl-float v10, p1, v10
+
+    if-nez v10, :cond_4
+
+    const/4 v6, 0x1
+
+    :goto_1
+    if-eq v7, v6, :cond_5
+
+    xor-int/lit8 v8, p3, 0x1
+
+    :goto_2
+    if-nez v8, :cond_7
+
+    iget-object v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleAnimator:Landroid/animation/ValueAnimator;
+
+    if-nez v10, :cond_6
+
+    iput p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleRadius:F
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->updateIconColor()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->invalidate()V
+
+    if-eqz v6, :cond_1
+
+    iget-object v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
+
+    if-eqz v10, :cond_1
+
+    iget-object v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
+
+    const/4 v11, 0x4
+
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
+
+    :cond_1
+    :goto_3
     return-void
+
+    :cond_2
+    const/4 v7, 0x1
+
+    goto :goto_0
+
+    :cond_3
+    const/4 v7, 0x0
+
+    goto :goto_0
+
+    :cond_4
+    const/4 v6, 0x0
+
+    goto :goto_1
+
+    :cond_5
+    const/4 v8, 0x0
+
+    goto :goto_2
+
+    :cond_6
+    iget-boolean v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleWillBeHidden:Z
+
+    if-nez v10, :cond_1
+
+    iget v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mMinBackgroundRadius:I
+
+    int-to-float v10, v10
+
+    sub-float v1, p1, v10
+
+    iget-object v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v10}, Landroid/animation/ValueAnimator;->getValues()[Landroid/animation/PropertyValuesHolder;
+
+    move-result-object v9
+
+    const/4 v10, 0x0
+
+    aget-object v10, v9, v10
+
+    const/4 v11, 0x2
+
+    new-array v11, v11, [F
+
+    iget v12, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleStartValue:F
+
+    add-float/2addr v12, v1
+
+    const/4 v13, 0x0
+
+    aput v12, v11, v13
+
+    const/4 v12, 0x1
+
+    aput p1, v11, v12
+
+    invoke-virtual {v10, v11}, Landroid/animation/PropertyValuesHolder;->setFloatValues([F)V
+
+    iget-object v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleAnimator:Landroid/animation/ValueAnimator;
+
+    iget-object v11, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v11}, Landroid/animation/ValueAnimator;->getCurrentPlayTime()J
+
+    move-result-wide v12
+
+    invoke-virtual {v10, v12, v13}, Landroid/animation/ValueAnimator;->setCurrentPlayTime(J)V
+
+    goto :goto_3
+
+    :cond_7
+    iget-object v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-direct {p0, v10}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->cancelAnimator(Landroid/animation/Animator;)V
+
+    iget-object v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewClipper:Landroid/animation/Animator;
+
+    invoke-direct {p0, v10}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->cancelAnimator(Landroid/animation/Animator;)V
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getAnimatorToRadius(F)Landroid/animation/ValueAnimator;
+
+    move-result-object v0
+
+    const/4 v10, 0x0
+
+    cmpl-float v10, p1, v10
+
+    if-nez v10, :cond_9
+
+    sget-object v5, Lcom/android/systemui/Interpolators;->FAST_OUT_LINEAR_IN:Landroid/view/animation/Interpolator;
+
+    :goto_4
+    invoke-virtual {v0, v5}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    const-wide/16 v2, 0xfa
+
+    if-nez p2, :cond_8
+
+    iget v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleRadius:F
+
+    sub-float/2addr v10, p1
+
+    invoke-static {v10}, Ljava/lang/Math;->abs(F)F
+
+    move-result v10
+
+    iget v11, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mMinBackgroundRadius:I
+
+    int-to-float v11, v11
+
+    div-float v4, v10, v11
+
+    const/high16 v10, 0x42a00000    # 80.0f
+
+    mul-float/2addr v10, v4
+
+    float-to-long v2, v10
+
+    const-wide/16 v10, 0xc8
+
+    invoke-static {v2, v3, v10, v11}, Ljava/lang/Math;->min(JJ)J
+
+    move-result-wide v2
+
+    :cond_8
+    invoke-virtual {v0, v2, v3}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
+
+    iget-object v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
+
+    if-eqz v10, :cond_1
+
+    iget-object v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
+
+    invoke-virtual {v10}, Landroid/view/View;->getVisibility()I
+
+    move-result v10
+
+    if-nez v10, :cond_1
+
+    iget-object v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
+
+    const/4 v11, 0x0
+
+    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
+
+    iget-object v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getLeft()I
+
+    move-result v11
+
+    iget v12, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCenterX:I
+
+    add-int/2addr v11, v12
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getTop()I
+
+    move-result v12
+
+    iget v13, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCenterY:I
+
+    add-int/2addr v12, v13
+
+    iget v13, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleRadius:F
+
+    invoke-static {v10, v11, v12, v13, p1}, Landroid/view/ViewAnimationUtils;->createCircularReveal(Landroid/view/View;IIFF)Landroid/animation/Animator;
+
+    move-result-object v10
+
+    iput-object v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewClipper:Landroid/animation/Animator;
+
+    iget-object v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewClipper:Landroid/animation/Animator;
+
+    invoke-virtual {v10, v5}, Landroid/animation/Animator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    iget-object v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewClipper:Landroid/animation/Animator;
+
+    invoke-virtual {v10, v2, v3}, Landroid/animation/Animator;->setDuration(J)Landroid/animation/Animator;
+
+    iget-object v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewClipper:Landroid/animation/Animator;
+
+    iget-object v11, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mClipEndListener:Landroid/animation/AnimatorListenerAdapter;
+
+    invoke-virtual {v10, v11}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+
+    iget-object v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewClipper:Landroid/animation/Animator;
+
+    new-instance v11, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$32;
+
+    invoke-direct {v11, p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$32;-><init>(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)V
+
+    invoke-virtual {v10, v11}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+
+    iget-object v10, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewClipper:Landroid/animation/Animator;
+
+    invoke-virtual {v10}, Landroid/animation/Animator;->start()V
+
+    goto/16 :goto_3
+
+    :cond_9
+    sget-object v5, Lcom/android/systemui/Interpolators;->LINEAR_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
+
+    goto :goto_4
 .end method
 
 .method private setDCircleAlphaAnimator(Z)V
@@ -2783,13 +3416,11 @@
 
     iput v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mDCircleStartAlpha:I
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
-
-    invoke-static {v1}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/keyguard/util/SettingsHelper;->isWhiteKeyguardWallpaper()Z
+    invoke-virtual {v1}, Lcom/android/systemui/util/SettingsHelper;->isWhiteKeyguardWallpaper()Z
 
     move-result v1
 
@@ -3033,7 +3664,7 @@
 
     if-eqz p1, :cond_2
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCubicEaseOut:Lcom/android/systemui/statusbar/phone/CubicEaseOut;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCubicEaseOut:Lcom/samsung/android/graphics/spr/animation/interpolator/CubicEaseOut;
 
     :goto_2
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
@@ -3067,7 +3698,7 @@
     goto :goto_1
 
     :cond_2
-    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCubicEaseIn:Lcom/android/systemui/statusbar/phone/CubicEaseIn;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCubicEaseIn:Lcom/samsung/android/graphics/spr/animation/interpolator/CubicEaseIn;
 
     goto :goto_2
 .end method
@@ -3234,13 +3865,11 @@
     goto :goto_0
 
     :cond_2
-    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
-
-    invoke-static {v1}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/keyguard/util/SettingsHelper;->isWhiteKeyguardWallpaper()Z
+    invoke-virtual {v1}, Lcom/android/systemui/util/SettingsHelper;->isWhiteKeyguardWallpaper()Z
 
     move-result v1
 
@@ -3387,7 +4016,7 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCubicEaseIn:Lcom/android/systemui/statusbar/phone/CubicEaseIn;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCubicEaseIn:Lcom/samsung/android/graphics/spr/animation/interpolator/CubicEaseIn;
 
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
@@ -3481,6 +4110,93 @@
     goto :goto_0
 .end method
 
+.method private startRtAlphaFadeIn()V
+    .locals 5
+
+    iget v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleRadius:F
+
+    const/4 v3, 0x0
+
+    cmpl-float v2, v2, v3
+
+    if-nez v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
+
+    if-nez v2, :cond_0
+
+    new-instance v1, Landroid/graphics/Paint;
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCirclePaint:Landroid/graphics/Paint;
+
+    invoke-direct {v1, v2}, Landroid/graphics/Paint;-><init>(Landroid/graphics/Paint;)V
+
+    iget v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleColor:I
+
+    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColor(I)V
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setAlpha(I)V
+
+    invoke-static {v1}, Landroid/graphics/CanvasProperty;->createPaint(Landroid/graphics/Paint;)Landroid/graphics/CanvasProperty;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mHwCirclePaint:Landroid/graphics/CanvasProperty;
+
+    new-instance v0, Landroid/view/RenderNodeAnimator;
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mHwCirclePaint:Landroid/graphics/CanvasProperty;
+
+    const/high16 v3, 0x437f0000    # 255.0f
+
+    const/4 v4, 0x1
+
+    invoke-direct {v0, v2, v4, v3}, Landroid/view/RenderNodeAnimator;-><init>(Landroid/graphics/CanvasProperty;IF)V
+
+    invoke-virtual {v0, p0}, Landroid/view/RenderNodeAnimator;->setTarget(Landroid/view/View;)V
+
+    sget-object v2, Lcom/android/systemui/Interpolators;->ALPHA_IN:Landroid/view/animation/Interpolator;
+
+    invoke-virtual {v0, v2}, Landroid/view/RenderNodeAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    const-wide/16 v2, 0xfa
+
+    invoke-virtual {v0, v2, v3}, Landroid/view/RenderNodeAnimator;->setDuration(J)Landroid/view/RenderNodeAnimator;
+
+    invoke-virtual {v0}, Landroid/view/RenderNodeAnimator;->start()V
+
+    :cond_0
+    return-void
+.end method
+
+.method private startRtCircleFadeOut(J)V
+    .locals 5
+
+    new-instance v0, Landroid/view/RenderNodeAnimator;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mHwCirclePaint:Landroid/graphics/CanvasProperty;
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x1
+
+    invoke-direct {v0, v1, v3, v2}, Landroid/view/RenderNodeAnimator;-><init>(Landroid/graphics/CanvasProperty;IF)V
+
+    invoke-virtual {v0, p1, p2}, Landroid/view/RenderNodeAnimator;->setDuration(J)Landroid/view/RenderNodeAnimator;
+
+    sget-object v1, Lcom/android/systemui/Interpolators;->ALPHA_OUT:Landroid/view/animation/Interpolator;
+
+    invoke-virtual {v0, v1}, Landroid/view/RenderNodeAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    invoke-virtual {v0, p0}, Landroid/view/RenderNodeAnimator;->setTarget(Landroid/view/View;)V
+
+    invoke-virtual {v0}, Landroid/view/RenderNodeAnimator;->start()V
+
+    return-void
+.end method
+
 .method private trackMovement(Landroid/view/MotionEvent;)V
     .locals 1
 
@@ -3496,6 +4212,175 @@
     return-void
 .end method
 
+.method private updateCircleColor()V
+    .locals 8
+
+    const/high16 v7, 0x3f800000    # 1.0f
+
+    const/4 v6, 0x0
+
+    const/high16 v5, 0x3f000000    # 0.5f
+
+    iget v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleRadius:F
+
+    iget v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mMinBackgroundRadius:I
+
+    int-to-float v4, v4
+
+    sub-float/2addr v3, v4
+
+    iget v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mMinBackgroundRadius:I
+
+    int-to-float v4, v4
+
+    mul-float/2addr v4, v5
+
+    div-float/2addr v3, v4
+
+    invoke-static {v7, v3}, Ljava/lang/Math;->min(FF)F
+
+    move-result v3
+
+    invoke-static {v6, v3}, Ljava/lang/Math;->max(FF)F
+
+    move-result v3
+
+    mul-float/2addr v3, v5
+
+    add-float v2, v5, v3
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
+
+    if-eqz v3, :cond_0
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
+
+    invoke-virtual {v3}, Landroid/view/View;->getVisibility()I
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    iget v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleRadius:F
+
+    iget v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleStartRadius:F
+
+    sub-float/2addr v3, v4
+
+    invoke-static {v6, v3}, Ljava/lang/Math;->max(FF)F
+
+    move-result v3
+
+    iget v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mMaxCircleSize:F
+
+    iget v5, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleStartRadius:F
+
+    sub-float/2addr v4, v5
+
+    div-float/2addr v3, v4
+
+    sub-float v1, v7, v3
+
+    mul-float/2addr v2, v1
+
+    :cond_0
+    iget v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleColor:I
+
+    invoke-static {v3}, Landroid/graphics/Color;->alpha(I)I
+
+    move-result v3
+
+    int-to-float v3, v3
+
+    mul-float/2addr v3, v2
+
+    float-to-int v3, v3
+
+    iget v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleColor:I
+
+    invoke-static {v4}, Landroid/graphics/Color;->red(I)I
+
+    move-result v4
+
+    iget v5, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleColor:I
+
+    invoke-static {v5}, Landroid/graphics/Color;->green(I)I
+
+    move-result v5
+
+    iget v6, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleColor:I
+
+    invoke-static {v6}, Landroid/graphics/Color;->blue(I)I
+
+    move-result v6
+
+    invoke-static {v3, v4, v5, v6}, Landroid/graphics/Color;->argb(IIII)I
+
+    move-result v0
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCirclePaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v3, v0}, Landroid/graphics/Paint;->setColor(I)V
+
+    return-void
+.end method
+
+.method private updateIconColor()V
+    .locals 6
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getDrawable()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v2
+
+    iget v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleRadius:F
+
+    iget v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mMinBackgroundRadius:I
+
+    int-to-float v4, v4
+
+    div-float v0, v3, v4
+
+    const/high16 v3, 0x3f800000    # 1.0f
+
+    invoke-static {v3, v0}, Ljava/lang/Math;->min(FF)F
+
+    move-result v0
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mColorInterpolator:Landroid/animation/ArgbEvaluator;
+
+    iget v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mNormalColor:I
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    iget v5, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mInverseColor:I
+
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    invoke-virtual {v3, v0, v4, v5}, Landroid/animation/ArgbEvaluator;->evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/Integer;
+
+    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+
+    move-result v1
+
+    sget-object v3, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+
+    invoke-virtual {v2, v1, v3}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+
+    return-void
+.end method
+
 .method private veilWithCurrentVelocity(F)V
     .locals 10
 
@@ -3505,13 +4390,11 @@
 
     const/4 v6, 0x0
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/keyguard/util/SettingsHelper;->isWhiteKeyguardWallpaper()Z
+    invoke-virtual {v0}, Lcom/android/systemui/util/SettingsHelper;->isWhiteKeyguardWallpaper()Z
 
     move-result v0
 
@@ -3592,7 +4475,7 @@
 .method public cancelDAAffordance()V
     .locals 2
 
-    sget-boolean v0, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SKIP_SHORTCUT_ARROW_SHOWING_VI:Z
+    sget-boolean v0, Lcom/android/systemui/Rune;->KEYWI_SUPPORT_SHORTCUT_CUE:Z
 
     if-eqz v0, :cond_0
 
@@ -3619,25 +4502,200 @@
 .end method
 
 .method public finishAnimation(FLjava/lang/Runnable;)V
-    .locals 0
+    .locals 10
 
-    return-void
-.end method
+    const/4 v6, 0x1
 
-.method public getCircleRadius()F
-    .locals 1
+    const-string/jumbo v0, "GED"
+
+    sget-object v2, Lcom/android/systemui/Rune;->KEYWI_VALUE_SHORTCUT_STYLE:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->cancelAnimator(Landroid/animation/Animator;)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewClipper:Landroid/animation/Animator;
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->cancelAnimator(Landroid/animation/Animator;)V
+
+    iput-boolean v6, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mFinishing:Z
+
+    iget v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleRadius:F
+
+    iput v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleStartRadius:F
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getMaxCircleSize()F
+
+    move-result v3
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mSupportHardware:Z
+
+    if-eqz v0, :cond_1
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->initHwProperties()V
+
+    invoke-direct {p0, v3}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getRtAnimatorToRadius(F)Landroid/animation/Animator;
+
+    move-result-object v1
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->startRtAlphaFadeIn()V
+
+    :goto_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mFlingAnimationUtils:Lcom/android/systemui/statusbar/FlingAnimationUtils;
+
+    iget v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleRadius:F
+
+    move v4, p1
+
+    move v5, v3
+
+    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/statusbar/FlingAnimationUtils;->applyDismissing(Landroid/animation/Animator;FFFF)V
+
+    new-instance v0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$31;
+
+    invoke-direct {v0, p0, p2, v3}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$31;-><init>(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Ljava/lang/Runnable;F)V
+
+    invoke-virtual {v1, v0}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+
+    invoke-virtual {v1}, Landroid/animation/Animator;->start()V
 
     const/4 v0, 0x0
 
+    invoke-virtual {p0, v0, v6}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->setImageAlpha(FZ)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getLeft()I
+
+    move-result v2
+
+    iget v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCenterX:I
+
+    add-int/2addr v2, v4
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getTop()I
+
+    move-result v4
+
+    iget v5, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCenterY:I
+
+    add-int/2addr v4, v5
+
+    iget v5, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleRadius:F
+
+    invoke-static {v0, v2, v4, v5, v3}, Landroid/view/ViewAnimationUtils;->createCircularReveal(Landroid/view/View;IIFF)Landroid/animation/Animator;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewClipper:Landroid/animation/Animator;
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mFlingAnimationUtils:Lcom/android/systemui/statusbar/FlingAnimationUtils;
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewClipper:Landroid/animation/Animator;
+
+    iget v6, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleRadius:F
+
+    move v7, v3
+
+    move v8, p1
+
+    move v9, v3
+
+    invoke-virtual/range {v4 .. v9}, Lcom/android/systemui/statusbar/FlingAnimationUtils;->applyDismissing(Landroid/animation/Animator;FFFF)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewClipper:Landroid/animation/Animator;
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mClipEndListener:Landroid/animation/AnimatorListenerAdapter;
+
+    invoke-virtual {v0, v2}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewClipper:Landroid/animation/Animator;
+
+    invoke-virtual {v0}, Landroid/animation/Animator;->start()V
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mSupportHardware:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v1}, Landroid/animation/Animator;->getDuration()J
+
+    move-result-wide v4
+
+    invoke-direct {p0, v4, v5}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->startRtCircleFadeOut(J)V
+
+    :cond_0
+    return-void
+
+    :cond_1
+    invoke-direct {p0, v3}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getAnimatorToRadius(F)Landroid/animation/ValueAnimator;
+
+    move-result-object v1
+
+    goto :goto_0
+.end method
+
+.method public getCircleRadius()F
+    .locals 2
+
+    const-string/jumbo v0, "SEP"
+
+    sget-object v1, Lcom/android/systemui/Rune;->KEYWI_VALUE_SHORTCUT_STYLE:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    :goto_0
     return v0
+
+    :cond_0
+    iget v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleRadius:F
+
+    goto :goto_0
 .end method
 
 .method public getRestingAlpha()F
-    .locals 1
+    .locals 2
+
+    const-string/jumbo v0, "SEP"
+
+    sget-object v1, Lcom/android/systemui/Rune;->KEYWI_VALUE_SHORTCUT_STYLE:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     const/high16 v0, 0x3f000000    # 0.5f
 
+    :goto_0
     return v0
+
+    :cond_0
+    iget v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mRestingAlpha:F
+
+    goto :goto_0
 .end method
 
 .method public init()V
@@ -3653,7 +4711,7 @@
 
     check-cast v0, Landroid/view/ViewGroup;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
+    sget-object v1, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
 
     invoke-static {v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
 
@@ -3663,7 +4721,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->registerCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
 
-    sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SKIP_SHORTCUT_ARROW_SHOWING_VI:Z
+    sget-boolean v1, Lcom/android/systemui/Rune;->KEYWI_SUPPORT_SHORTCUT_CUE:Z
 
     if-eqz v1, :cond_1
 
@@ -3673,7 +4731,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mTouchHandler:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$TouchHandlePolicy;
 
-    const v1, 0x7f1301f0
+    const v1, 0x7f0a036a
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -3687,13 +4745,11 @@
 
     invoke-virtual {v1, p0}, Lcom/android/systemui/statusbar/AffordanceArrowContainer;->initContainer(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)V
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
-
-    invoke-static {v1}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/keyguard/util/SettingsHelper;->isWhiteKeyguardWallpaper()Z
+    invoke-virtual {v1}, Lcom/android/systemui/util/SettingsHelper;->isWhiteKeyguardWallpaper()Z
 
     move-result v1
 
@@ -3736,9 +4792,9 @@
 .method public instantFinishAnimation()V
     .locals 3
 
-    const/4 v2, 0x0
-
     const/4 v1, 0x0
+
+    const/4 v2, 0x0
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewClipper:Landroid/animation/Animator;
 
@@ -3750,16 +4806,33 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
 
-    invoke-virtual {v0, v2}, Landroid/view/View;->setClipBounds(Landroid/graphics/Rect;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setClipBounds(Landroid/graphics/Rect;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
     :cond_0
+    const-string/jumbo v0, "GED"
+
+    sget-object v1, Lcom/android/systemui/Rune;->KEYWI_VALUE_SHORTCUT_STYLE:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getMaxCircleSize()F
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleRadius:F
+
+    :cond_1
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->setImageAlpha(FZ)V
+    invoke-virtual {p0, v0, v2}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->setImageAlpha(FZ)V
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->invalidate()V
 
@@ -3785,15 +4858,15 @@
 .method public onDensityOrFontScaleChanged()V
     .locals 9
 
-    const v8, 0x7f0d030b
+    const v8, 0x7f070173
 
-    const v7, 0x7f0d030c
+    const v7, 0x7f070178
 
     new-instance v1, Landroid/graphics/RectF;
 
     iget v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCenterX:I
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
+    sget-object v3, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -3811,7 +4884,7 @@
 
     iget v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCenterY:I
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
+    sget-object v4, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -3829,7 +4902,7 @@
 
     iget v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCenterX:I
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
+    sget-object v5, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -3847,7 +4920,7 @@
 
     iget v5, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCenterY:I
 
-    iget-object v6, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
+    sget-object v6, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -3867,13 +4940,13 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCArrowRect:Landroid/graphics/RectF;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
+    sget-object v1, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f0d03dc
+    const v2, 0x7f0701a3
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3883,7 +4956,7 @@
 
     iput v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mDCircleMaxRadius:F
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
+    sget-object v1, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -3939,6 +5012,16 @@
 .method protected onDraw(Landroid/graphics/Canvas;)V
     .locals 4
 
+    const-string/jumbo v0, "SEP"
+
+    sget-object v1, Lcom/android/systemui/Rune;->KEYWI_VALUE_SHORTCUT_STYLE:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->drawCircle(Landroid/graphics/Canvas;)V
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->draw4CornerArrows(Landroid/graphics/Canvas;)V
@@ -3966,7 +5049,7 @@
 
     invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->scale(FFFF)V
 
-    invoke-super {p0, p1}, Landroid/widget/ImageView;->onDraw(Landroid/graphics/Canvas;)V
+    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->onDraw(Landroid/graphics/Canvas;)V
 
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
@@ -3977,17 +5060,55 @@
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->drawPreviewCircle(Landroid/graphics/Canvas;)V
 
     :cond_1
+    :goto_0
     return-void
+
+    :cond_2
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mSupportHardware:Z
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->drawBackgroundCircle(Landroid/graphics/Canvas;)V
+
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
+
+    iget v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mImageScale:F
+
+    iget v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mImageScale:F
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getWidth()I
+
+    move-result v2
+
+    div-int/lit8 v2, v2, 0x2
+
+    int-to-float v2, v2
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getHeight()I
+
+    move-result v3
+
+    div-int/lit8 v3, v3, 0x2
+
+    int-to-float v3, v3
+
+    invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->scale(FFFF)V
+
+    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->onDraw(Landroid/graphics/Canvas;)V
+
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
+
+    goto :goto_0
 .end method
 
 .method protected onLayout(ZIIII)V
     .locals 8
 
-    const v6, 0x7f0d030c
+    const v6, 0x7f070178
 
-    const v7, 0x7f0d030b
+    const v7, 0x7f070173
 
-    invoke-super/range {p0 .. p5}, Landroid/widget/ImageView;->onLayout(ZIIII)V
+    invoke-super/range {p0 .. p5}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->onLayout(ZIIII)V
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getWidth()I
 
@@ -4004,6 +5125,16 @@
     div-int/lit8 v1, v1, 0x2
 
     iput v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCenterY:I
+
+    const-string/jumbo v1, "SEP"
+
+    sget-object v2, Lcom/android/systemui/Rune;->KEYWI_VALUE_SHORTCUT_STYLE:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
 
     const/4 v1, 0x2
 
@@ -4035,7 +5166,7 @@
 
     iget v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCenterX:I
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
+    sget-object v3, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -4053,7 +5184,7 @@
 
     iget v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCenterY:I
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
+    sget-object v4, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -4071,7 +5202,7 @@
 
     iget v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCenterX:I
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
+    sget-object v5, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -4089,7 +5220,7 @@
 
     iget v5, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCenterY:I
 
-    iget-object v6, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
+    sget-object v6, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -4115,11 +5246,35 @@
 
     iput v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mMaxRadius:F
 
+    :goto_0
     return-void
+
+    :cond_0
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getMaxCircleSize()F
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mMaxCircleSize:F
+
+    goto :goto_0
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 1
+    .locals 4
+
+    const/4 v3, 0x0
+
+    const/4 v2, 0x0
+
+    const-string/jumbo v0, "SEP"
+
+    sget-object v1, Lcom/android/systemui/Rune;->KEYWI_VALUE_SHORTCUT_STYLE:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mIsPainterReady:Z
 
@@ -4129,10 +5284,43 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->checkIfShaderReady()V
 
     :cond_0
-    :goto_0
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getAlpha()F
+
+    move-result v0
+
+    cmpl-float v0, v0, v2
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getImageAlpha()I
+
+    move-result v0
+
+    int-to-float v0, v0
+
+    cmpl-float v0, v0, v2
+
+    if-nez v0, :cond_2
+
+    :cond_1
+    return v3
+
+    :cond_2
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->isEnabled()Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-nez v0, :cond_1
+
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mTouchHandler:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$TouchHandlePolicy;
 
     invoke-interface {v0, p1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$TouchHandlePolicy;->onTouchEvent(Landroid/view/MotionEvent;)Z
@@ -4141,10 +5329,8 @@
 
     return v0
 
-    :cond_1
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->checkIfShaderReady()V
-
-    goto :goto_0
+    :cond_3
+    return v3
 .end method
 
 .method public performClick()Z
@@ -4156,7 +5342,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-super {p0}, Landroid/widget/ImageView;->performClick()Z
+    invoke-super {p0}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->performClick()Z
 
     move-result v0
 
@@ -4231,9 +5417,9 @@
 .method public setAlpha(F)V
     .locals 1
 
-    invoke-super {p0, p1}, Landroid/widget/ImageView;->setAlpha(F)V
+    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->setAlpha(F)V
 
-    sget-boolean v0, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SKIP_SHORTCUT_ARROW_SHOWING_VI:Z
+    sget-boolean v0, Lcom/android/systemui/Rune;->KEYWI_SUPPORT_SHORTCUT_CUE:Z
 
     if-eqz v0, :cond_0
 
@@ -4264,8 +5450,29 @@
 .end method
 
 .method public setCircleRadiusWithoutAnimation(F)V
-    .locals 0
+    .locals 2
 
+    const-string/jumbo v0, "GED"
+
+    sget-object v1, Lcom/android/systemui/Rune;->KEYWI_VALUE_SHORTCUT_STYLE:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCircleAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->cancelAnimator(Landroid/animation/Animator;)V
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x1
+
+    invoke-direct {p0, p1, v0, v1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->setCircleRadius(FZZ)V
+
+    :cond_0
     return-void
 .end method
 
@@ -4363,9 +5570,9 @@
 
     iput-object v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mIconAlphaAnimator:Landroid/animation/ValueAnimator;
 
-    new-instance v8, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$25;
+    new-instance v8, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$26;
 
-    invoke-direct {v8, p0, v4}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$25;-><init>(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Landroid/graphics/drawable/Drawable;)V
+    invoke-direct {v8, p0, v4}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$26;-><init>(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Landroid/graphics/drawable/Drawable;)V
 
     invoke-virtual {v2, v8}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
@@ -4448,25 +5655,195 @@
 .end method
 
 .method public setImageAlpha(FZJLandroid/view/animation/Interpolator;Ljava/lang/Runnable;)V
-    .locals 11
+    .locals 17
 
-    const-wide/16 v6, 0x0
+    const-string/jumbo v3, "SEP"
 
-    move-object v1, p0
+    sget-object v4, Lcom/android/systemui/Rune;->KEYWI_VALUE_SHORTCUT_STYLE:Ljava/lang/String;
 
-    move v2, p1
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move v3, p2
+    move-result v3
 
-    move-wide v4, p3
+    if-eqz v3, :cond_0
 
-    move-object/from16 v8, p5
+    const-wide/16 v8, 0x0
 
-    move-object/from16 v9, p6
+    move-object/from16 v3, p0
 
-    invoke-virtual/range {v1 .. v9}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->setImageAlpha(FZJJLandroid/view/animation/Interpolator;Ljava/lang/Runnable;)V
+    move/from16 v4, p1
 
+    move/from16 v5, p2
+
+    move-wide/from16 v6, p3
+
+    move-object/from16 v10, p5
+
+    move-object/from16 v11, p6
+
+    invoke-virtual/range {v3 .. v11}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->setImageAlpha(FZJJLandroid/view/animation/Interpolator;Ljava/lang/Runnable;)V
+
+    :goto_0
     return-void
+
+    :cond_0
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mAlphaAnimator:Landroid/animation/ValueAnimator;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v3}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->cancelAnimator(Landroid/animation/Animator;)V
+
+    move-object/from16 v0, p0
+
+    iget-boolean v3, v0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mLaunchingAffordance:Z
+
+    if-eqz v3, :cond_1
+
+    const/16 p1, 0x0
+
+    :cond_1
+    const/high16 v3, 0x437f0000    # 255.0f
+
+    mul-float v3, v3, p1
+
+    float-to-int v15, v3
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getBackground()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v12
+
+    if-nez p2, :cond_3
+
+    if-eqz v12, :cond_2
+
+    invoke-virtual {v12}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v15}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
+
+    :cond_2
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v15}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->setImageAlpha(I)V
+
+    goto :goto_0
+
+    :cond_3
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getImageAlpha()I
+
+    move-result v13
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [I
+
+    const/4 v4, 0x0
+
+    aput v13, v3, v4
+
+    const/4 v4, 0x1
+
+    aput v15, v3, v4
+
+    invoke-static {v3}, Landroid/animation/ValueAnimator;->ofInt([I)Landroid/animation/ValueAnimator;
+
+    move-result-object v2
+
+    move-object/from16 v0, p0
+
+    iput-object v2, v0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mAlphaAnimator:Landroid/animation/ValueAnimator;
+
+    new-instance v3, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$25;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v3, v0, v12}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$25;-><init>(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Landroid/graphics/drawable/Drawable;)V
+
+    invoke-virtual {v2, v3}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mAlphaEndListener:Landroid/animation/AnimatorListenerAdapter;
+
+    invoke-virtual {v2, v3}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+
+    if-nez p5, :cond_4
+
+    const/4 v3, 0x0
+
+    cmpl-float v3, p1, v3
+
+    if-nez v3, :cond_7
+
+    sget-object p5, Lcom/android/systemui/Interpolators;->FAST_OUT_LINEAR_IN:Landroid/view/animation/Interpolator;
+
+    :cond_4
+    :goto_1
+    move-object/from16 v0, p5
+
+    invoke-virtual {v2, v0}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    const-wide/16 v4, -0x1
+
+    cmp-long v3, p3, v4
+
+    if-nez v3, :cond_5
+
+    sub-int v3, v13, v15
+
+    invoke-static {v3}, Ljava/lang/Math;->abs(I)I
+
+    move-result v3
+
+    int-to-float v3, v3
+
+    const/high16 v4, 0x437f0000    # 255.0f
+
+    div-float v14, v3, v4
+
+    const/high16 v3, 0x3f800000    # 1.0f
+
+    invoke-static {v3, v14}, Ljava/lang/Math;->min(FF)F
+
+    move-result v14
+
+    const/high16 v3, 0x43480000    # 200.0f
+
+    mul-float/2addr v3, v14
+
+    float-to-long v0, v3
+
+    move-wide/from16 p3, v0
+
+    :cond_5
+    move-wide/from16 v0, p3
+
+    invoke-virtual {v2, v0, v1}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+
+    if-eqz p6, :cond_6
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p6
+
+    invoke-direct {v0, v1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->getEndListener(Ljava/lang/Runnable;)Landroid/animation/Animator$AnimatorListener;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+
+    :cond_6
+    invoke-virtual {v2}, Landroid/animation/ValueAnimator;->start()V
+
+    goto/16 :goto_0
+
+    :cond_7
+    sget-object p5, Lcom/android/systemui/Interpolators;->LINEAR_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
+
+    goto :goto_1
 .end method
 
 .method public setImageScale(FZ)V
@@ -4490,22 +5867,40 @@
 .method public setImageScale(FZJLandroid/view/animation/Interpolator;)V
     .locals 5
 
+    const-string/jumbo v2, "SEP"
+
+    sget-object v3, Lcom/android/systemui/Rune;->KEYWI_VALUE_SHORTCUT_STYLE:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
     iget-object v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mScaleAnimator:Landroid/animation/ValueAnimator;
 
     const-string/jumbo v3, "mScaleAnimator"
 
     invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->cancelAnimator(Landroid/animation/Animator;Ljava/lang/String;)V
 
-    if-nez p2, :cond_0
+    :goto_0
+    if-nez p2, :cond_1
 
     iput p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mImageScale:F
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->invalidate()V
 
-    :goto_0
+    :goto_1
     return-void
 
     :cond_0
+    iget-object v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mScaleAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-direct {p0, v2}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->cancelAnimator(Landroid/animation/Animator;)V
+
+    goto :goto_0
+
+    :cond_1
     const/4 v2, 0x2
 
     new-array v2, v2, [F
@@ -4536,16 +5931,35 @@
 
     invoke-virtual {v0, v2}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    if-nez p5, :cond_1
+    if-nez p5, :cond_2
 
-    :cond_1
+    const-string/jumbo v2, "GED"
+
+    sget-object v3, Lcom/android/systemui/Rune;->KEYWI_VALUE_SHORTCUT_STYLE:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    const/4 v2, 0x0
+
+    cmpl-float v2, p1, v2
+
+    if-nez v2, :cond_4
+
+    sget-object p5, Lcom/android/systemui/Interpolators;->FAST_OUT_LINEAR_IN:Landroid/view/animation/Interpolator;
+
+    :cond_2
+    :goto_2
     invoke-virtual {v0, p5}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
     const-wide/16 v2, -0x1
 
     cmp-long v2, p3, v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_3
 
     iget v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mImageScale:F
 
@@ -4571,12 +5985,17 @@
 
     float-to-long p3, v2
 
-    :cond_2
+    :cond_3
     invoke-virtual {v0, p3, p4}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
 
-    goto :goto_0
+    goto :goto_1
+
+    :cond_4
+    sget-object p5, Lcom/android/systemui/Interpolators;->LINEAR_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
+
+    goto :goto_2
 .end method
 
 .method public setIsShortcutForCamera(Z)V
@@ -4584,6 +6003,25 @@
 
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mShortcutForCamera:Z
 
+    return-void
+.end method
+
+.method public setLaunchingAffordance(Z)V
+    .locals 2
+
+    const-string/jumbo v0, "GED"
+
+    sget-object v1, Lcom/android/systemui/Rune;->KEYWI_VALUE_SHORTCUT_STYLE:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mLaunchingAffordance:Z
+
+    :cond_0
     return-void
 .end method
 
@@ -4642,94 +6080,152 @@
 .end method
 
 .method public setPreviewView(Landroid/view/View;)V
-    .locals 6
+    .locals 8
+
+    const/4 v1, 0x4
+
+    const/4 v7, 0x1
+
+    const/4 v6, 0x0
 
     const/4 v5, 0x0
 
-    const/4 v4, 0x1
+    const-string/jumbo v2, "SEP"
 
-    const/4 v3, 0x0
+    sget-object v3, Lcom/android/systemui/Rune;->KEYWI_VALUE_SHORTCUT_STYLE:Ljava/lang/String;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-ne v0, p1, :cond_0
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
+
+    if-ne v2, p1, :cond_0
 
     return-void
 
     :cond_0
-    const-string/jumbo v0, "KeyguardCircleAffordanceView"
+    const-string/jumbo v2, "KeyguardCircleAffordanceView"
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "setPreviewView: mRight="
+    const-string/jumbo v4, "setPreviewView: mRight="
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v3
 
-    iget-boolean v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mRight:Z
+    iget-boolean v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mRight:Z
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v3
 
-    const-string/jumbo v2, ",preview="
+    const-string/jumbo v4, ",preview="
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iput-boolean v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mIsPainterReady:Z
+    iput-boolean v6, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mIsPainterReady:Z
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2
 
-    iput-boolean v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mShaderPreview:Z
+    iput-boolean v7, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mShaderPreview:Z
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
 
-    invoke-virtual {v0, v4}, Landroid/view/View;->setDrawingCacheEnabled(Z)V
+    invoke-virtual {v1, v7}, Landroid/view/View;->setDrawingCacheEnabled(Z)V
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->checkIfShaderReady()V
 
+    :cond_1
     :goto_0
     return-void
 
-    :cond_1
-    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPaintPreview:Landroid/graphics/Paint;
+    :cond_2
+    iget-object v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPaintPreview:Landroid/graphics/Paint;
 
-    invoke-virtual {v0, v5}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
+    invoke-virtual {v2, v5}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPaintPreview:Landroid/graphics/Paint;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPaintPreview:Landroid/graphics/Paint;
 
-    invoke-virtual {v0}, Landroid/graphics/Paint;->reset()V
+    invoke-virtual {v2}, Landroid/graphics/Paint;->reset()V
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
 
-    invoke-virtual {v0, v3}, Landroid/view/View;->setDrawingCacheEnabled(Z)V
+    invoke-virtual {v2, v6}, Landroid/view/View;->setDrawingCacheEnabled(Z)V
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
 
-    const/4 v1, 0x4
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v2, v1}, Landroid/view/View;->setVisibility(I)V
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
 
     goto :goto_0
+
+    :cond_3
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
+
+    if-eqz v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mPreviewView:Landroid/view/View;
+
+    iget-boolean v3, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mLaunchingAffordance:Z
+
+    if-eqz v3, :cond_4
+
+    invoke-virtual {v0}, Landroid/view/View;->getVisibility()I
+
+    move-result v1
+
+    :cond_4
+    invoke-virtual {v2, v1}, Landroid/view/View;->setVisibility(I)V
+
+    goto :goto_0
+.end method
+
+.method public setRestingAlpha(F)V
+    .locals 2
+
+    const-string/jumbo v0, "GED"
+
+    sget-object v1, Lcom/android/systemui/Rune;->KEYWI_VALUE_SHORTCUT_STYLE:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mRestingAlpha:F
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->setImageAlpha(FZ)V
+
+    :cond_0
+    return-void
 .end method
 
 .method public setRight(Z)V
@@ -4753,9 +6249,9 @@
 
     const/4 v2, 0x0
 
-    invoke-super {p0, p1}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->setVisibility(I)V
 
-    sget-boolean v0, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SKIP_SHORTCUT_ARROW_SHOWING_VI:Z
+    sget-boolean v0, Lcom/android/systemui/Rune;->KEYWI_SUPPORT_SHORTCUT_CUE:Z
 
     if-eqz v0, :cond_0
 
@@ -4832,9 +6328,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mCArrowScaleAnimator:Landroid/animation/ValueAnimator;
 
-    new-instance v1, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$27;
+    new-instance v1, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$28;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$27;-><init>(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Ljava/lang/Runnable;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$28;-><init>(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Ljava/lang/Runnable;)V
 
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
@@ -4865,9 +6361,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->mDCircleAnimator:Landroid/animation/ValueAnimator;
 
-    new-instance v1, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$28;
+    new-instance v1, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$29;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$28;-><init>(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Ljava/lang/Runnable;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$29;-><init>(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Ljava/lang/Runnable;)V
 
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 

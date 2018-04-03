@@ -37,7 +37,9 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 4
+    .locals 5
+
+    const/4 v4, 0x0
 
     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
@@ -45,7 +47,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d060e
+    const v3, 0x7f07063a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -57,7 +59,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d060f
+    const v3, 0x7f07063b
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -69,7 +71,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0610
+    const v3, 0x7f07063c
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -81,7 +83,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0611
+    const v3, 0x7f07063d
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -93,9 +95,9 @@
 
     move-result-object v2
 
-    const v3, 0x7f0207c3
+    const v3, 0x7f0807ba
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v2, v3, v4}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -111,9 +113,9 @@
 
     move-result-object v2
 
-    const v3, 0x7f0207c4
+    const v3, 0x7f0807bb
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v2, v3, v4}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
@@ -168,9 +170,7 @@
 
     iget v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/DragGuideLineView;->mCrossGuideStartPosX:I
 
-    const/4 v4, 0x2
-
-    invoke-virtual {p1, v4}, Landroid/graphics/Canvas;->save(I)I
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     const/4 v1, 0x0
 
@@ -275,9 +275,7 @@
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    const/4 v2, 0x2
-
-    invoke-virtual {p1, v2}, Landroid/graphics/Canvas;->save(I)I
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     iget v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/DragGuideLineView;->mCursorGuideStartPosX:I
 

@@ -153,7 +153,7 @@
         }
     .end annotation
 
-    const-string/jumbo v4, "KeyguardDirectionLockView"
+    const-string/jumbo v4, "KeyguardDirectionLock"
 
     const-string/jumbo v5, "AccountManagerFuture() run: "
 
@@ -201,7 +201,7 @@
     move-exception v0
 
     :try_start_1
-    const-string/jumbo v4, "KeyguardDirectionLockView"
+    const-string/jumbo v4, "KeyguardDirectionLock"
 
     const-string/jumbo v5, "AuthenticatorException occurred"
 
@@ -223,7 +223,7 @@
     move-exception v2
 
     :try_start_2
-    const-string/jumbo v4, "KeyguardDirectionLockView"
+    const-string/jumbo v4, "KeyguardDirectionLock"
 
     const-string/jumbo v5, "IOException occurred"
 
@@ -245,7 +245,7 @@
     move-exception v1
 
     :try_start_3
-    const-string/jumbo v4, "KeyguardDirectionLockView"
+    const-string/jumbo v4, "KeyguardDirectionLock"
 
     const-string/jumbo v5, "OperationCanceledException occurred"
 

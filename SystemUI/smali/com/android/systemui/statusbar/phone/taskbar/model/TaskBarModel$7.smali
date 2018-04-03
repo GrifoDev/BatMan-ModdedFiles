@@ -7,8 +7,8 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->saveHistoryItems(J)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -18,31 +18,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;
-
 .field final synthetic val$contentValues:Landroid/content/ContentValues;
 
 .field final synthetic val$id:J
 
 .field final synthetic val$manager:Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;
-
-
-# direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;JLandroid/content/ContentValues;)V
-    .locals 1
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$7;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;
-
-    iput-object p2, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$7;->val$manager:Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;
-
-    iput-wide p3, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$7;->val$id:J
-
-    iput-object p5, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$7;->val$contentValues:Landroid/content/ContentValues;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
 
 
 # virtual methods

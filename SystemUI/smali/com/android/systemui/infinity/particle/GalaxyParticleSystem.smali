@@ -3,6 +3,20 @@
 .source "GalaxyParticleSystem.java"
 
 
+# static fields
+.field private static final COLOR_COMPONENT_COUNT:I = 0x4
+
+.field private static final HIDE_HOME_COMPONENT_COUNT:I = 0x1
+
+.field private static final POSITION_COMPONENT_COUNT:I = 0x3
+
+.field private static final SIZE_COMPONENT_COUNT:I = 0x1
+
+.field private static final STRIDE:I = 0x24
+
+.field private static final TOTAL_COMPONENT_COUNT:I = 0x9
+
+
 # instance fields
 .field private DEFAULT_WIDTH:F
 
@@ -1667,6 +1681,14 @@
     .locals 0
 
     iput p1, p0, Lcom/android/systemui/infinity/particle/GalaxyParticleSystem;->maxRotateDegree:F
+
+    return-void
+.end method
+
+.method public setMaxpaticleDistance(F)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/infinity/particle/GalaxyParticleSystem;->currentParticleMaxDistance:F
 
     return-void
 .end method

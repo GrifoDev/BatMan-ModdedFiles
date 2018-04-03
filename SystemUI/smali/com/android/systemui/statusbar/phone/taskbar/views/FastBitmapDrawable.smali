@@ -262,183 +262,185 @@
 .end method
 
 .method private updateFilter()V
-    .locals 8
+    .locals 9
 
-    const/16 v7, 0xff
+    const/16 v8, 0xff
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    const/high16 v6, 0x43020000    # 130.0f
+    const/high16 v7, 0x43020000    # 130.0f
 
-    const v4, 0x3efafafb
+    const v5, 0x3efafafb
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
-    iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->mGhostModeEnabled:Z
+    iget-boolean v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->mGhostModeEnabled:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v2, :cond_2
 
-    sget-object v1, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->sGhostModeMatrix:Landroid/graphics/ColorMatrix;
+    sget-object v2, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->sGhostModeMatrix:Landroid/graphics/ColorMatrix;
 
-    if-nez v1, :cond_0
+    if-nez v2, :cond_0
 
-    new-instance v1, Landroid/graphics/ColorMatrix;
+    new-instance v2, Landroid/graphics/ColorMatrix;
 
-    invoke-direct {v1}, Landroid/graphics/ColorMatrix;-><init>()V
+    invoke-direct {v2}, Landroid/graphics/ColorMatrix;-><init>()V
 
-    sput-object v1, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->sGhostModeMatrix:Landroid/graphics/ColorMatrix;
+    sput-object v2, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->sGhostModeMatrix:Landroid/graphics/ColorMatrix;
 
-    sget-object v1, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->sGhostModeMatrix:Landroid/graphics/ColorMatrix;
+    sget-object v2, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->sGhostModeMatrix:Landroid/graphics/ColorMatrix;
 
-    invoke-virtual {v1, v5}, Landroid/graphics/ColorMatrix;->setSaturation(F)V
+    invoke-virtual {v2, v6}, Landroid/graphics/ColorMatrix;->setSaturation(F)V
 
-    sget-object v1, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->sTempMatrix:Landroid/graphics/ColorMatrix;
-
-    const/16 v2, 0x14
-
-    new-array v2, v2, [F
-
-    aput v4, v2, v3
-
-    const/4 v3, 0x1
-
-    aput v5, v2, v3
-
-    const/4 v3, 0x2
-
-    aput v5, v2, v3
-
-    const/4 v3, 0x3
-
-    aput v5, v2, v3
-
-    const/4 v3, 0x4
-
-    aput v6, v2, v3
-
-    const/4 v3, 0x5
-
-    aput v5, v2, v3
-
-    const/4 v3, 0x6
-
-    aput v4, v2, v3
-
-    const/4 v3, 0x7
-
-    aput v5, v2, v3
-
-    const/16 v3, 0x8
-
-    aput v5, v2, v3
-
-    const/16 v3, 0x9
-
-    aput v6, v2, v3
-
-    const/16 v3, 0xa
-
-    aput v5, v2, v3
-
-    const/16 v3, 0xb
-
-    aput v5, v2, v3
-
-    const/16 v3, 0xc
-
-    aput v4, v2, v3
-
-    const/16 v3, 0xd
-
-    aput v5, v2, v3
-
-    const/16 v3, 0xe
-
-    aput v6, v2, v3
-
-    const/16 v3, 0xf
-
-    aput v5, v2, v3
-
-    const/16 v3, 0x10
-
-    aput v5, v2, v3
-
-    const/16 v3, 0x11
-
-    aput v5, v2, v3
-
-    const/high16 v3, 0x3f800000    # 1.0f
-
-    const/16 v4, 0x12
-
-    aput v3, v2, v4
-
-    const/16 v3, 0x13
-
-    aput v5, v2, v3
-
-    invoke-virtual {v1, v2}, Landroid/graphics/ColorMatrix;->set([F)V
-
-    sget-object v1, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->sGhostModeMatrix:Landroid/graphics/ColorMatrix;
+    const v1, 0x3efafafb
 
     sget-object v2, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->sTempMatrix:Landroid/graphics/ColorMatrix;
 
-    invoke-virtual {v1, v2}, Landroid/graphics/ColorMatrix;->preConcat(Landroid/graphics/ColorMatrix;)V
+    const/16 v3, 0x14
+
+    new-array v3, v3, [F
+
+    aput v5, v3, v4
+
+    const/4 v4, 0x1
+
+    aput v6, v3, v4
+
+    const/4 v4, 0x2
+
+    aput v6, v3, v4
+
+    const/4 v4, 0x3
+
+    aput v6, v3, v4
+
+    const/4 v4, 0x4
+
+    aput v7, v3, v4
+
+    const/4 v4, 0x5
+
+    aput v6, v3, v4
+
+    const/4 v4, 0x6
+
+    aput v5, v3, v4
+
+    const/4 v4, 0x7
+
+    aput v6, v3, v4
+
+    const/16 v4, 0x8
+
+    aput v6, v3, v4
+
+    const/16 v4, 0x9
+
+    aput v7, v3, v4
+
+    const/16 v4, 0xa
+
+    aput v6, v3, v4
+
+    const/16 v4, 0xb
+
+    aput v6, v3, v4
+
+    const/16 v4, 0xc
+
+    aput v5, v3, v4
+
+    const/16 v4, 0xd
+
+    aput v6, v3, v4
+
+    const/16 v4, 0xe
+
+    aput v7, v3, v4
+
+    const/16 v4, 0xf
+
+    aput v6, v3, v4
+
+    const/16 v4, 0x10
+
+    aput v6, v3, v4
+
+    const/16 v4, 0x11
+
+    aput v6, v3, v4
+
+    const/high16 v4, 0x3f800000    # 1.0f
+
+    const/16 v5, 0x12
+
+    aput v4, v3, v5
+
+    const/16 v4, 0x13
+
+    aput v6, v3, v4
+
+    invoke-virtual {v2, v3}, Landroid/graphics/ColorMatrix;->set([F)V
+
+    sget-object v2, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->sGhostModeMatrix:Landroid/graphics/ColorMatrix;
+
+    sget-object v3, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->sTempMatrix:Landroid/graphics/ColorMatrix;
+
+    invoke-virtual {v2, v3}, Landroid/graphics/ColorMatrix;->preConcat(Landroid/graphics/ColorMatrix;)V
 
     :cond_0
-    iget v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->mBrightness:I
+    iget v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->mBrightness:I
 
-    if-nez v1, :cond_1
+    if-nez v2, :cond_1
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->mPaint:Landroid/graphics/Paint;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->mPaint:Landroid/graphics/Paint;
 
-    new-instance v2, Landroid/graphics/ColorMatrixColorFilter;
+    new-instance v3, Landroid/graphics/ColorMatrixColorFilter;
 
-    sget-object v3, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->sGhostModeMatrix:Landroid/graphics/ColorMatrix;
+    sget-object v4, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->sGhostModeMatrix:Landroid/graphics/ColorMatrix;
 
-    invoke-direct {v2, v3}, Landroid/graphics/ColorMatrixColorFilter;-><init>(Landroid/graphics/ColorMatrix;)V
+    invoke-direct {v3, v4}, Landroid/graphics/ColorMatrixColorFilter;-><init>(Landroid/graphics/ColorMatrix;)V
 
-    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
+    invoke-virtual {v2, v3}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
 
     :goto_0
     return-void
 
     :cond_1
-    sget-object v1, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->sTempMatrix:Landroid/graphics/ColorMatrix;
+    sget-object v2, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->sTempMatrix:Landroid/graphics/ColorMatrix;
 
-    iget v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->mBrightness:I
+    iget v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->mBrightness:I
 
-    invoke-static {v1, v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->setBrightnessMatrix(Landroid/graphics/ColorMatrix;I)V
+    invoke-static {v2, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->setBrightnessMatrix(Landroid/graphics/ColorMatrix;I)V
 
-    sget-object v1, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->sTempMatrix:Landroid/graphics/ColorMatrix;
+    sget-object v2, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->sTempMatrix:Landroid/graphics/ColorMatrix;
 
-    sget-object v2, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->sGhostModeMatrix:Landroid/graphics/ColorMatrix;
+    sget-object v3, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->sGhostModeMatrix:Landroid/graphics/ColorMatrix;
 
-    invoke-virtual {v1, v2}, Landroid/graphics/ColorMatrix;->postConcat(Landroid/graphics/ColorMatrix;)V
+    invoke-virtual {v2, v3}, Landroid/graphics/ColorMatrix;->postConcat(Landroid/graphics/ColorMatrix;)V
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->mPaint:Landroid/graphics/Paint;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->mPaint:Landroid/graphics/Paint;
 
-    new-instance v2, Landroid/graphics/ColorMatrixColorFilter;
+    new-instance v3, Landroid/graphics/ColorMatrixColorFilter;
 
-    sget-object v3, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->sTempMatrix:Landroid/graphics/ColorMatrix;
+    sget-object v4, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->sTempMatrix:Landroid/graphics/ColorMatrix;
 
-    invoke-direct {v2, v3}, Landroid/graphics/ColorMatrixColorFilter;-><init>(Landroid/graphics/ColorMatrix;)V
+    invoke-direct {v3, v4}, Landroid/graphics/ColorMatrixColorFilter;-><init>(Landroid/graphics/ColorMatrix;)V
 
-    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
+    invoke-virtual {v2, v3}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
 
     goto :goto_0
 
     :cond_2
-    iget v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->mBrightness:I
-
-    if-eqz v1, :cond_4
-
-    sget-object v1, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->sCachedBrightnessFilter:Landroid/util/SparseArray;
-
     iget v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->mBrightness:I
 
-    invoke-virtual {v1, v2}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    if-eqz v2, :cond_4
+
+    sget-object v2, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->sCachedBrightnessFilter:Landroid/util/SparseArray;
+
+    iget v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->mBrightness:I
+
+    invoke-virtual {v2, v3}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -448,35 +450,35 @@
 
     new-instance v0, Landroid/graphics/PorterDuffColorFilter;
 
-    iget v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->mBrightness:I
-
-    invoke-static {v1, v7, v7, v7}, Landroid/graphics/Color;->argb(IIII)I
-
-    move-result v1
-
-    sget-object v2, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
-
-    invoke-direct {v0, v1, v2}, Landroid/graphics/PorterDuffColorFilter;-><init>(ILandroid/graphics/PorterDuff$Mode;)V
-
-    sget-object v1, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->sCachedBrightnessFilter:Landroid/util/SparseArray;
-
     iget v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->mBrightness:I
 
-    invoke-virtual {v1, v2, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-static {v2, v8, v8, v8}, Landroid/graphics/Color;->argb(IIII)I
+
+    move-result v2
+
+    sget-object v3, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+
+    invoke-direct {v0, v2, v3}, Landroid/graphics/PorterDuffColorFilter;-><init>(ILandroid/graphics/PorterDuff$Mode;)V
+
+    sget-object v2, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->sCachedBrightnessFilter:Landroid/util/SparseArray;
+
+    iget v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->mBrightness:I
+
+    invoke-virtual {v2, v3, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     :cond_3
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->mPaint:Landroid/graphics/Paint;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->mPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v1, v0}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
+    invoke-virtual {v2, v0}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
 
     goto :goto_0
 
     :cond_4
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->mPaint:Landroid/graphics/Paint;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->mPaint:Landroid/graphics/Paint;
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
+    invoke-virtual {v2, v3}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
 
     goto :goto_0
 .end method
@@ -509,13 +511,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_1
-    :goto_0
-    return-void
+    if-eqz v1, :cond_1
 
-    :cond_2
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v0
@@ -534,7 +533,8 @@
 
     invoke-virtual {p1, v1, v2, v3, v4}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
-    goto :goto_0
+    :cond_1
+    return-void
 .end method
 
 .method public getAlpha()I

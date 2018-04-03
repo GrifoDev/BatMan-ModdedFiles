@@ -19,6 +19,8 @@
 
 .field static checksum:Ljava/util/zip/Checksum;
 
+.field private static mQuickPannelOn:Z
+
 .field private static sErrorListener:Lcom/android/settingslib/bluetooth/Utils$ErrorListener;
 
 .field private static sSemErrorListener:Lcom/android/settingslib/bluetooth/Utils$SemErrorListener;
@@ -827,6 +829,14 @@
     return v0
 .end method
 
+.method public static getQuickPannelOn()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/settingslib/bluetooth/Utils;->mQuickPannelOn:Z
+
+    return v0
+.end method
+
 .method public static isBlackListDevice(Landroid/bluetooth/BluetoothDevice;)Z
     .locals 3
 
@@ -937,6 +947,83 @@
 
     :cond_2
     return v3
+.end method
+
+.method public static isPackageExists(Landroid/content/Context;Ljava/lang/String;)Z
+    .locals 7
+
+    const/4 v3, 0x0
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v2
+
+    const/4 v4, 0x0
+
+    :try_start_0
+    invoke-virtual {v2, p1, v4}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v3, 0x1
+
+    :goto_0
+    const-string/jumbo v4, "Settingslib_BluetoothUtils"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "isPackageExists :: target package = "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, ", find = "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v3
+
+    :cond_0
+    :try_start_1
+    const-string/jumbo v4, "Settingslib_BluetoothUtils"
+
+    const-string/jumbo v5, "isPackageExists :: appInfo is null"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v1
+
+    invoke-virtual {v1}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+
+    goto :goto_0
 .end method
 
 .method private static longToString(J)Ljava/lang/String;
@@ -1347,10 +1434,92 @@
     throw v0
 .end method
 
+.method public static sendSaLoggingIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 6
+
+    const-wide/16 v4, -0x1
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move-object v3, p3
+
+    invoke-static/range {v0 .. v5}, Lcom/android/settingslib/bluetooth/Utils;->sendSaLoggingIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V
+
+    return-void
+.end method
+
+.method public static sendSaLoggingIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V
+    .locals 2
+
+    new-instance v0, Landroid/content/Intent;
+
+    const-string/jumbo v1, "com.samsung.bluetooth.salogging.intent.action.BLUETOOTH_SA_LOGGING"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v1, "screenId"
+
+    invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v1, "eventId"
+
+    invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v1, "detail"
+
+    invoke-virtual {v0, v1, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v1, "value"
+
+    invoke-virtual {v0, v1, p4, p5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
+
+    const-string/jumbo v1, "com.android.settings"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+    return-void
+.end method
+
 .method public static setErrorListener(Lcom/android/settingslib/bluetooth/Utils$ErrorListener;)V
     .locals 0
 
     sput-object p0, Lcom/android/settingslib/bluetooth/Utils;->sErrorListener:Lcom/android/settingslib/bluetooth/Utils$ErrorListener;
+
+    return-void
+.end method
+
+.method public static setQuickPannelOn(Z)V
+    .locals 3
+
+    const-string/jumbo v0, "Settingslib_BluetoothUtils"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "setQuickPannelOn :: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    sput-boolean p0, Lcom/android/settingslib/bluetooth/Utils;->mQuickPannelOn:Z
 
     return-void
 .end method
@@ -1474,13 +1643,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_1
-    :goto_0
-    return-void
+    if-eqz v2, :cond_1
 
-    :cond_2
     invoke-virtual {v0, v1}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->setName(Ljava/lang/String;)V
 
     const-string/jumbo v2, "Settingslib_BluetoothUtils"
@@ -1505,5 +1671,6 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    :cond_1
+    return-void
 .end method

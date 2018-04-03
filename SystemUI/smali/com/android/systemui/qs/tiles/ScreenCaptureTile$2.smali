@@ -1,11 +1,11 @@
 .class Lcom/android/systemui/qs/tiles/ScreenCaptureTile$2;
-.super Ljava/lang/Thread;
+.super Landroid/os/Handler;
 .source "ScreenCaptureTile.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->doScreenCapture()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/systemui/qs/tiles/ScreenCaptureTile;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,61 +17,66 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/qs/tiles/ScreenCaptureTile;
 
-.field final synthetic val$intent:Landroid/content/Intent;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;Landroid/content/Intent;)V
+.method constructor <init>(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$2;->this$0:Lcom/android/systemui/qs/tiles/ScreenCaptureTile;
 
-    iput-object p2, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$2;->val$intent:Landroid/content/Intent;
-
-    invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
+    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 4
+.method public handleMessage(Landroid/os/Message;)V
+    .locals 2
 
-    const-wide/16 v2, 0x190
+    iget v0, p1, Landroid/os/Message;->what:I
 
-    :try_start_0
-    invoke-static {v2, v3}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$2;->sleep(J)V
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$2;->this$0:Lcom/android/systemui/qs/tiles/ScreenCaptureTile;
-
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-get3(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;)Landroid/content/Context;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$2;->val$intent:Landroid/content/Intent;
-
-    const-string/jumbo v3, "com.samsung.permission.CAPTURE"
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
-
-    invoke-static {}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-get0()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "doScreenCapture Send com.samsung.android.capture.QuickPanelCapture"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    packed-switch v0, :pswitch_data_0
 
     :goto_0
+    invoke-static {}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-get0()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "mMainHandler MESSAGE_EMPTY"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_1
     return-void
 
-    :catch_0
-    move-exception v0
+    :pswitch_0
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$2;->this$0:Lcom/android/systemui/qs/tiles/ScreenCaptureTile;
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-wrap4(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;)V
+
+    goto :goto_1
+
+    :pswitch_1
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$2;->this$0:Lcom/android/systemui/qs/tiles/ScreenCaptureTile;
+
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-get3(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;)Lcom/android/systemui/qs/QSHost;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Lcom/android/systemui/qs/QSHost;->collapsePanels()V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$2;->this$0:Lcom/android/systemui/qs/tiles/ScreenCaptureTile;
+
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->-wrap4(Lcom/android/systemui/qs/tiles/ScreenCaptureTile;)V
 
     goto :goto_0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_0
+        :pswitch_1
+    .end packed-switch
 .end method

@@ -1,5 +1,5 @@
 .class public Lcom/android/systemui/qs/tiles/BluetoothTile;
-.super Lcom/android/systemui/qs/QSTile;
+.super Lcom/android/systemui/qs/tileimpl/QSTileImpl;
 .source "BluetoothTile.java"
 
 
@@ -13,9 +13,9 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/android/systemui/qs/QSTile",
+        "Lcom/android/systemui/qs/tileimpl/QSTileImpl",
         "<",
-        "Lcom/android/systemui/qs/QSTile$BooleanState;",
+        "Lcom/android/systemui/plugins/qs/QSTile$BooleanState;",
         ">;"
     }
 .end annotation
@@ -26,6 +26,19 @@
 
 
 # instance fields
+.field private final mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
+
+.field mAvailableItemList:Ljava/util/ArrayList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/ArrayList",
+            "<",
+            "Lcom/android/systemui/qs/QSDetailItems$Item;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private mBlueToothState:I
 
 .field private final mCallback:Lcom/android/systemui/statusbar/policy/BluetoothController$Callback;
@@ -36,9 +49,22 @@
 
 .field private mDetailListening:Z
 
-.field private mDetailOpeningTime:J
+.field private mDoStopScan:Z
 
-.field private mSettingStarted:Z
+.field private final mKeyguard:Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+
+.field mPairedItemList:Ljava/util/ArrayList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/ArrayList",
+            "<",
+            "Lcom/android/systemui/qs/QSDetailItems$Item;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
 
 
 # direct methods
@@ -50,55 +76,23 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Lcom/android/systemui/qs/tiles/BluetoothTile;)Landroid/content/Context;
+.method static synthetic -get1(Lcom/android/systemui/qs/tiles/BluetoothTile;)Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->TAG:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/systemui/qs/tiles/BluetoothTile;)Lcom/android/systemui/statusbar/policy/BluetoothController;
+.method static synthetic -get10(Lcom/android/systemui/qs/tiles/BluetoothTile;)Lcom/android/systemui/plugins/qs/QSTile$State;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
 
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/systemui/qs/tiles/BluetoothTile;)Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mDetailAdapter:Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;
-
-    return-object v0
-.end method
-
-.method static synthetic -get4(Lcom/android/systemui/qs/tiles/BluetoothTile;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mDetailListening:Z
-
-    return v0
-.end method
-
-.method static synthetic -get5(Lcom/android/systemui/qs/tiles/BluetoothTile;)Lcom/android/systemui/qs/QSTile$Host;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
-
-    return-object v0
-.end method
-
-.method static synthetic -get6(Lcom/android/systemui/qs/tiles/BluetoothTile;)Lcom/android/systemui/qs/QSTile$State;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mState:Lcom/android/systemui/qs/QSTile$State;
-
-    return-object v0
-.end method
-
-.method static synthetic -get7(Lcom/android/systemui/qs/tiles/BluetoothTile;)Landroid/os/Handler;
+.method static synthetic -get11(Lcom/android/systemui/qs/tiles/BluetoothTile;)Landroid/os/Handler;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mUiHandler:Landroid/os/Handler;
@@ -106,10 +100,74 @@
     return-object v0
 .end method
 
+.method static synthetic -get2(Lcom/android/systemui/qs/tiles/BluetoothTile;)Lcom/android/systemui/plugins/ActivityStarter;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
+
+    return-object v0
+.end method
+
+.method static synthetic -get3(Lcom/android/systemui/qs/tiles/BluetoothTile;)Landroid/content/Context;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method static synthetic -get4(Lcom/android/systemui/qs/tiles/BluetoothTile;)Lcom/android/systemui/statusbar/policy/BluetoothController;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
+
+    return-object v0
+.end method
+
+.method static synthetic -get5(Lcom/android/systemui/qs/tiles/BluetoothTile;)Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mDetailAdapter:Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;
+
+    return-object v0
+.end method
+
+.method static synthetic -get6(Lcom/android/systemui/qs/tiles/BluetoothTile;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mDetailListening:Z
+
+    return v0
+.end method
+
+.method static synthetic -get7(Lcom/android/systemui/qs/tiles/BluetoothTile;)Lcom/android/systemui/qs/QSHost;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mHost:Lcom/android/systemui/qs/QSHost;
+
+    return-object v0
+.end method
+
+.method static synthetic -get8(Lcom/android/systemui/qs/tiles/BluetoothTile;)Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mKeyguard:Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+
+    return-object v0
+.end method
+
+.method static synthetic -get9(Lcom/android/systemui/qs/tiles/BluetoothTile;)Lcom/android/systemui/util/SettingsHelper;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
+
+    return-object v0
+.end method
+
 .method static synthetic -set0(Lcom/android/systemui/qs/tiles/BluetoothTile;Z)Z
     .locals 0
 
-    iput-boolean p1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mSettingStarted:Z
+    iput-boolean p1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mDoStopScan:Z
 
     return p1
 .end method
@@ -146,10 +204,26 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/qs/QSTile$Host;)V
+.method public constructor <init>(Lcom/android/systemui/qs/QSHost;)V
     .locals 2
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/QSTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;-><init>(Lcom/android/systemui/qs/QSHost;)V
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mDoStopScan:Z
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mPairedItemList:Ljava/util/ArrayList;
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mAvailableItemList:Ljava/util/ArrayList;
 
     new-instance v0, Lcom/android/systemui/qs/tiles/BluetoothTile$1;
 
@@ -157,17 +231,31 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mCallback:Lcom/android/systemui/statusbar/policy/BluetoothController$Callback;
 
-    invoke-interface {p1}, Lcom/android/systemui/qs/QSTile$Host;->getBluetoothController()Lcom/android/systemui/statusbar/policy/BluetoothController;
+    const-class v0, Lcom/android/systemui/statusbar/policy/BluetoothController;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
+    check-cast v0, Lcom/android/systemui/statusbar/policy/BluetoothController;
+
     iput-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
 
-    new-instance v0, Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;
+    const-class v0, Lcom/android/systemui/plugins/ActivityStarter;
 
-    const/4 v1, 0x0
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
-    invoke-direct {v0, p0, v1}, Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;-><init>(Lcom/android/systemui/qs/tiles/BluetoothTile;Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;)V
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/plugins/ActivityStarter;
+
+    iput-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/BluetoothTile;->createDetailAdapter()Lcom/android/systemui/plugins/qs/DetailAdapter;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;
 
     iput-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mDetailAdapter:Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;
 
@@ -175,7 +263,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mCallback:Lcom/android/systemui/statusbar/policy/BluetoothController$Callback;
 
-    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/policy/BluetoothController;->addStateChangedCallback(Lcom/android/systemui/statusbar/policy/BluetoothController$Callback;)V
+    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/policy/BluetoothController;->addCallback(Ljava/lang/Object;)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
 
@@ -185,25 +273,43 @@
 
     iput v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mBlueToothState:I
 
+    const-class v0, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+
+    iput-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mKeyguard:Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+
+    const-class v0, Lcom/android/systemui/util/SettingsHelper;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/util/SettingsHelper;
+
+    iput-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
+
     return-void
 .end method
 
 .method private isBlockedByEASPolicy()Z
-    .locals 6
+    .locals 5
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    const/4 v2, 0x0
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
+    invoke-virtual {v2}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
-    invoke-virtual {v3}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+    move-result-object v2
 
-    move-result-object v3
+    const-string/jumbo v3, "device_policy"
 
-    const-string/jumbo v4, "device_policy"
-
-    invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -213,11 +319,11 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0, v5}, Landroid/app/admin/DevicePolicyManager;->semGetAllowBluetoothMode(Landroid/content/ComponentName;)I
+    invoke-virtual {v0, v4}, Landroid/app/admin/DevicePolicyManager;->semGetAllowBluetoothMode(Landroid/content/ComponentName;)I
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_0
+    if-nez v2, :cond_0
 
     const/4 v1, 0x1
 
@@ -225,47 +331,24 @@
     return v1
 
     :cond_0
-    move v1, v2
+    const/4 v1, 0x0
 
     goto :goto_0
 .end method
 
 
 # virtual methods
-.method protected composeChangeAnnouncement()Ljava/lang/String;
-    .locals 2
+.method protected createDetailAdapter()Lcom/android/systemui/plugins/qs/DetailAdapter;
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mState:Lcom/android/systemui/qs/QSTile$State;
+    new-instance v0, Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;
 
-    check-cast v0, Lcom/android/systemui/qs/QSTile$BooleanState;
-
-    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
-
-    const v1, 0x7f0f0396
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
-
-    const v1, 0x7f0f0395
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
+    invoke-direct {v0, p0}, Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;-><init>(Lcom/android/systemui/qs/tiles/BluetoothTile;)V
 
     return-object v0
 .end method
 
-.method public getDetailAdapter()Lcom/android/systemui/qs/QSTile$DetailAdapter;
+.method public getDetailAdapter()Lcom/android/systemui/plugins/qs/DetailAdapter;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mDetailAdapter:Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;
@@ -276,32 +359,27 @@
 .method public getLongClickIntent()Landroid/content/Intent;
     .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
+    const-class v0, Lcom/android/systemui/KnoxStateMonitor;
 
-    invoke-static {v0}, Lcom/android/keyguard/KnoxStateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KnoxStateMonitor;
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/keyguard/KnoxStateMonitor;->isBluetoothTileBlocked()Z
+    check-cast v0, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-virtual {v0}, Lcom/android/systemui/KnoxStateMonitor;->isBluetoothTileBlocked()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/BluetoothTile;->isBlockedByEASPolicy()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    :cond_0
     invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/BluetoothTile;->showItPolicyToast()V
 
     const/4 v0, 0x0
 
     return-object v0
 
-    :cond_1
+    :cond_0
     new-instance v0, Landroid/content/Intent;
 
     const-string/jumbo v1, "android.settings.BLUETOOTH_SETTINGS"
@@ -324,7 +402,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f03e8
+    const v1, 0x7f120854
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -334,205 +412,61 @@
 .end method
 
 .method protected handleClick()V
-    .locals 9
+    .locals 3
 
-    const/4 v8, 0x0
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->TAG:Ljava/lang/String;
 
-    const/4 v4, 0x1
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const/4 v3, 0x0
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
+    const-string/jumbo v2, "handleClick enabled ="
 
-    invoke-static {v2}, Lcom/android/keyguard/KnoxStateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KnoxStateMonitor;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/keyguard/KnoxStateMonitor;->isBluetoothTileBlocked()Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/BluetoothTile;->isBlockedByEASPolicy()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/BluetoothTile;->showItPolicyToast()V
-
-    return-void
-
-    :cond_1
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mState:Lcom/android/systemui/qs/QSTile$State;
-
-    check-cast v2, Lcom/android/systemui/qs/QSTile$BooleanState;
-
-    iget-boolean v2, v2, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
-
-    if-nez v2, :cond_2
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
-
-    invoke-interface {v2, p0}, Lcom/android/systemui/qs/QSTile$Host;->onClickQSTileOnKeyguard(Lcom/android/systemui/qs/QSTile;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    return-void
-
-    :cond_2
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
-
-    invoke-interface {v2}, Lcom/android/systemui/statusbar/policy/BluetoothController;->canConfigBluetooth()Z
-
-    move-result v2
-
-    if-nez v2, :cond_3
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
-
-    new-instance v3, Landroid/content/Intent;
-
-    const-string/jumbo v4, "android.settings.BLUETOOTH_SETTINGS"
-
-    invoke-direct {v3, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    invoke-interface {v2, v3}, Lcom/android/systemui/qs/QSTile$Host;->startActivityDismissingKeyguard(Landroid/content/Intent;)V
-
-    return-void
-
-    :cond_3
-    sget-boolean v2, Lcom/android/systemui/SystemUIRune;->SUPPORT_GSIM_LOG:Z
-
-    if-eqz v2, :cond_4
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
-
-    invoke-interface {v2}, Lcom/android/systemui/statusbar/policy/BluetoothController;->isBluetoothConnected()Z
-
-    move-result v0
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mState:Lcom/android/systemui/qs/QSTile$State;
-
-    check-cast v2, Lcom/android/systemui/qs/QSTile$BooleanState;
-
-    iget-boolean v2, v2, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
-
-    if-eqz v2, :cond_4
-
-    if-eqz v0, :cond_4
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v5, "com.android.bluetooth"
-
-    const-string/jumbo v6, "BDDC"
-
-    const-string/jumbo v7, "Quick Button Off"
-
-    invoke-static {v2, v5, v6, v7, v8}, Lcom/android/keyguard/util/GsimLogManager;->sendLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)V
-
-    :cond_4
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
-
-    check-cast v2, Lcom/android/systemui/statusbar/phone/QSTileHost;
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/QSTileHost;->getPhoneStatusBar()Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_5
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->getCoverState()Lcom/samsung/android/cover/CoverState;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    if-eqz v2, :cond_5
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->getCoverState()Lcom/samsung/android/cover/CoverState;
+    check-cast v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    move-result-object v2
+    iget-boolean v0, v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
 
-    invoke-virtual {v2}, Lcom/samsung/android/cover/CoverState;->getSwitchState()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_6
-
-    :cond_5
-    iget-object v5, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mState:Lcom/android/systemui/qs/QSTile$State;
-
-    check-cast v2, Lcom/android/systemui/qs/QSTile$BooleanState;
-
-    iget-boolean v2, v2, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
-
-    if-eqz v2, :cond_8
-
-    :goto_0
-    invoke-interface {v5, v3, v4}, Lcom/android/systemui/statusbar/policy/BluetoothController;->setBluetoothEnabled(ZZ)V
-
-    :goto_1
-    return-void
-
-    :cond_6
-    iget-object v5, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mState:Lcom/android/systemui/qs/QSTile$State;
-
-    check-cast v2, Lcom/android/systemui/qs/QSTile$BooleanState;
-
-    iget-boolean v2, v2, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
-
-    if-eqz v2, :cond_7
-
-    move v2, v3
-
-    :goto_2
-    invoke-interface {v5, v2, v3}, Lcom/android/systemui/statusbar/policy/BluetoothController;->setBluetoothEnabled(ZZ)V
-
-    goto :goto_1
-
-    :cond_7
-    move v2, v4
-
-    goto :goto_2
-
-    :cond_8
-    move v3, v4
-
-    goto :goto_0
-.end method
-
-.method protected handleDestroy()V
-    .locals 2
-
-    invoke-super {p0}, Lcom/android/systemui/qs/QSTile;->handleDestroy()V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mCallback:Lcom/android/systemui/statusbar/policy/BluetoothController$Callback;
-
-    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/policy/BluetoothController;->removeStateChangedCallback(Lcom/android/systemui/statusbar/policy/BluetoothController$Callback;)V
-
-    return-void
-.end method
-
-.method protected handleSecondaryClick()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/keyguard/KnoxStateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KnoxStateMonitor;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/keyguard/KnoxStateMonitor;->isBluetoothTileBlocked()Z
+    const-string/jumbo v2, " state =  "
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
+
+    check-cast v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+
+    iget v0, v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->state:I
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-class v0, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-virtual {v0}, Lcom/android/systemui/KnoxStateMonitor;->isBluetoothTileBlocked()Z
 
     move-result v0
 
@@ -543,6 +477,162 @@
     return-void
 
     :cond_0
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
+
+    check-cast v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+
+    iget-boolean v0, v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mKeyguard:Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;->isShowing()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mKeyguard:Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;->isSecure()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mKeyguard:Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;->canSkipBouncer()Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
+
+    invoke-virtual {v0}, Lcom/android/systemui/util/SettingsHelper;->isLockFunctionsEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mHost:Lcom/android/systemui/qs/QSHost;
+
+    invoke-interface {v0}, Lcom/android/systemui/qs/QSHost;->forceCollapsePanels()V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
+
+    new-instance v1, Lcom/android/systemui/qs/tiles/-$Lambda$d_2AV4Wsx9jl1GMC_1YxsYZswFQ$1;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/qs/tiles/-$Lambda$d_2AV4Wsx9jl1GMC_1YxsYZswFQ$1;-><init>(Ljava/lang/Object;)V
+
+    invoke-interface {v0, v1}, Lcom/android/systemui/plugins/ActivityStarter;->postQSRunnableDismissingKeyguard(Ljava/lang/Runnable;)V
+
+    return-void
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
+
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/BluetoothController;->canConfigBluetooth()Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
+
+    new-instance v1, Landroid/content/Intent;
+
+    const-string/jumbo v2, "android.settings.BLUETOOTH_SETTINGS"
+
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const/4 v2, 0x0
+
+    invoke-interface {v0, v1, v2}, Lcom/android/systemui/plugins/ActivityStarter;->postStartActivityDismissingKeyguard(Landroid/content/Intent;I)V
+
+    return-void
+
+    :cond_2
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
+
+    check-cast v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+
+    iget-boolean v0, v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
+
+    xor-int/lit8 v0, v0, 0x1
+
+    const/4 v2, 0x1
+
+    invoke-interface {v1, v0, v2}, Lcom/android/systemui/statusbar/policy/BluetoothController;->setBluetoothEnabled(ZZ)V
+
+    return-void
+.end method
+
+.method protected handleDestroy()V
+    .locals 2
+
+    invoke-super {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->handleDestroy()V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mCallback:Lcom/android/systemui/statusbar/policy/BluetoothController$Callback;
+
+    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/policy/BluetoothController;->removeCallback(Ljava/lang/Object;)V
+
+    return-void
+.end method
+
+.method protected handleSecondaryClick()V
+    .locals 3
+
+    const-class v0, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-virtual {v0}, Lcom/android/systemui/KnoxStateMonitor;->isBluetoothTileBlocked()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/BluetoothTile;->showItPolicyToast()V
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
+
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/BluetoothController;->canConfigBluetooth()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
+
+    new-instance v1, Landroid/content/Intent;
+
+    const-string/jumbo v2, "android.settings.BLUETOOTH_SETTINGS"
+
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const/4 v2, 0x0
+
+    invoke-interface {v0, v1, v2}, Lcom/android/systemui/plugins/ActivityStarter;->postStartActivityDismissingKeyguard(Landroid/content/Intent;I)V
+
+    return-void
+
+    :cond_1
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/BluetoothTile;->showDetail(Z)V
@@ -550,286 +640,313 @@
     return-void
 .end method
 
-.method protected handleUpdateState(Lcom/android/systemui/qs/QSTile$BooleanState;Ljava/lang/Object;)V
-    .locals 12
+.method protected handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$BooleanState;Ljava/lang/Object;)V
+    .locals 13
 
-    iget-object v8, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
+    iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
 
-    invoke-interface {v8}, Lcom/android/systemui/statusbar/policy/BluetoothController;->isBluetoothEnabled()Z
+    invoke-interface {v9}, Lcom/android/systemui/statusbar/policy/BluetoothController;->isBluetoothEnabled()Z
 
-    move-result v5
+    move-result v6
 
-    iget-object v8, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
+    iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
 
-    invoke-interface {v8}, Lcom/android/systemui/statusbar/policy/BluetoothController;->isBluetoothConnected()Z
+    invoke-interface {v9}, Lcom/android/systemui/statusbar/policy/BluetoothController;->isBluetoothConnected()Z
 
     move-result v3
 
-    iget-object v8, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
+    iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
 
-    invoke-interface {v8}, Lcom/android/systemui/statusbar/policy/BluetoothController;->isBluetoothConnecting()Z
-
-    move-result v4
-
-    iget-object v8, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
-
-    invoke-interface {v8}, Lcom/android/systemui/statusbar/policy/BluetoothController;->getBluetoothState()I
+    invoke-interface {v9}, Lcom/android/systemui/statusbar/policy/BluetoothController;->getBluetoothState()I
 
     move-result v1
 
-    iget-boolean v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
+    iget-boolean v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
 
-    if-eq v8, v5, :cond_5
+    if-eq v9, v6, :cond_5
 
-    const/4 v6, 0x1
+    const/4 v7, 0x1
 
     :goto_0
-    iget v8, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mBlueToothState:I
+    iget v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mBlueToothState:I
 
-    if-eq v8, v1, :cond_6
+    if-eq v9, v1, :cond_6
 
     const/4 v2, 0x1
 
     :goto_1
-    if-eqz v6, :cond_0
+    iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->TAG:Ljava/lang/String;
 
-    iget-object v8, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mDetailAdapter:Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v5}, Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;->setItemsVisible(Z)V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p0, v5}, Lcom/android/systemui/qs/tiles/BluetoothTile;->fireToggleStateChanged(Z)V
+    const-string/jumbo v11, "handleUpdateState enabled = "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, " connected = "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, " bluetoothState = "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz v7, :cond_0
+
+    iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mDetailAdapter:Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;
+
+    invoke-virtual {v9, v6}, Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;->setItemsVisible(Z)V
 
     :cond_0
-    if-eqz v2, :cond_2
-
-    const/16 v8, 0xa
-
-    if-eq v1, v8, :cond_1
-
-    const/16 v8, 0xc
-
-    if-ne v1, v8, :cond_2
-
-    :cond_1
-    const/4 v8, 0x0
-
-    invoke-virtual {p0, v8}, Lcom/android/systemui/qs/tiles/BluetoothTile;->fireDisableStateChanged(Z)V
-
-    :cond_2
     iput v1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mBlueToothState:I
 
-    iput-boolean v5, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
+    iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
 
-    const/4 v8, 0x0
+    invoke-interface {v9}, Lcom/android/systemui/statusbar/policy/BluetoothController;->isBluetoothConnecting()Z
 
-    iput-boolean v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->autoMirrorDrawable:Z
+    move-result v9
 
-    iget-object v8, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
+    if-nez v9, :cond_7
 
-    const v9, 0x7f0f0390
+    iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
 
-    invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-interface {v9}, Lcom/android/systemui/statusbar/policy/BluetoothController;->getBluetoothState()I
 
-    move-result-object v8
+    move-result v9
 
-    iput-object v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->minimalContentDescription:Ljava/lang/CharSequence;
+    const/16 v10, 0xb
 
-    if-eqz v5, :cond_9
-
-    const/4 v8, 0x0
-
-    iput-object v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
-
-    if-eqz v3, :cond_7
-
-    const v8, 0x7f0201e2
-
-    invoke-static {v8}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
-
-    move-result-object v8
-
-    iput-object v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/qs/QSTile$Icon;
-
-    iget-object v8, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
-
-    invoke-interface {v8}, Lcom/android/systemui/statusbar/policy/BluetoothController;->getLastDeviceName()Ljava/lang/String;
-
-    move-result-object v8
-
-    iput-object v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
-
-    iget-object v8, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
+    if-ne v9, v10, :cond_8
 
     const/4 v9, 0x1
-
-    new-array v9, v9, [Ljava/lang/Object;
-
-    iget-object v10, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
-
-    const/4 v11, 0x0
-
-    aput-object v10, v9, v11
-
-    const v10, 0x7f0f033c
-
-    invoke-virtual {v8, v10, v9}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v8
-
-    iput-object v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->contentDescription:Ljava/lang/CharSequence;
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v9, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->minimalContentDescription:Ljava/lang/CharSequence;
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, ","
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    iget-object v9, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->contentDescription:Ljava/lang/CharSequence;
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    iput-object v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->minimalContentDescription:Ljava/lang/CharSequence;
 
     :goto_2
-    iget-object v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
-
-    invoke-static {v8}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_3
-
-    iget-object v8, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
-
-    const v9, 0x7f0f03e8
-
-    invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    iput-object v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
-
-    :cond_3
-    :goto_3
-    const v8, 0x7f0203d4
-
-    invoke-static {v8}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
-
-    move-result-object v8
-
-    iput-object v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/qs/QSTile$Icon;
-
-    iget-object v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
-
-    if-eqz v3, :cond_4
-
-    iget-object v8, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
+    iput-boolean v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->isTransient:Z
 
     const/4 v9, 0x1
 
-    new-array v9, v9, [Ljava/lang/Object;
+    iput-boolean v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->dualTarget:Z
 
-    iget-object v10, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
+    iput-boolean v6, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
 
-    const/4 v11, 0x0
+    if-eqz v2, :cond_1
 
-    aput-object v10, v9, v11
+    invoke-virtual {p0, v6}, Lcom/android/systemui/qs/tiles/BluetoothTile;->fireToggleStateChanged(Z)V
 
-    const v10, 0x7f0f033c
+    :cond_1
+    if-eqz v6, :cond_d
 
-    invoke-virtual {v8, v10, v9}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    const/4 v9, 0x0
 
-    move-result-object v0
-
-    iput-object v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->dualLabelContentDescription:Ljava/lang/CharSequence;
-
-    :cond_4
-    iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
-
-    iget-boolean v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
-
-    if-eqz v8, :cond_a
-
-    const v8, 0x7f0f034c
-
-    :goto_4
-    invoke-virtual {v9, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v7
-
-    iget-object v8, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
-
-    const v9, 0x7f0f03e8
-
-    invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    iput-object v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->contentDescription:Ljava/lang/CharSequence;
+    iput-object v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
 
     if-eqz v3, :cond_b
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    const v9, 0x7f08028c
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v9}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
-    iget-object v9, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->contentDescription:Ljava/lang/CharSequence;
+    move-result-object v9
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+    iput-object v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
-    move-result-object v8
+    iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
 
-    const-string/jumbo v9, ","
+    invoke-interface {v9}, Lcom/android/systemui/statusbar/policy/BluetoothController;->getConnectedDevices()Ljava/util/List;
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    move-result-object v8
+    const/4 v4, 0x0
 
-    invoke-virtual {v8, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-eqz v5, :cond_2
 
-    move-result-object v8
+    invoke-interface {v5}, Ljava/util/List;->size()I
 
-    const-string/jumbo v9, ","
+    move-result v4
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :cond_2
+    const/4 v9, 0x1
 
-    move-result-object v8
+    if-ne v4, v9, :cond_9
 
-    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+    iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
 
-    move-result-object v8
+    invoke-interface {v9}, Lcom/android/systemui/statusbar/policy/BluetoothController;->getLastDeviceName()Ljava/lang/String;
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v9
 
-    move-result-object v8
+    iput-object v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
 
-    iput-object v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->contentDescription:Ljava/lang/CharSequence;
+    iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
+
+    const/4 v10, 0x1
+
+    new-array v10, v10, [Ljava/lang/Object;
+
+    iget-object v11, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
+
+    const/4 v12, 0x0
+
+    aput-object v11, v10, v12
+
+    const v11, 0x7f120038
+
+    invoke-virtual {v9, v11, v10}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v9
+
+    iput-object v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->contentDescription:Ljava/lang/CharSequence;
+
+    :goto_3
+    iget-object v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
+
+    invoke-static {v9}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_3
+
+    iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
+
+    const v10, 0x7f120854
+
+    invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v9
+
+    iput-object v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
+
+    :cond_3
+    const/4 v9, 0x2
+
+    iput v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->state:I
+
+    :goto_4
+    const v9, 0x7f0804ff
+
+    invoke-static {v9}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+    move-result-object v9
+
+    iput-object v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+    iget-object v0, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
+
+    if-eqz v3, :cond_4
+
+    iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
+
+    const/4 v10, 0x1
+
+    new-array v10, v10, [Ljava/lang/Object;
+
+    iget-object v11, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
+
+    const/4 v12, 0x0
+
+    aput-object v11, v10, v12
+
+    const v11, 0x7f120038
+
+    invoke-virtual {v9, v11, v10}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->dualLabelContentDescription:Ljava/lang/CharSequence;
+
+    :cond_4
+    iget-object v10, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
+
+    iget-boolean v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
+
+    if-eqz v9, :cond_e
+
+    const v9, 0x7f120063
 
     :goto_5
-    iget-object v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->contentDescription:Ljava/lang/CharSequence;
+    invoke-virtual {v10, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    iput-object v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->minimalContentDescription:Ljava/lang/CharSequence;
+    move-result-object v8
 
+    iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
+
+    const v10, 0x7f120854
+
+    invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v9
+
+    iput-object v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->contentDescription:Ljava/lang/CharSequence;
+
+    if-eqz v3, :cond_f
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v10, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->contentDescription:Ljava/lang/CharSequence;
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    const-string/jumbo v10, ","
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    const-string/jumbo v10, ","
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    iput-object v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->contentDescription:Ljava/lang/CharSequence;
+
+    :goto_6
     return-void
 
     :cond_5
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
     goto/16 :goto_0
 
@@ -839,276 +956,438 @@
     goto/16 :goto_1
 
     :cond_7
-    if-eqz v4, :cond_8
-
-    const v8, 0x7f0201e3
-
-    invoke-static {v8}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
-
-    move-result-object v8
-
-    iput-object v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/qs/QSTile$Icon;
-
-    iget-object v8, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
-
-    const v9, 0x7f0f0393
-
-    invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    iput-object v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->contentDescription:Ljava/lang/CharSequence;
-
-    iget-object v8, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
-
-    const v9, 0x7f0f03e8
-
-    invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    iput-object v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v9, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->minimalContentDescription:Ljava/lang/CharSequence;
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, ","
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    iget-object v9, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->contentDescription:Ljava/lang/CharSequence;
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    iput-object v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->minimalContentDescription:Ljava/lang/CharSequence;
+    const/4 v9, 0x1
 
     goto/16 :goto_2
 
     :cond_8
-    const v8, 0x7f0201e6
-
-    invoke-static {v8}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
-
-    move-result-object v8
-
-    iput-object v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/qs/QSTile$Icon;
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
-
-    const v10, 0x7f0f0392
-
-    invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, ","
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
-
-    const v10, 0x7f0f0346
-
-    invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    iput-object v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->contentDescription:Ljava/lang/CharSequence;
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v9, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->minimalContentDescription:Ljava/lang/CharSequence;
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, ","
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
-
-    const v10, 0x7f0f0346
-
-    invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    iput-object v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->minimalContentDescription:Ljava/lang/CharSequence;
+    const/4 v9, 0x0
 
     goto/16 :goto_2
 
     :cond_9
-    const v8, 0x7f0201e5
+    const/4 v9, 0x2
 
-    invoke-static {v8}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
+    if-lt v4, v9, :cond_a
 
-    move-result-object v8
+    iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    iput-object v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/qs/QSTile$Icon;
+    const/4 v10, 0x1
 
-    iget-object v8, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
+    new-array v10, v10, [Ljava/lang/Object;
 
-    const v9, 0x7f0f03e8
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    move-result-object v11
 
-    move-result-object v8
+    const/4 v12, 0x0
 
-    iput-object v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
+    aput-object v11, v10, v12
 
-    iget-object v8, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
+    const v11, 0x7f12084e
 
-    const v9, 0x7f0f0391
+    invoke-virtual {v9, v11, v10}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    move-result-object v9
 
-    move-result-object v8
+    iput-object v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
 
-    iput-object v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->contentDescription:Ljava/lang/CharSequence;
+    iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
+
+    const/4 v10, 0x1
+
+    new-array v10, v10, [Ljava/lang/Object;
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v11
+
+    const/4 v12, 0x0
+
+    aput-object v11, v10, v12
+
+    const v11, 0x7f12084e
+
+    invoke-virtual {v9, v11, v10}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v9
+
+    iput-object v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->contentDescription:Ljava/lang/CharSequence;
 
     goto/16 :goto_3
 
     :cond_a
-    const v8, 0x7f0f034d
+    iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v10, "no connected device"
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_3
+
+    :cond_b
+    iget-boolean v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->isTransient:Z
+
+    if-eqz v9, :cond_c
+
+    const v9, 0x7f08028d
+
+    invoke-static {v9}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+    move-result-object v9
+
+    iput-object v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+    iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
+
+    const v10, 0x7f1200a3
+
+    invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v9
+
+    iput-object v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->contentDescription:Ljava/lang/CharSequence;
+
+    iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
+
+    const v10, 0x7f120854
+
+    invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v9
+
+    iput-object v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
+
+    goto/16 :goto_3
+
+    :cond_c
+    const v9, 0x7f080290
+
+    invoke-static {v9}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+    move-result-object v9
+
+    iput-object v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v10, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
+
+    const v11, 0x7f1200a5
+
+    invoke-virtual {v10, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    const-string/jumbo v10, ","
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    iget-object v10, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
+
+    const v11, 0x7f120084
+
+    invoke-virtual {v10, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    iput-object v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->contentDescription:Ljava/lang/CharSequence;
+
+    goto/16 :goto_3
+
+    :cond_d
+    const v9, 0x7f08028f
+
+    invoke-static {v9}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+    move-result-object v9
+
+    iput-object v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+    iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
+
+    const v10, 0x7f120854
+
+    invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v9
+
+    iput-object v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
+
+    iget-object v9, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
+
+    const v10, 0x7f1200a4
+
+    invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v9
+
+    iput-object v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->contentDescription:Ljava/lang/CharSequence;
+
+    const/4 v9, 0x1
+
+    iput v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->state:I
 
     goto/16 :goto_4
 
-    :cond_b
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v9, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->contentDescription:Ljava/lang/CharSequence;
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, ","
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    iput-object v8, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->contentDescription:Ljava/lang/CharSequence;
+    :cond_e
+    const v9, 0x7f120062
 
     goto/16 :goto_5
+
+    :cond_f
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v10, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->contentDescription:Ljava/lang/CharSequence;
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    const-string/jumbo v10, ","
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    iput-object v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->contentDescription:Ljava/lang/CharSequence;
+
+    goto/16 :goto_6
 .end method
 
-.method protected bridge synthetic handleUpdateState(Lcom/android/systemui/qs/QSTile$State;Ljava/lang/Object;)V
+.method protected bridge synthetic handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$State;Ljava/lang/Object;)V
     .locals 0
 
-    check-cast p1, Lcom/android/systemui/qs/QSTile$BooleanState;
+    check-cast p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/qs/tiles/BluetoothTile;->handleUpdateState(Lcom/android/systemui/qs/QSTile$BooleanState;Ljava/lang/Object;)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/qs/tiles/BluetoothTile;->handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$BooleanState;Ljava/lang/Object;)V
 
     return-void
 .end method
 
 .method public isAvailable()Z
-    .locals 3
+    .locals 2
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
 
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/BluetoothController;->isBluetoothSupported()Z
 
-    invoke-interface {v1}, Lcom/android/systemui/statusbar/policy/BluetoothController;->isBluetoothSupported()Z
+    move-result v0
 
-    move-result v1
+    if-eqz v0, :cond_0
 
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mHost:Lcom/android/systemui/qs/QSHost;
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/BluetoothTile;->getTileSpec()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v1, v2}, Lcom/android/systemui/qs/QSTile$Host;->shouldBeHiddenByKnox(Ljava/lang/String;)Z
+    invoke-interface {v0, v1}, Lcom/android/systemui/qs/QSHost;->shouldBeHiddenByKnox(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
     :goto_0
     return v0
 
-    :cond_1
-    const/4 v0, 0x1
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
 
-.method public newTileState()Lcom/android/systemui/qs/QSTile$BooleanState;
+.method synthetic lambda$-com_android_systemui_qs_tiles_BluetoothTile_6647()V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/BluetoothTile;->handleClick()V
+
+    return-void
+.end method
+
+.method protected makeCurrentStateToString()Ljava/lang/String;
     .locals 1
 
-    new-instance v0, Lcom/android/systemui/qs/QSTile$BooleanState;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    invoke-direct {v0}, Lcom/android/systemui/qs/QSTile$BooleanState;-><init>()V
+    check-cast v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+
+    iget-boolean v0, v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "1"
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    const-string/jumbo v0, "0"
+
+    goto :goto_0
+.end method
+
+.method protected makeStringToCurrentState(Ljava/lang/String;)V
+    .locals 5
+
+    const/4 v4, 0x0
+
+    const-string/jumbo v1, "1"
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
+
+    check-cast v1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+
+    iget-boolean v1, v1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
+
+    if-eq v1, v0, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
+
+    check-cast v1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+
+    iget v1, v1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->state:I
+
+    if-nez v1, :cond_1
+
+    :cond_0
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "makeStringToCurrentState failed value = "
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
+
+    check-cast v1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+
+    iget-boolean v1, v1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v3, " state = "
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
+
+    check-cast v1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+
+    iget v1, v1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->state:I
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v3, " enabled = "
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v2, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "makeStringToCurrentState set = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
+
+    invoke-interface {v1, v0, v4}, Lcom/android/systemui/statusbar/policy/BluetoothController;->setBluetoothEnabled(ZZ)V
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/BluetoothTile;->fireToggleStateChanged(Z)V
+
+    :cond_2
+    return-void
+.end method
+
+.method public newTileState()Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+    .locals 1
+
+    new-instance v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+
+    invoke-direct {v0}, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;-><init>()V
 
     return-object v0
 .end method
 
-.method public bridge synthetic newTileState()Lcom/android/systemui/qs/QSTile$State;
+.method public bridge synthetic newTileState()Lcom/android/systemui/plugins/qs/QSTile$State;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/BluetoothTile;->newTileState()Lcom/android/systemui/qs/QSTile$BooleanState;
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/BluetoothTile;->newTileState()Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
     move-result-object v0
 
@@ -1116,94 +1395,139 @@
 .end method
 
 .method public setDetailListening(Z)V
-    .locals 8
+    .locals 9
 
-    const/4 v5, 0x0
+    const/4 v8, 0x1
 
-    iget-boolean v3, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mDetailListening:Z
+    iget-object v4, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->TAG:Ljava/lang/String;
 
-    if-ne v3, p1, :cond_0
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "Detail is  "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-boolean v4, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mDetailListening:Z
+
+    if-ne v4, p1, :cond_0
 
     return-void
 
     :cond_0
     iput-boolean p1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mDetailListening:Z
 
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
+    iget-object v4, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
 
-    invoke-interface {v3}, Lcom/android/systemui/statusbar/policy/BluetoothController;->getBluetoothState()I
+    invoke-interface {v4}, Lcom/android/systemui/statusbar/policy/BluetoothController;->getBluetoothState()I
 
-    move-result v3
+    move-result v4
 
-    const/16 v4, 0xc
+    const/16 v5, 0xc
 
-    if-ne v3, v4, :cond_1
+    if-ne v4, v5, :cond_1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_2
 
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
+    iget-object v4, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
 
-    const/4 v4, 0x1
+    invoke-interface {v4}, Lcom/android/systemui/statusbar/policy/BluetoothController;->updateListDevices()V
 
-    invoke-interface {v3, v4}, Lcom/android/systemui/statusbar/policy/BluetoothController;->scan(Z)V
+    iget-object v4, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
+
+    invoke-interface {v4, v8}, Lcom/android/systemui/statusbar/policy/BluetoothController;->scan(Z)V
 
     :cond_1
     :goto_0
-    iput-boolean v5, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mSettingStarted:Z
+    iput-boolean v8, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mDoStopScan:Z
 
-    sget-boolean v3, Lcom/android/systemui/SystemUIRune;->SUPPORT_GSIM_LOG:Z
-
-    if-eqz v3, :cond_2
-
-    if-eqz p1, :cond_4
-
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide v4
-
-    iput-wide v4, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mDetailOpeningTime:J
-
-    :cond_2
-    :goto_1
     return-void
 
+    :cond_2
+    iget-boolean v4, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mDoStopScan:Z
+
+    if-eqz v4, :cond_3
+
+    iget-object v4, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
+
+    const/4 v5, 0x0
+
+    invoke-interface {v4, v5}, Lcom/android/systemui/statusbar/policy/BluetoothController;->scan(Z)V
+
     :cond_3
-    iget-boolean v3, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mSettingStarted:Z
+    const/4 v0, 0x0
 
-    if-nez v3, :cond_1
+    iget-object v4, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mPairedItemList:Ljava/util/ArrayList;
 
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mController:Lcom/android/systemui/statusbar/policy/BluetoothController;
+    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    invoke-interface {v3, v5}, Lcom/android/systemui/statusbar/policy/BluetoothController;->scan(Z)V
-
-    goto :goto_0
+    move-result-object v3
 
     :cond_4
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+    :goto_1
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result-wide v4
+    move-result v4
 
-    iget-wide v6, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mDetailOpeningTime:J
+    if-eqz v4, :cond_5
 
-    sub-long v0, v4, v6
-
-    long-to-int v3, v0
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
+    check-cast v2, Lcom/android/systemui/qs/QSDetailItems$Item;
 
-    const-string/jumbo v4, "com.android.systemui.statusbar.policy.quicksetting"
+    iget-object v1, v2, Lcom/android/systemui/qs/QSDetailItems$Item;->tag:Ljava/lang/Object;
 
-    const-string/jumbo v5, "QS18"
+    check-cast v1, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
-    const/4 v6, 0x0
+    invoke-virtual {v1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->isConnected()Z
 
-    invoke-static {v3, v4, v5, v6, v2}, Lcom/android/keyguard/util/GsimLogManager;->sendLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)V
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
+
+    :cond_5
+    sget-object v4, Lcom/android/systemui/SystemUIAnalytics;->mCurrentScreenID:Ljava/lang/String;
+
+    const-string/jumbo v5, "1180"
+
+    int-to-long v6, v0
+
+    invoke-static {v4, v5, v6, v7}, Lcom/android/systemui/SystemUIAnalytics;->sendEventLog(Ljava/lang/String;Ljava/lang/String;J)V
+
+    sget-object v4, Lcom/android/systemui/SystemUIAnalytics;->mCurrentScreenID:Ljava/lang/String;
+
+    const-string/jumbo v5, "1181"
+
+    iget-object v6, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mPairedItemList:Ljava/util/ArrayList;
+
+    invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
+
+    move-result v6
+
+    int-to-long v6, v6
+
+    invoke-static {v4, v5, v6, v7}, Lcom/android/systemui/SystemUIAnalytics;->sendEventLog(Ljava/lang/String;Ljava/lang/String;J)V
+
+    goto :goto_0
 .end method
 
 .method public setListening(Z)V

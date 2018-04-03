@@ -24,6 +24,9 @@
 .method public abstract dismissFullBatteryNotice()V
 .end method
 
+.method public abstract dismissHighTemperatureWarning()V
+.end method
+
 .method public abstract dismissIncompatibleChargerNotice()V
 .end method
 
@@ -60,6 +63,9 @@
 .method public abstract isLowBatteryWarningShowing()Z
 .end method
 
+.method public abstract onDensityOrFontScaleChanged()V
+.end method
+
 .method public abstract playPowerSound(I)V
 .end method
 
@@ -76,6 +82,9 @@
 .end method
 
 .method public abstract showFullBatteryNotice()V
+.end method
+
+.method public abstract showHighTemperatureWarning()V
 .end method
 
 .method public abstract showIncompatibleChargerNotice()V
@@ -102,6 +111,9 @@
 .method public abstract showSafeModeNotice()V
 .end method
 
+.method public abstract showThermalShutdownWarning()V
+.end method
+
 .method public abstract showUnintentionalLcdOnNotice()V
 .end method
 
@@ -115,6 +127,9 @@
 .end method
 
 .method public abstract update(IIJII)V
+.end method
+
+.method public abstract updateHiccupState(Z)V
 .end method
 
 .method public abstract updateLowBatteryWarning()V

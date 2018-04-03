@@ -39,19 +39,10 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView$1;->this$0:Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView;->-get1(Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView$1;->this$0:Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView;
-
     const v1, 0x3f4ccccd    # 0.8f
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView;->setAlpha(F)V
 
-    :cond_0
     return-void
 .end method
 

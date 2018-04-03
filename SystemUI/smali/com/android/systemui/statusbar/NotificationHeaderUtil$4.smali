@@ -29,7 +29,7 @@
 .method private applyToChild(Landroid/view/View;ZI)V
     .locals 4
 
-    const/4 v2, -0x1
+    const/4 v2, 0x1
 
     if-eq p3, v2, :cond_0
 
@@ -90,7 +90,7 @@
 
     check-cast v2, Landroid/widget/ImageView;
 
-    const v3, 0x102044e
+    const v3, 0x102028b
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

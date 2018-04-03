@@ -3,6 +3,10 @@
 .source "ShaderHelper.java"
 
 
+# static fields
+.field private static final TAG:Ljava/lang/String; = "log"
+
+
 # direct methods
 .method public constructor <init>()V
     .locals 0

@@ -19,6 +19,8 @@
 
 
 # instance fields
+.field final synthetic $SWITCH_TABLE$com$android$systemui$infinity$GalaxyWallpaperService$Mode:[I
+
 .field start:J
 
 .field final synthetic this$0:Lcom/android/systemui/infinity/GalaxyWallpaperService;
@@ -170,7 +172,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Lcom/android/systemui/infinity/GalaxyWallpaperService$GalaxyWallpaperEngine;->this$0:Lcom/android/systemui/infinity/GalaxyWallpaperService;
 
@@ -178,7 +180,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/systemui/infinity/GalaxyWallpaperService$GalaxyWallpaperEngine;->this$0:Lcom/android/systemui/infinity/GalaxyWallpaperService;
 
@@ -190,7 +192,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/infinity/GalaxyWallpaperService$GalaxyWallpaperEngine;->this$0:Lcom/android/systemui/infinity/GalaxyWallpaperService;
 
@@ -218,38 +220,39 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    sget-object v0, Lcom/android/systemui/infinity/GalaxyWallpaperService$Mode;->HOME:Lcom/android/systemui/infinity/GalaxyWallpaperService$Mode;
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/android/systemui/infinity/GalaxyWallpaperService$Mode;->LOCK:Lcom/android/systemui/infinity/GalaxyWallpaperService$Mode;
 
     invoke-direct {p0, v0}, Lcom/android/systemui/infinity/GalaxyWallpaperService$GalaxyWallpaperEngine;->setMode(Lcom/android/systemui/infinity/GalaxyWallpaperService$Mode;)V
 
     :goto_0
     return-void
 
-    :cond_1
-    sget-object v0, Lcom/android/systemui/infinity/GalaxyWallpaperService$Mode;->LOCK:Lcom/android/systemui/infinity/GalaxyWallpaperService$Mode;
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/infinity/GalaxyWallpaperService$GalaxyWallpaperEngine;->setMode(Lcom/android/systemui/infinity/GalaxyWallpaperService$Mode;)V
-
-    goto :goto_0
-
-    :cond_2
-    sget-object v0, Lcom/android/systemui/infinity/GalaxyWallpaperService$Mode;->BLACK:Lcom/android/systemui/infinity/GalaxyWallpaperService$Mode;
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/infinity/GalaxyWallpaperService$GalaxyWallpaperEngine;->setMode(Lcom/android/systemui/infinity/GalaxyWallpaperService$Mode;)V
-
-    goto :goto_0
-
-    :cond_3
+    :cond_0
     sget-object v0, Lcom/android/systemui/infinity/GalaxyWallpaperService$Mode;->HOME:Lcom/android/systemui/infinity/GalaxyWallpaperService$Mode;
 
     invoke-direct {p0, v0}, Lcom/android/systemui/infinity/GalaxyWallpaperService$GalaxyWallpaperEngine;->setMode(Lcom/android/systemui/infinity/GalaxyWallpaperService$Mode;)V
 
     goto :goto_0
 
-    :cond_4
+    :cond_1
+    sget-object v0, Lcom/android/systemui/infinity/GalaxyWallpaperService$Mode;->BLACK:Lcom/android/systemui/infinity/GalaxyWallpaperService$Mode;
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/infinity/GalaxyWallpaperService$GalaxyWallpaperEngine;->setMode(Lcom/android/systemui/infinity/GalaxyWallpaperService$Mode;)V
+
+    goto :goto_0
+
+    :cond_2
+    sget-object v0, Lcom/android/systemui/infinity/GalaxyWallpaperService$Mode;->HOME:Lcom/android/systemui/infinity/GalaxyWallpaperService$Mode;
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/infinity/GalaxyWallpaperService$GalaxyWallpaperEngine;->setMode(Lcom/android/systemui/infinity/GalaxyWallpaperService$Mode;)V
+
+    goto :goto_0
+
+    :cond_3
     sget-object v0, Lcom/android/systemui/infinity/GalaxyWallpaperService$Mode;->HOME:Lcom/android/systemui/infinity/GalaxyWallpaperService$Mode;
 
     invoke-direct {p0, v0}, Lcom/android/systemui/infinity/GalaxyWallpaperService$GalaxyWallpaperEngine;->setMode(Lcom/android/systemui/infinity/GalaxyWallpaperService$Mode;)V
@@ -691,6 +694,31 @@
 
     invoke-direct {p0}, Lcom/android/systemui/infinity/GalaxyWallpaperService$GalaxyWallpaperEngine;->init()V
 
+    return-void
+.end method
+
+.method public onOffsetsChanged(FFFFII)V
+    .locals 1
+
+    invoke-super/range {p0 .. p6}, Lcom/android/systemui/infinity/OpenGLES2WallpaperService$OpenGLES2Engine;->onOffsetsChanged(FFFFII)V
+
+    iget-object v0, p0, Lcom/android/systemui/infinity/GalaxyWallpaperService$GalaxyWallpaperEngine;->this$0:Lcom/android/systemui/infinity/GalaxyWallpaperService;
+
+    invoke-static {v0}, Lcom/android/systemui/infinity/GalaxyWallpaperService;->-get10(Lcom/android/systemui/infinity/GalaxyWallpaperService;)Lcom/android/systemui/infinity/GalaxyRenderer;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/infinity/GalaxyWallpaperService$GalaxyWallpaperEngine;->this$0:Lcom/android/systemui/infinity/GalaxyWallpaperService;
+
+    invoke-static {v0}, Lcom/android/systemui/infinity/GalaxyWallpaperService;->-get10(Lcom/android/systemui/infinity/GalaxyWallpaperService;)Lcom/android/systemui/infinity/GalaxyRenderer;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/systemui/infinity/GalaxyRenderer;->requestDrawFrame()V
+
+    :cond_0
     return-void
 .end method
 

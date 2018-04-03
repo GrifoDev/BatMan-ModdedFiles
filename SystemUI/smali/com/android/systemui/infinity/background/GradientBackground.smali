@@ -3,6 +3,14 @@
 .source "GradientBackground.java"
 
 
+# static fields
+.field private static final COLOR_COMPONENT_COUNT:I = 0x3
+
+.field private static final POSITION_COMPONENT_COUNT:I = 0x2
+
+.field private static final STRIDE:I = 0x14
+
+
 # instance fields
 .field private gridentData:[F
 

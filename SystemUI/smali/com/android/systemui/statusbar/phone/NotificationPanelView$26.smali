@@ -3,12 +3,12 @@
 .source "NotificationPanelView.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/android/systemui/swipe/SwipeAnimator$AnimatorCallback;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/phone/NotificationPanelView;->onIconClicked(Z)Z
+    value = Lcom/android/systemui/statusbar/phone/NotificationPanelView;->setSwipeManagers()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,20 +34,26 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 2
+.method public getBarStatus()I
+    .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView$26;->this$0:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
 
-    const/4 v1, 0x0
+    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    iput-boolean v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mHintAnimationRunning:Z
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->getBarState()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public onViEnd()V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView$26;->this$0:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
 
-    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->onHintFinished()V
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->-wrap6(Lcom/android/systemui/statusbar/phone/NotificationPanelView;)V
 
     return-void
 .end method

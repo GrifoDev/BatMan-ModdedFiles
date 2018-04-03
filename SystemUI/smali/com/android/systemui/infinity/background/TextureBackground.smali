@@ -4,6 +4,12 @@
 
 
 # static fields
+.field private static final POSITION_COMPONENT_COUNT:I = 0x2
+
+.field private static final STRIDE:I = 0x10
+
+.field private static final TEXTURE_COORDINATES_COMPONENT_COUNT:I = 0x2
+
 .field private static final VERTEX_DATA:[F
 
 

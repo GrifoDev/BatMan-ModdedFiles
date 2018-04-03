@@ -63,11 +63,26 @@
 
     const/4 v2, 0x0
 
-    invoke-static {}, Lcom/android/systemui/screenshot/SmartClipDataExtractor;->isWritingWebDataFeatureEnabled()Z
+    invoke-static {p0}, Lcom/android/systemui/screenshot/SmartClipDataExtractor;->isSupportSmartClip(Landroid/content/Context;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
+
+    sget-object v0, Lcom/android/systemui/screenshot/SmartClipDataExtractor;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v1, "canExtractWebData : SmartClip is not supported"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v2
+
+    :cond_0
+    invoke-static {}, Lcom/android/systemui/screenshot/SmartClipDataExtractor;->isWritingWebDataFeatureEnabled()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
 
     sget-object v0, Lcom/android/systemui/screenshot/SmartClipDataExtractor;->TAG:Ljava/lang/String;
 
@@ -77,12 +92,12 @@
 
     return v2
 
-    :cond_0
+    :cond_1
     invoke-static {p0}, Lcom/android/systemui/screenshot/SmartClipDataExtractor;->isDesktopModeEnabled(Landroid/content/Context;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     sget-object v0, Lcom/android/systemui/screenshot/SmartClipDataExtractor;->TAG:Ljava/lang/String;
 
@@ -92,12 +107,12 @@
 
     return v2
 
-    :cond_1
+    :cond_2
     invoke-static {p0}, Lcom/android/systemui/screenshot/SmartClipDataExtractor;->isMultiWindowStyleAppExist(Landroid/content/Context;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     sget-object v0, Lcom/android/systemui/screenshot/SmartClipDataExtractor;->TAG:Ljava/lang/String;
 
@@ -107,7 +122,7 @@
 
     return v2
 
-    :cond_2
+    :cond_3
     const/4 v0, 0x1
 
     return v0
@@ -417,6 +432,28 @@
     return v1
 .end method
 
+.method private static isSupportSmartClip(Landroid/content/Context;)Z
+    .locals 3
+
+    :try_start_0
+    new-instance v1, Lcom/samsung/android/content/smartclip/SemRemoteAppDataExtractionManager;
+
+    invoke-direct {v1, p0}, Lcom/samsung/android/content/smartclip/SemRemoteAppDataExtractionManager;-><init>(Landroid/content/Context;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    const/4 v2, 0x1
+
+    return v2
+
+    :catch_0
+    move-exception v0
+
+    const/4 v2, 0x0
+
+    return v2
+.end method
+
 .method private static isValidUrl(Ljava/lang/String;)Z
     .locals 2
 
@@ -659,13 +696,13 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v0, "image_url"
+    const-string/jumbo v0, "captured_url"
 
     iget-object v1, p1, Lcom/android/systemui/screenshot/SmartClipDataExtractor$WebData;->mUrl:Ljava/lang/String;
 
     invoke-virtual {p0, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v0, "vendor"
+    const-string/jumbo v0, "captured_app"
 
     iget-object v1, p1, Lcom/android/systemui/screenshot/SmartClipDataExtractor$WebData;->mAppPkgName:Ljava/lang/String;
 

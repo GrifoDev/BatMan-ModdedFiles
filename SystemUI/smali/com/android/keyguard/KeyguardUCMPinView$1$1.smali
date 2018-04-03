@@ -89,7 +89,7 @@
 
     iget-object v0, v0, Lcom/android/keyguard/KeyguardUCMPinView$1;->this$0:Lcom/android/keyguard/KeyguardUCMPinView;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardUCMPinView;->-get6(Lcom/android/keyguard/KeyguardUCMPinView;)Landroid/app/ProgressDialog;
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUCMPinView;->-get8(Lcom/android/keyguard/KeyguardUCMPinView;)Landroid/app/ProgressDialog;
 
     move-result-object v0
 
@@ -105,7 +105,7 @@
 
     iget-object v0, v0, Lcom/android/keyguard/KeyguardUCMPinView$1;->this$0:Lcom/android/keyguard/KeyguardUCMPinView;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardUCMPinView;->-get6(Lcom/android/keyguard/KeyguardUCMPinView;)Landroid/app/ProgressDialog;
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUCMPinView;->-get8(Lcom/android/keyguard/KeyguardUCMPinView;)Landroid/app/ProgressDialog;
 
     move-result-object v0
 
@@ -122,7 +122,7 @@
 
     iget-object v0, v0, Lcom/android/keyguard/KeyguardUCMPinView$1;->this$0:Lcom/android/keyguard/KeyguardUCMPinView;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardUCMPinView;->-get3(Lcom/android/keyguard/KeyguardUCMPinView;)Lcom/android/keyguard/KeyguardUCMPinView$StateMachine;
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUCMPinView;->-get5(Lcom/android/keyguard/KeyguardUCMPinView;)Lcom/android/keyguard/KeyguardUCMPinView$StateMachine;
 
     move-result-object v0
 

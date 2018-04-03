@@ -27,9 +27,9 @@
 
     iput-boolean p3, p0, Lcom/android/systemui/recents/events/activity/ConfigurationChangedEvent;->fromDisplayDensityChange:Z
 
-    iput-boolean p5, p0, Lcom/android/systemui/recents/events/activity/ConfigurationChangedEvent;->hasStackTasks:Z
+    iput-boolean p4, p0, Lcom/android/systemui/recents/events/activity/ConfigurationChangedEvent;->hasStackTasks:Z
 
-    iput-boolean p4, p0, Lcom/android/systemui/recents/events/activity/ConfigurationChangedEvent;->fromScreenSizeChange:Z
+    iput-boolean p5, p0, Lcom/android/systemui/recents/events/activity/ConfigurationChangedEvent;->fromScreenSizeChange:Z
 
     return-void
 .end method

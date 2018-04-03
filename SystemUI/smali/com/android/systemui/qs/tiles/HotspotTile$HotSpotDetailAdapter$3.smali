@@ -3,12 +3,12 @@
 .source "HotspotTile.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;->showWifiSharingEnablingPopup()V
+    value = Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;->setupDetailView(Landroid/view/View;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,18 +34,24 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 2
+.method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter$3;->this$1:Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;
+    sget-object v1, Lcom/android/systemui/SystemUIAnalytics;->mCurrentScreenID:Ljava/lang/String;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;->-get1(Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;)Landroid/widget/Switch;
+    const-string/jumbo v2, "4450"
 
-    move-result-object v0
+    if-eqz p2, :cond_0
 
-    const/4 v1, 0x0
+    const-string/jumbo v0, "1"
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setChecked(Z)V
+    :goto_0
+    invoke-static {v1, v2, v0}, Lcom/android/systemui/SystemUIAnalytics;->sendEventLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
+
+    :cond_0
+    const-string/jumbo v0, "0"
+
+    goto :goto_0
 .end method

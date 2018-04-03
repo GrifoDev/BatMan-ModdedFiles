@@ -38,13 +38,23 @@
 .end method
 
 .method private updateOrder()V
-    .locals 5
+    .locals 7
 
-    iget-boolean v3, p0, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->mIsAlternativeOrder:Z
+    sget-boolean v5, Lcom/android/systemui/Rune;->NAVBAR_SUPPORT_STABLE_LAYOUT:Z
 
-    iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->mIsLayoutReverse:Z
+    if-eqz v5, :cond_1
 
-    if-eq v4, v3, :cond_2
+    :cond_0
+    const/4 v4, 0x0
+
+    :goto_0
+    iget-boolean v5, p0, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->mIsAlternativeOrder:Z
+
+    xor-int v3, v4, v5
+
+    iget-boolean v5, p0, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->mIsLayoutReverse:Z
+
+    if-eq v5, v3, :cond_4
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->getChildCount()I
 
@@ -56,43 +66,56 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_0
+    :goto_1
+    if-ge v2, v0, :cond_2
 
     invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v1, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     add-int/lit8 v2, v2, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->removeAllViews()V
-
-    add-int/lit8 v2, v0, -0x1
-
-    :goto_1
-    if-ltz v2, :cond_1
-
-    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/view/View;
-
-    invoke-super {p0, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
-
-    add-int/lit8 v2, v2, -0x1
 
     goto :goto_1
 
     :cond_1
-    iput-boolean v3, p0, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->mIsLayoutReverse:Z
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->getLayoutDirection()I
+
+    move-result v5
+
+    const/4 v6, 0x1
+
+    if-ne v5, v6, :cond_0
+
+    const/4 v4, 0x1
+
+    goto :goto_0
 
     :cond_2
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->removeAllViews()V
+
+    add-int/lit8 v2, v0, -0x1
+
+    :goto_2
+    if-ltz v2, :cond_3
+
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/view/View;
+
+    invoke-super {p0, v5}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
+    add-int/lit8 v2, v2, -0x1
+
+    goto :goto_2
+
+    :cond_3
+    iput-boolean v3, p0, Lcom/android/systemui/statusbar/phone/ReverseLinearLayout;->mIsLayoutReverse:Z
+
+    :cond_4
     return-void
 .end method
 

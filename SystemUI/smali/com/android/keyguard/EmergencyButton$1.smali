@@ -1,5 +1,5 @@
 .class Lcom/android/keyguard/EmergencyButton$1;
-.super Landroid/content/BroadcastReceiver;
+.super Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 .source "EmergencyButton.java"
 
 
@@ -24,51 +24,61 @@
 
     iput-object p1, p0, Lcom/android/keyguard/EmergencyButton$1;->this$0:Lcom/android/keyguard/EmergencyButton;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+.method public onKeyguardVisibilityChanged(Z)V
+    .locals 1
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/keyguard/EmergencyButton$1;->this$0:Lcom/android/keyguard/EmergencyButton;
 
-    move-result-object v0
+    invoke-static {v0, p1}, Lcom/android/keyguard/EmergencyButton;->-set2(Lcom/android/keyguard/EmergencyButton;Z)Z
 
-    const-string/jumbo v1, "com.samsung.softphone.action.ACCOUNT_REGISTERED"
+    iget-object v0, p0, Lcom/android/keyguard/EmergencyButton$1;->this$0:Lcom/android/keyguard/EmergencyButton;
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {v0}, Lcom/android/keyguard/EmergencyButton;->-wrap2(Lcom/android/keyguard/EmergencyButton;)V
 
-    move-result v1
+    return-void
+.end method
 
-    if-nez v1, :cond_0
+.method public onPhoneStateChanged(I)V
+    .locals 1
 
-    const-string/jumbo v1, "com.samsung.softphone.action.ACCOUNT_DEREGISTERED"
+    iget-object v0, p0, Lcom/android/keyguard/EmergencyButton$1;->this$0:Lcom/android/keyguard/EmergencyButton;
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {v0}, Lcom/android/keyguard/EmergencyButton;->-wrap2(Lcom/android/keyguard/EmergencyButton;)V
 
-    move-result v1
+    return-void
+.end method
 
-    if-eqz v1, :cond_1
+.method public onRefreshCarrierInfo()V
+    .locals 1
 
-    :cond_0
-    new-instance v1, Lcom/android/keyguard/EmergencyButton$SoftPhoneEnableTask;
+    iget-object v0, p0, Lcom/android/keyguard/EmergencyButton$1;->this$0:Lcom/android/keyguard/EmergencyButton;
 
-    iget-object v2, p0, Lcom/android/keyguard/EmergencyButton$1;->this$0:Lcom/android/keyguard/EmergencyButton;
+    invoke-static {v0}, Lcom/android/keyguard/EmergencyButton;->-wrap2(Lcom/android/keyguard/EmergencyButton;)V
 
-    const/4 v3, 0x0
+    return-void
+.end method
 
-    invoke-direct {v1, v2, v3}, Lcom/android/keyguard/EmergencyButton$SoftPhoneEnableTask;-><init>(Lcom/android/keyguard/EmergencyButton;Lcom/android/keyguard/EmergencyButton$SoftPhoneEnableTask;)V
+.method public onSimStateChanged(IILcom/android/internal/telephony/IccCardConstants$State;)V
+    .locals 1
 
-    const/4 v2, 0x0
+    iget-object v0, p0, Lcom/android/keyguard/EmergencyButton$1;->this$0:Lcom/android/keyguard/EmergencyButton;
 
-    new-array v2, v2, [Ljava/lang/Void;
+    invoke-static {v0, p1}, Lcom/android/keyguard/EmergencyButton;->-set3(Lcom/android/keyguard/EmergencyButton;I)I
 
-    invoke-virtual {v1, v2}, Lcom/android/keyguard/EmergencyButton$SoftPhoneEnableTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+    iget-object v0, p0, Lcom/android/keyguard/EmergencyButton$1;->this$0:Lcom/android/keyguard/EmergencyButton;
 
-    :cond_1
+    invoke-static {v0, p3}, Lcom/android/keyguard/EmergencyButton;->-set0(Lcom/android/keyguard/EmergencyButton;Lcom/android/internal/telephony/IccCardConstants$State;)Lcom/android/internal/telephony/IccCardConstants$State;
+
+    iget-object v0, p0, Lcom/android/keyguard/EmergencyButton$1;->this$0:Lcom/android/keyguard/EmergencyButton;
+
+    invoke-static {v0}, Lcom/android/keyguard/EmergencyButton;->-wrap2(Lcom/android/keyguard/EmergencyButton;)V
+
     return-void
 .end method

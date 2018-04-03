@@ -3,24 +3,15 @@
 .source "R.java"
 
 
-# static fields
-.field public static final config_disableMenuKeyInLockScreen:I = 0x7f120033
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/keyguard/R;
+.end annotation
 
-.field public static final config_enableLockScreenRotation:I = 0x7f120026
-
-.field public static final kg_show_ime_at_screen_on:I = 0x7f120028
-
-.field public static final theme_use_clock_background_image:I = 0x7f12002a
-
-.field public static final theme_use_image_clock:I = 0x7f120035
-
-.field public static final theme_use_image_pinlock:I = 0x7f12002b
-
-.field public static final theme_use_pattern_failed_image:I = 0x7f120031
-
-.field public static final theme_use_pattern_normal_image:I = 0x7f12002f
-
-.field public static final theme_use_pattern_success_image:I = 0x7f120030
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "bool"
+.end annotation
 
 
 # direct methods

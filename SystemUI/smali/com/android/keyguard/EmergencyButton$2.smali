@@ -1,5 +1,5 @@
 .class Lcom/android/keyguard/EmergencyButton$2;
-.super Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+.super Lcom/android/systemui/KnoxStateMonitorCallback;
 .source "EmergencyButton.java"
 
 
@@ -24,107 +24,19 @@
 
     iput-object p1, p0, Lcom/android/keyguard/EmergencyButton$2;->this$0:Lcom/android/keyguard/EmergencyButton;
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;-><init>()V
+    invoke-direct {p0}, Lcom/android/systemui/KnoxStateMonitorCallback;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onDesktopModeChanged(Z)V
+.method public onUpdateLockscreenHiddenItems()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/EmergencyButton$2;->this$0:Lcom/android/keyguard/EmergencyButton;
 
-    invoke-static {v0}, Lcom/android/keyguard/EmergencyButton;->-get0(Lcom/android/keyguard/EmergencyButton;)Z
+    invoke-static {v0}, Lcom/android/keyguard/EmergencyButton;->-wrap2(Lcom/android/keyguard/EmergencyButton;)V
 
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/keyguard/EmergencyButton$2;->this$0:Lcom/android/keyguard/EmergencyButton;
-
-    invoke-virtual {v0}, Lcom/android/keyguard/EmergencyButton;->updateEmergencyCallButton()V
-
-    :cond_0
-    return-void
-.end method
-
-.method public onKeyguardVisibilityChanged(Z)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/EmergencyButton$2;->this$0:Lcom/android/keyguard/EmergencyButton;
-
-    invoke-static {v0, p1}, Lcom/android/keyguard/EmergencyButton;->-set2(Lcom/android/keyguard/EmergencyButton;Z)Z
-
-    iget-object v0, p0, Lcom/android/keyguard/EmergencyButton$2;->this$0:Lcom/android/keyguard/EmergencyButton;
-
-    invoke-static {v0}, Lcom/android/keyguard/EmergencyButton;->-get0(Lcom/android/keyguard/EmergencyButton;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/keyguard/EmergencyButton$2;->this$0:Lcom/android/keyguard/EmergencyButton;
-
-    invoke-virtual {v0}, Lcom/android/keyguard/EmergencyButton;->updateEmergencyCallButton()V
-
-    :cond_0
-    return-void
-.end method
-
-.method public onPhoneStateChanged(I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/EmergencyButton$2;->this$0:Lcom/android/keyguard/EmergencyButton;
-
-    invoke-virtual {v0}, Lcom/android/keyguard/EmergencyButton;->updateEmergencyCallButton()V
-
-    return-void
-.end method
-
-.method public onRefreshCarrierInfo()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/EmergencyButton$2;->this$0:Lcom/android/keyguard/EmergencyButton;
-
-    invoke-static {v0}, Lcom/android/keyguard/EmergencyButton;->-get0(Lcom/android/keyguard/EmergencyButton;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/keyguard/EmergencyButton$2;->this$0:Lcom/android/keyguard/EmergencyButton;
-
-    invoke-virtual {v0}, Lcom/android/keyguard/EmergencyButton;->updateEmergencyCallButton()V
-
-    :cond_0
-    return-void
-.end method
-
-.method public onSimStateChanged(IILcom/android/internal/telephony/IccCardConstants$State;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/EmergencyButton$2;->this$0:Lcom/android/keyguard/EmergencyButton;
-
-    invoke-static {v0, p1}, Lcom/android/keyguard/EmergencyButton;->-set4(Lcom/android/keyguard/EmergencyButton;I)I
-
-    iget-object v0, p0, Lcom/android/keyguard/EmergencyButton$2;->this$0:Lcom/android/keyguard/EmergencyButton;
-
-    invoke-static {v0, p3}, Lcom/android/keyguard/EmergencyButton;->-set0(Lcom/android/keyguard/EmergencyButton;Lcom/android/internal/telephony/IccCardConstants$State;)Lcom/android/internal/telephony/IccCardConstants$State;
-
-    iget-object v0, p0, Lcom/android/keyguard/EmergencyButton$2;->this$0:Lcom/android/keyguard/EmergencyButton;
-
-    invoke-static {v0}, Lcom/android/keyguard/EmergencyButton;->-get0(Lcom/android/keyguard/EmergencyButton;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/keyguard/EmergencyButton$2;->this$0:Lcom/android/keyguard/EmergencyButton;
-
-    invoke-virtual {v0}, Lcom/android/keyguard/EmergencyButton;->updateEmergencyCallButton()V
-
-    :cond_0
     return-void
 .end method

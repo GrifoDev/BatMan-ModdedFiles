@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="keyguard_security_height">460.0dip</dimen>
+    <dimen name="kg_iris_preview_height">231.0dip</dimen>
+    <dimen name="kg_option_container_margin_side">23.0dip</dimen>
+    <dimen name="kg_preview_container_height">565.0dip</dimen>
+    <dimen name="kg_preview_container_height_16_9">489.0dip</dimen>
+    <dimen name="kg_preview_container_height_16_9_mobile_keyboard">277.0dip</dimen>
+    <dimen name="kg_preview_container_height_mobile_keyboard">339.0dip</dimen>
+    <dimen name="kg_preview_container_margin_top">66.0dip</dimen>
+    <dimen name="kg_preview_container_shadow_elevation">9.0dip</dimen>
+    <dimen name="kg_preview_container_width">274.0dip</dimen>
+    <dimen name="kg_preview_container_width_16_9">274.0dip</dimen>
+    <dimen name="kg_preview_container_width_16_9_mobile_keyboard">228.0dip</dimen>
+    <dimen name="kg_preview_container_width_mobile_keyboard">228.0dip</dimen>
+    <dimen name="kg_set_as_wallpaper_button_view_height">41.0dip</dimen>
+    <dimen name="kg_set_as_wallpaper_button_view_margin_bottom">13.0dip</dimen>
+    <dimen name="kg_set_as_wallpaper_button_view_width">333.0dip</dimen>
+    <dimen name="kg_set_as_wallpaper_text_size">17.0dip</dimen>
+    <dimen name="kg_title_text_size">19.0dip</dimen>
+    <dimen name="kg_title_text_view_margin_top">18.0dip</dimen>
+    <dimen name="kg_wallpaper_description_text_size">14.0dip</dimen>
+    <dimen name="kg_wallpaper_type_icon_margin">7.0dip</dimen>
+    <dimen name="kg_wallpaper_type_icon_size">24.0dip</dimen>
+</resources>

@@ -45,11 +45,11 @@
 
     iget-object v1, v1, Lcom/android/systemui/qs/tiles/FlashlightTile$FlashlightDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get4(Lcom/android/systemui/qs/tiles/FlashlightTile;)Lcom/android/systemui/statusbar/policy/FlashlightController;
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get3(Lcom/android/systemui/qs/tiles/FlashlightTile;)Lcom/android/systemui/statusbar/policy/FlashlightController;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/policy/FlashlightController;->getFlashlightLevel()I
+    invoke-interface {v1}, Lcom/android/systemui/statusbar/policy/FlashlightController;->getFlashlightLevel()I
 
     move-result v0
 

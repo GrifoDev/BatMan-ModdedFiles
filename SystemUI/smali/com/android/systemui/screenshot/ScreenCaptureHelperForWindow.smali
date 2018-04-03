@@ -134,10 +134,18 @@
     return-void
 .end method
 
-.method protected initiallizeScreenshotVariable(Landroid/view/Display;)V
+.method protected initiallizeScreenshotVariable()V
     .locals 12
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->getDisplayMetrics(Landroid/view/Display;)Landroid/util/DisplayMetrics;
+    invoke-virtual {p0}, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->getCurrentDisplay()Landroid/view/Display;
+
+    move-result-object v10
+
+    iput-object v10, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->mDisplay:Landroid/view/Display;
+
+    iget-object v10, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->mDisplay:Landroid/view/Display;
+
+    invoke-virtual {p0, v10}, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->getDisplayMetrics(Landroid/view/Display;)Landroid/util/DisplayMetrics;
 
     move-result-object v1
 
@@ -149,7 +157,9 @@
 
     iput v10, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->mDisplayHeight:I
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->getDegrees(Landroid/view/Display;)F
+    iget-object v10, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->mDisplay:Landroid/view/Display;
+
+    invoke-virtual {p0, v10}, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->getDegrees(Landroid/view/Display;)F
 
     move-result v10
 
@@ -305,6 +315,12 @@
     int-to-float v10, v10
 
     iput v10, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->mScreenNativeHeight:F
+
+    invoke-virtual {p0}, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->getBuiltInDisplayId()I
+
+    move-result v10
+
+    iput v10, p0, Lcom/android/systemui/screenshot/ScreenCaptureHelperForWindow;->mBuiltInDisplayId:I
 
     return-void
 

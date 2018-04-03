@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/recents/Recents;->onBusEvent(Lcom/android/systemui/recents/events/activity/RecentsActivityStartingEvent;)V
+    value = Lcom/android/systemui/recents/Recents;->onBusEvent(Lcom/android/systemui/recents/events/component/SnapViewRequestEvent;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,12 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/recents/Recents;
 
+.field final synthetic val$event:Lcom/android/systemui/recents/events/component/SnapViewRequestEvent;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/recents/Recents;)V
+.method constructor <init>(Lcom/android/systemui/recents/Recents;Lcom/android/systemui/recents/events/component/SnapViewRequestEvent;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/recents/Recents$9;->this$0:Lcom/android/systemui/recents/Recents;
+
+    iput-object p2, p0, Lcom/android/systemui/recents/Recents$9;->val$event:Lcom/android/systemui/recents/events/component/SnapViewRequestEvent;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -40,11 +44,15 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/systemui/recents/Recents$9;->this$0:Lcom/android/systemui/recents/Recents;
 
-    invoke-static {v1}, Lcom/android/systemui/recents/Recents;->-get2(Lcom/android/systemui/recents/Recents;)Lcom/android/systemui/recents/IRecentsSystemUserCallbacks;
+    invoke-static {v1}, Lcom/android/systemui/recents/Recents;->-get3(Lcom/android/systemui/recents/Recents;)Lcom/android/systemui/recents/IRecentsSystemUserCallbacks;
 
     move-result-object v1
 
-    invoke-interface {v1}, Lcom/android/systemui/recents/IRecentsSystemUserCallbacks;->sendLaunchRecentsEvent()V
+    iget-object v2, p0, Lcom/android/systemui/recents/Recents$9;->val$event:Lcom/android/systemui/recents/events/component/SnapViewRequestEvent;
+
+    iget-object v2, v2, Lcom/android/systemui/recents/events/component/SnapViewRequestEvent;->snapCaller:Ljava/lang/String;
+
+    invoke-interface {v1, v2}, Lcom/android/systemui/recents/IRecentsSystemUserCallbacks;->startSnapView(Ljava/lang/String;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 

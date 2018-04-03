@@ -63,7 +63,7 @@
     .end annotation
 .end method
 
-.method public abstract startSnapView()V
+.method public abstract startSnapView(Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

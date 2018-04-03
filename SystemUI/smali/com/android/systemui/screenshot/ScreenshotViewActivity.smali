@@ -37,7 +37,7 @@
 .method private doFinish()V
     .locals 2
 
-    const v1, 0x7f0f02ff
+    const v1, 0x7f12079e
 
     invoke-static {p0, v1}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
 
@@ -258,7 +258,7 @@
 
     invoke-direct {v5, v8}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v8, "image/png"
+    const-string/jumbo v8, "image/jpeg"
 
     invoke-virtual {v5, v7, v8}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
 
@@ -310,17 +310,25 @@
 
     move-result v8
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_5
 
     invoke-static {v0}, Lcom/android/systemui/screenshot/ScreenshotUtils;->isUltraPowerSavingMode(Landroid/content/Context;)Z
 
     move-result v8
 
+    if-eqz v8, :cond_4
+
+    invoke-static {v0}, Lcom/android/systemui/screenshot/ScreenshotUtils;->isReserveBatteryForCallMode(Landroid/content/Context;)Z
+
+    move-result v8
+
     if-eqz v8, :cond_3
 
-    const v8, 0x7f0f030e
+    const v8, 0x7f1201d8
 
-    invoke-static {p0, v8}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
+    const v9, 0x7f12092a
+
+    invoke-static {p0, v8, v9}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;II)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -330,7 +338,7 @@
     goto :goto_0
 
     :cond_3
-    const v8, 0x7f0f030d
+    const v8, 0x7f1201d7
 
     :try_start_2
     invoke-static {p0, v8}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
@@ -347,12 +355,17 @@
     throw v8
 
     :cond_4
-    const v8, 0x7f0f0312
-
-    const v9, 0x7f0f030f
+    const v8, 0x7f1201d6
 
     :try_start_3
-    invoke-static {p0, v8, v9}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;II)V
+    invoke-static {p0, v8}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
+
+    goto :goto_1
+
+    :cond_5
+    const v8, 0x7f1201d5
+
+    invoke-static {p0, v8}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 

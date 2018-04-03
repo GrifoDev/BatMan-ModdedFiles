@@ -3,7 +3,7 @@
 .source "EmergencyButton.java"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/view/View$OnLongClickListener;
 
 
 # annotations
@@ -34,18 +34,14 @@
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
-    .locals 2
-
-    const-string/jumbo v0, "EmergencyButton"
-
-    const-string/jumbo v1, "onClick"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+.method public onLongClick(Landroid/view/View;)Z
+    .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/EmergencyButton$5;->this$0:Lcom/android/keyguard/EmergencyButton;
 
-    invoke-virtual {v0}, Lcom/android/keyguard/EmergencyButton;->takeEmergencyCallAction()V
+    invoke-static {v0}, Lcom/android/keyguard/EmergencyButton;->-wrap1(Lcom/android/keyguard/EmergencyButton;)Z
 
-    return-void
+    move-result v0
+
+    return v0
 .end method

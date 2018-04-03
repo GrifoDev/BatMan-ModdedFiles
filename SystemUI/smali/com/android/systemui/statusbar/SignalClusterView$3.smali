@@ -39,15 +39,15 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/SignalClusterView$3;->this$0:Lcom/android/systemui/statusbar/SignalClusterView;
 
-    iget-object v0, v0, Lcom/android/systemui/statusbar/SignalClusterView;->mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    iget-object v0, v0, Lcom/android/systemui/statusbar/SignalClusterView;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/SignalClusterView$3;->this$0:Lcom/android/systemui/statusbar/SignalClusterView;
 
-    iget-object v0, v0, Lcom/android/systemui/statusbar/SignalClusterView;->mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    iget-object v0, v0, Lcom/android/systemui/statusbar/SignalClusterView;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->getBarState()I
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->getBarState()I
 
     move-result v0
 
@@ -55,11 +55,11 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/SignalClusterView$3;->this$0:Lcom/android/systemui/statusbar/SignalClusterView;
 
-    iget-object v0, v0, Lcom/android/systemui/statusbar/SignalClusterView;->mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    iget-object v0, v0, Lcom/android/systemui/statusbar/SignalClusterView;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
     const-string/jumbo v1, "Wifi"
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->animateExpandDeskSettingsPanel(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->animateExpandDeskSettingsPanel(Ljava/lang/String;)V
 
     :cond_0
     return-void

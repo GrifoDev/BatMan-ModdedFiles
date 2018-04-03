@@ -94,7 +94,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView$AccountAnalyzer;->this$0:Lcom/android/keyguard/KeyguardAbsKeyInputView;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->-get3(Lcom/android/keyguard/KeyguardAbsKeyInputView;)Z
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->-get5(Lcom/android/keyguard/KeyguardAbsKeyInputView;)Z
 
     move-result v0
 

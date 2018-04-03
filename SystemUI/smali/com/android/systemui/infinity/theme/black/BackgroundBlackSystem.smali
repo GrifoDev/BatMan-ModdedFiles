@@ -74,43 +74,43 @@
         0x0
         0x44140000    # 592.0f
         0x44b90000    # 1480.0f
-        0x45071000    # 2161.0f
+        0x450ac000    # 2220.0f
         0x45390000    # 2960.0f
     .end array-data
 
     :array_1
     .array-data 4
-        0x40400000    # 3.0f
-        0x40e00000    # 7.0f
-        0x42240000    # 41.0f
+        0x40000000    # 2.0f
+        0x40c00000    # 6.0f
+        0x42200000    # 40.0f
     .end array-data
 
     :array_2
     .array-data 4
-        0x41100000    # 9.0f
-        0x41980000    # 19.0f
-        0x42880000    # 68.0f
+        0x40c00000    # 6.0f
+        0x41700000    # 15.0f
+        0x42700000    # 60.0f
     .end array-data
 
     :array_3
     .array-data 4
-        0x41e00000    # 28.0f
-        0x423c0000    # 47.0f
-        0x42de0000    # 111.0f
+        0x41a00000    # 20.0f
+        0x42140000    # 37.0f
+        0x42bc0000    # 94.0f
     .end array-data
 
     :array_4
     .array-data 4
-        0x424c0000    # 51.0f
-        0x42880000    # 68.0f
-        0x42e40000    # 114.0f
+        0x423c0000    # 47.0f
+        0x427c0000    # 63.0f
+        0x42d60000    # 107.0f
     .end array-data
 
     :array_5
     .array-data 4
-        0x428c0000    # 70.0f
-        0x42a40000    # 82.0f
-        0x42d20000    # 105.0f
+        0x427c0000    # 63.0f
+        0x42940000    # 74.0f
+        0x42c40000    # 98.0f
     .end array-data
 .end method
 
@@ -143,7 +143,7 @@
 .method public getTextureLockId()I
     .locals 1
 
-    const v0, 0x7f02028f
+    const v0, 0x7f08036c
 
     return v0
 .end method

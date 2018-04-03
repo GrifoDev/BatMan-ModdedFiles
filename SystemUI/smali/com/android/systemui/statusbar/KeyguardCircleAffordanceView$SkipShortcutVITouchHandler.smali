@@ -106,15 +106,15 @@
     :cond_1
     iget-object v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$SkipShortcutVITouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v4, v5}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set26(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
+    invoke-static {v4, v5}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set29(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$SkipShortcutVITouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v4, v2}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set16(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
+    invoke-static {v4, v2}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set19(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$SkipShortcutVITouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v4, v3}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set17(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
+    invoke-static {v4, v3}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set20(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;F)F
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$SkipShortcutVITouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
@@ -157,7 +157,7 @@
     :pswitch_3
     iget-object v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$SkipShortcutVITouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v4, v6}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set26(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
+    invoke-static {v4, v6}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set29(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$SkipShortcutVITouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
@@ -222,7 +222,9 @@
 
     move-result v4
 
-    if-nez v4, :cond_3
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_3
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$SkipShortcutVITouchHandler;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 

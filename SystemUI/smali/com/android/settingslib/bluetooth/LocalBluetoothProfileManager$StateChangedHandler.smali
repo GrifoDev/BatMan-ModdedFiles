@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;Landroid/bluetooth/BluetoothDevice;)V
-    .locals 21
+    .locals 22
 
     move-object/from16 v0, p0
 
@@ -249,6 +249,14 @@
 
     move-object/from16 v0, p0
 
+    iget-object v2, v0, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager$StateChangedHandler;->mProfile:Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;
+
+    move/from16 v0, v18
+
+    invoke-virtual {v8, v2, v0}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->onProfileStateChanged(Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;I)V
+
+    move-object/from16 v0, p0
+
     iget-object v2, v0, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager$StateChangedHandler;->this$0:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
 
     invoke-static {v2}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->-get2(Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;)Lcom/android/settingslib/bluetooth/BluetoothEventManager;
@@ -263,15 +271,7 @@
 
     move/from16 v1, v19
 
-    invoke-virtual {v2, v8, v3, v0, v1}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->onProfileStateChanged(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;II)V
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager$StateChangedHandler;->mProfile:Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;
-
-    move/from16 v0, v18
-
-    invoke-virtual {v8, v2, v0}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->onProfileStateChanged(Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;I)V
+    invoke-virtual {v2, v8, v3, v0, v1}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->dispatchProfileStateChanged(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;II)V
 
     if-nez v18, :cond_6
 
@@ -380,6 +380,32 @@
 
     invoke-static {v0, v2, v3, v4}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    sget v2, Lcom/android/settingslib/R$string;->screen_bluetooth_global:I
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    sget v3, Lcom/android/settingslib/R$string;->event_bluetooth_bemc:I
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    sget v4, Lcom/android/settingslib/R$string;->detail_bluetooth_bemc_pairing_pan_connecting_error:I
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v2, v3, v4}, Lcom/samsung/android/settingslib/bluetooth/BluetoothSALogger;->insertSALog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
     return-void
 
     :cond_4
@@ -406,10 +432,74 @@
 
     move-result v2
 
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_6
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager$StateChangedHandler;->mProfile:Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;
+
+    invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "HID"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
     if-eqz v2, :cond_9
 
-    :cond_6
+    if-nez v10, :cond_9
+
+    invoke-virtual {v8}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getName()Ljava/lang/String;
+
+    move-result-object v2
+
+    move-object/from16 v0, p1
+
+    invoke-static {v0, v2}, Lcom/android/settingslib/bluetooth/Utils;->showHIDConnectingError(Landroid/content/Context;Ljava/lang/String;)V
+
     :goto_1
+    const-string/jumbo v2, "com.android.bluetooth"
+
+    const-string/jumbo v3, "BEMC"
+
+    const-string/jumbo v4, "5_bluetooth_message_connecting_error"
+
+    move-object/from16 v0, p1
+
+    invoke-static {v0, v2, v3, v4}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    sget v2, Lcom/android/settingslib/R$string;->screen_bluetooth_global:I
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    sget v3, Lcom/android/settingslib/R$string;->event_bluetooth_bemc:I
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    sget v4, Lcom/android/settingslib/R$string;->detail_bluetooth_bemc_pairing_connecting_error:I
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v2, v3, v4}, Lcom/samsung/android/settingslib/bluetooth/BluetoothSALogger;->insertSALog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_6
     const/4 v2, 0x0
 
     move-object/from16 v0, p1
@@ -442,7 +532,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_c
 
     const-string/jumbo v2, "android.bluetooth.pan.extra.LOCAL_ROLE"
 
@@ -458,7 +548,7 @@
 
     move/from16 v0, v20
 
-    if-ne v0, v2, :cond_b
+    if-ne v0, v2, :cond_a
 
     const-string/jumbo v2, "LocalBluetoothProfileManager"
 
@@ -475,7 +565,7 @@
 
     move/from16 v0, v18
 
-    if-ne v0, v2, :cond_e
+    if-ne v0, v2, :cond_d
 
     move-object/from16 v0, p0
 
@@ -550,12 +640,6 @@
 
     move-result-object v2
 
-    sget v3, Lcom/android/settingslib/R$string;->screen_bluetooth_global:I
-
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager$StateChangedHandler;->this$0:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
@@ -564,59 +648,35 @@
 
     move-result-object v3
 
-    sget v4, Lcom/android/settingslib/R$string;->event_bluetooth_bcpt:I
+    sget v4, Lcom/android/settingslib/R$string;->screen_bluetooth_global:I
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-static {v2, v3, v9}, Lcom/samsung/android/settingslib/bluetooth/BluetoothSALogger;->insertSALog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager$StateChangedHandler;->this$0:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+
+    invoke-static {v4}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->-get0(Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;)Landroid/content/Context;
+
+    move-result-object v4
+
+    sget v21, Lcom/android/settingslib/R$string;->event_bluetooth_bcpt:I
+
+    move/from16 v0, v21
+
+    invoke-virtual {v4, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v2, v3, v4, v9}, Lcom/android/settingslib/bluetooth/Utils;->sendSaLoggingIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_8
     :goto_3
     return-void
 
     :cond_9
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager$StateChangedHandler;->mProfile:Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;
-
-    invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "HID"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_a
-
-    if-nez v10, :cond_a
-
-    invoke-virtual {v8}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getName()Ljava/lang/String;
-
-    move-result-object v2
-
-    move-object/from16 v0, p1
-
-    invoke-static {v0, v2}, Lcom/android/settingslib/bluetooth/Utils;->showHIDConnectingError(Landroid/content/Context;Ljava/lang/String;)V
-
-    :goto_4
-    const-string/jumbo v2, "com.android.bluetooth"
-
-    const-string/jumbo v3, "BEMC"
-
-    const-string/jumbo v4, "5_bluetooth_message_connecting_error"
-
-    move-object/from16 v0, p1
-
-    invoke-static {v0, v2, v3, v4}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    goto/16 :goto_1
-
-    :cond_a
     invoke-virtual {v8}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getName()Ljava/lang/String;
 
     move-result-object v2
@@ -625,14 +685,14 @@
 
     invoke-static {v0, v2}, Lcom/android/settingslib/bluetooth/Utils;->showConnectingError(Landroid/content/Context;Ljava/lang/String;)V
 
-    goto :goto_4
+    goto/16 :goto_1
 
-    :cond_b
+    :cond_a
     const/4 v2, 0x2
 
     move/from16 v0, v20
 
-    if-ne v0, v2, :cond_c
+    if-ne v0, v2, :cond_b
 
     const-string/jumbo v2, "LocalBluetoothProfileManager"
 
@@ -644,7 +704,7 @@
 
     goto/16 :goto_2
 
-    :cond_c
+    :cond_b
     const-string/jumbo v2, "LocalBluetoothProfileManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -673,7 +733,7 @@
 
     goto/16 :goto_2
 
-    :cond_d
+    :cond_c
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager$StateChangedHandler;->mProfile:Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;
@@ -714,7 +774,7 @@
 
     goto/16 :goto_2
 
-    :cond_e
+    :cond_d
     if-nez v18, :cond_8
 
     move-object/from16 v0, p0
@@ -767,7 +827,7 @@
 
     cmp-long v2, v12, v2
 
-    if-eqz v2, :cond_f
+    if-eqz v2, :cond_e
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -783,7 +843,47 @@
 
     invoke-static/range {v2 .. v7}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V
 
-    :cond_f
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager$StateChangedHandler;->this$0:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+
+    invoke-static {v2}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->-get0(Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;)Landroid/content/Context;
+
+    move-result-object v2
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager$StateChangedHandler;->this$0:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+
+    invoke-static {v3}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->-get0(Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;)Landroid/content/Context;
+
+    move-result-object v3
+
+    sget v4, Lcom/android/settingslib/R$string;->screen_bluetooth_global:I
+
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager$StateChangedHandler;->this$0:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+
+    invoke-static {v4}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->-get0(Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;)Landroid/content/Context;
+
+    move-result-object v4
+
+    sget v21, Lcom/android/settingslib/R$string;->event_bluetooth_bcpt:I
+
+    move/from16 v0, v21
+
+    invoke-virtual {v4, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static/range {v2 .. v7}, Lcom/android/settingslib/bluetooth/Utils;->sendSaLoggingIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V
+
+    :cond_e
     const-string/jumbo v2, "Bluetooth_Profiles_Connection_Time"
 
     const/4 v3, 0x0

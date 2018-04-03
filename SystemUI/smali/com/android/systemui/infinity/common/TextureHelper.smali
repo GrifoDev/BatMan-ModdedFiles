@@ -3,6 +3,10 @@
 .source "TextureHelper.java"
 
 
+# static fields
+.field private static final TAG:Ljava/lang/String; = "TextureHelper"
+
+
 # direct methods
 .method public constructor <init>()V
     .locals 0

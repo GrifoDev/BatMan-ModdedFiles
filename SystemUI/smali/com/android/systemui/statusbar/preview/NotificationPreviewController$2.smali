@@ -34,14 +34,14 @@
 
 
 # virtual methods
-.method public goToLockShade()V
+.method public goToLockShade(Landroid/view/View;)V
     .locals 2
 
     const/4 v1, 0x0
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController$2;->this$0:Lcom/android/systemui/statusbar/preview/NotificationPreviewController;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->-get0(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;)Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->-get0(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;)Lcom/android/systemui/statusbar/phone/StatusBar;
 
     move-result-object v0
 
@@ -49,11 +49,11 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController$2;->this$0:Lcom/android/systemui/statusbar/preview/NotificationPreviewController;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->-get0(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;)Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->-get0(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;)Lcom/android/systemui/statusbar/phone/StatusBar;
 
     move-result-object v0
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->goToLockedShade(Landroid/view/View;)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->goToLockedShade(Landroid/view/View;)V
 
     :cond_0
     return-void

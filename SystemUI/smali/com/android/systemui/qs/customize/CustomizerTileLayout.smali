@@ -15,8 +15,6 @@
 
 
 # instance fields
-.field protected mBottomPadding:I
-
 .field protected final mBoundaryBox:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -31,6 +29,8 @@
 .field protected mCellHeight:I
 
 .field protected mCellHorizontalMargin:I
+
+.field protected mCellMargin:I
 
 .field private mCellMarginTop:I
 
@@ -57,6 +57,8 @@
     .end annotation
 .end field
 
+.field protected mCrossIconHorizontalMargin:I
+
 .field protected mCrossIconSize:I
 
 .field private mCrossIconVerticalMargin:I
@@ -72,19 +74,15 @@
     .end annotation
 .end field
 
-.field protected mDividerHeight:I
-
 .field protected mDragListener:Landroid/view/View$OnDragListener;
+
+.field private mIconView:Lcom/android/systemui/qs/customize/CustomizerTileLayout$QSCustomIconView;
 
 .field protected mMaxRows:I
 
 .field private mParent:Landroid/view/ViewGroup;
 
 .field protected mSidePadding:I
-
-.field protected mTileIconSize:I
-
-.field protected mTopPadding:I
 
 
 # direct methods
@@ -121,10 +119,6 @@
 
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    const/4 v0, -0x1
-
-    iput v0, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCirclePos:I
-
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -142,6 +136,10 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCrossIcon:Ljava/util/ArrayList;
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCirclePos:I
 
     iput-object p1, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mContext:Landroid/content/Context;
 
@@ -179,7 +177,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mParent:Landroid/view/ViewGroup;
 
-    const v2, 0x7f04011a
+    const v2, 0x7f0d0134
 
     const/4 v3, 0x0
 
@@ -189,27 +187,48 @@
 .end method
 
 .method private createCustomizeTileView(Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;)Lcom/android/systemui/qs/customize/CustomizeTileView;
-    .locals 4
+    .locals 3
+
+    new-instance v1, Lcom/android/systemui/qs/customize/CustomizerTileLayout$QSCustomIconView;
+
+    iget-object v2, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mContext:Landroid/content/Context;
+
+    invoke-direct {v1, v2}, Lcom/android/systemui/qs/customize/CustomizerTileLayout$QSCustomIconView;-><init>(Landroid/content/Context;)V
+
+    iput-object v1, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mIconView:Lcom/android/systemui/qs/customize/CustomizerTileLayout$QSCustomIconView;
 
     new-instance v0, Lcom/android/systemui/qs/customize/CustomizeTileView;
 
     iget-object v1, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mContext:Landroid/content/Context;
 
-    new-instance v2, Lcom/android/systemui/qs/customize/CustomizerTileLayout$QSCustomIconView;
+    iget-object v2, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mIconView:Lcom/android/systemui/qs/customize/CustomizerTileLayout$QSCustomIconView;
 
-    iget-object v3, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mContext:Landroid/content/Context;
+    invoke-direct {v0, v1, v2}, Lcom/android/systemui/qs/customize/CustomizeTileView;-><init>(Landroid/content/Context;Lcom/android/systemui/plugins/qs/QSIconView;)V
 
-    invoke-direct {v2, v3}, Lcom/android/systemui/qs/customize/CustomizerTileLayout$QSCustomIconView;-><init>(Landroid/content/Context;)V
+    iget-object v1, p1, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->state:Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    invoke-direct {v0, v1, v2}, Lcom/android/systemui/qs/customize/CustomizeTileView;-><init>(Landroid/content/Context;Lcom/android/systemui/qs/QSIconView;)V
-
-    iget-object v1, p1, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->state:Lcom/android/systemui/qs/QSTile$State;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/customize/CustomizeTileView;->customTileHandleStateChange(Lcom/android/systemui/qs/QSTile$State;)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/customize/CustomizeTileView;->customTileHandleStateChange(Lcom/android/systemui/plugins/qs/QSTile$State;)V
 
     iget-object v1, p1, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->longClickListener:Landroid/view/View$OnLongClickListener;
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/qs/customize/CustomizeTileView;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/customize/CustomizeTileView;->setClickable(Z)V
+
+    iget-boolean v1, p1, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->isNewCustomTile:Z
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mIconView:Lcom/android/systemui/qs/customize/CustomizerTileLayout$QSCustomIconView;
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/qs/customize/CustomizerTileLayout$QSCustomIconView;->addBadge(Lcom/android/systemui/qs/customize/CustomizeTileView;)V
+
+    :cond_0
+    iget-object v1, p1, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->customizeTileContentDes:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/customize/CustomizeTileView;->setContentDescription(Ljava/lang/CharSequence;)V
 
     return-object v0
 .end method
@@ -326,7 +345,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f040110
+    const v5, 0x7f0d012a
 
     invoke-virtual {v4, v5, p0, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -359,7 +378,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f040111
+    const v5, 0x7f0d012b
 
     invoke-virtual {v4, v5, p0, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -396,7 +415,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f040115
+    const v5, 0x7f0d012f
 
     invoke-virtual {v4, v5, p0, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -447,17 +466,31 @@
 
     invoke-direct {v0}, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;-><init>()V
 
-    iget-object v2, p1, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->state:Lcom/android/systemui/qs/QSTile$State;
+    iget-object v2, p1, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->state:Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    iput-object v2, v0, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->state:Lcom/android/systemui/qs/QSTile$State;
+    iput-object v2, v0, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->state:Lcom/android/systemui/plugins/qs/QSTile$State;
 
     iget-object v2, p1, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->spec:Ljava/lang/String;
 
     iput-object v2, v0, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->spec:Ljava/lang/String;
 
+    iget-boolean v2, p1, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->isNewCustomTile:Z
+
+    iput-boolean v2, v0, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->isNewCustomTile:Z
+
+    iget-object v2, v0, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->state:Lcom/android/systemui/plugins/qs/QSTile$State;
+
+    const/4 v3, 0x0
+
+    iput-boolean v3, v2, Lcom/android/systemui/plugins/qs/QSTile$State;->dualTarget:Z
+
     iget-object v2, p1, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->longClickListener:Landroid/view/View$OnLongClickListener;
 
     iput-object v2, v0, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->longClickListener:Landroid/view/View$OnLongClickListener;
+
+    iget-object v2, p1, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->customizeTileContentDes:Ljava/lang/String;
+
+    iput-object v2, v0, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->customizeTileContentDes:Ljava/lang/String;
 
     invoke-direct {p0, v0}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->createCustomizeTileView(Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;)Lcom/android/systemui/qs/customize/CustomizeTileView;
 
@@ -570,9 +603,15 @@
 
     invoke-direct {v3}, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;-><init>()V
 
-    iget-object v7, p1, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->state:Lcom/android/systemui/qs/QSTile$State;
+    iget-object v7, p1, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->state:Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    iput-object v7, v3, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->state:Lcom/android/systemui/qs/QSTile$State;
+    iput-object v7, v3, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->state:Lcom/android/systemui/plugins/qs/QSTile$State;
+
+    iget-object v7, v3, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->state:Lcom/android/systemui/plugins/qs/QSTile$State;
+
+    const/4 v8, 0x0
+
+    iput-boolean v8, v7, Lcom/android/systemui/plugins/qs/QSTile$State;->dualTarget:Z
 
     iget-object v7, p1, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->spec:Ljava/lang/String;
 
@@ -1485,175 +1524,195 @@
 .end method
 
 .method protected onLayout(ZIIII)V
-    .locals 27
+    .locals 29
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->getWidth()I
 
-    move-result v21
+    move-result v23
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->getLayoutDirection()I
 
-    move-result v22
+    move-result v24
 
-    const/16 v23, 0x1
+    const/16 v25, 0x1
 
-    move/from16 v0, v22
+    move/from16 v0, v24
 
-    move/from16 v1, v23
+    move/from16 v1, v25
 
     if-ne v0, v1, :cond_2
 
-    const/4 v13, 0x1
+    const/4 v15, 0x1
 
     :goto_0
-    const/16 v17, 0x0
+    const/16 v19, 0x0
 
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mColumns:I
 
-    move/from16 v22, v0
+    move/from16 v24, v0
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mMaxRows:I
 
-    move/from16 v23, v0
+    move/from16 v25, v0
 
-    mul-int v22, v22, v23
+    mul-int v24, v24, v25
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCustomTilesInfo:Ljava/util/ArrayList;
 
-    move-object/from16 v23, v0
+    move-object/from16 v25, v0
 
-    invoke-virtual/range {v23 .. v23}, Ljava/util/ArrayList;->size()I
+    invoke-virtual/range {v25 .. v25}, Ljava/util/ArrayList;->size()I
 
-    move-result v23
+    move-result v25
 
-    invoke-static/range {v22 .. v23}, Ljava/lang/Math;->min(II)I
+    invoke-static/range {v24 .. v25}, Ljava/lang/Math;->min(II)I
 
-    move-result v15
+    move-result v17
 
     const/4 v12, 0x0
 
+    const/4 v5, 0x0
+
+    const/4 v14, 0x0
+
     :goto_1
-    if-ge v12, v15, :cond_4
+    move/from16 v0, v17
+
+    if-ge v14, v0, :cond_4
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mColumns:I
 
-    move/from16 v22, v0
+    move/from16 v24, v0
 
-    move/from16 v0, v22
+    move/from16 v0, v24
 
-    if-ne v7, v0, :cond_0
+    if-ne v8, v0, :cond_0
 
-    add-int/lit8 v17, v17, 0x1
+    add-int/lit8 v19, v19, 0x1
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mColumns:I
 
-    move/from16 v22, v0
+    move/from16 v24, v0
 
-    sub-int v7, v7, v22
+    sub-int v8, v8, v24
 
     :cond_0
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCustomTilesInfo:Ljava/util/ArrayList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v24, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v24
 
-    invoke-virtual {v0, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, v14}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v22
+    move-result-object v24
 
-    check-cast v22, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;
+    check-cast v24, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v24
 
     iget-object v0, v0, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->customTileView:Lcom/android/systemui/qs/customize/CustomizeTileView;
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v7}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->getColumnStart(I)I
+    invoke-direct {v0, v8}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->getColumnStart(I)I
 
-    move-result v14
+    move-result v16
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     invoke-direct {v0, v1}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->getRowTop(I)I
 
-    move-result v19
+    move-result v21
 
-    if-eqz v13, :cond_3
+    if-eqz v15, :cond_3
 
-    sub-int v16, v21, v14
+    sub-int v18, v23, v16
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
 
-    move/from16 v22, v0
+    move/from16 v24, v0
 
-    sub-int v14, v16, v22
+    sub-int v24, v18, v24
+
+    add-int/lit8 v16, v24, 0x0
 
     :goto_2
-    if-eqz v18, :cond_1
+    if-eqz v20, :cond_1
 
-    const/16 v22, 0x0
+    const/16 v24, 0x0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
-    move/from16 v1, v22
+    move/from16 v1, v24
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/qs/customize/CustomizeTileView;->setTranslationX(F)V
 
-    const/16 v22, 0x0
+    const/16 v24, 0x0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
-    move/from16 v1, v22
+    move/from16 v1, v24
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/qs/customize/CustomizeTileView;->setTranslationY(F)V
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/systemui/qs/customize/CustomizeTileView;->getMeasuredHeight()I
+    move-object/from16 v0, p0
 
-    move-result v22
+    iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellMarginTop:I
 
-    add-int v22, v22, v19
+    move/from16 v24, v0
 
-    move-object/from16 v0, v18
+    add-int v24, v24, v21
 
-    move/from16 v1, v19
+    invoke-virtual/range {v20 .. v20}, Lcom/android/systemui/qs/customize/CustomizeTileView;->getMeasuredHeight()I
 
-    move/from16 v2, v16
+    move-result v25
 
-    move/from16 v3, v22
+    add-int v24, v24, v25
 
-    invoke-virtual {v0, v14, v1, v2, v3}, Lcom/android/systemui/qs/customize/CustomizeTileView;->layout(IIII)V
+    move-object/from16 v0, v20
+
+    move/from16 v1, v16
+
+    move/from16 v2, v21
+
+    move/from16 v3, v18
+
+    move/from16 v4, v24
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/systemui/qs/customize/CustomizeTileView;->layout(IIII)V
 
     :cond_1
-    add-int/lit8 v12, v12, 0x1
+    const/4 v5, 0x0
 
-    add-int/lit8 v7, v7, 0x1
+    add-int/lit8 v14, v14, 0x1
+
+    add-int/lit8 v8, v8, 0x1
 
     goto :goto_1
 
     :cond_2
-    const/4 v13, 0x0
+    const/4 v15, 0x0
 
     goto/16 :goto_0
 
@@ -1662,111 +1721,121 @@
 
     iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
 
-    move/from16 v22, v0
+    move/from16 v24, v0
 
-    add-int v16, v14, v22
+    add-int v24, v24, v16
+
+    add-int/lit8 v18, v24, 0x0
 
     goto :goto_2
 
     :cond_4
-    const/16 v17, 0x0
+    const/16 v19, 0x0
 
-    const/4 v7, 0x0
+    const/4 v8, 0x0
+
+    const/4 v5, 0x0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mBoundaryBox:Ljava/util/ArrayList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v24, v0
 
-    invoke-virtual/range {v22 .. v22}, Ljava/util/ArrayList;->size()I
+    invoke-virtual/range {v24 .. v24}, Ljava/util/ArrayList;->size()I
 
-    move-result v6
+    move-result v7
 
-    const/4 v12, 0x0
+    const/4 v14, 0x0
 
     :goto_3
-    if-ge v12, v6, :cond_7
+    if-ge v14, v7, :cond_7
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mColumns:I
 
-    move/from16 v22, v0
+    move/from16 v24, v0
 
-    move/from16 v0, v22
+    move/from16 v0, v24
 
-    if-ne v7, v0, :cond_5
+    if-ne v8, v0, :cond_5
 
-    add-int/lit8 v17, v17, 0x1
+    add-int/lit8 v19, v19, 0x1
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mColumns:I
 
-    move/from16 v22, v0
+    move/from16 v24, v0
 
-    sub-int v7, v7, v22
+    sub-int v8, v8, v24
 
     :cond_5
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v7}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->getColumnStart(I)I
+    invoke-direct {v0, v8}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->getColumnStart(I)I
 
-    move-result v14
+    move-result v16
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     invoke-direct {v0, v1}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->getRowTop(I)I
 
-    move-result v19
+    move-result v21
 
-    if-eqz v13, :cond_6
+    if-eqz v15, :cond_6
 
-    sub-int v16, v21, v14
+    sub-int v18, v23, v16
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
 
-    move/from16 v22, v0
+    move/from16 v24, v0
 
-    sub-int v14, v16, v22
+    sub-int v24, v18, v24
+
+    add-int/lit8 v16, v24, 0x0
 
     :goto_4
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mBoundaryBox:Ljava/util/ArrayList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v24, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v24
 
-    invoke-virtual {v0, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, v14}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v6
 
-    check-cast v5, Landroid/widget/FrameLayout;
+    check-cast v6, Landroid/widget/FrameLayout;
 
-    invoke-virtual {v5}, Landroid/widget/FrameLayout;->getMeasuredHeight()I
+    invoke-virtual {v6}, Landroid/widget/FrameLayout;->getMeasuredHeight()I
 
-    move-result v22
+    move-result v24
 
-    add-int v22, v22, v19
+    add-int v24, v24, v21
 
-    move/from16 v0, v19
+    move/from16 v0, v16
 
-    move/from16 v1, v16
+    move/from16 v1, v21
 
-    move/from16 v2, v22
+    move/from16 v2, v18
 
-    invoke-virtual {v5, v14, v0, v1, v2}, Landroid/widget/FrameLayout;->layout(IIII)V
+    move/from16 v3, v24
 
-    add-int/lit8 v12, v12, 0x1
+    invoke-virtual {v6, v0, v1, v2, v3}, Landroid/widget/FrameLayout;->layout(IIII)V
 
-    add-int/lit8 v7, v7, 0x1
+    const/4 v5, 0x0
+
+    add-int/lit8 v14, v14, 0x1
+
+    add-int/lit8 v8, v8, 0x1
 
     goto :goto_3
 
@@ -1775,9 +1844,11 @@
 
     iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
 
-    move/from16 v22, v0
+    move/from16 v24, v0
 
-    add-int v16, v14, v22
+    add-int v24, v24, v16
+
+    add-int/lit8 v18, v24, 0x0
 
     goto :goto_4
 
@@ -1786,23 +1857,7 @@
 
     iget-object v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCircle:Landroid/widget/FrameLayout;
 
-    move-object/from16 v22, v0
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellMarginTop:I
-
-    move/from16 v23, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCircle:Landroid/widget/FrameLayout;
-
     move-object/from16 v24, v0
-
-    invoke-virtual/range {v24 .. v24}, Landroid/widget/FrameLayout;->getMeasuredWidth()I
-
-    move-result v24
 
     move-object/from16 v0, p0
 
@@ -1816,23 +1871,39 @@
 
     move-object/from16 v26, v0
 
-    invoke-virtual/range {v26 .. v26}, Landroid/widget/FrameLayout;->getMeasuredHeight()I
+    invoke-virtual/range {v26 .. v26}, Landroid/widget/FrameLayout;->getMeasuredWidth()I
 
     move-result v26
 
-    add-int v25, v25, v26
+    move-object/from16 v0, p0
 
-    const/16 v26, 0x0
+    iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellMarginTop:I
 
-    move-object/from16 v0, v22
+    move/from16 v27, v0
 
-    move/from16 v1, v26
+    move-object/from16 v0, p0
 
-    move/from16 v2, v23
+    iget-object v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCircle:Landroid/widget/FrameLayout;
 
-    move/from16 v3, v24
+    move-object/from16 v28, v0
 
-    move/from16 v4, v25
+    invoke-virtual/range {v28 .. v28}, Landroid/widget/FrameLayout;->getMeasuredHeight()I
+
+    move-result v28
+
+    add-int v27, v27, v28
+
+    const/16 v28, 0x0
+
+    move-object/from16 v0, v24
+
+    move/from16 v1, v28
+
+    move/from16 v2, v25
+
+    move/from16 v3, v26
+
+    move/from16 v4, v27
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/widget/FrameLayout;->layout(IIII)V
 
@@ -1840,163 +1911,187 @@
 
     iget-object v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCrossIcon:Ljava/util/ArrayList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v24, v0
 
-    invoke-virtual/range {v22 .. v22}, Ljava/util/ArrayList;->size()I
+    invoke-virtual/range {v24 .. v24}, Ljava/util/ArrayList;->size()I
 
-    move-result v20
+    move-result v22
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->getHeight()I
 
-    move-result v11
+    move-result v13
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellHorizontalMargin:I
 
-    move/from16 v22, v0
+    move/from16 v24, v0
 
-    div-int/lit8 v22, v22, 0x2
+    div-int/lit8 v24, v24, 0x2
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCrossIconSize:I
 
-    move/from16 v23, v0
+    move/from16 v25, v0
 
-    div-int/lit8 v23, v23, 0x2
+    div-int/lit8 v25, v25, 0x2
 
-    sub-int v9, v22, v23
+    sub-int v10, v24, v25
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCrossIconVerticalMargin:I
 
-    move/from16 v22, v0
+    move/from16 v24, v0
 
-    div-int/lit8 v22, v22, 0x2
+    div-int/lit8 v24, v24, 0x2
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCrossIconSize:I
 
-    move/from16 v23, v0
+    move/from16 v25, v0
 
-    div-int/lit8 v23, v23, 0x2
+    div-int/lit8 v25, v25, 0x2
 
-    sub-int v10, v22, v23
+    sub-int v11, v24, v25
 
-    const/16 v17, 0x0
+    const/16 v19, 0x0
 
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
-    const/4 v12, 0x0
+    const/4 v5, 0x0
+
+    const/4 v14, 0x0
 
     :goto_5
-    move/from16 v0, v20
-
-    if-ge v12, v0, :cond_9
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mColumns:I
-
-    move/from16 v22, v0
-
-    add-int/lit8 v22, v22, -0x1
-
     move/from16 v0, v22
 
-    if-ne v7, v0, :cond_8
-
-    add-int/lit8 v17, v17, 0x1
+    if-ge v14, v0, :cond_9
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mColumns:I
 
-    move/from16 v22, v0
+    move/from16 v24, v0
 
-    add-int/lit8 v22, v22, -0x1
+    add-int/lit8 v24, v24, -0x1
 
-    sub-int v7, v7, v22
+    move/from16 v0, v24
+
+    if-ne v8, v0, :cond_8
+
+    add-int/lit8 v19, v19, 0x1
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mColumns:I
+
+    move/from16 v24, v0
+
+    add-int/lit8 v24, v24, -0x1
+
+    sub-int v8, v8, v24
 
     :cond_8
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v7}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->getColumnStart(I)I
+    invoke-direct {v0, v8}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->getColumnStart(I)I
 
-    move-result v22
+    move-result v24
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
 
-    move/from16 v23, v0
+    move/from16 v25, v0
 
-    add-int v22, v22, v23
+    add-int v24, v24, v25
 
-    add-int v14, v22, v9
+    add-int v24, v24, v10
+
+    add-int/lit8 v16, v24, 0x0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     invoke-direct {v0, v1}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->getRowTop(I)I
 
-    move-result v22
+    move-result v24
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellHeight:I
 
-    move/from16 v23, v0
+    move/from16 v25, v0
 
-    add-int v22, v22, v23
+    add-int v24, v24, v25
 
-    add-int v19, v22, v10
+    add-int v21, v24, v11
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCrossIcon:Ljava/util/ArrayList;
 
-    move-object/from16 v22, v0
+    move-object/from16 v24, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v24
 
-    invoke-virtual {v0, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, v14}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v9
 
-    check-cast v8, Landroid/view/View;
+    check-cast v9, Landroid/view/View;
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellMarginTop:I
+
+    move/from16 v24, v0
+
+    add-int v24, v24, v21
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCrossIconSize:I
 
-    move/from16 v22, v0
+    move/from16 v25, v0
 
-    add-int v22, v22, v14
+    add-int v25, v25, v16
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellMarginTop:I
+
+    move/from16 v26, v0
+
+    add-int v26, v26, v21
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCrossIconSize:I
 
-    move/from16 v23, v0
+    move/from16 v27, v0
 
-    add-int v23, v23, v19
+    add-int v26, v26, v27
 
-    move/from16 v0, v19
+    move/from16 v0, v16
 
-    move/from16 v1, v22
+    move/from16 v1, v24
 
-    move/from16 v2, v23
+    move/from16 v2, v25
 
-    invoke-virtual {v8, v14, v0, v1, v2}, Landroid/view/View;->layout(IIII)V
+    move/from16 v3, v26
 
-    add-int/lit8 v12, v12, 0x1
+    invoke-virtual {v9, v0, v1, v2, v3}, Landroid/view/View;->layout(IIII)V
 
-    add-int/lit8 v7, v7, 0x1
+    const/4 v5, 0x0
+
+    add-int/lit8 v14, v14, 0x1
+
+    add-int/lit8 v8, v8, 0x1
 
     goto :goto_5
 
@@ -2005,55 +2100,11 @@
 .end method
 
 .method protected onMeasure(II)V
-    .locals 12
+    .locals 13
 
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
-    move-result v8
-
-    iget-object v9, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCustomTilesInfo:Ljava/util/ArrayList;
-
-    invoke-virtual {v9}, Ljava/util/ArrayList;->size()I
-
     move-result v9
-
-    iget v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mColumns:I
-
-    add-int/2addr v9, v10
-
-    add-int/lit8 v9, v9, -0x1
-
-    iget v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mColumns:I
-
-    div-int v5, v9, v10
-
-    iget v9, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mSidePadding:I
-
-    mul-int/lit8 v9, v9, 0x2
-
-    sub-int v9, v8, v9
-
-    iget v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mColumns:I
-
-    iget v11, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
-
-    mul-int/2addr v10, v11
-
-    sub-int/2addr v9, v10
-
-    iget v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mColumns:I
-
-    add-int/lit8 v10, v10, -0x1
-
-    div-int/2addr v9, v10
-
-    iput v9, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellHorizontalMargin:I
-
-    iget v9, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mColumns:I
-
-    iget v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mMaxRows:I
-
-    mul-int/2addr v9, v10
 
     iget-object v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCustomTilesInfo:Ljava/util/ArrayList;
 
@@ -2061,7 +2112,89 @@
 
     move-result v10
 
-    invoke-static {v9, v10}, Ljava/lang/Math;->min(II)I
+    iget v11, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mColumns:I
+
+    add-int/2addr v10, v11
+
+    add-int/lit8 v10, v10, -0x1
+
+    iget v11, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mColumns:I
+
+    div-int v5, v10, v11
+
+    iget-object v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v10}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v10
+
+    const v11, 0x7f070475
+
+    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v10
+
+    mul-int/lit8 v6, v10, 0x2
+
+    iget v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mSidePadding:I
+
+    mul-int/lit8 v10, v10, 0x2
+
+    sub-int v10, v9, v10
+
+    iget v11, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mColumns:I
+
+    iget v12, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
+
+    mul-int/2addr v11, v12
+
+    sub-int/2addr v10, v11
+
+    iget v11, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mColumns:I
+
+    add-int/lit8 v11, v11, -0x1
+
+    div-int/2addr v10, v11
+
+    iput v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellHorizontalMargin:I
+
+    add-int v10, v9, v6
+
+    iget v11, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellMargin:I
+
+    mul-int/lit8 v11, v11, 0x2
+
+    sub-int/2addr v10, v11
+
+    iget v11, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mColumns:I
+
+    iget v12, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
+
+    mul-int/2addr v11, v12
+
+    sub-int/2addr v10, v11
+
+    iget v11, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mColumns:I
+
+    add-int/lit8 v11, v11, -0x1
+
+    div-int/2addr v10, v11
+
+    iput v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCrossIconHorizontalMargin:I
+
+    iget v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mColumns:I
+
+    iget v11, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mMaxRows:I
+
+    mul-int/2addr v10, v11
+
+    iget-object v11, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCustomTilesInfo:Ljava/util/ArrayList;
+
+    invoke-virtual {v11}, Ljava/util/ArrayList;->size()I
+
+    move-result v11
+
+    invoke-static {v10, v11}, Ljava/lang/Math;->min(II)I
 
     move-result v4
 
@@ -2070,25 +2203,25 @@
     :goto_0
     if-ge v3, v4, :cond_2
 
-    iget-object v9, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCustomTilesInfo:Ljava/util/ArrayList;
+    iget-object v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCustomTilesInfo:Ljava/util/ArrayList;
 
-    invoke-virtual {v9, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v10, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v9
+    move-result-object v10
 
-    check-cast v9, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;
+    check-cast v10, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;
 
-    iget-object v6, v9, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->customTileView:Lcom/android/systemui/qs/customize/CustomizeTileView;
+    iget-object v7, v10, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->customTileView:Lcom/android/systemui/qs/customize/CustomizeTileView;
 
-    if-eqz v6, :cond_0
+    if-eqz v7, :cond_0
 
-    invoke-virtual {v6}, Lcom/android/systemui/qs/customize/CustomizeTileView;->getVisibility()I
+    invoke-virtual {v7}, Lcom/android/systemui/qs/customize/CustomizeTileView;->getVisibility()I
 
-    move-result v9
+    move-result v10
 
-    const/16 v10, 0x8
+    const/16 v11, 0x8
 
-    if-ne v9, v10, :cond_1
+    if-ne v10, v11, :cond_1
 
     :cond_0
     :goto_1
@@ -2097,26 +2230,26 @@
     goto :goto_0
 
     :cond_1
-    iget v9, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
-
-    invoke-static {v9}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->exactly(I)I
-
-    move-result v9
-
-    iget v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellHeight:I
+    iget v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
 
     invoke-static {v10}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->exactly(I)I
 
     move-result v10
 
-    invoke-virtual {v6, v9, v10}, Lcom/android/systemui/qs/customize/CustomizeTileView;->measure(II)V
+    iget v11, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellHeight:I
+
+    invoke-static {v11}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->exactly(I)I
+
+    move-result v11
+
+    invoke-virtual {v7, v10, v11}, Lcom/android/systemui/qs/customize/CustomizeTileView;->measure(II)V
 
     goto :goto_1
 
     :cond_2
-    iget-object v9, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mBoundaryBox:Ljava/util/ArrayList;
+    iget-object v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mBoundaryBox:Ljava/util/ArrayList;
 
-    invoke-virtual {v9}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v10}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
@@ -2125,72 +2258,13 @@
     :goto_2
     if-ge v3, v1, :cond_3
 
-    iget-object v9, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mBoundaryBox:Ljava/util/ArrayList;
+    iget-object v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mBoundaryBox:Ljava/util/ArrayList;
 
-    invoke-virtual {v9, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v10, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/widget/FrameLayout;
-
-    iget v9, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
-
-    invoke-static {v9}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->exactly(I)I
-
-    move-result v9
-
-    iget v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellHeight:I
-
-    invoke-static {v10}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->exactly(I)I
-
-    move-result v10
-
-    invoke-virtual {v0, v9, v10}, Landroid/widget/FrameLayout;->measure(II)V
-
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_2
-
-    :cond_3
-    iget-object v9, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCrossIcon:Ljava/util/ArrayList;
-
-    invoke-virtual {v9}, Ljava/util/ArrayList;->size()I
-
-    move-result v7
-
-    const/4 v3, 0x0
-
-    :goto_3
-    if-ge v3, v7, :cond_4
-
-    iget-object v9, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCrossIcon:Ljava/util/ArrayList;
-
-    invoke-virtual {v9, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/view/View;
-
-    iget v9, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCrossIconSize:I
-
-    invoke-static {v9}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->exactly(I)I
-
-    move-result v9
-
-    iget v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCrossIconSize:I
-
-    invoke-static {v10}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->exactly(I)I
-
-    move-result v10
-
-    invoke-virtual {v2, v9, v10}, Landroid/view/View;->measure(II)V
-
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_3
-
-    :cond_4
-    iget-object v9, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCircle:Landroid/widget/FrameLayout;
 
     iget v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
 
@@ -2204,27 +2278,86 @@
 
     move-result v11
 
-    invoke-virtual {v9, v10, v11}, Landroid/widget/FrameLayout;->measure(II)V
+    invoke-virtual {v0, v10, v11}, Landroid/widget/FrameLayout;->measure(II)V
 
-    iget v9, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellHeight:I
+    add-int/lit8 v3, v3, 0x1
 
-    iget v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellVerticalMargin:I
+    goto :goto_2
 
-    add-int/2addr v9, v10
+    :cond_3
+    iget-object v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCrossIcon:Ljava/util/ArrayList;
 
-    iget v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mMaxRows:I
+    invoke-virtual {v10}, Ljava/util/ArrayList;->size()I
 
-    mul-int/2addr v9, v10
+    move-result v8
 
-    iget v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellMarginTop:I
+    const/4 v3, 0x0
+
+    :goto_3
+    if-ge v3, v8, :cond_4
+
+    iget-object v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCrossIcon:Ljava/util/ArrayList;
+
+    invoke-virtual {v10, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/view/View;
+
+    iget v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCrossIconSize:I
+
+    invoke-static {v10}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->exactly(I)I
+
+    move-result v10
+
+    iget v11, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCrossIconSize:I
+
+    invoke-static {v11}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->exactly(I)I
+
+    move-result v11
+
+    invoke-virtual {v2, v10, v11}, Landroid/view/View;->measure(II)V
+
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_3
+
+    :cond_4
+    iget-object v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCircle:Landroid/widget/FrameLayout;
+
+    iget v11, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
+
+    invoke-static {v11}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->exactly(I)I
+
+    move-result v11
+
+    iget v12, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellHeight:I
+
+    invoke-static {v12}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->exactly(I)I
+
+    move-result v12
+
+    invoke-virtual {v10, v11, v12}, Landroid/widget/FrameLayout;->measure(II)V
+
+    iget v10, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellHeight:I
 
     iget v11, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellVerticalMargin:I
 
-    sub-int/2addr v10, v11
+    add-int/2addr v10, v11
 
-    add-int/2addr v9, v10
+    iget v11, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mMaxRows:I
 
-    invoke-virtual {p0, v8, v9}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->setMeasuredDimension(II)V
+    mul-int/2addr v10, v11
+
+    iget v11, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellMarginTop:I
+
+    iget v12, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellVerticalMargin:I
+
+    sub-int/2addr v11, v12
+
+    add-int/2addr v10, v11
+
+    invoke-virtual {p0, v9, v10}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->setMeasuredDimension(II)V
 
     return-void
 .end method
@@ -2252,6 +2385,82 @@
 
     invoke-super {p0}, Landroid/view/ViewGroup;->removeAllViews()V
 
+    return-void
+.end method
+
+.method public removeBadge(Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;)V
+    .locals 6
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->indexOf(Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;)I
+
+    move-result v2
+
+    iget-object v4, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCustomTilesInfo:Ljava/util/ArrayList;
+
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+
+    move-result v4
+
+    if-lt v2, v4, :cond_0
+
+    iget-object v4, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCustomTilesInfo:Ljava/util/ArrayList;
+
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+
+    move-result v4
+
+    add-int/lit8 v2, v4, -0x1
+
+    :cond_0
+    iget-object v4, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCustomTilesInfo:Ljava/util/ArrayList;
+
+    invoke-virtual {v4, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;
+
+    iget-object v3, v4, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->customTileView:Lcom/android/systemui/qs/customize/CustomizeTileView;
+
+    iget-object v4, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCustomTilesInfo:Ljava/util/ArrayList;
+
+    invoke-virtual {v4, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;
+
+    iget-boolean v1, v4, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->isNewCustomTile:Z
+
+    invoke-virtual {v3}, Lcom/android/systemui/qs/customize/CustomizeTileView;->getIconView()Lcom/android/systemui/plugins/qs/QSIconView;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/qs/customize/CustomizerTileLayout$QSCustomIconView;
+
+    if-eqz v1, :cond_1
+
+    iget-object v4, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mIconView:Lcom/android/systemui/qs/customize/CustomizerTileLayout$QSCustomIconView;
+
+    if-eqz v4, :cond_1
+
+    iget-object v4, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mIconView:Lcom/android/systemui/qs/customize/CustomizerTileLayout$QSCustomIconView;
+
+    invoke-virtual {v4, v0}, Lcom/android/systemui/qs/customize/CustomizerTileLayout$QSCustomIconView;->removeBadge(Lcom/android/systemui/qs/customize/CustomizerTileLayout$QSCustomIconView;)V
+
+    iget-object v4, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCustomTilesInfo:Ljava/util/ArrayList;
+
+    invoke-virtual {v4, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;
+
+    const/4 v5, 0x0
+
+    iput-boolean v5, v4, Lcom/android/systemui/qs/customize/SecQSCustomizer$CustomTileInfo;->isNewCustomTile:Z
+
+    :cond_1
     return-void
 .end method
 
@@ -2635,329 +2844,270 @@
 .method public updateResources()Z
     .locals 10
 
-    const/4 v9, 0x2
+    const/4 v9, 0x1
 
-    const/4 v6, 0x0
+    iget-object v5, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mContext:Landroid/content/Context;
 
-    const/4 v5, 0x1
-
-    const-string/jumbo v7, "CustomizerTileLayout"
-
-    const-string/jumbo v8, "updateResources tileLayout"
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
     invoke-virtual {v4}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object v7
+    move-result-object v5
 
-    iget v3, v7, Landroid/content/res/Configuration;->orientation:I
+    iget v3, v5, Landroid/content/res/Configuration;->orientation:I
 
-    if-ne v3, v9, :cond_2
+    const/4 v5, 0x2
 
-    move v2, v5
+    if-ne v3, v5, :cond_1
+
+    const/4 v2, 0x1
 
     :goto_0
-    if-eqz v2, :cond_0
+    const-class v5, Lcom/android/systemui/tuner/TunerService;
 
-    sget-boolean v7, Lcom/android/systemui/SystemUIRune;->IS_TABLET:Z
+    invoke-static {v5}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
-    if-eqz v7, :cond_3
+    move-result-object v5
 
-    :cond_0
-    iget-object v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mContext:Landroid/content/Context;
+    check-cast v5, Lcom/android/systemui/tuner/TunerService;
 
-    invoke-static {v7}, Lcom/android/systemui/tuner/TunerService;->get(Landroid/content/Context;)Lcom/android/systemui/tuner/TunerService;
+    const-string/jumbo v6, "qs_tile_column"
 
-    move-result-object v7
-
-    const-string/jumbo v8, "qs_tile_column"
-
-    const/4 v9, 0x4
-
-    invoke-virtual {v7, v8, v9}, Lcom/android/systemui/tuner/TunerService;->getValue(Ljava/lang/String;I)I
-
-    move-result v0
-
-    :goto_1
     iget-object v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mContext:Landroid/content/Context;
 
     invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v7
 
-    const v8, 0x7f0d024f
+    const v8, 0x7f0b005f
 
-    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v7
-
-    iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mDividerHeight:I
-
-    const v7, 0x7f0d0299
-
-    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v7
 
-    iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mTopPadding:I
+    invoke-virtual {v5, v6, v7}, Lcom/android/systemui/tuner/TunerService;->getValue(Ljava/lang/String;I)I
 
-    const v7, 0x7f0d029a
-
-    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v7
-
-    iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mBottomPadding:I
+    move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    :goto_2
+    :goto_1
     :pswitch_0
-    iget-object v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mContext:Landroid/content/Context;
+    iget-object v5, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v7
+    move-result-object v5
 
-    const v8, 0x7f0d023a
+    const v6, 0x7f0704c6
 
-    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v7
+    move-result v5
 
-    iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellVerticalMargin:I
+    iput v5, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellHeight:I
 
-    iget-object v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mContext:Landroid/content/Context;
+    const v5, 0x7f0704c9
 
-    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result-object v7
+    move-result v5
 
-    const v8, 0x7f0d0228
+    iput v5, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellMargin:I
 
-    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    const v5, 0x7f070476
 
-    move-result v7
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellHeight:I
+    move-result v5
 
-    const v7, 0x7f0d023b
+    iput v5, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellMarginTop:I
 
-    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    iget-object v5, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mContext:Landroid/content/Context;
 
-    move-result v7
+    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellMarginTop:I
+    move-result-object v5
 
-    const v7, 0x7f0d0248
+    const v6, 0x7f0704d9
 
-    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v7
+    move-result v5
 
-    iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mTileIconSize:I
+    iput v5, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellVerticalMargin:I
 
-    const v7, 0x7f0d02a0
+    iget v5, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellHeight:I
 
-    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    iget v6, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellVerticalMargin:I
 
-    move-result v7
+    add-int/2addr v5, v6
 
-    iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCrossIconSize:I
+    iget v6, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mMaxRows:I
 
-    iget v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellHeight:I
+    mul-int/2addr v5, v6
 
-    iget v8, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellVerticalMargin:I
-
-    add-int/2addr v7, v8
-
-    iget v8, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mMaxRows:I
-
-    mul-int/2addr v7, v8
-
-    iget v8, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellMarginTop:I
-
-    iget v9, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellVerticalMargin:I
-
-    sub-int/2addr v8, v9
-
-    add-int v1, v7, v8
+    iget v6, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellMarginTop:I
 
     iget v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellVerticalMargin:I
 
-    mul-int/lit8 v7, v7, 0x2
+    sub-int/2addr v6, v7
 
-    sub-int v7, v1, v7
+    add-int v1, v5, v6
 
-    iget v8, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mMaxRows:I
+    iget v5, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellVerticalMargin:I
 
-    iget v9, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellHeight:I
+    add-int/2addr v5, v1
 
-    mul-int/2addr v8, v9
+    iget v6, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mMaxRows:I
 
-    sub-int/2addr v7, v8
+    iget v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellHeight:I
 
-    iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCrossIconVerticalMargin:I
+    mul-int/2addr v6, v7
 
-    iget v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mMaxRows:I
+    sub-int/2addr v5, v6
 
-    if-le v7, v5, :cond_1
+    iput v5, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCrossIconVerticalMargin:I
 
-    iget v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCrossIconVerticalMargin:I
+    const v5, 0x7f07046d
 
-    iget v8, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mMaxRows:I
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    add-int/lit8 v8, v8, -0x1
+    move-result v5
 
-    div-int/2addr v7, v8
+    iput v5, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCrossIconSize:I
 
-    iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCrossIconVerticalMargin:I
+    iget v5, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mMaxRows:I
 
-    :cond_1
-    iget v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mColumns:I
+    if-le v5, v9, :cond_0
 
-    if-eq v7, v0, :cond_4
+    iget v5, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCrossIconVerticalMargin:I
+
+    iget v6, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mMaxRows:I
+
+    add-int/lit8 v6, v6, -0x1
+
+    div-int/2addr v5, v6
+
+    iput v5, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCrossIconVerticalMargin:I
+
+    :cond_0
+    iget v5, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mColumns:I
+
+    if-eq v5, v0, :cond_2
 
     iput v0, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mColumns:I
 
-    const-string/jumbo v6, "CustomizerTileLayout"
-
-    const-string/jumbo v7, "updateResources tileLayout is called cause columns is changed"
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     invoke-virtual {p0}, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->requestLayout()V
 
-    return v5
+    return v9
 
-    :cond_2
-    move v2, v6
+    :cond_1
+    const/4 v2, 0x0
 
     goto/16 :goto_0
 
-    :cond_3
-    iget-object v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mContext:Landroid/content/Context;
+    :pswitch_1
+    const v5, 0x7f0704db
 
-    invoke-static {v7}, Lcom/android/systemui/tuner/TunerService;->get(Landroid/content/Context;)Lcom/android/systemui/tuner/TunerService;
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result-object v7
+    move-result v5
 
-    const-string/jumbo v8, "qs_tile_column_landscape"
+    iput v5, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
 
-    const/4 v9, 0x6
+    const v5, 0x7f0704d2
 
-    invoke-virtual {v7, v8, v9}, Lcom/android/systemui/tuner/TunerService;->getValue(Ljava/lang/String;I)I
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v0
+    move-result v5
+
+    iput v5, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mSidePadding:I
+
+    goto :goto_1
+
+    :pswitch_2
+    const v5, 0x7f0704dc
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v5
+
+    iput v5, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
+
+    const v5, 0x7f0704d3
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v5
+
+    iput v5, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mSidePadding:I
 
     goto/16 :goto_1
 
-    :pswitch_1
-    const v7, 0x7f0d022a
-
-    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v7
-
-    iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
-
-    const v7, 0x7f0d0235
-
-    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v7
-
-    iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mSidePadding:I
-
-    goto/16 :goto_2
-
-    :pswitch_2
-    const v7, 0x7f0d022b
-
-    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v7
-
-    iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
-
-    const v7, 0x7f0d0236
-
-    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v7
-
-    iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mSidePadding:I
-
-    goto/16 :goto_2
-
     :pswitch_3
-    const v7, 0x7f0d022c
+    const v5, 0x7f0704dd
 
-    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v7
+    move-result v5
 
-    iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
+    iput v5, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
 
-    const v7, 0x7f0d0237
+    const v5, 0x7f0704d4
 
-    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v7
+    move-result v5
 
-    iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mSidePadding:I
+    iput v5, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mSidePadding:I
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :pswitch_4
-    const v7, 0x7f0d022d
+    const v5, 0x7f0704de
 
-    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v7
+    move-result v5
 
-    iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
+    iput v5, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
 
-    const v7, 0x7f0d0238
+    const v5, 0x7f0704d5
 
-    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v7
+    move-result v5
 
-    iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mSidePadding:I
+    iput v5, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mSidePadding:I
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :pswitch_5
-    const v7, 0x7f0d022e
+    const v5, 0x7f0704df
 
-    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v7
+    move-result v5
 
-    iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
+    iput v5, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mCellWidth:I
 
-    const v7, 0x7f0d0239
+    const v5, 0x7f0704d6
 
-    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v7
+    move-result v5
 
-    iput v7, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mSidePadding:I
+    iput v5, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mSidePadding:I
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
-    :cond_4
-    return v6
+    :cond_2
+    const/4 v5, 0x0
 
-    nop
+    return v5
 
     :pswitch_data_0
     .packed-switch 0x3

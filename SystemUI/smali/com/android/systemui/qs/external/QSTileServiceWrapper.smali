@@ -368,31 +368,6 @@
     return v1
 .end method
 
-.method public semRefreshConnection(Landroid/content/Intent;)V
-    .locals 3
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/systemui/qs/external/QSTileServiceWrapper;->mService:Landroid/service/quicksettings/IQSTileService;
-
-    invoke-interface {v1, p1}, Landroid/service/quicksettings/IQSTileService;->semRefreshConnection(Landroid/content/Intent;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "IQSTileServiceWrapper"
-
-    const-string/jumbo v2, "Caught exception from TileService"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
-.end method
-
 .method public semSetToggleButtonChecked(Z)Z
     .locals 3
 

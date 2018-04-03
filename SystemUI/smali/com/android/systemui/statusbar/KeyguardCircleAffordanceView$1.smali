@@ -3,7 +3,7 @@
 .source "KeyguardCircleAffordanceView.java"
 
 # interfaces
-.implements Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
+.implements Lcom/android/systemui/util/SettingsHelper$OnChangedCallback;
 
 
 # annotations
@@ -58,19 +58,17 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$1;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get22(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Lcom/android/keyguard/util/SettingsHelper;
+    invoke-static {v1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get22(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Lcom/android/systemui/util/SettingsHelper;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/keyguard/util/SettingsHelper;->isWhiteKeyguardWallpaper()Z
+    invoke-virtual {v1}, Lcom/android/systemui/util/SettingsHelper;->isWhiteKeyguardWallpaper()Z
 
     move-result v1
 
     if-eqz v1, :cond_3
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$1;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
-
-    invoke-static {v1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get6(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/content/Context;
+    invoke-static {}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get6()Landroid/content/Context;
 
     move-result-object v1
 
@@ -78,13 +76,13 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0129
+    const v2, 0x7f0601ba
 
     invoke-virtual {v1, v2, v3}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
     move-result v0
 
-    sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SKIP_SHORTCUT_ARROW_SHOWING_VI:Z
+    sget-boolean v1, Lcom/android/systemui/Rune;->KEYWI_SUPPORT_SHORTCUT_CUE:Z
 
     if-eqz v1, :cond_1
 
@@ -130,9 +128,7 @@
     return-void
 
     :cond_3
-    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView$1;->this$0:Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
-
-    invoke-static {v1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get6(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;)Landroid/content/Context;
+    invoke-static {}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-get6()Landroid/content/Context;
 
     move-result-object v1
 
@@ -140,13 +136,13 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0018
+    const v2, 0x7f0601b9
 
     invoke-virtual {v1, v2, v3}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
     move-result v0
 
-    sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SKIP_SHORTCUT_ARROW_SHOWING_VI:Z
+    sget-boolean v1, Lcom/android/systemui/Rune;->KEYWI_SUPPORT_SHORTCUT_CUE:Z
 
     if-eqz v1, :cond_1
 

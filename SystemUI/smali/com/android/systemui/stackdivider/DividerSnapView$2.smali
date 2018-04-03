@@ -49,7 +49,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerSnapView$2;->this$0:Lcom/android/systemui/stackdivider/DividerSnapView;
 
-    invoke-static {v6}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get5(Lcom/android/systemui/stackdivider/DividerSnapView;)Landroid/widget/FrameLayout;
+    invoke-static {v6}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get7(Lcom/android/systemui/stackdivider/DividerSnapView;)Landroid/widget/FrameLayout;
 
     move-result-object v6
 
@@ -103,7 +103,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerSnapView$2;->this$0:Lcom/android/systemui/stackdivider/DividerSnapView;
 
-    invoke-static {v6}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get5(Lcom/android/systemui/stackdivider/DividerSnapView;)Landroid/widget/FrameLayout;
+    invoke-static {v6}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get7(Lcom/android/systemui/stackdivider/DividerSnapView;)Landroid/widget/FrameLayout;
 
     move-result-object v6
 
@@ -131,7 +131,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerSnapView$2;->this$0:Lcom/android/systemui/stackdivider/DividerSnapView;
 
-    invoke-static {v6}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get5(Lcom/android/systemui/stackdivider/DividerSnapView;)Landroid/widget/FrameLayout;
+    invoke-static {v6}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get7(Lcom/android/systemui/stackdivider/DividerSnapView;)Landroid/widget/FrameLayout;
 
     move-result-object v6
 
@@ -154,7 +154,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerSnapView$2;->this$0:Lcom/android/systemui/stackdivider/DividerSnapView;
 
-    invoke-static {v6}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get5(Lcom/android/systemui/stackdivider/DividerSnapView;)Landroid/widget/FrameLayout;
+    invoke-static {v6}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get7(Lcom/android/systemui/stackdivider/DividerSnapView;)Landroid/widget/FrameLayout;
 
     move-result-object v6
 

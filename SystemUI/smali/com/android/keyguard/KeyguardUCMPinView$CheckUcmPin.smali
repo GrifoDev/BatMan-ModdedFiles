@@ -110,7 +110,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {}, Lcom/android/keyguard/KeyguardUCMPinView;->-get8()Z
+    invoke-static {}, Lcom/android/keyguard/KeyguardUCMPinView;->-get10()Z
 
     move-result v3
 
@@ -139,7 +139,7 @@
 
     move-result-object v1
 
-    invoke-static {}, Lcom/android/keyguard/KeyguardUCMPinView;->-get8()Z
+    invoke-static {}, Lcom/android/keyguard/KeyguardUCMPinView;->-get10()Z
 
     move-result v3
 

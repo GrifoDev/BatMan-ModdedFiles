@@ -3,16 +3,6 @@
 .source "RecentsSystemUser.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/systemui/recents/RecentsSystemUser$-void_startScreenPinning_int_taskId_LambdaImpl0;,
-        Lcom/android/systemui/recents/RecentsSystemUser$-void_startSnapView__LambdaImpl0;,
-        Lcom/android/systemui/recents/RecentsSystemUser$-void_updateRecentsVisibility_boolean_visible_LambdaImpl0;
-    }
-.end annotation
-
-
 # instance fields
 .field private mContext:Landroid/content/Context;
 
@@ -59,42 +49,6 @@
 
 
 # virtual methods
-.method synthetic -com_android_systemui_recents_RecentsSystemUser_lambda$1(Z)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/recents/RecentsSystemUser;->mImpl:Lcom/android/systemui/recents/RecentsImpl;
-
-    iget-object v1, p0, Lcom/android/systemui/recents/RecentsSystemUser;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0, v1, p1}, Lcom/android/systemui/recents/RecentsImpl;->onVisibilityChanged(Landroid/content/Context;Z)V
-
-    return-void
-.end method
-
-.method synthetic -com_android_systemui_recents_RecentsSystemUser_lambda$2(I)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/recents/RecentsSystemUser;->mImpl:Lcom/android/systemui/recents/RecentsImpl;
-
-    iget-object v1, p0, Lcom/android/systemui/recents/RecentsSystemUser;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0, v1, p1}, Lcom/android/systemui/recents/RecentsImpl;->onStartScreenPinning(Landroid/content/Context;I)V
-
-    return-void
-.end method
-
-.method synthetic -com_android_systemui_recents_RecentsSystemUser_lambda$3()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/recents/RecentsSystemUser;->mImpl:Lcom/android/systemui/recents/RecentsImpl;
-
-    iget-object v1, p0, Lcom/android/systemui/recents/RecentsSystemUser;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/RecentsImpl;->onStartSnapView(Landroid/content/Context;)V
-
-    return-void
-.end method
-
 .method public getNonSystemUserRecentsForUser(I)Lcom/android/systemui/recents/IRecentsNonSystemUserCallbacks;
     .locals 1
 
@@ -107,6 +61,42 @@
     check-cast v0, Lcom/android/systemui/recents/IRecentsNonSystemUserCallbacks;
 
     return-object v0
+.end method
+
+.method synthetic lambda$-com_android_systemui_recents_RecentsSystemUser_3540(Z)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/recents/RecentsSystemUser;->mImpl:Lcom/android/systemui/recents/RecentsImpl;
+
+    iget-object v1, p0, Lcom/android/systemui/recents/RecentsSystemUser;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0, v1, p1}, Lcom/android/systemui/recents/RecentsImpl;->onVisibilityChanged(Landroid/content/Context;Z)V
+
+    return-void
+.end method
+
+.method synthetic lambda$-com_android_systemui_recents_RecentsSystemUser_3731(I)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/recents/RecentsSystemUser;->mImpl:Lcom/android/systemui/recents/RecentsImpl;
+
+    iget-object v1, p0, Lcom/android/systemui/recents/RecentsSystemUser;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0, v1, p1}, Lcom/android/systemui/recents/RecentsImpl;->onStartScreenPinning(Landroid/content/Context;I)V
+
+    return-void
+.end method
+
+.method synthetic lambda$-com_android_systemui_recents_RecentsSystemUser_4600(Ljava/lang/String;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/recents/RecentsSystemUser;->mImpl:Lcom/android/systemui/recents/RecentsImpl;
+
+    iget-object v1, p0, Lcom/android/systemui/recents/RecentsSystemUser;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0, v1, p1}, Lcom/android/systemui/recents/RecentsImpl;->onStartSnapView(Landroid/content/Context;Ljava/lang/String;)V
+
+    return-void
 .end method
 
 .method public registerNonSystemUserCallbacks(Landroid/os/IBinder;I)V
@@ -170,6 +160,16 @@
     invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
+.end method
+
+.method public removeNonSystemUserRecentsForUser(I)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/recents/RecentsSystemUser;->mNonSystemUserRecents:Landroid/util/SparseArray;
+
+    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->remove(I)V
+
+    return-void
 .end method
 
 .method public sendDockingTopTaskEvent(ILandroid/graphics/Rect;)V
@@ -258,16 +258,16 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/systemui/recents/RecentsSystemUser$-void_startScreenPinning_int_taskId_LambdaImpl0;
+    new-instance v1, Lcom/android/systemui/recents/-$Lambda$s3onfRoxdAGXRhy8h9aH8AYjDzM$1;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/recents/RecentsSystemUser$-void_startScreenPinning_int_taskId_LambdaImpl0;-><init>(Lcom/android/systemui/recents/RecentsSystemUser;I)V
+    invoke-direct {v1, p1, p0}, Lcom/android/systemui/recents/-$Lambda$s3onfRoxdAGXRhy8h9aH8AYjDzM$1;-><init>(ILjava/lang/Object;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
-.method public startSnapView()V
+.method public startSnapView(Ljava/lang/String;)V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -279,9 +279,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/systemui/recents/RecentsSystemUser$-void_startSnapView__LambdaImpl0;
+    new-instance v1, Lcom/android/systemui/recents/-$Lambda$s3onfRoxdAGXRhy8h9aH8AYjDzM;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/recents/RecentsSystemUser$-void_startSnapView__LambdaImpl0;-><init>(Lcom/android/systemui/recents/RecentsSystemUser;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/recents/-$Lambda$s3onfRoxdAGXRhy8h9aH8AYjDzM;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -295,9 +295,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/systemui/recents/RecentsSystemUser$-void_updateRecentsVisibility_boolean_visible_LambdaImpl0;
+    new-instance v1, Lcom/android/systemui/recents/-$Lambda$s3onfRoxdAGXRhy8h9aH8AYjDzM$2;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/recents/RecentsSystemUser$-void_updateRecentsVisibility_boolean_visible_LambdaImpl0;-><init>(Lcom/android/systemui/recents/RecentsSystemUser;Z)V
+    invoke-direct {v1, p1, p0}, Lcom/android/systemui/recents/-$Lambda$s3onfRoxdAGXRhy8h9aH8AYjDzM$2;-><init>(ZLjava/lang/Object;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 

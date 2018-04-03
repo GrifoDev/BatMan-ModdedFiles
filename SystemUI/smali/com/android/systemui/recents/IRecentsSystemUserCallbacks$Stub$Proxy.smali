@@ -317,7 +317,7 @@
     throw v1
 .end method
 
-.method public startSnapView()V
+.method public startSnapView(Ljava/lang/String;)V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -333,6 +333,8 @@
     const-string/jumbo v1, "com.android.systemui.recents.IRecentsSystemUserCallbacks"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     iget-object v1, p0, Lcom/android/systemui/recents/IRecentsSystemUserCallbacks$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 

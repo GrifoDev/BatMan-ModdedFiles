@@ -2,6 +2,9 @@
 .super Ljava/lang/Object;
 .source "DragDownHelper.java"
 
+# interfaces
+.implements Lcom/android/systemui/Gefingerpoken;
+
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -13,8 +16,6 @@
 
 # instance fields
 .field private mCallback:Lcom/android/systemui/ExpandHelper$Callback;
-
-.field private mContext:Landroid/content/Context;
 
 .field private mDragDownCallback:Lcom/android/systemui/statusbar/DragDownHelper$DragDownCallback;
 
@@ -73,7 +74,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d02d8
+    const v1, 0x7f070186
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -104,8 +105,6 @@
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/DragDownHelper;->mFalsingManager:Lcom/android/systemui/classifier/FalsingManager;
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/DragDownHelper;->mContext:Landroid/content/Context;
 
     return-void
 .end method
@@ -197,9 +196,13 @@
 
     aput v4, v3, v5
 
-    const/4 v4, 0x1
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/ExpandableView;->getCollapsedHeight()I
 
-    aput v1, v3, v4
+    move-result v4
+
+    const/4 v5, 0x1
+
+    aput v4, v3, v5
 
     invoke-static {p1, v2, v3}, Landroid/animation/ObjectAnimator;->ofInt(Ljava/lang/Object;Ljava/lang/String;[I)Landroid/animation/ObjectAnimator;
 
@@ -384,7 +387,11 @@
     move-result v0
 
     :goto_1
-    int-to-float v5, v0
+    invoke-virtual {p2}, Lcom/android/systemui/statusbar/ExpandableView;->getCollapsedHeight()I
+
+    move-result v5
+
+    int-to-float v5, v5
 
     add-float/2addr v5, v3
 
@@ -410,11 +417,17 @@
 .method private isFalseTouch()Z
     .locals 1
 
+    iget-object v0, p0, Lcom/android/systemui/statusbar/DragDownHelper;->mFalsingManager:Lcom/android/systemui/classifier/FalsingManager;
+
+    invoke-virtual {v0}, Lcom/android/systemui/classifier/FalsingManager;->isFalseTouch()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/DragDownHelper;->mDraggedFarEnough:Z
 
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x0
+    xor-int/lit8 v0, v0, 0x1
 
     :goto_0
     return v0
@@ -430,7 +443,7 @@
 
     const/4 v0, 0x0
 
-    sget-boolean v2, Lcom/android/systemui/SystemUIRune;->SUPPORT_NOTIFICATION_ICONS_ONLY:Z
+    sget-boolean v2, Lcom/android/systemui/Rune;->NOTI_SUPPORT_ICONS_ONLY_LOCKSCREEN:Z
 
     if-eqz v2, :cond_0
 
@@ -451,7 +464,9 @@
 .end method
 
 .method private stopDragging()V
-    .locals 1
+    .locals 2
+
+    const/4 v1, 0x0
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/DragDownHelper;->mFalsingManager:Lcom/android/systemui/classifier/FalsingManager;
 
@@ -464,6 +479,8 @@
     iget-object v0, p0, Lcom/android/systemui/statusbar/DragDownHelper;->mStartingChild:Lcom/android/systemui/statusbar/ExpandableView;
 
     invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/DragDownHelper;->cancelExpansion(Lcom/android/systemui/statusbar/ExpandableView;)V
+
+    iput-object v1, p0, Lcom/android/systemui/statusbar/DragDownHelper;->mStartingChild:Lcom/android/systemui/statusbar/ExpandableView;
 
     :goto_0
     const/4 v0, 0x0
@@ -484,12 +501,22 @@
 
 
 # virtual methods
+.method public isDraggingDown()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/DragDownHelper;->mDraggingDown:Z
+
+    return v0
+.end method
+
 .method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 7
 
-    const/4 v6, 0x0
+    const/4 v4, 0x0
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
+
+    const/4 v5, 0x0
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
@@ -508,16 +535,14 @@
     :cond_0
     :goto_0
     :pswitch_0
-    return v6
+    return v5
 
     :pswitch_1
-    iput-boolean v6, p0, Lcom/android/systemui/statusbar/DragDownHelper;->mDraggedFarEnough:Z
+    iput-boolean v5, p0, Lcom/android/systemui/statusbar/DragDownHelper;->mDraggedFarEnough:Z
 
-    iput-boolean v6, p0, Lcom/android/systemui/statusbar/DragDownHelper;->mDraggingDown:Z
+    iput-boolean v5, p0, Lcom/android/systemui/statusbar/DragDownHelper;->mDraggingDown:Z
 
-    const/4 v3, 0x0
-
-    iput-object v3, p0, Lcom/android/systemui/statusbar/DragDownHelper;->mStartingChild:Lcom/android/systemui/statusbar/ExpandableView;
+    iput-object v4, p0, Lcom/android/systemui/statusbar/DragDownHelper;->mStartingChild:Lcom/android/systemui/statusbar/ExpandableView;
 
     iput v2, p0, Lcom/android/systemui/statusbar/DragDownHelper;->mInitialTouchY:F
 
@@ -534,7 +559,7 @@
 
     cmpl-float v3, v0, v3
 
-    if-lez v3, :cond_2
+    if-lez v3, :cond_3
 
     iget v3, p0, Lcom/android/systemui/statusbar/DragDownHelper;->mInitialTouchX:F
 
@@ -546,25 +571,32 @@
 
     cmpl-float v3, v0, v3
 
-    if-lez v3, :cond_2
+    if-lez v3, :cond_3
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/DragDownHelper;->mContext:Landroid/content/Context;
+    const-class v3, Lcom/android/systemui/KnoxStateMonitor;
 
-    invoke-static {v3}, Lcom/android/keyguard/KnoxStateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KnoxStateMonitor;
+    invoke-static {v3}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lcom/android/keyguard/KnoxStateMonitor;->isPanelExpandEnabled()Z
+    check-cast v3, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-virtual {v3}, Lcom/android/systemui/KnoxStateMonitor;->isPanelExpandEnabled()Z
 
     move-result v3
 
+    xor-int/lit8 v3, v3, 0x1
+
     if-eqz v3, :cond_1
 
+    return v6
+
+    :cond_1
     iget-object v3, p0, Lcom/android/systemui/statusbar/DragDownHelper;->mFalsingManager:Lcom/android/systemui/classifier/FalsingManager;
 
     invoke-virtual {v3}, Lcom/android/systemui/classifier/FalsingManager;->onNotificatonStartDraggingDown()V
 
-    iput-boolean v5, p0, Lcom/android/systemui/statusbar/DragDownHelper;->mDraggingDown:Z
+    iput-boolean v6, p0, Lcom/android/systemui/statusbar/DragDownHelper;->mDraggingDown:Z
 
     iget v3, p0, Lcom/android/systemui/statusbar/DragDownHelper;->mInitialTouchX:F
 
@@ -572,6 +604,23 @@
 
     invoke-direct {p0, v3, v4}, Lcom/android/systemui/statusbar/DragDownHelper;->captureStartingChild(FF)V
 
+    const-string/jumbo v3, "KEEPLOCK"
+
+    const-string/jumbo v4, "KEEPLOCK"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/DragDownHelper;->mStartingChild:Lcom/android/systemui/statusbar/ExpandableView;
+
+    if-nez v3, :cond_2
+
+    return v5
+
+    :cond_2
     iput v2, p0, Lcom/android/systemui/statusbar/DragDownHelper;->mInitialTouchY:F
 
     iput v1, p0, Lcom/android/systemui/statusbar/DragDownHelper;->mInitialTouchX:F
@@ -580,12 +629,19 @@
 
     invoke-interface {v3}, Lcom/android/systemui/statusbar/DragDownHelper$DragDownCallback;->onTouchSlopExceeded()V
 
-    return v5
+    return v6
 
-    :cond_1
-    return v5
+    :cond_3
+    const-string/jumbo v3, "KEEPLOCK"
 
-    :cond_2
+    const-string/jumbo v4, "KEEPLOCK"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
     const/4 v3, 0x0
 
     cmpg-float v3, v0, v3
@@ -624,7 +680,9 @@
 
     invoke-static {v3}, Lcom/android/systemui/statusbar/DebugLogUtils;->addTouchDebugLogs(I)V
 
-    return v5
+    return v6
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -635,7 +693,9 @@
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 6
+    .locals 7
+
+    const/4 v6, 0x0
 
     const/4 v4, 0x1
 
@@ -780,6 +840,8 @@
 
     invoke-interface {v2, v3, v5}, Lcom/android/systemui/ExpandHelper$Callback;->setUserLockedChild(Landroid/view/View;Z)V
 
+    iput-object v6, p0, Lcom/android/systemui/statusbar/DragDownHelper;->mStartingChild:Lcom/android/systemui/statusbar/ExpandableView;
+
     goto :goto_3
 
     :cond_5
@@ -791,6 +853,8 @@
     invoke-direct {p0}, Lcom/android/systemui/statusbar/DragDownHelper;->stopDragging()V
 
     return v5
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1

@@ -4,6 +4,7 @@
 
 # interfaces
 .implements Landroid/view/ViewTreeObserver$OnComputeInternalInsetsListener;
+.implements Lcom/android/systemui/statusbar/notification/VisualStabilityManager$Callback;
 
 
 # annotations
@@ -11,14 +12,13 @@
     value = {
         Lcom/android/systemui/statusbar/policy/HeadsUpManager$1;,
         Lcom/android/systemui/statusbar/policy/HeadsUpManager$Clock;,
-        Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;,
-        Lcom/android/systemui/statusbar/policy/HeadsUpManager$OnHeadsUpChangedListener;
+        Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;
     }
 .end annotation
 
 
 # instance fields
-.field private mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+.field private mBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
 .field private mClock:Lcom/android/systemui/statusbar/policy/HeadsUpManager$Clock;
 
@@ -30,6 +30,17 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashSet",
+            "<",
+            "Lcom/android/systemui/statusbar/NotificationData$Entry;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private mEntriesToRemoveWhenReorderingAllowed:Landroid/support/v4/util/ArraySet;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/support/v4/util/ArraySet",
             "<",
             "Lcom/android/systemui/statusbar/NotificationData$Entry;",
             ">;"
@@ -79,7 +90,7 @@
         value = {
             "Ljava/util/HashSet",
             "<",
-            "Lcom/android/systemui/statusbar/policy/HeadsUpManager$OnHeadsUpChangedListener;",
+            "Lcom/android/systemui/statusbar/policy/OnHeadsUpChangedListener;",
             ">;"
         }
     .end annotation
@@ -107,6 +118,8 @@
 
 .field private final mStatusBarHeight:I
 
+.field private mStatusBarState:I
+
 .field private final mStatusBarWindowView:Landroid/view/View;
 
 .field private mSwipedOutKeys:Ljava/util/HashSet;
@@ -128,6 +141,8 @@
 
 .field private mUser:I
 
+.field private mVisualStabilityManager:Lcom/android/systemui/statusbar/notification/VisualStabilityManager;
+
 .field private mWaitingOnCollapseWhenGoingAway:Z
 
 
@@ -148,7 +163,31 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)Landroid/os/Handler;
+.method static synthetic -get10(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mTrackingHeadsUp:Z
+
+    return v0
+.end method
+
+.method static synthetic -get11(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)Lcom/android/systemui/statusbar/notification/VisualStabilityManager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mVisualStabilityManager:Lcom/android/systemui/statusbar/notification/VisualStabilityManager;
+
+    return-object v0
+.end method
+
+.method static synthetic -get2(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)Landroid/support/v4/util/ArraySet;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mEntriesToRemoveWhenReorderingAllowed:Landroid/support/v4/util/ArraySet;
+
+    return-object v0
+.end method
+
+.method static synthetic -get3(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)Landroid/os/Handler;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mHandler:Landroid/os/Handler;
@@ -156,7 +195,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)I
+.method static synthetic -get4(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)I
     .locals 1
 
     iget v0, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mHeadsUpNotificationDecay:I
@@ -164,7 +203,7 @@
     return v0
 .end method
 
-.method static synthetic -get4(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)I
+.method static synthetic -get5(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)I
     .locals 1
 
     iget v0, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mMinimumDisplayTime:I
@@ -172,7 +211,7 @@
     return v0
 .end method
 
-.method static synthetic -get5(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)I
+.method static synthetic -get6(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)I
     .locals 1
 
     iget v0, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mSnoozeLengthMs:I
@@ -180,7 +219,7 @@
     return v0
 .end method
 
-.method static synthetic -get6(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)I
+.method static synthetic -get7(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)I
     .locals 1
 
     iget v0, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mStatusBarHeight:I
@@ -188,7 +227,7 @@
     return v0
 .end method
 
-.method static synthetic -get7(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)Landroid/view/View;
+.method static synthetic -get8(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)Landroid/view/View;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mStatusBarWindowView:Landroid/view/View;
@@ -196,18 +235,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get8(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)I
+.method static synthetic -get9(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)I
     .locals 1
 
     iget v0, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mTouchAcceptanceDelay:I
-
-    return v0
-.end method
-
-.method static synthetic -get9(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mTrackingHeadsUp:Z
 
     return v0
 .end method
@@ -295,6 +326,12 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mEntriesToRemoveAfterExpand:Ljava/util/HashSet;
 
+    new-instance v1, Landroid/support/v4/util/ArraySet;
+
+    invoke-direct {v1}, Landroid/support/v4/util/ArraySet;-><init>()V
+
+    iput-object v1, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mEntriesToRemoveWhenReorderingAllowed:Landroid/support/v4/util/ArraySet;
+
     const/4 v1, 0x2
 
     new-array v1, v1, [I
@@ -309,7 +346,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0c0039
+    const v1, 0x7f0b007a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -323,7 +360,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mSnoozedPackages:Landroid/util/ArrayMap;
 
-    const v1, 0x7f0c0037
+    const v1, 0x7f0b001d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -335,7 +372,7 @@
 
     iput v1, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mSnoozeLengthMs:I
 
-    const v1, 0x7f0c0038
+    const v1, 0x7f0b001f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -343,7 +380,7 @@
 
     iput v1, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mMinimumDisplayTime:I
 
-    const v1, 0x7f0c0036
+    const v1, 0x7f0b001e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -399,7 +436,7 @@
 
     iput-object p3, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mGroupManager:Lcom/android/systemui/statusbar/phone/NotificationGroupManager;
 
-    const v1, 0x1050017
+    const v1, 0x10502b1
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -458,9 +495,9 @@
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/systemui/statusbar/policy/HeadsUpManager$OnHeadsUpChangedListener;
+    check-cast v1, Lcom/android/systemui/statusbar/policy/OnHeadsUpChangedListener;
 
-    invoke-interface {v1, p1, v5}, Lcom/android/systemui/statusbar/policy/HeadsUpManager$OnHeadsUpChangedListener;->onHeadsUpStateChanged(Lcom/android/systemui/statusbar/NotificationData$Entry;Z)V
+    invoke-interface {v1, p1, v5}, Lcom/android/systemui/statusbar/policy/OnHeadsUpChangedListener;->onHeadsUpStateChanged(Lcom/android/systemui/statusbar/NotificationData$Entry;Z)V
 
     goto :goto_0
 
@@ -569,7 +606,7 @@
 .method public static isClickedHeadsUpNotification(Landroid/view/View;)Z
     .locals 2
 
-    const v1, 0x7f130049
+    const v1, 0x7f0a0230
 
     invoke-virtual {p0, v1}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
@@ -617,11 +654,6 @@
 
     invoke-virtual {v3, v5}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->setHeadsUp(Z)V
 
-    if-nez v2, :cond_0
-
-    return-void
-
-    :cond_0
     invoke-direct {p0, v2, v5}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->setEntryPinned(Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;Z)V
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mListeners:Ljava/util/HashSet;
@@ -630,33 +662,24 @@
 
     move-result-object v1
 
-    :cond_1
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_0
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$OnHeadsUpChangedListener;
+    check-cast v0, Lcom/android/systemui/statusbar/policy/OnHeadsUpChangedListener;
 
-    iget-object v3, p1, Lcom/android/systemui/statusbar/NotificationData$Entry;->row:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
-
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->getIsMouseHoverExit()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    invoke-interface {v0, p1, v5}, Lcom/android/systemui/statusbar/policy/HeadsUpManager$OnHeadsUpChangedListener;->onHeadsUpStateChanged(Lcom/android/systemui/statusbar/NotificationData$Entry;Z)V
+    invoke-interface {v0, p1, v5}, Lcom/android/systemui/statusbar/policy/OnHeadsUpChangedListener;->onHeadsUpStateChanged(Lcom/android/systemui/statusbar/NotificationData$Entry;Z)V
 
     goto :goto_0
 
-    :cond_2
+    :cond_0
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mEntryPool:Landroid/util/Pools$Pool;
 
     invoke-interface {v3, v2}, Landroid/util/Pools$Pool;->release(Ljava/lang/Object;)Z
@@ -698,16 +721,16 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$OnHeadsUpChangedListener;
+    check-cast v0, Lcom/android/systemui/statusbar/policy/OnHeadsUpChangedListener;
 
     if-eqz p2, :cond_0
 
-    invoke-interface {v0, v2}, Lcom/android/systemui/statusbar/policy/HeadsUpManager$OnHeadsUpChangedListener;->onHeadsUpPinned(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)V
+    invoke-interface {v0, v2}, Lcom/android/systemui/statusbar/policy/OnHeadsUpChangedListener;->onHeadsUpPinned(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)V
 
     goto :goto_0
 
     :cond_0
-    invoke-interface {v0, v2}, Lcom/android/systemui/statusbar/policy/HeadsUpManager$OnHeadsUpChangedListener;->onHeadsUpUnPinned(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)V
+    invoke-interface {v0, v2}, Lcom/android/systemui/statusbar/policy/OnHeadsUpChangedListener;->onHeadsUpUnPinned(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)V
 
     goto :goto_0
 
@@ -727,7 +750,7 @@
     move-result-object v0
 
     :goto_0
-    const v1, 0x7f130049
+    const v1, 0x7f0a0230
 
     invoke-virtual {p0, v1, v0}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
@@ -742,41 +765,25 @@
 .method private shouldHeadsUpBecomePinned(Lcom/android/systemui/statusbar/NotificationData$Entry;)Z
     .locals 2
 
-    const/4 v0, 0x0
+    const/4 v0, 0x1
+
+    iget v1, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mStatusBarState:I
+
+    if-eq v1, v0, :cond_0
 
     iget-boolean v1, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mIsExpanded:Z
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->hasFullScreenIntent(Lcom/android/systemui/statusbar/NotificationData$Entry;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
+    if-nez v1, :cond_1
 
     :cond_0
-    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->hasFullScreenIntent(Lcom/android/systemui/statusbar/NotificationData$Entry;)Z
 
-    iget-boolean v1, v1, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mIsDeskMode:Z
-
-    if-eqz v1, :cond_2
-
-    iget-object v1, p1, Lcom/android/systemui/statusbar/NotificationData$Entry;->row:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->IsPreview()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
+    move-result v0
 
     :cond_1
-    :goto_0
     return v0
-
-    :cond_2
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method private static snoozeKey(Ljava/lang/String;I)Ljava/lang/String;
@@ -836,42 +843,32 @@
     invoke-static {v3, v4, v5}, Lcom/android/internal/logging/MetricsLogger;->count(Landroid/content/Context;Ljava/lang/String;I)V
 
     :cond_1
-    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->updateTouchableRegionListener()V
 
-    iget-boolean v3, v3, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mIsDeskMode:Z
-
-    if-eqz v3, :cond_2
-
-    :goto_0
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mListeners:Ljava/util/HashSet;
 
     invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :goto_1
+    :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_2
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/systemui/statusbar/policy/HeadsUpManager$OnHeadsUpChangedListener;
+    check-cast v1, Lcom/android/systemui/statusbar/policy/OnHeadsUpChangedListener;
 
-    invoke-interface {v1, v0}, Lcom/android/systemui/statusbar/policy/HeadsUpManager$OnHeadsUpChangedListener;->onHeadsUpPinnedModeChanged(Z)V
-
-    goto :goto_1
-
-    :cond_2
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->updateTouchableRegionListener()V
+    invoke-interface {v1, v0}, Lcom/android/systemui/statusbar/policy/OnHeadsUpChangedListener;->onHeadsUpPinnedModeChanged(Z)V
 
     goto :goto_0
 
-    :cond_3
+    :cond_2
     return-void
 .end method
 
@@ -992,7 +989,7 @@
 
 
 # virtual methods
-.method public addListener(Lcom/android/systemui/statusbar/policy/HeadsUpManager$OnHeadsUpChangedListener;)V
+.method public addListener(Lcom/android/systemui/statusbar/policy/OnHeadsUpChangedListener;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mListeners:Ljava/util/HashSet;
@@ -1334,9 +1331,7 @@
     move-object v1, v0
 
     :cond_2
-    const/4 v3, 0x1
-
-    invoke-virtual {v1, v3}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->getPinnedHeadsUpHeight(Z)I
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->getPinnedHeadsUpHeight()I
 
     move-result v3
 
@@ -1418,118 +1413,116 @@
 .end method
 
 .method public onComputeInternalInsets(Landroid/view/ViewTreeObserver$InternalInsetsInfo;)V
-    .locals 10
+    .locals 9
 
-    const/4 v8, 0x3
+    const/4 v7, 0x3
 
-    const/4 v9, 0x0
+    const/4 v8, 0x0
 
-    iget-boolean v6, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mIsExpanded:Z
+    iget-boolean v5, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mIsExpanded:Z
 
-    if-eqz v6, :cond_0
+    if-nez v5, :cond_0
 
-    return-void
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+
+    invoke-virtual {v5}, Lcom/android/systemui/statusbar/phone/StatusBar;->isBouncerShowing()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
 
     :cond_0
-    iget-boolean v6, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mHasPinnedNotification:Z
-
-    if-eqz v6, :cond_4
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->getTopEntry()Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;
-
-    move-result-object v1
-
-    if-nez v1, :cond_1
-
-    const-string/jumbo v6, "HeadsUpManager"
-
-    const-string/jumbo v7, "onCII : No topEntry"
-
-    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
     return-void
 
     :cond_1
-    iget-object v6, v1, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->entry:Lcom/android/systemui/statusbar/NotificationData$Entry;
+    iget-boolean v5, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mHasPinnedNotification:Z
 
-    iget-object v5, v6, Lcom/android/systemui/statusbar/NotificationData$Entry;->row:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
+    if-eqz v5, :cond_4
 
-    invoke-virtual {v5}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->isChildInGroup()Z
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->getTopEntry()Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;
 
-    move-result v6
+    move-result-object v5
 
-    if-eqz v6, :cond_2
+    iget-object v5, v5, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->entry:Lcom/android/systemui/statusbar/NotificationData$Entry;
 
-    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mGroupManager:Lcom/android/systemui/statusbar/phone/NotificationGroupManager;
+    iget-object v4, v5, Lcom/android/systemui/statusbar/NotificationData$Entry;->row:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    invoke-virtual {v5}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->getStatusBarNotification()Landroid/service/notification/StatusBarNotification;
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->isChildInGroup()Z
 
-    move-result-object v7
+    move-result v5
 
-    invoke-virtual {v6, v7}, Lcom/android/systemui/statusbar/phone/NotificationGroupManager;->getGroupSummary(Landroid/service/notification/StatusBarNotification;)Lcom/android/systemui/statusbar/ExpandableNotificationRow;
+    if-eqz v5, :cond_2
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mGroupManager:Lcom/android/systemui/statusbar/phone/NotificationGroupManager;
+
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->getStatusBarNotification()Landroid/service/notification/StatusBarNotification;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Lcom/android/systemui/statusbar/phone/NotificationGroupManager;->getGroupSummary(Landroid/service/notification/StatusBarNotification;)Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
     move-result-object v0
 
     if-eqz v0, :cond_2
 
-    move-object v5, v0
+    move-object v4, v0
 
     :cond_2
-    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mTmpTwoArray:[I
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mTmpTwoArray:[I
 
-    invoke-virtual {v5, v6}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->getLocationOnScreen([I)V
+    invoke-virtual {v4, v5}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->getLocationOnScreen([I)V
 
-    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mTmpTwoArray:[I
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mTmpTwoArray:[I
 
-    aget v4, v6, v9
+    aget v3, v5, v8
 
-    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mTmpTwoArray:[I
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mTmpTwoArray:[I
 
-    aget v6, v6, v9
+    aget v5, v5, v8
 
-    invoke-virtual {v5}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->getWidth()I
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->getWidth()I
 
-    move-result v7
+    move-result v6
 
-    add-int v2, v6, v7
+    add-int v1, v5, v6
 
-    invoke-virtual {v5}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->getIntrinsicHeight()I
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->getIntrinsicHeight()I
 
-    move-result v3
+    move-result v2
 
-    invoke-virtual {p1, v8}, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->setTouchableInsets(I)V
+    invoke-virtual {p1, v7}, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->setTouchableInsets(I)V
 
-    iget-object v6, p1, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->touchableRegion:Landroid/graphics/Region;
+    iget-object v5, p1, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->touchableRegion:Landroid/graphics/Region;
 
-    invoke-virtual {v6, v4, v9, v2, v3}, Landroid/graphics/Region;->set(IIII)Z
+    invoke-virtual {v5, v3, v8, v1, v2}, Landroid/graphics/Region;->set(IIII)Z
 
     :cond_3
     :goto_0
     return-void
 
     :cond_4
-    iget-boolean v6, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mHeadsUpGoingAway:Z
+    iget-boolean v5, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mHeadsUpGoingAway:Z
 
-    if-nez v6, :cond_5
+    if-nez v5, :cond_5
 
-    iget-boolean v6, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mWaitingOnCollapseWhenGoingAway:Z
+    iget-boolean v5, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mWaitingOnCollapseWhenGoingAway:Z
 
-    if-eqz v6, :cond_3
+    if-eqz v5, :cond_3
 
     :cond_5
-    invoke-virtual {p1, v8}, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->setTouchableInsets(I)V
+    invoke-virtual {p1, v7}, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->setTouchableInsets(I)V
 
-    iget-object v6, p1, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->touchableRegion:Landroid/graphics/Region;
+    iget-object v5, p1, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->touchableRegion:Landroid/graphics/Region;
 
-    iget-object v7, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mStatusBarWindowView:Landroid/view/View;
+    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mStatusBarWindowView:Landroid/view/View;
 
-    invoke-virtual {v7}, Landroid/view/View;->getWidth()I
+    invoke-virtual {v6}, Landroid/view/View;->getWidth()I
 
-    move-result v7
+    move-result v6
 
-    iget v8, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mStatusBarHeight:I
+    iget v7, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mStatusBarHeight:I
 
-    invoke-virtual {v6, v9, v9, v7, v8}, Landroid/graphics/Region;->set(IIII)Z
+    invoke-virtual {v5, v8, v8, v6, v7}, Landroid/graphics/Region;->set(IIII)Z
 
     goto :goto_0
 .end method
@@ -1586,6 +1579,49 @@
     invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->removeHeadsUpEntry(Lcom/android/systemui/statusbar/NotificationData$Entry;)V
 
     goto :goto_0
+.end method
+
+.method public onReorderingAllowed()V
+    .locals 3
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mEntriesToRemoveWhenReorderingAllowed:Landroid/support/v4/util/ArraySet;
+
+    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :cond_0
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/NotificationData$Entry;
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->key:Ljava/lang/String;
+
+    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->isHeadsUp(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->removeHeadsUpEntry(Lcom/android/systemui/statusbar/NotificationData$Entry;)V
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mEntriesToRemoveWhenReorderingAllowed:Landroid/support/v4/util/ArraySet;
+
+    invoke-virtual {v2}, Landroid/support/v4/util/ArraySet;->clear()V
+
+    return-void
 .end method
 
 .method public releaseAllImmediately()V
@@ -1645,7 +1681,7 @@
     return-void
 .end method
 
-.method public removeListener(Lcom/android/systemui/statusbar/policy/HeadsUpManager$OnHeadsUpChangedListener;)V
+.method public removeListener(Lcom/android/systemui/statusbar/policy/OnHeadsUpChangedListener;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mListeners:Ljava/util/HashSet;
@@ -1685,10 +1721,10 @@
     return v0
 .end method
 
-.method public setBar(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
+.method public setBar(Lcom/android/systemui/statusbar/phone/StatusBar;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
     return-void
 .end method
@@ -1711,6 +1747,14 @@
     iget-boolean v1, v0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->expanded:Z
 
     if-eq v1, p2, :cond_0
+
+    iget-object v1, p1, Lcom/android/systemui/statusbar/NotificationData$Entry;->row:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->isPinned()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
 
     iput-boolean p2, v0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->expanded:Z
 
@@ -1735,29 +1779,19 @@
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mHeadsUpGoingAway:Z
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_1
 
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mHeadsUpGoingAway:Z
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
-
-    iget-boolean v0, v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mIsDeskMode:Z
-
-    if-eqz v0, :cond_1
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    if-nez p1, :cond_2
+    if-nez p1, :cond_0
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->waitForStatusBarLayout()V
 
-    :cond_2
+    :cond_0
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->updateTouchableRegionListener()V
 
-    goto :goto_0
+    :cond_1
+    return-void
 .end method
 
 .method public setIsExpanded(Z)V
@@ -1777,40 +1811,15 @@
 
     iput-boolean v1, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mHeadsUpGoingAway:Z
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
-
-    iget-boolean v0, v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mIsDeskMode:Z
-
-    if-eqz v0, :cond_1
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->updateTouchableRegionListener()V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public setRemoteInputActive(Lcom/android/systemui/statusbar/NotificationData$Entry;Z)V
     .locals 3
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
-
-    iget-boolean v1, v1, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mIsDeskMode:Z
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
-
-    invoke-virtual {v1, p2}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setRemoteInputActive(Z)V
-
-    :cond_0
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mHeadsUpEntries:Ljava/util/HashMap;
 
     iget-object v2, p1, Lcom/android/systemui/statusbar/NotificationData$Entry;->key:Ljava/lang/String;
@@ -1821,28 +1830,36 @@
 
     check-cast v0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     iget-boolean v1, v0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->remoteInputActive:Z
 
-    if-eq v1, p2, :cond_1
+    if-eq v1, p2, :cond_0
 
     iput-boolean p2, v0, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->remoteInputActive:Z
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_1
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->removeAutoRemovalCallbacks()V
 
-    :cond_1
+    :cond_0
     :goto_0
     return-void
 
-    :cond_2
+    :cond_1
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/policy/HeadsUpManager$HeadsUpEntry;->updateEntry(Z)V
 
     goto :goto_0
+.end method
+
+.method public setStatusBarState(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mStatusBarState:I
+
+    return-void
 .end method
 
 .method public setTrackingHeadsUp(Z)V
@@ -1857,6 +1874,14 @@
     .locals 0
 
     iput p1, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mUser:I
+
+    return-void
+.end method
+
+.method public setVisualStabilityManager(Lcom/android/systemui/statusbar/notification/VisualStabilityManager;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mVisualStabilityManager:Lcom/android/systemui/statusbar/notification/VisualStabilityManager;
 
     return-void
 .end method
@@ -1901,9 +1926,9 @@
 
     const/4 v2, 0x1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    invoke-virtual {v0, p1, v2}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->isKnoxNotificationSanitizeNeeded(Lcom/android/systemui/statusbar/NotificationData$Entry;Z)Z
+    invoke-virtual {v0, p1, v2}, Lcom/android/systemui/statusbar/phone/StatusBar;->isKnoxNotificationSanitizeNeeded(Lcom/android/systemui/statusbar/NotificationData$Entry;Z)Z
 
     move-result v0
 
@@ -2051,26 +2076,6 @@
     goto :goto_0
 
     :cond_0
-    return-void
-.end method
-
-.method public unregisterObserver()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mSettingsObserver:Landroid/database/ContentObserver;
-
-    invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->mSettingsObserver:Landroid/database/ContentObserver;
-
     return-void
 .end method
 

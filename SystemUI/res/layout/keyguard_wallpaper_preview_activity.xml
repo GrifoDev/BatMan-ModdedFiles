@@ -13,6 +13,10 @@
         </FrameLayout>
         <LinearLayout android:orientation="vertical" android:id="@id/option_container" android:layout_width="fill_parent" android:layout_height="0.0px" android:layout_marginLeft="@dimen/kg_option_container_margin_side" android:layout_marginRight="@dimen/kg_option_container_margin_side" android:layout_weight="1.0">
             <TextView android:gravity="center" android:layout_gravity="center" android:id="@id/wallpaper_description" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/wallpaper_description_text_style" />
+            <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="horizontal" android:id="@id/checkbox_motion_effect_layout" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/kg_title_text_view_margin_top">
+                <CheckBox android:id="@id/checkbox_motion_effect" android:layout_width="wrap_content" android:layout_height="wrap_content" android:buttonTint="#fffafafa" />
+                <TextView android:paddingTop="1.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/kg_wallpaper_preview_infinity_motion_effect" android:paddingStart="8.0dip" style="@style/wallpaper_description_text_style" />
+            </LinearLayout>
         </LinearLayout>
         <FrameLayout android:layout_gravity="bottom|center" android:id="@id/set_as_wallpaper_button_view" android:background="@drawable/set_as_wallpaper_button_background_drawable" android:focusable="true" android:layout_width="@dimen/kg_set_as_wallpaper_button_view_width" android:layout_height="@dimen/kg_set_as_wallpaper_button_view_height" android:layout_marginBottom="@dimen/kg_set_as_wallpaper_button_view_margin_bottom">
             <TextView android:gravity="center" android:id="@id/set_as_wallpaper_text_view" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/kg_wallpaper_preview_button" android:singleLine="true" style="@style/set_as_wallpaper_text_style" />

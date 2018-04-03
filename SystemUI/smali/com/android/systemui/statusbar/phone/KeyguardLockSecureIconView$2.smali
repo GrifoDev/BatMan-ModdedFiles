@@ -3,12 +3,12 @@
 .source "KeyguardLockSecureIconView.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/animation/Animator$AnimatorListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView;->startShortcutHintAnimation()V
+    value = Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,24 +34,41 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 7
+.method public onAnimationCancel(Landroid/animation/Animator;)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView$2;->this$0:Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView;->-get0(Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView;)Lcom/android/systemui/statusbar/phone/KeyguardAlphaAffordanceAnimation;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView;->-get1(Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView;)Z
 
-    move-result-object v0
+    move-result v0
 
-    const-wide/16 v4, 0x190
+    if-nez v0, :cond_0
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView$2;->this$0:Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView;
 
-    const-wide/16 v2, 0x96
+    const v1, 0x3f4ccccd    # 0.8f
 
-    const/4 v6, 0x0
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/KeyguardLockSecureIconView;->setAlpha(F)V
 
-    invoke-virtual/range {v0 .. v6}, Lcom/android/systemui/statusbar/phone/KeyguardAlphaAffordanceAnimation;->setViewAlpha(FJJLjava/lang/Runnable;)V
+    :cond_0
+    return-void
+.end method
+
+.method public onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onAnimationRepeat(Landroid/animation/Animator;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onAnimationStart(Landroid/animation/Animator;)V
+    .locals 0
 
     return-void
 .end method

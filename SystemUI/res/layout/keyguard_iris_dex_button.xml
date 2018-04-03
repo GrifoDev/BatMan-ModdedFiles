@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.android.keyguard.iris.KeyguardIrisDexButtonView android:gravity="center" android:id="@id/keyguard_iris_dex_button_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/kg_dex_button_margin_bottom"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.android.keyguard.KeyguardButton android:textAppearance="?android:textAppearanceMedium" android:ellipsize="end" android:id="@id/dex_iris_button" android:background="@drawable/ripple_effect_transparent_button_drawable" android:paddingLeft="@dimen/keyguard_emergency_button_inner_padding" android:paddingRight="@dimen/keyguard_emergency_button_inner_padding" android:layout_width="wrap_content" android:layout_height="@dimen/keyguard_bottom_area_emergency_button_area_min_height" android:maxLines="1" android:layout_marginStart="2.0dip" style="@style/keyguard_button_style" />
-</com.android.keyguard.iris.KeyguardIrisDexButtonView>

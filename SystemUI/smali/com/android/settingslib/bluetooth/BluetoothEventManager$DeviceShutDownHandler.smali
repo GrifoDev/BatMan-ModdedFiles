@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;Landroid/bluetooth/BluetoothDevice;)V
-    .locals 12
+    .locals 13
 
     const/4 v0, 0x0
 
@@ -140,6 +140,38 @@
     move-object v0, p1
 
     invoke-static/range {v0 .. v5}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V
+
+    iget-object v0, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager$DeviceShutDownHandler;->this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
+
+    invoke-static {v0}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->-get1(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Landroid/content/Context;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager$DeviceShutDownHandler;->this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
+
+    invoke-static {v1}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->-get1(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Landroid/content/Context;
+
+    move-result-object v1
+
+    sget v2, Lcom/android/settingslib/R$string;->screen_bluetooth_global:I
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager$DeviceShutDownHandler;->this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
+
+    invoke-static {v2}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->-get1(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Landroid/content/Context;
+
+    move-result-object v2
+
+    sget v12, Lcom/android/settingslib/R$string;->event_bluetooth_bcpt:I
+
+    invoke-virtual {v2, v12}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static/range {v0 .. v5}, Lcom/android/settingslib/bluetooth/Utils;->sendSaLoggingIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V
 
     const-string/jumbo v0, "Bluetooth_Profiles_Connection_Time"
 

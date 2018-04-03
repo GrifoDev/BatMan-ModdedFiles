@@ -34,6 +34,12 @@
 
 
 # virtual methods
+.method public onFinishUpdateValue(F)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onUpdateCurrentValue(F)V
     .locals 1
 

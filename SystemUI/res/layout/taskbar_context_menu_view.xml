@@ -6,10 +6,12 @@
         <TextView android:id="@id/context_menu_running_open" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_open" style="@style/ContextMenuText" />
     </LinearLayout>
     <LinearLayout android:orientation="vertical" android:id="@id/context_for_running_shortcut" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:id="@id/context_menu_running_shortcut_open_in_new_browser" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_open_in_new_browser" style="@style/ContextMenuText" />
         <TextView android:id="@id/context_menu_running_shortcut_remove" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_unpin" style="@style/ContextMenuText" />
         <TextView android:id="@id/context_menu_running_shortcut_close" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_close" style="@style/ContextMenuText" />
     </LinearLayout>
     <LinearLayout android:orientation="vertical" android:id="@id/context_for_running" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:id="@id/context_menu_running_open_in_new_browser" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_open_in_new_browser" style="@style/ContextMenuText" />
         <TextView android:id="@id/context_menu_running_add" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_pin" style="@style/ContextMenuText" />
         <TextView android:id="@id/context_menu_running_close" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_close" style="@style/ContextMenuText" />
     </LinearLayout>
@@ -27,8 +29,15 @@
         <TextView android:id="@id/fullscreen" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_capture_fullscreen" style="@style/ContextMenuText" />
         <TextView android:id="@id/region" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_capture_region" style="@style/ContextMenuText" />
     </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/layout_audio_view_container" android:padding="@dimen/context_menu_remote_view_container_padding" android:visibility="gone" android:layout_width="@dimen/context_menu_notification_width" android:layout_height="wrap_content" />
+    <LinearLayout android:orientation="vertical" android:id="@id/layout_install_samsung_connect" android:visibility="gone" android:layout_width="@dimen/context_menu_notification_width" android:layout_height="wrap_content">
+        <TextView android:id="@id/menu_install_samsung_connect" style="@style/ContextMenuNotificationTitleText" />
+        <TextView android:id="@id/menu_change_audio_path" style="@style/ContextMenuNotificationBodyText" />
+        <TextView android:id="@id/btn_install_samsung_connect" android:focusable="true" android:clickable="true" android:text="@string/taskbar_volume_context_menu_download" style="@style/ContextMenuNotificationButtonText" />
+    </LinearLayout>
     <include android:id="@id/context_for_desk" android:layout_width="wrap_content" android:layout_height="wrap_content" layout="@layout/desk_context_menu_view" />
     <LinearLayout android:orientation="vertical" android:id="@id/context_keyboard" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
-        <TextView android:id="@id/language_and_input" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_language_and_input" style="@style/ContextMenuText" />
+        <TextView android:id="@id/on_screen_keyboard" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_on_screen_keyboard" style="@style/ContextMenuText" />
+        <TextView android:id="@id/physical_keyboard" android:focusable="true" android:clickable="true" android:text="@string/taskbar_context_menu_physical_keyboard" style="@style/ContextMenuText" />
     </LinearLayout>
 </LinearLayout>

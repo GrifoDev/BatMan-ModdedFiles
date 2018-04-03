@@ -3,8 +3,15 @@
 .source "R.java"
 
 
-# static fields
-.field public static final calendar_noitem:I = 0x7f0a0000
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/keyguard/R;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "raw"
+.end annotation
 
 
 # direct methods

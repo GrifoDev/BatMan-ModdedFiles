@@ -42,32 +42,6 @@
 
     move-result-object v0
 
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile$1;->this$0:Lcom/android/systemui/qs/tiles/WifiCallingTile;
-
-    invoke-static {v3}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-get0(Lcom/android/systemui/qs/tiles/WifiCallingTile;)Ljava/lang/String;
-
-    move-result-object v3
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "onReceive : "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     const-string/jumbo v3, "android.intent.action.CLOSE_SYSTEM_DIALOGS"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -78,7 +52,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile$1;->this$0:Lcom/android/systemui/qs/tiles/WifiCallingTile;
 
-    invoke-static {v3}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-get2(Lcom/android/systemui/qs/tiles/WifiCallingTile;)Landroid/app/AlertDialog;
+    invoke-static {v3}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-get3(Lcom/android/systemui/qs/tiles/WifiCallingTile;)Landroid/app/AlertDialog;
 
     move-result-object v3
 
@@ -86,7 +60,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile$1;->this$0:Lcom/android/systemui/qs/tiles/WifiCallingTile;
 
-    invoke-static {v3}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-get2(Lcom/android/systemui/qs/tiles/WifiCallingTile;)Landroid/app/AlertDialog;
+    invoke-static {v3}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-get3(Lcom/android/systemui/qs/tiles/WifiCallingTile;)Landroid/app/AlertDialog;
 
     move-result-object v3
 
@@ -98,7 +72,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile$1;->this$0:Lcom/android/systemui/qs/tiles/WifiCallingTile;
 
-    invoke-static {v3}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-get2(Lcom/android/systemui/qs/tiles/WifiCallingTile;)Landroid/app/AlertDialog;
+    invoke-static {v3}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-get3(Lcom/android/systemui/qs/tiles/WifiCallingTile;)Landroid/app/AlertDialog;
 
     move-result-object v3
 
@@ -143,7 +117,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile$1;->this$0:Lcom/android/systemui/qs/tiles/WifiCallingTile;
 
-    invoke-static {v3}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-get1(Lcom/android/systemui/qs/tiles/WifiCallingTile;)Z
+    invoke-static {v3}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-get2(Lcom/android/systemui/qs/tiles/WifiCallingTile;)Z
 
     move-result v3
 
@@ -201,7 +175,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile$1;->this$0:Lcom/android/systemui/qs/tiles/WifiCallingTile;
 
-    invoke-static {v3}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-get0(Lcom/android/systemui/qs/tiles/WifiCallingTile;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-get1(Lcom/android/systemui/qs/tiles/WifiCallingTile;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -209,7 +183,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "onReceive : IPSEC_CONNECTION_EVENT apntype "
+    const-string/jumbo v5, "onReceive : IPSEC_CONNECTION_EVENT apntype:"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -219,7 +193,7 @@
 
     move-result-object v4
 
-    const-string/jumbo v5, " ikeerror "
+    const-string/jumbo v5, ", ikeerror:"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

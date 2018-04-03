@@ -3,12 +3,12 @@
 .source "CellLayoutTaskbar.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/View$OnLayoutChangeListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->updateInCallUI(I)V
+    value = Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->showAeroWindow(Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,14 +34,47 @@
 
 
 # virtual methods
-.method public run()V
+.method public onLayoutChange(Landroid/view/View;IIIIIIII)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$8;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;
 
-    const/4 v1, 0x0
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->-get0(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;
 
-    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->-set2(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;Z)Z
+    move-result-object v0
 
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$8;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->-get0(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->getVisibility()I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$8;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$8;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;
+
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->-get0(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->-wrap1(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;Landroid/view/View;)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$8;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->-get0(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->removeOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
+
+    :cond_0
     return-void
 .end method

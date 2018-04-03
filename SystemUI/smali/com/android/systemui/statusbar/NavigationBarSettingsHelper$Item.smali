@@ -291,14 +291,6 @@
     return v0
 .end method
 
-.method public getStringValue()Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/NavigationBarSettingsHelper$Item;->mStringValue:Ljava/lang/String;
-
-    return-object v0
-.end method
-
 .method public read(Landroid/content/ContentResolver;)V
     .locals 7
 

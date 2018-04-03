@@ -3,12 +3,12 @@
 .source "HotspotTile.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnCancelListener;
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/qs/tiles/HotspotTile;->showWarningDialog(Z)V
+    value = Lcom/android/systemui/qs/tiles/HotspotTile;->showNoSIMDialog()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,18 +34,12 @@
 
 
 # virtual methods
-.method public onCancel(Landroid/content/DialogInterface;)V
-    .locals 2
+.method public onDismiss(Landroid/content/DialogInterface;)V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile$7;->this$0:Lcom/android/systemui/qs/tiles/HotspotTile;
 
-    const/4 v1, 0x0
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/systemui/qs/tiles/HotspotTile;->-wrap1(Lcom/android/systemui/qs/tiles/HotspotTile;Ljava/lang/Object;)V
+    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/HotspotTile;->refreshState()V
 
     return-void
 .end method

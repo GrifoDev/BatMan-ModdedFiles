@@ -3,6 +3,17 @@
 .source "TaskBarSettings.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "FavoritePos"
+.end annotation
+
+
 # instance fields
 .field public container:J
 

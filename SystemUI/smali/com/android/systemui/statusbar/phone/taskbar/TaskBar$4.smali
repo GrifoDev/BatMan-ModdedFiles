@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar$4;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->-get3(Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;)Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->-get8(Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;)Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
     move-result-object v0
 

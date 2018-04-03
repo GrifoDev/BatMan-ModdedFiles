@@ -6,6 +6,8 @@
 # instance fields
 .field private mAppName:Ljava/lang/String;
 
+.field private mColor:I
+
 .field private mContext:Landroid/content/Context;
 
 .field private mIcon:Landroid/widget/ImageView;
@@ -30,6 +32,8 @@
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreview;->mIsClicked:Z
 
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreview;->mIsFirstAdded:Z
+
+    iput v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreview;->mColor:I
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/preview/NotificationPreview;->mContext:Landroid/content/Context;
 
@@ -109,6 +113,14 @@
     return-void
 .end method
 
+.method public setColor(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/preview/NotificationPreview;->mColor:I
+
+    return-void
+.end method
+
 .method public setIsClicked(Z)V
     .locals 0
 
@@ -125,8 +137,8 @@
     return-void
 .end method
 
-.method public setPreviewIcon(Landroid/widget/ImageView;I)V
-    .locals 8
+.method public setPreviewIcon(Landroid/graphics/drawable/Drawable;I)V
+    .locals 9
 
     new-instance v6, Landroid/widget/ImageView;
 
@@ -136,11 +148,7 @@
 
     iput-object v6, p0, Lcom/android/systemui/statusbar/preview/NotificationPreview;->mIcon:Landroid/widget/ImageView;
 
-    invoke-virtual {p1}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
@@ -194,7 +202,19 @@
     :goto_1
     iget-object v6, p0, Lcom/android/systemui/statusbar/preview/NotificationPreview;->mIcon:Landroid/widget/ImageView;
 
-    const v7, 0x7f130056
+    iget v7, p0, Lcom/android/systemui/statusbar/preview/NotificationPreview;->mColor:I
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    const v8, 0x7f0a0502
+
+    invoke-virtual {v6, v8, v7}, Landroid/widget/ImageView;->setTag(ILjava/lang/Object;)V
+
+    iget-object v6, p0, Lcom/android/systemui/statusbar/preview/NotificationPreview;->mIcon:Landroid/widget/ImageView;
+
+    const v7, 0x7f0a0501
 
     invoke-virtual {v6, v7, v1}, Landroid/widget/ImageView;->setTag(ILjava/lang/Object;)V
 

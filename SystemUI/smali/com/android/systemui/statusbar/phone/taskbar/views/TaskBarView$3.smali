@@ -3,12 +3,12 @@
 .source "TaskBarView.java"
 
 # interfaces
-.implements Landroid/view/View$OnTouchListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->setup(Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;Z)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,49 +34,70 @@
 
 
 # virtual methods
-.method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 3
-
-    const/4 v2, 0x0
-
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    sget-boolean v0, Lcom/android/systemui/volume/VolumeDialogController;->mIsVolumeDialogShowing:Z
-
-    if-eqz v0, :cond_1
-
-    const-string/jumbo v0, "[DS]TaskBarView"
-
-    const-string/jumbo v1, "onTouch SHOWING"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+.method public run()V
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$3;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->-get0(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;)Landroid/media/AudioManager;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->-get2(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;)Landroid/widget/LinearLayout;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/media/AudioManager;->semDismissVolumePanel()V
+    invoke-virtual {v0}, Landroid/widget/LinearLayout;->isAttachedToWindow()Z
 
-    :cond_0
-    :goto_0
-    return v2
+    move-result v0
 
-    :cond_1
-    const-string/jumbo v0, "[DS]TaskBarView"
-
-    const-string/jumbo v1, "onTouch NOT SHOWING"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$3;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->-wrap1(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;)V
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->-get4(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;)Landroid/widget/LinearLayout;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/LinearLayout;->isAttachedToWindow()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$3;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->-get8(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;)Landroid/os/Handler;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$3;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->-get9(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;)Ljava/lang/Runnable;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$3;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->showKeyboardGuidedTour()V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$3;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->-get8(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;)Landroid/os/Handler;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$3;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->-get9(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;)Ljava/lang/Runnable;
+
+    move-result-object v1
+
+    const-wide/16 v2, 0x3e8
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     goto :goto_0
 .end method

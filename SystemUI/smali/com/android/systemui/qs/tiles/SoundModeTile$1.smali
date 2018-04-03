@@ -58,7 +58,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/SoundModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/SoundModeTile;
 
-    invoke-static {v2}, Lcom/android/systemui/qs/tiles/SoundModeTile;->-get3(Lcom/android/systemui/qs/tiles/SoundModeTile;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/systemui/qs/tiles/SoundModeTile;->-get5(Lcom/android/systemui/qs/tiles/SoundModeTile;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -81,7 +81,7 @@
     :goto_0
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/SoundModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/SoundModeTile;
 
-    invoke-static {v2}, Lcom/android/systemui/qs/tiles/SoundModeTile;->-get1(Lcom/android/systemui/qs/tiles/SoundModeTile;)Ljava/lang/String;
+    invoke-static {v2}, Lcom/android/systemui/qs/tiles/SoundModeTile;->-get3(Lcom/android/systemui/qs/tiles/SoundModeTile;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -89,7 +89,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "onReceive() : "
+    const-string/jumbo v4, "onReceive():"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -103,11 +103,17 @@
 
     move-result-object v3
 
+    const-string/jumbo v4, ", profile:"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    const-string/jumbo v4, " isTempMuteOn "
+    const-string/jumbo v4, ", isTempMuteOn:"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -129,17 +135,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/SoundModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/SoundModeTile;
 
-    invoke-static {v2}, Lcom/android/systemui/qs/tiles/SoundModeTile;->-get3(Lcom/android/systemui/qs/tiles/SoundModeTile;)Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "mode_ringer_time_on"
-
-    invoke-static {v2, v3, v5}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v2, v5}, Lcom/android/systemui/qs/tiles/SoundModeTile;->-wrap2(Lcom/android/systemui/qs/tiles/SoundModeTile;Z)V
 
     :cond_0
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/SoundModeTile$1;->this$0:Lcom/android/systemui/qs/tiles/SoundModeTile;

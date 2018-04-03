@@ -15,9 +15,11 @@
 
 
 # instance fields
-.field private mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+.field private mBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
-.field private mChangePreview:Ljava/lang/Runnable;
+.field private mChangePreviewForClick:Ljava/lang/Runnable;
+
+.field private mChangePreviewForFirstAdded:Ljava/lang/Runnable;
 
 .field private mClickListener:Landroid/view/View$OnClickListener;
 
@@ -58,31 +60,15 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;)Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+.method static synthetic -get0(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;)Lcom/android/systemui/statusbar/phone/StatusBar;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
     return-object v0
 .end method
 
-.method static synthetic -get1(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;)Ljava/lang/Runnable;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mChangePreview:Ljava/lang/Runnable;
-
-    return-object v0
-.end method
-
-.method static synthetic -get2(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;)Landroid/os/Handler;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mHandler:Landroid/os/Handler;
-
-    return-object v0
-.end method
-
-.method static synthetic -get3(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;)Lcom/android/systemui/statusbar/preview/NotificationPreviewIconSlotView;
+.method static synthetic -get1(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;)Lcom/android/systemui/statusbar/preview/NotificationPreviewIconSlotView;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mIconContainer:Lcom/android/systemui/statusbar/preview/NotificationPreviewIconSlotView;
@@ -90,7 +76,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;)Z
+.method static synthetic -get2(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mIsAnimating:Z
@@ -98,7 +84,7 @@
     return v0
 .end method
 
-.method static synthetic -get5(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;)Ljava/util/ArrayList;
+.method static synthetic -get3(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;)Ljava/util/ArrayList;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mList:Ljava/util/ArrayList;
@@ -106,18 +92,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get6(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;)Landroid/widget/TextView;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mMoreText:Landroid/widget/TextView;
-
-    return-object v0
-.end method
-
 .method static synthetic -set0(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;Ljava/lang/Runnable;)Ljava/lang/Runnable;
     .locals 0
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mChangePreview:Ljava/lang/Runnable;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mChangePreviewForFirstAdded:Ljava/lang/Runnable;
 
     return-object p1
 .end method
@@ -151,41 +129,25 @@
 .method static synthetic -wrap1(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;)I
     .locals 1
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->getIndexOfPreviewDisplayed()I
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->getIndexOfFirstAddedPreview()I
 
     move-result v0
 
     return v0
 .end method
 
-.method static synthetic -wrap2(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;Lcom/android/systemui/statusbar/preview/NotificationPreview;Z)V
+.method static synthetic -wrap2(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;Lcom/android/systemui/statusbar/preview/NotificationPreview;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->deleteFirstAddedPreview(Lcom/android/systemui/statusbar/preview/NotificationPreview;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap3(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;Lcom/android/systemui/statusbar/preview/NotificationPreview;Z)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->performAnim(Lcom/android/systemui/statusbar/preview/NotificationPreview;Z)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap3(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;Landroid/view/View;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->performIconAnim(Landroid/view/View;Z)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap4(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;Lcom/android/systemui/statusbar/preview/NotificationPreview;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->resetNotificationPreview(Lcom/android/systemui/statusbar/preview/NotificationPreview;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap5(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;Lcom/android/systemui/statusbar/preview/NotificationPreview;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->sendGsimLog(Lcom/android/systemui/statusbar/preview/NotificationPreview;)V
 
     return-void
 .end method
@@ -249,8 +211,6 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {p1, v2}, Lcom/android/systemui/statusbar/preview/NotificationPreview;->setIsClicked(Z)V
-
     invoke-virtual {p1, v2}, Lcom/android/systemui/statusbar/preview/NotificationPreview;->setIsFirstAdded(Z)V
 
     invoke-virtual {p1}, Lcom/android/systemui/statusbar/preview/NotificationPreview;->getRow()Lcom/android/systemui/statusbar/ExpandableNotificationRow;
@@ -268,13 +228,49 @@
     invoke-direct {p0, p1, v2}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->performAnim(Lcom/android/systemui/statusbar/preview/NotificationPreview;Z)V
 
     :cond_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mTimeOut:Ljava/lang/Runnable;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->hasCallbacks(Ljava/lang/Runnable;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mTimeOut:Ljava/lang/Runnable;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mChangePreviewForFirstAdded:Ljava/lang/Runnable;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->hasCallbacks(Ljava/lang/Runnable;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mChangePreviewForFirstAdded:Ljava/lang/Runnable;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mList:Ljava/util/ArrayList;
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->updateNotificationPreviewList(Ljava/util/ArrayList;)V
+
     return-void
 .end method
 
 .method private displayPreview(Lcom/android/systemui/statusbar/preview/NotificationPreview;)V
     .locals 8
-
-    const/4 v4, 0x1
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mIconContainer:Lcom/android/systemui/statusbar/preview/NotificationPreviewIconSlotView;
 
@@ -295,13 +291,7 @@
 
     const/4 v3, -0x1
 
-    if-eq v1, v3, :cond_3
-
-    new-instance v3, Lcom/android/systemui/statusbar/preview/NotificationPreviewController$6;
-
-    invoke-direct {v3, p0, p1}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController$6;-><init>(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;Lcom/android/systemui/statusbar/preview/NotificationPreview;)V
-
-    iput-object v3, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mChangePreview:Ljava/lang/Runnable;
+    if-eq v1, v3, :cond_4
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mList:Ljava/util/ArrayList;
 
@@ -315,20 +305,43 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_3
 
     invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->resetNotificationPreview(Lcom/android/systemui/statusbar/preview/NotificationPreview;)V
 
-    :cond_1
+    :goto_0
     iget-object v3, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mHandler:Landroid/os/Handler;
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mChangePreview:Ljava/lang/Runnable;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mChangePreviewForFirstAdded:Ljava/lang/Runnable;
+
+    invoke-virtual {v3, v4}, Landroid/os/Handler;->hasCallbacks(Ljava/lang/Runnable;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mHandler:Landroid/os/Handler;
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mChangePreviewForFirstAdded:Ljava/lang/Runnable;
+
+    invoke-virtual {v3, v4}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    :cond_1
+    new-instance v3, Lcom/android/systemui/statusbar/preview/NotificationPreviewController$6;
+
+    invoke-direct {v3, p0, p1}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController$6;-><init>(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;Lcom/android/systemui/statusbar/preview/NotificationPreview;)V
+
+    iput-object v3, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mChangePreviewForFirstAdded:Ljava/lang/Runnable;
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mHandler:Landroid/os/Handler;
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mChangePreviewForFirstAdded:Ljava/lang/Runnable;
 
     const-wide/16 v6, 0xa6
 
     invoke-virtual {v3, v4, v6, v7}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    :goto_0
+    :goto_1
     iget-object v3, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mHandler:Landroid/os/Handler;
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mTimeOut:Ljava/lang/Runnable;
@@ -357,11 +370,16 @@
     return-void
 
     :cond_3
-    invoke-direct {p0, p1, v4}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->performAnim(Lcom/android/systemui/statusbar/preview/NotificationPreview;Z)V
-
-    invoke-virtual {p1, v4}, Lcom/android/systemui/statusbar/preview/NotificationPreview;->setIsClicked(Z)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->deleteFirstAddedPreview(Lcom/android/systemui/statusbar/preview/NotificationPreview;)V
 
     goto :goto_0
+
+    :cond_4
+    const/4 v3, 0x1
+
+    invoke-direct {p0, p1, v3}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->performAnim(Lcom/android/systemui/statusbar/preview/NotificationPreview;Z)V
+
+    goto :goto_1
 .end method
 
 .method private findPreviewByIcon(Landroid/view/View;)Lcom/android/systemui/statusbar/preview/NotificationPreview;
@@ -409,50 +427,7 @@
     return-object v4
 .end method
 
-.method private getIndexOfPreviewDisplayed()I
-    .locals 3
-
-    const/4 v0, 0x0
-
-    :goto_0
-    iget-object v2, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mList:Ljava/util/ArrayList;
-
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
-
-    move-result v2
-
-    if-ge v0, v2, :cond_1
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mList:Ljava/util/ArrayList;
-
-    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/statusbar/preview/NotificationPreview;
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/preview/NotificationPreview;->isClicked()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    return v0
-
-    :cond_0
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v2, -0x1
-
-    return v2
-.end method
-
-.method private indexOfFirstAddedPreview()I
+.method private getIndexOfFirstAddedPreview()I
     .locals 3
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mList:Ljava/util/ArrayList;
@@ -492,6 +467,66 @@
     goto :goto_0
 
     :cond_1
+    const/4 v2, -0x1
+
+    return v2
+.end method
+
+.method private getIndexOfPreviewDisplayed()I
+    .locals 3
+
+    const/4 v0, 0x0
+
+    :goto_0
+    iget-object v2, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mList:Ljava/util/ArrayList;
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v0, v2, :cond_2
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mList:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/statusbar/preview/NotificationPreview;
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/preview/NotificationPreview;->isClicked()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/preview/NotificationPreview;->isFirstAdded()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    :cond_0
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/preview/NotificationPreview;->getRow()Lcom/android/systemui/statusbar/ExpandableNotificationRow;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->isNotificationPreview()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    return v0
+
+    :cond_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_2
     const/4 v2, -0x1
 
     return v2
@@ -575,7 +610,7 @@
 .method private performAnim(Lcom/android/systemui/statusbar/preview/NotificationPreview;Z)V
     .locals 8
 
-    const/4 v4, 0x1
+    const/4 v7, 0x1
 
     const/4 v3, 0x0
 
@@ -583,7 +618,7 @@
 
     move-result-object v2
 
-    iput-boolean v4, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mShouldClearStackScrollerBackground:Z
+    iput-boolean v7, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mShouldClearStackScrollerBackground:Z
 
     if-eqz p2, :cond_4
 
@@ -591,94 +626,94 @@
 
     invoke-static {v3, v3}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
-    move-result v5
+    move-result v4
 
     invoke-static {v3, v3}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
-    move-result v6
+    move-result v5
 
-    invoke-virtual {v2, v5, v6}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->measure(II)V
+    invoke-virtual {v2, v4, v5}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->measure(II)V
 
     invoke-virtual {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->getMeasuredHeight()I
 
-    move-result v6
-
-    iget-object v5, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
-
-    if-eqz v5, :cond_2
-
-    iget-object v5, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
-
-    invoke-virtual {v5}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->getAvailableSpaceHeight()I
-
     move-result v5
 
-    :goto_0
-    if-ge v6, v5, :cond_3
+    iget-object v4, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    move v0, v4
+    if-eqz v4, :cond_2
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/StatusBar;->getAvailableSpaceHeight()I
+
+    move-result v4
+
+    :goto_0
+    if-ge v5, v4, :cond_3
+
+    const/4 v0, 0x1
 
     :goto_1
     if-nez v0, :cond_0
 
-    const-string/jumbo v5, "N.I.O."
+    const-string/jumbo v4, "N.I.O."
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual {p1}, Lcom/android/systemui/statusbar/preview/NotificationPreview;->getKey()Ljava/lang/String;
 
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v6
 
-    const-string/jumbo v7, " no available space to display expanded preview .. "
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    move-result-object v6
+    const-string/jumbo v6, " no available space to display expanded preview .. "
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     invoke-virtual {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->isSummaryWithChildren()Z
 
-    move-result v5
+    move-result v4
 
-    if-nez v5, :cond_1
+    if-nez v4, :cond_1
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->setExpandedNotificationPreview(Z)V
+    invoke-virtual {v2, v7}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->setExpandedNotificationPreview(Z)V
 
     :cond_1
-    invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->setNotificationPreview(Z)V
+    invoke-virtual {v2, v7}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->setNotificationPreview(Z)V
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mDrawStackScrollerBackground:Ljava/lang/Runnable;
 
     invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->performAddAnim(Ljava/lang/Runnable;)V
 
     :goto_2
-    iget-object v4, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mChangePreview:Ljava/lang/Runnable;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mChangePreviewForClick:Ljava/lang/Runnable;
 
     if-eqz v4, :cond_5
 
     return-void
 
     :cond_2
-    const/4 v5, -0x1
+    const/4 v4, -0x1
 
     goto :goto_0
 
     :cond_3
-    move v0, v3
+    const/4 v0, 0x0
 
     goto :goto_1
 
@@ -728,23 +763,8 @@
 
     const/4 v2, 0x0
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_0
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/preview/NotificationPreview;->isFirstAdded()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->deleteFirstAddedPreview(Lcom/android/systemui/statusbar/preview/NotificationPreview;)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mList:Ljava/util/ArrayList;
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->updateNotificationPreviewList(Ljava/util/ArrayList;)V
-
-    return-void
-
-    :cond_0
     invoke-virtual {p1, v2}, Lcom/android/systemui/statusbar/preview/NotificationPreview;->setIsClicked(Z)V
 
     invoke-virtual {p1}, Lcom/android/systemui/statusbar/preview/NotificationPreview;->getPreviewIcon()Landroid/widget/ImageView;
@@ -763,39 +783,11 @@
 
     const/16 v1, 0x8
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_0
 
     invoke-direct {p0, p1, v2}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->performAnim(Lcom/android/systemui/statusbar/preview/NotificationPreview;Z)V
 
-    :cond_1
-    return-void
-.end method
-
-.method private sendGsimLog(Lcom/android/systemui/statusbar/preview/NotificationPreview;)V
-    .locals 5
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v1, "com.android.systemui.statusbar.policy.notification.lockscreen"
-
-    const-string/jumbo v2, "NO10"
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/preview/NotificationPreview;->getRow()Lcom/android/systemui/statusbar/ExpandableNotificationRow;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->getStatusBarNotification()Landroid/service/notification/StatusBarNotification;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
-
-    move-result-object v3
-
-    const/4 v4, 0x0
-
-    invoke-static {v0, v1, v2, v3, v4}, Lcom/android/keyguard/util/GsimLogManager;->sendLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;)V
-
+    :cond_0
     return-void
 .end method
 
@@ -823,7 +815,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0f078d
+    const v3, 0x7f1207c8
 
     invoke-virtual {v1, v3, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -831,7 +823,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mMoreText:Landroid/widget/TextView;
 
-    const v2, 0x7f100257
+    const v2, 0x7f130297
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setTextAppearance(I)V
 
@@ -871,7 +863,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f0a0a
+    const v3, 0x7f120772
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -930,7 +922,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0f0a09
+    const v4, 0x7f120719
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -959,7 +951,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0f0048
+    const v4, 0x7f120718
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1001,13 +993,13 @@
     invoke-virtual {v0, p1}, Lcom/android/systemui/swipe/SwipeAnimator;->startPreviewFocusAnim(Z)V
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->updateHelpText(Z)V
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateHelpText(Z)V
 
     :cond_1
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mIsPreviewFocused:Z
@@ -1027,48 +1019,56 @@
 .end method
 
 .method public isPreviewDoubleTapped(Landroid/view/View;)Z
-    .locals 2
+    .locals 3
+
+    if-eqz p1, :cond_0
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->getIndexOfPreviewDisplayed()I
 
     move-result v0
 
-    const/4 v1, -0x1
+    const/4 v2, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v2, :cond_0
 
-    if-eqz p1, :cond_0
+    iget-object v2, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mList:Ljava/util/ArrayList;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mList:Ljava/util/ArrayList;
-
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mList:Ljava/util/ArrayList;
-
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Lcom/android/systemui/statusbar/preview/NotificationPreview;
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/preview/NotificationPreview;->getRow()Lcom/android/systemui/statusbar/ExpandableNotificationRow;
+    if-eqz v1, :cond_0
 
-    move-result-object v1
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/preview/NotificationPreview;->isClicked()Z
 
-    invoke-virtual {p1, v1}, Landroid/view/View;->equals(Ljava/lang/Object;)Z
+    move-result v2
 
-    move-result v1
+    if-eqz v2, :cond_0
 
-    return v1
+    iget-object v2, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mList:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/preview/NotificationPreview;
+
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/preview/NotificationPreview;->getRow()Lcom/android/systemui/statusbar/ExpandableNotificationRow;
+
+    move-result-object v2
+
+    invoke-virtual {p1, v2}, Landroid/view/View;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    return v2
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    return v1
+    return v2
 .end method
 
 .method public onBackPressed()Z
@@ -1095,85 +1095,81 @@
 .end method
 
 .method public resetNotificationPreview()V
-    .locals 6
+    .locals 5
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mIconContainer:Lcom/android/systemui/statusbar/preview/NotificationPreviewIconSlotView;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mIconContainer:Lcom/android/systemui/statusbar/preview/NotificationPreviewIconSlotView;
 
-    if-eqz v4, :cond_4
+    if-eqz v3, :cond_4
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mHandler:Landroid/os/Handler;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mHandler:Landroid/os/Handler;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mTimeOut:Ljava/lang/Runnable;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mTimeOut:Ljava/lang/Runnable;
 
-    invoke-virtual {v4, v5}, Landroid/os/Handler;->hasCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {v3, v4}, Landroid/os/Handler;->hasCallbacks(Ljava/lang/Runnable;)Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mHandler:Landroid/os/Handler;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mHandler:Landroid/os/Handler;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mTimeOut:Ljava/lang/Runnable;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mTimeOut:Ljava/lang/Runnable;
 
-    invoke-virtual {v4, v5}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+    invoke-virtual {v3, v4}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     :cond_0
-    iget-object v4, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mList:Ljava/util/ArrayList;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mList:Ljava/util/ArrayList;
 
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
     move-result v0
-
-    const/4 v2, 0x0
 
     const/4 v1, 0x0
 
     :goto_0
-    if-ge v1, v0, :cond_3
+    if-ge v1, v0, :cond_4
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mList:Ljava/util/ArrayList;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mList:Ljava/util/ArrayList;
 
-    invoke-virtual {v4, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Lcom/android/systemui/statusbar/preview/NotificationPreview;
+    check-cast v2, Lcom/android/systemui/statusbar/preview/NotificationPreview;
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_2
 
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/preview/NotificationPreview;->isClicked()Z
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/preview/NotificationPreview;->isClicked()Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_1
+    if-nez v3, :cond_1
 
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/preview/NotificationPreview;->isFirstAdded()Z
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/preview/NotificationPreview;->isFirstAdded()Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_2
-
-    invoke-direct {p0, v3}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->deleteFirstAddedPreview(Lcom/android/systemui/statusbar/preview/NotificationPreview;)V
-
-    const/4 v2, 0x1
+    if-eqz v3, :cond_2
 
     :cond_1
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/preview/NotificationPreview;->isFirstAdded()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    invoke-direct {p0, v2}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->deleteFirstAddedPreview(Lcom/android/systemui/statusbar/preview/NotificationPreview;)V
+
+    :cond_2
     :goto_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    :cond_2
-    invoke-direct {p0, v3}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->resetNotificationPreview(Lcom/android/systemui/statusbar/preview/NotificationPreview;)V
+    :cond_3
+    invoke-direct {p0, v2}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->resetNotificationPreview(Lcom/android/systemui/statusbar/preview/NotificationPreview;)V
 
     goto :goto_1
-
-    :cond_3
-    if-eqz v2, :cond_4
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mList:Ljava/util/ArrayList;
-
-    invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->updateNotificationPreviewList(Ljava/util/ArrayList;)V
 
     :cond_4
     return-void
@@ -1203,7 +1199,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mHandler:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mChangePreview:Ljava/lang/Runnable;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mChangePreviewForClick:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->hasCallbacks(Ljava/lang/Runnable;)Z
 
@@ -1213,11 +1209,28 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mHandler:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mChangePreview:Ljava/lang/Runnable;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mChangePreviewForClick:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     :cond_1
+    iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mChangePreviewForFirstAdded:Ljava/lang/Runnable;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->hasCallbacks(Ljava/lang/Runnable;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mChangePreviewForFirstAdded:Ljava/lang/Runnable;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    :cond_2
     iput-boolean v2, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mShouldClearStackScrollerBackground:Z
 
     iput-boolean v2, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mIsAnimating:Z
@@ -1227,10 +1240,10 @@
     return-void
 .end method
 
-.method public setBar(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
+.method public setBar(Lcom/android/systemui/statusbar/phone/StatusBar;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
     return-void
 .end method
@@ -1298,17 +1311,9 @@
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mShouldClearStackScrollerBackground:Z
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method public updateIconContainerVisibility(Z)V
@@ -1352,11 +1357,8 @@
 
     move-result v17
 
-    if-eqz v17, :cond_1
+    xor-int/lit8 v9, v17, 0x1
 
-    const/4 v9, 0x0
-
-    :goto_0
     move-object/from16 v0, p1
 
     move-object/from16 v1, p0
@@ -1379,8 +1381,8 @@
 
     const/4 v7, 0x0
 
-    :goto_1
-    if-ge v7, v2, :cond_2
+    :goto_0
+    if-ge v7, v2, :cond_1
 
     move-object/from16 v0, p1
 
@@ -1415,21 +1417,16 @@
     :cond_0
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_1
-
-    :cond_1
-    const/4 v9, 0x1
-
     goto :goto_0
 
-    :cond_2
+    :cond_1
     invoke-virtual {v13}, Ljava/util/ArrayList;->size()I
 
     move-result v14
 
     const/4 v7, 0x0
 
-    :goto_2
+    :goto_1
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mIconContainer:Lcom/android/systemui/statusbar/preview/NotificationPreviewIconSlotView;
@@ -1460,30 +1457,30 @@
 
     move-result v17
 
-    if-eqz v17, :cond_3
+    if-eqz v17, :cond_2
 
     instance-of v0, v15, Landroid/widget/ImageView;
 
     move/from16 v17, v0
 
+    xor-int/lit8 v17, v17, 0x1
+
     if-eqz v17, :cond_3
 
-    :goto_3
-    add-int/lit8 v7, v7, 0x1
-
-    goto :goto_2
-
-    :cond_3
+    :cond_2
     invoke-virtual {v12, v15}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_3
+    :cond_3
+    add-int/lit8 v7, v7, 0x1
+
+    goto :goto_1
 
     :cond_4
     invoke-interface {v12}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v16
 
-    :goto_4
+    :goto_2
     invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v17
@@ -1506,7 +1503,7 @@
 
     invoke-virtual {v0, v15}, Lcom/android/systemui/statusbar/preview/NotificationPreviewIconSlotView;->removeView(Landroid/view/View;)V
 
-    goto :goto_4
+    goto :goto_2
 
     :cond_5
     if-lez v14, :cond_f
@@ -1519,7 +1516,7 @@
 
     const/4 v7, 0x0
 
-    :goto_5
+    :goto_3
     if-ge v7, v14, :cond_7
 
     invoke-virtual {v13, v7}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -1547,12 +1544,12 @@
     :cond_6
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_5
+    goto :goto_3
 
     :cond_7
     const/4 v7, 0x0
 
-    :goto_6
+    :goto_4
     if-ge v7, v14, :cond_f
 
     move-object/from16 v0, p0
@@ -1589,10 +1586,10 @@
 
     if-ne v3, v5, :cond_8
 
-    :goto_7
+    :goto_5
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_6
+    goto :goto_4
 
     :cond_8
     move-object/from16 v0, p0
@@ -1615,12 +1612,12 @@
 
     invoke-virtual {v0, v5, v7}, Lcom/android/systemui/statusbar/preview/NotificationPreviewIconSlotView;->addView(Landroid/view/View;I)V
 
-    goto :goto_7
+    goto :goto_5
 
     :cond_9
     const/4 v7, 0x0
 
-    :goto_8
+    :goto_6
     if-ge v7, v14, :cond_b
 
     const/16 v17, 0x4
@@ -1654,12 +1651,12 @@
     :cond_a
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_8
+    goto :goto_6
 
     :cond_b
     const/4 v7, 0x0
 
-    :goto_9
+    :goto_7
     const/16 v17, 0x3
 
     move/from16 v0, v17
@@ -1686,10 +1683,10 @@
 
     if-ne v3, v5, :cond_c
 
-    :goto_a
+    :goto_8
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_9
+    goto :goto_7
 
     :cond_c
     move-object/from16 v0, p0
@@ -1712,7 +1709,7 @@
 
     invoke-virtual {v0, v5, v7}, Lcom/android/systemui/statusbar/preview/NotificationPreviewIconSlotView;->addView(Landroid/view/View;I)V
 
-    goto :goto_a
+    goto :goto_8
 
     :cond_d
     move-object/from16 v0, p0
@@ -1727,7 +1724,7 @@
 
     add-int/lit8 v7, v17, -0x1
 
-    :goto_b
+    :goto_9
     const/16 v17, 0x3
 
     move/from16 v0, v17
@@ -1756,7 +1753,7 @@
 
     add-int/lit8 v7, v7, -0x1
 
-    goto :goto_b
+    goto :goto_9
 
     :cond_e
     add-int/lit8 v10, v14, -0x3
@@ -1780,9 +1777,17 @@
     invoke-virtual/range {v17 .. v18}, Lcom/android/systemui/statusbar/preview/NotificationPreviewIconSlotView;->addView(Landroid/view/View;)V
 
     :cond_f
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->mIconContainer:Lcom/android/systemui/statusbar/preview/NotificationPreviewIconSlotView;
+
+    move-object/from16 v17, v0
+
+    invoke-virtual/range {v17 .. v17}, Lcom/android/systemui/statusbar/preview/NotificationPreviewIconSlotView;->updatePaddingLeftAndRight()V
+
     invoke-direct/range {p0 .. p0}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->updateIconContentDescription()V
 
-    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->indexOfFirstAddedPreview()I
+    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->getIndexOfFirstAddedPreview()I
 
     move-result v6
 
@@ -1792,6 +1797,8 @@
 
     if-eq v6, v0, :cond_10
 
+    if-eqz v9, :cond_10
+
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -1799,12 +1806,6 @@
     move-result-object v11
 
     check-cast v11, Lcom/android/systemui/statusbar/preview/NotificationPreview;
-
-    invoke-virtual {v11}, Lcom/android/systemui/statusbar/preview/NotificationPreview;->isClicked()Z
-
-    move-result v17
-
-    if-nez v17, :cond_10
 
     move-object/from16 v0, p0
 

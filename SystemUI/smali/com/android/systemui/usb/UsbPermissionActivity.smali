@@ -12,6 +12,8 @@
 
 .field private mAlwaysUse:Landroid/widget/CheckBox;
 
+.field private mCheckBoxText:Landroid/widget/TextView;
+
 .field private mClearDefaultHint:Landroid/widget/TextView;
 
 .field private mDevice:Landroid/hardware/usb/UsbDevice;
@@ -28,6 +30,14 @@
 
 
 # direct methods
+.method static synthetic -get0(Lcom/android/systemui/usb/UsbPermissionActivity;)Landroid/widget/CheckBox;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/usb/UsbPermissionActivity;->mAlwaysUse:Landroid/widget/CheckBox;
+
+    return-object v0
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -39,7 +49,29 @@
 
 # virtual methods
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-    .locals 2
+    .locals 3
+
+    const-string/jumbo v0, "UsbPermissionActivity"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "onCheckedChanged "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/android/systemui/usb/UsbPermissionActivity;->mClearDefaultHint:Landroid/widget/TextView;
 
@@ -89,11 +121,11 @@
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 12
 
-    const/4 v9, 0x0
-
     const/4 v11, 0x1
 
     const/4 v10, 0x0
+
+    const/4 v9, 0x0
 
     invoke-super {p0, p1}, Lcom/android/internal/app/AlertActivity;->onCreate(Landroid/os/Bundle;)V
 
@@ -188,9 +220,9 @@
 
     new-array v7, v11, [Ljava/lang/Object;
 
-    aput-object v2, v7, v10
+    aput-object v2, v7, v9
 
-    const v8, 0x7f0f02d0
+    const v8, 0x7f120ac3
 
     invoke-virtual {p0, v8, v7}, Lcom/android/systemui/usb/UsbPermissionActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -227,6 +259,12 @@
 
     iput-object p0, v1, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
+    const-string/jumbo v7, "UsbPermissionActivity"
+
+    const-string/jumbo v8, "onCreate use sec_always_use_checkbox"
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     const-string/jumbo v7, "layout_inflater"
 
     invoke-virtual {p0, v7}, Lcom/android/systemui/usb/UsbPermissionActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -235,9 +273,9 @@
 
     check-cast v4, Landroid/view/LayoutInflater;
 
-    const v7, 0x1090031
+    const v7, 0x7f0d018a
 
-    invoke-virtual {v4, v7, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {v4, v7, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v7
 
@@ -245,7 +283,7 @@
 
     iget-object v7, v1, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v8, 0x1020391
+    const v8, 0x7f0a0041
 
     invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -255,24 +293,44 @@
 
     iput-object v7, p0, Lcom/android/systemui/usb/UsbPermissionActivity;->mAlwaysUse:Landroid/widget/CheckBox;
 
+    iget-object v7, v1, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
+
+    const v8, 0x7f0a00d7
+
+    invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/widget/TextView;
+
+    iput-object v7, p0, Lcom/android/systemui/usb/UsbPermissionActivity;->mCheckBoxText:Landroid/widget/TextView;
+
     iget-object v7, p0, Lcom/android/systemui/usb/UsbPermissionActivity;->mDevice:Landroid/hardware/usb/UsbDevice;
 
     if-nez v7, :cond_1
 
-    iget-object v7, p0, Lcom/android/systemui/usb/UsbPermissionActivity;->mAlwaysUse:Landroid/widget/CheckBox;
+    iget-object v7, p0, Lcom/android/systemui/usb/UsbPermissionActivity;->mCheckBoxText:Landroid/widget/TextView;
 
-    const v8, 0x7f0f02d7
+    const v8, 0x7f120120
 
-    invoke-virtual {v7, v8}, Landroid/widget/CheckBox;->setText(I)V
+    invoke-virtual {v7, v8}, Landroid/widget/TextView;->setText(I)V
 
     :goto_1
+    iget-object v7, p0, Lcom/android/systemui/usb/UsbPermissionActivity;->mCheckBoxText:Landroid/widget/TextView;
+
+    new-instance v8, Lcom/android/systemui/usb/UsbPermissionActivity$1;
+
+    invoke-direct {v8, p0}, Lcom/android/systemui/usb/UsbPermissionActivity$1;-><init>(Lcom/android/systemui/usb/UsbPermissionActivity;)V
+
+    invoke-virtual {v7, v8}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
     iget-object v7, p0, Lcom/android/systemui/usb/UsbPermissionActivity;->mAlwaysUse:Landroid/widget/CheckBox;
 
     invoke-virtual {v7, p0}, Landroid/widget/CheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     iget-object v7, v1, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v8, 0x1020392
+    const v8, 0x7f0a00de
 
     invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -281,32 +339,6 @@
     check-cast v7, Landroid/widget/TextView;
 
     iput-object v7, p0, Lcom/android/systemui/usb/UsbPermissionActivity;->mClearDefaultHint:Landroid/widget/TextView;
-
-    iget-object v7, p0, Lcom/android/systemui/usb/UsbPermissionActivity;->mClearDefaultHint:Landroid/widget/TextView;
-
-    invoke-virtual {p0}, Lcom/android/systemui/usb/UsbPermissionActivity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v8
-
-    const v9, 0x1040399
-
-    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v8
-
-    invoke-interface {v8}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    new-array v9, v11, [Ljava/lang/Object;
-
-    aput-object v2, v9, v10
-
-    invoke-static {v8, v9}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     iget-object v7, p0, Lcom/android/systemui/usb/UsbPermissionActivity;->mClearDefaultHint:Landroid/widget/TextView;
 
@@ -334,9 +366,9 @@
     :cond_0
     new-array v7, v11, [Ljava/lang/Object;
 
-    aput-object v2, v7, v10
+    aput-object v2, v7, v9
 
-    const v8, 0x7f0f02cf
+    const v8, 0x7f120acd
 
     invoke-virtual {p0, v8, v7}, Lcom/android/systemui/usb/UsbPermissionActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -355,11 +387,11 @@
     goto/16 :goto_0
 
     :cond_1
-    iget-object v7, p0, Lcom/android/systemui/usb/UsbPermissionActivity;->mAlwaysUse:Landroid/widget/CheckBox;
+    iget-object v7, p0, Lcom/android/systemui/usb/UsbPermissionActivity;->mCheckBoxText:Landroid/widget/TextView;
 
-    const v8, 0x7f0f02d6
+    const v8, 0x7f120121
 
-    invoke-virtual {v7, v8}, Landroid/widget/CheckBox;->setText(I)V
+    invoke-virtual {v7, v8}, Landroid/widget/TextView;->setText(I)V
 
     goto :goto_1
 .end method
@@ -472,6 +504,10 @@
 
     iget-object v6, p0, Lcom/android/systemui/usb/UsbPermissionActivity;->mPendingIntent:Landroid/app/PendingIntent;
 
+    if-eqz v6, :cond_2
+
+    iget-object v6, p0, Lcom/android/systemui/usb/UsbPermissionActivity;->mPendingIntent:Landroid/app/PendingIntent;
+
     const/4 v7, 0x0
 
     invoke-virtual {v6, p0, v7, v3}, Landroid/app/PendingIntent;->send(Landroid/content/Context;ILandroid/content/Intent;)V
@@ -479,16 +515,17 @@
     .catch Landroid/app/PendingIntent$CanceledException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    :cond_2
     :goto_0
     iget-object v6, p0, Lcom/android/systemui/usb/UsbPermissionActivity;->mDisconnectedReceiver:Lcom/android/systemui/usb/UsbDisconnectedReceiver;
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3
 
     iget-object v6, p0, Lcom/android/systemui/usb/UsbPermissionActivity;->mDisconnectedReceiver:Lcom/android/systemui/usb/UsbDisconnectedReceiver;
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/usb/UsbPermissionActivity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    :cond_2
+    :cond_3
     invoke-super {p0}, Lcom/android/internal/app/AlertActivity;->onDestroy()V
 
     return-void

@@ -69,7 +69,7 @@
     :cond_0
     iget-object v2, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
-    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get10(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
+    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get9(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
 
     move-result-object v2
 
@@ -109,7 +109,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
-    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get10(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
+    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get9(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
 
     move-result-object v2
 
@@ -149,7 +149,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
-    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get10(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
+    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get9(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
 
     move-result-object v2
 
@@ -197,7 +197,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
-    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get10(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
+    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get9(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
 
     move-result-object v2
 
@@ -237,7 +237,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
-    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get10(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
+    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get9(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
 
     move-result-object v2
 
@@ -277,7 +277,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
-    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get10(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
+    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get9(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
 
     move-result-object v2
 
@@ -318,7 +318,7 @@
     :cond_1
     iget-object v2, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
-    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get10(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
+    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get9(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
 
     move-result-object v2
 
@@ -326,7 +326,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
-    invoke-static {v4}, Lcom/android/systemui/swipe/SwipeAnimator;->-get9(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/view/View;
+    invoke-static {v4}, Lcom/android/systemui/swipe/SwipeAnimator;->-get8(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/view/View;
 
     move-result-object v4
 
@@ -336,7 +336,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
-    invoke-static {v7}, Lcom/android/systemui/swipe/SwipeAnimator;->-get9(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/view/View;
+    invoke-static {v7}, Lcom/android/systemui/swipe/SwipeAnimator;->-get8(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/view/View;
 
     move-result-object v7
 
@@ -358,7 +358,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
-    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get10(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
+    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get9(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
 
     move-result-object v2
 
@@ -366,7 +366,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
-    invoke-static {v4}, Lcom/android/systemui/swipe/SwipeAnimator;->-get9(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/view/View;
+    invoke-static {v4}, Lcom/android/systemui/swipe/SwipeAnimator;->-get8(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/view/View;
 
     move-result-object v4
 
@@ -376,7 +376,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
-    invoke-static {v7}, Lcom/android/systemui/swipe/SwipeAnimator;->-get9(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/view/View;
+    invoke-static {v7}, Lcom/android/systemui/swipe/SwipeAnimator;->-get8(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/view/View;
 
     move-result-object v7
 
@@ -398,7 +398,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
-    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get10(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
+    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get9(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
 
     move-result-object v2
 
@@ -406,7 +406,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
-    invoke-static {v4}, Lcom/android/systemui/swipe/SwipeAnimator;->-get9(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/view/View;
+    invoke-static {v4}, Lcom/android/systemui/swipe/SwipeAnimator;->-get8(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/view/View;
 
     move-result-object v4
 
@@ -416,7 +416,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
-    invoke-static {v7}, Lcom/android/systemui/swipe/SwipeAnimator;->-get9(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/view/View;
+    invoke-static {v7}, Lcom/android/systemui/swipe/SwipeAnimator;->-get8(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/view/View;
 
     move-result-object v7
 
@@ -436,7 +436,7 @@
 
     invoke-virtual {v2, v3}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
 
-    sget-boolean v2, Lcom/android/systemui/SystemUIRune;->SUPPORT_NOTIFICATION_ICONS_ONLY:Z
+    sget-boolean v2, Lcom/android/systemui/Rune;->NOTI_SUPPORT_ICONS_ONLY_LOCKSCREEN:Z
 
     if-eqz v2, :cond_2
 
@@ -450,7 +450,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
-    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get10(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
+    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get9(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
 
     move-result-object v2
 
@@ -490,7 +490,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
-    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get10(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
+    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get9(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
 
     move-result-object v2
 
@@ -530,7 +530,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
-    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get10(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
+    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get9(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
 
     move-result-object v2
 
@@ -571,135 +571,6 @@
     :cond_2
     iget-object v2, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
-    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get7(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/view/View;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_3
-
-    iget-object v2, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
-
-    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get10(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
-
-    move-result-object v2
-
-    new-array v3, v9, [Landroid/animation/Animator;
-
-    iget-object v4, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
-
-    invoke-static {v4}, Lcom/android/systemui/swipe/SwipeAnimator;->-get7(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/view/View;
-
-    move-result-object v4
-
-    sget-object v5, Landroid/view/View;->SCALE_X:Landroid/util/Property;
-
-    new-array v6, v11, [F
-
-    iget-object v7, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
-
-    invoke-static {v7}, Lcom/android/systemui/swipe/SwipeAnimator;->-get7(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/view/View;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Landroid/view/View;->getScaleX()F
-
-    move-result v7
-
-    aput v7, v6, v8
-
-    aput v10, v6, v9
-
-    invoke-static {v4, v5, v6}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object v4
-
-    aput-object v4, v3, v8
-
-    invoke-virtual {v2, v3}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
-
-    iget-object v2, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
-
-    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get10(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
-
-    move-result-object v2
-
-    new-array v3, v9, [Landroid/animation/Animator;
-
-    iget-object v4, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
-
-    invoke-static {v4}, Lcom/android/systemui/swipe/SwipeAnimator;->-get7(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/view/View;
-
-    move-result-object v4
-
-    sget-object v5, Landroid/view/View;->SCALE_Y:Landroid/util/Property;
-
-    new-array v6, v11, [F
-
-    iget-object v7, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
-
-    invoke-static {v7}, Lcom/android/systemui/swipe/SwipeAnimator;->-get7(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/view/View;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Landroid/view/View;->getScaleY()F
-
-    move-result v7
-
-    aput v7, v6, v8
-
-    aput v10, v6, v9
-
-    invoke-static {v4, v5, v6}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object v4
-
-    aput-object v4, v3, v8
-
-    invoke-virtual {v2, v3}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
-
-    iget-object v2, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
-
-    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get10(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
-
-    move-result-object v2
-
-    new-array v3, v9, [Landroid/animation/Animator;
-
-    iget-object v4, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
-
-    invoke-static {v4}, Lcom/android/systemui/swipe/SwipeAnimator;->-get7(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/view/View;
-
-    move-result-object v4
-
-    sget-object v5, Landroid/view/View;->ALPHA:Landroid/util/Property;
-
-    new-array v6, v11, [F
-
-    iget-object v7, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
-
-    invoke-static {v7}, Lcom/android/systemui/swipe/SwipeAnimator;->-get7(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/view/View;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Landroid/view/View;->getAlpha()F
-
-    move-result v7
-
-    aput v7, v6, v8
-
-    aput v10, v6, v9
-
-    invoke-static {v4, v5, v6}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object v4
-
-    aput-object v4, v3, v8
-
-    invoke-virtual {v2, v3}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
-
-    :cond_3
-    iget-object v2, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
-
     invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get1(Lcom/android/systemui/swipe/SwipeAnimator;)Ljava/util/ArrayList;
 
     move-result-object v2
@@ -708,13 +579,13 @@
 
     move-result-object v1
 
-    :cond_4
+    :cond_3
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_4
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -722,17 +593,17 @@
 
     check-cast v0, Landroid/view/View;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3
 
     invoke-virtual {v0}, Landroid/view/View;->getVisibility()I
 
     move-result v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_3
 
     iget-object v2, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
-    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get10(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
+    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get9(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
 
     move-result-object v2
 
@@ -760,7 +631,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
-    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get10(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
+    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get9(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
 
     move-result-object v2
 
@@ -788,7 +659,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
-    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get10(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
+    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get9(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
 
     move-result-object v2
 
@@ -816,10 +687,10 @@
 
     goto :goto_0
 
-    :cond_5
+    :cond_4
     iget-object v2, p0, Lcom/android/systemui/swipe/SwipeAnimator$4;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
-    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get10(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
+    invoke-static {v2}, Lcom/android/systemui/swipe/SwipeAnimator;->-get9(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/animation/AnimatorSet;
 
     move-result-object v2
 

@@ -12,9 +12,13 @@
 
 
 # instance fields
-.field private mHoverPopupPreShowListener:Lcom/samsung/android/widget/SemHoverPopupWindow$HoverPopupPreShowListener;
+.field private mHasActiveClearableNotifications:Z
 
-.field private mMouse:Lcom/android/systemui/statusbar/phone/taskbar/desk/LaunchableIconView$Mouse;
+.field private mMoreIcon:Landroid/widget/ImageView;
+
+.field private mMouse:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskLaunchableIconView$Mouse;
+
+.field private mNotificationIcons:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
 
 .field private mNotificationMap:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
@@ -41,18 +45,10 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;)Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
-
-    return-object v0
-.end method
-
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/StatusBar;)V
     .locals 2
 
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/StatusBar;)V
 
     new-instance v0, Ljava/util/HashMap;
 
@@ -66,13 +62,11 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mTimeComparator:Ljava/util/Comparator;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/IconMerger;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
 
-    check-cast v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
+    const/4 v1, 0x0
 
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->setExpanded(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->expand(Z)V
 
     return-void
 .end method
@@ -115,105 +109,159 @@
     goto :goto_0
 .end method
 
-.method private setHoverPopupPreShowListener()V
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController$2;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController$2;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;)V
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mHoverPopupPreShowListener:Lcom/samsung/android/widget/SemHoverPopupWindow$HoverPopupPreShowListener;
-
-    return-void
-.end method
-
-.method private updateNotificationIconsAreaWidth()V
-    .locals 3
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/IconMerger;
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/IconMerger;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/IconMerger;
-
-    check-cast v1, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->getMaxWidth()I
-
-    move-result v1
-
-    iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/IconMerger;
-
-    const v2, 0x800013
-
-    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/phone/IconMerger;->setGravity(I)V
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/IconMerger;
-
-    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/phone/IconMerger;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public clear()V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mMouse:Lcom/android/systemui/statusbar/phone/taskbar/desk/LaunchableIconView$Mouse;
-
-    invoke-super {p0}, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->clear()V
-
-    return-void
-.end method
-
-.method public collapseIconArea(Z)V
+.method private inflateDeskIconArea(Landroid/view/LayoutInflater;)Landroid/view/View;
     .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/IconMerger;
-
-    check-cast v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->isExpanded()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
+    const v0, 0x7f0d0037
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->setExpanded(Z)V
+    invoke-virtual {p1, v0, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->updateNotificationIconsAreaWidth()V
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method private setTooltip(Landroid/view/View;Lcom/samsung/android/widget/SemHoverPopupWindow$HoverPopupPreShowListener;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, p1, p2, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->setTooltip(Landroid/view/View;Lcom/samsung/android/widget/SemHoverPopupWindow$HoverPopupPreShowListener;Z)V
 
     :cond_0
     return-void
 .end method
 
-.method public expandIconArea(Z)V
-    .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/IconMerger;
+# virtual methods
+.method protected applyNotificationIconsTint()V
+    .locals 7
 
-    check-cast v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
+    const/4 v2, 0x0
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->isExpanded()Z
+    :goto_0
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
+
+    invoke-virtual {v5}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->getChildCount()I
+
+    move-result v5
+
+    if-ge v2, v5, :cond_1
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
+
+    invoke-virtual {v5, v2}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskLaunchableIconView;
+
+    sget-object v5, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+
+    const v6, 0x7f0a021a
+
+    invoke-virtual {v4, v6}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskLaunchableIconView;->getTag(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/Boolean;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    const/4 v0, 0x0
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationColorUtil:Lcom/android/internal/util/NotificationColorUtil;
+
+    invoke-static {v4, v5}, Lcom/android/systemui/statusbar/notification/NotificationUtils;->isGrayscale(Landroid/widget/ImageView;Lcom/android/internal/util/NotificationColorUtil;)Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-eqz v1, :cond_0
 
-    const/4 v1, 0x1
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mTintArea:Landroid/graphics/Rect;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->setExpanded(Z)V
+    iget v6, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mIconTint:I
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->updateNotificationIconsAreaWidth()V
+    invoke-static {v5, v4, v6}, Lcom/android/systemui/statusbar/policy/DarkIconDispatcher;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
+
+    move-result v0
+
+    :cond_0
+    invoke-virtual {v4, v0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskLaunchableIconView;->setStaticDrawableColor(I)V
+
+    iget v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mIconTint:I
+
+    invoke-virtual {v4, v5}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskLaunchableIconView;->setDecorColor(I)V
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    return-void
+.end method
+
+.method public collapseIconArea(Z)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->isExpanded()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->collapse(Z)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public configurationChanged(Landroid/content/res/Configuration;)V
+    .locals 3
+
+    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->configurationChanged(Landroid/content/res/Configuration;)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mMoreIcon:Landroid/widget/ImageView;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mContext:Landroid/content/Context;
+
+    const v2, 0x7f120a71
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
+
+    return-void
+.end method
+
+.method public expandIconArea(Z)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->isExpanded()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->expand(Z)V
 
     :cond_0
     return-void
@@ -236,150 +284,207 @@
 .end method
 
 .method public getAppName(Lcom/android/systemui/statusbar/NotificationData$Entry;)Ljava/lang/String;
-    .locals 7
+    .locals 5
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mContext:Landroid/content/Context;
 
-    iget-object v6, p1, Lcom/android/systemui/statusbar/NotificationData$Entry;->notification:Landroid/service/notification/StatusBarNotification;
+    iget-object v4, p1, Lcom/android/systemui/statusbar/NotificationData$Entry;->notification:Landroid/service/notification/StatusBarNotification;
 
-    invoke-virtual {v6}, Landroid/service/notification/StatusBarNotification;->getUser()Landroid/os/UserHandle;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/os/UserHandle;->getIdentifier()I
-
-    move-result v6
-
-    invoke-static {v5, v6}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->getPackageManagerForUser(Landroid/content/Context;I)Landroid/content/pm/PackageManager;
+    invoke-virtual {v4}, Landroid/service/notification/StatusBarNotification;->getUser()Landroid/os/UserHandle;
 
     move-result-object v4
 
-    iget-object v5, p1, Lcom/android/systemui/statusbar/NotificationData$Entry;->notification:Landroid/service/notification/StatusBarNotification;
+    invoke-virtual {v4}, Landroid/os/UserHandle;->getIdentifier()I
 
-    invoke-virtual {v5}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
+    move-result v4
 
-    move-result-object v3
-
-    const-string/jumbo v0, ""
-
-    const/16 v5, 0x2200
-
-    :try_start_0
-    invoke-virtual {v4, v3, v5}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+    invoke-static {v3, v4}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->getPackageManagerForUser(Landroid/content/Context;I)Landroid/content/pm/PackageManager;
 
     move-result-object v2
 
-    invoke-virtual {v4, v2}, Landroid/content/pm/PackageManager;->getApplicationLabel(Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
+    :try_start_0
+    iget-object v3, p1, Lcom/android/systemui/statusbar/NotificationData$Entry;->notification:Landroid/service/notification/StatusBarNotification;
 
-    move-result-object v5
+    invoke-virtual {v3}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
 
-    invoke-static {v5}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    move-result-object v3
+
+    const/16 v4, 0x2200
+
+    invoke-virtual {v2, v3, v4}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
 
     move-result-object v0
 
-    :goto_0
-    return-object v0
+    invoke-virtual {v2, v0}, Landroid/content/pm/PackageManager;->getApplicationLabel(Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
+
+    move-result-object v3
+
+    invoke-static {v3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v3
+
+    return-object v3
 
     :catch_0
     move-exception v1
 
     invoke-virtual {v1}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
 
-    goto :goto_0
-.end method
+    const-string/jumbo v3, ""
 
-.method public getHoverPopupPreShowListener()Lcom/samsung/android/widget/SemHoverPopupWindow$HoverPopupPreShowListener;
-    .locals 2
-
-    const/4 v1, 0x0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mHoverPopupPreShowListener:Lcom/samsung/android/widget/SemHoverPopupWindow$HoverPopupPreShowListener;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mHoverPopupPreShowListener:Lcom/samsung/android/widget/SemHoverPopupWindow$HoverPopupPreShowListener;
-
-    return-object v0
-
-    :cond_0
-    return-object v1
-.end method
-
-.method protected inflateIconArea(Landroid/view/LayoutInflater;)Landroid/view/View;
-    .locals 2
-
-    const v0, 0x7f04004a
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p1, v0, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v0
-
-    return-object v0
+    return-object v3
 .end method
 
 .method protected initializeNotificationAreaViews(Landroid/content/Context;)V
-    .locals 2
+    .locals 4
 
     invoke-super {p0, p1}, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->initializeNotificationAreaViews(Landroid/content/Context;)V
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->setHoverPopupPreShowListener()V
+    invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mMoreIcon:Landroid/widget/ImageView;
+    move-result-object v0
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->getHoverPopupPreShowListener()Lcom/samsung/android/widget/SemHoverPopupWindow$HoverPopupPreShowListener;
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->inflateDeskIconArea(Landroid/view/LayoutInflater;)Landroid/view/View;
 
     move-result-object v1
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->setTooltip(Landroid/view/View;Lcom/samsung/android/widget/SemHoverPopupWindow$HoverPopupPreShowListener;)V
+    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIconArea:Landroid/view/View;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mMoreIcon:Landroid/widget/ImageView;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIconArea:Landroid/view/View;
 
-    new-instance v1, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController$3;
+    const v2, 0x7f0a0382
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController$3;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    move-result-object v1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mMoreIcon:Landroid/widget/ImageView;
+    check-cast v1, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
 
-    const/4 v1, 0x1
+    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setContextClickable(Z)V
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIconArea:Landroid/view/View;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mMoreIcon:Landroid/widget/ImageView;
+    const v2, 0x7f0a0330
 
-    new-instance v1, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController$4;
+    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController$4;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;)V
+    move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setOnContextClickListener(Landroid/view/View$OnContextClickListener;)V
+    check-cast v1, Landroid/widget/ImageView;
+
+    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mMoreIcon:Landroid/widget/ImageView;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mMoreIcon:Landroid/widget/ImageView;
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mContext:Landroid/content/Context;
+
+    const v3, 0x7f120a71
+
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mMoreIcon:Landroid/widget/ImageView;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/taskbar/desk/-$Lambda$77Z3vphUA0w6finKpfcRuG-kDLw;
+
+    invoke-direct {v2, p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/-$Lambda$77Z3vphUA0w6finKpfcRuG-kDLw;-><init>(Ljava/lang/Object;)V
+
+    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mMoreIcon:Landroid/widget/ImageView;
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setContextClickable(Z)V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mMoreIcon:Landroid/widget/ImageView;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/taskbar/desk/-$Lambda$77Z3vphUA0w6finKpfcRuG-kDLw$1;
+
+    invoke-direct {v2, p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/-$Lambda$77Z3vphUA0w6finKpfcRuG-kDLw$1;-><init>(Ljava/lang/Object;)V
+
+    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setOnContextClickListener(Landroid/view/View$OnContextClickListener;)V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mMoreIcon:Landroid/widget/ImageView;
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/taskbar/desk/-$Lambda$77Z3vphUA0w6finKpfcRuG-kDLw$2;
+
+    invoke-direct {v2, p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/-$Lambda$77Z3vphUA0w6finKpfcRuG-kDLw$2;-><init>(Ljava/lang/Object;)V
+
+    invoke-direct {p0, v1, v2}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->setTooltip(Landroid/view/View;Lcom/samsung/android/widget/SemHoverPopupWindow$HoverPopupPreShowListener;)V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mMoreIcon:Landroid/widget/ImageView;
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->setOverflowIndicator(Landroid/view/View;)V
 
     return-void
 .end method
 
-.method public isDeskAllNotificationViewVisible()Z
-    .locals 1
+.method synthetic lambda$-com_android_systemui_statusbar_phone_taskbar_desk_DeskNotificationIconAreaController_10449(Landroid/view/View;)V
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->toggleDeskPanelViewNotification(Z)V
+
+    return-void
+.end method
+
+.method synthetic lambda$-com_android_systemui_statusbar_phone_taskbar_desk_DeskNotificationIconAreaController_10626(Landroid/view/View;)Z
+    .locals 2
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mHasActiveClearableNotifications:Z
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    const/4 v0, 0x3
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->isDeskAllNotificationViewVisible()Z
+    :goto_0
+    invoke-virtual {v1, v0, p1}, Lcom/android/systemui/statusbar/phone/StatusBar;->handleContextMenu(ILandroid/view/View;)V
+
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x4
+
+    goto :goto_0
+.end method
+
+.method synthetic lambda$-com_android_systemui_statusbar_phone_taskbar_desk_DeskNotificationIconAreaController_10980()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->isDeskPanelViewNotificationAllVisible()Z
 
     move-result v0
+
+    :goto_0
+    xor-int/lit8 v0, v0, 0x1
 
     return v0
 
     :cond_0
     const/4 v0, 0x0
 
-    return v0
+    goto :goto_0
 .end method
 
 .method public onDensityOrFontScaleChanged(Landroid/content/Context;)V
@@ -394,17 +499,17 @@
     const/4 v1, 0x0
 
     :goto_0
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/IconMerger;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
 
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/IconMerger;->getChildCount()I
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->getChildCount()I
 
     move-result v3
 
     if-ge v1, v3, :cond_0
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/IconMerger;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
 
-    invoke-virtual {v3, v1}, Lcom/android/systemui/statusbar/phone/IconMerger;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v3, v1}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -427,7 +532,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0665
+    const v1, 0x7f070115
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -435,7 +540,7 @@
 
     iput v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mIconSize:I
 
-    const v1, 0x7f0d0666
+    const v1, 0x7f070113
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -446,48 +551,12 @@
     return-void
 .end method
 
-.method public setMouse(Lcom/android/systemui/statusbar/phone/taskbar/desk/LaunchableIconView$Mouse;)V
+.method public setMouse(Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskLaunchableIconView$Mouse;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mMouse:Lcom/android/systemui/statusbar/phone/taskbar/desk/LaunchableIconView$Mouse;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mMouse:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskLaunchableIconView$Mouse;
 
     return-void
-.end method
-
-.method public setTooltip(Landroid/view/View;Lcom/samsung/android/widget/SemHoverPopupWindow$HoverPopupPreShowListener;)V
-    .locals 1
-
-    if-eqz p1, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
-
-    invoke-virtual {v0, p1, p2}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->setTooltip(Landroid/view/View;Lcom/samsung/android/widget/SemHoverPopupWindow$HoverPopupPreShowListener;)V
-
-    :cond_0
-    return-void
-.end method
-
-.method protected shouldShowNotification(Lcom/android/systemui/statusbar/NotificationData$Entry;Lcom/android/systemui/statusbar/NotificationData;)Z
-    .locals 2
-
-    invoke-super {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->shouldShowNotification(Lcom/android/systemui/statusbar/NotificationData$Entry;Lcom/android/systemui/statusbar/NotificationData;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v1, p1, Lcom/android/systemui/statusbar/NotificationData$Entry;->notification:Landroid/service/notification/StatusBarNotification;
-
-    invoke-virtual {v1}, Landroid/service/notification/StatusBarNotification;->isMarkedDex()Z
-
-    move-result v0
-
-    :cond_0
-    return v0
 .end method
 
 .method public updateNotificationIcons(Lcom/android/systemui/statusbar/NotificationData;)V
@@ -519,12 +588,18 @@
 
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
+    const/4 v3, 0x0
+
+    move-object/from16 v0, p0
+
+    iput-boolean v3, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mHasActiveClearableNotifications:Z
+
     const/4 v15, 0x0
 
     :goto_0
     move/from16 v0, v20
 
-    if-ge v15, v0, :cond_4
+    if-ge v15, v0, :cond_5
 
     invoke-virtual {v8, v15}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -532,11 +607,13 @@
 
     check-cast v13, Lcom/android/systemui/statusbar/NotificationData$Entry;
 
+    const/4 v3, 0x0
+
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    invoke-virtual {v0, v13, v1}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->shouldShowNotification(Lcom/android/systemui/statusbar/NotificationData$Entry;Lcom/android/systemui/statusbar/NotificationData;)Z
+    invoke-virtual {v0, v13, v1, v3}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->shouldShowNotificationIcon(Lcom/android/systemui/statusbar/NotificationData$Entry;Lcom/android/systemui/statusbar/NotificationData;Z)Z
 
     move-result v3
 
@@ -567,9 +644,9 @@
     :goto_1
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/IconMerger;
+    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
 
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/IconMerger;->getChildCount()I
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->getChildCount()I
 
     move-result v3
 
@@ -579,36 +656,44 @@
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/IconMerger;
+    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
 
     move/from16 v0, v17
 
-    invoke-virtual {v3, v0}, Lcom/android/systemui/statusbar/phone/IconMerger;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v3, v0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->getChildAt(I)Landroid/view/View;
 
     move-result-object v11
 
-    check-cast v11, Lcom/android/systemui/statusbar/phone/taskbar/desk/LaunchableIconView;
+    check-cast v11, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskLaunchableIconView;
 
     iget-object v3, v13, Lcom/android/systemui/statusbar/NotificationData$Entry;->icon:Lcom/android/systemui/statusbar/StatusBarIconView;
 
     move-object/from16 v0, v18
 
-    invoke-virtual {v11, v3, v0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/LaunchableIconView;->isSameView(Lcom/android/systemui/statusbar/StatusBarIconView;Ljava/lang/String;)Z
+    invoke-virtual {v11, v3, v0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskLaunchableIconView;->isSameView(Lcom/android/systemui/statusbar/StatusBarIconView;Ljava/lang/String;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3
 
     const/16 v16, 0x1
 
     :cond_0
-    if-eqz v16, :cond_3
+    if-eqz v16, :cond_4
 
-    if-eqz v11, :cond_3
+    if-eqz v11, :cond_4
 
     move-object/from16 v0, v23
 
     invoke-virtual {v0, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v13}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->getAppName(Lcom/android/systemui/statusbar/NotificationData$Entry;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v11, v3}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskLaunchableIconView;->setContentDescription(Ljava/lang/CharSequence;)V
 
     move-object/from16 v0, p0
 
@@ -626,29 +711,50 @@
 
     iget v6, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mIconHPadding:I
 
-    invoke-virtual {v11, v3, v4, v5, v6}, Lcom/android/systemui/statusbar/phone/taskbar/desk/LaunchableIconView;->setPaddingRelative(IIII)V
+    invoke-virtual {v11, v3, v4, v5, v6}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskLaunchableIconView;->setPaddingRelative(IIII)V
 
-    invoke-virtual {v11}, Lcom/android/systemui/statusbar/phone/taskbar/desk/LaunchableIconView;->getHoverPopupPreShowListener()Lcom/samsung/android/widget/SemHoverPopupWindow$HoverPopupPreShowListener;
+    invoke-virtual {v11}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskLaunchableIconView;->getHoverPopupPreShowListener()Lcom/samsung/android/widget/SemHoverPopupWindow$HoverPopupPreShowListener;
 
     move-result-object v3
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v11, v3}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->setTooltip(Landroid/view/View;Lcom/samsung/android/widget/SemHoverPopupWindow$HoverPopupPreShowListener;)V
+    invoke-direct {v0, v11, v3}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->setTooltip(Landroid/view/View;Lcom/samsung/android/widget/SemHoverPopupWindow$HoverPopupPreShowListener;)V
 
     :cond_1
     :goto_2
-    add-int/lit8 v15, v15, 0x1
+    move-object/from16 v0, p0
 
-    goto :goto_0
+    iget-boolean v3, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mHasActiveClearableNotifications:Z
+
+    if-nez v3, :cond_2
+
+    iget-object v3, v13, Lcom/android/systemui/statusbar/NotificationData$Entry;->row:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
+
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->canViewBeDismissed()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    const/4 v3, 0x1
+
+    move-object/from16 v0, p0
+
+    iput-boolean v3, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mHasActiveClearableNotifications:Z
 
     :cond_2
+    add-int/lit8 v15, v15, 0x1
+
+    goto/16 :goto_0
+
+    :cond_3
     add-int/lit8 v17, v17, 0x1
 
     goto :goto_1
 
-    :cond_3
-    new-instance v2, Lcom/android/systemui/statusbar/phone/taskbar/desk/LaunchableIconView;
+    :cond_4
+    new-instance v2, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskLaunchableIconView;
 
     move-object/from16 v0, p0
 
@@ -694,25 +800,21 @@
 
     iget-object v5, v13, Lcom/android/systemui/statusbar/NotificationData$Entry;->notification:Landroid/service/notification/StatusBarNotification;
 
-    invoke-virtual {v5}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
-
-    move-result-object v5
-
     move-object/from16 v0, p0
 
-    iget-object v7, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mMouse:Lcom/android/systemui/statusbar/phone/taskbar/desk/LaunchableIconView$Mouse;
+    iget-object v7, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mMouse:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskLaunchableIconView$Mouse;
 
     const/4 v6, 0x0
 
-    invoke-direct/range {v2 .. v7}, Lcom/android/systemui/statusbar/phone/taskbar/desk/LaunchableIconView;-><init>(Landroid/content/Context;Ljava/lang/String;Landroid/app/Notification;ZLcom/android/systemui/statusbar/phone/taskbar/desk/LaunchableIconView$Mouse;)V
+    invoke-direct/range {v2 .. v7}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskLaunchableIconView;-><init>(Landroid/content/Context;Ljava/lang/String;Landroid/service/notification/StatusBarNotification;ZLcom/android/systemui/statusbar/phone/taskbar/desk/DeskLaunchableIconView$Mouse;)V
 
     move-object/from16 v0, v18
 
-    invoke-virtual {v2, v0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/LaunchableIconView;->setKey(Ljava/lang/String;)V
+    invoke-virtual {v2, v0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskLaunchableIconView;->setKey(Ljava/lang/String;)V
 
     iget-object v3, v13, Lcom/android/systemui/statusbar/NotificationData$Entry;->icon:Lcom/android/systemui/statusbar/StatusBarIconView;
 
-    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/phone/taskbar/desk/LaunchableIconView;->setIcon(Lcom/android/systemui/statusbar/StatusBarIconView;)V
+    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskLaunchableIconView;->setIcon(Lcom/android/systemui/statusbar/StatusBarIconView;)V
 
     move-object/from16 v0, p0
 
@@ -720,7 +822,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/phone/taskbar/desk/LaunchableIconView;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskLaunchableIconView;->setContentDescription(Ljava/lang/CharSequence;)V
 
     move-object/from16 v0, p0
 
@@ -738,23 +840,23 @@
 
     iget v6, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mIconHPadding:I
 
-    invoke-virtual {v2, v3, v4, v5, v6}, Lcom/android/systemui/statusbar/phone/taskbar/desk/LaunchableIconView;->setPaddingRelative(IIII)V
+    invoke-virtual {v2, v3, v4, v5, v6}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskLaunchableIconView;->setPaddingRelative(IIII)V
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/taskbar/desk/LaunchableIconView;->getHoverPopupPreShowListener()Lcom/samsung/android/widget/SemHoverPopupWindow$HoverPopupPreShowListener;
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskLaunchableIconView;->getHoverPopupPreShowListener()Lcom/samsung/android/widget/SemHoverPopupWindow$HoverPopupPreShowListener;
 
     move-result-object v3
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v2, v3}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->setTooltip(Landroid/view/View;Lcom/samsung/android/widget/SemHoverPopupWindow$HoverPopupPreShowListener;)V
+    invoke-direct {v0, v2, v3}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->setTooltip(Landroid/view/View;Lcom/samsung/android/widget/SemHoverPopupWindow$HoverPopupPreShowListener;)V
 
     move-object/from16 v0, v23
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto/16 :goto_2
 
-    :cond_4
+    :cond_5
     new-instance v21, Ljava/util/ArrayList;
 
     invoke-direct/range {v21 .. v21}, Ljava/util/ArrayList;-><init>()V
@@ -764,19 +866,19 @@
     :goto_3
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/IconMerger;
+    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
 
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/IconMerger;->getChildCount()I
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->getChildCount()I
 
     move-result v3
 
-    if-ge v15, v3, :cond_6
+    if-ge v15, v3, :cond_7
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/IconMerger;
+    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
 
-    invoke-virtual {v3, v15}, Lcom/android/systemui/statusbar/phone/IconMerger;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v3, v15}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->getChildAt(I)Landroid/view/View;
 
     move-result-object v10
 
@@ -786,18 +888,18 @@
 
     move-result v3
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_6
 
     move-object/from16 v0, v21
 
     invoke-virtual {v0, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_5
+    :cond_6
     add-int/lit8 v15, v15, 0x1
 
     goto :goto_3
 
-    :cond_6
+    :cond_7
     invoke-virtual/range {v21 .. v21}, Ljava/util/ArrayList;->size()I
 
     move-result v22
@@ -807,11 +909,11 @@
     :goto_4
     move/from16 v0, v22
 
-    if-ge v15, v0, :cond_7
+    if-ge v15, v0, :cond_8
 
     move-object/from16 v0, p0
 
-    iget-object v4, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/IconMerger;
+    iget-object v4, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
 
     move-object/from16 v0, v21
 
@@ -821,23 +923,19 @@
 
     check-cast v3, Landroid/view/View;
 
-    invoke-virtual {v4, v3}, Lcom/android/systemui/statusbar/phone/IconMerger;->removeView(Landroid/view/View;)V
+    invoke-virtual {v4, v3}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->removeView(Landroid/view/View;)V
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/IconMerger;
+    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
 
-    check-cast v3, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
-
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->checkOverflow()V
-
-    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->updateNotificationIconsAreaWidth()V
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->updateWidth()V
 
     add-int/lit8 v15, v15, 0x1
 
     goto :goto_4
 
-    :cond_7
+    :cond_8
     const/4 v15, 0x0
 
     :goto_5
@@ -845,7 +943,7 @@
 
     move-result v3
 
-    if-ge v15, v3, :cond_9
+    if-ge v15, v3, :cond_a
 
     move-object/from16 v0, v23
 
@@ -859,52 +957,48 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_9
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/IconMerger;
+    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
 
     move-object/from16 v0, v24
 
     move-object/from16 v1, v19
 
-    invoke-virtual {v3, v0, v15, v1}, Lcom/android/systemui/statusbar/phone/IconMerger;->addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v3, v0, v15, v1}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/IconMerger;
+    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
 
-    check-cast v3, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->updateWidth()V
 
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->checkOverflow()V
-
-    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->updateNotificationIconsAreaWidth()V
-
-    :cond_8
+    :cond_9
     add-int/lit8 v15, v15, 0x1
 
     goto :goto_5
 
-    :cond_9
+    :cond_a
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/IconMerger;
+    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
 
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/IconMerger;->getChildCount()I
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->getChildCount()I
 
     move-result v12
 
     const/4 v15, 0x0
 
     :goto_6
-    if-ge v15, v12, :cond_b
+    if-ge v15, v12, :cond_c
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/IconMerger;
+    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
 
-    invoke-virtual {v3, v15}, Lcom/android/systemui/statusbar/phone/IconMerger;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v3, v15}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->getChildAt(I)Landroid/view/View;
 
     move-result-object v9
 
@@ -916,29 +1010,29 @@
 
     check-cast v14, Lcom/android/systemui/statusbar/StatusBarIconView;
 
-    if-ne v9, v14, :cond_a
+    if-ne v9, v14, :cond_b
 
     :goto_7
     add-int/lit8 v15, v15, 0x1
 
     goto :goto_6
 
-    :cond_a
+    :cond_b
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/IconMerger;
+    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
 
-    invoke-virtual {v3, v14}, Lcom/android/systemui/statusbar/phone/IconMerger;->removeView(Landroid/view/View;)V
+    invoke-virtual {v3, v14}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->removeView(Landroid/view/View;)V
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/IconMerger;
+    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;
 
-    invoke-virtual {v3, v14, v15}, Lcom/android/systemui/statusbar/phone/IconMerger;->addView(Landroid/view/View;I)V
+    invoke-virtual {v3, v14, v15}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskIconMerger;->addView(Landroid/view/View;I)V
 
     goto :goto_7
 
-    :cond_b
+    :cond_c
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/taskbar/desk/DeskNotificationIconAreaController;->applyNotificationIconsTint()V
 
     return-void

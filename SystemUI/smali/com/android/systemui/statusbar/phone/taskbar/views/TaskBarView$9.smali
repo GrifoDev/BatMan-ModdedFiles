@@ -1,14 +1,11 @@
 .class Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$9;
-.super Ljava/lang/Object;
+.super Lcom/android/systemui/statusbar/phone/taskbar/views/GuidedTourLayout;
 .source "TaskBarView.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->showContextMenu(IFFLcom/android/systemui/statusbar/phone/taskbar/data/AppItem;Landroid/view/View;)V
+    value = Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->showGuidedTourLayout(Landroid/view/View;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -22,55 +19,43 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;)V
+.method constructor <init>(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;Landroid/content/Context;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$9;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, p2}, Lcom/android/systemui/statusbar/phone/taskbar/views/GuidedTourLayout;-><init>(Landroid/content/Context;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 1
+.method public onTouchEvent(Landroid/view/MotionEvent;)Z
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$9;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
-
-    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->mContextMenuLayout:Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;->isAppsContextMenu()Z
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    const/4 v1, 0x4
+
+    if-ne v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$9;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->isAppsLayoutVisible()Z
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->-get1(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$9;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->closeGuidedTourLayout()V
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$9;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+    const/4 v0, 0x0
 
-    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->mContextMenuLayout:Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;->show()V
-
-    :goto_0
-    return-void
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$9;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
-
-    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->mContextMenuLayout:Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;->dismiss()V
-
-    goto :goto_0
+    return v0
 .end method

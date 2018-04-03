@@ -78,7 +78,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/MobileDataTile$1;->this$0:Lcom/android/systemui/qs/tiles/MobileDataTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/MobileDataTile;->-get1(Lcom/android/systemui/qs/tiles/MobileDataTile;)Landroid/app/AlertDialog;
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/MobileDataTile;->-get2(Lcom/android/systemui/qs/tiles/MobileDataTile;)Landroid/app/AlertDialog;
 
     move-result-object v1
 
@@ -86,7 +86,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/MobileDataTile$1;->this$0:Lcom/android/systemui/qs/tiles/MobileDataTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/MobileDataTile;->-get1(Lcom/android/systemui/qs/tiles/MobileDataTile;)Landroid/app/AlertDialog;
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/MobileDataTile;->-get2(Lcom/android/systemui/qs/tiles/MobileDataTile;)Landroid/app/AlertDialog;
 
     move-result-object v1
 
@@ -98,7 +98,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/MobileDataTile$1;->this$0:Lcom/android/systemui/qs/tiles/MobileDataTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/MobileDataTile;->-get1(Lcom/android/systemui/qs/tiles/MobileDataTile;)Landroid/app/AlertDialog;
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/MobileDataTile;->-get2(Lcom/android/systemui/qs/tiles/MobileDataTile;)Landroid/app/AlertDialog;
 
     move-result-object v1
 

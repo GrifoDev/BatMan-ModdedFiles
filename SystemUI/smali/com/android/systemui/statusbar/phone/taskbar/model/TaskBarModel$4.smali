@@ -18,16 +18,16 @@
 
 
 # instance fields
-.field final synthetic val$bar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
+.field final synthetic val$context:Landroid/content/Context;
 
 .field final synthetic val$newPositions:Ljava/util/ArrayList;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;Ljava/util/ArrayList;)V
+.method constructor <init>(Landroid/content/Context;Ljava/util/ArrayList;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$4;->val$bar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$4;->val$context:Landroid/content/Context;
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$4;->val$newPositions:Ljava/util/ArrayList;
 
@@ -41,9 +41,9 @@
 .method public run()V
     .locals 8
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$4;->val$bar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$4;->val$context:Landroid/content/Context;
 
-    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getDBManager()Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;
+    invoke-static {v4}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getDBManager(Landroid/content/Context;)Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;
 
     move-result-object v2
 

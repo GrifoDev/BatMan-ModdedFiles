@@ -43,7 +43,7 @@
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->-get5(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->-get6(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
     move-result-object v0
 
@@ -67,11 +67,29 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$1$1$1;->this$2:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$1$1;
 
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$1$1;->-get0(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$1$1;)Landroid/view/View;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setPressed(Z)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$1$1$1;->this$2:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$1$1;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$1$1;->-get0(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$1$1;)Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/View;->clearAnimation()V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$1$1$1;->this$2:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$1$1;
+
     iget-object v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$1$1;->this$1:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$1;
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->-get5(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->-get6(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
     move-result-object v0
 
@@ -93,21 +111,11 @@
 
     iget-object v3, v3, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;
 
-    invoke-static {v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->-get1(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Landroid/graphics/Point;
+    invoke-static {v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->-get2(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Landroid/graphics/Point;
 
     move-result-object v3
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->startDrag(Landroid/view/View;Lcom/android/systemui/statusbar/phone/taskbar/data/DragOrigin;Landroid/graphics/Point;)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$1$1$1;->this$2:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$1$1;
-
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$1$1;->-get0(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$1$1;)Landroid/view/View;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setPressed(Z)V
 
     :cond_0
     return-void

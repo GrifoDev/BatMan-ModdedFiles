@@ -22,6 +22,10 @@
 
 .field protected mDrawIcon:Z
 
+.field private mHoverAniYOffset:I
+
+.field private mHoverExitWithClick:Z
+
 .field private mIconBitmap:Landroid/graphics/Bitmap;
 
 .field private mIconDestination:I
@@ -109,6 +113,8 @@
 
     iput-boolean v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mIsAttachedHotseat:Z
 
+    iput-boolean v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mHoverExitWithClick:Z
+
     iput-boolean v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mDrawIcon:Z
 
     new-instance v3, Landroid/graphics/Rect;
@@ -154,7 +160,7 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->setDefaultIconSize()V
 
-    const v3, 0x7f0d05e3
+    const v3, 0x7f070071
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -162,7 +168,7 @@
 
     sput v3, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->sBadgeFontSize:I
 
-    const v3, 0x7f0d05ea
+    const v3, 0x7f07057a
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -170,7 +176,7 @@
 
     iput v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mRunningQueueWidth:I
 
-    const v3, 0x7f0d05eb
+    const v3, 0x7f070579
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -178,13 +184,21 @@
 
     iput v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mRunningQueueHeight:I
 
-    const v3, 0x7f0d05ec
+    const v3, 0x7f07057b
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v3
 
     iput v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mRunningQueueTopMargin:I
+
+    const v3, 0x7f07016b
+
+    invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
+
+    move-result v3
+
+    iput v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mHoverAniYOffset:I
 
     new-instance v3, Landroid/graphics/Paint;
 
@@ -286,19 +300,19 @@
 .end method
 
 .method private drawRunningQueue(Landroid/graphics/Canvas;)V
-    .locals 8
+    .locals 9
 
-    const/4 v6, 0x2
-
-    invoke-virtual {p1, v6}, Landroid/graphics/Canvas;->save(I)I
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
 
-    const v7, 0x7f02004c
+    const v7, 0x7f080053
 
-    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    const/4 v8, 0x0
+
+    invoke-virtual {v6, v7, v8}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
 
@@ -340,19 +354,19 @@
 .end method
 
 .method private drawRunningQueueForCall(Landroid/graphics/Canvas;)V
-    .locals 8
+    .locals 9
 
-    const/4 v6, 0x2
-
-    invoke-virtual {p1, v6}, Landroid/graphics/Canvas;->save(I)I
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
 
-    const v7, 0x7f02004d
+    const v7, 0x7f080054
 
-    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    const/4 v8, 0x0
+
+    invoke-virtual {v6, v7, v8}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
 
@@ -417,6 +431,66 @@
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method private makeHoverEnterAnimation()Landroid/view/animation/TranslateAnimation;
+    .locals 4
+
+    const/4 v2, 0x0
+
+    new-instance v0, Landroid/view/animation/TranslateAnimation;
+
+    iget v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mHoverAniYOffset:I
+
+    neg-int v1, v1
+
+    int-to-float v1, v1
+
+    invoke-direct {v0, v2, v2, v2, v1}, Landroid/view/animation/TranslateAnimation;-><init>(FFFF)V
+
+    const-wide/16 v2, 0xfa
+
+    invoke-virtual {v0, v2, v3}, Landroid/view/animation/TranslateAnimation;->setDuration(J)V
+
+    new-instance v1, Lcom/samsung/android/graphics/spr/animation/interpolator/SineInOut80;
+
+    invoke-direct {v1}, Lcom/samsung/android/graphics/spr/animation/interpolator/SineInOut80;-><init>()V
+
+    invoke-virtual {v0, v1}, Landroid/view/animation/TranslateAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/view/animation/TranslateAnimation;->setFillAfter(Z)V
+
+    return-object v0
+.end method
+
+.method private makeHoverExitAnimation()Landroid/view/animation/TranslateAnimation;
+    .locals 4
+
+    const/4 v2, 0x0
+
+    new-instance v0, Landroid/view/animation/TranslateAnimation;
+
+    iget v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mHoverAniYOffset:I
+
+    neg-int v1, v1
+
+    int-to-float v1, v1
+
+    invoke-direct {v0, v2, v2, v1, v2}, Landroid/view/animation/TranslateAnimation;-><init>(FFFF)V
+
+    const-wide/16 v2, 0xfa
+
+    invoke-virtual {v0, v2, v3}, Landroid/view/animation/TranslateAnimation;->setDuration(J)V
+
+    new-instance v1, Lcom/samsung/android/graphics/spr/animation/interpolator/SineInOut80;
+
+    invoke-direct {v1}, Lcom/samsung/android/graphics/spr/animation/interpolator/SineInOut80;-><init>()V
+
+    invoke-virtual {v0, v1}, Landroid/view/animation/TranslateAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
+
+    return-object v0
 .end method
 
 
@@ -521,7 +595,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0d05e0
+    const v10, 0x7f070081
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -533,7 +607,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0d05e0
+    const v10, 0x7f070081
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -567,7 +641,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0d05e2
+    const v10, 0x7f070082
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -641,7 +715,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f020160
+    const v10, 0x7f080173
 
     invoke-static {v9, v10}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -673,7 +747,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0d05e4
+    const v10, 0x7f07007f
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -724,7 +798,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0d05e1
+    const v10, 0x7f070083
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -772,8 +846,89 @@
     goto :goto_0
 .end method
 
+.method public dispatchGenericMotionEvent(Landroid/view/MotionEvent;)Z
+    .locals 3
+
+    const/4 v2, 0x0
+
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mIsAttachedHotseat:Z
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result v0
+
+    const/16 v1, 0x9
+
+    if-ne v0, v1, :cond_1
+
+    iput-boolean v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mHoverExitWithClick:Z
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->getAnimation()Landroid/view/animation/Animation;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->makeHoverEnterAnimation()Landroid/view/animation/TranslateAnimation;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->startAnimation(Landroid/view/animation/Animation;)V
+
+    :cond_0
+    :goto_0
+    invoke-super {p0, p1}, Landroid/widget/TextView;->dispatchGenericMotionEvent(Landroid/view/MotionEvent;)Z
+
+    move-result v1
+
+    return v1
+
+    :cond_1
+    const/16 v1, 0xa
+
+    if-ne v0, v1, :cond_0
+
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mHoverExitWithClick:Z
+
+    if-nez v1, :cond_3
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getButtonState()I
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->isInsideAppIcon(Landroid/view/View;Landroid/view/MotionEvent;)Z
+
+    move-result v1
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_3
+
+    :cond_2
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->makeHoverExitAnimation()Landroid/view/animation/TranslateAnimation;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->startAnimation(Landroid/view/animation/Animation;)V
+
+    goto :goto_0
+
+    :cond_3
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mHoverExitWithClick:Z
+
+    goto :goto_0
+.end method
+
 .method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 3
+
+    const/4 v2, 0x0
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
@@ -781,6 +936,7 @@
 
     packed-switch v0, :pswitch_data_0
 
+    :cond_0
     :goto_0
     :pswitch_0
     invoke-super {p0, p1}, Landroid/widget/TextView;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
@@ -798,8 +954,6 @@
 
     float-to-int v1, v1
 
-    const/4 v2, 0x0
-
     aput v1, v0, v2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mLastTouch:[I
@@ -816,14 +970,35 @@
 
     goto :goto_0
 
+    :pswitch_2
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mHoverExitWithClick:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->isInsideAppIcon(Landroid/view/View;Landroid/view/MotionEvent;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->makeHoverExitAnimation()Landroid/view/animation/TranslateAnimation;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->startAnimation(Landroid/view/animation/Animation;)V
+
+    iput-boolean v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mHoverExitWithClick:Z
+
+    goto :goto_0
+
     nop
 
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1
+        :pswitch_2
         :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_2
     .end packed-switch
 .end method
 
@@ -976,7 +1151,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f02015b
+    const v2, 0x7f08016b
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -998,177 +1173,151 @@
 .end method
 
 .method public drawIconOrText(Landroid/graphics/Canvas;)V
-    .locals 12
+    .locals 9
 
-    const/4 v11, 0x2
-
-    const/4 v10, 0x0
+    const/4 v8, 0x0
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->getScrollX()I
 
-    move-result v6
+    move-result v0
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->getScrollY()I
 
-    move-result v7
+    move-result v1
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->getCurrentTextColor()I
 
-    move-result v9
+    move-result v3
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->getShadowColor()I
 
-    move-result v8
+    move-result v2
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->getPaint()Landroid/text/TextPaint;
 
-    move-result-object v0
+    move-result-object v4
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->getShadowRadius()F
 
-    move-result v1
+    move-result v5
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->getShadowDy()F
 
-    move-result v2
+    move-result v6
 
-    const/4 v3, 0x0
+    const/4 v7, 0x0
 
-    invoke-virtual {v0, v1, v3, v2, v8}, Landroid/text/TextPaint;->setShadowLayer(FFFI)V
+    invoke-virtual {v4, v5, v7, v6, v2}, Landroid/text/TextPaint;->setShadowLayer(FFFI)V
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mDrawIcon:Z
+    iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mDrawIcon:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v4, :cond_1
 
-    invoke-virtual {p1, v11}, Landroid/graphics/Canvas;->save(I)I
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->getExtendedPaddingTop()I
 
-    move-result v0
+    move-result v4
 
-    if-nez v0, :cond_0
+    if-nez v4, :cond_0
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->invalidate()V
 
     :cond_0
-    int-to-float v1, v6
-
-    int-to-float v2, v7
-
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->getWidth()I
 
-    move-result v0
+    move-result v4
 
-    add-int/2addr v0, v6
-
-    int-to-float v3, v0
+    add-int/2addr v4, v0
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->getExtendedPaddingTop()I
 
-    move-result v0
+    move-result v5
 
-    add-int/2addr v0, v7
+    add-int/2addr v5, v1
 
-    int-to-float v4, v0
-
-    sget-object v5, Landroid/graphics/Region$Op;->INTERSECT:Landroid/graphics/Region$Op;
-
-    move-object v0, p1
-
-    invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->clipRect(FFFFLandroid/graphics/Region$Op;)Z
+    invoke-virtual {p1, v0, v1, v4, v5}, Landroid/graphics/Canvas;->clipRect(IIII)Z
 
     invoke-super {p0, p1}, Landroid/widget/TextView;->draw(Landroid/graphics/Canvas;)V
 
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
     :cond_1
-    invoke-virtual {p1, v11}, Landroid/graphics/Canvas;->save(I)I
-
-    int-to-float v1, v6
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->getExtendedPaddingTop()I
 
-    move-result v0
+    move-result v4
 
-    add-int/2addr v0, v7
-
-    int-to-float v2, v0
+    add-int/2addr v4, v1
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->getWidth()I
 
-    move-result v0
+    move-result v5
 
-    add-int/2addr v0, v6
-
-    int-to-float v3, v0
+    add-int/2addr v5, v0
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->getHeight()I
 
-    move-result v0
+    move-result v6
 
-    add-int/2addr v0, v7
+    add-int/2addr v6, v1
 
-    int-to-float v4, v0
+    invoke-virtual {p1, v0, v4, v5, v6}, Landroid/graphics/Canvas;->clipRect(IIII)Z
 
-    sget-object v5, Landroid/graphics/Region$Op;->INTERSECT:Landroid/graphics/Region$Op;
-
-    move-object v0, p1
-
-    invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->clipRect(FFFFLandroid/graphics/Region$Op;)Z
-
-    invoke-virtual {p0, v9}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->setTextColor(I)V
+    invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->setTextColor(I)V
 
     invoke-super {p0, p1}, Landroid/widget/TextView;->draw(Landroid/graphics/Canvas;)V
 
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mIsAttachedHotseat:Z
+    iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mIsAttachedHotseat:Z
 
-    if-nez v0, :cond_2
+    if-nez v4, :cond_2
 
-    invoke-virtual {p0, p1, v10}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->drawBadge(Landroid/graphics/Canvas;Z)V
+    invoke-virtual {p0, p1, v8}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->drawBadge(Landroid/graphics/Canvas;Z)V
 
     :cond_2
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->isSelected()Z
 
-    move-result v0
+    move-result v4
 
-    if-eqz v0, :cond_3
+    if-eqz v4, :cond_3
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->drawFocusedBg(Landroid/graphics/Canvas;)V
 
     :cond_3
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->isRunning()Z
 
-    move-result v0
+    move-result v4
 
-    if-eqz v0, :cond_4
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->getTag()Ljava/lang/Object;
-
-    move-result-object v0
-
-    instance-of v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;
-
-    if-eqz v0, :cond_6
-
-    const-string/jumbo v1, "com.samsung.android.incallui"
+    if-eqz v4, :cond_4
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->getTag()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v4
 
-    check-cast v0, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;
+    instance-of v4, v4, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;->getPackageName()Ljava/lang/String;
+    if-eqz v4, :cond_6
 
-    move-result-object v0
+    const-string/jumbo v5, "com.samsung.android.incallui"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->getTag()Ljava/lang/Object;
 
-    move-result v0
+    move-result-object v4
 
-    if-eqz v0, :cond_6
+    check-cast v4, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;
+
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;->getPackageName()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v5, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_6
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->drawRunningQueueForCall(Landroid/graphics/Canvas;)V
 
@@ -1176,9 +1325,9 @@
     :goto_0
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->isRunningFocused()Z
 
-    move-result v0
+    move-result v4
 
-    if-eqz v0, :cond_5
+    if-eqz v4, :cond_5
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->drawRunningFocusedQueue(Landroid/graphics/Canvas;)V
 
@@ -1457,7 +1606,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d05da
+    const v1, 0x7f070064
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1465,7 +1614,7 @@
 
     iput v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->allAppsMenuIconSize:I
 
-    const v1, 0x7f0d05dc
+    const v1, 0x7f070166
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1576,20 +1725,80 @@
     return-void
 .end method
 
-.method public setShadowLayerForAllApps()V
-    .locals 4
+.method public setPressed(Z)V
+    .locals 7
 
-    const/high16 v0, 0x40800000    # 4.0f
+    const/high16 v6, 0x3f800000    # 1.0f
 
-    const/4 v1, 0x0
+    const/high16 v4, 0x3f000000    # 0.5f
 
-    const/high16 v2, 0x40000000    # 2.0f
+    invoke-super {p0, p1}, Landroid/widget/TextView;->setPressed(Z)V
 
-    const v3, 0xffffff
+    if-eqz p1, :cond_1
 
-    invoke-virtual {p0, v0, v1, v2, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->setShadowLayer(FFFI)V
+    invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->setAlpha(F)V
 
+    :cond_0
+    :goto_0
     return-void
+
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->getAnimation()Landroid/view/animation/Animation;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_2
+
+    invoke-virtual {v1}, Landroid/view/animation/Animation;->hasEnded()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_4
+
+    :cond_2
+    new-instance v0, Landroid/view/animation/AlphaAnimation;
+
+    invoke-direct {v0, v4, v6}, Landroid/view/animation/AlphaAnimation;-><init>(FF)V
+
+    const-wide/16 v4, 0x64
+
+    invoke-virtual {v0, v4, v5}, Landroid/view/animation/AlphaAnimation;->setDuration(J)V
+
+    const/4 v2, 0x0
+
+    if-eqz v1, :cond_3
+
+    invoke-virtual {v1}, Landroid/view/animation/Animation;->getFillAfter()Z
+
+    move-result v2
+
+    :cond_3
+    invoke-virtual {v0, v2}, Landroid/view/animation/AlphaAnimation;->setFillAfter(Z)V
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->startAnimation(Landroid/view/animation/Animation;)V
+
+    :cond_4
+    invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->setAlpha(F)V
+
+    iget-boolean v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mHoverExitWithClick:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->getAnimation()Landroid/view/animation/Animation;
+
+    move-result-object v3
+
+    instance-of v3, v3, Landroid/view/animation/TranslateAnimation;
+
+    if-eqz v3, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->clearAnimation()V
+
+    const/4 v3, 0x0
+
+    iput-boolean v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mHoverExitWithClick:Z
+
+    goto :goto_0
 .end method
 
 .method public setTextVisible(Z)V
@@ -1597,7 +1806,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->getTag()Ljava/lang/Object;
 
@@ -1611,15 +1820,10 @@
 
     iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mTextVisible:Z
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    :goto_0
-    iput-boolean v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mTextVisible:Z
+    if-eqz v1, :cond_0
 
-    return-void
-
-    :cond_1
     check-cast v0, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;->mTitle:Ljava/lang/String;
@@ -1630,9 +1834,13 @@
 
     iput-boolean v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mTextVisible:Z
 
-    goto :goto_0
+    :cond_0
+    :goto_0
+    iput-boolean v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->mTextVisible:Z
 
-    :cond_2
+    return-void
+
+    :cond_1
     const-string/jumbo v1, ""
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->setText(Ljava/lang/CharSequence;)V
@@ -1657,7 +1865,9 @@
 
     instance-of v4, v3, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;
 
-    if-eqz v4, :cond_0
+    xor-int/lit8 v4, v4, 0x1
+
+    if-nez v4, :cond_0
 
     move-object v4, v3
 
@@ -1722,7 +1932,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0f0a17
+    const v6, 0x7f12012c
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1794,7 +2004,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0f0a18
+    const v6, 0x7f12012b
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

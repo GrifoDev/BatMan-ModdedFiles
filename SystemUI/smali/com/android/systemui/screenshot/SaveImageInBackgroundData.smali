@@ -34,6 +34,8 @@
 
 .field statusBarVisible:Z
 
+.field topApplication:Ljava/lang/String;
+
 .field webData:Lcom/android/systemui/screenshot/SmartClipDataExtractor$WebData;
 
 

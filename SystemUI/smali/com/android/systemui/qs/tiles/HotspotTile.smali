@@ -1,5 +1,5 @@
 .class public Lcom/android/systemui/qs/tiles/HotspotTile;
-.super Lcom/android/systemui/qs/QSTile;
+.super Lcom/android/systemui/qs/tileimpl/QSTileImpl;
 .source "HotspotTile.java"
 
 
@@ -14,20 +14,26 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/android/systemui/qs/QSTile",
+        "Lcom/android/systemui/qs/tileimpl/QSTileImpl",
         "<",
-        "Lcom/android/systemui/qs/QSTile$AirplaneBooleanState;",
+        "Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;",
         ">;"
     }
 .end annotation
 
 
 # static fields
-.field private static final DISABLE_DIM:I = 0x0
+.field private static final DIALOG_WIFI_AP_ENABLE_WARNING:I = 0x5
 
-.field private static final ENABLE_DIM:I = 0x1
+.field static final TETHER_SETTINGS:Landroid/content/Intent;
 
 .field private static final WIFIAP_ENABLE_WARNING:Ljava/lang/String; = "com.samsung.android.intent.action.WIFI_AP_ENABLE_WARNING"
+
+.field private static final WIFIAP_WARNING_CLASS:Ljava/lang/String; = "com.samsung.android.settings.wifi.mobileap.WifiApWarning"
+
+.field private static final WIFIAP_WARNING_DIALOG:Ljava/lang/String; = "com.samsung.android.settings.wifi.mobileap.wifiapwarning"
+
+.field private static final WIFIAP_WARNING_DIALOG_TYPE:Ljava/lang/String; = "wifiap_warning_dialog_type"
 
 .field private static final WIFI_AP_RANDOM_PASSWORD:Ljava/lang/String; = "wifi_ap_random_password"
 
@@ -35,7 +41,7 @@
 # instance fields
 .field private final HOTSPOT_SETTINGS_INTENT:Landroid/content/Intent;
 
-.field private hotspotLabel:[Ljava/lang/String;
+.field private final mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
 .field private final mAirplaneMode:Lcom/android/systemui/qs/GlobalSetting;
 
@@ -49,13 +55,41 @@
 
 .field private final mDetailAdapter:Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;
 
-.field private final mDisableNoAnimation:Lcom/android/systemui/qs/QSTile$Icon;
+.field private final mDisable:Lcom/android/systemui/qs/tileimpl/QSTileImpl$AnimationIcon;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/android/systemui/qs/tileimpl/QSTileImpl",
+            "<",
+            "Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;",
+            ">.AnimationIcon;"
+        }
+    .end annotation
+.end field
+
+.field private final mDisableNoAnimation:Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+.field private final mEnable:Lcom/android/systemui/qs/tileimpl/QSTileImpl$AnimationIcon;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/android/systemui/qs/tileimpl/QSTileImpl",
+            "<",
+            "Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;",
+            ">.AnimationIcon;"
+        }
+    .end annotation
+.end field
+
+.field private final mEnabledStatic:Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
 .field private mIntentReceiver:Landroid/content/BroadcastReceiver;
 
+.field private final mKeyguard:Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+
 .field private mListening:Z
 
-.field private final mUnavailable:Lcom/android/systemui/qs/QSTile$Icon;
+.field private final mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
+
+.field private final mUnavailable:Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
 .field private final mWifiManager:Landroid/net/wifi/WifiManager;
 
@@ -77,6 +111,30 @@
     return-object v0
 .end method
 
+.method static synthetic -get10(Lcom/android/systemui/qs/tiles/HotspotTile;)Lcom/android/systemui/util/SettingsHelper;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
+
+    return-object v0
+.end method
+
+.method static synthetic -get11(Lcom/android/systemui/qs/tiles/HotspotTile;)Lcom/android/systemui/plugins/qs/QSTile$State;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
+
+    return-object v0
+.end method
+
+.method static synthetic -get12(Lcom/android/systemui/qs/tiles/HotspotTile;)Landroid/net/wifi/WifiManager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    return-object v0
+.end method
+
 .method static synthetic -get2(Lcom/android/systemui/qs/tiles/HotspotTile;)Ljava/lang/String;
     .locals 1
 
@@ -85,7 +143,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/systemui/qs/tiles/HotspotTile;)Landroid/app/AlertDialog;
+.method static synthetic -get3(Lcom/android/systemui/qs/tiles/HotspotTile;)Lcom/android/systemui/plugins/ActivityStarter;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
+
+    return-object v0
+.end method
+
+.method static synthetic -get4(Lcom/android/systemui/qs/tiles/HotspotTile;)Landroid/app/AlertDialog;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mAlertDialog:Landroid/app/AlertDialog;
@@ -93,7 +159,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/android/systemui/qs/tiles/HotspotTile;)Landroid/content/Context;
+.method static synthetic -get5(Lcom/android/systemui/qs/tiles/HotspotTile;)Landroid/content/Context;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
@@ -101,7 +167,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/android/systemui/qs/tiles/HotspotTile;)Lcom/android/systemui/statusbar/policy/HotspotController;
+.method static synthetic -get6(Lcom/android/systemui/qs/tiles/HotspotTile;)Lcom/android/systemui/statusbar/policy/HotspotController;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mController:Lcom/android/systemui/statusbar/policy/HotspotController;
@@ -109,7 +175,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get6(Lcom/android/systemui/qs/tiles/HotspotTile;)Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;
+.method static synthetic -get7(Lcom/android/systemui/qs/tiles/HotspotTile;)Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mDetailAdapter:Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;
@@ -117,18 +183,18 @@
     return-object v0
 .end method
 
-.method static synthetic -get7(Lcom/android/systemui/qs/tiles/HotspotTile;)Lcom/android/systemui/qs/QSTile$Host;
+.method static synthetic -get8(Lcom/android/systemui/qs/tiles/HotspotTile;)Lcom/android/systemui/qs/QSHost;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mHost:Lcom/android/systemui/qs/QSHost;
 
     return-object v0
 .end method
 
-.method static synthetic -get8(Lcom/android/systemui/qs/tiles/HotspotTile;)Lcom/android/systemui/qs/QSTile$State;
+.method static synthetic -get9(Lcom/android/systemui/qs/tiles/HotspotTile;)Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mState:Lcom/android/systemui/qs/QSTile$State;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mKeyguard:Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
 
     return-object v0
 .end method
@@ -143,7 +209,17 @@
     return v0
 .end method
 
-.method static synthetic -wrap1(Lcom/android/systemui/qs/tiles/HotspotTile;Ljava/lang/Object;)V
+.method static synthetic -wrap1(I)I
+    .locals 1
+
+    invoke-static {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->getStringID(I)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap2(Lcom/android/systemui/qs/tiles/HotspotTile;Ljava/lang/Object;)V
     .locals 0
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/qs/tiles/HotspotTile;->refreshState(Ljava/lang/Object;)V
@@ -151,7 +227,15 @@
     return-void
 .end method
 
-.method static synthetic -wrap2(Lcom/android/systemui/qs/tiles/HotspotTile;Z)V
+.method static synthetic -wrap3(Lcom/android/systemui/qs/tiles/HotspotTile;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->setHotspotEnabled()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap4(Lcom/android/systemui/qs/tiles/HotspotTile;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/HotspotTile;->setHotspotEnabled(Z)V
@@ -159,40 +243,88 @@
     return-void
 .end method
 
-.method static synthetic -wrap3(Lcom/android/systemui/qs/tiles/HotspotTile;I)V
+.method static synthetic -wrap5(Lcom/android/systemui/qs/tiles/HotspotTile;)V
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/tiles/HotspotTile;->showItPolicyToast(I)V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->showItPolicyToast()V
 
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/qs/QSTile$Host;)V
-    .locals 6
+.method static constructor <clinit>()V
+    .locals 4
 
-    const/4 v5, 0x0
+    new-instance v0, Landroid/content/Intent;
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/QSTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    const v1, 0x7f0201ac
+    new-instance v1, Landroid/content/ComponentName;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
+    const-string/jumbo v2, "com.android.settings"
+
+    const-string/jumbo v3, "com.android.settings.TetherSettings"
+
+    invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/systemui/qs/tiles/HotspotTile;->TETHER_SETTINGS:Landroid/content/Intent;
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/systemui/qs/QSHost;)V
+    .locals 5
+
+    const v4, 0x7f0801eb
+
+    const v3, 0x7f0801e9
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;-><init>(Lcom/android/systemui/qs/QSHost;)V
+
+    new-instance v1, Lcom/android/systemui/qs/tileimpl/QSTileImpl$AnimationIcon;
+
+    const v2, 0x7f0801ec
+
+    invoke-direct {v1, p0, v2, v3}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$AnimationIcon;-><init>(Lcom/android/systemui/qs/tileimpl/QSTileImpl;II)V
+
+    iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mEnable:Lcom/android/systemui/qs/tileimpl/QSTileImpl$AnimationIcon;
+
+    invoke-static {v3}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mDisableNoAnimation:Lcom/android/systemui/qs/QSTile$Icon;
+    iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mEnabledStatic:Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
-    const v1, 0x7f0201ae
+    new-instance v1, Lcom/android/systemui/qs/tileimpl/QSTileImpl$AnimationIcon;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
+    const v2, 0x7f0801ea
+
+    invoke-direct {v1, p0, v2, v4}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$AnimationIcon;-><init>(Lcom/android/systemui/qs/tileimpl/QSTileImpl;II)V
+
+    iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mDisable:Lcom/android/systemui/qs/tileimpl/QSTileImpl$AnimationIcon;
+
+    invoke-static {v4}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mUnavailable:Lcom/android/systemui/qs/QSTile$Icon;
+    iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mDisableNoAnimation:Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+    const v1, 0x7f0801ef
+
+    invoke-static {v1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mUnavailable:Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
     new-instance v1, Lcom/android/systemui/qs/tiles/HotspotTile$Callback;
 
-    invoke-direct {v1, p0, v5}, Lcom/android/systemui/qs/tiles/HotspotTile$Callback;-><init>(Lcom/android/systemui/qs/tiles/HotspotTile;Lcom/android/systemui/qs/tiles/HotspotTile$Callback;)V
+    const/4 v2, 0x0
+
+    invoke-direct {v1, p0, v2}, Lcom/android/systemui/qs/tiles/HotspotTile$Callback;-><init>(Lcom/android/systemui/qs/tiles/HotspotTile;Lcom/android/systemui/qs/tiles/HotspotTile$Callback;)V
 
     iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mCallback:Lcom/android/systemui/qs/tiles/HotspotTile$Callback;
 
@@ -214,45 +346,19 @@
 
     iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->HOTSPOT_SETTINGS_INTENT:Landroid/content/Intent;
 
-    const/4 v1, 0x4
-
-    new-array v1, v1, [Ljava/lang/String;
-
-    const-string/jumbo v2, "Mobile\nhotspot"
-
-    const/4 v3, 0x0
-
-    aput-object v2, v1, v3
-
-    const-string/jumbo v2, "Mobile\nHotspot"
-
-    const/4 v3, 0x1
-
-    aput-object v2, v1, v3
-
-    const-string/jumbo v2, "Mobile\nHotSpot"
-
-    const/4 v3, 0x2
-
-    aput-object v2, v1, v3
-
-    const-string/jumbo v2, "Hotspot"
-
-    const/4 v3, 0x3
-
-    aput-object v2, v1, v3
-
-    iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->hotspotLabel:[Ljava/lang/String;
-
     new-instance v1, Lcom/android/systemui/qs/tiles/HotspotTile$1;
 
     invoke-direct {v1, p0}, Lcom/android/systemui/qs/tiles/HotspotTile$1;-><init>(Lcom/android/systemui/qs/tiles/HotspotTile;)V
 
     iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-interface {p1}, Lcom/android/systemui/qs/QSTile$Host;->getHotspotController()Lcom/android/systemui/statusbar/policy/HotspotController;
+    const-class v1, Lcom/android/systemui/statusbar/policy/HotspotController;
+
+    invoke-static {v1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/statusbar/policy/HotspotController;
 
     iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mController:Lcom/android/systemui/statusbar/policy/HotspotController;
 
@@ -260,7 +366,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
 
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mHandler:Lcom/android/systemui/qs/QSTile$H;
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mHandler:Lcom/android/systemui/qs/tileimpl/QSTileImpl$H;
 
     const-string/jumbo v4, "airplane_mode_on"
 
@@ -288,12 +394,6 @@
 
     iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContentResolver:Landroid/content/ContentResolver;
 
-    new-instance v1, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;
-
-    invoke-direct {v1, p0, v5}, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;-><init>(Lcom/android/systemui/qs/tiles/HotspotTile;Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;)V
-
-    iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mDetailAdapter:Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;
-
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
@@ -308,7 +408,320 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mController:Lcom/android/systemui/statusbar/policy/HotspotController;
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mCallback:Lcom/android/systemui/qs/tiles/HotspotTile$Callback;
+
+    invoke-interface {v1, v2}, Lcom/android/systemui/statusbar/policy/HotspotController;->addCallback(Ljava/lang/Object;)V
+
+    const-class v1, Lcom/android/systemui/plugins/ActivityStarter;
+
+    invoke-static {v1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/plugins/ActivityStarter;
+
+    iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
+
+    const-class v1, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+
+    invoke-static {v1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+
+    iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mKeyguard:Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+
+    const-class v1, Lcom/android/systemui/util/SettingsHelper;
+
+    invoke-static {v1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/util/SettingsHelper;
+
+    iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, " HotspotTile  : "
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->createDetailAdapter()Lcom/android/systemui/plugins/qs/DetailAdapter;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;
+
+    iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mDetailAdapter:Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;
+
     return-void
+.end method
+
+.method private static getStringID(I)I
+    .locals 2
+
+    move v0, p0
+
+    const v1, 0x7f120899
+
+    if-ne p0, v1, :cond_1
+
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_IS_JAPAN_POPUP:Z
+
+    if-eqz v1, :cond_0
+
+    const v0, 0x7f12089a
+
+    :cond_0
+    :goto_0
+    return v0
+
+    :cond_1
+    const v1, 0x7f120738
+
+    if-ne p0, v1, :cond_2
+
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_IS_JAPAN_POPUP:Z
+
+    if-eqz v1, :cond_0
+
+    const v0, 0x7f120739
+
+    goto :goto_0
+
+    :cond_2
+    const v1, 0x7f1203be
+
+    if-ne p0, v1, :cond_4
+
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_IS_TMB_POPUP:Z
+
+    if-eqz v1, :cond_3
+
+    const v0, 0x7f1203bf
+
+    goto :goto_0
+
+    :cond_3
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_IS_VZW_POPUP:Z
+
+    if-eqz v1, :cond_0
+
+    const v0, 0x7f1203c0
+
+    goto :goto_0
+
+    :cond_4
+    const v1, 0x7f1203b0
+
+    if-ne p0, v1, :cond_b
+
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_IS_VZW_POPUP:Z
+
+    if-eqz v1, :cond_5
+
+    const v0, 0x7f1203b7
+
+    goto :goto_0
+
+    :cond_5
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_IS_SPR_POPUP:Z
+
+    if-eqz v1, :cond_6
+
+    const v0, 0x7f1203b5
+
+    goto :goto_0
+
+    :cond_6
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_IS_TMB_POPUP:Z
+
+    if-eqz v1, :cond_7
+
+    const v0, 0x7f1203b6
+
+    goto :goto_0
+
+    :cond_7
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_IS_ATT_POPUP:Z
+
+    if-eqz v1, :cond_8
+
+    const v0, 0x7f1203b1
+
+    goto :goto_0
+
+    :cond_8
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_IS_MTR_POPUP:Z
+
+    if-eqz v1, :cond_9
+
+    const v0, 0x7f1203b4
+
+    goto :goto_0
+
+    :cond_9
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_IS_CHINA_POPUP:Z
+
+    if-eqz v1, :cond_a
+
+    const v0, 0x7f1203b2
+
+    goto :goto_0
+
+    :cond_a
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_IS_JAPAN_POPUP:Z
+
+    if-eqz v1, :cond_0
+
+    const v0, 0x7f1203b3
+
+    goto :goto_0
+
+    :cond_b
+    const v1, 0x7f1203bd
+
+    if-eq p0, v1, :cond_0
+
+    const v1, 0x7f1203ab
+
+    if-ne p0, v1, :cond_f
+
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_IS_VZW_POPUP:Z
+
+    if-eqz v1, :cond_c
+
+    const v0, 0x7f1203af
+
+    goto :goto_0
+
+    :cond_c
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_IS_TMB_POPUP:Z
+
+    if-eqz v1, :cond_d
+
+    const v0, 0x7f1203ae
+
+    goto :goto_0
+
+    :cond_d
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_IS_SPR_POPUP:Z
+
+    if-eqz v1, :cond_e
+
+    const v0, 0x7f1203ad
+
+    goto/16 :goto_0
+
+    :cond_e
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_IS_CHINA_POPUP:Z
+
+    if-eqz v1, :cond_0
+
+    const v0, 0x7f1203ac
+
+    goto/16 :goto_0
+
+    :cond_f
+    const v1, 0x7f1203c1
+
+    if-ne p0, v1, :cond_11
+
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_IS_VZW_POPUP:Z
+
+    if-eqz v1, :cond_10
+
+    const v0, 0x7f1203c3
+
+    goto/16 :goto_0
+
+    :cond_10
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_IS_TMB_POPUP:Z
+
+    if-eqz v1, :cond_0
+
+    const v0, 0x7f1203c2
+
+    goto/16 :goto_0
+
+    :cond_11
+    const v1, 0x7f1203b8
+
+    if-ne p0, v1, :cond_15
+
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_IS_VZW_POPUP:Z
+
+    if-eqz v1, :cond_12
+
+    const v0, 0x7f1203bc
+
+    goto/16 :goto_0
+
+    :cond_12
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_IS_SPR_POPUP:Z
+
+    if-eqz v1, :cond_13
+
+    const v0, 0x7f1203ba
+
+    goto/16 :goto_0
+
+    :cond_13
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_IS_TMB_POPUP:Z
+
+    if-eqz v1, :cond_14
+
+    const v0, 0x7f1203bb
+
+    goto/16 :goto_0
+
+    :cond_14
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_IS_CHINA_POPUP:Z
+
+    if-eqz v1, :cond_0
+
+    const v0, 0x7f1203b9
+
+    goto/16 :goto_0
+
+    :cond_15
+    const v1, 0x7f12073c
+
+    if-ne p0, v1, :cond_16
+
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_IS_JAPAN_POPUP:Z
+
+    if-eqz v1, :cond_0
+
+    const v0, 0x7f12073d
+
+    goto/16 :goto_0
+
+    :cond_16
+    const v1, 0x7f12073a
+
+    if-ne p0, v1, :cond_0
+
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_IS_JAPAN_POPUP:Z
+
+    if-eqz v1, :cond_17
+
+    const v0, 0x7f12073b
+
+    goto/16 :goto_0
+
+    :cond_17
+    sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_IS_CTC_POPUP:Z
+
+    if-eqz v1, :cond_0
+
+    const v0, 0x7f12073e
+
+    goto/16 :goto_0
 .end method
 
 .method private isAirplaneModeEnabled()Z
@@ -334,7 +747,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f046c
+    const v1, 0x7f120744
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -349,21 +762,19 @@
 .end method
 
 .method private isBlockedByEASPolicy()Z
-    .locals 6
+    .locals 5
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    const/4 v2, 0x0
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
 
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
+    invoke-virtual {v2}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
-    invoke-virtual {v3}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+    move-result-object v2
 
-    move-result-object v3
+    const-string/jumbo v3, "device_policy"
 
-    const-string/jumbo v4, "device_policy"
-
-    invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -373,92 +784,164 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0, v5}, Landroid/app/admin/DevicePolicyManager;->semGetAllowInternetSharing(Landroid/content/ComponentName;)Z
+    invoke-virtual {v0, v4}, Landroid/app/admin/DevicePolicyManager;->semGetAllowInternetSharing(Landroid/content/ComponentName;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_1
-
-    :cond_0
-    move v1, v2
+    xor-int/lit8 v1, v2, 0x1
 
     :goto_0
     return v1
 
-    :cond_1
-    const/4 v1, 0x1
+    :cond_0
+    const/4 v1, 0x0
 
     goto :goto_0
 .end method
 
 .method private isP2pConnected()Z
-    .locals 7
+    .locals 5
 
-    :try_start_0
-    iget-object v4, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v5, "connectivity"
+    const-string/jumbo v3, "wifip2p"
 
-    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Landroid/net/ConnectivityManager;
+    check-cast v1, Landroid/net/wifi/p2p/WifiP2pManager;
 
-    const/16 v4, 0xd
+    if-nez v1, :cond_0
 
-    invoke-virtual {v2, v4}, Landroid/net/ConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;
+    const/4 v2, 0x0
+
+    return v2
+
+    :cond_0
+    invoke-virtual {v1}, Landroid/net/wifi/p2p/WifiP2pManager;->isWifiP2pConnected()Z
+
+    move-result v0
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "isP2PConnected = : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    sget-object v4, Landroid/net/NetworkInfo$DetailedState;->CONNECTED:Landroid/net/NetworkInfo$DetailedState;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Landroid/net/NetworkInfo;->getDetailedState()Landroid/net/NetworkInfo$DetailedState;
+    move-result-object v3
 
-    move-result-object v5
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v4, v5}, Landroid/net/NetworkInfo$DetailedState;->equals(Ljava/lang/Object;)Z
+    move-result-object v3
 
-    move-result v1
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v4, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
+    return v0
+.end method
 
-    new-instance v5, Ljava/lang/StringBuilder;
+.method private isSimCheck()Z
+    .locals 1
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    sget-boolean v0, Lcom/android/systemui/Rune;->QPANEL_CHECK_MHSDBG:Z
 
-    const-string/jumbo v6, "isP2PConnected : "
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-boolean v0, Lcom/android/systemui/Rune;->QPANEL_IS_SIMCHECK_DISABLED:Z
 
-    move-result-object v5
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    const/4 v0, 0x0
 
-    move-result-object v5
+    return v0
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    :cond_0
+    const/4 v0, 0x1
 
-    move-result-object v5
+    return v0
+.end method
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+.method private isWifiSharingEnabled()Z
+    .locals 4
 
-    return v1
+    const/4 v3, 0x1
 
-    :catch_0
-    move-exception v0
+    const/4 v2, 0x0
 
-    iget-object v4, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v5, "isP2pConnected - NullPointerException"
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v0
 
-    const/4 v4, 0x0
+    const-string/jumbo v1, "wifi_ap_wifi_sharing"
 
-    return v4
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-ne v0, v3, :cond_0
+
+    return v3
+
+    :cond_0
+    return v2
+.end method
+
+.method private setHotspotEnabled()V
+    .locals 3
+
+    new-instance v0, Landroid/content/Intent;
+
+    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+
+    const-string/jumbo v1, "com.android.settings"
+
+    const-string/jumbo v2, "com.samsung.android.settings.wifi.mobileap.WifiApWarning"
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const/high16 v1, 0x10000000
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    const-string/jumbo v1, "com.samsung.android.settings.wifi.mobileap.wifiapwarning"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v1, "wifiap_warning_dialog_type"
+
+    const/4 v2, 0x5
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    const-class v1, Lcom/android/systemui/plugins/ActivityStarter;
+
+    invoke-static {v1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/plugins/ActivityStarter;
+
+    const/4 v2, 0x0
+
+    invoke-interface {v1, v0, v2}, Lcom/android/systemui/plugins/ActivityStarter;->postStartActivityDismissingKeyguard(Landroid/content/Intent;I)V
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "setHotspotEnabled start for USA or SBM"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
 .end method
 
 .method private setHotspotEnabled(Z)V
@@ -520,6 +1003,11 @@
 
     invoke-static {v0, v1, p1}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/content/Context;IZ)V
 
+    if-eqz p1, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->showWifiSharingFirstTimeDialog()V
+
+    :cond_2
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mController:Lcom/android/systemui/statusbar/policy/HotspotController;
 
     invoke-interface {v0, p1}, Lcom/android/systemui/statusbar/policy/HotspotController;->setHotspotEnabled(Z)V
@@ -545,20 +1033,18 @@
     return-void
 
     :cond_0
-    sget-boolean v2, Lcom/android/systemui/SystemUIRune;->IS_JAPAN_POPUP:Z
+    const v2, 0x7f12073c
 
-    if-eqz v2, :cond_1
+    invoke-static {v2}, Lcom/android/systemui/qs/tiles/HotspotTile;->getStringID(I)I
 
-    const v1, 0x7f0f0460
+    move-result v1
 
-    :goto_0
-    sget-boolean v2, Lcom/android/systemui/SystemUIRune;->IS_CTC_POPUP:Z
+    const v2, 0x7f12073a
 
-    if-eqz v2, :cond_4
+    invoke-static {v2}, Lcom/android/systemui/qs/tiles/HotspotTile;->getStringID(I)I
 
-    const v0, 0x7f0f0465
+    move-result v0
 
-    :goto_1
     new-instance v2, Landroid/app/AlertDialog$Builder;
 
     iget-object v3, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
@@ -573,9 +1059,9 @@
 
     move-result-object v2
 
-    new-instance v3, Lcom/android/systemui/qs/tiles/HotspotTile$3;
+    new-instance v3, Lcom/android/systemui/qs/tiles/HotspotTile$6;
 
-    invoke-direct {v3, p0}, Lcom/android/systemui/qs/tiles/HotspotTile$3;-><init>(Lcom/android/systemui/qs/tiles/HotspotTile;)V
+    invoke-direct {v3, p0}, Lcom/android/systemui/qs/tiles/HotspotTile$6;-><init>(Lcom/android/systemui/qs/tiles/HotspotTile;)V
 
     const v4, 0x104000a
 
@@ -591,15 +1077,171 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mAlertDialog:Landroid/app/AlertDialog;
 
-    new-instance v3, Lcom/android/systemui/qs/tiles/HotspotTile$4;
+    new-instance v3, Lcom/android/systemui/qs/tiles/HotspotTile$7;
 
-    invoke-direct {v3, p0}, Lcom/android/systemui/qs/tiles/HotspotTile$4;-><init>(Lcom/android/systemui/qs/tiles/HotspotTile;)V
+    invoke-direct {v3, p0}, Lcom/android/systemui/qs/tiles/HotspotTile$7;-><init>(Lcom/android/systemui/qs/tiles/HotspotTile;)V
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mHost:Lcom/android/systemui/qs/QSHost;
 
-    invoke-interface {v2}, Lcom/android/systemui/qs/QSTile$Host;->collapsePanels()V
+    invoke-interface {v2}, Lcom/android/systemui/qs/QSHost;->collapsePanels()V
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mAlertDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {p0, v2}, Lcom/android/systemui/qs/tiles/HotspotTile;->setDialogWindowType(Landroid/app/AlertDialog;)V
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mAlertDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v2}, Landroid/app/AlertDialog;->show()V
+
+    return-void
+.end method
+
+.method private showWarningDialog(Z)V
+    .locals 5
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mAlertDialog:Landroid/app/AlertDialog;
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mAlertDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v2}, Landroid/app/AlertDialog;->isShowing()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "showWarningDialog(): mAlertDialog"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mAlertDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, ", "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mAlertDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v4}, Landroid/app/AlertDialog;->isShowing()Z
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    invoke-virtual {v2}, Landroid/net/wifi/WifiManager;->isWifiSharingEnabled()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->isP2pConnected()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    const v2, 0x7f1203c1
+
+    invoke-static {v2}, Lcom/android/systemui/qs/tiles/HotspotTile;->getStringID(I)I
+
+    move-result v1
+
+    const v2, 0x7f1203b8
+
+    invoke-static {v2}, Lcom/android/systemui/qs/tiles/HotspotTile;->getStringID(I)I
+
+    move-result v0
+
+    :goto_0
+    new-instance v2, Landroid/app/AlertDialog$Builder;
+
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
+
+    invoke-direct {v2, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {v2, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v2
+
+    new-instance v3, Lcom/android/systemui/qs/tiles/HotspotTile$8;
+
+    invoke-direct {v3, p0, p1}, Lcom/android/systemui/qs/tiles/HotspotTile$8;-><init>(Lcom/android/systemui/qs/tiles/HotspotTile;Z)V
+
+    const v4, 0x104000a
+
+    invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v2
+
+    new-instance v3, Lcom/android/systemui/qs/tiles/HotspotTile$9;
+
+    invoke-direct {v3, p0}, Lcom/android/systemui/qs/tiles/HotspotTile$9;-><init>(Lcom/android/systemui/qs/tiles/HotspotTile;)V
+
+    const/high16 v4, 0x1040000
+
+    invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v2
+
+    new-instance v3, Lcom/android/systemui/qs/tiles/HotspotTile$10;
+
+    invoke-direct {v3, p0}, Lcom/android/systemui/qs/tiles/HotspotTile$10;-><init>(Lcom/android/systemui/qs/tiles/HotspotTile;)V
+
+    invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mAlertDialog:Landroid/app/AlertDialog;
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mAlertDialog:Landroid/app/AlertDialog;
+
+    new-instance v3, Lcom/android/systemui/qs/tiles/HotspotTile$11;
+
+    invoke-direct {v3, p0}, Lcom/android/systemui/qs/tiles/HotspotTile$11;-><init>(Lcom/android/systemui/qs/tiles/HotspotTile;)V
+
+    invoke-virtual {v2, v3}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mHost:Lcom/android/systemui/qs/QSHost;
+
+    invoke-interface {v2}, Lcom/android/systemui/qs/QSHost;->collapsePanels()V
 
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mAlertDialog:Landroid/app/AlertDialog;
 
@@ -612,339 +1254,98 @@
     return-void
 
     :cond_1
-    sget-boolean v2, Lcom/android/systemui/SystemUIRune;->IS_TMB_POPUP:Z
-
-    if-eqz v2, :cond_2
-
-    const v1, 0x7f0f0461
-
-    goto :goto_0
-
-    :cond_2
-    sget-boolean v2, Lcom/android/systemui/SystemUIRune;->IS_MTR_POPUP:Z
-
-    if-eqz v2, :cond_3
-
-    const v1, 0x7f0f0462
-
-    goto :goto_0
-
-    :cond_3
-    const v1, 0x7f0f045f
-
-    goto :goto_0
-
-    :cond_4
-    sget-boolean v2, Lcom/android/systemui/SystemUIRune;->IS_JAPAN_POPUP:Z
-
-    if-eqz v2, :cond_5
-
-    const v0, 0x7f0f0464
-
-    goto :goto_1
-
-    :cond_5
-    sget-boolean v2, Lcom/android/systemui/SystemUIRune;->IS_VZW_POPUP:Z
-
-    if-eqz v2, :cond_6
-
-    const v0, 0x7f0f0463
-
-    goto :goto_1
-
-    :cond_6
-    const v0, 0x7f0f045e
-
-    goto :goto_1
-.end method
-
-.method private showWarningDialog(Z)V
-    .locals 4
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mAlertDialog:Landroid/app/AlertDialog;
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mAlertDialog:Landroid/app/AlertDialog;
-
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->isShowing()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "showWarningDialog(): mAlertDialog"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mAlertDialog:Landroid/app/AlertDialog;
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, ", "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mAlertDialog:Landroid/app/AlertDialog;
-
-    invoke-virtual {v3}, Landroid/app/AlertDialog;->isShowing()Z
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_0
-    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->IS_CHINA_POPUP:Z
-
-    if-eqz v1, :cond_2
-
-    const v0, 0x7f0f05a7
-
-    :goto_0
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    invoke-virtual {v1}, Landroid/net/wifi/WifiManager;->isWifiSharingEnabled()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_6
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->isP2pConnected()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_6
-
-    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->IS_CHINA_POPUP:Z
-
-    if-eqz v1, :cond_5
-
-    const v0, 0x7f0f05ac
-
-    :cond_1
-    :goto_1
-    new-instance v1, Landroid/app/AlertDialog$Builder;
-
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
 
-    invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    invoke-virtual {v1, v0}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
+    move-result-object v2
 
-    move-result-object v1
+    const-string/jumbo v3, "wifi_display_on"
 
-    new-instance v2, Lcom/android/systemui/qs/tiles/HotspotTile$5;
+    const/4 v4, 0x0
 
-    invoke-direct {v2, p0, p1}, Lcom/android/systemui/qs/tiles/HotspotTile$5;-><init>(Lcom/android/systemui/qs/tiles/HotspotTile;Z)V
+    invoke-static {v2, v3, v4}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    const v3, 0x104000a
+    move-result v2
 
-    invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    const/4 v3, 0x1
 
-    move-result-object v1
+    if-ne v2, v3, :cond_2
 
-    new-instance v2, Lcom/android/systemui/qs/tiles/HotspotTile$6;
+    const v2, 0x7f1203bd
 
-    invoke-direct {v2, p0}, Lcom/android/systemui/qs/tiles/HotspotTile$6;-><init>(Lcom/android/systemui/qs/tiles/HotspotTile;)V
-
-    const/high16 v3, 0x1040000
-
-    invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v1
-
-    new-instance v2, Lcom/android/systemui/qs/tiles/HotspotTile$7;
-
-    invoke-direct {v2, p0}, Lcom/android/systemui/qs/tiles/HotspotTile$7;-><init>(Lcom/android/systemui/qs/tiles/HotspotTile;)V
-
-    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mAlertDialog:Landroid/app/AlertDialog;
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mAlertDialog:Landroid/app/AlertDialog;
-
-    new-instance v2, Lcom/android/systemui/qs/tiles/HotspotTile$8;
-
-    invoke-direct {v2, p0}, Lcom/android/systemui/qs/tiles/HotspotTile$8;-><init>(Lcom/android/systemui/qs/tiles/HotspotTile;)V
-
-    invoke-virtual {v1, v2}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
-
-    invoke-interface {v1}, Lcom/android/systemui/qs/QSTile$Host;->collapsePanels()V
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mAlertDialog:Landroid/app/AlertDialog;
-
-    invoke-virtual {p0, v1}, Lcom/android/systemui/qs/tiles/HotspotTile;->setDialogWindowType(Landroid/app/AlertDialog;)V
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mAlertDialog:Landroid/app/AlertDialog;
-
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
-
-    return-void
-
-    :cond_2
-    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->IS_JAPAN_POPUP:Z
-
-    if-eqz v1, :cond_3
-
-    const v0, 0x7f0f05a8
-
-    goto :goto_0
-
-    :cond_3
-    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->IS_VZW_POPUP:Z
-
-    if-eqz v1, :cond_4
-
-    const v0, 0x7f0f05a6
-
-    goto :goto_0
-
-    :cond_4
-    const v0, 0x7f0f05a5
-
-    goto :goto_0
-
-    :cond_5
-    const v0, 0x7f0f05ab
-
-    goto :goto_1
-
-    :cond_6
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "wifi_display_on"
-
-    const/4 v3, 0x0
-
-    invoke-static {v1, v2, v3}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v2}, Lcom/android/systemui/qs/tiles/HotspotTile;->getStringID(I)I
 
     move-result v1
 
-    const/4 v2, 0x1
+    const v2, 0x7f1203ab
 
-    if-ne v1, v2, :cond_1
+    invoke-static {v2}, Lcom/android/systemui/qs/tiles/HotspotTile;->getStringID(I)I
 
-    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->IS_CHINA_POPUP:Z
+    move-result v0
 
-    if-eqz v1, :cond_7
+    goto :goto_0
 
-    const v0, 0x7f0f0469
+    :cond_2
+    const v2, 0x7f1203be
 
-    goto :goto_1
+    invoke-static {v2}, Lcom/android/systemui/qs/tiles/HotspotTile;->getStringID(I)I
 
-    :cond_7
-    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->IS_VZW_POPUP:Z
+    move-result v1
 
-    if-eqz v1, :cond_8
+    const v2, 0x7f1203b0
 
-    const v0, 0x7f0f0467
+    invoke-static {v2}, Lcom/android/systemui/qs/tiles/HotspotTile;->getStringID(I)I
 
-    goto/16 :goto_1
+    move-result v0
 
-    :cond_8
-    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->IS_TMB_POPUP:Z
-
-    if-eqz v1, :cond_9
-
-    const v0, 0x7f0f0468
-
-    goto/16 :goto_1
-
-    :cond_9
-    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->IS_SPR_POPUP:Z
-
-    if-eqz v1, :cond_a
-
-    const v0, 0x7f0f046a
-
-    goto/16 :goto_1
-
-    :cond_a
-    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->IS_JAPAN_POPUP:Z
-
-    if-eqz v1, :cond_b
-
-    const v0, 0x7f0f046b
-
-    goto/16 :goto_1
-
-    :cond_b
-    const v0, 0x7f0f0466
-
-    goto/16 :goto_1
+    goto :goto_0
 .end method
 
 
 # virtual methods
-.method protected composeChangeAnnouncement()Ljava/lang/String;
+.method protected createDetailAdapter()Lcom/android/systemui/plugins/qs/DetailAdapter;
     .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mState:Lcom/android/systemui/qs/QSTile$State;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
 
-    check-cast v0, Lcom/android/systemui/qs/QSTile$AirplaneBooleanState;
+    const-string/jumbo v1, "hotspot createDetail Adapter"
 
-    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$AirplaneBooleanState;->value:Z
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v0, :cond_0
+    new-instance v0, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
-
-    const v1, 0x7f0f03a7
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
-
-    const v1, 0x7f0f03a6
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
+    invoke-direct {v0, p0}, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;-><init>(Lcom/android/systemui/qs/tiles/HotspotTile;)V
 
     return-object v0
 .end method
 
-.method public getDetailAdapter()Lcom/android/systemui/qs/QSTile$DetailAdapter;
-    .locals 1
+.method public getDetailAdapter()Lcom/android/systemui/plugins/qs/DetailAdapter;
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, " HotspotTile  getDetailAdapter: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mDetailAdapter:Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mDetailAdapter:Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;
 
@@ -952,36 +1353,47 @@
 .end method
 
 .method public getLongClickIntent()Landroid/content/Intent;
-    .locals 1
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
+    const/4 v1, 0x0
 
-    invoke-static {v0}, Lcom/android/keyguard/KnoxStateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KnoxStateMonitor;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/keyguard/KnoxStateMonitor;->isWifiHotspotTileBlocked()Z
+    invoke-static {}, Lcom/android/systemui/statusbar/DeviceState;->isSimReady()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->showNoSIMDialog()V
+
+    return-object v1
+
+    :cond_0
+    const-class v0, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-virtual {v0}, Lcom/android/systemui/KnoxStateMonitor;->isWifiHotspotTileBlocked()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
     invoke-direct {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->isBlockedByEASPolicy()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
-
-    :cond_0
-    const v0, 0x7f0f046d
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/HotspotTile;->showItPolicyToast(I)V
-
-    const/4 v0, 0x0
-
-    return-object v0
+    if-eqz v0, :cond_2
 
     :cond_1
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->showItPolicyToast()V
+
+    return-object v1
+
+    :cond_2
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->HOTSPOT_SETTINGS_INTENT:Landroid/content/Intent;
 
     return-object v0
@@ -996,107 +1408,20 @@
 .end method
 
 .method public getTileLabel()Ljava/lang/CharSequence;
-    .locals 4
+    .locals 3
 
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
 
-    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->IS_JAPAN_POPUP:Z
+    const v2, 0x7f120899
 
-    if-eqz v1, :cond_0
+    invoke-static {v2}, Lcom/android/systemui/qs/tiles/HotspotTile;->getStringID(I)I
 
-    const v1, 0x7f0f0436
+    move-result v2
 
-    :goto_0
-    invoke-virtual {v2, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->hotspotLabel:[Ljava/lang/String;
-
-    const/4 v3, 0x0
-
-    aget-object v2, v2, v3
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_6
-
-    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->IS_VZW_POPUP:Z
-
-    if-eqz v1, :cond_3
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->hotspotLabel:[Ljava/lang/String;
-
-    const/4 v2, 0x1
-
-    aget-object v1, v1, v2
-
-    :goto_1
-    return-object v1
-
-    :cond_0
-    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->IS_TMB_POPUP:Z
-
-    if-eqz v1, :cond_1
-
-    const v1, 0x7f0f0437
-
-    goto :goto_0
-
-    :cond_1
-    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->IS_MTR_POPUP:Z
-
-    if-eqz v1, :cond_2
-
-    const v1, 0x7f0f0439
-
-    goto :goto_0
-
-    :cond_2
-    const v1, 0x7f0f0435
-
-    goto :goto_0
-
-    :cond_3
-    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->IS_TMB_POPUP:Z
-
-    if-eqz v1, :cond_4
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->hotspotLabel:[Ljava/lang/String;
-
-    const/4 v2, 0x2
-
-    aget-object v1, v1, v2
-
-    goto :goto_1
-
-    :cond_4
-    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->IS_SPR_POPUP:Z
-
-    if-eqz v1, :cond_5
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->hotspotLabel:[Ljava/lang/String;
-
-    const/4 v2, 0x3
-
-    aget-object v1, v1, v2
-
-    goto :goto_1
-
-    :cond_5
-    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    goto :goto_1
-
-    :cond_6
     return-object v0
 .end method
 
@@ -1111,86 +1436,156 @@
 .method protected handleClick()V
     .locals 5
 
-    const/4 v2, 0x1
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->isAirplaneModeEnabled()Z
 
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
+    move-result v2
 
-    invoke-interface {v1, p0}, Lcom/android/systemui/qs/QSTile$Host;->onClickQSTileOnKeyguard(Lcom/android/systemui/qs/QSTile;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
-
-    invoke-static {v1}, Lcom/android/keyguard/KnoxStateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KnoxStateMonitor;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/keyguard/KnoxStateMonitor;->isWifiHotspotTileBlocked()Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->isBlockedByEASPolicy()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    :cond_1
-    const v1, 0x7f0f046d
-
-    invoke-virtual {p0, v1}, Lcom/android/systemui/qs/tiles/HotspotTile;->showItPolicyToast(I)V
-
-    return-void
-
-    :cond_2
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->isAirplaneModeEnabled()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    return-void
-
-    :cond_3
-    invoke-static {}, Lcom/android/systemui/statusbar/DeviceState;->isSimReady()Z
-
-    move-result v1
-
-    if-nez v1, :cond_4
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->showNoSIMDialog()V
-
-    return-void
-
-    :cond_4
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mState:Lcom/android/systemui/qs/QSTile$State;
-
-    check-cast v1, Lcom/android/systemui/qs/QSTile$AirplaneBooleanState;
-
-    iget-boolean v1, v1, Lcom/android/systemui/qs/QSTile$AirplaneBooleanState;->value:Z
-
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
 
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "isEnabled : "
+    const-string/jumbo v4, "isSimCheck() "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->isSimCheck()Z
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->isSimCheck()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-static {}, Lcom/android/systemui/statusbar/DeviceState;->isSimReady()Z
+
+    move-result v2
+
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_1
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->showNoSIMDialog()V
+
+    return-void
+
+    :cond_1
+    const-class v2, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-static {v2}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-virtual {v2}, Lcom/android/systemui/KnoxStateMonitor;->isWifiHotspotTileBlocked()Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->isBlockedByEASPolicy()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    :cond_2
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->showItPolicyToast()V
+
+    return-void
+
+    :cond_3
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mKeyguard:Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+
+    invoke-interface {v2}, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;->isShowing()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mKeyguard:Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+
+    invoke-interface {v2}, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;->isSecure()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mKeyguard:Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+
+    invoke-interface {v2}, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;->canSkipBouncer()Z
+
+    move-result v2
+
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_4
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
+
+    invoke-virtual {v2}, Lcom/android/systemui/util/SettingsHelper;->isLockFunctionsEnabled()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mHost:Lcom/android/systemui/qs/QSHost;
+
+    invoke-interface {v2}, Lcom/android/systemui/qs/QSHost;->forceCollapsePanels()V
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
+
+    new-instance v3, Lcom/android/systemui/qs/tiles/-$Lambda$Zf2JuXZ_39MdBEUSoSTlDhouM3s$1;
+
+    invoke-direct {v3, p0}, Lcom/android/systemui/qs/tiles/-$Lambda$Zf2JuXZ_39MdBEUSoSTlDhouM3s$1;-><init>(Ljava/lang/Object;)V
+
+    invoke-interface {v2, v3}, Lcom/android/systemui/plugins/ActivityStarter;->postQSRunnableDismissingKeyguard(Ljava/lang/Runnable;)V
+
+    return-void
+
+    :cond_4
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
+
+    check-cast v2, Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;
+
+    iget-boolean v2, v2, Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;->value:Z
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, " handleClick  : "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1204,70 +1599,90 @@
 
     move-result-object v3
 
-    invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mState:Lcom/android/systemui/qs/QSTile$State;
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    check-cast v1, Lcom/android/systemui/qs/QSTile$AirplaneBooleanState;
+    check-cast v2, Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;
 
-    iget-boolean v1, v1, Lcom/android/systemui/qs/QSTile$AirplaneBooleanState;->dim:Z
+    iget v2, v2, Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;->state:I
 
-    if-eqz v1, :cond_5
+    if-nez v2, :cond_5
 
     return-void
 
     :cond_5
-    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->IS_USA_POPUP:Z
+    sget-boolean v2, Lcom/android/systemui/Rune;->QPANEL_IS_USA_POPUP:Z
 
-    if-eqz v1, :cond_6
+    if-nez v2, :cond_6
 
-    if-eqz v0, :cond_7
+    sget-boolean v2, Lcom/android/systemui/Rune;->QPANEL_IS_SBM_POPUP:Z
+
+    if-eqz v2, :cond_9
 
     :cond_6
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    xor-int/lit8 v2, v0, 0x1
 
-    move-result-object v1
+    if-eqz v2, :cond_9
 
-    invoke-virtual {p0, v1}, Lcom/android/systemui/qs/tiles/HotspotTile;->handleRefreshState(Ljava/lang/Object;)V
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    if-eqz v0, :cond_8
+    invoke-virtual {v2}, Landroid/net/wifi/WifiManager;->getWifiApState()I
 
-    const/4 v1, 0x0
+    move-result v1
 
-    :goto_0
-    invoke-direct {p0, v1}, Lcom/android/systemui/qs/tiles/HotspotTile;->setHotspotEnabled(Z)V
+    const/16 v2, 0xc
 
-    return-void
+    if-eq v1, v2, :cond_7
+
+    const/16 v2, 0xd
+
+    if-ne v1, v2, :cond_8
 
     :cond_7
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
 
-    new-instance v2, Landroid/content/Intent;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v3, "com.samsung.android.intent.action.WIFI_AP_ENABLE_WARNING"
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    const-string/jumbo v4, "wifiApState is = "
 
-    invoke-virtual {v1, v2}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
+    move-result-object v3
 
-    const-string/jumbo v2, "send WIFIAP_ENABLE_WARNING for USA"
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_8
-    move v1, v2
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->setHotspotEnabled()V
 
-    goto :goto_0
+    return-void
+
+    :cond_9
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->refreshState()V
+
+    xor-int/lit8 v2, v0, 0x1
+
+    invoke-direct {p0, v2}, Lcom/android/systemui/qs/tiles/HotspotTile;->setHotspotEnabled(Z)V
+
+    return-void
 .end method
 
 .method protected handleDestroy()V
     .locals 2
 
-    invoke-super {p0}, Lcom/android/systemui/qs/QSTile;->handleDestroy()V
+    invoke-super {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->handleDestroy()V
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mAlertDialog:Landroid/app/AlertDialog;
 
@@ -1286,6 +1701,12 @@
     invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
     :cond_0
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mController:Lcom/android/systemui/statusbar/policy/HotspotController;
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mCallback:Lcom/android/systemui/qs/tiles/HotspotTile$Callback;
+
+    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/policy/HotspotController;->removeCallback(Ljava/lang/Object;)V
+
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mIntentReceiver:Landroid/content/BroadcastReceiver;
@@ -1295,12 +1716,16 @@
     return-void
 .end method
 
-.method public handleSecondaryClick()V
-    .locals 1
+.method protected handleSecondaryClick()V
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
 
-    invoke-interface {v0, p0}, Lcom/android/systemui/qs/QSTile$Host;->onClickQSTileOnKeyguard(Lcom/android/systemui/qs/QSTile;)Z
+    const-string/jumbo v1, " handleSecondaryClick  : "
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->isAirplaneModeEnabled()Z
 
     move-result v0
 
@@ -1309,48 +1734,88 @@
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/keyguard/KnoxStateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KnoxStateMonitor;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/keyguard/KnoxStateMonitor;->isWifiHotspotTileBlocked()Z
+    invoke-static {}, Lcom/android/systemui/statusbar/DeviceState;->isSimReady()Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->isBlockedByEASPolicy()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    :cond_1
-    const v0, 0x7f0f046d
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/HotspotTile;->showItPolicyToast(I)V
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->showNoSIMDialog()V
 
     return-void
 
-    :cond_2
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->isAirplaneModeEnabled()Z
+    :cond_1
+    const-class v0, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-virtual {v0}, Lcom/android/systemui/KnoxStateMonitor;->isWifiHotspotTileBlocked()Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->isBlockedByEASPolicy()Z
 
     move-result v0
 
     if-eqz v0, :cond_3
 
+    :cond_2
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->showItPolicyToast()V
+
     return-void
 
     :cond_3
-    invoke-static {}, Lcom/android/systemui/statusbar/DeviceState;->isSimReady()Z
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mKeyguard:Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;->isShowing()Z
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-eqz v0, :cond_4
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->showNoSIMDialog()V
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mKeyguard:Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;->isSecure()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mKeyguard:Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;->canSkipBouncer()Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_4
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mSettingsHelper:Lcom/android/systemui/util/SettingsHelper;
+
+    invoke-virtual {v0}, Lcom/android/systemui/util/SettingsHelper;->isLockFunctionsEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mHost:Lcom/android/systemui/qs/QSHost;
+
+    invoke-interface {v0}, Lcom/android/systemui/qs/QSHost;->forceCollapsePanels()V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
+
+    new-instance v1, Lcom/android/systemui/qs/tiles/-$Lambda$Zf2JuXZ_39MdBEUSoSTlDhouM3s$2;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/qs/tiles/-$Lambda$Zf2JuXZ_39MdBEUSoSTlDhouM3s$2;-><init>(Ljava/lang/Object;)V
+
+    invoke-interface {v0, v1}, Lcom/android/systemui/plugins/ActivityStarter;->postQSRunnableDismissingKeyguard(Ljava/lang/Runnable;)V
 
     return-void
 
@@ -1362,214 +1827,438 @@
     return-void
 .end method
 
-.method protected handleUpdateState(Lcom/android/systemui/qs/QSTile$AirplaneBooleanState;Ljava/lang/Object;)V
-    .locals 5
+.method protected handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;Ljava/lang/Object;)V
+    .locals 4
 
     const/4 v1, 0x1
 
-    const/4 v2, 0x0
+    iput-boolean v1, p1, Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;->dualTarget:Z
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->getTileLabel()Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    iput-object v0, p1, Lcom/android/systemui/qs/QSTile$AirplaneBooleanState;->label:Ljava/lang/CharSequence;
+    iput-object v0, p1, Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;->label:Ljava/lang/CharSequence;
 
-    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_VZW_ICON:Z
+    sget-boolean v0, Lcom/android/systemui/Rune;->QPANEL_IS_VZW_ICON:Z
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f02045a
+    const v0, 0x7f080537
 
     :goto_0
-    invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
+    invoke-static {v0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
     move-result-object v0
 
-    iput-object v0, p1, Lcom/android/systemui/qs/QSTile$AirplaneBooleanState;->icon:Lcom/android/systemui/qs/QSTile$Icon;
+    iput-object v0, p1, Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
     const-string/jumbo v0, "no_config_tethering"
 
-    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/qs/tiles/HotspotTile;->checkIfRestrictionEnforcedByAdminOnly(Lcom/android/systemui/qs/QSTile$State;Ljava/lang/String;)V
+    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/qs/tiles/HotspotTile;->checkIfRestrictionEnforcedByAdminOnly(Lcom/android/systemui/plugins/qs/QSTile$State;Ljava/lang/String;)V
 
-    instance-of v0, p2, Ljava/lang/Integer;
-
-    if-eqz v0, :cond_2
-
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "handleUpdateState : int = "
-
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    move-object v0, p2
-
-    check-cast v0, Ljava/lang/Integer;
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v3, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    check-cast p2, Ljava/lang/Integer;
-
-    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    if-ne v0, v1, :cond_1
-
-    move v0, v1
-
-    :goto_1
-    iput-boolean v0, p1, Lcom/android/systemui/qs/QSTile$AirplaneBooleanState;->dim:Z
-
-    return-void
-
-    :cond_0
-    const v0, 0x7f020474
-
-    goto :goto_0
-
-    :cond_1
-    move v0, v2
-
-    goto :goto_1
-
-    :cond_2
     instance-of v0, p2, Ljava/lang/Boolean;
 
-    if-eqz v0, :cond_3
-
-    move-object v0, p2
-
-    check-cast v0, Ljava/lang/Boolean;
-
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v0
-
-    iput-boolean v0, p1, Lcom/android/systemui/qs/QSTile$AirplaneBooleanState;->value:Z
-
-    iput-boolean v2, p1, Lcom/android/systemui/qs/QSTile$AirplaneBooleanState;->dim:Z
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "handleUpdateState : boolean = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
+    if-eqz v0, :cond_2
 
     check-cast p2, Ljava/lang/Boolean;
 
     invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v2
+    move-result v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    iput-boolean v0, p1, Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;->value:Z
 
-    move-result-object v1
+    :goto_1
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v3, "handleUpdateState :  = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-boolean v3, p1, Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;->value:Z
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mController:Lcom/android/systemui/statusbar/policy/HotspotController;
+
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/HotspotController;->isHotspotTransient()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    const/4 v0, 0x0
 
     :goto_2
+    iput v0, p1, Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;->state:I
+
     return-void
 
-    :cond_3
+    :cond_0
+    sget-boolean v0, Lcom/android/systemui/Rune;->QPANEL_IS_SPR_ICON:Z
+
+    if-eqz v0, :cond_1
+
+    const v0, 0x7f080532
+
+    goto :goto_0
+
+    :cond_1
+    const v0, 0x7f080551
+
+    goto :goto_0
+
+    :cond_2
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mController:Lcom/android/systemui/statusbar/policy/HotspotController;
 
     invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/HotspotController;->isHotspotEnabled()Z
 
     move-result v0
 
-    iput-boolean v0, p1, Lcom/android/systemui/qs/QSTile$AirplaneBooleanState;->value:Z
+    iput-boolean v0, p1, Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;->value:Z
+
+    goto :goto_1
+
+    :cond_3
+    iget-boolean v0, p1, Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;->value:Z
+
+    if-eqz v0, :cond_4
+
+    const/4 v0, 0x2
+
+    goto :goto_2
+
+    :cond_4
+    move v0, v1
 
     goto :goto_2
 .end method
 
-.method protected bridge synthetic handleUpdateState(Lcom/android/systemui/qs/QSTile$State;Ljava/lang/Object;)V
+.method protected bridge synthetic handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$State;Ljava/lang/Object;)V
     .locals 0
 
-    check-cast p1, Lcom/android/systemui/qs/QSTile$AirplaneBooleanState;
+    check-cast p1, Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/qs/tiles/HotspotTile;->handleUpdateState(Lcom/android/systemui/qs/QSTile$AirplaneBooleanState;Ljava/lang/Object;)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/qs/tiles/HotspotTile;->handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;Ljava/lang/Object;)V
 
     return-void
 .end method
 
 .method public isAvailable()Z
-    .locals 3
+    .locals 2
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mController:Lcom/android/systemui/statusbar/policy/HotspotController;
 
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mController:Lcom/android/systemui/statusbar/policy/HotspotController;
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/HotspotController;->isHotspotSupported()Z
 
-    invoke-interface {v1}, Lcom/android/systemui/statusbar/policy/HotspotController;->isHotspotSupported()Z
+    move-result v0
 
-    move-result v1
+    if-eqz v0, :cond_0
 
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mHost:Lcom/android/systemui/qs/QSHost;
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->getTileSpec()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v1, v2}, Lcom/android/systemui/qs/QSTile$Host;->shouldBeHiddenByKnox(Ljava/lang/String;)Z
+    invoke-interface {v0, v1}, Lcom/android/systemui/qs/QSHost;->shouldBeHiddenByKnox(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
     :goto_0
     return v0
 
-    :cond_1
-    const/4 v0, 0x1
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
 
-.method public newTileState()Lcom/android/systemui/qs/QSTile$AirplaneBooleanState;
+.method synthetic lambda$-com_android_systemui_qs_tiles_HotspotTile_11529()V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->handleClick()V
+
+    return-void
+.end method
+
+.method synthetic lambda$-com_android_systemui_qs_tiles_HotspotTile_9818()V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->handleClick()V
+
+    return-void
+.end method
+
+.method protected makeCurrentStateToString()Ljava/lang/String;
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v1, "makeCurrentStateToString"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
+
+    check-cast v0, Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;
+
+    iget-boolean v0, v0, Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;->value:Z
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "1"
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    const-string/jumbo v0, "0"
+
+    goto :goto_0
+.end method
+
+.method protected makeStringToCurrentState(Ljava/lang/String;)V
+    .locals 5
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "makeStringToCurrentState data : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
+
+    check-cast v2, Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;
+
+    iget-boolean v2, v2, Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;->value:Z
+
+    const-string/jumbo v3, "1"
+
+    invoke-virtual {p1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-ne v2, v3, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->isAirplaneModeEnabled()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    return-void
+
+    :cond_1
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "makeStringToCurrentState isSimCheck() "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->isSimCheck()Z
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->isSimCheck()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-static {}, Lcom/android/systemui/statusbar/DeviceState;->isSimReady()Z
+
+    move-result v2
+
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_2
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->showNoSIMDialog()V
+
+    return-void
+
+    :cond_2
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
+
+    check-cast v2, Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;
+
+    iget-boolean v2, v2, Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;->value:Z
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "makeStringToCurrentState handleClick  : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
+
+    check-cast v2, Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;
+
+    iget v2, v2, Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;->state:I
+
+    if-nez v2, :cond_3
+
+    return-void
+
+    :cond_3
+    sget-boolean v2, Lcom/android/systemui/Rune;->QPANEL_IS_USA_POPUP:Z
+
+    if-nez v2, :cond_4
+
+    sget-boolean v2, Lcom/android/systemui/Rune;->QPANEL_IS_SBM_POPUP:Z
+
+    if-eqz v2, :cond_7
+
+    :cond_4
+    xor-int/lit8 v2, v0, 0x1
+
+    if-eqz v2, :cond_7
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    invoke-virtual {v2}, Landroid/net/wifi/WifiManager;->getWifiApState()I
+
+    move-result v1
+
+    const/16 v2, 0xc
+
+    if-eq v1, v2, :cond_5
+
+    const/16 v2, 0xd
+
+    if-ne v1, v2, :cond_6
+
+    :cond_5
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "makeStringToCurrentState wifiApState is = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_6
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->setHotspotEnabled()V
+
+    return-void
+
+    :cond_7
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->refreshState()V
+
+    xor-int/lit8 v2, v0, 0x1
+
+    invoke-direct {p0, v2}, Lcom/android/systemui/qs/tiles/HotspotTile;->setHotspotEnabled(Z)V
+
+    return-void
+.end method
+
+.method public newTileState()Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;
     .locals 1
 
-    new-instance v0, Lcom/android/systemui/qs/QSTile$AirplaneBooleanState;
+    new-instance v0, Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;
 
-    invoke-direct {v0}, Lcom/android/systemui/qs/QSTile$AirplaneBooleanState;-><init>()V
+    invoke-direct {v0}, Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;-><init>()V
 
     return-object v0
 .end method
 
-.method public bridge synthetic newTileState()Lcom/android/systemui/qs/QSTile$State;
+.method public bridge synthetic newTileState()Lcom/android/systemui/plugins/qs/QSTile$State;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->newTileState()Lcom/android/systemui/qs/QSTile$AirplaneBooleanState;
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->newTileState()Lcom/android/systemui/plugins/qs/QSTile$AirplaneBooleanState;
 
     move-result-object v0
 
@@ -1577,35 +2266,206 @@
 .end method
 
 .method public setListening(Z)V
-    .locals 3
+    .locals 0
 
-    iget-boolean v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mListening:Z
+    return-void
+.end method
 
-    if-ne v1, p1, :cond_0
+.method public showWifiSharingFirstTimeDialog()V
+    .locals 14
+
+    const/4 v13, 0x0
+
+    const/16 v10, 0xa
+
+    const/4 v12, 0x1
+
+    iget-object v8, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v8}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v8
+
+    const-string/jumbo v9, "wifi_ap_wifi_sharing"
+
+    invoke-static {v8, v9, v10}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v8
+
+    if-eq v8, v10, :cond_0
+
+    iget-object v8, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v9, "first time WifiSharing popup not shown as this is not first time"
+
+    invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_0
-    iput-boolean p1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mListening:Z
+    sget-boolean v8, Lcom/android/systemui/Rune;->QPANEL_IS_USA_POPUP:Z
 
-    if-eqz p1, :cond_1
+    if-nez v8, :cond_1
 
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mController:Lcom/android/systemui/statusbar/policy/HotspotController;
+    sget-boolean v8, Lcom/android/systemui/Rune;->QPANEL_IS_SBM_POPUP:Z
 
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mCallback:Lcom/android/systemui/qs/tiles/HotspotTile$Callback;
-
-    invoke-interface {v1, v2}, Lcom/android/systemui/statusbar/policy/HotspotController;->addCallback(Lcom/android/systemui/statusbar/policy/HotspotController$Callback;)V
-
-    new-instance v0, Landroid/content/IntentFilter;
-
-    invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
-
-    const-string/jumbo v1, "android.intent.action.AIRPLANE_MODE"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->refreshState()V
+    if-eqz v8, :cond_2
 
     :cond_1
+    iget-object v8, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v9, "USA or SBM device, so ignoring first time popup from here"
+
+    invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
     return-void
+
+    :cond_2
+    iget-object v8, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v9, "showing first time WifiSharing dialog"
+
+    invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v8, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v8}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const/4 v5, 0x2
+
+    :try_start_0
+    iget-object v8, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "Wifi Sharing provider value"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    const-string/jumbo v10, "wifi_ap_wifi_sharing"
+
+    const/4 v11, 0x1
+
+    invoke-static {v0, v10, v11}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v8, "wifi_ap_wifi_sharing"
+
+    invoke-static {v0, v8}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
+    :try_end_0
+    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v8
+
+    if-ne v8, v12, :cond_3
+
+    const/4 v5, 0x1
+
+    :cond_3
+    :goto_0
+    iget-object v8, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v8
+
+    const v9, 0x7f030052
+
+    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getTextArray(I)[Ljava/lang/CharSequence;
+
+    move-result-object v6
+
+    new-instance v2, Landroid/app/AlertDialog$Builder;
+
+    iget-object v8, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
+
+    invoke-direct {v2, v8}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+
+    const v8, 0x7f120749
+
+    invoke-virtual {v2, v8}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v8
+
+    new-instance v9, Lcom/android/systemui/qs/tiles/HotspotTile$3;
+
+    invoke-direct {v9, p0, v0}, Lcom/android/systemui/qs/tiles/HotspotTile$3;-><init>(Lcom/android/systemui/qs/tiles/HotspotTile;Landroid/content/ContentResolver;)V
+
+    invoke-virtual {v8, v6, v5, v9}, Landroid/app/AlertDialog$Builder;->setSingleChoiceItems([Ljava/lang/CharSequence;ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v8
+
+    new-instance v9, Lcom/android/systemui/qs/tiles/HotspotTile$4;
+
+    invoke-direct {v9, p0, v0}, Lcom/android/systemui/qs/tiles/HotspotTile$4;-><init>(Lcom/android/systemui/qs/tiles/HotspotTile;Landroid/content/ContentResolver;)V
+
+    const v10, 0x7f1201d4
+
+    invoke-virtual {v8, v10, v9}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v8
+
+    new-instance v9, Lcom/android/systemui/qs/tiles/HotspotTile$5;
+
+    invoke-direct {v9, p0, v0}, Lcom/android/systemui/qs/tiles/HotspotTile$5;-><init>(Lcom/android/systemui/qs/tiles/HotspotTile;Landroid/content/ContentResolver;)V
+
+    invoke-virtual {v8, v9}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
+
+    invoke-virtual {v2}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+
+    move-result-object v4
+
+    iget-object v8, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mContext:Landroid/content/Context;
+
+    const v9, 0x7f0d01d4
+
+    invoke-static {v8, v9, v13}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v7
+
+    invoke-virtual {v4}, Landroid/app/AlertDialog;->getListView()Landroid/widget/ListView;
+
+    move-result-object v3
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v3, v7, v13, v8}, Landroid/widget/ListView;->addHeaderView(Landroid/view/View;Ljava/lang/Object;Z)V
+
+    iget-object v8, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mHost:Lcom/android/systemui/qs/QSHost;
+
+    invoke-interface {v8}, Lcom/android/systemui/qs/QSHost;->collapsePanels()V
+
+    invoke-virtual {p0, v4}, Lcom/android/systemui/qs/tiles/HotspotTile;->setDialogWindowType(Landroid/app/AlertDialog;)V
+
+    invoke-virtual {v4}, Landroid/app/AlertDialog;->show()V
+
+    return-void
+
+    :catch_0
+    move-exception v1
+
+    iget-object v8, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v9, "Wifi Sharing Provider is not defined"
+
+    invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method

@@ -22,14 +22,18 @@
 
 .field final synthetic val$connectionStartTime:J
 
+.field final synthetic val$context:Landroid/content/Context;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/screenshot/SaveImageInBackgroundTask;J)V
+.method constructor <init>(Lcom/android/systemui/screenshot/SaveImageInBackgroundTask;JLandroid/content/Context;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/screenshot/SaveImageInBackgroundTask$1;->this$0:Lcom/android/systemui/screenshot/SaveImageInBackgroundTask;
 
     iput-wide p2, p0, Lcom/android/systemui/screenshot/SaveImageInBackgroundTask$1;->val$connectionStartTime:J
+
+    iput-object p4, p0, Lcom/android/systemui/screenshot/SaveImageInBackgroundTask$1;->val$context:Landroid/content/Context;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -195,13 +199,15 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    iget-object v1, p0, Lcom/android/systemui/screenshot/SaveImageInBackgroundTask$1;->this$0:Lcom/android/systemui/screenshot/SaveImageInBackgroundTask;
+    iget-object v1, p0, Lcom/android/systemui/screenshot/SaveImageInBackgroundTask$1;->val$context:Landroid/content/Context;
 
-    invoke-static {v1}, Lcom/android/systemui/screenshot/SaveImageInBackgroundTask;->-get2(Lcom/android/systemui/screenshot/SaveImageInBackgroundTask;)I
+    iget-object v2, p0, Lcom/android/systemui/screenshot/SaveImageInBackgroundTask$1;->this$0:Lcom/android/systemui/screenshot/SaveImageInBackgroundTask;
 
-    move-result v1
+    invoke-static {v2}, Lcom/android/systemui/screenshot/SaveImageInBackgroundTask;->-get2(Lcom/android/systemui/screenshot/SaveImageInBackgroundTask;)I
 
-    invoke-static {v1}, Lcom/android/systemui/screenshot/ScreenshotUtils;->isAutoCropSupported(I)Z
+    move-result v2
+
+    invoke-static {v1, v2}, Lcom/android/systemui/screenshot/ScreenshotUtils;->isAutoCropSupported(Landroid/content/Context;I)Z
 
     move-result v1
 

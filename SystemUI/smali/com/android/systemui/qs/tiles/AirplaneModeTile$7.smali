@@ -35,7 +35,13 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 0
+    .locals 2
+
+    sget-object v0, Lcom/android/systemui/SystemUIAnalytics;->mCurrentScreenID:Ljava/lang/String;
+
+    const-string/jumbo v1, "4249"
+
+    invoke-static {v0, v1}, Lcom/android/systemui/SystemUIAnalytics;->sendEventLog(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-interface {p1}, Landroid/content/DialogInterface;->cancel()V
 

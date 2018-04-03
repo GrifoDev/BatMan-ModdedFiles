@@ -4,12 +4,14 @@
 
 # interfaces
 .implements Lcom/android/systemui/statusbar/RemoteInputController$Callback;
+.implements Lcom/android/systemui/Dumpable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$1;,
+        Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$OtherwisedCollapsedListener;,
         Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;
     }
 .end annotation
@@ -20,6 +22,8 @@
 
 
 # instance fields
+.field private final mActivityManager:Landroid/app/IActivityManager;
+
 .field private mBarHeight:I
 
 .field private mBouncerContainer:Landroid/widget/FrameLayout;
@@ -34,7 +38,13 @@
 
 .field private final mHandler:Landroid/os/Handler;
 
+.field private mHasTopUi:Z
+
+.field private mHasTopUiChanged:Z
+
 .field private final mKeyguardScreenRotation:Z
+
+.field private mListener:Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$OtherwisedCollapsedListener;
 
 .field private mLp:Landroid/view/WindowManager$LayoutParams;
 
@@ -44,7 +54,7 @@
 
 .field private final mScreenBrightnessDoze:F
 
-.field private mSettingsListener:Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
+.field private mSettingsListener:Lcom/android/systemui/util/SettingsHelper$OnChangedCallback;
 
 .field private mSettingsValueList:[Landroid/net/Uri;
 
@@ -57,7 +67,7 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    invoke-static {}, Lcom/android/keyguard/KeyguardRune;->getDefaultDisplayTimeout()I
+    invoke-static {}, Lcom/android/systemui/Rune;->getDefaultDisplayTimeout()I
 
     move-result v0
 
@@ -153,7 +163,15 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mWindowManager:Landroid/view/WindowManager;
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->shouldEnableKeyguardScreenRotation()Z
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mActivityManager:Landroid/app/IActivityManager;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/systemui/Rune;->shouldEnableKeyguardScreenRotation(Landroid/content/Context;)Z
 
     move-result v0
 
@@ -165,7 +183,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e0062
+    const v1, 0x10e00a0
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -183,19 +201,17 @@
 
     invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$2;-><init>(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;)V
 
-    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mSettingsListener:Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mSettingsListener:Lcom/android/systemui/util/SettingsHelper$OnChangedCallback;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mSettingsListener:Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mSettingsListener:Lcom/android/systemui/util/SettingsHelper$OnChangedCallback;
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mSettingsValueList:[Landroid/net/Uri;
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/keyguard/util/SettingsHelper;->registerCallback(Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;[Landroid/net/Uri;)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/util/SettingsHelper;->registerCallback(Lcom/android/systemui/util/SettingsHelper$OnChangedCallback;[Landroid/net/Uri;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mCurrentState:Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;
 
@@ -217,7 +233,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDesktopMode()Z
+    invoke-virtual {v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDexMode()Z
 
     move-result v0
 
@@ -225,33 +241,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
-    if-eqz v0, :cond_1
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
-
-    const/4 v2, 0x0
-
-    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
-
-    :goto_0
-    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->sViewCoverShowing:Z
-
-    if-eqz v1, :cond_0
-
-    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->sAppCoverShowing:Z
-
-    if-eqz v1, :cond_4
-
-    :cond_0
-    :goto_1
-    return-void
-
-    :cond_1
     iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mKeyguardScreenRotation:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
 
@@ -259,9 +253,37 @@
 
     iput v2, v1, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
-    goto :goto_0
+    :goto_0
+    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->viewCoverShowing:Z
 
-    :cond_2
+    if-eqz v1, :cond_0
+
+    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->coverAppShowing:Z
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_0
+
+    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->isFlipCover:Z
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_0
+
+    xor-int/lit8 v1, v0, 0x1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    const/4 v2, 0x1
+
+    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
+
+    :cond_0
+    return-void
+
+    :cond_1
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
 
     const/4 v2, 0x5
@@ -270,7 +292,7 @@
 
     goto :goto_0
 
-    :cond_3
+    :cond_2
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
 
     const/4 v2, -0x1
@@ -278,25 +300,10 @@
     iput v2, v1, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
     goto :goto_0
-
-    :cond_4
-    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->isFlipCover:Z
-
-    if-nez v1, :cond_0
-
-    if-nez v0, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
-
-    const/4 v2, 0x1
-
-    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
-
-    goto :goto_1
 .end method
 
 .method private apply(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)V
-    .locals 3
+    .locals 4
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->applyKeyguardFlags(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)V
 
@@ -318,57 +325,126 @@
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->applyBrightness(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)V
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->applySViewCoverFlags(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->applyHasTopUi(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)V
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLp:Landroid/view/WindowManager$LayoutParams;
+    const-class v1, Lcom/android/systemui/coloring/QSColoringServiceManager;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+    invoke-static {v1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
-    invoke-virtual {v0, v1}, Landroid/view/WindowManager$LayoutParams;->copyFrom(Landroid/view/WindowManager$LayoutParams;)I
+    move-result-object v1
 
-    move-result v0
+    check-cast v1, Lcom/android/systemui/coloring/QSColoringServiceManager;
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v1}, Lcom/android/systemui/coloring/QSColoringServiceManager;->isQSColoringEnabled()Z
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mWindowManager:Landroid/view/WindowManager;
+    move-result v1
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mStatusBarView:Landroid/view/View;
+    if-eqz v1, :cond_0
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLp:Landroid/view/WindowManager$LayoutParams;
+    const-class v1, Lcom/android/systemui/coloring/QSColoringServiceManager;
 
-    invoke-interface {v0, v1, v2}, Landroid/view/WindowManager;->updateViewLayout(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-static {v1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/coloring/QSColoringServiceManager;
+
+    invoke-virtual {v1}, Lcom/android/systemui/coloring/QSColoringServiceManager;->isQSColoringBlurEffectEnabled()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->applyQSColoringBlurEffect()V
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->applyCoverFlags(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)V
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLp:Landroid/view/WindowManager$LayoutParams;
 
-    move-result-object v0
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
 
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isSinglePageLockscreen()Z
+    invoke-virtual {v1, v2}, Landroid/view/WindowManager$LayoutParams;->copyFrom(Landroid/view/WindowManager$LayoutParams;)I
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mWindowManager:Landroid/view/WindowManager;
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mStatusBarView:Landroid/view/View;
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLp:Landroid/view/WindowManager$LayoutParams;
+
+    invoke-interface {v1, v2, v3}, Landroid/view/WindowManager;->updateViewLayout(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     :cond_1
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mHasTopUi:Z
+
+    iget-boolean v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mHasTopUiChanged:Z
+
+    if-eq v1, v2, :cond_2
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mActivityManager:Landroid/app/IActivityManager;
+
+    iget-boolean v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mHasTopUiChanged:Z
+
+    invoke-interface {v1, v2}, Landroid/app/IActivityManager;->setHasTopUi(Z)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
     :goto_0
-    return-void
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mHasTopUiChanged:Z
+
+    iput-boolean v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mHasTopUi:Z
 
     :cond_2
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mBouncerContainer:Landroid/widget/FrameLayout;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
 
-    if-eqz v0, :cond_1
+    invoke-static {v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDexMode()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    :cond_3
+    :goto_1
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "StatusBarWindowManager"
+
+    const-string/jumbo v2, "Failed to call setHasTopUi"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+
+    :cond_4
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mBouncerContainer:Landroid/widget/FrameLayout;
+
+    if-eqz v1, :cond_3
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->applyBouncer(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)V
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method private applyBouncer(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)V
-    .locals 6
+    .locals 8
 
-    const v5, -0x20001
+    const/4 v7, -0x1
+
+    const v6, -0x20001
+
+    const v5, 0x3e19999a    # 0.15f
 
     const/4 v4, 0x0
 
@@ -403,7 +479,7 @@
 
     iget v3, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    and-int/2addr v3, v5
+    and-int/2addr v3, v6
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
@@ -417,9 +493,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mBouncerLpChanged:Landroid/view/WindowManager$LayoutParams;
 
-    const/4 v3, 0x0
-
-    iput v3, v2, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
+    iput v5, v2, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mBouncerLpChanged:Landroid/view/WindowManager$LayoutParams;
 
@@ -429,29 +503,35 @@
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
 
+    iget-boolean v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mKeyguardScreenRotation:Z
+
+    if-nez v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mBouncerLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    iput v7, v2, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
+
     :cond_1
     :goto_0
-    sget-boolean v2, Lcom/android/systemui/SystemUIRune;->SUPPORT_CUSTOM_NAVIBAR_BGCOLOR:Z
+    sget-boolean v2, Lcom/android/systemui/Rune;->NAVBAR_SUPPORT_CUSTOM_BGCOLOR:Z
 
     if-eqz v2, :cond_2
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mBouncerLpChanged:Landroid/view/WindowManager$LayoutParams;
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v2}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/android/keyguard/util/SettingsHelper;->isWhiteKeyguardNavigationBar()Z
+    invoke-virtual {v2}, Lcom/android/systemui/util/SettingsHelper;->isWhiteKeyguardNavigationBar()Z
 
     move-result v2
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_6
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0b0170
+    const v4, 0x7f060051
 
     invoke-virtual {v2, v4}, Landroid/content/Context;->getColor(I)I
 
@@ -523,11 +603,11 @@
     return-void
 
     :cond_4
-    iget-boolean v2, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->sAppCoverShowing:Z
+    iget-boolean v2, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->coverAppShowing:Z
 
     if-nez v2, :cond_0
 
-    iget-boolean v2, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->sViewCoverShowing:Z
+    iget-boolean v2, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->viewCoverShowing:Z
 
     if-nez v2, :cond_0
 
@@ -535,13 +615,11 @@
 
     if-eqz v2, :cond_1
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v2}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/android/keyguard/util/SettingsHelper;->isWhiteKeyguardWallpaper()Z
+    invoke-virtual {v2}, Lcom/android/systemui/util/SettingsHelper;->isWhiteKeyguardWallpaper()Z
 
     move-result v1
 
@@ -549,28 +627,17 @@
 
     invoke-virtual {v2, v4}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mBouncerContainer:Landroid/widget/FrameLayout;
+
+    invoke-virtual {v2, v4}, Landroid/widget/FrameLayout;->setBackgroundColor(I)V
+
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mCurrentState:Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;
 
     iget-boolean v2, v2, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->keyguardOccluded:Z
 
-    if-eqz v2, :cond_5
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mBouncerContainer:Landroid/widget/FrameLayout;
-
-    const/16 v3, 0x3f
-
-    invoke-static {v3, v4, v4, v4}, Landroid/graphics/Color;->argb(IIII)I
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Landroid/widget/FrameLayout;->setBackgroundColor(I)V
-
-    :goto_2
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mBouncerLpChanged:Landroid/view/WindowManager$LayoutParams;
 
-    const/4 v3, -0x1
-
-    iput v3, v2, Landroid/view/WindowManager$LayoutParams;->height:I
+    iput v7, v2, Landroid/view/WindowManager$LayoutParams;->height:I
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mBouncerLpChanged:Landroid/view/WindowManager$LayoutParams;
 
@@ -590,17 +657,17 @@
 
     iget-boolean v2, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->keyguardNeedsInput:Z
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_5
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mBouncerLpChanged:Landroid/view/WindowManager$LayoutParams;
 
     iget v3, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    and-int/2addr v3, v5
+    and-int/2addr v3, v6
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    :goto_3
+    :goto_2
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mBouncerLpChanged:Landroid/view/WindowManager$LayoutParams;
 
     iget v3, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
@@ -611,9 +678,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mBouncerLpChanged:Landroid/view/WindowManager$LayoutParams;
 
-    const v3, 0x3e99999a    # 0.3f
-
-    iput v3, v2, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
+    iput v5, v2, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mBouncerLpChanged:Landroid/view/WindowManager$LayoutParams;
 
@@ -639,16 +704,23 @@
 
     iput-wide v4, v2, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
 
+    iget-boolean v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mKeyguardScreenRotation:Z
+
+    if-nez v2, :cond_1
+
+    iget-boolean v2, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->keyguardOccluded:Z
+
+    if-eqz v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mBouncerLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    const/4 v3, 0x5
+
+    iput v3, v2, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
+
     goto/16 :goto_0
 
     :cond_5
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mBouncerContainer:Landroid/widget/FrameLayout;
-
-    invoke-virtual {v2, v4}, Landroid/widget/FrameLayout;->setBackgroundColor(I)V
-
-    goto :goto_2
-
-    :cond_6
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mBouncerLpChanged:Landroid/view/WindowManager$LayoutParams;
 
     iget v3, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
@@ -659,12 +731,12 @@
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    goto :goto_3
+    goto :goto_2
 
-    :cond_7
+    :cond_6
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0b016e
+    const v4, 0x7f060052
 
     invoke-virtual {v2, v4}, Landroid/content/Context;->getColor(I)I
 
@@ -699,42 +771,83 @@
     goto :goto_0
 .end method
 
+.method private applyCoverFlags(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)V
+    .locals 2
+
+    iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->viewCoverShowing:Z
+
+    if-eqz v0, :cond_0
+
+    iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->coverAppShowing:Z
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    const/16 v1, 0x30
+
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    const/16 v1, 0x10
+
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
+
+    goto :goto_0
+.end method
+
 .method private applyFitsSystemWindows(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)V
-    .locals 3
+    .locals 2
 
     invoke-static {p1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->-wrap0(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)Z
 
     move-result v1
 
-    if-nez v1, :cond_0
-
-    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->sViewCoverShowing:Z
-
-    if-nez v1, :cond_0
-
-    iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->sAppCoverShowing:Z
-
-    :goto_0
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mStatusBarView:Landroid/view/View;
+    xor-int/lit8 v0, v1, 0x1
 
     if-eqz v0, :cond_1
 
-    const/4 v1, 0x0
+    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->viewCoverShowing:Z
 
-    :goto_1
-    invoke-virtual {v2, v1}, Landroid/view/View;->setFitsSystemWindows(Z)V
+    xor-int/lit8 v1, v1, 0x1
 
-    return-void
+    if-eqz v1, :cond_1
+
+    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->coverAppShowing:Z
+
+    xor-int/lit8 v0, v1, 0x1
+
+    :goto_0
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mStatusBarView:Landroid/view/View;
+
+    invoke-virtual {v1}, Landroid/view/View;->getFitsSystemWindows()Z
+
+    move-result v1
+
+    if-eq v1, v0, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mStatusBarView:Landroid/view/View;
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->setFitsSystemWindows(Z)V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mStatusBarView:Landroid/view/View;
+
+    invoke-virtual {v1}, Landroid/view/View;->requestApplyInsets()V
 
     :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
+    return-void
 
     :cond_1
-    const/4 v1, 0x1
+    const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method private applyFocusableFlag(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)V
@@ -744,31 +857,31 @@
 
     iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->statusBarFocusable:Z
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_2
 
     iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->panelExpanded:Z
 
     :goto_0
-    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->keyguardShowing:Z
+    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->bouncerShowing:Z
 
     if-eqz v1, :cond_0
+
+    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->keyguardOccluded:Z
+
+    if-nez v1, :cond_1
 
     iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->keyguardNeedsInput:Z
-
-    if-eqz v1, :cond_0
-
-    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->bouncerShowing:Z
 
     if-nez v1, :cond_1
 
     :cond_0
-    sget-boolean v1, Lcom/android/systemui/statusbar/BaseStatusBar;->ENABLE_REMOTE_INPUT:Z
+    sget-boolean v1, Lcom/android/systemui/statusbar/phone/StatusBar;->ENABLE_REMOTE_INPUT:Z
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_3
 
     iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->remoteInputActive:Z
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_3
 
     :cond_1
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
@@ -794,145 +907,16 @@
 
     iput v2, v1, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
 
-    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->sViewCoverShowing:Z
+    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->viewCoverShowing:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_7
 
-    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->sAppCoverShowing:Z
+    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->coverAppShowing:Z
 
-    if-eqz v1, :cond_9
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_2
-    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->sAppCoverShowing:Z
+    if-eqz v1, :cond_7
 
-    if-eqz v1, :cond_3
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
-
-    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
-
-    or-int/lit8 v2, v2, 0x8
-
-    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
-
-    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
-
-    and-int/2addr v2, v4
-
-    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
-
-    :cond_3
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
-
-    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
-
-    const v3, -0x10000001
-
-    and-int/2addr v2, v3
-
-    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
-
-    :goto_2
-    return-void
-
-    :cond_4
-    const/4 v0, 0x0
-
-    goto :goto_0
-
-    :cond_5
-    invoke-static {p1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->-wrap0(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_6
-
-    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->keyguardNeedsInput:Z
-
-    if-eqz v1, :cond_6
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isSinglePageLockscreen()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_6
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
-
-    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
-
-    and-int/lit8 v2, v2, -0x9
-
-    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
-
-    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
-
-    and-int/2addr v2, v4
-
-    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
-
-    goto :goto_1
-
-    :cond_6
-    invoke-static {p1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->-wrap0(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_7
-
-    if-eqz v0, :cond_8
-
-    :cond_7
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
-
-    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
-
-    and-int/lit8 v2, v2, -0x9
-
-    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
-
-    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
-
-    const/high16 v3, 0x20000
-
-    or-int/2addr v2, v3
-
-    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
-
-    goto :goto_1
-
-    :cond_8
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
-
-    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
-
-    or-int/lit8 v2, v2, 0x8
-
-    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
-
-    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
-
-    and-int/2addr v2, v4
-
-    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
-
-    goto :goto_1
-
-    :cond_9
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
 
     iget v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
@@ -956,6 +940,136 @@
     const/high16 v3, 0x10000000
 
     or-int/2addr v2, v3
+
+    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
+
+    :goto_2
+    return-void
+
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_3
+    invoke-static {p1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->-wrap0(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->keyguardNeedsInput:Z
+
+    if-eqz v1, :cond_4
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-static {v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDexMode()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    and-int/lit8 v2, v2, -0x9
+
+    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    and-int/2addr v2, v4
+
+    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    goto :goto_1
+
+    :cond_4
+    invoke-static {p1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->-wrap0(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_5
+
+    if-eqz v0, :cond_6
+
+    :cond_5
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    and-int/lit8 v2, v2, -0x9
+
+    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    const/high16 v3, 0x20000
+
+    or-int/2addr v2, v3
+
+    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    goto :goto_1
+
+    :cond_6
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    or-int/lit8 v2, v2, 0x8
+
+    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    and-int/2addr v2, v4
+
+    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    goto :goto_1
+
+    :cond_7
+    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->coverAppShowing:Z
+
+    if-eqz v1, :cond_8
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    or-int/lit8 v2, v2, 0x8
+
+    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    and-int/2addr v2, v4
+
+    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    :cond_8
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
+
+    const v3, -0x10000001
+
+    and-int/2addr v2, v3
 
     iput v2, v1, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
 
@@ -992,6 +1106,18 @@
     goto :goto_0
 .end method
 
+.method private applyHasTopUi(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)V
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->isExpanded(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mHasTopUiChanged:Z
+
+    return-void
+.end method
+
 .method private applyHeight(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)V
     .locals 4
 
@@ -1001,16 +1127,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->forcePluginOpen:Z
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mListener:Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$OtherwisedCollapsedListener;
+
+    invoke-interface {v1, v0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$OtherwisedCollapsedListener;->setWouldOtherwiseCollapse(Z)V
+
+    const/4 v0, 0x1
+
+    :cond_0
+    if-eqz v0, :cond_2
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
 
     iput v3, v1, Landroid/view/WindowManager$LayoutParams;->height:I
 
     :goto_0
-    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->sAppCoverShowing:Z
+    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->coverAppShowing:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
 
@@ -1018,37 +1155,11 @@
 
     iput v2, v1, Landroid/view/WindowManager$LayoutParams;->height:I
 
-    :cond_0
+    :cond_1
     :goto_1
-    const-string/jumbo v1, "StatusBarWindowManager"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "applyHeight:"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
-
-    iget v3, v3, Landroid/view/WindowManager$LayoutParams;->height:I
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
     return-void
 
-    :cond_1
+    :cond_2
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
 
     iget v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mBarHeight:I
@@ -1057,10 +1168,10 @@
 
     goto :goto_0
 
-    :cond_2
-    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->sViewCoverShowing:Z
+    :cond_3
+    iget-boolean v1, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->viewCoverShowing:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
 
@@ -1072,74 +1183,35 @@
 .method private applyInputFeatures(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDesktopMode()Z
+    invoke-static {p1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->-wrap0(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
-
-    iget v1, v0, Landroid/view/WindowManager$LayoutParams;->inputFeatures:I
-
-    and-int/lit8 v1, v1, -0x5
-
-    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->inputFeatures:I
-
-    :goto_0
-    return-void
-
-    :cond_0
-    invoke-static {p1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->-wrap0(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
     iget v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->statusBarState:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_0
 
     iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->qsExpanded:Z
 
-    if-eqz v0, :cond_3
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_1
-    iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->sViewCoverShowing:Z
+    if-eqz v0, :cond_0
 
-    if-eqz v0, :cond_2
-
-    iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->sAppCoverShowing:Z
-
-    if-eqz v0, :cond_2
-
-    :cond_2
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
-
-    iget v1, v0, Landroid/view/WindowManager$LayoutParams;->inputFeatures:I
-
-    and-int/lit8 v1, v1, -0x5
-
-    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->inputFeatures:I
-
-    goto :goto_0
-
-    :cond_3
     iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->forceUserActivity:Z
 
-    if-nez v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->sViewCoverShowing:Z
+    if-eqz v0, :cond_0
 
-    if-nez v0, :cond_1
+    iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->viewCoverShowing:Z
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
 
@@ -1149,11 +1221,34 @@
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->inputFeatures:I
 
+    :goto_0
+    return-void
+
+    :cond_0
+    iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->viewCoverShowing:Z
+
+    if-eqz v0, :cond_1
+
+    iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->coverAppShowing:Z
+
+    xor-int/lit8 v0, v0, 0x1
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    iget v1, v0, Landroid/view/WindowManager$LayoutParams;->inputFeatures:I
+
+    and-int/lit8 v1, v1, -0x5
+
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->inputFeatures:I
+
     goto :goto_0
 .end method
 
 .method private applyKeyguardFlags(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)V
-    .locals 3
+    .locals 4
+
+    const v3, -0x100001
 
     iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->keyguardShowing:Z
 
@@ -1170,54 +1265,122 @@
     :goto_0
     iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->keyguardShowing:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_4
 
     iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->keyguardOccluded:Z
 
-    if-eqz v0, :cond_3
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_4
+
+    iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->viewCoverShowing:Z
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_4
+
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/systemui/util/SettingsHelper;->isLiveWallpaperEnabled()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-boolean v0, Lcom/android/systemui/Rune;->KEYGUARD_SUPPORT_DCM_LIVEUX:Z
+
+    if-eqz v0, :cond_4
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/systemui/Rune;->isBeforeDreamDcmLauncher(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/systemui/wallpaper/KeyguardWallpaperController;->getInstance(Landroid/content/Context;)Lcom/android/systemui/wallpaper/KeyguardWallpaperController;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/systemui/wallpaper/KeyguardWallpaperController;->isEnabledDCMLauncher()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
 
     :cond_0
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/systemui/util/SettingsHelper;->isEmergencyMode()Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/systemui/util/SettingsHelper;->isUltraPowerSavingMode()Z
+
+    move-result v0
+
+    :goto_1
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_4
+
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
 
     iget v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    const v2, -0x100001
+    const/high16 v2, 0x100000
 
-    and-int/2addr v1, v2
+    or-int/2addr v1, v2
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    :goto_1
-    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_CUSTOM_NAVIBAR_BGCOLOR:Z
-
-    if-eqz v0, :cond_1
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
-
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
 
-    invoke-static {v0}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/keyguard/util/SettingsHelper;->isWhiteKeyguardNavigationBar()Z
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDexMode()Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b0170
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-virtual {v0, v2}, Landroid/content/Context;->getColor(I)I
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->hasLockscreenWallpaper()Z
 
     move-result v0
 
-    :goto_2
-    iput v0, v1, Landroid/view/WindowManager$LayoutParams;->navigationBarIconColor:I
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    iget v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    and-int/2addr v1, v3
+
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
     :cond_1
+    :goto_2
     return-void
 
     :cond_2
@@ -1232,93 +1395,18 @@
     goto :goto_0
 
     :cond_3
-    iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->sViewCoverShowing:Z
+    const/4 v0, 0x1
 
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/keyguard/util/SettingsHelper;->isLiveWallpaperEnabled()Z
-
-    move-result v0
-
-    if-nez v0, :cond_4
-
-    invoke-static {}, Lcom/android/keyguard/KeyguardRune;->canSetDcmLauncher()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardRune;->isBeforeDreamDcmLauncher(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;->isEnabledDCMLauncher()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
+    goto :goto_1
 
     :cond_4
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/keyguard/util/SettingsHelper;->isEmergencyMode()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/keyguard/util/SettingsHelper;->isUltraPowerSavingMode()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
 
     iget v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    const/high16 v2, 0x100000
-
-    or-int/2addr v1, v2
+    and-int/2addr v1, v3
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
-
-    goto :goto_1
-
-    :cond_5
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
-
-    const v2, 0x7f0b016e
-
-    invoke-virtual {v0, v2}, Landroid/content/Context;->getColor(I)I
-
-    move-result v0
 
     goto :goto_2
 .end method
@@ -1353,37 +1441,6 @@
     goto :goto_0
 .end method
 
-.method private applySViewCoverFlags(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)V
-    .locals 2
-
-    iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->sViewCoverShowing:Z
-
-    if-eqz v0, :cond_0
-
-    iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->sAppCoverShowing:Z
-
-    if-eqz v0, :cond_1
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
-
-    const/16 v1, 0x10
-
-    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
-
-    :goto_0
-    return-void
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
-
-    const/16 v1, 0x30
-
-    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
-
-    goto :goto_0
-.end method
-
 .method private applyUserActivityTimeout(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)V
     .locals 6
 
@@ -1391,13 +1448,28 @@
 
     const-wide/16 v2, -0x1
 
-    iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->sViewCoverShowing:Z
+    iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->viewCoverShowing:Z
 
     if-eqz v0, :cond_0
 
-    iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->sAppCoverShowing:Z
+    iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->coverAppShowing:Z
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    const-wide/16 v2, 0x1770
+
+    iput-wide v2, v0, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    iput-wide v4, v0, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
+
+    :goto_0
+    return-void
 
     :cond_0
     invoke-static {p1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->-wrap0(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)Z
@@ -1414,34 +1486,10 @@
 
     iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->qsExpanded:Z
 
-    if-eqz v0, :cond_3
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_1
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+    if-eqz v0, :cond_1
 
-    iput-wide v2, v0, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
-
-    iput-wide v2, v0, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
-
-    :goto_0
-    return-void
-
-    :cond_2
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
-
-    const-wide/16 v2, 0x1770
-
-    iput-wide v2, v0, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
-
-    iput-wide v4, v0, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
-
-    goto :goto_0
-
-    :cond_3
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
 
     iget-wide v2, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->keyguardUserActivityTimeout:J
@@ -1453,109 +1501,25 @@
     iput-wide v4, v0, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
 
     goto :goto_0
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    iput-wide v2, v0, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    iput-wide v2, v0, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
+
+    goto :goto_0
 .end method
 
 .method private isExpanded(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)Z
-    .locals 5
-
-    const/4 v2, 0x1
-
-    const/4 v1, 0x0
-
-    const-string/jumbo v3, "StatusBarWindowManager"
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "isExpanded:"
-
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
+    .locals 1
 
     iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->forceCollapsed:Z
 
-    if-eqz v0, :cond_1
-
-    move v0, v1
-
-    :goto_0
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v4, ", "
-
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-static {p1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->-wrap0(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)Z
-
-    move-result v4
-
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v4, ", "
-
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget-boolean v4, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->panelVisible:Z
-
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v4, ", "
-
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget-boolean v4, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->keyguardFadingAway:Z
-
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v4, ", "
-
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget-boolean v4, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->bouncerShowing:Z
-
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v4, ", "
-
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget-boolean v4, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->headsUpShowing:Z
-
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v3, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->forceCollapsed:Z
-
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1
 
     invoke-static {p1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->-wrap0(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)Z
 
@@ -1575,46 +1539,20 @@
 
     if-nez v0, :cond_0
 
-    iget-boolean v2, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->headsUpShowing:Z
+    iget-boolean v0, p1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->headsUpShowing:Z
+
+    :goto_0
+    return v0
 
     :cond_0
-    :goto_1
-    return v2
-
-    :cond_1
-    move v0, v2
+    const/4 v0, 0x1
 
     goto :goto_0
 
-    :cond_2
-    move v2, v1
-
-    goto :goto_1
-.end method
-
-.method private shouldEnableKeyguardScreenRotation()Z
-    .locals 3
-
+    :cond_1
     const/4 v0, 0x0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string v2, "lockscreen_rotate"
-
-    invoke-static {v1, v2, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const/4 v0, 0x1
-
-    :cond_0
-    return v0
+    goto :goto_0
 .end method
 
 
@@ -1637,6 +1575,14 @@
     invoke-direct/range {v0 .. v5}, Landroid/view/WindowManager$LayoutParams;-><init>(IIIII)V
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLp:Landroid/view/WindowManager$LayoutParams;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLp:Landroid/view/WindowManager$LayoutParams;
+
+    new-instance v1, Landroid/os/Binder;
+
+    invoke-direct {v1}, Landroid/os/Binder;-><init>()V
+
+    iput-object v1, v0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLp:Landroid/view/WindowManager$LayoutParams;
 
@@ -1680,16 +1626,6 @@
 
     iput p2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mBarHeight:I
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLp:Landroid/view/WindowManager$LayoutParams;
-
-    iget v1, v0, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
-
-    const/high16 v2, 0x40000
-
-    or-int/2addr v1, v2
-
-    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
-
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mWindowManager:Landroid/view/WindowManager;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mStatusBarView:Landroid/view/View;
@@ -1726,11 +1662,16 @@
 
     new-instance v0, Landroid/view/WindowManager$LayoutParams;
 
+    sget-boolean v1, Lcom/android/systemui/Rune;->NAVBAR_ENABLED:Z
+
+    if-eqz v1, :cond_0
+
+    const/16 v3, 0x7d9
+
+    :goto_0
     const/4 v1, -0x1
 
     const/4 v2, 0x0
-
-    const/16 v3, 0x7d9
 
     const v4, -0x7ffffeb8
 
@@ -1812,18 +1753,7 @@
 
     iput-wide v2, v0, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
 
-    :goto_0
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mKeyguardScreenRotation:Z
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mBouncerLp:Landroid/view/WindowManager$LayoutParams;
-
-    const/4 v1, 0x5
-
-    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
-
-    :cond_0
+    :goto_1
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mWindowManager:Landroid/view/WindowManager;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mBouncerContainer:Landroid/widget/FrameLayout;
@@ -1846,12 +1776,129 @@
 
     return-void
 
+    :cond_0
+    const/16 v3, 0x7de
+
+    goto :goto_0
+
     :cond_1
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mBouncerLp:Landroid/view/WindowManager$LayoutParams;
 
     const-wide/16 v2, -0x1
 
     iput-wide v2, v0, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
+
+    goto :goto_1
+.end method
+
+.method public applyQSColoringBlurEffect()V
+    .locals 2
+
+    const-class v0, Lcom/android/systemui/coloring/QSColoringServiceManager;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/coloring/QSColoringServiceManager;
+
+    invoke-virtual {v0}, Lcom/android/systemui/coloring/QSColoringServiceManager;->isQSColoringEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const-class v0, Lcom/android/systemui/coloring/QSColoringServiceManager;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/coloring/QSColoringServiceManager;
+
+    invoke-virtual {v0}, Lcom/android/systemui/coloring/QSColoringServiceManager;->isQSColoringBlurEffectEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mCurrentState:Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;
+
+    iget-boolean v0, v0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->keyguardShowing:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mCurrentState:Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;
+
+    iget-boolean v0, v0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->qsExpanded:Z
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mCurrentState:Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;
+
+    iget-boolean v0, v0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->keyguardShowing:Z
+
+    if-nez v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mCurrentState:Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;
+
+    iget-boolean v0, v0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->panelExpanded:Z
+
+    if-eqz v0, :cond_2
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    iget v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    or-int/lit8 v1, v1, 0x2
+
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    const-class v0, Lcom/android/systemui/coloring/QSColoringServiceManager;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/coloring/QSColoringServiceManager;
+
+    invoke-virtual {v0}, Lcom/android/systemui/coloring/QSColoringServiceManager;->getQSColoringBlurAmount()F
+
+    move-result v0
+
+    iput v0, v1, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    iget v1, v0, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
+
+    or-int/lit8 v1, v1, 0x40
+
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
+
+    :goto_0
+    return-void
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    iget v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    and-int/lit8 v1, v1, -0x3
+
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    iget v1, v0, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
+
+    and-int/lit8 v1, v1, -0x41
+
+    iput v1, v0, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
 
     goto :goto_0
 .end method
@@ -1881,13 +1928,11 @@
 
     int-to-long v0, v2
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v2}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/android/keyguard/util/SettingsHelper;->isSmartStayEnabled()Z
+    invoke-virtual {v2}, Lcom/android/systemui/util/SettingsHelper;->isSmartStayEnabled()Z
 
     move-result v2
 
@@ -1898,17 +1943,15 @@
     move-result-wide v0
 
     :cond_0
-    sget-boolean v2, Lcom/android/keyguard/KeyguardRune;->SUPPORT_HIGH_PERFORMACE_MODE:Z
+    sget-boolean v2, Lcom/android/systemui/Rune;->KEYGUARD_SUPPORT_HIGH_PERFORMANCE_MODE:Z
 
     if-eqz v2, :cond_1
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v2}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/android/keyguard/util/SettingsHelper;->isNormalInHighPerformanceMode()Z
+    invoke-virtual {v2}, Lcom/android/systemui/util/SettingsHelper;->isNormalInHighPerformanceMode()Z
 
     move-result v2
 
@@ -1925,7 +1968,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDesktopMode()Z
+    invoke-virtual {v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDexMode()Z
 
     move-result v2
 
@@ -1936,13 +1979,11 @@
     int-to-long v0, v2
 
     :cond_2
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v2}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/android/keyguard/util/SettingsHelper;->isEmergencyMode()Z
+    invoke-virtual {v2}, Lcom/android/systemui/util/SettingsHelper;->isEmergencyMode()Z
 
     move-result v2
 
@@ -1979,13 +2020,11 @@
     return-wide v0
 
     :cond_4
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v2}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/android/keyguard/util/SettingsHelper;->isPowerSavingMode()Z
+    invoke-virtual {v2}, Lcom/android/systemui/util/SettingsHelper;->isPowerSavingMode()Z
 
     move-result v2
 
@@ -2034,17 +2073,9 @@
 
     iget-boolean v0, v0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->backdropShowing:Z
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method public onRemoteInputActive(Z)V
@@ -2126,18 +2157,18 @@
     return-void
 .end method
 
-.method public setCoverShowing(ZZI)V
+.method public setCoverState(ZZI)V
     .locals 2
 
     const/4 v0, 0x0
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mCurrentState:Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;
 
-    iput-boolean p1, v1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->sViewCoverShowing:Z
+    iput-boolean p1, v1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->viewCoverShowing:Z
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mCurrentState:Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;
 
-    iput-boolean p2, v1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->sAppCoverShowing:Z
+    iput-boolean p2, v1, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->coverAppShowing:Z
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mCurrentState:Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;
 
@@ -2155,12 +2186,40 @@
     return-void
 .end method
 
+.method public setDozing(Z)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mCurrentState:Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;
+
+    iput-boolean p1, v0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->dozing:Z
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mCurrentState:Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->apply(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)V
+
+    return-void
+.end method
+
 .method public setForceDozeBrightness(Z)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mCurrentState:Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;
 
     iput-boolean p1, v0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->forceDozeBrightness:Z
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mCurrentState:Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->apply(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)V
+
+    return-void
+.end method
+
+.method public setForcePluginOpen(Z)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mCurrentState:Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;
+
+    iput-boolean p1, v0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;->forcePluginOpen:Z
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mCurrentState:Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;
 
@@ -2313,6 +2372,14 @@
     return-void
 .end method
 
+.method public setStateListener(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$OtherwisedCollapsedListener;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mListener:Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$OtherwisedCollapsedListener;
+
+    return-void
+.end method
+
 .method public setStatusBarFocusable(Z)V
     .locals 1
 
@@ -2420,4 +2487,40 @@
     move v0, v1
 
     goto :goto_0
+.end method
+
+.method public wallpaperTypeChanged()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mCurrentState:Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->applyKeyguardFlags(Lcom/android/systemui/statusbar/phone/StatusBarWindowManager$State;)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLp:Landroid/view/WindowManager$LayoutParams;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLpChanged:Landroid/view/WindowManager$LayoutParams;
+
+    invoke-virtual {v0, v1}, Landroid/view/WindowManager$LayoutParams;->copyFrom(Landroid/view/WindowManager$LayoutParams;)I
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mWindowManager:Landroid/view/WindowManager;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mStatusBarView:Landroid/view/View;
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mLp:Landroid/view/WindowManager$LayoutParams;
+
+    invoke-interface {v0, v1, v2}, Landroid/view/WindowManager;->updateViewLayout(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    :cond_1
+    return-void
 .end method

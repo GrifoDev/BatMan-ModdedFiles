@@ -16,7 +16,10 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/systemui/statusbar/phone/taskbar/views/DispatchEventLayer$Anim$1;,
-        Lcom/android/systemui/statusbar/phone/taskbar/views/DispatchEventLayer$Anim$2;
+        Lcom/android/systemui/statusbar/phone/taskbar/views/DispatchEventLayer$Anim$2;,
+        Lcom/android/systemui/statusbar/phone/taskbar/views/DispatchEventLayer$Anim$3;,
+        Lcom/android/systemui/statusbar/phone/taskbar/views/DispatchEventLayer$Anim$4;,
+        Lcom/android/systemui/statusbar/phone/taskbar/views/DispatchEventLayer$Anim$5;
     }
 .end annotation
 
@@ -342,11 +345,8 @@
 
     iput-object p5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/DispatchEventLayer$Anim;->mTo:[I
 
-    if-eqz p7, :cond_0
+    xor-int/lit8 v0, p7, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/DispatchEventLayer$Anim;->mShadowFadeStarted:Z
 
     const/4 v0, 0x2
@@ -386,13 +386,6 @@
     invoke-virtual {v0}, Landroid/animation/Animator;->start()V
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    nop
 
     :array_0
     .array-data 4

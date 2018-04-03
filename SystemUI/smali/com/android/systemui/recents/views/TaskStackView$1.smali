@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/TaskStackView$1;->this$0:Lcom/android/systemui/recents/views/TaskStackView;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/views/TaskStackView;->-get4(Lcom/android/systemui/recents/views/TaskStackView;)Z
+    invoke-static {v0}, Lcom/android/systemui/recents/views/TaskStackView;->-get3(Lcom/android/systemui/recents/views/TaskStackView;)Z
 
     move-result v0
 
@@ -49,7 +49,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/recents/views/TaskStackView;->-set1(Lcom/android/systemui/recents/views/TaskStackView;Z)Z
+    invoke-static {v0, v1}, Lcom/android/systemui/recents/views/TaskStackView;->-set0(Lcom/android/systemui/recents/views/TaskStackView;Z)Z
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/TaskStackView$1;->this$0:Lcom/android/systemui/recents/views/TaskStackView;
 

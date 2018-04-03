@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="recents_app_list_recommend_max_count">12</integer>
+    <integer name="recents_app_list_span_count">6</integer>
+</resources>

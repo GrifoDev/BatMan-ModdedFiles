@@ -42,7 +42,15 @@
 .end method
 
 .method public onChange(ZLandroid/net/Uri;)V
-    .locals 2
+    .locals 3
+
+    const/16 v2, 0x3e9
+
+    const-string/jumbo v0, "VoWiFiController"
+
+    const-string/jumbo v1, "onChange"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/VoWiFiStatusController$2;->this$0:Lcom/android/systemui/statusbar/phone/VoWiFiStatusController;
 
@@ -50,9 +58,15 @@
 
     move-result-object v0
 
-    const/16 v1, 0x3e9
+    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/VoWiFiStatusController$2;->this$0:Lcom/android/systemui/statusbar/phone/VoWiFiStatusController;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/VoWiFiStatusController;->-get1(Lcom/android/systemui/statusbar/phone/VoWiFiStatusController;)Landroid/os/Handler;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     return-void
 .end method

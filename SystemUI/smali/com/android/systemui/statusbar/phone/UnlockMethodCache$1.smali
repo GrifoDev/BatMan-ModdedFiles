@@ -43,7 +43,7 @@
     return-void
 .end method
 
-.method public onFingerprintAuthenticated(IZ)V
+.method public onFingerprintAuthenticated(I)V
     .locals 2
 
     const-string/jumbo v0, "KeyguardUpdateMonitorCallback#onFingerprintAuthenticated"

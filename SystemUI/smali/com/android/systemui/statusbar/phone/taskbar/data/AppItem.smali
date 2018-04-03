@@ -35,19 +35,11 @@
 
 .field public mRunningTaskId:I
 
-.field private mSavedCell:I
-
-.field private mSavedDirty:Z
-
-.field private mSavedHidden:Z
-
-.field private mSavedScreen:I
-
-.field private mSavedSecret:Z
-
 .field public mSystemApp:Z
 
 .field public mUnavailable:Z
+
+.field public mUsingTaskDescription:Z
 
 .field public usingFallbackIcon:Z
 
@@ -426,32 +418,6 @@
     move-result-object v0
 
     return-object v0
-.end method
-
-.method public editBegin()V
-    .locals 1
-
-    iget v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mScreen:I
-
-    iput v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mSavedScreen:I
-
-    iget v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mCell:I
-
-    iput v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mSavedCell:I
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mDirty:Z
-
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mSavedDirty:Z
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mHidden:Z
-
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mSavedHidden:Z
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mSecretItem:Z
-
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mSavedSecret:Z
-
-    return-void
 .end method
 
 .method public getComponentName()Landroid/content/ComponentName;

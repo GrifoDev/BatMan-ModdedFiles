@@ -108,25 +108,25 @@
 .end method
 
 .method public addAll(Lcom/caverock/androidsvg/CSSParser$Ruleset;)V
-    .locals 3
+    .locals 4
 
-    iget-object v1, p1, Lcom/caverock/androidsvg/CSSParser$Ruleset;->rules:Ljava/util/List;
+    iget-object v2, p1, Lcom/caverock/androidsvg/CSSParser$Ruleset;->rules:Ljava/util/List;
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    iget-object v1, p0, Lcom/caverock/androidsvg/CSSParser$Ruleset;->rules:Ljava/util/List;
+    iget-object v2, p0, Lcom/caverock/androidsvg/CSSParser$Ruleset;->rules:Ljava/util/List;
 
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_1
 
     :goto_0
-    iget-object v1, p1, Lcom/caverock/androidsvg/CSSParser$Ruleset;->rules:Ljava/util/List;
+    iget-object v2, p1, Lcom/caverock/androidsvg/CSSParser$Ruleset;->rules:Ljava/util/List;
 
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v0
 
     :goto_1
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
@@ -138,30 +138,30 @@
     return-void
 
     :cond_1
-    new-instance v1, Ljava/util/ArrayList;
+    new-instance v2, Ljava/util/ArrayList;
 
-    iget-object v2, p1, Lcom/caverock/androidsvg/CSSParser$Ruleset;->rules:Ljava/util/List;
+    iget-object v3, p1, Lcom/caverock/androidsvg/CSSParser$Ruleset;->rules:Ljava/util/List;
 
-    invoke-interface {v2}, Ljava/util/List;->size()I
+    invoke-interface {v3}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result v3
 
-    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {v2, v3}, Ljava/util/ArrayList;-><init>(I)V
 
-    iput-object v1, p0, Lcom/caverock/androidsvg/CSSParser$Ruleset;->rules:Ljava/util/List;
+    iput-object v2, p0, Lcom/caverock/androidsvg/CSSParser$Ruleset;->rules:Ljava/util/List;
 
     goto :goto_0
 
     :cond_2
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lcom/caverock/androidsvg/CSSParser$Rule;
+    check-cast v1, Lcom/caverock/androidsvg/CSSParser$Rule;
 
     iget-object v2, p0, Lcom/caverock/androidsvg/CSSParser$Ruleset;->rules:Ljava/util/List;
 
-    invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v2, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 .end method
@@ -213,50 +213,50 @@
 .method public toString()Ljava/lang/String;
     .locals 5
 
-    iget-object v2, p0, Lcom/caverock/androidsvg/CSSParser$Ruleset;->rules:Ljava/util/List;
+    iget-object v3, p0, Lcom/caverock/androidsvg/CSSParser$Ruleset;->rules:Ljava/util/List;
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v2, p0, Lcom/caverock/androidsvg/CSSParser$Ruleset;->rules:Ljava/util/List;
+    iget-object v3, p0, Lcom/caverock/androidsvg/CSSParser$Ruleset;->rules:Ljava/util/List;
 
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v0
 
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
     if-nez v3, :cond_1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    return-object v2
-
-    :cond_0
-    const-string/jumbo v2, ""
-
-    return-object v2
-
-    :cond_1
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/caverock/androidsvg/CSSParser$Rule;
-
-    invoke-virtual {v0}, Lcom/caverock/androidsvg/CSSParser$Rule;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    return-object v3
+
+    :cond_0
+    const-string/jumbo v3, ""
+
+    return-object v3
+
+    :cond_1
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/caverock/androidsvg/CSSParser$Rule;
+
+    invoke-virtual {v1}, Lcom/caverock/androidsvg/CSSParser$Rule;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 

@@ -19,12 +19,16 @@
 
 # instance fields
 .field private mAudioManagerWithAudioFocus:Landroid/media/AudioManager;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = "mQueueAudioFocusLock"
+    .end annotation
+.end field
 
 .field private mBinder:Landroid/os/IBinder;
 
 .field private final mChargerConnectionUri:Landroid/net/Uri;
 
-.field private mCmdQueue:Ljava/util/LinkedList;
+.field private final mCmdQueue:Ljava/util/LinkedList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/LinkedList",
@@ -38,10 +42,20 @@
 .field private final mCompletionHandlingLock:Ljava/lang/Object;
 
 .field private mCompletionThread:Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = "mCompletionHandlingLock"
+    .end annotation
+.end field
 
 .field private mLooper:Landroid/os/Looper;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = "mCompletionHandlingLock"
+    .end annotation
+.end field
 
 .field private final mLowBatteryUri:Landroid/net/Uri;
+
+.field private mNotificationRampTimeMs:I
 
 .field private mOnCompletionListener:Ljava/util/Vector;
     .annotation system Ldalvik/annotation/Signature;
@@ -63,8 +77,16 @@
 .field private mTag:Ljava/lang/String;
 
 .field private mThread:Lcom/android/systemui/media/NotificationPlayer$CmdThread;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = "mCmdQueue"
+    .end annotation
+.end field
 
 .field private mWakeLock:Landroid/os/PowerManager$WakeLock;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = "mCmdQueue"
+    .end annotation
+.end field
 
 .field private final mWaterProtectionUri:Landroid/net/Uri;
 
@@ -86,6 +108,14 @@
     return-object v0
 .end method
 
+.method static synthetic -get10(Lcom/android/systemui/media/NotificationPlayer;)Landroid/net/Uri;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/media/NotificationPlayer;->mWaterProtectionUri:Landroid/net/Uri;
+
+    return-object v0
+.end method
+
 .method static synthetic -get2(Lcom/android/systemui/media/NotificationPlayer;)Ljava/util/LinkedList;
     .locals 1
 
@@ -94,7 +124,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/systemui/media/NotificationPlayer;)Landroid/os/Looper;
+.method static synthetic -get3(Lcom/android/systemui/media/NotificationPlayer;)Ljava/lang/Object;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/media/NotificationPlayer;->mCompletionHandlingLock:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
+.method static synthetic -get4(Lcom/android/systemui/media/NotificationPlayer;)Landroid/os/Looper;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/media/NotificationPlayer;->mLooper:Landroid/os/Looper;
@@ -102,7 +140,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/android/systemui/media/NotificationPlayer;)Landroid/net/Uri;
+.method static synthetic -get5(Lcom/android/systemui/media/NotificationPlayer;)Landroid/net/Uri;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/media/NotificationPlayer;->mLowBatteryUri:Landroid/net/Uri;
@@ -110,7 +148,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/android/systemui/media/NotificationPlayer;)Landroid/media/MediaPlayer;
+.method static synthetic -get6(Lcom/android/systemui/media/NotificationPlayer;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/systemui/media/NotificationPlayer;->mNotificationRampTimeMs:I
+
+    return v0
+.end method
+
+.method static synthetic -get7(Lcom/android/systemui/media/NotificationPlayer;)Landroid/media/MediaPlayer;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/media/NotificationPlayer;->mPlayer:Landroid/media/MediaPlayer;
@@ -118,7 +164,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get6(Lcom/android/systemui/media/NotificationPlayer;)Ljava/lang/Object;
+.method static synthetic -get8(Lcom/android/systemui/media/NotificationPlayer;)Ljava/lang/Object;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/media/NotificationPlayer;->mQueueAudioFocusLock:Ljava/lang/Object;
@@ -126,18 +172,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get7(Lcom/android/systemui/media/NotificationPlayer;)Ljava/lang/String;
+.method static synthetic -get9(Lcom/android/systemui/media/NotificationPlayer;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/media/NotificationPlayer;->mTag:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic -get8(Lcom/android/systemui/media/NotificationPlayer;)Landroid/net/Uri;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/media/NotificationPlayer;->mWaterProtectionUri:Landroid/net/Uri;
 
     return-object v0
 .end method
@@ -158,7 +196,15 @@
     return-object p1
 .end method
 
-.method static synthetic -set2(Lcom/android/systemui/media/NotificationPlayer;Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer;
+.method static synthetic -set2(Lcom/android/systemui/media/NotificationPlayer;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/media/NotificationPlayer;->mNotificationRampTimeMs:I
+
+    return p1
+.end method
+
+.method static synthetic -set3(Lcom/android/systemui/media/NotificationPlayer;Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer;
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/NotificationPlayer;->mPlayer:Landroid/media/MediaPlayer;
@@ -166,7 +212,7 @@
     return-object p1
 .end method
 
-.method static synthetic -set3(Lcom/android/systemui/media/NotificationPlayer;Lcom/android/systemui/media/NotificationPlayer$CmdThread;)Lcom/android/systemui/media/NotificationPlayer$CmdThread;
+.method static synthetic -set4(Lcom/android/systemui/media/NotificationPlayer;Lcom/android/systemui/media/NotificationPlayer$CmdThread;)Lcom/android/systemui/media/NotificationPlayer$CmdThread;
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/NotificationPlayer;->mThread:Lcom/android/systemui/media/NotificationPlayer$CmdThread;
@@ -237,6 +283,10 @@
 
     iput-object v0, p0, Lcom/android/systemui/media/NotificationPlayer;->mQueueAudioFocusLock:Ljava/lang/Object;
 
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/android/systemui/media/NotificationPlayer;->mNotificationRampTimeMs:I
+
     const/4 v0, 0x2
 
     iput v0, p0, Lcom/android/systemui/media/NotificationPlayer;->mState:I
@@ -270,6 +320,9 @@
 
 .method private acquireWakeLock()V
     .locals 1
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = "mCmdQueue"
+    .end annotation
 
     iget-object v0, p0, Lcom/android/systemui/media/NotificationPlayer;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
@@ -285,6 +338,9 @@
 
 .method private enqueueLocked(Lcom/android/systemui/media/NotificationPlayer$Command;)V
     .locals 1
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = "mCmdQueue"
+    .end annotation
 
     iget-object v0, p0, Lcom/android/systemui/media/NotificationPlayer;->mCmdQueue:Ljava/util/LinkedList;
 
@@ -312,6 +368,9 @@
 
 .method private releaseWakeLock()V
     .locals 1
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = "mCmdQueue"
+    .end annotation
 
     iget-object v0, p0, Lcom/android/systemui/media/NotificationPlayer;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
@@ -515,8 +574,6 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
-    monitor-exit v4
-
     :try_start_1
     iget-object v3, p0, Lcom/android/systemui/media/NotificationPlayer;->mOnCompletionListener:Ljava/util/Vector;
 
@@ -540,6 +597,7 @@
     invoke-interface {v1}, Landroid/app/INotificationPlayerOnCompletionListener;->onCompletion()V
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
@@ -547,11 +605,20 @@
     move-exception v0
 
     :cond_1
+    monitor-exit v4
+
     iget-object v4, p0, Lcom/android/systemui/media/NotificationPlayer;->mCmdQueue:Ljava/util/LinkedList;
 
     monitor-enter v4
 
     :try_start_2
+    iget-object v5, p0, Lcom/android/systemui/media/NotificationPlayer;->mCompletionHandlingLock:Ljava/lang/Object;
+
+    monitor-enter v5
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+
+    :try_start_3
     iget-object v3, p0, Lcom/android/systemui/media/NotificationPlayer;->mCmdQueue:Ljava/util/LinkedList;
 
     invoke-virtual {v3}, Ljava/util/LinkedList;->size()I
@@ -560,13 +627,6 @@
 
     if-nez v3, :cond_3
 
-    iget-object v5, p0, Lcom/android/systemui/media/NotificationPlayer;->mCompletionHandlingLock:Ljava/lang/Object;
-
-    monitor-enter v5
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
-
-    :try_start_3
     iget-object v3, p0, Lcom/android/systemui/media/NotificationPlayer;->mLooper:Landroid/os/Looper;
 
     if-eqz v3, :cond_2
@@ -582,12 +642,12 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
+    :cond_3
     :try_start_4
     monitor-exit v5
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
-    :cond_3
     monitor-exit v4
 
     return-void
@@ -671,6 +731,12 @@
     .end annotation
 
     const/4 v4, 0x1
+
+    const-string/jumbo v1, "NotificationPlayer"
+
+    const-string/jumbo v2, "play"
+
+    invoke-static {p4, v1, v2}, Landroid/media/PlayerBase;->deprecateStreamTypeForPlayback(ILjava/lang/String;Ljava/lang/String;)V
 
     new-instance v0, Lcom/android/systemui/media/NotificationPlayer$Command;
 
@@ -796,8 +862,13 @@
 .end method
 
 .method public setUsesWakeLock(Landroid/content/Context;)V
-    .locals 4
+    .locals 5
 
+    iget-object v2, p0, Lcom/android/systemui/media/NotificationPlayer;->mCmdQueue:Ljava/util/LinkedList;
+
+    monitor-enter v2
+
+    :try_start_0
     iget-object v1, p0, Lcom/android/systemui/media/NotificationPlayer;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     if-nez v1, :cond_0
@@ -809,43 +880,53 @@
     :cond_0
     new-instance v1, Ljava/lang/RuntimeException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "assertion failed mWakeLock="
+    const-string/jumbo v4, "assertion failed mWakeLock="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget-object v3, p0, Lcom/android/systemui/media/NotificationPlayer;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+    iget-object v4, p0, Lcom/android/systemui/media/NotificationPlayer;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string/jumbo v3, " mThread="
+    const-string/jumbo v4, " mThread="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget-object v3, p0, Lcom/android/systemui/media/NotificationPlayer;->mThread:Lcom/android/systemui/media/NotificationPlayer$CmdThread;
+    iget-object v4, p0, Lcom/android/systemui/media/NotificationPlayer;->mThread:Lcom/android/systemui/media/NotificationPlayer$CmdThread;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
 
     throw v1
 
     :cond_1
+    :try_start_1
     const-string/jumbo v1, "power"
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -856,13 +937,17 @@
 
     iget-object v1, p0, Lcom/android/systemui/media/NotificationPlayer;->mTag:Ljava/lang/String;
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
+    invoke-virtual {v0, v3, v1}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/systemui/media/NotificationPlayer;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit v2
 
     return-void
 .end method

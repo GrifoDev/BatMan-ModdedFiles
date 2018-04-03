@@ -1,11 +1,14 @@
 .class Lcom/android/keyguard/EmergencyButton$3;
-.super Lcom/android/keyguard/KnoxStateMonitorCallback;
+.super Ljava/lang/Object;
 .source "EmergencyButton.java"
+
+# interfaces
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/keyguard/EmergencyButton;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/keyguard/EmergencyButton;->onFinishInflate()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,19 +27,25 @@
 
     iput-object p1, p0, Lcom/android/keyguard/EmergencyButton$3;->this$0:Lcom/android/keyguard/EmergencyButton;
 
-    invoke-direct {p0}, Lcom/android/keyguard/KnoxStateMonitorCallback;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onUpdateLockscreenHiddenItems()V
-    .locals 1
+.method public onClick(Landroid/view/View;)V
+    .locals 2
+
+    const-string/jumbo v0, "EmergencyButton"
+
+    const-string/jumbo v1, "onClick"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/android/keyguard/EmergencyButton$3;->this$0:Lcom/android/keyguard/EmergencyButton;
 
-    invoke-virtual {v0}, Lcom/android/keyguard/EmergencyButton;->updateEmergencyCallButton()V
+    invoke-virtual {v0}, Lcom/android/keyguard/EmergencyButton;->takeEmergencyCallAction()V
 
     return-void
 .end method

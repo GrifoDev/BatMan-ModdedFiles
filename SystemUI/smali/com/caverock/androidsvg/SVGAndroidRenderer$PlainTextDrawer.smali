@@ -44,13 +44,13 @@
 .method public processText(Ljava/lang/String;)V
     .locals 4
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    const-string/jumbo v0, "TextSequence render"
+    new-array v0, v0, [Ljava/lang/Object;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    const-string/jumbo v1, "TextSequence render"
 
-    invoke-static {v0, v1}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->access$100(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v1, v0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->access$100(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v0, p0, Lcom/caverock/androidsvg/SVGAndroidRenderer$PlainTextDrawer;->this$0:Lcom/caverock/androidsvg/SVGAndroidRenderer;
 

@@ -1,11 +1,14 @@
 .class Lcom/android/systemui/volume/VolumeDialogMotion$6;
-.super Landroid/animation/AnimatorListenerAdapter;
+.super Ljava/lang/Object;
 .source "VolumeDialogMotion.java"
+
+# interfaces
+.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/volume/VolumeDialogMotion;->makeDexStartAnimation()Landroid/animation/AnimatorSet;
+    value = Lcom/android/systemui/volume/VolumeDialogMotion;->startShowAnimation()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -15,8 +18,6 @@
 
 
 # instance fields
-.field private mCancelled:Z
-
 .field final synthetic this$0:Lcom/android/systemui/volume/VolumeDialogMotion;
 
 
@@ -26,64 +27,47 @@
 
     iput-object p1, p0, Lcom/android/systemui/volume/VolumeDialogMotion$6;->this$0:Lcom/android/systemui/volume/VolumeDialogMotion;
 
-    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 2
+.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
+    .locals 3
 
-    sget-boolean v0, Lcom/android/systemui/volume/D;->BUG:Z
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    move-result-object v1
 
-    invoke-static {}, Lcom/android/systemui/volume/VolumeDialogMotion;->-get0()Ljava/lang/String;
+    check-cast v1, Ljava/lang/Float;
 
-    move-result-object v0
+    invoke-virtual {v1}, Ljava/lang/Float;->floatValue()F
 
-    const-string/jumbo v1, "show.onDexAnimationCancel"
+    move-result v0
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    iget-object v1, p0, Lcom/android/systemui/volume/VolumeDialogMotion$6;->this$0:Lcom/android/systemui/volume/VolumeDialogMotion;
 
-    :cond_0
-    const/4 v0, 0x1
+    invoke-static {v1}, Lcom/android/systemui/volume/VolumeDialogMotion;->-get3(Lcom/android/systemui/volume/VolumeDialogMotion;)Landroid/view/ViewGroup;
 
-    iput-boolean v0, p0, Lcom/android/systemui/volume/VolumeDialogMotion$6;->mCancelled:Z
+    move-result-object v1
 
-    return-void
-.end method
+    iget-object v2, p0, Lcom/android/systemui/volume/VolumeDialogMotion$6;->this$0:Lcom/android/systemui/volume/VolumeDialogMotion;
 
-.method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    invoke-static {v2}, Lcom/android/systemui/volume/VolumeDialogMotion;->-get5(Lcom/android/systemui/volume/VolumeDialogMotion;)Landroid/view/View;
 
-    iget-boolean v0, p0, Lcom/android/systemui/volume/VolumeDialogMotion$6;->mCancelled:Z
+    move-result-object v2
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v2}, Landroid/view/View;->getTranslationY()F
 
-    return-void
+    move-result v2
 
-    :cond_0
-    sget-boolean v0, Lcom/android/systemui/volume/D;->BUG:Z
+    neg-float v2, v2
 
-    if-eqz v0, :cond_1
+    add-float/2addr v2, v0
 
-    invoke-static {}, Lcom/android/systemui/volume/VolumeDialogMotion;->-get0()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "show.onDexAnimationEnd"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/systemui/volume/VolumeDialogMotion$6;->this$0:Lcom/android/systemui/volume/VolumeDialogMotion;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/systemui/volume/VolumeDialogMotion;->-wrap2(Lcom/android/systemui/volume/VolumeDialogMotion;Z)V
+    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->setTranslationY(F)V
 
     return-void
 .end method

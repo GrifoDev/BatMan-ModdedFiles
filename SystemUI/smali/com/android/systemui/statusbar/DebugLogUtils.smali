@@ -4,6 +4,8 @@
 
 
 # static fields
+.field private static final ENG:Z
+
 .field private static final PANELBAR_TRACE_LOG_MAX_NUMBER:I
 
 .field private static final TOUCH_LOG_MAX_NUMBER:I
@@ -59,9 +61,22 @@
 .method static constructor <clinit>()V
     .locals 4
 
-    const/16 v1, 0xbb8
+    const/16 v1, 0x3e8
 
-    const/16 v2, 0x3e8
+    const/16 v2, 0x1f4
+
+    const/4 v0, 0x1
+
+    invoke-static {}, Landroid/os/Debug;->isProductShip()I
+
+    move-result v3
+
+    if-ne v3, v0, :cond_0
+
+    const/4 v0, 0x0
+
+    :cond_0
+    sput-boolean v0, Lcom/android/systemui/statusbar/DebugLogUtils;->ENG:Z
 
     const-string/jumbo v0, "eng"
 
@@ -71,7 +86,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     move v0, v1
 
@@ -86,7 +101,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     :goto_1
     sput v1, Lcom/android/systemui/statusbar/DebugLogUtils;->PANELBAR_TRACE_LOG_MAX_NUMBER:I
@@ -123,12 +138,12 @@
 
     return-void
 
-    :cond_0
+    :cond_1
     move v0, v2
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     move v1, v2
 
     goto :goto_1
@@ -139,6 +154,19 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    return-void
+.end method
+
+.method public static LogEng(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 1
+
+    sget-boolean v0, Lcom/android/systemui/statusbar/DebugLogUtils;->ENG:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-static {p0, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     return-void
 .end method
 

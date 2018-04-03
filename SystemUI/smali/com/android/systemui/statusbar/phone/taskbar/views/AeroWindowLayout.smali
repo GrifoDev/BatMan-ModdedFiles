@@ -53,29 +53,12 @@
     return-void
 .end method
 
-.method public isShowing()Z
-    .locals 2
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->getVisibility()I
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const/4 v0, 0x1
-
-    :cond_0
-    return v0
-.end method
-
 .method public makeAeroWindow(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;Z)V
-    .locals 6
+    .locals 7
 
-    const v5, 0x7f0d0616
+    const v6, 0x7f070052
 
-    const/4 v4, -0x1
+    const/4 v5, -0x1
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->mContext:Landroid/content/Context;
 
@@ -95,7 +78,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f04001a
+    const v2, 0x7f0d001c
 
     const/4 v3, 0x0
 
@@ -107,7 +90,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->mAeroWindowView:Landroid/view/View;
 
-    const v2, 0x7f130096
+    const v2, 0x7f0a051e
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -127,7 +110,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->mAeroWindowView:Landroid/view/View;
 
-    const v2, 0x7f1300be
+    const v2, 0x7f0a0517
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -145,9 +128,37 @@
 
     invoke-virtual {v1, p0}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->mThumbnailView:Landroid/widget/ImageView;
+
+    invoke-virtual {p3}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getTitle()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " "
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const v4, 0x7f120a31
+
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
+
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->mAeroWindowView:Landroid/view/View;
 
-    const v2, 0x7f1300bd
+    const v2, 0x7f0a00e5
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -169,7 +180,7 @@
 
     new-instance v0, Landroid/widget/LinearLayout$LayoutParams;
 
-    invoke-direct {v0, v4, v4}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v0, v5, v5}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
     if-eqz p4, :cond_0
 
@@ -177,7 +188,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
@@ -195,7 +206,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
@@ -211,12 +222,12 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    sparse-switch v0, :sswitch_data_0
 
     :goto_0
     return-void
 
-    :pswitch_0
+    :sswitch_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->mContext:Landroid/content/Context;
 
     iget v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->mTaskId:I
@@ -259,7 +270,7 @@
 
     goto :goto_1
 
-    :pswitch_1
+    :sswitch_1
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->mContext:Landroid/content/Context;
 
     iget v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->mTaskId:I
@@ -270,11 +281,11 @@
 
     goto :goto_0
 
-    :pswitch_data_0
-    .packed-switch 0x7f1300bd
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    :sswitch_data_0
+    .sparse-switch
+        0x7f0a00e5 -> :sswitch_1
+        0x7f0a0517 -> :sswitch_0
+    .end sparse-switch
 .end method
 
 .method public onInterceptHoverEvent(Landroid/view/MotionEvent;)Z
@@ -294,7 +305,7 @@
 .method public setThumbnailBitmap()V
     .locals 10
 
-    const v9, 0x7f0d061f
+    const v9, 0x7f070053
 
     const/4 v8, 0x1
 
@@ -441,50 +452,4 @@
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->setVisibility(I)V
 
     return-void
-.end method
-
-.method public updateAeroWindow(Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;)Z
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->mTitle:Landroid/widget/TextView;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->mThumbnailView:Landroid/widget/ImageView;
-
-    if-nez v0, :cond_1
-
-    :cond_0
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_1
-    iget v0, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mRunningTaskId:I
-
-    iput v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->mTaskId:I
-
-    iget-object v0, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->user:Landroid/os/UserHandle;
-
-    invoke-virtual {v0}, Landroid/os/UserHandle;->getIdentifier()I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->mUserId:I
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->mTitle:Landroid/widget/TextView;
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getTitle()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    iget-object v0, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mIconBitmap:Landroid/graphics/Bitmap;
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->mIconBitmap:Landroid/graphics/Bitmap;
-
-    const/4 v0, 0x1
-
-    return v0
 .end method

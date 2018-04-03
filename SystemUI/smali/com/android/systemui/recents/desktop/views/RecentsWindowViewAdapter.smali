@@ -66,6 +66,14 @@
     return-object v0
 .end method
 
+.method static synthetic -wrap0(Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;Lcom/android/systemui/recents/model/Task;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->syncTaskLockState(Lcom/android/systemui/recents/model/Task;)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/recents/desktop/views/RecentsWindowView;)V
     .locals 2
 
@@ -117,7 +125,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0204b9
+    const v1, 0x7f080590
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -287,6 +295,93 @@
     const/4 v1, 0x0
 
     return v1
+.end method
+
+.method private syncTaskLockState(Lcom/android/systemui/recents/model/Task;)V
+    .locals 5
+
+    if-nez p1, :cond_1
+
+    :cond_0
+    return-void
+
+    :cond_1
+    iget-object v4, p1, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
+
+    iget-object v4, v4, Lcom/android/systemui/recents/model/Task$TaskKey;->baseIntent:Landroid/content/Intent;
+
+    if-eqz v4, :cond_0
+
+    iget-object v4, p1, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
+
+    iget-object v4, v4, Lcom/android/systemui/recents/model/Task$TaskKey;->baseIntent:Landroid/content/Intent;
+
+    invoke-virtual {v4}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v0
+
+    const/4 v2, 0x0
+
+    :goto_0
+    iget-object v4, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->mTaskList:Ljava/util/List;
+
+    invoke-interface {v4}, Ljava/util/List;->size()I
+
+    move-result v4
+
+    if-ge v2, v4, :cond_3
+
+    iget-object v4, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->mTaskList:Ljava/util/List;
+
+    invoke-interface {v4, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/systemui/recents/model/Task;
+
+    iget-object v4, v3, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
+
+    iget-object v4, v4, Lcom/android/systemui/recents/model/Task$TaskKey;->baseIntent:Landroid/content/Intent;
+
+    if-eqz v4, :cond_2
+
+    iget-object v4, v3, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
+
+    iget-object v4, v4, Lcom/android/systemui/recents/model/Task$TaskKey;->baseIntent:Landroid/content/Intent;
+
+    invoke-virtual {v4}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v4}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    iget-boolean v4, p1, Lcom/android/systemui/recents/model/Task;->isTaskLocked:Z
+
+    iput-boolean v4, v3, Lcom/android/systemui/recents/model/Task;->isTaskLocked:Z
+
+    iget-object v4, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->mView:Lcom/android/systemui/recents/desktop/views/RecentsWindowView;
+
+    invoke-virtual {v4, v2}, Lcom/android/systemui/recents/desktop/views/RecentsWindowView;->findViewHolderForAdapterPosition(I)Landroid/support/v7/widget/RecyclerView$ViewHolder;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;
+
+    if-eqz v1, :cond_2
+
+    invoke-virtual {v1}, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->updateViewLockState()V
+
+    :cond_2
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_3
+    return-void
 .end method
 
 .method private updateRecentsLayout(Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;)V
@@ -571,98 +666,31 @@
 .end method
 
 .method public onBindViewHolder(Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;I)V
-    .locals 8
+    .locals 5
 
-    const/4 v7, 0x4
+    const-string/jumbo v0, "RecentsWindowViewAdapter"
 
-    const/4 v6, 0x0
+    const-string/jumbo v1, "onBindViewHolder() - position=%d\n"
 
-    const/4 v5, 0x1
+    const/4 v2, 0x1
 
-    const-string/jumbo v1, "RecentsWindowViewAdapter"
-
-    const-string/jumbo v2, "onBindViewHolder() - position=%d\n"
-
-    new-array v3, v5, [Ljava/lang/Object;
+    new-array v2, v2, [Ljava/lang/Object;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v3
 
-    aput-object v4, v3, v6
+    const/4 v4, 0x0
 
-    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    aput-object v3, v2, v4
 
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    sget-boolean v1, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableTaskLock:Z
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->mTaskList:Ljava/util/List;
-
-    invoke-interface {v1, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/recents/model/Task;
-
-    if-eqz v0, :cond_1
-
-    iget-boolean v1, v0, Lcom/android/systemui/recents/model/Task;->isTaskLocked:Z
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->dismissView:Landroid/widget/ImageView;
-
-    invoke-virtual {v1, v7}, Landroid/widget/ImageView;->setVisibility(I)V
-
-    iget-object v1, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->lockView:Landroid/widget/ImageView;
-
-    invoke-virtual {v1, v5}, Landroid/widget/ImageView;->setImageLevel(I)V
-
-    iget-object v1, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->lockView:Landroid/widget/ImageView;
-
-    invoke-virtual {v1, v6}, Landroid/widget/ImageView;->setVisibility(I)V
-
-    iget-object v1, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->lockView:Landroid/widget/ImageView;
-
-    invoke-virtual {v1}, Landroid/widget/ImageView;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/view/ViewPropertyAnimator;->cancel()V
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v1, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->lockView:Landroid/widget/ImageView;
-
-    const/high16 v2, 0x3f800000    # 1.0f
-
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setAlpha(F)V
-
-    iget-object v1, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->lockView:Landroid/widget/ImageView;
-
-    invoke-virtual {v1, v5}, Landroid/widget/ImageView;->setClickable(Z)V
-
-    :cond_0
-    :goto_0
     return-void
-
-    :cond_1
-    iget-object v1, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->dismissView:Landroid/widget/ImageView;
-
-    invoke-virtual {v1, v6}, Landroid/widget/ImageView;->setVisibility(I)V
-
-    iget-object v1, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->dismissView:Landroid/widget/ImageView;
-
-    invoke-virtual {v1, v5}, Landroid/widget/ImageView;->setClickable(Z)V
-
-    iget-object v1, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->lockView:Landroid/widget/ImageView;
-
-    invoke-virtual {v1, v7}, Landroid/widget/ImageView;->setVisibility(I)V
-
-    goto :goto_0
 .end method
 
 .method public final onBusEvent(Lcom/android/systemui/recents/events/ui/DeleteTaskDataEvent;)V
@@ -704,7 +732,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f04015f
+    const v3, 0x7f0d017a
 
     const/4 v4, 0x0
 
@@ -716,7 +744,7 @@
 
     invoke-direct {v1, p0, v0}, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;-><init>(Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;Landroid/view/View;)V
 
-    const v2, 0x7f130430
+    const v2, 0x7f0a0411
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -724,7 +752,7 @@
 
     iput-object v2, v1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->contentView:Landroid/view/View;
 
-    const v2, 0x7f130431
+    const v2, 0x7f0a0412
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -732,7 +760,7 @@
 
     iput-object v2, v1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->focusView:Landroid/view/View;
 
-    const v2, 0x7f130432
+    const v2, 0x7f0a0504
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -742,7 +770,7 @@
 
     iget-object v2, v1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->taskView:Landroid/view/View;
 
-    const v3, 0x7f130096
+    const v3, 0x7f0a051e
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -754,7 +782,7 @@
 
     iget-object v2, v1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->taskView:Landroid/view/View;
 
-    const v3, 0x7f130095
+    const v3, 0x7f0a0215
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -766,7 +794,7 @@
 
     iget-object v2, v1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->taskView:Landroid/view/View;
 
-    const v3, 0x7f130422
+    const v3, 0x7f0a0172
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -776,13 +804,9 @@
 
     iput-object v2, v1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->dismissView:Landroid/widget/ImageView;
 
-    sget-boolean v2, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableTaskLock:Z
-
-    if-eqz v2, :cond_0
-
     iget-object v2, v1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->taskView:Landroid/view/View;
 
-    const v3, 0x7f130433
+    const v3, 0x7f0a004c
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -792,10 +816,9 @@
 
     iput-object v2, v1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->lockView:Landroid/widget/ImageView;
 
-    :cond_0
     iget-object v2, v1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->taskView:Landroid/view/View;
 
-    const v3, 0x7f130416
+    const v3, 0x7f0a0506
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -819,125 +842,211 @@
 .end method
 
 .method public onViewAttachedToWindow(Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;)V
-    .locals 10
+    .locals 12
 
-    const/4 v4, 0x1
+    const v11, 0x7f080592
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
+
+    const/4 v5, 0x1
 
     invoke-super {p0, p1}, Landroid/support/v7/widget/RecyclerView$Adapter;->onViewAttachedToWindow(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
 
     invoke-virtual {p1}, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->getAdapterPosition()I
 
-    move-result v1
+    move-result v2
 
-    const/4 v6, -0x1
+    const/4 v7, -0x1
 
-    if-ne v1, v6, :cond_0
+    if-ne v2, v7, :cond_0
 
     return-void
 
     :cond_0
-    const-string/jumbo v6, "RecentsWindowViewAdapter"
+    iget-object v7, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->mTaskList:Ljava/util/List;
 
-    const-string/jumbo v7, "onViewAttachedToWindow() - position=%d\n"
+    invoke-interface {v7, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    new-array v8, v4, [Ljava/lang/Object;
+    move-result-object v4
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    check-cast v4, Lcom/android/systemui/recents/model/Task;
 
-    move-result-object v9
+    const-string/jumbo v7, "RecentsWindowViewAdapter"
 
-    aput-object v9, v8, v5
+    const-string/jumbo v8, "onViewAttachedToWindow() - position=%d, task=%s\n"
 
-    invoke-static {v7, v8}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    const/4 v9, 0x2
 
-    move-result-object v7
+    new-array v9, v9, [Ljava/lang/Object;
 
-    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    iput-boolean v5, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->startedAnimation:Z
+    move-result-object v10
 
-    iget-object v6, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->mTaskList:Ljava/util/List;
+    aput-object v10, v9, v6
 
-    invoke-interface {v6, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    iget-object v10, v4, Lcom/android/systemui/recents/model/Task;->title:Ljava/lang/String;
 
-    move-result-object v3
+    aput-object v10, v9, v5
 
-    check-cast v3, Lcom/android/systemui/recents/model/Task;
+    invoke-static {v8, v9}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {}, Lcom/android/systemui/recents/Recents;->getSystemServices()Lcom/android/systemui/recents/misc/SystemServicesProxy;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget-boolean v6, v3, Lcom/android/systemui/recents/model/Task;->isSystemApp:Z
+    iget-boolean v7, v4, Lcom/android/systemui/recents/model/Task;->isSystemApp:Z
 
-    if-nez v6, :cond_2
+    if-nez v7, :cond_2
 
-    invoke-virtual {v2}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->isInSafeMode()Z
+    invoke-virtual {v3}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->isInSafeMode()Z
 
-    move-result v0
+    move-result v1
 
     :goto_0
-    iget-object v6, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->thumbnailView:Lcom/android/systemui/recents/views/TaskViewThumbnail;
+    iget-object v7, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->thumbnailView:Lcom/android/systemui/recents/views/TaskViewThumbnail;
 
-    iget v7, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->mDisplayOrientation:I
+    iget v8, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->mDisplayOrientation:I
 
-    iget-object v8, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->mDisplayRect:Landroid/graphics/Rect;
+    iget-object v9, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->mDisplayRect:Landroid/graphics/Rect;
 
-    invoke-virtual {v6, v3, v0, v7, v8}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->bindToTask(Lcom/android/systemui/recents/model/Task;ZILandroid/graphics/Rect;)V
+    invoke-virtual {v7, v4, v1, v8, v9}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->bindToTask(Lcom/android/systemui/recents/model/Task;ZILandroid/graphics/Rect;)V
 
-    iget-object v6, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->thumbnailView:Lcom/android/systemui/recents/views/TaskViewThumbnail;
+    iget-object v7, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->thumbnailView:Lcom/android/systemui/recents/views/TaskViewThumbnail;
 
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
-    invoke-virtual {v6, v7}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->setDimAlpha(F)V
+    invoke-virtual {v7, v8}, Lcom/android/systemui/recents/views/TaskViewThumbnail;->setDimAlpha(F)V
 
-    invoke-virtual {v3, p1}, Lcom/android/systemui/recents/model/Task;->addCallback(Lcom/android/systemui/recents/model/Task$TaskCallbacks;)V
+    invoke-virtual {v4, p1}, Lcom/android/systemui/recents/model/Task;->addCallback(Lcom/android/systemui/recents/model/Task$TaskCallbacks;)V
 
     invoke-static {}, Lcom/android/systemui/recents/Recents;->getTaskLoader()Lcom/android/systemui/recents/model/RecentsTaskLoader;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, v3}, Lcom/android/systemui/recents/model/RecentsTaskLoader;->loadTaskData(Lcom/android/systemui/recents/model/Task;)V
+    invoke-virtual {v7, v4}, Lcom/android/systemui/recents/model/RecentsTaskLoader;->loadTaskData(Lcom/android/systemui/recents/model/Task;)V
 
-    iget-object v6, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->contentView:Landroid/view/View;
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->getTaskLoader()Lcom/android/systemui/recents/model/RecentsTaskLoader;
 
-    invoke-virtual {v6, p1}, Landroid/view/View;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
+    move-result-object v7
 
-    iget-object v6, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->taskView:Landroid/view/View;
+    invoke-virtual {v7}, Lcom/android/systemui/recents/model/RecentsTaskLoader;->getHighResThumbnailLoader()Lcom/android/systemui/recents/model/HighResThumbnailLoader;
 
-    invoke-virtual {v6, p1}, Landroid/view/View;->setOnHoverListener(Landroid/view/View$OnHoverListener;)V
+    move-result-object v7
 
-    iget-object v6, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->taskView:Landroid/view/View;
+    invoke-virtual {v7, v4}, Lcom/android/systemui/recents/model/HighResThumbnailLoader;->onTaskVisible(Lcom/android/systemui/recents/model/Task;)V
 
-    invoke-virtual {v6, p1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    iget-object v7, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->contentView:Landroid/view/View;
 
-    iget-object v6, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->iconView:Landroid/widget/ImageView;
+    invoke-virtual {v7, p1}, Landroid/view/View;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
-    invoke-virtual {v6, p1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    iget-object v7, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->taskView:Landroid/view/View;
 
-    iget-object v6, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->dismissView:Landroid/widget/ImageView;
+    invoke-virtual {v7, p1}, Landroid/view/View;->setOnHoverListener(Landroid/view/View$OnHoverListener;)V
 
-    invoke-virtual {v6, p1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    iget-object v7, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->taskView:Landroid/view/View;
 
-    sget-boolean v6, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableTaskLock:Z
+    invoke-virtual {v7, p1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    if-eqz v6, :cond_1
+    iget-object v7, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->iconView:Landroid/widget/ImageView;
 
-    iget-object v6, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->lockView:Landroid/widget/ImageView;
+    invoke-virtual {v7, p1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    invoke-virtual {v6, p1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    iget-object v7, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->dismissView:Landroid/widget/ImageView;
+
+    invoke-virtual {v7, p1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object v7, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->iconView:Landroid/widget/ImageView;
+
+    iget-object v8, v4, Lcom/android/systemui/recents/model/Task;->appInfoDescription:Ljava/lang/String;
+
+    invoke-virtual {v7, v8}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
+
+    iget-object v7, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->dismissView:Landroid/widget/ImageView;
+
+    iget-object v8, v4, Lcom/android/systemui/recents/model/Task;->dismissDescription:Ljava/lang/String;
+
+    invoke-virtual {v7, v8}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
+
+    iget-object v7, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->dismissView:Landroid/widget/ImageView;
+
+    invoke-virtual {v7, v5}, Landroid/widget/ImageView;->semSetHoverPopupType(I)V
+
+    iget-object v7, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->dismissView:Landroid/widget/ImageView;
+
+    invoke-virtual {v7, v5}, Landroid/widget/ImageView;->semGetHoverPopup(Z)Lcom/samsung/android/widget/SemHoverPopupWindow;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v7, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->mContext:Landroid/content/Context;
+
+    const v8, 0x7f12005c
+
+    invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v0, v7}, Lcom/samsung/android/widget/SemHoverPopupWindow;->setContent(Ljava/lang/CharSequence;)V
 
     :cond_1
-    iget-object v6, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->mView:Lcom/android/systemui/recents/desktop/views/RecentsWindowView;
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->getSettingHelper()Lcom/android/systemui/recents/model/RecentsSettingHelper;
 
-    iget v6, v6, Lcom/android/systemui/recents/desktop/views/RecentsWindowView;->mFocusedIndex:I
+    move-result-object v7
 
-    if-ne v6, v1, :cond_3
+    invoke-virtual {v7}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->isButtonShapeEnabled()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_3
+
+    iget-object v7, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->dismissView:Landroid/widget/ImageView;
+
+    const v8, 0x7f08058c
+
+    invoke-virtual {v7, v8}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
     :goto_1
-    invoke-virtual {p1, v4}, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->setFocus(Z)V
+    iget-object v7, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->lockView:Landroid/widget/ImageView;
+
+    invoke-virtual {v7, p1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->getSettingHelper()Lcom/android/systemui/recents/model/RecentsSettingHelper;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->isButtonShapeEnabled()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_4
+
+    iget-object v7, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->lockView:Landroid/widget/ImageView;
+
+    const v8, 0x7f080564
+
+    invoke-virtual {v7, v8}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+
+    :goto_2
+    iget-object v7, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->lockView:Landroid/widget/ImageView;
+
+    invoke-virtual {v7, v5}, Landroid/widget/ImageView;->semSetHoverPopupType(I)V
+
+    invoke-virtual {p1}, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->updateViewLockState()V
+
+    iget-object v7, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->mView:Lcom/android/systemui/recents/desktop/views/RecentsWindowView;
+
+    iget v7, v7, Lcom/android/systemui/recents/desktop/views/RecentsWindowView;->mFocusedIndex:I
+
+    if-ne v7, v2, :cond_5
+
+    :goto_3
+    invoke-virtual {p1, v5}, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->setFocus(Z)V
 
     invoke-direct {p0, p1}, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->updateRecentsLayout(Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;)V
 
@@ -946,14 +1055,28 @@
     return-void
 
     :cond_2
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_3
-    move v4, v5
+    iget-object v7, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->dismissView:Landroid/widget/ImageView;
+
+    invoke-virtual {v7, v11}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
     goto :goto_1
+
+    :cond_4
+    iget-object v7, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->lockView:Landroid/widget/ImageView;
+
+    invoke-virtual {v7, v11}, Landroid/widget/ImageView;->setBackgroundResource(I)V
+
+    goto :goto_2
+
+    :cond_5
+    move v5, v6
+
+    goto :goto_3
 .end method
 
 .method public bridge synthetic onViewDetachedFromWindow(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
@@ -967,94 +1090,82 @@
 .end method
 
 .method public onViewDetachedFromWindow(Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;)V
-    .locals 8
+    .locals 6
 
-    const/4 v7, 0x0
-
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
     invoke-super {p0, p1}, Landroid/support/v7/widget/RecyclerView$Adapter;->onViewDetachedFromWindow(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
 
-    invoke-virtual {p1}, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->getAdapterPosition()I
+    const-string/jumbo v0, "RecentsWindowViewAdapter"
 
-    move-result v0
+    const-string/jumbo v1, "onViewDetachedFromWindow() - task=%s\n"
 
-    const/4 v2, -0x1
+    const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_0
+    new-array v2, v2, [Ljava/lang/Object;
 
-    return-void
+    iget-object v3, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->task:Lcom/android/systemui/recents/model/Task;
 
-    :cond_0
-    const-string/jumbo v2, "RecentsWindowViewAdapter"
+    iget-object v3, v3, Lcom/android/systemui/recents/model/Task;->title:Ljava/lang/String;
 
-    const-string/jumbo v3, "onViewDetachedFromWindow() - position=%d\n"
+    const/4 v4, 0x0
 
-    const/4 v4, 0x1
+    aput-object v3, v2, v4
 
-    new-array v4, v4, [Ljava/lang/Object;
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    aput-object v5, v4, v7
-
-    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v2, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->mTaskList:Ljava/util/List;
-
-    invoke-interface {v2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/systemui/recents/model/Task;
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {}, Lcom/android/systemui/recents/Recents;->getTaskLoader()Lcom/android/systemui/recents/model/RecentsTaskLoader;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2, v1}, Lcom/android/systemui/recents/model/RecentsTaskLoader;->unloadTaskData(Lcom/android/systemui/recents/model/Task;)V
+    iget-object v1, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->task:Lcom/android/systemui/recents/model/Task;
 
-    iput-boolean v7, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->startedAnimation:Z
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/model/RecentsTaskLoader;->unloadTaskData(Lcom/android/systemui/recents/model/Task;)V
 
-    iget-object v2, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->contentView:Landroid/view/View;
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->getTaskLoader()Lcom/android/systemui/recents/model/RecentsTaskLoader;
 
-    invoke-virtual {v2, v6}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    move-result-object v0
 
-    iget-object v2, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->contentView:Landroid/view/View;
+    invoke-virtual {v0}, Lcom/android/systemui/recents/model/RecentsTaskLoader;->getHighResThumbnailLoader()Lcom/android/systemui/recents/model/HighResThumbnailLoader;
 
-    invoke-virtual {v2, v6}, Landroid/view/View;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
+    move-result-object v0
 
-    iget-object v2, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->taskView:Landroid/view/View;
+    iget-object v1, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->task:Lcom/android/systemui/recents/model/Task;
 
-    invoke-virtual {v2, v6}, Landroid/view/View;->setOnHoverListener(Landroid/view/View$OnHoverListener;)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/model/HighResThumbnailLoader;->onTaskInvisible(Lcom/android/systemui/recents/model/Task;)V
 
-    iget-object v2, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->taskView:Landroid/view/View;
+    iget-object v0, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->contentView:Landroid/view/View;
 
-    invoke-virtual {v2, v6}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v5}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    iget-object v2, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->iconView:Landroid/widget/ImageView;
+    iget-object v0, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->contentView:Landroid/view/View;
 
-    invoke-virtual {v2, v6}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v5}, Landroid/view/View;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
-    iget-object v2, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->dismissView:Landroid/widget/ImageView;
+    iget-object v0, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->taskView:Landroid/view/View;
 
-    invoke-virtual {v2, v6}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v5}, Landroid/view/View;->setOnHoverListener(Landroid/view/View$OnHoverListener;)V
 
-    sget-boolean v2, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableTaskLock:Z
+    iget-object v0, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->taskView:Landroid/view/View;
 
-    if-eqz v2, :cond_1
+    invoke-virtual {v0, v5}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    iget-object v2, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->lockView:Landroid/widget/ImageView;
+    iget-object v0, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->iconView:Landroid/widget/ImageView;
 
-    invoke-virtual {v2, v6}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v5}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    :cond_1
+    iget-object v0, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->dismissView:Landroid/widget/ImageView;
+
+    invoke-virtual {v0, v5}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object v0, p1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->lockView:Landroid/widget/ImageView;
+
+    invoke-virtual {v0, v5}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
     return-void
 .end method
 
@@ -1176,59 +1287,105 @@
 .end method
 
 .method public startTask(Lcom/android/systemui/recents/model/Task;)V
-    .locals 8
+    .locals 10
 
-    iget-object v3, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->mTaskList:Ljava/util/List;
+    const/4 v1, 0x0
 
-    invoke-interface {v3, p1}, Ljava/util/List;->indexOf(Ljava/lang/Object;)I
+    const/4 v5, 0x0
 
-    move-result v1
+    iget-object v0, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->mTaskList:Ljava/util/List;
 
-    iget-object v3, p1, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
+    invoke-interface {v0, p1}, Ljava/util/List;->indexOf(Ljava/lang/Object;)I
 
-    iget v2, v3, Lcom/android/systemui/recents/model/Task$TaskKey;->id:I
+    move-result v7
 
-    const-string/jumbo v3, "RecentsWindowViewAdapter"
+    iget-object v0, p1, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
 
-    const-string/jumbo v4, "startTask() - %s\n"
+    iget v8, v0, Lcom/android/systemui/recents/model/Task$TaskKey;->id:I
 
-    const/4 v5, 0x1
+    const-string/jumbo v0, "RecentsWindowViewAdapter"
 
-    new-array v5, v5, [Ljava/lang/Object;
+    const-string/jumbo v2, "startTask() - %s\n"
 
-    iget-object v6, p1, Lcom/android/systemui/recents/model/Task;->taskDescription:Landroid/app/ActivityManager$TaskDescription;
+    const/4 v3, 0x1
 
-    const/4 v7, 0x0
+    new-array v3, v3, [Ljava/lang/Object;
 
-    aput-object v6, v5, v7
+    iget-object v4, p1, Lcom/android/systemui/recents/model/Task;->taskDescription:Landroid/app/ActivityManager$TaskDescription;
 
-    invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    aput-object v4, v3, v5
 
-    move-result-object v4
+    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v2
+
+    invoke-static {v0, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {}, Landroid/app/ActivityOptions;->makeBasic()Landroid/app/ActivityOptions;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-direct {p0, v2, v0}, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->startActivityFromRecents(ILandroid/app/ActivityOptions;)Z
+    invoke-direct {p0, v8, v6}, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->startActivityFromRecents(ILandroid/app/ActivityOptions;)Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_0
+    if-eqz v0, :cond_0
 
     invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
 
-    move-result-object v3
+    move-result-object v0
 
-    new-instance v4, Lcom/android/systemui/recents/events/activity/LaunchTaskSucceededEvent;
+    new-instance v2, Lcom/android/systemui/recents/events/activity/LaunchTaskSucceededEvent;
 
-    invoke-direct {v4, v1}, Lcom/android/systemui/recents/events/activity/LaunchTaskSucceededEvent;-><init>(I)V
+    invoke-direct {v2, v7}, Lcom/android/systemui/recents/events/activity/LaunchTaskSucceededEvent;-><init>(I)V
 
-    invoke-virtual {v3, v4}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
+    invoke-virtual {v0, v2}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
     :goto_0
+    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
+
+    move-result-object v9
+
+    new-instance v0, Lcom/android/systemui/recents/events/activity/LaunchTaskEvent;
+
+    const/4 v4, -0x1
+
+    move-object v2, p1
+
+    move-object v3, v1
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/recents/events/activity/LaunchTaskEvent;-><init>(Lcom/android/systemui/recents/views/TaskView;Lcom/android/systemui/recents/model/Task;Landroid/graphics/Rect;IZ)V
+
+    invoke-virtual {v9, v0}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
+
+    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/systemui/recents/events/activity/LaunchTaskInformationEvent;
+
+    add-int/lit8 v2, v7, 0x1
+
+    invoke-direct {v1, p1, v2}, Lcom/android/systemui/recents/events/activity/LaunchTaskInformationEvent;-><init>(Lcom/android/systemui/recents/model/Task;I)V
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->post(Lcom/android/systemui/recents/events/EventBus$Event;)V
+
+    iget-object v0, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->mContext:Landroid/content/Context;
+
+    iget-object v1, p1, Lcom/android/systemui/recents/model/Task;->key:Lcom/android/systemui/recents/model/Task$TaskKey;
+
+    invoke-virtual {v1}, Lcom/android/systemui/recents/model/Task$TaskKey;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/ComponentName;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/16 v2, 0x115
+
+    invoke-static {v0, v2, v1}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/content/Context;ILjava/lang/String;)V
+
     return-void
 
     :cond_0
@@ -1236,13 +1393,13 @@
 
     invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
 
-    move-result-object v3
+    move-result-object v0
 
-    new-instance v4, Lcom/android/systemui/recents/events/activity/LaunchTaskFailedEvent;
+    new-instance v2, Lcom/android/systemui/recents/events/activity/LaunchTaskFailedEvent;
 
-    invoke-direct {v4}, Lcom/android/systemui/recents/events/activity/LaunchTaskFailedEvent;-><init>()V
+    invoke-direct {v2}, Lcom/android/systemui/recents/events/activity/LaunchTaskFailedEvent;-><init>()V
 
-    invoke-virtual {v3, v4}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
+    invoke-virtual {v0, v2}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
     goto :goto_0
 .end method

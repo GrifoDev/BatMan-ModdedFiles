@@ -37,7 +37,7 @@
 
     sget-object v1, Lcom/caverock/androidsvg/SVG$Unit;->px:Lcom/caverock/androidsvg/SVG$Unit;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/caverock/androidsvg/SVG$Unit;->ordinal()I
 
     move-result v1
 
@@ -53,7 +53,7 @@
 
     sget-object v1, Lcom/caverock/androidsvg/SVG$Unit;->em:Lcom/caverock/androidsvg/SVG$Unit;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/caverock/androidsvg/SVG$Unit;->ordinal()I
 
     move-result v1
 
@@ -69,7 +69,7 @@
 
     sget-object v1, Lcom/caverock/androidsvg/SVG$Unit;->ex:Lcom/caverock/androidsvg/SVG$Unit;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/caverock/androidsvg/SVG$Unit;->ordinal()I
 
     move-result v1
 
@@ -85,7 +85,7 @@
 
     sget-object v1, Lcom/caverock/androidsvg/SVG$Unit;->in:Lcom/caverock/androidsvg/SVG$Unit;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/caverock/androidsvg/SVG$Unit;->ordinal()I
 
     move-result v1
 
@@ -101,7 +101,7 @@
 
     sget-object v1, Lcom/caverock/androidsvg/SVG$Unit;->cm:Lcom/caverock/androidsvg/SVG$Unit;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/caverock/androidsvg/SVG$Unit;->ordinal()I
 
     move-result v1
 
@@ -117,7 +117,7 @@
 
     sget-object v1, Lcom/caverock/androidsvg/SVG$Unit;->mm:Lcom/caverock/androidsvg/SVG$Unit;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/caverock/androidsvg/SVG$Unit;->ordinal()I
 
     move-result v1
 
@@ -133,7 +133,7 @@
 
     sget-object v1, Lcom/caverock/androidsvg/SVG$Unit;->pt:Lcom/caverock/androidsvg/SVG$Unit;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/caverock/androidsvg/SVG$Unit;->ordinal()I
 
     move-result v1
 
@@ -149,7 +149,7 @@
 
     sget-object v1, Lcom/caverock/androidsvg/SVG$Unit;->pc:Lcom/caverock/androidsvg/SVG$Unit;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/caverock/androidsvg/SVG$Unit;->ordinal()I
 
     move-result v1
 
@@ -165,7 +165,7 @@
 
     sget-object v1, Lcom/caverock/androidsvg/SVG$Unit;->percent:Lcom/caverock/androidsvg/SVG$Unit;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/caverock/androidsvg/SVG$Unit;->ordinal()I
 
     move-result v1
 

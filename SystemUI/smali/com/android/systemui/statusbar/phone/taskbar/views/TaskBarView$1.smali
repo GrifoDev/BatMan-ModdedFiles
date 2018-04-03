@@ -3,7 +3,7 @@
 .source "TaskBarView.java"
 
 # interfaces
-.implements Landroid/animation/LayoutTransition$TransitionListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -34,48 +34,124 @@
 
 
 # virtual methods
-.method public endTransition(Landroid/animation/LayoutTransition;Landroid/view/ViewGroup;Landroid/view/View;I)V
-    .locals 2
+.method public run()V
+    .locals 4
 
-    instance-of v0, p3, Landroid/view/ViewGroup;
+    const/4 v2, 0x0
 
-    if-eqz v0, :cond_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
-    check-cast p3, Landroid/view/ViewGroup;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->-get5(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;)Landroid/widget/ImageButton;
 
-    const/4 v0, 0x0
+    move-result-object v0
 
-    invoke-virtual {p3, v0}, Landroid/view/ViewGroup;->setLayoutTransition(Landroid/animation/LayoutTransition;)V
-
-    :cond_0
-    invoke-virtual {p1}, Landroid/animation/LayoutTransition;->isRunning()Z
+    invoke-virtual {v0}, Landroid/widget/ImageButton;->isPressed()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->-set0(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;Z)Z
+    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->mContentScrollView:Landroid/widget/HorizontalScrollView;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->-get0(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->-get6(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;)I
+
+    move-result v0
+
+    neg-int v0, v0
+
+    mul-int/lit8 v0, v0, 0x2
+
+    :goto_0
+    invoke-virtual {v1, v0, v2}, Landroid/widget/HorizontalScrollView;->smoothScrollBy(II)V
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->-get3(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;)Landroid/widget/ImageButton;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/ImageButton;->isPressed()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->mContentScrollView:Landroid/widget/HorizontalScrollView;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->-get0(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->-get6(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;)I
+
+    move-result v0
+
+    mul-int/lit8 v0, v0, 0x2
+
+    :goto_1
+    invoke-virtual {v1, v0, v2}, Landroid/widget/HorizontalScrollView;->smoothScrollBy(II)V
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->-get10(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;)Landroid/os/Handler;
+
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
-    iget-object v1, v1, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->mContent:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->-get7(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;)Ljava/lang/Runnable;
 
-    iget-boolean v1, v1, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mIsOverScrollViewSize:Z
+    move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->updateScrollStatus(Z)V
+    const-wide/16 v2, 0x15e
 
-    :cond_1
-    return-void
-.end method
-
-.method public startTransition(Landroid/animation/LayoutTransition;Landroid/view/ViewGroup;Landroid/view/View;I)V
-    .locals 0
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     return-void
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->-get6(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;)I
+
+    move-result v0
+
+    mul-int/lit8 v0, v0, 0x2
+
+    goto :goto_0
+
+    :cond_3
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->-get6(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;)I
+
+    move-result v0
+
+    neg-int v0, v0
+
+    mul-int/lit8 v0, v0, 0x2
+
+    goto :goto_1
 .end method

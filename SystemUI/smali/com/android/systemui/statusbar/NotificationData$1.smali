@@ -105,7 +105,7 @@
 
     move-object/from16 v18, v0
 
-    invoke-static/range {v18 .. v18}, Lcom/android/systemui/statusbar/NotificationData;->-get3(Lcom/android/systemui/statusbar/NotificationData;)Landroid/service/notification/NotificationListenerService$RankingMap;
+    invoke-static/range {v18 .. v18}, Lcom/android/systemui/statusbar/NotificationData;->-get2(Lcom/android/systemui/statusbar/NotificationData;)Landroid/service/notification/NotificationListenerService$RankingMap;
 
     move-result-object v18
 
@@ -117,25 +117,15 @@
 
     move-object/from16 v18, v0
 
-    invoke-static/range {v18 .. v18}, Lcom/android/systemui/statusbar/NotificationData;->-get3(Lcom/android/systemui/statusbar/NotificationData;)Landroid/service/notification/NotificationListenerService$RankingMap;
+    invoke-static/range {v18 .. v18}, Lcom/android/systemui/statusbar/NotificationData;->-get2(Lcom/android/systemui/statusbar/NotificationData;)Landroid/service/notification/NotificationListenerService$RankingMap;
 
     move-result-object v18
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/systemui/statusbar/NotificationData$1;->this$0:Lcom/android/systemui/statusbar/NotificationData;
-
-    move-object/from16 v19, v0
 
     move-object/from16 v0, p1
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->key:Ljava/lang/String;
 
-    move-object/from16 v20, v0
-
-    invoke-virtual/range {v19 .. v20}, Lcom/android/systemui/statusbar/NotificationData;->stripDex(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v19
+    move-object/from16 v19, v0
 
     move-object/from16 v0, p0
 
@@ -151,25 +141,15 @@
 
     move-object/from16 v18, v0
 
-    invoke-static/range {v18 .. v18}, Lcom/android/systemui/statusbar/NotificationData;->-get3(Lcom/android/systemui/statusbar/NotificationData;)Landroid/service/notification/NotificationListenerService$RankingMap;
+    invoke-static/range {v18 .. v18}, Lcom/android/systemui/statusbar/NotificationData;->-get2(Lcom/android/systemui/statusbar/NotificationData;)Landroid/service/notification/NotificationListenerService$RankingMap;
 
     move-result-object v18
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/systemui/statusbar/NotificationData$1;->this$0:Lcom/android/systemui/statusbar/NotificationData;
-
-    move-object/from16 v19, v0
 
     move-object/from16 v0, p2
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/NotificationData$Entry;->key:Ljava/lang/String;
 
-    move-object/from16 v20, v0
-
-    invoke-virtual/range {v19 .. v20}, Lcom/android/systemui/statusbar/NotificationData;->stripDex(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v19
+    move-object/from16 v19, v0
 
     move-object/from16 v0, p0
 
@@ -226,7 +206,7 @@
 
     move-object/from16 v18, v0
 
-    invoke-static/range {v18 .. v18}, Lcom/android/systemui/statusbar/NotificationData;->-get1(Lcom/android/systemui/statusbar/NotificationData;)Lcom/android/systemui/statusbar/NotificationData$Environment;
+    invoke-static/range {v18 .. v18}, Lcom/android/systemui/statusbar/NotificationData;->-get0(Lcom/android/systemui/statusbar/NotificationData;)Lcom/android/systemui/statusbar/NotificationData$Environment;
 
     move-result-object v18
 
@@ -280,7 +260,7 @@
     const/4 v10, 0x1
 
     :goto_1
-    const/16 v18, 0x5
+    const/16 v18, 0x4
 
     move/from16 v0, v18
 
@@ -291,7 +271,7 @@
     move-result v8
 
     :goto_2
-    const/16 v18, 0x5
+    const/16 v18, 0x4
 
     move/from16 v0, v18
 
@@ -369,13 +349,7 @@
     goto :goto_4
 
     :cond_8
-    if-eqz v14, :cond_a
-
-    invoke-virtual/range {v16 .. v16}, Landroid/service/notification/StatusBarNotification;->isMarkedDex()Z
-
-    move-result v18
-
-    if-eqz v18, :cond_9
+    if-eqz v14, :cond_9
 
     move-object/from16 v0, p0
 
@@ -383,19 +357,7 @@
 
     move-object/from16 v18, v0
 
-    invoke-static/range {v18 .. v18}, Lcom/android/systemui/statusbar/NotificationData;->-get0(Lcom/android/systemui/statusbar/NotificationData;)Lcom/android/systemui/statusbar/policy/HeadsUpManager;
-
-    move-result-object v18
-
-    if-eqz v18, :cond_9
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/systemui/statusbar/NotificationData$1;->this$0:Lcom/android/systemui/statusbar/NotificationData;
-
-    move-object/from16 v18, v0
-
-    invoke-static/range {v18 .. v18}, Lcom/android/systemui/statusbar/NotificationData;->-get0(Lcom/android/systemui/statusbar/NotificationData;)Lcom/android/systemui/statusbar/policy/HeadsUpManager;
+    invoke-static/range {v18 .. v18}, Lcom/android/systemui/statusbar/NotificationData;->-get1(Lcom/android/systemui/statusbar/NotificationData;)Lcom/android/systemui/statusbar/policy/HeadsUpManager;
 
     move-result-object v18
 
@@ -412,81 +374,58 @@
     return v18
 
     :cond_9
-    move-object/from16 v0, p0
+    if-eq v7, v12, :cond_b
 
-    iget-object v0, v0, Lcom/android/systemui/statusbar/NotificationData$1;->this$0:Lcom/android/systemui/statusbar/NotificationData;
-
-    move-object/from16 v18, v0
-
-    invoke-static/range {v18 .. v18}, Lcom/android/systemui/statusbar/NotificationData;->-get2(Lcom/android/systemui/statusbar/NotificationData;)Lcom/android/systemui/statusbar/policy/HeadsUpManager;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p1
-
-    move-object/from16 v2, p2
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->compare(Lcom/android/systemui/statusbar/NotificationData$Entry;Lcom/android/systemui/statusbar/NotificationData$Entry;)I
-
-    move-result v18
-
-    return v18
-
-    :cond_a
-    if-eq v7, v12, :cond_c
-
-    if-le v7, v12, :cond_b
+    if-le v7, v12, :cond_a
 
     const/16 v18, -0x1
 
     :goto_5
     return v18
 
-    :cond_b
+    :cond_a
     const/16 v18, 0x1
 
     goto :goto_5
 
-    :cond_c
-    if-eq v5, v10, :cond_e
+    :cond_b
+    if-eq v5, v10, :cond_d
 
-    if-eqz v5, :cond_d
+    if-eqz v5, :cond_c
 
     const/16 v18, -0x1
 
     :goto_6
     return v18
 
-    :cond_d
+    :cond_c
     const/16 v18, 0x1
 
     goto :goto_6
 
-    :cond_e
-    if-eq v8, v13, :cond_10
+    :cond_d
+    if-eq v8, v13, :cond_f
 
-    if-eqz v8, :cond_f
+    if-eqz v8, :cond_e
 
     const/16 v18, -0x1
 
     :goto_7
     return v18
 
-    :cond_f
+    :cond_e
     const/16 v18, 0x1
 
     goto :goto_7
 
-    :cond_10
-    if-eq v6, v11, :cond_11
+    :cond_f
+    if-eq v6, v11, :cond_10
 
     sub-int v18, v6, v11
 
     return v18
 
-    :cond_11
+    :cond_10
     invoke-virtual/range {v17 .. v17}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
 
     move-result-object v18
@@ -507,13 +446,9 @@
 
     move-wide/from16 v20, v0
 
-    sub-long v18, v18, v20
+    invoke-static/range {v18 .. v21}, Ljava/lang/Long;->compare(JJ)I
 
-    move-wide/from16 v0, v18
-
-    long-to-int v0, v0
-
-    move/from16 v18, v0
+    move-result v18
 
     return v18
 .end method

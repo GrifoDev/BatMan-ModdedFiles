@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/recents/RecentsActivity;->onPreDraw()Z
+    value = Lcom/android/systemui/recents/RecentsActivity;->onBusEvent(Lcom/android/systemui/recents/events/activity/LaunchTaskSucceededEvent;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -35,13 +35,25 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 2
 
-    invoke-static {}, Lcom/android/systemui/recents/Recents;->getSystemServices()Lcom/android/systemui/recents/misc/SystemServicesProxy;
+    iget-object v0, p0, Lcom/android/systemui/recents/RecentsActivity$5;->this$0:Lcom/android/systemui/recents/RecentsActivity;
+
+    invoke-static {v0}, Lcom/android/systemui/recents/RecentsActivity;->-get4(Lcom/android/systemui/recents/RecentsActivity;)Lcom/android/systemui/recents/views/RecentsView;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->endProlongedAnimations()V
+    invoke-virtual {v0}, Lcom/android/systemui/recents/views/RecentsView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/systemui/recents/RecentsActivity$5;->this$0:Lcom/android/systemui/recents/RecentsActivity;
+
+    invoke-static {v1}, Lcom/android/systemui/recents/RecentsActivity;->-get5(Lcom/android/systemui/recents/RecentsActivity;)Lcom/android/systemui/recents/RecentsActivity$OnDrawListener;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/view/ViewTreeObserver;->removeOnDrawListener(Landroid/view/ViewTreeObserver$OnDrawListener;)V
 
     return-void
 .end method

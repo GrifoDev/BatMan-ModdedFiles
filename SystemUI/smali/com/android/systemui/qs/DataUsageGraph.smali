@@ -49,39 +49,35 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b00b0
+    const v1, 0x7f060053
 
-    invoke-virtual {p1, v1}, Landroid/content/Context;->getColor(I)I
+    invoke-static {p1, v1}, Lcom/android/settingslib/Utils;->getDefaultColor(Landroid/content/Context;I)I
 
     move-result v1
 
     iput v1, p0, Lcom/android/systemui/qs/DataUsageGraph;->mTrackColor:I
 
-    const v1, 0x7f0b00a2
+    const v1, 0x7f060054
 
-    invoke-virtual {p1, v1}, Landroid/content/Context;->getColor(I)I
-
-    move-result v1
-
-    iput v1, p0, Lcom/android/systemui/qs/DataUsageGraph;->mUsageColor:I
-
-    const v1, 0x7f0b00a3
-
-    invoke-virtual {p1, v1}, Landroid/content/Context;->getColor(I)I
-
-    move-result v1
-
-    iput v1, p0, Lcom/android/systemui/qs/DataUsageGraph;->mOverlimitColor:I
-
-    const v1, 0x7f0b00b1
-
-    invoke-virtual {p1, v1}, Landroid/content/Context;->getColor(I)I
+    invoke-static {p1, v1}, Lcom/android/settingslib/Utils;->getDefaultColor(Landroid/content/Context;I)I
 
     move-result v1
 
     iput v1, p0, Lcom/android/systemui/qs/DataUsageGraph;->mWarningColor:I
 
-    const v1, 0x7f0d02ee
+    invoke-static {p1}, Lcom/android/settingslib/Utils;->getColorAccent(Landroid/content/Context;)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/systemui/qs/DataUsageGraph;->mUsageColor:I
+
+    invoke-static {p1}, Lcom/android/settingslib/Utils;->getColorError(Landroid/content/Context;)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/systemui/qs/DataUsageGraph;->mOverlimitColor:I
+
+    const v1, 0x7f0700e4
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

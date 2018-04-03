@@ -22,6 +22,8 @@
 
 
 # instance fields
+.field private final mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
+
 .field private mActivated:Z
 
 .field private mAnimationTranslationY:F
@@ -36,8 +38,6 @@
 
 .field private mBackgroundAnimator:Landroid/animation/ObjectAnimator;
 
-.field private mBackgroundColor:I
-
 .field private mBackgroundColorAnimator:Landroid/animation/ValueAnimator;
 
 .field private mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
@@ -48,7 +48,7 @@
 
 .field private mBgAlpha:F
 
-.field private mBgTint:I
+.field protected mBgTint:I
 
 .field private mCurrentAlphaInterpolator:Landroid/view/animation/Interpolator;
 
@@ -62,9 +62,11 @@
 
 .field private mDimmed:Z
 
-.field private mDownX:F
+.field private mDimmedAlpha:I
 
-.field private mDownY:F
+.field private mDimmedBackgroundFadeInAmount:F
+
+.field private final mDoubleTapHelper:Lcom/android/systemui/statusbar/phone/DoubleTapHelper;
 
 .field private mDrawingAppearAnimation:Z
 
@@ -78,11 +80,13 @@
 
 .field private mIsBelowSpeedBump:Z
 
-.field private final mLegacyColor:I
+.field protected mIsSanitized:Z
 
 .field private final mLowPriorityColor:I
 
 .field private final mLowPriorityRippleColor:I
+
+.field private mNeedsDimming:Z
 
 .field private mNormalBackgroundVisibilityAmount:F
 
@@ -94,9 +98,13 @@
 
 .field protected mOnKeyguard:Z
 
+.field private mOverrideAmount:F
+
+.field private mOverrideTint:I
+
 .field private mShadowAlpha:F
 
-.field private mShowingLegacyBackground:Z
+.field private mShadowHidden:Z
 
 .field private final mSlowOutFastInInterpolator:Landroid/view/animation/Interpolator;
 
@@ -110,15 +118,29 @@
 
 .field private final mTintedRippleColor:I
 
-.field private final mTouchSlop:F
-
-.field private mTrackTouch:Z
-
 .field private mUpdateOutlineListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+
+.field private mWasActivatedOnDown:Z
 
 
 # direct methods
+.method static synthetic -com_android_systemui_statusbar_ActivatableNotificationView-mthref-1(Lcom/android/systemui/classifier/FalsingManager;ZFF)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/systemui/classifier/FalsingManager;->onNotificationDoubleTap(ZFF)V
+
+    return-void
+.end method
+
 .method static synthetic -get0(Lcom/android/systemui/statusbar/ActivatableNotificationView;)Lcom/android/systemui/statusbar/NotificationBackgroundView;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1(Lcom/android/systemui/statusbar/ActivatableNotificationView;)Lcom/android/systemui/statusbar/NotificationBackgroundView;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
@@ -126,7 +148,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Lcom/android/systemui/statusbar/ActivatableNotificationView;)I
+.method static synthetic -get2(Lcom/android/systemui/statusbar/ActivatableNotificationView;)Landroid/animation/ValueAnimator;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mFadeInFromDarkAnimator:Landroid/animation/ValueAnimator;
+
+    return-object v0
+.end method
+
+.method static synthetic -get3(Lcom/android/systemui/statusbar/ActivatableNotificationView;)I
     .locals 1
 
     iget v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mStartTint:I
@@ -134,7 +164,7 @@
     return v0
 .end method
 
-.method static synthetic -get2(Lcom/android/systemui/statusbar/ActivatableNotificationView;)I
+.method static synthetic -get4(Lcom/android/systemui/statusbar/ActivatableNotificationView;)I
     .locals 1
 
     iget v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mTargetTint:I
@@ -166,7 +196,15 @@
     return-object p1
 .end method
 
-.method static synthetic -set3(Lcom/android/systemui/statusbar/ActivatableNotificationView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
+.method static synthetic -set3(Lcom/android/systemui/statusbar/ActivatableNotificationView;F)F
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDimmedBackgroundFadeInAmount:F
+
+    return p1
+.end method
+
+.method static synthetic -set4(Lcom/android/systemui/statusbar/ActivatableNotificationView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mFadeInFromDarkAnimator:Landroid/animation/ValueAnimator;
@@ -233,11 +271,13 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 7
+    .locals 6
 
     const v5, 0x3f4ccccd    # 0.8f
 
     const/4 v4, 0x0
+
+    const/high16 v1, -0x40800000    # -1.0f
 
     const/4 v3, 0x0
 
@@ -255,9 +295,9 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mAppearAnimationRect:Landroid/graphics/RectF;
 
-    const/high16 v0, -0x40800000    # -1.0f
+    iput v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mAppearAnimationFraction:F
 
-    iput v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mAppearAnimationFraction:F
+    iput v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDimmedBackgroundFadeInAmount:F
 
     new-instance v0, Lcom/android/systemui/statusbar/ActivatableNotificationView$1;
 
@@ -281,23 +321,13 @@
 
     iput-boolean v3, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mCurrentWhiteKeyguard:Z
 
+    iput-boolean v3, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mIsSanitized:Z
+
     new-instance v0, Lcom/android/systemui/statusbar/ActivatableNotificationView$4;
 
     invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView$4;-><init>(Lcom/android/systemui/statusbar/ActivatableNotificationView;)V
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mTapTimeoutRunnable:Ljava/lang/Runnable;
-
-    invoke-static {p1}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/view/ViewConfiguration;->getScaledTouchSlop()I
-
-    move-result v0
-
-    int-to-float v0, v0
-
-    iput v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mTouchSlop:F
 
     new-instance v0, Landroid/view/animation/PathInterpolator;
 
@@ -317,36 +347,15 @@
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->setClipToPadding(Z)V
 
-    const v0, 0x7f0b00ce
+    const v0, 0x7f060112
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getColor(I)I
 
     move-result v0
 
-    iput v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mLegacyColor:I
-
-    const v0, 0x7f0b00cf
-
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getColor(I)I
-
-    move-result v0
-
-    sget-boolean v6, Lcom/android/systemui/SystemUIRune;->mAllowNotificationColorChange:Z
-
-    if-eqz v6, :cond_0
-
-    const-string v6, "notification_background_color"
-
-    const v0, -0x50506
-
-    invoke-static {v6, v0}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
-
-    move-result v0
-
-    :cond_0
     iput v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mNormalColor:I
 
-    const v0, 0x7f0b00d1
+    const v0, 0x7f060117
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getColor(I)I
 
@@ -354,7 +363,7 @@
 
     iput v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mLowPriorityColor:I
 
-    const v0, 0x7f0b00d5
+    const v0, 0x7f060122
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getColor(I)I
 
@@ -362,7 +371,7 @@
 
     iput v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mTintedRippleColor:I
 
-    const v0, 0x7f0b00d4
+    const v0, 0x7f060121
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getColor(I)I
 
@@ -370,7 +379,7 @@
 
     iput v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mLowPriorityRippleColor:I
 
-    const v0, 0x7f0b00d3
+    const v0, 0x7f060123
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getColor(I)I
 
@@ -384,35 +393,104 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mFalsingManager:Lcom/android/systemui/classifier/FalsingManager;
 
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Landroid/view/accessibility/AccessibilityManager;->getInstance(Landroid/content/Context;)Landroid/view/accessibility/AccessibilityManager;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
+
+    new-instance v0, Lcom/android/systemui/statusbar/phone/DoubleTapHelper;
+
+    new-instance v2, Lcom/android/systemui/statusbar/-$Lambda$Riuh3zYDe2TsfH5PQkGwv6ei6pQ;
+
+    invoke-direct {v2, p0}, Lcom/android/systemui/statusbar/-$Lambda$Riuh3zYDe2TsfH5PQkGwv6ei6pQ;-><init>(Ljava/lang/Object;)V
+
+    new-instance v3, Lcom/android/systemui/statusbar/-$Lambda$Riuh3zYDe2TsfH5PQkGwv6ei6pQ$1;
+
+    invoke-direct {v3, p0}, Lcom/android/systemui/statusbar/-$Lambda$Riuh3zYDe2TsfH5PQkGwv6ei6pQ$1;-><init>(Ljava/lang/Object;)V
+
+    new-instance v4, Lcom/android/systemui/statusbar/-$Lambda$Riuh3zYDe2TsfH5PQkGwv6ei6pQ$3;
+
+    invoke-direct {v4, p0}, Lcom/android/systemui/statusbar/-$Lambda$Riuh3zYDe2TsfH5PQkGwv6ei6pQ$3;-><init>(Ljava/lang/Object;)V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mFalsingManager:Lcom/android/systemui/classifier/FalsingManager;
+
+    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    new-instance v5, Lcom/android/systemui/statusbar/-$Lambda$Riuh3zYDe2TsfH5PQkGwv6ei6pQ$2;
+
+    invoke-direct {v5, v1}, Lcom/android/systemui/statusbar/-$Lambda$Riuh3zYDe2TsfH5PQkGwv6ei6pQ$2;-><init>(Ljava/lang/Object;)V
+
+    move-object v1, p0
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/statusbar/phone/DoubleTapHelper;-><init>(Landroid/view/View;Lcom/android/systemui/statusbar/phone/DoubleTapHelper$ActivationListener;Lcom/android/systemui/statusbar/phone/DoubleTapHelper$DoubleTapListener;Lcom/android/systemui/statusbar/phone/DoubleTapHelper$SlideBackListener;Lcom/android/systemui/statusbar/phone/DoubleTapHelper$DoubleTapLogListener;)V
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDoubleTapHelper:Lcom/android/systemui/statusbar/phone/DoubleTapHelper;
+
     return-void
 .end method
 
-.method private calculateBgColor(Z)I
-    .locals 1
+.method private calculateBgColor(ZZ)I
+    .locals 3
+
+    const/4 v2, 0x0
 
     if-eqz p1, :cond_0
 
-    iget v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBgTint:I
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDark:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    iget v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBgTint:I
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->getContext()Landroid/content/Context;
 
-    return v0
+    move-result-object v1
+
+    const v2, 0x7f060114
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getColor(I)I
+
+    move-result v1
+
+    return v1
 
     :cond_0
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mShowingLegacyBackground:Z
+    if-eqz p2, :cond_1
 
-    if-eqz v0, :cond_1
+    iget v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mOverrideTint:I
 
-    iget v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mLegacyColor:I
+    if-eqz v1, :cond_1
 
-    return v0
+    invoke-direct {p0, p1, v2}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->calculateBgColor(ZZ)I
+
+    move-result v0
+
+    iget v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mOverrideTint:I
+
+    iget v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mOverrideAmount:F
+
+    invoke-static {v0, v1, v2}, Lcom/android/systemui/statusbar/notification/NotificationUtils;->interpolateColors(IIF)I
+
+    move-result v1
+
+    return v1
 
     :cond_1
-    iget v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mNormalColor:I
+    if-eqz p1, :cond_2
 
-    return v0
+    iget v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBgTint:I
+
+    if-eqz v1, :cond_2
+
+    iget v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBgTint:I
+
+    return v1
+
+    :cond_2
+    iget v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mNormalColor:I
+
+    return v1
 .end method
 
 .method private cancelAppearAnimation()V
@@ -554,15 +632,9 @@
 .end method
 
 .method private fadeInFromDark(J)V
-    .locals 9
+    .locals 7
 
-    const-wide/16 v6, 0xaa
-
-    const/high16 v5, 0x40000000    # 2.0f
-
-    const v4, 0x3f6e147b    # 0.93f
-
-    const/high16 v3, 0x3f800000    # 1.0f
+    const-wide/16 v4, 0xc8
 
     iget-boolean v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDimmed:Z
 
@@ -581,49 +653,17 @@
 
     invoke-interface {v1, v2}, Landroid/animation/ValueAnimator$AnimatorUpdateListener;->onAnimationUpdate(Landroid/animation/ValueAnimator;)V
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->getWidth()I
-
-    move-result v1
-
-    int-to-float v1, v1
-
-    div-float/2addr v1, v5
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setPivotX(F)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->getActualHeight()I
-
-    move-result v1
-
-    int-to-float v1, v1
-
-    div-float/2addr v1, v5
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setPivotY(F)V
-
-    invoke-virtual {v0, v4}, Landroid/view/View;->setScaleX(F)V
-
-    invoke-virtual {v0, v4}, Landroid/view/View;->setScaleY(F)V
-
     invoke-virtual {v0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
     move-result-object v1
 
-    invoke-virtual {v1, v3}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
+    const/high16 v2, 0x3f800000    # 1.0f
+
+    invoke-virtual {v1, v2}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
 
     move-result-object v1
 
-    invoke-virtual {v1, v3}, Landroid/view/ViewPropertyAnimator;->scaleX(F)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v3}, Landroid/view/ViewPropertyAnimator;->scaleY(F)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v6, v7}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {v1, v4, v5}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
 
     move-result-object v1
 
@@ -631,7 +671,7 @@
 
     move-result-object v1
 
-    sget-object v2, Lcom/android/systemui/Interpolators;->LINEAR_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
+    sget-object v2, Lcom/android/systemui/Interpolators;->ALPHA_IN:Landroid/view/animation/Interpolator;
 
     invoke-virtual {v1, v2}, Landroid/view/ViewPropertyAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
 
@@ -667,7 +707,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mFadeInFromDarkAnimator:Landroid/animation/ValueAnimator;
 
-    invoke-virtual {v1, v6, v7}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+    invoke-virtual {v1, v4, v5}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mFadeInFromDarkAnimator:Landroid/animation/ValueAnimator;
 
@@ -700,7 +740,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :array_0
     .array-data 4
@@ -710,213 +750,62 @@
 .end method
 
 .method private handleTouchEventDimmed(Landroid/view/MotionEvent;)Z
-    .locals 4
+    .locals 2
 
-    const/4 v3, 0x0
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mNeedsDimming:Z
 
-    const/4 v2, 0x1
+    if-eqz v0, :cond_0
 
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDimmed:Z
 
-    move-result v0
+    xor-int/lit8 v0, v0, 0x1
 
-    packed-switch v0, :pswitch_data_0
+    if-eqz v0, :cond_0
+
+    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     :cond_0
-    :goto_0
-    iget-boolean v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mTrackTouch:Z
-
-    return v1
-
-    :pswitch_0
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
-
-    move-result v1
-
-    iput v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDownX:F
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
-
-    move-result v1
-
-    iput v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDownY:F
-
-    iput-boolean v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mTrackTouch:Z
-
-    iget v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDownY:F
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDoubleTapHelper:Lcom/android/systemui/statusbar/phone/DoubleTapHelper;
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->getActualHeight()I
 
-    move-result v2
-
-    int-to-float v2, v2
-
-    cmpl-float v1, v1, v2
-
-    if-lez v1, :cond_0
-
-    iput-boolean v3, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mTrackTouch:Z
-
-    goto :goto_0
-
-    :pswitch_1
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->isWithinTouchSlop(Landroid/view/MotionEvent;)Z
-
     move-result v1
 
-    if-nez v1, :cond_0
+    invoke-virtual {v0, p1, v1}, Lcom/android/systemui/statusbar/phone/DoubleTapHelper;->onTouchEvent(Landroid/view/MotionEvent;I)Z
 
-    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->makeInactive(Z)V
+    move-result v0
 
-    iput-boolean v3, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mTrackTouch:Z
-
-    goto :goto_0
-
-    :pswitch_2
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->isWithinTouchSlop(Landroid/view/MotionEvent;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_5
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->handleSlideBack()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    return v2
-
-    :cond_1
-    iget-boolean v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mActivated:Z
-
-    if-nez v1, :cond_2
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->makeActive()V
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mTapTimeoutRunnable:Ljava/lang/Runnable;
-
-    const-wide/16 v2, 0xbb8
-
-    invoke-virtual {p0, v1, v2, v3}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->performClick()Z
-
-    goto :goto_0
-
-    :cond_2
-    sget-boolean v1, Lcom/android/systemui/SystemUIRune;->SUPPORT_DOUBLETAP_NOTIFICATION_ON_LOCKSCREEN:Z
-
-    if-eqz v1, :cond_4
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mOnActivatedListener:Lcom/android/systemui/statusbar/ActivatableNotificationView$OnActivatedListener;
-
-    if-eqz v1, :cond_3
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mOnActivatedListener:Lcom/android/systemui/statusbar/ActivatableNotificationView$OnActivatedListener;
-
-    invoke-interface {v1, p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView$OnActivatedListener;->onDoubleTapped(Lcom/android/systemui/statusbar/ActivatableNotificationView;)V
-
-    :cond_3
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->performClick()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    return v3
-
-    :cond_4
-    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->makeInactive(Z)V
-
-    goto :goto_0
-
-    :cond_5
-    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->makeInactive(Z)V
-
-    iput-boolean v3, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mTrackTouch:Z
-
-    goto :goto_0
-
-    :pswitch_3
-    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->makeInactive(Z)V
-
-    iput-boolean v3, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mTrackTouch:Z
-
-    goto :goto_0
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_3
-    .end packed-switch
+    return v0
 .end method
 
-.method private isWithinTouchSlop(Landroid/view/MotionEvent;)Z
-    .locals 3
+.method private isTouchExplorationEnabled()Z
+    .locals 1
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
+    invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityManager;->isTouchExplorationEnabled()Z
 
-    move-result v1
+    move-result v0
 
-    iget v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDownX:F
-
-    sub-float/2addr v1, v2
-
-    invoke-static {v1}, Ljava/lang/Math;->abs(F)F
-
-    move-result v1
-
-    iget v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mTouchSlop:F
-
-    cmpg-float v1, v1, v2
-
-    if-gez v1, :cond_0
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
-
-    move-result v1
-
-    iget v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDownY:F
-
-    sub-float/2addr v1, v2
-
-    invoke-static {v1}, Ljava/lang/Math;->abs(F)F
-
-    move-result v1
-
-    iget v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mTouchSlop:F
-
-    cmpg-float v1, v1, v2
-
-    if-gez v1, :cond_0
-
-    const/4 v0, 0x1
-
-    :cond_0
     return v0
 .end method
 
 .method private makeActive()V
-    .locals 1
+    .locals 2
+
+    const/4 v1, 0x1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mFalsingManager:Lcom/android/systemui/classifier/FalsingManager;
 
     invoke-virtual {v0}, Lcom/android/systemui/classifier/FalsingManager;->onNotificationActive()V
 
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateNotificationContentColor(Z)V
+
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->startActivateAnimation(Z)V
 
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mActivated:Z
+    iput-boolean v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mActivated:Z
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mOnActivatedListener:Lcom/android/systemui/statusbar/ActivatableNotificationView$OnActivatedListener;
 
@@ -932,6 +821,10 @@
 
 .method private setBackgroundTintColor(I)V
     .locals 1
+
+    iget v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mCurrentBackgroundTint:I
+
+    if-eq p1, v0, :cond_1
 
     iput p1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mCurrentBackgroundTint:I
 
@@ -950,6 +843,7 @@
 
     invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setTint(I)V
 
+    :cond_1
     return-void
 .end method
 
@@ -1004,152 +898,163 @@
 .end method
 
 .method private startActivateAnimation(Z)V
-    .locals 12
+    .locals 14
 
-    const-wide/16 v10, 0xdc
+    const-wide/16 v12, 0xdc
 
-    const/high16 v7, 0x3f800000    # 1.0f
+    const/high16 v8, 0x3f800000    # 1.0f
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->isAttachedToWindow()Z
 
-    move-result v8
+    move-result v9
 
-    if-nez v8, :cond_0
+    if-nez v9, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v8, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->isDimmable()Z
 
-    invoke-virtual {v8}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->getWidth()I
+    move-result v9
 
-    move-result v8
-
-    div-int/lit8 v5, v8, 0x2
-
-    iget-object v8, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
-
-    invoke-virtual {v8}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->getActualHeight()I
-
-    move-result v8
-
-    div-int/lit8 v2, v8, 0x2
-
-    mul-int v8, v5, v5
-
-    mul-int v9, v2, v2
-
-    add-int/2addr v8, v9
-
-    int-to-double v8, v8
-
-    invoke-static {v8, v9}, Ljava/lang/Math;->sqrt(D)D
-
-    move-result-wide v8
-
-    double-to-float v4, v8
-
-    if-eqz p1, :cond_1
-
-    iget-object v8, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
-
-    invoke-static {v8, v5, v2, v4, v6}, Landroid/view/ViewAnimationUtils;->createCircularReveal(Landroid/view/View;IIFF)Landroid/animation/Animator;
-
-    move-result-object v1
-
-    :goto_0
-    iget-object v8, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
-
-    const/4 v9, 0x0
-
-    invoke-virtual {v8, v9}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setVisibility(I)V
-
-    if-nez p1, :cond_2
-
-    sget-object v3, Lcom/android/systemui/Interpolators;->LINEAR_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
-
-    sget-object v0, Lcom/android/systemui/Interpolators;->LINEAR_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
-
-    :goto_1
-    invoke-virtual {v1, v3}, Landroid/animation/Animator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
-
-    invoke-virtual {v1, v10, v11}, Landroid/animation/Animator;->setDuration(J)Landroid/animation/Animator;
-
-    if-eqz p1, :cond_3
-
-    iget-object v8, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
-
-    invoke-virtual {v8, v7}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setAlpha(F)V
-
-    new-instance v8, Lcom/android/systemui/statusbar/ActivatableNotificationView$5;
-
-    invoke-direct {v8, p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView$5;-><init>(Lcom/android/systemui/statusbar/ActivatableNotificationView;)V
-
-    invoke-virtual {v1, v8}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
-
-    invoke-virtual {v1}, Landroid/animation/Animator;->start()V
-
-    :goto_2
-    iget-object v8, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
-
-    invoke-virtual {v8}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->animate()Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v8
-
-    if-eqz p1, :cond_4
-
-    :goto_3
-    invoke-virtual {v8, v6}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v0}, Landroid/view/ViewPropertyAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v6
-
-    new-instance v7, Lcom/android/systemui/statusbar/ActivatableNotificationView$6;
-
-    invoke-direct {v7, p0, p1}, Lcom/android/systemui/statusbar/ActivatableNotificationView$6;-><init>(Lcom/android/systemui/statusbar/ActivatableNotificationView;Z)V
-
-    invoke-virtual {v6, v7}, Landroid/view/ViewPropertyAnimator;->setUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v10, v11}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
+    if-nez v9, :cond_1
 
     return-void
 
     :cond_1
-    iget-object v8, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+    iget-object v9, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
 
-    invoke-static {v8, v5, v2, v6, v4}, Landroid/view/ViewAnimationUtils;->createCircularReveal(Landroid/view/View;IIFF)Landroid/animation/Animator;
+    invoke-virtual {v9}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->getWidth()I
 
-    move-result-object v1
+    move-result v9
+
+    div-int/lit8 v6, v9, 0x2
+
+    iget-object v9, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    invoke-virtual {v9}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->getActualHeight()I
+
+    move-result v9
+
+    div-int/lit8 v3, v9, 0x2
+
+    mul-int v9, v6, v6
+
+    mul-int v10, v3, v3
+
+    add-int/2addr v9, v10
+
+    int-to-double v10, v9
+
+    invoke-static {v10, v11}, Ljava/lang/Math;->sqrt(D)D
+
+    move-result-wide v10
+
+    double-to-float v5, v10
+
+    if-eqz p1, :cond_2
+
+    iget-object v9, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    invoke-static {v9, v6, v3, v5, v7}, Landroid/view/ViewAnimationUtils;->createCircularReveal(Landroid/view/View;IIFF)Landroid/animation/Animator;
+
+    move-result-object v2
+
+    :goto_0
+    iget-object v9, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    const/4 v10, 0x0
+
+    invoke-virtual {v9, v10}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setVisibility(I)V
+
+    if-nez p1, :cond_3
+
+    sget-object v4, Lcom/android/systemui/Interpolators;->LINEAR_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
+
+    sget-object v1, Lcom/android/systemui/Interpolators;->LINEAR_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
+
+    :goto_1
+    invoke-virtual {v2, v4}, Landroid/animation/Animator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    invoke-virtual {v2, v12, v13}, Landroid/animation/Animator;->setDuration(J)Landroid/animation/Animator;
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    if-eqz p1, :cond_4
+
+    iget-object v9, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    invoke-virtual {v9, v8}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setAlpha(F)V
+
+    new-instance v9, Lcom/android/systemui/statusbar/ActivatableNotificationView$5;
+
+    invoke-direct {v9, p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView$5;-><init>(Lcom/android/systemui/statusbar/ActivatableNotificationView;)V
+
+    invoke-virtual {v2, v9}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+
+    invoke-virtual {v2}, Landroid/animation/Animator;->start()V
+
+    :goto_2
+    iget-object v9, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    invoke-virtual {v9}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->animate()Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v9
+
+    if-eqz p1, :cond_5
+
+    :goto_3
+    invoke-virtual {v9, v7}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v1}, Landroid/view/ViewPropertyAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v7
+
+    new-instance v8, Lcom/android/systemui/statusbar/ActivatableNotificationView$6;
+
+    invoke-direct {v8, p0, p1}, Lcom/android/systemui/statusbar/ActivatableNotificationView$6;-><init>(Lcom/android/systemui/statusbar/ActivatableNotificationView;Z)V
+
+    invoke-virtual {v7, v8}, Landroid/view/ViewPropertyAnimator;->setUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v12, v13}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
+
+    return-void
+
+    :cond_2
+    iget-object v9, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    invoke-static {v9, v6, v3, v7, v5}, Landroid/view/ViewAnimationUtils;->createCircularReveal(Landroid/view/View;IIFF)Landroid/animation/Animator;
+
+    move-result-object v2
 
     goto :goto_0
 
-    :cond_2
-    sget-object v3, Lcom/android/systemui/statusbar/ActivatableNotificationView;->ACTIVATE_INVERSE_INTERPOLATOR:Landroid/view/animation/Interpolator;
+    :cond_3
+    sget-object v4, Lcom/android/systemui/statusbar/ActivatableNotificationView;->ACTIVATE_INVERSE_INTERPOLATOR:Landroid/view/animation/Interpolator;
 
-    sget-object v0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->ACTIVATE_INVERSE_ALPHA_INTERPOLATOR:Landroid/view/animation/Interpolator;
+    sget-object v1, Lcom/android/systemui/statusbar/ActivatableNotificationView;->ACTIVATE_INVERSE_ALPHA_INTERPOLATOR:Landroid/view/animation/Interpolator;
 
     goto :goto_1
 
-    :cond_3
-    iget-object v8, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+    :cond_4
+    iget-object v9, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
 
-    const v9, 0x3ecccccd    # 0.4f
+    const v10, 0x3ecccccd    # 0.4f
 
-    invoke-virtual {v8, v9}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setAlpha(F)V
+    invoke-virtual {v9, v10}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setAlpha(F)V
 
-    invoke-virtual {v1}, Landroid/animation/Animator;->start()V
+    invoke-virtual {v2}, Landroid/animation/Animator;->start()V
 
     goto :goto_2
 
-    :cond_4
-    move v6, v7
+    :cond_5
+    move v7, v8
 
     goto :goto_3
 .end method
@@ -1580,27 +1485,110 @@
 
 
 # virtual methods
-.method public calculateBgColor()I
+.method synthetic -com_android_systemui_statusbar_ActivatableNotificationView-mthref-0()Z
     .locals 1
 
-    const/4 v0, 0x1
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->calculateBgColor(Z)I
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->handleSlideBack()Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public cancelAppearDrawing()V
+.method public calculateBgColor()I
     .locals 1
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->cancelAppearAnimation()V
+    const/4 v0, 0x1
 
-    const/4 v0, 0x0
+    invoke-direct {p0, v0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->calculateBgColor(ZZ)I
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->enableAppearDrawing(Z)V
+    move-result v0
 
+    return v0
+.end method
+
+.method protected changeBGAlphaWhileSwiping(F)V
+    .locals 7
+
+    const/16 v6, 0x14
+
+    const/high16 v5, 0x437f0000    # 255.0f
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->shouldUpdateNotificationContentColor()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-boolean v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mOnKeyguard:Z
+
+    if-eqz v2, :cond_2
+
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/systemui/util/SettingsHelper;->getLockNoticardOpacity()I
+
+    move-result v2
+
+    int-to-float v2, v2
+
+    const v3, 0x3c23d70a    # 0.01f
+
+    mul-float/2addr v2, v3
+
+    iget-boolean v3, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mCurrentWhiteKeyguard:Z
+
+    const/4 v4, 0x0
+
+    invoke-static {v2, v4, v3}, Lcom/android/internal/util/NotificationColorUtil;->getOpacityOnKeyguard(FIZ)F
+
+    move-result v0
+
+    mul-float v2, v0, v5
+
+    float-to-int v2, v2
+
+    if-le v2, v6, :cond_1
+
+    return-void
+
+    :cond_1
+    mul-float v2, v0, v5
+
+    float-to-int v2, v2
+
+    const v3, 0x3e99999a    # 0.3f
+
+    mul-float/2addr v3, p1
+
+    const/high16 v4, 0x44870000    # 1080.0f
+
+    div-float/2addr v3, v4
+
+    mul-float/2addr v3, v5
+
+    invoke-static {v3}, Ljava/lang/Math;->abs(F)F
+
+    move-result v3
+
+    float-to-int v3, v3
+
+    add-int v1, v2, v3
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    invoke-static {v6, v1}, Ljava/lang/Math;->min(II)I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setDrawableAlpha(I)V
+
+    :cond_2
     return-void
 .end method
 
@@ -1692,7 +1680,7 @@
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->calculateBgColor(Z)I
+    invoke-direct {p0, v0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->calculateBgColor(ZZ)I
 
     move-result v0
 
@@ -1700,6 +1688,14 @@
 .end method
 
 .method protected abstract getContentView()Landroid/view/View;
+.end method
+
+.method public getDimmed()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDimmed:Z
+
+    return v0
 .end method
 
 .method protected getRippleColor()I
@@ -1714,24 +1710,15 @@
     return v0
 
     :cond_0
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mShowingLegacyBackground:Z
-
-    if-eqz v0, :cond_1
-
-    iget v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mTintedRippleColor:I
-
-    return v0
-
-    :cond_1
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mIsBelowSpeedBump:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     iget v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mLowPriorityRippleColor:I
 
     return v0
 
-    :cond_2
+    :cond_1
     iget v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mNormalRippleColor:I
 
     return v0
@@ -1753,16 +1740,109 @@
     return v0
 .end method
 
-.method public makeInactive(Z)V
+.method public isActivated()Z
     .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mActivated:Z
+
+    return v0
+.end method
+
+.method public isBelowSpeedBump()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mIsBelowSpeedBump:Z
+
+    return v0
+.end method
+
+.method public isDimmable()Z
+    .locals 1
+
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method protected isInteractive()Z
+    .locals 1
+
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public isShowingLayoutCustomNotification()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method synthetic lambda$-com_android_systemui_statusbar_ActivatableNotificationView_9127(Z)V
+    .locals 1
+
+    if-eqz p1, :cond_0
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->makeActive()V
+
+    invoke-super {p0}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->performClick()Z
+
+    :goto_0
+    return-void
+
+    :cond_0
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->makeInactive(Z)V
+
+    goto :goto_0
+.end method
+
+.method synthetic lambda$-com_android_systemui_statusbar_ActivatableNotificationView_9731()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/systemui/Rune;->NOTI_SUPPORT_DOUBLETAP_ON_LOCKSCREEN:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mOnActivatedListener:Lcom/android/systemui/statusbar/ActivatableNotificationView$OnActivatedListener;
+
+    invoke-interface {v0, p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView$OnActivatedListener;->onDoubleTapped(Lcom/android/systemui/statusbar/ActivatableNotificationView;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->performClick()Z
+
+    move-result v0
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->makeInactive(Z)V
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public makeInactive(Z)V
+    .locals 2
+
+    const/4 v1, 0x0
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mActivated:Z
 
     if-eqz v0, :cond_0
 
-    const/4 v0, 0x0
+    iput-boolean v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mActivated:Z
 
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mActivated:Z
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDoubleTapHelper:Lcom/android/systemui/statusbar/phone/DoubleTapHelper;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/DoubleTapHelper;->makeInactive(Z)V
+
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateNotificationContentColor(Z)V
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDimmed:Z
 
@@ -1797,244 +1877,170 @@
     goto :goto_0
 .end method
 
-.method public makeInactive(ZZ)V
-    .locals 2
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mActivated:Z
-
-    if-eqz v0, :cond_1
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDimmed:Z
-
-    if-eqz v0, :cond_0
-
-    if-eqz p1, :cond_3
-
-    const/4 v0, 0x1
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->startActivateAnimation(Z)V
-
-    :cond_0
-    :goto_0
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mActivated:Z
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mOnActivatedListener:Lcom/android/systemui/statusbar/ActivatableNotificationView$OnActivatedListener;
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mOnActivatedListener:Lcom/android/systemui/statusbar/ActivatableNotificationView$OnActivatedListener;
-
-    invoke-interface {v0, p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView$OnActivatedListener;->onActivationReset(Lcom/android/systemui/statusbar/ActivatableNotificationView;)V
-
-    :cond_2
-    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mTapTimeoutRunnable:Ljava/lang/Runnable;
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->removeCallbacks(Ljava/lang/Runnable;)Z
-
-    return-void
-
-    :cond_3
-    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
-
-    const/4 v1, 0x4
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setVisibility(I)V
-
-    goto :goto_0
-.end method
-
 .method protected onAppearAnimationFinished(Z)V
     .locals 0
 
     return-void
 .end method
 
-.method protected onFinishInflate()V
-    .locals 5
-
-    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->mAllowNotificationColorChange:Z
-
-    if-eqz v0, :cond_0
-
-    invoke-super {p0}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->onFinishInflate()V
-
-    const v0, 0x7f1304b1
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/statusbar/NotificationBackgroundView;
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->setNotificationBackgroundColor()V
-
-    iget v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundColor:I
-
-    invoke-virtual {v0, v2}, Landroid/view/View;->setBackgroundColor(I)V
-
-    const v0, 0x7f1304b7
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/statusbar/notification/FakeShadowView;
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mFakeShadow:Lcom/android/systemui/statusbar/notification/FakeShadowView;
-
-    const v0, 0x7f1304b2
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/statusbar/NotificationBackgroundView;
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->setNotificationBackgroundColor()V
-
-    iget v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundColor:I
-
-    invoke-virtual {v0, v2}, Landroid/view/View;->setBackgroundColor(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
-
-    const-string v3, "notification_material_bg_tweak"
-
-    const-string v4, "drawable"
-
-    invoke-static {v3, v4}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setCustomBackground(I)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->setNotificationBackgroundColor()V
-
-    iget v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundColor:I
-
-    invoke-virtual {v0, v2}, Landroid/view/View;->setBackgroundColor(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
-
-    const-string v3, "notification_material_bg_dim_tweak"
-
-    const-string v4, "drawable"
-
-    invoke-static {v3, v4}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setCustomBackground(I)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->setNotificationBackgroundColor()V
-
-    iget v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundColor:I
-
-    invoke-virtual {v0, v2}, Landroid/view/View;->setBackgroundColor(I)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateBackground()V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateBackgroundTint()V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateOutlineAlpha()V
-
-    return-void
-
-    :cond_0
-    invoke-super {p0}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->onFinishInflate()V
-
-    const v0, 0x7f1304b1
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/statusbar/NotificationBackgroundView;
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
-
-    const v0, 0x7f1304b7
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/statusbar/notification/FakeShadowView;
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mFakeShadow:Lcom/android/systemui/statusbar/notification/FakeShadowView;
-
-    const v0, 0x7f1304b2
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/statusbar/NotificationBackgroundView;
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
-
-    const v1, 0x7f020387
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setCustomBackground(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
-
-    const v1, 0x7f020388
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setCustomBackground(I)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateBackground()V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateBackgroundTint()V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateOutlineAlpha()V
+.method protected onBelowSpeedBumpChanged()V
+    .locals 0
 
     return-void
 .end method
 
-.method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 1
+.method protected onFinishInflate()V
+    .locals 3
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDimmed:Z
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    invoke-super {p0}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->onFinishInflate()V
+
+    const v0, 0x7f0a006f
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    const v0, 0x7f0a01b1
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/notification/FakeShadowView;
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mFakeShadow:Lcom/android/systemui/statusbar/notification/FakeShadowView;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mFakeShadow:Lcom/android/systemui/statusbar/notification/FakeShadowView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/FakeShadowView;->getVisibility()I
+
+    move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mActivated:Z
+    move v0, v1
 
-    if-eqz v0, :cond_1
+    :goto_0
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mShadowHidden:Z
+
+    const v0, 0x7f0a006e
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    invoke-virtual {v0, v2}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setOpacityTarget(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setOpacityTarget(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    const v1, 0x7f080484
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setCustomBackground(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    const v1, 0x7f080485
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setCustomBackground(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mContext:Landroid/content/Context;
+
+    const v1, 0x7f060115
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getColor(I)I
+
+    move-result v0
+
+    invoke-static {v0}, Landroid/graphics/Color;->alpha(I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDimmedAlpha:I
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateBackground()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateBackgroundTint()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateOutlineAlpha()V
+
+    return-void
 
     :cond_0
-    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
+    move v0, v2
 
-    move-result v0
+    goto :goto_0
+.end method
 
-    return v0
-
-    :cond_1
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
-
-    move-result v0
-
-    if-nez v0, :cond_0
+.method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
+    .locals 2
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->disallowSingleClick(Landroid/view/MotionEvent;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mNeedsDimming:Z
 
-    const/4 v0, 0x1
+    if-eqz v1, :cond_1
 
-    return v0
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->disallowSingleClick(Landroid/view/MotionEvent;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->isTouchExplorationEnabled()Z
+
+    move-result v1
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_1
+
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mActivated:Z
+
+    if-eqz v1, :cond_0
+
+    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
+
+    move-result v1
+
+    return v1
+
+    :cond_0
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_1
+    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
+
+    move-result v1
+
+    return v1
 .end method
 
 .method protected onLayout(ZIIII)V
@@ -2058,9 +2064,34 @@
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 4
 
-    iget-boolean v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDimmed:Z
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
-    if-eqz v2, :cond_1
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    iget-boolean v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mActivated:Z
+
+    iput-boolean v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mWasActivatedOnDown:Z
+
+    :cond_0
+    iget-boolean v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mNeedsDimming:Z
+
+    if-eqz v2, :cond_2
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->isTouchExplorationEnabled()Z
+
+    move-result v2
+
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->isInteractive()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
 
     iget-boolean v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mActivated:Z
 
@@ -2068,9 +2099,9 @@
 
     move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
@@ -2078,21 +2109,17 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_0
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mFalsingManager:Lcom/android/systemui/classifier/FalsingManager;
-
-    invoke-virtual {v2}, Lcom/android/systemui/classifier/FalsingManager;->onNotificationDoubleTap()V
+    if-ne v2, v3, :cond_1
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mTapTimeoutRunnable:Ljava/lang/Runnable;
 
     invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    :cond_0
+    :cond_1
     :goto_0
     return v0
 
-    :cond_1
+    :cond_2
     invoke-super {p0, p1}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
@@ -2127,31 +2154,36 @@
     return-void
 .end method
 
-.method public performAddAnimation(JJLjava/lang/Runnable;)V
-    .locals 9
+.method public performClick()Z
+    .locals 1
 
-    const/4 v2, 0x1
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mWasActivatedOnDown:Z
 
-    invoke-direct {p0, v2}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->enableAppearDrawing(Z)V
+    if-nez v0, :cond_0
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDrawingAppearAnimation:Z
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mNeedsDimming:Z
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/high16 v3, -0x40800000    # -1.0f
+    if-nez v0, :cond_0
 
-    move-object v1, p0
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->isTouchExplorationEnabled()Z
 
-    move-wide v4, p1
+    move-result v0
 
-    move-wide v6, p3
-
-    move-object v8, p5
-
-    invoke-direct/range {v1 .. v8}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->startAppearAnimation(ZFJJLjava/lang/Runnable;)V
+    if-eqz v0, :cond_1
 
     :cond_0
-    return-void
+    invoke-super {p0}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->performClick()Z
+
+    move-result v0
+
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public performRemoveAnimation(JFLjava/lang/Runnable;)V
@@ -2191,22 +2223,6 @@
     goto :goto_0
 .end method
 
-.method public reset()V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->setTintColor(I)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->resetBackgroundAlpha()V
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->setShowingLegacyBackground(Z)V
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->setBelowSpeedBump(Z)V
-
-    return-void
-.end method
-
 .method public resetActiveTime()V
     .locals 4
 
@@ -2229,6 +2245,53 @@
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateBackgroundAlpha(F)V
+
+    return-void
+.end method
+
+.method protected resetDimmedBGAlpha()V
+    .locals 4
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->shouldUpdateNotificationContentColor()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/systemui/util/SettingsHelper;->getLockNoticardOpacity()I
+
+    move-result v1
+
+    int-to-float v1, v1
+
+    const v2, 0x3c23d70a    # 0.01f
+
+    mul-float/2addr v1, v2
+
+    iget-boolean v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mCurrentWhiteKeyguard:Z
+
+    const/4 v3, 0x0
+
+    invoke-static {v1, v3, v2}, Lcom/android/internal/util/NotificationColorUtil;->getOpacityOnKeyguard(FIZ)F
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    const/high16 v2, 0x437f0000    # 255.0f
+
+    mul-float/2addr v2, v0
+
+    float-to-int v2, v2
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setDrawableAlpha(I)V
 
     return-void
 .end method
@@ -2268,7 +2331,25 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateBackgroundTint()V
 
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->onBelowSpeedBumpChanged()V
+
     :cond_0
+    return-void
+.end method
+
+.method public setClipBottomAmount(I)V
+    .locals 1
+
+    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/ExpandableOutlineView;->setClipBottomAmount(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setClipBottomAmount(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setClipBottomAmount(I)V
+
     return-void
 .end method
 
@@ -2304,6 +2385,10 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateBackground()V
 
+    const/4 v0, 0x0
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateBackgroundTint(Z)V
+
     if-nez p1, :cond_1
 
     if-eqz p2, :cond_1
@@ -2312,22 +2397,28 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
+
+    invoke-direct {p0, p3, p4}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->fadeInFromDark(J)V
 
     :cond_1
-    :goto_0
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateOutlineAlpha()V
 
     return-void
-
-    :cond_2
-    invoke-direct {p0, p3, p4}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->fadeInFromDark(J)V
-
-    goto :goto_0
 .end method
 
 .method public setDimmed(ZZ)V
     .locals 1
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mNeedsDimming:Z
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->isDimmable()Z
+
+    move-result v0
+
+    and-int/2addr p1, v0
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDimmed:Z
 
@@ -2341,8 +2432,12 @@
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->fadeDimmedBackground()V
 
-    :cond_0
     :goto_0
+    xor-int/lit8 v0, p1, 0x1
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateNotificationContentColor(Z)V
+
+    :cond_0
     return-void
 
     :cond_1
@@ -2352,23 +2447,51 @@
 .end method
 
 .method public setFakeShadowIntensity(FFII)V
-    .locals 3
+    .locals 4
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mFakeShadow:Lcom/android/systemui/statusbar/notification/FakeShadowView;
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mShadowHidden:Z
+
+    const/4 v1, 0x0
+
+    cmpl-float v1, p1, v1
+
+    if-nez v1, :cond_2
+
+    const/4 v1, 0x1
+
+    :goto_0
+    iput-boolean v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mShadowHidden:Z
+
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mShadowHidden:Z
+
+    if-eqz v1, :cond_0
+
+    xor-int/lit8 v1, v0, 0x1
+
+    if-eqz v1, :cond_1
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mFakeShadow:Lcom/android/systemui/statusbar/notification/FakeShadowView;
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->getTranslationZ()F
 
-    move-result v1
+    move-result v2
 
-    const v2, 0x3dcccccd    # 0.1f
+    const v3, 0x3dcccccd    # 0.1f
 
-    add-float/2addr v1, v2
+    add-float/2addr v2, v3
 
-    mul-float/2addr v1, p1
+    mul-float/2addr v2, p1
 
-    invoke-virtual {v0, v1, p2, p3, p4}, Lcom/android/systemui/statusbar/notification/FakeShadowView;->setFakeShadowTranslationZ(FFII)V
+    invoke-virtual {v1, v2, p2, p3, p4}, Lcom/android/systemui/statusbar/notification/FakeShadowView;->setFakeShadowTranslationZ(FFII)V
 
+    :cond_1
     return-void
+
+    :cond_2
+    const/4 v1, 0x0
+
+    goto :goto_0
 .end method
 
 .method public setNormalBackgroundVisibilityAmount(F)V
@@ -2381,36 +2504,73 @@
     return-void
 .end method
 
-.method setNotificationBackgroundColor()V
-    .locals 3
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "notification_background_color"
-
-    const v2, -0x50506
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundColor:I
-
-    return-void
-.end method
-
 .method public setOnActivatedListener(Lcom/android/systemui/statusbar/ActivatableNotificationView$OnActivatedListener;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mOnActivatedListener:Lcom/android/systemui/statusbar/ActivatableNotificationView$OnActivatedListener;
 
     return-void
+.end method
+
+.method public setOverrideTintColor(IF)V
+    .locals 4
+
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDark:Z
+
+    if-eqz v1, :cond_0
+
+    const/4 p1, 0x0
+
+    const/4 p2, 0x0
+
+    :cond_0
+    iput p1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mOverrideTint:I
+
+    iput p2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mOverrideAmount:F
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->calculateBgColor()I
+
+    move-result v0
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->setBackgroundTintColor(I)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->isDimmable()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mNeedsDimming:Z
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    const/high16 v2, 0x437f0000    # 255.0f
+
+    iget v3, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDimmedAlpha:I
+
+    int-to-float v3, v3
+
+    invoke-static {v2, v3, p2}, Lcom/android/systemui/statusbar/notification/NotificationUtils;->interpolate(FFF)F
+
+    move-result v2
+
+    float-to-int v2, v2
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setDrawableAlpha(I)V
+
+    :goto_0
+    return-void
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    const/16 v2, 0xff
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setDrawableAlpha(I)V
+
+    goto :goto_0
 .end method
 
 .method public setShadowAlpha(F)V
@@ -2430,16 +2590,6 @@
     return-void
 .end method
 
-.method public setShowingLegacyBackground(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mShowingLegacyBackground:Z
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateBackgroundTint()V
-
-    return-void
-.end method
-
 .method public setTintColor(I)V
     .locals 1
 
@@ -2451,12 +2601,17 @@
 .end method
 
 .method public setTintColor(IZ)V
-    .locals 0
+    .locals 1
+
+    iget v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBgTint:I
+
+    if-eq p1, v0, :cond_0
 
     iput p1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBgTint:I
 
     invoke-direct {p0, p2}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateBackgroundTint(Z)V
 
+    :cond_0
     return-void
 .end method
 
@@ -2468,6 +2623,14 @@
     return v0
 .end method
 
+.method public shouldUpdateNotificationContentColor()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method protected updateBackground()V
     .locals 6
 
@@ -2475,60 +2638,30 @@
 
     const/4 v2, 0x4
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->cancelFadeAnimations()V
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->shouldHideBackground()Z
 
-    move-result v1
+    move-result v3
 
-    if-eqz v1, :cond_0
+    if-eqz v3, :cond_1
 
-    iget-boolean v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mShowBackground:Z
+    iget-object v3, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
 
-    if-eqz v1, :cond_3
+    invoke-virtual {v3, v2}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setVisibility(I)V
 
-    :cond_0
-    iget-boolean v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDimmed:Z
-
-    if-eqz v1, :cond_6
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->isGroupExpansionChanging()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_4
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->isChildInGroup()Z
-
-    move-result v0
-
-    :goto_0
-    iget-object v5, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
-
-    if-eqz v0, :cond_5
-
-    move v1, v2
-
-    :goto_1
-    invoke-virtual {v5, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setVisibility(I)V
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
 
     iget-boolean v5, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mActivated:Z
 
-    if-nez v5, :cond_1
+    if-eqz v5, :cond_0
 
-    if-eqz v0, :cond_2
+    :goto_0
+    invoke-virtual {v3, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setVisibility(I)V
 
-    :cond_1
-    move v2, v3
-
-    :cond_2
-    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setVisibility(I)V
-
-    :goto_2
+    :goto_1
     iget-object v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
 
     invoke-virtual {v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->getVisibility()I
@@ -2539,72 +2672,92 @@
 
     move v1, v4
 
-    :goto_3
+    :goto_2
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->setNormalBackgroundVisibilityAmount(F)V
 
     return-void
 
+    :cond_0
+    move v1, v2
+
+    goto :goto_0
+
+    :cond_1
+    iget-boolean v3, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDimmed:Z
+
+    if-eqz v3, :cond_6
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->isGroupExpansionChanging()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_4
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->isChildInGroup()Z
+
+    move-result v0
+
+    :goto_3
+    iget-object v5, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    if-eqz v0, :cond_5
+
+    move v3, v2
+
+    :goto_4
+    invoke-virtual {v5, v3}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setVisibility(I)V
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    iget-boolean v5, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mActivated:Z
+
+    if-nez v5, :cond_2
+
+    if-eqz v0, :cond_3
+
+    :cond_2
+    move v2, v1
+
     :cond_3
-    iget-object v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+    invoke-virtual {v3, v2}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setVisibility(I)V
 
-    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setVisibility(I)V
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
-
-    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setVisibility(I)V
-
-    goto :goto_2
+    goto :goto_1
 
     :cond_4
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_3
 
     :cond_5
-    move v1, v3
+    move v3, v1
 
-    goto :goto_1
+    goto :goto_4
 
     :cond_6
-    iget-object v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
 
-    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setVisibility(I)V
+    invoke-virtual {v3, v2}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setVisibility(I)V
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
 
-    invoke-virtual {v1, v3}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setVisibility(I)V
+    invoke-virtual {v2, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setVisibility(I)V
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
 
-    invoke-virtual {v1, v4}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setAlpha(F)V
+    invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setAlpha(F)V
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mTapTimeoutRunnable:Ljava/lang/Runnable;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mTapTimeoutRunnable:Ljava/lang/Runnable;
 
-    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->makeInactive(Z)V
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->makeInactive(Z)V
 
-    goto :goto_2
+    goto :goto_1
 
     :cond_7
     const/4 v1, 0x0
 
-    goto :goto_3
-.end method
-
-.method public updateBackground(Z)V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mShowBackground:Z
-
-    if-eq v0, p1, :cond_0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mShowBackground:Z
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateBackground()V
-
-    :cond_0
-    return-void
+    goto :goto_2
 .end method
 
 .method protected updateBackgroundAlpha(F)V
@@ -2614,15 +2767,32 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDimmed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     :goto_0
     iput p1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBgAlpha:F
 
+    iget v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDimmedBackgroundFadeInAmount:F
+
+    const/high16 v1, -0x40800000    # -1.0f
+
+    cmpl-float v0, v0, v1
+
+    if-eqz v0, :cond_0
+
+    iget v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBgAlpha:F
+
+    iget v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDimmedBackgroundFadeInAmount:F
+
+    mul-float/2addr v0, v1
+
+    iput v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBgAlpha:F
+
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
 
     iget v1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBgAlpha:F
@@ -2631,7 +2801,7 @@
 
     return-void
 
-    :cond_0
+    :cond_1
     const/high16 p1, 0x3f800000    # 1.0f
 
     goto :goto_0
@@ -2644,17 +2814,55 @@
 
     if-eq v0, p1, :cond_0
 
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mCurrentWhiteKeyguard:Z
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setWhiteWallpaper(Z)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setOpacityTarget(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->isShowingLayoutCustomNotification()Z
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setIsCustomNotification(Z)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setWhiteWallpaper(Z)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setOpacityTarget(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->isShowingLayoutCustomNotification()Z
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setIsCustomNotification(Z)V
+
     if-eqz p1, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
 
-    const v1, 0x7f02038a
+    const v1, 0x7f080487
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setCustomBackground(I)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
 
-    const v1, 0x7f020389
+    const v1, 0x7f080486
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setCustomBackground(I)V
 
@@ -2663,21 +2871,19 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->updateBackgroundTint()V
 
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mCurrentWhiteKeyguard:Z
-
     :cond_0
     return-void
 
     :cond_1
     iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
 
-    const v1, 0x7f020387
+    const v1, 0x7f080484
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setCustomBackground(I)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
 
-    const v1, 0x7f020388
+    const v1, 0x7f080485
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setCustomBackground(I)V
 
@@ -2694,44 +2900,91 @@
     return-void
 .end method
 
+.method public updateNotificationBGAlpha()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setOpacityTarget(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setOpacityTarget(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->isShowingLayoutCustomNotification()Z
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setIsCustomNotification(Z)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->isShowingLayoutCustomNotification()Z
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setIsCustomNotification(Z)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setBackgroundAlpha()V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setBackgroundAlpha()V
+
+    return-void
+.end method
+
+.method public updateNotificationContentColor(Z)V
+    .locals 0
+
+    return-void
+.end method
+
 .method protected updateOutlineAlpha()V
     .locals 4
 
     iget-boolean v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mOnKeyguard:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     iget-boolean v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDimmed:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     iget-boolean v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mActivated:Z
 
-    if-eqz v2, :cond_2
-
-    :cond_0
-    const/4 v1, 0x0
+    xor-int/lit8 v1, v2, 0x1
 
     :goto_0
     iget-boolean v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mDark:Z
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_0
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
-    :cond_1
+    :cond_0
     const/4 v2, 0x0
 
     invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->setOutlineAlpha(F)V
 
     return-void
 
-    :cond_2
-    const/4 v1, 0x1
+    :cond_1
+    const/4 v1, 0x0
 
     goto :goto_0
 
-    :cond_3
+    :cond_2
+    const v0, 0x3f333333    # 0.7f
+
     const v2, 0x3e99999a    # 0.3f
 
     iget v3, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mNormalBackgroundVisibilityAmount:F
@@ -2748,7 +3001,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mFadeInFromDarkAnimator:Landroid/animation/ValueAnimator;
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_3
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mFadeInFromDarkAnimator:Landroid/animation/ValueAnimator;
 
@@ -2758,7 +3011,7 @@
 
     mul-float/2addr v0, v2
 
-    :cond_4
+    :cond_3
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/ActivatableNotificationView;->setOutlineAlpha(F)V
 
     return-void

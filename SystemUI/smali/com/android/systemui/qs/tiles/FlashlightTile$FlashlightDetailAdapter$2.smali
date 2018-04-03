@@ -37,19 +37,15 @@
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile$FlashlightDetailAdapter$2;->this$1:Lcom/android/systemui/qs/tiles/FlashlightTile$FlashlightDetailAdapter;
+    const-class v0, Lcom/android/systemui/KnoxStateMonitor;
 
-    iget-object v0, v0, Lcom/android/systemui/qs/tiles/FlashlightTile$FlashlightDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/FlashlightTile;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/FlashlightTile;->-get2(Lcom/android/systemui/qs/tiles/FlashlightTile;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/android/keyguard/KnoxStateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KnoxStateMonitor;
+    check-cast v0, Lcom/android/systemui/KnoxStateMonitor;
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/keyguard/KnoxStateMonitor;->isFlashlightTileBlocked()Z
+    invoke-virtual {v0}, Lcom/android/systemui/KnoxStateMonitor;->isFlashlightTileBlocked()Z
 
     move-result v0
 

@@ -3,7 +3,7 @@
 .source "KeyguardIndicationController.java"
 
 # interfaces
-.implements Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
+.implements Lcom/android/systemui/util/SettingsHelper$OnChangedCallback;
 
 
 # annotations
@@ -63,7 +63,7 @@
 
     const-string/jumbo v0, "low_power"
 
-    invoke-static {v0}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v0}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
@@ -76,21 +76,15 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController$1;->this$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController$1;->this$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
-
-    invoke-static {v1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->-get2(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Landroid/content/Context;
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
 
     move-result-object v1
 
-    invoke-static {v1}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/keyguard/util/SettingsHelper;->isPowerSavingMode()Z
+    invoke-virtual {v1}, Lcom/android/systemui/util/SettingsHelper;->isPowerSavingMode()Z
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->-set8(Lcom/android/systemui/statusbar/KeyguardIndicationController;Z)Z
+    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->-set9(Lcom/android/systemui/statusbar/KeyguardIndicationController;Z)Z
 
     :cond_1
     :goto_0
@@ -111,17 +105,11 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController$1;->this$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController$1;->this$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
-
-    invoke-static {v1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->-get2(Lcom/android/systemui/statusbar/KeyguardIndicationController;)Landroid/content/Context;
+    invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
 
     move-result-object v1
 
-    invoke-static {v1}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/keyguard/util/SettingsHelper;->isEmergencyMode()Z
+    invoke-virtual {v1}, Lcom/android/systemui/util/SettingsHelper;->isEmergencyMode()Z
 
     move-result v1
 

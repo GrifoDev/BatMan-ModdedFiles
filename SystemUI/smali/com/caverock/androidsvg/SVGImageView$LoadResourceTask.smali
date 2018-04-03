@@ -51,9 +51,9 @@
 
 # virtual methods
 .method protected varargs doInBackground([Ljava/lang/Integer;)Landroid/graphics/Picture;
-    .locals 7
+    .locals 5
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
     :try_start_0
     iget-object v2, p0, Lcom/caverock/androidsvg/SVGImageView$LoadResourceTask;->this$0:Lcom/caverock/androidsvg/SVGImageView;
@@ -85,29 +85,29 @@
     :catch_0
     move-exception v0
 
-    const-string/jumbo v2, "SVGImageView"
+    const/4 v2, 0x2
 
-    const-string/jumbo v3, "Error loading resource 0x%x: %s"
+    new-array v2, v2, [Ljava/lang/Object;
 
-    const/4 v4, 0x2
-
-    new-array v4, v4, [Ljava/lang/Object;
-
-    aput-object p1, v4, v5
-
-    const/4 v5, 0x1
+    aput-object p1, v2, v4
 
     invoke-virtual {v0}, Lcom/caverock/androidsvg/SVGParseException;->getMessage()Ljava/lang/String;
 
-    move-result-object v6
-
-    aput-object v6, v4, v5
-
-    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v4, 0x1
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "Error loading resource 0x%x: %s"
+
+    invoke-static {v3, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "SVGImageView"
+
+    invoke-static {v3, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 v2, 0x0
 

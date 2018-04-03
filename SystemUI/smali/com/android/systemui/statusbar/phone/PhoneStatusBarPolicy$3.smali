@@ -3,7 +3,7 @@
 .source "PhoneStatusBarPolicy.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/android/systemui/statusbar/policy/HotspotController$Callback;
 
 
 # annotations
@@ -34,29 +34,8 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 3
-
-    invoke-static {}, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->-get0()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v0, "PhoneStatusBarPolicy"
-
-    const-string/jumbo v1, "updateCast: hiding icon NOW"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy$3;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;
-
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->-get3(Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;)Lcom/android/systemui/statusbar/phone/StatusBarIconController;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_1
+.method public onHotspotChanged(Z)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy$3;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;
 
@@ -66,14 +45,23 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy$3;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->-get5(Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->-get7(Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;)Ljava/lang/String;
 
     move-result-object v1
 
-    const/4 v2, 0x0
+    invoke-interface {v0, v1, p1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->setIconVisibility(Ljava/lang/String;Z)V
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->setIconVisibility(Ljava/lang/String;Z)V
+    return-void
+.end method
 
-    :cond_1
+.method public onHotspotPrepared()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onUpdateConnectedDevices(Z)V
+    .locals 0
+
     return-void
 .end method

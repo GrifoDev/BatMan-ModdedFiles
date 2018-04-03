@@ -17,8 +17,6 @@
 # instance fields
 .field public mHeaderHeight:I
 
-.field public mItemContentWidth:I
-
 .field public mItemIconWidth:I
 
 .field public mItemTextDarkColor:I
@@ -50,7 +48,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0399
+    const v1, 0x7f070558
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -62,7 +60,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d039a
+    const v1, 0x7f070559
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -70,37 +68,25 @@
 
     iput v0, p0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;->mItemTextShadowYDistance:F
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    const v0, 0x7f060189
 
-    move-result-object v0
-
-    const v1, 0x7f0b0114
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getColor(I)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;->mItemTextShadowColor:I
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    const v0, 0x7f060188
 
-    move-result-object v0
-
-    const v1, 0x7f0b0113
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getColor(I)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;->mItemTextDarkColor:I
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    const v0, 0x7f060187
 
-    move-result-object v0
-
-    const v1, 0x7f0b0112
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getColor(I)I
 
     move-result v0
 
@@ -118,7 +104,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0c0062
+    const v1, 0x7f0b0069
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -130,7 +116,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0426
+    const v1, 0x7f0704ef
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -144,7 +130,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0427
+    const v1, 0x7f0704ee
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -158,7 +144,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0428
+    const v1, 0x7f0704ed
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -172,21 +158,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d042f
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v0
-
-    float-to-int v0, v0
-
-    iput v0, p0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;->mItemContentWidth:I
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0d042b
+    const v1, 0x7f0704e6
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -200,7 +172,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0431
+    const v1, 0x7f0704ea
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -215,24 +187,6 @@
 
 
 # virtual methods
-.method public onSizeChanged(II)V
-    .locals 2
-
-    iget v0, p0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;->mOffsetEdge:I
-
-    mul-int/lit8 v0, v0, 0x2
-
-    sub-int v0, p1, v0
-
-    iget v1, p0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;->mSpanCount:I
-
-    div-int/2addr v0, v1
-
-    iput v0, p0, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;->mItemContentWidth:I
-
-    return-void
-.end method
-
 .method public reinitialize(Landroid/content/Context;)V
     .locals 0
 

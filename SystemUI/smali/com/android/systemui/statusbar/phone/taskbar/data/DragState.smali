@@ -738,6 +738,16 @@
     return-void
 
     :cond_2
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mItem:Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;
+
+    check-cast v0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->isRunning()Z
+
+    move-result v0
+
+    if-nez v0, :cond_4
+
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mDragOrigin:Lcom/android/systemui/statusbar/phone/taskbar/data/DragOrigin;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mItem:Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;
@@ -763,7 +773,17 @@
     invoke-static {v1, v0}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->deleteItemFromDatabase(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;)V
 
     :cond_3
+    :goto_0
     return-void
+
+    :cond_4
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mDragOrigin:Lcom/android/systemui/statusbar/phone/taskbar/data/DragOrigin;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mItem:Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;
+
+    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/data/DragOrigin;->show(Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;)V
+
+    goto :goto_0
 .end method
 
 .method private findActivityForComponent(Landroid/content/ComponentName;I)Ljava/util/List;
@@ -843,99 +863,154 @@
 .end method
 
 .method private initItemInfo(Landroid/content/Intent;ILcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;)Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;
-    .locals 28
+    .locals 30
 
-    const/4 v15, 0x0
+    const/16 v17, 0x0
 
-    const/4 v7, 0x0
+    const/4 v9, 0x0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
 
-    move-object/from16 v24, v0
+    move-object/from16 v27, v0
 
-    invoke-virtual/range {v24 .. v24}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getTaskBarView()Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+    invoke-virtual/range {v27 .. v27}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getTaskBarView()Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
-    move-result-object v24
+    move-result-object v27
 
-    const v25, 0x7f1304d4
+    const v28, 0x7f0a0191
 
-    invoke-virtual/range {v24 .. v25}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->findViewById(I)Landroid/view/View;
+    invoke-virtual/range {v27 .. v28}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->findViewById(I)Landroid/view/View;
 
-    move-result-object v7
+    move-result-object v9
 
-    check-cast v7, Landroid/widget/ImageView;
+    check-cast v9, Landroid/widget/ImageView;
 
-    const-string/jumbo v24, "itemId"
+    const-string/jumbo v27, "itemId"
 
-    const-wide/16 v26, -0x1
+    const-wide/16 v28, -0x1
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v27
 
-    move-wide/from16 v2, v26
+    move-wide/from16 v2, v28
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/Intent;->getLongExtra(Ljava/lang/String;J)J
 
-    move-result-wide v10
+    move-result-wide v12
 
+    const-string/jumbo v27, "taskId"
+
+    const/16 v28, -0x1
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v27
+
+    move/from16 v2, v28
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v23
+
+    const/4 v7, 0x0
+
+    const/4 v4, 0x0
+
+    move-object/from16 v0, p3
+
+    instance-of v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;
+
+    move/from16 v27, v0
+
+    if-eqz v27, :cond_0
+
+    move-object/from16 v7, p3
+
+    check-cast v7, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;
+
+    :cond_0
+    if-eqz v7, :cond_1
+
+    move/from16 v0, v23
+
+    invoke-virtual {v7, v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->findSameTaskRunningApp(I)Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
+
+    move-result-object v4
+
+    :cond_1
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->DEBUGGABLE:Z
 
-    move/from16 v24, v0
+    move/from16 v27, v0
 
-    if-eqz v24, :cond_0
+    if-eqz v27, :cond_2
 
-    const-string/jumbo v24, "[DS]DragState"
+    const-string/jumbo v27, "[DS]DragState"
 
-    new-instance v25, Ljava/lang/StringBuilder;
+    new-instance v28, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v26, "initItemInfo drag id = "
+    const-string/jumbo v29, "initItemInfo drag id = "
 
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v28
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v28
 
-    invoke-virtual {v0, v10, v11}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v12, v13}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v28
 
-    const-string/jumbo v26, ", type="
+    const-string/jumbo v29, ", type="
 
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v28
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v28
 
     move/from16 v1, p2
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v28
 
-    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v25
+    move-result-object v28
 
-    invoke-static/range {v24 .. v25}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v27 .. v28}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
-    const-wide/16 v24, -0x1
+    :cond_2
+    if-eqz p3, :cond_8
 
-    cmp-long v24, v10, v24
+    const-wide/16 v28, -0x1
 
-    if-lez v24, :cond_4
+    cmp-long v27, v12, v28
 
-    if-eqz p3, :cond_4
+    if-gtz v27, :cond_3
 
+    if-eqz v4, :cond_8
+
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getItemType()Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;
+
+    move-result-object v27
+
+    sget-object v28, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;->HOME_RUNNING_APPLICATION:Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v28
+
+    if-ne v0, v1, :cond_8
+
+    :cond_3
     sparse-switch p2, :sswitch_data_0
 
     :goto_0
@@ -944,135 +1019,140 @@
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
 
-    move-object/from16 v24, v0
+    move-object/from16 v27, v0
 
-    invoke-virtual/range {v24 .. v24}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getResources()Landroid/content/res/Resources;
+    invoke-virtual/range {v27 .. v27}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v24
+    move-result-object v27
 
-    const v25, 0x7f0d05dc
+    const v28, 0x7f070166
 
-    invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual/range {v27 .. v28}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v24
+    move-result v27
 
-    add-int/lit8 v8, v24, -0x2
+    add-int/lit8 v10, v27, -0x2
 
-    const/4 v13, 0x0
+    const/4 v15, 0x0
 
-    if-eqz v15, :cond_9
+    if-eqz v17, :cond_d
 
-    iget-object v0, v15, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;->mIconBitmap:Landroid/graphics/Bitmap;
+    move-object/from16 v0, v17
 
-    move-object/from16 v24, v0
+    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;->mIconBitmap:Landroid/graphics/Bitmap;
 
-    if-eqz v24, :cond_9
+    move-object/from16 v27, v0
 
-    iget-object v0, v15, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;->mIconBitmap:Landroid/graphics/Bitmap;
+    if-eqz v27, :cond_d
 
-    move-object/from16 v24, v0
+    move-object/from16 v0, v17
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;->mIconBitmap:Landroid/graphics/Bitmap;
+
+    move-object/from16 v27, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
 
-    move-object/from16 v25, v0
+    move-object/from16 v28, v0
 
-    invoke-virtual/range {v25 .. v25}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getContext()Landroid/content/Context;
+    invoke-virtual/range {v28 .. v28}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getContext()Landroid/content/Context;
 
-    move-result-object v25
+    move-result-object v28
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v27
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v28
 
-    invoke-static {v0, v1, v8, v8}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->CreateScaledBitmapWithAppIconSize(Landroid/graphics/Bitmap;Landroid/content/Context;II)Landroid/graphics/Bitmap;
+    invoke-static {v0, v1, v10, v10}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->CreateScaledBitmapWithAppIconSize(Landroid/graphics/Bitmap;Landroid/content/Context;II)Landroid/graphics/Bitmap;
 
-    move-result-object v13
+    move-result-object v15
 
     :goto_1
-    new-instance v5, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;
+    new-instance v6, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;
 
-    invoke-direct {v5, v13}, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;-><init>(Landroid/graphics/Bitmap;)V
+    invoke-direct {v6, v15}, Lcom/android/systemui/statusbar/phone/taskbar/views/FastBitmapDrawable;-><init>(Landroid/graphics/Bitmap;)V
 
-    invoke-virtual {v7, v5}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v9, v6}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     move-object/from16 v0, p0
 
-    iput-object v7, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mCacheDragView:Landroid/view/View;
+    iput-object v9, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mCacheDragView:Landroid/view/View;
 
-    new-instance v18, Lcom/android/systemui/statusbar/phone/taskbar/data/ShadowBuilder;
-
-    move-object/from16 v0, v18
-
-    invoke-direct {v0, v7, v13}, Lcom/android/systemui/statusbar/phone/taskbar/data/ShadowBuilder;-><init>(Landroid/view/View;Landroid/graphics/Bitmap;)V
-
-    new-instance v19, Landroid/graphics/Point;
-
-    invoke-direct/range {v19 .. v19}, Landroid/graphics/Point;-><init>()V
-
-    new-instance v20, Landroid/graphics/Point;
-
-    invoke-direct/range {v20 .. v20}, Landroid/graphics/Point;-><init>()V
-
-    invoke-virtual/range {v18 .. v20}, Lcom/android/systemui/statusbar/phone/taskbar/data/ShadowBuilder;->onProvideShadowMetrics(Landroid/graphics/Point;Landroid/graphics/Point;)V
+    new-instance v20, Lcom/android/systemui/statusbar/phone/taskbar/data/ShadowBuilder;
 
     move-object/from16 v0, v20
+
+    invoke-direct {v0, v9, v15}, Lcom/android/systemui/statusbar/phone/taskbar/data/ShadowBuilder;-><init>(Landroid/view/View;Landroid/graphics/Bitmap;)V
+
+    new-instance v21, Landroid/graphics/Point;
+
+    invoke-direct/range {v21 .. v21}, Landroid/graphics/Point;-><init>()V
+
+    new-instance v22, Landroid/graphics/Point;
+
+    invoke-direct/range {v22 .. v22}, Landroid/graphics/Point;-><init>()V
+
+    invoke-virtual/range {v20 .. v22}, Lcom/android/systemui/statusbar/phone/taskbar/data/ShadowBuilder;->onProvideShadowMetrics(Landroid/graphics/Point;Landroid/graphics/Point;)V
+
+    move-object/from16 v0, v22
 
     iget v0, v0, Landroid/graphics/Point;->x:I
 
-    move/from16 v24, v0
+    move/from16 v27, v0
 
-    if-ltz v24, :cond_1
+    if-ltz v27, :cond_4
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v22
 
     iget v0, v0, Landroid/graphics/Point;->y:I
 
-    move/from16 v24, v0
+    move/from16 v27, v0
 
-    if-gez v24, :cond_a
+    if-gez v27, :cond_e
 
-    :cond_1
+    :cond_4
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->DEBUGGABLE:Z
 
-    move/from16 v24, v0
+    move/from16 v27, v0
 
-    if-eqz v24, :cond_2
+    if-eqz v27, :cond_5
 
-    const-string/jumbo v24, "[DS]DragState"
+    const-string/jumbo v27, "[DS]DragState"
 
-    const-string/jumbo v25, "Drag shadow touch point must not be negative"
+    const-string/jumbo v28, "Drag shadow touch point must not be negative"
 
-    invoke-static/range {v24 .. v25}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v27 .. v28}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
-    const/16 v24, 0x0
+    :cond_5
+    const/16 v27, 0x0
 
-    return-object v24
+    return-object v27
 
     :sswitch_1
-    move-object/from16 v0, p3
+    const/4 v5, 0x0
 
-    invoke-virtual {v0, v10, v11}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->getItemById(J)Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;
+    if-eqz v4, :cond_6
 
-    move-result-object v4
+    move-object v5, v4
 
-    check-cast v4, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
+    :goto_2
+    if-eqz v5, :cond_7
 
-    if-eqz v4, :cond_3
+    move-object/from16 v17, v5
 
-    move-object v15, v4
+    invoke-virtual {v9, v5}, Landroid/widget/ImageView;->setTag(Ljava/lang/Object;)V
 
-    invoke-virtual {v7, v4}, Landroid/widget/ImageView;->setTag(Ljava/lang/Object;)V
+    move-object/from16 v0, v17
 
-    iget v0, v4, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;->mScreen:I
+    iget v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;->mScreen:I
 
-    move/from16 v24, v0
+    move/from16 v27, v0
 
-    move/from16 v0, v24
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
@@ -1080,12 +1160,23 @@
 
     goto/16 :goto_0
 
-    :cond_3
-    const/16 v24, 0x0
+    :cond_6
+    move-object/from16 v0, p3
 
-    return-object v24
+    invoke-virtual {v0, v12, v13}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->getItemById(J)Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;
 
-    :cond_4
+    move-result-object v5
+
+    check-cast v5, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
+
+    goto :goto_2
+
+    :cond_7
+    const/16 v27, 0x0
+
+    return-object v27
+
+    :cond_8
     sparse-switch p2, :sswitch_data_1
 
     goto/16 :goto_0
@@ -1093,213 +1184,211 @@
     :sswitch_2
     invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
-    move-result-object v6
+    move-result-object v8
 
-    if-nez v6, :cond_5
+    if-nez v8, :cond_9
 
-    const/16 v24, 0x0
+    const/16 v27, 0x0
 
-    return-object v24
+    return-object v27
 
-    :cond_5
-    const-string/jumbo v24, "profile"
+    :cond_9
+    const-string/jumbo v27, "profile"
 
-    const-wide/16 v26, -0x1
+    const-wide/16 v28, -0x1
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v27
 
-    move-wide/from16 v2, v26
+    move-wide/from16 v2, v28
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/Intent;->getLongExtra(Ljava/lang/String;J)J
 
-    move-result-wide v16
+    move-result-wide v18
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
 
-    move-object/from16 v24, v0
+    move-object/from16 v27, v0
 
-    invoke-virtual/range {v24 .. v24}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getCurrentUserId()I
+    invoke-virtual/range {v27 .. v27}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getCurrentUserId()I
 
-    move-result v22
+    move-result v25
 
-    const-wide/16 v24, -0x1
+    const-wide/16 v28, -0x1
 
-    cmp-long v24, v16, v24
+    cmp-long v27, v18, v28
 
-    if-lez v24, :cond_6
+    if-lez v27, :cond_a
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
 
-    move-object/from16 v24, v0
+    move-object/from16 v27, v0
 
-    invoke-virtual/range {v24 .. v24}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getContext()Landroid/content/Context;
+    invoke-virtual/range {v27 .. v27}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getContext()Landroid/content/Context;
 
-    move-result-object v24
+    move-result-object v27
 
-    const-string/jumbo v25, "user"
+    const-string/jumbo v28, "user"
 
-    invoke-virtual/range {v24 .. v25}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual/range {v27 .. v28}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v23
+    move-result-object v26
 
-    check-cast v23, Landroid/os/UserManager;
+    check-cast v26, Landroid/os/UserManager;
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v26
 
-    move-wide/from16 v1, v16
+    move-wide/from16 v1, v18
 
     invoke-virtual {v0, v1, v2}, Landroid/os/UserManager;->getUserForSerialNumber(J)Landroid/os/UserHandle;
 
-    move-result-object v21
+    move-result-object v24
 
-    if-eqz v21, :cond_6
+    if-eqz v24, :cond_a
 
-    invoke-virtual/range {v21 .. v21}, Landroid/os/UserHandle;->getIdentifier()I
+    invoke-virtual/range {v24 .. v24}, Landroid/os/UserHandle;->getIdentifier()I
 
-    move-result v22
+    move-result v25
 
-    :cond_6
+    :cond_a
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    move/from16 v1, v25
 
-    invoke-direct {v0, v6, v1}, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->findActivityForComponent(Landroid/content/ComponentName;I)Ljava/util/List;
+    invoke-direct {v0, v8, v1}, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->findActivityForComponent(Landroid/content/ComponentName;I)Ljava/util/List;
+
+    move-result-object v16
+
+    const/4 v5, 0x0
+
+    invoke-interface/range {v16 .. v16}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v14
 
-    const/4 v4, 0x0
+    :goto_3
+    invoke-interface {v14}, Ljava/util/Iterator;->hasNext()Z
 
-    invoke-interface {v14}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    move-result v27
 
-    move-result-object v12
+    if-eqz v27, :cond_b
 
-    :goto_2
-    invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v14}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result v24
+    move-result-object v11
 
-    if-eqz v24, :cond_7
-
-    invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v9
-
-    check-cast v9, Landroid/content/pm/ResolveInfo;
+    check-cast v11, Landroid/content/pm/ResolveInfo;
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    invoke-direct {v0, v1, v9}, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->createApp(Landroid/content/Intent;Landroid/content/pm/ResolveInfo;)Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
+    invoke-direct {v0, v1, v11}, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->createApp(Landroid/content/Intent;Landroid/content/pm/ResolveInfo;)Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
 
-    move-result-object v4
+    move-result-object v5
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_7
-    if-eqz v4, :cond_8
+    :cond_b
+    if-eqz v5, :cond_c
 
-    move-object v15, v4
+    move-object/from16 v17, v5
 
-    invoke-virtual {v7, v4}, Landroid/widget/ImageView;->setTag(Ljava/lang/Object;)V
+    invoke-virtual {v9, v5}, Landroid/widget/ImageView;->setTag(Ljava/lang/Object;)V
 
     goto/16 :goto_0
 
-    :cond_8
-    const/16 v24, 0x0
-
-    return-object v24
-
-    :cond_9
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
-
-    move-object/from16 v24, v0
-
-    invoke-virtual/range {v24 .. v24}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v24
-
-    const v25, 0x7f0201c0
-
-    invoke-static/range {v24 .. v25}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
-
-    move-result-object v24
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
-
-    move-object/from16 v25, v0
-
-    invoke-virtual/range {v25 .. v25}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getContext()Landroid/content/Context;
-
-    move-result-object v25
-
-    move-object/from16 v0, v24
-
-    move-object/from16 v1, v25
-
-    invoke-static {v0, v1, v8, v8}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->CreateScaledBitmapWithAppIconSize(Landroid/graphics/Bitmap;Landroid/content/Context;II)Landroid/graphics/Bitmap;
-
-    move-result-object v13
-
-    goto/16 :goto_1
-
-    :cond_a
-    move-object/from16 v0, v19
-
-    iget v0, v0, Landroid/graphics/Point;->x:I
-
-    move/from16 v24, v0
-
-    if-ltz v24, :cond_b
-
-    move-object/from16 v0, v19
-
-    iget v0, v0, Landroid/graphics/Point;->y:I
-
-    move/from16 v24, v0
-
-    if-gez v24, :cond_d
-
-    :cond_b
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->DEBUGGABLE:Z
-
-    move/from16 v24, v0
-
-    if-eqz v24, :cond_c
-
-    const-string/jumbo v24, "[DS]DragState"
-
-    const-string/jumbo v25, "Drag shadow dimensions must not be negative"
-
-    invoke-static/range {v24 .. v25}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     :cond_c
-    const/16 v24, 0x0
+    const/16 v27, 0x0
 
-    return-object v24
+    return-object v27
 
     :cond_d
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v18
+    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
+
+    move-object/from16 v27, v0
+
+    invoke-virtual/range {v27 .. v27}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v27
+
+    const v28, 0x7f080202
+
+    invoke-static/range {v27 .. v28}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
+
+    move-result-object v27
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
+
+    move-object/from16 v28, v0
+
+    invoke-virtual/range {v28 .. v28}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getContext()Landroid/content/Context;
+
+    move-result-object v28
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v28
+
+    invoke-static {v0, v1, v10, v10}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->CreateScaledBitmapWithAppIconSize(Landroid/graphics/Bitmap;Landroid/content/Context;II)Landroid/graphics/Bitmap;
+
+    move-result-object v15
+
+    goto/16 :goto_1
+
+    :cond_e
+    move-object/from16 v0, v21
+
+    iget v0, v0, Landroid/graphics/Point;->x:I
+
+    move/from16 v27, v0
+
+    if-ltz v27, :cond_f
+
+    move-object/from16 v0, v21
+
+    iget v0, v0, Landroid/graphics/Point;->y:I
+
+    move/from16 v27, v0
+
+    if-gez v27, :cond_11
+
+    :cond_f
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->DEBUGGABLE:Z
+
+    move/from16 v27, v0
+
+    if-eqz v27, :cond_10
+
+    const-string/jumbo v27, "[DS]DragState"
+
+    const-string/jumbo v28, "Drag shadow dimensions must not be negative"
+
+    invoke-static/range {v27 .. v28}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_10
+    const/16 v27, 0x0
+
+    return-object v27
+
+    :cond_11
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->setShadow(Lcom/android/systemui/statusbar/phone/taskbar/data/ShadowBuilder;)V
 
-    return-object v15
-
-    nop
+    return-object v17
 
     :sswitch_data_0
     .sparse-switch
@@ -1831,10 +1920,15 @@
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mHasEnded:Z
 
-    if-eqz v0, :cond_3
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mShadow:Lcom/android/systemui/statusbar/phone/taskbar/data/ShadowBuilder;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/data/ShadowBuilder;->clearSurface()V
 
     :cond_1
-    :goto_0
     iput-boolean v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mHasEnded:Z
 
     iput-boolean v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mFoundValidDrop:Z
@@ -1853,13 +1947,6 @@
 
     :cond_2
     return-void
-
-    :cond_3
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mShadow:Lcom/android/systemui/statusbar/phone/taskbar/data/ShadowBuilder;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/data/ShadowBuilder;->clearSurface()V
-
-    goto :goto_0
 .end method
 
 .method public onDrop()V
@@ -1910,18 +1997,17 @@
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mFoundValidDrop:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->deleteFromSource()V
 
-    :cond_2
     :goto_0
     return-void
 
-    :cond_3
+    :cond_2
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mDragOrigin:Lcom/android/systemui/statusbar/phone/taskbar/data/DragOrigin;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mDragOrigin:Lcom/android/systemui/statusbar/phone/taskbar/data/DragOrigin;
 
@@ -1935,12 +2021,10 @@
 
     invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/data/DragOrigin;->show(Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;)V
 
-    :cond_4
+    :cond_3
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mDragOrigin:Lcom/android/systemui/statusbar/phone/taskbar/data/DragOrigin;
 
     instance-of v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;
-
-    if-eqz v0, :cond_2
 
     goto :goto_0
 .end method

@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/ImageWallpaper$DrawableEngine;->loadWallpaper(Z)V
+    value = Lcom/android/systemui/ImageWallpaper$DrawableEngine;->loadWallpaper(ZZ)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -28,12 +28,16 @@
 # instance fields
 .field final synthetic this$1:Lcom/android/systemui/ImageWallpaper$DrawableEngine;
 
+.field final synthetic val$needsReset:Z
+
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/ImageWallpaper$DrawableEngine;)V
+.method constructor <init>(Lcom/android/systemui/ImageWallpaper$DrawableEngine;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine$4;->this$1:Lcom/android/systemui/ImageWallpaper$DrawableEngine;
+
+    iput-boolean p2, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine$4;->val$needsReset:Z
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
 
@@ -48,6 +52,19 @@
     const/4 v5, 0x0
 
     :try_start_0
+    iget-boolean v3, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine$4;->val$needsReset:Z
+
+    if-eqz v3, :cond_0
+
+    iget-object v3, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine$4;->this$1:Lcom/android/systemui/ImageWallpaper$DrawableEngine;
+
+    iget-object v3, v3, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
+
+    iget-object v3, v3, Lcom/android/systemui/ImageWallpaper;->mWallpaperManager:Landroid/app/WallpaperManager;
+
+    invoke-virtual {v3}, Landroid/app/WallpaperManager;->forgetLoadedWallpaper()V
+
+    :cond_0
     iget-object v3, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine$4;->this$1:Lcom/android/systemui/ImageWallpaper$DrawableEngine;
 
     iget-object v3, v3, Lcom/android/systemui/ImageWallpaper$DrawableEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
@@ -68,7 +85,16 @@
 
     move-object v2, v0
 
-    if-eqz v0, :cond_0
+    invoke-virtual {p0}, Lcom/android/systemui/ImageWallpaper$DrawableEngine$4;->isCancelled()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    return-object v5
+
+    :cond_1
+    if-eqz v0, :cond_3
 
     const-string/jumbo v3, "ImageWallpaper"
 
@@ -88,6 +114,26 @@
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
     :goto_0
+    invoke-virtual {p0}, Lcom/android/systemui/ImageWallpaper$DrawableEngine$4;->isCancelled()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    return-object v5
+
+    :catch_1
+    move-exception v1
+
+    const-string/jumbo v3, "ImageWallpaper"
+
+    const-string/jumbo v4, "Unable reset to default wallpaper!"
+
+    invoke-static {v3, v4, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+
+    :cond_2
     :try_start_2
     iget-object v3, p0, Lcom/android/systemui/ImageWallpaper$DrawableEngine$4;->this$1:Lcom/android/systemui/ImageWallpaper$DrawableEngine;
 
@@ -104,17 +150,6 @@
 
     return-object v3
 
-    :catch_1
-    move-exception v1
-
-    const-string/jumbo v3, "ImageWallpaper"
-
-    const-string/jumbo v4, "Unable reset to default wallpaper!"
-
-    invoke-static {v3, v4, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
-
     :catch_2
     move-exception v0
 
@@ -124,7 +159,7 @@
 
     invoke-static {v3, v4, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_0
+    :cond_3
     return-object v5
 .end method
 

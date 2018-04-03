@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/power/PowerNotificationWarnings;->showPowerSupplyingInLowBatteryPopUp(I)V
+    value = Lcom/android/systemui/power/PowerNotificationWarnings;->showWaterProtectionAlertDialog(Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -35,32 +35,47 @@
 
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 3
-
-    const/4 v2, 0x0
-
-    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$23;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+    .locals 2
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set16(Lcom/android/systemui/power/PowerNotificationWarnings;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
+    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$23;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set11(Lcom/android/systemui/power/PowerNotificationWarnings;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$23;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get11(Lcom/android/systemui/power/PowerNotificationWarnings;)Z
+    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get8(Lcom/android/systemui/power/PowerNotificationWarnings;)Lcom/android/systemui/media/NotificationPlayer;
 
-    move-result v0
+    move-result-object v0
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$23;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    invoke-virtual {v0, v2}, Lcom/android/systemui/power/PowerNotificationWarnings;->showPowerSupplyingInLowBatteryNotice(I)V
+    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get8(Lcom/android/systemui/power/PowerNotificationWarnings;)Lcom/android/systemui/media/NotificationPlayer;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/systemui/media/NotificationPlayer;->stop()V
 
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$23;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    invoke-static {v0, v2}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set8(Lcom/android/systemui/power/PowerNotificationWarnings;Z)Z
+    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get11(Lcom/android/systemui/power/PowerNotificationWarnings;)Landroid/os/Vibrator;
 
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$23;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get11(Lcom/android/systemui/power/PowerNotificationWarnings;)Landroid/os/Vibrator;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Vibrator;->cancel()V
+
+    :cond_1
     return-void
 .end method

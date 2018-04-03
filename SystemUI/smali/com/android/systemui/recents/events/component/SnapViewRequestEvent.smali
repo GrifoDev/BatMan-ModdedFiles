@@ -6,9 +6,11 @@
 # instance fields
 .field public final applicationContext:Landroid/content/Context;
 
+.field public final snapCaller:Ljava/lang/String;
+
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;)V
+.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 1
 
     invoke-direct {p0}, Lcom/android/systemui/recents/events/EventBus$Event;-><init>()V
@@ -18,6 +20,8 @@
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/systemui/recents/events/component/SnapViewRequestEvent;->applicationContext:Landroid/content/Context;
+
+    iput-object p2, p0, Lcom/android/systemui/recents/events/component/SnapViewRequestEvent;->snapCaller:Ljava/lang/String;
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class public final Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+.class public Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 .super Ljava/lang/Object;
 .source "LocalBluetoothManager.java"
 
@@ -228,4 +228,22 @@
     sget-boolean v0, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->mSystemUiInstance:Z
 
     return v0
+.end method
+
+.method public semIsForegroundActivity()Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    sget v1, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->mForegroundCount:I
+
+    if-nez v1, :cond_0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method

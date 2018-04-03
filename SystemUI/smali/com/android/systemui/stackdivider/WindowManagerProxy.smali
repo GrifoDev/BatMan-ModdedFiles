@@ -6,19 +6,13 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/systemui/stackdivider/WindowManagerProxy$10;,
-        Lcom/android/systemui/stackdivider/WindowManagerProxy$11;,
-        Lcom/android/systemui/stackdivider/WindowManagerProxy$12;,
-        Lcom/android/systemui/stackdivider/WindowManagerProxy$13;,
         Lcom/android/systemui/stackdivider/WindowManagerProxy$1;,
         Lcom/android/systemui/stackdivider/WindowManagerProxy$2;,
         Lcom/android/systemui/stackdivider/WindowManagerProxy$3;,
         Lcom/android/systemui/stackdivider/WindowManagerProxy$4;,
         Lcom/android/systemui/stackdivider/WindowManagerProxy$5;,
         Lcom/android/systemui/stackdivider/WindowManagerProxy$6;,
-        Lcom/android/systemui/stackdivider/WindowManagerProxy$7;,
-        Lcom/android/systemui/stackdivider/WindowManagerProxy$8;,
-        Lcom/android/systemui/stackdivider/WindowManagerProxy$9;
+        Lcom/android/systemui/stackdivider/WindowManagerProxy$7;
     }
 .end annotation
 
@@ -28,10 +22,6 @@
 
 
 # instance fields
-.field private final mAlignTasksToStackBounds:Ljava/lang/Runnable;
-
-.field private final mAutoResizingChangedRunnable:Ljava/lang/Runnable;
-
 .field private mDimLayerAlpha:F
 
 .field private final mDimLayerRunnable:Ljava/lang/Runnable;
@@ -50,39 +40,25 @@
 
 .field private final mExecutor:Ljava/util/concurrent/ExecutorService;
 
-.field private mForceResizeDockedRect:Landroid/graphics/Rect;
-
-.field private mIsAutoResizingEnabled:Z
-
 .field private final mMaximizeRunnable:Ljava/lang/Runnable;
 
-.field private final mMaximizeStackRunnable:Ljava/lang/Runnable;
+.field private mMinimizeDimLayerAlpha:F
 
-.field private mMoveToTop:Z
+.field private final mMinimizeDimLayerRunnable:Ljava/lang/Runnable;
 
-.field private final mMultiWindowManager:Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge;
+.field private mMinimizeDimLayerVisible:Z
 
-.field private final mResizeDockedRectRunnable:Ljava/lang/Runnable;
+.field private mMinimizeLayerTargetStack:I
+
+.field private final mMultiWindowManager:Lcom/samsung/android/multiwindow/MultiWindowManager;
 
 .field private final mResizeRunnable:Ljava/lang/Runnable;
 
 .field private final mSetTouchableRegionRunnable:Ljava/lang/Runnable;
 
-.field private mSnapCaller:Ljava/lang/String;
-
-.field private mSnapTarget:I
-
-.field private mSnapViewCropRect:Landroid/graphics/Rect;
-
-.field private final mStartDraggingRunnable:Ljava/lang/Runnable;
-
-.field private mStartSnapMode:Z
-
-.field private final mStartSnapModeRunnable:Ljava/lang/Runnable;
-
-.field private final mStopDraggingRunnable:Ljava/lang/Runnable;
-
 .field private final mSwapRunnable:Ljava/lang/Runnable;
+
+.field private mTempDockSide:I
 
 .field private final mTempDockedInsetRect:Landroid/graphics/Rect;
 
@@ -91,6 +67,8 @@
 .field private final mTempOtherInsetRect:Landroid/graphics/Rect;
 
 .field private final mTempOtherTaskRect:Landroid/graphics/Rect;
+
+.field private mTmpDockSide:I
 
 .field private final mTmpRect1:Landroid/graphics/Rect;
 
@@ -129,36 +107,12 @@
 .method static synthetic -get10(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mSnapViewCropRect:Landroid/graphics/Rect;
-
-    return-object v0
-.end method
-
-.method static synthetic -get11(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mStartSnapMode:Z
-
-    return v0
-.end method
-
-.method static synthetic -get12(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTempDockedInsetRect:Landroid/graphics/Rect;
-
-    return-object v0
-.end method
-
-.method static synthetic -get13(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
-    .locals 1
-
     iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTempDockedTaskRect:Landroid/graphics/Rect;
 
     return-object v0
 .end method
 
-.method static synthetic -get14(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
+.method static synthetic -get11(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTempOtherInsetRect:Landroid/graphics/Rect;
@@ -166,7 +120,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get15(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
+.method static synthetic -get12(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTempOtherTaskRect:Landroid/graphics/Rect;
@@ -174,7 +128,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get16(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
+.method static synthetic -get13(Lcom/android/systemui/stackdivider/WindowManagerProxy;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTmpDockSide:I
+
+    return v0
+.end method
+
+.method static synthetic -get14(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTmpRect1:Landroid/graphics/Rect;
@@ -182,7 +144,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get17(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
+.method static synthetic -get15(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTmpRect2:Landroid/graphics/Rect;
@@ -190,7 +152,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get18(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
+.method static synthetic -get16(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTmpRect3:Landroid/graphics/Rect;
@@ -198,10 +160,26 @@
     return-object v0
 .end method
 
-.method static synthetic -get19(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
+.method static synthetic -get17(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTmpRect4:Landroid/graphics/Rect;
+
+    return-object v0
+.end method
+
+.method static synthetic -get18(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTmpRect5:Landroid/graphics/Rect;
+
+    return-object v0
+.end method
+
+.method static synthetic -get19(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTouchableRegion:Landroid/graphics/Rect;
 
     return-object v0
 .end method
@@ -214,22 +192,6 @@
     return v0
 .end method
 
-.method static synthetic -get20(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTmpRect5:Landroid/graphics/Rect;
-
-    return-object v0
-.end method
-
-.method static synthetic -get21(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTouchableRegion:Landroid/graphics/Rect;
-
-    return-object v0
-.end method
-
 .method static synthetic -get3(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
     .locals 1
 
@@ -238,52 +200,60 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
+.method static synthetic -get4(Lcom/android/systemui/stackdivider/WindowManagerProxy;)F
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mForceResizeDockedRect:Landroid/graphics/Rect;
+    iget v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mMinimizeDimLayerAlpha:F
 
-    return-object v0
+    return v0
 .end method
 
 .method static synthetic -get5(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mIsAutoResizingEnabled:Z
+    iget-boolean v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mMinimizeDimLayerVisible:Z
 
     return v0
 .end method
 
-.method static synthetic -get6(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Z
+.method static synthetic -get6(Lcom/android/systemui/stackdivider/WindowManagerProxy;)I
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mMoveToTop:Z
+    iget v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mMinimizeLayerTargetStack:I
 
     return v0
 .end method
 
-.method static synthetic -get7(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge;
+.method static synthetic -get7(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Lcom/samsung/android/multiwindow/MultiWindowManager;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mMultiWindowManager:Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge;
+    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mMultiWindowManager:Lcom/samsung/android/multiwindow/MultiWindowManager;
 
     return-object v0
 .end method
 
-.method static synthetic -get8(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Ljava/lang/String;
+.method static synthetic -get8(Lcom/android/systemui/stackdivider/WindowManagerProxy;)I
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mSnapCaller:Ljava/lang/String;
+    iget v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTempDockSide:I
+
+    return v0
+.end method
+
+.method static synthetic -get9(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTempDockedInsetRect:Landroid/graphics/Rect;
 
     return-object v0
 .end method
 
-.method static synthetic -get9(Lcom/android/systemui/stackdivider/WindowManagerProxy;)I
-    .locals 1
+.method static synthetic -set0(Lcom/android/systemui/stackdivider/WindowManagerProxy;I)I
+    .locals 0
 
-    iget v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mSnapTarget:I
+    iput p1, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTmpDockSide:I
 
-    return v0
+    return p1
 .end method
 
 .method static constructor <clinit>()V
@@ -299,29 +269,17 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .locals 2
+
+    const/4 v1, -0x1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge;
+    new-instance v0, Lcom/samsung/android/multiwindow/MultiWindowManager;
 
-    invoke-direct {v0}, Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge;-><init>()V
+    invoke-direct {v0}, Lcom/samsung/android/multiwindow/MultiWindowManager;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mMultiWindowManager:Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge;
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mIsAutoResizingEnabled:Z
-
-    new-instance v0, Landroid/graphics/Rect;
-
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
-
-    iput-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mForceResizeDockedRect:Landroid/graphics/Rect;
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mSnapCaller:Ljava/lang/String;
+    iput-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mMultiWindowManager:Lcom/samsung/android/multiwindow/MultiWindowManager;
 
     new-instance v0, Landroid/graphics/Rect;
 
@@ -389,6 +347,10 @@
 
     iput-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTouchableRegion:Landroid/graphics/Rect;
 
+    iput v1, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTempDockSide:I
+
+    iput v1, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTmpDockSide:I
+
     invoke-static {}, Ljava/util/concurrent/Executors;->newSingleThreadExecutor()Ljava/util/concurrent/ExecutorService;
 
     move-result-object v0
@@ -435,43 +397,7 @@
 
     invoke-direct {v0, p0}, Lcom/android/systemui/stackdivider/WindowManagerProxy$7;-><init>(Lcom/android/systemui/stackdivider/WindowManagerProxy;)V
 
-    iput-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mStartSnapModeRunnable:Ljava/lang/Runnable;
-
-    new-instance v0, Lcom/android/systemui/stackdivider/WindowManagerProxy$8;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/stackdivider/WindowManagerProxy$8;-><init>(Lcom/android/systemui/stackdivider/WindowManagerProxy;)V
-
-    iput-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mMaximizeStackRunnable:Ljava/lang/Runnable;
-
-    new-instance v0, Lcom/android/systemui/stackdivider/WindowManagerProxy$9;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/stackdivider/WindowManagerProxy$9;-><init>(Lcom/android/systemui/stackdivider/WindowManagerProxy;)V
-
-    iput-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mAutoResizingChangedRunnable:Ljava/lang/Runnable;
-
-    new-instance v0, Lcom/android/systemui/stackdivider/WindowManagerProxy$10;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/stackdivider/WindowManagerProxy$10;-><init>(Lcom/android/systemui/stackdivider/WindowManagerProxy;)V
-
-    iput-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mStartDraggingRunnable:Ljava/lang/Runnable;
-
-    new-instance v0, Lcom/android/systemui/stackdivider/WindowManagerProxy$11;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/stackdivider/WindowManagerProxy$11;-><init>(Lcom/android/systemui/stackdivider/WindowManagerProxy;)V
-
-    iput-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mStopDraggingRunnable:Ljava/lang/Runnable;
-
-    new-instance v0, Lcom/android/systemui/stackdivider/WindowManagerProxy$12;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/stackdivider/WindowManagerProxy$12;-><init>(Lcom/android/systemui/stackdivider/WindowManagerProxy;)V
-
-    iput-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mResizeDockedRectRunnable:Ljava/lang/Runnable;
-
-    new-instance v0, Lcom/android/systemui/stackdivider/WindowManagerProxy$13;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/stackdivider/WindowManagerProxy$13;-><init>(Lcom/android/systemui/stackdivider/WindowManagerProxy;)V
-
-    iput-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mAlignTasksToStackBounds:Ljava/lang/Runnable;
+    iput-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mMinimizeDimLayerRunnable:Ljava/lang/Runnable;
 
     return-void
 .end method
@@ -486,28 +412,6 @@
 
 
 # virtual methods
-.method public alignTasksToStackBounds()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mExecutor:Ljava/util/concurrent/ExecutorService;
-
-    iget-object v1, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mAlignTasksToStackBounds:Ljava/lang/Runnable;
-
-    invoke-interface {v0, v1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
-
-    return-void
-.end method
-
-.method public completeToggleSplitScreen()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mMultiWindowManager:Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge;
-
-    invoke-virtual {v0}, Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge;->completeToggleSplitScreen()V
-
-    return-void
-.end method
-
 .method public dismissDockedStack()V
     .locals 2
 
@@ -566,59 +470,6 @@
     return v1
 .end method
 
-.method public getFocusedStackId()I
-    .locals 2
-
-    :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Landroid/app/IActivityManager;->getFocusedStackId()I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    return v1
-
-    :catch_0
-    move-exception v0
-
-    const/4 v1, -0x1
-
-    return v1
-.end method
-
-.method public getLastDimLayerTargetStack()I
-    .locals 1
-
-    iget v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mDimLayerTargetStack:I
-
-    return v0
-.end method
-
-.method public getSnapTargetAspectRatioRect()Landroid/graphics/Rect;
-    .locals 1
-
-    sget-boolean v0, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SNAP_WINDOW_SUPPORT:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mMultiWindowManager:Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge;
-
-    invoke-virtual {v0}, Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge;->getSnapTargetAspectRatioRect()Landroid/graphics/Rect;
-
-    move-result-object v0
-
-    return-object v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
 .method public maximizeDockedStack()V
     .locals 2
 
@@ -631,73 +482,29 @@
     return-void
 .end method
 
-.method public maximizeFocusedStackByDivider(Z)V
-    .locals 2
-
-    iput-boolean p1, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mMoveToTop:Z
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mExecutor:Ljava/util/concurrent/ExecutorService;
-
-    iget-object v1, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mMaximizeStackRunnable:Ljava/lang/Runnable;
-
-    invoke-interface {v0, v1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
-
-    return-void
-.end method
-
-.method public moveMultiWindowTasksToFullScreen()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mMultiWindowManager:Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge;
-
-    invoke-virtual {v0}, Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge;->moveMultiWindowTasksToFullScreen()V
-
-    return-void
-.end method
-
-.method public resetTmpRects()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTmpRect1:Landroid/graphics/Rect;
-
-    invoke-virtual {v0}, Landroid/graphics/Rect;->setEmpty()V
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTmpRect2:Landroid/graphics/Rect;
-
-    invoke-virtual {v0}, Landroid/graphics/Rect;->setEmpty()V
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTmpRect3:Landroid/graphics/Rect;
-
-    invoke-virtual {v0}, Landroid/graphics/Rect;->setEmpty()V
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTmpRect4:Landroid/graphics/Rect;
-
-    invoke-virtual {v0}, Landroid/graphics/Rect;->setEmpty()V
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTmpRect5:Landroid/graphics/Rect;
-
-    invoke-virtual {v0}, Landroid/graphics/Rect;->setEmpty()V
-
-    return-void
-.end method
-
-.method public resizeDockedStack(Landroid/graphics/Rect;)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mForceResizeDockedRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v0, p1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mExecutor:Ljava/util/concurrent/ExecutorService;
-
-    iget-object v1, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mResizeDockedRectRunnable:Ljava/lang/Runnable;
-
-    invoke-interface {v0, v1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
-
-    return-void
-.end method
-
 .method public resizeDockedStack(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
+    .locals 7
+
+    const/4 v6, -0x1
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move-object v3, p3
+
+    move-object v4, p4
+
+    move-object v5, p5
+
+    invoke-virtual/range {v0 .. v6}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->resizeDockedStack(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;I)V
+
+    return-void
+.end method
+
+.method public resizeDockedStack(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;I)V
     .locals 2
 
     iget-object v1, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mDockedRect:Landroid/graphics/Rect;
@@ -735,10 +542,12 @@
     iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTempOtherInsetRect:Landroid/graphics/Rect;
 
     invoke-virtual {v0, p5}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+
+    :goto_3
+    iput p6, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTempDockSide:I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :goto_3
     monitor-exit v1
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mExecutor:Ljava/util/concurrent/ExecutorService;
@@ -791,23 +600,38 @@
     goto :goto_3
 .end method
 
-.method public setAutoResizingEnabled(Z)V
+.method public setMinimizeDimLayer(ZIF)V
     .locals 2
 
-    iget-boolean v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mIsAutoResizingEnabled:Z
+    iget-object v1, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mDockedRect:Landroid/graphics/Rect;
 
-    if-eq v0, p1, :cond_0
+    monitor-enter v1
 
-    iput-boolean p1, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mIsAutoResizingEnabled:Z
+    :try_start_0
+    iput-boolean p1, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mMinimizeDimLayerVisible:Z
+
+    iput p2, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mMinimizeLayerTargetStack:I
+
+    iput p3, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mMinimizeDimLayerAlpha:F
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mExecutor:Ljava/util/concurrent/ExecutorService;
 
-    iget-object v1, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mAutoResizingChangedRunnable:Ljava/lang/Runnable;
+    iget-object v1, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mMinimizeDimLayerRunnable:Ljava/lang/Runnable;
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
 
-    :cond_0
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method public setResizeDimLayer(ZIF)V
@@ -833,9 +657,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mExecutor:Ljava/util/concurrent/ExecutorService;
 
-    new-instance v1, Lcom/android/systemui/stackdivider/WindowManagerProxy$14;
+    new-instance v1, Lcom/android/systemui/stackdivider/WindowManagerProxy$8;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/stackdivider/WindowManagerProxy$14;-><init>(Lcom/android/systemui/stackdivider/WindowManagerProxy;Z)V
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/stackdivider/WindowManagerProxy$8;-><init>(Lcom/android/systemui/stackdivider/WindowManagerProxy;Z)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
 
@@ -843,7 +667,7 @@
 .end method
 
 .method public setTouchRegion(Landroid/graphics/Rect;)V
-    .locals 3
+    .locals 2
 
     iget-object v1, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mDockedRect:Landroid/graphics/Rect;
 
@@ -852,29 +676,10 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTouchableRegion:Landroid/graphics/Rect;
 
-    invoke-virtual {v0, p1}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mTouchableRegion:Landroid/graphics/Rect;
-
     invoke-virtual {v0, p1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mExecutor:Ljava/util/concurrent/ExecutorService;
-
-    iget-object v2, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mSetTouchableRegionRunnable:Ljava/lang/Runnable;
-
-    invoke-interface {v0, v2}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v1
-
-    return-void
-
-    :cond_0
     monitor-exit v1
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mExecutor:Ljava/util/concurrent/ExecutorService;
@@ -891,63 +696,4 @@
     monitor-exit v1
 
     throw v0
-.end method
-
-.method public startDividerDragging()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mExecutor:Ljava/util/concurrent/ExecutorService;
-
-    iget-object v1, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mStartDraggingRunnable:Ljava/lang/Runnable;
-
-    invoke-interface {v0, v1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
-
-    return-void
-.end method
-
-.method public startSnapMode(ZZILandroid/graphics/Rect;Ljava/lang/String;)V
-    .locals 2
-
-    iput-boolean p1, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mStartSnapMode:Z
-
-    iput-object p4, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mSnapViewCropRect:Landroid/graphics/Rect;
-
-    iput p3, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mSnapTarget:I
-
-    iput-object p5, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mSnapCaller:Ljava/lang/String;
-
-    if-eqz p2, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mExecutor:Ljava/util/concurrent/ExecutorService;
-
-    iget-object v1, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mStartSnapModeRunnable:Ljava/lang/Runnable;
-
-    invoke-interface {v0, v1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public stopDividerDragging()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mExecutor:Ljava/util/concurrent/ExecutorService;
-
-    iget-object v1, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mStopDraggingRunnable:Ljava/lang/Runnable;
-
-    invoke-interface {v0, v1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
-
-    return-void
-.end method
-
-.method public swapTasks()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mExecutor:Ljava/util/concurrent/ExecutorService;
-
-    iget-object v1, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy;->mSwapRunnable:Ljava/lang/Runnable;
-
-    invoke-interface {v0, v1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
-
-    return-void
 .end method

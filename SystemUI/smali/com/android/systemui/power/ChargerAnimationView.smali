@@ -46,8 +46,6 @@
 
 .field private mCurrentOrientation:I
 
-.field private mDVFSHelper:Landroid/os/DVFSHelper;
-
 .field private mDisplay:Landroid/view/Display;
 
 .field private mDisplayDensity:F
@@ -118,15 +116,7 @@
     return v0
 .end method
 
-.method static synthetic -get7(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/os/DVFSHelper;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView;->mDVFSHelper:Landroid/os/DVFSHelper;
-
-    return-object v0
-.end method
-
-.method static synthetic -get8(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/graphics/drawable/AnimationDrawable;
+.method static synthetic -get7(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/graphics/drawable/AnimationDrawable;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView;->mFrameAnimation_Cable:Landroid/graphics/drawable/AnimationDrawable;
@@ -134,7 +124,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get9(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/graphics/drawable/AnimationDrawable;
+.method static synthetic -get8(Lcom/android/systemui/power/ChargerAnimationView;)Landroid/graphics/drawable/AnimationDrawable;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView;->mFrameAnimation_Wireless:Landroid/graphics/drawable/AnimationDrawable;
@@ -197,168 +187,168 @@
 
     :array_0
     .array-data 4
-        0x7f02006d
-        0x7f02006e
-        0x7f02006f
-        0x7f020070
-        0x7f020071
-        0x7f020072
-        0x7f020073
-        0x7f020074
-        0x7f020075
-        0x7f020076
-        0x7f020077
-        0x7f020078
-        0x7f020079
-        0x7f02007a
-        0x7f02007b
-        0x7f02007c
-        0x7f02007d
-        0x7f02007e
-        0x7f02007f
-        0x7f020080
-        0x7f020081
-        0x7f020082
-        0x7f020083
-        0x7f020084
-        0x7f020085
-        0x7f020086
-        0x7f020087
-        0x7f020088
-        0x7f020089
-        0x7f02008a
-        0x7f02008b
-        0x7f02008c
-        0x7f02008d
-        0x7f02008e
-        0x7f02008f
-        0x7f020090
-        0x7f020091
-        0x7f020092
-        0x7f020093
-        0x7f020094
-        0x7f020095
-        0x7f020096
-        0x7f020097
-        0x7f020098
-        0x7f020099
-        0x7f02009a
-        0x7f02009b
-        0x7f02009c
-        0x7f02009d
-        0x7f02009e
-        0x7f02009f
-        0x7f0200a0
-        0x7f0200a1
-        0x7f0200a2
-        0x7f0200a3
-        0x7f0200a4
-        0x7f0200a5
-        0x7f0200a6
-        0x7f0200a7
-        0x7f0200a8
-        0x7f0200a9
-        0x7f0200aa
-        0x7f0200ab
-        0x7f0200ac
-        0x7f0200ad
-        0x7f0200ae
-        0x7f0200af
-        0x7f0200b0
-        0x7f0200b1
-        0x7f0200b2
-        0x7f0200b3
-        0x7f0200b4
-        0x7f0200b5
-        0x7f0200b6
-        0x7f0200b7
-        0x7f0200b8
-        0x7f0200b9
-        0x7f0200ba
-        0x7f0200bb
+        0x7f08008c
+        0x7f08008d
+        0x7f08008e
+        0x7f08008f
+        0x7f080090
+        0x7f080091
+        0x7f080092
+        0x7f080093
+        0x7f080094
+        0x7f080095
+        0x7f080096
+        0x7f080097
+        0x7f080098
+        0x7f080099
+        0x7f08009a
+        0x7f08009b
+        0x7f08009c
+        0x7f08009d
+        0x7f08009e
+        0x7f08009f
+        0x7f0800a0
+        0x7f0800a1
+        0x7f0800a2
+        0x7f0800a3
+        0x7f0800a4
+        0x7f0800a5
+        0x7f0800a6
+        0x7f0800a7
+        0x7f0800a8
+        0x7f0800a9
+        0x7f0800aa
+        0x7f0800ab
+        0x7f0800ac
+        0x7f0800ad
+        0x7f0800ae
+        0x7f0800af
+        0x7f0800b0
+        0x7f0800b1
+        0x7f0800b2
+        0x7f0800b3
+        0x7f0800b4
+        0x7f0800b5
+        0x7f0800b6
+        0x7f0800b7
+        0x7f0800b8
+        0x7f0800b9
+        0x7f0800ba
+        0x7f0800bb
+        0x7f0800bc
+        0x7f0800bd
+        0x7f0800be
+        0x7f0800bf
+        0x7f0800c0
+        0x7f0800c1
+        0x7f0800c2
+        0x7f0800c3
+        0x7f0800c4
+        0x7f0800c5
+        0x7f0800c6
+        0x7f0800c7
+        0x7f0800c8
+        0x7f0800c9
+        0x7f0800ca
+        0x7f0800cb
+        0x7f0800cc
+        0x7f0800cd
+        0x7f0800ce
+        0x7f0800cf
+        0x7f0800d0
+        0x7f0800d1
+        0x7f0800d2
+        0x7f0800d3
+        0x7f0800d4
+        0x7f0800d5
+        0x7f0800d6
+        0x7f0800d7
+        0x7f0800d8
+        0x7f0800d9
+        0x7f0800da
     .end array-data
 
     :array_1
     .array-data 4
-        0x7f0200bc
-        0x7f0200bd
-        0x7f0200be
-        0x7f0200bf
-        0x7f0200c0
-        0x7f0200c1
-        0x7f0200c2
-        0x7f0200c3
-        0x7f0200c4
-        0x7f0200c5
-        0x7f0200c6
-        0x7f0200c7
-        0x7f0200c8
-        0x7f0200c9
-        0x7f0200ca
-        0x7f0200cb
-        0x7f0200cc
-        0x7f0200cd
-        0x7f0200ce
-        0x7f0200cf
-        0x7f0200d0
-        0x7f0200d1
-        0x7f0200d2
-        0x7f0200d3
-        0x7f0200d4
-        0x7f0200d5
-        0x7f0200d6
-        0x7f0200d7
-        0x7f0200d8
-        0x7f0200d9
-        0x7f0200da
-        0x7f0200db
-        0x7f0200dc
-        0x7f0200dd
-        0x7f0200de
-        0x7f0200df
-        0x7f0200e0
-        0x7f0200e1
-        0x7f0200e2
-        0x7f0200e3
-        0x7f0200e4
-        0x7f0200e5
-        0x7f0200e6
-        0x7f0200e7
-        0x7f0200e8
-        0x7f0200e9
-        0x7f0200ea
-        0x7f0200eb
-        0x7f0200ec
-        0x7f0200ed
-        0x7f0200ee
-        0x7f0200ef
-        0x7f0200f0
-        0x7f0200f1
-        0x7f0200f2
-        0x7f0200f3
-        0x7f0200f4
-        0x7f0200f5
-        0x7f0200f6
-        0x7f0200f7
-        0x7f0200f8
-        0x7f0200f9
-        0x7f0200fa
-        0x7f0200fb
-        0x7f0200fc
-        0x7f0200fd
-        0x7f0200fe
-        0x7f0200ff
-        0x7f020100
-        0x7f020101
-        0x7f020102
-        0x7f020103
-        0x7f020104
-        0x7f020105
-        0x7f020106
-        0x7f020107
-        0x7f020108
-        0x7f020109
-        0x7f02010a
+        0x7f0800db
+        0x7f0800dc
+        0x7f0800dd
+        0x7f0800de
+        0x7f0800df
+        0x7f0800e0
+        0x7f0800e1
+        0x7f0800e2
+        0x7f0800e3
+        0x7f0800e4
+        0x7f0800e5
+        0x7f0800e6
+        0x7f0800e7
+        0x7f0800e8
+        0x7f0800e9
+        0x7f0800ea
+        0x7f0800eb
+        0x7f0800ec
+        0x7f0800ed
+        0x7f0800ee
+        0x7f0800ef
+        0x7f0800f0
+        0x7f0800f1
+        0x7f0800f2
+        0x7f0800f3
+        0x7f0800f4
+        0x7f0800f5
+        0x7f0800f6
+        0x7f0800f7
+        0x7f0800f8
+        0x7f0800f9
+        0x7f0800fa
+        0x7f0800fb
+        0x7f0800fc
+        0x7f0800fd
+        0x7f0800fe
+        0x7f0800ff
+        0x7f080100
+        0x7f080101
+        0x7f080102
+        0x7f080103
+        0x7f080104
+        0x7f080105
+        0x7f080106
+        0x7f080107
+        0x7f080108
+        0x7f080109
+        0x7f08010a
+        0x7f08010b
+        0x7f08010c
+        0x7f08010d
+        0x7f08010e
+        0x7f08010f
+        0x7f080110
+        0x7f080111
+        0x7f080112
+        0x7f080113
+        0x7f080114
+        0x7f080115
+        0x7f080116
+        0x7f080117
+        0x7f080118
+        0x7f080119
+        0x7f08011a
+        0x7f08011b
+        0x7f08011c
+        0x7f08011d
+        0x7f08011e
+        0x7f08011f
+        0x7f080120
+        0x7f080121
+        0x7f080122
+        0x7f080123
+        0x7f080124
+        0x7f080125
+        0x7f080126
+        0x7f080127
+        0x7f080128
+        0x7f080129
     .end array-data
 .end method
 
@@ -975,7 +965,7 @@
 
 # virtual methods
 .method protected onFinishInflate()V
-    .locals 6
+    .locals 1
 
     invoke-super {p0}, Landroid/widget/RelativeLayout;->onFinishInflate()V
 
@@ -997,7 +987,7 @@
 
     iput v0, p0, Lcom/android/systemui/power/ChargerAnimationView;->mDisplayDensity:F
 
-    const v0, 0x7f1300e0
+    const v0, 0x7f0a00d6
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/power/ChargerAnimationView;->findViewById(I)Landroid/view/View;
 
@@ -1007,7 +997,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView;->mChargerAnimationView:Landroid/widget/ImageView;
 
-    const v0, 0x7f1300df
+    const v0, 0x7f0a006d
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/power/ChargerAnimationView;->findViewById(I)Landroid/view/View;
 
@@ -1031,7 +1021,7 @@
 
     invoke-direct {p0}, Lcom/android/systemui/power/ChargerAnimationView;->setBackGroundAnimation()V
 
-    const v0, 0x7f1300e1
+    const v0, 0x7f0a007d
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/power/ChargerAnimationView;->findViewById(I)Landroid/view/View;
 
@@ -1048,36 +1038,6 @@
     iput-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView;->mBatteryTextAnim:Landroid/animation/AnimatorSet;
 
     invoke-direct {p0}, Lcom/android/systemui/power/ChargerAnimationView;->setBatteryLevelTextAnimation()V
-
-    new-instance v0, Landroid/os/DVFSHelper;
-
-    iget-object v1, p0, Lcom/android/systemui/power/ChargerAnimationView;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v2, "CHARGER_ANIMATION_BOOSTER"
-
-    const-wide/16 v4, 0x0
-
-    const/16 v3, 0xc
-
-    invoke-direct/range {v0 .. v5}, Landroid/os/DVFSHelper;-><init>(Landroid/content/Context;Ljava/lang/String;IJ)V
-
-    iput-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView;->mDVFSHelper:Landroid/os/DVFSHelper;
-
-    iget-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView;->mDVFSHelper:Landroid/os/DVFSHelper;
-
-    const-string/jumbo v1, "CPU"
-
-    iget-object v2, p0, Lcom/android/systemui/power/ChargerAnimationView;->mDVFSHelper:Landroid/os/DVFSHelper;
-
-    const-wide/high16 v4, 0x3ff0000000000000L    # 1.0
-
-    invoke-virtual {v2, v4, v5}, Landroid/os/DVFSHelper;->getApproximateCPUFrequencyByPercentOfMaximum(D)I
-
-    move-result v2
-
-    int-to-long v2, v2
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/DVFSHelper;->addExtraOption(Ljava/lang/String;J)V
 
     return-void
 .end method
@@ -1133,10 +1093,6 @@
     return-void
 
     :cond_0
-    iget-object v1, p0, Lcom/android/systemui/power/ChargerAnimationView;->mDVFSHelper:Landroid/os/DVFSHelper;
-
-    invoke-virtual {v1}, Landroid/os/DVFSHelper;->acquire()V
-
     const/4 v1, 0x0
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/power/ChargerAnimationView;->setChargerAnimationViewVisibility(I)V
@@ -1228,10 +1184,6 @@
     const/16 v0, 0x8
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/power/ChargerAnimationView;->setChargerAnimationViewVisibility(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/power/ChargerAnimationView;->mDVFSHelper:Landroid/os/DVFSHelper;
-
-    invoke-virtual {v0}, Landroid/os/DVFSHelper;->release()V
 
     const/16 v0, 0xa
 

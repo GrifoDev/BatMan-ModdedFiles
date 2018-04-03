@@ -74,7 +74,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile$1;->this$0:Lcom/android/systemui/qs/tiles/HotspotTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/HotspotTile;->-get3(Lcom/android/systemui/qs/tiles/HotspotTile;)Landroid/app/AlertDialog;
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/HotspotTile;->-get4(Lcom/android/systemui/qs/tiles/HotspotTile;)Landroid/app/AlertDialog;
 
     move-result-object v1
 
@@ -82,7 +82,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile$1;->this$0:Lcom/android/systemui/qs/tiles/HotspotTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/HotspotTile;->-get3(Lcom/android/systemui/qs/tiles/HotspotTile;)Landroid/app/AlertDialog;
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/HotspotTile;->-get4(Lcom/android/systemui/qs/tiles/HotspotTile;)Landroid/app/AlertDialog;
 
     move-result-object v1
 
@@ -94,7 +94,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/HotspotTile$1;->this$0:Lcom/android/systemui/qs/tiles/HotspotTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/HotspotTile;->-get3(Lcom/android/systemui/qs/tiles/HotspotTile;)Landroid/app/AlertDialog;
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/HotspotTile;->-get4(Lcom/android/systemui/qs/tiles/HotspotTile;)Landroid/app/AlertDialog;
 
     move-result-object v1
 

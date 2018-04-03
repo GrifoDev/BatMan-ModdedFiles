@@ -50,7 +50,9 @@
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    sget-boolean v1, Lcom/android/systemui/volume/SecVolumeDialog;->mIsDexMode:Z
+    invoke-static {}, Lcom/android/systemui/volume/SecVolumeDialogImpl;->isDexMode()Z
+
+    move-result v1
 
     if-nez v1, :cond_1
 

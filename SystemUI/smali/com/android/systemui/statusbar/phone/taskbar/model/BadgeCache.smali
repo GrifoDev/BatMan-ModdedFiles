@@ -154,29 +154,6 @@
 
 
 # virtual methods
-.method public getBadgeCount(Landroid/content/ComponentName;)I
-    .locals 3
-
-    const/4 v0, 0x0
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/BadgeCache;->mBadges:Ljava/util/Map;
-
-    invoke-interface {v2, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/Integer;
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    :cond_0
-    return v0
-.end method
-
 .method updateBadgeCounts()Ljava/util/Map;
     .locals 18
     .annotation system Ldalvik/annotation/Signature;

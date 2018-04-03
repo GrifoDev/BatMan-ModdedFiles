@@ -31,45 +31,38 @@
 
 
 # virtual methods
-.method public onChange(ZLandroid/net/Uri;I)V
-    .locals 4
+.method public onChange(Z)V
+    .locals 5
 
-    const/4 v3, 0x0
-
-    const-string/jumbo v0, "hide_secure_folder_flag"
-
-    invoke-static {v0}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v0
-
-    invoke-virtual {p2, v0}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    if-nez p3, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/recents/model/RecentsSettingHelper$6;->this$0:Lcom/android/systemui/recents/model/RecentsSettingHelper;
+    const/4 v0, 0x1
 
     iget-object v1, p0, Lcom/android/systemui/recents/model/RecentsSettingHelper$6;->this$0:Lcom/android/systemui/recents/model/RecentsSettingHelper;
 
-    invoke-static {v1}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->-get0(Lcom/android/systemui/recents/model/RecentsSettingHelper;)Landroid/content/Context;
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->getSystemServices()Lcom/android/systemui/recents/misc/SystemServicesProxy;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    iget-object v3, p0, Lcom/android/systemui/recents/model/RecentsSettingHelper$6;->this$0:Lcom/android/systemui/recents/model/RecentsSettingHelper;
 
-    move-result-object v1
+    invoke-static {v3}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->-get0(Lcom/android/systemui/recents/model/RecentsSettingHelper;)Landroid/content/Context;
 
-    const-string/jumbo v2, "hide_secure_folder_flag"
+    move-result-object v3
 
-    invoke-static {v1, v2, v3, v3}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+    const-string/jumbo v4, "show_button_background"
 
-    move-result v1
+    invoke-virtual {v2, v3, v4}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->getSystemSetting(Landroid/content/Context;Ljava/lang/String;)I
 
-    invoke-static {v0, v1}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->-set0(Lcom/android/systemui/recents/model/RecentsSettingHelper;I)I
+    move-result v2
+
+    if-ne v2, v0, :cond_0
+
+    :goto_0
+    invoke-static {v1, v0}, Lcom/android/systemui/recents/model/RecentsSettingHelper;->-set2(Lcom/android/systemui/recents/model/RecentsSettingHelper;Z)Z
+
+    return-void
 
     :cond_0
-    return-void
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

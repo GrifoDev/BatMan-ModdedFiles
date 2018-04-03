@@ -2,9 +2,8 @@
 .super Landroid/app/Application;
 .source "SystemUIApplication.java"
 
-
-# static fields
-.field private static mGearContext:Landroid/content/Context;
+# interfaces
+.implements Lcom/android/systemui/SysUiServiceProvider;
 
 
 # instance fields
@@ -82,7 +81,9 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 6
+    .locals 7
+
+    const/4 v6, 0x3
 
     const/4 v5, 0x2
 
@@ -92,99 +93,137 @@
 
     invoke-direct {p0}, Landroid/app/Application;-><init>()V
 
-    const/16 v0, 0xe
+    const/16 v0, 0x14
 
     new-array v0, v0, [Ljava/lang/Class;
 
-    const-class v1, Lcom/android/systemui/tuner/TunerService;
+    const-class v1, Lcom/android/systemui/Dependency;
 
     aput-object v1, v0, v3
 
+    const-class v1, Lcom/android/systemui/util/NotificationChannels;
+
+    aput-object v1, v0, v4
+
+    const-class v1, Lcom/android/systemui/statusbar/CommandQueue$CommandQueueStart;
+
+    aput-object v1, v0, v5
+
     const-class v1, Lcom/android/systemui/keyguard/KeyguardViewMediator;
+
+    aput-object v1, v0, v6
+
+    const-class v1, Lcom/android/systemui/recents/Recents;
+
+    const/4 v2, 0x4
+
+    aput-object v1, v0, v2
+
+    const-class v1, Lcom/android/systemui/volume/VolumeUI;
+
+    const/4 v2, 0x5
+
+    aput-object v1, v0, v2
+
+    const-class v1, Lcom/android/systemui/stackdivider/Divider;
+
+    const/4 v2, 0x6
+
+    aput-object v1, v0, v2
+
+    const-class v1, Lcom/android/systemui/SystemBars;
+
+    const/4 v2, 0x7
+
+    aput-object v1, v0, v2
+
+    const-class v1, Lcom/android/systemui/usb/StorageNotification;
+
+    const/16 v2, 0x8
+
+    aput-object v1, v0, v2
+
+    const-class v1, Lcom/android/systemui/power/PowerUI;
+
+    const/16 v2, 0x9
+
+    aput-object v1, v0, v2
+
+    const-class v1, Lcom/android/systemui/media/RingtonePlayer;
+
+    const/16 v2, 0xa
+
+    aput-object v1, v0, v2
+
+    const-class v1, Lcom/android/systemui/keyboard/KeyboardUI;
+
+    const/16 v2, 0xb
+
+    aput-object v1, v0, v2
+
+    const-class v1, Lcom/android/systemui/pip/PipUI;
+
+    const/16 v2, 0xc
+
+    aput-object v1, v0, v2
+
+    const-class v1, Lcom/android/systemui/shortcut/ShortcutKeyDispatcher;
+
+    const/16 v2, 0xd
+
+    aput-object v1, v0, v2
+
+    const-class v1, Lcom/android/systemui/VendorServices;
+
+    const/16 v2, 0xe
+
+    aput-object v1, v0, v2
+
+    const-class v1, Lcom/android/systemui/util/leak/GarbageMonitor$Service;
+
+    const/16 v2, 0xf
+
+    aput-object v1, v0, v2
+
+    const-class v1, Lcom/android/systemui/LatencyTester;
+
+    const/16 v2, 0x10
+
+    aput-object v1, v0, v2
+
+    const-class v1, Lcom/android/systemui/globalactions/GlobalActionsComponent;
+
+    const/16 v2, 0x11
+
+    aput-object v1, v0, v2
+
+    const-class v1, Lcom/android/systemui/stackdivider/DividerPanel;
+
+    const/16 v2, 0x12
+
+    aput-object v1, v0, v2
+
+    const-class v1, Lcom/android/systemui/popup/PopupUI;
+
+    const/16 v2, 0x13
+
+    aput-object v1, v0, v2
+
+    iput-object v0, p0, Lcom/android/systemui/SystemUIApplication;->SERVICES:[Ljava/lang/Class;
+
+    new-array v0, v6, [Ljava/lang/Class;
+
+    const-class v1, Lcom/android/systemui/Dependency;
+
+    aput-object v1, v0, v3
+
+    const-class v1, Lcom/android/systemui/util/NotificationChannels;
 
     aput-object v1, v0, v4
 
     const-class v1, Lcom/android/systemui/recents/Recents;
 
     aput-object v1, v0, v5
-
-    const-class v1, Lcom/android/systemui/volume/VolumeUI;
-
-    const/4 v2, 0x3
-
-    aput-object v1, v0, v2
-
-    const-class v1, Lcom/android/systemui/stackdivider/Divider;
-
-    const/4 v2, 0x4
-
-    aput-object v1, v0, v2
-
-    const-class v1, Lcom/android/systemui/statusbar/SystemBars;
-
-    const/4 v2, 0x5
-
-    aput-object v1, v0, v2
-
-    const-class v1, Lcom/android/systemui/usb/StorageNotification;
-
-    const/4 v2, 0x6
-
-    aput-object v1, v0, v2
-
-    const-class v1, Lcom/android/systemui/power/PowerUI;
-
-    const/4 v2, 0x7
-
-    aput-object v1, v0, v2
-
-    const-class v1, Lcom/android/systemui/media/RingtonePlayer;
-
-    const/16 v2, 0x8
-
-    aput-object v1, v0, v2
-
-    const-class v1, Lcom/android/systemui/keyboard/KeyboardUI;
-
-    const/16 v2, 0x9
-
-    aput-object v1, v0, v2
-
-    const-class v1, Lcom/android/systemui/tv/pip/PipUI;
-
-    const/16 v2, 0xa
-
-    aput-object v1, v0, v2
-
-    const-class v1, Lcom/android/systemui/shortcut/ShortcutKeyDispatcher;
-
-    const/16 v2, 0xb
-
-    aput-object v1, v0, v2
-
-    const-class v1, Lcom/android/systemui/stackdivider/DividerPanel;
-
-    const/16 v2, 0xc
-
-    aput-object v1, v0, v2
-
-    const-class v1, Lcom/android/systemui/popup/PopupUI;
-
-    const/16 v2, 0xd
-
-    aput-object v1, v0, v2
-
-    iput-object v0, p0, Lcom/android/systemui/SystemUIApplication;->SERVICES:[Ljava/lang/Class;
-
-    new-array v0, v5, [Ljava/lang/Class;
-
-    const-class v1, Lcom/android/systemui/recents/Recents;
-
-    aput-object v1, v0, v3
-
-    const-class v1, Lcom/android/systemui/tv/pip/PipUI;
-
-    aput-object v1, v0, v4
 
     iput-object v0, p0, Lcom/android/systemui/SystemUIApplication;->SERVICES_PER_USER:[Ljava/lang/Class;
 
@@ -205,16 +244,8 @@
     return-void
 .end method
 
-.method public static getContext()Landroid/content/Context;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/SystemUIApplication;->mGearContext:Landroid/content/Context;
-
-    return-object v0
-.end method
-
 .method private startServicesIfNeeded([Ljava/lang/Class;)V
-    .locals 14
+    .locals 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -223,247 +254,248 @@
         }
     .end annotation
 
-    const/4 v11, 0x0
+    const/4 v9, 0x1
 
-    const/4 v10, 0x1
+    iget-boolean v6, p0, Lcom/android/systemui/SystemUIApplication;->mServicesStarted:Z
 
-    iget-boolean v9, p0, Lcom/android/systemui/SystemUIApplication;->mServicesStarted:Z
-
-    if-eqz v9, :cond_0
+    if-eqz v6, :cond_0
 
     return-void
 
     :cond_0
-    iget-boolean v9, p0, Lcom/android/systemui/SystemUIApplication;->mBootCompleted:Z
+    iget-boolean v6, p0, Lcom/android/systemui/SystemUIApplication;->mBootCompleted:Z
 
-    if-nez v9, :cond_1
+    if-nez v6, :cond_1
 
-    const-string/jumbo v9, "1"
+    const-string/jumbo v6, "1"
 
-    const-string/jumbo v12, "sys.boot_completed"
+    const-string/jumbo v7, "sys.boot_completed"
 
-    invoke-static {v12}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v7}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v7
 
-    invoke-virtual {v9, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v6
 
-    if-eqz v9, :cond_1
+    if-eqz v6, :cond_1
 
-    iput-boolean v10, p0, Lcom/android/systemui/SystemUIApplication;->mBootCompleted:Z
+    iput-boolean v9, p0, Lcom/android/systemui/SystemUIApplication;->mBootCompleted:Z
+
+    const-string/jumbo v6, "SystemUIService"
+
+    const-string/jumbo v7, "BOOT_COMPLETED was already sent"
+
+    invoke-static {v6, v7}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {p0}, Lcom/android/systemui/util/AnalyticUtils;->setConfiguration(Landroid/app/Application;)V
+
+    invoke-static {}, Lcom/android/systemui/SystemUIAnalytics;->makeSAPreferences()V
 
     :cond_1
-    const-string/jumbo v9, "SystemUIService"
+    const/16 v6, -0x10
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    invoke-static {v6}, Landroid/os/Process;->setThreadPriority(I)V
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v6, "SystemUIService"
 
-    const-string/jumbo v13, "Starting SystemUI services for user "
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v12
+    const-string/jumbo v8, "Starting SystemUI services for user "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
 
     invoke-static {}, Landroid/os/Process;->myUserHandle()Landroid/os/UserHandle;
 
-    move-result-object v13
+    move-result-object v8
 
-    invoke-virtual {v13}, Landroid/os/UserHandle;->getIdentifier()I
+    invoke-virtual {v8}, Landroid/os/UserHandle;->getIdentifier()I
 
-    move-result v13
+    move-result v8
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v7
 
-    const-string/jumbo v13, "."
+    const-string/jumbo v8, "."
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v7
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v7
 
-    invoke-static {v9, v12}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v9, "desktopmode"
-
-    invoke-virtual {p0, v9}, Lcom/android/systemui/SystemUIApplication;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/samsung/android/desktopmode/SemDesktopModeManager;
-
-    invoke-virtual {v2}, Lcom/samsung/android/desktopmode/SemDesktopModeManager;->isDesktopModeForPreparing()Z
-
-    move-result v7
-
-    invoke-virtual {p0}, Lcom/android/systemui/SystemUIApplication;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object v9
-
-    iget v9, v9, Landroid/content/res/Configuration;->semDesktopModeEnabled:I
-
-    if-ne v9, v10, :cond_4
-
-    move v6, v10
-
-    :goto_0
-    if-eq v7, v6, :cond_2
-
-    const-string/jumbo v9, "SystemUIService"
-
-    new-instance v12, Ljava/lang/StringBuilder;
-
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v13, "Self restart because of incorrect DEX mode :isDesktopModeForPreparing = "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    const-string/jumbo v13, ", isDesktopMode = "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-static {v9, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v9
-
-    invoke-static {v9}, Landroid/os/Process;->killProcess(I)V
-
-    :cond_2
-    const/16 v9, -0x10
-
-    invoke-static {v9}, Landroid/os/Process;->setThreadPriority(I)V
+    invoke-static {v6, v7}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     array-length v0, p1
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    :goto_1
-    if-ge v5, v0, :cond_6
+    :goto_0
+    if-ge v4, v0, :cond_4
 
-    aget-object v1, p1, v5
+    aget-object v1, p1, v4
+
+    const-string/jumbo v6, "SystemUIService"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "loading: "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :try_start_0
     invoke-static {}, Lcom/android/systemui/SystemUIFactory;->getInstance()Lcom/android/systemui/SystemUIFactory;
 
-    move-result-object v9
+    move-result-object v6
 
-    invoke-virtual {v9, v1}, Lcom/android/systemui/SystemUIFactory;->createInstance(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {v6, v1}, Lcom/android/systemui/SystemUIFactory;->createInstance(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v5
 
-    iget-object v12, p0, Lcom/android/systemui/SystemUIApplication;->mServices:[Lcom/android/systemui/SystemUI;
+    iget-object v7, p0, Lcom/android/systemui/SystemUIApplication;->mServices:[Lcom/android/systemui/SystemUI;
 
-    if-nez v8, :cond_5
+    if-nez v5, :cond_3
 
     invoke-virtual {v1}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
-    move-result-object v9
+    move-result-object v6
 
-    :goto_2
-    check-cast v9, Lcom/android/systemui/SystemUI;
+    :goto_1
+    check-cast v6, Lcom/android/systemui/SystemUI;
 
-    aput-object v9, v12, v5
+    aput-object v6, v7, v4
     :try_end_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
 
-    iget-object v9, p0, Lcom/android/systemui/SystemUIApplication;->mServices:[Lcom/android/systemui/SystemUI;
+    iget-object v6, p0, Lcom/android/systemui/SystemUIApplication;->mServices:[Lcom/android/systemui/SystemUI;
 
-    aget-object v9, v9, v5
+    aget-object v6, v6, v4
 
-    iput-object p0, v9, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+    iput-object p0, v6, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
 
-    iget-object v9, p0, Lcom/android/systemui/SystemUIApplication;->mServices:[Lcom/android/systemui/SystemUI;
+    iget-object v6, p0, Lcom/android/systemui/SystemUIApplication;->mServices:[Lcom/android/systemui/SystemUI;
 
-    aget-object v9, v9, v5
+    aget-object v6, v6, v4
 
-    iget-object v12, p0, Lcom/android/systemui/SystemUIApplication;->mComponents:Ljava/util/Map;
+    iget-object v7, p0, Lcom/android/systemui/SystemUIApplication;->mComponents:Ljava/util/Map;
 
-    iput-object v12, v9, Lcom/android/systemui/SystemUI;->mComponents:Ljava/util/Map;
+    iput-object v7, v6, Lcom/android/systemui/SystemUI;->mComponents:Ljava/util/Map;
 
-    iget-object v9, p0, Lcom/android/systemui/SystemUIApplication;->mServices:[Lcom/android/systemui/SystemUI;
+    const-string/jumbo v6, "SystemUIService"
 
-    aget-object v9, v9, v5
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9}, Lcom/android/systemui/SystemUI;->start()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-boolean v9, p0, Lcom/android/systemui/SystemUIApplication;->mBootCompleted:Z
+    const-string/jumbo v8, "running: "
 
-    if-eqz v9, :cond_3
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v9, p0, Lcom/android/systemui/SystemUIApplication;->mServices:[Lcom/android/systemui/SystemUI;
+    move-result-object v7
 
-    aget-object v9, v9, v5
+    iget-object v8, p0, Lcom/android/systemui/SystemUIApplication;->mServices:[Lcom/android/systemui/SystemUI;
 
-    invoke-virtual {v9}, Lcom/android/systemui/SystemUI;->onBootCompleted()V
+    aget-object v8, v8, v4
 
-    :cond_3
-    add-int/lit8 v5, v5, 0x1
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    move-result-object v7
 
-    :cond_4
-    move v6, v11
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v6, p0, Lcom/android/systemui/SystemUIApplication;->mServices:[Lcom/android/systemui/SystemUI;
+
+    aget-object v6, v6, v4
+
+    invoke-virtual {v6}, Lcom/android/systemui/SystemUI;->start()V
+
+    iget-boolean v6, p0, Lcom/android/systemui/SystemUIApplication;->mBootCompleted:Z
+
+    if-eqz v6, :cond_2
+
+    iget-object v6, p0, Lcom/android/systemui/SystemUIApplication;->mServices:[Lcom/android/systemui/SystemUI;
+
+    aget-object v6, v6, v4
+
+    invoke-virtual {v6}, Lcom/android/systemui/SystemUI;->onBootCompleted()V
+
+    :cond_2
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
-    :cond_5
-    move-object v9, v8
+    :cond_3
+    move-object v6, v5
 
-    goto :goto_2
+    goto :goto_1
 
     :catch_0
-    move-exception v4
-
-    new-instance v9, Ljava/lang/RuntimeException;
-
-    invoke-direct {v9, v4}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
-
-    throw v9
-
-    :catch_1
     move-exception v3
 
-    new-instance v9, Ljava/lang/RuntimeException;
+    new-instance v6, Ljava/lang/RuntimeException;
 
-    invoke-direct {v9, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v6, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v9
+    throw v6
 
-    :cond_6
-    iput-boolean v10, p0, Lcom/android/systemui/SystemUIApplication;->mServicesStarted:Z
+    :catch_1
+    move-exception v2
 
-    invoke-static {v11}, Landroid/os/Process;->setThreadPriority(I)V
+    new-instance v6, Ljava/lang/RuntimeException;
+
+    invoke-direct {v6, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v6
+
+    :cond_4
+    const-class v6, Lcom/android/systemui/plugins/PluginManager;
+
+    invoke-static {v6}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/android/systemui/plugins/PluginManager;
+
+    new-instance v7, Lcom/android/systemui/SystemUIApplication$2;
+
+    invoke-direct {v7, p0}, Lcom/android/systemui/SystemUIApplication$2;-><init>(Lcom/android/systemui/SystemUIApplication;)V
+
+    const-class v8, Lcom/android/systemui/plugins/OverlayPlugin;
+
+    invoke-interface {v6, v7, v8, v9}, Lcom/android/systemui/plugins/PluginManager;->addPluginListener(Lcom/android/systemui/plugins/PluginListener;Ljava/lang/Class;Z)V
+
+    iput-boolean v9, p0, Lcom/android/systemui/SystemUIApplication;->mServicesStarted:Z
+
+    const/4 v6, 0x0
+
+    invoke-static {v6}, Landroid/os/Process;->setThreadPriority(I)V
 
     return-void
 .end method
@@ -537,67 +569,98 @@
 .end method
 
 .method public onCreate()V
-    .locals 3
+    .locals 5
 
     invoke-super {p0}, Landroid/app/Application;->onCreate()V
 
-    const v1, 0x7f10020c
+    const v3, 0x7f13029e
 
-    invoke-virtual {p0, v1}, Lcom/android/systemui/SystemUIApplication;->setTheme(I)V
-
-    sput-object p0, Lcom/android/systemui/SystemUIApplication;->mGearContext:Landroid/content/Context;
+    invoke-virtual {p0, v3}, Lcom/android/systemui/SystemUIApplication;->setTheme(I)V
 
     invoke-static {p0}, Lcom/android/systemui/SystemUIFactory;->createFromConfig(Landroid/content/Context;)V
 
     invoke-static {}, Landroid/os/Process;->myUserHandle()Landroid/os/UserHandle;
 
-    move-result-object v1
+    move-result-object v3
 
-    sget-object v2, Landroid/os/UserHandle;->SYSTEM:Landroid/os/UserHandle;
+    sget-object v4, Landroid/os/UserHandle;->SYSTEM:Landroid/os/UserHandle;
 
-    invoke-virtual {v1, v2}, Landroid/os/UserHandle;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v4}, Landroid/os/UserHandle;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v3
 
-    if-eqz v1, :cond_0
+    if-eqz v3, :cond_0
 
     new-instance v0, Landroid/content/IntentFilter;
 
-    const-string/jumbo v1, "android.intent.action.BOOT_COMPLETED"
+    const-string/jumbo v3, "android.intent.action.BOOT_COMPLETED"
 
-    invoke-direct {v0, v1}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v3}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    const/16 v1, 0x3e8
+    const/16 v3, 0x3e8
 
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->setPriority(I)V
+    invoke-virtual {v0, v3}, Landroid/content/IntentFilter;->setPriority(I)V
 
-    new-instance v1, Lcom/android/systemui/SystemUIApplication$1;
+    new-instance v3, Lcom/android/systemui/SystemUIApplication$1;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/SystemUIApplication$1;-><init>(Lcom/android/systemui/SystemUIApplication;)V
+    invoke-direct {v3, p0}, Lcom/android/systemui/SystemUIApplication$1;-><init>(Lcom/android/systemui/SystemUIApplication;)V
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/systemui/SystemUIApplication;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {p0, v3, v0}, Lcom/android/systemui/SystemUIApplication;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     :goto_0
-    const-string/jumbo v1, "SystemUIService"
-
-    const-string/jumbo v2, "BixbyApi.createInstance"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     invoke-virtual {p0}, Lcom/android/systemui/SystemUIApplication;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v3
 
-    const-string/jumbo v2, "Notification"
+    const-string/jumbo v4, "Notification"
 
-    invoke-static {v1, v2}, Lcom/samsung/android/sdk/bixby/BixbyApi;->createInstance(Landroid/content/Context;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/BixbyApi;
+    invoke-static {v3, v4}, Lcom/samsung/android/sdk/bixby/BixbyApi;->createInstance(Landroid/content/Context;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/BixbyApi;
 
     return-void
 
     :cond_0
-    iget-object v1, p0, Lcom/android/systemui/SystemUIApplication;->SERVICES_PER_USER:[Ljava/lang/Class;
+    invoke-static {}, Landroid/app/ActivityThread;->currentProcessName()Ljava/lang/String;
 
-    invoke-direct {p0, v1}, Lcom/android/systemui/SystemUIApplication;->startServicesIfNeeded([Ljava/lang/Class;)V
+    move-result-object v2
+
+    invoke-virtual {p0}, Lcom/android/systemui/SystemUIApplication;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v1
+
+    if-eqz v2, :cond_1
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v4, v1, Landroid/content/pm/ApplicationInfo;->processName:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, ":"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    return-void
+
+    :cond_1
+    iget-object v3, p0, Lcom/android/systemui/SystemUIApplication;->SERVICES_PER_USER:[Ljava/lang/Class;
+
+    invoke-direct {p0, v3}, Lcom/android/systemui/SystemUIApplication;->startServicesIfNeeded([Ljava/lang/Class;)V
 
     goto :goto_0
 .end method

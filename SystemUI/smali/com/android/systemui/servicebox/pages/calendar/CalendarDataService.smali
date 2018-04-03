@@ -12,7 +12,7 @@
 
 
 # instance fields
-.field private final mBinder:Lcom/android/keyguard/servicebox/pages/calendar/ICalendarDataService$Stub;
+.field private final mBinder:Lcom/android/systemui/servicebox/pages/calendar/ICalendarDataService$Stub;
 
 
 # direct methods
@@ -25,7 +25,7 @@
 
     invoke-direct {v0, p0}, Lcom/android/systemui/servicebox/pages/calendar/CalendarDataService$1;-><init>(Lcom/android/systemui/servicebox/pages/calendar/CalendarDataService;)V
 
-    iput-object v0, p0, Lcom/android/systemui/servicebox/pages/calendar/CalendarDataService;->mBinder:Lcom/android/keyguard/servicebox/pages/calendar/ICalendarDataService$Stub;
+    iput-object v0, p0, Lcom/android/systemui/servicebox/pages/calendar/CalendarDataService;->mBinder:Lcom/android/systemui/servicebox/pages/calendar/ICalendarDataService$Stub;
 
     return-void
 .end method
@@ -35,7 +35,7 @@
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/servicebox/pages/calendar/CalendarDataService;->mBinder:Lcom/android/keyguard/servicebox/pages/calendar/ICalendarDataService$Stub;
+    iget-object v0, p0, Lcom/android/systemui/servicebox/pages/calendar/CalendarDataService;->mBinder:Lcom/android/systemui/servicebox/pages/calendar/ICalendarDataService$Stub;
 
     return-object v0
 .end method

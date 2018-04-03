@@ -13,291 +13,301 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 13
-
-    const v12, 0x800005
-
-    const/4 v11, 0x2
-
-    const/4 v10, 0x1
-
-    const/4 v8, 0x0
+    .locals 11
 
     invoke-direct {p0, p1, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
-    move-result-object v7
+    move-result-object v8
 
     sget v9, Lcom/android/settingslib/R$layout;->usage_view:I
 
-    invoke-virtual {v7, v9, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {v8, v9, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    sget v7, Lcom/android/settingslib/R$id;->usage_graph:I
+    sget v8, Lcom/android/settingslib/R$id;->usage_graph:I
 
-    invoke-virtual {p0, v7}, Lcom/android/settingslib/graph/UsageView;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v8}, Lcom/android/settingslib/graph/UsageView;->findViewById(I)Landroid/view/View;
 
-    move-result-object v7
+    move-result-object v8
 
-    check-cast v7, Lcom/android/settingslib/graph/UsageGraph;
+    check-cast v8, Lcom/android/settingslib/graph/UsageGraph;
 
-    iput-object v7, p0, Lcom/android/settingslib/graph/UsageView;->mUsageGraph:Lcom/android/settingslib/graph/UsageGraph;
+    iput-object v8, p0, Lcom/android/settingslib/graph/UsageView;->mUsageGraph:Lcom/android/settingslib/graph/UsageGraph;
 
-    const/4 v7, 0x3
+    const/4 v8, 0x3
 
-    new-array v9, v7, [Landroid/widget/TextView;
+    new-array v9, v8, [Landroid/widget/TextView;
 
-    sget v7, Lcom/android/settingslib/R$id;->label_bottom:I
+    sget v8, Lcom/android/settingslib/R$id;->label_bottom:I
 
-    invoke-virtual {p0, v7}, Lcom/android/settingslib/graph/UsageView;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v8}, Lcom/android/settingslib/graph/UsageView;->findViewById(I)Landroid/view/View;
 
-    move-result-object v7
+    move-result-object v8
 
-    check-cast v7, Landroid/widget/TextView;
+    check-cast v8, Landroid/widget/TextView;
 
-    aput-object v7, v9, v8
+    const/4 v10, 0x0
 
-    sget v7, Lcom/android/settingslib/R$id;->label_middle:I
+    aput-object v8, v9, v10
 
-    invoke-virtual {p0, v7}, Lcom/android/settingslib/graph/UsageView;->findViewById(I)Landroid/view/View;
+    sget v8, Lcom/android/settingslib/R$id;->label_middle:I
 
-    move-result-object v7
+    invoke-virtual {p0, v8}, Lcom/android/settingslib/graph/UsageView;->findViewById(I)Landroid/view/View;
 
-    check-cast v7, Landroid/widget/TextView;
+    move-result-object v8
 
-    aput-object v7, v9, v10
+    check-cast v8, Landroid/widget/TextView;
 
-    sget v7, Lcom/android/settingslib/R$id;->label_top:I
+    const/4 v10, 0x1
 
-    invoke-virtual {p0, v7}, Lcom/android/settingslib/graph/UsageView;->findViewById(I)Landroid/view/View;
+    aput-object v8, v9, v10
 
-    move-result-object v7
+    sget v8, Lcom/android/settingslib/R$id;->label_top:I
 
-    check-cast v7, Landroid/widget/TextView;
+    invoke-virtual {p0, v8}, Lcom/android/settingslib/graph/UsageView;->findViewById(I)Landroid/view/View;
 
-    aput-object v7, v9, v11
+    move-result-object v8
+
+    check-cast v8, Landroid/widget/TextView;
+
+    const/4 v10, 0x2
+
+    aput-object v8, v9, v10
 
     iput-object v9, p0, Lcom/android/settingslib/graph/UsageView;->mLabels:[Landroid/widget/TextView;
 
-    new-array v9, v11, [Landroid/widget/TextView;
+    const/4 v8, 0x2
 
-    sget v7, Lcom/android/settingslib/R$id;->label_start:I
+    new-array v9, v8, [Landroid/widget/TextView;
 
-    invoke-virtual {p0, v7}, Lcom/android/settingslib/graph/UsageView;->findViewById(I)Landroid/view/View;
+    sget v8, Lcom/android/settingslib/R$id;->label_start:I
 
-    move-result-object v7
+    invoke-virtual {p0, v8}, Lcom/android/settingslib/graph/UsageView;->findViewById(I)Landroid/view/View;
 
-    check-cast v7, Landroid/widget/TextView;
+    move-result-object v8
 
-    aput-object v7, v9, v8
+    check-cast v8, Landroid/widget/TextView;
 
-    sget v7, Lcom/android/settingslib/R$id;->label_end:I
+    const/4 v10, 0x0
 
-    invoke-virtual {p0, v7}, Lcom/android/settingslib/graph/UsageView;->findViewById(I)Landroid/view/View;
+    aput-object v8, v9, v10
 
-    move-result-object v7
+    sget v8, Lcom/android/settingslib/R$id;->label_end:I
 
-    check-cast v7, Landroid/widget/TextView;
+    invoke-virtual {p0, v8}, Lcom/android/settingslib/graph/UsageView;->findViewById(I)Landroid/view/View;
 
-    aput-object v7, v9, v10
+    move-result-object v8
+
+    check-cast v8, Landroid/widget/TextView;
+
+    const/4 v10, 0x1
+
+    aput-object v8, v9, v10
 
     iput-object v9, p0, Lcom/android/settingslib/graph/UsageView;->mBottomLabels:[Landroid/widget/TextView;
 
-    sget-object v7, Lcom/android/settingslib/R$styleable;->UsageView:[I
+    sget-object v8, Lcom/android/settingslib/R$styleable;->UsageView:[I
 
-    invoke-virtual {p1, p2, v7, v8, v8}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
+    const/4 v9, 0x0
+
+    const/4 v10, 0x0
+
+    invoke-virtual {p1, p2, v8, v9, v10}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    sget v7, Lcom/android/settingslib/R$styleable;->UsageView_sideLabels:I
+    sget v8, Lcom/android/settingslib/R$styleable;->UsageView_sideLabels:I
 
-    invoke-virtual {v0, v7}, Landroid/content/res/TypedArray;->hasValue(I)Z
+    invoke-virtual {v0, v8}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
-    move-result v7
+    move-result v8
 
-    if-eqz v7, :cond_0
+    if-eqz v8, :cond_0
 
-    sget v7, Lcom/android/settingslib/R$styleable;->UsageView_sideLabels:I
+    sget v8, Lcom/android/settingslib/R$styleable;->UsageView_sideLabels:I
 
-    invoke-virtual {v0, v7}, Landroid/content/res/TypedArray;->getTextArray(I)[Ljava/lang/CharSequence;
+    invoke-virtual {v0, v8}, Landroid/content/res/TypedArray;->getTextArray(I)[Ljava/lang/CharSequence;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {p0, v7}, Lcom/android/settingslib/graph/UsageView;->setSideLabels([Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v8}, Lcom/android/settingslib/graph/UsageView;->setSideLabels([Ljava/lang/CharSequence;)V
 
     :cond_0
-    sget v7, Lcom/android/settingslib/R$styleable;->UsageView_bottomLabels:I
+    sget v8, Lcom/android/settingslib/R$styleable;->UsageView_bottomLabels:I
 
-    invoke-virtual {v0, v7}, Landroid/content/res/TypedArray;->hasValue(I)Z
+    invoke-virtual {v0, v8}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
-    move-result v7
+    move-result v8
 
-    if-eqz v7, :cond_1
+    if-eqz v8, :cond_1
 
-    sget v7, Lcom/android/settingslib/R$styleable;->UsageView_bottomLabels:I
+    sget v8, Lcom/android/settingslib/R$styleable;->UsageView_bottomLabels:I
 
-    invoke-virtual {v0, v7}, Landroid/content/res/TypedArray;->getTextArray(I)[Ljava/lang/CharSequence;
+    invoke-virtual {v0, v8}, Landroid/content/res/TypedArray;->getTextArray(I)[Ljava/lang/CharSequence;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {p0, v7}, Lcom/android/settingslib/graph/UsageView;->setBottomLabels([Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v8}, Lcom/android/settingslib/graph/UsageView;->setBottomLabels([Ljava/lang/CharSequence;)V
 
     :cond_1
-    sget v7, Lcom/android/settingslib/R$styleable;->UsageView_textColor:I
+    sget v8, Lcom/android/settingslib/R$styleable;->UsageView_textColor:I
 
-    invoke-virtual {v0, v7}, Landroid/content/res/TypedArray;->hasValue(I)Z
+    invoke-virtual {v0, v8}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
-    move-result v7
+    move-result v8
 
-    if-eqz v7, :cond_3
+    if-eqz v8, :cond_3
 
-    sget v7, Lcom/android/settingslib/R$styleable;->UsageView_textColor:I
+    sget v8, Lcom/android/settingslib/R$styleable;->UsageView_textColor:I
 
-    invoke-virtual {v0, v7, v8}, Landroid/content/res/TypedArray;->getColor(II)I
+    const/4 v9, 0x0
 
-    move-result v2
+    invoke-virtual {v0, v8, v9}, Landroid/content/res/TypedArray;->getColor(II)I
+
+    move-result v3
 
     iget-object v9, p0, Lcom/android/settingslib/graph/UsageView;->mLabels:[Landroid/widget/TextView;
 
+    const/4 v8, 0x0
+
     array-length v10, v9
 
-    move v7, v8
-
     :goto_0
-    if-ge v7, v10, :cond_2
+    if-ge v8, v10, :cond_2
 
-    aget-object v6, v9, v7
+    aget-object v7, v9, v8
 
-    invoke-virtual {v6, v2}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {v7, v3}, Landroid/widget/TextView;->setTextColor(I)V
 
-    add-int/lit8 v7, v7, 0x1
+    add-int/lit8 v8, v8, 0x1
 
     goto :goto_0
 
     :cond_2
     iget-object v9, p0, Lcom/android/settingslib/graph/UsageView;->mBottomLabels:[Landroid/widget/TextView;
 
+    const/4 v8, 0x0
+
     array-length v10, v9
 
-    move v7, v8
-
     :goto_1
-    if-ge v7, v10, :cond_3
+    if-ge v8, v10, :cond_3
 
-    aget-object v6, v9, v7
+    aget-object v7, v9, v8
 
-    invoke-virtual {v6, v2}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {v7, v3}, Landroid/widget/TextView;->setTextColor(I)V
 
-    add-int/lit8 v7, v7, 0x1
+    add-int/lit8 v8, v8, 0x1
 
     goto :goto_1
 
     :cond_3
-    sget v7, Lcom/android/settingslib/R$styleable;->UsageView_android_gravity:I
+    sget v8, Lcom/android/settingslib/R$styleable;->UsageView_android_gravity:I
 
-    invoke-virtual {v0, v7}, Landroid/content/res/TypedArray;->hasValue(I)Z
+    invoke-virtual {v0, v8}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
-    move-result v7
+    move-result v8
 
-    if-eqz v7, :cond_4
+    if-eqz v8, :cond_4
 
-    sget v7, Lcom/android/settingslib/R$styleable;->UsageView_android_gravity:I
+    sget v8, Lcom/android/settingslib/R$styleable;->UsageView_android_gravity:I
 
-    invoke-virtual {v0, v7, v8}, Landroid/content/res/TypedArray;->getInt(II)I
+    const/4 v9, 0x0
 
-    move-result v3
+    invoke-virtual {v0, v8, v9}, Landroid/content/res/TypedArray;->getInt(II)I
 
-    if-ne v3, v12, :cond_5
+    move-result v4
 
-    sget v7, Lcom/android/settingslib/R$id;->graph_label_group:I
+    const v8, 0x800005
 
-    invoke-virtual {p0, v7}, Lcom/android/settingslib/graph/UsageView;->findViewById(I)Landroid/view/View;
+    if-ne v4, v8, :cond_5
+
+    sget v8, Lcom/android/settingslib/R$id;->graph_label_group:I
+
+    invoke-virtual {p0, v8}, Lcom/android/settingslib/graph/UsageView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/widget/LinearLayout;
+
+    sget v8, Lcom/android/settingslib/R$id;->label_group:I
+
+    invoke-virtual {p0, v8}, Lcom/android/settingslib/graph/UsageView;->findViewById(I)Landroid/view/View;
 
     move-result-object v5
 
     check-cast v5, Landroid/widget/LinearLayout;
 
-    sget v7, Lcom/android/settingslib/R$id;->label_group:I
+    invoke-virtual {v6, v5}, Landroid/widget/LinearLayout;->removeView(Landroid/view/View;)V
 
-    invoke-virtual {p0, v7}, Lcom/android/settingslib/graph/UsageView;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v6, v5}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    move-result-object v4
+    const v8, 0x800005
 
-    check-cast v4, Landroid/widget/LinearLayout;
+    invoke-virtual {v5, v8}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    invoke-virtual {v5, v4}, Landroid/widget/LinearLayout;->removeView(Landroid/view/View;)V
+    sget v8, Lcom/android/settingslib/R$id;->bottom_label_group:I
 
-    invoke-virtual {v5, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
-
-    invoke-virtual {v4, v12}, Landroid/widget/LinearLayout;->setGravity(I)V
-
-    sget v7, Lcom/android/settingslib/R$id;->bottom_label_group:I
-
-    invoke-virtual {p0, v7}, Lcom/android/settingslib/graph/UsageView;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v8}, Lcom/android/settingslib/graph/UsageView;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    invoke-virtual {v1}, Landroid/widget/LinearLayout;->getPaddingRight()I
+    sget v8, Lcom/android/settingslib/R$id;->bottom_label_space:I
 
-    move-result v7
+    invoke-virtual {v1, v8}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {v1}, Landroid/widget/LinearLayout;->getPaddingTop()I
+    move-result-object v2
 
-    move-result v9
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->removeView(Landroid/view/View;)V
 
-    invoke-virtual {v1}, Landroid/widget/LinearLayout;->getPaddingLeft()I
-
-    move-result v10
-
-    invoke-virtual {v1}, Landroid/widget/LinearLayout;->getPaddingBottom()I
-
-    move-result v11
-
-    invoke-virtual {v1, v7, v9, v10, v11}, Landroid/widget/LinearLayout;->setPadding(IIII)V
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
     :cond_4
-    iget-object v7, p0, Lcom/android/settingslib/graph/UsageView;->mUsageGraph:Lcom/android/settingslib/graph/UsageGraph;
+    iget-object v8, p0, Lcom/android/settingslib/graph/UsageView;->mUsageGraph:Lcom/android/settingslib/graph/UsageGraph;
 
     sget v9, Lcom/android/settingslib/R$styleable;->UsageView_android_colorAccent:I
 
-    invoke-virtual {v0, v9, v8}, Landroid/content/res/TypedArray;->getColor(II)I
+    const/4 v10, 0x0
 
-    move-result v8
+    invoke-virtual {v0, v9, v10}, Landroid/content/res/TypedArray;->getColor(II)I
 
-    invoke-virtual {v7, v8}, Lcom/android/settingslib/graph/UsageGraph;->setAccentColor(I)V
+    move-result v9
+
+    invoke-virtual {v8, v9}, Lcom/android/settingslib/graph/UsageGraph;->setAccentColor(I)V
 
     return-void
 
     :cond_5
-    const v7, 0x800003
+    const v8, 0x800003
 
-    if-eq v3, v7, :cond_4
+    if-eq v4, v8, :cond_4
 
-    new-instance v7, Ljava/lang/IllegalArgumentException;
+    new-instance v8, Ljava/lang/IllegalArgumentException;
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "Unsupported gravity "
+    const-string/jumbo v10, "Unsupported gravity "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-direct {v7, v8}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v8, v9}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v7
+    throw v8
 .end method
 
 

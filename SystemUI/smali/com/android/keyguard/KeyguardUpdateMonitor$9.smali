@@ -32,12 +32,14 @@
 
 # virtual methods
 .method public sendResult(Landroid/os/Bundle;)V
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
+
+    const/16 v4, 0x167
 
     const-string/jumbo v2, "isClearLock"
 
@@ -47,15 +49,15 @@
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$9;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get19()I
+    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get18()I
 
     move-result v3
 
-    invoke-static {v2, v3}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap52(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
+    invoke-static {v2, v3}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap62(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$9;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get19()I
+    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get18()I
 
     move-result v3
 
@@ -73,7 +75,7 @@
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$9;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-static {v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get5(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get3(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -84,5 +86,39 @@
     invoke-virtual {v2, v0}, Landroid/support/v4/content/LocalBroadcastManager;->sendBroadcast(Landroid/content/Intent;)Z
 
     :cond_0
+    sget-boolean v2, Lcom/android/systemui/Rune;->KEYWI_USE_EXTERNAL_CLOCK_PACKAGE:Z
+
+    if-eqz v2, :cond_2
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$9;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get7(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/os/Handler;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v4}, Landroid/os/Handler;->hasMessages(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$9;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get7(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/os/Handler;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v4}, Landroid/os/Handler;->removeMessages(I)V
+
+    :cond_1
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$9;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get7(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/os/Handler;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v4}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+
+    :cond_2
     return-void
 .end method

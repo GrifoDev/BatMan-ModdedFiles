@@ -171,7 +171,7 @@
 
     sget-object v6, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;->HOME_APPLICATION:Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;
 
-    if-ne v5, v6, :cond_3
+    if-ne v5, v6, :cond_2
 
     new-instance v4, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$TitleIconInfo;
 
@@ -212,22 +212,21 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    xor-int/lit8 v5, v5, 0x1
 
-    :cond_1
-    :goto_0
-    return v0
+    if-eqz v5, :cond_1
 
-    :cond_2
     iget-object v5, v4, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$TitleIconInfo;->mTitle:Ljava/lang/String;
 
     iput-object v5, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mTitle:Ljava/lang/String;
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    :cond_1
+    :goto_0
+    return v0
 
-    :cond_3
+    :cond_2
     iget-object v5, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mType:Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;
 
     sget-object v6, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;->HOME_SHORTCUT:Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;
@@ -236,7 +235,13 @@
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskbarLoader;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
 
-    invoke-virtual {v5}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getDBManager()Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskbarLoader;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
+
+    invoke-virtual {v5}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getContext()Landroid/content/Context;
+
+    move-result-object v5
+
+    invoke-static {v5}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getDBManager(Landroid/content/Context;)Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;
 
     move-result-object v5
 
@@ -246,13 +251,13 @@
 
     iget-object v5, v3, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mIconBitmap:Landroid/graphics/Bitmap;
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_3
 
     iget-object v5, v3, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mIconBitmap:Landroid/graphics/Bitmap;
 
     iget-object v6, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mIconBitmap:Landroid/graphics/Bitmap;
 
-    if-eq v5, v6, :cond_4
+    if-eq v5, v6, :cond_3
 
     iget-object v5, v3, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mIconBitmap:Landroid/graphics/Bitmap;
 
@@ -260,7 +265,7 @@
 
     const/4 v0, 0x1
 
-    :cond_4
+    :cond_3
     iget-object v5, v3, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mTitle:Ljava/lang/String;
 
     if-eqz v5, :cond_1
@@ -273,7 +278,9 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    xor-int/lit8 v5, v5, 0x1
+
+    if-eqz v5, :cond_1
 
     iget-object v5, v3, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mTitle:Ljava/lang/String;
 

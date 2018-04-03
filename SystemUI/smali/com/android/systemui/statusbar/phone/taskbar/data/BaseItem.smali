@@ -216,7 +216,7 @@
 
     move-result-object v11
 
-    invoke-virtual {v7, v11}, Landroid/content/pm/PackageManager;->getCSCPackageItemIcon(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v7, v11}, Landroid/content/pm/PackageManager;->semGetCscPackageItemIcon(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
     :try_end_0
     .catch Ljava/lang/NoSuchMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -303,7 +303,7 @@
 
     const/4 v12, 0x1
 
-    invoke-virtual {v7, v11, v12}, Landroid/content/pm/PackageManager;->getActivityIconForIconTray(Landroid/content/ComponentName;I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v7, v11, v12}, Landroid/content/pm/PackageManager;->semGetActivityIconForIconTray(Landroid/content/ComponentName;I)Landroid/graphics/drawable/Drawable;
     :try_end_1
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_2
     .catch Ljava/lang/NoSuchMethodError; {:try_start_1 .. :try_end_1} :catch_1

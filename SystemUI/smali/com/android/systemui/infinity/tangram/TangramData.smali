@@ -12,6 +12,8 @@
 
 .field public index:I
 
+.field public maskId:I
+
 .field public maxX:F
 
 .field public minX:F
@@ -24,11 +26,15 @@
 
 .field public plusMoveX:F
 
+.field public plusMoveY:F
+
 .field public rotateY:F
 
 .field public showingProgress:F
 
 .field public targetAlpha:F
+
+.field public textureId:I
 
 
 # direct methods

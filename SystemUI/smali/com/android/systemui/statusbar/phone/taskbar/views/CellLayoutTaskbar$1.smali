@@ -260,7 +260,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->-get4(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Z
+    invoke-static {v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->-get5(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Z
 
     move-result v2
 
@@ -284,7 +284,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->-get4(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Z
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->-get5(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Z
 
     move-result v0
 
@@ -302,6 +302,10 @@
 
     :cond_2
     invoke-virtual {p1, v3}, Landroid/view/View;->setHapticFeedbackEnabled(Z)V
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->semSetHoverPopupType(I)V
 
     invoke-virtual {p2}, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;->getTitle()Ljava/lang/String;
 
@@ -335,7 +339,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->-get6(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Landroid/telephony/TelephonyManager;
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->-get7(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Landroid/telephony/TelephonyManager;
 
     move-result-object v1
 
@@ -347,17 +351,17 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;
 
-    invoke-static {v0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->-wrap2(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;Landroid/view/View;)V
+    invoke-static {v0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->-wrap3(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;Landroid/view/View;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->-get6(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Landroid/telephony/TelephonyManager;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->-get7(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Landroid/telephony/TelephonyManager;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->-get2(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Landroid/telephony/PhoneStateListener;
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->-get3(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Landroid/telephony/PhoneStateListener;
 
     move-result-object v1
 

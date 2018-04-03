@@ -28,12 +28,6 @@
     return v0
 .end method
 
-.method public setAccessibilityController(Lcom/android/systemui/statusbar/policy/AccessibilityController;)V
-    .locals 0
-
-    return-void
-.end method
-
 .method public setBottomIconsCallback(Lcom/android/systemui/statusbar/phone/LockIcon$BottomIconsCallback;)V
     .locals 0
 

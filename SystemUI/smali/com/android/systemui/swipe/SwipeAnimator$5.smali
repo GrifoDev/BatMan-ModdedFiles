@@ -159,7 +159,7 @@
     :cond_0
     iget-boolean v1, p0, Lcom/android/systemui/swipe/SwipeAnimator$5;->val$focus:Z
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_5
 
     const/4 v0, 0x0
 
@@ -176,7 +176,7 @@
 
     iget-boolean v1, p0, Lcom/android/systemui/swipe/SwipeAnimator$5;->val$focus:Z
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_6
 
     move v1, v2
 
@@ -190,18 +190,20 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3
 
     iget-object v1, p0, Lcom/android/systemui/swipe/SwipeAnimator$5;->val$rightShortcut:Landroid/widget/ImageView;
 
     iget-boolean v4, p0, Lcom/android/systemui/swipe/SwipeAnimator$5;->val$focus:Z
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_2
 
-    :goto_2
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageAlpha(I)V
+    move v3, v2
 
     :cond_2
+    invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setImageAlpha(I)V
+
+    :cond_3
     iget-object v1, p0, Lcom/android/systemui/swipe/SwipeAnimator$5;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
 
     invoke-static {v1}, Lcom/android/systemui/swipe/SwipeAnimator;->-get2(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/view/View;
@@ -210,20 +212,30 @@
 
     invoke-virtual {v1, v0}, Landroid/view/View;->setAlpha(F)V
 
+    iget-object v1, p0, Lcom/android/systemui/swipe/SwipeAnimator$5;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
+
+    invoke-static {v1}, Lcom/android/systemui/swipe/SwipeAnimator;->-get2(Lcom/android/systemui/swipe/SwipeAnimator;)Landroid/view/View;
+
+    move-result-object v1
+
+    iget-boolean v3, p0, Lcom/android/systemui/swipe/SwipeAnimator$5;->val$focus:Z
+
+    if-eqz v3, :cond_4
+
+    const/4 v2, 0x4
+
+    :cond_4
+    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
+
     return-void
 
-    :cond_3
+    :cond_5
     const/high16 v0, 0x3f800000    # 1.0f
 
     goto :goto_0
 
-    :cond_4
+    :cond_6
     move v1, v3
 
     goto :goto_1
-
-    :cond_5
-    move v2, v3
-
-    goto :goto_2
 .end method

@@ -77,6 +77,12 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->hide(II)V
 
+    sget-object v0, Lcom/android/systemui/SystemUIAnalytics;->mCurrentScreenID:Ljava/lang/String;
+
+    const-string/jumbo v1, "3001"
+
+    invoke-static {v0, v1}, Lcom/android/systemui/SystemUIAnalytics;->sendEventLog(Ljava/lang/String;Ljava/lang/String;)V
+
     :cond_0
     return-void
 .end method

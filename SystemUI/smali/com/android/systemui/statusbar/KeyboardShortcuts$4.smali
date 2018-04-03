@@ -48,6 +48,18 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts$4;->this$0:Lcom/android/systemui/statusbar/KeyboardShortcuts;
 
+    invoke-static {v1}, Lcom/android/systemui/statusbar/KeyboardShortcuts;->-get0(Lcom/android/systemui/statusbar/KeyboardShortcuts;)Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/systemui/statusbar/DeviceState;->isDesktopMode(Landroid/content/Context;)Z
+
+    move-result v1
+
+    invoke-static {v1}, Lcom/android/systemui/statusbar/KeyboardShortcuts;->-set0(Z)Z
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts$4;->this$0:Lcom/android/systemui/statusbar/KeyboardShortcuts;
+
     invoke-static {v1}, Lcom/android/systemui/statusbar/KeyboardShortcuts;->-wrap1(Lcom/android/systemui/statusbar/KeyboardShortcuts;)Landroid/view/KeyboardShortcutGroup;
 
     move-result-object v1
@@ -67,7 +79,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts$4;->this$0:Lcom/android/systemui/statusbar/KeyboardShortcuts;
 
-    invoke-static {v1, p1}, Lcom/android/systemui/statusbar/KeyboardShortcuts;->-wrap5(Lcom/android/systemui/statusbar/KeyboardShortcuts;Ljava/util/List;)V
+    invoke-static {v1, p1}, Lcom/android/systemui/statusbar/KeyboardShortcuts;->-wrap6(Lcom/android/systemui/statusbar/KeyboardShortcuts;Ljava/util/List;)V
 
     return-void
 .end method

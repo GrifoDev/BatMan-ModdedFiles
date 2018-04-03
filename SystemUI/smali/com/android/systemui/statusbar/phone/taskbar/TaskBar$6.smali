@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar$6;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->-wrap1(Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;)V
+    invoke-static {v0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->-wrap1(Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;I)V
 
     return-void
 .end method
@@ -49,7 +49,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar$6;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->-wrap1(Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;)V
+    invoke-static {v0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->-wrap2(Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;I)V
 
     return-void
 .end method
@@ -59,7 +59,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar$6;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->-wrap1(Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;)V
+    invoke-static {v0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->-wrap3(Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;I)V
 
     return-void
 .end method

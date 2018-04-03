@@ -3,10 +3,21 @@
 .source "R.java"
 
 
-# static fields
-.field public static final TextAppearance_Leanback_SearchTextEdit:I = 0x7f100012
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/support/v17/leanback/R;
+.end annotation
 
-.field public static final Widget_Leanback_ImageCardView:I = 0x7f100020
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "style"
+.end annotation
+
+
+# static fields
+.field public static final TextAppearance_Leanback_SearchTextEdit:I = 0x7f13016e
+
+.field public static final Widget_Leanback_ImageCardView:I = 0x7f130250
 
 
 # direct methods

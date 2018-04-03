@@ -41,7 +41,7 @@
 .method private doFinish()V
     .locals 2
 
-    const v1, 0x7f0f02ff
+    const v1, 0x7f12079e
 
     invoke-static {p0, v1}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
 
@@ -100,12 +100,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_1
-    return v4
+    if-eqz v2, :cond_1
 
-    :cond_2
     const/4 v2, 0x4
 
     invoke-virtual {v1, v4, v2}, Ljava/lang/String;->subSequence(II)Ljava/lang/CharSequence;
@@ -129,6 +127,9 @@
     if-lt v2, v3, :cond_1
 
     return v5
+
+    :cond_1
+    return v4
 .end method
 
 
@@ -269,7 +270,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0f0300
+    const v5, 0x7f1207c5
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -279,7 +280,7 @@
 
     move-result-object v4
 
-    const v5, 0x1040372
+    const v5, 0x1040287
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -293,7 +294,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0f0301
+    const v5, 0x7f120979
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -49,7 +49,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController$1;->this$0:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->-get2(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;)Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->-get1(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;)Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;
 
     move-result-object v0
 

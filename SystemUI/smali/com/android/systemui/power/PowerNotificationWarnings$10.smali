@@ -3,7 +3,7 @@
 .source "PowerNotificationWarnings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
@@ -34,12 +34,14 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 1
+.method public onDismiss(Landroid/content/DialogInterface;)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$10;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-wrap3(Lcom/android/systemui/power/PowerNotificationWarnings;)V
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set13(Lcom/android/systemui/power/PowerNotificationWarnings;Landroid/app/ProgressDialog;)Landroid/app/ProgressDialog;
 
     return-void
 .end method

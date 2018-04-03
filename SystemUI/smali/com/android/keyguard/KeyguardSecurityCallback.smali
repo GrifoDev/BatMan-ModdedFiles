@@ -4,7 +4,7 @@
 
 
 # virtual methods
-.method public abstract dismiss(Z)V
+.method public abstract dismiss(ZI)V
 .end method
 
 .method public abstract isVerifyUnlockOnly()Z

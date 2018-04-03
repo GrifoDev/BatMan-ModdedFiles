@@ -211,11 +211,11 @@
 .method private chevronPosY()I
     .locals 2
 
-    const/4 v0, 0x0
-
     iget-object v1, p0, Lcom/android/systemui/volume/VolumeDialogMotion;->mChevron:Landroid/view/View;
 
     if-nez v1, :cond_0
+
+    const/4 v0, 0x0
 
     :goto_0
     if-nez v0, :cond_1
@@ -255,7 +255,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/volume/VolumeDialogMotion;->mResources:Landroid/content/res/Resources;
 
-    const v6, 0x7f0d03d9
+    const v6, 0x7f070679
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -319,9 +319,9 @@
 
     invoke-virtual {v1, v5}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
 
-    new-instance v5, Lcom/android/systemui/volume/VolumeDialogMotion$9;
+    new-instance v5, Lcom/android/systemui/volume/VolumeDialogMotion$10;
 
-    invoke-direct {v5, p0, p1}, Lcom/android/systemui/volume/VolumeDialogMotion$9;-><init>(Lcom/android/systemui/volume/VolumeDialogMotion;Ljava/lang/Runnable;)V
+    invoke-direct {v5, p0, p1}, Lcom/android/systemui/volume/VolumeDialogMotion$10;-><init>(Lcom/android/systemui/volume/VolumeDialogMotion;Ljava/lang/Runnable;)V
 
     invoke-virtual {v1, v5}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
@@ -347,7 +347,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/volume/VolumeDialogMotion;->mResources:Landroid/content/res/Resources;
 
-    const v6, 0x7f0d03d9
+    const v6, 0x7f070679
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -411,9 +411,9 @@
 
     invoke-virtual {v2, v5}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
 
-    new-instance v5, Lcom/android/systemui/volume/VolumeDialogMotion$6;
+    new-instance v5, Lcom/android/systemui/volume/VolumeDialogMotion$7;
 
-    invoke-direct {v5, p0}, Lcom/android/systemui/volume/VolumeDialogMotion$6;-><init>(Lcom/android/systemui/volume/VolumeDialogMotion;)V
+    invoke-direct {v5, p0}, Lcom/android/systemui/volume/VolumeDialogMotion$7;-><init>(Lcom/android/systemui/volume/VolumeDialogMotion;)V
 
     invoke-virtual {v2, v5}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
@@ -652,6 +652,14 @@
 
     move-result-object v0
 
+    new-instance v1, Lcom/android/systemui/volume/VolumeDialogMotion$4;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/volume/VolumeDialogMotion$4;-><init>(Lcom/android/systemui/volume/VolumeDialogMotion;)V
+
+    invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->withEndAction(Ljava/lang/Runnable;)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
     invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->start()V
 
     const/4 v0, 0x2
@@ -694,17 +702,17 @@
 
     iget-object v0, p0, Lcom/android/systemui/volume/VolumeDialogMotion;->mContentsPositionAnimator:Landroid/animation/ValueAnimator;
 
-    new-instance v1, Lcom/android/systemui/volume/VolumeDialogMotion$4;
+    new-instance v1, Lcom/android/systemui/volume/VolumeDialogMotion$5;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/volume/VolumeDialogMotion$4;-><init>(Lcom/android/systemui/volume/VolumeDialogMotion;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/volume/VolumeDialogMotion$5;-><init>(Lcom/android/systemui/volume/VolumeDialogMotion;)V
 
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
     iget-object v0, p0, Lcom/android/systemui/volume/VolumeDialogMotion;->mContentsPositionAnimator:Landroid/animation/ValueAnimator;
 
-    new-instance v1, Lcom/android/systemui/volume/VolumeDialogMotion$5;
+    new-instance v1, Lcom/android/systemui/volume/VolumeDialogMotion$6;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/volume/VolumeDialogMotion$5;-><init>(Lcom/android/systemui/volume/VolumeDialogMotion;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/volume/VolumeDialogMotion$6;-><init>(Lcom/android/systemui/volume/VolumeDialogMotion;)V
 
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
@@ -1028,7 +1036,9 @@
     invoke-direct {p0, v0}, Lcom/android/systemui/volume/VolumeDialogMotion;->setShowing(Z)V
 
     :cond_4
-    sget-boolean v0, Lcom/android/systemui/volume/SecVolumeDialog;->mIsDexMode:Z
+    invoke-static {}, Lcom/android/systemui/volume/SecVolumeDialogImpl;->isDexMode()Z
+
+    move-result v0
 
     if-nez v0, :cond_5
 
@@ -1072,17 +1082,17 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/systemui/volume/VolumeDialogMotion$7;
+    new-instance v1, Lcom/android/systemui/volume/VolumeDialogMotion$8;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/volume/VolumeDialogMotion$7;-><init>(Lcom/android/systemui/volume/VolumeDialogMotion;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/volume/VolumeDialogMotion$8;-><init>(Lcom/android/systemui/volume/VolumeDialogMotion;)V
 
     invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->setUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/systemui/volume/VolumeDialogMotion$8;
+    new-instance v1, Lcom/android/systemui/volume/VolumeDialogMotion$9;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/volume/VolumeDialogMotion$8;-><init>(Lcom/android/systemui/volume/VolumeDialogMotion;Ljava/lang/Runnable;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/volume/VolumeDialogMotion$9;-><init>(Lcom/android/systemui/volume/VolumeDialogMotion;Ljava/lang/Runnable;)V
 
     invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
 
@@ -1130,7 +1140,9 @@
 
     if-eqz v0, :cond_3
 
-    sget-boolean v0, Lcom/android/systemui/volume/SecVolumeDialog;->mIsDexMode:Z
+    invoke-static {}, Lcom/android/systemui/volume/SecVolumeDialogImpl;->isDexMode()Z
+
+    move-result v0
 
     if-nez v0, :cond_2
 

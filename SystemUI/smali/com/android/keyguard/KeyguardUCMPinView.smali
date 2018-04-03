@@ -63,7 +63,15 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/keyguard/KeyguardUCMPinView;)I
+.method static synthetic -get0(Lcom/android/keyguard/KeyguardUCMPinView;)Landroid/content/Context;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUCMPinView;->mContext:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1(Lcom/android/keyguard/KeyguardUCMPinView;)I
     .locals 1
 
     iget v0, p0, Lcom/android/keyguard/KeyguardUCMPinView;->mError:I
@@ -71,7 +79,15 @@
     return v0
 .end method
 
-.method static synthetic -get1(Lcom/android/keyguard/KeyguardUCMPinView;)Ljava/lang/String;
+.method static synthetic -get10()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/keyguard/KeyguardUCMPinView;->unlockOngoing:Z
+
+    return v0
+.end method
+
+.method static synthetic -get2(Lcom/android/keyguard/KeyguardUCMPinView;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUCMPinView;->mMISCInfo:Ljava/lang/String;
@@ -79,7 +95,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/keyguard/KeyguardUCMPinView;)I
+.method static synthetic -get3(Lcom/android/keyguard/KeyguardUCMPinView;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/keyguard/KeyguardUCMPinView;->mPukSupported:Z
+
+    return v0
+.end method
+
+.method static synthetic -get4(Lcom/android/keyguard/KeyguardUCMPinView;)I
     .locals 1
 
     iget v0, p0, Lcom/android/keyguard/KeyguardUCMPinView;->mRemainingAttempts:I
@@ -87,7 +111,7 @@
     return v0
 .end method
 
-.method static synthetic -get3(Lcom/android/keyguard/KeyguardUCMPinView;)Lcom/android/keyguard/KeyguardUCMPinView$StateMachine;
+.method static synthetic -get5(Lcom/android/keyguard/KeyguardUCMPinView;)Lcom/android/keyguard/KeyguardUCMPinView$StateMachine;
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUCMPinView;->mStateMachine:Lcom/android/keyguard/KeyguardUCMPinView$StateMachine;
@@ -95,7 +119,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/android/keyguard/KeyguardUCMPinView;)I
+.method static synthetic -get6(Lcom/android/keyguard/KeyguardUCMPinView;)I
     .locals 1
 
     iget v0, p0, Lcom/android/keyguard/KeyguardUCMPinView;->mStatus:I
@@ -103,7 +127,7 @@
     return v0
 .end method
 
-.method static synthetic -get5(Lcom/android/keyguard/KeyguardUCMPinView;)Landroid/widget/TextView;
+.method static synthetic -get7(Lcom/android/keyguard/KeyguardUCMPinView;)Landroid/widget/TextView;
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUCMPinView;->mUCMMiscTagValue:Landroid/widget/TextView;
@@ -111,7 +135,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get6(Lcom/android/keyguard/KeyguardUCMPinView;)Landroid/app/ProgressDialog;
+.method static synthetic -get8(Lcom/android/keyguard/KeyguardUCMPinView;)Landroid/app/ProgressDialog;
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUCMPinView;->mUnlockProgressDialog:Landroid/app/ProgressDialog;
@@ -119,20 +143,12 @@
     return-object v0
 .end method
 
-.method static synthetic -get7()Ljava/lang/Object;
+.method static synthetic -get9()Ljava/lang/Object;
     .locals 1
 
     sget-object v0, Lcom/android/keyguard/KeyguardUCMPinView;->syncObj:Ljava/lang/Object;
 
     return-object v0
-.end method
-
-.method static synthetic -get8()Z
-    .locals 1
-
-    sget-boolean v0, Lcom/android/keyguard/KeyguardUCMPinView;->unlockOngoing:Z
-
-    return v0
 .end method
 
 .method static synthetic -set0(Lcom/android/keyguard/KeyguardUCMPinView;Lcom/android/keyguard/KeyguardUCMPinView$CheckUcmPin;)Lcom/android/keyguard/KeyguardUCMPinView$CheckUcmPin;
@@ -195,7 +211,15 @@
     return v0
 .end method
 
-.method static synthetic -wrap10(Lcom/android/keyguard/KeyguardUCMPinView;)V
+.method static synthetic -wrap10(Lcom/android/keyguard/KeyguardUCMPinView;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUCMPinView;->startProgress(Z)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap11(Lcom/android/keyguard/KeyguardUCMPinView;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardUCMPinView;->stopProgress()V
@@ -203,7 +227,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap11(Lcom/android/keyguard/KeyguardUCMPinView;)V
+.method static synthetic -wrap12(Lcom/android/keyguard/KeyguardUCMPinView;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardUCMPinView;->verifyPUKandUnlock()V
@@ -254,6 +278,16 @@
 .method static synthetic -wrap6(Lcom/android/keyguard/KeyguardUCMPinView;I)Ljava/lang/String;
     .locals 1
 
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUCMPinView;->getErrorMessage(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic -wrap7(Lcom/android/keyguard/KeyguardUCMPinView;I)Ljava/lang/String;
+    .locals 1
+
     invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUCMPinView;->getRemainingCount(I)Ljava/lang/String;
 
     move-result-object v0
@@ -261,7 +295,7 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap7(Lcom/android/keyguard/KeyguardUCMPinView;Ljava/lang/String;I)V
+.method static synthetic -wrap8(Lcom/android/keyguard/KeyguardUCMPinView;Ljava/lang/String;I)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/keyguard/KeyguardUCMPinView;->checkPassword(Ljava/lang/String;I)V
@@ -269,18 +303,10 @@
     return-void
 .end method
 
-.method static synthetic -wrap8(Lcom/android/keyguard/KeyguardUCMPinView;)V
+.method static synthetic -wrap9(Lcom/android/keyguard/KeyguardUCMPinView;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardUCMPinView;->getAgentInfoAndUpdateStatus()V
-
-    return-void
-.end method
-
-.method static synthetic -wrap9(Lcom/android/keyguard/KeyguardUCMPinView;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUCMPinView;->startProgress(Z)V
 
     return-void
 .end method
@@ -1066,8 +1092,332 @@
     return-object v0
 .end method
 
+.method private getErrorMessage(I)Ljava/lang/String;
+    .locals 8
+
+    const v7, 0x7f120685
+
+    const/4 v6, 0x1
+
+    const/4 v5, 0x0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "\n("
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "0x%08X"
+
+    new-array v3, v6, [Ljava/lang/Object;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    aput-object v4, v3, v5
+
+    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, ")"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    sparse-switch p1, :sswitch_data_0
+
+    const/high16 v1, 0x8000000
+
+    if-ge v1, p1, :cond_0
+
+    const/high16 v1, 0x8010000
+
+    if-le v1, p1, :cond_0
+
+    const-string/jumbo v1, "0x%08X"
+
+    new-array v2, v6, [Ljava/lang/Object;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v2, v5
+
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardUCMPinView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "\n("
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    add-int/lit8 v2, v2, -0x4
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    invoke-virtual {v0, v2, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, ")"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    return-object v1
+
+    :sswitch_0
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardUCMPinView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f12067d
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    return-object v1
+
+    :sswitch_1
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardUCMPinView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f12067b
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    return-object v1
+
+    :sswitch_2
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardUCMPinView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    return-object v1
+
+    :cond_0
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardUCMPinView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f120686
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    return-object v1
+
+    :sswitch_data_0
+    .sparse-switch
+        0x1 -> :sswitch_0
+        0x2 -> :sswitch_0
+        0x3 -> :sswitch_0
+        0x4 -> :sswitch_0
+        0x5 -> :sswitch_0
+        0x6 -> :sswitch_0
+        0x7 -> :sswitch_0
+        0x8 -> :sswitch_0
+        0x9 -> :sswitch_0
+        0xa -> :sswitch_0
+        0xb -> :sswitch_0
+        0xc -> :sswitch_0
+        0xd -> :sswitch_0
+        0xe -> :sswitch_0
+        0xf -> :sswitch_0
+        0x10 -> :sswitch_0
+        0x11 -> :sswitch_0
+        0x12 -> :sswitch_0
+        0x13 -> :sswitch_0
+        0x14 -> :sswitch_0
+        0x15 -> :sswitch_0
+        0x16 -> :sswitch_0
+        0x17 -> :sswitch_0
+        0x18 -> :sswitch_0
+        0x19 -> :sswitch_0
+        0x101 -> :sswitch_0
+        0x102 -> :sswitch_0
+        0x103 -> :sswitch_0
+        0x104 -> :sswitch_0
+        0x105 -> :sswitch_0
+        0x106 -> :sswitch_0
+        0x107 -> :sswitch_0
+        0x108 -> :sswitch_0
+        0x109 -> :sswitch_0
+        0x10a -> :sswitch_0
+        0x10b -> :sswitch_0
+        0x10c -> :sswitch_0
+        0x10d -> :sswitch_0
+        0x10e -> :sswitch_0
+        0x10f -> :sswitch_0
+        0x1000 -> :sswitch_0
+        0x1fff -> :sswitch_0
+        0x1000100 -> :sswitch_1
+        0x1000200 -> :sswitch_1
+        0x1000300 -> :sswitch_1
+        0x1000400 -> :sswitch_1
+        0x2000101 -> :sswitch_1
+        0x2000102 -> :sswitch_1
+        0x2000201 -> :sswitch_1
+        0x2000301 -> :sswitch_1
+        0x2000302 -> :sswitch_1
+        0x2000303 -> :sswitch_1
+        0x2000304 -> :sswitch_1
+        0x2000305 -> :sswitch_1
+        0x2000306 -> :sswitch_1
+        0x2000401 -> :sswitch_1
+        0x2000402 -> :sswitch_1
+        0x2000403 -> :sswitch_1
+        0x2000404 -> :sswitch_1
+        0x2000405 -> :sswitch_1
+        0x2000406 -> :sswitch_1
+        0x2000501 -> :sswitch_1
+        0x2000502 -> :sswitch_1
+        0x3000000 -> :sswitch_1
+        0x3000001 -> :sswitch_1
+        0x3000002 -> :sswitch_1
+        0x3000003 -> :sswitch_1
+        0x3000004 -> :sswitch_1
+        0x8000000 -> :sswitch_2
+        0x9000000 -> :sswitch_0
+        0xc000100 -> :sswitch_0
+        0xc000200 -> :sswitch_0
+    .end sparse-switch
+.end method
+
 .method private getRemainingCount(I)Ljava/lang/String;
-    .locals 6
+    .locals 5
 
     const-string/jumbo v0, ""
 
@@ -1077,21 +1427,21 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/keyguard/R$plurals;->kg_attempt_left:I
+    const/4 v2, 0x1
 
-    const/4 v3, 0x1
-
-    new-array v3, v3, [Ljava/lang/Object;
+    new-array v2, v2, [Ljava/lang/Object;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v3
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    aput-object v4, v3, v5
+    aput-object v3, v2, v4
 
-    invoke-virtual {v1, v2, p1, v3}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
+    const/high16 v3, 0x7f100000
+
+    invoke-virtual {v1, v3, p1, v2}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -1205,7 +1555,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardUCMPinView;->mContext:Landroid/content/Context;
 
-    sget v2, Lcom/android/keyguard/R$string;->kg_ucm_loading:I
+    const v2, 0x7f120681
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1246,7 +1596,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardUCMPinView;->mContext:Landroid/content/Context;
 
-    sget v2, Lcom/android/keyguard/R$string;->kg_ucm_unlocking:I
+    const v2, 0x7f120688
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1914,7 +2264,7 @@
 .method protected getPasswordTextViewId()I
     .locals 1
 
-    sget v0, Lcom/android/keyguard/R$id;->ucmPinEntry:I
+    const v0, 0x7f0a0543
 
     return v0
 .end method
@@ -1930,13 +2280,13 @@
 .method protected getSecurityViewId()I
     .locals 1
 
-    sget v0, Lcom/android/keyguard/R$id;->keyguard_ucm_pin_view:I
+    const v0, 0x7f0a02bb
 
     return v0
 .end method
 
 .method public getVendorID()V
-    .locals 6
+    .locals 7
 
     const-string/jumbo v4, "KeyguardUCMPinView"
 
@@ -2004,6 +2354,42 @@
     move-result v4
 
     iput-boolean v4, p0, Lcom/android/keyguard/KeyguardUCMPinView;->mPukSupported:Z
+
+    const-string/jumbo v4, "KeyguardUCMPinView"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "mAgentID : "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-object v6, p0, Lcom/android/keyguard/KeyguardUCMPinView;->mAgentID:Ljava/lang/String;
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, ", mPukSupported : "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-boolean v6, p0, Lcom/android/keyguard/KeyguardUCMPinView;->mPukSupported:Z
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -2050,7 +2436,7 @@
 
     invoke-super {p0}, Lcom/android/keyguard/KeyguardPinBasedInputView;->onFinishInflate()V
 
-    sget v0, Lcom/android/keyguard/R$id;->ucm_misctag:I
+    const v0, 0x7f0a0545
 
     invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardUCMPinView;->findViewById(I)Landroid/view/View;
 
@@ -2060,7 +2446,7 @@
 
     iput-object v0, p0, Lcom/android/keyguard/KeyguardUCMPinView;->mUCMMiscTagValue:Landroid/widget/TextView;
 
-    sget v0, Lcom/android/keyguard/R$id;->ucm_csname:I
+    const v0, 0x7f0a0544
 
     invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardUCMPinView;->findViewById(I)Landroid/view/View;
 
@@ -2196,7 +2582,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUCMPinView;->mCallback:Lcom/android/keyguard/KeyguardSecurityCallback;
 
-    invoke-interface {v0, v3}, Lcom/android/keyguard/KeyguardSecurityCallback;->dismiss(Z)V
+    invoke-interface {v0, v3, p1}, Lcom/android/keyguard/KeyguardSecurityCallback;->dismiss(ZI)V
 
     :goto_0
     return-void
@@ -2208,13 +2594,13 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/keyguard/R$string;->lockscreen_smartcard_wrong_card:I
+    const v2, 0x7f120682
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-interface {v0, v1, v3}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(Ljava/lang/CharSequence;Z)V
+    invoke-interface {v0, v1}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(Ljava/lang/CharSequence;)V
 
     goto :goto_0
 .end method

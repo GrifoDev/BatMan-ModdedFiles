@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <item type="dimen" name="notification_panel_width">@dimen/match_parent</item>
-    <dimen name="qs_detail_height">320.0dip</dimen>
-</resources>

@@ -35,21 +35,15 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
-
-    const/4 v3, 0x0
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PanelView$2;->this$0:Lcom/android/systemui/statusbar/phone/PanelView;
 
     const/4 v1, 0x0
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/PanelView$2;->this$0:Lcom/android/systemui/statusbar/phone/PanelView;
+    const/high16 v2, 0x3f800000    # 1.0f
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/phone/PanelView;->-get2(Lcom/android/systemui/statusbar/phone/PanelView;)F
-
-    move-result v2
-
-    invoke-virtual {v0, v1, v3, v2, v3}, Lcom/android/systemui/statusbar/phone/PanelView;->fling(FZFZ)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/statusbar/phone/PanelView;->collapse(ZF)V
 
     return-void
 .end method

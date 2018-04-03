@@ -7,6 +7,7 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/systemui/stackdivider/Divider$DockDividerVisibilityListener;,
+        Lcom/android/systemui/stackdivider/Divider$KnoxBadgeReceiver;,
         Lcom/android/systemui/stackdivider/Divider$MultiWindowEventListener;
     }
 .end annotation
@@ -15,31 +16,21 @@
 # instance fields
 .field private mAdjustedForIme:Z
 
-.field private mAutoResizeAfterAppTransition:Z
-
 .field private final mDividerState:Lcom/android/systemui/stackdivider/DividerState;
 
 .field private mDockDividerVisibilityListener:Lcom/android/systemui/stackdivider/Divider$DockDividerVisibilityListener;
 
 .field private mDockedMinimizedController:Lcom/android/systemui/stackdivider/DockedMinimizedNotificationController;
 
-.field private mFocusedStackId:I
-
-.field private mFocusedTaskId:I
-
 .field private mForcedResizableController:Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;
 
-.field private mIsLandscape:Z
+.field private mHomeStackResizable:Z
+
+.field private mIsRotation_270:Z
+
+.field private mKnoxBadgeReceiver:Lcom/android/systemui/stackdivider/Divider$KnoxBadgeReceiver;
 
 .field private mMinimized:Z
-
-.field private mShouldFlingToNewMinSize:Z
-
-.field private mTargetPosition:I
-
-.field private mTargetStackId:I
-
-.field private mTargetTaskRect:Landroid/graphics/Rect;
 
 .field private mUserId:I
 
@@ -59,31 +50,7 @@
     return v0
 .end method
 
-.method static synthetic -get1(Lcom/android/systemui/stackdivider/Divider;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/stackdivider/Divider;->mAutoResizeAfterAppTransition:Z
-
-    return v0
-.end method
-
-.method static synthetic -get10(Lcom/android/systemui/stackdivider/Divider;)Lcom/android/systemui/stackdivider/DividerView;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
-
-    return-object v0
-.end method
-
-.method static synthetic -get11(Lcom/android/systemui/stackdivider/Divider;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/stackdivider/Divider;->mVisible:Z
-
-    return v0
-.end method
-
-.method static synthetic -get2(Lcom/android/systemui/stackdivider/Divider;)Lcom/android/systemui/stackdivider/DockedMinimizedNotificationController;
+.method static synthetic -get1(Lcom/android/systemui/stackdivider/Divider;)Lcom/android/systemui/stackdivider/DockedMinimizedNotificationController;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/Divider;->mDockedMinimizedController:Lcom/android/systemui/stackdivider/DockedMinimizedNotificationController;
@@ -91,23 +58,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/systemui/stackdivider/Divider;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/systemui/stackdivider/Divider;->mFocusedStackId:I
-
-    return v0
-.end method
-
-.method static synthetic -get4(Lcom/android/systemui/stackdivider/Divider;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/systemui/stackdivider/Divider;->mFocusedTaskId:I
-
-    return v0
-.end method
-
-.method static synthetic -get5(Lcom/android/systemui/stackdivider/Divider;)Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;
+.method static synthetic -get2(Lcom/android/systemui/stackdivider/Divider;)Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/Divider;->mForcedResizableController:Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;
@@ -115,15 +66,23 @@
     return-object v0
 .end method
 
-.method static synthetic -get6(Lcom/android/systemui/stackdivider/Divider;)Z
+.method static synthetic -get3(Lcom/android/systemui/stackdivider/Divider;)Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/systemui/stackdivider/Divider;->mIsLandscape:Z
+    iget-boolean v0, p0, Lcom/android/systemui/stackdivider/Divider;->mHomeStackResizable:Z
 
     return v0
 .end method
 
-.method static synthetic -get7(Lcom/android/systemui/stackdivider/Divider;)Z
+.method static synthetic -get4(Lcom/android/systemui/stackdivider/Divider;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/stackdivider/Divider;->mIsRotation_270:Z
+
+    return v0
+.end method
+
+.method static synthetic -get5(Lcom/android/systemui/stackdivider/Divider;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/systemui/stackdivider/Divider;->mMinimized:Z
@@ -131,18 +90,26 @@
     return v0
 .end method
 
-.method static synthetic -get8(Lcom/android/systemui/stackdivider/Divider;)I
+.method static synthetic -get6(Lcom/android/systemui/stackdivider/Divider;)I
     .locals 1
 
-    iget v0, p0, Lcom/android/systemui/stackdivider/Divider;->mTargetPosition:I
+    iget v0, p0, Lcom/android/systemui/stackdivider/Divider;->mUserId:I
 
     return v0
 .end method
 
-.method static synthetic -get9(Lcom/android/systemui/stackdivider/Divider;)I
+.method static synthetic -get7(Lcom/android/systemui/stackdivider/Divider;)Lcom/android/systemui/stackdivider/DividerView;
     .locals 1
 
-    iget v0, p0, Lcom/android/systemui/stackdivider/Divider;->mTargetStackId:I
+    iget-object v0, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
+
+    return-object v0
+.end method
+
+.method static synthetic -get8(Lcom/android/systemui/stackdivider/Divider;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/stackdivider/Divider;->mVisible:Z
 
     return v0
 .end method
@@ -158,7 +125,7 @@
 .method static synthetic -set1(Lcom/android/systemui/stackdivider/Divider;Z)Z
     .locals 0
 
-    iput-boolean p1, p0, Lcom/android/systemui/stackdivider/Divider;->mAutoResizeAfterAppTransition:Z
+    iput-boolean p1, p0, Lcom/android/systemui/stackdivider/Divider;->mHomeStackResizable:Z
 
     return p1
 .end method
@@ -166,7 +133,7 @@
 .method static synthetic -set2(Lcom/android/systemui/stackdivider/Divider;Z)Z
     .locals 0
 
-    iput-boolean p1, p0, Lcom/android/systemui/stackdivider/Divider;->mMinimized:Z
+    iput-boolean p1, p0, Lcom/android/systemui/stackdivider/Divider;->mIsRotation_270:Z
 
     return p1
 .end method
@@ -174,12 +141,20 @@
 .method static synthetic -set3(Lcom/android/systemui/stackdivider/Divider;Z)Z
     .locals 0
 
-    iput-boolean p1, p0, Lcom/android/systemui/stackdivider/Divider;->mShouldFlingToNewMinSize:Z
+    iput-boolean p1, p0, Lcom/android/systemui/stackdivider/Divider;->mMinimized:Z
 
     return p1
 .end method
 
-.method static synthetic -set4(Lcom/android/systemui/stackdivider/Divider;Z)Z
+.method static synthetic -set4(Lcom/android/systemui/stackdivider/Divider;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/stackdivider/Divider;->mUserId:I
+
+    return p1
+.end method
+
+.method static synthetic -set5(Lcom/android/systemui/stackdivider/Divider;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/systemui/stackdivider/Divider;->mVisible:Z
@@ -187,23 +162,7 @@
     return p1
 .end method
 
-.method static synthetic -wrap0(Lcom/android/systemui/stackdivider/Divider;Landroid/graphics/Rect;Landroid/graphics/Rect;II)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/systemui/stackdivider/Divider;->adjustTaskToStackIfNeeded(Landroid/graphics/Rect;Landroid/graphics/Rect;II)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap1(Lcom/android/systemui/stackdivider/Divider;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/stackdivider/Divider;->autoResizeForFocusedStack(I)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap2(Lcom/android/systemui/stackdivider/Divider;Z)V
+.method static synthetic -wrap0(Lcom/android/systemui/stackdivider/Divider;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/stackdivider/Divider;->notifyDockedStackExistsChanged(Z)V
@@ -211,31 +170,23 @@
     return-void
 .end method
 
-.method static synthetic -wrap3(Lcom/android/systemui/stackdivider/Divider;ILandroid/graphics/Rect;IZZ)V
+.method static synthetic -wrap1(Lcom/android/systemui/stackdivider/Divider;IZ)V
     .locals 0
 
-    invoke-direct/range {p0 .. p5}, Lcom/android/systemui/stackdivider/Divider;->startAutoResize(ILandroid/graphics/Rect;IZZ)V
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/stackdivider/Divider;->setUserId(IZ)V
 
     return-void
 .end method
 
-.method static synthetic -wrap4(Lcom/android/systemui/stackdivider/Divider;II)V
+.method static synthetic -wrap2(Lcom/android/systemui/stackdivider/Divider;ZJZ)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/stackdivider/Divider;->updateFocusedStackAndTask(II)V
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/systemui/stackdivider/Divider;->updateMinimizedDockedStack(ZJZ)V
 
     return-void
 .end method
 
-.method static synthetic -wrap5(Lcom/android/systemui/stackdivider/Divider;ZJ)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/stackdivider/Divider;->updateMinimizedDockedStack(ZJ)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap6(Lcom/android/systemui/stackdivider/Divider;)V
+.method static synthetic -wrap3(Lcom/android/systemui/stackdivider/Divider;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/systemui/stackdivider/Divider;->updateTouchable()V
@@ -243,7 +194,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap7(Lcom/android/systemui/stackdivider/Divider;Z)V
+.method static synthetic -wrap4(Lcom/android/systemui/stackdivider/Divider;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/stackdivider/Divider;->updateVisibility(Z)V
@@ -252,9 +203,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 3
-
-    const/4 v2, -0x1
+    .locals 2
 
     const/4 v1, 0x0
 
@@ -272,366 +221,125 @@
 
     iput-boolean v1, p0, Lcom/android/systemui/stackdivider/Divider;->mAdjustedForIme:Z
 
-    iput v2, p0, Lcom/android/systemui/stackdivider/Divider;->mTargetPosition:I
-
-    iput v2, p0, Lcom/android/systemui/stackdivider/Divider;->mTargetStackId:I
-
-    new-instance v0, Landroid/graphics/Rect;
-
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
-
-    iput-object v0, p0, Lcom/android/systemui/stackdivider/Divider;->mTargetTaskRect:Landroid/graphics/Rect;
-
-    iput-boolean v1, p0, Lcom/android/systemui/stackdivider/Divider;->mShouldFlingToNewMinSize:Z
-
-    iput-boolean v1, p0, Lcom/android/systemui/stackdivider/Divider;->mAutoResizeAfterAppTransition:Z
-
-    iput v2, p0, Lcom/android/systemui/stackdivider/Divider;->mFocusedStackId:I
-
-    iput v2, p0, Lcom/android/systemui/stackdivider/Divider;->mFocusedTaskId:I
-
-    iput-boolean v1, p0, Lcom/android/systemui/stackdivider/Divider;->mIsLandscape:Z
+    iput-boolean v1, p0, Lcom/android/systemui/stackdivider/Divider;->mHomeStackResizable:Z
 
     iput v1, p0, Lcom/android/systemui/stackdivider/Divider;->mUserId:I
+
+    iput-boolean v1, p0, Lcom/android/systemui/stackdivider/Divider;->mIsRotation_270:Z
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/systemui/stackdivider/Divider;->mKnoxBadgeReceiver:Lcom/android/systemui/stackdivider/Divider$KnoxBadgeReceiver;
 
     return-void
 .end method
 
 .method private addDivider(Landroid/content/res/Configuration;)V
-    .locals 10
+    .locals 7
 
-    const/4 v3, 0x1
+    iget-object v4, p0, Lcom/android/systemui/stackdivider/Divider;->mContext:Landroid/content/Context;
 
-    const/4 v7, 0x0
+    invoke-static {v4}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
-    iget-object v6, p0, Lcom/android/systemui/stackdivider/Divider;->mContext:Landroid/content/Context;
+    move-result-object v4
 
-    invoke-static {v6}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+    const v5, 0x7f0d0046
 
-    move-result-object v6
+    const/4 v6, 0x0
 
-    const v8, 0x7f040056
+    invoke-virtual {v4, v5, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    const/4 v9, 0x0
+    move-result-object v4
 
-    invoke-virtual {v6, v8, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    check-cast v4, Lcom/android/systemui/stackdivider/DividerView;
 
-    move-result-object v6
+    iput-object v4, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
 
-    check-cast v6, Lcom/android/systemui/stackdivider/DividerView;
+    iget-object v5, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
 
-    iput-object v6, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
+    iget-boolean v4, p0, Lcom/android/systemui/stackdivider/Divider;->mVisible:Z
 
-    iget-object v8, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
+    if-eqz v4, :cond_0
 
-    iget-boolean v6, p0, Lcom/android/systemui/stackdivider/Divider;->mVisible:Z
-
-    if-eqz v6, :cond_1
-
-    move v6, v7
+    const/4 v4, 0x0
 
     :goto_0
-    invoke-virtual {v8, v6}, Lcom/android/systemui/stackdivider/DividerView;->setVisibility(I)V
+    invoke-virtual {v5, v4}, Lcom/android/systemui/stackdivider/DividerView;->setVisibility(I)V
 
-    iget-object v6, p0, Lcom/android/systemui/stackdivider/Divider;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
 
-    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    iget-boolean v5, p0, Lcom/android/systemui/stackdivider/Divider;->mMinimized:Z
 
-    move-result-object v6
+    iget-boolean v6, p0, Lcom/android/systemui/stackdivider/Divider;->mHomeStackResizable:Z
 
-    const v8, 0x1050021
+    invoke-virtual {v4, v5, v6}, Lcom/android/systemui/stackdivider/DividerView;->setMinimizedDockStack(ZZ)V
 
-    invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    iget-object v4, p0, Lcom/android/systemui/stackdivider/Divider;->mContext:Landroid/content/Context;
 
-    move-result v4
+    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    iget v6, p1, Landroid/content/res/Configuration;->orientation:I
+    move-result-object v4
 
-    const/4 v8, 0x2
+    const v5, 0x1050088
 
-    if-ne v6, v8, :cond_2
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move v1, v3
+    move-result v2
+
+    iget v4, p1, Landroid/content/res/Configuration;->orientation:I
+
+    const/4 v5, 0x2
+
+    if-ne v4, v5, :cond_1
+
+    const/4 v1, 0x1
 
     :goto_1
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
-    move v5, v4
+    move v3, v2
 
     :goto_2
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_3
 
     const/4 v0, -0x1
 
     :goto_3
-    if-eqz v1, :cond_6
+    iget-object v4, p0, Lcom/android/systemui/stackdivider/Divider;->mWindowManager:Lcom/android/systemui/stackdivider/DividerWindowManager;
 
-    iget-object v6, p0, Lcom/android/systemui/stackdivider/Divider;->mContext:Landroid/content/Context;
+    iget-object v5, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
 
-    const-string/jumbo v8, "window"
+    invoke-virtual {v4, v5, v3, v0}, Lcom/android/systemui/stackdivider/DividerWindowManager;->add(Landroid/view/View;II)V
 
-    invoke-virtual {v6, v8}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    iget-object v4, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
 
-    move-result-object v6
+    iget-object v5, p0, Lcom/android/systemui/stackdivider/Divider;->mWindowManager:Lcom/android/systemui/stackdivider/DividerWindowManager;
 
-    check-cast v6, Landroid/view/WindowManager;
+    iget-object v6, p0, Lcom/android/systemui/stackdivider/Divider;->mDividerState:Lcom/android/systemui/stackdivider/DividerState;
 
-    invoke-interface {v6}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/view/Display;->getRotation()I
-
-    move-result v6
-
-    const/4 v8, 0x3
-
-    if-ne v6, v8, :cond_5
-
-    :goto_4
-    if-nez v3, :cond_0
-
-    iget-object v6, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
-
-    iget v7, p0, Lcom/android/systemui/stackdivider/Divider;->mUserId:I
-
-    invoke-virtual {v6, v7}, Lcom/android/systemui/stackdivider/DividerView;->setUserId(I)V
-
-    :cond_0
-    :goto_5
-    iget-object v6, p0, Lcom/android/systemui/stackdivider/Divider;->mWindowManager:Lcom/android/systemui/stackdivider/DividerWindowManager;
-
-    iget-object v7, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
-
-    invoke-virtual {v6, v7, v5, v0}, Lcom/android/systemui/stackdivider/DividerWindowManager;->add(Landroid/view/View;II)V
-
-    iget-object v6, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
-
-    iget-object v7, p0, Lcom/android/systemui/stackdivider/Divider;->mWindowManager:Lcom/android/systemui/stackdivider/DividerWindowManager;
-
-    iget-object v8, p0, Lcom/android/systemui/stackdivider/Divider;->mDividerState:Lcom/android/systemui/stackdivider/DividerState;
-
-    invoke-virtual {v6, v7, v8}, Lcom/android/systemui/stackdivider/DividerView;->injectDependencies(Lcom/android/systemui/stackdivider/DividerWindowManager;Lcom/android/systemui/stackdivider/DividerState;)V
+    invoke-virtual {v4, v5, v6}, Lcom/android/systemui/stackdivider/DividerView;->injectDependencies(Lcom/android/systemui/stackdivider/DividerWindowManager;Lcom/android/systemui/stackdivider/DividerState;)V
 
     return-void
 
-    :cond_1
-    const/4 v6, 0x4
+    :cond_0
+    const/4 v4, 0x4
 
     goto :goto_0
 
-    :cond_2
-    move v1, v7
+    :cond_1
+    const/4 v1, 0x0
 
     goto :goto_1
 
-    :cond_3
-    const/4 v5, -0x1
+    :cond_2
+    const/4 v3, -0x1
 
     goto :goto_2
 
-    :cond_4
-    move v0, v4
+    :cond_3
+    move v0, v2
 
     goto :goto_3
-
-    :cond_5
-    move v3, v7
-
-    goto :goto_4
-
-    :cond_6
-    iget-object v6, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
-
-    iget v7, p0, Lcom/android/systemui/stackdivider/Divider;->mUserId:I
-
-    invoke-virtual {v6, v7}, Lcom/android/systemui/stackdivider/DividerView;->setUserId(I)V
-
-    goto :goto_5
-.end method
-
-.method private adjustTaskToStackIfNeeded(Landroid/graphics/Rect;Landroid/graphics/Rect;II)V
-    .locals 6
-
-    const/4 v4, -0x1
-
-    iget v2, p1, Landroid/graphics/Rect;->top:I
-
-    iget v3, p2, Landroid/graphics/Rect;->top:I
-
-    if-ne v2, v3, :cond_2
-
-    iget v2, p1, Landroid/graphics/Rect;->left:I
-
-    iget v3, p2, Landroid/graphics/Rect;->left:I
-
-    if-ne v2, v3, :cond_2
-
-    invoke-virtual {p2, p1}, Landroid/graphics/Rect;->contains(Landroid/graphics/Rect;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    iget-object v2, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
-
-    invoke-virtual {v2}, Lcom/android/systemui/stackdivider/DividerView;->isHorizontalDivision()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    invoke-virtual {p2}, Landroid/graphics/Rect;->height()I
-
-    move-result v2
-
-    if-lt v2, p4, :cond_1
-
-    :cond_0
-    return-void
-
-    :cond_1
-    iget-object v2, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
-
-    invoke-virtual {v2}, Lcom/android/systemui/stackdivider/DividerView;->isHorizontalDivision()Z
-
-    move-result v2
-
-    if-nez v2, :cond_2
-
-    invoke-virtual {p2}, Landroid/graphics/Rect;->width()I
-
-    move-result v2
-
-    if-ge v2, p3, :cond_0
-
-    :cond_2
-    if-ne p3, v4, :cond_3
-
-    if-ne p4, v4, :cond_3
-
-    invoke-virtual {p2, p1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
-
-    :goto_0
-    return-void
-
-    :cond_3
-    const/4 v1, -0x1
-
-    const/4 v0, -0x1
-
-    iget-object v2, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
-
-    invoke-virtual {v2}, Lcom/android/systemui/stackdivider/DividerView;->isHorizontalDivision()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_5
-
-    invoke-virtual {p1}, Landroid/graphics/Rect;->width()I
-
-    move-result v1
-
-    invoke-virtual {p1}, Landroid/graphics/Rect;->height()I
-
-    move-result v2
-
-    if-le p4, v2, :cond_4
-
-    move v0, p4
-
-    :goto_1
-    iget v2, p1, Landroid/graphics/Rect;->left:I
-
-    iget v3, p1, Landroid/graphics/Rect;->top:I
-
-    iget v4, p1, Landroid/graphics/Rect;->left:I
-
-    add-int/2addr v4, v1
-
-    iget v5, p1, Landroid/graphics/Rect;->top:I
-
-    add-int/2addr v5, v0
-
-    invoke-virtual {p2, v2, v3, v4, v5}, Landroid/graphics/Rect;->set(IIII)V
-
-    goto :goto_0
-
-    :cond_4
-    invoke-virtual {p1}, Landroid/graphics/Rect;->height()I
-
-    move-result v0
-
-    goto :goto_1
-
-    :cond_5
-    invoke-virtual {p1}, Landroid/graphics/Rect;->width()I
-
-    move-result v2
-
-    if-le p3, v2, :cond_6
-
-    move v1, p3
-
-    :goto_2
-    invoke-virtual {p1}, Landroid/graphics/Rect;->height()I
-
-    move-result v0
-
-    goto :goto_1
-
-    :cond_6
-    invoke-virtual {p1}, Landroid/graphics/Rect;->width()I
-
-    move-result v1
-
-    goto :goto_2
-.end method
-
-.method private autoResizeForFocusedStack(I)V
-    .locals 4
-
-    iget-boolean v0, p0, Lcom/android/systemui/stackdivider/Divider;->mShouldFlingToNewMinSize:Z
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/systemui/stackdivider/Divider;->mShouldFlingToNewMinSize:Z
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
-
-    iget v1, p0, Lcom/android/systemui/stackdivider/Divider;->mTargetStackId:I
-
-    iget-object v2, p0, Lcom/android/systemui/stackdivider/Divider;->mTargetTaskRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/stackdivider/DividerView;->initTaskRectBeforeAutoResize(ILandroid/graphics/Rect;)V
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
-
-    new-instance v1, Lcom/android/systemui/stackdivider/Divider$4;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/stackdivider/Divider$4;-><init>(Lcom/android/systemui/stackdivider/Divider;)V
-
-    int-to-long v2, p1
-
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/systemui/stackdivider/DividerView;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    :goto_0
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
-
-    new-instance v1, Lcom/android/systemui/stackdivider/Divider$5;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/stackdivider/Divider$5;-><init>(Lcom/android/systemui/stackdivider/Divider;)V
-
-    int-to-long v2, p1
-
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/systemui/stackdivider/DividerView;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    goto :goto_0
 .end method
 
 .method private notifyDockedStackExistsChanged(Z)V
@@ -648,6 +356,37 @@
     return-void
 .end method
 
+.method private registerKnoxBadgeReceiver()V
+    .locals 3
+
+    const/4 v2, 0x0
+
+    iget-object v1, p0, Lcom/android/systemui/stackdivider/Divider;->mKnoxBadgeReceiver:Lcom/android/systemui/stackdivider/Divider$KnoxBadgeReceiver;
+
+    if-nez v1, :cond_0
+
+    new-instance v1, Lcom/android/systemui/stackdivider/Divider$KnoxBadgeReceiver;
+
+    invoke-direct {v1, p0, v2}, Lcom/android/systemui/stackdivider/Divider$KnoxBadgeReceiver;-><init>(Lcom/android/systemui/stackdivider/Divider;Lcom/android/systemui/stackdivider/Divider$KnoxBadgeReceiver;)V
+
+    iput-object v1, p0, Lcom/android/systemui/stackdivider/Divider;->mKnoxBadgeReceiver:Lcom/android/systemui/stackdivider/Divider$KnoxBadgeReceiver;
+
+    new-instance v0, Landroid/content/IntentFilter;
+
+    const-string/jumbo v1, "com.samsung.sec.knox.KNOX_DOCK_WINDOW_CHANGED"
+
+    invoke-direct {v0, v1}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/android/systemui/stackdivider/Divider;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/systemui/stackdivider/Divider;->mKnoxBadgeReceiver:Lcom/android/systemui/stackdivider/Divider$KnoxBadgeReceiver;
+
+    invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    :cond_0
+    return-void
+.end method
+
 .method private removeDivider()V
     .locals 1
 
@@ -657,11 +396,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
 
-    invoke-virtual {v0}, Lcom/android/systemui/stackdivider/DividerView;->getUserId()I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/stackdivider/Divider;->mUserId:I
+    invoke-virtual {v0}, Lcom/android/systemui/stackdivider/DividerView;->onDividerRemoved()V
 
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/stackdivider/Divider;->mWindowManager:Lcom/android/systemui/stackdivider/DividerWindowManager;
@@ -671,103 +406,27 @@
     return-void
 .end method
 
-.method private startAutoResize(ILandroid/graphics/Rect;IZZ)V
-    .locals 4
+.method private setUserId(IZ)V
+    .locals 2
 
-    const/4 v3, 0x1
+    iget-object v0, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
 
-    const/4 v2, 0x0
+    if-eqz v0, :cond_0
 
-    if-eqz p4, :cond_0
+    iget-object v0, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
 
-    iget-object v1, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
+    new-instance v1, Lcom/android/systemui/stackdivider/Divider$4;
 
-    invoke-virtual {v1, p1, p3}, Lcom/android/systemui/stackdivider/DividerView;->hasSameAutoResizePosition(II)Z
+    invoke-direct {v1, p0, p1, p2}, Lcom/android/systemui/stackdivider/Divider$4;-><init>(Lcom/android/systemui/stackdivider/Divider;IZ)V
 
-    move-result v1
-
-    if-eqz v1, :cond_4
+    invoke-virtual {v0, v1}, Lcom/android/systemui/stackdivider/DividerView;->post(Ljava/lang/Runnable;)Z
 
     :cond_0
-    move v1, v2
-
-    :goto_0
-    iput-boolean v1, p0, Lcom/android/systemui/stackdivider/Divider;->mShouldFlingToNewMinSize:Z
-
-    if-eqz p5, :cond_5
-
-    iput p1, p0, Lcom/android/systemui/stackdivider/Divider;->mTargetStackId:I
-
-    :goto_1
-    iget-boolean v1, p0, Lcom/android/systemui/stackdivider/Divider;->mShouldFlingToNewMinSize:Z
-
-    if-eqz v1, :cond_1
-
-    iput p3, p0, Lcom/android/systemui/stackdivider/Divider;->mTargetPosition:I
-
-    iget-object v1, p0, Lcom/android/systemui/stackdivider/Divider;->mTargetTaskRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v1, p2}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
-
-    :cond_1
-    iget v1, p0, Lcom/android/systemui/stackdivider/Divider;->mFocusedStackId:I
-
-    if-eqz v1, :cond_2
-
-    iget v1, p0, Lcom/android/systemui/stackdivider/Divider;->mFocusedStackId:I
-
-    if-ne v1, p1, :cond_8
-
-    :cond_2
-    :goto_2
-    iput-boolean v3, p0, Lcom/android/systemui/stackdivider/Divider;->mAutoResizeAfterAppTransition:Z
-
-    iget-boolean v1, p0, Lcom/android/systemui/stackdivider/Divider;->mAutoResizeAfterAppTransition:Z
-
-    if-nez v1, :cond_3
-
-    invoke-direct {p0, v2}, Lcom/android/systemui/stackdivider/Divider;->autoResizeForFocusedStack(I)V
-
-    :cond_3
     return-void
-
-    :cond_4
-    move v1, v3
-
-    goto :goto_0
-
-    :cond_5
-    const/4 v1, 0x3
-
-    if-ne p1, v1, :cond_7
-
-    const/4 v0, 0x1
-
-    :goto_3
-    iget-boolean v1, p0, Lcom/android/systemui/stackdivider/Divider;->mShouldFlingToNewMinSize:Z
-
-    if-eqz v1, :cond_6
-
-    move v0, p1
-
-    :cond_6
-    iput v0, p0, Lcom/android/systemui/stackdivider/Divider;->mTargetStackId:I
-
-    goto :goto_1
-
-    :cond_7
-    const/4 v0, 0x3
-
-    goto :goto_3
-
-    :cond_8
-    move v3, v2
-
-    goto :goto_2
 .end method
 
 .method private update(Landroid/content/res/Configuration;)V
-    .locals 2
+    .locals 1
 
     invoke-direct {p0}, Lcom/android/systemui/stackdivider/Divider;->removeDivider()V
 
@@ -777,79 +436,61 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/stackdivider/DividerView;->setMinimizedDockStack(Z)V
-
     invoke-direct {p0}, Lcom/android/systemui/stackdivider/Divider;->updateTouchable()V
 
     :cond_0
     return-void
 .end method
 
-.method private updateFocusedStackAndTask(II)V
-    .locals 1
+.method private updateMinimizedDockedStack(ZJZ)V
+    .locals 8
 
-    iget v0, p0, Lcom/android/systemui/stackdivider/Divider;->mFocusedTaskId:I
+    iget-object v6, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
 
-    if-eq v0, p2, :cond_0
+    new-instance v0, Lcom/android/systemui/stackdivider/Divider$2;
 
-    iput p2, p0, Lcom/android/systemui/stackdivider/Divider;->mFocusedTaskId:I
+    move-object v1, p0
 
-    :cond_0
-    iget v0, p0, Lcom/android/systemui/stackdivider/Divider;->mFocusedStackId:I
+    move v2, p4
 
-    if-eq v0, p1, :cond_1
+    move v3, p1
 
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
+    move-wide v4, p2
 
-    invoke-virtual {v0, p1}, Lcom/android/systemui/stackdivider/DividerView;->onMultiWindowFocusedStackChanged(I)V
+    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/stackdivider/Divider$2;-><init>(Lcom/android/systemui/stackdivider/Divider;ZZJ)V
 
-    iput p1, p0, Lcom/android/systemui/stackdivider/Divider;->mFocusedStackId:I
-
-    :cond_1
-    return-void
-.end method
-
-.method private updateMinimizedDockedStack(ZJ)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
-
-    new-instance v1, Lcom/android/systemui/stackdivider/Divider$2;
-
-    invoke-direct {v1, p0, p1, p2, p3}, Lcom/android/systemui/stackdivider/Divider$2;-><init>(Lcom/android/systemui/stackdivider/Divider;ZJ)V
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/stackdivider/DividerView;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v6, v0}, Lcom/android/systemui/stackdivider/DividerView;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
 .method private updateTouchable()V
-    .locals 3
-
-    const/4 v0, 0x0
+    .locals 2
 
     iget-object v1, p0, Lcom/android/systemui/stackdivider/Divider;->mWindowManager:Lcom/android/systemui/stackdivider/DividerWindowManager;
 
-    iget-boolean v2, p0, Lcom/android/systemui/stackdivider/Divider;->mMinimized:Z
+    iget-boolean v0, p0, Lcom/android/systemui/stackdivider/Divider;->mHomeStackResizable:Z
 
-    if-nez v2, :cond_0
+    if-nez v0, :cond_0
 
-    iget-boolean v2, p0, Lcom/android/systemui/stackdivider/Divider;->mAdjustedForIme:Z
+    iget-boolean v0, p0, Lcom/android/systemui/stackdivider/Divider;->mMinimized:Z
 
-    if-eqz v2, :cond_1
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
 
     :cond_0
+    iget-boolean v0, p0, Lcom/android/systemui/stackdivider/Divider;->mAdjustedForIme:Z
+
+    xor-int/lit8 v0, v0, 0x1
+
     :goto_0
     invoke-virtual {v1, v0}, Lcom/android/systemui/stackdivider/DividerWindowManager;->setTouchable(Z)V
 
     return-void
 
     :cond_1
-    const/4 v0, 0x1
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
@@ -870,6 +511,25 @@
 
 
 # virtual methods
+.method public animateDividerHandle()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
+
+    if-eqz v0, :cond_0
+
+    iget-boolean v0, p0, Lcom/android/systemui/stackdivider/Divider;->mVisible:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/stackdivider/DividerView;->animateDividerHandle()V
+
+    :cond_0
+    return-void
+.end method
+
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 1
 
@@ -908,7 +568,15 @@
     return-object v0
 .end method
 
-.method public isDividerMinimized()Z
+.method public isHomeStackResizable()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/stackdivider/Divider;->mHomeStackResizable:Z
+
+    return v0
+.end method
+
+.method public isMinimized()Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/systemui/stackdivider/Divider;->mMinimized:Z
@@ -916,8 +584,23 @@
     return v0
 .end method
 
+.method public final onBusEvent(Lcom/android/systemui/recents/events/ui/RecentsDrawnEvent;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/stackdivider/Divider;->mView:Lcom/android/systemui/stackdivider/DividerView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/stackdivider/DividerView;->onRecentsDrawn()V
+
+    :cond_0
+    return-void
+.end method
+
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 2
+    .locals 1
 
     invoke-super {p0, p1}, Lcom/android/systemui/SystemUI;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
@@ -931,24 +614,8 @@
 
     invoke-virtual {v0, p1}, Lcom/android/systemui/stackdivider/DockedMinimizedNotificationController;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    iget v0, p1, Landroid/content/res/Configuration;->orientation:I
-
-    const/4 v1, 0x2
-
-    if-ne v0, v1, :cond_1
-
-    const/4 v0, 0x1
-
-    :goto_0
-    iput-boolean v0, p0, Lcom/android/systemui/stackdivider/Divider;->mIsLandscape:Z
-
     :cond_0
     return-void
-
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_0
 .end method
 
 .method public start()V
@@ -992,13 +659,31 @@
 
     invoke-virtual {v1, v2}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->registerDockedStackListener(Landroid/view/IDockedStackListener;)V
 
+    new-instance v2, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;
+
+    iget-object v3, p0, Lcom/android/systemui/stackdivider/Divider;->mContext:Landroid/content/Context;
+
+    invoke-direct {v2, v3}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;-><init>(Landroid/content/Context;)V
+
+    iput-object v2, p0, Lcom/android/systemui/stackdivider/Divider;->mForcedResizableController:Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;
+
+    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p0}, Lcom/android/systemui/recents/events/EventBus;->register(Ljava/lang/Object;)V
+
     new-instance v0, Lcom/android/systemui/stackdivider/Divider$MultiWindowEventListener;
 
     const/4 v2, 0x0
 
     invoke-direct {v0, p0, v2}, Lcom/android/systemui/stackdivider/Divider$MultiWindowEventListener;-><init>(Lcom/android/systemui/stackdivider/Divider;Lcom/android/systemui/stackdivider/Divider$MultiWindowEventListener;)V
 
-    invoke-virtual {v1, v0}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->registerMultiWindowEventListener(Lcom/samsung/android/multiwindow/IMultiWindowEventListener;)V
+    invoke-static {}, Lcom/android/systemui/stackdivider/multiwindow/MultiWindowManagerProxy;->getInstance()Lcom/android/systemui/stackdivider/multiwindow/MultiWindowManagerProxy;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Lcom/android/systemui/stackdivider/multiwindow/MultiWindowManagerProxy;->registerMultiWindowEventListener(Lcom/samsung/android/multiwindow/IMultiWindowEventListener;)V
 
     new-instance v2, Lcom/android/systemui/stackdivider/DockedMinimizedNotificationController;
 
@@ -1008,13 +693,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/stackdivider/Divider;->mDockedMinimizedController:Lcom/android/systemui/stackdivider/DockedMinimizedNotificationController;
 
-    new-instance v2, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;
-
-    iget-object v3, p0, Lcom/android/systemui/stackdivider/Divider;->mContext:Landroid/content/Context;
-
-    invoke-direct {v2, v3}, Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;-><init>(Landroid/content/Context;)V
-
-    iput-object v2, p0, Lcom/android/systemui/stackdivider/Divider;->mForcedResizableController:Lcom/android/systemui/stackdivider/ForcedResizableInfoActivityController;
+    invoke-direct {p0}, Lcom/android/systemui/stackdivider/Divider;->registerKnoxBadgeReceiver()V
 
     return-void
 .end method

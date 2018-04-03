@@ -16,13 +16,13 @@
 
 .field private mDecay:I
 
+.field private mDisplayRotation:I
+
 .field private mFlashFrac:F
 
 .field private mHold:I
 
 .field private mLastPokeTime:J
-
-.field private mNaviBarWidth:I
 
 .field private mShouldFlash:Z
 
@@ -69,45 +69,33 @@
 
     move-result-object v0
 
-    const/4 v4, 0x2
-
-    invoke-virtual {v0, v4, v3}, Landroid/content/res/TypedArray;->getInteger(II)I
+    invoke-virtual {v0, v2, v3}, Landroid/content/res/TypedArray;->getInteger(II)I
 
     move-result v4
 
     iput v4, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mHold:I
 
-    const/4 v4, 0x3
-
-    invoke-virtual {v0, v4, v3}, Landroid/content/res/TypedArray;->getInteger(II)I
+    invoke-virtual {v0, v3, v3}, Landroid/content/res/TypedArray;->getInteger(II)I
 
     move-result v4
 
     iput v4, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mDecay:I
 
-    invoke-virtual {v0, v3, v3}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+    const/4 v4, 0x3
+
+    invoke-virtual {v0, v4, v3}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
     move-result v4
 
     iput v4, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mSizeMin:I
 
-    invoke-virtual {v0, v2, v3}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+    const/4 v4, 0x2
+
+    invoke-virtual {v0, v4, v3}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
     move-result v4
 
     iput v4, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mSizeMax:I
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    const v5, 0x7f0d04c6
-
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v4
-
-    iput v4, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mNaviBarWidth:I
 
     const/4 v4, 0x4
 
@@ -126,7 +114,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f120012
+    const v3, 0x7f050006
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -237,12 +225,31 @@
     return v0
 .end method
 
+.method private poke(Landroid/view/MotionEvent;)V
+    .locals 2
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getEventTime()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mLastPokeTime:J
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mShouldFlash:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/DeadZone;->postInvalidate()V
+
+    :cond_0
+    return-void
+.end method
+
 
 # virtual methods
 .method public onDraw(Landroid/graphics/Canvas;)V
     .locals 6
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
     iget-boolean v2, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mShouldFlash:Z
 
@@ -274,20 +281,29 @@
 
     if-eqz v2, :cond_3
 
-    move v2, v1
+    iget v2, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mDisplayRotation:I
 
-    :goto_0
-    iget-boolean v3, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mVertical:Z
+    const/4 v3, 0x3
 
-    if-eqz v3, :cond_2
+    if-ne v2, v3, :cond_2
+
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->getWidth()I
+
+    move-result v2
+
+    sub-int/2addr v2, v1
+
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->getWidth()I
+
+    move-result v3
 
     invoke-virtual {p1}, Landroid/graphics/Canvas;->getHeight()I
 
-    move-result v1
+    move-result v4
 
-    :cond_2
-    invoke-virtual {p1, v4, v4, v2, v1}, Landroid/graphics/Canvas;->clipRect(IIII)Z
+    invoke-virtual {p1, v2, v5, v3, v4}, Landroid/graphics/Canvas;->clipRect(IIII)Z
 
+    :goto_0
     iget v0, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mFlashFrac:F
 
     const/high16 v2, 0x437f0000    # 255.0f
@@ -306,16 +322,31 @@
 
     return-void
 
+    :cond_2
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->getHeight()I
+
+    move-result v2
+
+    invoke-virtual {p1, v5, v5, v1, v2}, Landroid/graphics/Canvas;->clipRect(IIII)Z
+
+    goto :goto_0
+
     :cond_3
     invoke-virtual {p1}, Landroid/graphics/Canvas;->getWidth()I
 
     move-result v2
 
+    invoke-virtual {p1, v5, v5, v2, v1}, Landroid/graphics/Canvas;->clipRect(IIII)Z
+
     goto :goto_0
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 7
+    .locals 9
+
+    const/4 v8, 0x3
+
+    const/4 v7, 0x1
 
     const/4 v6, 0x0
 
@@ -323,9 +354,7 @@
 
     move-result v3
 
-    const/4 v4, 0x3
-
-    if-ne v3, v4, :cond_0
+    if-ne v3, v8, :cond_0
 
     return v6
 
@@ -336,15 +365,14 @@
 
     const/4 v3, 0x4
 
-    if-ne v0, v3, :cond_2
+    if-ne v0, v3, :cond_1
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/policy/DeadZone;->poke(Landroid/view/MotionEvent;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/policy/DeadZone;->poke(Landroid/view/MotionEvent;)V
+
+    return v7
 
     :cond_1
-    return v6
-
-    :cond_2
-    if-nez v0, :cond_1
+    if-nez v0, :cond_9
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getEventTime()J
 
@@ -360,57 +388,30 @@
 
     if-eqz v3, :cond_5
 
+    iget v3, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mDisplayRotation:I
+
+    if-ne v3, v8, :cond_3
+
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v3
 
-    int-to-float v4, v2
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/DeadZone;->getWidth()I
 
-    cmpg-float v3, v3, v4
+    move-result v4
 
-    if-gez v3, :cond_4
+    sub-int/2addr v4, v2
+
+    int-to-float v4, v4
+
+    cmpl-float v3, v3, v4
+
+    if-lez v3, :cond_2
+
+    const/4 v1, 0x1
 
     :goto_0
-    const/4 v1, 0x1
-
-    :goto_1
-    iget-boolean v3, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mVertical:Z
-
-    if-eqz v3, :cond_3
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
-
-    move-result v3
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
-
-    move-result v4
-
-    cmpg-float v3, v3, v4
-
-    if-gtz v3, :cond_3
-
-    iget v3, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mNaviBarWidth:I
-
-    int-to-float v3, v3
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
-
-    move-result v4
-
-    sub-float/2addr v3, v4
-
-    int-to-float v4, v2
-
-    cmpg-float v3, v3, v4
-
-    if-gez v3, :cond_6
-
-    const/4 v1, 0x1
-
-    :cond_3
-    :goto_2
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_9
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mContext:Landroid/content/Context;
 
@@ -422,10 +423,30 @@
 
     return v6
 
+    :cond_2
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :cond_3
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
+
+    move-result v3
+
+    int-to-float v4, v2
+
+    cmpg-float v3, v3, v4
+
+    if-gez v3, :cond_4
+
+    const/4 v1, 0x1
+
+    goto :goto_0
+
     :cond_4
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_5
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
@@ -436,14 +457,16 @@
 
     cmpg-float v3, v3, v4
 
-    if-gez v3, :cond_4
+    if-gez v3, :cond_6
+
+    const/4 v1, 0x1
 
     goto :goto_0
 
     :cond_6
     const/4 v1, 0x0
 
-    goto :goto_2
+    goto :goto_0
 
     :cond_7
     const-string/jumbo v3, "DeadZone"
@@ -503,27 +526,17 @@
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/DeadZone;->postInvalidate()V
 
     :cond_8
-    const/4 v3, 0x1
+    return v7
 
-    return v3
+    :cond_9
+    return v6
 .end method
 
-.method public poke(Landroid/view/MotionEvent;)V
-    .locals 2
+.method public setDisplayRotation(I)V
+    .locals 0
 
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getEventTime()J
+    iput p1, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mDisplayRotation:I
 
-    move-result-wide v0
-
-    iput-wide v0, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mLastPokeTime:J
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/DeadZone;->mShouldFlash:Z
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/DeadZone;->postInvalidate()V
-
-    :cond_0
     return-void
 .end method
 

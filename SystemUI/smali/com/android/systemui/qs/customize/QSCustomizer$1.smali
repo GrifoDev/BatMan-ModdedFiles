@@ -1,9 +1,6 @@
 .class Lcom/android/systemui/qs/customize/QSCustomizer$1;
-.super Ljava/lang/Object;
+.super Landroid/animation/AnimatorListenerAdapter;
 .source "QSCustomizer.java"
-
-# interfaces
-.implements Lcom/android/systemui/statusbar/policy/KeyguardMonitor$Callback;
 
 
 # annotations
@@ -27,29 +24,41 @@
 
     iput-object p1, p0, Lcom/android/systemui/qs/customize/QSCustomizer$1;->this$0:Lcom/android/systemui/qs/customize/QSCustomizer;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onKeyguardChanged()V
+.method public onAnimationCancel(Landroid/animation/Animator;)V
     .locals 2
 
     const/4 v1, 0x0
 
     iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizer$1;->this$0:Lcom/android/systemui/qs/customize/QSCustomizer;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/customize/QSCustomizer;->-get1(Lcom/android/systemui/qs/customize/QSCustomizer;)Lcom/android/systemui/statusbar/phone/QSTileHost;
+    invoke-static {v0, v1}, Lcom/android/systemui/qs/customize/QSCustomizer;->-set0(Lcom/android/systemui/qs/customize/QSCustomizer;Z)Z
+
+    iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizer$1;->this$0:Lcom/android/systemui/qs/customize/QSCustomizer;
+
+    invoke-static {v0}, Lcom/android/systemui/qs/customize/QSCustomizer;->-get1(Lcom/android/systemui/qs/customize/QSCustomizer;)Lcom/android/systemui/statusbar/phone/NotificationsQuickSettingsContainer;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/QSTileHost;->getKeyguardMonitor()Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/NotificationsQuickSettingsContainer;->setCustomizerAnimating(Z)V
 
-    move-result-object v0
+    return-void
+.end method
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;->isShowing()Z
+.method public onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 3
+
+    const/4 v2, 0x0
+
+    iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizer$1;->this$0:Lcom/android/systemui/qs/customize/QSCustomizer;
+
+    invoke-static {v0}, Lcom/android/systemui/qs/customize/QSCustomizer;->-get0(Lcom/android/systemui/qs/customize/QSCustomizer;)Z
 
     move-result v0
 
@@ -57,8 +66,22 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizer$1;->this$0:Lcom/android/systemui/qs/customize/QSCustomizer;
 
-    invoke-virtual {v0, v1, v1}, Lcom/android/systemui/qs/customize/QSCustomizer;->hide(II)V
+    const/4 v1, 0x1
+
+    invoke-static {v0, v1}, Lcom/android/systemui/qs/customize/QSCustomizer;->-wrap0(Lcom/android/systemui/qs/customize/QSCustomizer;Z)V
 
     :cond_0
+    iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizer$1;->this$0:Lcom/android/systemui/qs/customize/QSCustomizer;
+
+    invoke-static {v0, v2}, Lcom/android/systemui/qs/customize/QSCustomizer;->-set0(Lcom/android/systemui/qs/customize/QSCustomizer;Z)Z
+
+    iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizer$1;->this$0:Lcom/android/systemui/qs/customize/QSCustomizer;
+
+    invoke-static {v0}, Lcom/android/systemui/qs/customize/QSCustomizer;->-get1(Lcom/android/systemui/qs/customize/QSCustomizer;)Lcom/android/systemui/statusbar/phone/NotificationsQuickSettingsContainer;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Lcom/android/systemui/statusbar/phone/NotificationsQuickSettingsContainer;->setCustomizerAnimating(Z)V
+
     return-void
 .end method

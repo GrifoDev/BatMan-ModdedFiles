@@ -34,6 +34,14 @@
     return v0
 .end method
 
+.method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 1
 
@@ -66,12 +74,6 @@
     return-void
 .end method
 
-.method public setBottomViewsList(Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;)V
-    .locals 0
-
-    return-void
-.end method
-
 .method public setIconSlotView(Landroid/view/View;)V
     .locals 0
 
@@ -86,7 +88,7 @@
     return-void
 .end method
 
-.method public setMoreCue(Landroid/view/View;)V
+.method public startDexBounceAnimation(Z)V
     .locals 0
 
     return-void

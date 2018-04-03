@@ -3,7 +3,7 @@
 .source "KeyguardDirectionLockView.java"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 
 # annotations
@@ -34,18 +34,43 @@
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
+.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardDirectionLockView$9;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get4(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/keyguard/KeyguardSecurityCallback;
+    move-result-object v1
 
-    move-result-object v0
+    check-cast v1, Ljava/lang/Float;
 
-    sget-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->Account:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    invoke-virtual {v1}, Ljava/lang/Float;->floatValue()F
 
-    invoke-interface {v0, v1}, Lcom/android/keyguard/KeyguardSecurityCallback;->showBackupSecurity(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;)V
+    move-result v0
 
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardDirectionLockView$9;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
+
+    invoke-static {v1}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get9(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/systemui/widget/SystemUIImageView;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardDirectionLockView$9;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
+
+    invoke-static {v1}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get9(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/systemui/widget/SystemUIImageView;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/widget/SystemUIImageView;->setScaleX(F)V
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardDirectionLockView$9;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
+
+    invoke-static {v1}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get9(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/systemui/widget/SystemUIImageView;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/widget/SystemUIImageView;->setScaleY(F)V
+
+    :cond_0
     return-void
 .end method

@@ -51,215 +51,215 @@
 
     aput v1, v0, v7
 
-    const/4 v1, 0x4
+    const v1, 0x461c4000    # 10000.0f
 
-    const v2, 0x461c4000    # 10000.0f
+    const/4 v2, 0x4
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/4 v1, 0x5
+    const v1, 0x47c35000    # 100000.0f
 
-    const v2, 0x47c35000    # 100000.0f
+    const/4 v2, 0x5
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/4 v1, 0x6
+    const v1, 0x49742400    # 1000000.0f
 
-    const v2, 0x49742400    # 1000000.0f
+    const/4 v2, 0x6
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/4 v1, 0x7
+    const v1, 0x4b189680    # 1.0E7f
 
-    const v2, 0x4b189680    # 1.0E7f
+    const/4 v2, 0x7
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x8
+    const v1, 0x4cbebc20    # 1.0E8f
 
-    const v2, 0x4cbebc20    # 1.0E8f
+    const/16 v2, 0x8
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x9
+    const v1, 0x4e6e6b28    # 1.0E9f
 
-    const v2, 0x4e6e6b28    # 1.0E9f
+    const/16 v2, 0x9
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0xa
+    const v1, 0x501502f9    # 1.0E10f
 
-    const v2, 0x501502f9    # 1.0E10f
+    const/16 v2, 0xa
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0xb
+    const v1, 0x51ba43b7    # 9.9999998E10f
 
-    const v2, 0x51ba43b7    # 9.9999998E10f
+    const/16 v2, 0xb
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0xc
+    const v1, 0x5368d4a5    # 1.0E12f
 
-    const v2, 0x5368d4a5    # 1.0E12f
+    const/16 v2, 0xc
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0xd
+    const v1, 0x551184e7    # 9.9999998E12f
 
-    const v2, 0x551184e7    # 9.9999998E12f
+    const/16 v2, 0xd
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0xe
+    const v1, 0x56b5e621    # 1.0E14f
 
-    const v2, 0x56b5e621    # 1.0E14f
+    const/16 v2, 0xe
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0xf
+    const v1, 0x58635fa9    # 9.9999999E14f
 
-    const v2, 0x58635fa9    # 9.9999999E14f
+    const/16 v2, 0xf
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x10
+    const v1, 0x5a0e1bca    # 1.00000003E16f
 
-    const v2, 0x5a0e1bca    # 1.00000003E16f
+    const/16 v2, 0x10
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x11
+    const v1, 0x5bb1a2bc    # 9.9999998E16f
 
-    const v2, 0x5bb1a2bc    # 9.9999998E16f
+    const/16 v2, 0x11
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x12
+    const v1, 0x5d5e0b6b    # 9.9999998E17f
 
-    const v2, 0x5d5e0b6b    # 9.9999998E17f
+    const/16 v2, 0x12
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x13
+    const v1, 0x5f0ac723    # 1.0E19f
 
-    const v2, 0x5f0ac723    # 1.0E19f
+    const/16 v2, 0x13
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x14
+    const v1, 0x60ad78ec    # 1.0E20f
 
-    const v2, 0x60ad78ec    # 1.0E20f
+    const/16 v2, 0x14
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x15
+    const v1, 0x6258d727    # 1.0E21f
 
-    const v2, 0x6258d727    # 1.0E21f
+    const/16 v2, 0x15
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x16
+    const v1, 0x64078678    # 1.0E22f
 
-    const v2, 0x64078678    # 1.0E22f
+    const/16 v2, 0x16
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x17
+    const v1, 0x65a96816    # 1.0E23f
 
-    const v2, 0x65a96816    # 1.0E23f
+    const/16 v2, 0x17
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x18
+    const v1, 0x6753c21c    # 1.0E24f
 
-    const v2, 0x6753c21c    # 1.0E24f
+    const/16 v2, 0x18
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x19
+    const v1, 0x69045951    # 1.0E25f
 
-    const v2, 0x69045951    # 1.0E25f
+    const/16 v2, 0x19
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x1a
+    const v1, 0x6aa56fa6    # 1.0E26f
 
-    const v2, 0x6aa56fa6    # 1.0E26f
+    const/16 v2, 0x1a
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x1b
+    const v1, 0x6c4ecb8f    # 1.0E27f
 
-    const v2, 0x6c4ecb8f    # 1.0E27f
+    const/16 v2, 0x1b
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x1c
+    const v1, 0x6e013f39    # 1.0E28f
 
-    const v2, 0x6e013f39    # 1.0E28f
+    const/16 v2, 0x1c
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x1d
+    const v1, 0x6fa18f08    # 1.0E29f
 
-    const v2, 0x6fa18f08    # 1.0E29f
+    const/16 v2, 0x1d
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x1e
+    const v1, 0x7149f2ca    # 1.0E30f
 
-    const v2, 0x7149f2ca    # 1.0E30f
+    const/16 v2, 0x1e
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x1f
+    const v1, 0x72fc6f7c    # 1.0E31f
 
-    const v2, 0x72fc6f7c    # 1.0E31f
+    const/16 v2, 0x1f
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x20
+    const v1, 0x749dc5ae    # 1.0E32f
 
-    const v2, 0x749dc5ae    # 1.0E32f
+    const/16 v2, 0x20
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x21
+    const v1, 0x76453719    # 1.0E33f
 
-    const v2, 0x76453719    # 1.0E33f
+    const/16 v2, 0x21
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x22
+    const v1, 0x77f684df    # 1.0E34f
 
-    const v2, 0x77f684df    # 1.0E34f
+    const/16 v2, 0x22
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x23
+    const v1, 0x799a130c    # 1.0E35f
 
-    const v2, 0x799a130c    # 1.0E35f
+    const/16 v2, 0x23
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x24
+    const v1, 0x7b4097ce    # 1.0E36f
 
-    const v2, 0x7b4097ce    # 1.0E36f
+    const/16 v2, 0x24
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x25
+    const v1, 0x7cf0bdc2    # 1.0E37f
 
-    const v2, 0x7cf0bdc2    # 1.0E37f
+    const/16 v2, 0x25
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x26
+    const v1, 0x7e967699    # 1.0E38f
 
-    const v2, 0x7e967699    # 1.0E38f
+    const/16 v2, 0x26
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
     sput-object v0, Lcom/caverock/androidsvg/NumberParser;->positivePowersOf10:[F
 
@@ -281,215 +281,215 @@
 
     aput v1, v0, v7
 
-    const/4 v1, 0x4
+    const v1, 0x38d1b717    # 1.0E-4f
 
-    const v2, 0x38d1b717    # 1.0E-4f
+    const/4 v2, 0x4
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/4 v1, 0x5
+    const v1, 0x3727c5ac    # 1.0E-5f
 
-    const v2, 0x3727c5ac    # 1.0E-5f
+    const/4 v2, 0x5
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/4 v1, 0x6
+    const v1, 0x358637bd    # 1.0E-6f
 
-    const v2, 0x358637bd    # 1.0E-6f
+    const/4 v2, 0x6
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/4 v1, 0x7
+    const v1, 0x33d6bf95    # 1.0E-7f
 
-    const v2, 0x33d6bf95    # 1.0E-7f
+    const/4 v2, 0x7
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x8
+    const v1, 0x322bcc77    # 1.0E-8f
 
-    const v2, 0x322bcc77    # 1.0E-8f
+    const/16 v2, 0x8
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x9
+    const v1, 0x3089705f    # 1.0E-9f
 
-    const v2, 0x3089705f    # 1.0E-9f
+    const/16 v2, 0x9
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0xa
+    const v1, 0x2edbe6ff    # 1.0E-10f
 
-    const v2, 0x2edbe6ff    # 1.0E-10f
+    const/16 v2, 0xa
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0xb
+    const v1, 0x2d2febff    # 1.0E-11f
 
-    const v2, 0x2d2febff    # 1.0E-11f
+    const/16 v2, 0xb
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0xc
+    const v1, 0x2b8cbccc    # 1.0E-12f
 
-    const v2, 0x2b8cbccc    # 1.0E-12f
+    const/16 v2, 0xc
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0xd
+    const v1, 0x29e12e13    # 1.0E-13f
 
-    const v2, 0x29e12e13    # 1.0E-13f
+    const/16 v2, 0xd
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0xe
+    const v1, 0x283424dc    # 1.0E-14f
 
-    const v2, 0x283424dc    # 1.0E-14f
+    const/16 v2, 0xe
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0xf
+    const v1, 0x26901d7d    # 1.0E-15f
 
-    const v2, 0x26901d7d    # 1.0E-15f
+    const/16 v2, 0xf
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x10
+    const v1, 0x24e69595    # 1.0E-16f
 
-    const v2, 0x24e69595    # 1.0E-16f
+    const/16 v2, 0x10
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x11
+    const v1, 0x233877aa    # 1.0E-17f
 
-    const v2, 0x233877aa    # 1.0E-17f
+    const/16 v2, 0x11
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x12
+    const v1, 0x219392ef    # 1.0E-18f
 
-    const v2, 0x219392ef    # 1.0E-18f
+    const/16 v2, 0x12
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x13
+    const v1, 0x1fec1e4a    # 1.0E-19f
 
-    const v2, 0x1fec1e4a    # 1.0E-19f
+    const/16 v2, 0x13
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x14
+    const v1, 0x1e3ce508    # 1.0E-20f
 
-    const v2, 0x1e3ce508    # 1.0E-20f
+    const/16 v2, 0x14
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x15
+    const v1, 0x1c971da0    # 1.0E-21f
 
-    const v2, 0x1c971da0    # 1.0E-21f
+    const/16 v2, 0x15
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x16
+    const v1, 0x1af1c901    # 1.0E-22f
 
-    const v2, 0x1af1c901    # 1.0E-22f
+    const/16 v2, 0x16
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x17
+    const v1, 0x19416d9a    # 1.0E-23f
 
-    const v2, 0x19416d9a    # 1.0E-23f
+    const/16 v2, 0x17
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x18
+    const v1, 0x179abe15    # 1.0E-24f
 
-    const v2, 0x179abe15    # 1.0E-24f
+    const/16 v2, 0x18
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x19
+    const v1, 0x15f79688    # 1.0E-25f
 
-    const v2, 0x15f79688    # 1.0E-25f
+    const/16 v2, 0x19
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x1a
+    const v1, 0x14461206    # 1.0E-26f
 
-    const v2, 0x14461206    # 1.0E-26f
+    const/16 v2, 0x1a
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x1b
+    const v1, 0x129e74d2    # 1.0E-27f
 
-    const v2, 0x129e74d2    # 1.0E-27f
+    const/16 v2, 0x1b
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x1c
+    const v1, 0x10fd87b6    # 1.0E-28f
 
-    const v2, 0x10fd87b6    # 1.0E-28f
+    const/16 v2, 0x1c
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x1d
+    const v1, 0xf4ad2f8    # 1.0E-29f
 
-    const v2, 0xf4ad2f8    # 1.0E-29f
+    const/16 v2, 0x1d
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x1e
+    const v1, 0xda24260    # 1.0E-30f
 
-    const v2, 0xda24260    # 1.0E-30f
+    const/16 v2, 0x1e
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x1f
+    const v1, 0xc01ceb3    # 1.0E-31f
 
-    const v2, 0xc01ceb3    # 1.0E-31f
+    const/16 v2, 0x1f
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x20
+    const v1, 0xa4fb11f    # 1.0E-32f
 
-    const v2, 0xa4fb11f    # 1.0E-32f
+    const/16 v2, 0x20
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x21
+    const v1, 0x8a6274c    # 1.0E-33f
 
-    const v2, 0x8a6274c    # 1.0E-33f
+    const/16 v2, 0x21
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x22
+    const v1, 0x704ec3d    # 1.0E-34f
 
-    const v2, 0x704ec3d    # 1.0E-34f
+    const/16 v2, 0x22
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x23
+    const v1, 0x554ad2e    # 1.0E-35f
 
-    const v2, 0x554ad2e    # 1.0E-35f
+    const/16 v2, 0x23
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x24
+    const v1, 0x3aa2425    # 1.0E-36f
 
-    const v2, 0x3aa2425    # 1.0E-36f
+    const/16 v2, 0x24
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x25
+    const v1, 0x2081cea    # 1.0E-37f
 
-    const v2, 0x2081cea    # 1.0E-37f
+    const/16 v2, 0x25
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
-    const/16 v1, 0x26
+    const v1, 0x6ce3ee    # 1.0E-38f
 
-    const v2, 0x6ce3ee    # 1.0E-38f
+    const/16 v2, 0x26
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
     sput-object v0, Lcom/caverock/androidsvg/NumberParser;->negativePowersOf10:[F
 

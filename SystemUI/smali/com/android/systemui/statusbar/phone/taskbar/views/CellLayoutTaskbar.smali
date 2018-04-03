@@ -46,7 +46,7 @@
 
 .field private mDragState:Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;
 
-.field private mHandler:Landroid/os/Handler;
+.field private final mHandler:Landroid/os/Handler;
 
 .field private mHasEnded:Z
 
@@ -90,7 +90,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Landroid/graphics/Point;
+.method static synthetic -get1(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Landroid/content/Context;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mContext:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method static synthetic -get2(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Landroid/graphics/Point;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mLastTouchDownPoint:Landroid/graphics/Point;
@@ -98,7 +106,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Landroid/telephony/PhoneStateListener;
+.method static synthetic -get3(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Landroid/telephony/PhoneStateListener;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
@@ -106,7 +114,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Z
+.method static synthetic -get4(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mRepeatCallingAnimation:Z
@@ -114,7 +122,7 @@
     return v0
 .end method
 
-.method static synthetic -get4(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Z
+.method static synthetic -get5(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mShowHotseatTitle:Z
@@ -122,7 +130,7 @@
     return v0
 .end method
 
-.method static synthetic -get5(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+.method static synthetic -get6(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mTaskBarView:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
@@ -130,7 +138,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get6(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Landroid/telephony/TelephonyManager;
+.method static synthetic -get7(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)Landroid/telephony/TelephonyManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mTelephonyManager:Landroid/telephony/TelephonyManager;
@@ -162,7 +170,15 @@
     return p1
 .end method
 
-.method static synthetic -wrap0(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;Landroid/view/View;)V
+.method static synthetic -wrap0(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;IZ)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->focusRunningItem(IZ)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap1(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;Landroid/view/View;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->setAeroWindowRect(Landroid/view/View;)V
@@ -170,7 +186,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap1(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;II)V
+.method static synthetic -wrap2(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;II)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->setLastTouchDownPoint(II)V
@@ -178,7 +194,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap2(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;Landroid/view/View;)V
+.method static synthetic -wrap3(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;Landroid/view/View;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->startInCallUIAnimation(Landroid/view/View;)V
@@ -362,184 +378,470 @@
     return-void
 .end method
 
-.method private addRunningItem(IILandroid/content/ComponentName;Z)V
-    .locals 5
+.method private addRunningItem(IILandroid/content/ComponentName;ZLandroid/app/ActivityManager$TaskDescription;)V
+    .locals 8
+
+    const/4 v7, 0x1
 
     invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->DEBUGGABLE_TASK_MONITOR()Z
 
-    move-result v2
+    move-result v4
 
-    if-eqz v2, :cond_0
+    if-eqz v4, :cond_0
 
-    const-string/jumbo v2, "[DS]CellLayoutTaksBar"
+    const-string/jumbo v4, "[DS]CellLayoutTaksBar"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "addRunningItem:: taskId="
+    const-string/jumbo v6, "addRunningItem:: taskId="
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v5
 
-    const-string/jumbo v4, ", userId="
+    const-string/jumbo v6, ", userId="
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v5
 
-    const-string/jumbo v4, ", ComponentName="
+    const-string/jumbo v6, ", ComponentName="
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v3, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v5
 
-    const-string/jumbo v4, ", canAddToShorcut="
+    const-string/jumbo v6, ", canAddToShorcut="
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v3, p4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, p4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v6, ", taskDesc="
 
-    move-result-object v3
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v5
+
+    invoke-virtual {v5, p5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    new-instance v0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
+    new-instance v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
 
-    sget-object v2, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;->HOME_RUNNING_APPLICATION:Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;
+    sget-object v4, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;->HOME_RUNNING_APPLICATION:Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
-    invoke-direct {v0, v2, p3, v3}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;Landroid/content/ComponentName;Z)V
+    invoke-direct {v1, v4, p3, v5}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;Landroid/content/ComponentName;Z)V
 
-    iget-object v2, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->user:Landroid/os/UserHandle;
+    const/4 v0, 0x0
 
-    invoke-virtual {v2}, Landroid/os/UserHandle;->getIdentifier()I
+    const/4 v2, 0x0
 
-    move-result v2
+    iget-object v4, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->user:Landroid/os/UserHandle;
 
-    if-eq v2, p2, :cond_1
+    invoke-virtual {v4}, Landroid/os/UserHandle;->getIdentifier()I
 
-    new-instance v2, Landroid/os/UserHandle;
+    move-result v4
 
-    invoke-direct {v2, p2}, Landroid/os/UserHandle;-><init>(I)V
+    if-eq v4, p2, :cond_1
 
-    iput-object v2, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->user:Landroid/os/UserHandle;
+    new-instance v4, Landroid/os/UserHandle;
+
+    invoke-direct {v4, p2}, Landroid/os/UserHandle;-><init>(I)V
+
+    iput-object v4, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->user:Landroid/os/UserHandle;
 
     :cond_1
-    new-instance v1, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$TitleIconInfo;
+    new-instance v3, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$TitleIconInfo;
 
-    invoke-direct {v1}, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$TitleIconInfo;-><init>()V
+    invoke-direct {v3}, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$TitleIconInfo;-><init>()V
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mPkgResCache:Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mPkgResCache:Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mContext:Landroid/content/Context;
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mContext:Landroid/content/Context;
 
-    iget-object v4, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->user:Landroid/os/UserHandle;
+    iget-object v6, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->user:Landroid/os/UserHandle;
 
-    invoke-virtual {v0, v3, v4}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getLaunchIntent(Landroid/content/Context;Landroid/os/UserHandle;)Landroid/content/Intent;
+    invoke-virtual {v1, v5, v6}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getLaunchIntent(Landroid/content/Context;Landroid/os/UserHandle;)Landroid/content/Intent;
 
-    move-result-object v3
+    move-result-object v5
 
-    iget-object v4, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->user:Landroid/os/UserHandle;
+    iget-object v6, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->user:Landroid/os/UserHandle;
 
-    invoke-virtual {v2, v1, v3, v4}, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->getTitleAndIcon(Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$TitleIconInfo;Landroid/content/Intent;Landroid/os/UserHandle;)V
+    invoke-virtual {v4, v3, v5, v6}, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->getTitleAndIcon(Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$TitleIconInfo;Landroid/content/Intent;Landroid/os/UserHandle;)V
 
-    iget-object v2, v1, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$TitleIconInfo;->mIcon:Landroid/graphics/Bitmap;
+    iget-object v4, v3, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$TitleIconInfo;->mIcon:Landroid/graphics/Bitmap;
 
-    iput-object v2, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mIconBitmap:Landroid/graphics/Bitmap;
+    iput-object v4, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mIconBitmap:Landroid/graphics/Bitmap;
 
-    iget-object v2, v1, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$TitleIconInfo;->mTitle:Ljava/lang/String;
+    iget-object v4, v3, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$TitleIconInfo;->mTitle:Ljava/lang/String;
 
-    iput-object v2, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mTitle:Ljava/lang/String;
+    iput-object v4, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mTitle:Ljava/lang/String;
 
-    iget-object v2, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mIconBitmap:Landroid/graphics/Bitmap;
+    const-string/jumbo v4, "[DS]CellLayoutTaksBar"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "addRunningItem:: item.mIconBitmap"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-object v6, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mIconBitmap:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "item.mTitle: "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-object v6, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mTitle:Ljava/lang/String;
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz p5, :cond_5
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getPackageName()Ljava/lang/String;
+
+    move-result-object v4
+
+    iget-object v5, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->user:Landroid/os/UserHandle;
+
+    invoke-virtual {v5}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v5
+
+    invoke-static {v4, v5}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->getApplicationNameFromDb(Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v2
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getPackageName()Ljava/lang/String;
+
+    move-result-object v5
+
+    iget-object v6, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->user:Landroid/os/UserHandle;
+
+    invoke-virtual {v6}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v6
+
+    invoke-static {v4, v5, v6}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->getApplicationIconFromDb(Landroid/content/Context;Ljava/lang/String;I)Landroid/graphics/Bitmap;
+
+    move-result-object v0
 
     if-nez v2, :cond_2
 
-    const-string/jumbo v2, "[DS]CellLayoutTaksBar"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "addRunningItem:: This item doesn\'t have icon!!!"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mPkgResCache:Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->getDefaultIcon()Landroid/graphics/Bitmap;
+    invoke-virtual {p5}, Landroid/app/ActivityManager$TaskDescription;->getLabel()Ljava/lang/String;
 
     move-result-object v2
 
-    iput-object v2, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mIconBitmap:Landroid/graphics/Bitmap;
-
-    const/4 v2, 0x1
-
-    iput-boolean v2, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->usingFallbackIcon:Z
-
     :cond_2
-    iget-object v2, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mTitle:Ljava/lang/String;
+    if-nez v0, :cond_3
 
-    if-nez v2, :cond_3
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mContext:Landroid/content/Context;
+
+    iget-object v5, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->user:Landroid/os/UserHandle;
+
+    invoke-virtual {v5}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v5
+
+    invoke-static {v4, p5, v5}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->getIconFromTaskDescription(Landroid/content/Context;Landroid/app/ActivityManager$TaskDescription;I)Landroid/graphics/Bitmap;
+
+    move-result-object v0
+
+    :cond_3
+    if-eqz v0, :cond_4
+
+    iput-object v0, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mIconBitmap:Landroid/graphics/Bitmap;
+
+    iput-boolean v7, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mUsingTaskDescription:Z
+
+    :cond_4
+    if-eqz v2, :cond_5
+
+    iput-object v2, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mTitle:Ljava/lang/String;
+
+    iput-boolean v7, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mUsingTaskDescription:Z
+
+    :cond_5
+    iget-object v4, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mIconBitmap:Landroid/graphics/Bitmap;
+
+    if-nez v4, :cond_6
+
+    const-string/jumbo v4, "[DS]CellLayoutTaksBar"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "addRunningItem:: This item doesn\'t have icon!!!"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mPkgResCache:Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;
+
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->getDefaultIcon()Landroid/graphics/Bitmap;
+
+    move-result-object v4
+
+    iput-object v4, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mIconBitmap:Landroid/graphics/Bitmap;
+
+    iput-boolean v7, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->usingFallbackIcon:Z
+
+    :cond_6
+    iget-object v4, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mTitle:Ljava/lang/String;
+
+    if-nez v4, :cond_7
 
     invoke-virtual {p3}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
-    iput-object v2, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mTitle:Ljava/lang/String;
+    iput-object v4, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mTitle:Ljava/lang/String;
 
-    :cond_3
-    const-wide/16 v2, -0x67
+    :cond_7
+    const-wide/16 v4, -0x67
 
-    iput-wide v2, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->container:J
+    iput-wide v4, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->container:J
 
-    iput p1, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mRunningTaskId:I
+    iput p1, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mRunningTaskId:I
 
-    iput-boolean p4, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mCanAddToShortcut:Z
+    iput-boolean p4, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mCanAddToShortcut:Z
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->makeEmptySpace()I
 
-    move-result v2
+    move-result v4
 
-    iput v2, v0, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mScreen:I
+    iput v4, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mScreen:I
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->addItem(Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;)Z
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->addItem(Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;)Z
 
     return-void
+.end method
+
+.method private addShortcutByBixby(Landroid/content/ComponentName;Landroid/os/UserHandle;)I
+    .locals 9
+
+    const/4 v3, 0x1
+
+    const/4 v4, 0x0
+
+    invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->DEBUGGABLE_TASK_MONITOR()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    const-string/jumbo v5, "[DS]CellLayoutTaksBar"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "addAppShortcutFromBixby():: ComponentName="
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, ", UserHandle="
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    const/4 v1, 0x0
+
+    const/4 v0, 0x0
+
+    new-instance v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
+
+    sget-object v5, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;->HOME_APPLICATION:Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;
+
+    invoke-direct {v1, v5, p1, v4}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;Landroid/content/ComponentName;Z)V
+
+    iput-object p2, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->user:Landroid/os/UserHandle;
+
+    const-wide/16 v6, -0x67
+
+    iput-wide v6, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->container:J
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->makeEmptySpace()I
+
+    move-result v5
+
+    iput v5, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mScreen:I
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$TitleIconInfo;
+
+    invoke-direct {v2}, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$TitleIconInfo;-><init>()V
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mPkgResCache:Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;
+
+    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mContext:Landroid/content/Context;
+
+    iget-object v7, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->user:Landroid/os/UserHandle;
+
+    invoke-virtual {v1, v6, v7}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getLaunchIntent(Landroid/content/Context;Landroid/os/UserHandle;)Landroid/content/Intent;
+
+    move-result-object v6
+
+    iget-object v7, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->user:Landroid/os/UserHandle;
+
+    invoke-virtual {v5, v2, v6, v7}, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->getTitleAndIcon(Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$TitleIconInfo;Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    iget-object v5, v2, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$TitleIconInfo;->mIcon:Landroid/graphics/Bitmap;
+
+    iput-object v5, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mIconBitmap:Landroid/graphics/Bitmap;
+
+    iget-object v5, v2, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$TitleIconInfo;->mTitle:Ljava/lang/String;
+
+    iput-object v5, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mTitle:Ljava/lang/String;
+
+    iget-object v5, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mIconBitmap:Landroid/graphics/Bitmap;
+
+    if-nez v5, :cond_1
+
+    const-string/jumbo v5, "[DS]CellLayoutTaksBar"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "addShortcutItemFromBixby:: This item doesn\'t have icon!!!"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mPkgResCache:Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;
+
+    invoke-virtual {v5}, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->getDefaultIcon()Landroid/graphics/Bitmap;
+
+    move-result-object v5
+
+    iput-object v5, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mIconBitmap:Landroid/graphics/Bitmap;
+
+    iput-boolean v3, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->usingFallbackIcon:Z
+
+    :cond_1
+    iget-object v5, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mTitle:Ljava/lang/String;
+
+    if-nez v5, :cond_2
+
+    invoke-virtual {p1}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
+
+    move-result-object v5
+
+    iput-object v5, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mTitle:Ljava/lang/String;
+
+    :cond_2
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->addItem(Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mContext:Landroid/content/Context;
+
+    iget-wide v6, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->container:J
+
+    iget v8, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mScreen:I
+
+    invoke-static {v5, v1, v6, v7, v8}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->addOrMoveItemInDatabase(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;JI)V
+
+    :cond_3
+    if-eqz v0, :cond_4
+
+    :goto_0
+    return v3
+
+    :cond_4
+    move v3, v4
+
+    goto :goto_0
 .end method
 
 .method private findSameComponentShortcutApp(ILandroid/content/ComponentName;)Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
@@ -587,59 +889,6 @@
     move-result v4
 
     if-ne v4, p1, :cond_1
-
-    move-object v0, v2
-
-    :cond_0
-    return-object v0
-
-    :cond_1
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-.end method
-
-.method private findSameTaskRunningApp(II)Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
-    .locals 5
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mChildren:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;
-
-    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;->getChildCount()I
-
-    move-result v3
-
-    const/4 v0, 0x0
-
-    const/4 v1, 0x0
-
-    :goto_0
-    if-ge v1, v3, :cond_0
-
-    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->getItemAt(I)Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
-
-    if-eqz v2, :cond_1
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->isRunning()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    iget v4, v2, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mRunningTaskId:I
-
-    if-ne v4, p1, :cond_1
-
-    iget-object v4, v2, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->user:Landroid/os/UserHandle;
-
-    invoke-virtual {v4}, Landroid/os/UserHandle;->getIdentifier()I
-
-    move-result v4
-
-    if-ne v4, p2, :cond_1
 
     move-object v0, v2
 
@@ -845,58 +1094,6 @@
     throw v1
 .end method
 
-.method private makeHoverEnterAnimation()Landroid/view/animation/TranslateAnimation;
-    .locals 4
-
-    const/4 v2, 0x0
-
-    new-instance v0, Landroid/view/animation/TranslateAnimation;
-
-    const/high16 v1, -0x3f400000    # -6.0f
-
-    invoke-direct {v0, v2, v2, v2, v1}, Landroid/view/animation/TranslateAnimation;-><init>(FFFF)V
-
-    const-wide/16 v2, 0xfa
-
-    invoke-virtual {v0, v2, v3}, Landroid/view/animation/TranslateAnimation;->setDuration(J)V
-
-    new-instance v1, Lcom/samsung/android/view/animation/SineInOut80;
-
-    invoke-direct {v1}, Lcom/samsung/android/view/animation/SineInOut80;-><init>()V
-
-    invoke-virtual {v0, v1}, Landroid/view/animation/TranslateAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Landroid/view/animation/TranslateAnimation;->setFillAfter(Z)V
-
-    return-object v0
-.end method
-
-.method private makeHoverExitAnimation()Landroid/view/animation/TranslateAnimation;
-    .locals 4
-
-    const/4 v2, 0x0
-
-    new-instance v0, Landroid/view/animation/TranslateAnimation;
-
-    const/high16 v1, -0x3f400000    # -6.0f
-
-    invoke-direct {v0, v2, v2, v1, v2}, Landroid/view/animation/TranslateAnimation;-><init>(FFFF)V
-
-    const-wide/16 v2, 0xfa
-
-    invoke-virtual {v0, v2, v3}, Landroid/view/animation/TranslateAnimation;->setDuration(J)V
-
-    new-instance v1, Lcom/samsung/android/view/animation/SineInOut80;
-
-    invoke-direct {v1}, Lcom/samsung/android/view/animation/SineInOut80;-><init>()V
-
-    invoke-virtual {v0, v1}, Landroid/view/animation/TranslateAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
-
-    return-object v0
-.end method
-
 .method private normalizeContents(Ljava/util/List;)V
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
@@ -964,6 +1161,163 @@
 
     :cond_2
     return-void
+.end method
+
+.method private removeShortcutByBixby(Ljava/lang/String;)I
+    .locals 9
+
+    const/4 v5, 0x0
+
+    invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->DEBUGGABLE_TASK_MONITOR()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    const-string/jumbo v6, "[DS]CellLayoutTaksBar"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "removeShortcutFromBixby():: pkgName="
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    const/4 v2, 0x0
+
+    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mChildren:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;
+
+    invoke-virtual {v6}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;->getChildCount()I
+
+    move-result v4
+
+    const/4 v0, 0x0
+
+    add-int/lit8 v1, v4, -0x1
+
+    :goto_0
+    if-ltz v1, :cond_1
+
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->getItemAt(I)Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
+
+    if-eqz v3, :cond_5
+
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getPackageName()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v6, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_5
+
+    move-object v0, v3
+
+    :cond_1
+    if-eqz v0, :cond_6
+
+    invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->DEBUGGABLE_TASK_MONITOR()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_2
+
+    const-string/jumbo v6, "[DS]CellLayoutTaksBar"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "removeShortcutFromBixby():: removing pkgName="
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->removeItem(Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mContext:Landroid/content/Context;
+
+    invoke-static {v6, v0}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->deleteItemFromDatabase(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;)V
+
+    :cond_3
+    :goto_1
+    if-eqz v2, :cond_4
+
+    const/4 v5, 0x1
+
+    :cond_4
+    return v5
+
+    :cond_5
+    add-int/lit8 v1, v1, -0x1
+
+    goto :goto_0
+
+    :cond_6
+    invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->DEBUGGABLE_TASK_MONITOR()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_3
+
+    const-string/jumbo v6, "[DS]CellLayoutTaksBar"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "removeShortcutFromBixby():: no shortcut pkgName="
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
 .end method
 
 .method private resetRunningAppItems()V
@@ -1098,11 +1452,9 @@
 .end method
 
 .method private showAeroWindow(Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;)V
-    .locals 12
+    .locals 11
 
-    const/16 v11, 0x53
-
-    const/16 v10, 0x35
+    const v10, 0x10502b7
 
     const/4 v9, 0x1
 
@@ -1202,8 +1554,11 @@
     :cond_1
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mAeroWindow:Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;
 
-    if-nez v4, :cond_3
+    if-eqz v4, :cond_2
 
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->removeAeroWindow()V
+
+    :cond_2
     new-instance v4, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mContext:Landroid/content/Context;
@@ -1224,7 +1579,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d0614
+    const v5, 0x7f070058
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1234,7 +1589,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d0615
+    const v5, 0x7f070050
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1274,7 +1629,7 @@
 
     iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mIsHorizontalOrder:Z
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mAeroWindowParams:Landroid/view/WindowManager$LayoutParams;
 
@@ -1300,9 +1655,7 @@
 
     move-result-object v5
 
-    sget v6, Lcom/samsung/android/framework/res/R$dimen;->task_bar_height:I
-
-    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v5, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v5
 
@@ -1310,7 +1663,9 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mAeroWindowParams:Landroid/view/WindowManager$LayoutParams;
 
-    iput v11, v4, Landroid/view/WindowManager$LayoutParams;->gravity:I
+    const/16 v5, 0x53
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
     :goto_0
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mAeroWindow:Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;
@@ -1327,7 +1682,14 @@
 
     invoke-virtual {v4, v5, v6}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->addView(Landroid/view/View;Landroid/view/WindowManager$LayoutParams;)V
 
-    :goto_1
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mAeroWindow:Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;
+
+    new-instance v5, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$8;
+
+    invoke-direct {v5, p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$8;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)V
+
+    invoke-virtual {v4, v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
+
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mHandler:Landroid/os/Handler;
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mShowAeroWindowRunnable:Ljava/lang/Runnable;
@@ -1338,16 +1700,14 @@
 
     return-void
 
-    :cond_2
+    :cond_3
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mAeroWindowParams:Landroid/view/WindowManager$LayoutParams;
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->getResources()Landroid/content/res/Resources;
 
     move-result-object v5
 
-    sget v6, Lcom/samsung/android/framework/res/R$dimen;->task_bar_height:I
-
-    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v5, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v5
 
@@ -1373,155 +1733,11 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mAeroWindowParams:Landroid/view/WindowManager$LayoutParams;
 
-    iput v10, v4, Landroid/view/WindowManager$LayoutParams;->gravity:I
+    const/16 v5, 0x35
+
+    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
     goto :goto_0
-
-    :cond_3
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mAeroWindow:Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;
-
-    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->isShowing()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_5
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mAeroWindow:Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;
-
-    iget v4, v4, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->mTaskId:I
-
-    iget v5, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mRunningTaskId:I
-
-    if-ne v4, v5, :cond_5
-
-    invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->DEBUGGABLE_AERO_FEATURE()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_4
-
-    const-string/jumbo v4, "[DS]CellLayoutTaksBar"
-
-    const-string/jumbo v5, "[AERO] showAeroWindow. aleady show this window!"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_4
-    return-void
-
-    :cond_5
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mAeroWindow:Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;
-
-    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->dismiss()V
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mAeroWindow:Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;
-
-    invoke-virtual {v4, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->updateAeroWindow(Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_6
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mAeroWindow:Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;
-
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mContext:Landroid/content/Context;
-
-    iget-boolean v6, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mIsHorizontalOrder:Z
-
-    invoke-virtual {v4, v5, p0, v1, v6}, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;->makeAeroWindow(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;Z)V
-
-    :cond_6
-    iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mIsHorizontalOrder:Z
-
-    if-eqz v4, :cond_7
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mAeroWindowParams:Landroid/view/WindowManager$LayoutParams;
-
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mHoveredIconRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v5}, Landroid/graphics/Rect;->centerX()I
-
-    move-result v5
-
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mAeroWindowParams:Landroid/view/WindowManager$LayoutParams;
-
-    iget v6, v6, Landroid/view/WindowManager$LayoutParams;->width:I
-
-    div-int/lit8 v6, v6, 0x2
-
-    sub-int/2addr v5, v6
-
-    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->x:I
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mAeroWindowParams:Landroid/view/WindowManager$LayoutParams;
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v5
-
-    sget v6, Lcom/samsung/android/framework/res/R$dimen;->task_bar_height:I
-
-    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v5
-
-    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->y:I
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mAeroWindowParams:Landroid/view/WindowManager$LayoutParams;
-
-    iput v11, v4, Landroid/view/WindowManager$LayoutParams;->gravity:I
-
-    :goto_2
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mTaskBarView:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
-
-    iget-object v4, v4, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
-
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mAeroWindow:Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;
-
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mAeroWindowParams:Landroid/view/WindowManager$LayoutParams;
-
-    invoke-virtual {v4, v5, v6}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->updateViewLayout(Landroid/view/View;Landroid/view/WindowManager$LayoutParams;)V
-
-    goto/16 :goto_1
-
-    :cond_7
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mAeroWindowParams:Landroid/view/WindowManager$LayoutParams;
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v5
-
-    sget v6, Lcom/samsung/android/framework/res/R$dimen;->task_bar_height:I
-
-    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v5
-
-    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->x:I
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mAeroWindowParams:Landroid/view/WindowManager$LayoutParams;
-
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mHoveredIconRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v5}, Landroid/graphics/Rect;->centerY()I
-
-    move-result v5
-
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mAeroWindowParams:Landroid/view/WindowManager$LayoutParams;
-
-    iget v6, v6, Landroid/view/WindowManager$LayoutParams;->height:I
-
-    div-int/lit8 v6, v6, 0x2
-
-    sub-int/2addr v5, v6
-
-    iput v5, v4, Landroid/view/WindowManager$LayoutParams;->y:I
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mAeroWindowParams:Landroid/view/WindowManager$LayoutParams;
-
-    iput v10, v4, Landroid/view/WindowManager$LayoutParams;->gravity:I
-
-    goto :goto_2
 .end method
 
 .method private startInCallUIAnimation(Landroid/view/View;)V
@@ -1592,9 +1808,9 @@
 
     invoke-virtual {v2, v3}, Landroid/animation/AnimatorSet;->playSequentially([Landroid/animation/Animator;)V
 
-    new-instance v3, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$9;
+    new-instance v3, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$11;
 
-    invoke-direct {v3, p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$9;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)V
+    invoke-direct {v3, p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$11;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)V
 
     invoke-virtual {v2, v3}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
@@ -1617,8 +1833,356 @@
     .end array-data
 .end method
 
-.method private updateRunningItem(Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;IILandroid/content/ComponentName;Z)V
-    .locals 5
+.method private updateRunningItem(Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;ILandroid/app/ActivityManager$TaskDescription;)V
+    .locals 11
+
+    const/4 v10, 0x1
+
+    const/4 v0, 0x0
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getPackageName()Ljava/lang/String;
+
+    move-result-object v7
+
+    iget-object v8, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->user:Landroid/os/UserHandle;
+
+    invoke-virtual {v8}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v8
+
+    invoke-static {v7, v8}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->getApplicationNameFromDb(Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v2
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getPackageName()Ljava/lang/String;
+
+    move-result-object v8
+
+    iget-object v9, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->user:Landroid/os/UserHandle;
+
+    invoke-virtual {v9}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v9
+
+    invoke-static {v7, v8, v9}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->getApplicationIconFromDb(Landroid/content/Context;Ljava/lang/String;I)Landroid/graphics/Bitmap;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mContext:Landroid/content/Context;
+
+    iget-object v8, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->user:Landroid/os/UserHandle;
+
+    invoke-virtual {v8}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v8
+
+    invoke-static {v7, p3, v8}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->getIconFromTaskDescription(Landroid/content/Context;Landroid/app/ActivityManager$TaskDescription;I)Landroid/graphics/Bitmap;
+
+    move-result-object v1
+
+    :cond_0
+    if-nez v2, :cond_1
+
+    invoke-virtual {p3}, Landroid/app/ActivityManager$TaskDescription;->getLabel()Ljava/lang/String;
+
+    move-result-object v2
+
+    :cond_1
+    if-eqz v1, :cond_b
+
+    iput-object v1, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mIconBitmap:Landroid/graphics/Bitmap;
+
+    const/4 v0, 0x1
+
+    :cond_2
+    :goto_0
+    if-eqz v2, :cond_c
+
+    iput-object v2, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mTitle:Ljava/lang/String;
+
+    const/4 v0, 0x1
+
+    :cond_3
+    :goto_1
+    if-nez v3, :cond_4
+
+    if-eqz v4, :cond_6
+
+    :cond_4
+    const/4 v0, 0x1
+
+    new-instance v5, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$TitleIconInfo;
+
+    invoke-direct {v5}, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$TitleIconInfo;-><init>()V
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mPkgResCache:Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;
+
+    iget-object v8, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mContext:Landroid/content/Context;
+
+    iget-object v9, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->user:Landroid/os/UserHandle;
+
+    invoke-virtual {p1, v8, v9}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getLaunchIntent(Landroid/content/Context;Landroid/os/UserHandle;)Landroid/content/Intent;
+
+    move-result-object v8
+
+    iget-object v9, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->user:Landroid/os/UserHandle;
+
+    invoke-virtual {v7, v5, v8, v9}, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->getTitleAndIcon(Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$TitleIconInfo;Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    if-eqz v3, :cond_5
+
+    iget-object v7, v5, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$TitleIconInfo;->mIcon:Landroid/graphics/Bitmap;
+
+    iput-object v7, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mIconBitmap:Landroid/graphics/Bitmap;
+
+    :cond_5
+    if-eqz v4, :cond_6
+
+    iget-object v7, v5, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$TitleIconInfo;->mTitle:Ljava/lang/String;
+
+    iput-object v7, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mTitle:Ljava/lang/String;
+
+    :cond_6
+    if-eqz v0, :cond_f
+
+    if-eqz v3, :cond_d
+
+    if-eqz v4, :cond_d
+
+    const/4 v7, 0x0
+
+    iput-boolean v7, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mUsingTaskDescription:Z
+
+    :goto_2
+    iget-object v7, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mIconBitmap:Landroid/graphics/Bitmap;
+
+    if-nez v7, :cond_7
+
+    const-string/jumbo v7, "[DS]CellLayoutTaksBar"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "updateRunningItem:: This item doesn\'t have icon!!!"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    iget-object v9, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mComponentName:Landroid/content/ComponentName;
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mPkgResCache:Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;
+
+    invoke-virtual {v7}, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->getDefaultIcon()Landroid/graphics/Bitmap;
+
+    move-result-object v7
+
+    iput-object v7, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mIconBitmap:Landroid/graphics/Bitmap;
+
+    iput-boolean v10, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->usingFallbackIcon:Z
+
+    :cond_7
+    iget-object v7, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mTitle:Ljava/lang/String;
+
+    if-nez v7, :cond_8
+
+    iget-object v7, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mComponentName:Landroid/content/ComponentName;
+
+    invoke-virtual {v7}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
+
+    move-result-object v7
+
+    iput-object v7, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mTitle:Ljava/lang/String;
+
+    :cond_8
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mChildren:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;
+
+    invoke-virtual {v7, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;->getChildAt(Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;
+
+    if-eqz v6, :cond_e
+
+    invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->DEBUGGABLE_TASK_MONITOR()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_9
+
+    const-string/jumbo v7, "[DS]CellLayoutTaksBar"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "updateRunningItem:: taskId="
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const-string/jumbo v9, ", taskDesc="
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const-string/jumbo v9, ", needToSetDefaultIcon="
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const-string/jumbo v9, ", needToSetDefaultLabel="
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_9
+    invoke-virtual {v6, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->applyBaseItem(Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;)V
+
+    invoke-virtual {v6}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->invalidate()V
+
+    :cond_a
+    :goto_3
+    return-void
+
+    :cond_b
+    iget-boolean v7, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mUsingTaskDescription:Z
+
+    if-eqz v7, :cond_2
+
+    const/4 v3, 0x1
+
+    goto/16 :goto_0
+
+    :cond_c
+    iget-boolean v7, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mUsingTaskDescription:Z
+
+    if-eqz v7, :cond_3
+
+    const/4 v4, 0x1
+
+    goto/16 :goto_1
+
+    :cond_d
+    iput-boolean v10, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mUsingTaskDescription:Z
+
+    goto/16 :goto_2
+
+    :cond_e
+    const-string/jumbo v7, "[DS]CellLayoutTaksBar"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "updateRunningItem:: Cannot find this item\'s view for "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getComponentName()Landroid/content/ComponentName;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_3
+
+    :cond_f
+    invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->DEBUGGABLE_TASK_MONITOR()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_a
+
+    const-string/jumbo v7, "[DS]CellLayoutTaksBar"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "updateRunningItem:: There is no update for taskid="
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_3
+.end method
+
+.method private updateShortcutItem(Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;IZ)V
+    .locals 6
+
+    const/4 v5, 0x0
 
     invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->DEBUGGABLE_TASK_MONITOR()Z
 
@@ -1632,7 +2196,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "updateRunningItem:: taskId="
+    const-string/jumbo v4, "updateShortcutItem:: taskId="
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1642,23 +2206,13 @@
 
     move-result-object v3
 
-    const-string/jumbo v4, ", ComponentName="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
     const-string/jumbo v4, ", canAddToShorcut="
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    invoke-virtual {v3, p5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
@@ -1669,7 +2223,23 @@
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iput-object p4, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mComponentName:Landroid/content/ComponentName;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mChildren:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;
+
+    iget v3, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mRunningTaskId:I
+
+    invoke-virtual {v2, v3, p2, v5, v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;->updateRunningTaskPosition(IIII)V
+
+    iput p2, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mRunningTaskId:I
+
+    iput-boolean p3, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mCanAddToShortcut:Z
+
+    const/4 v2, -0x1
+
+    if-ne p2, v2, :cond_2
+
+    iget-boolean v2, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mUsingTaskDescription:Z
+
+    if-eqz v2, :cond_2
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$TitleIconInfo;
 
@@ -1707,13 +2277,15 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "updateRunningItem:: This item doesn\'t have icon!!!"
+    const-string/jumbo v4, "addRunningItem:: This item doesn\'t have icon!!!"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    invoke-virtual {v3, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    iget-object v4, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mComponentName:Landroid/content/ComponentName;
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
@@ -1740,17 +2312,15 @@
 
     if-nez v2, :cond_2
 
-    invoke-virtual {p4}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
+    iget-object v2, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mComponentName:Landroid/content/ComponentName;
+
+    invoke-virtual {v2}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
 
     move-result-object v2
 
     iput-object v2, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mTitle:Ljava/lang/String;
 
     :cond_2
-    iput p2, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mRunningTaskId:I
-
-    iput-boolean p5, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mCanAddToShortcut:Z
-
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mChildren:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;
 
     invoke-virtual {v2, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;->getChildAt(Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;)Landroid/view/View;
@@ -1775,13 +2345,17 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "updateRunningItem:: Cannot find this item\'s view for "
+    const-string/jumbo v4, "updateShortcutItem:: Cannot find this item\'s view for "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    invoke-virtual {v3, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getPackageName()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
@@ -1794,125 +2368,73 @@
     goto :goto_0
 .end method
 
-.method private updateShortcutItem(Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;IZ)V
+
+# virtual methods
+.method public addAppShortcutByBixby(Ljava/lang/String;Landroid/os/UserHandle;)I
     .locals 5
 
-    const/4 v4, 0x0
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mContext:Landroid/content/Context;
 
-    invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->DEBUGGABLE_TASK_MONITOR()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const-string/jumbo v1, "[DS]CellLayoutTaksBar"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "updateShortcutItem:: taskId="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, ", canAddToShorcut="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mChildren:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;
-
-    iget v2, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mRunningTaskId:I
-
-    invoke-virtual {v1, v2, p2, v4, v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;->updateRunningTaskPosition(IIII)V
-
-    iput p2, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mRunningTaskId:I
-
-    iput-boolean p3, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mCanAddToShortcut:Z
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mChildren:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;
-
-    invoke-virtual {v1, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;->getChildAt(Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;)Landroid/view/View;
+    invoke-static {p1, v2}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->getComponentNameFromPkg(Ljava/lang/String;Landroid/content/Context;)Landroid/content/ComponentName;
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;
+    const/4 v1, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_0
 
-    iget v1, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mRunningTaskId:I
+    invoke-direct {p0, v0, p2}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->addShortcutByBixby(Landroid/content/ComponentName;Landroid/os/UserHandle;)I
 
-    const/4 v2, -0x1
-
-    if-eq v1, v2, :cond_1
-
-    invoke-virtual {v0, v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->semSetHoverPopupType(I)V
+    move-result v1
 
     :goto_0
-    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->applyBaseItem(Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;)V
+    return v1
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->invalidate()V
+    :cond_0
+    invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->DEBUGGABLE_TASK_MONITOR()Z
 
-    :goto_1
-    return-void
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    const-string/jumbo v2, "[DS]CellLayoutTaksBar"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "addAppShortcutByBixby():: pkgName="
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, ", compName="
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;->semSetHoverPopupType(I)V
-
     goto :goto_0
-
-    :cond_2
-    const-string/jumbo v1, "[DS]CellLayoutTaksBar"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "updateShortcutItem:: Cannot find this item\'s view for "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getPackageName()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
 .end method
 
-
-# virtual methods
 .method public addItem(Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;)Z
     .locals 4
 
@@ -1974,199 +2496,243 @@
     return v0
 .end method
 
-.method public addRunningTaskApp(IILandroid/content/ComponentName;)V
+.method public addRunningTaskApp(IILandroid/content/ComponentName;Landroid/app/ActivityManager$TaskDescription;)V
     .locals 7
 
     invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->DEBUGGABLE_TASK_MONITOR()Z
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_0
+    if-eqz v0, :cond_0
 
-    const-string/jumbo v4, "[DS]CellLayoutTaksBar"
+    const-string/jumbo v0, "[DS]CellLayoutTaksBar"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "addRunningTaskApp():: taskId="
+    const-string/jumbo v2, "addRunningTaskApp():: taskId="
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    const-string/jumbo v6, ", userId="
+    const-string/jumbo v2, ", userId="
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    const-string/jumbo v6, ", cn="
+    const-string/jumbo v2, ", cn="
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mTaskBarView:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mTaskBarView:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
-    iget-object v4, v4, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
+    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
 
-    invoke-virtual {v4, p2}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->isAvailableUser(I)Z
+    invoke-virtual {v0, p2}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->isAvailableUser(I)Z
 
-    move-result v4
+    move-result v0
 
-    if-nez v4, :cond_1
+    if-nez v0, :cond_1
 
-    const-string/jumbo v4, "[DS]CellLayoutTaksBar"
+    const-string/jumbo v0, "[DS]CellLayoutTaksBar"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "addRunningTaskApp() This user is not available!!!:: taskId="
+    const-string/jumbo v2, "addRunningTaskApp() This user is not available!!!:: taskId="
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    const-string/jumbo v6, ", userId="
+    const-string/jumbo v2, ", userId="
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    const-string/jumbo v6, ", cn="
+    const-string/jumbo v2, ", cn="
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_1
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->findSameTaskRunningApp(II)Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
+    invoke-virtual {p3}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    if-nez v2, :cond_5
+    const-string/jumbo v1, "com.samsung.android.app.spage"
 
-    sget-object v4, Lcom/android/systemui/statusbar/phone/taskbar/model/MenuAppModel;->INSTANCE:Lcom/android/systemui/statusbar/phone/taskbar/model/MenuAppModel;
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v4, p3, p2}, Lcom/android/systemui/statusbar/phone/taskbar/model/MenuAppModel;->matchMainActivity(Landroid/content/ComponentName;I)Landroid/content/ComponentName;
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const-string/jumbo v0, "[DS]CellLayoutTaksBar"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "addRunningTaskApp() Bixby home is not available!!!:: taskId="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    const/4 v0, 0x1
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    if-nez v1, :cond_2
+    move-result-object v1
 
-    const/4 v0, 0x0
+    const-string/jumbo v2, ", userId="
 
-    move-object v1, p3
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, ", cn="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mTaskBarView:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    iput p1, v0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->mBixbyHomeTaskID:I
+
+    return-void
 
     :cond_2
-    invoke-direct {p0, p2, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->findSameComponentShortcutApp(ILandroid/content/ComponentName;)Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0, p3, p2}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->findMainActivityWithCategoryLauncher(Landroid/content/Context;Landroid/content/ComponentName;I)Landroid/content/ComponentName;
 
     move-result-object v3
 
+    const/4 v4, 0x1
+
     if-nez v3, :cond_3
-
-    invoke-direct {p0, p1, p2, v1, v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->addRunningItem(IILandroid/content/ComponentName;Z)V
-
-    :goto_0
-    return-void
-
-    :cond_3
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->isRunning()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_4
-
-    iget v4, v3, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mRunningTaskId:I
-
-    if-eq v4, p1, :cond_4
 
     const/4 v4, 0x0
 
-    invoke-direct {p0, p1, p2, v1, v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->addRunningItem(IILandroid/content/ComponentName;Z)V
+    move-object v3, p3
 
-    goto :goto_0
+    :cond_3
+    invoke-direct {p0, p2, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->findSameComponentShortcutApp(ILandroid/content/ComponentName;)Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
+
+    move-result-object v6
+
+    if-nez v6, :cond_4
+
+    move-object v0, p0
+
+    move v1, p1
+
+    move v2, p2
+
+    move-object v5, p4
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->addRunningItem(IILandroid/content/ComponentName;ZLandroid/app/ActivityManager$TaskDescription;)V
+
+    :goto_0
+    const-string/jumbo v0, "103"
+
+    const-string/jumbo v1, "1503"
+
+    invoke-virtual {p3}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v1, v2}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarAnalytics;->sendEventLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
 
     :cond_4
-    invoke-direct {p0, v3, p1, v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->updateShortcutItem(Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;IZ)V
+    invoke-virtual {v6}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->isRunning()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    iget v0, v6, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mRunningTaskId:I
+
+    if-eq v0, p1, :cond_5
+
+    move-object v0, p0
+
+    move v1, p1
+
+    move v2, p2
+
+    move-object v5, p4
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->addRunningItem(IILandroid/content/ComponentName;ZLandroid/app/ActivityManager$TaskDescription;)V
 
     goto :goto_0
 
     :cond_5
-    const-string/jumbo v4, "[DS]CellLayoutTaksBar"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "addRunningTaskApp()::Start, But already in the list!!  taskId="
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, ", cn="
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {p0, v6, p1, v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->updateShortcutItem(Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;IZ)V
 
     goto :goto_0
 .end method
@@ -2580,6 +3146,57 @@
     goto :goto_0
 .end method
 
+.method public countSameComponentApp(ILandroid/content/ComponentName;)I
+    .locals 5
+
+    const/4 v0, 0x0
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mChildren:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;
+
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;->getChildCount()I
+
+    move-result v3
+
+    const/4 v1, 0x0
+
+    :goto_0
+    if-ge v1, v3, :cond_1
+
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->getItemAt(I)Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
+
+    if-eqz v2, :cond_0
+
+    iget-object v4, v2, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mComponentName:Landroid/content/ComponentName;
+
+    invoke-virtual {v4, p2}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    iget-object v4, v2, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->user:Landroid/os/UserHandle;
+
+    invoke-virtual {v4}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v4
+
+    if-ne v4, p1, :cond_0
+
+    add-int/lit8 v0, v0, 0x1
+
+    :cond_0
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    return v0
+.end method
+
 .method public createShortcut(Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 4
 
@@ -2587,7 +3204,7 @@
 
     iget-object v1, v1, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f04005d
+    const v2, 0x7f0d004e
 
     const/4 v3, 0x0
 
@@ -2792,102 +3409,132 @@
     return-object v3
 .end method
 
-.method public focusRunningTaskApp(IILandroid/content/ComponentName;)V
+.method public findSameTaskRunningApp(I)Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
     .locals 5
 
-    invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->DEBUGGABLE_TASK_MONITOR()Z
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mChildren:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;
 
-    move-result v2
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;->getChildCount()I
 
-    if-eqz v2, :cond_0
+    move-result v3
 
-    const-string/jumbo v2, "[DS]CellLayoutTaksBar"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "focusRunningTaskApp():: taskId="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, ", userId="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, ", cn="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->findSameTaskRunningApp(II)Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
-
-    move-result-object v0
+    const/4 v0, 0x0
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_1
+    :goto_0
+    if-ge v1, v3, :cond_0
 
-    const-string/jumbo v2, "[DS]CellLayoutTaksBar"
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->getItemAt(I)Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    check-cast v2, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
 
-    const-string/jumbo v4, "focusRunningTaskApp()::Focus  Not in the list!! maybe launcher or other!!  taskId="
+    if-eqz v2, :cond_1
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->isRunning()Z
 
-    move-result-object v3
+    move-result v4
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    if-eqz v4, :cond_1
 
-    move-result-object v3
+    iget v4, v2, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mRunningTaskId:I
 
-    const-string/jumbo v4, ", cn="
+    if-ne v4, p1, :cond_1
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object v0, v2
 
-    move-result-object v3
-
-    invoke-virtual {v3, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v1, 0x1
+    :cond_0
+    return-object v0
 
     :cond_1
-    invoke-direct {p0, p1, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->focusRunningItem(IZ)V
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+.end method
+
+.method public focusRunningTaskApp(IILandroid/content/ComponentName;ILandroid/app/ActivityManager$TaskDescription;Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;)V
+    .locals 4
+
+    invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->DEBUGGABLE_TASK_MONITOR()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const-string/jumbo v1, "[DS]CellLayoutTaksBar"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "focusRunningTaskApp():: taskId="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, ", userId="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, ", cn="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, ", taskType="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    const/4 v0, 0x0
+
+    if-nez p6, :cond_2
+
+    if-nez p4, :cond_1
+
+    invoke-virtual {p0, p1, p2, p3, p5}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->addRunningTaskApp(IILandroid/content/ComponentName;Landroid/app/ActivityManager$TaskDescription;)V
+
+    :cond_1
+    const-string/jumbo v1, "[DS]CellLayoutTaksBar"
+
+    const-string/jumbo v2, "focusRunningTaskApp()::Focus  Not in the list!! maybe launcher or other!!"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x1
+
+    :cond_2
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->focusRunningItem(IZ)V
 
     return-void
 .end method
@@ -3115,7 +3762,7 @@
 
     instance-of v2, p1, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mTaskBarView:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
@@ -3123,7 +3770,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1
 
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
@@ -3131,7 +3778,7 @@
 
     check-cast v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mContext:Landroid/content/Context;
 
@@ -3145,7 +3792,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->dismissAeroWindow()V
 
@@ -3157,7 +3804,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mMultiWindowManager:Lcom/samsung/android/multiwindow/MultiWindowManager;
 
@@ -3167,13 +3814,25 @@
 
     iget v3, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mRunningTaskId:I
 
-    invoke-virtual {v2, v3}, Lcom/samsung/android/multiwindow/MultiWindowManager;->minimizeTask(I)V
+    invoke-virtual {v2, v3}, Lcom/samsung/android/multiwindow/MultiWindowManager;->minimizeFreeformTask(I)V
 
     :cond_0
     :goto_0
-    return-void
+    const-string/jumbo v2, "103"
+
+    const-string/jumbo v3, "1506"
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getPackageName()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v2, v3, v4}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarAnalytics;->sendEventLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_1
+    :goto_1
+    return-void
+
+    :cond_2
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mContext:Landroid/content/Context;
 
     iget v3, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mRunningTaskId:I
@@ -3228,7 +3887,7 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     const/4 v2, 0x0
 
     invoke-virtual {p1, v2}, Landroid/view/View;->semSetHoverPopupType(I)V
@@ -3237,11 +3896,23 @@
 
     invoke-virtual {v2, p1, v0, v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->startActivitySafely(Landroid/view/View;Landroid/content/Intent;Ljava/lang/Object;)Z
 
-    goto :goto_0
+    const-string/jumbo v2, "103"
+
+    const-string/jumbo v3, "1504"
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->getPackageName()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v2, v3, v4}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarAnalytics;->sendEventLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_1
 .end method
 
 .method public onContextClick(Landroid/view/View;)Z
-    .locals 7
+    .locals 8
+
+    const/4 v7, 0x1
 
     instance-of v0, p1, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;
 
@@ -3297,9 +3968,13 @@
     invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->showContextMenu(IFFLcom/android/systemui/statusbar/phone/taskbar/data/AppItem;Landroid/view/View;)V
 
     :cond_0
-    const/4 v0, 0x1
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mTaskBarView:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
-    return v0
+    const v2, 0x7f0a0508
+
+    invoke-virtual {v0, v2, v7}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->closeAllExcept(IZ)V
+
+    return v7
 
     :cond_1
     const/4 v1, 0x4
@@ -3386,52 +4061,9 @@
 
     instance-of v3, v2, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
-    if-eqz v3, :cond_2
-
-    invoke-virtual {p1}, Landroid/view/DragEvent;->getLocalState()Ljava/lang/Object;
-
-    move-result-object v3
+    xor-int/lit8 v3, v3, 0x1
 
     if-eqz v3, :cond_3
-
-    invoke-virtual {p1}, Landroid/view/DragEvent;->getLocalState()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;
-
-    move-object v1, v3
-
-    :goto_1
-    if-nez v1, :cond_4
-
-    const-string/jumbo v3, "[DS]CellLayoutTaksBar"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "onDragEvent dragState is null!! return false. event="
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {p1}, Landroid/view/DragEvent;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v8
 
     :cond_2
     const-string/jumbo v3, "[DS]CellLayoutTaksBar"
@@ -3463,16 +4095,60 @@
     return v8
 
     :cond_3
+    invoke-virtual {p1}, Landroid/view/DragEvent;->getLocalState()Ljava/lang/Object;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_4
+
+    invoke-virtual {p1}, Landroid/view/DragEvent;->getLocalState()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;
+
+    :goto_1
+    if-nez v1, :cond_5
+
+    const-string/jumbo v3, "[DS]CellLayoutTaksBar"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "onDragEvent dragState is null!! return false. event="
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {p1}, Landroid/view/DragEvent;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v8
+
+    :cond_4
     sget-object v1, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->dragState:Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;
 
     goto :goto_1
 
-    :cond_4
+    :cond_5
     invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->DEBUGGABLE_DRAG_INFO()Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_6
 
     const-string/jumbo v3, "[DS]CellLayoutTaksBar"
 
@@ -3532,40 +4208,40 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_5
-    if-ne v0, v9, :cond_6
+    :cond_6
+    if-ne v0, v9, :cond_7
 
     iput-boolean v8, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mHasEnded:Z
 
     iput-boolean v9, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mDrawDragOutlines:Z
 
-    :cond_6
-    iget-boolean v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mHasEnded:Z
-
-    if-eqz v3, :cond_7
-
-    return v8
-
     :cond_7
-    iget-object v3, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mItem:Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;
-
-    iget-boolean v3, v3, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;->mSecretItem:Z
+    iget-boolean v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mHasEnded:Z
 
     if-eqz v3, :cond_8
 
     return v8
 
     :cond_8
+    iget-object v3, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mItem:Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;
+
+    iget-boolean v3, v3, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;->mSecretItem:Z
+
+    if-eqz v3, :cond_9
+
+    return v8
+
+    :cond_9
     iput-boolean v9, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mDrawDragOutlines:Z
 
-    if-eq v0, v11, :cond_9
+    if-eq v0, v11, :cond_a
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mDragState:Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;
 
-    :cond_9
+    :cond_a
     const/4 v3, 0x5
 
-    if-ne v0, v3, :cond_a
+    if-ne v0, v3, :cond_b
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->isFull()Z
 
@@ -3573,16 +4249,16 @@
 
     iput-boolean v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mDisabled:Z
 
-    :cond_a
+    :cond_b
     iget-boolean v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mDisabled:Z
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_c
 
-    if-ne v0, v11, :cond_c
+    if-ne v0, v11, :cond_d
 
     iput-boolean v8, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mDisabled:Z
 
-    :cond_b
+    :cond_c
     packed-switch v0, :pswitch_data_0
 
     :goto_2
@@ -3592,7 +4268,7 @@
 
     return v3
 
-    :cond_c
+    :cond_d
     invoke-super {p0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->onDragEvent(Landroid/view/DragEvent;)Z
 
     move-result v3
@@ -3613,11 +4289,11 @@
 
     move-result v3
 
-    if-eqz v3, :cond_d
+    if-eqz v3, :cond_e
 
     invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->onDelete()V
 
-    :cond_d
+    :cond_e
     invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->onEnd()V
 
     iput-object v10, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mDragState:Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;
@@ -3625,6 +4301,10 @@
     iput-object v10, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mHiddenItem:Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->removeEmptySpace()V
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mTaskBarView:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->removeDraggingView()V
 
     goto :goto_2
 
@@ -3680,21 +4360,21 @@
 .end method
 
 .method public onHover(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 7
+    .locals 6
 
-    const/16 v6, 0xa
+    const/16 v4, 0xa
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     const/4 v5, 0x1
 
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getSource()I
+    const/16 v2, 0x2002
+
+    invoke-virtual {p2, v2}, Landroid/view/MotionEvent;->isFromSource(I)Z
 
     move-result v2
 
-    const/16 v3, 0x2002
-
-    if-ne v2, v3, :cond_0
+    if-eqz v2, :cond_0
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mTaskBarView:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
@@ -3702,18 +4382,10 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mTaskBarView:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->isAppsLayoutVisible()Z
-
-    move-result v2
-
     if-eqz v2, :cond_1
 
     :cond_0
-    return v4
+    return v3
 
     :cond_1
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
@@ -3722,7 +4394,7 @@
 
     instance-of v2, p1, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_5
 
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
@@ -3732,13 +4404,7 @@
 
     const/16 v2, 0x9
 
-    if-ne v0, v2, :cond_4
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->makeHoverEnterAnimation()Landroid/view/animation/TranslateAnimation;
-
-    move-result-object v2
-
-    invoke-virtual {p1, v2}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
+    if-ne v0, v2, :cond_3
 
     move-object v2, p1
 
@@ -3748,7 +4414,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_8
 
     invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->DEBUGGABLE_AERO_FEATURE()Z
 
@@ -3785,17 +4451,10 @@
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->showAeroWindow(Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;)V
 
-    :cond_3
     return v5
 
-    :cond_4
-    if-ne v0, v6, :cond_9
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->makeHoverExitAnimation()Landroid/view/animation/TranslateAnimation;
-
-    move-result-object v2
-
-    invoke-virtual {p1, v2}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
+    :cond_3
+    if-ne v0, v4, :cond_8
 
     check-cast p1, Lcom/android/systemui/statusbar/phone/taskbar/views/AppIconView;
 
@@ -3803,7 +4462,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_8
 
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getRawX()F
 
@@ -3821,7 +4480,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_4
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->dismissAeroWindow()V
 
@@ -3829,7 +4488,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_4
 
     const-string/jumbo v2, "[DS]CellLayoutTaksBar"
 
@@ -3837,23 +4496,23 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_5
+    :cond_4
     return v5
 
-    :cond_6
+    :cond_5
     instance-of v2, p1, Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_8
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mAeroWindow:Lcom/android/systemui/statusbar/phone/taskbar/views/AeroWindowLayout;
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_8
 
-    if-ne v0, v6, :cond_9
+    if-ne v0, v4, :cond_8
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mHoveredIconRect:Landroid/graphics/Rect;
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_6
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mHoveredIconRect:Landroid/graphics/Rect;
 
@@ -3873,13 +4532,11 @@
 
     move-result v2
 
-    if-eqz v2, :cond_8
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_7
-    :goto_0
-    return v5
+    if-eqz v2, :cond_7
 
-    :cond_8
+    :cond_6
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->dismissAeroWindow()V
 
     invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->DEBUGGABLE_AERO_FEATURE()Z
@@ -3894,10 +4551,11 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    :cond_7
+    return v5
 
-    :cond_9
-    return v4
+    :cond_8
+    return v3
 .end method
 
 .method protected onMeasure(II)V
@@ -4086,78 +4744,33 @@
 .end method
 
 .method public refreshAllRunningTaskList()V
-    .locals 8
-
-    const/4 v7, 0x0
+    .locals 2
 
     invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->DEBUGGABLE_TASK_MONITOR()Z
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_0
+    if-eqz v0, :cond_0
 
-    const-string/jumbo v4, "[DS]CellLayoutTaksBar"
+    const-string/jumbo v0, "[DS]CellLayoutTaksBar"
 
-    const-string/jumbo v5, "refreshAllRunningTaskList()"
+    const-string/jumbo v1, "refreshAllRunningTaskList()"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->resetRunningAppItems()V
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mContext:Landroid/content/Context;
+    new-instance v0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$9;
 
-    invoke-static {v4}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->getRunningTaskList(Landroid/content/Context;)Ljava/util/ArrayList;
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$9;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)V
 
-    move-result-object v2
+    const/4 v1, 0x0
 
-    if-eqz v2, :cond_2
+    new-array v1, v1, [Ljava/lang/Void;
 
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$9;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    move-result v3
-
-    add-int/lit8 v0, v3, -0x1
-
-    :goto_0
-    if-ltz v0, :cond_1
-
-    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/statusbar/phone/taskbar/data/RunningTaskItem;
-
-    iget v4, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/RunningTaskItem;->mTaskId:I
-
-    iget v5, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/RunningTaskItem;->mUserId:I
-
-    iget-object v6, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/RunningTaskItem;->mComponent:Landroid/content/ComponentName;
-
-    invoke-virtual {p0, v4, v5, v6}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->addRunningTaskApp(IILandroid/content/ComponentName;)V
-
-    add-int/lit8 v0, v0, -0x1
-
-    goto :goto_0
-
-    :cond_1
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
-
-    move-result v4
-
-    if-lez v4, :cond_2
-
-    invoke-virtual {v2, v7}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/android/systemui/statusbar/phone/taskbar/data/RunningTaskItem;
-
-    iget v4, v4, Lcom/android/systemui/statusbar/phone/taskbar/data/RunningTaskItem;->mTaskId:I
-
-    invoke-direct {p0, v4, v7}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->focusRunningItem(IZ)V
-
-    :cond_2
     return-void
 .end method
 
@@ -4223,6 +4836,16 @@
 
     :cond_1
     return-void
+.end method
+
+.method public removeAppShortcutByBixby(Ljava/lang/String;)I
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->removeShortcutByBixby(Ljava/lang/String;)I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public removeEmptySpace()V
@@ -4344,10 +4967,13 @@
 
     iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mDisabled:Z
 
-    if-eqz v1, :cond_2
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->removeEmptySpace()V
 
     :cond_0
-    :goto_0
     const-string/jumbo v1, "com.samsung.android.incallui"
 
     invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;->getPackageName()Ljava/lang/String;
@@ -4370,14 +4996,9 @@
 
     :cond_1
     return v0
-
-    :cond_2
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->removeEmptySpace()V
-
-    goto :goto_0
 .end method
 
-.method public removeRunningTaskApp(IILandroid/content/ComponentName;)V
+.method public removeRunningTaskApp(I)V
     .locals 4
 
     invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->DEBUGGABLE_TASK_MONITOR()Z
@@ -4402,26 +5023,6 @@
 
     move-result-object v2
 
-    const-string/jumbo v3, ", userId="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, ", cn="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -4429,7 +5030,7 @@
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->findSameTaskRunningApp(II)Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->findSameTaskRunningApp(I)Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
 
     move-result-object v0
 
@@ -4473,16 +5074,6 @@
     move-result-object v2
 
     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, ", cn="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
@@ -4597,7 +5188,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0c0095
+    const v1, 0x7f0b0021
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -4632,7 +5223,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f120038
+    const v0, 0x7f050029
 
     :goto_0
     invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
@@ -4684,7 +5275,7 @@
     return-void
 
     :cond_1
-    const v0, 0x7f120037
+    const v0, 0x7f05002a
 
     goto :goto_0
 .end method
@@ -4823,9 +5414,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$8;
+    new-instance v1, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$10;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$8;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar$10;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;)V
 
     const-wide/16 v2, 0xbb8
 
@@ -4851,16 +5442,16 @@
     .end packed-switch
 .end method
 
-.method public updateRunningTaskApp(IILandroid/content/ComponentName;Ljava/lang/String;)V
-    .locals 6
+.method public updateRunningTaskApp(ILandroid/app/ActivityManager$TaskDescription;)V
+    .locals 4
 
     invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->DEBUGGABLE_TASK_MONITOR()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    const-string/jumbo v0, "[DS]CellLayoutTaksBar"
+    const-string/jumbo v1, "[DS]CellLayoutTaksBar"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -4876,23 +5467,13 @@
 
     move-result-object v2
 
-    const-string/jumbo v3, ", userId="
+    const-string/jumbo v3, ", taskDesc="
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, ", cn="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
@@ -4900,49 +5481,28 @@
 
     move-result-object v2
 
-    invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->findSameTaskRunningApp(II)Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->findSameTaskRunningApp(I)Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
 
-    move-result-object v1
+    move-result-object v0
 
-    sget-object v0, Lcom/android/systemui/statusbar/phone/taskbar/model/MenuAppModel;->INSTANCE:Lcom/android/systemui/statusbar/phone/taskbar/model/MenuAppModel;
+    if-eqz v0, :cond_1
 
-    invoke-virtual {v0, p3, p2}, Lcom/android/systemui/statusbar/phone/taskbar/model/MenuAppModel;->matchMainActivity(Landroid/content/ComponentName;I)Landroid/content/ComponentName;
-
-    move-result-object v4
-
-    const/4 v5, 0x1
-
-    if-nez v4, :cond_1
-
-    const/4 v5, 0x0
-
-    move-object v4, p3
-
-    :cond_1
-    if-eqz v1, :cond_2
-
-    move-object v0, p0
-
-    move v2, p1
-
-    move v3, p2
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->updateRunningItem(Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;IILandroid/content/ComponentName;Z)V
+    invoke-direct {p0, v0, p1, p2}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->updateRunningItem(Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;ILandroid/app/ActivityManager$TaskDescription;)V
 
     :goto_0
     return-void
 
-    :cond_2
-    const-string/jumbo v0, "[DS]CellLayoutTaksBar"
+    :cond_1
+    const-string/jumbo v1, "[DS]CellLayoutTaksBar"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "updateRunningTaskApp()::Update  Not in the list!! then add!!  taskId="
+    const-string/jumbo v3, "updateRunningTaskApp()::Update  Not in the list!! taskId="
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -4952,23 +5512,11 @@
 
     move-result-object v2
 
-    const-string/jumbo v3, ", matchedCN="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-static {v0, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-direct {p0, p1, p2, v4, v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->addRunningItem(IILandroid/content/ComponentName;Z)V
+    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method

@@ -3,12 +3,12 @@
 .source "TaskView.java"
 
 # interfaces
-.implements Landroid/animation/Animator$AnimatorListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/recents/views/TaskView;->onClick(Landroid/view/View;)V
+    value = Lcom/android/systemui/recents/views/TaskView;->dismissTask()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,24 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/recents/views/TaskView;
 
-.field final synthetic val$info:Landroid/content/pm/ActivityInfo;
-
-.field final synthetic val$packageName:Ljava/lang/String;
-
-.field final synthetic val$progress:Landroid/widget/ProgressBar;
+.field final synthetic val$tv:Lcom/android/systemui/recents/views/TaskView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/recents/views/TaskView;Landroid/widget/ProgressBar;Ljava/lang/String;Landroid/content/pm/ActivityInfo;)V
+.method constructor <init>(Lcom/android/systemui/recents/views/TaskView;Lcom/android/systemui/recents/views/TaskView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/recents/views/TaskView$6;->this$0:Lcom/android/systemui/recents/views/TaskView;
 
-    iput-object p2, p0, Lcom/android/systemui/recents/views/TaskView$6;->val$progress:Landroid/widget/ProgressBar;
-
-    iput-object p3, p0, Lcom/android/systemui/recents/views/TaskView$6;->val$packageName:Ljava/lang/String;
-
-    iput-object p4, p0, Lcom/android/systemui/recents/views/TaskView$6;->val$info:Landroid/content/pm/ActivityInfo;
+    iput-object p2, p0, Lcom/android/systemui/recents/views/TaskView$6;->val$tv:Lcom/android/systemui/recents/views/TaskView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -46,50 +38,36 @@
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 0
+.method public run()V
+    .locals 7
 
-    return-void
-.end method
-
-.method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskView$6;->val$progress:Landroid/widget/ProgressBar;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setProgress(I)V
-
-    return-void
-.end method
-
-.method public onAnimationRepeat(Landroid/animation/Animator;)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskView$6;->this$0:Lcom/android/systemui/recents/views/TaskView;
-
-    invoke-static {v0}, Lcom/android/systemui/recents/views/TaskView;->-get2(Lcom/android/systemui/recents/views/TaskView;)Landroid/os/Handler;
+    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/systemui/recents/views/TaskView$6$1;
+    new-instance v1, Lcom/android/systemui/recents/events/ui/TaskViewDismissedEvent;
 
-    iget-object v2, p0, Lcom/android/systemui/recents/views/TaskView$6;->val$packageName:Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/systemui/recents/views/TaskView$6;->this$0:Lcom/android/systemui/recents/views/TaskView;
 
-    iget-object v3, p0, Lcom/android/systemui/recents/views/TaskView$6;->val$info:Landroid/content/pm/ActivityInfo;
+    invoke-static {v2}, Lcom/android/systemui/recents/views/TaskView;->-get2(Lcom/android/systemui/recents/views/TaskView;)Lcom/android/systemui/recents/model/Task;
 
-    invoke-direct {v1, p0, v2, v3}, Lcom/android/systemui/recents/views/TaskView$6$1;-><init>(Lcom/android/systemui/recents/views/TaskView$6;Ljava/lang/String;Landroid/content/pm/ActivityInfo;)V
+    move-result-object v2
 
-    const-wide/16 v2, 0xc80
+    iget-object v3, p0, Lcom/android/systemui/recents/views/TaskView$6;->val$tv:Lcom/android/systemui/recents/views/TaskView;
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    new-instance v4, Lcom/android/systemui/recents/views/AnimationProps;
+
+    sget-object v5, Lcom/android/systemui/Interpolators;->FAST_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
+
+    const/16 v6, 0xc8
+
+    invoke-direct {v4, v6, v5}, Lcom/android/systemui/recents/views/AnimationProps;-><init>(ILandroid/view/animation/Interpolator;)V
+
+    const/4 v5, 0x0
+
+    invoke-direct {v1, v2, v3, v4, v5}, Lcom/android/systemui/recents/events/ui/TaskViewDismissedEvent;-><init>(Lcom/android/systemui/recents/model/Task;Lcom/android/systemui/recents/views/TaskView;Lcom/android/systemui/recents/views/AnimationProps;Z)V
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
     return-void
 .end method

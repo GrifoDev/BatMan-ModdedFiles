@@ -35,37 +35,75 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 4
+    .locals 6
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
+    sget-boolean v1, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->MULTIWINDOW_DYNAMIC_ENABLED:Z
 
-    move-result-object v0
+    if-nez v1, :cond_0
 
-    new-instance v1, Lcom/android/systemui/stackdivider/events/DividerStartSnapModeEvent;
+    iget-object v1, p0, Lcom/android/systemui/stackdivider/DividerSnapView$4;->this$0:Lcom/android/systemui/stackdivider/DividerSnapView;
 
-    invoke-direct {v1, v2, v2}, Lcom/android/systemui/stackdivider/events/DividerStartSnapModeEvent;-><init>(ZZ)V
+    invoke-static {v1}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get3(Lcom/android/systemui/stackdivider/DividerSnapView;)Landroid/content/Context;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->post(Lcom/android/systemui/recents/events/EventBus$Event;)V
-
-    new-instance v0, Landroid/os/Handler;
-
-    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
-
-    new-instance v1, Lcom/android/systemui/stackdivider/DividerSnapView$4$1;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/stackdivider/DividerSnapView$4$1;-><init>(Lcom/android/systemui/stackdivider/DividerSnapView$4;)V
+    move-result-object v1
 
     iget-object v2, p0, Lcom/android/systemui/stackdivider/DividerSnapView$4;->this$0:Lcom/android/systemui/stackdivider/DividerSnapView;
 
-    invoke-static {v2}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get3(Lcom/android/systemui/stackdivider/DividerSnapView;)I
+    invoke-static {v2}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get3(Lcom/android/systemui/stackdivider/DividerSnapView;)Landroid/content/Context;
 
-    move-result v2
+    move-result-object v2
 
-    int-to-long v2, v2
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    move-result-object v2
+
+    const v3, 0x7f1209de
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    invoke-static {v1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+
+    :goto_0
+    new-instance v1, Landroid/os/Handler;
+
+    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
+
+    new-instance v2, Lcom/android/systemui/stackdivider/DividerSnapView$4$1;
+
+    invoke-direct {v2, p0}, Lcom/android/systemui/stackdivider/DividerSnapView$4$1;-><init>(Lcom/android/systemui/stackdivider/DividerSnapView$4;)V
+
+    iget-object v3, p0, Lcom/android/systemui/stackdivider/DividerSnapView$4;->this$0:Lcom/android/systemui/stackdivider/DividerSnapView;
+
+    invoke-static {v3}, Lcom/android/systemui/stackdivider/DividerSnapView;->-get4(Lcom/android/systemui/stackdivider/DividerSnapView;)I
+
+    move-result v3
+
+    int-to-long v4, v3
+
+    invoke-virtual {v1, v2, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     return-void
+
+    :cond_0
+    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
+
+    move-result-object v1
+
+    new-instance v2, Lcom/android/systemui/stackdivider/events/DividerStartSnapModeEvent;
+
+    invoke-direct {v2, v3, v3}, Lcom/android/systemui/stackdivider/events/DividerStartSnapModeEvent;-><init>(ZZ)V
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/recents/events/EventBus;->post(Lcom/android/systemui/recents/events/EventBus$Event;)V
+
+    goto :goto_0
 .end method

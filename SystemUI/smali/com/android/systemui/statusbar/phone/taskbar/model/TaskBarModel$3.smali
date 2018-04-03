@@ -35,122 +35,116 @@
 
 # virtual methods
 .method public run()V
-    .locals 6
+    .locals 5
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$3;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$3;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;
 
-    invoke-static {v3}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->-get0(Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;)Lcom/android/systemui/statusbar/phone/taskbar/model/BadgeCache;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->-get0(Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;)Lcom/android/systemui/statusbar/phone/taskbar/model/BadgeCache;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/taskbar/model/BadgeCache;->updateBadgeCounts()Ljava/util/Map;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/Map;->isEmpty()Z
-
-    move-result v3
-
-    if-nez v3, :cond_3
-
-    sget-boolean v3, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->DEBUGGABLE:Z
-
-    if-eqz v3, :cond_0
-
-    const-string/jumbo v3, "[DS]TaskBarpModel"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "reloadBadges, badges count : "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-interface {v1}, Ljava/util/Map;->size()I
-
-    move-result v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$3;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;
-
-    iget-object v3, v3, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mMenuAppLoader:Lcom/android/systemui/statusbar/phone/taskbar/model/MenuAppLoader;
-
-    invoke-virtual {v3, v1}, Lcom/android/systemui/statusbar/phone/taskbar/model/MenuAppLoader;->updateBadgeCounts(Ljava/util/Map;)Ljava/util/List;
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/taskbar/model/BadgeCache;->updateBadgeCounts()Ljava/util/Map;
 
     move-result-object v0
 
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+    invoke-interface {v0}, Ljava/util/Map;->isEmpty()Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_3
+    if-nez v2, :cond_3
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$3;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;
+    sget-boolean v2, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->DEBUGGABLE:Z
 
-    iget-object v2, v3, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mCallbacks:Ljava/lang/ref/WeakReference;
+    if-eqz v2, :cond_0
 
-    const-string/jumbo v3, "[DS]TaskBarpModel"
+    const-string/jumbo v2, "[DS]TaskBarpModel"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "reloadBadges, origCallbacks : "
+    const-string/jumbo v4, "reloadBadges, badges count : "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz v2, :cond_1
-
-    invoke-virtual {v2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    if-nez v3, :cond_2
+    invoke-interface {v0}, Ljava/util/Map;->size()I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    sget-object v2, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->sHomeItems:Ljava/util/ArrayList;
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->isEmpty()Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$3;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;
+
+    iget-object v1, v2, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mCallbacks:Ljava/lang/ref/WeakReference;
+
+    const-string/jumbo v2, "[DS]TaskBarpModel"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "reloadBadges, origCallbacks : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v2
+
+    if-nez v2, :cond_2
 
     :cond_1
-    const-string/jumbo v3, "[DS]TaskBarpModel"
+    const-string/jumbo v2, "[DS]TaskBarpModel"
 
-    const-string/jumbo v4, "Nobody to tell about new badge counts. Launcher is not running."
+    const-string/jumbo v3, "Nobody to tell about new badge counts. Launcher is not running."
 
-    invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_2
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$3;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$3;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;
 
-    iget-object v3, v3, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mHandler:Lcom/android/systemui/statusbar/phone/taskbar/model/DeferredHandler;
+    iget-object v2, v2, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mHandler:Lcom/android/systemui/statusbar/phone/taskbar/model/DeferredHandler;
 
-    new-instance v4, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$3$1;
+    new-instance v3, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$3$1;
 
-    invoke-direct {v4, p0, v2, v1}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$3$1;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$3;Ljava/lang/ref/WeakReference;Ljava/util/Map;)V
+    invoke-direct {v3, p0, v1, v0}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$3$1;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$3;Ljava/lang/ref/WeakReference;Ljava/util/Map;)V
 
-    invoke-virtual {v3, v4}, Lcom/android/systemui/statusbar/phone/taskbar/model/DeferredHandler;->post(Ljava/lang/Runnable;)V
+    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/phone/taskbar/model/DeferredHandler;->post(Ljava/lang/Runnable;)V
 
     :cond_3
     return-void

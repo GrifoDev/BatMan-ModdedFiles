@@ -35,31 +35,7 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 3
-
-    const/4 v2, 0x1
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter$4;->this$1:Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;->-get0(Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;)Landroid/net/wifi/WifiManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2}, Landroid/net/wifi/WifiManager;->setWifiSharingEnabled(Z)Z
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter$4;->this$1:Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;->-wrap0(Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter$4;->this$1:Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;->-get2(Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;)Landroid/widget/TextView;
-
-    move-result-object v0
-
-    const v1, 0x7f0f0478
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter$4;->this$1:Lcom/android/systemui/qs/tiles/HotspotTile$HotSpotDetailAdapter;
 
@@ -67,7 +43,9 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/widget/Switch;->setChecked(Z)V
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setChecked(Z)V
 
     return-void
 .end method

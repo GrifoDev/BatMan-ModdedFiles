@@ -3,12 +3,12 @@
 .source "PhoneStatusBarPolicy.java"
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/policy/CastController$Callback;
+.implements Lcom/android/systemui/statusbar/policy/NextAlarmController$NextAlarmChangeCallback;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/StatusBarIconController;Lcom/android/systemui/statusbar/policy/CastController;Lcom/android/systemui/statusbar/policy/HotspotController;Lcom/android/systemui/statusbar/policy/UserInfoController;Lcom/android/systemui/statusbar/policy/BluetoothController;Lcom/android/systemui/statusbar/policy/RotationLockController;Lcom/android/systemui/statusbar/policy/DataSaverController;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,12 +34,12 @@
 
 
 # virtual methods
-.method public onCastDevicesChanged()V
+.method public onNextAlarmChanged(Landroid/app/AlarmManager$AlarmClockInfo;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy$5;->this$0:Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->-wrap2(Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;)V
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->-wrap1(Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;)V
 
     return-void
 .end method

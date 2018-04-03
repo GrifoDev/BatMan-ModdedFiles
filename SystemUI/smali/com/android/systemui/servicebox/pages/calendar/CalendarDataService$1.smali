@@ -1,5 +1,5 @@
 .class Lcom/android/systemui/servicebox/pages/calendar/CalendarDataService$1;
-.super Lcom/android/keyguard/servicebox/pages/calendar/ICalendarDataService$Stub;
+.super Lcom/android/systemui/servicebox/pages/calendar/ICalendarDataService$Stub;
 .source "CalendarDataService.java"
 
 
@@ -24,7 +24,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/servicebox/pages/calendar/CalendarDataService$1;->this$0:Lcom/android/systemui/servicebox/pages/calendar/CalendarDataService;
 
-    invoke-direct {p0}, Lcom/android/keyguard/servicebox/pages/calendar/ICalendarDataService$Stub;-><init>()V
+    invoke-direct {p0}, Lcom/android/systemui/servicebox/pages/calendar/ICalendarDataService$Stub;-><init>()V
 
     return-void
 .end method
@@ -90,11 +90,11 @@
 
     :cond_1
     :try_start_0
-    new-instance v7, Lcom/android/keyguard/servicebox/pages/calendar/CalendarDataContainer;
+    new-instance v7, Lcom/android/systemui/servicebox/pages/calendar/CalendarDataContainer;
 
-    invoke-direct {v7, p1, v6}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarDataContainer;-><init>(ILandroid/database/Cursor;)V
+    invoke-direct {v7, p1, v6}, Lcom/android/systemui/servicebox/pages/calendar/CalendarDataContainer;-><init>(ILandroid/database/Cursor;)V
 
-    invoke-virtual {v7}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarDataContainer;->toBundleList()Ljava/util/List;
+    invoke-virtual {v7}, Lcom/android/systemui/servicebox/pages/calendar/CalendarDataContainer;->toBundleList()Ljava/util/List;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

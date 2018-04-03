@@ -1,4 +1,4 @@
-.class public final Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
+.class public Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 .super Ljava/lang/Object;
 .source "CachedBluetoothDeviceManager.java"
 
@@ -263,7 +263,7 @@
 
     move-result v3
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_1
 
     iget-object v3, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;->mCachedDevices:Ljava/util/List;
 
@@ -279,20 +279,23 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_0
+
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
-    :goto_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    monitor-exit p0
 
-    goto :goto_1
+    return-object v1
 
     :catchall_0
     move-exception v3
@@ -300,11 +303,6 @@
     monitor-exit p0
 
     throw v3
-
-    :cond_2
-    monitor-exit p0
-
-    return-object v1
 .end method
 
 .method public needListFiltering(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;)Z

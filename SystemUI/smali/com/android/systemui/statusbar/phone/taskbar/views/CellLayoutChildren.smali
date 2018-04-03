@@ -7,6 +7,7 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren$1;,
+        Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren$BaseItemIterator;,
         Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren$LayoutParams;
     }
 .end annotation
@@ -168,11 +169,11 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;->mMultiWindowManager:Lcom/samsung/android/multiwindow/MultiWindowManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;->mRunningTaskPositions:Ljava/util/HashMap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;->mRunningTaskPositions:Ljava/util/HashMap;
 
@@ -180,16 +181,13 @@
 
     move-result v0
 
+    xor-int/lit8 v0, v0, 0x1
+
     if-eqz v0, :cond_1
 
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
     sget-boolean v0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;->DEBUGGABLE:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_0
 
     const-string/jumbo v0, "[DS]CellLayoutChildren"
 
@@ -219,14 +217,15 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;->mMultiWindowManager:Lcom/samsung/android/multiwindow/MultiWindowManager;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;->mRunningTaskPositions:Ljava/util/HashMap;
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/multiwindow/MultiWindowManager;->updateTaskPositionInTaskBar(Ljava/util/HashMap;)V
 
-    goto :goto_0
+    :cond_1
+    return-void
 .end method
 
 
@@ -337,6 +336,28 @@
 
     invoke-virtual {p0, v1, v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
+    const-string/jumbo v2, "[DS]CellLayoutChildren"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "addItem view: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     iget-object v2, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;->mType:Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;
 
     sget-object v3, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;->HOME_RUNNING_APPLICATION:Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem$Type;
@@ -357,7 +378,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f05000a
+    const v3, 0x7f01000a
 
     invoke-static {v2, v3}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
@@ -1350,11 +1371,11 @@
 .method public updateScrollingState(ZI)V
     .locals 5
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_1
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;->mRunningTaskPositions:Ljava/util/HashMap;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;->mRunningTaskPositions:Ljava/util/HashMap;
 
@@ -1362,13 +1383,10 @@
 
     move-result v3
 
+    xor-int/lit8 v3, v3, 0x1
+
     if-eqz v3, :cond_1
 
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;->mRunningTaskPositions:Ljava/util/HashMap;
 
     invoke-virtual {v3}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
@@ -1379,12 +1397,12 @@
 
     move-result-object v0
 
-    :goto_1
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1424,10 +1442,11 @@
 
     invoke-virtual {v3, p2, v4}, Landroid/graphics/Point;->offset(II)V
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_2
+    :cond_0
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;->sendRunningTaskPosition()V
 
-    goto :goto_0
+    :cond_1
+    return-void
 .end method

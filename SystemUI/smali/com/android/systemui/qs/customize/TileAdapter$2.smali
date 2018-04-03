@@ -40,7 +40,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/customize/TileAdapter$2;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/customize/TileAdapter;->-get3(Lcom/android/systemui/qs/customize/TileAdapter;)I
+    invoke-static {v1}, Lcom/android/systemui/qs/customize/TileAdapter;->-get2(Lcom/android/systemui/qs/customize/TileAdapter;)I
 
     move-result v1
 
@@ -127,91 +127,63 @@
 .end method
 
 .method public onSelectedChanged(Landroid/support/v7/widget/RecyclerView$ViewHolder;I)V
-    .locals 6
+    .locals 4
 
-    const/4 v2, 0x0
-
-    const/4 v5, 0x0
+    const/4 v3, 0x0
 
     invoke-super {p0, p1, p2}, Landroid/support/v7/widget/helper/ItemTouchHelper$Callback;->onSelectedChanged(Landroid/support/v7/widget/RecyclerView$ViewHolder;I)V
 
-    const/4 v3, 0x2
+    const/4 v2, 0x2
 
-    if-eq p2, v3, :cond_0
+    if-eq p2, v2, :cond_0
 
     const/4 p1, 0x0
 
     :cond_0
-    iget-object v3, p0, Lcom/android/systemui/qs/customize/TileAdapter$2;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
+    iget-object v2, p0, Lcom/android/systemui/qs/customize/TileAdapter$2;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
 
-    invoke-static {v3}, Lcom/android/systemui/qs/customize/TileAdapter;->-get2(Lcom/android/systemui/qs/customize/TileAdapter;)Lcom/android/systemui/qs/customize/TileAdapter$Holder;
+    invoke-static {v2}, Lcom/android/systemui/qs/customize/TileAdapter;->-get1(Lcom/android/systemui/qs/customize/TileAdapter;)Lcom/android/systemui/qs/customize/TileAdapter$Holder;
 
-    move-result-object v3
+    move-result-object v2
 
-    if-ne p1, v3, :cond_1
+    if-ne p1, v2, :cond_1
 
     return-void
 
     :cond_1
-    iget-object v3, p0, Lcom/android/systemui/qs/customize/TileAdapter$2;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
+    iget-object v2, p0, Lcom/android/systemui/qs/customize/TileAdapter$2;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
 
-    invoke-static {v3}, Lcom/android/systemui/qs/customize/TileAdapter;->-get2(Lcom/android/systemui/qs/customize/TileAdapter;)Lcom/android/systemui/qs/customize/TileAdapter$Holder;
+    invoke-static {v2}, Lcom/android/systemui/qs/customize/TileAdapter;->-get1(Lcom/android/systemui/qs/customize/TileAdapter;)Lcom/android/systemui/qs/customize/TileAdapter$Holder;
 
-    move-result-object v3
+    move-result-object v2
 
-    if-eqz v3, :cond_3
+    if-eqz v2, :cond_2
 
-    iget-object v3, p0, Lcom/android/systemui/qs/customize/TileAdapter$2;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
+    iget-object v2, p0, Lcom/android/systemui/qs/customize/TileAdapter$2;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
 
-    invoke-static {v3}, Lcom/android/systemui/qs/customize/TileAdapter;->-get2(Lcom/android/systemui/qs/customize/TileAdapter;)Lcom/android/systemui/qs/customize/TileAdapter$Holder;
+    invoke-static {v2}, Lcom/android/systemui/qs/customize/TileAdapter;->-get1(Lcom/android/systemui/qs/customize/TileAdapter;)Lcom/android/systemui/qs/customize/TileAdapter$Holder;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Lcom/android/systemui/qs/customize/TileAdapter$Holder;->getAdapterPosition()I
+    invoke-virtual {v2}, Lcom/android/systemui/qs/customize/TileAdapter$Holder;->getAdapterPosition()I
 
     move-result v1
 
-    iget-object v3, p0, Lcom/android/systemui/qs/customize/TileAdapter$2;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
+    iget-object v2, p0, Lcom/android/systemui/qs/customize/TileAdapter$2;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
 
-    invoke-static {v3}, Lcom/android/systemui/qs/customize/TileAdapter;->-get6(Lcom/android/systemui/qs/customize/TileAdapter;)Ljava/util/List;
+    invoke-static {v2}, Lcom/android/systemui/qs/customize/TileAdapter;->-get5(Lcom/android/systemui/qs/customize/TileAdapter;)Ljava/util/List;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v3, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/systemui/qs/customize/TileQueryHelper$TileInfo;
 
-    iget-object v3, p0, Lcom/android/systemui/qs/customize/TileAdapter$2;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
-
-    invoke-static {v3}, Lcom/android/systemui/qs/customize/TileAdapter;->-get2(Lcom/android/systemui/qs/customize/TileAdapter;)Lcom/android/systemui/qs/customize/TileAdapter$Holder;
-
-    move-result-object v3
-
-    invoke-static {v3}, Lcom/android/systemui/qs/customize/TileAdapter$Holder;->-get0(Lcom/android/systemui/qs/customize/TileAdapter$Holder;)Lcom/android/systemui/qs/customize/CustomizeTileView;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/systemui/qs/customize/TileAdapter$2;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
-
-    invoke-static {v4}, Lcom/android/systemui/qs/customize/TileAdapter;->-get3(Lcom/android/systemui/qs/customize/TileAdapter;)I
-
-    move-result v4
-
-    if-le v1, v4, :cond_2
-
-    iget-boolean v4, v0, Lcom/android/systemui/qs/customize/TileQueryHelper$TileInfo;->isSystem:Z
-
-    if-eqz v4, :cond_5
-
-    :cond_2
-    :goto_0
-    invoke-virtual {v3, v2}, Lcom/android/systemui/qs/customize/CustomizeTileView;->setShowAppLabel(Z)V
-
     iget-object v2, p0, Lcom/android/systemui/qs/customize/TileAdapter$2;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
 
-    invoke-static {v2}, Lcom/android/systemui/qs/customize/TileAdapter;->-get2(Lcom/android/systemui/qs/customize/TileAdapter;)Lcom/android/systemui/qs/customize/TileAdapter$Holder;
+    invoke-static {v2}, Lcom/android/systemui/qs/customize/TileAdapter;->-get1(Lcom/android/systemui/qs/customize/TileAdapter;)Lcom/android/systemui/qs/customize/TileAdapter$Holder;
 
     move-result-object v2
 
@@ -219,10 +191,10 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/customize/TileAdapter$2;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
 
-    invoke-static {v2, v5}, Lcom/android/systemui/qs/customize/TileAdapter;->-set0(Lcom/android/systemui/qs/customize/TileAdapter;Lcom/android/systemui/qs/customize/TileAdapter$Holder;)Lcom/android/systemui/qs/customize/TileAdapter$Holder;
+    invoke-static {v2, v3}, Lcom/android/systemui/qs/customize/TileAdapter;->-set0(Lcom/android/systemui/qs/customize/TileAdapter;Lcom/android/systemui/qs/customize/TileAdapter$Holder;)Lcom/android/systemui/qs/customize/TileAdapter$Holder;
 
-    :cond_3
-    if-eqz p1, :cond_4
+    :cond_2
+    if-eqz p1, :cond_3
 
     iget-object v2, p0, Lcom/android/systemui/qs/customize/TileAdapter$2;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
 
@@ -232,16 +204,16 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/customize/TileAdapter$2;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
 
-    invoke-static {v2}, Lcom/android/systemui/qs/customize/TileAdapter;->-get2(Lcom/android/systemui/qs/customize/TileAdapter;)Lcom/android/systemui/qs/customize/TileAdapter$Holder;
+    invoke-static {v2}, Lcom/android/systemui/qs/customize/TileAdapter;->-get1(Lcom/android/systemui/qs/customize/TileAdapter;)Lcom/android/systemui/qs/customize/TileAdapter$Holder;
 
     move-result-object v2
 
     invoke-virtual {v2}, Lcom/android/systemui/qs/customize/TileAdapter$Holder;->startDrag()V
 
-    :cond_4
+    :cond_3
     iget-object v2, p0, Lcom/android/systemui/qs/customize/TileAdapter$2;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
 
-    invoke-static {v2}, Lcom/android/systemui/qs/customize/TileAdapter;->-get4(Lcom/android/systemui/qs/customize/TileAdapter;)Landroid/os/Handler;
+    invoke-static {v2}, Lcom/android/systemui/qs/customize/TileAdapter;->-get3(Lcom/android/systemui/qs/customize/TileAdapter;)Landroid/os/Handler;
 
     move-result-object v2
 
@@ -252,11 +224,6 @@
     invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
-
-    :cond_5
-    const/4 v2, 0x1
-
-    goto :goto_0
 .end method
 
 .method public onSwiped(Landroid/support/v7/widget/RecyclerView$ViewHolder;I)V

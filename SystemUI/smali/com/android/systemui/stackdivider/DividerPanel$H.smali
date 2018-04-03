@@ -46,6 +46,12 @@
 
     invoke-direct {v1, v2}, Lcom/android/systemui/stackdivider/events/DividerButtonsVisibleEvent;-><init>(I)V
 
+    const-string/jumbo v2, "BUTTONS_SHOW_ANIM"
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/stackdivider/events/DividerButtonsVisibleEvent;->setReason(Ljava/lang/String;)Lcom/android/systemui/recents/events/EventBus$Event;
+
+    move-result-object v1
+
     invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->post(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
     goto :goto_0
@@ -57,13 +63,15 @@
 
     new-instance v1, Lcom/android/systemui/stackdivider/events/DividerButtonsVisibleEvent;
 
-    const/4 v2, 0x2
+    const/4 v2, 0x6
 
     invoke-direct {v1, v2}, Lcom/android/systemui/stackdivider/events/DividerButtonsVisibleEvent;-><init>(I)V
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->post(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
     goto :goto_0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1

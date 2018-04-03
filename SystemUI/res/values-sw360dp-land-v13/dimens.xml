@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="notification_panel_width">640.0dip</dimen>
-    <dimen name="qs_detail_height">360.0dip</dimen>
-</resources>

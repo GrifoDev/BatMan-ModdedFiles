@@ -3,12 +3,12 @@
 .source "TaskBarView.java"
 
 # interfaces
-.implements Landroid/animation/Animator$AnimatorListener;
+.implements Landroid/view/View$OnScrollChangeListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->makeAppsCloseAnimation()Landroid/animation/AnimatorSet;
+    value = Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->setup(Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -18,48 +18,113 @@
 
 
 # instance fields
+.field private lastPos:I
+
+.field private lastScrollUpdate:J
+
+.field private startPos:I
+
 .field final synthetic this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
 
 # direct methods
+.method static synthetic -get0(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$5;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$5;->lastPos:I
+
+    return v0
+.end method
+
+.method static synthetic -get1(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$5;)J
+    .locals 2
+
+    iget-wide v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$5;->lastScrollUpdate:J
+
+    return-wide v0
+.end method
+
+.method static synthetic -get2(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$5;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$5;->startPos:I
+
+    return v0
+.end method
+
+.method static synthetic -set0(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$5;J)J
+    .locals 1
+
+    iput-wide p1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$5;->lastScrollUpdate:J
+
+    return-wide p1
+.end method
+
 .method constructor <init>(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;)V
-    .locals 0
+    .locals 3
+
+    const/4 v2, 0x0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$5;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const-wide/16 v0, -0x1
+
+    iput-wide v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$5;->lastScrollUpdate:J
+
+    iput v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$5;->startPos:I
+
+    iput v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$5;->lastPos:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 0
+.method public onScrollChange(Landroid/view/View;IIII)V
+    .locals 4
 
-    return-void
-.end method
+    iget-wide v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$5;->lastScrollUpdate:J
 
-.method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    const-wide/16 v2, -0x1
+
+    cmp-long v0, v0, v2
+
+    if-nez v0, :cond_0
+
+    iput p4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$5;->startPos:I
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$5;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
-    const/4 v1, 0x0
+    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->mContent:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->setAppsLayoutVisibility(Z)V
+    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;->mChildren:Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;
 
-    return-void
-.end method
+    iget v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$5;->startPos:I
 
-.method public onAnimationRepeat(Landroid/animation/Animator;)V
-    .locals 0
+    const/4 v2, 0x1
 
-    return-void
-.end method
+    invoke-virtual {v0, v2, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;->updateScrollingState(ZI)V
 
-.method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$5;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    new-instance v1, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$5$1;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$5$1;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$5;)V
+
+    const-wide/16 v2, 0xc8
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    :cond_0
+    iput p2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$5;->lastPos:I
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$5;->lastScrollUpdate:J
 
     return-void
 .end method

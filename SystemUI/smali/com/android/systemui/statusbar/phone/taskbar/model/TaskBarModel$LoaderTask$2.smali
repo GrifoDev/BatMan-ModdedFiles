@@ -50,7 +50,7 @@
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$LoaderTask;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->-get2(Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;)Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$LoaderTask;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->-get3(Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;)Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$LoaderTask;
 
     move-result-object v0
 

@@ -82,9 +82,9 @@
 
     new-array v0, v0, [[I
 
-    const v1, 0x7f02026d
+    const v1, 0x7f080345
 
-    const v2, 0x7f020272
+    const v2, 0x7f08034a
 
     filled-new-array {v1, v2}, [I
 
@@ -92,9 +92,9 @@
 
     aput-object v1, v0, v4
 
-    const v1, 0x7f02026e
+    const v1, 0x7f080346
 
-    const v2, 0x7f020273
+    const v2, 0x7f08034b
 
     filled-new-array {v1, v2}, [I
 
@@ -102,9 +102,9 @@
 
     aput-object v1, v0, v5
 
-    const v1, 0x7f02026f
+    const v1, 0x7f080347
 
-    const v2, 0x7f020274
+    const v2, 0x7f08034c
 
     filled-new-array {v1, v2}, [I
 
@@ -112,9 +112,9 @@
 
     aput-object v1, v0, v6
 
-    const v1, 0x7f020270
+    const v1, 0x7f080348
 
-    const v2, 0x7f020275
+    const v2, 0x7f08034d
 
     filled-new-array {v1, v2}, [I
 
@@ -122,9 +122,9 @@
 
     aput-object v1, v0, v3
 
-    const v1, 0x7f020271
+    const v1, 0x7f080349
 
-    const v2, 0x7f020276
+    const v2, 0x7f08034e
 
     filled-new-array {v1, v2}, [I
 
@@ -138,9 +138,9 @@
 
     new-array v0, v0, [[I
 
-    const v1, 0x7f02027d
+    const v1, 0x7f080355
 
-    const v2, 0x7f020277
+    const v2, 0x7f08034f
 
     filled-new-array {v1, v2}, [I
 
@@ -148,9 +148,9 @@
 
     aput-object v1, v0, v4
 
-    const v1, 0x7f02027e
+    const v1, 0x7f080356
 
-    const v2, 0x7f020278
+    const v2, 0x7f080350
 
     filled-new-array {v1, v2}, [I
 
@@ -158,9 +158,9 @@
 
     aput-object v1, v0, v5
 
-    const v1, 0x7f02027f
+    const v1, 0x7f080357
 
-    const v2, 0x7f020279
+    const v2, 0x7f080351
 
     filled-new-array {v1, v2}, [I
 
@@ -168,9 +168,9 @@
 
     aput-object v1, v0, v6
 
-    const v1, 0x7f020280
+    const v1, 0x7f080358
 
-    const v2, 0x7f02027a
+    const v2, 0x7f080352
 
     filled-new-array {v1, v2}, [I
 
@@ -178,9 +178,9 @@
 
     aput-object v1, v0, v3
 
-    const v1, 0x7f020281
+    const v1, 0x7f080359
 
-    const v2, 0x7f02027b
+    const v2, 0x7f080353
 
     filled-new-array {v1, v2}, [I
 
@@ -190,15 +190,15 @@
 
     sput-object v0, Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;->ICONS_GIGA:[[I
 
-    const v0, 0x7f020282
+    const v0, 0x7f08035a
 
-    const v1, 0x7f020283
+    const v1, 0x7f08035b
 
-    const v2, 0x7f020284
+    const v2, 0x7f08035c
 
-    const v3, 0x7f020285
+    const v3, 0x7f08035d
 
-    const v4, 0x7f020286
+    const v4, 0x7f08035e
 
     filled-new-array {v0, v1, v2, v3, v4}, [I
 
@@ -334,6 +334,39 @@
     return-void
 .end method
 
+.method private showDialog(Lcom/android/settingslib/wifi/AccessPoint;)V
+    .locals 4
+
+    new-instance v1, Landroid/content/Intent;
+
+    const-string/jumbo v2, "com.android.settings.WIFI_DIALOG"
+
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    if-eqz p1, :cond_0
+
+    new-instance v0, Landroid/os/Bundle;
+
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+
+    invoke-virtual {p1, v0}, Lcom/android/settingslib/wifi/AccessPoint;->saveWifiState(Landroid/os/Bundle;)V
+
+    const-string/jumbo v2, "access_point_state"
+
+    invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
+
+    const-string/jumbo v2, "access_point_mode"
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    :cond_0
+    invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;->fireSettingsIntentCallback(Landroid/content/Intent;)V
+
+    return-void
+.end method
+
 
 # virtual methods
 .method public addAccessPointCallback(Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController$AccessPointCallback;)V
@@ -423,17 +456,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method public connect(Lcom/android/settingslib/wifi/AccessPoint;)Z
@@ -511,7 +536,7 @@
 
     if-eqz v0, :cond_3
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;->startSettings(Lcom/android/settingslib/wifi/AccessPoint;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;->showDialog(Lcom/android/settingslib/wifi/AccessPoint;)V
 
     const/4 v0, 0x1
 
@@ -665,6 +690,14 @@
     return-void
 .end method
 
+.method public onUserSwitched(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;->mCurrentUser:I
+
+    return-void
+.end method
+
 .method public onWifiStateChanged(I)V
     .locals 0
 
@@ -775,6 +808,10 @@
     const/high16 v1, 0x10000000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    const-string/jumbo v1, "com.android.settings"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
     invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;->fireSettingsIntentCallback(Landroid/content/Intent;)V
 

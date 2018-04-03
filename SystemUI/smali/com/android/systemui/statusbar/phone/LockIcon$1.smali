@@ -105,9 +105,7 @@
 .method public onKeyguardBouncerChanged(Z)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/LockIcon$1;->this$0:Lcom/android/systemui/statusbar/phone/LockIcon;
-
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/LockIcon;->-get0(Lcom/android/systemui/statusbar/phone/LockIcon;)Landroid/content/Context;
+    invoke-static {}, Lcom/android/systemui/statusbar/phone/LockIcon;->-get0()Landroid/content/Context;
 
     move-result-object v0
 

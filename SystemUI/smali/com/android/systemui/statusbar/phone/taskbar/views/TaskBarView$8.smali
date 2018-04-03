@@ -1,11 +1,14 @@
 .class Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$8;
-.super Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;
+.super Ljava/lang/Object;
 .source "TaskBarView.java"
+
+# interfaces
+.implements Landroid/animation/Animator$AnimatorListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->showContextMenu(IFFLcom/android/systemui/statusbar/phone/taskbar/data/AppItem;Landroid/view/View;)V
+    value = Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->makeAppsCloseAnimation()Landroid/animation/AnimatorSet;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,43 +22,38 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;Landroid/content/Context;)V
+.method constructor <init>(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$8;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
 
-    invoke-direct {p0, p2}, Lcom/android/systemui/statusbar/phone/taskbar/views/ContextMenuLayout;-><init>(Landroid/content/Context;)V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 2
+.method public onAnimationCancel(Landroid/animation/Animator;)V
+    .locals 0
 
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+    return-void
+.end method
 
-    move-result v0
+.method public onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 0
 
-    const/4 v1, 0x4
+    return-void
+.end method
 
-    if-ne v0, v1, :cond_0
+.method public onAnimationRepeat(Landroid/animation/Animator;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$8;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+    return-void
+.end method
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->-get2(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;)Z
+.method public onAnimationStart(Landroid/animation/Animator;)V
+    .locals 0
 
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView$8;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->closeContextMenu()V
-
-    :cond_0
-    const/4 v0, 0x0
-
-    return v0
+    return-void
 .end method

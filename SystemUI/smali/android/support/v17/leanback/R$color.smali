@@ -3,32 +3,57 @@
 .source "R.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/support/v17/leanback/R;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "color"
+.end annotation
+
+
 # static fields
-.field public static final lb_default_search_color:I = 0x7f0b0041
+.field public static final lb_default_brand_color:I = 0x7f0600a8
 
-.field public static final lb_page_indicator_arrow_background:I = 0x7f0b0055
+.field public static final lb_default_search_color:I = 0x7f0600aa
 
-.field public static final lb_page_indicator_arrow_shadow:I = 0x7f0b0056
+.field public static final lb_error_background_color_opaque:I = 0x7f0600af
 
-.field public static final lb_page_indicator_dot:I = 0x7f0b0054
+.field public static final lb_error_background_color_translucent:I = 0x7f0600b0
 
-.field public static final lb_playback_media_row_highlight_color:I = 0x7f0b004d
+.field public static final lb_page_indicator_arrow_background:I = 0x7f0600b8
 
-.field public static final lb_search_bar_hint:I = 0x7f0b0035
+.field public static final lb_page_indicator_arrow_shadow:I = 0x7f0600b9
 
-.field public static final lb_search_bar_hint_speech_mode:I = 0x7f0b0036
+.field public static final lb_page_indicator_dot:I = 0x7f0600ba
 
-.field public static final lb_search_bar_text:I = 0x7f0b0033
+.field public static final lb_playback_controls_background_dark:I = 0x7f0600bc
 
-.field public static final lb_search_bar_text_speech_mode:I = 0x7f0b0034
+.field public static final lb_playback_controls_background_light:I = 0x7f0600bd
 
-.field public static final lb_speech_orb_not_recording:I = 0x7f0b0037
+.field public static final lb_playback_media_row_highlight_color:I = 0x7f0600c0
 
-.field public static final lb_speech_orb_not_recording_icon:I = 0x7f0b003a
+.field public static final lb_playback_progress_color_no_theme:I = 0x7f0600c3
 
-.field public static final lb_speech_orb_not_recording_pulsed:I = 0x7f0b0038
+.field public static final lb_search_bar_hint:I = 0x7f0600c5
 
-.field public static final lb_speech_orb_recording:I = 0x7f0b0039
+.field public static final lb_search_bar_hint_speech_mode:I = 0x7f0600c6
+
+.field public static final lb_search_bar_text:I = 0x7f0600c7
+
+.field public static final lb_search_bar_text_speech_mode:I = 0x7f0600c8
+
+.field public static final lb_speech_orb_not_recording:I = 0x7f0600ca
+
+.field public static final lb_speech_orb_not_recording_icon:I = 0x7f0600cb
+
+.field public static final lb_speech_orb_not_recording_pulsed:I = 0x7f0600cc
+
+.field public static final lb_speech_orb_recording:I = 0x7f0600cd
+
+.field public static final lb_view_dim_mask_color:I = 0x7f0600cf
 
 
 # direct methods

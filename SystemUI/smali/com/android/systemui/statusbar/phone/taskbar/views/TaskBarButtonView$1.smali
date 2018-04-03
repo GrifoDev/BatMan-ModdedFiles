@@ -35,9 +35,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
-
-    const/4 v3, 0x1
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;
 
@@ -94,35 +92,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->isLongClickable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->performLongClick()Z
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;
-
-    invoke-static {v0, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->-set0(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;Z)Z
-
-    :cond_1
-    :goto_0
-    return-void
-
-    :cond_2
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;
-
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->-get2(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;
-
     const/4 v1, 0x0
 
     const/16 v2, 0x80
@@ -137,7 +106,10 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView$1;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;
 
-    invoke-static {v0, v3}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->-set0(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;Z)Z
+    const/4 v1, 0x1
 
-    goto :goto_0
+    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;->-set0(Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarButtonView;Z)Z
+
+    :cond_1
+    return-void
 .end method

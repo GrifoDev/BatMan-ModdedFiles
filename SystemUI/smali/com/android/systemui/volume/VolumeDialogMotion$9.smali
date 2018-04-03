@@ -1,14 +1,11 @@
 .class Lcom/android/systemui/volume/VolumeDialogMotion$9;
-.super Ljava/lang/Object;
+.super Landroid/animation/AnimatorListenerAdapter;
 .source "VolumeDialogMotion.java"
-
-# interfaces
-.implements Landroid/animation/Animator$AnimatorListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/volume/VolumeDialogMotion;->makeDexCloseAnimation(Ljava/lang/Runnable;)Landroid/animation/AnimatorSet;
+    value = Lcom/android/systemui/volume/VolumeDialogMotion;->startDismiss(Ljava/lang/Runnable;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -33,7 +30,7 @@
 
     iput-object p2, p0, Lcom/android/systemui/volume/VolumeDialogMotion$9;->val$onComplete:Ljava/lang/Runnable;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
     return-void
 .end method
@@ -43,10 +40,6 @@
 .method public onAnimationCancel(Landroid/animation/Animator;)V
     .locals 2
 
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/systemui/volume/VolumeDialogMotion$9;->mCancelled:Z
-
     sget-boolean v0, Lcom/android/systemui/volume/D;->BUG:Z
 
     if-eqz v0, :cond_0
@@ -55,11 +48,15 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "dismiss.onDexAnimationCancel"
+    const-string/jumbo v1, "dismiss.onAnimationCancel"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/volume/VolumeDialogMotion$9;->mCancelled:Z
+
     return-void
 .end method
 
@@ -81,7 +78,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "dismiss.onDexAnimationEnd"
+    const-string/jumbo v1, "dismiss.onAnimationEnd"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -101,18 +98,6 @@
     const-wide/16 v2, 0x32
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    return-void
-.end method
-
-.method public onAnimationRepeat(Landroid/animation/Animator;)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 0
 
     return-void
 .end method

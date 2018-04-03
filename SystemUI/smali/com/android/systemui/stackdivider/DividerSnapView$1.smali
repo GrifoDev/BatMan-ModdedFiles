@@ -76,7 +76,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/stackdivider/DividerSnapView$1;->this$0:Lcom/android/systemui/stackdivider/DividerSnapView;
 
-    invoke-static {v1, p1, v0}, Lcom/android/systemui/stackdivider/DividerSnapView;->-wrap1(Lcom/android/systemui/stackdivider/DividerSnapView;Landroid/view/View;I)V
+    invoke-static {v1, p1, v0}, Lcom/android/systemui/stackdivider/DividerSnapView;->-wrap2(Lcom/android/systemui/stackdivider/DividerSnapView;Landroid/view/View;I)V
 
     goto :goto_0
 .end method

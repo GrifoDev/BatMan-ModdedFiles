@@ -1,14 +1,11 @@
 .class Lcom/android/systemui/recents/views/TaskView$4;
-.super Ljava/lang/Object;
+.super Landroid/view/ViewOutlineProvider;
 .source "TaskView.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/recents/views/TaskView;->dismissTask()V
+    value = Lcom/android/systemui/recents/views/TaskView;->onFinishInflate()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,54 +17,50 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/recents/views/TaskView;
 
-.field final synthetic val$tv:Lcom/android/systemui/recents/views/TaskView;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/recents/views/TaskView;Lcom/android/systemui/recents/views/TaskView;)V
+.method constructor <init>(Lcom/android/systemui/recents/views/TaskView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/recents/views/TaskView$4;->this$0:Lcom/android/systemui/recents/views/TaskView;
 
-    iput-object p2, p0, Lcom/android/systemui/recents/views/TaskView$4;->val$tv:Lcom/android/systemui/recents/views/TaskView;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/view/ViewOutlineProvider;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 7
+.method public getOutline(Landroid/view/View;Landroid/graphics/Outline;)V
+    .locals 3
 
-    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
+    const/4 v2, 0x0
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/TaskView$4;->this$0:Lcom/android/systemui/recents/views/TaskView;
+
+    invoke-static {v0}, Lcom/android/systemui/recents/views/TaskView;->-get0(Lcom/android/systemui/recents/views/TaskView;)Landroid/view/View;
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/systemui/recents/events/ui/TaskViewDismissedEvent;
+    invoke-virtual {v0}, Landroid/view/View;->getWidth()I
 
-    iget-object v2, p0, Lcom/android/systemui/recents/views/TaskView$4;->this$0:Lcom/android/systemui/recents/views/TaskView;
+    move-result v0
 
-    invoke-static {v2}, Lcom/android/systemui/recents/views/TaskView;->-get7(Lcom/android/systemui/recents/views/TaskView;)Lcom/android/systemui/recents/model/Task;
+    iget-object v1, p0, Lcom/android/systemui/recents/views/TaskView$4;->this$0:Lcom/android/systemui/recents/views/TaskView;
 
-    move-result-object v2
+    invoke-static {v1}, Lcom/android/systemui/recents/views/TaskView;->-get0(Lcom/android/systemui/recents/views/TaskView;)Landroid/view/View;
 
-    iget-object v3, p0, Lcom/android/systemui/recents/views/TaskView$4;->val$tv:Lcom/android/systemui/recents/views/TaskView;
+    move-result-object v1
 
-    new-instance v4, Lcom/android/systemui/recents/views/AnimationProps;
+    invoke-virtual {v1}, Landroid/view/View;->getHeight()I
 
-    sget-object v5, Lcom/android/systemui/Interpolators;->FAST_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
+    move-result v1
 
-    const/16 v6, 0xc8
+    invoke-virtual {p2, v2, v2, v0, v1}, Landroid/graphics/Outline;->setOval(IIII)V
 
-    invoke-direct {v4, v6, v5}, Lcom/android/systemui/recents/views/AnimationProps;-><init>(ILandroid/view/animation/Interpolator;)V
+    const v0, 0x3eb33333    # 0.35f
 
-    const/4 v5, 0x0
-
-    invoke-direct {v1, v2, v3, v4, v5}, Lcom/android/systemui/recents/events/ui/TaskViewDismissedEvent;-><init>(Lcom/android/systemui/recents/model/Task;Lcom/android/systemui/recents/views/TaskView;Lcom/android/systemui/recents/views/AnimationProps;Z)V
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
+    invoke-virtual {p2, v0}, Landroid/graphics/Outline;->setAlpha(F)V
 
     return-void
 .end method

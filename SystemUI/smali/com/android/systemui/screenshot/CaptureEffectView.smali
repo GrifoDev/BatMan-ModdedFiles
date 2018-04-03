@@ -3,6 +3,14 @@
 .source "CaptureEffectView.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/systemui/screenshot/CaptureEffectView$OnCaptureAnimationListener;
+    }
+.end annotation
+
+
 # instance fields
 .field final TAG:Ljava/lang/String;
 

@@ -32,17 +32,15 @@
 
 # virtual methods
 .method public onCreate(Landroid/view/SurfaceHolder;)V
-    .locals 6
-
-    const/4 v3, 0x1
+    .locals 5
 
     invoke-super {p0, p1}, Lcom/android/systemui/infinity/GLWallpaperService$GLEngine;->onCreate(Landroid/view/SurfaceHolder;)V
 
-    iget-object v4, p0, Lcom/android/systemui/infinity/OpenGLES2WallpaperService$OpenGLES2Engine;->this$0:Lcom/android/systemui/infinity/OpenGLES2WallpaperService;
+    iget-object v3, p0, Lcom/android/systemui/infinity/OpenGLES2WallpaperService$OpenGLES2Engine;->this$0:Lcom/android/systemui/infinity/OpenGLES2WallpaperService;
 
-    const-string/jumbo v5, "activity"
+    const-string/jumbo v4, "activity"
 
-    invoke-virtual {v4, v5}, Lcom/android/systemui/infinity/OpenGLES2WallpaperService;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v3, v4}, Lcom/android/systemui/infinity/OpenGLES2WallpaperService;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -52,20 +50,22 @@
 
     move-result-object v1
 
-    iget v4, v1, Landroid/content/pm/ConfigurationInfo;->reqGlEsVersion:I
+    iget v3, v1, Landroid/content/pm/ConfigurationInfo;->reqGlEsVersion:I
 
-    const/high16 v5, 0x20000
+    const/high16 v4, 0x20000
 
-    if-lt v4, v5, :cond_0
+    if-lt v3, v4, :cond_0
 
-    move v2, v3
+    const/4 v2, 0x1
 
     :goto_0
     if-eqz v2, :cond_1
 
-    const/4 v4, 0x2
+    const/4 v3, 0x2
 
-    invoke-virtual {p0, v4}, Lcom/android/systemui/infinity/OpenGLES2WallpaperService$OpenGLES2Engine;->setEGLContextClientVersion(I)V
+    invoke-virtual {p0, v3}, Lcom/android/systemui/infinity/OpenGLES2WallpaperService$OpenGLES2Engine;->setEGLContextClientVersion(I)V
+
+    const/4 v3, 0x1
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/infinity/OpenGLES2WallpaperService$OpenGLES2Engine;->setPreserveEGLContextOnPause(Z)V
 

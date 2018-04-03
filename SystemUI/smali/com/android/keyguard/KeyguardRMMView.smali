@@ -6,9 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/keyguard/KeyguardRMMView$1;,
-        Lcom/android/keyguard/KeyguardRMMView$2;,
-        Lcom/android/keyguard/KeyguardRMMView$3;
+        Lcom/android/keyguard/KeyguardRMMView$1;
     }
 .end annotation
 
@@ -16,21 +14,17 @@
 # instance fields
 .field private mCheckPasswordCallback:Landroid/os/IRemoteCallback;
 
-.field private mClientCallButton:Landroid/widget/ImageButton;
+.field private mClientCallButton:Lcom/android/systemui/widget/SystemUIButton;
 
-.field private mClientContact:Landroid/widget/TextView;
+.field private mClientContact:Lcom/android/systemui/widget/SystemUITextView;
 
-.field private mClientInfoView:Landroid/widget/LinearLayout;
-
-.field private mClientMessage:Landroid/widget/TextView;
+.field private mClientMessage:Lcom/android/systemui/widget/SystemUITextView;
 
 .field private mClientName:Ljava/lang/String;
 
-.field private mClientTitle:Landroid/widget/TextView;
+.field private mClientTitle:Lcom/android/systemui/widget/SystemUITextView;
 
 .field private mContactArea:Landroid/view/ViewGroup;
-
-.field private mCountdownTimer:Landroid/os/CountDownTimer;
 
 .field private mCurrentOrientation:I
 
@@ -39,6 +33,10 @@
 .field private mIsVoiceCapacity:Z
 
 .field private mLockSettingsService:Lcom/android/internal/widget/ILockSettings;
+
+.field private mMessageArea:Landroid/widget/LinearLayout;
+
+.field private mMessageAreaSpace:Landroid/view/View;
 
 .field private mPhoneNumber:Ljava/lang/String;
 
@@ -62,14 +60,6 @@
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardRMMView;->mHandler:Landroid/os/Handler;
-
-    return-object v0
-.end method
-
-.method static synthetic -get2(Lcom/android/keyguard/KeyguardRMMView;)Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardRMMView;->mPhoneNumber:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -107,8 +97,6 @@
 
     invoke-direct {p0, p1, p2}, Lcom/android/keyguard/KeyguardPINView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    iput-object v3, p0, Lcom/android/keyguard/KeyguardRMMView;->mCountdownTimer:Landroid/os/CountDownTimer;
-
     iput-object v3, p0, Lcom/android/keyguard/KeyguardRMMView;->mRemoteLockInfo:Lcom/android/internal/widget/RemoteLockInfo;
 
     iput-object v3, p0, Lcom/android/keyguard/KeyguardRMMView;->mLockSettingsService:Lcom/android/internal/widget/ILockSettings;
@@ -123,21 +111,21 @@
 
     new-instance v0, Lcom/android/keyguard/KeyguardRMMView$1;
 
-    invoke-direct {v0, p0}, Lcom/android/keyguard/KeyguardRMMView$1;-><init>(Lcom/android/keyguard/KeyguardRMMView;)V
-
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardRMMView;->mCheckPasswordCallback:Landroid/os/IRemoteCallback;
-
-    new-instance v0, Lcom/android/keyguard/KeyguardRMMView$2;
-
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
     move-result-object v1
 
     const/4 v2, 0x1
 
-    invoke-direct {v0, p0, v1, v3, v2}, Lcom/android/keyguard/KeyguardRMMView$2;-><init>(Lcom/android/keyguard/KeyguardRMMView;Landroid/os/Looper;Landroid/os/Handler$Callback;Z)V
+    invoke-direct {v0, p0, v1, v3, v2}, Lcom/android/keyguard/KeyguardRMMView$1;-><init>(Lcom/android/keyguard/KeyguardRMMView;Landroid/os/Looper;Landroid/os/Handler$Callback;Z)V
 
     iput-object v0, p0, Lcom/android/keyguard/KeyguardRMMView;->mHandler:Landroid/os/Handler;
+
+    new-instance v0, Lcom/android/keyguard/KeyguardRMMView$2;
+
+    invoke-direct {v0, p0}, Lcom/android/keyguard/KeyguardRMMView$2;-><init>(Lcom/android/keyguard/KeyguardRMMView;)V
+
+    iput-object v0, p0, Lcom/android/keyguard/KeyguardRMMView;->mCheckPasswordCallback:Landroid/os/IRemoteCallback;
 
     new-instance v0, Lcom/android/keyguard/KeyguardRMMView$3;
 
@@ -149,9 +137,9 @@
 .end method
 
 .method private checkUnlockAttempts(I)V
-    .locals 9
+    .locals 8
 
-    const/4 v8, 0x1
+    const/4 v7, 0x1
 
     const-string/jumbo v4, "KeyguardRMMView"
 
@@ -175,9 +163,9 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p0, v8}, Lcom/android/keyguard/KeyguardRMMView;->setPasswordEntryInputEnabled(Z)V
+    invoke-virtual {p0, v7}, Lcom/android/keyguard/KeyguardRMMView;->setPasswordEntryInputEnabled(Z)V
 
-    invoke-virtual {p0, v8, v8}, Lcom/android/keyguard/KeyguardRMMView;->resetPasswordText(ZZ)V
+    invoke-virtual {p0, v7, v7}, Lcom/android/keyguard/KeyguardRMMView;->resetPasswordText(ZZ)V
 
     if-nez p1, :cond_1
 
@@ -256,7 +244,11 @@
     :cond_0
     iget-object v4, p0, Lcom/android/keyguard/KeyguardRMMView;->mCallback:Lcom/android/keyguard/KeyguardSecurityCallback;
 
-    invoke-interface {v4, v8}, Lcom/android/keyguard/KeyguardSecurityCallback;->dismiss(Z)V
+    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
+
+    move-result v5
+
+    invoke-interface {v4, v7, v5}, Lcom/android/keyguard/KeyguardSecurityCallback;->dismiss(ZI)V
 
     goto :goto_1
 
@@ -310,7 +302,7 @@
 
     move-result v5
 
-    invoke-interface {v4, v5, v8}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(IZ)V
+    invoke-interface {v4, v5}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(I)V
 
     iget-object v4, p0, Lcom/android/keyguard/KeyguardRMMView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
 
@@ -320,28 +312,28 @@
 .end method
 
 .method private getLockSettings()Lcom/android/internal/widget/ILockSettings;
-    .locals 2
+    .locals 1
 
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mLockSettingsService:Lcom/android/internal/widget/ILockSettings;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardRMMView;->mLockSettingsService:Lcom/android/internal/widget/ILockSettings;
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    const-string/jumbo v1, "lock_settings"
+    const-string/jumbo v0, "lock_settings"
 
-    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v1}, Lcom/android/internal/widget/ILockSettings$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/widget/ILockSettings;
+    invoke-static {v0}, Lcom/android/internal/widget/ILockSettings$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/widget/ILockSettings;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/keyguard/KeyguardRMMView;->mLockSettingsService:Lcom/android/internal/widget/ILockSettings;
 
     :cond_0
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mLockSettingsService:Lcom/android/internal/widget/ILockSettings;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardRMMView;->mLockSettingsService:Lcom/android/internal/widget/ILockSettings;
 
-    return-object v1
+    return-object v0
 .end method
 
 .method private getLong(Ljava/lang/String;JI)J
@@ -539,223 +531,206 @@
 .end method
 
 .method private setRMMInfo()V
-    .locals 6
+    .locals 5
 
-    const/16 v5, 0x8
+    const/16 v4, 0x8
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
 
-    invoke-static {v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+    invoke-static {v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getRMMInfo()Lcom/android/internal/widget/RemoteLockInfo;
+    invoke-virtual {v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getRMMInfo()Lcom/android/internal/widget/RemoteLockInfo;
 
-    move-result-object v2
+    move-result-object v1
 
-    iput-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mRemoteLockInfo:Lcom/android/internal/widget/RemoteLockInfo;
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mRemoteLockInfo:Lcom/android/internal/widget/RemoteLockInfo;
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mRemoteLockInfo:Lcom/android/internal/widget/RemoteLockInfo;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mRemoteLockInfo:Lcom/android/internal/widget/RemoteLockInfo;
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
-    const-string/jumbo v2, "KeyguardRMMView"
+    const-string/jumbo v1, "KeyguardRMMView"
 
-    const-string/jumbo v3, "mRemoteLockInfo is null"
+    const-string/jumbo v2, "mRemoteLockInfo is null"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_0
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mRemoteLockInfo:Lcom/android/internal/widget/RemoteLockInfo;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mRemoteLockInfo:Lcom/android/internal/widget/RemoteLockInfo;
 
-    iget-object v2, v2, Lcom/android/internal/widget/RemoteLockInfo;->message:Ljava/lang/CharSequence;
+    iget-object v1, v1, Lcom/android/internal/widget/RemoteLockInfo;->message:Ljava/lang/CharSequence;
 
-    if-eqz v2, :cond_6
+    if-eqz v1, :cond_5
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mRemoteLockInfo:Lcom/android/internal/widget/RemoteLockInfo;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mRemoteLockInfo:Lcom/android/internal/widget/RemoteLockInfo;
 
-    iget-object v2, v2, Lcom/android/internal/widget/RemoteLockInfo;->message:Ljava/lang/CharSequence;
+    iget-object v1, v1, Lcom/android/internal/widget/RemoteLockInfo;->message:Ljava/lang/CharSequence;
 
-    invoke-interface {v2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_1
-
-    const-string/jumbo v2, "\\r\\n|\\r|\\n"
-
-    const-string/jumbo v3, " "
-
-    invoke-virtual {v1, v2, v3}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientMessage:Landroid/widget/TextView;
-
-    if-eqz v2, :cond_1
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientMessage:Landroid/widget/TextView;
-
-    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    :cond_1
-    :goto_0
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mRemoteLockInfo:Lcom/android/internal/widget/RemoteLockInfo;
-
-    iget-object v2, v2, Lcom/android/internal/widget/RemoteLockInfo;->clientName:Ljava/lang/CharSequence;
-
-    if-eqz v2, :cond_2
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mRemoteLockInfo:Lcom/android/internal/widget/RemoteLockInfo;
-
-    iget-object v2, v2, Lcom/android/internal/widget/RemoteLockInfo;->clientName:Ljava/lang/CharSequence;
-
-    invoke-interface {v2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientName:Ljava/lang/String;
-
-    :cond_2
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mRemoteLockInfo:Lcom/android/internal/widget/RemoteLockInfo;
-
-    iget-object v2, v2, Lcom/android/internal/widget/RemoteLockInfo;->phoneNumber:Ljava/lang/CharSequence;
-
-    if-eqz v2, :cond_7
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientName:Ljava/lang/String;
-
-    if-eqz v2, :cond_7
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mRemoteLockInfo:Lcom/android/internal/widget/RemoteLockInfo;
-
-    iget-object v2, v2, Lcom/android/internal/widget/RemoteLockInfo;->phoneNumber:Ljava/lang/CharSequence;
-
-    invoke-interface {v2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mPhoneNumber:Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v3, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientName:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "\n"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/keyguard/KeyguardRMMView;->mPhoneNumber:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientContact:Landroid/widget/TextView;
+    if-eqz v0, :cond_1
 
-    if-eqz v2, :cond_3
+    const-string/jumbo v1, "\\r\\n|\\r|\\n"
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientContact:Landroid/widget/TextView;
+    const-string/jumbo v2, " "
 
-    invoke-virtual {v2, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientMessage:Lcom/android/systemui/widget/SystemUITextView;
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientMessage:Lcom/android/systemui/widget/SystemUITextView;
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/widget/SystemUITextView;->setText(Ljava/lang/CharSequence;)V
+
+    :cond_1
+    :goto_0
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mRemoteLockInfo:Lcom/android/internal/widget/RemoteLockInfo;
+
+    iget-object v1, v1, Lcom/android/internal/widget/RemoteLockInfo;->clientName:Ljava/lang/CharSequence;
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mRemoteLockInfo:Lcom/android/internal/widget/RemoteLockInfo;
+
+    iget-object v1, v1, Lcom/android/internal/widget/RemoteLockInfo;->clientName:Ljava/lang/CharSequence;
+
+    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientName:Ljava/lang/String;
+
+    :cond_2
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mRemoteLockInfo:Lcom/android/internal/widget/RemoteLockInfo;
+
+    iget-object v1, v1, Lcom/android/internal/widget/RemoteLockInfo;->phoneNumber:Ljava/lang/CharSequence;
+
+    if-eqz v1, :cond_6
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientName:Ljava/lang/String;
+
+    if-eqz v1, :cond_6
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mRemoteLockInfo:Lcom/android/internal/widget/RemoteLockInfo;
+
+    iget-object v1, v1, Lcom/android/internal/widget/RemoteLockInfo;->phoneNumber:Ljava/lang/CharSequence;
+
+    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mPhoneNumber:Ljava/lang/String;
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientContact:Lcom/android/systemui/widget/SystemUITextView;
+
+    if-eqz v1, :cond_3
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientContact:Lcom/android/systemui/widget/SystemUITextView;
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientName:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/widget/SystemUITextView;->setText(Ljava/lang/CharSequence;)V
 
     :cond_3
     :goto_1
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientContact:Landroid/widget/TextView;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientContact:Lcom/android/systemui/widget/SystemUITextView;
 
-    if-eqz v2, :cond_5
+    if-eqz v1, :cond_4
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientCallButton:Landroid/widget/ImageButton;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientCallButton:Lcom/android/systemui/widget/SystemUIButton;
 
-    if-eqz v2, :cond_5
+    if-eqz v1, :cond_4
 
-    iget-boolean v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mIsVoiceCapacity:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mIsVoiceCapacity:Z
 
-    if-eqz v2, :cond_4
+    if-eqz v1, :cond_7
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mPhoneNumber:Ljava/lang/String;
+
+    if-eqz v1, :cond_7
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mPhoneNumber:Ljava/lang/String;
+
+    invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v1
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_7
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientContact:Lcom/android/systemui/widget/SystemUITextView;
+
+    invoke-virtual {v1, v3}, Lcom/android/systemui/widget/SystemUITextView;->setVisibility(I)V
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientCallButton:Lcom/android/systemui/widget/SystemUIButton;
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mPhoneNumber:Ljava/lang/String;
 
-    if-eqz v2, :cond_4
+    invoke-virtual {v1, v2}, Lcom/android/systemui/widget/SystemUIButton;->setText(Ljava/lang/CharSequence;)V
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mPhoneNumber:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientCallButton:Lcom/android/systemui/widget/SystemUIButton;
 
-    invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
+    invoke-virtual {v1, v3}, Lcom/android/systemui/widget/SystemUIButton;->setVisibility(I)V
 
-    move-result v2
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientCallButton:Lcom/android/systemui/widget/SystemUIButton;
 
-    if-eqz v2, :cond_8
+    new-instance v2, Lcom/android/keyguard/-$Lambda$cXhu-em3RwTbZuzGhi45VscmdpQ$1;
+
+    invoke-direct {v2, p0}, Lcom/android/keyguard/-$Lambda$cXhu-em3RwTbZuzGhi45VscmdpQ$1;-><init>(Ljava/lang/Object;)V
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/widget/SystemUIButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientContact:Lcom/android/systemui/widget/SystemUITextView;
+
+    invoke-virtual {v1, v3}, Lcom/android/systemui/widget/SystemUITextView;->setVisibility(I)V
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientCallButton:Lcom/android/systemui/widget/SystemUIButton;
+
+    invoke-virtual {v1, v3}, Lcom/android/systemui/widget/SystemUIButton;->setVisibility(I)V
 
     :cond_4
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientContact:Landroid/widget/TextView;
-
-    invoke-virtual {v2, v5}, Landroid/widget/TextView;->setVisibility(I)V
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientCallButton:Landroid/widget/ImageButton;
-
-    invoke-virtual {v2, v5}, Landroid/widget/ImageButton;->setVisibility(I)V
-
-    :cond_5
     :goto_2
     return-void
 
-    :cond_6
-    const-string/jumbo v2, "KeyguardRMMView"
+    :cond_5
+    const-string/jumbo v1, "KeyguardRMMView"
 
-    const-string/jumbo v3, "mRemoteLockInfo.message is null"
+    const-string/jumbo v2, "mRemoteLockInfo.message is null"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    :cond_7
-    const-string/jumbo v2, "KeyguardRMMView"
+    :cond_6
+    const-string/jumbo v1, "KeyguardRMMView"
 
-    const-string/jumbo v3, "mRemoteLockInfo.phoneNumber is null"
+    const-string/jumbo v2, "mRemoteLockInfo.phoneNumber is null"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 
-    :cond_8
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientContact:Landroid/widget/TextView;
+    :cond_7
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientContact:Lcom/android/systemui/widget/SystemUITextView;
 
-    invoke-virtual {v2, v4}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v1, v4}, Lcom/android/systemui/widget/SystemUITextView;->setVisibility(I)V
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientCallButton:Landroid/widget/ImageButton;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientCallButton:Lcom/android/systemui/widget/SystemUIButton;
 
-    invoke-virtual {v2, v4}, Landroid/widget/ImageButton;->setVisibility(I)V
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientCallButton:Landroid/widget/ImageButton;
-
-    new-instance v3, Lcom/android/keyguard/KeyguardRMMView$5;
-
-    invoke-direct {v3, p0}, Lcom/android/keyguard/KeyguardRMMView$5;-><init>(Lcom/android/keyguard/KeyguardRMMView;)V
-
-    invoke-virtual {v2, v3}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientContact:Landroid/widget/TextView;
-
-    invoke-virtual {v2, v4}, Landroid/widget/TextView;->setVisibility(I)V
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientCallButton:Landroid/widget/ImageButton;
-
-    invoke-virtual {v2, v4}, Landroid/widget/ImageButton;->setVisibility(I)V
+    invoke-virtual {v1, v4}, Lcom/android/systemui/widget/SystemUIButton;->setVisibility(I)V
 
     goto :goto_2
 .end method
@@ -810,256 +785,338 @@
 .end method
 
 .method private updateLayout()V
-    .locals 7
+    .locals 13
 
-    const/4 v6, 0x0
+    const v8, 0x7f0701fe
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientInfoView:Landroid/widget/LinearLayout;
+    const/4 v12, 0x2
 
-    if-eqz v2, :cond_0
+    const/4 v11, 0x1
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientMessage:Landroid/widget/TextView;
+    const/4 v10, 0x0
 
-    if-eqz v2, :cond_0
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mMessageArea:Landroid/widget/LinearLayout;
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mContactArea:Landroid/view/ViewGroup;
+    if-eqz v7, :cond_0
 
-    if-eqz v2, :cond_0
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientMessage:Lcom/android/systemui/widget/SystemUITextView;
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientInfoView:Landroid/widget/LinearLayout;
+    if-eqz v7, :cond_0
 
-    invoke-virtual {v2}, Landroid/widget/LinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mRMMContainer:Landroid/view/ViewGroup;
 
-    move-result-object v1
+    if-eqz v7, :cond_0
 
-    check-cast v1, Landroid/view/ViewGroup$MarginLayoutParams;
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mContactArea:Landroid/view/ViewGroup;
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mContactArea:Landroid/view/ViewGroup;
+    if-eqz v7, :cond_0
 
-    invoke-virtual {v2}, Landroid/view/ViewGroup;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientTitle:Lcom/android/systemui/widget/SystemUITextView;
+
+    if-eqz v7, :cond_0
+
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mMessageArea:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v7}, Landroid/widget/LinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/view/ViewGroup$MarginLayoutParams;
+
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mContactArea:Landroid/view/ViewGroup;
+
+    invoke-virtual {v7}, Landroid/view/ViewGroup;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/view/ViewGroup$MarginLayoutParams;
+
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientTitle:Lcom/android/systemui/widget/SystemUITextView;
+
+    invoke-virtual {v7}, Lcom/android/systemui/widget/SystemUITextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/view/ViewGroup$MarginLayoutParams;
+
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientMessage:Lcom/android/systemui/widget/SystemUITextView;
+
+    invoke-virtual {v7}, Lcom/android/systemui/widget/SystemUITextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v0
 
     check-cast v0, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
 
-    invoke-static {v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+    invoke-static {v7}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    move-result-object v2
+    move-result-object v7
 
-    invoke-virtual {v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDesktopMode()Z
+    invoke-virtual {v7}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDexMode()Z
 
-    move-result v2
+    move-result v7
 
-    if-eqz v2, :cond_1
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    sget v3, Lcom/android/keyguard/R$dimen;->kg_dex_message_area_padding_side:I
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v2
-
-    iput v2, v1, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    sget v3, Lcom/android/keyguard/R$dimen;->kg_dex_message_area_padding_side:I
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v2
-
-    iput v2, v1, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    sget v3, Lcom/android/keyguard/R$dimen;->kg_dex_fmm_contact_area_side_margin:I
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v2
-
-    iput v2, v0, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    sget v3, Lcom/android/keyguard/R$dimen;->kg_dex_fmm_contact_area_side_margin:I
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v2
-
-    iput v2, v0, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mRMMContainer:Landroid/view/ViewGroup;
-
-    iget-object v3, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    sget v4, Lcom/android/keyguard/R$dimen;->kg_dex_fmm_container_top_bottom:I
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v3
-
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    sget v5, Lcom/android/keyguard/R$dimen;->kg_dex_fmm_container_padding_bottom:I
-
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v4
-
-    invoke-virtual {v2, v6, v3, v6, v4}, Landroid/view/ViewGroup;->setPadding(IIII)V
+    if-eqz v7, :cond_3
 
     :goto_0
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientInfoView:Landroid/widget/LinearLayout;
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mMessageArea:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v2, v1}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v7, v3}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mContactArea:Landroid/view/ViewGroup;
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mContactArea:Landroid/view/ViewGroup;
 
-    invoke-virtual {v2, v0}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v7, v2}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    iget v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mCurrentOrientation:I
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientTitle:Lcom/android/systemui/widget/SystemUITextView;
 
-    const/4 v3, 0x1
+    invoke-virtual {v7, v6}, Lcom/android/systemui/widget/SystemUITextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    if-ne v2, v3, :cond_2
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientMessage:Lcom/android/systemui/widget/SystemUITextView;
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientMessage:Landroid/widget/TextView;
+    invoke-virtual {v7, v0}, Lcom/android/systemui/widget/SystemUITextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    iget-object v3, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
+    iget v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mCurrentOrientation:I
 
-    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    if-ne v7, v11, :cond_4
 
-    move-result-object v3
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientMessage:Lcom/android/systemui/widget/SystemUITextView;
 
-    sget v4, Lcom/android/keyguard/R$integer;->kg_fmm_message_max_line_portrait:I
+    iget-object v8, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result v3
+    move-result-object v8
 
-    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setMaxLines(I)V
+    const v9, 0x7f0b0024
+
+    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v8
+
+    invoke-virtual {v7, v8}, Lcom/android/systemui/widget/SystemUITextView;->setMaxLines(I)V
 
     :cond_0
     :goto_1
-    return-void
+    sget-boolean v7, Lcom/android/systemui/Rune;->IS_TABLET_DEVICE:Z
+
+    if-eqz v7, :cond_2
+
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mMessageArea:Landroid/widget/LinearLayout;
+
+    if-eqz v7, :cond_2
+
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mContactArea:Landroid/view/ViewGroup;
+
+    if-eqz v7, :cond_2
+
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientMessage:Lcom/android/systemui/widget/SystemUITextView;
+
+    if-eqz v7, :cond_2
+
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mMessageAreaSpace:Landroid/view/View;
+
+    if-eqz v7, :cond_2
+
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientContact:Lcom/android/systemui/widget/SystemUITextView;
+
+    if-eqz v7, :cond_2
+
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mContactArea:Landroid/view/ViewGroup;
+
+    invoke-virtual {v7}, Landroid/view/ViewGroup;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/LinearLayout$LayoutParams;
+
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientContact:Lcom/android/systemui/widget/SystemUITextView;
+
+    invoke-virtual {v7}, Lcom/android/systemui/widget/SystemUITextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/view/ViewGroup$MarginLayoutParams;
+
+    iget v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mCurrentOrientation:I
+
+    if-ne v7, v11, :cond_5
+
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mMessageArea:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v7, v11}, Landroid/widget/LinearLayout;->setOrientation(I)V
+
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mMessageAreaSpace:Landroid/view/View;
+
+    const/16 v8, 0x8
+
+    invoke-virtual {v7, v8}, Landroid/view/View;->setVisibility(I)V
+
+    const/4 v7, -0x1
+
+    iput v7, v1, Landroid/widget/LinearLayout$LayoutParams;->width:I
 
     :cond_1
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
+    :goto_2
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientMessage:Lcom/android/systemui/widget/SystemUITextView;
 
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    iget-object v8, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
 
-    move-result-object v2
+    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    sget v3, Lcom/android/keyguard/R$dimen;->kg_message_area_padding_side:I
+    move-result-object v8
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    const v9, 0x7f070202
 
-    move-result v2
+    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    iput v2, v1, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+    move-result v8
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
+    invoke-virtual {v7, v8}, Lcom/android/systemui/widget/SystemUITextView;->setMaxWidth(I)V
 
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
 
-    move-result-object v2
+    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    sget v3, Lcom/android/keyguard/R$dimen;->kg_message_area_padding_side:I
+    move-result-object v7
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    const v8, 0x7f070204
 
-    move-result v2
+    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    iput v2, v1, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
+    move-result v7
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
+    invoke-virtual {v4, v7}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginEnd(I)V
 
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientContact:Lcom/android/systemui/widget/SystemUITextView;
 
-    move-result-object v2
+    invoke-virtual {v7, v4}, Lcom/android/systemui/widget/SystemUITextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    sget v3, Lcom/android/keyguard/R$dimen;->kg_fmm_contact_area_side_margin:I
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mContactArea:Landroid/view/ViewGroup;
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v2
-
-    iput v2, v0, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    sget v3, Lcom/android/keyguard/R$dimen;->kg_fmm_contact_area_side_margin:I
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v2
-
-    iput v2, v0, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mRMMContainer:Landroid/view/ViewGroup;
-
-    invoke-virtual {v2, v6, v6, v6, v6}, Landroid/view/ViewGroup;->setPadding(IIII)V
-
-    goto :goto_0
+    invoke-virtual {v7, v1}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     :cond_2
-    iget v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mCurrentOrientation:I
+    return-void
 
-    const/4 v3, 0x2
+    :cond_3
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
 
-    if-ne v2, v3, :cond_0
+    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientMessage:Landroid/widget/TextView;
+    move-result-object v7
 
-    iget-object v3, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
+    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    move-result v7
 
-    move-result-object v3
+    iput v7, v3, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
-    sget v4, Lcom/android/keyguard/R$integer;->kg_fmm_message_max_line_landscape:I
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result v3
+    move-result-object v7
 
-    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setMaxLines(I)V
+    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    goto :goto_1
+    move-result v7
+
+    iput v7, v3, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
+
+    iput v10, v2, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+
+    iput v10, v2, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
+
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v7
+
+    const v8, 0x7f070206
+
+    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v7
+
+    iput v7, v6, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
+
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v7
+
+    const v8, 0x7f070201
+
+    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v7
+
+    iput v7, v0, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
+
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mRMMContainer:Landroid/view/ViewGroup;
+
+    invoke-virtual {v7, v10, v10, v10, v10}, Landroid/view/ViewGroup;->setPadding(IIII)V
+
+    goto/16 :goto_0
+
+    :cond_4
+    iget v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mCurrentOrientation:I
+
+    if-ne v7, v12, :cond_0
+
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientMessage:Lcom/android/systemui/widget/SystemUITextView;
+
+    iget-object v8, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v8
+
+    const v9, 0x7f0b0023
+
+    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v8
+
+    invoke-virtual {v7, v8}, Lcom/android/systemui/widget/SystemUITextView;->setMaxLines(I)V
+
+    goto/16 :goto_1
+
+    :cond_5
+    iget v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mCurrentOrientation:I
+
+    if-ne v7, v12, :cond_1
+
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mMessageArea:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v7, v10}, Landroid/widget/LinearLayout;->setOrientation(I)V
+
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mMessageAreaSpace:Landroid/view/View;
+
+    invoke-virtual {v7, v10}, Landroid/view/View;->setVisibility(I)V
+
+    const/4 v7, -0x2
+
+    iput v7, v1, Landroid/widget/LinearLayout$LayoutParams;->width:I
+
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientMessage:Lcom/android/systemui/widget/SystemUITextView;
+
+    invoke-virtual {v7}, Lcom/android/systemui/widget/SystemUITextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/view/ViewGroup$MarginLayoutParams;
+
+    iput v10, v5, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
+
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientMessage:Lcom/android/systemui/widget/SystemUITextView;
+
+    invoke-virtual {v7, v5}, Lcom/android/systemui/widget/SystemUITextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    goto/16 :goto_2
 .end method
 
 
@@ -1067,7 +1124,7 @@
 .method protected getPasswordTextViewId()I
     .locals 1
 
-    sget v0, Lcom/android/keyguard/R$id;->rmmEntry:I
+    const v0, 0x7f0a0426
 
     return v0
 .end method
@@ -1083,7 +1140,7 @@
 .method public getWrongPasswordStringId()I
     .locals 1
 
-    sget v0, Lcom/android/keyguard/R$string;->kg_incorrect_pin:I
+    const v0, 0x7f1204db
 
     return v0
 .end method
@@ -1121,7 +1178,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v0, Lcom/android/keyguard/KeyguardRMMView$6;
+    new-instance v0, Lcom/android/keyguard/KeyguardRMMView$4;
 
     sub-long v2, p1, v6
 
@@ -1129,15 +1186,99 @@
 
     move-object v1, p0
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/keyguard/KeyguardRMMView$6;-><init>(Lcom/android/keyguard/KeyguardRMMView;JJ)V
+    invoke-direct/range {v0 .. v5}, Lcom/android/keyguard/KeyguardRMMView$4;-><init>(Lcom/android/keyguard/KeyguardRMMView;JJ)V
 
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardRMMView$6;->start()Landroid/os/CountDownTimer;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardRMMView;->mCountdownTimer:Landroid/os/CountDownTimer;
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardRMMView$4;->start()Landroid/os/CountDownTimer;
 
     return-void
+.end method
+
+.method synthetic lambda$-com_android_keyguard_KeyguardRMMView_5155(Landroid/view/View;)V
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardRMMView;->doHapticKeyClick()V
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardRMMView;->mPasswordEntry:Lcom/android/keyguard/PasswordTextView;
+
+    invoke-virtual {v0}, Lcom/android/keyguard/PasswordTextView;->isEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardRMMView;->verifyPasswordAndUnlock()V
+
+    :cond_0
+    return-void
+.end method
+
+.method synthetic lambda$-com_android_keyguard_KeyguardRMMView_8649(Landroid/view/View;)V
+    .locals 6
+
+    new-instance v1, Landroid/content/Intent;
+
+    const-string/jumbo v2, "android.intent.action.CALL_PRIVILEGED"
+
+    const-string/jumbo v3, "tel"
+
+    iget-object v4, p0, Lcom/android/keyguard/KeyguardRMMView;->mPhoneNumber:Ljava/lang/String;
+
+    const/4 v5, 0x0
+
+    invoke-static {v3, v4, v5}, Landroid/net/Uri;->fromParts(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-direct {v1, v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+
+    const/high16 v2, 0x10000000
+
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    :try_start_0
+    const-string/jumbo v2, "KeyguardRMMView"
+
+    const-string/jumbo v3, "click call button"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
+
+    sget-object v3, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
+
+    invoke-virtual {v2, v1, v3}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+    :try_end_0
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "KeyguardRMMView"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Can\'t find the component "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method
 
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
@@ -1164,15 +1305,13 @@
 .method protected onFinishInflate()V
     .locals 3
 
-    invoke-super {p0}, Lcom/android/keyguard/KeyguardPINView;->onFinishInflate()V
-
     iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x112005c
+    const v2, 0x11200c1
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1190,57 +1329,47 @@
 
     invoke-virtual {v1, v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->registerCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
 
-    sget v1, Lcom/android/keyguard/R$id;->rmm_info_area:I
+    const v1, 0x7f0a0287
 
     invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardRMMView;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    check-cast v1, Landroid/widget/LinearLayout;
+    check-cast v1, Lcom/android/systemui/widget/SystemUITextView;
 
-    iput-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientInfoView:Landroid/widget/LinearLayout;
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientTitle:Lcom/android/systemui/widget/SystemUITextView;
 
-    sget v1, Lcom/android/keyguard/R$id;->keyguard_rmm_title:I
-
-    invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardRMMView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/TextView;
-
-    iput-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientTitle:Landroid/widget/TextView;
-
-    sget v1, Lcom/android/keyguard/R$id;->keyguard_rmm_message:I
+    const v1, 0x7f0a0286
 
     invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardRMMView;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    check-cast v1, Landroid/widget/TextView;
+    check-cast v1, Lcom/android/systemui/widget/SystemUITextView;
 
-    iput-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientMessage:Landroid/widget/TextView;
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientMessage:Lcom/android/systemui/widget/SystemUITextView;
 
-    sget v1, Lcom/android/keyguard/R$id;->keyguard_rmm_contact_text:I
-
-    invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardRMMView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/TextView;
-
-    iput-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientContact:Landroid/widget/TextView;
-
-    sget v1, Lcom/android/keyguard/R$id;->keyguard_rmm_contact_button:I
+    const v1, 0x7f0a0284
 
     invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardRMMView;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    check-cast v1, Landroid/widget/ImageButton;
+    check-cast v1, Lcom/android/systemui/widget/SystemUITextView;
 
-    iput-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientCallButton:Landroid/widget/ImageButton;
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientContact:Lcom/android/systemui/widget/SystemUITextView;
 
-    sget v1, Lcom/android/keyguard/R$id;->keyguard_rmm_container:I
+    const v1, 0x7f0a0283
+
+    invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardRMMView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/widget/SystemUIButton;
+
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientCallButton:Lcom/android/systemui/widget/SystemUIButton;
+
+    const v1, 0x7f0a0285
 
     invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardRMMView;->findViewById(I)Landroid/view/View;
 
@@ -1250,7 +1379,7 @@
 
     iput-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mRMMContainer:Landroid/view/ViewGroup;
 
-    sget v1, Lcom/android/keyguard/R$id;->rmm_contact_area:I
+    const v1, 0x7f0a0427
 
     invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardRMMView;->findViewById(I)Landroid/view/View;
 
@@ -1259,6 +1388,26 @@
     check-cast v1, Landroid/view/ViewGroup;
 
     iput-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mContactArea:Landroid/view/ViewGroup;
+
+    const v1, 0x7f0a0428
+
+    invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardRMMView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/LinearLayout;
+
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mMessageArea:Landroid/widget/LinearLayout;
+
+    const v1, 0x7f0a0429
+
+    invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardRMMView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mMessageAreaSpace:Landroid/view/View;
+
+    invoke-super {p0}, Lcom/android/keyguard/KeyguardPINView;->onFinishInflate()V
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardRMMView;->setRMMInfo()V
 
@@ -1278,18 +1427,18 @@
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardRMMView;->updateLayout()V
 
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientTitle:Landroid/widget/TextView;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientTitle:Lcom/android/systemui/widget/SystemUITextView;
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientTitle:Landroid/widget/TextView;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientTitle:Lcom/android/systemui/widget/SystemUITextView;
 
     const/4 v2, 0x1
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setSelected(Z)V
+    invoke-virtual {v1, v2}, Lcom/android/systemui/widget/SystemUITextView;->setSelected(Z)V
 
     :cond_0
-    sget v1, Lcom/android/keyguard/R$id;->key_enter:I
+    const v1, 0x7f0a023d
 
     invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardRMMView;->findViewById(I)Landroid/view/View;
 
@@ -1297,9 +1446,9 @@
 
     if-eqz v0, :cond_1
 
-    new-instance v1, Lcom/android/keyguard/KeyguardRMMView$4;
+    new-instance v1, Lcom/android/keyguard/-$Lambda$cXhu-em3RwTbZuzGhi45VscmdpQ;
 
-    invoke-direct {v1, p0}, Lcom/android/keyguard/KeyguardRMMView$4;-><init>(Lcom/android/keyguard/KeyguardRMMView;)V
+    invoke-direct {v1, p0}, Lcom/android/keyguard/-$Lambda$cXhu-em3RwTbZuzGhi45VscmdpQ;-><init>(Ljava/lang/Object;)V
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -1316,9 +1465,7 @@
 .end method
 
 .method public onWindowFocusChanged(Z)V
-    .locals 9
-
-    const/4 v8, 0x1
+    .locals 7
 
     iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
@@ -1346,44 +1493,42 @@
 
     move-result-object v3
 
-    sget v4, Lcom/android/keyguard/R$string;->kg_rmm_lock_instructions:I
+    const/4 v4, 0x1
 
-    new-array v5, v8, [Ljava/lang/Object;
+    new-array v4, v4, [Ljava/lang/Object;
 
-    iget-object v6, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientName:Ljava/lang/String;
+    iget-object v5, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientName:Ljava/lang/String;
 
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    aput-object v6, v5, v7
+    aput-object v5, v4, v6
 
-    invoke-virtual {v3, v4, v5}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    const v5, 0x7f1205ea
+
+    invoke-virtual {v3, v5, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-interface {v2, v3, v8}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(Ljava/lang/CharSequence;Z)V
+    invoke-interface {v2, v3}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(Ljava/lang/CharSequence;)V
 
     :cond_0
     return-void
 .end method
 
 .method protected resetState()V
-    .locals 9
-
-    const/4 v8, 0x1
+    .locals 7
 
     invoke-super {p0}, Lcom/android/keyguard/KeyguardPINView;->resetState()V
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
+    const-class v2, Lcom/android/systemui/KnoxStateMonitor;
 
-    invoke-static {v2}, Lcom/android/keyguard/KnoxStateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KnoxStateMonitor;
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
-
-    invoke-static {v2}, Lcom/android/keyguard/KnoxStateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KnoxStateMonitor;
+    invoke-static {v2}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/android/keyguard/KnoxStateMonitor;->isDeviceDisabledForMaxFailedAttempt()Z
+    check-cast v2, Lcom/android/systemui/KnoxStateMonitor;
+
+    invoke-virtual {v2}, Lcom/android/systemui/KnoxStateMonitor;->isDeviceDisabledForMaxFailedAttempt()Z
 
     move-result v2
 
@@ -1417,21 +1562,23 @@
 
     move-result-object v3
 
-    sget v4, Lcom/android/keyguard/R$string;->kg_rmm_lock_instructions:I
+    const/4 v4, 0x1
 
-    new-array v5, v8, [Ljava/lang/Object;
+    new-array v4, v4, [Ljava/lang/Object;
 
-    iget-object v6, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientName:Ljava/lang/String;
+    iget-object v5, p0, Lcom/android/keyguard/KeyguardRMMView;->mClientName:Ljava/lang/String;
 
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    aput-object v6, v5, v7
+    aput-object v5, v4, v6
 
-    invoke-virtual {v3, v4, v5}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    const v5, 0x7f1205ea
+
+    invoke-virtual {v3, v5, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-interface {v2, v3, v8}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(Ljava/lang/CharSequence;Z)V
+    invoke-interface {v2, v3}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(Ljava/lang/CharSequence;)V
 
     goto :goto_0
 
@@ -1440,63 +1587,59 @@
 
     iget-object v3, p0, Lcom/android/keyguard/KeyguardRMMView;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040a09
+    const v4, 0x1040292
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-interface {v2, v3, v8}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(Ljava/lang/CharSequence;Z)V
+    invoke-interface {v2, v3}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(Ljava/lang/CharSequence;)V
 
     goto :goto_0
 .end method
 
 .method protected verifyPasswordAndUnlock()V
-    .locals 7
+    .locals 6
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
-    const-string/jumbo v3, "KeyguardRMMView"
+    const-string/jumbo v2, "KeyguardRMMView"
 
-    const-string/jumbo v4, "verifyPasswordAndUnlock()"
+    const-string/jumbo v3, "verifyPasswordAndUnlock()"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0}, Lcom/android/keyguard/KeyguardRMMView;->getPasswordText()Ljava/lang/String;
 
     move-result-object v1
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {p0, v3}, Lcom/android/keyguard/KeyguardRMMView;->setPasswordEntryInputEnabled(Z)V
-
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
-
-    move-result v2
+    invoke-virtual {p0, v2}, Lcom/android/keyguard/KeyguardRMMView;->setPasswordEntryInputEnabled(Z)V
 
     invoke-virtual {v1}, Ljava/lang/String;->length()I
 
-    move-result v3
+    move-result v2
 
-    const/4 v4, 0x3
+    const/4 v3, 0x3
 
-    if-gt v3, v4, :cond_0
+    if-gt v2, v3, :cond_0
 
-    iget-object v3, p0, Lcom/android/keyguard/KeyguardRMMView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
 
     invoke-virtual {p0}, Lcom/android/keyguard/KeyguardRMMView;->getWrongPasswordStringId()I
 
-    move-result v4
+    move-result v3
 
-    invoke-interface {v3, v4, v5}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(IZ)V
+    invoke-interface {v2, v3}, Lcom/android/keyguard/SecurityMessageDisplay;->setMessage(I)V
 
-    iget-object v3, p0, Lcom/android/keyguard/KeyguardRMMView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
 
-    invoke-interface {v3}, Lcom/android/keyguard/SecurityMessageDisplay;->displayFailedAnimation()V
+    invoke-interface {v2}, Lcom/android/keyguard/SecurityMessageDisplay;->displayFailedAnimation()V
 
-    invoke-virtual {p0, v5, v5}, Lcom/android/keyguard/KeyguardRMMView;->resetPasswordText(ZZ)V
+    invoke-virtual {p0, v4, v4}, Lcom/android/keyguard/KeyguardRMMView;->resetPasswordText(ZZ)V
 
-    invoke-virtual {p0, v5}, Lcom/android/keyguard/KeyguardRMMView;->setPasswordEntryInputEnabled(Z)V
+    invoke-virtual {p0, v4}, Lcom/android/keyguard/KeyguardRMMView;->setPasswordEntryInputEnabled(Z)V
 
     return-void
 
@@ -1504,17 +1647,17 @@
     :try_start_0
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardRMMView;->getLockSettings()Lcom/android/internal/widget/ILockSettings;
 
-    move-result-object v3
+    move-result-object v2
 
     invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
 
-    move-result v4
+    move-result v3
 
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardRMMView;->mCheckPasswordCallback:Landroid/os/IRemoteCallback;
+    iget-object v4, p0, Lcom/android/keyguard/KeyguardRMMView;->mCheckPasswordCallback:Landroid/os/IRemoteCallback;
 
-    const/4 v6, 0x2
+    const/4 v5, 0x2
 
-    invoke-interface {v3, v6, v1, v4, v5}, Lcom/android/internal/widget/ILockSettings;->checkCISPassword(ILjava/lang/String;ILandroid/os/IRemoteCallback;)V
+    invoke-interface {v2, v5, v1, v3, v4}, Lcom/android/internal/widget/ILockSettings;->checkCISPassword(ILjava/lang/String;ILandroid/os/IRemoteCallback;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1524,11 +1667,11 @@
     :catch_0
     move-exception v0
 
-    const-string/jumbo v3, "KeyguardRMMView"
+    const-string/jumbo v2, "KeyguardRMMView"
 
-    const-string/jumbo v4, "Can\'t connect CIS_LOCK"
+    const-string/jumbo v3, "Can\'t connect CIS_LOCK"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method

@@ -44,7 +44,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/systemui/recents/Recents$7;->this$0:Lcom/android/systemui/recents/Recents;
 
-    invoke-static {v1}, Lcom/android/systemui/recents/Recents;->-get2(Lcom/android/systemui/recents/Recents;)Lcom/android/systemui/recents/IRecentsSystemUserCallbacks;
+    invoke-static {v1}, Lcom/android/systemui/recents/Recents;->-get3(Lcom/android/systemui/recents/Recents;)Lcom/android/systemui/recents/IRecentsSystemUserCallbacks;
 
     move-result-object v1
 

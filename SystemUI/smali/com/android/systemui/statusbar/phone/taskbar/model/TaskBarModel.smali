@@ -6,6 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$5;,
+        Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$7;,
         Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$Callbacks;,
         Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$LoaderTask;,
         Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$PackageUpdatedTask;
@@ -91,6 +93,8 @@
 
 .field private volatile mConfigMncWhenLoaded:I
 
+.field private mContext:Landroid/content/Context;
+
 .field protected mHandler:Lcom/android/systemui/statusbar/phone/taskbar/model/DeferredHandler;
 
 .field private final mLauncherApps:Landroid/content/pm/LauncherApps;
@@ -100,8 +104,6 @@
 .field private volatile mLocaleWhenLoaded:Ljava/lang/String;
 
 .field protected final mLock:Ljava/lang/Object;
-
-.field protected final mMenuAppLoader:Lcom/android/systemui/statusbar/phone/taskbar/model/MenuAppLoader;
 
 .field protected final mPkgResCache:Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;
 
@@ -125,7 +127,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;)Landroid/content/pm/LauncherApps;
+.method static synthetic -get1(Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;)Landroid/content/Context;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mContext:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method static synthetic -get2(Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;)Landroid/content/pm/LauncherApps;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mLauncherApps:Landroid/content/pm/LauncherApps;
@@ -133,7 +143,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;)Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$LoaderTask;
+.method static synthetic -get3(Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;)Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$LoaderTask;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mLoaderTask:Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$LoaderTask;
@@ -198,7 +208,7 @@
 
     sget-object v0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->sWorkerThread:Landroid/os/HandlerThread;
 
-    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
 
     new-instance v0, Landroid/os/Handler;
 
@@ -240,158 +250,146 @@
 .end method
 
 .method public constructor <init>(Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;)V
-    .locals 4
+    .locals 2
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
-    new-instance v1, Lcom/android/systemui/statusbar/phone/taskbar/model/DeferredHandler;
+    new-instance v0, Lcom/android/systemui/statusbar/phone/taskbar/model/DeferredHandler;
 
-    invoke-direct {v1}, Lcom/android/systemui/statusbar/phone/taskbar/model/DeferredHandler;-><init>()V
+    invoke-direct {v0}, Lcom/android/systemui/statusbar/phone/taskbar/model/DeferredHandler;-><init>()V
 
-    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mHandler:Lcom/android/systemui/statusbar/phone/taskbar/model/DeferredHandler;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mHandler:Lcom/android/systemui/statusbar/phone/taskbar/model/DeferredHandler;
 
-    new-instance v1, Ljava/lang/Object;
+    new-instance v0, Ljava/lang/Object;
 
-    invoke-direct {v1}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
-    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mLock:Ljava/lang/Object;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mLock:Ljava/lang/Object;
 
     invoke-static {}, Landroid/os/Environment;->isExternalStorageEmulated()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v1, 0x0
-
-    :goto_0
-    iput-boolean v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mAppsCanBeOnExternalStorage:Z
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mAppsCanBeOnExternalStorage:Z
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
 
-    new-instance v1, Lcom/android/systemui/statusbar/phone/taskbar/model/BadgeCache;
+    new-instance v0, Lcom/android/systemui/statusbar/phone/taskbar/model/BadgeCache;
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
 
-    invoke-direct {v1, v2}, Lcom/android/systemui/statusbar/phone/taskbar/model/BadgeCache;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;)V
+    invoke-direct {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/model/BadgeCache;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;)V
 
-    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mBadgeCache:Lcom/android/systemui/statusbar/phone/taskbar/model/BadgeCache;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mBadgeCache:Lcom/android/systemui/statusbar/phone/taskbar/model/BadgeCache;
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mPkgResCache:Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;
 
-    new-instance v1, Lcom/android/systemui/statusbar/phone/taskbar/model/MenuAppLoader;
+    new-instance v0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskbarLoader;
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mBadgeCache:Lcom/android/systemui/statusbar/phone/taskbar/model/BadgeCache;
+    invoke-direct {v0, v1, p2}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskbarLoader;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;)V
 
-    invoke-direct {v1, v2, p2, v3}, Lcom/android/systemui/statusbar/phone/taskbar/model/MenuAppLoader;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;Lcom/android/systemui/statusbar/phone/taskbar/model/BadgeCache;)V
-
-    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mMenuAppLoader:Lcom/android/systemui/statusbar/phone/taskbar/model/MenuAppLoader;
-
-    new-instance v1, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskbarLoader;
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
-
-    invoke-direct {v1, v2, p2}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskbarLoader;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;)V
-
-    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mTaskbarLoader:Lcom/android/systemui/statusbar/phone/taskbar/model/TaskbarLoader;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mTaskbarLoader:Lcom/android/systemui/statusbar/phone/taskbar/model/TaskbarLoader;
 
     invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mContext:Landroid/content/Context;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mContext:Landroid/content/Context;
+
     const-string/jumbo v1, "launcherapps"
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/content/pm/LauncherApps;
+    check-cast v0, Landroid/content/pm/LauncherApps;
 
-    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mLauncherApps:Landroid/content/pm/LauncherApps;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mLauncherApps:Landroid/content/pm/LauncherApps;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mContext:Landroid/content/Context;
 
     const-string/jumbo v1, "user"
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/os/UserManager;
+    check-cast v0, Landroid/os/UserManager;
 
-    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mUserManager:Landroid/os/UserManager;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mUserManager:Landroid/os/UserManager;
 
     return-void
-
-    :cond_0
-    const/4 v1, 0x1
-
-    goto :goto_0
 .end method
 
 .method public static addItemToDatabase(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;JIZ)V
     .locals 8
 
-    sget-boolean v5, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->DEBUGGABLE:Z
+    sget-boolean v4, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->DEBUGGABLE:Z
 
-    if-eqz v5, :cond_0
+    if-eqz v4, :cond_0
 
-    const-string/jumbo v5, "[DS]TaskBarpModel"
+    const-string/jumbo v4, "[DS]TaskBarpModel"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "addItemToDatabase :: container="
+    const-string/jumbo v6, "addItemToDatabase :: container="
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v6, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    const-string/jumbo v7, "  screen="
+    const-string/jumbo v6, "  screen="
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v6, p4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, p4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    const-string/jumbo v7, "  ::  "
+    const-string/jumbo v6, "  ::  "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
     invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->toString()Ljava/lang/String;
 
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v6
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     iput-wide p2, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->container:J
 
     iput p4, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mScreen:I
 
-    new-instance v4, Landroid/content/ContentValues;
+    new-instance v3, Landroid/content/ContentValues;
 
-    invoke-direct {v4}, Landroid/content/ContentValues;-><init>()V
+    invoke-direct {v3}, Landroid/content/ContentValues;-><init>()V
 
-    invoke-virtual {p1, p0, v4}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->onAddToDatabase(Landroid/content/Context;Landroid/content/ContentValues;)V
+    invoke-virtual {p1, p0, v3}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->onAddToDatabase(Landroid/content/Context;Landroid/content/ContentValues;)V
 
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
@@ -399,75 +397,51 @@
 
     check-cast v0, Lcom/android/systemui/SystemUIApplication;
 
-    const-class v5, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
-
-    invoke-virtual {v0, v5}, Lcom/android/systemui/SystemUIApplication;->getComponent(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getDBManager(Landroid/content/Context;)Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->generateNewFavoritesId()J
 
-    if-eqz v1, :cond_1
+    move-result-wide v4
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->getTaskBar()Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
+    iput-wide v4, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mId:J
 
-    move-result-object v5
-
-    if-nez v5, :cond_2
-
-    :cond_1
-    return-void
-
-    :cond_2
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->getTaskBar()Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getDBManager()Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->generateNewFavoritesId()J
-
-    move-result-wide v6
-
-    iput-wide v6, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mId:J
-
-    const-string/jumbo v5, "_id"
+    const-string/jumbo v4, "_id"
 
     iget-wide v6, p1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mId:J
 
     invoke-static {v6, v7}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v4, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
+    invoke-virtual {v3, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
-    new-instance v3, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$1;
+    new-instance v2, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$1;
 
-    invoke-direct {v3, v2, v4, p1}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$1;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;Landroid/content/ContentValues;Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;)V
+    invoke-direct {v2, v1, v3, p1}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$1;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;Landroid/content/ContentValues;Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;)V
 
-    sget-object v5, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->sWorkerThread:Landroid/os/HandlerThread;
+    sget-object v4, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->sWorkerThread:Landroid/os/HandlerThread;
 
-    invoke-virtual {v5}, Landroid/os/HandlerThread;->getThreadId()I
+    invoke-virtual {v4}, Landroid/os/HandlerThread;->getThreadId()I
 
-    move-result v5
+    move-result v4
 
     invoke-static {}, Landroid/os/Process;->myTid()I
 
-    move-result v6
+    move-result v5
 
-    if-ne v5, v6, :cond_3
+    if-ne v4, v5, :cond_1
 
-    invoke-interface {v3}, Ljava/lang/Runnable;->run()V
+    invoke-interface {v2}, Ljava/lang/Runnable;->run()V
 
     :goto_0
     return-void
 
-    :cond_3
-    sget-object v5, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->sWorker:Landroid/os/Handler;
+    :cond_1
+    sget-object v4, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->sWorker:Landroid/os/Handler;
 
-    invoke-virtual {v5, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v4, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     goto :goto_0
 .end method
@@ -524,7 +498,7 @@
 .end method
 
 .method public static deleteItemFromDatabase(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;)V
-    .locals 7
+    .locals 6
 
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
@@ -532,90 +506,66 @@
 
     check-cast v0, Lcom/android/systemui/SystemUIApplication;
 
-    const-class v4, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
-
-    invoke-virtual {v0, v4}, Lcom/android/systemui/SystemUIApplication;->getComponent(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getDBManager(Landroid/content/Context;)Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    sget-boolean v3, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->DEBUGGABLE:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v3, :cond_0
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->getTaskBar()Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
+    const-string/jumbo v3, "[DS]TaskBarpModel"
 
-    move-result-object v4
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    if-nez v4, :cond_1
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    :cond_0
-    return-void
+    const-string/jumbo v5, "deleteItemFromDatabase :: "
 
-    :cond_1
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->getTaskBar()Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
-
-    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getDBManager()Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;
-
-    move-result-object v2
-
-    sget-boolean v4, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->DEBUGGABLE:Z
-
-    if-eqz v4, :cond_2
-
-    const-string/jumbo v4, "[DS]TaskBarpModel"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "deleteItemFromDatabase :: "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
 
     invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->toString()Ljava/lang/String;
 
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v5
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    :cond_2
-    new-instance v3, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$2;
+    move-result-object v4
 
-    invoke-direct {v3, p1, v2}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$2;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;)V
+    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    sget-object v4, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->sWorkerThread:Landroid/os/HandlerThread;
+    :cond_0
+    new-instance v2, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$2;
 
-    invoke-virtual {v4}, Landroid/os/HandlerThread;->getThreadId()I
+    invoke-direct {v2, p1, v1}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$2;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;)V
 
-    move-result v4
+    sget-object v3, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->sWorkerThread:Landroid/os/HandlerThread;
+
+    invoke-virtual {v3}, Landroid/os/HandlerThread;->getThreadId()I
+
+    move-result v3
 
     invoke-static {}, Landroid/os/Process;->myTid()I
 
-    move-result v5
+    move-result v4
 
-    if-ne v4, v5, :cond_3
+    if-ne v3, v4, :cond_1
 
-    invoke-interface {v3}, Ljava/lang/Runnable;->run()V
+    invoke-interface {v2}, Ljava/lang/Runnable;->run()V
 
     :goto_0
     return-void
 
-    :cond_3
-    sget-object v4, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->sWorker:Landroid/os/Handler;
+    :cond_1
+    sget-object v3, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->sWorker:Landroid/os/Handler;
 
-    invoke-virtual {v4, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v3, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     goto :goto_0
 .end method
@@ -656,7 +606,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d05da
+    const v4, 0x7f070064
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -702,13 +652,13 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_6
 
     iget v6, v0, Landroid/content/pm/ApplicationInfo;->flags:I
 
     and-int/lit8 v6, v6, 0x1
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_1
 
     const/4 v4, 0x1
 
@@ -719,67 +669,68 @@
 
     and-int/2addr v6, v7
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_2
 
     const/4 v2, 0x1
 
     :goto_1
-    if-nez v4, :cond_0
+    if-nez v4, :cond_4
 
-    if-eqz v2, :cond_4
+    xor-int/lit8 v6, v2, 0x1
 
-    :cond_0
-    const/4 v3, 0x0
+    if-eqz v6, :cond_4
 
-    :goto_2
-    invoke-virtual {v5}, Landroid/content/pm/PackageManager;->isSafeMode()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_1
-
-    if-nez v3, :cond_6
-
-    :cond_1
-    :goto_3
-    return v2
-
-    :cond_2
-    const/4 v4, 0x0
-
-    goto :goto_0
-
-    :cond_3
-    const/4 v2, 0x0
-
-    goto :goto_1
-
-    :cond_4
     iget v6, v0, Landroid/content/pm/ApplicationInfo;->flags:I
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     const/high16 v7, 0x800000
 
     and-int/2addr v6, v7
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_3
 
     const/4 v3, 0x1
 
-    goto :goto_2
+    :goto_2
+    invoke-virtual {v5}, Landroid/content/pm/PackageManager;->isSafeMode()Z
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_5
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    if-nez v3, :cond_5
+
+    :cond_0
+    :goto_3
+    return v2
+
+    :cond_1
+    const/4 v4, 0x0
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v2, 0x0
+
+    goto :goto_1
+
+    :cond_3
     const/4 v3, 0x0
 
     goto :goto_2
 
-    :cond_6
+    :cond_4
+    const/4 v3, 0x0
+
+    goto :goto_2
+
+    :cond_5
     const/4 v2, 0x1
 
     goto :goto_3
 
-    :cond_7
+    :cond_6
     return v8
 
     :catch_0
@@ -825,7 +776,7 @@
 .end method
 
 .method public static moveItemsInDatabase(Landroid/content/Context;Ljava/util/List;)V
-    .locals 10
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -837,48 +788,48 @@
         }
     .end annotation
 
-    new-instance v5, Ljava/util/ArrayList;
+    new-instance v4, Ljava/util/ArrayList;
 
     invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v8
+    move-result v6
 
-    invoke-direct {v5, v8}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {v4, v6}, Ljava/util/ArrayList;-><init>(I)V
 
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
-
-    :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v8
-
-    if-eqz v8, :cond_0
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
     move-result-object v2
 
-    check-cast v2, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    new-instance v4, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$FavoritePos;
+    move-result v6
 
-    invoke-direct {v4}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$FavoritePos;-><init>()V
+    if-eqz v6, :cond_0
 
-    iget-wide v8, v2, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mId:J
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    iput-wide v8, v4, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$FavoritePos;->id:J
+    move-result-object v1
 
-    iget-wide v8, v2, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->container:J
+    check-cast v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;
 
-    iput-wide v8, v4, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$FavoritePos;->container:J
+    new-instance v3, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$FavoritePos;
 
-    iget v8, v2, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mScreen:I
+    invoke-direct {v3}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$FavoritePos;-><init>()V
 
-    iput v8, v4, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$FavoritePos;->screen:I
+    iget-wide v6, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mId:J
 
-    invoke-virtual {v5, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    iput-wide v6, v3, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$FavoritePos;->id:J
+
+    iget-wide v6, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->container:J
+
+    iput-wide v6, v3, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$FavoritePos;->container:J
+
+    iget v6, v1, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mScreen:I
+
+    iput v6, v3, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$FavoritePos;->screen:I
+
+    invoke-virtual {v4, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
@@ -889,55 +840,31 @@
 
     check-cast v0, Lcom/android/systemui/SystemUIApplication;
 
-    const-class v8, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    new-instance v5, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$4;
 
-    invoke-virtual {v0, v8}, Lcom/android/systemui/SystemUIApplication;->getComponent(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-direct {v5, p0, v4}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$4;-><init>(Landroid/content/Context;Ljava/util/ArrayList;)V
 
-    move-result-object v7
+    sget-object v6, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->sWorkerThread:Landroid/os/HandlerThread;
 
-    check-cast v7, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+    invoke-virtual {v6}, Landroid/os/HandlerThread;->getThreadId()I
 
-    if-eqz v7, :cond_1
-
-    invoke-virtual {v7}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->getTaskBar()Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
-
-    move-result-object v8
-
-    if-nez v8, :cond_2
-
-    :cond_1
-    return-void
-
-    :cond_2
-    invoke-virtual {v7}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->getTaskBar()Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
-
-    move-result-object v1
-
-    new-instance v6, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$4;
-
-    invoke-direct {v6, v1, v5}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$4;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;Ljava/util/ArrayList;)V
-
-    sget-object v8, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->sWorkerThread:Landroid/os/HandlerThread;
-
-    invoke-virtual {v8}, Landroid/os/HandlerThread;->getThreadId()I
-
-    move-result v8
+    move-result v6
 
     invoke-static {}, Landroid/os/Process;->myTid()I
 
-    move-result v9
+    move-result v7
 
-    if-ne v8, v9, :cond_3
+    if-ne v6, v7, :cond_1
 
-    invoke-interface {v6}, Ljava/lang/Runnable;->run()V
+    invoke-interface {v5}, Ljava/lang/Runnable;->run()V
 
     :goto_1
     return-void
 
-    :cond_3
-    sget-object v8, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->sWorker:Landroid/os/Handler;
+    :cond_1
+    sget-object v6, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->sWorker:Landroid/os/Handler;
 
-    invoke-virtual {v8, v6}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v6, v5}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     goto :goto_1
 .end method
@@ -1045,52 +972,6 @@
     throw v0
 .end method
 
-.method public static updateAppItems(Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;Ljava/util/List;)V
-    .locals 4
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;",
-            "Ljava/util/List",
-            "<",
-            "Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;",
-            ">;)V"
-        }
-    .end annotation
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getDBManager()Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$5;
-
-    invoke-direct {v1, v0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$5;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;Ljava/util/List;)V
-
-    sget-object v2, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->sWorkerThread:Landroid/os/HandlerThread;
-
-    invoke-virtual {v2}, Landroid/os/HandlerThread;->getThreadId()I
-
-    move-result v2
-
-    invoke-static {}, Landroid/os/Process;->myTid()I
-
-    move-result v3
-
-    if-ne v2, v3, :cond_0
-
-    invoke-interface {v1}, Ljava/lang/Runnable;->run()V
-
-    :goto_0
-    return-void
-
-    :cond_0
-    sget-object v2, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->sWorker:Landroid/os/Handler;
-
-    invoke-virtual {v2, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    goto :goto_0
-.end method
-
 .method public static updateItemInDatabase(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;)V
     .locals 2
 
@@ -1108,7 +989,7 @@
 .end method
 
 .method private static updateItemInDatabaseHelper(Landroid/content/Context;Landroid/content/ContentValues;Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;Ljava/lang/String;)V
-    .locals 9
+    .locals 8
 
     iget-wide v2, p2, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->mId:J
 
@@ -1118,31 +999,7 @@
 
     check-cast v7, Lcom/android/systemui/SystemUIApplication;
 
-    const-class v4, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
-
-    invoke-virtual {v7, v4}, Lcom/android/systemui/SystemUIApplication;->getComponent(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v8
-
-    check-cast v8, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
-
-    if-eqz v8, :cond_0
-
-    invoke-virtual {v8}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->getTaskBar()Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
-
-    move-result-object v4
-
-    if-nez v4, :cond_1
-
-    :cond_0
-    return-void
-
-    :cond_1
-    invoke-virtual {v8}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->getTaskBar()Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getDBManager()Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;
+    invoke-static {p0}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getDBManager(Landroid/content/Context;)Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;
 
     move-result-object v1
 
@@ -1166,14 +1023,14 @@
 
     move-result v5
 
-    if-ne v4, v5, :cond_2
+    if-ne v4, v5, :cond_0
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
     :goto_0
     return-void
 
-    :cond_2
+    :cond_0
     sget-object v4, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->sWorker:Landroid/os/Handler;
 
     invoke-virtual {v4, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
@@ -1235,10 +1092,6 @@
     move-result-object v1
 
     iget-boolean v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mWorkspaceLoaded:Z
-
-    if-eqz v2, :cond_0
-
-    iget-boolean v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mAllAppsLoaded:Z
 
     if-eqz v2, :cond_0
 
@@ -1400,20 +1253,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
-
-    const/4 v0, 0x0
-
-    goto/16 :goto_0
-
-    :cond_3
-    const/4 v0, 0x1
+    xor-int/lit8 v0, v2, 0x1
 
     goto/16 :goto_0
 .end method
 
 .method public initialize(Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$Callbacks;)V
-    .locals 3
+    .locals 2
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mLock:Ljava/lang/Object;
 
@@ -1425,30 +1271,9 @@
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mCallbacks:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->hasLocaleChangedLocked()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    sget-object v0, Lcom/android/systemui/statusbar/phone/taskbar/model/MenuAppModel;->INSTANCE:Lcom/android/systemui/statusbar/phone/taskbar/model/MenuAppModel;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/model/MenuAppModel;->onLocaleChanged()V
-
-    sget-boolean v0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->DEBUGGABLE:Z
-
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v0, "[DS]TaskBarpModel"
-
-    const-string/jumbo v2, "MenuAppModel.onLocaleChanged called"
-
-    invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_0
     monitor-exit v1
 
     return-void
@@ -1950,12 +1775,10 @@
 
     iget-boolean v0, p2, Lcom/android/systemui/statusbar/phone/taskbar/data/AppItem;->usingFallbackIcon:Z
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_1
-    return v1
+    if-eqz v0, :cond_1
 
-    :cond_2
     invoke-interface {p3, p4}, Landroid/database/Cursor;->getBlob(I)[B
 
     move-result-object v0
@@ -1965,6 +1788,9 @@
     const/4 v0, 0x1
 
     return v0
+
+    :cond_1
+    return v1
 .end method
 
 .method public reloadBadges()V
@@ -2035,70 +1861,6 @@
     monitor-exit v1
 
     throw v0
-.end method
-
-.method public saveHistoryItems(J)V
-    .locals 9
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getDBManager()Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;
-
-    move-result-object v3
-
-    new-instance v6, Landroid/content/ContentValues;
-
-    invoke-direct {v6}, Landroid/content/ContentValues;-><init>()V
-
-    new-instance v0, Ljava/text/SimpleDateFormat;
-
-    const-string/jumbo v2, "yyyy-MM-dd HH:mm:ss"
-
-    invoke-direct {v0, v2}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
-
-    new-instance v7, Ljava/util/Date;
-
-    invoke-direct {v7}, Ljava/util/Date;-><init>()V
-
-    const-string/jumbo v2, "searchDate"
-
-    invoke-virtual {v0, v7}, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v6, v2, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
-
-    new-instance v1, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$7;
-
-    move-object v2, p0
-
-    move-wide v4, p1
-
-    invoke-direct/range {v1 .. v6}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$7;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;JLandroid/content/ContentValues;)V
-
-    sget-object v2, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->sWorkerThread:Landroid/os/HandlerThread;
-
-    invoke-virtual {v2}, Landroid/os/HandlerThread;->getThreadId()I
-
-    move-result v2
-
-    invoke-static {}, Landroid/os/Process;->myTid()I
-
-    move-result v4
-
-    if-ne v2, v4, :cond_0
-
-    invoke-interface {v1}, Ljava/lang/Runnable;->run()V
-
-    :goto_0
-    return-void
-
-    :cond_0
-    sget-object v2, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->sWorker:Landroid/os/Handler;
-
-    invoke-virtual {v2, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    goto :goto_0
 .end method
 
 .method protected setLocaleLocked()V
@@ -2201,22 +1963,42 @@
 .method public startLoaderFromBackground(Z)V
     .locals 3
 
-    const/4 v0, 0x0
-
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mCallbacks:Ljava/lang/ref/WeakReference;
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_0
+
+    const/4 v0, 0x0
 
     :goto_0
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     invoke-interface {v0}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$Callbacks;->setLoadOnResume()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_1
+
+    const/4 v1, 0x0
+
+    invoke-direct {p0, v1, p1}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->startLoader(ZZ)V
+
+    :goto_1
+    return-void
 
     :cond_0
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mCallbacks:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$Callbacks;
+
+    goto :goto_0
+
+    :cond_1
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mLock:Ljava/lang/Object;
 
     monitor-enter v2
@@ -2224,7 +2006,7 @@
     :try_start_0
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->stopLoaderLocked()Z
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2
 
     const/4 v1, 0x1
 
@@ -2232,29 +2014,8 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_1
-    monitor-exit v2
-
-    :goto_1
-    return-void
-
     :cond_2
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->mCallbacks:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$Callbacks;
-
-    move-object v0, v1
-
-    goto :goto_0
-
-    :cond_3
-    const/4 v1, 0x0
-
-    invoke-direct {p0, v1, p1}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->startLoader(ZZ)V
+    monitor-exit v2
 
     goto :goto_1
 

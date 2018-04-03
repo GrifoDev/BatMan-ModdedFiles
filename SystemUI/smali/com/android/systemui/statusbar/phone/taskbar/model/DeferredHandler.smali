@@ -17,7 +17,7 @@
 
 .field private mMessageQueue:Landroid/os/MessageQueue;
 
-.field private mQueue:Ljava/util/LinkedList;
+.field private final mQueue:Ljava/util/LinkedList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/LinkedList",

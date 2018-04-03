@@ -160,7 +160,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d042a
+    const v1, 0x7f0704e3
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -242,7 +242,7 @@
 .method public bindViews(Landroid/view/View;)V
     .locals 2
 
-    const v0, 0x7f130403
+    const v0, 0x7f0a00b4
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -345,15 +345,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    :goto_0
-    invoke-virtual {p0}, Lcom/android/systemui/recents/views/RecentsAppListView;->postInvalidateOnAnimation()V
+    if-eqz v1, :cond_0
 
-    return-void
-
-    :cond_1
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     move-result v0
@@ -378,7 +373,10 @@
 
     invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->restoreToCount(I)V
 
-    goto :goto_0
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/systemui/recents/views/RecentsAppListView;->postInvalidateOnAnimation()V
+
+    return-void
 .end method
 
 .method public fling(II)Z
@@ -393,6 +391,49 @@
     move-result v0
 
     return v0
+.end method
+
+.method public focusSearch(Landroid/view/View;I)Landroid/view/View;
+    .locals 4
+
+    const/4 v3, 0x1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p1}, Landroid/view/View;->getNextFocusUpId()I
+
+    move-result v0
+
+    const/4 v1, -0x1
+
+    if-eq v0, v1, :cond_0
+
+    const/16 v0, 0x21
+
+    if-ne p2, v0, :cond_0
+
+    invoke-virtual {p0, v2}, Lcom/android/systemui/recents/views/RecentsAppListView;->smoothScrollToPosition(I)V
+
+    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/systemui/recents/events/ui/ToggleButtonsContainerEvent;
+
+    invoke-direct {v1, v3, v3, v2}, Lcom/android/systemui/recents/events/ui/ToggleButtonsContainerEvent;-><init>(ZZZ)V
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
+
+    const/4 v0, 0x0
+
+    return-object v0
+
+    :cond_0
+    invoke-super {p0, p1, p2}, Landroid/support/v7/widget/RecyclerView;->focusSearch(Landroid/view/View;I)Landroid/view/View;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method protected getBottomFadingEdgeStrength()F
@@ -550,19 +591,9 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, p1, p2}, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;->onSizeChanged(II)V
-
-    invoke-static {}, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager;->getAttr()Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
-
-    move-result-object v1
-
     iget v0, v1, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;->mOffsetEdge:I
 
     invoke-virtual {p0, v0, v2, v0, v2}, Lcom/android/systemui/recents/views/RecentsAppListView;->setPadding(IIII)V
-
-    iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsAppListView;->mAdapter:Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;
-
-    invoke-virtual {v1}, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->notifyDataSetChanged()V
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsAppListView;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
 

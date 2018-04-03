@@ -1,5 +1,5 @@
 .class Lcom/android/keyguard/KeyguardDirectionLockView$6;
-.super Lcom/android/keyguard/KnoxStateMonitorCallback;
+.super Lcom/android/systemui/KnoxStateMonitorCallback;
 .source "KeyguardDirectionLockView.java"
 
 
@@ -24,7 +24,7 @@
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardDirectionLockView$6;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-direct {p0}, Lcom/android/keyguard/KnoxStateMonitorCallback;-><init>()V
+    invoke-direct {p0}, Lcom/android/systemui/KnoxStateMonitorCallback;-><init>()V
 
     return-void
 .end method
@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardDirectionLockView$6;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get20(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/internal/widget/LockPatternUtils;
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get24(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/internal/widget/LockPatternUtils;
 
     move-result-object v0
 
@@ -50,7 +50,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardDirectionLockView$6;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-wrap4(Lcom/android/keyguard/KeyguardDirectionLockView;)V
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-wrap3(Lcom/android/keyguard/KeyguardDirectionLockView;)V
 
     return-void
 .end method

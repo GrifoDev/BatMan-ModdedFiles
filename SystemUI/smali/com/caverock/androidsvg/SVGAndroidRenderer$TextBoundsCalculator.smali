@@ -111,15 +111,15 @@
     return v8
 
     :cond_1
-    const-string/jumbo v5, "TextPath path reference \'%s\' not found"
+    new-array v5, v9, [Ljava/lang/Object;
 
-    new-array v6, v9, [Ljava/lang/Object;
+    iget-object v6, v4, Lcom/caverock/androidsvg/SVG$TextPath;->href:Ljava/lang/String;
 
-    iget-object v7, v4, Lcom/caverock/androidsvg/SVG$TextPath;->href:Ljava/lang/String;
+    aput-object v6, v5, v8
 
-    aput-object v7, v6, v8
+    const-string/jumbo v6, "TextPath path reference \'%s\' not found"
 
-    invoke-static {v5, v6}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->access$600(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v6, v5}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->access$600(Ljava/lang/String;[Ljava/lang/Object;)V
 
     return v8
 

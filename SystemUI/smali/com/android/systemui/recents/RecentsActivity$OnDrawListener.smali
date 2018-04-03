@@ -45,7 +45,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/RecentsActivity$OnDrawListener;->this$0:Lcom/android/systemui/recents/RecentsActivity;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/RecentsActivity;->-get0(Lcom/android/systemui/recents/RecentsActivity;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/systemui/recents/RecentsActivity;->-get3(Lcom/android/systemui/recents/RecentsActivity;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -65,13 +65,15 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/RecentsActivity$OnDrawListener;->this$0:Lcom/android/systemui/recents/RecentsActivity;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/RecentsActivity;->-get0(Lcom/android/systemui/recents/RecentsActivity;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/systemui/recents/RecentsActivity;->-get3(Lcom/android/systemui/recents/RecentsActivity;)Landroid/os/Handler;
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/systemui/recents/RecentsActivity$OnDrawListener$2;
+    iget-object v1, p0, Lcom/android/systemui/recents/RecentsActivity$OnDrawListener;->this$0:Lcom/android/systemui/recents/RecentsActivity;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/recents/RecentsActivity$OnDrawListener$2;-><init>(Lcom/android/systemui/recents/RecentsActivity$OnDrawListener;)V
+    invoke-static {v1}, Lcom/android/systemui/recents/RecentsActivity;->-get2(Lcom/android/systemui/recents/RecentsActivity;)Lcom/android/systemui/recents/RecentsActivity$SendFocusIntentRunnable;
+
+    move-result-object v1
 
     const-wide/16 v2, 0x64
 

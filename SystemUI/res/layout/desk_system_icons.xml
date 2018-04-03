@@ -4,9 +4,10 @@
     <com.android.keyguard.AlphaOptimizedLinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/statusIcons" android:layout_width="wrap_content" android:layout_height="fill_parent" />
     <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/signal_battery_cluster" android:layout_width="wrap_content" android:layout_height="fill_parent">
         <include android:gravity="center_vertical" android:id="@id/signal_cluster" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginStart="0.0dip" layout="@layout/desk_signal_cluster_view" />
-        <LinearLayout android:id="@id/battery_icon_background" android:layout_width="wrap_content" android:layout_height="@dimen/desk_status_bar_icon_size">
-            <TextView android:textSize="@dimen/desk_battery_text_size" android:textColor="@color/batterymeter_text_color" android:layout_gravity="center_vertical" android:id="@id/battery_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:importantForAccessibility="no" android:fontFamily="sec-roboto-condensed" android:layout_marginStart="@dimen/desk_status_bar_icon_padding" />
-            <com.android.systemui.BatteryMeterView android:layout_gravity="center_vertical" android:id="@id/battery" android:layout_width="@dimen/desk_battery_width" android:layout_height="@dimen/desk_battery_height" />
+        <LinearLayout android:id="@id/battery_icon_background" android:background="@drawable/taskbar_button_ripple_effect" android:layout_width="wrap_content" android:layout_height="@dimen/desk_status_bar_icon_size" android:layout_marginStart="6.0dip" android:layout_marginEnd="6.0dip">
+            <com.android.systemui.BatteryMeterView android:id="@id/battery" android:layout_width="wrap_content" android:layout_height="fill_parent">
+                <LinearLayout android:gravity="start|center" android:orientation="horizontal" android:id="@id/system_icons_battery_container" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+            </com.android.systemui.BatteryMeterView>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

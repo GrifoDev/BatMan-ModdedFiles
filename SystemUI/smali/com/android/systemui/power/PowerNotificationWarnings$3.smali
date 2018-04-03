@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$3;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-wrap6(Lcom/android/systemui/power/PowerNotificationWarnings;)V
+    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-wrap5(Lcom/android/systemui/power/PowerNotificationWarnings;)V
 
     return-void
 .end method

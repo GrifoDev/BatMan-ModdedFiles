@@ -63,7 +63,7 @@
 
     const-string/jumbo v5, "ZVV"
 
-    sget-object v6, Lcom/android/systemui/SystemUIRune;->STATUSBAR_ICON_BRANDING:Ljava/lang/String;
+    sget-object v6, Lcom/android/systemui/Rune;->STATBAR_ICON_BRANDING:Ljava/lang/String;
 
     invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -127,7 +127,7 @@
 
     move-result-object v1
 
-    sget-boolean v5, Lcom/android/systemui/SystemUIRune;->SUPPORT_NAVIGATIONBAR:Z
+    sget-boolean v5, Lcom/android/systemui/Rune;->NAVBAR_ENABLED:Z
 
     if-eqz v5, :cond_3
 
@@ -143,7 +143,7 @@
 
     move-result-object v5
 
-    const v6, 0x1050018
+    const v6, 0x1050151
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -159,7 +159,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d045a
+    const v6, 0x7f0703ef
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -220,7 +220,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d0222
+    const v6, 0x7f0700bf
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -269,7 +269,7 @@
 
     move-result-object v1
 
-    sget-boolean v5, Lcom/android/systemui/SystemUIRune;->SUPPORT_NAVIGATIONBAR:Z
+    sget-boolean v5, Lcom/android/systemui/Rune;->NAVBAR_ENABLED:Z
 
     if-eqz v5, :cond_6
 
@@ -285,7 +285,7 @@
 
     move-result-object v5
 
-    const v6, 0x1050018
+    const v6, 0x1050151
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -301,7 +301,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d0470
+    const v6, 0x7f0703f0
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -352,7 +352,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d0470
+    const v6, 0x7f0703f0
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -363,12 +363,19 @@
     goto :goto_3
 
     :cond_7
+    sget-boolean v5, Lcom/android/systemui/Rune;->STATBAR_SUPPORT_NO_SIM_INFO_AT_PLMN:Z
+
+    xor-int/lit8 v5, v5, 0x1
+
+    if-eqz v5, :cond_8
+
     iget-object v5, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v5, Ljava/lang/String;
 
     sput-object v5, Lcom/android/keyguard/CarrierText;->sPlmnOfNetworkControllerImpl:Ljava/lang/String;
 
+    :cond_8
     iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
     invoke-static {v5}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->-get1(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)Landroid/widget/TextView;
@@ -405,13 +412,11 @@
 
     move-result-object v5
 
-    new-instance v6, Landroid/content/Intent;
+    invoke-static {v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    const-string/jumbo v7, "com.samsung.systemui.ACTION_VOIP_CALL_STATE_CHANGED"
+    move-result-object v5
 
-    invoke-direct {v6, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v5, v6}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateCarrierTextInfo()V
 
     goto/16 :goto_0
 
@@ -436,7 +441,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_a
+    if-nez v5, :cond_b
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
@@ -450,7 +455,7 @@
 
     sget-object v6, Landroid/text/TextUtils$TruncateAt;->MARQUEE:Landroid/text/TextUtils$TruncateAt;
 
-    if-eq v5, v6, :cond_9
+    if-eq v5, v6, :cond_a
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
@@ -488,7 +493,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_9
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
@@ -500,7 +505,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d0222
+    const v6, 0x7f0700bf
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -508,7 +513,7 @@
 
     iput v5, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    :cond_8
+    :cond_9
     iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
     invoke-static {v5}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->-get2(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)Landroid/widget/TextView;
@@ -517,7 +522,7 @@
 
     invoke-virtual {v5, v10}, Landroid/widget/TextView;->setMarqueeRepeatLimit(I)V
 
-    :cond_9
+    :cond_a
     :goto_4
     iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
@@ -533,7 +538,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_c
+    if-eqz v5, :cond_d
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
@@ -547,7 +552,7 @@
 
     goto/16 :goto_0
 
-    :cond_a
+    :cond_b
     iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
     invoke-static {v5}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->-get2(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)Landroid/widget/TextView;
@@ -558,7 +563,7 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_a
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
@@ -586,7 +591,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_c
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
@@ -598,7 +603,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d046f
+    const v6, 0x7f0700c0
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -606,7 +611,7 @@
 
     iput v5, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    :cond_b
+    :cond_c
     iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
     invoke-static {v5}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->-get2(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)Landroid/widget/TextView;
@@ -627,7 +632,7 @@
 
     goto :goto_4
 
-    :cond_c
+    :cond_d
     iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
     invoke-static {v5}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->-get2(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)Landroid/widget/TextView;
@@ -659,7 +664,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_f
+    if-nez v5, :cond_10
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
@@ -673,7 +678,7 @@
 
     sget-object v6, Landroid/text/TextUtils$TruncateAt;->MARQUEE:Landroid/text/TextUtils$TruncateAt;
 
-    if-eq v5, v6, :cond_e
+    if-eq v5, v6, :cond_f
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
@@ -711,7 +716,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_e
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
@@ -723,7 +728,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d0222
+    const v6, 0x7f0700bf
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -731,7 +736,7 @@
 
     iput v5, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    :cond_d
+    :cond_e
     iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
     invoke-static {v5}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->-get3(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)Landroid/widget/TextView;
@@ -740,7 +745,7 @@
 
     invoke-virtual {v5, v10}, Landroid/widget/TextView;->setMarqueeRepeatLimit(I)V
 
-    :cond_e
+    :cond_f
     :goto_5
     iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
@@ -756,7 +761,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_11
+    if-eqz v5, :cond_12
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
@@ -770,7 +775,7 @@
 
     goto/16 :goto_0
 
-    :cond_f
+    :cond_10
     iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
     invoke-static {v5}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->-get3(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)Landroid/widget/TextView;
@@ -783,7 +788,7 @@
 
     sget-object v6, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
 
-    if-eq v5, v6, :cond_e
+    if-eq v5, v6, :cond_f
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
@@ -811,7 +816,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_11
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
@@ -823,7 +828,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d046f
+    const v6, 0x7f0700c0
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -831,7 +836,7 @@
 
     iput v5, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    :cond_10
+    :cond_11
     iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
     invoke-static {v5}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->-get3(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)Landroid/widget/TextView;
@@ -852,7 +857,7 @@
 
     goto :goto_5
 
-    :cond_11
+    :cond_12
     iget-object v5, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$1;->this$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
     invoke-static {v5}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->-get3(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)Landroid/widget/TextView;

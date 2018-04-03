@@ -35,11 +35,34 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController$3;->this$0:Lcom/android/systemui/statusbar/preview/NotificationPreviewController;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController$3;->this$0:Lcom/android/systemui/statusbar/preview/NotificationPreviewController;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->resetNotificationPreview()V
+    invoke-static {v2}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->-wrap1(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;)I
 
+    move-result v0
+
+    const/4 v2, -0x1
+
+    if-eq v0, v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController$3;->this$0:Lcom/android/systemui/statusbar/preview/NotificationPreviewController;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->-get3(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/statusbar/preview/NotificationPreview;
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/preview/NotificationPreviewController$3;->this$0:Lcom/android/systemui/statusbar/preview/NotificationPreviewController;
+
+    invoke-static {v2, v1}, Lcom/android/systemui/statusbar/preview/NotificationPreviewController;->-wrap2(Lcom/android/systemui/statusbar/preview/NotificationPreviewController;Lcom/android/systemui/statusbar/preview/NotificationPreview;)V
+
+    :cond_0
     return-void
 .end method

@@ -3,6 +3,16 @@
 .source "Tangram.java"
 
 
+# static fields
+.field private static final POSITION_COMPONENT_COUNT:I = 0x2
+
+.field public static final STRIDE:I = 0x10
+
+.field public static final STRIDER:I = 0x4
+
+.field private static final TEXTURE_COORDINATES_COMPONENT_COUNT:I = 0x2
+
+
 # instance fields
 .field private final vertexArray:Lcom/android/systemui/infinity/common/VertexArray;
 
@@ -52,6 +62,18 @@
     return-void
 .end method
 
+.method public drawDot()V
+    .locals 2
+
+    const/4 v1, 0x0
+
+    const/4 v0, 0x6
+
+    invoke-static {v1, v1, v0}, Landroid/opengl/GLES20;->glDrawArrays(III)V
+
+    return-void
+.end method
+
 .method public drawRect()V
     .locals 2
 
@@ -60,6 +82,20 @@
     const/4 v0, 0x0
 
     invoke-static {v1, v0, v1}, Landroid/opengl/GLES20;->glDrawArrays(III)V
+
+    return-void
+.end method
+
+.method public drawTriangle()V
+    .locals 3
+
+    const/4 v0, 0x4
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x3
+
+    invoke-static {v0, v1, v2}, Landroid/opengl/GLES20;->glDrawArrays(III)V
 
     return-void
 .end method

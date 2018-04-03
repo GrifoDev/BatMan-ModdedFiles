@@ -2,11 +2,13 @@
 .super Ljava/lang/Object;
 .source "AbstractHelpPopup.java"
 
+# interfaces
+.implements Landroid/support/v4/view/ViewPager$OnPageChangeListener;
+
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/systemui/recents/views/AbstractHelpPopup$-void__init__android_content_Context_context_java_lang_String_name_LambdaImpl0;,
         Lcom/android/systemui/recents/views/AbstractHelpPopup$1;,
         Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;
     }
@@ -14,7 +16,9 @@
 
 
 # instance fields
-.field protected final STATE_DO_NOT_SHOW:I
+.field private mAdapter:Lcom/android/systemui/recents/views/HelpViewAdapter;
+
+.field private mBottomView:Landroid/widget/FrameLayout;
 
 .field private mButton:Landroid/widget/Button;
 
@@ -31,38 +35,68 @@
 
 .field private mContext:Landroid/content/Context;
 
-.field mDisplayMetrics:Landroid/util/DisplayMetrics;
+.field mCurrentPage:I
 
 .field private mHandler:Landroid/os/Handler;
 
-.field private mHelpContentGroup:Landroid/view/ViewGroup;
-
 .field private mHelpDialog:Landroid/app/AlertDialog;
-
-.field private mHelpHubText:Lcom/android/systemui/recents/misc/HelpHubTextView;
-
-.field private mHelpImage:Landroid/widget/ImageView;
 
 .field private mHelpRootView:Landroid/view/ViewGroup;
 
-.field private mHelpText:Landroid/widget/TextView;
+.field private mIndicator:Lcom/android/systemui/recents/views/HelpIndicator;
 
-.field private mPageState:I
+.field mIsRTL:Z
 
-.field private mPopupName:Ljava/lang/String;
+.field private mKey:Ljava/lang/String;
+
+.field mLastDeviceOrientation:I
+
+.field private mReadyOK:Z
+
+.field private mViewPager:Lcom/android/systemui/recents/views/HelpViewPager;
 
 .field showRunnable:Ljava/lang/Runnable;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
+.method static synthetic -get0(Lcom/android/systemui/recents/views/AbstractHelpPopup;)Lcom/android/systemui/recents/views/HelpViewAdapter;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mAdapter:Lcom/android/systemui/recents/views/HelpViewAdapter;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1(Lcom/android/systemui/recents/views/AbstractHelpPopup;)Landroid/app/AlertDialog;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpDialog:Landroid/app/AlertDialog;
+
+    return-object v0
+.end method
+
+.method static synthetic -get2(Lcom/android/systemui/recents/views/AbstractHelpPopup;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mReadyOK:Z
+
+    return v0
+.end method
+
+.method static synthetic -get3(Lcom/android/systemui/recents/views/AbstractHelpPopup;)Lcom/android/systemui/recents/views/HelpViewPager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mViewPager:Lcom/android/systemui/recents/views/HelpViewPager;
+
+    return-object v0
+.end method
+
+.method public constructor <init>(Landroid/content/Context;)V
     .locals 7
 
     const/4 v6, -0x1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput v6, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->STATE_DO_NOT_SHOW:I
 
     new-instance v3, Landroid/os/Handler;
 
@@ -84,25 +118,33 @@
 
     iput-object p1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mContext:Landroid/content/Context;
 
-    iput-object p2, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mPopupName:Ljava/lang/String;
+    iget-object v3, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mContext:Landroid/content/Context;
+
+    invoke-static {v3}, Lcom/android/systemui/recents/misc/Utilities;->getAppConfiguration(Landroid/content/Context;)Landroid/content/res/Configuration;
+
+    move-result-object v3
+
+    iget v3, v3, Landroid/content/res/Configuration;->orientation:I
+
+    iput v3, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mLastDeviceOrientation:I
 
     iget-object v3, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mContext:Landroid/content/Context;
 
     invoke-static {v3}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
-    move-result-object v1
+    move-result-object v0
 
-    const v3, 0x7f04014e
+    const v3, 0x7f0d016a
 
     const/4 v4, 0x0
 
-    invoke-virtual {v1, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {v0, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v2
 
-    const v3, 0x7f13040b
+    const v3, 0x7f0a0206
 
-    invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -110,55 +152,65 @@
 
     iput-object v3, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpRootView:Landroid/view/ViewGroup;
 
-    const v3, 0x7f13040c
+    const v3, 0x7f0a0209
 
-    invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/view/ViewGroup;
-
-    iput-object v3, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpContentGroup:Landroid/view/ViewGroup;
-
-    iget-object v3, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpContentGroup:Landroid/view/ViewGroup;
-
-    const/4 v4, 0x2
-
-    invoke-virtual {v3, v4}, Landroid/view/ViewGroup;->setAccessibilityLiveRegion(I)V
-
-    const v3, 0x7f13040d
-
-    invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
-    check-cast v3, Landroid/widget/ImageView;
+    check-cast v3, Lcom/android/systemui/recents/views/HelpViewPager;
 
-    iput-object v3, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpImage:Landroid/widget/ImageView;
+    iput-object v3, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mViewPager:Lcom/android/systemui/recents/views/HelpViewPager;
 
-    const v3, 0x7f13040e
+    new-instance v3, Lcom/android/systemui/recents/views/HelpViewAdapter;
 
-    invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    iget-object v4, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mContext:Landroid/content/Context;
+
+    iget v5, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mLastDeviceOrientation:I
+
+    invoke-direct {v3, v4, p0, v5}, Lcom/android/systemui/recents/views/HelpViewAdapter;-><init>(Landroid/content/Context;Lcom/android/systemui/recents/views/AbstractHelpPopup;I)V
+
+    iput-object v3, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mAdapter:Lcom/android/systemui/recents/views/HelpViewAdapter;
+
+    iget-object v3, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mViewPager:Lcom/android/systemui/recents/views/HelpViewPager;
+
+    iget-object v4, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mAdapter:Lcom/android/systemui/recents/views/HelpViewAdapter;
+
+    invoke-virtual {v3, v4}, Lcom/android/systemui/recents/views/HelpViewPager;->setAdapter(Landroid/support/v4/view/PagerAdapter;)V
+
+    const v3, 0x7f0a01fb
+
+    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
-    check-cast v3, Lcom/android/systemui/recents/misc/HelpHubTextView;
+    check-cast v3, Landroid/widget/FrameLayout;
 
-    iput-object v3, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpHubText:Lcom/android/systemui/recents/misc/HelpHubTextView;
+    iput-object v3, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mBottomView:Landroid/widget/FrameLayout;
 
-    const v3, 0x7f13040f
+    const v3, 0x7f0a0205
 
-    invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
-    check-cast v3, Landroid/widget/TextView;
+    check-cast v3, Lcom/android/systemui/recents/views/HelpIndicator;
 
-    iput-object v3, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpText:Landroid/widget/TextView;
+    iput-object v3, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mIndicator:Lcom/android/systemui/recents/views/HelpIndicator;
 
-    const v3, 0x7f130410
+    iget-object v3, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mViewPager:Lcom/android/systemui/recents/views/HelpViewPager;
 
-    invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    iget-object v4, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mIndicator:Lcom/android/systemui/recents/views/HelpIndicator;
+
+    invoke-virtual {v3, v4}, Lcom/android/systemui/recents/views/HelpViewPager;->addOnPageChangeListener(Landroid/support/v4/view/ViewPager$OnPageChangeListener;)V
+
+    iget-object v3, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mViewPager:Lcom/android/systemui/recents/views/HelpViewPager;
+
+    invoke-virtual {v3, p0}, Lcom/android/systemui/recents/views/HelpViewPager;->addOnPageChangeListener(Landroid/support/v4/view/ViewPager$OnPageChangeListener;)V
+
+    const v3, 0x7f0a01fc
+
+    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -168,9 +220,9 @@
 
     iget-object v3, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mButton:Landroid/widget/Button;
 
-    new-instance v4, Lcom/android/systemui/recents/views/AbstractHelpPopup$-void__init__android_content_Context_context_java_lang_String_name_LambdaImpl0;
+    new-instance v4, Lcom/android/systemui/recents/views/AbstractHelpPopup$2;
 
-    invoke-direct {v4, p0}, Lcom/android/systemui/recents/views/AbstractHelpPopup$-void__init__android_content_Context_context_java_lang_String_name_LambdaImpl0;-><init>(Lcom/android/systemui/recents/views/AbstractHelpPopup;)V
+    invoke-direct {v4, p0}, Lcom/android/systemui/recents/views/AbstractHelpPopup$2;-><init>(Lcom/android/systemui/recents/views/AbstractHelpPopup;)V
 
     invoke-virtual {v3, v4}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -178,11 +230,11 @@
 
     iget-object v4, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f10022f
+    const v5, 0x7f1300ff
 
     invoke-direct {v3, v4, v5}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    invoke-virtual {v3, v0}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v3, v2}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v3
 
@@ -212,11 +264,11 @@
 
     invoke-virtual {v3}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
 
-    move-result-object v2
+    move-result-object v1
 
-    const v3, 0x7f1001df
+    const v3, 0x7f130104
 
-    iput v3, v2, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+    iput v3, v1, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
     iget-object v3, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpDialog:Landroid/app/AlertDialog;
 
@@ -224,202 +276,185 @@
 
     move-result-object v3
 
-    invoke-virtual {v3, v2}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
+    invoke-virtual {v3, v1}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
 
     return-void
 .end method
 
-.method public static getPersistentState(Landroid/content/Context;Ljava/lang/String;)Z
-    .locals 3
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, p1, v0}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "PREF_KEY_SHOW"
-
-    const/4 v2, 0x1
-
-    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method private setPage(I)V
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->updatePage(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iput p1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mPageState:I
-
-    :goto_0
-    return-void
-
-    :cond_0
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->setPersistentState(Z)V
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpDialog:Landroid/app/AlertDialog;
-
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
-
-    const/4 v0, -0x1
-
-    iput v0, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mPageState:I
-
-    goto :goto_0
-.end method
-
-.method private updatePage(I)Z
+.method public static checkShowingCondition(Landroid/content/Context;Ljava/lang/String;)Z
     .locals 5
 
-    const/4 v4, 0x0
+    const/4 v4, 0x1
 
-    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mContents:Ljava/util/ArrayList;
+    const/4 v1, 0x0
 
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
-
-    move-result v1
-
-    if-lt p1, v1, :cond_0
-
-    return v4
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mContents:Ljava/util/ArrayList;
-
-    invoke-virtual {v1, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;
-
-    if-eqz v0, :cond_2
-
-    invoke-virtual {v0}, Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;->isValidContent()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpImage:Landroid/widget/ImageView;
-
-    iget-object v2, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mContext:Landroid/content/Context;
-
-    iget v3, v0, Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;->imageResId:I
-
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    :try_start_0
+    invoke-static {}, Lcom/android/systemui/EmSystemUIManagerBridge;->get()Lcom/android/systemui/EmSystemUIManagerBridge;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpImage:Landroid/widget/ImageView;
-
-    iget-object v2, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mContext:Landroid/content/Context;
-
-    iget v3, v0, Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;->contentDescResId:I
-
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v2}, Lcom/android/systemui/EmSystemUIManagerBridge;->getEmRecentsManager()Lcom/samsung/systemui/splugins/recents/PluginEmRecentsManager;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-interface {v2}, Lcom/samsung/systemui/splugins/recents/PluginEmRecentsManager;->isBixbyRuleRunning()Z
 
-    iget-object v1, v0, Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;->helpHubImageResId:[I
+    move-result v2
 
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_0
 
-    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpHubText:Lcom/android/systemui/recents/misc/HelpHubTextView;
+    const-string/jumbo v2, "AbstractHelpPopup"
 
-    iget-object v2, v0, Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;->helpHubImageResId:[I
+    const-string/jumbo v3, "Bixby is running, so skip the help popup."
 
-    invoke-virtual {v1, v2}, Lcom/android/systemui/recents/misc/HelpHubTextView;->setIconList([I)V
-
-    :cond_1
-    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpHubText:Lcom/android/systemui/recents/misc/HelpHubTextView;
-
-    iget v2, v0, Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;->helpHubTextResId:I
-
-    invoke-virtual {v1, v2}, Lcom/android/systemui/recents/misc/HelpHubTextView;->changeText(I)V
-
-    iget v1, v0, Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;->textResId:I
-
-    if-lez v1, :cond_3
-
-    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpText:Landroid/widget/TextView;
-
-    iget v2, v0, Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;->textResId:I
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
-
-    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpText:Landroid/widget/TextView;
-
-    invoke-virtual {v1, v4}, Landroid/widget/TextView;->setVisibility(I)V
-
-    :goto_0
-    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpContentGroup:Landroid/view/ViewGroup;
-
-    iget-object v2, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mContext:Landroid/content/Context;
-
-    iget v3, v0, Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;->contentDescResId:I
-
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->setContentDescription(Ljava/lang/CharSequence;)V
-
-    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mButton:Landroid/widget/Button;
-
-    iget v2, v0, Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;->btnTextResId:I
-
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(I)V
-
-    const/4 v1, 0x1
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     return v1
 
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "AbstractHelpPopup"
+
+    const-string/jumbo v3, "Bixby is on, but fail to get instance of bixby manager."
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    const-string/jumbo v2, "RecentsFullscreenHelpPopup"
+
+    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->getConfiguration()Lcom/android/systemui/recents/RecentsConfiguration;
+
+    move-result-object v2
+
+    iget-object v2, v2, Lcom/android/systemui/recents/RecentsConfiguration;->currentState:Lcom/android/systemui/recents/RecentsConfiguration$RecentsActivityCurrentState;
+
+    iget v2, v2, Lcom/android/systemui/recents/RecentsConfiguration$RecentsActivityCurrentState;->mode:I
+
+    if-nez v2, :cond_1
+
+    invoke-virtual {p0, p1, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "PREF_KEY_SHOW"
+
+    invoke-interface {v1, v2, v4}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v1
+
+    :cond_1
+    return v1
+
     :cond_2
-    return v4
+    const-string/jumbo v2, "RecentsTaskLockHelpPopup"
+
+    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    invoke-virtual {p0, p1, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "PREF_KEY_SHOW"
+
+    invoke-interface {v1, v2, v4}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v1
+
+    return v1
 
     :cond_3
-    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpText:Landroid/widget/TextView;
+    return v1
+.end method
 
-    const/16 v2, 0x8
+.method private updateLayoutConfiguration(I)V
+    .locals 5
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setVisibility(I)V
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    new-instance v0, Landroid/widget/LinearLayout$LayoutParams;
+
+    const/4 v3, -0x1
+
+    const/4 v4, -0x2
+
+    invoke-direct {v0, v3, v4}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    const/4 v3, 0x2
+
+    if-ne p1, v3, :cond_0
+
+    iput v2, v0, Landroid/widget/LinearLayout$LayoutParams;->bottomMargin:I
+
+    :goto_0
+    iget-object v3, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mBottomView:Landroid/widget/FrameLayout;
+
+    invoke-virtual {v3, v0}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    iget-object v3, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/res/Configuration;->getLayoutDirection()I
+
+    move-result v3
+
+    if-ne v3, v1, :cond_1
+
+    :goto_1
+    iput-boolean v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mIsRTL:Z
+
+    return-void
+
+    :cond_0
+    iget-object v3, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const v4, 0x7f07050f
+
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v3
+
+    iput v3, v0, Landroid/widget/LinearLayout$LayoutParams;->bottomMargin:I
 
     goto :goto_0
+
+    :cond_1
+    move v1, v2
+
+    goto :goto_1
 .end method
 
 
 # virtual methods
-.method synthetic -com_android_systemui_recents_views_AbstractHelpPopup_lambda$1(Landroid/view/View;)V
-    .locals 1
-
-    iget v0, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mPageState:I
-
-    add-int/lit8 v0, v0, 0x1
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->setPage(I)V
-
-    return-void
-.end method
-
 .method public addContent(IIII)Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;
     .locals 6
 
-    const/4 v3, -0x1
+    const/4 v4, -0x1
 
     move-object v0, p0
 
@@ -427,7 +462,7 @@
 
     move v2, p2
 
-    move v4, p3
+    move v3, p3
 
     move v5, p4
 
@@ -439,23 +474,21 @@
 .end method
 
 .method public addContent(IIIII)Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;
-    .locals 7
+    .locals 6
 
     new-instance v0, Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;
 
-    move-object v1, p0
+    move v1, p1
 
-    move v2, p1
+    move v2, p2
 
-    move v3, p2
+    move v3, p3
 
-    move v4, p3
+    move v4, p4
 
-    move v5, p4
+    move v5, p5
 
-    move v6, p5
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;-><init>(Lcom/android/systemui/recents/views/AbstractHelpPopup;IIIII)V
+    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;-><init>(IIIII)V
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mContents:Ljava/util/ArrayList;
 
@@ -477,27 +510,322 @@
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
-    iget-object v0, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpImage:Landroid/widget/ImageView;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
     return-void
 .end method
 
 .method public initialize(Ljava/lang/String;)V
-    .locals 1
+    .locals 8
+
+    const v3, 0x7f1208f7
+
+    const v2, 0x7f08056e
+
+    const v5, 0x7f1208f8
+
+    const/4 v7, 0x0
+
+    const/4 v6, 0x1
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mContents:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    iput-object p1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mPopupName:Ljava/lang/String;
+    iput-object p1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mKey:Ljava/lang/String;
 
+    const-string/jumbo v0, "RecentsFullscreenHelpPopup"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->getConfiguration()Lcom/android/systemui/recents/RecentsConfiguration;
+
+    move-result-object v0
+
+    iget-boolean v0, v0, Lcom/android/systemui/recents/RecentsConfiguration;->hasNavigationBar:Z
+
+    if-eqz v0, :cond_3
+
+    const v0, 0x7f120901
+
+    const v1, 0x7f08057b
+
+    invoke-virtual {p0, v0, v1, v3, v5}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->addContent(IIII)Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;
+
+    move-result-object v0
+
+    new-array v1, v6, [I
+
+    aput v2, v1, v7
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;->setHelpTextIconList([I)V
+
+    sget-boolean v0, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableSnapView:Z
+
+    if-eqz v0, :cond_0
+
+    const v0, 0x7f120917
+
+    const v1, 0x7f080575
+
+    const v2, 0x7f1208fb
+
+    const v3, 0x7f1208fc
+
+    invoke-virtual {p0, v0, v1, v2, v3}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->addContent(IIII)Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;
+
+    move-result-object v0
+
+    new-array v1, v6, [I
+
+    const v2, 0x7f08056d
+
+    aput v2, v1, v7
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;->setHelpTextIconList([I)V
+
+    :cond_0
+    const v1, 0x7f120902
+
+    const v2, 0x7f080572
+
+    const v3, 0x7f1208fa
+
+    const v4, 0x7f120900
+
+    move-object v0, p0
+
+    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->addContent(IIIII)Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;
+
+    :cond_1
+    :goto_0
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->getConfiguration()Lcom/android/systemui/recents/RecentsConfiguration;
+
+    move-result-object v0
+
+    iget-object v0, v0, Lcom/android/systemui/recents/RecentsConfiguration;->currentState:Lcom/android/systemui/recents/RecentsConfiguration$RecentsActivityCurrentState;
+
+    iget v0, v0, Lcom/android/systemui/recents/RecentsConfiguration$RecentsActivityCurrentState;->mode:I
+
+    if-ne v0, v6, :cond_5
+
+    move v0, v6
+
+    :goto_1
+    invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->updateDimMode(Z)V
+
+    return-void
+
+    :cond_2
+    const-string/jumbo v0, "RecentsTaskLockHelpPopup"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->getConfiguration()Lcom/android/systemui/recents/RecentsConfiguration;
+
+    move-result-object v0
+
+    iget-boolean v0, v0, Lcom/android/systemui/recents/RecentsConfiguration;->hasNavigationBar:Z
+
+    if-eqz v0, :cond_4
+
+    const v0, 0x7f080570
+
+    :goto_2
+    const v1, 0x7f12090a
+
+    const v2, 0x7f1208fd
+
+    const v3, 0x7f1208fe
+
+    invoke-virtual {p0, v1, v0, v2, v3}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->addContent(IIII)Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;
+
+    move-result-object v0
+
+    const v1, 0x7f08078c
+
+    const v2, 0x7f08078f
+
+    filled-new-array {v1, v2}, [I
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;->setHelpTextIconList([I)V
+
+    goto :goto_0
+
+    :cond_3
+    const v0, 0x7f120901
+
+    const v1, 0x7f080576
+
+    invoke-virtual {p0, v0, v1, v3, v5}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->addContent(IIII)Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;
+
+    move-result-object v0
+
+    new-array v1, v6, [I
+
+    aput v2, v1, v7
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;->setHelpTextIconList([I)V
+
+    const v1, 0x7f120902
+
+    const v2, 0x7f080571
+
+    const v3, 0x7f1208f9
+
+    const v4, 0x7f120900
+
+    move-object v0, p0
+
+    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->addContent(IIIII)Lcom/android/systemui/recents/views/AbstractHelpPopup$HelpContent;
+
+    goto :goto_0
+
+    :cond_4
+    const v0, 0x7f08056f
+
+    goto :goto_2
+
+    :cond_5
+    move v0, v7
+
+    goto :goto_1
+.end method
+
+.method public onConfigurationChanged(Landroid/content/res/Configuration;)V
+    .locals 2
+
+    iget v0, p1, Landroid/content/res/Configuration;->semMobileKeyboardCovered:I
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->dismiss()V
+
+    return-void
+
+    :cond_0
+    iget v0, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mLastDeviceOrientation:I
+
+    iget v1, p1, Landroid/content/res/Configuration;->orientation:I
+
+    if-eq v0, v1, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mAdapter:Lcom/android/systemui/recents/views/HelpViewAdapter;
+
+    iget v1, p1, Landroid/content/res/Configuration;->orientation:I
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/views/HelpViewAdapter;->onConfigurationChanged(I)V
+
+    iget v0, p1, Landroid/content/res/Configuration;->orientation:I
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->updateLayoutConfiguration(I)V
+
+    :cond_1
+    iget v0, p1, Landroid/content/res/Configuration;->orientation:I
+
+    iput v0, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mLastDeviceOrientation:I
+
+    return-void
+.end method
+
+.method public onPageChanged(II)V
+    .locals 3
+
+    iget-boolean v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mIsRTL:Z
+
+    if-nez v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mContents:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    add-int/lit8 v1, v1, -0x1
+
+    if-ne p1, v1, :cond_1
+
+    :goto_0
+    const/4 v0, 0x1
+
+    :goto_1
+    if-eqz v0, :cond_3
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mButton:Landroid/widget/Button;
+
+    const v2, 0x7f1207c4
+
+    invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(I)V
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mReadyOK:Z
+
+    :cond_0
+    :goto_2
+    return-void
+
+    :cond_1
     const/4 v0, 0x0
 
-    iput v0, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mPageState:I
+    goto :goto_1
+
+    :cond_2
+    if-nez p1, :cond_1
+
+    goto :goto_0
+
+    :cond_3
+    iget-boolean v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mReadyOK:Z
+
+    if-nez v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mButton:Landroid/widget/Button;
+
+    const v2, 0x7f1208ff
+
+    invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(I)V
+
+    goto :goto_2
+.end method
+
+.method public onPageScrollStateChanged(I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onPageScrolled(IFI)V
+    .locals 1
+
+    if-nez p3, :cond_0
+
+    iget v0, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mCurrentPage:I
+
+    if-eq v0, p1, :cond_0
+
+    iget v0, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mCurrentPage:I
+
+    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->onPageChanged(II)V
+
+    iput p1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mCurrentPage:I
+
+    :cond_0
+    return-void
+.end method
+
+.method public onPageSelected(I)V
+    .locals 0
 
     return-void
 .end method
@@ -507,7 +835,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mContext:Landroid/content/Context;
 
-    iget-object v2, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mPopupName:Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mKey:Ljava/lang/String;
 
     const/4 v3, 0x0
 
@@ -549,180 +877,153 @@
 .end method
 
 .method public showInternal()V
-    .locals 2
+    .locals 5
 
-    iget v0, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mPageState:I
+    const/4 v4, 0x1
 
-    const/4 v1, -0x1
+    const/4 v3, 0x0
 
-    if-ne v0, v1, :cond_0
+    iget v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mLastDeviceOrientation:I
 
-    return-void
+    invoke-direct {p0, v1}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->updateLayoutConfiguration(I)V
 
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpDialog:Landroid/app/AlertDialog;
+    iput v3, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mCurrentPage:I
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mAdapter:Lcom/android/systemui/recents/views/HelpViewAdapter;
 
-    move-result-object v0
+    iget-object v2, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mContents:Ljava/util/ArrayList;
 
-    const/16 v1, 0x300
+    invoke-virtual {v1, v2}, Lcom/android/systemui/recents/views/HelpViewAdapter;->setContents(Ljava/util/ArrayList;)V
 
-    invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
+    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mViewPager:Lcom/android/systemui/recents/views/HelpViewPager;
 
-    const/4 v0, 0x0
+    iget-object v2, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mAdapter:Lcom/android/systemui/recents/views/HelpViewAdapter;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->setPage(I)V
+    invoke-virtual {v1, v2}, Lcom/android/systemui/recents/views/HelpViewPager;->setAdapter(Landroid/support/v4/view/PagerAdapter;)V
 
-    iget-object v0, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpDialog:Landroid/app/AlertDialog;
+    iget-boolean v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mIsRTL:Z
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->isShowing()Z
+    if-eqz v1, :cond_2
 
-    move-result v0
+    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mViewPager:Lcom/android/systemui/recents/views/HelpViewPager;
 
-    if-nez v0, :cond_1
+    iget-object v2, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mContents:Ljava/util/ArrayList;
 
-    invoke-virtual {p0}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->updateContentsSize()V
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpDialog:Landroid/app/AlertDialog;
-
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
-
-    move-result-object v0
-
-    const/16 v1, 0x7d8
-
-    invoke-virtual {v0, v1}, Landroid/view/Window;->setType(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpDialog:Landroid/app/AlertDialog;
-
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
-
-    :cond_1
-    return-void
-.end method
-
-.method public updateContentsSize()V
-    .locals 8
-
-    new-instance v4, Landroid/util/DisplayMetrics;
-
-    invoke-direct {v4}, Landroid/util/DisplayMetrics;-><init>()V
-
-    iput-object v4, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mDisplayMetrics:Landroid/util/DisplayMetrics;
-
-    iget-object v4, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v5, "window"
-
-    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/view/WindowManager;
-
-    invoke-interface {v3}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mDisplayMetrics:Landroid/util/DisplayMetrics;
-
-    invoke-virtual {v4, v5}, Landroid/view/Display;->getRealMetrics(Landroid/util/DisplayMetrics;)V
-
-    iget-object v4, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpRootView:Landroid/view/ViewGroup;
-
-    invoke-virtual {v4}, Landroid/view/ViewGroup;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v1
-
-    iget-object v4, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mDisplayMetrics:Landroid/util/DisplayMetrics;
-
-    iget v4, v4, Landroid/util/DisplayMetrics;->widthPixels:I
-
-    iput v4, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
-
-    iget-object v4, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mDisplayMetrics:Landroid/util/DisplayMetrics;
-
-    iget v4, v4, Landroid/util/DisplayMetrics;->heightPixels:I
-
-    iput v4, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
-
-    invoke-static {}, Lcom/android/systemui/recents/Recents;->getConfiguration()Lcom/android/systemui/recents/RecentsConfiguration;
-
-    move-result-object v4
-
-    iget-boolean v4, v4, Lcom/android/systemui/recents/RecentsConfiguration;->hasSoftNaviBar:Z
-
-    if-eqz v4, :cond_0
-
-    iget-object v4, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "navigation_bar_height"
-
-    const-string/jumbo v6, "dimen"
-
-    const-string/jumbo v7, "android"
-
-    invoke-virtual {v4, v5, v6, v7}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    iget-object v4, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mContext:Landroid/content/Context;
+    add-int/lit8 v2, v2, -0x1
 
-    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v1, v2}, Lcom/android/systemui/recents/views/HelpViewPager;->setCurrentItem(I)V
 
-    move-result-object v4
+    :goto_0
+    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mIndicator:Lcom/android/systemui/recents/views/HelpIndicator;
 
-    invoke-virtual {v4, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    iget-object v2, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mContents:Ljava/util/ArrayList;
 
-    move-result v0
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
-    iget-object v4, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mContext:Landroid/content/Context;
+    move-result v2
 
-    invoke-virtual {v4}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v1, v2}, Lcom/android/systemui/recents/views/HelpIndicator;->setContentSize(I)V
 
-    move-result-object v4
+    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mButton:Landroid/widget/Button;
 
-    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v1}, Landroid/widget/Button;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    check-cast v0, Landroid/widget/FrameLayout$LayoutParams;
 
-    move-result-object v4
+    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mContents:Ljava/util/ArrayList;
 
-    iget v4, v4, Landroid/content/res/Configuration;->orientation:I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
-    const/4 v5, 0x2
+    move-result v1
 
-    if-ne v4, v5, :cond_1
+    if-le v1, v4, :cond_3
 
-    iget v4, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
+    const v1, 0x800015
 
-    sub-int/2addr v4, v0
+    iput v1, v0, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
 
-    iput v4, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mButton:Landroid/widget/Button;
+
+    const v2, 0x7f1208ff
+
+    invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(I)V
+
+    iput-boolean v3, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mReadyOK:Z
+
+    :goto_1
+    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v1}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v1
+
+    const/16 v2, 0x700
+
+    invoke-virtual {v1, v2}, Landroid/view/Window;->addFlags(I)V
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v1}, Landroid/app/AlertDialog;->isShowing()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->getConfiguration()Lcom/android/systemui/recents/RecentsConfiguration;
+
+    move-result-object v1
+
+    iget-object v1, v1, Lcom/android/systemui/recents/RecentsConfiguration;->currentState:Lcom/android/systemui/recents/RecentsConfiguration$RecentsActivityCurrentState;
+
+    iget v1, v1, Lcom/android/systemui/recents/RecentsConfiguration$RecentsActivityCurrentState;->mode:I
+
+    if-ne v1, v4, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v1}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v1
+
+    const/16 v2, 0x7d8
+
+    invoke-virtual {v1, v2}, Landroid/view/Window;->setType(I)V
 
     :cond_0
-    :goto_0
-    iget-object v4, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpRootView:Landroid/view/ViewGroup;
+    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mHelpDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v4, v1}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    return-void
+    invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
 
     :cond_1
-    iget v4, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
+    return-void
 
-    sub-int/2addr v4, v0
+    :cond_2
+    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mViewPager:Lcom/android/systemui/recents/views/HelpViewPager;
 
-    iput v4, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
+    invoke-virtual {v1, v3}, Lcom/android/systemui/recents/views/HelpViewPager;->setCurrentItem(I)V
 
     goto :goto_0
+
+    :cond_3
+    const/16 v1, 0x11
+
+    iput v1, v0, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
+
+    iget-object v1, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mButton:Landroid/widget/Button;
+
+    const v2, 0x7f1207c4
+
+    invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(I)V
+
+    iput-boolean v4, p0, Lcom/android/systemui/recents/views/AbstractHelpPopup;->mReadyOK:Z
+
+    goto :goto_1
 .end method
 
 .method public updateDimMode(Z)V

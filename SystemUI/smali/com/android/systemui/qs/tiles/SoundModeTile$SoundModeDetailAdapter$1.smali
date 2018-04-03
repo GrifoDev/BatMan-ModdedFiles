@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -46,19 +46,15 @@
         }
     .end annotation
 
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter$1;->this$1:Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;
+    const-class v1, Lcom/android/systemui/KnoxStateMonitor;
 
-    iget-object v1, v1, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/SoundModeTile;
-
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/SoundModeTile;->-get3(Lcom/android/systemui/qs/tiles/SoundModeTile;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v1
 
-    invoke-static {v1}, Lcom/android/keyguard/KnoxStateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KnoxStateMonitor;
+    check-cast v1, Lcom/android/systemui/KnoxStateMonitor;
 
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/keyguard/KnoxStateMonitor;->isSoundModeTileBlocked()Z
+    invoke-virtual {v1}, Lcom/android/systemui/KnoxStateMonitor;->isSoundModeTileBlocked()Z
 
     move-result v1
 
@@ -68,7 +64,7 @@
 
     iget-object v1, v1, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/SoundModeTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/SoundModeTile;->-wrap1(Lcom/android/systemui/qs/tiles/SoundModeTile;)V
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/SoundModeTile;->-wrap3(Lcom/android/systemui/qs/tiles/SoundModeTile;)V
 
     return-void
 
@@ -81,11 +77,56 @@
 
     const/4 v2, 0x1
 
-    invoke-static {v1, v0, v2}, Lcom/android/systemui/qs/tiles/SoundModeTile;->-wrap0(Lcom/android/systemui/qs/tiles/SoundModeTile;IZ)V
+    invoke-static {v1, v0, v2}, Lcom/android/systemui/qs/tiles/SoundModeTile;->-wrap1(Lcom/android/systemui/qs/tiles/SoundModeTile;IZ)V
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter$1;->this$1:Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;
 
     invoke-static {v1}, Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;->-wrap2(Lcom/android/systemui/qs/tiles/SoundModeTile$SoundModeDetailAdapter;)V
 
+    packed-switch v0, :pswitch_data_0
+
+    :goto_0
     return-void
+
+    :pswitch_0
+    sget-object v1, Lcom/android/systemui/SystemUIAnalytics;->mCurrentScreenID:Ljava/lang/String;
+
+    const-string/jumbo v2, "4100"
+
+    const-string/jumbo v3, "Mute"
+
+    invoke-static {v1, v2, v3}, Lcom/android/systemui/SystemUIAnalytics;->sendEventLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :pswitch_1
+    sget-object v1, Lcom/android/systemui/SystemUIAnalytics;->mCurrentScreenID:Ljava/lang/String;
+
+    const-string/jumbo v2, "4100"
+
+    const-string/jumbo v3, "Vibration"
+
+    invoke-static {v1, v2, v3}, Lcom/android/systemui/SystemUIAnalytics;->sendEventLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :pswitch_2
+    sget-object v1, Lcom/android/systemui/SystemUIAnalytics;->mCurrentScreenID:Ljava/lang/String;
+
+    const-string/jumbo v2, "4100"
+
+    const-string/jumbo v3, "Sound"
+
+    invoke-static {v1, v2, v3}, Lcom/android/systemui/SystemUIAnalytics;->sendEventLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+    .end packed-switch
 .end method

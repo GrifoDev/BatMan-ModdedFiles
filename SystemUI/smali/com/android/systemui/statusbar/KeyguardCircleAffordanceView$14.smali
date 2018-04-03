@@ -38,7 +38,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set11(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
+    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set13(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
 
     return-void
 .end method
@@ -52,9 +52,9 @@
 
     const/4 v2, 0x1
 
-    invoke-static {v1, v2}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set11(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
+    invoke-static {v1, v2}, Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;->-set13(Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;Z)Z
 
-    sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SKIP_SHORTCUT_ARROW_SHOWING_VI:Z
+    sget-boolean v1, Lcom/android/systemui/Rune;->KEYWI_SUPPORT_SHORTCUT_CUE:Z
 
     if-eqz v1, :cond_1
 

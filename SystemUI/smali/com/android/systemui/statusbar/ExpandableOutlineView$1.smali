@@ -70,6 +70,12 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/ExpandableOutlineView$1;->this$0:Lcom/android/systemui/statusbar/ExpandableOutlineView;
 
+    iget v4, v4, Lcom/android/systemui/statusbar/ExpandableOutlineView;->mClipBottomAmount:I
+
+    sub-int/2addr v3, v4
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/ExpandableOutlineView$1;->this$0:Lcom/android/systemui/statusbar/ExpandableOutlineView;
+
     iget v4, v4, Lcom/android/systemui/statusbar/ExpandableOutlineView;->mClipTopAmount:I
 
     invoke-static {v3, v4}, Ljava/lang/Math;->max(II)I

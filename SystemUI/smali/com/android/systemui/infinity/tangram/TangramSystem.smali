@@ -295,7 +295,7 @@
 
     move-result v3
 
-    if-ge v14, v3, :cond_1
+    if-ge v14, v3, :cond_0
 
     move-object/from16 v0, p0
 
@@ -387,9 +387,6 @@
 
     const/4 v3, 0x1
 
-    if-ne v14, v3, :cond_0
-
-    :cond_0
     iget v3, v13, Lcom/android/systemui/infinity/tangram/TangramData;->showingProgress:F
 
     move-object/from16 v0, p0
@@ -546,7 +543,7 @@
 
     goto/16 :goto_0
 
-    :cond_1
+    :cond_0
     return-void
 .end method
 
@@ -2598,6 +2595,22 @@
     goto :goto_0
 
     :cond_0
+    return-void
+.end method
+
+.method public setTiltOption(FFFFF)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/infinity/tangram/TangramSystem;->maxMoveDistance:F
+
+    iput p2, p0, Lcom/android/systemui/infinity/tangram/TangramSystem;->maxMoveSpeed:F
+
+    iput p3, p0, Lcom/android/systemui/infinity/tangram/TangramSystem;->showEasing:F
+
+    iput p4, p0, Lcom/android/systemui/infinity/tangram/TangramSystem;->tiltEasing:F
+
+    iput p5, p0, Lcom/android/systemui/infinity/tangram/TangramSystem;->gyroMultiple:F
+
     return-void
 .end method
 

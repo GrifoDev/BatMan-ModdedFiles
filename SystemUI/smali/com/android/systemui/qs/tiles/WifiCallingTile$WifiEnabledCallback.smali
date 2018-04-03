@@ -1,6 +1,9 @@
 .class final Lcom/android/systemui/qs/tiles/WifiCallingTile$WifiEnabledCallback;
-.super Lcom/android/systemui/statusbar/policy/SignalCallbackAdapter;
+.super Ljava/lang/Object;
 .source "WifiCallingTile.java"
+
+# interfaces
+.implements Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;
 
 
 # annotations
@@ -24,7 +27,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile$WifiEnabledCallback;->this$0:Lcom/android/systemui/qs/tiles/WifiCallingTile;
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/SignalCallbackAdapter;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -39,8 +42,8 @@
 
 
 # virtual methods
-.method public setWifiIndicators(ZLcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;ZZILjava/lang/String;)V
-    .locals 7
+.method public setWifiIndicators(ZLcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;ZZILjava/lang/String;Z)V
+    .locals 8
 
     move-object v0, p0
 
@@ -56,17 +59,19 @@
 
     move-object v6, p7
 
-    invoke-virtual/range {v0 .. v6}, Lcom/android/systemui/qs/tiles/WifiCallingTile$WifiEnabledCallback;->setWifiIndicators(ZLcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;ZZLjava/lang/String;)V
+    move/from16 v7, p8
+
+    invoke-virtual/range {v0 .. v7}, Lcom/android/systemui/qs/tiles/WifiCallingTile$WifiEnabledCallback;->setWifiIndicators(ZLcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;ZZLjava/lang/String;Z)V
 
     return-void
 .end method
 
-.method public setWifiIndicators(ZLcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;ZZLjava/lang/String;)V
+.method public setWifiIndicators(ZLcom/android/systemui/statusbar/policy/NetworkController$IconState;Lcom/android/systemui/statusbar/policy/NetworkController$IconState;ZZLjava/lang/String;Z)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile$WifiEnabledCallback;->this$0:Lcom/android/systemui/qs/tiles/WifiCallingTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-get8(Lcom/android/systemui/qs/tiles/WifiCallingTile;)Z
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-get9(Lcom/android/systemui/qs/tiles/WifiCallingTile;)Z
 
     move-result v0
 
@@ -82,7 +87,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile$WifiEnabledCallback;->this$0:Lcom/android/systemui/qs/tiles/WifiCallingTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-get0(Lcom/android/systemui/qs/tiles/WifiCallingTile;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-get1(Lcom/android/systemui/qs/tiles/WifiCallingTile;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -90,7 +95,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "WifiEnabledCallback mWifiConnected "
+    const-string/jumbo v2, "WifiEnabledCallback.setWifiIndicators() mWifiConnected:"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -98,7 +103,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile$WifiEnabledCallback;->this$0:Lcom/android/systemui/qs/tiles/WifiCallingTile;
 
-    invoke-static {v2}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-get8(Lcom/android/systemui/qs/tiles/WifiCallingTile;)Z
+    invoke-static {v2}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-get9(Lcom/android/systemui/qs/tiles/WifiCallingTile;)Z
 
     move-result v2
 

@@ -52,1747 +52,1747 @@
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "aliceblue"
+    const v1, 0xf0f8ff
 
-    const v2, 0xf0f8ff
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "aliceblue"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "antiquewhite"
-
-    const v2, 0xfaebd7
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "aqua"
+    const v1, 0xfaebd7
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "antiquewhite"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string/jumbo v2, "aqua"
 
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "aquamarine"
-
-    const v2, 0x7fffd4
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "azure"
+    const v1, 0x7fffd4
 
-    const v2, 0xf0ffff
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "aquamarine"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "beige"
-
-    const v2, 0xf5f5dc
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "bisque"
+    const v1, 0xf0ffff
 
-    const v2, 0xffe4c4
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "azure"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "black"
-
-    const/4 v2, 0x0
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "blanchedalmond"
+    const v1, 0xf5f5dc
 
-    const v2, 0xffebcd
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "beige"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "blue"
-
-    const/16 v2, 0xff
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "blueviolet"
+    const v1, 0xffe4c4
 
-    const v2, 0x8a2be2
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "bisque"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "brown"
-
-    const v2, 0xa52a2a
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "burlywood"
+    const/4 v1, 0x0
 
-    const v2, 0xdeb887
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "black"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "cadetblue"
-
-    const v2, 0x5f9ea0
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "chartreuse"
+    const v1, 0xffebcd
 
-    const v2, 0x7fff00
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "blanchedalmond"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "chocolate"
-
-    const v2, 0xd2691e
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "coral"
+    const/16 v1, 0xff
 
-    const v2, 0xff7f50
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "blue"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "cornflowerblue"
-
-    const v2, 0x6495ed
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "cornsilk"
+    const v1, 0x8a2be2
 
-    const v2, 0xfff8dc
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "blueviolet"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "crimson"
-
-    const v2, 0xdc143c
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "cyan"
+    const v1, 0xa52a2a
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "brown"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xdeb887
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "burlywood"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0x5f9ea0
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "cadetblue"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0x7fff00
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "chartreuse"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xd2691e
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "chocolate"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xff7f50
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "coral"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0x6495ed
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "cornflowerblue"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xfff8dc
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "cornsilk"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xdc143c
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "crimson"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string/jumbo v2, "cyan"
 
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "darkblue"
-
-    const/16 v2, 0x8b
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "darkcyan"
+    const/16 v1, 0x8b
 
-    const v2, 0x8b8b
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "darkblue"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "darkgoldenrod"
-
-    const v2, 0xb8860b
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "darkgray"
+    const v1, 0x8b8b
 
-    const v2, 0xa9a9a9
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "darkcyan"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "darkgreen"
-
-    const/16 v2, 0x6400
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "darkgrey"
+    const v1, 0xb8860b
 
-    const v2, 0xa9a9a9
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "darkgoldenrod"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "darkkhaki"
-
-    const v2, 0xbdb76b
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "darkmagenta"
+    const v1, 0xa9a9a9
 
-    const v2, 0x8b008b
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "darkgray"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "darkolivegreen"
-
-    const v2, 0x556b2f
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "darkorange"
+    const/16 v1, 0x6400
 
-    const v2, 0xff8c00
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "darkgreen"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "darkorchid"
-
-    const v2, 0x9932cc
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "darkred"
+    const v1, 0xa9a9a9
 
-    const/high16 v2, 0x8b0000
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "darkgrey"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "darksalmon"
-
-    const v2, 0xe9967a
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "darkseagreen"
+    const v1, 0xbdb76b
 
-    const v2, 0x8fbc8f
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "darkkhaki"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "darkslateblue"
-
-    const v2, 0x483d8b
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "darkslategray"
+    const v1, 0x8b008b
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "darkmagenta"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0x556b2f
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "darkolivegreen"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xff8c00
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "darkorange"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0x9932cc
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "darkorchid"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const/high16 v1, 0x8b0000
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "darkred"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xe9967a
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "darksalmon"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0x8fbc8f
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "darkseagreen"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0x483d8b
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "darkslateblue"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string/jumbo v2, "darkslategray"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "darkslategrey"
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string/jumbo v2, "darkslategrey"
 
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "darkturquoise"
-
-    const v2, 0xced1
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "darkviolet"
+    const v1, 0xced1
 
-    const v2, 0x9400d3
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "darkturquoise"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "deeppink"
-
-    const v2, 0xff1493
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "deepskyblue"
+    const v1, 0x9400d3
 
-    const v2, 0xbfff
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "darkviolet"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "dimgray"
+    const v1, 0xff1493
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "deeppink"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xbfff
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "deepskyblue"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string/jumbo v2, "dimgray"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "dimgrey"
 
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string/jumbo v2, "dimgrey"
 
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "dodgerblue"
-
-    const v2, 0x1e90ff
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "firebrick"
+    const v1, 0x1e90ff
 
-    const v2, 0xb22222
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "dodgerblue"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "floralwhite"
-
-    const v2, 0xfffaf0
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "forestgreen"
+    const v1, 0xb22222
 
-    const v2, 0x228b22
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "firebrick"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "fuchsia"
-
-    const v2, 0xff00ff
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "gainsboro"
+    const v1, 0xfffaf0
 
-    const v2, 0xdcdcdc
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "floralwhite"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "ghostwhite"
-
-    const v2, 0xf8f8ff
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "gold"
+    const v1, 0x228b22
 
-    const v2, 0xffd700
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "forestgreen"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "goldenrod"
-
-    const v2, 0xdaa520
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "gray"
+    const v1, 0xff00ff
 
-    const v2, 0x808080
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "fuchsia"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "green"
-
-    const v2, 0x8000
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "greenyellow"
+    const v1, 0xdcdcdc
 
-    const v2, 0xadff2f
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "gainsboro"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "grey"
-
-    const v2, 0x808080
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "honeydew"
+    const v1, 0xf8f8ff
 
-    const v2, 0xf0fff0
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "ghostwhite"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "hotpink"
-
-    const v2, 0xff69b4
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "indianred"
+    const v1, 0xffd700
 
-    const v2, 0xcd5c5c
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "gold"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "indigo"
-
-    const v2, 0x4b0082
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "ivory"
+    const v1, 0xdaa520
 
-    const v2, 0xfffff0
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "goldenrod"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "khaki"
-
-    const v2, 0xf0e68c
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "lavender"
+    const v1, 0x808080
 
-    const v2, 0xe6e6fa
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "gray"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "lavenderblush"
-
-    const v2, 0xfff0f5
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "lawngreen"
+    const v1, 0x8000
 
-    const v2, 0x7cfc00
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "green"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "lemonchiffon"
-
-    const v2, 0xfffacd
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "lightblue"
+    const v1, 0xadff2f
 
-    const v2, 0xadd8e6
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "greenyellow"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "lightcoral"
-
-    const v2, 0xf08080
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "lightcyan"
+    const v1, 0x808080
 
-    const v2, 0xe0ffff
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "grey"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "lightgoldenrodyellow"
-
-    const v2, 0xfafad2
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "lightgray"
+    const v1, 0xf0fff0
 
-    const v2, 0xd3d3d3
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "honeydew"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "lightgreen"
-
-    const v2, 0x90ee90
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "lightgrey"
+    const v1, 0xff69b4
 
-    const v2, 0xd3d3d3
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "hotpink"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "lightpink"
-
-    const v2, 0xffb6c1
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "lightsalmon"
+    const v1, 0xcd5c5c
 
-    const v2, 0xffa07a
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "indianred"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "lightseagreen"
-
-    const v2, 0x20b2aa
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "lightskyblue"
+    const v1, 0x4b0082
 
-    const v2, 0x87cefa
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "indigo"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "lightslategray"
+    const v1, 0xfffff0
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "ivory"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xf0e68c
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "khaki"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xe6e6fa
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "lavender"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xfff0f5
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "lavenderblush"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0x7cfc00
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "lawngreen"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xfffacd
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "lemonchiffon"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xadd8e6
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "lightblue"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xf08080
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "lightcoral"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xe0ffff
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "lightcyan"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xfafad2
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "lightgoldenrodyellow"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xd3d3d3
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "lightgray"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0x90ee90
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "lightgreen"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xd3d3d3
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "lightgrey"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xffb6c1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "lightpink"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xffa07a
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "lightsalmon"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0x20b2aa
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "lightseagreen"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0x87cefa
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "lightskyblue"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
     invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string/jumbo v2, "lightslategray"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "lightslategrey"
 
     invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string/jumbo v2, "lightslategrey"
 
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "lightsteelblue"
-
-    const v2, 0xb0c4de
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "lightyellow"
+    const v1, 0xb0c4de
 
-    const v2, 0xffffe0
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "lightsteelblue"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "lime"
-
-    const v2, 0xff00
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "limegreen"
+    const v1, 0xffffe0
 
-    const v2, 0x32cd32
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "lightyellow"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "linen"
-
-    const v2, 0xfaf0e6
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "magenta"
+    const v1, 0xff00
 
-    const v2, 0xff00ff
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "lime"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "maroon"
-
-    const/high16 v2, 0x800000
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "mediumaquamarine"
+    const v1, 0x32cd32
 
-    const v2, 0x66cdaa
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "limegreen"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "mediumblue"
-
-    const/16 v2, 0xcd
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "mediumorchid"
+    const v1, 0xfaf0e6
 
-    const v2, 0xba55d3
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "linen"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "mediumpurple"
-
-    const v2, 0x9370db
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "mediumseagreen"
+    const v1, 0xff00ff
 
-    const v2, 0x3cb371
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "magenta"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "mediumslateblue"
-
-    const v2, 0x7b68ee
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "mediumspringgreen"
+    const/high16 v1, 0x800000
 
-    const v2, 0xfa9a
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "maroon"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "mediumturquoise"
-
-    const v2, 0x48d1cc
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "mediumvioletred"
+    const v1, 0x66cdaa
 
-    const v2, 0xc71585
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "mediumaquamarine"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "midnightblue"
-
-    const v2, 0x191970
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "mintcream"
+    const/16 v1, 0xcd
 
-    const v2, 0xf5fffa
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "mediumblue"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "mistyrose"
-
-    const v2, 0xffe4e1
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "moccasin"
+    const v1, 0xba55d3
 
-    const v2, 0xffe4b5    # 2.3500096E-38f
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "mediumorchid"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "navajowhite"
-
-    const v2, 0xffdead
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "navy"
+    const v1, 0x9370db
 
-    const/16 v2, 0x80
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "mediumpurple"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "oldlace"
-
-    const v2, 0xfdf5e6
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "olive"
+    const v1, 0x3cb371
 
-    const v2, 0x808000
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "mediumseagreen"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "olivedrab"
-
-    const v2, 0x6b8e23
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "orange"
+    const v1, 0x7b68ee
 
-    const v2, 0xffa500
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "mediumslateblue"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "orangered"
-
-    const v2, 0xff4500
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "orchid"
+    const v1, 0xfa9a
 
-    const v2, 0xda70d6
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "mediumspringgreen"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "palegoldenrod"
-
-    const v2, 0xeee8aa
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "palegreen"
+    const v1, 0x48d1cc
 
-    const v2, 0x98fb98
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "mediumturquoise"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "paleturquoise"
-
-    const v2, 0xafeeee
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "palevioletred"
+    const v1, 0xc71585
 
-    const v2, 0xdb7093
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "mediumvioletred"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "papayawhip"
-
-    const v2, 0xffefd5
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "peachpuff"
+    const v1, 0x191970
 
-    const v2, 0xffdab9
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "midnightblue"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "peru"
-
-    const v2, 0xcd853f
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "pink"
+    const v1, 0xf5fffa
 
-    const v2, 0xffc0cb
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "mintcream"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "plum"
-
-    const v2, 0xdda0dd
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "powderblue"
+    const v1, 0xffe4e1
 
-    const v2, 0xb0e0e6
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "mistyrose"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "purple"
-
-    const v2, 0x800080
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "red"
+    const v1, 0xffe4b5    # 2.3500096E-38f
 
-    const/high16 v2, 0xff0000
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "moccasin"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "rosybrown"
-
-    const v2, 0xbc8f8f
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "royalblue"
+    const v1, 0xffdead
 
-    const v2, 0x4169e1
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "navajowhite"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "saddlebrown"
-
-    const v2, 0x8b4513
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "salmon"
+    const/16 v1, 0x80
 
-    const v2, 0xfa8072
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "navy"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "sandybrown"
-
-    const v2, 0xf4a460
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "seagreen"
+    const v1, 0xfdf5e6
 
-    const v2, 0x2e8b57
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "oldlace"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "seashell"
-
-    const v2, 0xfff5ee
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "sienna"
+    const v1, 0x808000
 
-    const v2, 0xa0522d
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "olive"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "silver"
-
-    const v2, 0xc0c0c0
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "skyblue"
+    const v1, 0x6b8e23
 
-    const v2, 0x87ceeb
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "olivedrab"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "slateblue"
-
-    const v2, 0x6a5acd
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "slategray"
+    const v1, 0xffa500
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "orange"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xff4500
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "orangered"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xda70d6
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "orchid"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xeee8aa
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "palegoldenrod"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0x98fb98
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "palegreen"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xafeeee
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "paleturquoise"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xdb7093
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "palevioletred"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xffefd5
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "papayawhip"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xffdab9
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "peachpuff"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xcd853f
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "peru"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xffc0cb
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "pink"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xdda0dd
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "plum"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xb0e0e6
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "powderblue"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0x800080
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "purple"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const/high16 v1, 0xff0000
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "red"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xbc8f8f
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "rosybrown"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0x4169e1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "royalblue"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0x8b4513
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "saddlebrown"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xfa8072
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "salmon"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xf4a460
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "sandybrown"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0x2e8b57
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "seagreen"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xfff5ee
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "seashell"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xa0522d
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "sienna"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xc0c0c0
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "silver"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0x87ceeb
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "skyblue"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0x6a5acd
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "slateblue"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string/jumbo v2, "slategray"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "slategrey"
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string/jumbo v2, "slategrey"
 
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "snow"
-
-    const v2, 0xfffafa
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "springgreen"
+    const v1, 0xfffafa
 
-    const v2, 0xff7f
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "snow"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "steelblue"
-
-    const v2, 0x4682b4
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "tan"
+    const v1, 0xff7f
 
-    const v2, 0xd2b48c
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "springgreen"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "teal"
-
-    const v2, 0x8080
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "thistle"
+    const v1, 0x4682b4
 
-    const v2, 0xd8bfd8
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "steelblue"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "tomato"
-
-    const v2, 0xff6347
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "turquoise"
+    const v1, 0xd2b48c
 
-    const v2, 0x40e0d0
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "tan"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "violet"
-
-    const v2, 0xee82ee
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "wheat"
+    const v1, 0x8080
 
-    const v2, 0xf5deb3
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "teal"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "white"
-
-    const v2, 0xffffff
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "whitesmoke"
+    const v1, 0xd8bfd8
 
-    const v2, 0xf5f5f5
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "thistle"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
-
-    const-string/jumbo v1, "yellow"
-
-    const v2, 0xffff00
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
 
-    const-string/jumbo v1, "yellowgreen"
+    const v1, 0xff6347
 
-    const v2, 0x9acd32
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "tomato"
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0x40e0d0
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "turquoise"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xee82ee
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "violet"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xf5deb3
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "wheat"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xffffff
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "white"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xf5f5f5
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "whitesmoke"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0xffff00
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "yellow"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/caverock/androidsvg/SVGParser$ColourKeywords;->colourKeywords:Ljava/util/Map;
+
+    const v1, 0x9acd32
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "yellowgreen"
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
 .end method

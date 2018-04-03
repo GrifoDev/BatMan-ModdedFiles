@@ -87,13 +87,13 @@
         }
     .end annotation
 
-    const-string/jumbo v1, "<circle>"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<circle>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -178,13 +178,13 @@
         }
     .end annotation
 
-    const-string/jumbo v1, "<clipPath>"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<clipPath>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -244,13 +244,13 @@
         }
     .end annotation
 
-    const-string/jumbo v1, "<defs>"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<defs>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -300,13 +300,13 @@
         }
     .end annotation
 
-    const-string/jumbo v1, "<ellipse>"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<ellipse>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -405,13 +405,13 @@
         }
     .end annotation
 
-    const-string/jumbo v1, "<g>"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<g>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -463,13 +463,13 @@
         }
     .end annotation
 
-    const-string/jumbo v1, "<image>"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<image>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -523,13 +523,13 @@
         }
     .end annotation
 
-    const-string/jumbo v1, "<line>"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<line>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -581,13 +581,13 @@
         }
     .end annotation
 
-    const-string/jumbo v1, "<linearGradient>"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<linearGradient>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -639,13 +639,13 @@
         }
     .end annotation
 
-    const-string/jumbo v1, "<marker>"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<marker>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -699,13 +699,13 @@
         }
     .end annotation
 
-    const-string/jumbo v1, "<mask>"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<mask>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -1486,13 +1486,13 @@
     throw v3
 
     :sswitch_3
-    const-string/jumbo v3, "http://www.w3.org/1999/xlink"
-
     invoke-interface {p2, v1}, Lorg/xml/sax/Attributes;->getURI(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v4, "http://www.w3.org/1999/xlink"
+
+    invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
@@ -1631,13 +1631,13 @@
     throw v2
 
     :pswitch_5
-    const-string/jumbo v2, "http://www.w3.org/1999/xlink"
-
     invoke-interface {p2, v0}, Lorg/xml/sax/Attributes;->getURI(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v3, "http://www.w3.org/1999/xlink"
+
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
@@ -2588,13 +2588,13 @@
     throw v2
 
     :sswitch_7
-    const-string/jumbo v2, "http://www.w3.org/1999/xlink"
-
     invoke-interface {p2, v0}, Lorg/xml/sax/Attributes;->getURI(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v3, "http://www.w3.org/1999/xlink"
+
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
@@ -2618,205 +2618,205 @@
 .end method
 
 .method private parseAttributesPolyLine(Lcom/caverock/androidsvg/SVG$PolyLine;Lorg/xml/sax/Attributes;Ljava/lang/String;)V
-    .locals 11
+    .locals 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;
         }
     .end annotation
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     :goto_0
     invoke-interface {p2}, Lorg/xml/sax/Attributes;->getLength()I
 
-    move-result v8
+    move-result v9
 
-    if-lt v1, v8, :cond_0
+    if-lt v2, v9, :cond_0
 
     return-void
 
     :cond_0
-    invoke-interface {p2, v1}, Lorg/xml/sax/Attributes;->getLocalName(I)Ljava/lang/String;
+    invoke-interface {p2, v2}, Lorg/xml/sax/Attributes;->getLocalName(I)Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-static {v8}, Lcom/caverock/androidsvg/SVGParser$SVGAttr;->fromString(Ljava/lang/String;)Lcom/caverock/androidsvg/SVGParser$SVGAttr;
+    invoke-static {v9}, Lcom/caverock/androidsvg/SVGParser$SVGAttr;->fromString(Ljava/lang/String;)Lcom/caverock/androidsvg/SVGParser$SVGAttr;
 
-    move-result-object v8
+    move-result-object v9
 
-    sget-object v9, Lcom/caverock/androidsvg/SVGParser$SVGAttr;->points:Lcom/caverock/androidsvg/SVGParser$SVGAttr;
+    sget-object v10, Lcom/caverock/androidsvg/SVGParser$SVGAttr;->points:Lcom/caverock/androidsvg/SVGParser$SVGAttr;
 
-    if-eq v8, v9, :cond_2
+    if-eq v9, v10, :cond_2
 
     :cond_1
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_2
-    new-instance v5, Lcom/caverock/androidsvg/SVGParser$TextScanner;
+    new-instance v6, Lcom/caverock/androidsvg/SVGParser$TextScanner;
 
-    invoke-interface {p2, v1}, Lorg/xml/sax/Attributes;->getValue(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-direct {v5, v8}, Lcom/caverock/androidsvg/SVGParser$TextScanner;-><init>(Ljava/lang/String;)V
-
-    new-instance v4, Ljava/util/ArrayList;
-
-    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
-
-    invoke-virtual {v5}, Lcom/caverock/androidsvg/SVGParser$TextScanner;->skipWhitespace()V
-
-    :goto_1
-    invoke-virtual {v5}, Lcom/caverock/androidsvg/SVGParser$TextScanner;->empty()Z
-
-    move-result v8
-
-    if-eqz v8, :cond_3
-
-    invoke-interface {v4}, Ljava/util/List;->size()I
-
-    move-result v8
-
-    new-array v8, v8, [F
-
-    iput-object v8, p1, Lcom/caverock/androidsvg/SVG$PolyLine;->points:[F
-
-    const/4 v2, 0x0
-
-    invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {p2, v2}, Lorg/xml/sax/Attributes;->getValue(I)Ljava/lang/String;
 
     move-result-object v9
 
+    invoke-direct {v6, v9}, Lcom/caverock/androidsvg/SVGParser$TextScanner;-><init>(Ljava/lang/String;)V
+
+    new-instance v5, Ljava/util/ArrayList;
+
+    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-virtual {v6}, Lcom/caverock/androidsvg/SVGParser$TextScanner;->skipWhitespace()V
+
+    :goto_1
+    invoke-virtual {v6}, Lcom/caverock/androidsvg/SVGParser$TextScanner;->empty()Z
+
+    move-result v9
+
+    if-eqz v9, :cond_3
+
+    invoke-interface {v5}, Ljava/util/List;->size()I
+
+    move-result v9
+
+    new-array v9, v9, [F
+
+    iput-object v9, p1, Lcom/caverock/androidsvg/SVG$PolyLine;->points:[F
+
+    const/4 v3, 0x0
+
+    invoke-interface {v5}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
     :goto_2
-    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_1
+    if-eqz v9, :cond_1
 
-    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v9
 
-    check-cast v8, Ljava/lang/Float;
+    check-cast v9, Ljava/lang/Float;
 
-    invoke-virtual {v8}, Ljava/lang/Float;->floatValue()F
+    invoke-virtual {v9}, Ljava/lang/Float;->floatValue()F
 
-    move-result v0
+    move-result v1
 
-    iget-object v8, p1, Lcom/caverock/androidsvg/SVG$PolyLine;->points:[F
+    iget-object v9, p1, Lcom/caverock/androidsvg/SVG$PolyLine;->points:[F
 
-    add-int/lit8 v3, v2, 0x1
+    add-int/lit8 v4, v3, 0x1
 
-    aput v0, v8, v2
+    aput v1, v9, v3
 
-    move v2, v3
+    move v3, v4
 
     goto :goto_2
 
     :cond_3
-    invoke-virtual {v5}, Lcom/caverock/androidsvg/SVGParser$TextScanner;->nextFloat()F
-
-    move-result v6
-
-    invoke-static {v6}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v8
-
-    if-nez v8, :cond_4
-
-    invoke-virtual {v5}, Lcom/caverock/androidsvg/SVGParser$TextScanner;->skipCommaWhitespace()Z
-
-    invoke-virtual {v5}, Lcom/caverock/androidsvg/SVGParser$TextScanner;->nextFloat()F
+    invoke-virtual {v6}, Lcom/caverock/androidsvg/SVGParser$TextScanner;->nextFloat()F
 
     move-result v7
 
     invoke-static {v7}, Ljava/lang/Float;->isNaN(F)Z
 
+    move-result v9
+
+    if-nez v9, :cond_4
+
+    invoke-virtual {v6}, Lcom/caverock/androidsvg/SVGParser$TextScanner;->skipCommaWhitespace()Z
+
+    invoke-virtual {v6}, Lcom/caverock/androidsvg/SVGParser$TextScanner;->nextFloat()F
+
     move-result v8
 
-    if-nez v8, :cond_5
+    invoke-static {v8}, Ljava/lang/Float;->isNaN(F)Z
 
-    invoke-virtual {v5}, Lcom/caverock/androidsvg/SVGParser$TextScanner;->skipCommaWhitespace()Z
+    move-result v9
 
-    invoke-static {v6}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    if-nez v9, :cond_5
 
-    move-result-object v8
-
-    invoke-interface {v4, v8}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v6}, Lcom/caverock/androidsvg/SVGParser$TextScanner;->skipCommaWhitespace()Z
 
     invoke-static {v7}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-interface {v4, v8}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v5, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    invoke-static {v8}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v9
+
+    invoke-interface {v5, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
     :cond_4
-    new-instance v8, Lorg/xml/sax/SAXException;
+    new-instance v9, Lorg/xml/sax/SAXException;
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v10, "Invalid <"
+    const-string/jumbo v11, "Invalid <"
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    const-string/jumbo v10, "> points attribute. Non-coordinate content found in list."
+    const-string/jumbo v11, "> points attribute. Non-coordinate content found in list."
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-direct {v8, v9}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v9, v10}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/String;)V
 
-    throw v8
+    throw v9
 
     :cond_5
-    new-instance v8, Lorg/xml/sax/SAXException;
+    new-instance v9, Lorg/xml/sax/SAXException;
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v10, "Invalid <"
+    const-string/jumbo v11, "Invalid <"
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    const-string/jumbo v10, "> points attribute. There should be an even number of coordinates."
+    const-string/jumbo v11, "> points attribute. There should be an even number of coordinates."
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-direct {v8, v9}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v9, v10}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/String;)V
 
-    throw v8
+    throw v9
 .end method
 
 .method private parseAttributesRadialGradient(Lcom/caverock/androidsvg/SVG$SvgRadialGradient;Lorg/xml/sax/Attributes;)V
@@ -3484,13 +3484,13 @@
     goto :goto_0
 
     :pswitch_0
-    const-string/jumbo v2, "http://www.w3.org/1999/xlink"
-
     invoke-interface {p2, v0}, Lorg/xml/sax/Attributes;->getURI(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v3, "http://www.w3.org/1999/xlink"
+
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
@@ -3559,13 +3559,13 @@
     goto :goto_0
 
     :sswitch_0
-    const-string/jumbo v2, "http://www.w3.org/1999/xlink"
-
     invoke-interface {p2, v0}, Lorg/xml/sax/Attributes;->getURI(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v3, "http://www.w3.org/1999/xlink"
+
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
@@ -3858,13 +3858,13 @@
     throw v2
 
     :pswitch_5
-    const-string/jumbo v2, "http://www.w3.org/1999/xlink"
-
     invoke-interface {p2, v0}, Lorg/xml/sax/Attributes;->getURI(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v3, "http://www.w3.org/1999/xlink"
+
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
@@ -4143,13 +4143,13 @@
     return-object v10
 
     :cond_0
-    const/4 v10, 0x1
-
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
-    move-result v11
+    move-result v10
 
-    invoke-static {p0, v10, v11}, Lcom/caverock/androidsvg/IntegerParser;->parseHex(Ljava/lang/String;II)Lcom/caverock/androidsvg/IntegerParser;
+    const/4 v11, 0x1
+
+    invoke-static {p0, v11, v10}, Lcom/caverock/androidsvg/IntegerParser;->parseHex(Ljava/lang/String;II)Lcom/caverock/androidsvg/IntegerParser;
 
     move-result-object v5
 
@@ -4687,7 +4687,7 @@
         }
     .end annotation
 
-    const/16 v10, 0x7c
+    const/16 v8, 0x7c
 
     const/16 v9, 0x2f
 
@@ -4701,29 +4701,29 @@
 
     const/4 v3, 0x0
 
-    const-string/jumbo v7, "|caption|icon|menu|message-box|small-caption|status-bar|"
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v10}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    move-result-object v7
 
-    move-result-object v8
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v7
 
-    move-result-object v8
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v10}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    move-result-object v7
 
-    move-result-object v8
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v7
 
-    move-result-object v8
+    const-string/jumbo v8, "|caption|icon|menu|message-box|small-caption|status-bar|"
 
-    invoke-virtual {v7, v8}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+    invoke-virtual {v8, v7}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
     move-result v7
 
@@ -5148,15 +5148,15 @@
 
     if-eqz v0, :cond_0
 
-    const/4 v0, 0x4
-
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v0
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    const/4 v1, 0x4
+
+    invoke-virtual {p0, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v0
 
@@ -5966,37 +5966,37 @@
     goto :goto_0
 
     :cond_4
-    const-string/jumbo v9, "SVGParser"
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    new-instance v13, Ljava/lang/StringBuilder;
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v13, "Bad path coords for "
 
-    const-string/jumbo v14, "Bad path coords for "
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
+    move-result-object v9
 
     move/from16 v0, v24
 
-    int-to-char v14, v0
+    int-to-char v13, v0
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v9
 
-    const-string/jumbo v14, " path segment"
+    const-string/jumbo v13, " path segment"
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v9
 
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v9
 
-    invoke-static {v9, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v13, "SVGParser"
+
+    invoke-static {v13, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-object v2
 
@@ -6055,37 +6055,37 @@
     goto :goto_2
 
     :cond_7
-    const-string/jumbo v9, "SVGParser"
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    new-instance v13, Ljava/lang/StringBuilder;
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v13, "Bad path coords for "
 
-    const-string/jumbo v14, "Bad path coords for "
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
+    move-result-object v9
 
     move/from16 v0, v24
 
-    int-to-char v14, v0
+    int-to-char v13, v0
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v9
 
-    const-string/jumbo v14, " path segment"
+    const-string/jumbo v13, " path segment"
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v9
 
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v9
 
-    invoke-static {v9, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v13, "SVGParser"
+
+    invoke-static {v13, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-object v2
 
@@ -6157,37 +6157,37 @@
     goto/16 :goto_2
 
     :cond_9
-    const-string/jumbo v9, "SVGParser"
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    new-instance v13, Ljava/lang/StringBuilder;
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v13, "Bad path coords for "
 
-    const-string/jumbo v14, "Bad path coords for "
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
+    move-result-object v9
 
     move/from16 v0, v24
 
-    int-to-char v14, v0
+    int-to-char v13, v0
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v9
 
-    const-string/jumbo v14, " path segment"
+    const-string/jumbo v13, " path segment"
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v9
 
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v9
 
-    invoke-static {v9, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v13, "SVGParser"
+
+    invoke-static {v13, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-object v2
 
@@ -6267,37 +6267,37 @@
     goto/16 :goto_2
 
     :cond_b
-    const-string/jumbo v9, "SVGParser"
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    new-instance v13, Ljava/lang/StringBuilder;
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v13, "Bad path coords for "
 
-    const-string/jumbo v14, "Bad path coords for "
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
+    move-result-object v9
 
     move/from16 v0, v24
 
-    int-to-char v14, v0
+    int-to-char v13, v0
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v9
 
-    const-string/jumbo v14, " path segment"
+    const-string/jumbo v13, " path segment"
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v9
 
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v9
 
-    invoke-static {v9, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v13, "SVGParser"
+
+    invoke-static {v13, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-object v2
 
@@ -6354,37 +6354,37 @@
     goto/16 :goto_2
 
     :cond_d
-    const-string/jumbo v9, "SVGParser"
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    new-instance v13, Ljava/lang/StringBuilder;
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v13, "Bad path coords for "
 
-    const-string/jumbo v14, "Bad path coords for "
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
+    move-result-object v9
 
     move/from16 v0, v24
 
-    int-to-char v14, v0
+    int-to-char v13, v0
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v9
 
-    const-string/jumbo v14, " path segment"
+    const-string/jumbo v13, " path segment"
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v9
 
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v9
 
-    invoke-static {v9, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v13, "SVGParser"
+
+    invoke-static {v13, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-object v2
 
@@ -6422,37 +6422,37 @@
     goto/16 :goto_2
 
     :cond_f
-    const-string/jumbo v9, "SVGParser"
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    new-instance v13, Ljava/lang/StringBuilder;
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v13, "Bad path coords for "
 
-    const-string/jumbo v14, "Bad path coords for "
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
+    move-result-object v9
 
     move/from16 v0, v24
 
-    int-to-char v14, v0
+    int-to-char v13, v0
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v9
 
-    const-string/jumbo v14, " path segment"
+    const-string/jumbo v13, " path segment"
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v9
 
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v9
 
-    invoke-static {v9, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v13, "SVGParser"
+
+    invoke-static {v13, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-object v2
 
@@ -6510,37 +6510,37 @@
     goto/16 :goto_2
 
     :cond_11
-    const-string/jumbo v9, "SVGParser"
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    new-instance v13, Ljava/lang/StringBuilder;
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v13, "Bad path coords for "
 
-    const-string/jumbo v14, "Bad path coords for "
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
+    move-result-object v9
 
     move/from16 v0, v24
 
-    int-to-char v14, v0
+    int-to-char v13, v0
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v9
 
-    const-string/jumbo v14, " path segment"
+    const-string/jumbo v13, " path segment"
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v9
 
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v9
 
-    invoke-static {v9, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v13, "SVGParser"
+
+    invoke-static {v13, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-object v2
 
@@ -6604,37 +6604,37 @@
     goto/16 :goto_2
 
     :cond_13
-    const-string/jumbo v9, "SVGParser"
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    new-instance v13, Ljava/lang/StringBuilder;
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v13, "Bad path coords for "
 
-    const-string/jumbo v14, "Bad path coords for "
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
+    move-result-object v9
 
     move/from16 v0, v24
 
-    int-to-char v14, v0
+    int-to-char v13, v0
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v9
 
-    const-string/jumbo v14, " path segment"
+    const-string/jumbo v13, " path segment"
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v9
 
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v9
 
-    invoke-static {v9, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v13, "SVGParser"
+
+    invoke-static {v13, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-object v2
 
@@ -6700,37 +6700,37 @@
     if-eqz v9, :cond_17
 
     :cond_15
-    const-string/jumbo v9, "SVGParser"
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    new-instance v13, Ljava/lang/StringBuilder;
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v13, "Bad path coords for "
 
-    const-string/jumbo v14, "Bad path coords for "
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
+    move-result-object v9
 
     move/from16 v0, v24
 
-    int-to-char v14, v0
+    int-to-char v13, v0
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v9
 
-    const-string/jumbo v14, " path segment"
+    const-string/jumbo v13, " path segment"
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v9
 
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v9
 
-    invoke-static {v9, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v13, "SVGParser"
+
+    invoke-static {v13, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-object v2
 
@@ -8095,23 +8095,23 @@
 
     aput v11, v19, v20
 
-    const/16 v20, 0x6
+    const/16 v20, 0x0
 
-    const/16 v21, 0x0
+    const/16 v21, 0x6
 
-    aput v21, v19, v20
+    aput v20, v19, v21
 
-    const/16 v20, 0x7
+    const/16 v20, 0x0
 
-    const/16 v21, 0x0
+    const/16 v21, 0x7
 
-    aput v21, v19, v20
+    aput v20, v19, v21
 
-    const/16 v20, 0x8
+    const/high16 v20, 0x3f800000    # 1.0f
 
-    const/high16 v21, 0x3f800000    # 1.0f
+    const/16 v21, 0x8
 
-    aput v21, v19, v20
+    aput v20, v19, v21
 
     move-object/from16 v0, v19
 
@@ -8532,8 +8532,6 @@
 
     if-eqz v19, :cond_17
 
-    const/16 v19, 0x0
-
     float-to-double v0, v3
 
     move-wide/from16 v20, v0
@@ -8550,11 +8548,13 @@
 
     double-to-float v0, v0
 
-    move/from16 v20, v0
+    move/from16 v19, v0
 
-    move/from16 v0, v19
+    const/16 v20, 0x0
 
-    move/from16 v1, v20
+    move/from16 v0, v20
+
+    move/from16 v1, v19
 
     invoke-virtual {v13, v0, v1}, Landroid/graphics/Matrix;->preSkew(FF)Z
 
@@ -8766,13 +8766,13 @@
         }
     .end annotation
 
-    const-string/jumbo v1, "<path>"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<path>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -8824,13 +8824,13 @@
         }
     .end annotation
 
-    const-string/jumbo v1, "<pattern>"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<pattern>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -8884,13 +8884,13 @@
         }
     .end annotation
 
-    const-string/jumbo v1, "<polygon>"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<polygon>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -8944,13 +8944,13 @@
         }
     .end annotation
 
-    const-string/jumbo v1, "<polyline>"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<polyline>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -9554,29 +9554,29 @@
     throw v0
 
     :cond_4
-    const-string/jumbo v1, "|inline|block|list-item|run-in|compact|marker|table|inline-table|table-row-group|table-header-group|table-footer-group|table-row|table-column-group|table-column|table-cell|table-caption|none|"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, "|inline|block|list-item|run-in|compact|marker|table|inline-table|table-row-group|table-header-group|table-footer-group|table-row|table-column-group|table-column|table-cell|table-caption|none|"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+    invoke-virtual {v2, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
     move-result v1
 
@@ -9645,29 +9645,29 @@
     throw v0
 
     :cond_7
-    const-string/jumbo v0, "|visible|hidden|collapse|"
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    const-string/jumbo v1, "|visible|hidden|collapse|"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+    invoke-virtual {v1, v0}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
     move-result v0
 
@@ -10000,13 +10000,13 @@
         }
     .end annotation
 
-    const-string/jumbo v1, "<radialGradient>"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<radialGradient>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -10058,13 +10058,13 @@
         }
     .end annotation
 
-    const-string/jumbo v1, "<rect>"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<rect>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -10116,13 +10116,13 @@
         }
     .end annotation
 
-    const-string/jumbo v1, "<solidColor>"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<solidColor>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -10170,13 +10170,13 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    const-string/jumbo v1, "<stop>"
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<stop>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -10243,13 +10243,13 @@
 
     const/4 v6, 0x1
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    const-string/jumbo v4, "<style>"
+    new-array v4, v4, [Ljava/lang/Object;
 
-    new-array v5, v5, [Ljava/lang/Object;
+    const-string/jumbo v5, "<style>"
 
-    invoke-direct {p0, v4, v5}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v5, v4}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v4, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -10361,13 +10361,13 @@
         }
     .end annotation
 
-    const-string/jumbo v1, "<svg>"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<svg>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     new-instance v0, Lcom/caverock/androidsvg/SVG$Svg;
 
@@ -10420,13 +10420,13 @@
         }
     .end annotation
 
-    const-string/jumbo v1, "<symbol>"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<symbol>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -10478,13 +10478,13 @@
         }
     .end annotation
 
-    const-string/jumbo v1, "<text>"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<text>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -10538,13 +10538,13 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    const-string/jumbo v1, "<textPath>"
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<textPath>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -10622,13 +10622,13 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    const-string/jumbo v1, "<tref>"
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<tref>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -10719,13 +10719,13 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    const-string/jumbo v1, "<tspan>"
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<tspan>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -10818,13 +10818,13 @@
         }
     .end annotation
 
-    const-string/jumbo v1, "<use>"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<use>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -10878,13 +10878,13 @@
         }
     .end annotation
 
-    const-string/jumbo v1, "<view>"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<view>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -10934,13 +10934,13 @@
         }
     .end annotation
 
-    const-string/jumbo v1, "<switch>"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "<switch>"
 
-    invoke-direct {p0, v1, v2}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, v2, v1}, Lcom/caverock/androidsvg/SVGParser;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/caverock/androidsvg/SVGParser;->currentElement:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
@@ -11384,7 +11384,7 @@
 .end method
 
 .method protected parse(Ljava/io/InputStream;)Lcom/caverock/androidsvg/SVG;
-    .locals 11
+    .locals 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/caverock/androidsvg/SVGParseException;
@@ -11393,61 +11393,61 @@
 
     invoke-virtual {p1}, Ljava/io/InputStream;->markSupported()Z
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_0
+    if-eqz v9, :cond_0
 
     :goto_0
-    const/4 v8, 0x3
+    const/4 v9, 0x3
 
     :try_start_0
-    invoke-virtual {p1, v8}, Ljava/io/InputStream;->mark(I)V
-
-    invoke-virtual {p1}, Ljava/io/InputStream;->read()I
-
-    move-result v8
+    invoke-virtual {p1, v9}, Ljava/io/InputStream;->mark(I)V
 
     invoke-virtual {p1}, Ljava/io/InputStream;->read()I
 
     move-result v9
 
-    shl-int/lit8 v9, v9, 0x8
+    invoke-virtual {p1}, Ljava/io/InputStream;->read()I
 
-    add-int v3, v8, v9
+    move-result v10
+
+    shl-int/lit8 v10, v10, 0x8
+
+    add-int v4, v9, v10
 
     invoke-virtual {p1}, Ljava/io/InputStream;->reset()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_5
 
-    const v8, 0x8b1f
+    const v9, 0x8b1f
 
-    if-eq v3, v8, :cond_1
+    if-eq v4, v9, :cond_1
 
     :goto_1
     invoke-static {}, Ljavax/xml/parsers/SAXParserFactory;->newInstance()Ljavax/xml/parsers/SAXParserFactory;
 
-    move-result-object v6
-
-    :try_start_1
-    invoke-virtual {v6}, Ljavax/xml/parsers/SAXParserFactory;->newSAXParser()Ljavax/xml/parsers/SAXParser;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljavax/xml/parsers/SAXParser;->getXMLReader()Lorg/xml/sax/XMLReader;
-
     move-result-object v7
 
-    invoke-interface {v7, p0}, Lorg/xml/sax/XMLReader;->setContentHandler(Lorg/xml/sax/ContentHandler;)V
+    :try_start_1
+    invoke-virtual {v7}, Ljavax/xml/parsers/SAXParserFactory;->newSAXParser()Ljavax/xml/parsers/SAXParser;
 
-    const-string/jumbo v8, "http://xml.org/sax/properties/lexical-handler"
+    move-result-object v6
 
-    invoke-interface {v7, v8, p0}, Lorg/xml/sax/XMLReader;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {v6}, Ljavax/xml/parsers/SAXParser;->getXMLReader()Lorg/xml/sax/XMLReader;
 
-    new-instance v8, Lorg/xml/sax/InputSource;
+    move-result-object v8
 
-    invoke-direct {v8, p1}, Lorg/xml/sax/InputSource;-><init>(Ljava/io/InputStream;)V
+    invoke-interface {v8, p0}, Lorg/xml/sax/XMLReader;->setContentHandler(Lorg/xml/sax/ContentHandler;)V
 
-    invoke-interface {v7, v8}, Lorg/xml/sax/XMLReader;->parse(Lorg/xml/sax/InputSource;)V
+    const-string/jumbo v9, "http://xml.org/sax/properties/lexical-handler"
+
+    invoke-interface {v8, v9, p0}, Lorg/xml/sax/XMLReader;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+
+    new-instance v9, Lorg/xml/sax/InputSource;
+
+    invoke-direct {v9, p1}, Lorg/xml/sax/InputSource;-><init>(Ljava/io/InputStream;)V
+
+    invoke-interface {v8, v9}, Lorg/xml/sax/XMLReader;->parse(Lorg/xml/sax/InputSource;)V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
     .catch Ljavax/xml/parsers/ParserConfigurationException; {:try_start_1 .. :try_end_1} :catch_2
@@ -11460,58 +11460,58 @@
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
     :goto_2
-    iget-object v8, p0, Lcom/caverock/androidsvg/SVGParser;->svgDocument:Lcom/caverock/androidsvg/SVG;
+    iget-object v9, p0, Lcom/caverock/androidsvg/SVGParser;->svgDocument:Lcom/caverock/androidsvg/SVG;
 
-    return-object v8
+    return-object v9
 
     :cond_0
-    new-instance v4, Ljava/io/BufferedInputStream;
+    new-instance v5, Ljava/io/BufferedInputStream;
 
-    invoke-direct {v4, p1}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;)V
+    invoke-direct {v5, p1}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;)V
 
-    move-object p1, v4
+    move-object p1, v5
 
     goto :goto_0
 
     :cond_1
     :try_start_3
-    new-instance v4, Ljava/util/zip/GZIPInputStream;
+    new-instance v5, Ljava/util/zip/GZIPInputStream;
 
-    invoke-direct {v4, p1}, Ljava/util/zip/GZIPInputStream;-><init>(Ljava/io/InputStream;)V
+    invoke-direct {v5, p1}, Ljava/util/zip/GZIPInputStream;-><init>(Ljava/io/InputStream;)V
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_5
 
-    move-object p1, v4
+    move-object p1, v5
 
     goto :goto_1
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    const-string/jumbo v8, "SVGParser"
+    const-string/jumbo v9, "SVGParser"
 
-    const-string/jumbo v9, "Exception thrown closing input stream"
+    const-string/jumbo v10, "Exception thrown closing input stream"
 
-    invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v9, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_2
 
     :catch_1
-    move-exception v0
+    move-exception v1
 
     :try_start_4
-    new-instance v8, Lcom/caverock/androidsvg/SVGParseException;
+    new-instance v9, Lcom/caverock/androidsvg/SVGParseException;
 
-    const-string/jumbo v9, "File error"
+    const-string/jumbo v10, "File error"
 
-    invoke-direct {v8, v9, v0}, Lcom/caverock/androidsvg/SVGParseException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v9, v10, v1}, Lcom/caverock/androidsvg/SVGParseException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v8
+    throw v9
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     :catchall_0
-    move-exception v8
+    move-exception v0
 
     :try_start_5
     invoke-virtual {p1}, Ljava/io/InputStream;->close()V
@@ -11519,55 +11519,55 @@
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_4
 
     :goto_3
-    throw v8
+    throw v0
 
     :catch_2
-    move-exception v1
-
-    :try_start_6
-    new-instance v8, Lcom/caverock/androidsvg/SVGParseException;
-
-    const-string/jumbo v9, "XML Parser problem"
-
-    invoke-direct {v8, v9, v1}, Lcom/caverock/androidsvg/SVGParseException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    throw v8
-
-    :catch_3
     move-exception v2
 
-    new-instance v8, Lcom/caverock/androidsvg/SVGParseException;
+    :try_start_6
+    new-instance v9, Lcom/caverock/androidsvg/SVGParseException;
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    const-string/jumbo v10, "XML Parser problem"
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9, v10, v2}, Lcom/caverock/androidsvg/SVGParseException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    const-string/jumbo v10, "SVG parse error: "
+    throw v9
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :catch_3
+    move-exception v3
 
-    move-result-object v9
+    new-instance v9, Lcom/caverock/androidsvg/SVGParseException;
 
-    invoke-virtual {v2}, Lorg/xml/sax/SAXException;->getMessage()Ljava/lang/String;
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "SVG parse error: "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v10
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3}, Lorg/xml/sax/SAXException;->getMessage()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v11
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-direct {v8, v9, v2}, Lcom/caverock/androidsvg/SVGParseException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v8
+    move-result-object v10
+
+    invoke-direct {v9, v10, v3}, Lcom/caverock/androidsvg/SVGParseException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v9
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     :catch_4
-    move-exception v0
+    move-exception v1
 
     const-string/jumbo v9, "SVGParser"
 
@@ -11578,7 +11578,7 @@
     goto :goto_3
 
     :catch_5
-    move-exception v8
+    move-exception v9
 
     goto :goto_1
 .end method

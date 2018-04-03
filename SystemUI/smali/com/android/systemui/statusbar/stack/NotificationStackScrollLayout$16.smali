@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->onGroupExpansionChanged(Lcom/android/systemui/statusbar/ExpandableNotificationRow;Z)V
+    value = Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->setScrimController(Lcom/android/systemui/statusbar/phone/ScrimController;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;
 
-.field final synthetic val$changedRow:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;Lcom/android/systemui/statusbar/ExpandableNotificationRow;)V
+.method constructor <init>(Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout$16;->this$0:Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;
-
-    iput-object p2, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout$16;->val$changedRow:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -41,9 +37,9 @@
 .method public run()V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout$16;->val$changedRow:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout$16;->this$0:Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->onFinishedExpansionChange()V
+    invoke-static {v0}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->-wrap8(Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;)V
 
     return-void
 .end method

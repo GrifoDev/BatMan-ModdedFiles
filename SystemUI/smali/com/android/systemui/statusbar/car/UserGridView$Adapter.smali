@@ -52,7 +52,7 @@
 
     check-cast v1, Landroid/view/LayoutInflater;
 
-    const v4, 0x7f040029
+    const v4, 0x7f0d002a
 
     invoke-virtual {v1, v4, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -63,7 +63,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f1300f9
+    const v4, 0x7f0a0552
 
     invoke-virtual {p2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -90,7 +90,7 @@
     invoke-virtual {p2, v4}, Landroid/view/View;->setActivated(Z)V
 
     :goto_0
-    const v4, 0x7f1300f8
+    const v4, 0x7f0a0550
 
     invoke-virtual {p2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

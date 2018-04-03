@@ -1,11 +1,11 @@
 .class Lcom/android/keyguard/KeyguardRMMView$2;
-.super Landroid/os/Handler;
+.super Landroid/os/IRemoteCallback$Stub;
 .source "KeyguardRMMView.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/keyguard/KeyguardRMMView;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/keyguard/KeyguardRMMView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,45 +19,63 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/KeyguardRMMView;Landroid/os/Looper;Landroid/os/Handler$Callback;Z)V
+.method constructor <init>(Lcom/android/keyguard/KeyguardRMMView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardRMMView$2;->this$0:Lcom/android/keyguard/KeyguardRMMView;
 
-    invoke-direct {p0, p2, p3, p4}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;Z)V
+    invoke-direct {p0}, Landroid/os/IRemoteCallback$Stub;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public handleMessage(Landroid/os/Message;)V
-    .locals 2
+.method public sendResult(Landroid/os/Bundle;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 
-    iget v0, p1, Landroid/os/Message;->what:I
+    const/4 v4, 0x2
 
-    packed-switch v0, :pswitch_data_0
+    const-string/jumbo v2, "result"
 
-    :goto_0
+    invoke-virtual {p1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+
+    move-result v1
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView$2;->this$0:Lcom/android/keyguard/KeyguardRMMView;
+
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardRMMView;->-get1(Lcom/android/keyguard/KeyguardRMMView;)Landroid/os/Handler;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v4}, Landroid/os/Handler;->removeMessages(I)V
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView$2;->this$0:Lcom/android/keyguard/KeyguardRMMView;
+
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardRMMView;->-get1(Lcom/android/keyguard/KeyguardRMMView;)Landroid/os/Handler;
+
+    move-result-object v2
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v4, v3}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v0
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardRMMView$2;->this$0:Lcom/android/keyguard/KeyguardRMMView;
+
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardRMMView;->-get1(Lcom/android/keyguard/KeyguardRMMView;)Landroid/os/Handler;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+
     return-void
-
-    :pswitch_0
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardRMMView$2;->this$0:Lcom/android/keyguard/KeyguardRMMView;
-
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, Ljava/lang/Integer;
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    invoke-static {v1, v0}, Lcom/android/keyguard/KeyguardRMMView;->-wrap0(Lcom/android/keyguard/KeyguardRMMView;I)V
-
-    goto :goto_0
-
-    :pswitch_data_0
-    .packed-switch 0x2
-        :pswitch_0
-    .end packed-switch
 .end method

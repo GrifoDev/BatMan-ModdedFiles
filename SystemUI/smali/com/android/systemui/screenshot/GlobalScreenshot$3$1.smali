@@ -51,25 +51,49 @@
 
 # virtual methods
 .method public run()V
-    .locals 6
+    .locals 5
 
-    new-instance v5, Landroid/os/Bundle;
+    new-instance v0, Landroid/os/Bundle;
 
-    invoke-direct {v5}, Landroid/os/Bundle;-><init>()V
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    const-string/jumbo v0, "rect"
+    const-string/jumbo v1, "rect"
 
-    iget-object v1, p0, Lcom/android/systemui/screenshot/GlobalScreenshot$3$1;->val$rect:Landroid/graphics/Rect;
+    iget-object v2, p0, Lcom/android/systemui/screenshot/GlobalScreenshot$3$1;->val$rect:Landroid/graphics/Rect;
 
-    invoke-virtual {v5, v0, v1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/GlobalScreenshot$3$1;->this$1:Lcom/android/systemui/screenshot/GlobalScreenshot$3;
-
-    iget-object v0, v0, Lcom/android/systemui/screenshot/GlobalScreenshot$3;->this$0:Lcom/android/systemui/screenshot/GlobalScreenshot;
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
     iget-object v1, p0, Lcom/android/systemui/screenshot/GlobalScreenshot$3$1;->this$1:Lcom/android/systemui/screenshot/GlobalScreenshot$3;
 
     iget-object v1, v1, Lcom/android/systemui/screenshot/GlobalScreenshot$3;->this$0:Lcom/android/systemui/screenshot/GlobalScreenshot;
+
+    iget-object v2, p0, Lcom/android/systemui/screenshot/GlobalScreenshot$3$1;->this$1:Lcom/android/systemui/screenshot/GlobalScreenshot$3;
+
+    iget-object v2, v2, Lcom/android/systemui/screenshot/GlobalScreenshot$3;->this$0:Lcom/android/systemui/screenshot/GlobalScreenshot;
+
+    iget-object v3, p0, Lcom/android/systemui/screenshot/GlobalScreenshot$3$1;->this$1:Lcom/android/systemui/screenshot/GlobalScreenshot$3;
+
+    iget-object v3, v3, Lcom/android/systemui/screenshot/GlobalScreenshot$3;->this$0:Lcom/android/systemui/screenshot/GlobalScreenshot;
+
+    invoke-static {v3}, Lcom/android/systemui/screenshot/GlobalScreenshot;->-get4(Lcom/android/systemui/screenshot/GlobalScreenshot;)Landroid/content/Context;
+
+    move-result-object v3
+
+    const/4 v4, 0x2
+
+    invoke-static {v2, v3, v4}, Lcom/android/systemui/screenshot/GlobalScreenshot;->-wrap0(Lcom/android/systemui/screenshot/GlobalScreenshot;Landroid/content/Context;I)Lcom/android/systemui/screenshot/ScreenCaptureHelper;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/android/systemui/screenshot/GlobalScreenshot;->-set1(Lcom/android/systemui/screenshot/GlobalScreenshot;Lcom/android/systemui/screenshot/ScreenCaptureHelper;)Lcom/android/systemui/screenshot/ScreenCaptureHelper;
+
+    iget-object v1, p0, Lcom/android/systemui/screenshot/GlobalScreenshot$3$1;->this$1:Lcom/android/systemui/screenshot/GlobalScreenshot$3;
+
+    iget-object v1, v1, Lcom/android/systemui/screenshot/GlobalScreenshot$3;->this$0:Lcom/android/systemui/screenshot/GlobalScreenshot;
+
+    invoke-static {v1}, Lcom/android/systemui/screenshot/GlobalScreenshot;->-get5(Lcom/android/systemui/screenshot/GlobalScreenshot;)Lcom/android/systemui/screenshot/ScreenCaptureHelper;
+
+    move-result-object v1
 
     iget-object v2, p0, Lcom/android/systemui/screenshot/GlobalScreenshot$3$1;->this$1:Lcom/android/systemui/screenshot/GlobalScreenshot$3;
 
@@ -79,51 +103,19 @@
 
     move-result-object v2
 
-    const/4 v3, 0x2
+    iget-boolean v3, p0, Lcom/android/systemui/screenshot/GlobalScreenshot$3$1;->val$statusBarVisible:Z
 
-    invoke-static {v1, v2, v3}, Lcom/android/systemui/screenshot/GlobalScreenshot;->-wrap0(Lcom/android/systemui/screenshot/GlobalScreenshot;Landroid/content/Context;I)Lcom/android/systemui/screenshot/ScreenCaptureHelper;
+    iget-boolean v4, p0, Lcom/android/systemui/screenshot/GlobalScreenshot$3$1;->val$navBarVisible:Z
 
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/systemui/screenshot/GlobalScreenshot;->-set1(Lcom/android/systemui/screenshot/GlobalScreenshot;Lcom/android/systemui/screenshot/ScreenCaptureHelper;)Lcom/android/systemui/screenshot/ScreenCaptureHelper;
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/GlobalScreenshot$3$1;->this$1:Lcom/android/systemui/screenshot/GlobalScreenshot$3;
-
-    iget-object v0, v0, Lcom/android/systemui/screenshot/GlobalScreenshot$3;->this$0:Lcom/android/systemui/screenshot/GlobalScreenshot;
-
-    invoke-static {v0}, Lcom/android/systemui/screenshot/GlobalScreenshot;->-get6(Lcom/android/systemui/screenshot/GlobalScreenshot;)Lcom/android/systemui/screenshot/ScreenCaptureHelper;
-
-    move-result-object v0
+    invoke-virtual {v1, v2, v3, v4, v0}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->initiallize(Landroid/content/Context;ZZLandroid/os/Bundle;)V
 
     iget-object v1, p0, Lcom/android/systemui/screenshot/GlobalScreenshot$3$1;->this$1:Lcom/android/systemui/screenshot/GlobalScreenshot$3;
 
     iget-object v1, v1, Lcom/android/systemui/screenshot/GlobalScreenshot$3;->this$0:Lcom/android/systemui/screenshot/GlobalScreenshot;
 
-    invoke-static {v1}, Lcom/android/systemui/screenshot/GlobalScreenshot;->-get4(Lcom/android/systemui/screenshot/GlobalScreenshot;)Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/systemui/screenshot/GlobalScreenshot$3$1;->val$finisher:Ljava/lang/Runnable;
 
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/systemui/screenshot/GlobalScreenshot$3$1;->this$1:Lcom/android/systemui/screenshot/GlobalScreenshot$3;
-
-    iget-object v2, v2, Lcom/android/systemui/screenshot/GlobalScreenshot$3;->this$0:Lcom/android/systemui/screenshot/GlobalScreenshot;
-
-    invoke-static {v2}, Lcom/android/systemui/screenshot/GlobalScreenshot;->-get5(Lcom/android/systemui/screenshot/GlobalScreenshot;)Landroid/view/Display;
-
-    move-result-object v2
-
-    iget-boolean v3, p0, Lcom/android/systemui/screenshot/GlobalScreenshot$3$1;->val$statusBarVisible:Z
-
-    iget-boolean v4, p0, Lcom/android/systemui/screenshot/GlobalScreenshot$3$1;->val$navBarVisible:Z
-
-    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->initiallize(Landroid/content/Context;Landroid/view/Display;ZZLandroid/os/Bundle;)V
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/GlobalScreenshot$3$1;->this$1:Lcom/android/systemui/screenshot/GlobalScreenshot$3;
-
-    iget-object v0, v0, Lcom/android/systemui/screenshot/GlobalScreenshot$3;->this$0:Lcom/android/systemui/screenshot/GlobalScreenshot;
-
-    iget-object v1, p0, Lcom/android/systemui/screenshot/GlobalScreenshot$3$1;->val$finisher:Ljava/lang/Runnable;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/screenshot/GlobalScreenshot;->takeScreenshot(Ljava/lang/Runnable;)V
+    invoke-virtual {v1, v2}, Lcom/android/systemui/screenshot/GlobalScreenshot;->takeScreenshot(Ljava/lang/Runnable;)V
 
     return-void
 .end method

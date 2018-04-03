@@ -1,5 +1,5 @@
 .class public Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;
-.super Lcom/android/keyguard/KeyguardTextView;
+.super Lcom/android/systemui/widget/SystemUITextView;
 .source "KeyguardIndicationTextView.java"
 
 # interfaces
@@ -80,11 +80,21 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
     .locals 4
 
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/keyguard/KeyguardTextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/systemui/widget/SystemUITextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->mPlayingShortcutAffordance:Z
+
+    const-string/jumbo v0, "SEP"
+
+    sget-object v1, Lcom/android/systemui/Rune;->KEYWI_VALUE_SHORTCUT_STYLE:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/KeyguardAlphaAffordanceAnimation;
 
@@ -92,6 +102,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->mTextAnimtion:Lcom/android/systemui/statusbar/phone/KeyguardAlphaAffordanceAnimation;
 
+    :cond_0
     const-string/jumbo v0, "alpha"
 
     const/4 v1, 0x2
@@ -118,9 +129,15 @@
 
     invoke-virtual {v0, v1}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
-    return-void
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->mAppearAnimator:Landroid/animation/ObjectAnimator;
 
-    nop
+    new-instance v1, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView$1;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView$1;-><init>(Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;)V
+
+    invoke-virtual {v0, v1}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+
+    return-void
 
     :array_0
     .array-data 4
@@ -154,7 +171,59 @@
 
 
 # virtual methods
-.method public resetHideAnimaion()V
+.method public onFinishInflate()V
+    .locals 3
+
+    invoke-super {p0}, Lcom/android/systemui/widget/SystemUITextView;->onFinishInflate()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v1
+
+    iget v0, v1, Landroid/content/res/Configuration;->fontScale:F
+
+    iget v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->mOriginalFontSizeDp:F
+
+    div-float/2addr v1, v0
+
+    iput v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->mOriginalFontSizeDp:F
+
+    iget v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->mOriginalFontSizeDp:F
+
+    sget-object v2, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->mContext:Landroid/content/Context;
+
+    invoke-static {v2, v0}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->getFontScaleInKeyguardBoundary(Landroid/content/Context;F)F
+
+    move-result v2
+
+    mul-float/2addr v1, v2
+
+    sget-object v2, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object v2
+
+    iget v2, v2, Landroid/util/DisplayMetrics;->density:F
+
+    mul-float/2addr v1, v2
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p0, v2, v1}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->setTextSize(IF)V
+
+    return-void
+.end method
+
+.method public resetHideAnimation()V
     .locals 1
 
     const/4 v0, 0x0
@@ -171,18 +240,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     const v0, 0x3f4ccccd    # 0.8f
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->setAlpha(F)V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public setAlpha(F)V
@@ -198,7 +265,7 @@
 
     move-result v0
 
-    invoke-super {p0, v0}, Lcom/android/keyguard/KeyguardTextView;->setAlpha(F)V
+    invoke-super {p0, v0}, Lcom/android/systemui/widget/SystemUITextView;->setAlpha(F)V
 
     :cond_0
     return-void
@@ -213,7 +280,7 @@
 
     move-result v0
 
-    invoke-super {p0, v0}, Lcom/android/keyguard/KeyguardTextView;->setAlpha(F)V
+    invoke-super {p0, v0}, Lcom/android/systemui/widget/SystemUITextView;->setAlpha(F)V
 
     return-void
 .end method
@@ -257,9 +324,9 @@
 
     const-wide/16 v4, 0x0
 
-    new-instance v6, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView$1;
+    new-instance v6, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView$2;
 
-    invoke-direct {v6, p0}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView$1;-><init>(Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;)V
+    invoke-direct {v6, p0}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView$2;-><init>(Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;)V
 
     const/4 v1, 0x0
 
@@ -329,6 +396,48 @@
     return-void
 .end method
 
+.method public switchIndication(I)V
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->switchIndication(Ljava/lang/CharSequence;)V
+
+    return-void
+.end method
+
+.method public switchIndication(Ljava/lang/CharSequence;)V
+    .locals 1
+
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x4
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->setVisibility(I)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->setVisibility(I)V
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_0
+.end method
+
 .method public switchIndication(Ljava/lang/CharSequence;Z)V
     .locals 2
 
@@ -350,11 +459,11 @@
     return-void
 
     :cond_0
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->mAppearAnimator:Landroid/animation/ObjectAnimator;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->getVisibility()I
 
@@ -364,10 +473,15 @@
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->mIsPlayingHideIconAnimaion:Z
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->mAppearAnimator:Landroid/animation/ObjectAnimator;
+
+    invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->start()V
 
     :cond_1
-    :goto_1
     invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->setText(Ljava/lang/CharSequence;)V
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->setVisibility(I)V
@@ -375,13 +489,6 @@
     goto :goto_0
 
     :cond_2
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->mAppearAnimator:Landroid/animation/ObjectAnimator;
-
-    invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->start()V
-
-    goto :goto_1
-
-    :cond_3
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->setVisibility(I)V
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->setText(Ljava/lang/CharSequence;)V

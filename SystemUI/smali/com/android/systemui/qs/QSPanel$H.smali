@@ -89,6 +89,23 @@
 
     const/4 v1, 0x3
 
+    if-ne v0, v1, :cond_4
+
+    iget-object v1, p0, Lcom/android/systemui/qs/QSPanel$H;->this$0:Lcom/android/systemui/qs/QSPanel;
+
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v0, Ljava/lang/CharSequence;
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/qs/QSPanel;->announceForAccessibility(Ljava/lang/CharSequence;)V
+
+    goto :goto_2
+
+    :cond_4
+    iget v0, p1, Landroid/os/Message;->what:I
+
+    const/4 v1, 0x4
+
     if-ne v0, v1, :cond_0
 
     iget-object v1, p0, Lcom/android/systemui/qs/QSPanel$H;->this$0:Lcom/android/systemui/qs/QSPanel;

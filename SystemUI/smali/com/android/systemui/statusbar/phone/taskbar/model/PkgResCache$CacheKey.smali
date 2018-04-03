@@ -40,12 +40,18 @@
 
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_0
 
     instance-of v2, p1, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$CacheKey;
 
+    xor-int/lit8 v2, v2, 0x1
+
     if-eqz v2, :cond_1
 
+    :cond_0
+    return v1
+
+    :cond_1
     move-object v0, p1
 
     check-cast v0, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$CacheKey;
@@ -58,7 +64,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$CacheKey;->user:Landroid/os/UserHandle;
 
@@ -68,10 +74,7 @@
 
     move-result v1
 
-    :cond_0
-    return v1
-
-    :cond_1
+    :cond_2
     return v1
 .end method
 

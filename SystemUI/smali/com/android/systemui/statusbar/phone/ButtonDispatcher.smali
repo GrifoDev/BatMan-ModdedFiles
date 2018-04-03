@@ -3,42 +3,26 @@
 .source "ButtonDispatcher.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/systemui/statusbar/phone/ButtonDispatcher$ButtonInterface;
-    }
-.end annotation
-
-
-# static fields
-.field public static mNavBarIconColor:I
-
-
 # instance fields
 .field private mAlpha:Ljava/lang/Integer;
-
-.field mAnimImageDrawable:Landroid/graphics/drawable/AnimationDrawable;
 
 .field private mClickListener:Landroid/view/View$OnClickListener;
 
 .field private mCurrentView:Landroid/view/View;
 
-.field private mIconColor:I
+.field private mDarkIntensity:Ljava/lang/Float;
 
 .field private final mId:I
 
-.field private mImageDrawable:Landroid/graphics/drawable/Drawable;
-
-.field private mImageResource:I
+.field private mImageDrawable:Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;
 
 .field private mLongClickListener:Landroid/view/View$OnLongClickListener;
 
 .field private mLongClickable:Ljava/lang/Boolean;
 
-.field private mRippleColor:I
-
 .field private mTouchListener:Landroid/view/View$OnTouchListener;
+
+.field private mVertical:Z
 
 .field private final mViews:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -56,11 +40,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 3
-
-    const/4 v2, 0x0
-
-    const/4 v1, -0x1
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -70,21 +50,15 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mViews:Ljava/util/ArrayList;
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/4 v0, -0x1
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mVisibility:Ljava/lang/Integer;
 
-    iput v1, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mImageResource:I
-
-    iput v2, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mIconColor:I
-
-    iput v2, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mRippleColor:I
-
     iput p1, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mId:I
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setNavBarIconColor()V
 
     return-void
 .end method
@@ -111,9 +85,9 @@
 
     move-result-object v2
 
-    check-cast v2, Lcom/android/systemui/statusbar/phone/ButtonDispatcher$ButtonInterface;
+    check-cast v2, Lcom/android/systemui/plugins/statusbar/phone/NavBarButtonProvider$ButtonInterface;
 
-    invoke-interface {v2}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher$ButtonInterface;->abortCurrentGesture()V
+    invoke-interface {v2}, Lcom/android/systemui/plugins/statusbar/phone/NavBarButtonProvider$ButtonInterface;->abortCurrentGesture()V
 
     add-int/lit8 v1, v1, 0x1
 
@@ -125,8 +99,6 @@
 
 .method public addView(Landroid/view/View;)V
     .locals 2
-
-    const/4 v1, 0x0
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mViews:Ljava/util/ArrayList;
 
@@ -172,9 +144,26 @@
     invoke-virtual {p1, v0}, Landroid/view/View;->setAlpha(F)V
 
     :cond_1
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mVisibility:Ljava/lang/Integer;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mDarkIntensity:Ljava/lang/Float;
 
     if-eqz v0, :cond_2
+
+    move-object v0, p1
+
+    check-cast v0, Lcom/android/systemui/plugins/statusbar/phone/NavBarButtonProvider$ButtonInterface;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mDarkIntensity:Ljava/lang/Float;
+
+    invoke-virtual {v1}, Ljava/lang/Float;->floatValue()F
+
+    move-result v1
+
+    invoke-interface {v0, v1}, Lcom/android/systemui/plugins/statusbar/phone/NavBarButtonProvider$ButtonInterface;->setDarkIntensity(F)V
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mVisibility:Ljava/lang/Integer;
+
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mVisibility:Ljava/lang/Integer;
 
@@ -184,165 +173,31 @@
 
     invoke-virtual {p1, v0}, Landroid/view/View;->setVisibility(I)V
 
-    :cond_2
-    iget v0, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mImageResource:I
-
-    if-lez v0, :cond_6
-
-    check-cast p1, Lcom/android/systemui/statusbar/phone/ButtonDispatcher$ButtonInterface;
-
-    iget v0, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mImageResource:I
-
-    invoke-interface {p1, v0}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher$ButtonInterface;->setImageResource(I)V
-
     :cond_3
-    :goto_0
-    iget v0, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mIconColor:I
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mImageDrawable:Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;
 
     if-eqz v0, :cond_4
 
-    iget v0, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mIconColor:I
+    move-object v0, p1
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->applyIconTint(IZ)V
+    check-cast v0, Lcom/android/systemui/plugins/statusbar/phone/NavBarButtonProvider$ButtonInterface;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mImageDrawable:Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;
+
+    invoke-interface {v0, v1}, Lcom/android/systemui/plugins/statusbar/phone/NavBarButtonProvider$ButtonInterface;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     :cond_4
-    iget v0, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mRippleColor:I
+    instance-of v0, p1, Lcom/android/systemui/plugins/statusbar/phone/NavBarButtonProvider$ButtonInterface;
 
     if-eqz v0, :cond_5
 
-    iget v0, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mRippleColor:I
+    check-cast p1, Lcom/android/systemui/plugins/statusbar/phone/NavBarButtonProvider$ButtonInterface;
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->applyIconRipple(I)V
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mVertical:Z
+
+    invoke-interface {p1, v0}, Lcom/android/systemui/plugins/statusbar/phone/NavBarButtonProvider$ButtonInterface;->setVertical(Z)V
 
     :cond_5
-    return-void
-
-    :cond_6
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mImageDrawable:Landroid/graphics/drawable/Drawable;
-
-    if-eqz v0, :cond_3
-
-    check-cast p1, Lcom/android/systemui/statusbar/phone/ButtonDispatcher$ButtonInterface;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mImageDrawable:Landroid/graphics/drawable/Drawable;
-
-    invoke-interface {p1, v0}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher$ButtonInterface;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    goto :goto_0
-.end method
-
-.method addView(Landroid/view/View;Z)V
-    .locals 1
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->addView(Landroid/view/View;)V
-
-    instance-of v0, p1, Lcom/android/systemui/statusbar/phone/ButtonDispatcher$ButtonInterface;
-
-    if-eqz v0, :cond_0
-
-    check-cast p1, Lcom/android/systemui/statusbar/phone/ButtonDispatcher$ButtonInterface;
-
-    invoke-interface {p1, p2}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher$ButtonInterface;->setLandscape(Z)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public applyIconRipple(I)V
-    .locals 4
-
-    sget-boolean v3, Lcom/android/systemui/SystemUIRune;->SUPPORT_LIGHT_NAVIGATIONBAR:Z
-
-    if-eqz v3, :cond_0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mRippleColor:I
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mViews:Ljava/util/ArrayList;
-
-    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    :goto_0
-    if-ge v1, v0, :cond_0
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mViews:Ljava/util/ArrayList;
-
-    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/systemui/statusbar/policy/KeyButtonView;
-
-    invoke-virtual {v2, p1}, Lcom/android/systemui/statusbar/policy/KeyButtonView;->setRippleColor(I)V
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method public applyIconTint(IZ)V
-    .locals 5
-
-    const/4 v2, 0x0
-
-    sget-boolean v4, Lcom/android/systemui/SystemUIRune;->SUPPORT_LIGHT_NAVIGATIONBAR:Z
-
-    if-eqz v4, :cond_2
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mViews:Ljava/util/ArrayList;
-
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
-
-    move-result v0
-
-    if-eqz p2, :cond_0
-
-    :goto_0
-    if-eqz v2, :cond_1
-
-    :goto_1
-    iput p1, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mIconColor:I
-
-    const/4 v1, 0x0
-
-    :goto_2
-    if-ge v1, v0, :cond_2
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mViews:Ljava/util/ArrayList;
-
-    invoke-virtual {v4, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/widget/ImageView;
-
-    invoke-virtual {v3, v2}, Landroid/widget/ImageView;->setImageTintList(Landroid/content/res/ColorStateList;)V
-
-    invoke-virtual {v3}, Landroid/widget/ImageView;->invalidate()V
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_2
-
-    :cond_0
-    invoke-static {p1}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
-
-    move-result-object v2
-
-    goto :goto_0
-
-    :cond_1
-    const/4 p1, 0x0
-
-    goto :goto_1
-
-    :cond_2
     return-void
 .end method
 
@@ -458,110 +313,48 @@
     return-void
 .end method
 
-.method public setAnimImageDrawable(Landroid/graphics/drawable/AnimationDrawable;I)V
-    .locals 5
+.method public setAnimationImageDrawable(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
+    .locals 4
 
-    const/4 v2, 0x1
+    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mImageDrawable:Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;
 
-    const/4 v3, 0x0
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mViews:Ljava/util/ArrayList;
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mAnimImageDrawable:Landroid/graphics/drawable/AnimationDrawable;
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
-    if-eq p2, v2, :cond_0
+    move-result v0
 
-    const/4 v1, 0x3
-
-    if-ne p2, v1, :cond_2
-
-    :cond_0
-    const/4 v0, 0x1
+    const/4 v1, 0x0
 
     :goto_0
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mViews:Ljava/util/ArrayList;
+    if-ge v1, v0, :cond_0
 
-    if-eqz v0, :cond_3
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mViews:Ljava/util/ArrayList;
 
-    move v1, v2
+    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    :goto_1
-    invoke-virtual {v4, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    check-cast v2, Lcom/android/systemui/plugins/statusbar/phone/NavBarButtonProvider$ButtonInterface;
 
-    check-cast v1, Lcom/android/systemui/statusbar/phone/ButtonDispatcher$ButtonInterface;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mImageDrawable:Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mAnimImageDrawable:Landroid/graphics/drawable/AnimationDrawable;
+    invoke-interface {v2, v3}, Lcom/android/systemui/plugins/statusbar/phone/NavBarButtonProvider$ButtonInterface;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    invoke-interface {v1, v4}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher$ButtonInterface;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mDarkIntensity:Ljava/lang/Float;
 
-    iget v1, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mImageResource:I
+    invoke-virtual {v2}, Ljava/lang/Float;->floatValue()F
 
-    if-lez v1, :cond_5
+    move-result v2
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mViews:Ljava/util/ArrayList;
+    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setDarkIntensity(F)V
 
-    if-eqz v0, :cond_4
-
-    :goto_2
-    invoke-virtual {v1, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/statusbar/phone/ButtonDispatcher$ButtonInterface;
-
-    iget v2, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mImageResource:I
-
-    invoke-interface {v1, v2}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher$ButtonInterface;->setImageResource(I)V
-
-    :cond_1
-    :goto_3
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mAnimImageDrawable:Landroid/graphics/drawable/AnimationDrawable;
-
-    invoke-virtual {v1}, Landroid/graphics/drawable/AnimationDrawable;->start()V
-
-    return-void
-
-    :cond_2
-    const/4 v0, 0x0
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    :cond_3
-    move v1, v3
-
-    goto :goto_1
-
-    :cond_4
-    move v3, v2
-
-    goto :goto_2
-
-    :cond_5
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mImageDrawable:Landroid/graphics/drawable/Drawable;
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mViews:Ljava/util/ArrayList;
-
-    if-eqz v0, :cond_6
-
-    :goto_4
-    invoke-virtual {v1, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/statusbar/phone/ButtonDispatcher$ButtonInterface;
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mImageDrawable:Landroid/graphics/drawable/Drawable;
-
-    invoke-interface {v1, v2}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher$ButtonInterface;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    goto :goto_3
-
-    :cond_6
-    move v3, v2
-
-    goto :goto_4
+    :cond_0
+    return-void
 .end method
 
 .method public setCarMode(Z)V
@@ -586,13 +379,13 @@
 
     check-cast v2, Landroid/view/View;
 
-    instance-of v3, v2, Lcom/android/systemui/statusbar/phone/ButtonDispatcher$ButtonInterface;
+    instance-of v3, v2, Lcom/android/systemui/plugins/statusbar/phone/NavBarButtonProvider$ButtonInterface;
 
     if-eqz v3, :cond_0
 
-    check-cast v2, Lcom/android/systemui/statusbar/phone/ButtonDispatcher$ButtonInterface;
+    check-cast v2, Lcom/android/systemui/plugins/statusbar/phone/NavBarButtonProvider$ButtonInterface;
 
-    invoke-interface {v2, p1}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher$ButtonInterface;->setCarMode(Z)V
+    invoke-interface {v2, p1}, Lcom/android/systemui/plugins/statusbar/phone/NavBarButtonProvider$ButtonInterface;->setCarMode(Z)V
 
     :cond_0
     add-int/lit8 v1, v1, 0x1
@@ -617,14 +410,14 @@
     return-void
 .end method
 
-.method public setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 6
+.method public setDarkIntensity(F)V
+    .locals 3
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mImageDrawable:Landroid/graphics/drawable/Drawable;
+    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    const/4 v2, -0x1
+    move-result-object v2
 
-    iput v2, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mImageResource:I
+    iput-object v2, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mDarkIntensity:Ljava/lang/Float;
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mViews:Ljava/util/ArrayList;
 
@@ -635,7 +428,7 @@
     const/4 v1, 0x0
 
     :goto_0
-    if-ge v1, v0, :cond_1
+    if-ge v1, v0, :cond_0
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mViews:Ljava/util/ArrayList;
 
@@ -643,34 +436,51 @@
 
     move-result-object v2
 
-    check-cast v2, Lcom/android/systemui/statusbar/phone/ButtonDispatcher$ButtonInterface;
+    check-cast v2, Lcom/android/systemui/plugins/statusbar/phone/NavBarButtonProvider$ButtonInterface;
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mImageDrawable:Landroid/graphics/drawable/Drawable;
-
-    const-string v4, "unlock_navbar_colors"
-
-    const/4 v5, 0x0
-
-    invoke-static {v4, v5}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    sget-object v4, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
-
-    sget v5, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mNavBarIconColor:I
-
-    invoke-virtual {v3, v5, v4}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
-
-    :cond_0
-    invoke-interface {v2, v3}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher$ButtonInterface;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-interface {v2, p1}, Lcom/android/systemui/plugins/statusbar/phone/NavBarButtonProvider$ButtonInterface;->setDarkIntensity(F)V
 
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    :cond_1
+    :cond_0
+    return-void
+.end method
+
+.method public setImageDrawable(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
+    .locals 4
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mImageDrawable:Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mViews:Ljava/util/ArrayList;
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    :goto_0
+    if-ge v1, v0, :cond_0
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mViews:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/plugins/statusbar/phone/NavBarButtonProvider$ButtonInterface;
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mImageDrawable:Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;
+
+    invoke-interface {v2, v3}, Lcom/android/systemui/plugins/statusbar/phone/NavBarButtonProvider$ButtonInterface;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
     return-void
 .end method
 
@@ -715,22 +525,6 @@
     goto :goto_0
 
     :cond_0
-    return-void
-.end method
-
-.method public setNavBarIconColor()V
-    .locals 2
-
-    const-string v0, "navbar_icon_color"
-
-    const v1, -0x50506
-
-    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
-
-    move-result v1
-
-    sput v1, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mNavBarIconColor:I
-
     return-void
 .end method
 
@@ -842,20 +636,76 @@
     return-void
 .end method
 
-.method public setPaddingRelative(IIII)V
-    .locals 1
+.method public setPadding(IIII)V
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mCurrentView:Landroid/view/View;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mViews:Ljava/util/ArrayList;
 
-    if-nez v0, :cond_0
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
-    return-void
+    move-result v0
+
+    const/4 v1, 0x0
+
+    :goto_0
+    if-ge v1, v0, :cond_0
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mViews:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/view/View;
+
+    invoke-virtual {v2, p1, p2, p3, p4}, Landroid/view/View;->setPadding(IIII)V
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mCurrentView:Landroid/view/View;
+    return-void
+.end method
 
-    invoke-virtual {v0, p1, p2, p3, p4}, Landroid/view/View;->setPaddingRelative(IIII)V
+.method public setVertical(Z)V
+    .locals 4
 
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mVertical:Z
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mViews:Ljava/util/ArrayList;
+
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    :goto_0
+    if-ge v1, v0, :cond_1
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->mViews:Ljava/util/ArrayList;
+
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/view/View;
+
+    instance-of v3, v2, Lcom/android/systemui/plugins/statusbar/phone/NavBarButtonProvider$ButtonInterface;
+
+    if-eqz v3, :cond_0
+
+    check-cast v2, Lcom/android/systemui/plugins/statusbar/phone/NavBarButtonProvider$ButtonInterface;
+
+    invoke-interface {v2, p1}, Lcom/android/systemui/plugins/statusbar/phone/NavBarButtonProvider$ButtonInterface;->setVertical(Z)V
+
+    :cond_0
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
     return-void
 .end method
 

@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/power/PowerNotificationWarnings;->showIncompatibleChargerPopUpAndNotification()V
+    value = Lcom/android/systemui/power/PowerNotificationWarnings;->showPowerSupplyingInLowBatteryPopUp(I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -41,26 +41,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set13(Lcom/android/systemui/power/PowerNotificationWarnings;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
-
-    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$22;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
-
-    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-get7(Lcom/android/systemui/power/PowerNotificationWarnings;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$22;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
-
-    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->-wrap7(Lcom/android/systemui/power/PowerNotificationWarnings;)V
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$22;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set4(Lcom/android/systemui/power/PowerNotificationWarnings;Z)Z
+    invoke-static {v0, v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->-set6(Lcom/android/systemui/power/PowerNotificationWarnings;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
 
     return-void
 .end method

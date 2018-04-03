@@ -15,9 +15,6 @@
 
 
 # virtual methods
-.method public abstract bindAppsLoaded()V
-.end method
-
 .method public abstract bindBadgeUpdated(Ljava/util/Map;)V
     .annotation system Ldalvik/annotation/Signature;
         value = {

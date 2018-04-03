@@ -34,8 +34,6 @@
 
 .field private final mLauncherApps:Landroid/content/pm/LauncherApps;
 
-.field private mMenuIconSize:I
-
 .field private final mPkgCache:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -149,7 +147,7 @@
 
     move-result-object v5
 
-    const v7, 0x7f0d05da
+    const v7, 0x7f070064
 
     invoke-virtual {v0, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -157,7 +155,7 @@
 
     iput v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->mAppIconSize:I
 
-    const v7, 0x7f0d05db
+    const v7, 0x7f070350
 
     invoke-virtual {v0, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -175,7 +173,7 @@
 
     move-result v4
 
-    const v7, 0x7f0d05de
+    const v7, 0x7f070347
 
     invoke-virtual {v0, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -202,7 +200,7 @@
 
     iput-object v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->mDefaultIcon:Landroid/graphics/Bitmap;
 
-    const v7, 0x10808fc
+    const v7, 0x1080993
 
     invoke-direct {p0, v5, v7}, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->createDefaultBitmap(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -270,11 +268,13 @@
 .end method
 
 .method private createDefaultBitmap(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
-    .locals 3
+    .locals 4
 
     iget v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->mIconDpi:I
 
-    invoke-virtual {p1, p2, v2}, Landroid/content/res/Resources;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
+    const/4 v3, 0x0
+
+    invoke-virtual {p1, p2, v2, v3}, Landroid/content/res/Resources;->getDrawableForDensity(IILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
@@ -561,7 +561,7 @@
 
     iget v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->mIconDpi:I
 
-    invoke-virtual {p2, v5}, Landroid/content/pm/LauncherActivityInfo;->getBadgedIconForIconTray(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p2, v5}, Landroid/content/pm/LauncherActivityInfo;->semGetBadgedIconForIconTray(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
 
@@ -877,137 +877,6 @@
     return-object v0
 .end method
 
-.method public loadBitmap(Landroid/content/res/Resources;ILjava/lang/String;)Landroid/graphics/Bitmap;
-    .locals 7
-
-    const/4 v3, 0x0
-
-    const/4 v2, 0x0
-
-    :try_start_0
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->mPkgMgr:Landroid/content/pm/PackageManager;
-
-    invoke-virtual {v4, p3}, Landroid/content/pm/PackageManager;->getCSCPackageItemIcon(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodError; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v2
-
-    :goto_0
-    if-eqz v2, :cond_0
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
-
-    invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->isMenuIconSizeChanged()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    iget v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->mMenuIconSize:I
-
-    if-nez v4, :cond_1
-
-    :cond_0
-    :try_start_1
-    iget v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->mIconDpi:I
-
-    invoke-virtual {p1, p2, v4}, Landroid/content/res/Resources;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
-    :try_end_1
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_1 .. :try_end_1} :catch_1
-
-    move-result-object v2
-
-    :cond_1
-    :goto_1
-    if-eqz v2, :cond_2
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
-
-    invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->isMenuIconSizeChanged()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
-    iget v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->mMenuIconSize:I
-
-    if-lez v4, :cond_3
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->mContext:Landroid/content/Context;
-
-    iget v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->mMenuIconSize:I
-
-    invoke-static {v2, v4, v5}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->createIconBitmap(Landroid/graphics/drawable/Drawable;Landroid/content/Context;I)Landroid/graphics/Bitmap;
-
-    move-result-object v3
-
-    :cond_2
-    :goto_2
-    return-object v3
-
-    :catch_0
-    move-exception v1
-
-    const-string/jumbo v4, "[DS]PkgResCache"
-
-    const-string/jumbo v5, "Cound not call getCSCPackageItemIcon. This should only happen when running on a device without CSC related features"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :catch_1
-    move-exception v0
-
-    sget-boolean v4, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->DEBUGGABLE:Z
-
-    if-eqz v4, :cond_1
-
-    const-string/jumbo v4, "[DS]PkgResCache"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "Failed to load icon from res.getDrawableForDensity : "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, " resId = "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
-
-    :cond_3
-    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->mContext:Landroid/content/Context;
-
-    invoke-static {v2, v4}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->createIconBitmap(Landroid/graphics/drawable/Drawable;Landroid/content/Context;)Landroid/graphics/Bitmap;
-
-    move-result-object v3
-
-    goto :goto_2
-.end method
-
 .method public refreshTitleAndIcon(Landroid/content/ComponentName;Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$TitleIconInfo;Landroid/os/UserHandle;)V
     .locals 7
 
@@ -1042,54 +911,4 @@
     invoke-direct/range {v0 .. v5}, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->loadTitleAndIcon(Landroid/content/ComponentName;Landroid/content/pm/LauncherActivityInfo;Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$TitleIconInfo;Landroid/os/UserHandle;I)V
 
     return-void
-.end method
-
-.method public declared-synchronized remove(Landroid/content/ComponentName;Landroid/os/UserHandle;)V
-    .locals 3
-
-    monitor-enter p0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->mPkgCache:Ljava/util/HashMap;
-
-    monitor-enter v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
-
-    :try_start_1
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->mPkgCache:Ljava/util/HashMap;
-
-    new-instance v2, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$CacheKey;
-
-    invoke-direct {v2, p1, p2}, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache$CacheKey;-><init>(Landroid/content/ComponentName;Landroid/os/UserHandle;)V
-
-    invoke-virtual {v0, v2}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    :try_start_2
-    monitor-exit v1
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
-
-    monitor-exit p0
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    :try_start_3
-    monitor-exit v1
-
-    throw v0
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
-
-    :catchall_1
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method

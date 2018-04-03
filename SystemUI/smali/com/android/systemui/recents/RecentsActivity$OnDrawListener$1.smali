@@ -41,7 +41,7 @@
 
     iget-object v0, v0, Lcom/android/systemui/recents/RecentsActivity$OnDrawListener;->this$0:Lcom/android/systemui/recents/RecentsActivity;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/RecentsActivity;->-get1(Lcom/android/systemui/recents/RecentsActivity;)Lcom/android/systemui/recents/views/RecentsView;
+    invoke-static {v0}, Lcom/android/systemui/recents/RecentsActivity;->-get4(Lcom/android/systemui/recents/RecentsActivity;)Lcom/android/systemui/recents/views/RecentsView;
 
     move-result-object v0
 
@@ -53,7 +53,7 @@
 
     iget-object v1, v1, Lcom/android/systemui/recents/RecentsActivity$OnDrawListener;->this$0:Lcom/android/systemui/recents/RecentsActivity;
 
-    invoke-static {v1}, Lcom/android/systemui/recents/RecentsActivity;->-get2(Lcom/android/systemui/recents/RecentsActivity;)Lcom/android/systemui/recents/RecentsActivity$OnDrawListener;
+    invoke-static {v1}, Lcom/android/systemui/recents/RecentsActivity;->-get5(Lcom/android/systemui/recents/RecentsActivity;)Lcom/android/systemui/recents/RecentsActivity$OnDrawListener;
 
     move-result-object v1
 

@@ -58,10 +58,6 @@
 
     invoke-virtual {v0}, Lcom/android/systemui/recents/model/RecentsTaskLoader;->clearLabelCache()V
 
-    sget-boolean v0, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableDesktopMode:Z
-
-    if-eqz v0, :cond_1
-
     iget-object v0, p0, Lcom/android/systemui/recents/RecentsImpl$2;->this$0:Lcom/android/systemui/recents/RecentsImpl;
 
     invoke-static {v0}, Lcom/android/systemui/recents/RecentsImpl;->-get1(Lcom/android/systemui/recents/RecentsImpl;)Lcom/android/systemui/recents/desktop/RecentsWindow;

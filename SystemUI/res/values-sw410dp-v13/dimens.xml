@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="qs_tile_text_size">13.5dip</dimen>
-    <dimen name="qs_detail_items_padding_top">16.0dip</dimen>
-    <dimen name="assist_disclosure_corner_radius">30.0dip</dimen>
-    <dimen name="assist_disclosure_corner_arc_padding">1.3999939dip</dimen>
-    <dimen name="recents_close_all_button_width">230.0dip</dimen>
-    <dimen name="bottom_bar_button_text_size">14.5dip</dimen>
-</resources>

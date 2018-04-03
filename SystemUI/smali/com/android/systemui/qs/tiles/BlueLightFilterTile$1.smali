@@ -32,111 +32,54 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .locals 7
+    .locals 5
 
-    const/4 v3, 0x1
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/BlueLightFilterTile$1;->this$0:Lcom/android/systemui/qs/tiles/BlueLightFilterTile;
 
-    const/4 v4, 0x0
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/BlueLightFilterTile$1;->this$0:Lcom/android/systemui/qs/tiles/BlueLightFilterTile;
-
-    invoke-static {v2}, Lcom/android/systemui/qs/tiles/BlueLightFilterTile;->-get4(Lcom/android/systemui/qs/tiles/BlueLightFilterTile;)Ljava/util/HashMap;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/BlueLightFilterTile;->-get2(Lcom/android/systemui/qs/tiles/BlueLightFilterTile;)Landroid/content/Context;
 
     move-result-object v1
 
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result v2
+    move-result-object v1
 
-    if-eqz v2, :cond_1
+    const-string/jumbo v2, "blue_light_filter_opacity"
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    const/4 v3, 0x5
 
-    move-result-object v0
+    const/4 v4, -0x2
 
-    check-cast v0, Ljava/lang/String;
+    invoke-static {v1, v2, v3, v4}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
-    invoke-static {}, Lcom/android/systemui/qs/tiles/BlueLightFilterTile;->-get0()Ljava/lang/String;
+    move-result v0
 
-    move-result-object v2
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/BlueLightFilterTile$1;->this$0:Lcom/android/systemui/qs/tiles/BlueLightFilterTile;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/BlueLightFilterTile;->-get3(Lcom/android/systemui/qs/tiles/BlueLightFilterTile;)Lcom/android/systemui/plugins/qs/DetailAdapter;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v1
 
-    const-string/jumbo v6, "Feature onChange "
+    if-eqz v1, :cond_0
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/BlueLightFilterTile$1;->this$0:Lcom/android/systemui/qs/tiles/BlueLightFilterTile;
 
-    move-result-object v5
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/BlueLightFilterTile;->-get4(Lcom/android/systemui/qs/tiles/BlueLightFilterTile;)Z
 
-    invoke-virtual {v0}, Ljava/lang/String;->toString()Ljava/lang/String;
+    move-result v1
 
-    move-result-object v6
+    if-eqz v1, :cond_0
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/BlueLightFilterTile$1;->this$0:Lcom/android/systemui/qs/tiles/BlueLightFilterTile;
 
-    move-result-object v5
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/BlueLightFilterTile;->-get3(Lcom/android/systemui/qs/tiles/BlueLightFilterTile;)Lcom/android/systemui/plugins/qs/DetailAdapter;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v5
+    check-cast v1, Lcom/android/systemui/qs/tiles/BlueLightFilterTile$BlueLightFilterDetailAdapter;
 
-    invoke-static {v2, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/BlueLightFilterTile$1;->this$0:Lcom/android/systemui/qs/tiles/BlueLightFilterTile;
-
-    invoke-static {v2}, Lcom/android/systemui/qs/tiles/BlueLightFilterTile;->-get4(Lcom/android/systemui/qs/tiles/BlueLightFilterTile;)Ljava/util/HashMap;
-
-    move-result-object v5
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/BlueLightFilterTile$1;->this$0:Lcom/android/systemui/qs/tiles/BlueLightFilterTile;
-
-    invoke-static {v2}, Lcom/android/systemui/qs/tiles/BlueLightFilterTile;->-get1(Lcom/android/systemui/qs/tiles/BlueLightFilterTile;)Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v2
-
-    const/4 v6, -0x2
-
-    invoke-static {v2, v0, v4, v6}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
-
-    move-result v2
-
-    if-ne v2, v3, :cond_0
-
-    move v2, v3
-
-    :goto_1
-    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v2
-
-    invoke-virtual {v5, v0, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/BlueLightFilterTile$1;->this$0:Lcom/android/systemui/qs/tiles/BlueLightFilterTile;
-
-    invoke-virtual {v2}, Lcom/android/systemui/qs/tiles/BlueLightFilterTile;->refreshState()V
-
-    goto :goto_0
+    invoke-virtual {v1, v0}, Lcom/android/systemui/qs/tiles/BlueLightFilterTile$BlueLightFilterDetailAdapter;->updateOpacity(I)V
 
     :cond_0
-    move v2, v4
-
-    goto :goto_1
-
-    :cond_1
     return-void
 .end method

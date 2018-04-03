@@ -15,9 +15,13 @@
 # instance fields
 .field private final mBarService:Lcom/android/internal/statusbar/IStatusBarService;
 
+.field private final mLightTransitionsController:Lcom/android/systemui/statusbar/phone/LightBarTransitionsController;
+
 .field private mLightsOut:Z
 
 .field private final mLightsOutListener:Landroid/view/View$OnTouchListener;
+
+.field private mNavBarRemoteViewManager:Lcom/android/systemui/statusbar/phone/NavBarRemoteViewManager;
 
 .field private final mView:Lcom/android/systemui/statusbar/phone/NavigationBarView;
 
@@ -42,7 +46,7 @@
 .method public constructor <init>(Lcom/android/systemui/statusbar/phone/NavigationBarView;)V
     .locals 3
 
-    const v2, 0x7f020379
+    const v2, 0x7f08046f
 
     invoke-direct {p0, p1, v2}, Lcom/android/systemui/statusbar/phone/BarTransitions;-><init>(Landroid/view/View;I)V
 
@@ -54,11 +58,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->mView:Lcom/android/systemui/statusbar/phone/NavigationBarView;
 
-    const/4 v0, -0x1
-
-    iput v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->mMode:I
-
-    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_CUSTOM_NAVIBAR_BGCOLOR:Z
+    sget-boolean v0, Lcom/android/systemui/Rune;->NAVBAR_SUPPORT_LIGHT_NAVIGATIONBAR:Z
 
     if-eqz v0, :cond_0
 
@@ -80,6 +80,10 @@
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->mMode:I
+
     :cond_0
     const-string/jumbo v0, "statusbar"
 
@@ -93,6 +97,37 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->mBarService:Lcom/android/internal/statusbar/IStatusBarService;
 
+    new-instance v0, Lcom/android/systemui/statusbar/phone/LightBarTransitionsController;
+
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/-$Lambda$RVH9-gN7oEoXjjZE5D2na5Svl4w;
+
+    invoke-direct {v2, p0}, Lcom/android/systemui/statusbar/phone/-$Lambda$RVH9-gN7oEoXjjZE5D2na5Svl4w;-><init>(Ljava/lang/Object;)V
+
+    invoke-direct {v0, v1, v2}, Lcom/android/systemui/statusbar/phone/LightBarTransitionsController;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/LightBarTransitionsController$DarkIntensityApplier;)V
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->mLightTransitionsController:Lcom/android/systemui/statusbar/phone/LightBarTransitionsController;
+
+    sget-boolean v0, Lcom/android/systemui/Rune;->NAVBAR_SUPPORT_REMOTEVIEW:Z
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->mView:Lcom/android/systemui/statusbar/phone/NavigationBarView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/NavBarRemoteViewManager;->getInstance(Landroid/content/Context;)Lcom/android/systemui/statusbar/phone/NavBarRemoteViewManager;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->mNavBarRemoteViewManager:Lcom/android/systemui/statusbar/phone/NavBarRemoteViewManager;
+
+    :cond_1
     return-void
 .end method
 
@@ -116,7 +151,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f1300fb
+    const v4, 0x7f0a036e
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -178,15 +213,25 @@
 .method private applyMode(IZZ)V
     .locals 1
 
-    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_CUSTOM_NAVIBAR_BGCOLOR:Z
-
-    if-nez v0, :cond_0
-
     invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->isLightsOut(I)Z
 
     move-result v0
 
     invoke-direct {p0, v0, p2, p3}, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->applyLightsOut(ZZZ)V
+
+    return-void
+.end method
+
+.method private applyRemoteViewDarkIntensity(F)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->mNavBarRemoteViewManager:Lcom/android/systemui/statusbar/phone/NavBarRemoteViewManager;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->mNavBarRemoteViewManager:Lcom/android/systemui/statusbar/phone/NavBarRemoteViewManager;
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/phone/NavBarRemoteViewManager;->applyDarkIntensity(F)V
 
     :cond_0
     return-void
@@ -194,6 +239,63 @@
 
 
 # virtual methods
+.method synthetic -com_android_systemui_statusbar_phone_NavigationBarTransitions-mthref-0(F)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->applyDarkIntensity(F)V
+
+    return-void
+.end method
+
+.method public applyDarkIntensity(F)V
+    .locals 3
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->mView:Lcom/android/systemui/statusbar/phone/NavigationBarView;
+
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->getButtonDispatchers()Landroid/util/SparseArray;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/util/SparseArray;->size()I
+
+    move-result v2
+
+    add-int/lit8 v1, v2, -0x1
+
+    :goto_0
+    if-ltz v1, :cond_0
+
+    invoke-virtual {v0, v1}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
+
+    invoke-virtual {v2, p1}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setDarkIntensity(F)V
+
+    add-int/lit8 v1, v1, -0x1
+
+    goto :goto_0
+
+    :cond_0
+    sget-boolean v2, Lcom/android/systemui/Rune;->NAVBAR_SUPPORT_REMOTEVIEW:Z
+
+    if-eqz v2, :cond_1
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->applyRemoteViewDarkIntensity(F)V
+
+    :cond_1
+    return-void
+.end method
+
+.method public getLightTransitionsController()Lcom/android/systemui/statusbar/phone/LightBarTransitionsController;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->mLightTransitionsController:Lcom/android/systemui/statusbar/phone/LightBarTransitionsController;
+
+    return-object v0
+.end method
+
 .method public getMode()I
     .locals 2
 
@@ -250,6 +352,48 @@
     return-void
 .end method
 
+.method public reapplyDarkIntensity()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->mLightTransitionsController:Lcom/android/systemui/statusbar/phone/LightBarTransitionsController;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/LightBarTransitionsController;->getCurrentDarkIntensity()F
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->applyDarkIntensity(F)V
+
+    return-void
+.end method
+
+.method public restoreState(Landroid/os/Bundle;)V
+    .locals 2
+
+    const-string/jumbo v0, "bar_mode"
+
+    const/4 v1, -0x1
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->mMode:I
+
+    return-void
+.end method
+
+.method public saveState(Landroid/os/Bundle;)V
+    .locals 2
+
+    const-string/jumbo v0, "bar_mode"
+
+    iget v1, p0, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->mMode:I
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+
+    return-void
+.end method
+
 .method public transitionTo(IZ)V
     .locals 2
 
@@ -259,18 +403,13 @@
 
     if-ne v0, v1, :cond_0
 
-    if-nez p1, :cond_0
+    const/4 v0, 0x4
+
+    if-eq p1, v0, :cond_0
 
     return-void
 
     :cond_0
-    const/4 v0, 0x6
-
-    if-ne p1, v0, :cond_1
-
-    const/4 p1, 0x3
-
-    :cond_1
     invoke-super {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/BarTransitions;->transitionTo(IZ)V
 
     return-void
@@ -279,28 +418,20 @@
 .method public updateModeBackgroundColor(II)V
     .locals 1
 
-    sparse-switch p1, :sswitch_data_0
+    packed-switch p1, :pswitch_data_0
 
     :goto_0
     return-void
 
-    :sswitch_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->mBarBackground:Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;
-
-    invoke-virtual {v0, p2}, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->updateDockedOpaqueColor(I)V
-
-    goto :goto_0
-
-    :sswitch_1
+    :pswitch_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->mBarBackground:Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;
 
     invoke-virtual {v0, p2}, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->updateOpaqueColor(I)V
 
     goto :goto_0
 
-    :sswitch_data_0
-    .sparse-switch
-        0x0 -> :sswitch_1
-        0x7 -> :sswitch_0
-    .end sparse-switch
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+    .end packed-switch
 .end method

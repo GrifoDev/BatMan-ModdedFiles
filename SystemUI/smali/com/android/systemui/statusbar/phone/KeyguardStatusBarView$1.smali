@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView$1;->this$0:Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->-wrap0(Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;)V
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->updateClockAnimator()V
 
     return-void
 .end method

@@ -603,19 +603,19 @@
 
     const/4 v5, 0x0
 
-    if-nez v6, :cond_7
+    if-nez v6, :cond_8
 
     invoke-virtual {p1}, Landroid/view/DragEvent;->getClipDescription()Landroid/content/ClipDescription;
 
     move-result-object v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_8
 
     invoke-virtual {v1}, Landroid/content/ClipDescription;->getLabel()Ljava/lang/CharSequence;
 
     move-result-object v10
 
-    if-eqz v10, :cond_7
+    if-eqz v10, :cond_8
 
     const/4 v10, 0x1
 
@@ -623,7 +623,7 @@
 
     const/4 v10, 0x3
 
-    if-ne v0, v10, :cond_7
+    if-ne v0, v10, :cond_8
 
     :cond_2
     invoke-virtual {v1}, Landroid/content/ClipDescription;->getLabel()Ljava/lang/CharSequence;
@@ -632,7 +632,7 @@
 
     check-cast v5, Ljava/lang/String;
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_8
 
     const-string/jumbo v10, "DragAndDropBinding"
 
@@ -640,13 +640,13 @@
 
     move-result v10
 
-    if-eqz v10, :cond_7
+    if-eqz v10, :cond_8
 
     const/4 v3, 0x0
 
     const/4 v10, 0x3
 
-    if-ne v0, v10, :cond_3
+    if-ne v0, v10, :cond_4
 
     :try_start_0
     invoke-virtual {p1}, Landroid/view/DragEvent;->getClipData()Landroid/content/ClipData;
@@ -663,8 +663,17 @@
 
     move-result-object v3
 
+    if-nez v3, :cond_3
+
+    const/4 v10, 0x1
+
+    invoke-static {v5, v10}, Landroid/content/Intent;->parseUri(Ljava/lang/String;I)Landroid/content/Intent;
+
+    move-result-object v3
+
+    :cond_3
     :goto_0
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_8
 
     const-string/jumbo v10, "itemType"
 
@@ -680,11 +689,11 @@
 
     const/16 v10, 0xa
 
-    if-ne v9, v10, :cond_5
+    if-ne v9, v10, :cond_6
 
     const/4 v10, 0x3
 
-    if-ne v0, v10, :cond_4
+    if-ne v0, v10, :cond_5
 
     iget-object v10, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/DispatchEventLayer;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
 
@@ -698,7 +707,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0f0a35
+    const v12, 0x7f120a1d
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -716,7 +725,7 @@
 
     return v10
 
-    :cond_3
+    :cond_4
     const/4 v10, 0x1
 
     invoke-static {v5, v10}, Landroid/content/Intent;->parseUri(Ljava/lang/String;I)Landroid/content/Intent;
@@ -725,19 +734,17 @@
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     const/4 v10, 0x1
 
     return v10
 
-    :cond_5
-    if-nez v9, :cond_b
-
-    if-eqz v3, :cond_b
+    :cond_6
+    if-nez v9, :cond_c
 
     const/4 v10, 0x1
 
-    if-ne v0, v10, :cond_9
+    if-ne v0, v10, :cond_a
 
     new-instance v7, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;
 
@@ -747,13 +754,13 @@
 
     move-object v6, v7
 
-    :cond_6
+    :cond_7
     :goto_1
-    if-eqz v6, :cond_a
+    if-eqz v6, :cond_b
 
     iget-object v10, v6, Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;->mItem:Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;
 
-    if-eqz v10, :cond_a
+    if-eqz v10, :cond_b
 
     sput-object v6, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->dragState:Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;
 
@@ -761,7 +768,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_7
+    if-eqz v10, :cond_8
 
     const-string/jumbo v10, "[DS]DispatchEventLayer"
 
@@ -793,15 +800,15 @@
     :try_end_0
     .catch Ljava/net/URISyntaxException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_7
+    :cond_8
     :goto_2
     const/4 v10, 0x1
 
-    if-ne v0, v10, :cond_c
+    if-ne v0, v10, :cond_d
 
     iput-object v6, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/DispatchEventLayer;->mDragLocalState:Ljava/lang/Object;
 
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_9
 
     const/4 v10, 0x0
 
@@ -809,9 +816,9 @@
 
     const/4 v8, 0x1
 
-    :cond_8
+    :cond_9
     :goto_3
-    if-eqz v8, :cond_11
+    if-eqz v8, :cond_12
 
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchDragEvent(Landroid/view/DragEvent;)Z
 
@@ -819,11 +826,11 @@
 
     return v10
 
-    :cond_9
+    :cond_a
     :try_start_1
     sget-object v10, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->dragState:Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;
 
-    if-eqz v10, :cond_6
+    if-eqz v10, :cond_7
 
     sget-object v10, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->dragState:Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;
 
@@ -831,7 +838,9 @@
 
     instance-of v10, v10, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutTaskbar;
 
-    if-nez v10, :cond_6
+    xor-int/lit8 v10, v10, 0x1
+
+    if-eqz v10, :cond_7
 
     sget-object v6, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->dragState:Lcom/android/systemui/statusbar/phone/taskbar/data/DragState;
 
@@ -848,20 +857,20 @@
 
     goto :goto_2
 
-    :cond_a
+    :cond_b
     const/4 v6, 0x0
 
     goto :goto_2
 
-    :cond_b
+    :cond_c
     const/4 v10, 0x0
 
     return v10
 
-    :cond_c
+    :cond_d
     iget-object v10, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/DispatchEventLayer;->mDragLocalState:Ljava/lang/Object;
 
-    if-nez v10, :cond_d
+    if-nez v10, :cond_e
 
     const/4 v10, 0x0
 
@@ -869,10 +878,10 @@
 
     goto :goto_3
 
-    :cond_d
+    :cond_e
     const/4 v10, 0x4
 
-    if-ne v0, v10, :cond_e
+    if-ne v0, v10, :cond_f
 
     const/4 v10, 0x0
 
@@ -882,20 +891,20 @@
 
     goto :goto_3
 
-    :cond_e
+    :cond_f
     iget-boolean v10, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/DispatchEventLayer;->mDragStateDropped:Z
 
-    if-nez v10, :cond_8
+    if-nez v10, :cond_9
 
     const/4 v10, 0x2
 
-    if-eq v0, v10, :cond_f
+    if-eq v0, v10, :cond_10
 
     const/4 v10, 0x3
 
-    if-ne v0, v10, :cond_10
+    if-ne v0, v10, :cond_11
 
-    :cond_f
+    :cond_10
     invoke-virtual {p1}, Landroid/view/DragEvent;->getX()F
 
     move-result v10
@@ -914,18 +923,18 @@
 
     const/4 v10, 0x3
 
-    if-ne v0, v10, :cond_10
+    if-ne v0, v10, :cond_11
 
     const/4 v10, 0x1
 
     iput-boolean v10, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/DispatchEventLayer;->mDragStateDropped:Z
 
-    :cond_10
+    :cond_11
     const/4 v8, 0x1
 
     goto :goto_3
 
-    :cond_11
+    :cond_12
     return v8
 .end method
 

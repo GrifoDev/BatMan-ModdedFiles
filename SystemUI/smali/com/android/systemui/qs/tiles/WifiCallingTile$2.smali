@@ -36,7 +36,7 @@
 
     invoke-super {p0, p1}, Landroid/database/ContentObserver;->onChange(Z)V
 
-    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_ATTWFC:Z
+    sget-boolean v0, Lcom/android/systemui/Rune;->QPANEL_SUPPORT_UNIFIEDWFC:Z
 
     if-eqz v0, :cond_0
 
@@ -59,7 +59,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-wrap3(Lcom/android/systemui/qs/tiles/WifiCallingTile;Ljava/lang/Object;)V
+    invoke-static {v0, v1}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->-wrap2(Lcom/android/systemui/qs/tiles/WifiCallingTile;Ljava/lang/Object;)V
 
     return-void
 .end method

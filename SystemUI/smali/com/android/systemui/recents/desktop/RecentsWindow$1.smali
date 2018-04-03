@@ -3,12 +3,12 @@
 .source "RecentsWindow.java"
 
 # interfaces
-.implements Landroid/view/View$OnTouchListener;
+.implements Landroid/view/ViewTreeObserver$OnPreDrawListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/recents/desktop/RecentsWindow;->onCreate(Landroid/os/Bundle;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/systemui/recents/desktop/RecentsWindow;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,56 +34,105 @@
 
 
 # virtual methods
-.method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 3
+.method synthetic lambda$-com_android_systemui_recents_desktop_RecentsWindow$1_13521()V
+    .locals 2
 
-    const/4 v2, 0x0
+    iget-object v0, p0, Lcom/android/systemui/recents/desktop/RecentsWindow$1;->this$0:Lcom/android/systemui/recents/desktop/RecentsWindow;
 
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
+    invoke-static {v0}, Lcom/android/systemui/recents/desktop/RecentsWindow;->-get0(Lcom/android/systemui/recents/desktop/RecentsWindow;)Landroid/content/Context;
 
-    move-result v1
+    move-result-object v0
 
-    if-nez v1, :cond_1
+    invoke-static {v0}, Lcom/android/keyguard/LatencyTracker;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/LatencyTracker;
 
-    new-instance v0, Landroid/graphics/Rect;
+    move-result-object v0
 
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/android/keyguard/LatencyTracker;->onActionEnd(I)V
+
+    return-void
+.end method
+
+.method synthetic lambda$-com_android_systemui_recents_desktop_RecentsWindow$1_13723()V
+    .locals 2
+
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->getTaskLoader()Lcom/android/systemui/recents/model/RecentsTaskLoader;
+
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/recents/desktop/RecentsWindow$1;->this$0:Lcom/android/systemui/recents/desktop/RecentsWindow;
 
-    invoke-static {v1}, Lcom/android/systemui/recents/desktop/RecentsWindow;->-get0(Lcom/android/systemui/recents/desktop/RecentsWindow;)Landroid/widget/LinearLayout;
+    invoke-static {v1}, Lcom/android/systemui/recents/desktop/RecentsWindow;->-get0(Lcom/android/systemui/recents/desktop/RecentsWindow;)Landroid/content/Context;
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->getBoundsOnScreen(Landroid/graphics/Rect;)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/model/RecentsTaskLoader;->startLoader(Landroid/content/Context;)V
 
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getRawX()F
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->getTaskLoader()Lcom/android/systemui/recents/model/RecentsTaskLoader;
 
-    move-result v1
+    move-result-object v0
 
-    float-to-int v1, v1
+    invoke-virtual {v0}, Lcom/android/systemui/recents/model/RecentsTaskLoader;->getHighResThumbnailLoader()Lcom/android/systemui/recents/model/HighResThumbnailLoader;
 
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getRawY()F
+    move-result-object v0
 
-    move-result v2
-
-    float-to-int v2, v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/graphics/Rect;->contains(II)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/recents/desktop/RecentsWindow$1;->this$0:Lcom/android/systemui/recents/desktop/RecentsWindow;
-
-    invoke-virtual {v1}, Lcom/android/systemui/recents/desktop/RecentsWindow;->dismiss()V
-
-    :cond_0
     const/4 v1, 0x1
 
-    return v1
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/model/HighResThumbnailLoader;->setVisible(Z)V
 
-    :cond_1
-    return v2
+    return-void
+.end method
+
+.method public onPreDraw()Z
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/recents/desktop/RecentsWindow$1;->this$0:Lcom/android/systemui/recents/desktop/RecentsWindow;
+
+    iget-object v0, v0, Lcom/android/systemui/recents/desktop/RecentsWindow;->mRootView:Landroid/widget/FrameLayout;
+
+    invoke-virtual {v0}, Landroid/widget/FrameLayout;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
+
+    invoke-static {}, Lcom/android/systemui/recents/events/EventBus;->getDefault()Lcom/android/systemui/recents/events/EventBus;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/systemui/recents/events/ui/RecentsDrawnEvent;
+
+    invoke-direct {v1}, Lcom/android/systemui/recents/events/ui/RecentsDrawnEvent;-><init>()V
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->post(Lcom/android/systemui/recents/events/EventBus$Event;)V
+
+    iget-object v0, p0, Lcom/android/systemui/recents/desktop/RecentsWindow$1;->this$0:Lcom/android/systemui/recents/desktop/RecentsWindow;
+
+    invoke-static {v0}, Lcom/android/systemui/recents/desktop/RecentsWindow;->-get0(Lcom/android/systemui/recents/desktop/RecentsWindow;)Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/keyguard/LatencyTracker;->isEnabled(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Lcom/android/systemui/recents/desktop/-$Lambda$HlCRr-kXl_EmkjzJQsF-KrY8kIA$3;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/recents/desktop/-$Lambda$HlCRr-kXl_EmkjzJQsF-KrY8kIA$3;-><init>(Ljava/lang/Object;)V
+
+    invoke-static {v0}, Lcom/android/systemui/DejankUtils;->postAfterTraversal(Ljava/lang/Runnable;)V
+
+    :cond_0
+    new-instance v0, Lcom/android/systemui/recents/desktop/-$Lambda$HlCRr-kXl_EmkjzJQsF-KrY8kIA$4;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/recents/desktop/-$Lambda$HlCRr-kXl_EmkjzJQsF-KrY8kIA$4;-><init>(Ljava/lang/Object;)V
+
+    invoke-static {v0}, Lcom/android/systemui/DejankUtils;->postAfterTraversal(Ljava/lang/Runnable;)V
+
+    const/4 v0, 0x1
+
+    return v0
 .end method

@@ -36,19 +36,13 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$3;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get9(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get7(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/os/Handler;
 
     move-result-object v0
 
     const/16 v1, 0x148
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
-
-    const-string/jumbo v0, "KeyguardUpdateMonitor"
-
-    const-string/jumbo v1, "OnSubscriptionsChangedListener : MSG_SIM_SUBSCRIPTION_INFO_CHANGED"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method

@@ -35,8 +35,27 @@
 
 # virtual methods
 .method public onPageScrollStateChanged(I)V
-    .locals 0
+    .locals 4
 
+    if-nez p1, :cond_0
+
+    sget-object v0, Lcom/android/systemui/SystemUIAnalytics;->mCurrentScreenID:Ljava/lang/String;
+
+    const-string/jumbo v1, "3002"
+
+    iget-object v2, p0, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout$3;->this$0:Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;
+
+    invoke-static {v2}, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->-get3(Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;)I
+
+    move-result v2
+
+    add-int/lit8 v2, v2, 0x1
+
+    int-to-long v2, v2
+
+    invoke-static {v0, v1, v2, v3}, Lcom/android/systemui/SystemUIAnalytics;->sendEventLog(Ljava/lang/String;Ljava/lang/String;J)V
+
+    :cond_0
     return-void
 .end method
 
@@ -49,7 +68,11 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout$3;->this$0:Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;
 
-    invoke-static {v2}, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->-get0(Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;)Lcom/android/systemui/qs/PageIndicator;
+    invoke-static {v2, p1}, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->-set0(Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;I)I
+
+    iget-object v2, p0, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout$3;->this$0:Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;
+
+    invoke-static {v2}, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->-get0(Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;)Lcom/android/systemui/qs/SecPageIndicator;
 
     move-result-object v2
 
@@ -60,7 +83,7 @@
     :cond_0
     iget-object v2, p0, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout$3;->this$0:Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;
 
-    invoke-static {v2}, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->-get0(Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;)Lcom/android/systemui/qs/PageIndicator;
+    invoke-static {v2}, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->-get0(Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;)Lcom/android/systemui/qs/SecPageIndicator;
 
     move-result-object v2
 
@@ -68,7 +91,7 @@
 
     add-float/2addr v3, p2
 
-    invoke-virtual {v2, v3}, Lcom/android/systemui/qs/PageIndicator;->setLocation(F)V
+    invoke-virtual {v2, v3}, Lcom/android/systemui/qs/SecPageIndicator;->setLocation(F)V
 
     iget-object v2, p0, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout$3;->this$0:Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;
 
@@ -139,7 +162,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout$3;->this$0:Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;
 
-    invoke-static {v2}, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->-get0(Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;)Lcom/android/systemui/qs/PageIndicator;
+    invoke-static {v2}, Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;->-get0(Lcom/android/systemui/qs/customize/CustomizerPagedTileLayout;)Lcom/android/systemui/qs/SecPageIndicator;
 
     move-result-object v2
 

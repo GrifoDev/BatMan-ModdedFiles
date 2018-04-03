@@ -10,6 +10,8 @@
 # instance fields
 .field private mContext:Landroid/content/Context;
 
+.field private mCustomScale:F
+
 .field private mIconList:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -76,6 +78,10 @@
 
     iput v0, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mInnerBitmapYDiff:I
 
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    iput v0, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mCustomScale:F
+
     return-void
 .end method
 
@@ -98,6 +104,10 @@
 
     iput v7, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mInnerBitmapYDiff:I
 
+    const/high16 v5, 0x3f800000    # 1.0f
+
+    iput v5, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mCustomScale:F
+
     iput-object p1, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mContext:Landroid/content/Context;
 
     new-instance v5, Ljava/util/ArrayList;
@@ -112,7 +122,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d0422
+    const v6, 0x7f070150
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -128,7 +138,7 @@
 
     move-result-object v4
 
-    const/16 v5, 0xd
+    const/4 v5, 0x1
 
     const/4 v6, 0x0
 
@@ -137,7 +147,7 @@
 
     move-result v2
 
-    const/16 v5, 0xe
+    const/4 v5, 0x0
 
     const/4 v6, 0x0
 
@@ -471,9 +481,13 @@
 
     iget v6, v6, Landroid/content/res/Configuration;->fontScale:F
 
+    iget v7, p0, Lcom/android/systemui/recents/misc/HelpHubTextView;->mCustomScale:F
+
+    mul-float/2addr v6, v7
+
     iput v6, v4, Lcom/android/systemui/recents/misc/HelpHubImageSpan;->fontScale:F
 
-    const v6, 0x7f0d0423
+    const v6, 0x7f070151
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimension(I)F
 

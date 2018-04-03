@@ -35,64 +35,33 @@
 
 # virtual methods
 .method public run()V
-    .locals 6
-
-    sget-boolean v0, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SNAP_WINDOW_SUPPORT:Z
-
-    if-eqz v0, :cond_0
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy$7;->this$0:Lcom/android/systemui/stackdivider/WindowManagerProxy;
 
-    invoke-static {v0}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get3(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
-
-    move-result-object v1
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy$7;->this$0:Lcom/android/systemui/stackdivider/WindowManagerProxy;
-
-    invoke-static {v0}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get7(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge;
+    invoke-static {v0}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get7(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Lcom/samsung/android/multiwindow/MultiWindowManager;
 
     move-result-object v0
 
+    iget-object v1, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy$7;->this$0:Lcom/android/systemui/stackdivider/WindowManagerProxy;
+
+    invoke-static {v1}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get5(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Z
+
+    move-result v1
+
     iget-object v2, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy$7;->this$0:Lcom/android/systemui/stackdivider/WindowManagerProxy;
 
-    invoke-static {v2}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get11(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Z
+    invoke-static {v2}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get6(Lcom/android/systemui/stackdivider/WindowManagerProxy;)I
 
     move-result v2
 
     iget-object v3, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy$7;->this$0:Lcom/android/systemui/stackdivider/WindowManagerProxy;
 
-    invoke-static {v3}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get10(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Landroid/graphics/Rect;
+    invoke-static {v3}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get4(Lcom/android/systemui/stackdivider/WindowManagerProxy;)F
 
-    move-result-object v3
+    move-result v3
 
-    iget-object v4, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy$7;->this$0:Lcom/android/systemui/stackdivider/WindowManagerProxy;
+    invoke-virtual {v0, v1, v2, v3}, Lcom/samsung/android/multiwindow/MultiWindowManager;->setMinimizeDockedStackDimLayer(ZIF)V
 
-    invoke-static {v4}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get9(Lcom/android/systemui/stackdivider/WindowManagerProxy;)I
-
-    move-result v4
-
-    iget-object v5, p0, Lcom/android/systemui/stackdivider/WindowManagerProxy$7;->this$0:Lcom/android/systemui/stackdivider/WindowManagerProxy;
-
-    invoke-static {v5}, Lcom/android/systemui/stackdivider/WindowManagerProxy;->-get8(Lcom/android/systemui/stackdivider/WindowManagerProxy;)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v0, v2, v3, v4, v5}, Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge;->setSnapWindow(ZLandroid/graphics/Rect;ILjava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit v1
-
-    :cond_0
     return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-
-    throw v0
 .end method

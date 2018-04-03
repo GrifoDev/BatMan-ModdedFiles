@@ -75,11 +75,28 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar$PackageChangedReceiver;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->-get2(Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;)Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->-get7(Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;)Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;
 
     move-result-object v0
 
     invoke-virtual {v0, p1, p2}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel;->onReceive(Landroid/content/Context;Landroid/content/Intent;)V
 
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar$PackageChangedReceiver;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->-get8(Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;)Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar$PackageChangedReceiver;->this$0:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->-get8(Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;)Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->onPackageChanged(Landroid/content/Intent;)V
+
+    :cond_1
     return-void
 .end method

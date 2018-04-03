@@ -376,7 +376,7 @@
 
     iput-boolean v12, v0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->mIsLayoutRTL:Z
 
-    const v12, 0x7f0d05f5
+    const v12, 0x7f070160
 
     invoke-virtual {v9, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -386,7 +386,7 @@
 
     iput v12, v0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->mCellWidth:I
 
-    const v12, 0x7f0d05f6
+    const v12, 0x7f07015f
 
     invoke-virtual {v9, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -396,7 +396,7 @@
 
     iput v12, v0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->mCellHeight:I
 
-    const v12, 0x7f0d05f7
+    const v12, 0x7f07015d
 
     invoke-virtual {v9, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -406,7 +406,7 @@
 
     iput v12, v0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->mGapX:I
 
-    const v12, 0x7f0d05f8
+    const v12, 0x7f07015e
 
     invoke-virtual {v9, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -679,7 +679,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0d05f4
+    const v13, 0x7f070162
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -781,7 +781,7 @@
 
     move-result-object v7
 
-    const v13, 0x7f0c0094
+    const v13, 0x7f0b0020
 
     invoke-virtual {v7, v13}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2757,19 +2757,20 @@
 
     instance-of v1, v0, Lcom/android/systemui/statusbar/phone/taskbar/views/DispatchEventLayer;
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    check-cast v0, Lcom/android/systemui/statusbar/phone/taskbar/views/DispatchEventLayer;
+    if-eqz v1, :cond_0
 
-    return-object v0
-
-    :cond_1
     invoke-interface {v0}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
 
     move-result-object v0
 
     goto :goto_0
+
+    :cond_0
+    check-cast v0, Lcom/android/systemui/statusbar/phone/taskbar/views/DispatchEventLayer;
+
+    return-object v0
 .end method
 
 .method public getItemAt(I)Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;
@@ -2906,30 +2907,25 @@
 .end method
 
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 4
+    .locals 3
 
-    const/4 v0, 0x0
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
-
-    iget-boolean v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->mIsLayoutRTL:Z
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->mIsLayoutRTL:Z
 
     invoke-virtual {p1}, Landroid/content/res/Configuration;->getLayoutDirection()I
 
     move-result v2
 
-    if-ne v2, v1, :cond_1
-
-    move v2, v1
+    if-ne v2, v0, :cond_1
 
     :goto_0
-    if-eq v3, v2, :cond_0
+    if-eq v1, v0, :cond_0
 
-    iget-boolean v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->mIsLayoutRTL:Z
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->mIsLayoutRTL:Z
 
-    if-eqz v2, :cond_2
+    xor-int/lit8 v0, v0, 0x1
 
-    :goto_1
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->mIsLayoutRTL:Z
 
     :cond_0
@@ -2938,14 +2934,9 @@
     return-void
 
     :cond_1
-    move v2, v0
+    const/4 v0, 0x0
 
     goto :goto_0
-
-    :cond_2
-    move v0, v1
-
-    goto :goto_1
 .end method
 
 .method onDragEnter()V
@@ -4112,16 +4103,41 @@
 
     iget-boolean v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->mReorderOnItemDeleted:Z
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_1
 
     iget-boolean v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->mForceReorder:Z
 
+    xor-int/lit8 v5, v5, 0x1
+
     if-eqz v5, :cond_1
 
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->hasAnimatingChild()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->mReorderAlarm:Lcom/android/systemui/statusbar/phone/taskbar/views/Alarm;
+
+    invoke-virtual {v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/Alarm;->alarmPending()Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->mReorderAlarm:Lcom/android/systemui/statusbar/phone/taskbar/views/Alarm;
+
+    const-wide/16 v6, 0x14
+
+    invoke-virtual {v5, v6, v7}, Lcom/android/systemui/statusbar/phone/taskbar/views/Alarm;->setAlarm(J)V
+
     :cond_0
+    return-void
+
+    :cond_1
     iget-boolean v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->mReorderOnItemDeleted:Z
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_2
 
     iget v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->mEmptyCell:I
 
@@ -4130,42 +4146,18 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_3
 
     return-void
-
-    :cond_1
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->hasAnimatingChild()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_0
-
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->mReorderAlarm:Lcom/android/systemui/statusbar/phone/taskbar/views/Alarm;
-
-    invoke-virtual {v5}, Lcom/android/systemui/statusbar/phone/taskbar/views/Alarm;->alarmPending()Z
-
-    move-result v5
-
-    if-nez v5, :cond_2
-
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->mReorderAlarm:Lcom/android/systemui/statusbar/phone/taskbar/views/Alarm;
-
-    const-wide/16 v6, 0x14
-
-    invoke-virtual {v5, v6, v7}, Lcom/android/systemui/statusbar/phone/taskbar/views/Alarm;->setAlarm(J)V
 
     :cond_2
-    return-void
-
-    :cond_3
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->findFirstEmptySpace()I
 
     move-result v0
 
     goto :goto_0
 
-    :cond_4
+    :cond_3
     iget v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->mTargetCell:I
 
     invoke-static {v5, v3}, Ljava/lang/Math;->min(II)I
@@ -4176,7 +4168,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_4
 
     const-string/jumbo v5, "[DS]CellLayout"
 
@@ -4232,14 +4224,14 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_5
+    :cond_4
     iput v4, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->mTargetCell:I
 
-    if-ne v4, v0, :cond_6
+    if-ne v4, v0, :cond_5
 
     return-void
 
-    :cond_6
+    :cond_5
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->getChildrenLayout()Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;
 
     move-result-object v5
@@ -4248,12 +4240,12 @@
 
     move-result-object v5
 
-    if-nez v5, :cond_7
+    if-nez v5, :cond_6
 
     return-void
 
-    :cond_7
-    if-ne v0, v8, :cond_8
+    :cond_6
+    if-ne v0, v8, :cond_7
 
     new-instance v5, Ljava/lang/IllegalArgumentException;
 
@@ -4305,8 +4297,8 @@
 
     throw v5
 
-    :cond_8
-    if-ne v4, v8, :cond_9
+    :cond_7
+    if-ne v4, v8, :cond_8
 
     new-instance v5, Ljava/lang/IllegalArgumentException;
 
@@ -4316,12 +4308,12 @@
 
     throw v5
 
-    :cond_9
+    :cond_8
     const/4 v2, 0x0
 
     iget-boolean v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->mReorderOnItemDeleted:Z
 
-    if-eqz v5, :cond_b
+    if-eqz v5, :cond_a
 
     const/4 v1, 0x0
 
@@ -4334,7 +4326,7 @@
 
     move-result v5
 
-    if-ge v1, v5, :cond_b
+    if-ge v1, v5, :cond_a
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->getChildrenLayout()Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;
 
@@ -4344,13 +4336,13 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_9
 
     iget-object v5, v2, Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;->mTitle:Ljava/lang/String;
 
-    if-nez v5, :cond_e
+    if-nez v5, :cond_d
 
-    :cond_a
+    :cond_9
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->getChildrenLayout()Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;
 
     move-result-object v5
@@ -4363,15 +4355,15 @@
 
     invoke-virtual {v5, v6}, Landroid/view/View;->setVisibility(I)V
 
-    :cond_b
+    :cond_a
     :goto_2
-    if-ge v4, v0, :cond_f
+    if-ge v4, v0, :cond_e
 
     invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->DEBUGGABLE_DRAG_INFO()Z
 
     move-result v5
 
-    if-eqz v5, :cond_c
+    if-eqz v5, :cond_b
 
     const-string/jumbo v5, "[DS]CellLayout"
 
@@ -4405,7 +4397,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_c
+    :cond_b
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->getChildrenLayout()Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;
 
     move-result-object v5
@@ -4416,29 +4408,29 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_c
 
     invoke-direct {p0, v2, v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->updateItemToNewPosition(Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;I)V
 
-    :cond_d
+    :cond_c
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_2
 
-    :cond_e
+    :cond_d
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    :cond_f
+    :cond_e
     :goto_3
-    if-le v4, v0, :cond_12
+    if-le v4, v0, :cond_11
 
     invoke-static {}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarUtilities;->DEBUGGABLE_DRAG_INFO()Z
 
     move-result v5
 
-    if-eqz v5, :cond_10
+    if-eqz v5, :cond_f
 
     const-string/jumbo v5, "[DS]CellLayout"
 
@@ -4472,7 +4464,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_10
+    :cond_f
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->getChildrenLayout()Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayoutChildren;
 
     move-result-object v5
@@ -4483,19 +4475,19 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_11
+    if-eqz v2, :cond_10
 
     invoke-direct {p0, v2, v0}, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->updateItemToNewPosition(Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;I)V
 
-    :cond_11
+    :cond_10
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_3
 
-    :cond_12
+    :cond_11
     iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->mHiddenItem:Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;
 
-    if-eqz v5, :cond_13
+    if-eqz v5, :cond_12
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/CellLayout;->mHiddenItem:Lcom/android/systemui/statusbar/phone/taskbar/data/BaseItem;
 
@@ -4505,7 +4497,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_13
+    if-eqz v5, :cond_12
 
     const-string/jumbo v5, "[DS]CellLayout"
 
@@ -4545,7 +4537,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_13
+    :cond_12
     return-void
 .end method
 
@@ -4991,7 +4983,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0d05f0
+    const v10, 0x7f07016a
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

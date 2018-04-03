@@ -36,7 +36,7 @@
 
     if-gez v0, :cond_0
 
-    const v0, 0x7f020128
+    const v0, 0x7f080139
 
     :goto_0
     invoke-virtual {p0, v0}, Lcom/android/systemui/egg/MLand$Cloud;->setBackgroundResource(I)V
@@ -86,7 +86,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f020127
+    const v0, 0x7f080138
 
     goto :goto_0
 .end method

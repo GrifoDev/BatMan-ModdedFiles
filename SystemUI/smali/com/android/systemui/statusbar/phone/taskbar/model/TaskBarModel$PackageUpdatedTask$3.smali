@@ -20,20 +20,20 @@
 # instance fields
 .field final synthetic this$1:Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$PackageUpdatedTask;
 
-.field final synthetic val$homeUpdated:Ljava/util/List;
+.field final synthetic val$appModelUpdated:Z
 
 .field final synthetic val$origCallbacks:Ljava/lang/ref/WeakReference;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$PackageUpdatedTask;Ljava/lang/ref/WeakReference;Ljava/util/List;)V
+.method constructor <init>(Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$PackageUpdatedTask;Ljava/lang/ref/WeakReference;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$PackageUpdatedTask$3;->this$1:Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$PackageUpdatedTask;
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$PackageUpdatedTask$3;->val$origCallbacks:Ljava/lang/ref/WeakReference;
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$PackageUpdatedTask$3;->val$homeUpdated:Ljava/util/List;
+    iput-boolean p3, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$PackageUpdatedTask$3;->val$appModelUpdated:Z
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -67,9 +67,9 @@
 
     if-ne v0, v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$PackageUpdatedTask$3;->val$homeUpdated:Ljava/util/List;
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$PackageUpdatedTask$3;->val$appModelUpdated:Z
 
-    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$Callbacks;->bindTaskbarItemsUpdated(Ljava/util/List;)V
+    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/phone/taskbar/model/TaskBarModel$Callbacks;->bindPackagesChanged(Z)V
 
     :cond_0
     return-void

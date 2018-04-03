@@ -6,8 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/keyguard/iris/KeyguardIrisView$1;,
-        Lcom/android/keyguard/iris/KeyguardIrisView$2;
+        Lcom/android/keyguard/iris/KeyguardIrisView$1;
     }
 .end annotation
 
@@ -17,27 +16,17 @@
 
 .field private mBouncerShowing:Z
 
-.field private final mClearNomatchTextRunnable:Ljava/lang/Runnable;
-
 .field private mCurrentMobileKeyboardState:I
 
 .field private mCurrentOrientation:I
 
-.field private final mHandler:Landroid/os/Handler;
-
-.field private mIrisNomatchText:Landroid/widget/TextView;
-
 .field private mIrisPreview:Landroid/widget/FrameLayout;
-
-.field private mIrisPreviewText:Landroid/widget/TextView;
 
 .field private mKeyguardShowing:Z
 
 .field private mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
 .field private mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-.field private mSettingsListener:Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
 
 .field private final mUpdateMonitorCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
@@ -67,15 +56,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/keyguard/iris/KeyguardIrisView;)Landroid/widget/TextView;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mIrisNomatchText:Landroid/widget/TextView;
-
-    return-object v0
-.end method
-
-.method static synthetic -get4(Lcom/android/keyguard/iris/KeyguardIrisView;)Landroid/widget/FrameLayout;
+.method static synthetic -get3(Lcom/android/keyguard/iris/KeyguardIrisView;)Landroid/widget/FrameLayout;
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mIrisPreview:Landroid/widget/FrameLayout;
@@ -83,7 +64,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/android/keyguard/iris/KeyguardIrisView;)Z
+.method static synthetic -get4(Lcom/android/keyguard/iris/KeyguardIrisView;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mKeyguardShowing:Z
@@ -91,7 +72,7 @@
     return v0
 .end method
 
-.method static synthetic -get6(Lcom/android/keyguard/iris/KeyguardIrisView;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+.method static synthetic -get5(Lcom/android/keyguard/iris/KeyguardIrisView;)Lcom/android/keyguard/KeyguardUpdateMonitor;
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
@@ -125,46 +106,6 @@
     return v0
 .end method
 
-.method static synthetic -wrap1(Lcom/android/keyguard/iris/KeyguardIrisView;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/keyguard/iris/KeyguardIrisView;->changeTextColorOnWhiteWallpaper()V
-
-    return-void
-.end method
-
-.method static synthetic -wrap2(Lcom/android/keyguard/iris/KeyguardIrisView;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/keyguard/iris/KeyguardIrisView;->clearNomatchText()V
-
-    return-void
-.end method
-
-.method static synthetic -wrap3(Lcom/android/keyguard/iris/KeyguardIrisView;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/keyguard/iris/KeyguardIrisView;->clearWithPreviewText()V
-
-    return-void
-.end method
-
-.method static synthetic -wrap4(Lcom/android/keyguard/iris/KeyguardIrisView;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/keyguard/iris/KeyguardIrisView;->setIrisHelpText(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap5(Lcom/android/keyguard/iris/KeyguardIrisView;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/keyguard/iris/KeyguardIrisView;->setIrisNomatchText(Ljava/lang/String;)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -180,19 +121,13 @@
 
     invoke-direct {p0, p1, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    new-instance v0, Lcom/android/keyguard/iris/KeyguardIrisView$1;
-
-    invoke-direct {v0, p0}, Lcom/android/keyguard/iris/KeyguardIrisView$1;-><init>(Lcom/android/keyguard/iris/KeyguardIrisView;)V
-
-    iput-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mClearNomatchTextRunnable:Ljava/lang/Runnable;
-
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mCurrentOrientation:I
 
-    new-instance v0, Lcom/android/keyguard/iris/KeyguardIrisView$2;
+    new-instance v0, Lcom/android/keyguard/iris/KeyguardIrisView$1;
 
-    invoke-direct {v0, p0}, Lcom/android/keyguard/iris/KeyguardIrisView$2;-><init>(Lcom/android/keyguard/iris/KeyguardIrisView;)V
+    invoke-direct {v0, p0}, Lcom/android/keyguard/iris/KeyguardIrisView$1;-><init>(Lcom/android/keyguard/iris/KeyguardIrisView;)V
 
     iput-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mUpdateMonitorCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
@@ -224,104 +159,15 @@
 
     iput-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
-    new-instance v0, Landroid/os/Handler;
-
-    invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
-
-    iput-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mHandler:Landroid/os/Handler;
-
     return-void
 .end method
 
-.method private changeTextColorOnWhiteWallpaper()V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/keyguard/util/ViewStyleUtils;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/ViewStyleUtils;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mIrisPreviewText:Landroid/widget/TextView;
-
-    const/4 v2, 0x2
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/keyguard/util/ViewStyleUtils;->updateViewStyle(Landroid/widget/TextView;I)V
-
-    return-void
-.end method
-
-.method private clearNomatchText()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mIrisNomatchText:Landroid/widget/TextView;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mIrisNomatchText:Landroid/widget/TextView;
-
-    const-string/jumbo v1, ""
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mIrisNomatchText:Landroid/widget/TextView;
-
-    const/4 v1, 0x4
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
-
-    :cond_0
-    return-void
-.end method
-
-.method private clearWithPreviewText()V
-    .locals 3
-
-    const/4 v2, 0x4
-
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mIrisPreviewText:Landroid/widget/TextView;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mIrisPreviewText:Landroid/widget/TextView;
-
-    const-string/jumbo v1, ""
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mIrisPreviewText:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mIrisNomatchText:Landroid/widget/TextView;
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mIrisNomatchText:Landroid/widget/TextView;
-
-    const-string/jumbo v1, ""
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mIrisNomatchText:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
-
-    :cond_1
-    return-void
-.end method
-
-.method private isInViewArea(FFLandroid/view/View;Landroid/view/View;)Z
+.method private isInViewArea(FFLandroid/view/View;)Z
     .locals 3
 
     const/4 v0, 0x0
 
-    invoke-virtual {p4}, Landroid/view/View;->getVisibility()I
+    invoke-virtual {p3}, Landroid/view/View;->getVisibility()I
 
     move-result v1
 
@@ -382,157 +228,39 @@
 .end method
 
 .method private isTimerRunning()Z
-    .locals 4
-
-    iget-object v2, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    .locals 6
 
     invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
 
-    move-result v3
+    move-result v2
 
-    invoke-virtual {v2, v3}, Lcom/android/internal/widget/LockPatternUtils;->getLockoutAttemptDeadline(I)J
+    iget-object v3, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v3, v2}, Lcom/android/internal/widget/LockPatternUtils;->getLockoutAttemptDeadline(I)J
 
     move-result-wide v0
 
-    iget-object v2, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    iget-object v3, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
+    invoke-virtual {v3, v2}, Lcom/android/internal/widget/LockPatternUtils;->getLockoutBiometricAttemptDeadline(I)J
 
-    move-result v3
+    move-result-wide v4
 
-    invoke-virtual {v2, v3}, Lcom/android/internal/widget/LockPatternUtils;->getLockoutBiometricAttemptDeadline(I)J
+    add-long/2addr v0, v4
 
-    move-result-wide v2
+    const-wide/16 v4, 0x0
 
-    add-long/2addr v0, v2
+    cmp-long v3, v0, v4
 
-    const-wide/16 v2, 0x0
+    if-eqz v3, :cond_0
 
-    cmp-long v2, v0, v2
-
-    if-eqz v2, :cond_0
-
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
     :goto_0
-    return v2
+    return v3
 
     :cond_0
-    const/4 v2, 0x0
-
-    goto :goto_0
-.end method
-
-.method private setIrisHelpText(Ljava/lang/String;)V
-    .locals 3
-
-    const/4 v2, 0x0
-
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mIrisPreviewText:Landroid/widget/TextView;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDesktopMode()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getPhoneState()I
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getIrisTimeoutErrorCount()I
-
-    move-result v0
-
-    const/16 v1, 0xa
-
-    if-ge v0, v1, :cond_0
-
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isUnlockingWithBiometricAllowed()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mIrisPreviewText:Landroid/widget/TextView;
-
-    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mIrisPreviewText:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
-
-    goto :goto_0
-.end method
-
-.method private setIrisNomatchText(Ljava/lang/String;)V
-    .locals 4
-
-    const/4 v1, 0x0
-
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mIrisNomatchText:Landroid/widget/TextView;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDesktopMode()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getPhoneState()I
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mIrisNomatchText:Landroid/widget/TextView;
-
-    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mIrisNomatchText:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
-
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mHandler:Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mClearNomatchTextRunnable:Ljava/lang/Runnable;
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mHandler:Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mClearNomatchTextRunnable:Ljava/lang/Runnable;
-
-    const-wide/16 v2, 0x7d0
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    const/4 v3, 0x0
 
     goto :goto_0
 .end method
@@ -540,7 +268,7 @@
 
 # virtual methods
 .method protected onAttachedToWindow()V
-    .locals 5
+    .locals 2
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onAttachedToWindow()V
 
@@ -549,30 +277,6 @@
     iget-object v1, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mUpdateMonitorCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
     invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->registerCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
-
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mSettingsListener:Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
-
-    const/4 v2, 0x1
-
-    new-array v2, v2, [Landroid/net/Uri;
-
-    const-string/jumbo v3, "white_lockscreen_wallpaper"
-
-    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v3
-
-    const/4 v4, 0x0
-
-    aput-object v3, v2, v4
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/keyguard/util/SettingsHelper;->registerCallback(Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;[Landroid/net/Uri;)V
 
     return-void
 .end method
@@ -590,7 +294,7 @@
 
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    sget-boolean v0, Lcom/android/keyguard/KeyguardRune;->SUPPORT_MOBILE_KEYBOARD:Z
+    sget-boolean v0, Lcom/android/systemui/Rune;->SYSUI_SUPPORT_MOBILE_KEYBOARD:Z
 
     if-eqz v0, :cond_0
 
@@ -757,16 +461,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->removeCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
 
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mSettingsListener:Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
-
-    invoke-virtual {v0, v1}, Lcom/android/keyguard/util/SettingsHelper;->unregisterCallback(Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;)V
-
     return-void
 .end method
 
@@ -781,13 +475,9 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDesktopMode()Z
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDexMode()Z
 
     move-result v0
 
@@ -798,7 +488,7 @@
     invoke-virtual {p0, v0}, Lcom/android/keyguard/iris/KeyguardIrisView;->setVisibility(I)V
 
     :goto_0
-    sget v0, Lcom/android/keyguard/R$id;->keyguard_iris_preview:I
+    const v0, 0x7f0a0277
 
     invoke-virtual {p0, v0}, Lcom/android/keyguard/iris/KeyguardIrisView;->findViewById(I)Landroid/view/View;
 
@@ -808,31 +498,7 @@
 
     iput-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mIrisPreview:Landroid/widget/FrameLayout;
 
-    sget v0, Lcom/android/keyguard/R$id;->iris_help_text:I
-
-    invoke-virtual {p0, v0}, Lcom/android/keyguard/iris/KeyguardIrisView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    iput-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mIrisPreviewText:Landroid/widget/TextView;
-
-    sget v0, Lcom/android/keyguard/R$id;->iris_nomatch_text:I
-
-    invoke-virtual {p0, v0}, Lcom/android/keyguard/iris/KeyguardIrisView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    iput-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mIrisNomatchText:Landroid/widget/TextView;
-
-    invoke-direct {p0}, Lcom/android/keyguard/iris/KeyguardIrisView;->clearWithPreviewText()V
-
-    invoke-direct {p0}, Lcom/android/keyguard/iris/KeyguardIrisView;->changeTextColorOnWhiteWallpaper()V
-
-    sget-boolean v0, Lcom/android/keyguard/KeyguardRune;->SUPPORT_MOBILE_KEYBOARD:Z
+    sget-boolean v0, Lcom/android/systemui/Rune;->SYSUI_SUPPORT_MOBILE_KEYBOARD:Z
 
     if-eqz v0, :cond_0
 
@@ -865,12 +531,6 @@
 
     iput v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mCurrentOrientation:I
 
-    new-instance v0, Lcom/android/keyguard/iris/KeyguardIrisView$3;
-
-    invoke-direct {v0, p0}, Lcom/android/keyguard/iris/KeyguardIrisView$3;-><init>(Lcom/android/keyguard/iris/KeyguardIrisView;)V
-
-    iput-object v0, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mSettingsListener:Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
-
     return-void
 
     :cond_1
@@ -882,58 +542,43 @@
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 7
+    .locals 6
 
-    const/4 v6, 0x1
+    const/4 v5, 0x1
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
-    move-result v2
+    move-result v1
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
-    move-result v3
+    move-result v2
 
-    iget-object v4, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mIrisPreview:Landroid/widget/FrameLayout;
+    iget-object v3, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mIrisPreview:Landroid/widget/FrameLayout;
 
-    iget-object v1, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-virtual {v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isIrisRunning()Z
+    invoke-direct {p0, v1, v2, v3}, Lcom/android/keyguard/iris/KeyguardIrisView;->isInViewArea(FFLandroid/view/View;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-nez v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mIrisPreview:Landroid/widget/FrameLayout;
-
-    :goto_0
-    invoke-direct {p0, v2, v3, v4, v1}, Lcom/android/keyguard/iris/KeyguardIrisView;->isInViewArea(FFLandroid/view/View;Landroid/view/View;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    return v5
+    return v4
 
     :cond_0
-    iget-object v1, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mIrisPreviewText:Landroid/widget/TextView;
-
-    goto :goto_0
-
-    :cond_1
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
+    :cond_1
     :pswitch_0
-    return v5
+    return v4
 
     :pswitch_1
-    return v6
+    return v5
 
     :pswitch_2
     iget-object v1, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
@@ -942,7 +587,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
@@ -950,11 +595,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     const-string/jumbo v1, "KeyguardIrisView"
 
-    const-string/jumbo v2, "Stop recognition by touch on IrisPreivew"
+    const-string/jumbo v2, "Stop recognition by touch on IrisPreview"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -964,39 +609,9 @@
 
     iget-object v1, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-virtual {v1, v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setIrisUnlockFailedState(Z)V
+    invoke-virtual {v1, v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setIrisUnlockFailedState(Z)V
 
-    iget-object v1, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    sget v2, Lcom/android/keyguard/R$string;->iris_guide_str_enable_toggle:I
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {p0, v1}, Lcom/android/keyguard/iris/KeyguardIrisView;->setIrisHelpText(Ljava/lang/String;)V
-
-    :goto_1
-    return v6
-
-    :cond_2
-    const-string/jumbo v1, "KeyguardIrisView"
-
-    const-string/jumbo v2, "update iris recognition by touch on IrisPreivew"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v1, p0, Lcom/android/keyguard/iris/KeyguardIrisView;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-virtual {v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateIrisListeningState()V
-
-    invoke-direct {p0}, Lcom/android/keyguard/iris/KeyguardIrisView;->clearWithPreviewText()V
-
-    goto :goto_1
+    return v5
 
     :pswitch_data_0
     .packed-switch 0x0

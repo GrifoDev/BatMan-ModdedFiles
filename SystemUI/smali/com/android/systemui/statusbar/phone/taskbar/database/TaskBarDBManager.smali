@@ -14,8 +14,6 @@
 
 .field private mMaxFavoriteId:Ljava/util/concurrent/atomic/AtomicLong;
 
-.field private final mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
-
 
 # direct methods
 .method static constructor <clinit>()V
@@ -30,18 +28,12 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;)V
-    .locals 1
+.method public constructor <init>(Landroid/content/Context;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->mContext:Landroid/content/Context;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->mContext:Landroid/content/Context;
 
     return-void
 .end method
@@ -118,9 +110,7 @@
 .method private getCurrentUserId()I
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->mTaskBar:Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/taskbar/TaskBar;->getCurrentUserId()I
+    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
     move-result v0
 
@@ -287,6 +277,8 @@
 
     move-result-object v0
 
+    if-eqz v0, :cond_2
+
     sget-boolean v1, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->DEBUGGABLE:Z
 
     if-eqz v1, :cond_1
@@ -315,7 +307,7 @@
 
     move-result-object v4
 
-    invoke-static {v1, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
     invoke-static {v0}, Landroid/content/ContentUris;->parseId(Landroid/net/Uri;)J
@@ -323,6 +315,33 @@
     move-result-wide v2
 
     return-wide v2
+
+    :cond_2
+    const-string/jumbo v1, "[DS]TaskBarDBManager"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "dbInsertAndCheck result is null: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v1, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-wide/16 v4, -0x1
+
+    return-wide v4
 .end method
 
 .method public delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
@@ -393,37 +412,6 @@
     move-result v0
 
     return v0
-.end method
-
-.method public generateNewAppOrderId()J
-    .locals 3
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->mMaxAppOrderId:Ljava/util/concurrent/atomic/AtomicLong;
-
-    if-nez v2, :cond_0
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->getCurrentUserId()I
-
-    move-result v2
-
-    invoke-static {v2}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrder;->CONTENT_URI(I)Landroid/net/Uri;
-
-    move-result-object v2
-
-    invoke-direct {p0, v2}, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->getMaxID(Landroid/net/Uri;)Ljava/util/concurrent/atomic/AtomicLong;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->mMaxAppOrderId:Ljava/util/concurrent/atomic/AtomicLong;
-
-    :cond_0
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->mMaxAppOrderId:Ljava/util/concurrent/atomic/AtomicLong;
-
-    invoke-virtual {v2}, Ljava/util/concurrent/atomic/AtomicLong;->incrementAndGet()J
-
-    move-result-wide v0
-
-    return-wide v0
 .end method
 
 .method public generateNewFavoritesId()J
@@ -603,6 +591,8 @@
 
     const/4 v2, 0x0
 
+    const-string/jumbo v5, "screen ASC"
+
     move-object v0, p0
 
     move-object v1, p1
@@ -610,8 +600,6 @@
     move-object v3, v2
 
     move-object v4, v2
-
-    move-object v5, v2
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
@@ -859,65 +847,54 @@
     return-object v1
 .end method
 
-.method public setNewAppOrderId(J)V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->mMaxAppOrderId:Ljava/util/concurrent/atomic/AtomicLong;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->mMaxAppOrderId:Ljava/util/concurrent/atomic/AtomicLong;
-
-    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
-
-    move-result-wide v0
-
-    cmp-long v0, p1, v0
-
-    if-lez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->mMaxAppOrderId:Ljava/util/concurrent/atomic/AtomicLong;
-
-    invoke-virtual {v0, p1, p2}, Ljava/util/concurrent/atomic/AtomicLong;->set(J)V
-
-    :cond_0
-    return-void
-.end method
-
 .method public update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
-    .locals 4
+    .locals 6
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->mContext:Landroid/content/Context;
+    const/4 v5, 0x0
 
-    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->mContext:Landroid/content/Context;
 
-    move-result-object v1
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
 
     :try_start_0
-    invoke-virtual {v1, p1, p2, p3, p4}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
+    invoke-virtual {v2, p1, p2, p3, p4}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
     :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v2
+    move-result v3
 
-    return v2
+    return v3
 
     :catch_0
     move-exception v0
 
-    const-string/jumbo v2, "[DS]TaskBarDBManager"
+    const-string/jumbo v3, "[DS]TaskBarDBManager"
 
-    const-string/jumbo v3, "update() :: unable to access database"
+    const-string/jumbo v4, "update() :: unable to access database"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v2, 0x0
+    return v5
 
-    return v2
+    :catch_1
+    move-exception v1
+
+    const-string/jumbo v3, "[DS]TaskBarDBManager"
+
+    const-string/jumbo v4, "update() :: IllegalArgumentException"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v1}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
+
+    return v5
 .end method
 
 .method public updateAppItems(Ljava/util/List;)V
-    .locals 14
+    .locals 18
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -928,483 +905,524 @@
         }
     .end annotation
 
-    iget-object v10, p0, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->mContext:Landroid/content/Context;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v11, "user"
+    iget-object v13, v0, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v10, v11}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    const-string/jumbo v14, "user"
+
+    invoke-virtual {v13, v14}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v12
+
+    check-cast v12, Landroid/os/UserManager;
+
+    :try_start_0
+    new-instance v5, Ljava/util/ArrayList;
+
+    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-interface/range {p1 .. p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v9
 
-    check-cast v9, Landroid/os/UserManager;
-
-    :try_start_0
-    new-instance v2, Ljava/util/ArrayList;
-
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
-
-    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v6
-
     :cond_0
     :goto_0
-    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v10
+    move-result v13
 
-    if-eqz v10, :cond_1
+    if-eqz v13, :cond_1
 
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v8
 
-    check-cast v5, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;
+    check-cast v8, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;
 
-    iget v10, v5, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->action:I
+    iget v13, v8, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->action:I
 
-    packed-switch v10, :pswitch_data_0
+    packed-switch v13, :pswitch_data_0
 
     goto :goto_0
 
     :pswitch_0
-    new-instance v8, Landroid/content/ContentValues;
+    new-instance v11, Landroid/content/ContentValues;
 
-    invoke-direct {v8}, Landroid/content/ContentValues;-><init>()V
+    invoke-direct {v11}, Landroid/content/ContentValues;-><init>()V
 
-    const-string/jumbo v10, "title"
+    const-string/jumbo v13, "title"
 
-    iget-object v11, v5, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->title:Ljava/lang/String;
+    iget-object v14, v8, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->title:Ljava/lang/String;
 
-    invoke-virtual {v8, v10, v11}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v11, v13, v14}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v3, "_id = ?"
+    const-string/jumbo v6, "_id = ?"
 
-    const/4 v10, 0x1
+    const/4 v13, 0x1
 
-    new-array v4, v10, [Ljava/lang/String;
+    new-array v7, v13, [Ljava/lang/String;
 
-    iget-wide v10, v5, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->id:J
+    iget-wide v14, v8, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->id:J
 
-    invoke-static {v10, v11}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+    invoke-static {v14, v15}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v13
 
-    const/4 v11, 0x0
+    const/4 v14, 0x0
 
-    aput-object v10, v4, v11
+    aput-object v13, v7, v14
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->getCurrentUserId()I
+    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->getCurrentUserId()I
 
-    move-result v10
+    move-result v13
 
-    invoke-static {v10}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrder;->CONTENT_URI(I)Landroid/net/Uri;
+    invoke-static {v13}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrder;->CONTENT_URI(I)Landroid/net/Uri;
 
-    move-result-object v10
+    move-result-object v13
 
-    invoke-static {v10}, Landroid/content/ContentProviderOperation;->newUpdate(Landroid/net/Uri;)Landroid/content/ContentProviderOperation$Builder;
+    invoke-static {v13}, Landroid/content/ContentProviderOperation;->newUpdate(Landroid/net/Uri;)Landroid/content/ContentProviderOperation$Builder;
 
-    move-result-object v10
+    move-result-object v13
 
-    invoke-virtual {v10, v3, v4}, Landroid/content/ContentProviderOperation$Builder;->withSelection(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/ContentProviderOperation$Builder;
+    invoke-virtual {v13, v6, v7}, Landroid/content/ContentProviderOperation$Builder;->withSelection(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/ContentProviderOperation$Builder;
 
-    move-result-object v10
+    move-result-object v13
 
-    invoke-virtual {v10, v8}, Landroid/content/ContentProviderOperation$Builder;->withValues(Landroid/content/ContentValues;)Landroid/content/ContentProviderOperation$Builder;
+    invoke-virtual {v13, v11}, Landroid/content/ContentProviderOperation$Builder;->withValues(Landroid/content/ContentValues;)Landroid/content/ContentProviderOperation$Builder;
 
-    move-result-object v10
+    move-result-object v13
 
-    invoke-virtual {v10}, Landroid/content/ContentProviderOperation$Builder;->build()Landroid/content/ContentProviderOperation;
+    invoke-virtual {v13}, Landroid/content/ContentProviderOperation$Builder;->build()Landroid/content/ContentProviderOperation;
 
-    move-result-object v10
+    move-result-object v13
 
-    invoke-virtual {v2, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v13}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-boolean v10, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->DEBUGGABLE:Z
+    sget-boolean v13, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->DEBUGGABLE:Z
 
-    if-eqz v10, :cond_0
+    if-eqz v13, :cond_0
 
-    const-string/jumbo v10, "[DS]TaskBarDBManager"
+    const-string/jumbo v13, "[DS]TaskBarDBManager"
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v12, "appOrder update title: "
+    const-string/jumbo v15, "appOrder update title: "
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v14
 
-    iget-wide v12, v5, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->id:J
+    iget-wide v0, v8, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->id:J
 
-    invoke-virtual {v11, v12, v13}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-wide/from16 v16, v0
 
-    move-result-object v11
+    move-wide/from16 v0, v16
 
-    const-string/jumbo v12, ", "
+    invoke-virtual {v14, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v14
 
-    move-result-object v11
+    const-string/jumbo v15, ", "
 
-    iget-object v12, v5, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->title:Ljava/lang/String;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v14
 
-    move-result-object v11
+    iget-object v15, v8, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->title:Ljava/lang/String;
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v14
 
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
-    :catchall_0
-    move-exception v10
+    :catch_0
+    move-exception v4
 
-    throw v10
+    const-string/jumbo v13, "[DS]TaskBarDBManager"
+
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v15, "updateAppItems exception!! "
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_1
+    return-void
 
     :pswitch_1
     :try_start_1
-    new-instance v1, Landroid/content/ContentValues;
+    new-instance v3, Landroid/content/ContentValues;
 
-    invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V
+    invoke-direct {v3}, Landroid/content/ContentValues;-><init>()V
 
-    const-string/jumbo v10, "_id"
+    const-string/jumbo v13, "_id"
 
-    iget-wide v12, v5, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->id:J
+    iget-wide v14, v8, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->id:J
 
-    invoke-static {v12, v13}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {v14, v15}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v11
+    move-result-object v14
 
-    invoke-virtual {v1, v10, v11}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
+    invoke-virtual {v3, v13, v14}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
-    const-string/jumbo v10, "title"
+    const-string/jumbo v13, "title"
 
-    iget-object v11, v5, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->title:Ljava/lang/String;
+    iget-object v14, v8, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->title:Ljava/lang/String;
 
-    invoke-virtual {v1, v10, v11}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v3, v13, v14}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v10, "componentName"
+    const-string/jumbo v13, "componentName"
 
-    iget-object v11, v5, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->component:Landroid/content/ComponentName;
+    iget-object v14, v8, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->component:Landroid/content/ComponentName;
 
-    invoke-virtual {v11}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
+    invoke-virtual {v14}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v14
 
-    invoke-virtual {v1, v10, v11}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v3, v13, v14}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v10, "profileId"
+    const-string/jumbo v13, "profileId"
 
-    iget-object v11, v5, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->user:Landroid/os/UserHandle;
+    iget-object v14, v8, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->user:Landroid/os/UserHandle;
 
-    invoke-virtual {v9, v11}, Landroid/os/UserManager;->getSerialNumberForUser(Landroid/os/UserHandle;)J
+    invoke-virtual {v12, v14}, Landroid/os/UserManager;->getSerialNumberForUser(Landroid/os/UserHandle;)J
 
-    move-result-wide v12
+    move-result-wide v14
 
-    invoke-static {v12, v13}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {v14, v15}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v11
+    move-result-object v14
 
-    invoke-virtual {v1, v10, v11}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
+    invoke-virtual {v3, v13, v14}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->getCurrentUserId()I
+    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->getCurrentUserId()I
 
-    move-result v10
+    move-result v13
 
-    invoke-static {v10}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrder;->CONTENT_URI(I)Landroid/net/Uri;
+    invoke-static {v13}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrder;->CONTENT_URI(I)Landroid/net/Uri;
 
-    move-result-object v10
+    move-result-object v13
 
-    invoke-static {v10}, Landroid/content/ContentProviderOperation;->newInsert(Landroid/net/Uri;)Landroid/content/ContentProviderOperation$Builder;
+    invoke-static {v13}, Landroid/content/ContentProviderOperation;->newInsert(Landroid/net/Uri;)Landroid/content/ContentProviderOperation$Builder;
 
-    move-result-object v10
+    move-result-object v13
 
-    invoke-virtual {v10, v1}, Landroid/content/ContentProviderOperation$Builder;->withValues(Landroid/content/ContentValues;)Landroid/content/ContentProviderOperation$Builder;
+    invoke-virtual {v13, v3}, Landroid/content/ContentProviderOperation$Builder;->withValues(Landroid/content/ContentValues;)Landroid/content/ContentProviderOperation$Builder;
 
-    move-result-object v10
+    move-result-object v13
 
-    invoke-virtual {v10}, Landroid/content/ContentProviderOperation$Builder;->build()Landroid/content/ContentProviderOperation;
+    invoke-virtual {v13}, Landroid/content/ContentProviderOperation$Builder;->build()Landroid/content/ContentProviderOperation;
 
-    move-result-object v10
+    move-result-object v13
 
-    invoke-virtual {v2, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v13}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-boolean v10, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->DEBUGGABLE:Z
+    sget-boolean v13, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->DEBUGGABLE:Z
 
-    if-eqz v10, :cond_0
+    if-eqz v13, :cond_0
 
-    const-string/jumbo v10, "[DS]TaskBarDBManager"
+    const-string/jumbo v13, "[DS]TaskBarDBManager"
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v12, "appOrder create app: "
+    const-string/jumbo v15, "appOrder create app: "
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v14
 
-    iget-wide v12, v5, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->id:J
+    iget-wide v0, v8, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->id:J
 
-    invoke-virtual {v11, v12, v13}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-wide/from16 v16, v0
 
-    move-result-object v11
+    move-wide/from16 v0, v16
 
-    const-string/jumbo v12, ", "
+    invoke-virtual {v14, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v14
 
-    move-result-object v11
+    const-string/jumbo v15, ", "
 
-    const-string/jumbo v12, ", "
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v14
 
-    move-result-object v11
+    const-string/jumbo v15, ", "
 
-    iget-object v12, v5, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->title:Ljava/lang/String;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v14
 
-    move-result-object v11
+    iget-object v15, v8, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->title:Ljava/lang/String;
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v14
 
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
     :pswitch_2
-    new-instance v7, Landroid/content/ContentValues;
+    new-instance v10, Landroid/content/ContentValues;
 
-    invoke-direct {v7}, Landroid/content/ContentValues;-><init>()V
+    invoke-direct {v10}, Landroid/content/ContentValues;-><init>()V
 
-    const-string/jumbo v10, "title"
+    const-string/jumbo v13, "title"
 
-    iget-object v11, v5, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->title:Ljava/lang/String;
+    iget-object v14, v8, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->title:Ljava/lang/String;
 
-    invoke-virtual {v7, v10, v11}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v10, v13, v14}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v10, "profileId"
+    const-string/jumbo v13, "profileId"
 
-    iget-object v11, v5, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->user:Landroid/os/UserHandle;
+    iget-object v14, v8, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->user:Landroid/os/UserHandle;
 
-    invoke-virtual {v9, v11}, Landroid/os/UserManager;->getSerialNumberForUser(Landroid/os/UserHandle;)J
+    invoke-virtual {v12, v14}, Landroid/os/UserManager;->getSerialNumberForUser(Landroid/os/UserHandle;)J
 
-    move-result-wide v12
+    move-result-wide v14
 
-    invoke-static {v12, v13}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {v14, v15}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v11
+    move-result-object v14
 
-    invoke-virtual {v7, v10, v11}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
+    invoke-virtual {v10, v13, v14}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
-    const-string/jumbo v3, "_id = ?"
+    const-string/jumbo v6, "_id = ?"
 
-    const/4 v10, 0x1
+    const/4 v13, 0x1
 
-    new-array v4, v10, [Ljava/lang/String;
+    new-array v7, v13, [Ljava/lang/String;
 
-    iget-wide v10, v5, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->id:J
+    iget-wide v14, v8, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->id:J
 
-    invoke-static {v10, v11}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+    invoke-static {v14, v15}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v13
 
-    const/4 v11, 0x0
+    const/4 v14, 0x0
 
-    aput-object v10, v4, v11
+    aput-object v13, v7, v14
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->getCurrentUserId()I
+    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->getCurrentUserId()I
 
-    move-result v10
+    move-result v13
 
-    invoke-static {v10}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrder;->CONTENT_URI(I)Landroid/net/Uri;
+    invoke-static {v13}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrder;->CONTENT_URI(I)Landroid/net/Uri;
 
-    move-result-object v10
+    move-result-object v13
 
-    invoke-static {v10}, Landroid/content/ContentProviderOperation;->newUpdate(Landroid/net/Uri;)Landroid/content/ContentProviderOperation$Builder;
+    invoke-static {v13}, Landroid/content/ContentProviderOperation;->newUpdate(Landroid/net/Uri;)Landroid/content/ContentProviderOperation$Builder;
 
-    move-result-object v10
+    move-result-object v13
 
-    invoke-virtual {v10, v3, v4}, Landroid/content/ContentProviderOperation$Builder;->withSelection(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/ContentProviderOperation$Builder;
+    invoke-virtual {v13, v6, v7}, Landroid/content/ContentProviderOperation$Builder;->withSelection(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/ContentProviderOperation$Builder;
 
-    move-result-object v10
+    move-result-object v13
 
-    invoke-virtual {v10, v7}, Landroid/content/ContentProviderOperation$Builder;->withValues(Landroid/content/ContentValues;)Landroid/content/ContentProviderOperation$Builder;
+    invoke-virtual {v13, v10}, Landroid/content/ContentProviderOperation$Builder;->withValues(Landroid/content/ContentValues;)Landroid/content/ContentProviderOperation$Builder;
 
-    move-result-object v10
+    move-result-object v13
 
-    invoke-virtual {v10}, Landroid/content/ContentProviderOperation$Builder;->build()Landroid/content/ContentProviderOperation;
+    invoke-virtual {v13}, Landroid/content/ContentProviderOperation$Builder;->build()Landroid/content/ContentProviderOperation;
 
-    move-result-object v10
+    move-result-object v13
 
-    invoke-virtual {v2, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v13}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-boolean v10, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->DEBUGGABLE:Z
+    sget-boolean v13, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->DEBUGGABLE:Z
 
-    if-eqz v10, :cond_0
+    if-eqz v13, :cond_0
 
-    const-string/jumbo v10, "[DS]TaskBarDBManager"
+    const-string/jumbo v13, "[DS]TaskBarDBManager"
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v12, "appOrder update app: "
+    const-string/jumbo v15, "appOrder update app: "
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v14
 
-    iget-wide v12, v5, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->id:J
+    iget-wide v0, v8, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->id:J
 
-    invoke-virtual {v11, v12, v13}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-wide/from16 v16, v0
 
-    move-result-object v11
+    move-wide/from16 v0, v16
 
-    const-string/jumbo v12, ", "
+    invoke-virtual {v14, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v14
 
-    move-result-object v11
+    const-string/jumbo v15, ", "
 
-    const-string/jumbo v12, ", "
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v14
 
-    move-result-object v11
+    const-string/jumbo v15, ", "
 
-    iget-object v12, v5, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->title:Ljava/lang/String;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v14
 
-    move-result-object v11
+    iget-object v15, v8, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->title:Ljava/lang/String;
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v14
 
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
     :pswitch_3
-    const-string/jumbo v3, "_id = ?"
+    const-string/jumbo v6, "_id = ?"
 
-    const/4 v10, 0x1
+    const/4 v13, 0x1
 
-    new-array v4, v10, [Ljava/lang/String;
+    new-array v7, v13, [Ljava/lang/String;
 
-    iget-wide v10, v5, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->id:J
+    iget-wide v14, v8, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->id:J
 
-    invoke-static {v10, v11}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+    invoke-static {v14, v15}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v13
 
-    const/4 v11, 0x0
+    const/4 v14, 0x0
 
-    aput-object v10, v4, v11
+    aput-object v13, v7, v14
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->getCurrentUserId()I
+    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->getCurrentUserId()I
 
-    move-result v10
+    move-result v13
 
-    invoke-static {v10}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrder;->CONTENT_URI(I)Landroid/net/Uri;
+    invoke-static {v13}, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrder;->CONTENT_URI(I)Landroid/net/Uri;
 
-    move-result-object v10
+    move-result-object v13
 
-    invoke-static {v10}, Landroid/content/ContentProviderOperation;->newDelete(Landroid/net/Uri;)Landroid/content/ContentProviderOperation$Builder;
+    invoke-static {v13}, Landroid/content/ContentProviderOperation;->newDelete(Landroid/net/Uri;)Landroid/content/ContentProviderOperation$Builder;
 
-    move-result-object v10
+    move-result-object v13
 
-    invoke-virtual {v10, v3, v4}, Landroid/content/ContentProviderOperation$Builder;->withSelection(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/ContentProviderOperation$Builder;
+    invoke-virtual {v13, v6, v7}, Landroid/content/ContentProviderOperation$Builder;->withSelection(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/ContentProviderOperation$Builder;
 
-    move-result-object v10
+    move-result-object v13
 
-    invoke-virtual {v10}, Landroid/content/ContentProviderOperation$Builder;->build()Landroid/content/ContentProviderOperation;
+    invoke-virtual {v13}, Landroid/content/ContentProviderOperation$Builder;->build()Landroid/content/ContentProviderOperation;
 
-    move-result-object v10
+    move-result-object v13
 
-    invoke-virtual {v2, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v13}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-boolean v10, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->DEBUGGABLE:Z
+    sget-boolean v13, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->DEBUGGABLE:Z
 
-    if-eqz v10, :cond_0
+    if-eqz v13, :cond_0
 
-    const-string/jumbo v10, "[DS]TaskBarDBManager"
+    const-string/jumbo v13, "[DS]TaskBarDBManager"
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v12, "appOrder delete item: "
+    const-string/jumbo v15, "appOrder delete item: "
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v14
 
-    iget-wide v12, v5, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->id:J
+    iget-wide v0, v8, Lcom/android/systemui/statusbar/phone/taskbar/utils/TaskBarSettings$AppOrderModify;->id:J
 
-    invoke-virtual {v11, v12, v13}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-wide/from16 v16, v0
 
-    move-result-object v11
+    move-wide/from16 v0, v16
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v14, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v14
 
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
     :cond_1
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v13, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->getCurrentUserId()I
+    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->getCurrentUserId()I
 
-    move-result v11
+    move-result v14
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v13
 
-    const-string/jumbo v11, "@"
+    const-string/jumbo v14, "@"
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v13
 
-    const-string/jumbo v11, "com.sec.android.app.desktoplauncher.settings"
+    const-string/jumbo v14, "com.sec.android.app.desktoplauncher.settings"
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v13
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-direct {p0, v0, v2}, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->applyBatch(Ljava/lang/String;Ljava/util/ArrayList;)V
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2, v5}, Lcom/android/systemui/statusbar/phone/taskbar/database/TaskBarDBManager;->applyBatch(Ljava/lang/String;Ljava/util/ArrayList;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    return-void
-
-    nop
+    goto/16 :goto_1
 
     :pswitch_data_0
     .packed-switch 0x2

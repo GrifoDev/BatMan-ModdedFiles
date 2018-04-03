@@ -59,11 +59,11 @@
     return v0
 
     :cond_0
-    const-string/jumbo v0, "Using <textPath> elements in a clip path is not supported."
+    new-array v0, v2, [Ljava/lang/Object;
 
-    new-array v1, v2, [Ljava/lang/Object;
+    const-string/jumbo v1, "Using <textPath> elements in a clip path is not supported."
 
-    invoke-static {v0, v1}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->access$800(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v1, v0}, Lcom/caverock/androidsvg/SVGAndroidRenderer;->access$800(Ljava/lang/String;[Ljava/lang/Object;)V
 
     return v2
 .end method

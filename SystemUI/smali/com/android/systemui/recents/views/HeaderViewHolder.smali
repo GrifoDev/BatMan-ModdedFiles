@@ -33,7 +33,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/HeaderViewHolder;->itemView:Landroid/view/View;
 
-    const v1, 0x7f130400
+    const v1, 0x7f0a00fc
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -43,7 +43,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/recents/views/HeaderViewHolder;->contentView:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f1302c5
+    const v0, 0x7f0a02c3
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -53,7 +53,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/recents/views/HeaderViewHolder;->labelView:Landroid/widget/TextView;
 
-    const v0, 0x7f130402
+    const v0, 0x7f0a02f6
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -73,15 +73,11 @@
 
 # virtual methods
 .method public onBind(IZI)V
-    .locals 7
+    .locals 4
 
-    const/high16 v6, -0x67000000
-
-    const v5, 0xffffff
+    const/4 v3, 0x0
 
     const/4 v2, 0x0
-
-    const/4 v4, 0x0
 
     sget v0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter;->INDEX_HEADER_RECOMMENDATION_APPS:I
 
@@ -98,7 +94,7 @@
     :goto_0
     iget-object v0, p0, Lcom/android/systemui/recents/views/HeaderViewHolder;->labelView:Landroid/widget/TextView;
 
-    const v1, 0x7f0f06a8
+    const v1, 0x7f1208ea
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -108,7 +104,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/HeaderViewHolder;->labelView:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v4, v4, v4, v2}, Landroid/widget/TextView;->setShadowLayer(FFFI)V
+    invoke-virtual {v0, v3, v3, v3, v2}, Landroid/widget/TextView;->setShadowLayer(FFFI)V
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/HeaderViewHolder;->labelView:Landroid/widget/TextView;
 
@@ -147,7 +143,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/views/HeaderViewHolder;->labelView:Landroid/widget/TextView;
 
-    const v1, 0x7f0f06a9
+    const v1, 0x7f1208e9
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -156,47 +152,25 @@
     :cond_3
     iget-object v0, p0, Lcom/android/systemui/recents/views/HeaderViewHolder;->labelView:Landroid/widget/TextView;
 
-    iget-object v1, p0, Lcom/android/systemui/recents/views/HeaderViewHolder;->mAttr:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
+    iget-object v1, p0, Lcom/android/systemui/recents/views/HeaderViewHolder;->mContext:Landroid/content/Context;
 
-    iget v1, v1, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;->mItemTextWhiteColor:I
+    const v2, 0x7f06017a
 
-    and-int/2addr v1, v5
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getColor(I)I
 
-    or-int/2addr v1, v6
+    move-result v1
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
 
-    iget-object v0, p0, Lcom/android/systemui/recents/views/HeaderViewHolder;->labelView:Landroid/widget/TextView;
-
-    iget-object v1, p0, Lcom/android/systemui/recents/views/HeaderViewHolder;->mAttr:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
-
-    iget v1, v1, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;->mItemTextShadowSize:F
-
-    iget-object v2, p0, Lcom/android/systemui/recents/views/HeaderViewHolder;->mAttr:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
-
-    iget v2, v2, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;->mItemTextShadowYDistance:F
-
-    iget-object v3, p0, Lcom/android/systemui/recents/views/HeaderViewHolder;->mAttr:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
-
-    iget v3, v3, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;->mItemTextShadowColor:I
-
-    and-int/2addr v3, v5
-
-    or-int/2addr v3, v6
-
-    invoke-virtual {v0, v1, v4, v2, v3}, Landroid/widget/TextView;->setShadowLayer(FFFI)V
-
     iget-object v0, p0, Lcom/android/systemui/recents/views/HeaderViewHolder;->lineView:Landroid/view/View;
 
-    iget-object v1, p0, Lcom/android/systemui/recents/views/HeaderViewHolder;->mAttr:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
+    iget-object v1, p0, Lcom/android/systemui/recents/views/HeaderViewHolder;->mContext:Landroid/content/Context;
 
-    iget v1, v1, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;->mItemTextWhiteColor:I
+    const v2, 0x7f060179
 
-    and-int/2addr v1, v5
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getColor(I)I
 
-    const/high16 v2, -0x80000000
-
-    or-int/2addr v1, v2
+    move-result v1
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundColor(I)V
 

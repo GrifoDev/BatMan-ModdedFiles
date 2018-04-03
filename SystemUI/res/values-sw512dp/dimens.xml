@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="recents_app_list_item_content_height">123.0dip</dimen>
+    <dimen name="recents_app_list_item_icon_size">72.0dip</dimen>
+    <dimen name="recents_app_list_item_label_margin_top">8.0dip</dimen>
+    <dimen name="recents_app_list_item_label_text_size">16.0dip</dimen>
+    <dimen name="recents_app_list_margin_edge">24.0dip</dimen>
+    <dimen name="recents_app_list_margin_gap">5.0dip</dimen>
+    <dimen name="recents_app_list_margin_top">54.0dip</dimen>
+    <dimen name="recents_lower_task_view_header_button_padding">12.0dip</dimen>
+    <dimen name="recents_lower_task_view_header_height">51.0dip</dimen>
+    <dimen name="recents_lower_task_view_header_icon_padding">10.0dip</dimen>
+</resources>

@@ -1,11 +1,14 @@
 .class Lcom/android/systemui/qs/customize/QSCustomizer$3;
-.super Landroid/animation/AnimatorListenerAdapter;
+.super Ljava/lang/Object;
 .source "QSCustomizer.java"
+
+# interfaces
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/systemui/qs/customize/QSCustomizer;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/systemui/qs/customize/QSCustomizer;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,85 +27,47 @@
 
     iput-object p1, p0, Lcom/android/systemui/qs/customize/QSCustomizer$3;->this$0:Lcom/android/systemui/qs/customize/QSCustomizer;
 
-    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 2
+.method public onClick(Landroid/view/View;)V
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizer$3;->this$0:Lcom/android/systemui/qs/customize/QSCustomizer;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/customize/QSCustomizer;->-get0(Lcom/android/systemui/qs/customize/QSCustomizer;)Z
+    invoke-virtual {p1}, Landroid/view/View;->getX()F
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    float-to-int v1, v1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizer$3;->this$0:Lcom/android/systemui/qs/customize/QSCustomizer;
+    invoke-virtual {p1}, Landroid/view/View;->getWidth()I
 
-    const/16 v1, 0x8
+    move-result v2
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/customize/QSCustomizer;->setVisibility(I)V
+    div-int/lit8 v2, v2, 0x2
 
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizer$3;->this$0:Lcom/android/systemui/qs/customize/QSCustomizer;
+    add-int/2addr v1, v2
 
-    invoke-static {v0}, Lcom/android/systemui/qs/customize/QSCustomizer;->-get2(Lcom/android/systemui/qs/customize/QSCustomizer;)Lcom/android/systemui/statusbar/phone/NotificationsQuickSettingsContainer;
+    invoke-virtual {p1}, Landroid/view/View;->getY()F
 
-    move-result-object v0
+    move-result v2
 
-    const/4 v1, 0x0
+    float-to-int v2, v2
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/NotificationsQuickSettingsContainer;->setCustomizerAnimating(Z)V
+    invoke-virtual {p1}, Landroid/view/View;->getHeight()I
 
-    return-void
-.end method
+    move-result v3
 
-.method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    div-int/lit8 v3, v3, 0x2
 
-    iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizer$3;->this$0:Lcom/android/systemui/qs/customize/QSCustomizer;
+    add-int/2addr v2, v3
 
-    invoke-static {v0}, Lcom/android/systemui/qs/customize/QSCustomizer;->-get0(Lcom/android/systemui/qs/customize/QSCustomizer;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizer$3;->this$0:Lcom/android/systemui/qs/customize/QSCustomizer;
-
-    const/16 v1, 0x8
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/customize/QSCustomizer;->setVisibility(I)V
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizer$3;->this$0:Lcom/android/systemui/qs/customize/QSCustomizer;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/customize/QSCustomizer;->-get2(Lcom/android/systemui/qs/customize/QSCustomizer;)Lcom/android/systemui/statusbar/phone/NotificationsQuickSettingsContainer;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/NotificationsQuickSettingsContainer;->setCustomizerAnimating(Z)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizer$3;->this$0:Lcom/android/systemui/qs/customize/QSCustomizer;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/customize/QSCustomizer;->-get3(Lcom/android/systemui/qs/customize/QSCustomizer;)Landroid/support/v7/widget/RecyclerView;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/qs/customize/QSCustomizer$3;->this$0:Lcom/android/systemui/qs/customize/QSCustomizer;
-
-    invoke-static {v1}, Lcom/android/systemui/qs/customize/QSCustomizer;->-get4(Lcom/android/systemui/qs/customize/QSCustomizer;)Lcom/android/systemui/qs/customize/TileAdapter;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/qs/customize/QSCustomizer;->hide(II)V
 
     return-void
 .end method

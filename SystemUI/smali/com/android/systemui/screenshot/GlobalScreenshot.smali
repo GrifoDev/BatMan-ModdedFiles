@@ -26,8 +26,6 @@
 
 .field private mContext:Landroid/content/Context;
 
-.field private mDisplay:Landroid/view/Display;
-
 .field private mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
 
 .field private mNotificationIconSize:I
@@ -57,6 +55,8 @@
 
 .field final mShutterEffectLock:Ljava/lang/Object;
 
+.field private mTopApplication:Ljava/lang/String;
+
 .field private mVibrator:Landroid/os/Vibrator;
 
 .field private mWebData:Lcom/android/systemui/screenshot/SmartClipDataExtractor$WebData;
@@ -81,15 +81,7 @@
     return v0
 .end method
 
-.method static synthetic -get10(Lcom/android/systemui/screenshot/GlobalScreenshot;)Landroid/widget/ImageView;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenshotView:Landroid/widget/ImageView;
-
-    return-object v0
-.end method
-
-.method static synthetic -get11(Lcom/android/systemui/screenshot/GlobalScreenshot;)Landroid/view/WindowManager;
+.method static synthetic -get10(Lcom/android/systemui/screenshot/GlobalScreenshot;)Landroid/view/WindowManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mWindowManager:Landroid/view/WindowManager;
@@ -121,15 +113,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/android/systemui/screenshot/GlobalScreenshot;)Landroid/view/Display;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mDisplay:Landroid/view/Display;
-
-    return-object v0
-.end method
-
-.method static synthetic -get6(Lcom/android/systemui/screenshot/GlobalScreenshot;)Lcom/android/systemui/screenshot/ScreenCaptureHelper;
+.method static synthetic -get5(Lcom/android/systemui/screenshot/GlobalScreenshot;)Lcom/android/systemui/screenshot/ScreenCaptureHelper;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
@@ -137,7 +121,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get7(Lcom/android/systemui/screenshot/GlobalScreenshot;)Ljava/util/List;
+.method static synthetic -get6(Lcom/android/systemui/screenshot/GlobalScreenshot;)Ljava/util/List;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenBitmapList:Ljava/util/List;
@@ -145,7 +129,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get8(Lcom/android/systemui/screenshot/GlobalScreenshot;)Landroid/view/View;
+.method static synthetic -get7(Lcom/android/systemui/screenshot/GlobalScreenshot;)Landroid/view/View;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenshotLayout:Landroid/view/View;
@@ -153,10 +137,18 @@
     return-object v0
 .end method
 
-.method static synthetic -get9(Lcom/android/systemui/screenshot/GlobalScreenshot;)Lcom/android/systemui/screenshot/ScreenshotSelectorView;
+.method static synthetic -get8(Lcom/android/systemui/screenshot/GlobalScreenshot;)Lcom/android/systemui/screenshot/ScreenshotSelectorView;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenshotSelectorView:Lcom/android/systemui/screenshot/ScreenshotSelectorView;
+
+    return-object v0
+.end method
+
+.method static synthetic -get9(Lcom/android/systemui/screenshot/GlobalScreenshot;)Landroid/widget/ImageView;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenshotView:Landroid/widget/ImageView;
 
     return-object v0
 .end method
@@ -270,28 +262,34 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2
 
     invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
 
     move-result v4
 
+    xor-int/lit8 v4, v4, 0x1
+
     if-eqz v4, :cond_2
 
-    :cond_0
-    const-string/jumbo v4, "ro.build.scafe.version"
+    const-string/jumbo v4, "capuccino"
 
-    invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_1
-
-    invoke-virtual {v3}, Ljava/lang/String;->isEmpty()Z
+    invoke-virtual {v4, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-nez v4, :cond_0
+
+    const-string/jumbo v4, "latte"
+
+    invoke-virtual {v4, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    :cond_0
+    iput v9, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mAnimationType:I
 
     :cond_1
     :goto_0
@@ -303,7 +301,7 @@
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    const v4, 0x7f04005b
+    const v4, 0x7f0d004b
 
     invoke-virtual {v0, v4, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -313,7 +311,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenshotLayout:Landroid/view/View;
 
-    const v5, 0x7f1301cf
+    const v5, 0x7f0a01c5
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -325,11 +323,11 @@
 
     iget v4, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mAnimationType:I
 
-    if-ne v4, v9, :cond_6
+    if-ne v4, v9, :cond_4
 
     iget-object v4, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenshotLayout:Landroid/view/View;
 
-    const v5, 0x7f1301d1
+    const v5, 0x7f0a01c6
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -342,7 +340,7 @@
     :goto_1
     iget-object v4, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenshotLayout:Landroid/view/View;
 
-    const v5, 0x7f1301d2
+    const v5, 0x7f0a01c7
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -392,14 +390,6 @@
 
     iput-object v4, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mNotificationManager:Landroid/app/NotificationManager;
 
-    iget-object v4, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mWindowManager:Landroid/view/WindowManager;
-
-    invoke-interface {v4}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
-
-    move-result-object v4
-
-    iput-object v4, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mDisplay:Landroid/view/Display;
-
     const v4, 0x1050006
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -437,28 +427,22 @@
     return-void
 
     :cond_2
-    const-string/jumbo v4, "capuccino"
+    const-string/jumbo v4, "ro.build.scafe.version"
 
-    invoke-virtual {v4, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result v4
+    move-result-object v3
 
-    if-nez v4, :cond_3
+    if-eqz v3, :cond_1
 
-    const-string/jumbo v4, "latte"
-
-    invoke-virtual {v4, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v3}, Ljava/lang/String;->isEmpty()Z
 
     move-result v4
+
+    xor-int/lit8 v4, v4, 0x1
 
     if-eqz v4, :cond_1
 
-    :cond_3
-    iput v9, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mAnimationType:I
-
-    goto/16 :goto_0
-
-    :cond_4
     const/4 v4, 0x4
 
     invoke-virtual {v3, v7, v4}, Ljava/lang/String;->subSequence(II)Ljava/lang/CharSequence;
@@ -497,31 +481,31 @@
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_3
 
     iput v9, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mAnimationType:I
 
     goto/16 :goto_0
 
-    :cond_5
+    :cond_3
     iput v10, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mAnimationType:I
 
     goto/16 :goto_0
 
-    :cond_6
+    :cond_4
     iget v4, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mAnimationType:I
 
-    if-ne v4, v10, :cond_7
+    if-ne v4, v10, :cond_5
 
     iget-object v4, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mBackgroundView:Landroid/widget/ImageView;
 
-    const v5, 0x7f0b0128
+    const v5, 0x7f060047
 
     invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setImageResource(I)V
 
     iget-object v4, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenshotLayout:Landroid/view/View;
 
-    const v5, 0x7f1301d1
+    const v5, 0x7f0a01c6
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -539,10 +523,10 @@
 
     goto/16 :goto_1
 
-    :cond_7
+    :cond_5
     iget-object v4, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenshotLayout:Landroid/view/View;
 
-    const v5, 0x7f1301d0
+    const v5, 0x7f0a01c4
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -814,9 +798,9 @@
 .method static notifyScreenshotError(Landroid/content/Context;Landroid/app/NotificationManager;)V
     .locals 8
 
-    const v7, 0x7f0f02f6
+    const v5, 0x7f12097c
 
-    const v5, 0x7f0f02f5
+    const v7, 0x7f12097b
 
     const/4 v6, 0x1
 
@@ -826,7 +810,9 @@
 
     new-instance v3, Landroid/app/Notification$Builder;
 
-    invoke-direct {v3, p0}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
+    sget-object v4, Lcom/android/systemui/util/NotificationChannels;->ALERTS:Ljava/lang/String;
+
+    invoke-direct {v3, p0, v4}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -852,7 +838,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0205ed
+    const v4, 0x7f0805cb
 
     invoke-virtual {v3, v4}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -880,7 +866,7 @@
 
     move-result-object v3
 
-    const v4, 0x106005a
+    const v4, 0x10601bc
 
     invoke-virtual {p0, v4}, Landroid/content/Context;->getColor(I)I
 
@@ -908,7 +894,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f13003a
+    const v3, 0x7f0a039b
 
     invoke-virtual {p1, v3, v1}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
 
@@ -918,49 +904,49 @@
 .method private playCaptureSound()V
     .locals 13
 
-    const/4 v10, 0x1
+    const/4 v12, 0x1
 
-    const/4 v9, 0x0
+    const/4 v11, 0x0
 
     const-string/jumbo v8, "service.camera.running"
 
-    const-string/jumbo v11, "0"
+    const-string/jumbo v9, "0"
 
-    invoke-static {v8, v11}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v8, v9}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v8
 
-    const-string/jumbo v11, "1"
+    const-string/jumbo v9, "1"
 
-    invoke-virtual {v8, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
     const-string/jumbo v8, "service.camera.rec.running"
 
-    const-string/jumbo v11, "0"
+    const-string/jumbo v9, "0"
 
-    invoke-static {v8, v11}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v8, v9}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v8
 
-    const-string/jumbo v11, "1"
+    const-string/jumbo v9, "1"
 
-    invoke-virtual {v8, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
     const-string/jumbo v8, "service.camera.sfs.running"
 
-    const-string/jumbo v11, "0"
+    const-string/jumbo v9, "0"
 
-    invoke-static {v8, v11}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v8, v9}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v8
 
-    const-string/jumbo v11, "1"
+    const-string/jumbo v9, "1"
 
-    invoke-virtual {v8, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
@@ -972,112 +958,103 @@
 
     const-string/jumbo v8, "service.bioface.authenticating"
 
-    const-string/jumbo v11, "0"
+    const-string/jumbo v9, "0"
 
-    invoke-static {v8, v11}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v8, v9}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v8
 
-    const-string/jumbo v11, "1"
+    const-string/jumbo v9, "1"
 
-    invoke-virtual {v8, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
     sget-object v8, Lcom/android/systemui/screenshot/GlobalScreenshot;->TAG:Ljava/lang/String;
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v12, "isCameraRunning = "
+    const-string/jumbo v10, "isCameraRunning = "
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v9
 
-    invoke-virtual {v11, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v9
 
-    const-string/jumbo v12, ", isRecordRunning = "
+    const-string/jumbo v10, ", isRecordRunning = "
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v9
 
-    invoke-virtual {v11, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v9
 
-    const-string/jumbo v12, ", isSmartStayRunning = "
+    const-string/jumbo v10, ", isSmartStayRunning = "
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v9
 
-    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v9
 
-    const-string/jumbo v12, ", isVtCallRunning = "
+    const-string/jumbo v10, ", isVtCallRunning = "
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v9
 
-    invoke-virtual {v11, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v9
 
-    const-string/jumbo v12, ", isBioFaceRunning = "
+    const-string/jumbo v10, ", isBioFaceRunning = "
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v9
 
-    invoke-virtual {v11, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v9
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v9
 
-    invoke-static {v8, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
     move-result-object v8
 
-    const-string/jumbo v11, "CscFeature_Framework_EnableScrCaptureSoundOnlyInCamera"
+    const-string/jumbo v9, "CscFeature_Framework_EnableScrCaptureSoundOnlyInCamera"
 
-    invoke-virtual {v8, v11, v9}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v8, v9, v11}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v8
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_3
 
     if-eqz v4, :cond_0
 
-    if-eqz v5, :cond_3
+    xor-int/lit8 v8, v5, 0x1
 
-    move v11, v9
+    xor-int/lit8 v9, v6, 0x1
 
-    :goto_0
-    if-eqz v6, :cond_4
+    and-int/2addr v8, v9
 
-    move v8, v9
+    xor-int/lit8 v9, v3, 0x1
 
-    :goto_1
-    and-int/2addr v11, v8
-
-    if-eqz v3, :cond_5
-
-    move v8, v9
-
-    :goto_2
-    and-int/2addr v8, v11
+    and-int/2addr v8, v9
 
     if-nez v8, :cond_1
 
@@ -1087,38 +1064,23 @@
     :cond_1
     sget-object v8, Lcom/android/systemui/screenshot/GlobalScreenshot;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v11, "[CSCFEATURE_FRAMEWORK_ENABLESCRCAPTURESOUNDONLYINCAMERA] Camera is running!!!!"
+    const-string/jumbo v9, "[CSCFEATURE_FRAMEWORK_ENABLESCRCAPTURESOUNDONLYINCAMERA] Camera is running!!!!"
 
-    invoke-static {v8, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v8, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mCameraSound:Lcom/android/systemui/screenshot/ScreenshotCaptureSound;
 
-    invoke-virtual {v8, v9, v10}, Lcom/android/systemui/screenshot/ScreenshotCaptureSound;->play(IZ)V
+    invoke-virtual {v8, v11, v12}, Lcom/android/systemui/screenshot/ScreenshotCaptureSound;->play(IZ)V
 
     :cond_2
     return-void
 
     :cond_3
-    move v11, v10
-
-    goto :goto_0
-
-    :cond_4
-    move v8, v10
-
-    goto :goto_1
-
-    :cond_5
-    move v8, v10
-
-    goto :goto_2
-
-    :cond_6
     iget-object v8, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v11, "audio"
+    const-string/jumbo v9, "audio"
 
-    invoke-virtual {v8, v11}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v8, v9}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1134,81 +1096,65 @@
 
     move-result-object v8
 
-    const-string/jumbo v11, "csc_pref_camera_forced_shuttersound_key"
+    const-string/jumbo v9, "csc_pref_camera_forced_shuttersound_key"
 
-    invoke-static {v8, v11, v9}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v8, v9, v11}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v8
 
-    if-ne v8, v10, :cond_a
+    if-ne v8, v12, :cond_7
 
-    move v2, v10
+    const/4 v2, 0x1
 
-    :goto_3
-    if-eqz v2, :cond_d
+    :goto_0
+    if-eqz v2, :cond_8
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_4
 
-    if-eqz v6, :cond_b
+    xor-int/lit8 v8, v6, 0x1
 
-    move v11, v9
+    xor-int/lit8 v9, v3, 0x1
 
-    :goto_4
-    if-eqz v3, :cond_c
+    and-int/2addr v8, v9
 
-    move v8, v9
+    if-nez v8, :cond_5
 
-    :goto_5
-    and-int/2addr v8, v11
+    :cond_4
+    if-eqz v7, :cond_8
 
-    if-nez v8, :cond_8
-
-    :cond_7
-    if-eqz v7, :cond_d
-
-    :cond_8
+    :cond_5
     sget-object v8, Lcom/android/systemui/screenshot/GlobalScreenshot;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v11, "[forcedShutterSound] Camera is running!!!!"
+    const-string/jumbo v9, "[forcedShutterSound] Camera is running!!!!"
 
-    invoke-static {v8, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v8, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mCameraSound:Lcom/android/systemui/screenshot/ScreenshotCaptureSound;
 
-    invoke-virtual {v8, v9, v10}, Lcom/android/systemui/screenshot/ScreenshotCaptureSound;->play(IZ)V
+    invoke-virtual {v8, v11, v12}, Lcom/android/systemui/screenshot/ScreenshotCaptureSound;->play(IZ)V
 
-    :cond_9
-    :goto_6
+    :cond_6
+    :goto_1
     return-void
 
-    :cond_a
-    move v2, v9
+    :cond_7
+    const/4 v2, 0x0
 
-    goto :goto_3
+    goto :goto_0
 
-    :cond_b
-    move v11, v10
-
-    goto :goto_4
-
-    :cond_c
-    move v8, v10
-
-    goto :goto_5
-
-    :cond_d
+    :cond_8
     const/4 v8, 0x2
 
-    if-ne v1, v8, :cond_e
+    if-ne v1, v8, :cond_9
 
     iget-object v8, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mCameraSound:Lcom/android/systemui/screenshot/ScreenshotCaptureSound;
 
-    invoke-virtual {v8, v9, v9}, Lcom/android/systemui/screenshot/ScreenshotCaptureSound;->play(IZ)V
+    invoke-virtual {v8, v11, v11}, Lcom/android/systemui/screenshot/ScreenshotCaptureSound;->play(IZ)V
 
-    goto :goto_6
+    goto :goto_1
 
-    :cond_e
-    if-ne v1, v10, :cond_9
+    :cond_9
+    if-ne v1, v12, :cond_6
 
     sget-object v8, Lcom/android/systemui/screenshot/GlobalScreenshot;->TAG:Ljava/lang/String;
 
@@ -1244,7 +1190,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_9
+    if-eqz v8, :cond_6
 
     iget-object v8, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mVibrator:Landroid/os/Vibrator;
 
@@ -1258,7 +1204,7 @@
 
     invoke-virtual {v8, v10, v11, v12, v9}, Landroid/os/Vibrator;->semVibrate(IILandroid/media/AudioAttributes;Landroid/os/Vibrator$SemMagnitudeTypes;)V
 
-    goto :goto_6
+    goto :goto_1
 .end method
 
 .method private saveScreenshotInWorkerThread(Ljava/lang/Runnable;Landroid/graphics/Bitmap;)V
@@ -1358,7 +1304,7 @@
 
     const/4 v3, 0x0
 
-    const v9, 0x7f0d0220
+    const v9, 0x7f0703f6
 
     :try_start_0
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -1379,7 +1325,7 @@
     :cond_2
     move v5, v3
 
-    const v9, 0x7f0d0202
+    const v9, 0x7f0703e6
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1421,7 +1367,11 @@
 
     iput v9, v1, Lcom/android/systemui/screenshot/SaveImageInBackgroundData;->capturedType:I
 
-    iget-object v9, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mDisplay:Landroid/view/Display;
+    iget-object v9, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
+
+    invoke-virtual {v9}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->getDisplay()Landroid/view/Display;
+
+    move-result-object v9
 
     invoke-virtual {v9}, Landroid/view/Display;->getRotation()I
 
@@ -1465,6 +1415,10 @@
 
     iput v9, v1, Lcom/android/systemui/screenshot/SaveImageInBackgroundData;->navigationBarHeight:I
 
+    iget-object v9, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mTopApplication:Ljava/lang/String;
+
+    iput-object v9, v1, Lcom/android/systemui/screenshot/SaveImageInBackgroundData;->topApplication:Ljava/lang/String;
+
     new-instance v9, Lcom/android/systemui/screenshot/SaveImageInBackgroundTask;
 
     iget-object v10, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
@@ -1498,15 +1452,15 @@
 
     iget-object v2, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f100232
+    const v3, 0x7f130281
 
     invoke-direct {v1, v2, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    const v2, 0x7f0f02f8
+    const v2, 0x7f120716
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v2, 0x7f0f02f9
+    const v2, 0x7f120715
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1534,7 +1488,7 @@
 
     move-result-object v2
 
-    const/16 v3, 0x7d5
+    const/16 v3, 0x989
 
     invoke-virtual {v2, v3}, Landroid/view/Window;->setType(I)V
 
@@ -1844,19 +1798,19 @@
 .end method
 
 .method takeScreenshot(Ljava/lang/Runnable;)V
-    .locals 20
+    .locals 23
 
     move-object/from16 v0, p0
 
-    iget-boolean v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mOnAnimation:Z
+    iget-boolean v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mOnAnimation:Z
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
-    sget-object v3, Lcom/android/systemui/screenshot/GlobalScreenshot;->TAG:Ljava/lang/String;
+    sget-object v2, Lcom/android/systemui/screenshot/GlobalScreenshot;->TAG:Ljava/lang/String;
 
     const-string/jumbo v4, "Capture is not executed while animation is playing."
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-interface/range {p1 .. p1}, Ljava/lang/Runnable;->run()V
 
@@ -1865,48 +1819,48 @@
     :cond_0
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    if-nez v3, :cond_2
+    if-nez v2, :cond_2
 
     :cond_1
-    sget-object v3, Lcom/android/systemui/screenshot/GlobalScreenshot;->TAG:Ljava/lang/String;
+    sget-object v2, Lcom/android/systemui/screenshot/GlobalScreenshot;->TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "mHelper :"
+    const-string/jumbo v5, "mHelper :"
 
-    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    move-object/from16 v0, p0
-
-    iget-object v7, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
-
-    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string/jumbo v7, ", mContext :"
-
-    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
     move-object/from16 v0, p0
 
-    iget-object v7, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
+    iget-object v5, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
 
-    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, ", mContext :"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
@@ -1914,21 +1868,21 @@
 
     move-result-object v4
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f02fd
+    const v4, 0x7f120951
 
-    invoke-static {v3, v4}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
+    invoke-static {v2, v4}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mOnAnimation:Z
+    iput-boolean v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mOnAnimation:Z
 
     invoke-interface/range {p1 .. p1}, Ljava/lang/Runnable;->run()V
 
@@ -1937,197 +1891,250 @@
     :cond_2
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    invoke-static {v3}, Lcom/android/systemui/screenshot/ScreenshotUtils;->isEmergencyMode(Landroid/content/Context;)Z
+    invoke-static {v2}, Lcom/android/systemui/screenshot/ScreenshotUtils;->isEmergencyMode(Landroid/content/Context;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_4
+    if-eqz v2, :cond_5
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    invoke-static {v3}, Lcom/android/systemui/screenshot/ScreenshotUtils;->isUltraPowerSavingMode(Landroid/content/Context;)Z
+    invoke-static {v2}, Lcom/android/systemui/screenshot/ScreenshotUtils;->isUltraPowerSavingMode(Landroid/content/Context;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_3
+    if-eqz v2, :cond_4
 
     invoke-static {}, Lcom/android/systemui/screenshot/ScreenshotUtils;->isUPSMCaptureSupported()Z
 
-    move-result v11
-
-    if-nez v11, :cond_4
+    move-result v14
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040845
+    invoke-static {v2}, Lcom/android/systemui/screenshot/ScreenshotUtils;->isReserveBatteryForCallMode(Landroid/content/Context;)Z
 
-    invoke-static {v3, v4}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
+    move-result v13
 
-    const/4 v3, 0x0
+    if-eqz v13, :cond_3
 
     move-object/from16 v0, p0
 
-    iput-boolean v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mOnAnimation:Z
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
+
+    const v4, 0x7f1201db
+
+    const v5, 0x7f12092a
+
+    invoke-static {v2, v4, v5}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;II)V
+
+    const/4 v2, 0x0
+
+    move-object/from16 v0, p0
+
+    iput-boolean v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mOnAnimation:Z
 
     invoke-interface/range {p1 .. p1}, Ljava/lang/Runnable;->run()V
 
     return-void
 
     :cond_3
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
-
-    const v4, 0x1040844
-
-    invoke-static {v3, v4}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
-
-    const/4 v3, 0x0
+    if-nez v14, :cond_5
 
     move-object/from16 v0, p0
 
-    iput-boolean v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mOnAnimation:Z
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
+
+    const v4, 0x7f120ab2
+
+    invoke-static {v2, v4}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
+
+    const/4 v2, 0x0
+
+    move-object/from16 v0, p0
+
+    iput-boolean v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mOnAnimation:Z
 
     invoke-interface/range {p1 .. p1}, Ljava/lang/Runnable;->run()V
 
     return-void
 
     :cond_4
-    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/screenshot/GlobalScreenshot;->getCapacityState()I
+    move-object/from16 v0, p0
 
-    move-result v3
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    packed-switch v3, :pswitch_data_0
+    const v4, 0x7f1201db
 
-    const/4 v3, 0x1
+    const v5, 0x7f120297
+
+    invoke-static {v2, v4, v5}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;II)V
+
+    const/4 v2, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mOnAnimation:Z
+    iput-boolean v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mOnAnimation:Z
 
-    move-object/from16 v0, p0
+    invoke-interface/range {p1 .. p1}, Ljava/lang/Runnable;->run()V
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
-
-    invoke-virtual {v3}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->getScreenCaptureOrigin()I
-
-    move-result v12
-
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
-
-    invoke-virtual {v3}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->getScreenCaptureType()I
-
-    move-result v19
-
-    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "SEC_FLOATING_FEATURE_CONTEXTSERVICE_ENABLE_SURVEY_MODE"
-
-    const/4 v7, 0x0
-
-    invoke-virtual {v3, v4, v7}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_5
-
-    const/4 v3, 0x1
-
-    move/from16 v0, v19
-
-    if-ne v0, v3, :cond_a
-
-    const/4 v3, 0x1
-
-    if-ne v12, v3, :cond_7
-
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v4, "SCTP"
-
-    const-string/jumbo v7, "TPKE"
-
-    invoke-static {v3, v4, v7}, Lcom/android/systemui/screenshot/UsabilityLogging;->sendLogForUsabilityLogging(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+    return-void
 
     :cond_5
-    :goto_0
-    move-object/from16 v0, p0
+    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/screenshot/GlobalScreenshot;->getCapacityState()I
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
+    move-result v2
 
-    invoke-virtual {v3}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->getScreenWidth()I
+    packed-switch v2, :pswitch_data_0
 
-    move-result v17
-
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
-
-    invoke-virtual {v3}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->getScreenHeight()I
-
-    move-result v14
+    const/4 v2, 0x1
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
-
-    invoke-virtual {v3}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->getScreenshotRectToCapture()Landroid/graphics/Rect;
-
-    move-result-object v2
+    iput-boolean v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mOnAnimation:Z
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
 
-    invoke-virtual {v3}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->getScreenNativeWidth()F
-
-    move-result v16
-
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
-
-    invoke-virtual {v3}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->getScreenNativeHeight()F
+    invoke-virtual {v2}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->getScreenCaptureOrigin()I
 
     move-result v15
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
 
-    invoke-virtual {v3}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->getScreenshotMinLayer()I
+    invoke-virtual {v2}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->getScreenCaptureType()I
 
-    move-result v5
+    move-result v22
+
+    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
+
+    move-result-object v2
+
+    const-string/jumbo v4, "SEC_FLOATING_FEATURE_CONTEXTSERVICE_ENABLE_SURVEY_MODE"
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v2, v4, v5}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_6
+
+    const/4 v2, 0x1
+
+    move/from16 v0, v22
+
+    if-ne v0, v2, :cond_b
+
+    const/4 v2, 0x1
+
+    if-ne v15, v2, :cond_8
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v3}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->getScreenshotMaxLayer()I
+    const-string/jumbo v4, "SCTP"
+
+    const-string/jumbo v5, "TPKE"
+
+    invoke-static {v2, v4, v5}, Lcom/android/systemui/screenshot/UsabilityLogging;->sendLogForUsabilityLogging(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_6
+    :goto_0
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
+
+    invoke-virtual {v2}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->getScreenWidth()I
+
+    move-result v20
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
+
+    invoke-virtual {v2}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->getScreenHeight()I
+
+    move-result v17
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
+
+    invoke-virtual {v2}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->getScreenshotRectToCapture()Landroid/graphics/Rect;
+
+    move-result-object v3
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
+
+    invoke-virtual {v2}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->getScreenNativeWidth()F
+
+    move-result v19
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
+
+    invoke-virtual {v2}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->getScreenNativeHeight()F
+
+    move-result v18
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
+
+    invoke-virtual {v2}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->getScreenshotMinLayer()I
 
     move-result v6
 
-    sget-object v3, Lcom/android/systemui/screenshot/GlobalScreenshot;->TAG:Ljava/lang/String;
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
+
+    invoke-virtual {v2}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->getScreenshotMaxLayer()I
+
+    move-result v7
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
+
+    invoke-virtual {v2}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->getDisplayId()I
+
+    move-result v10
+
+    sget-object v2, Lcom/android/systemui/screenshot/GlobalScreenshot;->TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "screenWidth = "
+    const-string/jumbo v5, "screenWidth = "
 
-    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    move/from16 v0, v20
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, ", screenHeight = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
@@ -2137,65 +2144,47 @@
 
     move-result-object v4
 
-    const-string/jumbo v7, ", screenHeight = "
+    const-string/jumbo v5, ", rectToCapture = "
 
-    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    const-string/jumbo v7, ", rectToCapture = "
+    invoke-virtual {v3}, Landroid/graphics/Rect;->toString()Ljava/lang/String;
 
-    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    move-result-object v4
-
-    invoke-virtual {v2}, Landroid/graphics/Rect;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    const-string/jumbo v7, ", screenNativeWidth = "
+    const-string/jumbo v5, ", screenNativeWidth = "
 
-    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    move/from16 v0, v16
+    move/from16 v0, v19
 
     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    const-string/jumbo v7, ", screenNativeHeight = "
+    const-string/jumbo v5, ", screenNativeHeight = "
 
-    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v15}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    const-string/jumbo v7, ", minLayer ="
+    move/from16 v0, v18
 
-    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    const-string/jumbo v7, ", maxLayer = "
+    const-string/jumbo v5, ", minLayer ="
 
-    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
@@ -2203,66 +2192,104 @@
 
     move-result-object v4
 
+    const-string/jumbo v5, ", maxLayer = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, ", buildInDisplayId = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move/from16 v0, v16
+    invoke-static {v10}, Landroid/view/SurfaceControl;->getBuiltInDisplay(I)Landroid/os/IBinder;
 
-    float-to-int v3, v0
+    move-result-object v2
 
-    float-to-int v4, v15
+    move/from16 v0, v19
 
-    const/4 v7, 0x0
+    float-to-int v4, v0
+
+    move/from16 v0, v18
+
+    float-to-int v5, v0
 
     const/4 v8, 0x0
 
-    invoke-static/range {v2 .. v8}, Landroid/view/SurfaceControl;->screenshot(Landroid/graphics/Rect;IIIIZI)Landroid/graphics/Bitmap;
+    const/4 v9, 0x0
 
-    move-result-object v3
+    invoke-static/range {v2 .. v9}, Landroid/view/SurfaceControl;->screenshot(Landroid/os/IBinder;Landroid/graphics/Rect;IIIIZI)Landroid/graphics/Bitmap;
 
-    move-object/from16 v0, p0
-
-    iput-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenBitmap:Landroid/graphics/Bitmap;
+    move-result-object v2
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenBitmap:Landroid/graphics/Bitmap;
-
-    if-eqz v3, :cond_6
+    iput-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenBitmap:Landroid/graphics/Bitmap;
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenBitmap:Landroid/graphics/Bitmap;
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v3}, Landroid/graphics/Bitmap;->getWidth()I
+    invoke-static {v2}, Lcom/android/systemui/screenshot/ScreenshotUtils;->getTopMostApplicationName(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result v3
+    move-result-object v2
 
-    if-gtz v3, :cond_d
+    move-object/from16 v0, p0
 
-    :cond_6
-    sget-object v3, Lcom/android/systemui/screenshot/GlobalScreenshot;->TAG:Ljava/lang/String;
+    iput-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mTopApplication:Ljava/lang/String;
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenBitmap:Landroid/graphics/Bitmap;
+
+    if-eqz v2, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenBitmap:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v2}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v2
+
+    if-gtz v2, :cond_e
+
+    :cond_7
+    sget-object v2, Lcom/android/systemui/screenshot/GlobalScreenshot;->TAG:Ljava/lang/String;
 
     const-string/jumbo v4, "mScreenBitmap is not available"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f02fd
+    const v4, 0x7f120951
 
-    invoke-static {v3, v4}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
+    invoke-static {v2, v4}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mOnAnimation:Z
+    iput-boolean v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mOnAnimation:Z
 
     invoke-interface/range {p1 .. p1}, Ljava/lang/Runnable;->run()V
 
@@ -2271,223 +2298,227 @@
     :pswitch_0
     invoke-direct/range {p0 .. p1}, Lcom/android/systemui/screenshot/GlobalScreenshot;->showMemoryFullDialog(Ljava/lang/Runnable;)V
 
-    sget-object v3, Lcom/android/systemui/screenshot/GlobalScreenshot;->TAG:Ljava/lang/String;
+    sget-object v2, Lcom/android/systemui/screenshot/GlobalScreenshot;->TAG:Ljava/lang/String;
 
     const-string/jumbo v4, "CapacityState : CAPACITY_ERROR_MEMORY_FULL, so finish screenshot."
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :pswitch_1
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f02f5
+    const v4, 0x7f12097c
 
-    invoke-static {v3, v4}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
+    invoke-static {v2, v4}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
 
-    sget-object v3, Lcom/android/systemui/screenshot/GlobalScreenshot;->TAG:Ljava/lang/String;
+    sget-object v2, Lcom/android/systemui/screenshot/GlobalScreenshot;->TAG:Ljava/lang/String;
 
     const-string/jumbo v4, "CapacityState : CAPACITY_ERROR_UNKNOWN, so finish screenshot."
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mOnAnimation:Z
+    iput-boolean v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mOnAnimation:Z
 
     invoke-interface/range {p1 .. p1}, Ljava/lang/Runnable;->run()V
 
     return-void
 
-    :cond_7
-    const/4 v3, 0x2
-
-    if-ne v12, v3, :cond_8
-
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v4, "SCTP"
-
-    const-string/jumbo v7, "TPPL"
-
-    invoke-static {v3, v4, v7}, Lcom/android/systemui/screenshot/UsabilityLogging;->sendLogForUsabilityLogging(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
-
-    goto/16 :goto_0
-
     :cond_8
-    const/4 v3, 0x3
+    const/4 v2, 0x2
 
-    if-ne v12, v3, :cond_9
+    if-ne v15, v2, :cond_9
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
     const-string/jumbo v4, "SCTP"
 
-    const-string/jumbo v7, "TPQP"
+    const-string/jumbo v5, "TPPL"
 
-    invoke-static {v3, v4, v7}, Lcom/android/systemui/screenshot/UsabilityLogging;->sendLogForUsabilityLogging(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v2, v4, v5}, Lcom/android/systemui/screenshot/UsabilityLogging;->sendLogForUsabilityLogging(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_0
 
     :cond_9
-    const/4 v3, 0x4
+    const/4 v2, 0x3
 
-    if-ne v12, v3, :cond_5
+    if-ne v15, v2, :cond_a
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
     const-string/jumbo v4, "SCTP"
 
-    const-string/jumbo v7, "KNFU"
+    const-string/jumbo v5, "TPQP"
 
-    invoke-static {v3, v4, v7}, Lcom/android/systemui/screenshot/UsabilityLogging;->sendLogForUsabilityLogging(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v2, v4, v5}, Lcom/android/systemui/screenshot/UsabilityLogging;->sendLogForUsabilityLogging(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_0
 
     :cond_a
-    const/4 v3, 0x2
+    const/4 v2, 0x4
 
-    move/from16 v0, v19
-
-    if-ne v0, v3, :cond_c
-
-    const/4 v3, 0x4
-
-    if-ne v12, v3, :cond_b
+    if-ne v15, v2, :cond_6
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
     const-string/jumbo v4, "SCTP"
 
-    const-string/jumbo v7, "KNPA"
+    const-string/jumbo v5, "KNFU"
 
-    invoke-static {v3, v4, v7}, Lcom/android/systemui/screenshot/UsabilityLogging;->sendLogForUsabilityLogging(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v2, v4, v5}, Lcom/android/systemui/screenshot/UsabilityLogging;->sendLogForUsabilityLogging(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_0
 
     :cond_b
+    const/4 v2, 0x2
+
+    move/from16 v0, v22
+
+    if-ne v0, v2, :cond_d
+
+    const/4 v2, 0x4
+
+    if-ne v15, v2, :cond_c
+
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
     const-string/jumbo v4, "SCTP"
 
-    const-string/jumbo v7, "TPPA"
+    const-string/jumbo v5, "KNPA"
 
-    invoke-static {v3, v4, v7}, Lcom/android/systemui/screenshot/UsabilityLogging;->sendLogForUsabilityLogging(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v2, v4, v5}, Lcom/android/systemui/screenshot/UsabilityLogging;->sendLogForUsabilityLogging(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_0
 
     :cond_c
-    const/16 v3, 0x64
-
-    move/from16 v0, v19
-
-    if-ne v0, v3, :cond_5
-
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
     const-string/jumbo v4, "SCTP"
 
-    const-string/jumbo v7, "TPWI"
+    const-string/jumbo v5, "TPPA"
 
-    invoke-static {v3, v4, v7}, Lcom/android/systemui/screenshot/UsabilityLogging;->sendLogForUsabilityLogging(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v2, v4, v5}, Lcom/android/systemui/screenshot/UsabilityLogging;->sendLogForUsabilityLogging(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_0
 
     :cond_d
-    move-object/from16 v0, p0
+    const/16 v2, 0x64
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenBitmap:Landroid/graphics/Bitmap;
+    move/from16 v0, v22
 
-    invoke-virtual {v3}, Landroid/graphics/Bitmap;->getHeight()I
-
-    move-result v3
-
-    if-lez v3, :cond_6
+    if-ne v0, v2, :cond_6
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    invoke-static {v3}, Lcom/android/systemui/screenshot/SmartClipDataExtractor;->canExtractWebData(Landroid/content/Context;)Z
+    const-string/jumbo v4, "SCTP"
 
-    move-result v3
+    const-string/jumbo v5, "TPWI"
 
-    if-eqz v3, :cond_e
+    invoke-static {v2, v4, v5}, Lcom/android/systemui/screenshot/UsabilityLogging;->sendLogForUsabilityLogging(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
-
-    move/from16 v0, v17
-
-    invoke-static {v3, v0, v14}, Lcom/android/systemui/screenshot/SmartClipDataExtractor;->getWebData(Landroid/content/Context;II)Lcom/android/systemui/screenshot/SmartClipDataExtractor$WebData;
-
-    move-result-object v3
-
-    move-object/from16 v0, p0
-
-    iput-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mWebData:Lcom/android/systemui/screenshot/SmartClipDataExtractor$WebData;
+    goto/16 :goto_0
 
     :cond_e
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenBitmap:Landroid/graphics/Bitmap;
 
-    invoke-virtual {v3}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->getScreenDegrees()F
+    invoke-virtual {v2}, Landroid/graphics/Bitmap;->getHeight()I
 
-    move-result v10
+    move-result v2
 
-    const/4 v3, 0x0
+    if-lez v2, :cond_7
 
-    cmpl-float v3, v10, v3
+    move-object/from16 v0, p0
 
-    if-lez v3, :cond_10
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    const/4 v13, 0x1
+    invoke-static {v2}, Lcom/android/systemui/screenshot/SmartClipDataExtractor;->canExtractWebData(Landroid/content/Context;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_f
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
+
+    move/from16 v0, v20
+
+    move/from16 v1, v17
+
+    invoke-static {v2, v0, v1}, Lcom/android/systemui/screenshot/SmartClipDataExtractor;->getWebData(Landroid/content/Context;II)Lcom/android/systemui/screenshot/SmartClipDataExtractor$WebData;
+
+    move-result-object v2
+
+    move-object/from16 v0, p0
+
+    iput-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mWebData:Lcom/android/systemui/screenshot/SmartClipDataExtractor$WebData;
+
+    :cond_f
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
+
+    invoke-virtual {v2}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->getScreenDegrees()F
+
+    move-result v12
+
+    const/4 v2, 0x0
+
+    cmpl-float v2, v12, v2
+
+    if-lez v2, :cond_11
+
+    const/16 v16, 0x1
 
     :goto_1
-    if-eqz v13, :cond_f
+    if-eqz v16, :cond_10
 
-    sget-object v3, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+    sget-object v2, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    move/from16 v0, v17
+    move/from16 v0, v20
 
-    invoke-static {v0, v14, v3}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+    move/from16 v1, v17
 
-    move-result-object v18
+    invoke-static {v0, v1, v2}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
-    new-instance v9, Landroid/graphics/Canvas;
+    move-result-object v21
 
-    move-object/from16 v0, v18
+    new-instance v11, Landroid/graphics/Canvas;
 
-    invoke-direct {v9, v0}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+    move-object/from16 v0, v21
 
-    invoke-virtual/range {v18 .. v18}, Landroid/graphics/Bitmap;->getWidth()I
+    invoke-direct {v11, v0}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
-    move-result v3
+    invoke-virtual/range {v21 .. v21}, Landroid/graphics/Bitmap;->getWidth()I
 
-    div-int/lit8 v3, v3, 0x2
+    move-result v2
 
-    int-to-float v3, v3
+    div-int/lit8 v2, v2, 0x2
 
-    invoke-virtual/range {v18 .. v18}, Landroid/graphics/Bitmap;->getHeight()I
+    int-to-float v2, v2
+
+    invoke-virtual/range {v21 .. v21}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v4
 
@@ -2495,84 +2526,86 @@
 
     int-to-float v4, v4
 
-    invoke-virtual {v9, v3, v4}, Landroid/graphics/Canvas;->translate(FF)V
+    invoke-virtual {v11, v2, v4}, Landroid/graphics/Canvas;->translate(FF)V
 
-    invoke-virtual {v9, v10}, Landroid/graphics/Canvas;->rotate(F)V
+    invoke-virtual {v11, v12}, Landroid/graphics/Canvas;->rotate(F)V
 
-    move/from16 v0, v16
+    move/from16 v0, v19
 
-    neg-float v3, v0
+    neg-float v2, v0
 
     const/high16 v4, 0x40000000    # 2.0f
 
-    div-float/2addr v3, v4
+    div-float/2addr v2, v4
 
-    neg-float v4, v15
+    move/from16 v0, v18
 
-    const/high16 v7, 0x40000000    # 2.0f
+    neg-float v4, v0
 
-    div-float/2addr v4, v7
+    const/high16 v5, 0x40000000    # 2.0f
 
-    invoke-virtual {v9, v3, v4}, Landroid/graphics/Canvas;->translate(FF)V
+    div-float/2addr v4, v5
+
+    invoke-virtual {v11, v2, v4}, Landroid/graphics/Canvas;->translate(FF)V
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenBitmap:Landroid/graphics/Bitmap;
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenBitmap:Landroid/graphics/Bitmap;
 
     const/4 v4, 0x0
 
-    const/4 v7, 0x0
+    const/4 v5, 0x0
 
     const/4 v8, 0x0
 
-    invoke-virtual {v9, v3, v4, v7, v8}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+    invoke-virtual {v11, v2, v4, v5, v8}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {v9, v3}, Landroid/graphics/Canvas;->setBitmap(Landroid/graphics/Bitmap;)V
+    invoke-virtual {v11, v2}, Landroid/graphics/Canvas;->setBitmap(Landroid/graphics/Bitmap;)V
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenBitmap:Landroid/graphics/Bitmap;
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenBitmap:Landroid/graphics/Bitmap;
 
-    invoke-virtual {v3}, Landroid/graphics/Bitmap;->recycle()V
+    invoke-virtual {v2}, Landroid/graphics/Bitmap;->recycle()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v21
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenBitmap:Landroid/graphics/Bitmap;
 
-    :cond_f
+    :cond_10
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
 
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenBitmap:Landroid/graphics/Bitmap;
 
-    invoke-virtual {v3, v4}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->onPostScreenshot(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
+    invoke-virtual {v2, v4}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->onPostScreenshot(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
 
-    move-result-object v3
-
-    move-object/from16 v0, p0
-
-    iput-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenBitmap:Landroid/graphics/Bitmap;
+    move-result-object v2
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenBitmap:Landroid/graphics/Bitmap;
+    iput-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenBitmap:Landroid/graphics/Bitmap;
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenBitmap:Landroid/graphics/Bitmap;
 
     const/4 v4, 0x0
 
-    invoke-virtual {v3, v4}, Landroid/graphics/Bitmap;->setHasAlpha(Z)V
+    invoke-virtual {v2, v4}, Landroid/graphics/Bitmap;->setHasAlpha(Z)V
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenBitmap:Landroid/graphics/Bitmap;
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenBitmap:Landroid/graphics/Bitmap;
 
-    invoke-virtual {v3}, Landroid/graphics/Bitmap;->prepareToDraw()V
+    invoke-virtual {v2}, Landroid/graphics/Bitmap;->prepareToDraw()V
 
     move-object/from16 v0, p0
 
@@ -2583,23 +2616,23 @@
     :try_start_0
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenBitmapList:Ljava/util/List;
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenBitmapList:Ljava/util/List;
 
     move-object/from16 v0, p0
 
-    iget-object v7, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenBitmap:Landroid/graphics/Bitmap;
+    iget-object v5, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mScreenBitmap:Landroid/graphics/Bitmap;
 
-    invoke-interface {v3, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v2, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
+    iget-object v2, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mHelper:Lcom/android/systemui/screenshot/ScreenCaptureHelper;
 
-    invoke-virtual {v3}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->isShowScreenshotAnimation()Z
+    invoke-virtual {v2}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->isShowScreenshotAnimation()Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_11
+    if-eqz v2, :cond_12
 
     invoke-direct/range {p0 .. p1}, Lcom/android/systemui/screenshot/GlobalScreenshot;->startAnimation(Ljava/lang/Runnable;)V
     :try_end_0
@@ -2610,35 +2643,35 @@
 
     return-void
 
-    :cond_10
-    const/4 v13, 0x0
+    :cond_11
+    const/16 v16, 0x0
 
     goto/16 :goto_1
 
-    :cond_11
+    :cond_12
     :try_start_1
-    new-instance v3, Lcom/android/systemui/screenshot/GlobalScreenshot$OnCaptureAnimationListenerImplementer;
+    new-instance v2, Lcom/android/systemui/screenshot/GlobalScreenshot$OnCaptureAnimationListenerImplementer;
 
-    const/4 v7, 0x0
+    const/4 v5, 0x0
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    invoke-direct {v3, v0, v7, v1}, Lcom/android/systemui/screenshot/GlobalScreenshot$OnCaptureAnimationListenerImplementer;-><init>(Lcom/android/systemui/screenshot/GlobalScreenshot;Landroid/widget/FrameLayout;Ljava/lang/Runnable;)V
+    invoke-direct {v2, v0, v5, v1}, Lcom/android/systemui/screenshot/GlobalScreenshot$OnCaptureAnimationListenerImplementer;-><init>(Lcom/android/systemui/screenshot/GlobalScreenshot;Landroid/widget/FrameLayout;Ljava/lang/Runnable;)V
 
-    invoke-virtual {v3}, Lcom/android/systemui/screenshot/GlobalScreenshot$OnCaptureAnimationListenerImplementer;->onFinish()V
+    invoke-virtual {v2}, Lcom/android/systemui/screenshot/GlobalScreenshot$OnCaptureAnimationListenerImplementer;->onFinish()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_2
 
     :catchall_0
-    move-exception v3
+    move-exception v2
 
     monitor-exit v4
 
-    throw v3
+    throw v2
 
     nop
 
@@ -2650,7 +2683,7 @@
 .end method
 
 .method takeScreenshot(Ljava/lang/Runnable;ZZLandroid/os/Bundle;)V
-    .locals 6
+    .locals 2
 
     invoke-virtual {p0}, Lcom/android/systemui/screenshot/GlobalScreenshot;->stopScreenshot()V
 
@@ -2668,15 +2701,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    iget-object v2, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mDisplay:Landroid/view/Display;
-
-    move v3, p2
-
-    move v4, p3
-
-    move-object v5, p4
-
-    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->initiallize(Landroid/content/Context;Landroid/view/Display;ZZLandroid/os/Bundle;)V
+    invoke-virtual {v0, v1, p2, p3, p4}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->initiallize(Landroid/content/Context;ZZLandroid/os/Bundle;)V
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/screenshot/GlobalScreenshot;->takeScreenshot(Ljava/lang/Runnable;)V
 
@@ -2750,7 +2775,7 @@
 .end method
 
 .method takeScreenshotWindow(Ljava/lang/Runnable;ZZLandroid/os/Bundle;)V
-    .locals 6
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
@@ -2766,15 +2791,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    iget-object v2, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mDisplay:Landroid/view/Display;
-
-    move v3, p2
-
-    move v4, p3
-
-    move-object v5, p4
-
-    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->initiallize(Landroid/content/Context;Landroid/view/Display;ZZLandroid/os/Bundle;)V
+    invoke-virtual {v0, v1, p2, p3, p4}, Lcom/android/systemui/screenshot/ScreenCaptureHelper;->initiallize(Landroid/content/Context;ZZLandroid/os/Bundle;)V
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/screenshot/GlobalScreenshot;->takeScreenshot(Ljava/lang/Runnable;)V
 

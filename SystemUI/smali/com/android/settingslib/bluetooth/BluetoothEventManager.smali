@@ -1,4 +1,4 @@
-.class public final Lcom/android/settingslib/bluetooth/BluetoothEventManager;
+.class public Lcom/android/settingslib/bluetooth/BluetoothEventManager;
 .super Ljava/lang/Object;
 .source "BluetoothEventManager.java"
 
@@ -107,7 +107,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
+.method static synthetic -get1(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Landroid/content/Context;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mContext:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method static synthetic -get2(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mDeviceManager:Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
@@ -115,7 +123,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Ljava/util/Map;
+.method static synthetic -get3(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Ljava/util/Map;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mHandlerMap:Ljava/util/Map;
@@ -123,7 +131,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
+.method static synthetic -get4(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mLocalAdapter:Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
@@ -131,7 +139,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+.method static synthetic -get5(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
@@ -526,7 +534,7 @@
     return-void
 .end method
 
-.method onProfileStateChanged(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;II)V
+.method dispatchProfileStateChanged(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;II)V
     .locals 4
 
     iget-object v3, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mSemCallbacks:Ljava/util/Collection;

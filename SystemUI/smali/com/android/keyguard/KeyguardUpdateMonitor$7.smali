@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$7;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap22(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap24(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
 
     return-void
 .end method

@@ -37,7 +37,7 @@
 
     sget-object v1, Lcom/caverock/androidsvg/CSSParser$AttribOp;->EQUALS:Lcom/caverock/androidsvg/CSSParser$AttribOp;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/caverock/androidsvg/CSSParser$AttribOp;->ordinal()I
 
     move-result v1
 
@@ -53,7 +53,7 @@
 
     sget-object v1, Lcom/caverock/androidsvg/CSSParser$AttribOp;->INCLUDES:Lcom/caverock/androidsvg/CSSParser$AttribOp;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/caverock/androidsvg/CSSParser$AttribOp;->ordinal()I
 
     move-result v1
 
@@ -69,7 +69,7 @@
 
     sget-object v1, Lcom/caverock/androidsvg/CSSParser$AttribOp;->DASHMATCH:Lcom/caverock/androidsvg/CSSParser$AttribOp;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/caverock/androidsvg/CSSParser$AttribOp;->ordinal()I
 
     move-result v1
 

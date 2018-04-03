@@ -60,7 +60,7 @@
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    sget v5, Lcom/android/keyguard/R$id;->keyguard_unlock_view_help_text:I
+    const v5, 0x7f0a02bc
 
     invoke-virtual {p0, v5}, Lcom/android/keyguard/KeyguardSimPukTMOView;->findViewById(I)Landroid/view/View;
 
@@ -74,7 +74,7 @@
 
     move-result-object v5
 
-    const v6, 0x112005c
+    const v6, 0x11200c1
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -88,7 +88,7 @@
 
     iget-object v6, p0, Lcom/android/keyguard/KeyguardSimPukTMOView;->mContext:Landroid/content/Context;
 
-    sget v7, Lcom/android/keyguard/R$string;->kg_sim_puk_tmo_help_pin_blocked:I
+    const v7, 0x7f1205fe
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -106,7 +106,7 @@
 
     iget-object v6, p0, Lcom/android/keyguard/KeyguardSimPukTMOView;->mContext:Landroid/content/Context;
 
-    sget v7, Lcom/android/keyguard/R$string;->kg_sim_puk_tmo_help_contact_service_provider:I
+    const v7, 0x7f1205fd
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -138,7 +138,7 @@
 
     iget-object v6, p0, Lcom/android/keyguard/KeyguardSimPukTMOView;->mContext:Landroid/content/Context;
 
-    const v7, 0x10402b3
+    const v7, 0x10402f6
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -156,7 +156,7 @@
     invoke-virtual {v3, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     :cond_1
-    sget v5, Lcom/android/keyguard/R$id;->emergency_call_button:I
+    const v5, 0x7f0a0197
 
     invoke-virtual {p0, v5}, Lcom/android/keyguard/KeyguardSimPukTMOView;->findViewById(I)Landroid/view/View;
 
@@ -168,7 +168,7 @@
 
     if-eqz v4, :cond_4
 
-    sget v5, Lcom/android/keyguard/R$string;->kg_lockscreen_emergency_call_button_text:I
+    const v5, 0x7f120529
 
     invoke-virtual {v0, v5}, Landroid/widget/Button;->setText(I)V
 
@@ -180,7 +180,7 @@
     invoke-virtual {v0, v5}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_2
-    sget v5, Lcom/android/keyguard/R$id;->forgot_password_button:I
+    const v5, 0x7f0a01be
 
     invoke-virtual {p0, v5}, Lcom/android/keyguard/KeyguardSimPukTMOView;->findViewById(I)Landroid/view/View;
 
@@ -196,7 +196,7 @@
 
     invoke-virtual {v1, v5}, Landroid/widget/Button;->setVisibility(I)V
 
-    sget v5, Lcom/android/keyguard/R$string;->kg_sim_puk_tmo_sos_call:I
+    const v5, 0x7f1205ff
 
     invoke-virtual {v1, v5}, Landroid/widget/Button;->setText(I)V
 
@@ -211,7 +211,7 @@
     return-void
 
     :cond_4
-    sget v5, Lcom/android/keyguard/R$string;->kg_sim_puk_tmo_enter_unlock_code:I
+    const v5, 0x7f1205fc
 
     invoke-virtual {v0, v5}, Landroid/widget/Button;->setText(I)V
 
@@ -283,10 +283,4 @@
     const/4 v0, 0x0
 
     return v0
-.end method
-
-.method public updateChildViewsLook()V
-    .locals 0
-
-    return-void
 .end method

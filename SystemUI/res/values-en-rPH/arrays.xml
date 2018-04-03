@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="battery_labels">
-        <item>0%</item>
-        <item>50%</item>
-        <item>100%</item>
+    <string-array name="wifi_ap_wifi_sharing">
+        <item>Enable Wi-Fi sharing</item>
+        <item>Disable Wi-Fi sharing</item>
     </string-array>
 </resources>

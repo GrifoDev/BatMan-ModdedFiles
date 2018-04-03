@@ -182,7 +182,7 @@
 
     if-ne p0, v0, :cond_8
 
-    const-string/jumbo v0, "MODE_DOCKED_OPAQUE"
+    const-string/jumbo v0, "MODE_BLACK_OPAQUE"
 
     return-object v0
 

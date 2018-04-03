@@ -3,7 +3,7 @@
 .source "KeyguardCarrierPasswordView.java"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/text/TextWatcher;
 
 
 # annotations
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
+.method public afterTextChanged(Landroid/text/Editable;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView$3;->this$0:Lcom/android/keyguard/KeyguardCarrierPasswordView;
@@ -43,7 +43,28 @@
 
     move-result-object v0
 
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardCarrierPasswordView$3;->this$0:Lcom/android/keyguard/KeyguardCarrierPasswordView;
+
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardCarrierPasswordView;->-get1(Lcom/android/keyguard/KeyguardCarrierPasswordView;)Lcom/android/keyguard/KeyguardSecurityCallback;
+
+    move-result-object v0
+
     invoke-interface {v0}, Lcom/android/keyguard/KeyguardSecurityCallback;->userActivity()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public beforeTextChanged(Ljava/lang/CharSequence;III)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onTextChanged(Ljava/lang/CharSequence;III)V
+    .locals 0
 
     return-void
 .end method

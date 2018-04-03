@@ -59,7 +59,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardDirectionLockView$1;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-wrap3(Lcom/android/keyguard/KeyguardDirectionLockView;)V
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-wrap2(Lcom/android/keyguard/KeyguardDirectionLockView;)V
 
     return-void
 .end method

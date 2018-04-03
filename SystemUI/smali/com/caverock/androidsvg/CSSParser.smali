@@ -45,7 +45,7 @@
 .end method
 
 .method private static getChildPosition(Ljava/util/List;ILcom/caverock/androidsvg/SVG$SvgElementBase;)I
-    .locals 5
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -58,60 +58,60 @@
         }
     .end annotation
 
-    const/4 v4, -0x1
+    const/4 v5, -0x1
 
     if-ltz p1, :cond_0
 
     invoke-interface {p0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
+
+    iget-object v4, p2, Lcom/caverock/androidsvg/SVG$SvgElementBase;->parent:Lcom/caverock/androidsvg/SVG$SvgContainer;
+
+    if-ne v3, v4, :cond_1
+
+    const/4 v2, 0x0
 
     iget-object v3, p2, Lcom/caverock/androidsvg/SVG$SvgElementBase;->parent:Lcom/caverock/androidsvg/SVG$SvgContainer;
 
-    if-ne v2, v3, :cond_1
+    invoke-interface {v3}, Lcom/caverock/androidsvg/SVG$SvgContainer;->getChildren()Ljava/util/List;
 
-    const/4 v1, 0x0
+    move-result-object v3
 
-    iget-object v2, p2, Lcom/caverock/androidsvg/SVG$SvgElementBase;->parent:Lcom/caverock/androidsvg/SVG$SvgContainer;
+    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    invoke-interface {v2}, Lcom/caverock/androidsvg/SVG$SvgContainer;->getChildren()Ljava/util/List;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
+    move-result-object v0
 
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
     if-nez v3, :cond_2
 
-    return v4
+    return v5
 
     :cond_0
-    return v4
+    return v5
 
     :cond_1
-    return v4
+    return v5
 
     :cond_2
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lcom/caverock/androidsvg/SVG$SvgObject;
+    check-cast v1, Lcom/caverock/androidsvg/SVG$SvgObject;
 
-    if-eq v0, p2, :cond_3
+    if-eq v1, p2, :cond_3
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_3
-    return v1
+    return v2
 .end method
 
 .method public static mediaMatches(Ljava/lang/String;Lcom/caverock/androidsvg/CSSParser$MediaType;)Z
@@ -172,10 +172,10 @@
 
     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v0
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
@@ -184,23 +184,23 @@
     return v3
 
     :cond_0
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lcom/caverock/androidsvg/CSSParser$MediaType;
+    check-cast v1, Lcom/caverock/androidsvg/CSSParser$MediaType;
 
     sget-object v2, Lcom/caverock/androidsvg/CSSParser$MediaType;->all:Lcom/caverock/androidsvg/CSSParser$MediaType;
 
-    if-ne v0, v2, :cond_2
+    if-ne v1, v2, :cond_2
 
     :cond_1
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    return v1
+    return v2
 
     :cond_2
-    if-eq v0, p1, :cond_1
+    if-eq v1, p1, :cond_1
 
     goto :goto_0
 .end method
@@ -213,9 +213,9 @@
         }
     .end annotation
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     invoke-virtual {p2}, Lcom/caverock/androidsvg/CSSParser$CSSTextScanner;->nextIdentifier()Ljava/lang/String;
 
@@ -230,13 +230,13 @@
     if-eqz v2, :cond_3
 
     :cond_0
-    const-string/jumbo v2, "Ignoring @%s rule"
+    new-array v2, v4, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    aput-object v0, v2, v3
 
-    aput-object v0, v3, v4
+    const-string/jumbo v3, "Ignoring @%s rule"
 
-    invoke-static {v2, v3}, Lcom/caverock/androidsvg/CSSParser;->warn(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v3, v2}, Lcom/caverock/androidsvg/CSSParser;->warn(Ljava/lang/String;[Ljava/lang/Object;)V
 
     invoke-direct {p0, p2}, Lcom/caverock/androidsvg/CSSParser;->skipAtRule(Lcom/caverock/androidsvg/CSSParser$CSSTextScanner;)V
 
@@ -314,7 +314,7 @@
     throw v2
 
     :cond_5
-    iput-boolean v3, p0, Lcom/caverock/androidsvg/CSSParser;->inMediaRule:Z
+    iput-boolean v4, p0, Lcom/caverock/androidsvg/CSSParser;->inMediaRule:Z
 
     invoke-direct {p0, p2}, Lcom/caverock/androidsvg/CSSParser;->parseRuleset(Lcom/caverock/androidsvg/CSSParser$CSSTextScanner;)Lcom/caverock/androidsvg/CSSParser$Ruleset;
 
@@ -322,7 +322,7 @@
 
     invoke-virtual {p1, v2}, Lcom/caverock/androidsvg/CSSParser$Ruleset;->addAll(Lcom/caverock/androidsvg/CSSParser$Ruleset;)V
 
-    iput-boolean v4, p0, Lcom/caverock/androidsvg/CSSParser;->inMediaRule:Z
+    iput-boolean v3, p0, Lcom/caverock/androidsvg/CSSParser;->inMediaRule:Z
 
     goto :goto_0
 .end method
@@ -587,81 +587,81 @@
 .end method
 
 .method private parseRule(Lcom/caverock/androidsvg/CSSParser$Ruleset;Lcom/caverock/androidsvg/CSSParser$CSSTextScanner;)Z
-    .locals 5
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;
         }
     .end annotation
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
     invoke-direct {p0, p2}, Lcom/caverock/androidsvg/CSSParser;->parseSelectorGroup(Lcom/caverock/androidsvg/CSSParser$CSSTextScanner;)Ljava/util/List;
 
-    move-result-object v2
+    move-result-object v3
 
-    if-nez v2, :cond_1
+    if-nez v3, :cond_1
 
     :cond_0
-    return v4
+    return v5
 
     :cond_1
-    invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
+    invoke-interface {v3}, Ljava/util/List;->isEmpty()Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_0
+    if-nez v4, :cond_0
 
-    const/16 v3, 0x7b
+    const/16 v4, 0x7b
 
-    invoke-virtual {p2, v3}, Lcom/caverock/androidsvg/CSSParser$CSSTextScanner;->consume(C)Z
+    invoke-virtual {p2, v4}, Lcom/caverock/androidsvg/CSSParser$CSSTextScanner;->consume(C)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_2
+    if-eqz v4, :cond_2
 
     invoke-virtual {p2}, Lcom/caverock/androidsvg/CSSParser$CSSTextScanner;->skipWhitespace()V
 
     invoke-direct {p0, p2}, Lcom/caverock/androidsvg/CSSParser;->parseDeclarations(Lcom/caverock/androidsvg/CSSParser$CSSTextScanner;)Lcom/caverock/androidsvg/SVG$Style;
 
-    move-result-object v0
+    move-result-object v1
 
     invoke-virtual {p2}, Lcom/caverock/androidsvg/CSSParser$CSSTextScanner;->skipWhitespace()V
 
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
+    move-result-object v0
 
     :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
     if-nez v4, :cond_3
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    return v3
+    return v4
 
     :cond_2
-    new-instance v3, Lorg/xml/sax/SAXException;
+    new-instance v4, Lorg/xml/sax/SAXException;
 
-    const-string/jumbo v4, "Malformed rule block in <style> element: missing \'{\'"
+    const-string/jumbo v5, "Malformed rule block in <style> element: missing \'{\'"
 
-    invoke-direct {v3, v4}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v5}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw v4
 
     :cond_3
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Lcom/caverock/androidsvg/CSSParser$Selector;
+    check-cast v2, Lcom/caverock/androidsvg/CSSParser$Selector;
 
     new-instance v4, Lcom/caverock/androidsvg/CSSParser$Rule;
 
-    invoke-direct {v4, v1, v0}, Lcom/caverock/androidsvg/CSSParser$Rule;-><init>(Lcom/caverock/androidsvg/CSSParser$Selector;Lcom/caverock/androidsvg/SVG$Style;)V
+    invoke-direct {v4, v2, v1}, Lcom/caverock/androidsvg/CSSParser$Rule;-><init>(Lcom/caverock/androidsvg/CSSParser$Selector;Lcom/caverock/androidsvg/SVG$Style;)V
 
     invoke-virtual {p1, v4}, Lcom/caverock/androidsvg/CSSParser$Ruleset;->add(Lcom/caverock/androidsvg/CSSParser$Rule;)V
 
@@ -1107,7 +1107,7 @@
 .end method
 
 .method private static selectorMatch(Lcom/caverock/androidsvg/CSSParser$SimpleSelector;Ljava/util/List;ILcom/caverock/androidsvg/SVG$SvgElementBase;)Z
-    .locals 6
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1121,105 +1121,105 @@
         }
     .end annotation
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
-    iget-object v2, p0, Lcom/caverock/androidsvg/CSSParser$SimpleSelector;->tag:Ljava/lang/String;
+    iget-object v3, p0, Lcom/caverock/androidsvg/CSSParser$SimpleSelector;->tag:Ljava/lang/String;
 
-    if-nez v2, :cond_3
+    if-nez v3, :cond_3
 
     :cond_0
-    iget-object v2, p0, Lcom/caverock/androidsvg/CSSParser$SimpleSelector;->attribs:Ljava/util/List;
+    iget-object v3, p0, Lcom/caverock/androidsvg/CSSParser$SimpleSelector;->attribs:Ljava/util/List;
 
-    if-nez v2, :cond_5
+    if-nez v3, :cond_5
 
     :cond_1
-    iget-object v2, p0, Lcom/caverock/androidsvg/CSSParser$SimpleSelector;->pseudos:Ljava/util/List;
+    iget-object v3, p0, Lcom/caverock/androidsvg/CSSParser$SimpleSelector;->pseudos:Ljava/util/List;
 
-    if-nez v2, :cond_a
+    if-nez v3, :cond_a
 
     :cond_2
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    return v2
+    return v3
 
     :cond_3
-    iget-object v2, p0, Lcom/caverock/androidsvg/CSSParser$SimpleSelector;->tag:Ljava/lang/String;
+    iget-object v3, p0, Lcom/caverock/androidsvg/CSSParser$SimpleSelector;->tag:Ljava/lang/String;
 
-    const-string/jumbo v3, "G"
+    const-string/jumbo v4, "G"
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_4
+    if-nez v3, :cond_4
 
-    iget-object v2, p0, Lcom/caverock/androidsvg/CSSParser$SimpleSelector;->tag:Ljava/lang/String;
+    iget-object v3, p0, Lcom/caverock/androidsvg/CSSParser$SimpleSelector;->tag:Ljava/lang/String;
 
     invoke-virtual {p3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    sget-object v4, Ljava/util/Locale;->US:Ljava/util/Locale;
+    sget-object v5, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {v4, v5}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_0
+    if-nez v3, :cond_0
 
-    return v5
+    return v6
 
     :cond_4
-    instance-of v2, p3, Lcom/caverock/androidsvg/SVG$Group;
+    instance-of v3, p3, Lcom/caverock/androidsvg/SVG$Group;
 
-    if-nez v2, :cond_0
+    if-nez v3, :cond_0
 
-    return v5
+    return v6
 
     :cond_5
-    iget-object v2, p0, Lcom/caverock/androidsvg/CSSParser$SimpleSelector;->attribs:Ljava/util/List;
+    iget-object v3, p0, Lcom/caverock/androidsvg/CSSParser$SimpleSelector;->attribs:Ljava/util/List;
 
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v0
 
     :cond_6
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
     if-eqz v3, :cond_1
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lcom/caverock/androidsvg/CSSParser$Attrib;
+    check-cast v1, Lcom/caverock/androidsvg/CSSParser$Attrib;
 
-    iget-object v3, v0, Lcom/caverock/androidsvg/CSSParser$Attrib;->name:Ljava/lang/String;
+    iget-object v3, v1, Lcom/caverock/androidsvg/CSSParser$Attrib;->name:Ljava/lang/String;
 
     const-string/jumbo v4, "id"
 
     if-eq v3, v4, :cond_7
 
-    iget-object v3, v0, Lcom/caverock/androidsvg/CSSParser$Attrib;->name:Ljava/lang/String;
+    iget-object v3, v1, Lcom/caverock/androidsvg/CSSParser$Attrib;->name:Ljava/lang/String;
 
     const-string/jumbo v4, "class"
 
     if-eq v3, v4, :cond_8
 
-    return v5
+    return v6
 
     :cond_7
-    iget-object v3, v0, Lcom/caverock/androidsvg/CSSParser$Attrib;->value:Ljava/lang/String;
+    iget-object v3, v1, Lcom/caverock/androidsvg/CSSParser$Attrib;->value:Ljava/lang/String;
 
     iget-object v4, p3, Lcom/caverock/androidsvg/SVG$SvgElementBase;->id:Ljava/lang/String;
 
@@ -1229,7 +1229,7 @@
 
     if-nez v3, :cond_6
 
-    return v5
+    return v6
 
     :cond_8
     iget-object v3, p3, Lcom/caverock/androidsvg/SVG$SvgElementBase;->classNames:Ljava/util/List;
@@ -1238,7 +1238,7 @@
 
     iget-object v3, p3, Lcom/caverock/androidsvg/SVG$SvgElementBase;->classNames:Ljava/util/List;
 
-    iget-object v4, v0, Lcom/caverock/androidsvg/CSSParser$Attrib;->value:Ljava/lang/String;
+    iget-object v4, v1, Lcom/caverock/androidsvg/CSSParser$Attrib;->value:Ljava/lang/String;
 
     invoke-interface {v3, v4}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
@@ -1246,40 +1246,40 @@
 
     if-nez v3, :cond_6
 
-    return v5
+    return v6
 
     :cond_9
-    return v5
+    return v6
 
     :cond_a
-    iget-object v2, p0, Lcom/caverock/androidsvg/CSSParser$SimpleSelector;->pseudos:Ljava/util/List;
+    iget-object v3, p0, Lcom/caverock/androidsvg/CSSParser$SimpleSelector;->pseudos:Ljava/util/List;
 
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v0
 
     :cond_b
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
     if-eqz v3, :cond_2
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Ljava/lang/String;
+    check-cast v2, Ljava/lang/String;
 
     const-string/jumbo v3, "first-child"
 
-    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
     if-nez v3, :cond_c
 
-    return v5
+    return v6
 
     :cond_c
     invoke-static {p1, p2, p3}, Lcom/caverock/androidsvg/CSSParser;->getChildPosition(Ljava/util/List;ILcom/caverock/androidsvg/SVG$SvgElementBase;)I
@@ -1288,7 +1288,7 @@
 
     if-eqz v3, :cond_b
 
-    return v5
+    return v6
 .end method
 
 .method private skipAtRule(Lcom/caverock/androidsvg/CSSParser$CSSTextScanner;)V
@@ -1350,13 +1350,13 @@
 .method private static varargs warn(Ljava/lang/String;[Ljava/lang/Object;)V
     .locals 2
 
-    const-string/jumbo v0, "AndroidSVG CSSParser"
-
     invoke-static {p0, p1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v1, "AndroidSVG CSSParser"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method

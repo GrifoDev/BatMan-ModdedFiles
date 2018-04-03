@@ -30,22 +30,6 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/systemui/recents/views/AppInfoViewHolder;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/systemui/recents/views/AppInfoViewHolder;->mKioskId:I
-
-    return v0
-.end method
-
-.method static synthetic -set0(Lcom/android/systemui/recents/views/AppInfoViewHolder;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/recents/views/AppInfoViewHolder;->mKioskId:I
-
-    return p1
-.end method
-
 .method public constructor <init>(Landroid/view/View;)V
     .locals 1
 
@@ -79,7 +63,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/recents/views/AppInfoViewHolder;->mLoader:Lcom/android/systemui/recents/model/RecentsAppListLoader;
 
-    const v0, 0x7f130400
+    const v0, 0x7f0a00fc
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -89,7 +73,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/recents/views/AppInfoViewHolder;->contentView:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f1302c5
+    const v0, 0x7f0a02c3
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -99,7 +83,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/recents/views/AppInfoViewHolder;->labelView:Landroid/widget/TextView;
 
-    const v0, 0x7f130095
+    const v0, 0x7f0a0215
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -119,7 +103,7 @@
 .end method
 
 .method private startApp(Lcom/android/systemui/recents/model/AppInfo;)V
-    .locals 4
+    .locals 5
 
     new-instance v0, Lcom/android/systemui/recents/views/AppInfoViewHolder$1;
 
@@ -131,9 +115,13 @@
 
     new-instance v2, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;
 
-    const/4 v3, 0x2
+    invoke-virtual {p0}, Lcom/android/systemui/recents/views/AppInfoViewHolder;->getAdapterPosition()I
 
-    invoke-direct {v2, v3, v0}, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;-><init>(ILjava/lang/Runnable;)V
+    move-result v3
+
+    const/4 v4, 0x2
+
+    invoke-direct {v2, v4, v0, v3}, Lcom/android/systemui/recents/events/activity/LaunchTaskPostEvent;-><init>(ILjava/lang/Runnable;I)V
 
     invoke-virtual {v1, v2}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
@@ -272,63 +260,49 @@
 .end method
 
 .method public onBind(Lcom/android/systemui/recents/model/AppInfo;ZZZ)V
-    .locals 4
+    .locals 3
 
     iput-object p1, p0, Lcom/android/systemui/recents/views/AppInfoViewHolder;->mAppInfo:Lcom/android/systemui/recents/model/AppInfo;
 
-    iget-object v1, p0, Lcom/android/systemui/recents/views/AppInfoViewHolder;->mAppInfo:Lcom/android/systemui/recents/model/AppInfo;
+    iget-object v0, p0, Lcom/android/systemui/recents/views/AppInfoViewHolder;->mAppInfo:Lcom/android/systemui/recents/model/AppInfo;
 
-    invoke-virtual {v1, p0}, Lcom/android/systemui/recents/model/AppInfo;->setCallback(Lcom/android/systemui/recents/model/AppInfo$AppInfoCallback;)V
+    invoke-virtual {v0, p0}, Lcom/android/systemui/recents/model/AppInfo;->setCallback(Lcom/android/systemui/recents/model/AppInfo$AppInfoCallback;)V
 
     iput-boolean p2, p0, Lcom/android/systemui/recents/views/AppInfoViewHolder;->mNeedDarkFont:Z
 
     iput-boolean p3, p0, Lcom/android/systemui/recents/views/AppInfoViewHolder;->mDisabled:Z
 
-    iget-object v1, p0, Lcom/android/systemui/recents/views/AppInfoViewHolder;->mLoader:Lcom/android/systemui/recents/model/RecentsAppListLoader;
-
-    iget-object v2, p0, Lcom/android/systemui/recents/views/AppInfoViewHolder;->mAppInfo:Lcom/android/systemui/recents/model/AppInfo;
-
-    invoke-virtual {v1, v2}, Lcom/android/systemui/recents/model/RecentsAppListLoader;->loadAppInfoData(Lcom/android/systemui/recents/model/AppInfo;)V
+    iget-object v0, p0, Lcom/android/systemui/recents/views/AppInfoViewHolder;->mLoader:Lcom/android/systemui/recents/model/RecentsAppListLoader;
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/AppInfoViewHolder;->mAppInfo:Lcom/android/systemui/recents/model/AppInfo;
 
-    iget-boolean v2, p0, Lcom/android/systemui/recents/views/AppInfoViewHolder;->mNeedDarkFont:Z
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/model/RecentsAppListLoader;->loadAppInfoData(Lcom/android/systemui/recents/model/AppInfo;)V
 
-    iget-boolean v3, p0, Lcom/android/systemui/recents/views/AppInfoViewHolder;->mDisabled:Z
+    iget-object v0, p0, Lcom/android/systemui/recents/views/AppInfoViewHolder;->mAppInfo:Lcom/android/systemui/recents/model/AppInfo;
 
-    invoke-virtual {p0, v1, v2, v3}, Lcom/android/systemui/recents/views/AppInfoViewHolder;->bindToAppInfo(Lcom/android/systemui/recents/model/AppInfo;ZZ)V
+    iget-boolean v1, p0, Lcom/android/systemui/recents/views/AppInfoViewHolder;->mNeedDarkFont:Z
+
+    iget-boolean v2, p0, Lcom/android/systemui/recents/views/AppInfoViewHolder;->mDisabled:Z
+
+    invoke-virtual {p0, v0, v1, v2}, Lcom/android/systemui/recents/views/AppInfoViewHolder;->bindToAppInfo(Lcom/android/systemui/recents/model/AppInfo;ZZ)V
 
     if-eqz p4, :cond_0
 
-    iget-object v1, p0, Lcom/android/systemui/recents/views/AppInfoViewHolder;->contentView:Landroid/widget/LinearLayout;
+    iget-object v0, p0, Lcom/android/systemui/recents/views/AppInfoViewHolder;->contentView:Landroid/widget/LinearLayout;
 
-    const v2, 0x7f1303fb
+    const v1, 0x7f0a00bb
 
-    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setNextFocusUpId(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setNextFocusUpId(I)V
 
     :goto_0
-    iget-object v1, p0, Lcom/android/systemui/recents/views/AppInfoViewHolder;->contentView:Landroid/widget/LinearLayout;
-
-    invoke-virtual {v1}, Landroid/widget/LinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/FrameLayout$LayoutParams;
-
-    iget-object v1, p0, Lcom/android/systemui/recents/views/AppInfoViewHolder;->mAttr:Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;
-
-    iget v1, v1, Lcom/android/systemui/recents/views/RecentsAppListLayoutManager$Attributes;->mItemContentWidth:I
-
-    iput v1, v0, Landroid/widget/FrameLayout$LayoutParams;->width:I
-
     return-void
 
     :cond_0
-    iget-object v1, p0, Lcom/android/systemui/recents/views/AppInfoViewHolder;->contentView:Landroid/widget/LinearLayout;
+    iget-object v0, p0, Lcom/android/systemui/recents/views/AppInfoViewHolder;->contentView:Landroid/widget/LinearLayout;
 
-    const/4 v2, -0x1
+    const/4 v1, -0x1
 
-    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setNextFocusUpId(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setNextFocusUpId(I)V
 
     goto :goto_0
 .end method

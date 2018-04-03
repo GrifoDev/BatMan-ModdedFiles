@@ -21,8 +21,5 @@
 .method public abstract onHotspotPrepared()V
 .end method
 
-.method public abstract onUpdateChameleon()V
-.end method
-
 .method public abstract onUpdateConnectedDevices(Z)V
 .end method

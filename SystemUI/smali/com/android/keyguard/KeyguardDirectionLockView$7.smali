@@ -37,7 +37,7 @@
 .method public onChecked(ZI)V
     .locals 4
 
-    const-string/jumbo v1, "KeyguardDirectionLockView"
+    const-string/jumbo v1, "KeyguardDirectionLock"
 
     new-instance v2, Ljava/lang/StringBuilder;
 

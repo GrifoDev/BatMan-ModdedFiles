@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/FingerprintUnlockController$2;->this$0:Lcom/android/systemui/statusbar/phone/FingerprintUnlockController;
 
@@ -45,9 +45,7 @@
 
     move-result v1
 
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/statusbar/phone/FingerprintUnlockController;->onFingerprintAuthenticated(IZ)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/FingerprintUnlockController;->onFingerprintAuthenticated(I)V
 
     return-void
 .end method

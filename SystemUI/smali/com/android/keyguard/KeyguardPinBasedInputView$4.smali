@@ -3,12 +3,12 @@
 .source "KeyguardPinBasedInputView.java"
 
 # interfaces
-.implements Lcom/android/keyguard/PasswordTextView$UserActivityListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/keyguard/KeyguardPinBasedInputView;->initialize()V
+    value = Lcom/android/keyguard/KeyguardPinBasedInputView;->initializeBottomContainerView()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,18 +34,23 @@
 
 
 # virtual methods
-.method public onUserActivity()V
-    .locals 2
+.method public onClick(Landroid/view/View;)V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView$4;->this$0:Lcom/android/keyguard/KeyguardPinBasedInputView;
 
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardPinBasedInputView;->onUserInput()V
+    iget-object v0, v0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mPasswordEntry:Lcom/android/keyguard/PasswordTextView;
+
+    invoke-virtual {v0}, Lcom/android/keyguard/PasswordTextView;->isEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView$4;->this$0:Lcom/android/keyguard/KeyguardPinBasedInputView;
 
-    const/4 v1, 0x1
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardPinBasedInputView;->verifyPasswordAndUnlock()V
 
-    invoke-static {v0, v1}, Lcom/android/keyguard/KeyguardPinBasedInputView;->-wrap1(Lcom/android/keyguard/KeyguardPinBasedInputView;Z)V
-
+    :cond_0
     return-void
 .end method

@@ -41,25 +41,15 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$1;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get10(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Z
+    invoke-static {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get11(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_3
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$1;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get5(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Lcom/android/systemui/statusbar/phone/NotificationGroupManager;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$1;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
-
-    invoke-static {v3}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get11(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Landroid/service/notification/StatusBarNotification;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/phone/NotificationGroupManager;->isSummaryOfGroup(Landroid/service/notification/StatusBarNotification;)Z
+    invoke-static {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get6(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Z
 
     move-result v2
 
@@ -67,17 +57,44 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$1;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    invoke-static {v2, v4}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-set3(Lcom/android/systemui/statusbar/ExpandableNotificationRow;Z)Z
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->isExpanded()Z
 
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    :cond_0
     iget-object v2, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$1;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get5(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Lcom/android/systemui/statusbar/phone/NotificationGroupManager;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get4(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Lcom/android/systemui/statusbar/phone/NotificationGroupManager;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$1;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    invoke-static {v3}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get11(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Landroid/service/notification/StatusBarNotification;
+    invoke-static {v3}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get12(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Landroid/service/notification/StatusBarNotification;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/phone/NotificationGroupManager;->isSummaryOfGroup(Landroid/service/notification/StatusBarNotification;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$1;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
+
+    invoke-static {v2, v4}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-set2(Lcom/android/systemui/statusbar/ExpandableNotificationRow;Z)Z
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$1;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get4(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Lcom/android/systemui/statusbar/phone/NotificationGroupManager;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$1;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
+
+    invoke-static {v3}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get12(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Landroid/service/notification/StatusBarNotification;
 
     move-result-object v3
 
@@ -87,13 +104,13 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$1;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get5(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Lcom/android/systemui/statusbar/phone/NotificationGroupManager;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get4(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Lcom/android/systemui/statusbar/phone/NotificationGroupManager;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$1;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    invoke-static {v3}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get11(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Landroid/service/notification/StatusBarNotification;
+    invoke-static {v3}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get12(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Landroid/service/notification/StatusBarNotification;
 
     move-result-object v3
 
@@ -103,13 +120,13 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$1;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get7(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Lcom/android/systemui/statusbar/ExpandableNotificationRow$OnExpandClickListener;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get8(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Lcom/android/systemui/statusbar/ExpandableNotificationRow$OnExpandClickListener;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$1;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    invoke-static {v3}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get3(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Lcom/android/systemui/statusbar/NotificationData$Entry;
+    invoke-static {v3}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get2(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Lcom/android/systemui/statusbar/NotificationData$Entry;
 
     move-result-object v3
 
@@ -117,7 +134,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$1;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get2(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get1(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -129,62 +146,87 @@
 
     invoke-static {v2, v4, v1}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-wrap0(Lcom/android/systemui/statusbar/ExpandableNotificationRow;ZZ)V
 
+    sget-object v4, Lcom/android/systemui/SystemUIAnalytics;->mCurrentScreenID:Ljava/lang/String;
+
+    if-eqz v0, :cond_1
+
+    const-string/jumbo v2, "1123"
+
+    move-object v3, v2
+
     :goto_0
+    if-eqz v0, :cond_2
+
+    const-string/jumbo v2, "Tap expand button"
+
+    :goto_1
+    invoke-static {v4, v3, v2}, Lcom/android/systemui/SystemUIAnalytics;->sendEventLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    :goto_2
     return-void
 
-    :cond_0
+    :cond_1
+    const-string/jumbo v2, "1124"
+
+    move-object v3, v2
+
+    goto :goto_0
+
+    :cond_2
+    const-string/jumbo v2, "Tap collapse button"
+
+    goto :goto_1
+
+    :cond_3
     invoke-virtual {p1}, Landroid/view/View;->isAccessibilityFocused()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_4
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$1;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get8(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Lcom/android/systemui/statusbar/NotificationContentView;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get10(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Lcom/android/systemui/statusbar/NotificationContentView;
 
     move-result-object v2
 
     invoke-virtual {v2}, Lcom/android/systemui/statusbar/NotificationContentView;->setFocusOnVisibilityChange()V
 
-    :cond_1
+    :cond_4
     iget-object v2, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$1;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
     invoke-virtual {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->isPinned()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_5
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$1;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get4(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Z
+    invoke-static {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get3(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    xor-int/lit8 v0, v2, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_1
     iget-object v2, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$1;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    invoke-static {v2, v0}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-set2(Lcom/android/systemui/statusbar/ExpandableNotificationRow;Z)Z
+    invoke-static {v2, v0}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-set1(Lcom/android/systemui/statusbar/ExpandableNotificationRow;Z)Z
 
-    :goto_2
+    :goto_3
     iget-object v2, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$1;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
     invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->notifyHeightChanged(Z)V
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$1;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get7(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Lcom/android/systemui/statusbar/ExpandableNotificationRow$OnExpandClickListener;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get8(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Lcom/android/systemui/statusbar/ExpandableNotificationRow$OnExpandClickListener;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$1;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    invoke-static {v3}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get3(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Lcom/android/systemui/statusbar/NotificationData$Entry;
+    invoke-static {v3}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get2(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Lcom/android/systemui/statusbar/NotificationData$Entry;
 
     move-result-object v3
 
@@ -192,7 +234,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$1;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get2(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->-get1(Lcom/android/systemui/statusbar/ExpandableNotificationRow;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -200,33 +242,48 @@
 
     invoke-static {v2, v3, v0}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/content/Context;IZ)V
 
-    goto :goto_0
+    sget-object v4, Lcom/android/systemui/SystemUIAnalytics;->mCurrentScreenID:Ljava/lang/String;
 
-    :cond_2
-    const/4 v0, 0x1
+    if-eqz v0, :cond_6
 
-    goto :goto_1
+    const-string/jumbo v2, "1121"
 
-    :cond_3
+    move-object v3, v2
+
+    :goto_4
+    if-eqz v0, :cond_7
+
+    const-string/jumbo v2, "Tap expand button"
+
+    :goto_5
+    invoke-static {v4, v3, v2}, Lcom/android/systemui/SystemUIAnalytics;->sendEventLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_2
+
+    :cond_5
     iget-object v2, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$1;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
     invoke-virtual {v2}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->isExpanded()Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    xor-int/lit8 v0, v2, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_3
     iget-object v2, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow$1;->this$0:Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
     invoke-virtual {v2, v0}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->setUserExpanded(Z)V
 
-    goto :goto_2
-
-    :cond_4
-    const/4 v0, 0x1
-
     goto :goto_3
+
+    :cond_6
+    const-string/jumbo v2, "1122"
+
+    move-object v3, v2
+
+    goto :goto_4
+
+    :cond_7
+    const-string/jumbo v2, "Tap collapse button"
+
+    goto :goto_5
 .end method

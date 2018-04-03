@@ -49,14 +49,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->setVisibility(I)V
 
-    iget-object v0, p0, Lcom/android/systemui/stackdivider/DividerButtonsGroup$2;->this$0:Lcom/android/systemui/stackdivider/DividerButtonsGroup;
-
-    invoke-static {v0}, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->-get0(Lcom/android/systemui/stackdivider/DividerButtonsGroup;)Lcom/android/systemui/stackdivider/DividerButtonsWindowManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/systemui/stackdivider/DividerButtonsWindowManager;->remove()V
-
     return-void
 .end method
 

@@ -6,17 +6,9 @@
 # static fields
 .field static final CSC_EAP_METHOD:Ljava/lang/String;
 
-.field static final CSC_ENABLE_WIFI_CONNECTION_TYPE:Z
-
-.field private static final CSC_VENDOR_NOTI_STYLE:Ljava/lang/String;
-
 .field static final CSC_WIFI_ERRORCODE:Z
 
 .field static final DEBUG:Z
-
-.field private static mShownConnectedToast:Z
-
-.field public static sShowOnceFlag:Z
 
 
 # instance fields
@@ -35,17 +27,11 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    const/4 v1, 0x0
-
     invoke-static {}, Landroid/os/Debug;->semIsProductDev()Z
 
     move-result v0
 
     sput-boolean v0, Lcom/android/systemui/wifi/WifiStatusReceiver;->DEBUG:Z
-
-    sput-boolean v1, Lcom/android/systemui/wifi/WifiStatusReceiver;->sShowOnceFlag:Z
-
-    sput-boolean v1, Lcom/android/systemui/wifi/WifiStatusReceiver;->mShownConnectedToast:Z
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
@@ -71,30 +57,6 @@
 
     sput-object v0, Lcom/android/systemui/wifi/WifiStatusReceiver;->CSC_EAP_METHOD:Ljava/lang/String;
 
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "CscFeature_Wifi_EnableMenuConnectionType"
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/systemui/wifi/WifiStatusReceiver;->CSC_ENABLE_WIFI_CONNECTION_TYPE:Z
-
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "CscFeature_Wifi_ConfigWifiNotificationStyle"
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/systemui/wifi/WifiStatusReceiver;->CSC_VENDOR_NOTI_STYLE:Ljava/lang/String;
-
     return-void
 .end method
 
@@ -106,298 +68,342 @@
     return-void
 .end method
 
-.method public static enableToShowWifiPickerDialog(Z)V
-    .locals 3
+.method private isWifiSharingEnabled(Landroid/content/Context;)Z
+    .locals 2
 
-    sget-boolean v0, Lcom/android/systemui/wifi/WifiStatusReceiver;->DEBUG:Z
+    const-string/jumbo v1, "wifi"
 
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v0, "WifiStatusReceiver"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "Want to show AP LIST:"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    sput-boolean p0, Lcom/android/systemui/wifi/WifiStatusReceiver;->sShowOnceFlag:Z
-
-    return-void
-.end method
-
-.method public static getConfiguredNetworks(Landroid/net/wifi/WifiManager;)Ljava/util/List;
-    .locals 8
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/net/wifi/WifiManager;",
-            ")",
-            "Ljava/util/List",
-            "<",
-            "Landroid/net/wifi/WifiConfiguration;",
-            ">;"
-        }
-    .end annotation
-
-    new-instance v6, Ljava/util/ArrayList;
-
-    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
-
-    const/4 v3, -0x1
-
-    const/16 v4, 0x3c
-
-    move v5, v4
-
-    :goto_0
-    add-int/lit8 v4, v5, -0x1
-
-    if-lez v5, :cond_1
-
-    invoke-virtual {p0, v3}, Landroid/net/wifi/WifiManager;->semGetConfiguredNetworks(I)Ljava/util/List;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_1
-
-    invoke-interface {v2}, Ljava/util/List;->size()I
-
-    move-result v7
-
-    if-lez v7, :cond_1
-
-    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_1
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_0
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Landroid/net/wifi/WifiConfiguration;
-
-    invoke-interface {v6, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget v3, v0, Landroid/net/wifi/WifiConfiguration;->networkId:I
-
-    goto :goto_1
-
-    :cond_0
-    move v5, v4
-
-    goto :goto_0
-
-    :cond_1
-    return-object v6
-.end method
-
-.method private static isSameSecurity(Landroid/net/wifi/ScanResult;Landroid/net/wifi/WifiConfiguration;)Z
-    .locals 4
-
-    const/4 v3, 0x1
-
-    const/4 v2, 0x0
-
-    iget-object v0, p0, Landroid/net/wifi/ScanResult;->capabilities:Ljava/lang/String;
-
-    const-string/jumbo v1, "EAP"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p1, Landroid/net/wifi/WifiConfiguration;->allowedKeyManagement:Ljava/util/BitSet;
-
-    const/4 v1, 0x2
-
-    invoke-virtual {v0, v1}, Ljava/util/BitSet;->get(I)Z
-
-    move-result v0
+    check-cast v0, Landroid/net/wifi/WifiManager;
 
     if-nez v0, :cond_0
 
-    iget-object v0, p1, Landroid/net/wifi/WifiConfiguration;->allowedKeyManagement:Ljava/util/BitSet;
+    const/4 v1, 0x0
 
-    const/4 v1, 0x3
+    return v1
 
-    invoke-virtual {v0, v1}, Ljava/util/BitSet;->get(I)Z
+    :cond_0
+    invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->isWifiSharingEnabled()Z
+
+    move-result v1
+
+    return v1
+.end method
+
+.method private setDataEnabled(Z)V
+    .locals 4
+
+    iget-object v1, p0, Lcom/android/systemui/wifi/WifiStatusReceiver;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v2, "connectivity"
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/net/ConnectivityManager;
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v1, "WifiStatusReceiver"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "CMCC dialog - setDataEnabled "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_0
+    return-void
+
+    :cond_0
+    const-string/jumbo v1, "WifiStatusReceiver"
+
+    const-string/jumbo v2, "ConnectivityManager is null"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
+.method private showCmccDisconnectDialog(Landroid/content/Context;)V
+    .locals 9
+
+    const/4 v8, 0x0
+
+    invoke-static {p1}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
+
+    move-result-object v3
+
+    invoke-static {p1}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
+
+    move-result-object v2
+
+    const-string/jumbo v6, "connhan_value"
+
+    invoke-interface {v3, v6, v8}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v4
+
+    const-string/jumbo v6, "connhan_do_not_show"
+
+    invoke-interface {v2, v6, v8}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
+    if-eqz v4, :cond_0
+
+    const-string/jumbo v6, "WifiStatusReceiver"
+
+    const-string/jumbo v7, "Do not show again enabled. Setted button is Connect"
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v6, 0x1
+
+    invoke-direct {p0, v6}, Lcom/android/systemui/wifi/WifiStatusReceiver;->setDataEnabled(Z)V
+
+    :goto_0
+    return-void
+
     :cond_0
-    return v3
+    const-string/jumbo v6, "WifiStatusReceiver"
+
+    const-string/jumbo v7, "Do not show again enabled. Setted button is Disconnect"
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0, v8}, Lcom/android/systemui/wifi/WifiStatusReceiver;->setDataEnabled(Z)V
+
+    goto :goto_0
 
     :cond_1
-    return v2
+    :try_start_0
+    new-instance v5, Landroid/content/Intent;
+
+    const-class v6, Lcom/android/systemui/wifi/WifiConnectionHandlerActivity;
+
+    invoke-direct {v5, p1, v6}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    const/high16 v6, 0x10000000
+
+    invoke-virtual {v5, v6}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    const/high16 v6, 0x2000000
+
+    invoke-virtual {v5, v6}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    invoke-virtual {p1, v5}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+
+    const-string/jumbo v6, "WifiStatusReceiver"
+
+    const-string/jumbo v7, "start WifiConnectionHandlerActivity !"
+
+    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v1
+
+    const-string/jumbo v6, "WifiStatusReceiver"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "ActivityNotFoundException:"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v1}, Landroid/content/ActivityNotFoundException;->getMessage()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
+.method private showHotspotErrorDialog(Landroid/content/Context;ILandroid/content/Intent;)V
+    .locals 11
+
+    const/4 v10, 0x4
+
+    const/4 v9, -0x1
+
+    const-string/jumbo v6, "WifiStatusReceiver"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "[showHotspotErrorDialog] DialogType : "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v6, "wifi"
+
+    invoke-virtual {p1, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/net/wifi/WifiManager;
+
+    const-string/jumbo v6, "extra_type"
+
+    invoke-virtual {p3, v6, v9}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v0
+
+    const-string/jumbo v6, "req_type"
+
+    invoke-virtual {p3, v6, v9}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v1
+
+    if-eqz v5, :cond_3
+
+    invoke-virtual {v5}, Landroid/net/wifi/WifiManager;->getWifiApState()I
+
+    move-result v4
+
+    if-ne p2, v10, :cond_3
+
+    if-nez v1, :cond_0
+
+    const/4 v6, 0x1
+
+    if-ne v0, v6, :cond_0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/wifi/WifiStatusReceiver;->isWifiSharingEnabled(Landroid/content/Context;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    return-void
+
+    :cond_0
+    const/16 v6, 0xc
+
+    if-eq v4, v6, :cond_1
+
+    const/16 v6, 0xd
+
+    if-eq v4, v6, :cond_1
+
+    add-int v6, v0, v1
+
+    const/4 v7, 0x3
+
+    if-eq v6, v7, :cond_1
+
+    if-eq v0, v10, :cond_1
+
+    return-void
+
+    :cond_1
+    const-string/jumbo v6, "statusbar"
+
+    invoke-virtual {p1, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/app/StatusBarManager;
+
+    if-eqz v3, :cond_2
+
+    invoke-virtual {v3}, Landroid/app/StatusBarManager;->collapsePanels()V
 
     :cond_2
-    iget-object v0, p0, Landroid/net/wifi/ScanResult;->capabilities:Ljava/lang/String;
+    new-instance v2, Landroid/content/Intent;
 
-    const-string/jumbo v1, "PSK"
+    invoke-direct {v2}, Landroid/content/Intent;-><init>()V
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    const-string/jumbo v6, "com.android.settings"
 
-    move-result v0
+    const-string/jumbo v7, "com.samsung.android.settings.wifi.WifiWarning"
 
-    if-eqz v0, :cond_4
+    invoke-virtual {v2, v6, v7}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    iget-object v0, p1, Landroid/net/wifi/WifiConfiguration;->allowedKeyManagement:Ljava/util/BitSet;
+    const/high16 v6, 0x10000000
 
-    invoke-virtual {v0, v3}, Ljava/util/BitSet;->get(I)Z
+    invoke-virtual {v2, v6}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    move-result v0
+    const-string/jumbo v6, "com.samsung.android.settings.wifi.wifiwarningdialog"
 
-    if-eqz v0, :cond_3
+    invoke-virtual {v2, v6}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    return v3
+    const-string/jumbo v6, "wifi_warning_dialog_type"
+
+    invoke-virtual {v2, v6, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    const-string/jumbo v6, "req_type"
+
+    invoke-virtual {v2, v6, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    const-string/jumbo v6, "extra_type"
+
+    invoke-virtual {v2, v6, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    invoke-virtual {p1, v2}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     :cond_3
-    return v2
-
-    :cond_4
-    iget-object v0, p0, Landroid/net/wifi/ScanResult;->capabilities:Ljava/lang/String;
-
-    const-string/jumbo v1, "WEP"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_6
-
-    iget-object v0, p1, Landroid/net/wifi/WifiConfiguration;->wepKeys:[Ljava/lang/String;
-
-    aget-object v0, v0, v2
-
-    if-eqz v0, :cond_5
-
-    return v3
-
-    :cond_5
-    return v2
-
-    :cond_6
-    iget-object v0, p1, Landroid/net/wifi/WifiConfiguration;->wepKeys:[Ljava/lang/String;
-
-    aget-object v0, v0, v2
-
-    if-nez v0, :cond_7
-
-    return v3
-
-    :cond_7
-    return v2
-.end method
-
-.method public static removeDoubleQuotes(Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
-
-    const/16 v3, 0x22
-
-    const/4 v2, 0x1
-
-    invoke-virtual {p0}, Ljava/lang/String;->length()I
-
-    move-result v0
-
-    if-le v0, v2, :cond_0
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
-
-    move-result v1
-
-    if-ne v1, v3, :cond_0
-
-    add-int/lit8 v1, v0, -0x1
-
-    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
-
-    move-result v1
-
-    if-ne v1, v3, :cond_0
-
-    add-int/lit8 v1, v0, -0x1
-
-    invoke-virtual {p0, v2, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v1
-
-    return-object v1
-
-    :cond_0
-    return-object p0
-.end method
-
-.method private startWifiPickerDialog(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
-
-    sget-boolean v1, Lcom/android/systemui/wifi/WifiStatusReceiver;->DEBUG:Z
-
-    if-eqz v1, :cond_0
-
-    const-string/jumbo v1, "WifiStatusReceiver"
-
-    const-string/jumbo v2, "SystemUI Call AP LIST dialog"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    new-instance v0, Landroid/content/Intent;
-
-    const-string/jumbo v1, "com.samsung.android.net.wifi.SEC_PICK_WIFI_NETWORK"
-
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v1, "type"
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    sget-object v1, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
-
-    invoke-virtual {p1, v0, v1}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
-
     return-void
 .end method
 
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 42
+    .locals 27
 
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
     move-object/from16 v0, p1
 
@@ -405,1826 +411,1232 @@
 
     iput-object v0, v1, Lcom/android/systemui/wifi/WifiStatusReceiver;->mContext:Landroid/content/Context;
 
-    sget-boolean v38, Lcom/android/systemui/wifi/WifiStatusReceiver;->DEBUG:Z
+    const-string/jumbo v23, "WifiStatusReceiver"
 
-    if-eqz v38, :cond_0
+    new-instance v24, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v38, "WifiStatusReceiver"
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-instance v39, Ljava/lang/StringBuilder;
+    const-string/jumbo v25, "action: "
 
-    invoke-direct/range {v39 .. v39}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v40, "action: "
+    move-result-object v24
 
-    invoke-virtual/range {v39 .. v40}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v24
 
-    move-result-object v39
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v39
+    move-result-object v24
 
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v39
+    move-result-object v24
 
-    invoke-virtual/range {v39 .. v39}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v39
+    const-string/jumbo v23, "com.samsung.android.net.wifi.SHOW_INFO_MESSAGE"
 
-    invoke-static/range {v38 .. v39}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-object/from16 v0, v23
 
-    :cond_0
-    const-string/jumbo v38, "com.samsung.android.net.wifi.SHOW_AP_LIST_DIALOG"
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-object/from16 v0, v38
+    move-result v23
 
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-eqz v23, :cond_15
 
-    move-result v38
+    const-string/jumbo v23, "info_type"
 
-    if-eqz v38, :cond_2
-
-    sget-boolean v38, Lcom/android/systemui/wifi/WifiStatusReceiver;->DEBUG:Z
-
-    if-eqz v38, :cond_1
-
-    const-string/jumbo v38, "WifiStatusReceiver"
-
-    const-string/jumbo v39, "ACTION CAME : com.samsung.android.net.wifi.SHOW_AP_LIST_DIALOG"
-
-    invoke-static/range {v38 .. v39}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    :goto_0
-    return-void
-
-    :cond_2
-    const-string/jumbo v38, "com.samsung.android.net.wifi.SHOW_INFO_MESSAGE"
-
-    move-object/from16 v0, v38
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v38
-
-    if-eqz v38, :cond_12
-
-    const-string/jumbo v38, "info_type"
-
-    const/16 v39, 0x0
+    const/16 v24, 0x0
 
     move-object/from16 v0, p2
 
-    move-object/from16 v1, v38
+    move-object/from16 v1, v23
 
-    move/from16 v2, v39
+    move/from16 v2, v24
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v21
+    move-result v12
 
-    sparse-switch v21, :sswitch_data_0
+    const-string/jumbo v23, "req_type"
 
-    goto :goto_0
+    const/16 v24, -0x1
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v23
+
+    move/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v16
+
+    const-string/jumbo v23, "WifiStatusReceiver"
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v25, "msgId: "
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    move/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    sparse-switch v12, :sswitch_data_0
+
+    :cond_0
+    :goto_0
+    return-void
 
     :sswitch_0
-    const v38, 0x7f0f03ca
+    const v23, 0x7f120b16
 
-    const/16 v39, 0x0
+    const/16 v24, 0x0
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v38
+    move/from16 v1, v23
 
-    move/from16 v2, v39
+    move/from16 v2, v24
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
-    move-result-object v38
+    move-result-object v23
 
-    invoke-virtual/range {v38 .. v38}, Landroid/widget/Toast;->show()V
+    invoke-virtual/range {v23 .. v23}, Landroid/widget/Toast;->show()V
 
     goto :goto_0
 
     :sswitch_1
-    const v38, 0x7f0f03cb
+    const v23, 0x7f1203e3
 
-    const/16 v39, 0x0
+    const/16 v24, 0x0
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v38
+    move/from16 v1, v23
 
-    move/from16 v2, v39
+    move/from16 v2, v24
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
-    move-result-object v32
+    move-result-object v21
 
-    invoke-virtual/range {v32 .. v32}, Landroid/widget/Toast;->setShowForAllUsers()V
+    invoke-virtual/range {v21 .. v21}, Landroid/widget/Toast;->setShowForAllUsers()V
 
-    invoke-virtual/range {v32 .. v32}, Landroid/widget/Toast;->show()V
+    invoke-virtual/range {v21 .. v21}, Landroid/widget/Toast;->show()V
 
     goto :goto_0
 
     :sswitch_2
-    const v38, 0x7f0f03cc
+    const v23, 0x7f1203e4
 
-    const/16 v39, 0x0
+    const/16 v24, 0x0
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v38
+    move/from16 v1, v23
 
-    move/from16 v2, v39
+    move/from16 v2, v24
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
-    move-result-object v38
+    move-result-object v23
 
-    invoke-virtual/range {v38 .. v38}, Landroid/widget/Toast;->show()V
+    invoke-virtual/range {v23 .. v23}, Landroid/widget/Toast;->show()V
 
     goto :goto_0
 
     :sswitch_3
-    const v38, 0x7f0f03cd
+    const/16 v23, 0xb
 
-    const/16 v39, 0x0
+    move/from16 v0, v16
 
-    move-object/from16 v0, p1
+    move/from16 v1, v23
 
-    move/from16 v1, v38
+    if-eq v0, v1, :cond_0
 
-    move/from16 v2, v39
+    const/16 v23, 0x4
 
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    move-object/from16 v0, p0
 
-    move-result-object v38
+    move-object/from16 v1, p1
 
-    invoke-virtual/range {v38 .. v38}, Landroid/widget/Toast;->show()V
+    move/from16 v2, v23
+
+    move-object/from16 v3, p2
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/systemui/wifi/WifiStatusReceiver;->showHotspotErrorDialog(Landroid/content/Context;ILandroid/content/Intent;)V
 
     goto :goto_0
 
     :sswitch_4
-    const v38, 0x7f0f03ce
+    const v23, 0x7f120b35
 
-    const/16 v39, 0x0
+    const/16 v24, 0x0
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v38
+    move/from16 v1, v23
 
-    move/from16 v2, v39
+    move/from16 v2, v24
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
-    move-result-object v38
+    move-result-object v23
 
-    invoke-virtual/range {v38 .. v38}, Landroid/widget/Toast;->show()V
+    invoke-virtual/range {v23 .. v23}, Landroid/widget/Toast;->show()V
 
     goto :goto_0
 
     :sswitch_5
-    const v38, 0x7f0f03cf
+    const v23, 0x7f120296
 
-    const/16 v39, 0x0
+    const/16 v24, 0x0
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v38
+    move/from16 v1, v23
 
-    move/from16 v2, v39
+    move/from16 v2, v24
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
-    move-result-object v38
+    move-result-object v23
 
-    invoke-virtual/range {v38 .. v38}, Landroid/widget/Toast;->show()V
+    invoke-virtual/range {v23 .. v23}, Landroid/widget/Toast;->show()V
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :sswitch_6
-    const v38, 0x7f0f03d0
+    const v23, 0x7f120b3e
 
-    const/16 v39, 0x0
+    const/16 v24, 0x0
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v38
+    move/from16 v1, v23
 
-    move/from16 v2, v39
+    move/from16 v2, v24
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
-    move-result-object v38
+    move-result-object v23
 
-    invoke-virtual/range {v38 .. v38}, Landroid/widget/Toast;->show()V
+    invoke-virtual/range {v23 .. v23}, Landroid/widget/Toast;->show()V
 
     goto/16 :goto_0
 
     :sswitch_7
-    sget-boolean v38, Lcom/android/systemui/wifi/WifiStatusReceiver;->CSC_WIFI_ERRORCODE:Z
+    const v23, 0x7f120295
 
-    if-eqz v38, :cond_e
-
-    const-string/jumbo v38, "message"
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, v38
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v19
-
-    const-string/jumbo v38, "ssid"
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, v38
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v29
-
-    const-string/jumbo v38, "WifiStatusReceiver"
-
-    new-instance v39, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v39 .. v39}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v40, "SHOW EAP SIM MESSAGE ACTION: "
-
-    invoke-virtual/range {v39 .. v40}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v39
-
-    move-object/from16 v0, v39
-
-    move-object/from16 v1, v19
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v39
-
-    invoke-virtual/range {v39 .. v39}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v39
-
-    invoke-static/range {v38 .. v39}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-nez v19, :cond_3
-
-    return-void
-
-    :cond_3
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
-
-    move-result-object v38
-
-    const-string/jumbo v39, "CscFeature_Wifi_SupportEapAka"
-
-    invoke-virtual/range {v38 .. v39}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v38
-
-    if-nez v38, :cond_6
-
-    const-string/jumbo v38, "General failure"
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v38
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v38
-
-    if-eqz v38, :cond_5
-
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v38
-
-    const v39, 0x7f0f03d2
-
-    invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v19
-
-    :cond_4
-    :goto_1
-    const/16 v38, 0x1
+    const/16 v24, 0x0
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v19
+    move/from16 v1, v23
 
-    move/from16 v2, v38
+    move/from16 v2, v24
 
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
-    move-result-object v38
+    move-result-object v23
 
-    invoke-virtual/range {v38 .. v38}, Landroid/widget/Toast;->show()V
-
-    goto/16 :goto_0
-
-    :cond_5
-    const-string/jumbo v38, "Not subscribed to the requested service"
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v38
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v38
-
-    if-eqz v38, :cond_4
-
-    if-eqz v29, :cond_4
-
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v38
-
-    const/16 v39, 0x1
-
-    move/from16 v0, v39
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    move-object/from16 v39, v0
-
-    const/16 v40, 0x0
-
-    aput-object v29, v39, v40
-
-    const v40, 0x7f0f03d5
-
-    move-object/from16 v0, v38
-
-    move/from16 v1, v40
-
-    move-object/from16 v2, v39
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v19
-
-    goto :goto_1
-
-    :cond_6
-    const/16 v17, 0x1
-
-    const-string/jumbo v38, "There is a problem connecting you to Verizon Wi-Fi Access"
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v38
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v38
-
-    if-eqz v38, :cond_7
-
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v38
-
-    const v39, 0x7f0f03d6
-
-    invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v19
-
-    :goto_2
-    if-eqz v17, :cond_1
-
-    const/16 v38, 0x1
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v19
-
-    move/from16 v2, v38
-
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v38
-
-    invoke-virtual/range {v38 .. v38}, Landroid/widget/Toast;->show()V
-
-    goto/16 :goto_0
-
-    :cond_7
-    const-string/jumbo v38, "There is a problem with your Verizon Wi-Fi Access account"
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v38
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v38
-
-    if-eqz v38, :cond_8
-
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v38
-
-    const v39, 0x7f0f03d7
-
-    invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v19
-
-    goto :goto_2
-
-    :cond_8
-    const-string/jumbo v38, "You are not subscribed to Verizon Wi-Fi Access"
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v38
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v38
-
-    if-eqz v38, :cond_9
-
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v38
-
-    const v39, 0x7f0f03d8
-
-    invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v19
-
-    goto :goto_2
-
-    :cond_9
-    const-string/jumbo v38, "You can\'t connect to Verizon Wi-Fi Access from outside the Verizon coverage area"
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v38
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v38
-
-    if-eqz v38, :cond_a
-
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v38
-
-    const v39, 0x7f0f03d9
-
-    invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v19
-
-    goto :goto_2
-
-    :cond_a
-    const-string/jumbo v38, "There is a problem with your Verizon Wi-Fi Access account2"
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v38
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v38
-
-    if-eqz v38, :cond_b
-
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v38
-
-    const v39, 0x7f0f03d7
-
-    invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v19
-
-    goto :goto_2
-
-    :cond_b
-    const-string/jumbo v38, "You are already connected to Verizon Wi-Fi Access"
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v38
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v38
-
-    if-eqz v38, :cond_c
-
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v38
-
-    const v39, 0x7f0f03da
-
-    invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v19
-
-    goto/16 :goto_2
-
-    :cond_c
-    const-string/jumbo v38, "Verizon Wi-Fi Access is not available from your location"
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v38
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v38
-
-    if-eqz v38, :cond_d
-
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v38
-
-    const v39, 0x7f0f03db
-
-    invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v19
-
-    goto/16 :goto_2
-
-    :cond_d
-    const/16 v17, 0x0
-
-    goto/16 :goto_2
-
-    :cond_e
-    sget-object v38, Lcom/android/systemui/wifi/WifiStatusReceiver;->CSC_EAP_METHOD:Ljava/lang/String;
-
-    const-string/jumbo v39, "AKA"
-
-    invoke-virtual/range {v38 .. v39}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v38
-
-    if-eqz v38, :cond_1
-
-    const-string/jumbo v38, "message"
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, v38
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v19
-
-    const-string/jumbo v38, "WifiStatusReceiver"
-
-    new-instance v39, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v39 .. v39}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v40, "onReceive, message of received: "
-
-    invoke-virtual/range {v39 .. v40}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v39
-
-    move-object/from16 v0, v39
-
-    move-object/from16 v1, v19
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v39
-
-    invoke-virtual/range {v39 .. v39}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v39
-
-    invoke-static/range {v38 .. v39}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-nez v19, :cond_f
-
-    return-void
-
-    :cond_f
-    const-string/jumbo v38, "KTT"
-
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
-
-    move-result-object v39
-
-    const-string/jumbo v40, "CscFeature_Wifi_ConfigAuthMsgDisplayPolicy"
-
-    invoke-virtual/range {v39 .. v40}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v39
-
-    invoke-virtual/range {v38 .. v39}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v38
-
-    if-eqz v38, :cond_1
-
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v38
-
-    const v39, 0x7f0f03d1
-
-    invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v38
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v38
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v38
-
-    if-eqz v38, :cond_10
-
-    return-void
-
-    :cond_10
-    const-string/jumbo v38, "General failure KT_AKA"
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v38
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v38
-
-    if-nez v38, :cond_1
-
-    const/16 v38, 0x1
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v19
-
-    move/from16 v2, v38
-
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v38
-
-    invoke-virtual/range {v38 .. v38}, Landroid/widget/Toast;->show()V
+    invoke-virtual/range {v23 .. v23}, Landroid/widget/Toast;->show()V
 
     goto/16 :goto_0
 
     :sswitch_8
-    const v38, 0x7f0f03df
+    sget-boolean v23, Lcom/android/systemui/wifi/WifiStatusReceiver;->CSC_WIFI_ERRORCODE:Z
 
-    const/16 v39, 0x0
+    if-eqz v23, :cond_e
+
+    const-string/jumbo v23, "message"
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v10
+
+    const-string/jumbo v23, "WifiStatusReceiver"
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v25, "SHOW EAP SIM MESSAGE ACTION: "
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-nez v10, :cond_1
+
+    return-void
+
+    :cond_1
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v23
+
+    const-string/jumbo v24, "CscFeature_Wifi_SupportEapAka"
+
+    invoke-virtual/range {v23 .. v24}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v23
+
+    if-nez v23, :cond_6
+
+    const-string/jumbo v23, "General failure"
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v10, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v23
+
+    if-nez v23, :cond_2
+
+    const-string/jumbo v23, "0"
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v10, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v23
+
+    if-nez v23, :cond_2
+
+    const-string/jumbo v23, "16384"
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v10, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v23
+
+    if-eqz v23, :cond_4
+
+    :cond_2
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v23
+
+    const v24, 0x7f120b1e
+
+    invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    :cond_3
+    :goto_1
+    invoke-static {v10}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v23
+
+    if-nez v23, :cond_0
+
+    const/16 v23, 0x1
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v38
+    move/from16 v1, v23
 
-    move/from16 v2, v39
+    invoke-static {v0, v10, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    move-result-object v23
 
-    move-result-object v31
+    invoke-virtual/range {v23 .. v23}, Landroid/widget/Toast;->show()V
 
-    invoke-virtual/range {v31 .. v31}, Landroid/widget/Toast;->getView()Landroid/view/View;
+    goto/16 :goto_0
 
-    move-result-object v38
+    :cond_4
+    const-string/jumbo v23, "1031"
 
-    const v39, 0x102000b
+    move-object/from16 v0, v23
 
-    invoke-virtual/range {v38 .. v39}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v10, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v33
+    move-result v23
 
-    check-cast v33, Landroid/widget/TextView;
+    if-eqz v23, :cond_5
 
-    const/16 v38, 0x11
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-object/from16 v0, v33
+    move-result-object v23
 
-    move/from16 v1, v38
+    const/16 v24, 0x1
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setGravity(I)V
+    move/from16 v0, v24
 
-    invoke-virtual/range {v31 .. v31}, Landroid/widget/Toast;->show()V
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v24, v0
+
+    const-string/jumbo v25, ""
+
+    const/16 v26, 0x0
+
+    aput-object v25, v24, v26
+
+    const v25, 0x7f120b23
+
+    move-object/from16 v0, v23
+
+    move/from16 v1, v25
+
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v10
+
+    goto :goto_1
+
+    :cond_5
+    const-string/jumbo v23, "1026"
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v10, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v23
+
+    if-eqz v23, :cond_3
+
+    const-string/jumbo v10, "Temporarily denied access"
+
+    goto :goto_1
+
+    :cond_6
+    const/4 v9, 0x1
+
+    const-string/jumbo v23, "32764"
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v10, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v23
+
+    if-eqz v23, :cond_7
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v23
+
+    const v24, 0x7f120b1a
+
+    invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    :goto_2
+    if-eqz v9, :cond_0
+
+    const/16 v23, 0x1
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v23
+
+    invoke-static {v0, v10, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v23
+
+    invoke-virtual/range {v23 .. v23}, Landroid/widget/Toast;->show()V
+
+    goto/16 :goto_0
+
+    :cond_7
+    const-string/jumbo v23, "32762"
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v10, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v23
+
+    if-eqz v23, :cond_8
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v23
+
+    const v24, 0x7f120b1d
+
+    invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    goto :goto_2
+
+    :cond_8
+    const-string/jumbo v23, "32761"
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v10, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v23
+
+    if-eqz v23, :cond_9
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v23
+
+    const v24, 0x7f120b1b
+
+    invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    goto :goto_2
+
+    :cond_9
+    const-string/jumbo v23, "32760"
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v10, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v23
+
+    if-eqz v23, :cond_a
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v23
+
+    const v24, 0x7f120b1c
+
+    invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    goto :goto_2
+
+    :cond_a
+    const-string/jumbo v23, "32765"
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v10, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v23
+
+    if-eqz v23, :cond_b
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v23
+
+    const v24, 0x7f120b1d
+
+    invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    goto :goto_2
+
+    :cond_b
+    const-string/jumbo v23, "32763"
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v10, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v23
+
+    if-eqz v23, :cond_c
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v23
+
+    const v24, 0x7f120b19
+
+    invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    goto/16 :goto_2
+
+    :cond_c
+    const-string/jumbo v23, "32766"
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v10, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v23
+
+    if-eqz v23, :cond_d
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v23
+
+    const v24, 0x7f120b22
+
+    invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    goto/16 :goto_2
+
+    :cond_d
+    const/4 v9, 0x0
+
+    goto/16 :goto_2
+
+    :cond_e
+    sget-object v23, Lcom/android/systemui/wifi/WifiStatusReceiver;->CSC_EAP_METHOD:Ljava/lang/String;
+
+    const-string/jumbo v24, "AKA"
+
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v23
+
+    if-eqz v23, :cond_0
+
+    const-string/jumbo v23, "message"
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v10
+
+    const-string/jumbo v23, "WifiStatusReceiver"
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v25, "onReceive, message of received: "
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-nez v10, :cond_f
+
+    return-void
+
+    :cond_f
+    const-string/jumbo v23, "KTT"
+
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v24
+
+    const-string/jumbo v25, "CscFeature_Wifi_ConfigAuthMsgDisplayPolicy"
+
+    invoke-virtual/range {v24 .. v25}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v24
+
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v23
+
+    if-eqz v23, :cond_0
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v23
+
+    const v24, 0x7f120b24
+
+    invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v23
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v10, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v23
+
+    if-nez v23, :cond_10
+
+    const-string/jumbo v23, "32768"
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v10, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v23
+
+    if-eqz v23, :cond_11
+
+    :cond_10
+    return-void
+
+    :cond_11
+    const-string/jumbo v23, "General failure KT_AKA"
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v10, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v23
+
+    if-nez v23, :cond_0
+
+    const/16 v23, 0x1
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v23
+
+    invoke-static {v0, v10, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v23
+
+    invoke-virtual/range {v23 .. v23}, Landroid/widget/Toast;->show()V
 
     goto/16 :goto_0
 
     :sswitch_9
-    const-string/jumbo v38, "ssid"
+    const v23, 0x7f120b30
 
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, v38
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v29
-
-    if-eqz v29, :cond_1
-
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v25
-
-    const v38, 0x7f0b0024
-
-    move-object/from16 v0, v25
-
-    move/from16 v1, v38
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v38
-
-    const-string/jumbo v39, "#ff"
-
-    const-string/jumbo v40, "#"
-
-    invoke-virtual/range {v38 .. v40}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    const-string/jumbo v38, "#DEAD00"
-
-    move-object/from16 v0, v38
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v38
-
-    if-eqz v38, :cond_11
-
-    const/16 v38, 0x1
-
-    move/from16 v0, v38
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    move-object/from16 v38, v0
-
-    const/16 v39, 0x0
-
-    aput-object v29, v38, v39
-
-    const v39, 0x7f0f03c9
-
-    move-object/from16 v0, v25
-
-    move/from16 v1, v39
-
-    move-object/from16 v2, v38
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v20
-
-    const/16 v38, 0x0
+    const/16 v24, 0x0
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v20
+    move/from16 v1, v23
 
-    move/from16 v2, v38
+    move/from16 v2, v24
 
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
-    move-result-object v38
+    move-result-object v20
 
-    invoke-virtual/range {v38 .. v38}, Landroid/widget/Toast;->show()V
+    invoke-virtual/range {v20 .. v20}, Landroid/widget/Toast;->getView()Landroid/view/View;
+
+    move-result-object v23
+
+    const v24, 0x102000b
+
+    invoke-virtual/range {v23 .. v24}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v22
+
+    check-cast v22, Landroid/widget/TextView;
+
+    const/16 v23, 0x11
+
+    invoke-virtual/range {v22 .. v23}, Landroid/widget/TextView;->setGravity(I)V
+
+    invoke-virtual/range {v20 .. v20}, Landroid/widget/Toast;->show()V
 
     goto/16 :goto_0
 
-    :cond_11
-    const/16 v38, 0x1
+    :sswitch_a
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
-    :try_start_0
-    move/from16 v0, v38
+    move-result-object v23
 
-    new-array v0, v0, [Ljava/lang/Object;
+    const-string/jumbo v24, "SalesCode"
 
-    move-object/from16 v38, v0
+    invoke-virtual/range {v23 .. v24}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    new-instance v39, Ljava/lang/StringBuilder;
+    move-result-object v18
 
-    invoke-direct/range {v39 .. v39}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v23, "CHM"
 
-    const-string/jumbo v40, "<font color="
+    move-object/from16 v0, v23
 
-    invoke-virtual/range {v39 .. v40}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v1, v18
 
-    move-result-object v39
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-object/from16 v0, v39
+    move-result v23
 
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-nez v23, :cond_12
 
-    move-result-object v39
+    const-string/jumbo v23, "CBK"
 
-    const-string/jumbo v40, ">"
+    move-object/from16 v0, v23
 
-    invoke-virtual/range {v39 .. v40}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v1, v18
 
-    move-result-object v39
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-static/range {v29 .. v29}, Landroid/text/Html;->escapeHtml(Ljava/lang/CharSequence;)Ljava/lang/String;
+    move-result v23
 
-    move-result-object v40
+    if-eqz v23, :cond_13
 
-    invoke-virtual/range {v39 .. v40}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :cond_12
+    invoke-direct/range {p0 .. p1}, Lcom/android/systemui/wifi/WifiStatusReceiver;->showCmccDisconnectDialog(Landroid/content/Context;)V
 
-    move-result-object v39
+    goto/16 :goto_0
 
-    const-string/jumbo v40, "</font>"
+    :cond_13
+    const v23, 0x7f120b41
 
-    invoke-virtual/range {v39 .. v40}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v39
-
-    invoke-virtual/range {v39 .. v39}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v39
-
-    const/16 v40, 0x0
-
-    aput-object v39, v38, v40
-
-    const v39, 0x7f0f03c9
-
-    move-object/from16 v0, v25
-
-    move/from16 v1, v39
-
-    move-object/from16 v2, v38
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v20
-
-    invoke-static/range {v20 .. v20}, Landroid/text/Html;->fromHtml(Ljava/lang/String;)Landroid/text/Spanned;
-
-    move-result-object v38
-
-    const/16 v39, 0x0
+    const/16 v24, 0x0
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v38
+    move/from16 v1, v23
 
-    move/from16 v2, v39
+    move/from16 v2, v24
+
+    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Landroid/widget/Toast;->getView()Landroid/view/View;
+
+    move-result-object v23
+
+    const v24, 0x102000b
+
+    invoke-virtual/range {v23 .. v24}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v22
+
+    check-cast v22, Landroid/widget/TextView;
+
+    const/16 v23, 0x11
+
+    invoke-virtual/range {v22 .. v23}, Landroid/widget/TextView;->setGravity(I)V
+
+    invoke-virtual/range {v20 .. v20}, Landroid/widget/Toast;->show()V
+
+    goto/16 :goto_0
+
+    :sswitch_b
+    const-string/jumbo v23, "ssid"
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v19
+
+    if-eqz v19, :cond_0
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v17
+
+    const v23, 0x7f060225
+
+    move-object/from16 v0, v17
+
+    move/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v23
+
+    const-string/jumbo v24, "#ff"
+
+    const-string/jumbo v25, "#"
+
+    invoke-virtual/range {v23 .. v25}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string/jumbo v23, "#DEAD00"
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v23
+
+    if-eqz v23, :cond_14
+
+    const/16 v23, 0x1
+
+    move/from16 v0, v23
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v23, v0
+
+    const/16 v24, 0x0
+
+    aput-object v19, v23, v24
+
+    const v24, 0x7f120b46
+
+    move-object/from16 v0, v17
+
+    move/from16 v1, v24
+
+    move-object/from16 v2, v23
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v11
+
+    const/16 v23, 0x0
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v23
+
+    invoke-static {v0, v11, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v23
+
+    invoke-virtual/range {v23 .. v23}, Landroid/widget/Toast;->show()V
+
+    goto/16 :goto_0
+
+    :cond_14
+    const/16 v23, 0x1
+
+    :try_start_0
+    move/from16 v0, v23
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v23, v0
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v25, "<font color="
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    const-string/jumbo v25, ">"
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-static/range {v19 .. v19}, Landroid/text/Html;->escapeHtml(Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v25
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    const-string/jumbo v25, "</font>"
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    const/16 v25, 0x0
+
+    aput-object v24, v23, v25
+
+    const v24, 0x7f120b46
+
+    move-object/from16 v0, v17
+
+    move/from16 v1, v24
+
+    move-object/from16 v2, v23
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v11}, Landroid/text/Html;->fromHtml(Ljava/lang/String;)Landroid/text/Spanned;
+
+    move-result-object v23
+
+    const/16 v24, 0x0
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v23
+
+    move/from16 v2, v24
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
-    move-result-object v31
+    move-result-object v20
 
-    invoke-virtual/range {v31 .. v31}, Landroid/widget/Toast;->getView()Landroid/view/View;
+    invoke-virtual/range {v20 .. v20}, Landroid/widget/Toast;->getView()Landroid/view/View;
 
-    move-result-object v38
+    move-result-object v23
 
-    const v39, 0x102000b
+    const v24, 0x102000b
 
-    invoke-virtual/range {v38 .. v39}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual/range {v23 .. v24}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v33
+    move-result-object v22
 
-    check-cast v33, Landroid/widget/TextView;
+    check-cast v22, Landroid/widget/TextView;
 
-    const/16 v38, 0x11
+    const/16 v23, 0x11
 
-    move-object/from16 v0, v33
+    invoke-virtual/range {v22 .. v23}, Landroid/widget/TextView;->setGravity(I)V
 
-    move/from16 v1, v38
+    invoke-virtual/range {v20 .. v20}, Landroid/widget/Toast;->show()V
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setGravity(I)V
+    const-string/jumbo v23, "WifiStatusReceiver"
 
-    invoke-virtual/range {v31 .. v31}, Landroid/widget/Toast;->show()V
+    const-string/jumbo v24, "Show NETWORK_NOT_FOUND Toast"
 
-    const-string/jumbo v38, "WifiStatusReceiver"
-
-    const-string/jumbo v39, "Show NETWORK_NOT_FOUND Toast"
-
-    invoke-static/range {v38 .. v39}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/util/UnknownFormatConversionException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto/16 :goto_0
 
     :catch_0
-    move-exception v14
+    move-exception v7
 
-    const-string/jumbo v38, "WifiStatusReceiver"
+    const-string/jumbo v23, "WifiStatusReceiver"
 
-    invoke-virtual {v14}, Ljava/util/UnknownFormatConversionException;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/util/UnknownFormatConversionException;->toString()Ljava/lang/String;
 
-    move-result-object v39
+    move-result-object v24
 
-    invoke-static/range {v38 .. v39}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
-    :cond_12
-    const-string/jumbo v38, "KTT"
+    :cond_15
+    const-string/jumbo v23, "KTT"
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
-    move-result-object v39
+    move-result-object v24
 
-    const-string/jumbo v40, "CscFeature_Wifi_ConfigAuthMsgDisplayPolicy"
+    const-string/jumbo v25, "CscFeature_Wifi_ConfigAuthMsgDisplayPolicy"
 
-    invoke-virtual/range {v39 .. v40}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual/range {v24 .. v25}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v39
+    move-result-object v24
 
-    invoke-virtual/range {v38 .. v39}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v38
+    move-result v23
 
-    if-eqz v38, :cond_17
+    if-eqz v23, :cond_1a
 
-    const-string/jumbo v38, "com.kt.wifiapi.OEMExtension.NOTIFICATION"
+    const-string/jumbo v23, "com.kt.wifiapi.OEMExtension.NOTIFICATION"
 
-    move-object/from16 v0, v38
+    move-object/from16 v0, v23
 
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v38
+    move-result v23
 
-    if-eqz v38, :cond_17
+    if-eqz v23, :cond_1a
 
-    const-string/jumbo v38, "ERROR_NOTIFICATION"
+    const-string/jumbo v23, "ERROR_NOTIFICATION"
 
-    const/16 v39, -0x1
+    const/16 v24, -0x1
 
     move-object/from16 v0, p2
 
-    move-object/from16 v1, v38
+    move-object/from16 v1, v23
 
-    move/from16 v2, v39
+    move/from16 v2, v24
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v15
+    move-result v8
 
-    const/16 v19, 0x0
+    const/4 v10, 0x0
 
-    if-nez v15, :cond_13
-
-    return-void
-
-    :cond_13
-    const/16 v38, 0x4
-
-    move/from16 v0, v38
-
-    if-ne v15, v0, :cond_14
-
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v38
-
-    const v39, 0x7f0f03dd
-
-    invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v19
-
-    :goto_3
-    const/16 v38, 0x1
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v19
-
-    move/from16 v2, v38
-
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v38
-
-    invoke-virtual/range {v38 .. v38}, Landroid/widget/Toast;->show()V
-
-    goto/16 :goto_0
-
-    :cond_14
-    const/16 v38, 0x5
-
-    move/from16 v0, v38
-
-    if-ne v15, v0, :cond_15
-
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v38
-
-    const v39, 0x7f0f03d4
-
-    invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v19
-
-    goto :goto_3
-
-    :cond_15
-    const/16 v38, 0x6
-
-    move/from16 v0, v38
-
-    if-ne v15, v0, :cond_16
-
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v38
-
-    const v39, 0x7f0f03dc
-
-    invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v19
+    if-nez v8, :cond_16
 
     return-void
 
     :cond_16
-    return-void
+    const/16 v23, 0x4
 
-    :cond_17
-    const-string/jumbo v38, "com.samsung.intent.action.BCS_REQUEST"
+    move/from16 v0, v23
 
-    invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v39
-
-    invoke-virtual/range {v38 .. v39}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v38
-
-    if-eqz v38, :cond_1c
-
-    invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
-
-    move-result-object v12
-
-    if-nez v12, :cond_18
-
-    const-string/jumbo v38, "WifiStatusReceiver"
-
-    const-string/jumbo v39, "there is no extras"
-
-    invoke-static/range {v38 .. v39}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_18
-    const-string/jumbo v38, "command"
-
-    move-object/from16 v0, v38
-
-    invoke-virtual {v12, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v7
-
-    if-eqz v7, :cond_19
-
-    const-string/jumbo v38, " "
-
-    const-string/jumbo v39, ""
-
-    move-object/from16 v0, v38
-
-    move-object/from16 v1, v39
-
-    invoke-virtual {v7, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-
-    move-result-object v7
-
-    :cond_19
-    const-string/jumbo v38, "AT+WIFIVALUE"
-
-    move-object/from16 v0, v38
-
-    invoke-virtual {v0, v7}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v38
-
-    if-eqz v38, :cond_1
-
-    const-string/jumbo v38, "wifi"
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v38
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v35
-
-    check-cast v35, Landroid/net/wifi/WifiManager;
-
-    invoke-virtual/range {v35 .. v35}, Landroid/net/wifi/WifiManager;->getWifiState()I
-
-    move-result v37
-
-    const/16 v38, 0x2
-
-    move/from16 v0, v37
-
-    move/from16 v1, v38
-
-    if-eq v0, v1, :cond_1a
-
-    const/16 v38, 0x3
-
-    move/from16 v0, v37
-
-    move/from16 v1, v38
-
-    if-ne v0, v1, :cond_1b
-
-    :cond_1a
-    new-instance v38, Landroid/content/Intent;
-
-    const-string/jumbo v39, "com.samsung.intent.action.BCS_RESPONSE"
-
-    invoke-direct/range {v38 .. v39}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v39, "response"
-
-    const-string/jumbo v40, "ON"
-
-    invoke-virtual/range {v38 .. v40}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    move-result-object v38
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v38
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
-
-    goto/16 :goto_0
-
-    :cond_1b
-    new-instance v38, Landroid/content/Intent;
-
-    const-string/jumbo v39, "com.samsung.intent.action.BCS_RESPONSE"
-
-    invoke-direct/range {v38 .. v39}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v39, "response"
-
-    const-string/jumbo v40, "OFF"
-
-    invoke-virtual/range {v38 .. v40}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    move-result-object v38
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v38
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
-
-    goto/16 :goto_0
-
-    :cond_1c
-    const-string/jumbo v38, "android.net.wifi.SCAN_RESULTS"
-
-    move-object/from16 v0, v38
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v38
-
-    if-nez v38, :cond_1d
-
-    const-string/jumbo v38, "com.sec.android.wifi.scan.result"
-
-    move-object/from16 v0, v38
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v38
-
-    if-eqz v38, :cond_2b
-
-    :cond_1d
-    sget-boolean v38, Lcom/android/systemui/wifi/WifiStatusReceiver;->sShowOnceFlag:Z
-
-    if-eqz v38, :cond_1
-
-    const/16 v38, 0x0
-
-    sput-boolean v38, Lcom/android/systemui/wifi/WifiStatusReceiver;->sShowOnceFlag:Z
-
-    const-string/jumbo v38, "wifi"
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v38
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v35
-
-    check-cast v35, Landroid/net/wifi/WifiManager;
-
-    invoke-virtual/range {v35 .. v35}, Landroid/net/wifi/WifiManager;->getNetworkInfo()Landroid/net/NetworkInfo;
-
-    move-result-object v36
-
-    if-eqz v36, :cond_1e
-
-    invoke-virtual/range {v36 .. v36}, Landroid/net/NetworkInfo;->isConnected()Z
-
-    move-result v38
-
-    if-eqz v38, :cond_1e
-
-    return-void
-
-    :cond_1e
-    const/4 v10, 0x0
-
-    invoke-virtual/range {v35 .. v35}, Landroid/net/wifi/WifiManager;->getScanResults()Ljava/util/List;
-
-    move-result-object v28
-
-    invoke-virtual/range {v35 .. v35}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
-
-    move-result v38
-
-    if-eqz v38, :cond_1f
-
-    invoke-static/range {v35 .. v35}, Lcom/android/systemui/wifi/WifiStatusReceiver;->getConfiguredNetworks(Landroid/net/wifi/WifiManager;)Ljava/util/List;
-
-    move-result-object v10
-
-    :cond_1f
-    const/16 v30, 0x0
-
-    if-nez v10, :cond_22
-
-    const-string/jumbo v38, "WifiStatusReceiver"
-
-    const-string/jumbo v39, "constructAccessPoints config is null"
-
-    invoke-static/range {v38 .. v39}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_20
-    :goto_4
-    const-string/jumbo v38, "WifiStatusReceiver"
-
-    new-instance v39, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v39 .. v39}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v40, "SCAN_RESULTS_AVAILABLE_ACTION RECEIVED : sShowOnceFlag - true, ssid_count - "
-
-    invoke-virtual/range {v39 .. v40}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v39
-
-    move-object/from16 v0, v39
-
-    move/from16 v1, v30
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v39
-
-    invoke-virtual/range {v39 .. v39}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v39
-
-    invoke-static/range {v38 .. v39}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual/range {v35 .. v35}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
-
-    move-result v38
-
-    if-eqz v38, :cond_29
-
-    sget-boolean v38, Lcom/android/systemui/wifi/WifiStatusReceiver;->CSC_ENABLE_WIFI_CONNECTION_TYPE:Z
-
-    if-eqz v38, :cond_29
-
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v38
-
-    const-string/jumbo v39, "wifi_cmcc_manual"
-
-    const/16 v40, 0x0
-
-    invoke-static/range {v38 .. v40}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v34
-
-    const-string/jumbo v38, "WifiStatusReceiver"
-
-    new-instance v39, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v39 .. v39}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v40, "wifiConnectionType is"
-
-    invoke-virtual/range {v39 .. v40}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v39
-
-    move-object/from16 v0, v39
-
-    move/from16 v1, v34
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v39
-
-    invoke-virtual/range {v39 .. v39}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v39
-
-    invoke-static/range {v38 .. v39}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v38, 0x2
-
-    move/from16 v0, v34
-
-    move/from16 v1, v38
-
-    if-eq v0, v1, :cond_21
-
-    if-eqz v30, :cond_28
-
-    if-nez v34, :cond_28
-
-    :cond_21
-    return-void
-
-    :cond_22
-    invoke-interface {v10}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v9
-
-    :cond_23
-    :goto_5
-    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v38
-
-    if-eqz v38, :cond_20
-
-    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v8
-
-    check-cast v8, Landroid/net/wifi/WifiConfiguration;
-
-    if-nez v8, :cond_24
-
-    const-string/jumbo v38, "WifiStatusReceiver"
-
-    const-string/jumbo v39, "constructAccessPoints config is null"
-
-    invoke-static/range {v38 .. v39}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_5
-
-    :cond_24
-    iget-object v0, v8, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
-
-    move-object/from16 v38, v0
-
-    if-nez v38, :cond_27
-
-    const-string/jumbo v29, ""
-
-    :goto_6
-    invoke-interface/range {v28 .. v28}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v27
-
-    :cond_25
-    invoke-interface/range {v27 .. v27}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v38
-
-    if-eqz v38, :cond_26
-
-    invoke-interface/range {v27 .. v27}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v26
-
-    check-cast v26, Landroid/net/wifi/ScanResult;
-
-    move-object/from16 v0, v26
-
-    iget-object v0, v0, Landroid/net/wifi/ScanResult;->SSID:Ljava/lang/String;
-
-    move-object/from16 v18, v0
-
-    move-object/from16 v0, v29
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v38
-
-    if-eqz v38, :cond_25
-
-    move-object/from16 v0, v26
-
-    invoke-static {v0, v8}, Lcom/android/systemui/wifi/WifiStatusReceiver;->isSameSecurity(Landroid/net/wifi/ScanResult;Landroid/net/wifi/WifiConfiguration;)Z
-
-    move-result v38
-
-    if-eqz v38, :cond_25
-
-    add-int/lit8 v30, v30, 0x1
-
-    :cond_26
-    if-eqz v30, :cond_23
-
-    goto/16 :goto_4
-
-    :cond_27
-    iget-object v0, v8, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
-
-    move-object/from16 v38, v0
-
-    invoke-static/range {v38 .. v38}, Lcom/android/systemui/wifi/WifiStatusReceiver;->removeDoubleQuotes(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v29
-
-    goto :goto_6
-
-    :cond_28
-    invoke-direct/range {p0 .. p2}, Lcom/android/systemui/wifi/WifiStatusReceiver;->startWifiPickerDialog(Landroid/content/Context;Landroid/content/Intent;)V
-
-    goto/16 :goto_0
-
-    :cond_29
-    if-nez v30, :cond_1
-
-    invoke-virtual/range {v35 .. v35}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
-
-    move-result v38
-
-    if-eqz v38, :cond_2a
-
-    invoke-direct/range {p0 .. p2}, Lcom/android/systemui/wifi/WifiStatusReceiver;->startWifiPickerDialog(Landroid/content/Context;Landroid/content/Intent;)V
-
-    goto/16 :goto_0
-
-    :cond_2a
-    const/16 v38, 0x1
-
-    sput-boolean v38, Lcom/android/systemui/wifi/WifiStatusReceiver;->sShowOnceFlag:Z
-
-    const-string/jumbo v38, "WifiStatusReceiver"
-
-    const-string/jumbo v39, "!wifiManager.isWifiEnabled(), sShowOnceFlag = true"
-
-    invoke-static/range {v38 .. v39}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_0
-
-    :cond_2b
-    const-string/jumbo v38, "ACTION_AGGREGATION_DELAY"
-
-    move-object/from16 v0, v38
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v38
-
-    if-eqz v38, :cond_2e
-
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
-
-    move-result-object v38
-
-    const-string/jumbo v39, "CscFeature_Wifi_SupportWifiAggregation"
-
-    invoke-virtual/range {v38 .. v39}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v38
-
-    if-eqz v38, :cond_2e
-
-    const-string/jumbo v38, "wifi"
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v38
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v35
-
-    check-cast v35, Landroid/net/wifi/WifiManager;
-
-    const/16 v29, 0x0
-
-    if-eqz v35, :cond_2c
-
-    invoke-virtual/range {v35 .. v35}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
-
-    move-result-object v16
-
-    if-eqz v16, :cond_2c
-
-    invoke-virtual/range {v16 .. v16}, Landroid/net/wifi/WifiInfo;->getSSID()Ljava/lang/String;
-
-    move-result-object v29
-
-    :cond_2c
-    if-eqz v29, :cond_1
-
-    const-string/jumbo v38, "ro.build.scafe.cream"
-
-    invoke-static/range {v38 .. v38}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v38
-
-    const-string/jumbo v39, "white"
-
-    invoke-virtual/range {v38 .. v39}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v38
-
-    if-eqz v38, :cond_2d
-
-    new-instance v11, Landroid/view/ContextThemeWrapper;
-
-    const v38, 0x103012b
-
-    move-object/from16 v0, p1
-
-    move/from16 v1, v38
-
-    invoke-direct {v11, v0, v1}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
-
-    move-object/from16 p1, v11
-
-    :cond_2d
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v38
-
-    const v39, 0x7f0b0024
-
-    invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v38
-
-    const-string/jumbo v39, "#ff"
-
-    const-string/jumbo v40, "#"
-
-    invoke-virtual/range {v38 .. v40}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
+    if-ne v8, v0, :cond_17
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v38
-
-    const/16 v39, 0x1
-
-    move/from16 v0, v39
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    move-object/from16 v39, v0
-
-    new-instance v40, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v40 .. v40}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v41, "<font color="
-
-    invoke-virtual/range {v40 .. v41}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v40
-
-    move-object/from16 v0, v40
-
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v40
-
-    const-string/jumbo v41, ">"
-
-    invoke-virtual/range {v40 .. v41}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v40
-
-    invoke-static/range {v29 .. v29}, Landroid/text/Html;->escapeHtml(Ljava/lang/CharSequence;)Ljava/lang/String;
-
-    move-result-object v41
-
-    invoke-virtual/range {v40 .. v41}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v40
-
-    const-string/jumbo v41, "</font>"
-
-    invoke-virtual/range {v40 .. v41}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v40
-
-    invoke-virtual/range {v40 .. v40}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v40
-
-    const/16 v41, 0x0
-
-    aput-object v40, v39, v41
-
-    const v40, 0x7f0f010e
-
-    move-object/from16 v0, v38
-
-    move/from16 v1, v40
-
-    move-object/from16 v2, v39
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v20
-
-    invoke-static/range {v20 .. v20}, Landroid/text/Html;->fromHtml(Ljava/lang/String;)Landroid/text/Spanned;
-
-    move-result-object v38
-
-    const/16 v39, 0x1
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v38
-
-    move/from16 v2, v39
-
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v31
-
-    invoke-virtual/range {v31 .. v31}, Landroid/widget/Toast;->getView()Landroid/view/View;
-
-    move-result-object v38
-
-    const v39, 0x102000b
-
-    invoke-virtual/range {v38 .. v39}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v33
-
-    check-cast v33, Landroid/widget/TextView;
-
-    const/16 v38, 0x11
-
-    move-object/from16 v0, v33
-
-    move/from16 v1, v38
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setGravity(I)V
-
-    invoke-virtual/range {v31 .. v31}, Landroid/widget/Toast;->show()V
-
-    goto/16 :goto_0
-
-    :cond_2e
-    const-string/jumbo v38, "ACTION_AGGREGATION_DISCONNECT"
-
-    move-object/from16 v0, v38
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v38
-
-    if-eqz v38, :cond_2f
-
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
-
-    move-result-object v38
-
-    const-string/jumbo v39, "CscFeature_Wifi_SupportWifiAggregation"
-
-    invoke-virtual/range {v38 .. v39}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v38
-
-    if-eqz v38, :cond_2f
-
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v38
-
-    const v39, 0x7f0f03de
-
-    invoke-virtual/range {v38 .. v39}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v20
-
-    const/16 v38, 0x1
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v20
-
-    move/from16 v2, v38
-
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v31
-
-    invoke-virtual/range {v31 .. v31}, Landroid/widget/Toast;->show()V
-
-    goto/16 :goto_0
-
-    :cond_2f
-    const-string/jumbo v38, "com.samsung.android.net.wifi.SHOW_SCC_DIALOG"
-
-    move-object/from16 v0, v38
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v38
-
-    if-eqz v38, :cond_1
-
-    const-string/jumbo v38, "netid"
-
-    const/16 v39, -0x1
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, v38
-
-    move/from16 v2, v39
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v22
-
-    const-string/jumbo v38, "wifip2p"
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v38
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v24
-
-    check-cast v24, Landroid/net/wifi/p2p/WifiP2pManager;
-
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getMainLooper()Landroid/os/Looper;
-
-    move-result-object v38
-
-    const/16 v39, 0x0
-
-    move-object/from16 v0, v24
-
-    move-object/from16 v1, p1
-
-    move-object/from16 v2, v38
-
-    move-object/from16 v3, v39
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/net/wifi/p2p/WifiP2pManager;->initialize(Landroid/content/Context;Landroid/os/Looper;Landroid/net/wifi/p2p/WifiP2pManager$ChannelListener;)Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
     move-result-object v23
 
-    new-instance v38, Landroid/app/AlertDialog$Builder;
+    const v24, 0x7f120b20
 
-    move-object/from16 v0, v38
+    invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    :goto_3
+    const/16 v23, 0x1
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v23
+
+    invoke-static {v0, v10, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v23
+
+    invoke-virtual/range {v23 .. v23}, Landroid/widget/Toast;->show()V
+
+    goto/16 :goto_0
+
+    :cond_17
+    const/16 v23, 0x5
+
+    move/from16 v0, v23
+
+    if-ne v8, v0, :cond_18
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v23
+
+    const v24, 0x7f120b1f
+
+    invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    goto :goto_3
+
+    :cond_18
+    const/16 v23, 0x6
+
+    move/from16 v0, v23
+
+    if-ne v8, v0, :cond_19
+
+    return-void
+
+    :cond_19
+    return-void
+
+    :cond_1a
+    const-string/jumbo v23, "com.samsung.android.net.wifi.SHOW_SCC_DIALOG"
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v23
+
+    if-eqz v23, :cond_0
+
+    const-string/jumbo v23, "netid"
+
+    const/16 v24, -0x1
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v23
+
+    move/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v13
+
+    const-string/jumbo v23, "wifip2p"
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v15
+
+    check-cast v15, Landroid/net/wifi/p2p/WifiP2pManager;
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getMainLooper()Landroid/os/Looper;
+
+    move-result-object v23
+
+    const/16 v24, 0x0
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    invoke-virtual {v15, v0, v1, v2}, Landroid/net/wifi/p2p/WifiP2pManager;->initialize(Landroid/content/Context;Landroid/os/Looper;Landroid/net/wifi/p2p/WifiP2pManager$ChannelListener;)Landroid/net/wifi/p2p/WifiP2pManager$Channel;
+
+    move-result-object v14
+
+    new-instance v23, Landroid/app/AlertDialog$Builder;
+
+    move-object/from16 v0, v23
 
     move-object/from16 v1, p1
 
@@ -2232,95 +1644,93 @@
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v39
+    move-result-object v24
 
-    const v40, 0x7f0f03e0
+    const v25, 0x7f120949
 
-    invoke-virtual/range {v39 .. v40}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v39
+    move-result-object v24
 
-    invoke-virtual/range {v38 .. v39}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual/range {v23 .. v24}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v38
+    move-result-object v23
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v39
+    move-result-object v24
 
-    const v40, 0x7f0f0057
+    const v25, 0x7f1207c4
 
-    invoke-virtual/range {v39 .. v40}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v39
+    move-result-object v24
 
-    new-instance v40, Lcom/android/systemui/wifi/WifiStatusReceiver$1;
+    new-instance v25, Lcom/android/systemui/wifi/WifiStatusReceiver$1;
 
-    move-object/from16 v0, v40
+    move-object/from16 v0, v25
 
     move-object/from16 v1, p0
 
-    move-object/from16 v2, v24
+    invoke-direct {v0, v1, v15, v14, v13}, Lcom/android/systemui/wifi/WifiStatusReceiver$1;-><init>(Lcom/android/systemui/wifi/WifiStatusReceiver;Landroid/net/wifi/p2p/WifiP2pManager;Landroid/net/wifi/p2p/WifiP2pManager$Channel;I)V
 
-    move-object/from16 v3, v23
+    invoke-virtual/range {v23 .. v25}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move/from16 v4, v22
-
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/systemui/wifi/WifiStatusReceiver$1;-><init>(Lcom/android/systemui/wifi/WifiStatusReceiver;Landroid/net/wifi/p2p/WifiP2pManager;Landroid/net/wifi/p2p/WifiP2pManager$Channel;I)V
-
-    invoke-virtual/range {v38 .. v40}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v38
+    move-result-object v23
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v39
+    move-result-object v24
 
-    const v40, 0x7f0f0022
+    const v25, 0x7f1201d4
 
-    invoke-virtual/range {v39 .. v40}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v39
+    move-result-object v24
 
-    new-instance v40, Lcom/android/systemui/wifi/WifiStatusReceiver$2;
+    new-instance v25, Lcom/android/systemui/wifi/WifiStatusReceiver$2;
 
-    move-object/from16 v0, v40
+    move-object/from16 v0, v25
 
     move-object/from16 v1, p0
 
     invoke-direct {v0, v1}, Lcom/android/systemui/wifi/WifiStatusReceiver$2;-><init>(Lcom/android/systemui/wifi/WifiStatusReceiver;)V
 
-    invoke-virtual/range {v38 .. v40}, Landroid/app/AlertDialog$Builder;->setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual/range {v23 .. v25}, Landroid/app/AlertDialog$Builder;->setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v38
+    move-result-object v23
 
-    invoke-virtual/range {v38 .. v38}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual/range {v23 .. v23}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    move-result-object v13
+    move-result-object v6
 
-    invoke-virtual {v13}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v6}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
-    move-result-object v38
+    move-result-object v23
 
-    const/16 v39, 0x7d8
+    const/16 v24, 0x7d8
 
-    invoke-virtual/range {v38 .. v39}, Landroid/view/Window;->setType(I)V
+    invoke-virtual/range {v23 .. v24}, Landroid/view/Window;->setType(I)V
 
-    invoke-virtual {v13}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v6}, Landroid/app/AlertDialog;->show()V
 
     goto/16 :goto_0
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_0
         0x2 -> :sswitch_1
         0x3 -> :sswitch_2
-        0x5 -> :sswitch_3
-        0x6 -> :sswitch_4
-        0x7 -> :sswitch_5
-        0xa -> :sswitch_6
-        0x14 -> :sswitch_7
-        0x1e -> :sswitch_8
-        0x32 -> :sswitch_9
+        0x4 -> :sswitch_3
+        0x5 -> :sswitch_4
+        0x6 -> :sswitch_5
+        0x7 -> :sswitch_6
+        0xa -> :sswitch_7
+        0x14 -> :sswitch_8
+        0x1e -> :sswitch_9
+        0x1f -> :sswitch_a
+        0x32 -> :sswitch_b
     .end sparse-switch
 .end method

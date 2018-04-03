@@ -15,11 +15,15 @@
 
 
 # instance fields
-.field public mCloseAllMarginRight:I
+.field public mBtnContainerMarginRight:I
 
-.field public mCloseAllMarginTopRow1:I
+.field public mBtnContainerMarginTopRow1:I
 
-.field public mCloseAllMarginTopRow2:I
+.field public mBtnContainerMarginTopRow2:I
+
+.field public mButtonContainterHeight:I
+
+.field public mNaviBarHeight:I
 
 .field public mRecentsLayoutHeightRow1:I
 
@@ -50,161 +54,157 @@
 .end method
 
 .method private load(Landroid/content/Context;)V
-    .locals 2
+    .locals 4
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f0d02b1
+    const v1, 0x7f070575
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
-    move-result v0
+    move-result v1
 
-    float-to-int v0, v0
+    float-to-int v1, v1
 
-    iput v0, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;->mRecentsLayoutWidth:I
+    iput v1, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;->mRecentsLayoutWidth:I
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0d02b2
+    const v1, 0x7f070572
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
-    move-result v0
+    move-result v1
 
-    float-to-int v0, v0
+    float-to-int v1, v1
 
-    iput v0, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;->mRecentsLayoutHeightRow1:I
+    iput v1, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;->mRecentsLayoutHeightRow1:I
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0d02b3
+    const v1, 0x7f070573
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
-    move-result v0
+    move-result v1
 
-    float-to-int v0, v0
+    float-to-int v1, v1
 
-    iput v0, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;->mRecentsLayoutHeightRow2:I
+    iput v1, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;->mRecentsLayoutHeightRow2:I
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0d02b6
+    const v1, 0x7f070568
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
-    move-result v0
+    move-result v1
 
-    float-to-int v0, v0
+    float-to-int v1, v1
 
-    iput v0, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;->mTaskViewGap:I
+    iput v1, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;->mTaskViewGap:I
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0d02b5
+    const v1, 0x7f070567
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
-    move-result v0
+    move-result v1
 
-    float-to-int v0, v0
+    float-to-int v1, v1
 
-    iput v0, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;->mTaskViewFocusPadding:I
+    iput v1, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;->mTaskViewFocusPadding:I
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0d02b7
+    const v1, 0x7f070571
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
-    move-result v0
+    move-result v1
 
-    float-to-int v0, v0
+    float-to-int v1, v1
 
-    iput v0, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;->mTaskViewWidth:I
+    iput v1, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;->mTaskViewWidth:I
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0d02b8
+    const v1, 0x7f07056e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
-    move-result v0
+    move-result v1
 
-    float-to-int v0, v0
+    float-to-int v1, v1
 
-    iput v0, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;->mTaskViewHeight:I
+    iput v1, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;->mTaskViewHeight:I
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0d02b9
+    const v1, 0x7f070566
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
-    move-result v0
+    move-result v1
 
-    float-to-int v0, v0
+    float-to-int v1, v1
 
-    iput v0, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;->mTaskViewBottomMargin:I
+    iput v1, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;->mTaskViewBottomMargin:I
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0d02bc
+    const v1, 0x7f07055c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
-    move-result v0
+    move-result v1
 
-    float-to-int v0, v0
+    float-to-int v1, v1
 
-    iput v0, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;->mCloseAllMarginTopRow1:I
+    iput v1, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;->mBtnContainerMarginTopRow1:I
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0d02bd
+    const v1, 0x7f07055d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
-    move-result v0
+    move-result v1
 
-    float-to-int v0, v0
+    float-to-int v1, v1
 
-    iput v0, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;->mCloseAllMarginTopRow2:I
+    iput v1, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;->mBtnContainerMarginTopRow2:I
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0d02be
+    const v1, 0x7f07055b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
-    move-result v0
+    move-result v1
 
-    float-to-int v0, v0
+    float-to-int v1, v1
 
-    iput v0, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;->mCloseAllMarginRight:I
+    iput v1, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;->mBtnContainerMarginRight:I
+
+    const v1, 0x7f0704f3
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    iput v1, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;->mButtonContainterHeight:I
+
+    const-string/jumbo v1, "navigation_bar_height"
+
+    const-string/jumbo v2, "dimen"
+
+    const-string/jumbo v3, "android"
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;->mNaviBarHeight:I
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public reinitialize(Landroid/content/Context;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/recents/desktop/views/RecentsWindowLayoutManager$Attributes;->load(Landroid/content/Context;)V
 
     return-void
 .end method

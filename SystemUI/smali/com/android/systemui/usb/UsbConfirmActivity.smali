@@ -12,6 +12,8 @@
 
 .field private mAlwaysUse:Landroid/widget/CheckBox;
 
+.field private mCheckBoxText:Landroid/widget/TextView;
+
 .field private mClearDefaultHint:Landroid/widget/TextView;
 
 .field private mDevice:Landroid/hardware/usb/UsbDevice;
@@ -22,6 +24,14 @@
 
 
 # direct methods
+.method static synthetic -get0(Lcom/android/systemui/usb/UsbConfirmActivity;)Landroid/widget/CheckBox;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mAlwaysUse:Landroid/widget/CheckBox;
+
+    return-object v0
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -33,7 +43,29 @@
 
 # virtual methods
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-    .locals 2
+    .locals 3
+
+    const-string/jumbo v0, "UsbConfirmActivity"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "onCheckedChanged "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mClearDefaultHint:Landroid/widget/TextView;
 
@@ -243,13 +275,13 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 10
+    .locals 9
+
+    const/4 v8, 0x1
+
+    const/4 v6, 0x0
 
     const/4 v7, 0x0
-
-    const/4 v9, 0x1
-
-    const/4 v8, 0x0
 
     invoke-super {p0, p1}, Lcom/android/internal/app/AlertActivity;->onCreate(Landroid/os/Bundle;)V
 
@@ -287,6 +319,40 @@
 
     iput-object v5, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mResolveInfo:Landroid/content/pm/ResolveInfo;
 
+    iget-object v5, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mResolveInfo:Landroid/content/pm/ResolveInfo;
+
+    if-nez v5, :cond_0
+
+    const-string/jumbo v5, "UsbConfirmActivity"
+
+    const-string/jumbo v6, "onCreate mResolveInfo is null"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0}, Lcom/android/systemui/usb/UsbConfirmActivity;->finish()V
+
+    return-void
+
+    :cond_0
+    iget-object v5, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mDevice:Landroid/hardware/usb/UsbDevice;
+
+    if-nez v5, :cond_1
+
+    iget-object v5, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mAccessory:Landroid/hardware/usb/UsbAccessory;
+
+    if-nez v5, :cond_1
+
+    const-string/jumbo v5, "UsbConfirmActivity"
+
+    const-string/jumbo v6, "onCreate seems nothing to do"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0}, Lcom/android/systemui/usb/UsbConfirmActivity;->finish()V
+
+    return-void
+
+    :cond_1
     invoke-virtual {p0}, Lcom/android/systemui/usb/UsbConfirmActivity;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v4
@@ -315,13 +381,13 @@
 
     iget-object v5, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mDevice:Landroid/hardware/usb/UsbDevice;
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_2
 
-    new-array v5, v9, [Ljava/lang/Object;
+    new-array v5, v8, [Ljava/lang/Object;
 
-    aput-object v1, v5, v8
+    aput-object v1, v5, v6
 
-    const v6, 0x7f0f02d2
+    const v6, 0x7f120ac2
 
     invoke-virtual {p0, v6, v5}, Lcom/android/systemui/usb/UsbConfirmActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -358,6 +424,12 @@
 
     iput-object p0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
+    const-string/jumbo v5, "UsbConfirmActivity"
+
+    const-string/jumbo v6, "onCreate use sec_always_use_checkbox"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     const-string/jumbo v5, "layout_inflater"
 
     invoke-virtual {p0, v5}, Lcom/android/systemui/usb/UsbConfirmActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -366,7 +438,7 @@
 
     check-cast v2, Landroid/view/LayoutInflater;
 
-    const v5, 0x1090031
+    const v5, 0x7f0d018a
 
     invoke-virtual {v2, v5, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -376,7 +448,7 @@
 
     iget-object v5, v0, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v6, 0x1020391
+    const v6, 0x7f0a0041
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -386,24 +458,40 @@
 
     iput-object v5, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mAlwaysUse:Landroid/widget/CheckBox;
 
+    iget-object v5, v0, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
+
+    const v6, 0x7f0a00d7
+
+    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/widget/TextView;
+
+    iput-object v5, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mCheckBoxText:Landroid/widget/TextView;
+
     iget-object v5, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mDevice:Landroid/hardware/usb/UsbDevice;
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_3
 
-    iget-object v5, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mAlwaysUse:Landroid/widget/CheckBox;
+    iget-object v5, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mCheckBoxText:Landroid/widget/TextView;
 
-    const v6, 0x7f0f02d7
+    const v6, 0x7f120120
 
-    invoke-virtual {v5, v6}, Landroid/widget/CheckBox;->setText(I)V
+    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(I)V
 
     :goto_1
-    iget-object v5, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mAlwaysUse:Landroid/widget/CheckBox;
+    iget-object v5, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mCheckBoxText:Landroid/widget/TextView;
 
-    invoke-virtual {v5, p0}, Landroid/widget/CheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    new-instance v6, Lcom/android/systemui/usb/UsbConfirmActivity$1;
+
+    invoke-direct {v6, p0}, Lcom/android/systemui/usb/UsbConfirmActivity$1;-><init>(Lcom/android/systemui/usb/UsbConfirmActivity;)V
+
+    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     iget-object v5, v0, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v6, 0x1020392
+    const v6, 0x7f0a00de
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -415,32 +503,6 @@
 
     iget-object v5, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mClearDefaultHint:Landroid/widget/TextView;
 
-    invoke-virtual {p0}, Lcom/android/systemui/usb/UsbConfirmActivity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v6
-
-    const v7, 0x1040399
-
-    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v6
-
-    invoke-interface {v6}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    new-array v7, v9, [Ljava/lang/Object;
-
-    aput-object v1, v7, v8
-
-    invoke-static {v6, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    iget-object v5, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mClearDefaultHint:Landroid/widget/TextView;
-
     const/16 v6, 0x8
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setVisibility(I)V
@@ -449,12 +511,12 @@
 
     return-void
 
-    :cond_0
-    new-array v5, v9, [Ljava/lang/Object;
+    :cond_2
+    new-array v5, v8, [Ljava/lang/Object;
 
-    aput-object v1, v5, v8
+    aput-object v1, v5, v6
 
-    const v6, 0x7f0f02d1
+    const v6, 0x7f120acc
 
     invoke-virtual {p0, v6, v5}, Lcom/android/systemui/usb/UsbConfirmActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -472,12 +534,12 @@
 
     goto/16 :goto_0
 
-    :cond_1
-    iget-object v5, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mAlwaysUse:Landroid/widget/CheckBox;
+    :cond_3
+    iget-object v5, p0, Lcom/android/systemui/usb/UsbConfirmActivity;->mCheckBoxText:Landroid/widget/TextView;
 
-    const v6, 0x7f0f02d6
+    const v6, 0x7f120121
 
-    invoke-virtual {v5, v6}, Landroid/widget/CheckBox;->setText(I)V
+    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(I)V
 
     goto :goto_1
 .end method

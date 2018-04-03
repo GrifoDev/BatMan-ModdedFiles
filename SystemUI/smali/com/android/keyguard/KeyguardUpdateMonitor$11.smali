@@ -1,5 +1,5 @@
 .class Lcom/android/keyguard/KeyguardUpdateMonitor$11;
-.super Landroid/content/BroadcastReceiver;
+.super Lcom/samsung/android/camera/iris/SemIrisManager$AuthenticationCallback;
 .source "KeyguardUpdateMonitor.java"
 
 
@@ -24,720 +24,361 @@
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Lcom/samsung/android/camera/iris/SemIrisManager$AuthenticationCallback;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 10
+.method public onAuthenticationAcquired(I)V
+    .locals 3
 
-    const/16 v9, 0x151
+    const/4 v2, 0x3
 
-    const/4 v8, 0x0
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    const/4 v7, 0x0
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isIrisRunning()Z
 
-    const-string/jumbo v4, "com.samsung.bluetooth.device.action.AUTO_LOCK_SERVICE"
+    move-result v0
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    if-nez v0, :cond_0
 
-    move-result-object v5
+    const-string/jumbo v0, "KeyguardIris"
 
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v1, "onAuthenticationAcquired: Iris is not running"
 
-    move-result v4
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v4, :cond_4
+    return-void
 
-    const-string/jumbo v4, "android.bluetooth.device.extra.DEVICE"
+    :cond_0
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-virtual {p2, v4}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+    iget-boolean v0, v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mIsIrisReady:Z
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mIsIrisReady:Z
+
+    const-string/jumbo v0, "KeyguardIris"
+
+    const-string/jumbo v1, "Iris is ready"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    invoke-static {v0, v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap2(Lcom/android/keyguard/KeyguardUpdateMonitor;I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    invoke-static {v0, v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap51(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
+
+    :cond_1
+    return-void
+.end method
+
+.method public onAuthenticationError(ILjava/lang/CharSequence;)V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isIrisRunning()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "KeyguardIris"
+
+    const-string/jumbo v1, "onAuthenticationError: Iris is not running"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    const-string/jumbo v0, "KeyguardIris"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "onAuthenticationError: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " , code = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-nez p2, :cond_1
+
+    const-string/jumbo p2, ""
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get3(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/content/Context;
 
     move-result-object v0
 
-    check-cast v0, Landroid/bluetooth/BluetoothDevice;
+    const v1, 0x7f120464
 
-    const-string/jumbo v4, "com.sec.android.service.connectionmanager.extra.AUTO_LOCK_SERVICE"
+    const/4 v2, 0x0
 
-    invoke-virtual {p2, v4, v7}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+
+    :cond_1
+    const/16 v0, 0x9
+
+    if-ne p1, v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get9(Lcom/android/keyguard/KeyguardUpdateMonitor;)I
 
     move-result v1
 
-    const-string/jumbo v4, "KeyguardAutoLock"
+    add-int/lit8 v1, v1, 0x1
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    invoke-static {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-set4(Lcom/android/keyguard/KeyguardUpdateMonitor;I)I
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v0, "KeyguardIris"
 
-    const-string/jumbo v6, "Received "
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v5
+    const-string/jumbo v2, "IRIS_ERROR_EYE_SAFETY_TIMEOUT count = "
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v1
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    move-result-object v5
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get9(Lcom/android/keyguard/KeyguardUpdateMonitor;)I
 
-    const-string/jumbo v6, " , mWearabledevice = "
+    move-result v2
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    const-string/jumbo v6, " , isEnabled = "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz v1, :cond_2
-
-    if-eqz v0, :cond_0
-
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v4, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-set9(Lcom/android/keyguard/KeyguardUpdateMonitor;Landroid/bluetooth/BluetoothDevice;)Landroid/bluetooth/BluetoothDevice;
-
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    const-string/jumbo v5, "extra.AUTO_LOCK_SERVICE_VALID"
-
-    invoke-virtual {p2, v5, v7}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v5
-
-    invoke-static {v4, v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-set6(Lcom/android/keyguard/KeyguardUpdateMonitor;Z)Z
-
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get11(Lcom/android/keyguard/KeyguardUpdateMonitor;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    const-string/jumbo v5, "extra.AUTO_LOCK_SERVICE_IN_CRITERIA"
-
-    invoke-virtual {p2, v5, v7}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v5
-
-    invoke-static {v4, v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-set1(Lcom/android/keyguard/KeyguardUpdateMonitor;I)I
-
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    const-string/jumbo v5, "extra.AUTO_LOCK_SERVICE_OUT_CRITERIA"
-
-    invoke-virtual {p2, v5, v7}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v5
-
-    invoke-static {v4, v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-set2(Lcom/android/keyguard/KeyguardUpdateMonitor;I)I
-
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    const-string/jumbo v5, "extra.AUTO_LOCK_SERVICE_IN_MARGIN"
-
-    invoke-virtual {p2, v5, v7}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v5
-
-    invoke-static {v4, v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-set7(Lcom/android/keyguard/KeyguardUpdateMonitor;I)I
-
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    const-string/jumbo v5, "extra.AUTO_LOCK_SERVICE_OUT_MARGIN"
-
-    invoke-virtual {p2, v5, v7}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v5
-
-    invoke-static {v4, v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-set8(Lcom/android/keyguard/KeyguardUpdateMonitor;I)I
-
-    :goto_0
-    const-string/jumbo v4, "KeyguardAutoLock"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "AUTO_LOCK_SERVICE_VALID = "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v6}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get11(Lcom/android/keyguard/KeyguardUpdateMonitor;)Z
-
-    move-result v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, " , mCriteria_IN_RSSI = "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v6}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get6(Lcom/android/keyguard/KeyguardUpdateMonitor;)I
-
-    move-result v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, " , mCriteria_OUT_RSSI ="
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v6}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get7(Lcom/android/keyguard/KeyguardUpdateMonitor;)I
-
-    move-result v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, " , mOffset_IN_RSSI ="
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v6}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get13(Lcom/android/keyguard/KeyguardUpdateMonitor;)I
-
-    move-result v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, " , mOffset_OUT_RSSI ="
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v6}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get14(Lcom/android/keyguard/KeyguardUpdateMonitor;)I
-
-    move-result v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    :goto_1
-    return-void
-
-    :cond_1
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {}, Landroid/bluetooth/BluetoothDevice;->semGetModelMidRssi()I
-
-    move-result v5
-
-    invoke-static {v4, v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-set1(Lcom/android/keyguard/KeyguardUpdateMonitor;I)I
-
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {}, Landroid/bluetooth/BluetoothDevice;->semGetModelLowRssi()I
-
-    move-result v5
-
-    invoke-static {v4, v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-set2(Lcom/android/keyguard/KeyguardUpdateMonitor;I)I
-
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    const/4 v5, 0x3
-
-    invoke-static {v4, v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-set7(Lcom/android/keyguard/KeyguardUpdateMonitor;I)I
-
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v4, v7}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-set8(Lcom/android/keyguard/KeyguardUpdateMonitor;I)I
-
-    goto/16 :goto_0
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
-    const-string/jumbo v4, "KeyguardAutoLock"
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    const/4 v1, 0x1
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setIrisForceCancel(Z)V
 
-    const-string/jumbo v6, "ACTION_AUTO_LOCK_SERVICE : Device = "
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->stopIrisCamera()V
 
-    move-result-object v5
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-static {v0, p1, p2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap60(Lcom/android/keyguard/KeyguardUpdateMonitor;ILjava/lang/CharSequence;)V
 
-    move-result-object v5
+    return-void
+.end method
 
-    const-string/jumbo v6, " , mWearabledevice ="
+.method public onAuthenticationFailed()V
+    .locals 5
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/4 v4, 0x0
 
-    move-result-object v5
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    iget-object v6, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isIrisRunning()Z
 
-    invoke-static {v6}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get18(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/bluetooth/BluetoothDevice;
+    move-result v0
 
-    move-result-object v6
+    if-nez v0, :cond_0
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    const-string/jumbo v0, "KeyguardIris"
 
-    move-result-object v5
+    const-string/jumbo v1, "onAuthenticationFailed: Iris is not running"
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v5
+    return-void
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :cond_0
+    const-string/jumbo v0, "KeyguardIris"
 
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    const-string/jumbo v1, "onAuthenticationFailed"
 
-    invoke-static {v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get18(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/bluetooth/BluetoothDevice;
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v4
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    if-eqz v4, :cond_3
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get16(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/os/PowerManager;
 
-    if-eqz v0, :cond_3
+    move-result-object v0
 
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    invoke-static {v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get18(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/bluetooth/BluetoothDevice;
+    move-result-wide v2
 
-    move-result-object v4
+    invoke-virtual {v0, v2, v3, v4, v4}, Landroid/os/PowerManager;->userActivity(JII)V
 
-    invoke-virtual {v4}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    move-result-object v4
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap29(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
 
-    invoke-virtual {v0}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
+    return-void
+.end method
 
-    move-result-object v5
+.method public onAuthenticationHelp(ILjava/lang/CharSequence;)V
+    .locals 3
 
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    move-result v4
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isIrisRunning()Z
 
-    if-eqz v4, :cond_0
+    move-result v0
 
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    if-nez v0, :cond_0
 
-    invoke-static {v4, v8}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-set9(Lcom/android/keyguard/KeyguardUpdateMonitor;Landroid/bluetooth/BluetoothDevice;)Landroid/bluetooth/BluetoothDevice;
+    const-string/jumbo v0, "KeyguardIris"
 
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    const-string/jumbo v1, "onAuthenticationHelp: Iris is not running"
 
-    invoke-static {v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get12(Lcom/android/keyguard/KeyguardUpdateMonitor;)Lcom/android/internal/widget/LockPatternUtils;
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v4
+    return-void
 
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get19()I
+    :cond_0
+    const-string/jumbo v0, "KeyguardIris"
 
-    move-result v5
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Lcom/android/internal/widget/LockPatternUtils;->isSmartUnlockEnabled(I)Z
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result v4
+    const-string/jumbo v2, "onAuthenticationHelp: "
 
-    if-eqz v4, :cond_0
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    move-result-object v1
 
-    invoke-static {v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get12(Lcom/android/keyguard/KeyguardUpdateMonitor;)Lcom/android/internal/widget/LockPatternUtils;
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get19()I
+    const-string/jumbo v2, " , code = "
 
-    move-result v5
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Lcom/android/internal/widget/LockPatternUtils;->isLockScreenDisabled(I)Z
+    move-result-object v1
 
-    move-result v4
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    if-nez v4, :cond_0
+    move-result-object v1
 
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get9(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/os/Handler;
+    move-result-object v1
 
-    move-result-object v4
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get9(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/os/Handler;
+    invoke-virtual {v0, p1, p2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->irisAuthenticationHelp(ILjava/lang/CharSequence;)V
 
-    move-result-object v5
+    return-void
+.end method
 
-    invoke-virtual {v5, v9, v7, v7}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
+.method public onAuthenticationSucceeded(Lcom/samsung/android/camera/iris/SemIrisManager$AuthenticationResult;)V
+    .locals 2
 
-    move-result-object v5
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-virtual {v4, v5}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isIrisRunning()Z
 
-    goto/16 :goto_1
+    move-result v0
 
-    :cond_3
-    const-string/jumbo v4, "KeyguardAutoLock"
+    if-nez v0, :cond_0
 
-    const-string/jumbo v5, "ACTION_AUTO_LOCK_SERVICE : mWearabledevice =/= device !!"
+    const-string/jumbo v0, "KeyguardIris"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v1, "onAuthenticationSucceeded: Iris is not running"
 
-    goto/16 :goto_1
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_4
-    const-string/jumbo v4, "com.samsung.bluetooth.device.action.ACTION_OUT_OF_RANGE_ALERT"
+    return-void
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    :cond_0
+    const-string/jumbo v0, "KeyguardIris"
 
-    move-result-object v5
+    const-string/jumbo v1, "onAuthenticationSucceeded"
 
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v4
+    const-string/jumbo v0, "KeyguardUpdateMonitor#onAuthenticationSucceeded"
 
-    if-nez v4, :cond_5
+    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
-    const-string/jumbo v4, "com.samsung.bluetooth.device.action.ACTION_OUT_OF_RANGE_ALERT_FOR_GEAR1"
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    const/4 v1, 0x1
 
-    move-result-object v5
+    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setIrisAuthenticated(Z)V
 
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    move-result v4
+    const/4 v1, 0x4
 
-    if-eqz v4, :cond_7
+    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setIrisViewType(I)V
 
-    :cond_5
-    const-string/jumbo v4, "KeyguardAutoLock"
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    const-string/jumbo v5, "ACTION_OUT_OF_RANGE_ALERT or SEM_ACTION_OUT_OF_RANGE_ALERT_FOR_GEAR1"
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-wrap30(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {}, Landroid/os/Trace;->endSection()V
 
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    return-void
+.end method
 
-    invoke-static {v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get18(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/bluetooth/BluetoothDevice;
+.method public onIRImage([BII)V
+    .locals 0
 
-    move-result-object v4
-
-    if-eqz v4, :cond_0
-
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get12(Lcom/android/keyguard/KeyguardUpdateMonitor;)Lcom/android/internal/widget/LockPatternUtils;
-
-    move-result-object v4
-
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get19()I
-
-    move-result v5
-
-    invoke-virtual {v4, v5}, Lcom/android/internal/widget/LockPatternUtils;->isSmartUnlockEnabled(I)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get12(Lcom/android/keyguard/KeyguardUpdateMonitor;)Lcom/android/internal/widget/LockPatternUtils;
-
-    move-result-object v4
-
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get19()I
-
-    move-result v5
-
-    invoke-virtual {v4, v5}, Lcom/android/internal/widget/LockPatternUtils;->isLockScreenDisabled(I)Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get9(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/os/Handler;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get15(Lcom/android/keyguard/KeyguardUpdateMonitor;)Ljava/lang/Runnable;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Landroid/os/Handler;->hasCallbacks(Ljava/lang/Runnable;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_6
-
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get9(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/os/Handler;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get15(Lcom/android/keyguard/KeyguardUpdateMonitor;)Ljava/lang/Runnable;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    :cond_6
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get9(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/os/Handler;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get15(Lcom/android/keyguard/KeyguardUpdateMonitor;)Ljava/lang/Runnable;
-
-    move-result-object v5
-
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get1()I
-
-    move-result v6
-
-    int-to-long v6, v6
-
-    invoke-virtual {v4, v5, v6, v7}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    goto/16 :goto_1
-
-    :cond_7
-    const-string/jumbo v4, "com.samsung.bluetooth.device.action.ACTION_IN_RANGE_ALERT"
-
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_8
-
-    const-string/jumbo v4, "com.samsung.bluetooth.device.action.ACTION_IN_RANGE_ALERT_FOR_GEAR1"
-
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_a
-
-    :cond_8
-    const-string/jumbo v4, "KeyguardAutoLock"
-
-    const-string/jumbo v5, "ACTION_IN_OF_RANGE_ALERT or SEM_ACTION_IN_RANGE_ALERT_FOR_GEAR1"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get18(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/bluetooth/BluetoothDevice;
-
-    move-result-object v4
-
-    if-eqz v4, :cond_0
-
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get9(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/os/Handler;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get15(Lcom/android/keyguard/KeyguardUpdateMonitor;)Ljava/lang/Runnable;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Landroid/os/Handler;->hasCallbacks(Ljava/lang/Runnable;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_9
-
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get9(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/os/Handler;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get15(Lcom/android/keyguard/KeyguardUpdateMonitor;)Ljava/lang/Runnable;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    :cond_9
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get12(Lcom/android/keyguard/KeyguardUpdateMonitor;)Lcom/android/internal/widget/LockPatternUtils;
-
-    move-result-object v4
-
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get19()I
-
-    move-result v5
-
-    invoke-virtual {v4, v5}, Lcom/android/internal/widget/LockPatternUtils;->isSmartUnlockEnabled(I)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get12(Lcom/android/keyguard/KeyguardUpdateMonitor;)Lcom/android/internal/widget/LockPatternUtils;
-
-    move-result-object v4
-
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get19()I
-
-    move-result v5
-
-    invoke-virtual {v4, v5}, Lcom/android/internal/widget/LockPatternUtils;->isLockScreenDisabled(I)Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get9(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/os/Handler;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get9(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/os/Handler;
-
-    move-result-object v5
-
-    const/4 v6, 0x1
-
-    invoke-virtual {v5, v9, v6, v7}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
-
-    goto/16 :goto_1
-
-    :cond_a
-    const-string/jumbo v4, "com.samsung.bluetooth.device.action.RSSI"
-
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get18(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/bluetooth/BluetoothDevice;
-
-    move-result-object v4
-
-    if-eqz v4, :cond_0
-
-    const-string/jumbo v4, "android.bluetooth.device.extra.RSSI"
-
-    invoke-virtual {p2, v4, v7}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v3
-
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get9(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/os/Handler;
-
-    move-result-object v4
-
-    const/16 v5, 0x152
-
-    invoke-virtual {v4, v5, v3, v7}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
-
-    move-result-object v2
-
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$11;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->-get9(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/os/Handler;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
-
-    goto/16 :goto_1
+    return-void
 .end method

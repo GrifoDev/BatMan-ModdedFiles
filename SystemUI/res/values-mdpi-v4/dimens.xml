@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="battery_margin_bottom">1.0px</dimen>
-    <item type="dimen" name="kg_indication_text_shadowDy">1.0</item>
-    <item type="dimen" name="kg_indication_text_shadowRadius">1.0</item>
-    <item type="dimen" name="kg_text_shadowDy">1.0</item>
-    <item type="dimen" name="kg_text_shadowRadius">1.0</item>
-    <dimen name="kg_emergency_button_stroke">2.0px</dimen>
-</resources>

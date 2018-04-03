@@ -2,6 +2,9 @@
 .super Lcom/android/systemui/infinity/GalaxyGyroRenderer;
 .source "GalaxyRenderer.java"
 
+# interfaces
+.implements Lcom/android/systemui/infinity/GalaxyRendererInterface;
+
 
 # instance fields
 .field private final IMAGE_RATIO:F
@@ -1211,6 +1214,27 @@
     invoke-virtual {v0}, Lcom/altamirasoft/glanimationutil/GLEasingHelper;->pause()V
 
     :cond_0
+    return-void
+.end method
+
+.method public requestDrawFrame()V
+    .locals 1
+
+    invoke-static {}, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->getInstance()Lcom/altamirasoft/glanimationutil/GLAnimatorManager;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-static {}, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->getInstance()Lcom/altamirasoft/glanimationutil/GLAnimatorManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->doFrame()V
+
     return-void
 .end method
 

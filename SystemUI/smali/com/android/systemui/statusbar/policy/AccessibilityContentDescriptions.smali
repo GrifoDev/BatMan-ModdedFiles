@@ -19,15 +19,15 @@
 .method static constructor <clinit>()V
     .locals 5
 
-    const v0, 0x7f0f0331
+    const v0, 0x7f12007e
 
-    const v1, 0x7f0f0332
+    const v1, 0x7f12008c
 
-    const v2, 0x7f0f0333
+    const v2, 0x7f12008f
 
-    const v3, 0x7f0f0334
+    const v3, 0x7f12008e
 
-    const v4, 0x7f0f0335
+    const v4, 0x7f12008d
 
     filled-new-array {v0, v1, v2, v3, v4}, [I
 
@@ -43,15 +43,15 @@
 
     sput-object v0, Lcom/android/systemui/statusbar/policy/AccessibilityContentDescriptions;->PHONE_5_LEVEL_SIGNAL_STRENGTH:[I
 
-    const v0, 0x7f0f0336
+    const v0, 0x7f12007d
 
-    const v1, 0x7f0f0337
+    const v1, 0x7f120056
 
-    const v2, 0x7f0f0338
+    const v2, 0x7f12005b
 
-    const v3, 0x7f0f0339
+    const v3, 0x7f12005a
 
-    const v4, 0x7f0f033a
+    const v4, 0x7f120059
 
     filled-new-array {v0, v1, v2, v3, v4}, [I
 
@@ -59,15 +59,15 @@
 
     sput-object v0, Lcom/android/systemui/statusbar/policy/AccessibilityContentDescriptions;->DATA_CONNECTION_STRENGTH:[I
 
-    const v0, 0x7f0f0149
+    const v0, 0x7f120082
 
-    const v1, 0x7f0f014a
+    const v1, 0x7f1200f7
 
-    const v2, 0x7f0f014b
+    const v2, 0x7f1200fa
 
-    const v3, 0x7f0f014c
+    const v3, 0x7f1200f9
 
-    const v4, 0x7f0f014d
+    const v4, 0x7f1200f8
 
     filled-new-array {v0, v1, v2, v3, v4}, [I
 
@@ -75,9 +75,9 @@
 
     sput-object v0, Lcom/android/systemui/statusbar/policy/AccessibilityContentDescriptions;->WIFI_CONNECTION_STRENGTH:[I
 
-    const v0, 0x7f0f0343
+    const v0, 0x7f12006e
 
-    const v1, 0x7f0f0344
+    const v1, 0x7f12006d
 
     filled-new-array {v0, v1}, [I
 
@@ -89,12 +89,12 @@
 
     :array_0
     .array-data 4
-        0x7f0f0331
-        0x7f0f0332
-        0x7f0f0333
-        0x7f0f0334
-        0x7f0f0766
-        0x7f0f0335
+        0x7f12007e
+        0x7f12008c
+        0x7f12008f
+        0x7f12008e
+        0x7f12008a
+        0x7f12008d
     .end array-data
 .end method
 

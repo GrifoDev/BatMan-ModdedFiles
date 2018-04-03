@@ -3,7 +3,7 @@
 .source "UHQTile.java"
 
 # interfaces
-.implements Lcom/android/systemui/qs/QSTile$DetailAdapter;
+.implements Lcom/android/systemui/plugins/qs/DetailAdapter;
 
 
 # annotations
@@ -55,7 +55,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04012a
+    const v1, 0x7f0d0144
 
     const/4 v2, 0x0
 
@@ -65,7 +65,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
 
-    const v0, 0x7f1302d4
+    const v0, 0x7f0a0324
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -112,6 +112,18 @@
     return-object v0
 .end method
 
+.method public getTileString()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/UHQTile;->getTileSpec()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public getTitle()Ljava/lang/CharSequence;
     .locals 2
 
@@ -121,7 +133,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f0786
+    const v1, 0x7f120aaf
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -135,13 +147,13 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/UHQTile;->-get2(Lcom/android/systemui/qs/tiles/UHQTile;)Lcom/android/systemui/qs/QSTile$State;
+    invoke-static {v0}, Lcom/android/systemui/qs/tiles/UHQTile;->-get2(Lcom/android/systemui/qs/tiles/UHQTile;)Lcom/android/systemui/plugins/qs/QSTile$State;
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/systemui/qs/QSTile$BooleanState;
+    check-cast v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
+    iget-boolean v0, v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -151,68 +163,63 @@
 .end method
 
 .method public isToggleUnavailable()Ljava/lang/Boolean;
-    .locals 5
+    .locals 4
 
-    const/4 v2, 0x1
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    const-string/jumbo v1, "UHQTile"
 
-    const-string/jumbo v3, "UHQTile"
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v3, "isToggleUnavailable()  : "
 
-    const-string/jumbo v4, "isToggleUnavailable()  : "
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    move-result-object v4
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
+    invoke-static {v3}, Lcom/android/systemui/qs/tiles/UHQTile;->-get0(Lcom/android/systemui/qs/tiles/UHQTile;)Z
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/UHQTile;->-get0(Lcom/android/systemui/qs/tiles/UHQTile;)Z
+    move-result v3
 
-    move-result v0
+    xor-int/lit8 v3, v3, 0x1
 
-    if-eqz v0, :cond_1
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move v0, v1
+    move-result-object v2
 
-    :goto_0
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v0
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
 
-    invoke-static {v3, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/UHQTile;->-get0(Lcom/android/systemui/qs/tiles/UHQTile;)Z
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
+    move-result v1
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/UHQTile;->-get0(Lcom/android/systemui/qs/tiles/UHQTile;)Z
+    if-nez v1, :cond_1
 
-    move-result v0
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
 
-    if-nez v0, :cond_0
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/UHQTile;->-wrap2(Lcom/android/systemui/qs/tiles/UHQTile;)Z
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
+    move-result v1
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/UHQTile;->-wrap2(Lcom/android/systemui/qs/tiles/UHQTile;)Z
+    if-eqz v1, :cond_0
 
-    move-result v0
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
 
-    if-eqz v0, :cond_2
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/UHQTile;->-wrap1(Lcom/android/systemui/qs/tiles/UHQTile;)Z
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
+    move-result v1
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/UHQTile;->-wrap1(Lcom/android/systemui/qs/tiles/UHQTile;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/UHQTile$UHQDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/UHQTile;
 
@@ -220,25 +227,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
-
     :cond_0
-    :goto_1
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    xor-int/lit8 v0, v0, 0x1
+
+    :cond_1
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
     return-object v0
-
-    :cond_1
-    move v0, v2
-
-    goto :goto_0
-
-    :cond_2
-    move v1, v2
-
-    goto :goto_1
 .end method
 
 .method public setToggleState(Z)Z
@@ -294,7 +291,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f0784
+    const v3, 0x7f120ab0
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

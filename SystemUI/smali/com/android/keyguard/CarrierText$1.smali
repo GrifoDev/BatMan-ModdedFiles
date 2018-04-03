@@ -31,24 +31,14 @@
 
 
 # virtual methods
-.method public onDesktopModeChanged(Z)V
-    .locals 2
+.method public onDeviceProvisioned()V
+    .locals 1
 
-    iget-object v1, p0, Lcom/android/keyguard/CarrierText$1;->this$0:Lcom/android/keyguard/CarrierText;
+    iget-object v0, p0, Lcom/android/keyguard/CarrierText$1;->this$0:Lcom/android/keyguard/CarrierText;
 
-    if-eqz p1, :cond_0
-
-    const/16 v0, 0x8
-
-    :goto_0
-    invoke-virtual {v1, v0}, Lcom/android/keyguard/CarrierText;->setVisibility(I)V
+    invoke-virtual {v0}, Lcom/android/keyguard/CarrierText;->updateCarrierText()V
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
 .end method
 
 .method public onFinishedGoingToSleep(I)V
@@ -64,6 +54,16 @@
 .end method
 
 .method public onRefreshCarrierInfo()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/keyguard/CarrierText$1;->this$0:Lcom/android/keyguard/CarrierText;
+
+    invoke-virtual {v0}, Lcom/android/keyguard/CarrierText;->updateCarrierText()V
+
+    return-void
+.end method
+
+.method public onSimStateChanged(IILcom/android/internal/telephony/IccCardConstants$State;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/CarrierText$1;->this$0:Lcom/android/keyguard/CarrierText;
