@@ -8,6 +8,7 @@
 .implements Lcom/android/systemui/statusbar/policy/DarkIconDispatcher$DarkReceiver;
 .implements Lcom/android/systemui/statusbar/policy/ConfigurationController$ConfigurationListener;
 .implements Lcom/android/systemui/statusbar/policy/UserInfoController$OnUserInfoChangedListener;
+.implements Lcom/android/wubydax/GearContentObserver$OnContentChangedListener;
 
 
 # annotations
@@ -18,6 +19,10 @@
         Lcom/android/systemui/BatteryMeterView$PercentTextUpdateTask;
     }
 .end annotation
+
+
+# static fields
+.field public static mHideBatteryView:Z
 
 
 # instance fields
@@ -106,6 +111,8 @@
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/systemui/BatteryMeterView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
+    invoke-virtual {p0}, Lcom/android/systemui/BatteryMeterView;->registerObserver()V
+
     return-void
 .end method
 
@@ -115,6 +122,8 @@
     const/4 v5, 0x0
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/BatteryMeterView;->hideBatteryView()V
 
     const-string/jumbo v4, "BatteryMeterView"
 
@@ -322,7 +331,7 @@
 .end method
 
 .method private scaleBatteryMeterViews()V
-    .locals 11
+    .locals 12
 
     const/4 v10, 0x0
 
@@ -368,7 +377,7 @@
 
     iget-boolean v8, p0, Lcom/android/systemui/BatteryMeterView;->mIsDeskTopMode:Z
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_3
 
     const v8, 0x7f0700f2
 
@@ -384,7 +393,7 @@
 
     iget-object v8, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_2
 
     iget-object v8, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
 
@@ -440,11 +449,27 @@
 
     iget-object v8, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryIconView:Landroid/widget/ImageView;
 
+    sget-boolean v9, Lcom/android/systemui/BatteryMeterView;->mHideBatteryView:Z
+
+    if-eqz v9, :cond_1
+
+    const v9, 0x8
+
+    invoke-virtual {v8, v9}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    goto :goto_1
+
+    :cond_1
+    const v9, 0x0
+
+    invoke-virtual {v8, v9}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    :goto_1
     invoke-virtual {v8, v6}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     return-void
 
-    :cond_1
+    :cond_2
     const-string/jumbo v8, "BatteryMeterView"
 
     const-string/jumbo v9, "BatteryPercentView is null in DEX mode."
@@ -453,10 +478,10 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     iget-object v8, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_4
 
     iget-object v8, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
 
@@ -466,7 +491,7 @@
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     const-string/jumbo v8, "BatteryMeterView"
 
     const-string/jumbo v9, "BatteryPercentView is null in normal mode."
@@ -684,6 +709,22 @@
     return v0
 .end method
 
+.method hideBatteryView()V
+    .locals 2
+
+    const-string/jumbo v0, "hide_battery"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/systemui/BatteryMeterView;->mHideBatteryView:Z
+
+    return-void
+.end method
+
 .method public onAttachedToWindow()V
     .locals 6
 
@@ -859,6 +900,25 @@
     const v0, 0x7f120031
 
     goto :goto_0
+.end method
+
+.method public onContentChanged(Ljava/lang/String;)V
+    .locals 1
+
+    const-string/jumbo v0, "hide_battery"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/BatteryMeterView;->hideBatteryView()V
+
+    invoke-direct {p0}, Lcom/android/systemui/BatteryMeterView;->scaleBatteryMeterViews()V
+
+    :cond_0
+    return-void
 .end method
 
 .method public onDarkChanged(Landroid/graphics/Rect;FI)V
@@ -1191,6 +1251,64 @@
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/BatteryMeterView$PercentTextUpdateTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
+    return-void
+.end method
+
+.method registerObserver()V
+    .locals 7
+
+    new-instance v3, Ljava/util/ArrayList;
+
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+
+    const-string/jumbo v4, "hide_battery"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    new-instance v1, Lcom/android/wubydax/GearContentObserver;
+
+    new-instance v4, Landroid/os/Handler;
+
+    invoke-direct {v4}, Landroid/os/Handler;-><init>()V
+
+    invoke-direct {v1, v4, p0}, Lcom/android/wubydax/GearContentObserver;-><init>(Landroid/os/Handler;Lcom/android/wubydax/GearContentObserver$OnContentChangedListener;)V
+
+    invoke-static {}, Lcom/android/systemui/SystemUIApplication;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    invoke-virtual {v3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :goto_0
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-static {v2}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v5
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v0, v5, v6, v1}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    goto :goto_0
+
+    :cond_0
     return-void
 .end method
 
