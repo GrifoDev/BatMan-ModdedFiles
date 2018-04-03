@@ -388,6 +388,16 @@
 .method private showStrainAlertDialog()V
     .locals 7
 
+    const-string/jumbo v0, "hide_brightness_warning"
+
+    const v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
     const/4 v6, 0x0
 
     iget-object v4, p0, Lcom/android/systemui/settings/ToggleSliderView;->mEyeStrainAlertDialog:Landroid/app/AlertDialog;
