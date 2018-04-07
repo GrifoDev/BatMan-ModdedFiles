@@ -4,6 +4,7 @@
 
 # interfaces
 .implements Lcom/android/systemui/tuner/TunerService$Tunable;
+.implements Lcom/android/wubydax/GearContentObserver$OnContentChangedListener;
 
 
 # annotations
@@ -22,6 +23,12 @@
 .field public static final BRIGHTNESS_ON_TOP:Ljava/lang/String; = "brightness_on_top"
 
 .field public static final DISPLAY_OUTDOOR_MODE:Ljava/lang/String; = "display_outdoor_mode"
+
+.field public static mAllowQsColorChange:Z
+
+.field public static mHideSlider:Z
+
+.field public static mIconColor:I
 
 
 # instance fields
@@ -129,6 +136,8 @@
     const/4 v2, 0x0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/qs/bar/QSBarItem;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/bar/BrightnessBar;->registerObserver()V
 
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -271,6 +280,12 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/bar/BrightnessBar;->mIsBrightnessOnTop:Ljava/lang/Boolean;
 
+    invoke-virtual {p0}, Lcom/android/systemui/qs/bar/BrightnessBar;->hideSlider()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/bar/BrightnessBar;->setQsBrightnessIconColor()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/bar/BrightnessBar;->allowQsColorChange()V
+
     return-void
 
     :cond_0
@@ -280,7 +295,7 @@
 .end method
 
 .method private initBrightnessDetailViews()V
-    .locals 2
+    .locals 4
 
     const v0, 0x7f0a009b
 
@@ -294,6 +309,15 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/bar/BrightnessBar;->mBrightnessDetailIcon:Landroid/widget/ImageView;
 
+    sget-boolean v2, Lcom/android/systemui/qs/bar/BrightnessBar;->mAllowQsColorChange:Z
+
+    if-eqz v2, :cond_0
+
+    sget v2, Lcom/android/systemui/qs/bar/BrightnessBar;->mIconColor:I
+
+    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setColorFilter(I)V
+
+    :cond_0
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setClickable(Z)V
@@ -392,6 +416,22 @@
 
 
 # virtual methods
+.method allowQsColorChange()V
+    .locals 2
+
+    const-string/jumbo v0, "unlock_qs_colors"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/systemui/qs/bar/BrightnessBar;->mAllowQsColorChange:Z
+
+    return-void
+.end method
+
 .method public destroy()V
     .locals 2
 
@@ -505,8 +545,24 @@
     return v0
 .end method
 
+.method hideSlider()V
+    .locals 2
+
+    const-string/jumbo v0, "hide_brightness_slider"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/systemui/qs/bar/BrightnessBar;->mHideSlider:Z
+
+    return-void
+.end method
+
 .method public initBarViews()V
-    .locals 4
+    .locals 6
 
     iget-object v0, p0, Lcom/android/systemui/qs/bar/BrightnessBar;->mContext:Landroid/content/Context;
 
@@ -534,6 +590,24 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/bar/BrightnessBar;->mBrightnessBar:Landroid/widget/LinearLayout;
 
+    iget-object v0, p0, Lcom/android/systemui/qs/bar/BrightnessBar;->mBrightnessBar:Landroid/widget/LinearLayout;
+
+    sget-boolean v4, Lcom/android/systemui/qs/bar/BrightnessBar;->mHideSlider:Z
+
+    if-nez v4, :cond_0
+
+    const v4, 0x0
+
+    invoke-virtual {v0, v4}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    goto :goto_0
+
+    :cond_0
+    const v4, 0x8
+
+    invoke-virtual {v0, v4}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    :goto_0
     const v0, 0x7f0a009c
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/bar/BrightnessBar;->findViewById(I)Landroid/view/View;
@@ -544,6 +618,17 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/bar/BrightnessBar;->mBrightnessIcon:Landroid/widget/ImageView;
 
+    iget-object v0, p0, Lcom/android/systemui/qs/bar/BrightnessBar;->mBrightnessIcon:Landroid/widget/ImageView;
+
+    sget-boolean v5, Lcom/android/systemui/qs/bar/BrightnessBar;->mAllowQsColorChange:Z
+
+    if-eqz v5, :cond_1
+
+    sget v5, Lcom/android/systemui/qs/bar/BrightnessBar;->mIconColor:I
+
+    invoke-virtual {v0, v5}, Landroid/widget/ImageView;->setColorFilter(I)V
+
+    :cond_1
     const v0, 0x7f0a009f
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/bar/BrightnessBar;->findViewById(I)Landroid/view/View;
@@ -580,7 +665,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/bar/BrightnessBar;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
     new-instance v0, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;
 
@@ -596,7 +681,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/bar/BrightnessBar;->mBrightnessMirrorController:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/systemui/qs/bar/BrightnessBar;->mBrightnessMirrorController:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;
 
@@ -610,7 +695,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/bar/BrightnessBar;->setBrightnessMirror(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;)V
 
-    :cond_0
+    :cond_2
     iget-object v0, p0, Lcom/android/systemui/qs/bar/BrightnessBar;->mCallback:Lcom/android/systemui/qs/bar/QSBarItem$Callback;
 
     invoke-interface {v0}, Lcom/android/systemui/qs/bar/QSBarItem$Callback;->getQSPanel()Lcom/android/systemui/qs/QSPanel;
@@ -705,6 +790,59 @@
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->updateResources()V
 
     :cond_0
+    return-void
+.end method
+
+.method public onContentChanged(Ljava/lang/String;)V
+    .locals 1
+
+    const-string/jumbo v0, "hide_brightness_slider"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/bar/BrightnessBar;->hideSlider()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/bar/BrightnessBar;->onDetachedFromWindow()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/bar/BrightnessBar;->onAttachedToWindow()V
+
+    :cond_0
+    const-string/jumbo v0, "qs_slider_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/bar/BrightnessBar;->setQsBrightnessIconColor()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/bar/BrightnessBar;->onDetachedFromWindow()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/bar/BrightnessBar;->onAttachedToWindow()V
+
+    :cond_1
+    const-string/jumbo v0, "unlock_qs_colors"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/bar/BrightnessBar;->allowQsColorChange()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/bar/BrightnessBar;->onDetachedFromWindow()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/bar/BrightnessBar;->onAttachedToWindow()V
+
+    :cond_2
     return-void
 .end method
 
@@ -830,6 +968,72 @@
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method registerObserver()V
+    .locals 7
+
+    new-instance v3, Ljava/util/ArrayList;
+
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+
+    const-string/jumbo v4, "hide_brightness_slider"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "qs_slider_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "unlock_qs_colors"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    new-instance v1, Lcom/android/wubydax/GearContentObserver;
+
+    new-instance v4, Landroid/os/Handler;
+
+    invoke-direct {v4}, Landroid/os/Handler;-><init>()V
+
+    invoke-direct {v1, v4, p0}, Lcom/android/wubydax/GearContentObserver;-><init>(Landroid/os/Handler;Lcom/android/wubydax/GearContentObserver$OnContentChangedListener;)V
+
+    invoke-static {}, Lcom/android/systemui/SystemUIApplication;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    invoke-virtual {v3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :goto_0
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-static {v2}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v5
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v0, v5, v6, v1}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    goto :goto_0
+
+    :cond_0
+    return-void
 .end method
 
 .method public setAutoBrightnessControl(Z)Z
@@ -1024,4 +1228,20 @@
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setFocusable(Z)V
 
     goto :goto_0
+.end method
+
+.method setQsBrightnessIconColor()V
+    .locals 2
+
+    const-string/jumbo v0, "qs_slider_color"
+
+    const v1, -0xdadadb
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    sput v0, Lcom/android/systemui/qs/bar/BrightnessBar;->mIconColor:I
+
+    return-void
 .end method

@@ -6,6 +6,7 @@
 .implements Lcom/android/systemui/tuner/TunerService$Tunable;
 .implements Lcom/android/systemui/qs/QSPanel$QSTileLayout;
 .implements Lcom/samsung/systemui/splugins/profile/Savable;
+.implements Lcom/android/wubydax/GearContentObserver$OnContentChangedListener;
 
 
 # annotations
@@ -46,6 +47,14 @@
 .end field
 
 .field private mPosition:I
+
+.field public mQsColumns:I
+
+.field public mQsColumnsLandscape:I
+
+.field public mQsRows:I
+
+.field public mQsRowsLandscape:I
 
 .field private final mTiles:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -164,6 +173,10 @@
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/PagedTileLayout;->setCurrentItem(I)V
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/PagedTileLayout;->setFocusability()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/PagedTileLayout;->registerObserver()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/PagedTileLayout;->setQsLayout()V
 
     return-void
 .end method
@@ -483,236 +496,6 @@
     return-void
 .end method
 
-.method private setQsTileGrid()V
-    .locals 9
-
-    const v6, 0x7f0b0064
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/PagedTileLayout;->getContext()Landroid/content/Context;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object v5
-
-    iget v5, v5, Landroid/content/res/Configuration;->orientation:I
-
-    const/4 v7, 0x2
-
-    if-ne v5, v7, :cond_0
-
-    const/4 v2, 0x1
-
-    :goto_0
-    invoke-virtual {p0}, Lcom/android/systemui/qs/PagedTileLayout;->getContext()Landroid/content/Context;
-
-    move-result-object v5
-
-    invoke-static {v5}, Lcom/android/systemui/statusbar/DeviceState;->isMobileKeyboardConnected(Landroid/content/Context;)Z
-
-    move-result v3
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/PagedTileLayout;->getContext()Landroid/content/Context;
-
-    move-result-object v5
-
-    invoke-static {v5}, Lcom/android/systemui/statusbar/DeviceState;->isDesktopMode(Landroid/content/Context;)Z
-
-    move-result v1
-
-    const-class v5, Lcom/android/systemui/tuner/TunerService;
-
-    invoke-static {v5}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/android/systemui/tuner/TunerService;
-
-    const-string/jumbo v7, "qs_tile_layout"
-
-    const/4 v8, 0x4
-
-    invoke-virtual {v5, v7, v8}, Lcom/android/systemui/tuner/TunerService;->getValue(Ljava/lang/String;I)I
-
-    move-result v0
-
-    if-eqz v1, :cond_1
-
-    const-class v5, Lcom/android/systemui/tuner/TunerService;
-
-    invoke-static {v5}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/android/systemui/tuner/TunerService;
-
-    const-string/jumbo v6, "qs_tile_column"
-
-    const v7, 0x7f0b0061
-
-    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v7
-
-    invoke-virtual {v5, v6, v7}, Lcom/android/systemui/tuner/TunerService;->setValue(Ljava/lang/String;I)V
-
-    :goto_1
-    return-void
-
-    :cond_0
-    const/4 v2, 0x0
-
-    goto :goto_0
-
-    :cond_1
-    if-eqz v2, :cond_2
-
-    if-eqz v3, :cond_2
-
-    const-class v5, Lcom/android/systemui/tuner/TunerService;
-
-    invoke-static {v5}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/android/systemui/tuner/TunerService;
-
-    const-string/jumbo v7, "qs_tile_column"
-
-    const v8, 0x7f0b0062
-
-    invoke-virtual {v4, v8}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v8
-
-    invoke-virtual {v5, v7, v8}, Lcom/android/systemui/tuner/TunerService;->setValue(Ljava/lang/String;I)V
-
-    const-class v5, Lcom/android/systemui/tuner/TunerService;
-
-    invoke-static {v5}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/android/systemui/tuner/TunerService;
-
-    const-string/jumbo v7, "qs_tile_row"
-
-    invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v6
-
-    invoke-virtual {v5, v7, v6}, Lcom/android/systemui/tuner/TunerService;->setValue(Ljava/lang/String;I)V
-
-    goto :goto_1
-
-    :cond_2
-    packed-switch v0, :pswitch_data_0
-
-    :goto_2
-    const-class v5, Lcom/android/systemui/tuner/TunerService;
-
-    invoke-static {v5}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/android/systemui/tuner/TunerService;
-
-    const-string/jumbo v7, "qs_tile_row"
-
-    if-eqz v3, :cond_3
-
-    :goto_3
-    invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v6
-
-    invoke-virtual {v5, v7, v6}, Lcom/android/systemui/tuner/TunerService;->setValue(Ljava/lang/String;I)V
-
-    goto :goto_1
-
-    :pswitch_0
-    const-class v5, Lcom/android/systemui/tuner/TunerService;
-
-    invoke-static {v5}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/android/systemui/tuner/TunerService;
-
-    const-string/jumbo v7, "qs_tile_column"
-
-    const v8, 0x7f0b005e
-
-    invoke-virtual {v4, v8}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v8
-
-    invoke-virtual {v5, v7, v8}, Lcom/android/systemui/tuner/TunerService;->setValue(Ljava/lang/String;I)V
-
-    goto :goto_2
-
-    :pswitch_1
-    const-class v5, Lcom/android/systemui/tuner/TunerService;
-
-    invoke-static {v5}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/android/systemui/tuner/TunerService;
-
-    const-string/jumbo v7, "qs_tile_column"
-
-    const v8, 0x7f0b005f
-
-    invoke-virtual {v4, v8}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v8
-
-    invoke-virtual {v5, v7, v8}, Lcom/android/systemui/tuner/TunerService;->setValue(Ljava/lang/String;I)V
-
-    goto :goto_2
-
-    :pswitch_2
-    const-class v5, Lcom/android/systemui/tuner/TunerService;
-
-    invoke-static {v5}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/android/systemui/tuner/TunerService;
-
-    const-string/jumbo v7, "qs_tile_column"
-
-    const v8, 0x7f0b0060
-
-    invoke-virtual {v4, v8}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v8
-
-    invoke-virtual {v5, v7, v8}, Lcom/android/systemui/tuner/TunerService;->setValue(Ljava/lang/String;I)V
-
-    goto :goto_2
-
-    :cond_3
-    const v6, 0x7f0b0063
-
-    goto :goto_3
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x3
-        :pswitch_0
-        :pswitch_1
-        :pswitch_2
-    .end packed-switch
-.end method
-
 
 # virtual methods
 .method public addTile(Lcom/android/systemui/qs/QSPanel$TileRecord;)V
@@ -891,13 +674,63 @@
     if-eq v2, v0, :cond_1
 
     :cond_0
-    invoke-direct {p0}, Lcom/android/systemui/qs/PagedTileLayout;->setQsTileGrid()V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/PagedTileLayout;->setQsTileGrid()V
 
     iput v1, p0, Lcom/android/systemui/qs/PagedTileLayout;->oldOrientation:I
 
     iput v0, p0, Lcom/android/systemui/qs/PagedTileLayout;->oldMobileKeyboardCovered:I
 
     :cond_1
+    return-void
+.end method
+
+.method public onContentChanged(Ljava/lang/String;)V
+    .locals 1
+
+    const-string/jumbo v0, "qs_rows"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/PagedTileLayout;->setQsLayout()V
+
+    :cond_0
+    const-string/jumbo v0, "qs_rows_landscape"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/PagedTileLayout;->setQsLayout()V
+
+    :cond_1
+    const-string/jumbo v0, "qs_columns"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/PagedTileLayout;->setQsLayout()V
+
+    :cond_2
+    const-string/jumbo v0, "qs_columns_landscape"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/PagedTileLayout;->setQsLayout()V
+
+    :cond_3
     return-void
 .end method
 
@@ -1162,11 +995,81 @@
 
     if-eqz v0, :cond_2
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/PagedTileLayout;->setQsTileGrid()V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/PagedTileLayout;->setQsTileGrid()V
 
     :cond_2
     invoke-virtual {p0}, Lcom/android/systemui/qs/PagedTileLayout;->updateResources()Z
 
+    return-void
+.end method
+
+.method registerObserver()V
+    .locals 7
+
+    new-instance v3, Ljava/util/ArrayList;
+
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+
+    const-string/jumbo v4, "qs_rows"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "qs_rows_landscape"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "qs_columns"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "qs_columns_landscape"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    new-instance v1, Lcom/android/wubydax/GearContentObserver;
+
+    new-instance v4, Landroid/os/Handler;
+
+    invoke-direct {v4}, Landroid/os/Handler;-><init>()V
+
+    invoke-direct {v1, v4, p0}, Lcom/android/wubydax/GearContentObserver;-><init>(Landroid/os/Handler;Lcom/android/wubydax/GearContentObserver$OnContentChangedListener;)V
+
+    invoke-static {}, Lcom/android/systemui/SystemUIApplication;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    invoke-virtual {v3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :goto_0
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-static {v2}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v5
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v0, v5, v6, v1}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    goto :goto_0
+
+    :cond_0
     return-void
 .end method
 
@@ -1322,6 +1225,304 @@
     iput-object p1, p0, Lcom/android/systemui/qs/PagedTileLayout;->mPageListener:Lcom/android/systemui/qs/PagedTileLayout$PageListener;
 
     return-void
+.end method
+
+.method setQsLayout()V
+    .locals 3
+
+    const-string/jumbo v0, "qs_rows"
+
+    const/4 v1, 0x3
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/qs/PagedTileLayout;->mQsRows:I
+
+    const-string/jumbo v0, "qs_rows_landscape"
+
+    const v1, 0x2
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/qs/PagedTileLayout;->mQsRowsLandscape:I
+
+    const-string/jumbo v0, "qs_columns"
+
+    const/4 v1, 0x4
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/qs/PagedTileLayout;->mQsColumns:I
+
+    const-string/jumbo v0, "qs_columns_landscape"
+
+    const v1, 0x6
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/qs/PagedTileLayout;->mQsColumnsLandscape:I
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/PagedTileLayout;->setQsTileGrid()V
+
+    return-void
+.end method
+
+.method public setQsTileGrid()V
+    .locals 9
+
+    const v6, 0x7f0b0064
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/PagedTileLayout;->getContext()Landroid/content/Context;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v5
+
+    iget v5, v5, Landroid/content/res/Configuration;->orientation:I
+
+    const/4 v7, 0x2
+
+    if-ne v5, v7, :cond_0
+
+    const/4 v2, 0x1
+
+    :goto_0
+    invoke-virtual {p0}, Lcom/android/systemui/qs/PagedTileLayout;->getContext()Landroid/content/Context;
+
+    move-result-object v5
+
+    invoke-static {v5}, Lcom/android/systemui/statusbar/DeviceState;->isMobileKeyboardConnected(Landroid/content/Context;)Z
+
+    move-result v3
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/PagedTileLayout;->getContext()Landroid/content/Context;
+
+    move-result-object v5
+
+    invoke-static {v5}, Lcom/android/systemui/statusbar/DeviceState;->isDesktopMode(Landroid/content/Context;)Z
+
+    move-result v1
+
+    const-class v5, Lcom/android/systemui/tuner/TunerService;
+
+    invoke-static {v5}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/systemui/tuner/TunerService;
+
+    const-string/jumbo v7, "qs_tile_layout"
+
+    const/4 v8, 0x4
+
+    invoke-virtual {v5, v7, v8}, Lcom/android/systemui/tuner/TunerService;->getValue(Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-eqz v1, :cond_1
+
+    const-class v5, Lcom/android/systemui/tuner/TunerService;
+
+    invoke-static {v5}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/systemui/tuner/TunerService;
+
+    const-string/jumbo v6, "qs_tile_column"
+
+    const v7, 0x7f0b0061
+
+    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v7
+
+    invoke-virtual {v5, v6, v7}, Lcom/android/systemui/tuner/TunerService;->setValue(Ljava/lang/String;I)V
+
+    :goto_1
+    return-void
+
+    :cond_0
+    const/4 v2, 0x0
+
+    goto :goto_0
+
+    :cond_1
+    if-eqz v2, :cond_2
+
+    if-eqz v3, :cond_2
+
+    const-class v5, Lcom/android/systemui/tuner/TunerService;
+
+    invoke-static {v5}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/systemui/tuner/TunerService;
+
+    const-string/jumbo v7, "qs_tile_column"
+
+    const v8, 0x7f0b0062
+
+    invoke-virtual {v4, v8}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v8
+
+    invoke-virtual {v5, v7, v8}, Lcom/android/systemui/tuner/TunerService;->setValue(Ljava/lang/String;I)V
+
+    const-class v5, Lcom/android/systemui/tuner/TunerService;
+
+    invoke-static {v5}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/systemui/tuner/TunerService;
+
+    const-string/jumbo v7, "qs_tile_row"
+
+    invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v6
+
+    invoke-virtual {v5, v7, v6}, Lcom/android/systemui/tuner/TunerService;->setValue(Ljava/lang/String;I)V
+
+    goto :goto_1
+
+    :cond_2
+    packed-switch v0, :pswitch_data_0
+
+    :goto_2
+    const-class v5, Lcom/android/systemui/tuner/TunerService;
+
+    invoke-static {v5}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/systemui/tuner/TunerService;
+
+    const-string/jumbo v7, "qs_tile_row"
+
+    if-eqz v3, :cond_5
+
+    :goto_3
+    invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v6
+
+    if-nez v2, :cond_3
+
+    iget v6, p0, Lcom/android/systemui/qs/PagedTileLayout;->mQsRows:I
+
+    goto :goto_4
+
+    :cond_3
+    iget v6, p0, Lcom/android/systemui/qs/PagedTileLayout;->mQsRowsLandscape:I
+
+    :goto_4
+    invoke-virtual {v5, v7, v6}, Lcom/android/systemui/tuner/TunerService;->setValue(Ljava/lang/String;I)V
+
+    goto :goto_1
+
+    :pswitch_0
+    const-class v5, Lcom/android/systemui/tuner/TunerService;
+
+    invoke-static {v5}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/systemui/tuner/TunerService;
+
+    const-string/jumbo v7, "qs_tile_column"
+
+    const v8, 0x7f0b005e
+
+    invoke-virtual {v4, v8}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v8
+
+    invoke-virtual {v5, v7, v8}, Lcom/android/systemui/tuner/TunerService;->setValue(Ljava/lang/String;I)V
+
+    goto :goto_2
+
+    :pswitch_1
+    const-class v5, Lcom/android/systemui/tuner/TunerService;
+
+    invoke-static {v5}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/systemui/tuner/TunerService;
+
+    const-string/jumbo v7, "qs_tile_column"
+
+    const v8, 0x7f0b005f
+
+    invoke-virtual {v4, v8}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v8
+
+    if-nez v2, :cond_4
+
+    iget v8, p0, Lcom/android/systemui/qs/PagedTileLayout;->mQsColumns:I
+
+    goto :goto_5
+
+    :cond_4
+    iget v8, p0, Lcom/android/systemui/qs/PagedTileLayout;->mQsColumnsLandscape:I
+
+    :goto_5
+    invoke-virtual {v5, v7, v8}, Lcom/android/systemui/tuner/TunerService;->setValue(Ljava/lang/String;I)V
+
+    goto :goto_2
+
+    :pswitch_2
+    const-class v5, Lcom/android/systemui/tuner/TunerService;
+
+    invoke-static {v5}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/systemui/tuner/TunerService;
+
+    const-string/jumbo v7, "qs_tile_column"
+
+    const v8, 0x7f0b0060
+
+    invoke-virtual {v4, v8}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v8
+
+    invoke-virtual {v5, v7, v8}, Lcom/android/systemui/tuner/TunerService;->setValue(Ljava/lang/String;I)V
+
+    goto :goto_2
+
+    :cond_5
+    const v6, 0x7f0b0063
+
+    goto :goto_3
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x3
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+    .end packed-switch
 .end method
 
 .method public updateResources()Z

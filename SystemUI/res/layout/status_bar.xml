@@ -13,4 +13,7 @@
         </com.android.keyguard.AlphaOptimizedLinearLayout>
     </LinearLayout>
     <ViewStub android:id="@id/emergency_cryptkeeper_text" android:layout="@layout/emergency_cryptkeeper_text" android:layout_width="wrap_content" android:layout_height="fill_parent" />
+    <com.android.keyguard.AlphaOptimizedLinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/system_icon_area2" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <com.android.systemui.statusbar.policy.ClockCenter android:textAppearance="@style/TextAppearance.StatusBar.Clock" android:ellipsize="none" android:gravity="center" android:id="@id/center_clock" android:layout_width="wrap_content" android:layout_height="fill_parent" android:singleLine="true" />
+    </com.android.keyguard.AlphaOptimizedLinearLayout>
 </com.android.systemui.statusbar.phone.PhoneStatusBarView>

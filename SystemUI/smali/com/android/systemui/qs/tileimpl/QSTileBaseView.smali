@@ -144,6 +144,8 @@
 
     invoke-virtual {p0, v5}, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->setFocusable(Z)V
 
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->setQsTileColors()V
+
     return-void
 .end method
 
@@ -731,6 +733,32 @@
     iget-object v1, p0, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->mTileBackground:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/plugins/qs/QSIconView;->setBackground(Landroid/graphics/drawable/Drawable;)V
+
+    return-void
+.end method
+
+.method setQsTileColors()V
+    .locals 2
+
+    const-string/jumbo v0, "qs_text_color"
+
+    const v1, -0xdadadb
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v1
+
+    sput v1, Lcom/android/systemui/Rune$Renovate;->mQsTextColor:I
+
+    const-string/jumbo v0, "qs_divider_color"
+
+    const v1, 0x33252525
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v1
+
+    sput v1, Lcom/android/systemui/Rune$Renovate;->mQsDividerColor:I
 
     return-void
 .end method

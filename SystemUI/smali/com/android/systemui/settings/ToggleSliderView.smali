@@ -4,6 +4,7 @@
 
 # interfaces
 .implements Lcom/android/systemui/settings/ToggleSlider;
+.implements Lcom/android/wubydax/GearContentObserver$OnContentChangedListener;
 
 
 # annotations
@@ -15,6 +16,14 @@
         Lcom/android/systemui/settings/ToggleSliderView$ToggleTouchListener;
     }
 .end annotation
+
+
+# static fields
+.field private static final BRIGHTNESS_SETTINGS:Landroid/content/Intent;
+
+.field public static mAllowQsColorChange:Z
+
+.field public static mQsSliderColor:I
 
 
 # instance fields
@@ -29,6 +38,8 @@
 .field public mDualSeekBarThreshold:I
 
 .field private mEyeStrainAlertDialog:Landroid/app/AlertDialog;
+
+.field private mGearContentObserver:Lcom/android/wubydax/GearContentObserver;
 
 .field private mHBMTextView:Landroid/widget/TextView;
 
@@ -335,6 +346,8 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSliderView;->updateResources()V
 
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSliderView;->setSliderColor()V
+
     return-void
 .end method
 
@@ -383,6 +396,72 @@
     invoke-direct {v1, v0, v2}, Landroid/content/res/ColorStateList;-><init>([[I[I)V
 
     return-object v1
+.end method
+
+.method private registerGearObserver()V
+    .locals 7
+
+    new-instance v3, Lcom/android/wubydax/GearContentObserver;
+
+    new-instance v4, Landroid/os/Handler;
+
+    invoke-direct {v4}, Landroid/os/Handler;-><init>()V
+
+    invoke-direct {v3, v4, p0}, Lcom/android/wubydax/GearContentObserver;-><init>(Landroid/os/Handler;Lcom/android/wubydax/GearContentObserver$OnContentChangedListener;)V
+
+    iput-object v3, p0, Lcom/android/systemui/settings/ToggleSliderView;->mGearContentObserver:Lcom/android/wubydax/GearContentObserver;
+
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSliderView;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    const-string/jumbo v3, "unlock_qs_colors"
+
+    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v3, "qs_slider_color"
+
+    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :goto_0
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-static {v2}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    iget-object v6, p0, Lcom/android/systemui/settings/ToggleSliderView;->mGearContentObserver:Lcom/android/wubydax/GearContentObserver;
+
+    invoke-virtual {v1, v4, v5, v6}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    goto :goto_0
+
+    :cond_0
+    return-void
 .end method
 
 .method private showStrainAlertDialog()V
@@ -648,6 +727,22 @@
 
 
 # virtual methods
+.method allowQsColorChange()V
+    .locals 2
+
+    const-string/jumbo v0, "unlock_qs_colors"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/systemui/settings/ToggleSliderView;->mAllowQsColorChange:Z
+
+    return-void
+.end method
+
 .method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 3
 
@@ -712,7 +807,7 @@
 .end method
 
 .method public initResources()V
-    .locals 6
+    .locals 7
 
     const v5, 0x7f06003a
 
@@ -726,7 +821,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/settings/ToggleSliderView;->mSlider:Lcom/android/systemui/settings/ToggleSeekBar;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2
 
     iget-object v1, p0, Lcom/android/systemui/settings/ToggleSliderView;->mSlider:Lcom/android/systemui/settings/ToggleSeekBar;
 
@@ -780,6 +875,13 @@
 
     move-result v2
 
+    sget-boolean v6, Lcom/android/systemui/settings/ToggleSliderView;->mAllowQsColorChange:Z
+
+    if-eqz v6, :cond_0
+
+    sget v2, Lcom/android/systemui/settings/ToggleSliderView;->mQsSliderColor:I
+
+    :cond_0
     invoke-direct {p0, v2}, Lcom/android/systemui/settings/ToggleSliderView;->getColorStateListfromColor(I)Landroid/content/res/ColorStateList;
 
     move-result-object v2
@@ -794,6 +896,13 @@
 
     move-result v2
 
+    sget-boolean v6, Lcom/android/systemui/settings/ToggleSliderView;->mAllowQsColorChange:Z
+
+    if-eqz v6, :cond_1
+
+    sget v2, Lcom/android/systemui/settings/ToggleSliderView;->mQsSliderColor:I
+
+    :cond_1
     invoke-direct {p0, v2}, Lcom/android/systemui/settings/ToggleSliderView;->getColorStateListfromColor(I)Landroid/content/res/ColorStateList;
 
     move-result-object v2
@@ -848,7 +957,7 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSliderView;->setDualColorSlider()V
 
-    :cond_0
+    :cond_2
     return-void
 .end method
 
@@ -866,6 +975,76 @@
     invoke-interface {v0, p0}, Lcom/android/systemui/settings/ToggleSlider$Listener;->onInit(Lcom/android/systemui/settings/ToggleSlider;)V
 
     :cond_0
+    invoke-direct {p0}, Lcom/android/systemui/settings/ToggleSliderView;->registerGearObserver()V
+
+    return-void
+.end method
+
+.method public onContentChanged(Ljava/lang/String;)V
+    .locals 1
+
+    const-string/jumbo v0, "qs_slider_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSliderView;->setSliderColor()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSliderView;->initResources()V
+
+    :cond_0
+    const-string/jumbo v0, "unlock_qs_colors"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSliderView;->allowQsColorChange()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSliderView;->initResources()V
+
+    :cond_1
+    return-void
+.end method
+
+.method protected onDetachedFromWindow()V
+    .locals 2
+
+    invoke-super {p0}, Landroid/widget/RelativeLayout;->onDetachedFromWindow()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSliderView;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/systemui/settings/ToggleSliderView;->mGearContentObserver:Lcom/android/wubydax/GearContentObserver;
+
+    invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
+
+    return-void
+.end method
+
+.method public onWindowFocusChanged(Z)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSliderView;->allowQsColorChange()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSliderView;->setSliderColor()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/settings/ToggleSliderView;->initResources()V
+
     return-void
 .end method
 
@@ -1016,6 +1195,22 @@
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/settings/ToggleSliderView;->mListener:Lcom/android/systemui/settings/ToggleSlider$Listener;
+
+    return-void
+.end method
+
+.method setSliderColor()V
+    .locals 2
+
+    const-string/jumbo v0, "qs_slider_color"
+
+    const v1, -0xca4e16
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    sput v0, Lcom/android/systemui/settings/ToggleSliderView;->mQsSliderColor:I
 
     return-void
 .end method

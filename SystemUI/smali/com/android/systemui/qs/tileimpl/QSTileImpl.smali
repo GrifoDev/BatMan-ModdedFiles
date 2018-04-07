@@ -303,11 +303,15 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
 
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->setQsTileColors()V
+
     return-void
 .end method
 
 .method public static getColorForState(Landroid/content/Context;I)I
-    .locals 10
+    .locals 11
+
+    sget-boolean v10, Lcom/android/systemui/Rune$Renovate;->mAllowQsColorChange:Z
 
     const v9, 0x7f060171
 
@@ -494,6 +498,11 @@
 
     and-int/2addr v3, v1
 
+    if-eqz v10, :cond_1
+
+    sget v3, Lcom/android/systemui/Rune$Renovate;->mQsIconOnColor:I
+
+    :cond_1
     return v3
 
     :pswitch_4
@@ -503,6 +512,11 @@
 
     move-result v3
 
+    if-eqz v10, :cond_2
+
+    sget v3, Lcom/android/systemui/Rune$Renovate;->mQsIconOffColor:I
+
+    :cond_2
     return v3
 
     :pswitch_5
@@ -511,6 +525,10 @@
     invoke-virtual {p0, v3}, Landroid/content/Context;->getColor(I)I
 
     move-result v3
+
+    if-eqz v10, :cond_1
+
+    sget v3, Lcom/android/systemui/Rune$Renovate;->mQsIconOnColor:I
 
     return v3
 
@@ -2184,6 +2202,42 @@
 .end method
 
 .method protected abstract setListening(Z)V
+.end method
+
+.method setQsTileColors()V
+    .locals 5
+
+    const-string/jumbo v0, "unlock_qs_colors"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/systemui/Rune$Renovate;->mAllowQsColorChange:Z
+
+    const-string/jumbo v1, "qs_icon_off_color"
+
+    const v2, 0x4d252525    # 1.73167184E8f
+
+    invoke-static {v1, v2}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v2
+
+    sput v2, Lcom/android/systemui/Rune$Renovate;->mQsIconOffColor:I
+
+    const-string/jumbo v1, "qs_icon_on_color"
+
+    const v2, -0xff5101
+
+    invoke-static {v1, v2}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v2
+
+    sput v2, Lcom/android/systemui/Rune$Renovate;->mQsIconOnColor:I
+
+    return-void
 .end method
 
 .method public setTileSpec(Ljava/lang/String;)V

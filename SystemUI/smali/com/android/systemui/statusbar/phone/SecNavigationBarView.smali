@@ -2,6 +2,9 @@
 .super Lcom/android/systemui/statusbar/phone/NavigationBarView;
 .source "SecNavigationBarView.java"
 
+# interfaces
+.implements Lcom/android/wubydax/GearContentObserver$OnContentChangedListener;
+
 
 # static fields
 .field private static CONFIRMED:Ljava/lang/String;
@@ -419,6 +422,8 @@
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mHelpConfirmed:Z
 
     :cond_1
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->registerObserver()V
+
     return-void
 
     :cond_2
@@ -725,6 +730,8 @@
     invoke-virtual {p0, v3, v1, v0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->getDrawable(Landroid/content/Context;II)Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;
 
     move-result-object v2
+
+    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->setupNavHomeIcon(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
 
     return-object v2
 
@@ -3348,6 +3355,95 @@
     return-void
 .end method
 
+.method public onContentChanged(Ljava/lang/String;)V
+    .locals 1
+
+    const-string/jumbo v0, "unlock_navbar_colors"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->updateImmersivePinIcon()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->lambda$-com_android_systemui_statusbar_phone_SecNavigationBarView_11521()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->reorient()V
+
+    :cond_0
+    const-string/jumbo v0, "navbar_recents_icon_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->reloadNavbar()V
+
+    :cond_1
+    const-string/jumbo v0, "navbar_home_icon_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->lambda$-com_android_systemui_statusbar_phone_SecNavigationBarView_11521()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->reloadNavbar()V
+
+    :cond_2
+    const-string/jumbo v0, "navbar_back_icon_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->reloadNavbar()V
+
+    :cond_3
+    const-string/jumbo v0, "navbar_menu_icon_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->reloadNavbar()V
+
+    :cond_4
+    const-string/jumbo v0, "navbar_pin_icon_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->updateImmersivePinIcon()V
+
+    :cond_5
+    const-string/jumbo v0, "navbar_ime_icon_color"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->reloadNavbar()V
+
+    :cond_6
+    return-void
+.end method
+
 .method protected onDetachedFromWindow()V
     .locals 0
 
@@ -3703,6 +3799,88 @@
     move-result v0
 
     return v0
+.end method
+
+.method registerObserver()V
+    .locals 7
+
+    new-instance v3, Ljava/util/ArrayList;
+
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+
+    const-string/jumbo v4, "navbar_pin_icon_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "navbar_recents_icon_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "navbar_home_icon_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "navbar_back_icon_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "navbar_menu_icon_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "navbar_ime_icon_color"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v4, "unlock_navbar_colors"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    new-instance v1, Lcom/android/wubydax/GearContentObserver;
+
+    new-instance v4, Landroid/os/Handler;
+
+    invoke-direct {v4}, Landroid/os/Handler;-><init>()V
+
+    invoke-direct {v1, v4, p0}, Lcom/android/wubydax/GearContentObserver;-><init>(Landroid/os/Handler;Lcom/android/wubydax/GearContentObserver$OnContentChangedListener;)V
+
+    invoke-static {}, Lcom/android/systemui/SystemUIApplication;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    invoke-virtual {v3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :goto_0
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-static {v2}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v5
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v0, v5, v6, v1}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    goto :goto_0
+
+    :cond_0
+    return-void
 .end method
 
 .method public reorient()V
@@ -4169,6 +4347,56 @@
     return-void
 .end method
 
+.method public setupNavHomeIcon(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
+    .locals 3
+
+    sget-boolean v0, Lcom/android/systemui/Rune$Renovate;->mAllowNavbarColorChange:Z
+
+    if-eqz v0, :cond_1
+
+    sget v0, Lcom/android/systemui/Rune$Renovate;->mNavBarHomeIconColor:I
+
+    sget-object v1, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1, v0, v1}, Landroid/graphics/drawable/LayerDrawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->clearColorFilter()V
+
+    goto :goto_0
+.end method
+
+.method public setupNavPinIcon(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
+    .locals 3
+
+    sget-boolean v0, Lcom/android/systemui/Rune$Renovate;->mAllowNavbarColorChange:Z
+
+    if-eqz v0, :cond_1
+
+    sget v0, Lcom/android/systemui/Rune$Renovate;->mNavBarPinIconColor:I
+
+    sget-object v1, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1, v0, v1}, Landroid/graphics/drawable/LayerDrawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->clearColorFilter()V
+
+    goto :goto_0
+.end method
+
 .method protected updateCurrentView()V
     .locals 2
 
@@ -4482,6 +4710,8 @@
 
     :goto_0
     invoke-virtual {v2, v1}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setImageDrawable(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
+
+    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->setupNavPinIcon(Lcom/android/systemui/statusbar/policy/KeyButtonDrawable;)V
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mBarTransitions:Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;
 

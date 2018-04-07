@@ -152,7 +152,7 @@
 .end method
 
 .method protected onFinishInflate()V
-    .locals 5
+    .locals 6
 
     const/4 v4, 0x2
 
@@ -204,6 +204,15 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/notification/HybridNotificationView;->mTitleView:Landroid/widget/TextView;
 
+    sget-boolean v5, Lcom/android/systemui/Rune;->mAllowNotificationColorChange:Z
+
+    if-eqz v5, :cond_0
+
+    sget v5, Lcom/android/systemui/Rune$Renovate;->mNotifTitleTextColor:I
+
+    invoke-virtual {v1, v5}, Landroid/widget/TextView;->setTextColor(I)V
+
+    :cond_0
     const/4 v2, 0x1
 
     invoke-virtual {v0, v2, v1}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->addTransformedView(ILandroid/view/View;)V
@@ -212,6 +221,15 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/notification/HybridNotificationView;->mTextView:Landroid/widget/TextView;
 
+    sget-boolean v5, Lcom/android/systemui/Rune;->mAllowNotificationColorChange:Z
+
+    if-eqz v5, :cond_1
+
+    sget v5, Lcom/android/systemui/Rune$Renovate;->mNotifSummaryTextColor:I
+
+    invoke-virtual {v1, v5}, Landroid/widget/TextView;->setTextColor(I)V
+
+    :cond_1
     invoke-virtual {v0, v4, v1}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->addTransformedView(ILandroid/view/View;)V
 
     return-void

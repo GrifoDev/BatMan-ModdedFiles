@@ -113,6 +113,1446 @@
 
     new-array v0, v0, [[I
 
+    const/4 v7, 0x1
+
+    const-string/jumbo v8, "switch_signal"
+
+    invoke-static {v8, v7}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v8
+
+    if-eqz v8, :cond_f
+
+    const v9, 0x1
+
+    if-eq v8, v9, :cond_f
+
+    const v9, 0x2
+
+    if-eq v8, v9, :cond_0
+
+    const v9, 0x3
+
+    if-eq v8, v9, :cond_1
+
+    const v9, 0x4
+
+    if-eq v8, v9, :cond_2
+
+    const v9, 0x5
+
+    if-eq v8, v9, :cond_3
+
+    const v9, 0x6
+
+    if-eq v8, v9, :cond_4
+
+    const v9, 0x7
+
+    if-eq v8, v9, :cond_5
+
+    const v9, 0x8
+
+    if-eq v8, v9, :cond_6
+
+    const v9, 0x9
+
+    if-eq v8, v9, :cond_7
+
+    const v9, 0xa
+
+    if-eq v8, v9, :cond_8
+
+    const v9, 0xb
+
+    if-eq v8, v9, :cond_9
+
+    const v9, 0xc
+
+    if-eq v8, v9, :cond_a
+
+    const v9, 0xd
+
+    if-eq v8, v9, :cond_b
+
+    const v9, 0xe
+
+    if-eq v8, v9, :cond_c
+
+    const v9, 0xf
+
+    if-eq v8, v9, :cond_d
+
+    const v9, 0x10
+
+    if-eq v8, v9, :cond_e
+
+    :cond_0
+    const-string/jumbo v7, "stat_sys_signal_0_2_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_2_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_2_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_2_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_2_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_2_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_2_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_2_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_2_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_2_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_0
+
+    :cond_1
+    const-string/jumbo v7, "stat_sys_signal_0_3_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_3_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_3_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_3_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_3_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_3_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_3_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_3_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_3_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_3_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_0
+
+    :cond_2
+    const-string/jumbo v7, "stat_sys_signal_0_4_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_4_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_4_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_4_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_4_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_4_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_4_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_4_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_4_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_4_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_0
+
+    :cond_3
+    const-string/jumbo v7, "stat_sys_signal_0_5_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_5_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_5_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_5_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_5_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_5_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_5_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_5_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_5_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_5_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_0
+
+    :cond_4
+    const-string/jumbo v7, "stat_sys_signal_0_6_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_6_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_6_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_6_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_6_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_6_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_6_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_6_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_6_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_6_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_0
+
+    :cond_5
+    const-string/jumbo v7, "stat_sys_signal_0_7_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_7_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_7_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_7_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_7_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_7_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_7_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_7_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_7_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_7_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_0
+
+    :cond_6
+    const-string/jumbo v7, "stat_sys_signal_0_8_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_8_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_8_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_8_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_8_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_8_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_8_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_8_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_8_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_8_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_0
+
+    :cond_7
+    const-string/jumbo v7, "stat_sys_signal_0_9_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_9_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_9_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_9_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_9_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_9_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_9_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_9_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_9_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_9_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_0
+
+    :cond_8
+    const-string/jumbo v7, "stat_sys_signal_0_10_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_10_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_10_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_10_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_10_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_10_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_10_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_10_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_10_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_10_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_0
+
+    :cond_9
+    const-string/jumbo v7, "stat_sys_signal_0_11_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_11_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_11_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_11_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_11_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_11_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_11_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_11_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_11_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_11_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_0
+
+    :cond_a
+    const-string/jumbo v7, "stat_sys_signal_0_12_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_12_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_12_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_12_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_12_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_12_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_12_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_12_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_12_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_12_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_0
+
+    :cond_b
+    const-string/jumbo v7, "stat_sys_signal_0_13_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_13_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_13_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_13_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_13_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_13_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_13_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_13_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_13_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_13_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_0
+
+    :cond_c
+    const-string/jumbo v7, "stat_sys_signal_0_14_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_14_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_14_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_14_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_14_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_14_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_14_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_14_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_14_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_14_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_0
+
+    :cond_d
+    const-string/jumbo v7, "stat_sys_signal_0_15_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_15_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_15_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_15_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_15_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_15_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_15_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_15_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_15_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_15_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_0
+
+    :cond_e
+    const-string/jumbo v7, "stat_sys_signal_0_16_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_16_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_16_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_16_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_16_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_16_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_16_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_16_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_16_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_16_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto :goto_0
+
+    :cond_f
     const v1, 0x7f080676
 
     const v2, 0x7f080678
@@ -141,6 +1581,7 @@
 
     const v5, 0x7f08067e
 
+    :goto_0
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
     move-result-object v1
@@ -181,15 +1622,120 @@
 
     new-array v0, v0, [[I
 
-    const v1, 0x7f0806d4
+    const/4 v7, 0x1
 
-    const v2, 0x7f0806d6
+    const-string/jumbo v8, "switch_signal_sim2"
 
-    const v3, 0x7f0806d8
+    invoke-static {v8, v7}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
 
-    const v4, 0x7f0806da
+    move-result v8
 
-    const v5, 0x7f0806dc
+    if-eqz v8, :cond_1f
+
+    const v9, 0x1
+
+    if-eq v8, v9, :cond_1f
+
+    const v9, 0x2
+
+    if-eq v8, v9, :cond_10
+
+    const v9, 0x3
+
+    if-eq v8, v9, :cond_11
+
+    const v9, 0x4
+
+    if-eq v8, v9, :cond_12
+
+    const v9, 0x5
+
+    if-eq v8, v9, :cond_13
+
+    const v9, 0x6
+
+    if-eq v8, v9, :cond_14
+
+    const v9, 0x7
+
+    if-eq v8, v9, :cond_15
+
+    const v9, 0x8
+
+    if-eq v8, v9, :cond_16
+
+    const v9, 0x9
+
+    if-eq v8, v9, :cond_17
+
+    const v9, 0xa
+
+    if-eq v8, v9, :cond_18
+
+    const v9, 0xb
+
+    if-eq v8, v9, :cond_19
+
+    const v9, 0xc
+
+    if-eq v8, v9, :cond_1a
+
+    const v9, 0xd
+
+    if-eq v8, v9, :cond_1b
+
+    const v9, 0xe
+
+    if-eq v8, v9, :cond_1c
+
+    const v9, 0xf
+
+    if-eq v8, v9, :cond_1d
+
+    const v9, 0x10
+
+    if-eq v8, v9, :cond_1e
+
+    :cond_10
+    const-string/jumbo v7, "stat_sys_signal_0_2_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_2_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_2_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_2_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_2_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -199,16 +1745,1352 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0806d4
+    const-string/jumbo v7, "stat_sys_signal_0_2_auto_rotate"
 
-    const v2, 0x7f0806d6
+    const-string v8, "drawable"
 
-    const v3, 0x7f0806d8
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v4, 0x7f0806da
+    move-result v1
 
-    const v5, 0x7f0806dc
+    const-string/jumbo v7, "stat_sys_signal_1_2_auto_rotate"
 
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_2_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_2_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_2_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_1
+
+    :cond_11
+    const-string/jumbo v7, "stat_sys_signal_0_3_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_3_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_3_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_3_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_3_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_3_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_3_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_3_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_3_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_3_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_1
+
+    :cond_12
+    const-string/jumbo v7, "stat_sys_signal_0_4_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_4_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_4_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_4_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_4_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_4_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_4_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_4_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_4_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_4_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_1
+
+    :cond_13
+    const-string/jumbo v7, "stat_sys_signal_0_5_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_5_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_5_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_5_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_5_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_5_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_5_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_5_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_5_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_5_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_1
+
+    :cond_14
+    const-string/jumbo v7, "stat_sys_signal_0_6_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_6_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_6_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_6_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_6_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_6_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_6_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_6_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_6_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_6_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_1
+
+    :cond_15
+    const-string/jumbo v7, "stat_sys_signal_0_7_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_7_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_7_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_7_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_7_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_7_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_7_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_7_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_7_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_7_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_1
+
+    :cond_16
+    const-string/jumbo v7, "stat_sys_signal_0_8_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_8_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_8_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_8_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_8_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_8_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_8_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_8_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_8_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_8_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_1
+
+    :cond_17
+    const-string/jumbo v7, "stat_sys_signal_0_9_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_9_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_9_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_9_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_9_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_9_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_9_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_9_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_9_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_9_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_1
+
+    :cond_18
+    const-string/jumbo v7, "stat_sys_signal_0_10_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_10_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_10_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_10_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_10_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_10_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_10_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_10_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_10_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_10_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_1
+
+    :cond_19
+    const-string/jumbo v7, "stat_sys_signal_0_11_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_11_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_11_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_11_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_11_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_11_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_11_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_11_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_11_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_11_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_1
+
+    :cond_1a
+    const-string/jumbo v7, "stat_sys_signal_0_12_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_12_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_12_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_12_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_12_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_12_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_12_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_12_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_12_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_12_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_1
+
+    :cond_1b
+    const-string/jumbo v7, "stat_sys_signal_0_13_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_13_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_13_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_13_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_13_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_13_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_13_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_13_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_13_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_13_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_1
+
+    :cond_1c
+    const-string/jumbo v7, "stat_sys_signal_0_14_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_14_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_14_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_14_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_14_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_14_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_14_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_14_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_14_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_14_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_1
+
+    :cond_1d
+    const-string/jumbo v7, "stat_sys_signal_0_15_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_15_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_15_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_15_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_15_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_15_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_15_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_15_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_15_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_15_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto/16 :goto_1
+
+    :cond_1e
+    const-string/jumbo v7, "stat_sys_signal_0_16_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_16_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_16_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_16_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_16_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v7, "stat_sys_signal_0_16_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v7, "stat_sys_signal_1_16_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string/jumbo v7, "stat_sys_signal_2_16_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    const-string/jumbo v7, "stat_sys_signal_3_16_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string/jumbo v7, "stat_sys_signal_4_16_auto_rotate"
+
+    const-string v8, "drawable"
+
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    goto :goto_1
+
+    :cond_1f
+    const v1, 0x7f080676
+
+    const v2, 0x7f080678
+
+    const v3, 0x7f08067a
+
+    const v4, 0x7f08067c
+
+    const v5, 0x7f08067e
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f080676
+
+    const v2, 0x7f080678
+
+    const v3, 0x7f08067a
+
+    const v4, 0x7f08067c
+
+    const v5, 0x7f08067e
+
+    :goto_1
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
     move-result-object v1

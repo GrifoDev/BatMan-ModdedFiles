@@ -7679,7 +7679,11 @@
 .end method
 
 .method private updateBackgroundDimming()V
-    .locals 11
+    .locals 13
+
+    sget-boolean v11, Lcom/android/systemui/Rune;->mAllowNotificationColorChange:Z
+
+    sget-boolean v12, Lcom/android/systemui/Rune;->mAllowTransNotifs:Z
 
     const/high16 v10, 0x437f0000    # 255.0f
 
@@ -7722,7 +7726,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_5
 
     invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
 
@@ -7732,14 +7736,14 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_4
 
     iget v3, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mStackScrollerBGOnWhiteKeyguard:I
 
     :goto_0
     iget v5, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mCachedBackgroundColor:I
 
-    if-eq v5, v3, :cond_2
+    if-eq v5, v3, :cond_3
 
     iput v3, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mCachedBackgroundColor:I
 
@@ -7753,7 +7757,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2
 
     invoke-static {}, Lcom/android/systemui/util/SettingsHelper;->getInstance()Lcom/android/systemui/util/SettingsHelper;
 
@@ -7789,20 +7793,25 @@
 
     float-to-int v6, v6
 
-    invoke-virtual {v5, v6}, Landroid/graphics/Paint;->setAlpha(I)V
+    if-eqz v11, :cond_1
+
+    const/4 v6, 0x0
 
     :cond_1
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->invalidate()V
+    invoke-virtual {v5, v6}, Landroid/graphics/Paint;->setAlpha(I)V
 
     :cond_2
-    return-void
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->invalidate()V
 
     :cond_3
+    return-void
+
+    :cond_4
     iget v3, p0, Lcom/android/systemui/statusbar/stack/NotificationStackScrollLayout;->mStackScrollerBGOnKeyguard:I
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     mul-float v5, v0, v10
 
     invoke-static {v4}, Landroid/graphics/Color;->alpha(I)I
@@ -7889,11 +7898,24 @@
 
     float-to-int v8, v8
 
+    if-eqz v11, :cond_6
+
+    if-eqz v12, :cond_6
+
+    const v5, 0x0
+
+    const v6, 0x0
+
+    const v7, 0x0
+
+    const v8, 0x0
+
+    :cond_6
     invoke-static {v5, v6, v7, v8}, Landroid/graphics/Color;->argb(IIII)I
 
     move-result v3
 
-    goto :goto_0
+    goto/16 :goto_0
 .end method
 
 .method private updateChildren()V

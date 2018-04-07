@@ -243,7 +243,13 @@
 
     if-eqz v1, :cond_2
 
-    iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mKeyguardScreenRotation:Z
+    const-string/jumbo v2, "lockscreen_rotation"
+
+    const/4 v1, 0x0
+
+    invoke-static {v2, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v1
 
     if-eqz v1, :cond_1
 
@@ -503,7 +509,13 @@
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
 
-    iget-boolean v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mKeyguardScreenRotation:Z
+    const-string/jumbo v2, "lockscreen_rotation"
+
+    const/4 v3, 0x0
+
+    invoke-static {v2, v3}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v2
 
     if-nez v2, :cond_1
 

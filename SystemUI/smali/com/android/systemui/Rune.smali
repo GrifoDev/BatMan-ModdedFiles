@@ -3,6 +3,14 @@
 .source "Rune.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/systemui/Rune$Renovate;
+    }
+.end annotation
+
+
 # static fields
 .field public static final ASSIST_SUPPORT_ASSISTANCE_APP_SETTING_POPUP:Z
 
@@ -532,6 +540,18 @@
 
 .field public static final WPAPER_VALUE_DEFAULT_WALLPAPER_STYLE:Ljava/lang/String;
 
+.field public static mAllowHeaderColorChange:Z
+
+.field public static mAllowNavbarColorChange:Z
+
+.field public static mAllowNotificationColorChange:Z
+
+.field public static mAllowQsColorChange:Z
+
+.field public static mAllowStatusbarColorChange:Z
+
+.field public static mAllowTransNotifs:Z
+
 .field private static mCheckedHmtFeature:Z
 
 .field private static final mConfigDefLcdOnTimeOut:I
@@ -539,6 +559,12 @@
 .field private static final mConfigLockTimeoutSetting:Ljava/lang/String;
 
 .field private static mHasHmtFeature:Z
+
+.field public static mIsCustomTheme:Z
+
+.field public static mNotifBackgroundAlpha:I
+
+.field public static mNotifBackgroundColor:I
 
 .field private static mWfcServiceMap:Ljava/util/concurrent/ConcurrentHashMap;
     .annotation system Ldalvik/annotation/Signature;
@@ -773,26 +799,21 @@
 
     sput v0, Lcom/android/systemui/Rune;->STATBAR_MAX_SIGNAL_LEVEL:I
 
-    const-string/jumbo v0, "LTE"
+    const-string/jumbo v7, "LTEIcon"
 
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+    const/4 v8, 0x1
 
-    move-result-object v3
+    invoke-static {v7, v8}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
 
-    const-string/jumbo v4, "CscFeature_SystemUI_ConfigOverrideDataIcon"
+    move-result v7
 
-    const-string/jumbo v5, ""
+    if-eqz v7, :cond_lg
 
-    invoke-virtual {v3, v4, v5}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    const/4 v7, 0x1
 
-    move-result-object v3
+    sput-boolean v7, Lcom/android/systemui/Rune;->STATBAR_DISPLAY_LTE_INSTEAD_OF_4G_ICON:Z
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/systemui/Rune;->STATBAR_DISPLAY_LTE_INSTEAD_OF_4G_ICON:Z
-
+    :cond_lg
     const-string/jumbo v0, "DCM"
 
     sget-object v3, Lcom/android/systemui/Rune;->STATBAR_ICON_BRANDING:Ljava/lang/String;
@@ -3097,18 +3118,28 @@
 
     sput-boolean v0, Lcom/android/systemui/Rune;->QPANEL_SUPPORT_ALWAYS_ON_DISPLAY:Z
 
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+    const/4 v7, 0x0
 
-    move-result-object v0
+    const-string/jumbo v8, "data_usage_visibility"
 
-    const-string/jumbo v3, "CscFeature_SystemUI_SupportDataUsageViewOnQuickPanel"
+    invoke-static {v8, v7}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
 
-    invoke-virtual {v0, v3, v1}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;Z)Z
+    move-result v8
 
-    move-result v0
+    if-nez v8, :cond_lg2
+
+    const/4 v0, 0x0
 
     sput-boolean v0, Lcom/android/systemui/Rune;->QPANEL_SUPPORT_DATAUSAGE:Z
 
+    goto :goto_lg
+
+    :cond_lg2
+    const/4 v0, 0x1
+
+    sput-boolean v0, Lcom/android/systemui/Rune;->QPANEL_SUPPORT_DATAUSAGE:Z
+
+    :goto_lg
     const-string/jumbo v0, "com.samsung.android.smartmirroring"
 
     invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
@@ -3234,6 +3265,8 @@
     sput-boolean v0, Lcom/android/systemui/Rune;->QPANEL_SUPPORT_DUAL_IMS:Z
 
     sget-boolean v0, Lcom/android/systemui/Rune;->QPANEL_IS_CHINA_POPUP:Z
+
+    const/4 v0, 0x1
 
     sput-boolean v0, Lcom/android/systemui/Rune;->QPANEL_SUPPORT_RECORD_MODE:Z
 

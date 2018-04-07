@@ -200,7 +200,7 @@
 
 # virtual methods
 .method protected createDivider()V
-    .locals 4
+    .locals 5
 
     iget-object v1, p0, Lcom/android/systemui/qs/tileimpl/QSTileView;->mContext:Landroid/content/Context;
 
@@ -224,6 +224,15 @@
 
     iput-object v1, p0, Lcom/android/systemui/qs/tileimpl/QSTileView;->mDivider:Landroid/view/View;
 
+    sget-boolean v3, Lcom/android/systemui/Rune$Renovate;->mAllowQsColorChange:Z
+
+    if-eqz v3, :cond_0
+
+    sget v2, Lcom/android/systemui/Rune$Renovate;->mQsDividerColor:I
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->setBackgroundColor(I)V
+
+    :cond_0
     const-class v1, Lcom/android/systemui/coloring/QSColoringServiceManager;
 
     invoke-static {v1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
@@ -236,7 +245,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     iget-object v2, p0, Lcom/android/systemui/qs/tileimpl/QSTileView;->mDivider:Landroid/view/View;
 
@@ -256,7 +265,7 @@
 
     invoke-virtual {v2, v1}, Landroid/view/View;->setBackgroundColor(I)V
 
-    :cond_0
+    :cond_1
     iget-object v1, p0, Lcom/android/systemui/qs/tileimpl/QSTileView;->dividerParam:Landroid/widget/LinearLayout$LayoutParams;
 
     iget-object v2, p0, Lcom/android/systemui/qs/tileimpl/QSTileView;->mContext:Landroid/content/Context;
@@ -283,7 +292,7 @@
 .end method
 
 .method protected createLabel()V
-    .locals 6
+    .locals 7
 
     const/4 v5, 0x1
 
@@ -333,6 +342,15 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/tileimpl/QSTileView;->mLabel:Landroid/widget/TextView;
 
+    sget-boolean v6, Lcom/android/systemui/Rune$Renovate;->mAllowQsColorChange:Z
+
+    if-eqz v6, :cond_0
+
+    sget v6, Lcom/android/systemui/Rune$Renovate;->mQsTextColor:I
+
+    invoke-virtual {v2, v6}, Landroid/widget/TextView;->setTextColor(I)V
+
+    :cond_0
     invoke-virtual {v2, v5}, Landroid/widget/TextView;->setFocusable(Z)V
 
     iget-object v2, p0, Lcom/android/systemui/qs/tileimpl/QSTileView;->mLabelContainer:Landroid/view/ViewGroup;
@@ -371,7 +389,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     iget-object v3, p0, Lcom/android/systemui/qs/tileimpl/QSTileView;->mLabel:Landroid/widget/TextView;
 
@@ -389,12 +407,12 @@
 
     invoke-virtual {v3, v2}, Landroid/widget/TextView;->setTextColor(I)V
 
-    :cond_0
+    :cond_1
     invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileView;->updateShowButtonBackground()V
 
     iget-object v2, p0, Lcom/android/systemui/qs/tileimpl/QSTileView;->mLabelGroup:Landroid/view/ViewGroup;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
     iget-object v2, p0, Lcom/android/systemui/qs/tileimpl/QSTileView;->mContext:Landroid/content/Context;
 
@@ -428,7 +446,7 @@
 
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    :cond_1
+    :cond_2
     iget-object v2, p0, Lcom/android/systemui/qs/tileimpl/QSTileView;->mLabelContainer:Landroid/view/ViewGroup;
 
     invoke-virtual {p0, v2}, Lcom/android/systemui/qs/tileimpl/QSTileView;->addView(Landroid/view/View;)V

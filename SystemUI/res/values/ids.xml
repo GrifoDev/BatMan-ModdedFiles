@@ -1368,4 +1368,9 @@
     <item type="id" name="zen_mode_panel">false</item>
     <item type="id" name="zen_radio_buttons">false</item>
     <item type="id" name="zen_radio_buttons_content">false</item>
+    <item type="id" name="backgroundImageView">false</item>
+    <item type="id" name="qs_drag_handle_background">false</item>
+    <item type="id" name="center_clock">false</item>
+    <item type="id" name="left_clock">false</item>
+    <item type="id" name="system_icon_area2">false</item>
 </resources>
