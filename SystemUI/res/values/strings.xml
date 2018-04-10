@@ -2145,6 +2145,8 @@ You're also connected to a VPN, which can monitor your network activity."</strin
     <string name="notification_num_channels">%d notification categories</string>
     <string name="notification_settings_icon_description">App notification settings</string>
     <string name="notification_tap_again">Tap again to open</string>
+    <item type="string" name="APKTOOL_DUMMY_7bf">false</item>
+    <item type="string" name="APKTOOL_DUMMY_7c0">false</item>
     <string name="oem_preferred_feedback_reporter" />
     <string name="oem_unlock_enable">OEM unlocking</string>
     <string name="oem_unlock_enable_summary">Allow the bootloader to be unlocked</string>
@@ -3189,6 +3191,4 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="zen_priority_introduction">"You won\u0080\u0099t be disturbed by sounds and vibrations, except from alarms, reminders, events, and callers you specify. You'll still hear anything you choose to play including music, videos, and games."</string>
     <string name="zen_silence_introduction">This blocks ALL sounds and vibrations, including from alarms, music, videos, and games.</string>
     <string name="zen_silence_introduction_voice">This blocks ALL sounds and vibrations, including from alarms, music, videos, and games. You\u0080\u0099ll still be able to make phone calls.</string>
-    <item type="string" name="APKTOOL_DUMMY_7bf">false</item>
-    <item type="string" name="APKTOOL_DUMMY_7c0">false</item>
 </resources>

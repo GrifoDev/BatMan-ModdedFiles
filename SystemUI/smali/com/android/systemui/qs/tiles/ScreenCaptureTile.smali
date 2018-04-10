@@ -226,6 +226,8 @@
 
     sget-boolean v1, Lcom/android/systemui/Rune;->QPANEL_SUPPORT_RECORD_MODE:Z
 
+    const/4 v1, 0x1
+
     iput-boolean v1, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->mSupportRecordMode:Z
 
     new-instance v1, Lcom/android/systemui/qs/tiles/ScreenCaptureTile$ScreenCaptureDetailAdapter;

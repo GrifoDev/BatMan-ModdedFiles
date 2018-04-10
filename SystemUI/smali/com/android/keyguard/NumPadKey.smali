@@ -1061,7 +1061,7 @@
 
     invoke-virtual {v5, v6}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :cond_3
     const v5, 0x7f0a016c

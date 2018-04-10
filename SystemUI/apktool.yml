@@ -3,8 +3,8 @@ apkFileName: SystemUI.apk
 compressionType: false
 doNotCompress:
 - arsc
-- webp
 - qmg
+- webp
 isFrameworkApk: false
 packageInfo:
   forcedPackageId: '127'
@@ -13,6 +13,7 @@ sdkInfo:
   minSdkVersion: '26'
   targetSdkVersion: '26'
 sharedLibrary: false
+sparseResources: false
 unknownFiles:
   SEC-INF/buildConfirm.crt: '8'
   SEC-INF/buildinfo.xml: '8'
@@ -20,7 +21,7 @@ usesFramework:
   ids:
   - 1
   tag: null
-version: 2.3.1
+version: 2.3.2
 versionInfo:
   versionCode: '20171030'
   versionName: 8.0.0
