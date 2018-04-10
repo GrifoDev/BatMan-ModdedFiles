@@ -3,11 +3,6 @@
 .source "EofSensorWatcher.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract eofDetected(Ljava/io/InputStream;)Z
     .annotation system Ldalvik/annotation/Throws;

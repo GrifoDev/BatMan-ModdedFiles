@@ -10,61 +10,41 @@
 
 # direct methods
 .method protected constructor <init>(Lorg/apache/http/impl/conn/tsccm/ThreadSafeClientConnManager;Lorg/apache/http/impl/conn/AbstractPoolEntry;)V
-    .locals 2
+    .locals 0
 
-    const/4 v1, 0x0
+    invoke-direct {p0, p1, p2}, Lorg/apache/http/impl/conn/AbstractPooledConnAdapter;-><init>(Lorg/apache/http/conn/ClientConnectionManager;Lorg/apache/http/impl/conn/AbstractPoolEntry;)V
 
-    move-object v0, v1
+    invoke-virtual {p0}, Lorg/apache/http/impl/conn/tsccm/BasicPooledConnAdapter;->markReusable()V
 
-    check-cast v0, Lorg/apache/http/conn/ClientConnectionManager;
-
-    check-cast v1, Lorg/apache/http/impl/conn/AbstractPoolEntry;
-
-    invoke-direct {p0, v0, v1}, Lorg/apache/http/impl/conn/AbstractPooledConnAdapter;-><init>(Lorg/apache/http/conn/ClientConnectionManager;Lorg/apache/http/impl/conn/AbstractPoolEntry;)V
-
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 
 # virtual methods
 .method protected detach()V
-    .locals 2
+    .locals 0
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    invoke-super {p0}, Lorg/apache/http/impl/conn/AbstractPooledConnAdapter;->detach()V
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 .method protected getManager()Lorg/apache/http/conn/ClientConnectionManager;
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    invoke-super {p0}, Lorg/apache/http/impl/conn/AbstractPooledConnAdapter;->getManager()Lorg/apache/http/conn/ClientConnectionManager;
 
-    const-string/jumbo v1, "Stub!"
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-object v0
 .end method
 
 .method protected getPoolEntry()Lorg/apache/http/impl/conn/AbstractPoolEntry;
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    invoke-super {p0}, Lorg/apache/http/impl/conn/AbstractPooledConnAdapter;->getPoolEntry()Lorg/apache/http/impl/conn/AbstractPoolEntry;
 
-    const-string/jumbo v1, "Stub!"
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-object v0
 .end method

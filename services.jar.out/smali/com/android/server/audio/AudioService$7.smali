@@ -3,7 +3,7 @@
 .source "AudioService.java"
 
 # interfaces
-.implements Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListener;
+.implements Landroid/hardware/display/SemDeviceStatusListener;
 
 
 # annotations
@@ -34,80 +34,74 @@
 
 
 # virtual methods
-.method public onDesktopDockConnectionChanged(Z)V
-    .locals 3
-
-    const-string/jumbo v0, "AudioService"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "DEX connected : "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/server/audio/AudioService$7;->this$0:Lcom/android/server/audio/AudioService;
-
-    invoke-static {v0, p1}, Lcom/android/server/audio/AudioService;->-set9(Lcom/android/server/audio/AudioService;Z)Z
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v1, "DEXconnected="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/server/audio/AudioService$7;->this$0:Lcom/android/server/audio/AudioService;
-
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get32(Lcom/android/server/audio/AudioService;)Z
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/media/AudioSystem;->setParameters(Ljava/lang/String;)I
+.method public onConnectionStatusChanged(I)V
+    .locals 0
 
     return-void
 .end method
 
-.method public onDesktopModeChanged(Z)V
+.method public onDlnaConnectionStatusChanged(Z)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onQosLevelChanged(I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onScreenSharingStatusChanged(I)V
     .locals 3
 
+    const/4 v1, 0x0
+
+    const/4 v0, 0x6
+
+    if-ne p1, v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/audio/AudioService$7;->this$0:Lcom/android/server/audio/AudioService;
+
+    iget-object v0, v0, Lcom/android/server/audio/AudioService;->mSecGlobal:Lcom/android/server/audio/AudioService$SecGlobalVariable;
+
+    invoke-static {v0}, Lcom/android/server/audio/AudioService$SecGlobalVariable;->-get64(Lcom/android/server/audio/AudioService$SecGlobalVariable;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/audio/AudioService$7;->this$0:Lcom/android/server/audio/AudioService;
+
+    iget-object v0, v0, Lcom/android/server/audio/AudioService;->mSecGlobal:Lcom/android/server/audio/AudioService$SecGlobalVariable;
+
+    const/4 v1, 0x1
+
+    invoke-static {v0, v1}, Lcom/android/server/audio/AudioService$SecGlobalVariable;->-set76(Lcom/android/server/audio/AudioService$SecGlobalVariable;Z)Z
+
+    :cond_0
+    :goto_0
     const-string/jumbo v0, "AudioService"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "DEX enabled : "
+    const-string/jumbo v2, "onScreenSharingStatusChanged, status = "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    iget-object v2, p0, Lcom/android/server/audio/AudioService$7;->this$0:Lcom/android/server/audio/AudioService;
+
+    iget-object v2, v2, Lcom/android/server/audio/AudioService;->mSecGlobal:Lcom/android/server/audio/AudioService$SecGlobalVariable;
+
+    invoke-static {v2}, Lcom/android/server/audio/AudioService$SecGlobalVariable;->-get92(Lcom/android/server/audio/AudioService$SecGlobalVariable;)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -117,15 +111,49 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    return-void
+
+    :cond_1
+    const/4 v0, 0x7
+
+    if-ne p1, v0, :cond_0
+
     iget-object v0, p0, Lcom/android/server/audio/AudioService$7;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v0, p1}, Lcom/android/server/audio/AudioService;->-set10(Lcom/android/server/audio/AudioService;Z)Z
+    iget-object v0, v0, Lcom/android/server/audio/AudioService;->mSecGlobal:Lcom/android/server/audio/AudioService$SecGlobalVariable;
+
+    invoke-static {v0}, Lcom/android/server/audio/AudioService$SecGlobalVariable;->-get64(Lcom/android/server/audio/AudioService$SecGlobalVariable;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/server/audio/AudioService$7;->this$0:Lcom/android/server/audio/AudioService;
+
+    iget-object v0, v0, Lcom/android/server/audio/AudioService;->mSecGlobal:Lcom/android/server/audio/AudioService$SecGlobalVariable;
+
+    invoke-static {v0, v1}, Lcom/android/server/audio/AudioService$SecGlobalVariable;->-set76(Lcom/android/server/audio/AudioService$SecGlobalVariable;Z)Z
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/server/audio/AudioService$7;->this$0:Lcom/android/server/audio/AudioService;
+
+    iget-object v0, v0, Lcom/android/server/audio/AudioService;->mSecGlobal:Lcom/android/server/audio/AudioService$SecGlobalVariable;
+
+    iget-boolean v0, v0, Lcom/android/server/audio/AudioService$SecGlobalVariable;->mSplitSound:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/audio/AudioService$7;->this$0:Lcom/android/server/audio/AudioService;
+
+    iget-object v0, v0, Lcom/android/server/audio/AudioService;->mSecGlobal:Lcom/android/server/audio/AudioService$SecGlobalVariable;
+
+    iput-boolean v1, v0, Lcom/android/server/audio/AudioService$SecGlobalVariable;->mSplitSound:Z
 
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "audioParam;DEXstate="
+    const-string/jumbo v1, "audioParam;SplitSound="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -133,9 +161,9 @@
 
     iget-object v1, p0, Lcom/android/server/audio/AudioService$7;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->-get33(Lcom/android/server/audio/AudioService;)Z
+    iget-object v1, v1, Lcom/android/server/audio/AudioService;->mSecGlobal:Lcom/android/server/audio/AudioService$SecGlobalVariable;
 
-    move-result v1
+    iget-boolean v1, v1, Lcom/android/server/audio/AudioService$SecGlobalVariable;->mSplitSound:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -147,5 +175,13 @@
 
     invoke-static {v0}, Landroid/media/AudioSystem;->setParameters(Ljava/lang/String;)I
 
-    return-void
+    iget-object v0, p0, Lcom/android/server/audio/AudioService$7;->this$0:Lcom/android/server/audio/AudioService;
+
+    invoke-static {v0}, Lcom/android/server/audio/AudioService;->-get25(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/MediaFocusControl;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/server/audio/MediaFocusControl;->checkSplitSoundAudioFocus()V
+
+    goto :goto_0
 .end method

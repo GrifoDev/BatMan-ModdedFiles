@@ -6,24 +6,17 @@
 .implements Lorg/apache/http/HttpEntityEnclosingRequest;
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
+# instance fields
+.field private entity:Lorg/apache/http/HttpEntity;
 
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .locals 0
 
     invoke-direct {p0}, Lorg/apache/http/client/methods/HttpRequestBase;-><init>()V
 
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 
@@ -36,47 +29,80 @@
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    invoke-super {p0}, Lorg/apache/http/client/methods/HttpRequestBase;->clone()Ljava/lang/Object;
 
-    const-string/jumbo v1, "Stub!"
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    check-cast v0, Lorg/apache/http/client/methods/HttpEntityEnclosingRequestBase;
 
-    throw v0
+    iget-object v1, p0, Lorg/apache/http/client/methods/HttpEntityEnclosingRequestBase;->entity:Lorg/apache/http/HttpEntity;
+
+    if-nez v1, :cond_0
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    iget-object v1, p0, Lorg/apache/http/client/methods/HttpEntityEnclosingRequestBase;->entity:Lorg/apache/http/HttpEntity;
+
+    invoke-static {v1}, Lorg/apache/http/client/utils/CloneUtils;->cloneObject(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lorg/apache/http/HttpEntity;
+
+    iput-object v1, v0, Lorg/apache/http/client/methods/HttpEntityEnclosingRequestBase;->entity:Lorg/apache/http/HttpEntity;
+
+    goto :goto_0
 .end method
 
 .method public expectContinue()Z
-    .locals 2
+    .locals 4
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const/4 v1, 0x0
 
-    const-string/jumbo v1, "Stub!"
+    const-string/jumbo v2, "Expect"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lorg/apache/http/client/methods/HttpEntityEnclosingRequestBase;->getFirstHeader(Ljava/lang/String;)Lorg/apache/http/Header;
 
-    throw v0
+    move-result-object v0
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    :goto_0
+    return v1
+
+    :cond_1
+    invoke-interface {v0}, Lorg/apache/http/Header;->getValue()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "100-continue"
+
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const/4 v1, 0x1
+
+    goto :goto_0
 .end method
 
 .method public getEntity()Lorg/apache/http/HttpEntity;
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/client/methods/HttpEntityEnclosingRequestBase;->entity:Lorg/apache/http/HttpEntity;
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-object v0
 .end method
 
 .method public setEntity(Lorg/apache/http/HttpEntity;)V
-    .locals 2
+    .locals 0
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iput-object p1, p0, Lorg/apache/http/client/methods/HttpEntityEnclosingRequestBase;->entity:Lorg/apache/http/HttpEntity;
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method

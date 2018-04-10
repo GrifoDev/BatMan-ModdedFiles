@@ -90,108 +90,116 @@
 .end method
 
 .method private addNamespaceDeclarations(I)V
-    .locals 8
+    .locals 10
+
+    const/4 v4, 0x0
+
+    const/4 v1, 0x0
+
+    const/4 v5, 0x0
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
 
     const/4 v0, 0x0
 
-    move v4, v0
-
     :goto_0
-    if-ge v4, p1, :cond_2
+    if-ge v0, p1, :cond_2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNamespaceContext:Lmf/org/apache/xerces/util/NamespaceSupport;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNamespaceContext:Lmf/org/apache/xerces/util/NamespaceSupport;
 
-    invoke-virtual {v0, v4}, Lmf/org/apache/xerces/util/NamespaceSupport;->getDeclaredPrefixAt(I)Ljava/lang/String;
+    invoke-virtual {v6, v0}, Lmf/org/apache/xerces/util/NamespaceSupport;->getDeclaredPrefixAt(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNamespaceContext:Lmf/org/apache/xerces/util/NamespaceSupport;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNamespaceContext:Lmf/org/apache/xerces/util/NamespaceSupport;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/NamespaceSupport;->getURI(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v6, v2}, Lmf/org/apache/xerces/util/NamespaceSupport;->getURI(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v6
 
-    if-gtz v0, :cond_0
+    if-gtz v6, :cond_0
 
-    sget-object v2, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v4, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
     sget-object v1, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
 
-    sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
+    sget-object v5, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
 
     :goto_1
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    sget-object v6, Lmf/org/apache/xerces/xni/NamespaceContext;->XMLNS_URI:Ljava/lang/String;
+    sget-object v7, Lmf/org/apache/xerces/xni/NamespaceContext;->XMLNS_URI:Ljava/lang/String;
 
-    invoke-virtual {v5, v2, v1, v0, v6}, Lmf/org/apache/xerces/xni/QName;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v6, v4, v1, v5, v7}, Lmf/org/apache/xerces/xni/QName;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+    iget-object v7, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v8, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    sget-object v5, Lmf/org/apache/xerces/util/XMLSymbols;->fCDATASymbol:Ljava/lang/String;
+    sget-object v9, Lmf/org/apache/xerces/util/XMLSymbols;->fCDATASymbol:Ljava/lang/String;
 
     if-nez v3, :cond_1
 
-    sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v6, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
     :goto_2
-    invoke-virtual {v1, v2, v5, v0}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->addAttribute(Lmf/org/apache/xerces/xni/QName;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v7, v8, v9, v6}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->addAttribute(Lmf/org/apache/xerces/xni/QName;Ljava/lang/String;Ljava/lang/String;)I
 
-    add-int/lit8 v0, v4, 0x1
-
-    move v4, v0
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    sget-object v2, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
+    sget-object v4, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fStringBuffer:Lmf/org/apache/xerces/util/XMLStringBuffer;
-
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/XMLStringBuffer;->clear()V
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fStringBuffer:Lmf/org/apache/xerces/util/XMLStringBuffer;
-
-    invoke-virtual {v0, v2}, Lmf/org/apache/xerces/util/XMLStringBuffer;->append(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fStringBuffer:Lmf/org/apache/xerces/util/XMLStringBuffer;
-
-    const/16 v5, 0x3a
-
-    invoke-virtual {v0, v5}, Lmf/org/apache/xerces/util/XMLStringBuffer;->append(C)V
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fStringBuffer:Lmf/org/apache/xerces/util/XMLStringBuffer;
-
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/XMLStringBuffer;->append(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
-
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fStringBuffer:Lmf/org/apache/xerces/util/XMLStringBuffer;
-
-    iget-object v5, v5, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
+    move-object v1, v2
 
     iget-object v6, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fStringBuffer:Lmf/org/apache/xerces/util/XMLStringBuffer;
 
-    iget v6, v6, Lmf/org/apache/xerces/util/XMLStringBuffer;->offset:I
+    invoke-virtual {v6}, Lmf/org/apache/xerces/util/XMLStringBuffer;->clear()V
+
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fStringBuffer:Lmf/org/apache/xerces/util/XMLStringBuffer;
+
+    invoke-virtual {v6, v4}, Lmf/org/apache/xerces/util/XMLStringBuffer;->append(Ljava/lang/String;)V
+
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fStringBuffer:Lmf/org/apache/xerces/util/XMLStringBuffer;
+
+    const/16 v7, 0x3a
+
+    invoke-virtual {v6, v7}, Lmf/org/apache/xerces/util/XMLStringBuffer;->append(C)V
+
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fStringBuffer:Lmf/org/apache/xerces/util/XMLStringBuffer;
+
+    invoke-virtual {v6, v2}, Lmf/org/apache/xerces/util/XMLStringBuffer;->append(Ljava/lang/String;)V
+
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
     iget-object v7, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fStringBuffer:Lmf/org/apache/xerces/util/XMLStringBuffer;
 
-    iget v7, v7, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
+    iget-object v7, v7, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
 
-    invoke-virtual {v0, v5, v6, v7}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol([CII)Ljava/lang/String;
+    iget-object v8, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fStringBuffer:Lmf/org/apache/xerces/util/XMLStringBuffer;
 
-    move-result-object v0
+    iget v8, v8, Lmf/org/apache/xerces/util/XMLStringBuffer;->offset:I
+
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fStringBuffer:Lmf/org/apache/xerces/util/XMLStringBuffer;
+
+    iget v9, v9, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
+
+    invoke-virtual {v6, v7, v8, v9}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol([CII)Ljava/lang/String;
+
+    move-result-object v5
 
     goto :goto_1
 
     :cond_1
-    move-object v0, v3
+    move-object v6, v3
 
     goto :goto_2
 
@@ -200,7 +208,7 @@
 .end method
 
 .method static convertToSAXException(Lmf/org/apache/xerces/xni/XNIException;)V
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;
@@ -224,15 +232,15 @@
     throw v1
 
     :cond_0
-    new-instance v0, Lorg/xml/sax/SAXException;
+    new-instance v1, Lorg/xml/sax/SAXException;
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/xni/XNIException;->getMessage()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-direct {v0, v1}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v1
 
     :cond_1
     check-cast v0, Lorg/xml/sax/SAXException;
@@ -241,7 +249,7 @@
 .end method
 
 .method static convertToSAXParseException(Lmf/org/apache/xerces/xni/parser/XMLParseException;)V
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;
@@ -254,54 +262,54 @@
 
     if-eqz v0, :cond_0
 
-    instance-of v1, v0, Lorg/xml/sax/SAXException;
+    instance-of v2, v0, Lorg/xml/sax/SAXException;
 
-    if-nez v1, :cond_1
+    if-nez v2, :cond_1
 
-    new-instance v1, Lorg/xml/sax/SAXException;
+    new-instance v2, Lorg/xml/sax/SAXException;
 
-    invoke-direct {v1, v0}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/Exception;)V
+    invoke-direct {v2, v0}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/Exception;)V
 
-    throw v1
+    throw v2
 
     :cond_0
-    new-instance v0, Lorg/xml/sax/helpers/LocatorImpl;
+    new-instance v1, Lorg/xml/sax/helpers/LocatorImpl;
 
-    invoke-direct {v0}, Lorg/xml/sax/helpers/LocatorImpl;-><init>()V
+    invoke-direct {v1}, Lorg/xml/sax/helpers/LocatorImpl;-><init>()V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/xni/parser/XMLParseException;->getPublicId()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Lorg/xml/sax/helpers/LocatorImpl;->setPublicId(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lorg/xml/sax/helpers/LocatorImpl;->setPublicId(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/xni/parser/XMLParseException;->getExpandedSystemId()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Lorg/xml/sax/helpers/LocatorImpl;->setSystemId(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lorg/xml/sax/helpers/LocatorImpl;->setSystemId(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/xni/parser/XMLParseException;->getLineNumber()I
 
-    move-result v1
+    move-result v2
 
-    invoke-virtual {v0, v1}, Lorg/xml/sax/helpers/LocatorImpl;->setLineNumber(I)V
+    invoke-virtual {v1, v2}, Lorg/xml/sax/helpers/LocatorImpl;->setLineNumber(I)V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/xni/parser/XMLParseException;->getColumnNumber()I
 
-    move-result v1
+    move-result v2
 
-    invoke-virtual {v0, v1}, Lorg/xml/sax/helpers/LocatorImpl;->setColumnNumber(I)V
+    invoke-virtual {v1, v2}, Lorg/xml/sax/helpers/LocatorImpl;->setColumnNumber(I)V
 
-    new-instance v1, Lorg/xml/sax/SAXParseException;
+    new-instance v2, Lorg/xml/sax/SAXParseException;
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/xni/parser/XMLParseException;->getMessage()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-direct {v1, v2, v0}, Lorg/xml/sax/SAXParseException;-><init>(Ljava/lang/String;Lorg/xml/sax/Locator;)V
+    invoke-direct {v2, v3, v1}, Lorg/xml/sax/SAXParseException;-><init>(Ljava/lang/String;Lorg/xml/sax/Locator;)V
 
-    throw v1
+    throw v2
 
     :cond_1
     check-cast v0, Lorg/xml/sax/SAXException;
@@ -310,242 +318,214 @@
 .end method
 
 .method private fillQName(Lmf/org/apache/xerces/xni/QName;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 7
+    .locals 5
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    iget-boolean v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fStringsInternalized:Z
+    iget-boolean v3, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fStringsInternalized:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v3, :cond_2
 
-    if-nez p2, :cond_6
-
-    :goto_0
-    move-object v0, p2
+    if-nez p2, :cond_7
 
     :cond_0
-    if-eqz p3, :cond_7
-
-    move-object v1, p3
+    :goto_0
+    if-eqz p3, :cond_8
 
     :goto_1
-    if-eqz p4, :cond_8
+    if-eqz p4, :cond_9
 
     :goto_2
-    sget-object v2, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    const/16 v3, 0x3a
+    const/16 v2, 0x3a
 
-    invoke-virtual {p4, v3}, Ljava/lang/String;->indexOf(I)I
-
-    move-result v3
-
-    const/4 v4, -0x1
-
-    if-ne v3, v4, :cond_9
-
-    sget-object v3, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
-
-    if-eq v1, v3, :cond_b
-
-    move-object v6, v2
-
-    move-object v2, v1
-
-    move-object v1, v6
-
-    :goto_3
-    invoke-virtual {p1, v1, v2, p4, v0}, Lmf/org/apache/xerces/xni/QName;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    return-void
-
-    :cond_1
-    if-nez p2, :cond_3
-
-    :cond_2
-    :goto_4
-    if-nez p3, :cond_4
-
-    sget-object v1, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
-
-    :goto_5
-    if-nez p4, :cond_5
-
-    sget-object v2, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
-
-    :goto_6
-    move-object p4, v2
-
-    goto :goto_2
-
-    :cond_3
-    invoke-virtual {p2}, Ljava/lang/String;->length()I
+    invoke-virtual {p4, v2}, Ljava/lang/String;->indexOf(I)I
 
     move-result v1
 
-    if-lez v1, :cond_2
+    const/4 v2, -0x1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    if-ne v1, v2, :cond_a
 
-    invoke-virtual {v0, p2}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    sget-object v2, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    move-result-object v0
+    if-eq p3, v2, :cond_b
 
-    goto :goto_4
+    :cond_1
+    :goto_3
+    invoke-virtual {p1, v0, p3, p4, p2}, Lmf/org/apache/xerces/xni/QName;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+
+    :cond_2
+    if-nez p2, :cond_4
+
+    :cond_3
+    move-object p2, v2
+
+    :goto_4
+    if-nez p3, :cond_5
+
+    sget-object p3, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+
+    :goto_5
+    if-nez p4, :cond_6
+
+    sget-object p4, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+
+    :goto_6
+    goto :goto_2
 
     :cond_4
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    invoke-virtual {p2}, Ljava/lang/String;->length()I
 
-    invoke-virtual {v1, p3}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    move-result v3
 
-    move-result-object v1
+    if-lez v3, :cond_3
 
-    goto :goto_5
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+
+    invoke-virtual {v2, p2}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p2
+
+    goto :goto_4
 
     :cond_5
     iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
+    invoke-virtual {v2, p3}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p3
+
+    goto :goto_5
+
+    :cond_6
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+
     invoke-virtual {v2, p4}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p4
 
     goto :goto_6
 
-    :cond_6
+    :cond_7
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-nez v2, :cond_0
+
+    const/4 p2, 0x0
 
     goto :goto_0
 
-    :cond_7
-    sget-object v1, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    :cond_8
+    sget-object p3, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
     goto :goto_1
 
-    :cond_8
+    :cond_9
     sget-object p4, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
     goto :goto_2
 
-    :cond_9
+    :cond_a
     iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    invoke-virtual {p4, v5, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {p4, v4, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v2, v4}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    sget-object v4, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v2, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    if-eq v1, v4, :cond_a
+    if-ne p3, v2, :cond_1
 
-    move-object v6, v2
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    move-object v2, v1
-
-    move-object v1, v6
-
-    goto :goto_3
-
-    :cond_a
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
-
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v3, v1, 0x1
 
     invoke-virtual {p4, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v1, v3}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
-
-    move-object v6, v2
-
-    move-object v2, v1
-
-    move-object v1, v6
+    move-result-object p3
 
     goto :goto_3
 
     :cond_b
-    move-object v1, v2
-
-    move-object v2, p4
+    move-object p3, p4
 
     goto :goto_3
 .end method
 
 .method private fillXMLAttributes(Lorg/xml/sax/Attributes;)V
-    .locals 6
+    .locals 7
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->removeAllAttributes()V
+    invoke-virtual {v3}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->removeAllAttributes()V
 
     invoke-interface {p1}, Lorg/xml/sax/Attributes;->getLength()I
 
-    move-result v2
+    move-result v0
 
-    const/4 v0, 0x0
-
-    move v1, v0
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v1, v2, :cond_1
+    if-ge v1, v0, :cond_1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
     invoke-interface {p1, v1}, Lorg/xml/sax/Attributes;->getURI(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
     invoke-interface {p1, v1}, Lorg/xml/sax/Attributes;->getLocalName(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
     invoke-interface {p1, v1}, Lorg/xml/sax/Attributes;->getQName(I)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-direct {p0, v0, v3, v4, v5}, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fillQName(Lmf/org/apache/xerces/xni/QName;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {p0, v3, v4, v5, v6}, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fillQName(Lmf/org/apache/xerces/xni/QName;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-interface {p1, v1}, Lorg/xml/sax/Attributes;->getType(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
     iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
 
     iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
-    sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->fCDATASymbol:Ljava/lang/String;
+    sget-object v2, Lmf/org/apache/xerces/util/XMLSymbols;->fCDATASymbol:Ljava/lang/String;
 
     :cond_0
     invoke-interface {p1, v1}, Lorg/xml/sax/Attributes;->getValue(I)Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {v3, v4, v0, v5}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->addAttributeNS(Lmf/org/apache/xerces/xni/QName;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v3, v4, v2, v5}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->addAttributeNS(Lmf/org/apache/xerces/xni/QName;Ljava/lang/String;Ljava/lang/String;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-virtual {v0, v1, v3}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->setSpecified(IZ)V
+    invoke-virtual {v3, v1, v4}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->setSpecified(IZ)V
 
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
@@ -556,7 +536,7 @@
 
 # virtual methods
 .method public characters([CII)V
-    .locals 3
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;
@@ -564,17 +544,17 @@
     .end annotation
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
 
-    invoke-virtual {v0, p1, p2, p3}, Lmf/org/apache/xerces/xni/XMLString;->setValues([CII)V
+    invoke-virtual {v2, p1, p2, p3}, Lmf/org/apache/xerces/xni/XMLString;->setValues([CII)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSchemaDOMParser:Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSchemaDOMParser:Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;->characters(Lmf/org/apache/xerces/xni/XMLString;Lmf/org/apache/xerces/xni/Augmentations;)V
+    invoke-virtual {v2, v3, v4}, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;->characters(Lmf/org/apache/xerces/xni/XMLString;Lmf/org/apache/xerces/xni/Augmentations;)V
     :try_end_0
     .catch Lmf/org/apache/xerces/xni/parser/XMLParseException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Lmf/org/apache/xerces/xni/XNIException; {:try_start_0 .. :try_end_0} :catch_1
@@ -583,9 +563,9 @@
     return-void
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->convertToSAXParseException(Lmf/org/apache/xerces/xni/parser/XMLParseException;)V
+    invoke-static {v1}, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->convertToSAXParseException(Lmf/org/apache/xerces/xni/parser/XMLParseException;)V
 
     goto :goto_0
 
@@ -598,25 +578,25 @@
 .end method
 
 .method public endDocument()V
-    .locals 2
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;
         }
     .end annotation
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSAXLocatorWrapper:Lmf/org/apache/xerces/util/SAXLocatorWrapper;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSAXLocatorWrapper:Lmf/org/apache/xerces/util/SAXLocatorWrapper;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/SAXLocatorWrapper;->setLocator(Lorg/xml/sax/Locator;)V
+    invoke-virtual {v2, v3}, Lmf/org/apache/xerces/util/SAXLocatorWrapper;->setLocator(Lorg/xml/sax/Locator;)V
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSchemaDOMParser:Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSchemaDOMParser:Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;->endDocument(Lmf/org/apache/xerces/xni/Augmentations;)V
+    invoke-virtual {v2, v3}, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;->endDocument(Lmf/org/apache/xerces/xni/Augmentations;)V
     :try_end_0
     .catch Lmf/org/apache/xerces/xni/parser/XMLParseException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Lmf/org/apache/xerces/xni/XNIException; {:try_start_0 .. :try_end_0} :catch_1
@@ -625,9 +605,9 @@
     return-void
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->convertToSAXParseException(Lmf/org/apache/xerces/xni/parser/XMLParseException;)V
+    invoke-static {v1}, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->convertToSAXParseException(Lmf/org/apache/xerces/xni/parser/XMLParseException;)V
 
     goto :goto_0
 
@@ -640,71 +620,71 @@
 .end method
 
 .method public endElement(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 3
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;
         }
     .end annotation
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    invoke-direct {p0, v0, p1, p2, p3}, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fillQName(Lmf/org/apache/xerces/xni/QName;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {p0, v3, p1, p2, p3}, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fillQName(Lmf/org/apache/xerces/xni/QName;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSchemaDOMParser:Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSchemaDOMParser:Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    const/4 v2, 0x0
+    const/4 v5, 0x0
 
-    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;->endElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/Augmentations;)V
+    invoke-virtual {v3, v4, v5}, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;->endElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/Augmentations;)V
     :try_end_0
     .catch Lmf/org/apache/xerces/xni/parser/XMLParseException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Lmf/org/apache/xerces/xni/XNIException; {:try_start_0 .. :try_end_0} :catch_1
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNamespaceContext:Lmf/org/apache/xerces/util/NamespaceSupport;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNamespaceContext:Lmf/org/apache/xerces/util/NamespaceSupport;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/NamespaceSupport;->popContext()V
+    invoke-virtual {v3}, Lmf/org/apache/xerces/util/NamespaceSupport;->popContext()V
 
     :goto_0
     return-void
 
     :catch_0
-    move-exception v0
+    move-exception v2
 
     :try_start_1
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->convertToSAXParseException(Lmf/org/apache/xerces/xni/parser/XMLParseException;)V
+    invoke-static {v2}, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->convertToSAXParseException(Lmf/org/apache/xerces/xni/parser/XMLParseException;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNamespaceContext:Lmf/org/apache/xerces/util/NamespaceSupport;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNamespaceContext:Lmf/org/apache/xerces/util/NamespaceSupport;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/NamespaceSupport;->popContext()V
+    invoke-virtual {v3}, Lmf/org/apache/xerces/util/NamespaceSupport;->popContext()V
 
     goto :goto_0
 
     :catch_1
-    move-exception v0
+    move-exception v1
 
     :try_start_2
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->convertToSAXException(Lmf/org/apache/xerces/xni/XNIException;)V
+    invoke-static {v1}, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->convertToSAXException(Lmf/org/apache/xerces/xni/XNIException;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNamespaceContext:Lmf/org/apache/xerces/util/NamespaceSupport;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNamespaceContext:Lmf/org/apache/xerces/util/NamespaceSupport;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/NamespaceSupport;->popContext()V
+    invoke-virtual {v3}, Lmf/org/apache/xerces/util/NamespaceSupport;->popContext()V
 
     goto :goto_0
 
     :catchall_0
     move-exception v0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNamespaceContext:Lmf/org/apache/xerces/util/NamespaceSupport;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNamespaceContext:Lmf/org/apache/xerces/util/NamespaceSupport;
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/util/NamespaceSupport;->popContext()V
+    invoke-virtual {v3}, Lmf/org/apache/xerces/util/NamespaceSupport;->popContext()V
 
     throw v0
 .end method
@@ -733,7 +713,7 @@
 .end method
 
 .method public ignorableWhitespace([CII)V
-    .locals 3
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;
@@ -741,17 +721,17 @@
     .end annotation
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
 
-    invoke-virtual {v0, p1, p2, p3}, Lmf/org/apache/xerces/xni/XMLString;->setValues([CII)V
+    invoke-virtual {v2, p1, p2, p3}, Lmf/org/apache/xerces/xni/XMLString;->setValues([CII)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSchemaDOMParser:Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSchemaDOMParser:Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;->ignorableWhitespace(Lmf/org/apache/xerces/xni/XMLString;Lmf/org/apache/xerces/xni/Augmentations;)V
+    invoke-virtual {v2, v3, v4}, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;->ignorableWhitespace(Lmf/org/apache/xerces/xni/XMLString;Lmf/org/apache/xerces/xni/Augmentations;)V
     :try_end_0
     .catch Lmf/org/apache/xerces/xni/parser/XMLParseException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Lmf/org/apache/xerces/xni/XNIException; {:try_start_0 .. :try_end_0} :catch_1
@@ -760,9 +740,9 @@
     return-void
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->convertToSAXParseException(Lmf/org/apache/xerces/xni/parser/XMLParseException;)V
+    invoke-static {v1}, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->convertToSAXParseException(Lmf/org/apache/xerces/xni/parser/XMLParseException;)V
 
     goto :goto_0
 
@@ -775,7 +755,7 @@
 .end method
 
 .method public processingInstruction(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 4
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;
@@ -783,27 +763,27 @@
     .end annotation
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
 
     invoke-virtual {p2}, Ljava/lang/String;->toCharArray()[C
 
-    move-result-object v1
-
-    const/4 v2, 0x0
+    move-result-object v3
 
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
-    move-result v3
+    move-result v4
 
-    invoke-virtual {v0, v1, v2, v3}, Lmf/org/apache/xerces/xni/XMLString;->setValues([CII)V
+    const/4 v5, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSchemaDOMParser:Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;
+    invoke-virtual {v2, v3, v5, v4}, Lmf/org/apache/xerces/xni/XMLString;->setValues([CII)V
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSchemaDOMParser:Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;
 
-    const/4 v2, 0x0
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
 
-    invoke-virtual {v0, p1, v1, v2}, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;->processingInstruction(Ljava/lang/String;Lmf/org/apache/xerces/xni/XMLString;Lmf/org/apache/xerces/xni/Augmentations;)V
+    const/4 v4, 0x0
+
+    invoke-virtual {v2, p1, v3, v4}, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;->processingInstruction(Ljava/lang/String;Lmf/org/apache/xerces/xni/XMLString;Lmf/org/apache/xerces/xni/Augmentations;)V
     :try_end_0
     .catch Lmf/org/apache/xerces/xni/parser/XMLParseException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Lmf/org/apache/xerces/xni/XNIException; {:try_start_0 .. :try_end_0} :catch_1
@@ -812,9 +792,9 @@
     return-void
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->convertToSAXParseException(Lmf/org/apache/xerces/xni/parser/XMLParseException;)V
+    invoke-static {v1}, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->convertToSAXParseException(Lmf/org/apache/xerces/xni/parser/XMLParseException;)V
 
     goto :goto_0
 
@@ -862,33 +842,33 @@
 .end method
 
 .method public startDocument()V
-    .locals 5
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;
         }
     .end annotation
 
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    iput-boolean v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNeedPushNSContext:Z
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNamespaceContext:Lmf/org/apache/xerces/util/NamespaceSupport;
-
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/NamespaceSupport;->reset()V
-
-    :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSchemaDOMParser:Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;
-
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSAXLocatorWrapper:Lmf/org/apache/xerces/util/SAXLocatorWrapper;
+    iput-boolean v2, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNeedPushNSContext:Z
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNamespaceContext:Lmf/org/apache/xerces/util/NamespaceSupport;
 
-    const/4 v3, 0x0
+    invoke-virtual {v2}, Lmf/org/apache/xerces/util/NamespaceSupport;->reset()V
 
-    const/4 v4, 0x0
+    :try_start_0
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSchemaDOMParser:Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;
 
-    invoke-virtual {v0, v1, v3, v2, v4}, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;->startDocument(Lmf/org/apache/xerces/xni/XMLLocator;Ljava/lang/String;Lmf/org/apache/xerces/xni/NamespaceContext;Lmf/org/apache/xerces/xni/Augmentations;)V
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSAXLocatorWrapper:Lmf/org/apache/xerces/util/SAXLocatorWrapper;
+
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNamespaceContext:Lmf/org/apache/xerces/util/NamespaceSupport;
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v2, v3, v5, v4, v6}, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;->startDocument(Lmf/org/apache/xerces/xni/XMLLocator;Ljava/lang/String;Lmf/org/apache/xerces/xni/NamespaceContext;Lmf/org/apache/xerces/xni/Augmentations;)V
     :try_end_0
     .catch Lmf/org/apache/xerces/xni/parser/XMLParseException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Lmf/org/apache/xerces/xni/XNIException; {:try_start_0 .. :try_end_0} :catch_1
@@ -897,9 +877,9 @@
     return-void
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->convertToSAXParseException(Lmf/org/apache/xerces/xni/parser/XMLParseException;)V
+    invoke-static {v1}, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->convertToSAXParseException(Lmf/org/apache/xerces/xni/parser/XMLParseException;)V
 
     goto :goto_0
 
@@ -912,44 +892,44 @@
 .end method
 
 .method public startElement(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V
-    .locals 4
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;
         }
     .end annotation
 
-    iget-boolean v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNeedPushNSContext:Z
+    iget-boolean v3, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNeedPushNSContext:Z
 
-    if-nez v0, :cond_1
+    if-nez v3, :cond_1
 
     :goto_0
-    const/4 v0, 0x1
+    const/4 v3, 0x1
 
-    iput-boolean v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNeedPushNSContext:Z
+    iput-boolean v3, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNeedPushNSContext:Z
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    invoke-direct {p0, v0, p1, p2, p3}, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fillQName(Lmf/org/apache/xerces/xni/QName;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {p0, v3, p1, p2, p3}, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fillQName(Lmf/org/apache/xerces/xni/QName;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-direct {p0, p4}, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fillXMLAttributes(Lorg/xml/sax/Attributes;)V
 
-    iget-boolean v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNamespacePrefixes:Z
+    iget-boolean v3, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNamespacePrefixes:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v3, :cond_2
 
     :cond_0
     :goto_1
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSchemaDOMParser:Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSchemaDOMParser:Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
 
-    const/4 v3, 0x0
+    const/4 v6, 0x0
 
-    invoke-virtual {v0, v1, v2, v3}, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;->startElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;)V
+    invoke-virtual {v3, v4, v5, v6}, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser;->startElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;)V
     :try_end_0
     .catch Lmf/org/apache/xerces/xni/parser/XMLParseException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Lmf/org/apache/xerces/xni/XNIException; {:try_start_0 .. :try_end_0} :catch_1
@@ -958,29 +938,29 @@
     return-void
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNamespaceContext:Lmf/org/apache/xerces/util/NamespaceSupport;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNamespaceContext:Lmf/org/apache/xerces/util/NamespaceSupport;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/NamespaceSupport;->pushContext()V
+    invoke-virtual {v3}, Lmf/org/apache/xerces/util/NamespaceSupport;->pushContext()V
 
     goto :goto_0
 
     :cond_2
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNamespaceContext:Lmf/org/apache/xerces/util/NamespaceSupport;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNamespaceContext:Lmf/org/apache/xerces/util/NamespaceSupport;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/NamespaceSupport;->getDeclaredPrefixCount()I
+    invoke-virtual {v3}, Lmf/org/apache/xerces/util/NamespaceSupport;->getDeclaredPrefixCount()I
 
-    move-result v0
+    move-result v2
 
-    if-lez v0, :cond_0
+    if-lez v2, :cond_0
 
-    invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->addNamespaceDeclarations(I)V
+    invoke-direct {p0, v2}, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->addNamespaceDeclarations(I)V
 
     goto :goto_1
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->convertToSAXParseException(Lmf/org/apache/xerces/xni/parser/XMLParseException;)V
+    invoke-static {v1}, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->convertToSAXParseException(Lmf/org/apache/xerces/xni/parser/XMLParseException;)V
 
     goto :goto_2
 
@@ -1000,94 +980,92 @@
         }
     .end annotation
 
+    const/4 v0, 0x0
+
     const/4 v2, 0x0
 
-    const/4 v1, 0x0
+    iget-boolean v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNeedPushNSContext:Z
 
-    iget-boolean v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNeedPushNSContext:Z
-
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     :goto_0
-    iget-boolean v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fStringsInternalized:Z
+    iget-boolean v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fStringsInternalized:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
     if-eqz p1, :cond_6
-
-    move-object v0, p1
 
     :goto_1
     if-nez p2, :cond_7
 
     :cond_0
     :goto_2
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNamespaceContext:Lmf/org/apache/xerces/util/NamespaceSupport;
+    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNamespaceContext:Lmf/org/apache/xerces/util/NamespaceSupport;
 
-    invoke-virtual {v1, v0, p2}, Lmf/org/apache/xerces/util/NamespaceSupport;->declarePrefix(Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-virtual {v0, p1, p2}, Lmf/org/apache/xerces/util/NamespaceSupport;->declarePrefix(Ljava/lang/String;Ljava/lang/String;)Z
 
     return-void
 
     :cond_1
     iput-boolean v2, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNeedPushNSContext:Z
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNamespaceContext:Lmf/org/apache/xerces/util/NamespaceSupport;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fNamespaceContext:Lmf/org/apache/xerces/util/NamespaceSupport;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/NamespaceSupport;->pushContext()V
+    invoke-virtual {v1}, Lmf/org/apache/xerces/util/NamespaceSupport;->pushContext()V
 
     goto :goto_0
 
     :cond_2
     if-nez p1, :cond_4
 
-    sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object p1, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
     :goto_3
     if-nez p2, :cond_5
 
     :cond_3
-    :goto_4
-    move-object p2, v1
+    move-object p2, v0
 
+    :goto_4
     goto :goto_2
 
     :cond_4
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    invoke-virtual {v0, p1}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, p1}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
     goto :goto_3
 
     :cond_5
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
-    move-result v2
+    move-result v1
 
-    if-lez v2, :cond_3
+    if-lez v1, :cond_3
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/SchemaContentHandler;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    invoke-virtual {v1, p2}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, p2}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
     goto :goto_4
 
     :cond_6
-    sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object p1, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
     goto :goto_1
 
     :cond_7
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
-    move-result v2
+    move-result v0
 
-    if-nez v2, :cond_0
+    if-nez v0, :cond_0
 
-    move-object p2, v1
+    const/4 p2, 0x0
 
     goto :goto_2
 .end method

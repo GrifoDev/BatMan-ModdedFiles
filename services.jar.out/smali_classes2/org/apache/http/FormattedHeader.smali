@@ -6,11 +6,6 @@
 .implements Lorg/apache/http/Header;
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract getBuffer()Lorg/apache/http/util/CharArrayBuffer;
 .end method

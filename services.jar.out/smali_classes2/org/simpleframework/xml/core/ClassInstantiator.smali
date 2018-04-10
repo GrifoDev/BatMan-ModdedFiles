@@ -56,74 +56,53 @@
 .end method
 
 .method private getCreator(Lorg/simpleframework/xml/core/Criteria;)Lorg/simpleframework/xml/core/Creator;
-    .locals 10
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    iget-object v2, p0, Lorg/simpleframework/xml/core/ClassInstantiator;->primary:Lorg/simpleframework/xml/core/Creator;
+    iget-object v4, p0, Lorg/simpleframework/xml/core/ClassInstantiator;->primary:Lorg/simpleframework/xml/core/Creator;
 
-    const-wide/16 v0, 0x0
+    const-wide/16 v2, 0x0
 
-    iget-object v3, p0, Lorg/simpleframework/xml/core/ClassInstantiator;->creators:Ljava/util/List;
+    iget-object v5, p0, Lorg/simpleframework/xml/core/ClassInstantiator;->creators:Ljava/util/List;
 
-    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v6
-
-    move-wide v8, v0
-
-    move-object v1, v2
-
-    move-wide v2, v8
-
-    :goto_0
-    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    return-object v1
-
-    :cond_0
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v5}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    check-cast v0, Lorg/simpleframework/xml/core/Creator;
+    :cond_0
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    invoke-interface {v0, p1}, Lorg/simpleframework/xml/core/Creator;->getScore(Lorg/simpleframework/xml/core/Criteria;)D
+    move-result v5
 
-    move-result-wide v4
+    if-nez v5, :cond_1
 
-    cmpl-double v7, v4, v2
-
-    if-lez v7, :cond_1
-
-    move-object v2, v0
-
-    move-wide v0, v4
-
-    :goto_1
-    move-wide v8, v0
-
-    move-object v1, v2
-
-    move-wide v2, v8
-
-    goto :goto_0
+    return-object v4
 
     :cond_1
-    move-wide v8, v2
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-object v2, v1
+    move-result-object v1
 
-    move-wide v0, v8
+    check-cast v1, Lorg/simpleframework/xml/core/Creator;
 
-    goto :goto_1
+    invoke-interface {v1, p1}, Lorg/simpleframework/xml/core/Creator;->getScore(Lorg/simpleframework/xml/core/Criteria;)D
+
+    move-result-wide v6
+
+    cmpl-double v5, v6, v2
+
+    if-lez v5, :cond_0
+
+    move-object v4, v1
+
+    move-wide v2, v6
+
+    goto :goto_0
 .end method
 
 
@@ -182,28 +161,28 @@
 
     invoke-interface {v0, p1}, Lorg/simpleframework/xml/core/Creator;->getInstance(Lorg/simpleframework/xml/core/Criteria;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    new-instance v0, Lorg/simpleframework/xml/core/PersistenceException;
-
-    const-string/jumbo v1, "Constructor not matched for %s"
+    new-instance v1, Lorg/simpleframework/xml/core/PersistenceException;
 
     const/4 v2, 0x1
 
     new-array v2, v2, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    iget-object v3, p0, Lorg/simpleframework/xml/core/ClassInstantiator;->detail:Lorg/simpleframework/xml/core/Detail;
 
-    iget-object v4, p0, Lorg/simpleframework/xml/core/ClassInstantiator;->detail:Lorg/simpleframework/xml/core/Detail;
+    const/4 v4, 0x0
 
-    aput-object v4, v2, v3
+    aput-object v3, v2, v4
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/core/PersistenceException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v3, "Constructor not matched for %s"
 
-    throw v0
+    invoke-direct {v1, v3, v2}, Lorg/simpleframework/xml/core/PersistenceException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v1
 .end method
 
 .method public getParameter(Ljava/lang/String;)Lorg/simpleframework/xml/core/Parameter;
@@ -242,52 +221,52 @@
 .end method
 
 .method public isDefault()Z
-    .locals 3
+    .locals 4
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    iget-object v2, p0, Lorg/simpleframework/xml/core/ClassInstantiator;->creators:Ljava/util/List;
+    iget-object v3, p0, Lorg/simpleframework/xml/core/ClassInstantiator;->creators:Ljava/util/List;
 
-    invoke-interface {v2}, Ljava/util/List;->size()I
+    invoke-interface {v3}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result v0
 
-    if-le v2, v1, :cond_0
+    if-le v0, v2, :cond_0
 
-    return v0
+    return v1
 
     :cond_0
-    iget-object v2, p0, Lorg/simpleframework/xml/core/ClassInstantiator;->primary:Lorg/simpleframework/xml/core/Creator;
+    iget-object v3, p0, Lorg/simpleframework/xml/core/ClassInstantiator;->primary:Lorg/simpleframework/xml/core/Creator;
 
-    if-nez v2, :cond_1
+    if-nez v3, :cond_1
 
     :goto_0
-    return v0
+    return v1
 
     :cond_1
-    move v0, v1
+    move v1, v2
 
     goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .locals 3
 
-    const-string/jumbo v0, "creator for %s"
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
+    new-array v0, v0, [Ljava/lang/Object;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/ClassInstantiator;->detail:Lorg/simpleframework/xml/core/Detail;
 
     const/4 v2, 0x0
 
-    iget-object v3, p0, Lorg/simpleframework/xml/core/ClassInstantiator;->detail:Lorg/simpleframework/xml/core/Detail;
+    aput-object v1, v0, v2
 
-    aput-object v3, v1, v2
+    const-string/jumbo v1, "creator for %s"
 
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 

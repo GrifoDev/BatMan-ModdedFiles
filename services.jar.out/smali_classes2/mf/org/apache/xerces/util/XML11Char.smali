@@ -53,19 +53,19 @@
 
     sget-object v0, Lmf/org/apache/xerces/util/XML11Char;->XML11CHARS:[B
 
-    const/16 v1, 0x9
+    const/16 v1, 0x23
 
-    const/16 v2, 0x23
+    const/16 v2, 0x9
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     sget-object v0, Lmf/org/apache/xerces/util/XML11Char;->XML11CHARS:[B
 
-    const/16 v1, 0xa
+    const/4 v1, 0x3
 
-    const/4 v2, 0x3
+    const/16 v2, 0xa
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     sget-object v0, Lmf/org/apache/xerces/util/XML11Char;->XML11CHARS:[B
 
@@ -77,11 +77,11 @@
 
     sget-object v0, Lmf/org/apache/xerces/util/XML11Char;->XML11CHARS:[B
 
-    const/16 v1, 0xd
+    const/4 v1, 0x3
 
-    const/4 v2, 0x3
+    const/16 v2, 0xd
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     sget-object v0, Lmf/org/apache/xerces/util/XML11Char;->XML11CHARS:[B
 
@@ -93,11 +93,11 @@
 
     sget-object v0, Lmf/org/apache/xerces/util/XML11Char;->XML11CHARS:[B
 
-    const/16 v1, 0x20
+    const/16 v1, 0x23
 
-    const/16 v2, 0x23
+    const/16 v2, 0x20
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     sget-object v0, Lmf/org/apache/xerces/util/XML11Char;->XML11CHARS:[B
 
@@ -143,11 +143,11 @@
 
     sget-object v0, Lmf/org/apache/xerces/util/XML11Char;->XML11CHARS:[B
 
-    const/16 v1, 0x3a
+    const/16 v1, 0x2d
 
-    const/16 v2, 0x2d
+    const/16 v2, 0x3a
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     sget-object v0, Lmf/org/apache/xerces/util/XML11Char;->XML11CHARS:[B
 
@@ -235,11 +235,11 @@
 
     sget-object v0, Lmf/org/apache/xerces/util/XML11Char;->XML11CHARS:[B
 
-    const/16 v1, 0x85
+    const/16 v1, 0x23
 
-    const/16 v2, 0x23
+    const/16 v2, 0x85
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     sget-object v0, Lmf/org/apache/xerces/util/XML11Char;->XML11CHARS:[B
 
@@ -363,11 +363,11 @@
 
     sget-object v0, Lmf/org/apache/xerces/util/XML11Char;->XML11CHARS:[B
 
-    const/16 v1, 0x2028
+    const/16 v1, 0x23
 
-    const/16 v2, 0x23
+    const/16 v2, 0x2028
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     sget-object v0, Lmf/org/apache/xerces/util/XML11Char;->XML11CHARS:[B
 
@@ -848,344 +848,344 @@
 .method public static isXML11ValidNCName(Ljava/lang/String;)Z
     .locals 7
 
-    const/4 v1, 0x1
+    const/4 v6, 0x1
 
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
-    invoke-virtual {p0, v6}, Ljava/lang/String;->charAt(I)C
+    const/4 v2, 0x1
+
+    invoke-virtual {p0, v5}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
     invoke-static {v0}, Lmf/org/apache/xerces/util/XML11Char;->isXML11NCNameStart(I)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_1
-
-    move v0, v1
+    if-eqz v4, :cond_1
 
     :goto_0
-    if-ge v0, v2, :cond_b
+    if-ge v2, v3, :cond_b
 
-    invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
 
-    move-result v3
+    move-result v0
 
-    invoke-static {v3}, Lmf/org/apache/xerces/util/XML11Char;->isXML11NCName(I)Z
+    invoke-static {v0}, Lmf/org/apache/xerces/util/XML11Char;->isXML11NCName(I)Z
 
     move-result v4
 
     if-eqz v4, :cond_6
 
     :goto_1
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_0
-    return v6
+    return v5
 
     :cond_1
-    if-gt v2, v1, :cond_3
+    if-gt v3, v6, :cond_3
 
     :cond_2
-    return v6
+    return v5
 
     :cond_3
     invoke-static {v0}, Lmf/org/apache/xerces/util/XML11Char;->isXML11NameHighSurrogate(I)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_2
+    if-eqz v4, :cond_2
 
-    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, v6}, Ljava/lang/String;->charAt(I)C
 
-    move-result v3
+    move-result v1
 
-    invoke-static {v3}, Lmf/org/apache/xerces/util/XMLChar;->isLowSurrogate(I)Z
+    invoke-static {v1}, Lmf/org/apache/xerces/util/XMLChar;->isLowSurrogate(I)Z
 
     move-result v4
 
     if-nez v4, :cond_5
 
     :cond_4
-    return v6
+    return v5
 
     :cond_5
-    invoke-static {v0, v3}, Lmf/org/apache/xerces/util/XMLChar;->supplemental(CC)I
+    invoke-static {v0, v1}, Lmf/org/apache/xerces/util/XMLChar;->supplemental(CC)I
 
-    move-result v0
+    move-result v4
 
-    invoke-static {v0}, Lmf/org/apache/xerces/util/XML11Char;->isXML11NCNameStart(I)Z
+    invoke-static {v4}, Lmf/org/apache/xerces/util/XML11Char;->isXML11NCNameStart(I)Z
 
-    move-result v0
+    move-result v4
 
-    if-eqz v0, :cond_4
+    if-eqz v4, :cond_4
 
-    const/4 v0, 0x2
+    const/4 v2, 0x2
 
     goto :goto_0
 
     :cond_6
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    if-lt v0, v2, :cond_8
+    if-lt v2, v3, :cond_8
 
     :cond_7
-    return v6
+    return v5
 
     :cond_8
-    invoke-static {v3}, Lmf/org/apache/xerces/util/XML11Char;->isXML11NameHighSurrogate(I)Z
+    invoke-static {v0}, Lmf/org/apache/xerces/util/XML11Char;->isXML11NameHighSurrogate(I)Z
 
     move-result v4
 
     if-eqz v4, :cond_7
 
-    invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
+
+    move-result v1
+
+    invoke-static {v1}, Lmf/org/apache/xerces/util/XMLChar;->isLowSurrogate(I)Z
 
     move-result v4
 
-    invoke-static {v4}, Lmf/org/apache/xerces/util/XMLChar;->isLowSurrogate(I)Z
-
-    move-result v5
-
-    if-nez v5, :cond_a
+    if-nez v4, :cond_a
 
     :cond_9
-    return v6
+    return v5
 
     :cond_a
-    invoke-static {v3, v4}, Lmf/org/apache/xerces/util/XMLChar;->supplemental(CC)I
+    invoke-static {v0, v1}, Lmf/org/apache/xerces/util/XMLChar;->supplemental(CC)I
 
-    move-result v3
+    move-result v4
 
-    invoke-static {v3}, Lmf/org/apache/xerces/util/XML11Char;->isXML11NCName(I)Z
+    invoke-static {v4}, Lmf/org/apache/xerces/util/XML11Char;->isXML11NCName(I)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_9
+    if-eqz v4, :cond_9
 
     goto :goto_1
 
     :cond_b
-    return v1
+    return v6
 .end method
 
 .method public static isXML11ValidName(Ljava/lang/String;)Z
     .locals 7
 
-    const/4 v1, 0x1
+    const/4 v6, 0x1
 
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
-    invoke-virtual {p0, v6}, Ljava/lang/String;->charAt(I)C
+    const/4 v2, 0x1
+
+    invoke-virtual {p0, v5}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
     invoke-static {v0}, Lmf/org/apache/xerces/util/XML11Char;->isXML11NameStart(I)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_1
-
-    move v0, v1
+    if-eqz v4, :cond_1
 
     :goto_0
-    if-ge v0, v2, :cond_b
+    if-ge v2, v3, :cond_b
 
-    invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
 
-    move-result v3
+    move-result v0
 
-    invoke-static {v3}, Lmf/org/apache/xerces/util/XML11Char;->isXML11Name(I)Z
+    invoke-static {v0}, Lmf/org/apache/xerces/util/XML11Char;->isXML11Name(I)Z
 
     move-result v4
 
     if-eqz v4, :cond_6
 
     :goto_1
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_0
-    return v6
+    return v5
 
     :cond_1
-    if-gt v2, v1, :cond_3
+    if-gt v3, v6, :cond_3
 
     :cond_2
-    return v6
+    return v5
 
     :cond_3
     invoke-static {v0}, Lmf/org/apache/xerces/util/XML11Char;->isXML11NameHighSurrogate(I)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_2
+    if-eqz v4, :cond_2
 
-    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, v6}, Ljava/lang/String;->charAt(I)C
 
-    move-result v3
+    move-result v1
 
-    invoke-static {v3}, Lmf/org/apache/xerces/util/XMLChar;->isLowSurrogate(I)Z
+    invoke-static {v1}, Lmf/org/apache/xerces/util/XMLChar;->isLowSurrogate(I)Z
 
     move-result v4
 
     if-nez v4, :cond_5
 
     :cond_4
-    return v6
+    return v5
 
     :cond_5
-    invoke-static {v0, v3}, Lmf/org/apache/xerces/util/XMLChar;->supplemental(CC)I
+    invoke-static {v0, v1}, Lmf/org/apache/xerces/util/XMLChar;->supplemental(CC)I
 
-    move-result v0
+    move-result v4
 
-    invoke-static {v0}, Lmf/org/apache/xerces/util/XML11Char;->isXML11NameStart(I)Z
+    invoke-static {v4}, Lmf/org/apache/xerces/util/XML11Char;->isXML11NameStart(I)Z
 
-    move-result v0
+    move-result v4
 
-    if-eqz v0, :cond_4
+    if-eqz v4, :cond_4
 
-    const/4 v0, 0x2
+    const/4 v2, 0x2
 
     goto :goto_0
 
     :cond_6
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    if-lt v0, v2, :cond_8
+    if-lt v2, v3, :cond_8
 
     :cond_7
-    return v6
+    return v5
 
     :cond_8
-    invoke-static {v3}, Lmf/org/apache/xerces/util/XML11Char;->isXML11NameHighSurrogate(I)Z
+    invoke-static {v0}, Lmf/org/apache/xerces/util/XML11Char;->isXML11NameHighSurrogate(I)Z
 
     move-result v4
 
     if-eqz v4, :cond_7
 
-    invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
+
+    move-result v1
+
+    invoke-static {v1}, Lmf/org/apache/xerces/util/XMLChar;->isLowSurrogate(I)Z
 
     move-result v4
 
-    invoke-static {v4}, Lmf/org/apache/xerces/util/XMLChar;->isLowSurrogate(I)Z
-
-    move-result v5
-
-    if-nez v5, :cond_a
+    if-nez v4, :cond_a
 
     :cond_9
-    return v6
+    return v5
 
     :cond_a
-    invoke-static {v3, v4}, Lmf/org/apache/xerces/util/XMLChar;->supplemental(CC)I
+    invoke-static {v0, v1}, Lmf/org/apache/xerces/util/XMLChar;->supplemental(CC)I
 
-    move-result v3
+    move-result v4
 
-    invoke-static {v3}, Lmf/org/apache/xerces/util/XML11Char;->isXML11Name(I)Z
+    invoke-static {v4}, Lmf/org/apache/xerces/util/XML11Char;->isXML11Name(I)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_9
+    if-eqz v4, :cond_9
 
     goto :goto_1
 
     :cond_b
-    return v1
+    return v6
 .end method
 
 .method public static isXML11ValidNmtoken(Ljava/lang/String;)Z
     .locals 6
 
-    const/4 v1, 0x0
+    const/4 v5, 0x0
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    move v0, v1
-
-    :goto_0
-    if-ge v0, v2, :cond_6
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
-
     move-result v3
 
-    invoke-static {v3}, Lmf/org/apache/xerces/util/XML11Char;->isXML11Name(I)Z
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x0
+
+    :goto_0
+    if-ge v2, v3, :cond_6
+
+    invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
+
+    move-result v0
+
+    invoke-static {v0}, Lmf/org/apache/xerces/util/XML11Char;->isXML11Name(I)Z
 
     move-result v4
 
     if-eqz v4, :cond_1
 
     :goto_1
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_0
-    return v1
+    return v5
 
     :cond_1
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    if-lt v0, v2, :cond_3
+    if-lt v2, v3, :cond_3
 
     :cond_2
-    return v1
+    return v5
 
     :cond_3
-    invoke-static {v3}, Lmf/org/apache/xerces/util/XML11Char;->isXML11NameHighSurrogate(I)Z
+    invoke-static {v0}, Lmf/org/apache/xerces/util/XML11Char;->isXML11NameHighSurrogate(I)Z
 
     move-result v4
 
     if-eqz v4, :cond_2
 
-    invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
+
+    move-result v1
+
+    invoke-static {v1}, Lmf/org/apache/xerces/util/XMLChar;->isLowSurrogate(I)Z
 
     move-result v4
 
-    invoke-static {v4}, Lmf/org/apache/xerces/util/XMLChar;->isLowSurrogate(I)Z
-
-    move-result v5
-
-    if-nez v5, :cond_5
+    if-nez v4, :cond_5
 
     :cond_4
-    return v1
+    return v5
 
     :cond_5
-    invoke-static {v3, v4}, Lmf/org/apache/xerces/util/XMLChar;->supplemental(CC)I
+    invoke-static {v0, v1}, Lmf/org/apache/xerces/util/XMLChar;->supplemental(CC)I
 
-    move-result v3
+    move-result v4
 
-    invoke-static {v3}, Lmf/org/apache/xerces/util/XML11Char;->isXML11Name(I)Z
+    invoke-static {v4}, Lmf/org/apache/xerces/util/XML11Char;->isXML11Name(I)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_4
+    if-eqz v4, :cond_4
 
     goto :goto_1
 
     :cond_6
-    const/4 v0, 0x1
+    const/4 v4, 0x1
 
-    return v0
+    return v4
 .end method

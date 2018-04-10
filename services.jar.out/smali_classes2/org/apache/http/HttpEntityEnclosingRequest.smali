@@ -6,11 +6,6 @@
 .implements Lorg/apache/http/HttpRequest;
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract expectContinue()Z
 .end method

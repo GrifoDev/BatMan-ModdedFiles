@@ -105,35 +105,35 @@
 .method public toString()Ljava/lang/String;
     .locals 3
 
-    new-instance v1, Ljava/lang/StringBuffer;
+    new-instance v0, Ljava/lang/StringBuffer;
 
-    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     :goto_0
     iget v2, p0, Lmf/org/apache/xerces/util/NamespaceSupport$Prefixes;->size:I
 
-    if-ge v0, v2, :cond_0
+    if-ge v1, v2, :cond_0
 
     iget-object v2, p0, Lmf/org/apache/xerces/util/NamespaceSupport$Prefixes;->prefixes:[Ljava/lang/String;
 
-    aget-object v2, v2, v0
+    aget-object v2, v2, v1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     const/16 v2, 0x20
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 .end method

@@ -51,111 +51,111 @@
 .method public addSymbol(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
 
-    iget-object v1, p0, Lmf/org/apache/xerces/util/SynchronizedSymbolTable;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
-
-    monitor-enter v1
-
-    :try_start_0
     iget-object v0, p0, Lmf/org/apache/xerces/util/SynchronizedSymbolTable;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    invoke-virtual {v0, p1}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    monitor-enter v0
 
-    move-result-object v0
+    :try_start_0
+    iget-object v1, p0, Lmf/org/apache/xerces/util/SynchronizedSymbolTable;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    monitor-exit v1
+    invoke-virtual {v1, p1}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
 
-    return-object v0
+    move-result-object v1
+
+    monitor-exit v0
+
+    return-object v1
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v1
 .end method
 
 .method public addSymbol([CII)Ljava/lang/String;
     .locals 2
 
-    iget-object v1, p0, Lmf/org/apache/xerces/util/SynchronizedSymbolTable;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
-
-    monitor-enter v1
-
-    :try_start_0
     iget-object v0, p0, Lmf/org/apache/xerces/util/SynchronizedSymbolTable;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    invoke-virtual {v0, p1, p2, p3}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol([CII)Ljava/lang/String;
+    monitor-enter v0
 
-    move-result-object v0
+    :try_start_0
+    iget-object v1, p0, Lmf/org/apache/xerces/util/SynchronizedSymbolTable;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    monitor-exit v1
+    invoke-virtual {v1, p1, p2, p3}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol([CII)Ljava/lang/String;
 
-    return-object v0
+    move-result-object v1
+
+    monitor-exit v0
+
+    return-object v1
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v1
 .end method
 
 .method public containsSymbol(Ljava/lang/String;)Z
     .locals 2
 
-    iget-object v1, p0, Lmf/org/apache/xerces/util/SynchronizedSymbolTable;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
-
-    monitor-enter v1
-
-    :try_start_0
     iget-object v0, p0, Lmf/org/apache/xerces/util/SynchronizedSymbolTable;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    invoke-virtual {v0, p1}, Lmf/org/apache/xerces/util/SymbolTable;->containsSymbol(Ljava/lang/String;)Z
+    monitor-enter v0
 
-    move-result v0
+    :try_start_0
+    iget-object v1, p0, Lmf/org/apache/xerces/util/SynchronizedSymbolTable;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    monitor-exit v1
+    invoke-virtual {v1, p1}, Lmf/org/apache/xerces/util/SymbolTable;->containsSymbol(Ljava/lang/String;)Z
 
-    return v0
+    move-result v1
+
+    monitor-exit v0
+
+    return v1
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v1
 .end method
 
 .method public containsSymbol([CII)Z
     .locals 2
 
-    iget-object v1, p0, Lmf/org/apache/xerces/util/SynchronizedSymbolTable;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
-
-    monitor-enter v1
-
-    :try_start_0
     iget-object v0, p0, Lmf/org/apache/xerces/util/SynchronizedSymbolTable;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    invoke-virtual {v0, p1, p2, p3}, Lmf/org/apache/xerces/util/SymbolTable;->containsSymbol([CII)Z
+    monitor-enter v0
 
-    move-result v0
+    :try_start_0
+    iget-object v1, p0, Lmf/org/apache/xerces/util/SynchronizedSymbolTable;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    monitor-exit v1
+    invoke-virtual {v1, p1, p2, p3}, Lmf/org/apache/xerces/util/SymbolTable;->containsSymbol([CII)Z
 
-    return v0
+    move-result v1
+
+    monitor-exit v0
+
+    return v1
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v1
 .end method

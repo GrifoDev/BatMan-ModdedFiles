@@ -91,7 +91,7 @@
 
     iget-object v3, p0, Lcom/android/server/TimaService$1;->this$0:Lcom/android/server/TimaService;
 
-    invoke-static {v3}, Lcom/android/server/TimaService;->-wrap3(Lcom/android/server/TimaService;)V
+    invoke-static {v3}, Lcom/android/server/TimaService;->-wrap2(Lcom/android/server/TimaService;)V
 
     :cond_0
     new-instance v2, Landroid/content/Intent;

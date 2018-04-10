@@ -57,38 +57,38 @@
 .end method
 
 .method private buildLocationPath(Ljava/util/Vector;)Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/xpath/XPathException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
     invoke-virtual {p1}, Ljava/util/Vector;->size()I
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     :goto_0
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/XPath;->check(Z)V
+    invoke-static {v2}, Lmf/org/apache/xerces/impl/xpath/XPath;->check(Z)V
 
-    new-array v0, v1, [Lmf/org/apache/xerces/impl/xpath/XPath$Step;
+    new-array v1, v0, [Lmf/org/apache/xerces/impl/xpath/XPath$Step;
 
-    invoke-virtual {p1, v0}, Ljava/util/Vector;->copyInto([Ljava/lang/Object;)V
+    invoke-virtual {p1, v1}, Ljava/util/Vector;->copyInto([Ljava/lang/Object;)V
 
     invoke-virtual {p1}, Ljava/util/Vector;->removeAllElements()V
 
-    new-instance v1, Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
+    new-instance v2, Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
 
-    invoke-direct {v1, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;-><init>([Lmf/org/apache/xerces/impl/xpath/XPath$Step;)V
+    invoke-direct {v2, v1}, Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;-><init>([Lmf/org/apache/xerces/impl/xpath/XPath$Step;)V
 
-    return-object v1
+    return-object v2
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
     goto :goto_0
 .end method
@@ -116,120 +116,116 @@
 .end method
 
 .method public static main([Ljava/lang/String;)V
-    .locals 6
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/16 v5, 0x22
+    const/16 v8, 0x22
 
-    const/4 v0, 0x0
-
-    move v1, v0
+    const/4 v2, 0x0
 
     :goto_0
-    array-length v0, p0
+    array-length v5, p0
 
-    if-ge v1, v0, :cond_0
+    if-ge v2, v5, :cond_0
 
-    aget-object v0, p0, v1
+    aget-object v1, p0, v2
 
-    sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v5, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v4, "# XPath expression: \""
+    const-string/jumbo v7, "# XPath expression: \""
 
-    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v5, v6}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     :try_start_0
-    new-instance v2, Lmf/org/apache/xerces/util/SymbolTable;
+    new-instance v3, Lmf/org/apache/xerces/util/SymbolTable;
 
-    invoke-direct {v2}, Lmf/org/apache/xerces/util/SymbolTable;-><init>()V
+    invoke-direct {v3}, Lmf/org/apache/xerces/util/SymbolTable;-><init>()V
 
-    new-instance v3, Lmf/org/apache/xerces/impl/xpath/XPath;
+    new-instance v4, Lmf/org/apache/xerces/impl/xpath/XPath;
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    invoke-direct {v3, v0, v2, v4}, Lmf/org/apache/xerces/impl/xpath/XPath;-><init>(Ljava/lang/String;Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xni/NamespaceContext;)V
+    invoke-direct {v4, v1, v3, v5}, Lmf/org/apache/xerces/impl/xpath/XPath;-><init>(Ljava/lang/String;Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xni/NamespaceContext;)V
 
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v5, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v4, "expanded xpath: \""
+    const-string/jumbo v7, "expanded xpath: \""
 
-    invoke-direct {v2, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/xpath/XPath;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xpath/XPath;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v7
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v6
 
-    const/16 v3, 0x22
+    const/16 v7, 0x22
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v6
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v6
 
-    invoke-virtual {v0, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v5, v6}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
     :try_end_0
     .catch Lmf/org/apache/xerces/impl/xpath/XPathException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_1
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :catch_0
     move-exception v0
 
-    sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v5, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v4, "error: "
+    const-string/jumbo v7, "error: "
 
-    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xpath/XPathException;->getMessage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v7
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {v2, v0}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v5, v6}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     goto :goto_1
 
@@ -238,28 +234,18 @@
 .end method
 
 .method private parseExpression(Lmf/org/apache/xerces/xni/NamespaceContext;)[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
-    .locals 11
+    .locals 14
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/xpath/XPathException;
         }
     .end annotation
 
-    const/16 v10, 0x8
-
-    const/4 v9, 0x2
-
-    const/4 v8, 0x3
-
-    const/4 v6, 0x1
-
-    const/4 v4, 0x0
-
     new-instance v2, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xpath/XPath;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    invoke-direct {v2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;-><init>(Lmf/org/apache/xerces/util/SymbolTable;)V
+    invoke-direct {v2, v1}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;-><init>(Lmf/org/apache/xerces/util/SymbolTable;)V
 
     new-instance v0, Lmf/org/apache/xerces/impl/xpath/XPath$1;
 
@@ -277,340 +263,348 @@
 
     iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/XPath;->fExpression:Ljava/lang/String;
 
+    const/4 v4, 0x0
+
     invoke-virtual/range {v0 .. v5}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->scanExpr(Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;Ljava/lang/String;II)Z
 
-    move-result v0
+    move-result v12
 
-    if-eqz v0, :cond_0
+    if-eqz v12, :cond_1
 
-    new-instance v1, Ljava/util/Vector;
+    new-instance v11, Ljava/util/Vector;
 
-    invoke-direct {v1}, Ljava/util/Vector;-><init>()V
+    invoke-direct {v11}, Ljava/util/Vector;-><init>()V
 
-    new-instance v3, Ljava/util/ArrayList;
+    new-instance v8, Ljava/util/ArrayList;
 
-    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
 
-    move v0, v6
+    const/4 v7, 0x1
 
+    :cond_0
     :goto_0
     invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->hasMore()Z
 
-    move-result v5
+    move-result v1
 
-    if-eqz v5, :cond_8
+    if-eqz v1, :cond_6
 
     invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->nextToken()I
 
-    move-result v5
+    move-result v13
 
-    sparse-switch v5, :sswitch_data_0
+    sparse-switch v13, :sswitch_data_0
 
-    new-instance v0, Ljava/lang/InternalError;
+    new-instance v1, Ljava/lang/InternalError;
 
-    invoke-direct {v0}, Ljava/lang/InternalError;-><init>()V
+    invoke-direct {v1}, Ljava/lang/InternalError;-><init>()V
 
-    throw v0
-
-    :cond_0
-    new-instance v0, Lmf/org/apache/xerces/impl/xpath/XPathException;
-
-    const-string/jumbo v1, "c-general-xpath"
-
-    invoke-direct {v0, v1}, Lmf/org/apache/xerces/impl/xpath/XPathException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :sswitch_0
-    if-nez v0, :cond_1
-
-    move v0, v6
-
-    :goto_1
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/XPath;->check(Z)V
-
-    invoke-direct {p0, v1}, Lmf/org/apache/xerces/impl/xpath/XPath;->buildLocationPath(Ljava/util/Vector;)Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
-
-    move-result-object v0
-
-    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    move v0, v6
-
-    goto :goto_0
+    throw v1
 
     :cond_1
-    move v0, v4
+    new-instance v1, Lmf/org/apache/xerces/impl/xpath/XPathException;
 
-    goto :goto_1
+    const-string/jumbo v3, "c-general-xpath"
 
-    :sswitch_1
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/XPath;->check(Z)V
+    invoke-direct {v1, v3}, Lmf/org/apache/xerces/impl/xpath/XPathException;-><init>(Ljava/lang/String;)V
 
-    new-instance v0, Lmf/org/apache/xerces/impl/xpath/XPath$Step;
+    throw v1
 
-    new-instance v5, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;
+    :sswitch_0
+    if-nez v7, :cond_2
 
-    invoke-direct {v5, v9}, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;-><init>(S)V
+    const/4 v1, 0x1
 
-    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->nextToken()I
+    :goto_1
+    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/XPath;->check(Z)V
 
-    move-result v7
+    invoke-direct {p0, v11}, Lmf/org/apache/xerces/impl/xpath/XPath;->buildLocationPath(Ljava/util/Vector;)Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
 
-    invoke-direct {p0, v7, v2, p1}, Lmf/org/apache/xerces/impl/xpath/XPath;->parseNodeTest(ILmf/org/apache/xerces/impl/xpath/XPath$Tokens;Lmf/org/apache/xerces/xni/NamespaceContext;)Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;
+    move-result-object v1
 
-    move-result-object v7
+    invoke-virtual {v8, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-direct {v0, v5, v7}, Lmf/org/apache/xerces/impl/xpath/XPath$Step;-><init>(Lmf/org/apache/xerces/impl/xpath/XPath$Axis;Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;)V
-
-    invoke-virtual {v1, v0}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
-
-    move v0, v4
-
-    goto :goto_0
-
-    :sswitch_2
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/XPath;->check(Z)V
-
-    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->nextToken()I
-
-    move-result v0
-
-    if-ne v0, v10, :cond_2
-
-    new-instance v0, Lmf/org/apache/xerces/impl/xpath/XPath$Step;
-
-    new-instance v5, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;
-
-    invoke-direct {v5, v9}, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;-><init>(S)V
-
-    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->nextToken()I
-
-    move-result v7
-
-    invoke-direct {p0, v7, v2, p1}, Lmf/org/apache/xerces/impl/xpath/XPath;->parseNodeTest(ILmf/org/apache/xerces/impl/xpath/XPath$Tokens;Lmf/org/apache/xerces/xni/NamespaceContext;)Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;
-
-    move-result-object v7
-
-    invoke-direct {v0, v5, v7}, Lmf/org/apache/xerces/impl/xpath/XPath$Step;-><init>(Lmf/org/apache/xerces/impl/xpath/XPath$Axis;Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;)V
-
-    invoke-virtual {v1, v0}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
-
-    move v0, v4
+    const/4 v7, 0x1
 
     goto :goto_0
 
     :cond_2
-    new-instance v0, Lmf/org/apache/xerces/impl/xpath/XPathException;
+    const/4 v1, 0x0
 
-    const-string/jumbo v1, "c-general-xpath"
+    goto :goto_1
 
-    invoke-direct {v0, v1}, Lmf/org/apache/xerces/impl/xpath/XPathException;-><init>(Ljava/lang/String;)V
+    :sswitch_1
+    invoke-static {v7}, Lmf/org/apache/xerces/impl/xpath/XPath;->check(Z)V
 
-    throw v0
+    new-instance v10, Lmf/org/apache/xerces/impl/xpath/XPath$Step;
+
+    new-instance v1, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;
+
+    const/4 v3, 0x2
+
+    invoke-direct {v1, v3}, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;-><init>(S)V
+
+    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->nextToken()I
+
+    move-result v3
+
+    invoke-direct {p0, v3, v2, p1}, Lmf/org/apache/xerces/impl/xpath/XPath;->parseNodeTest(ILmf/org/apache/xerces/impl/xpath/XPath$Tokens;Lmf/org/apache/xerces/xni/NamespaceContext;)Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;
+
+    move-result-object v3
+
+    invoke-direct {v10, v1, v3}, Lmf/org/apache/xerces/impl/xpath/XPath$Step;-><init>(Lmf/org/apache/xerces/impl/xpath/XPath$Axis;Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;)V
+
+    invoke-virtual {v11, v10}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+
+    const/4 v7, 0x0
+
+    goto :goto_0
+
+    :sswitch_2
+    invoke-static {v7}, Lmf/org/apache/xerces/impl/xpath/XPath;->check(Z)V
+
+    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->nextToken()I
+
+    move-result v1
+
+    const/16 v3, 0x8
+
+    if-ne v1, v3, :cond_3
+
+    new-instance v10, Lmf/org/apache/xerces/impl/xpath/XPath$Step;
+
+    new-instance v1, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;
+
+    const/4 v3, 0x2
+
+    invoke-direct {v1, v3}, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;-><init>(S)V
+
+    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->nextToken()I
+
+    move-result v3
+
+    invoke-direct {p0, v3, v2, p1}, Lmf/org/apache/xerces/impl/xpath/XPath;->parseNodeTest(ILmf/org/apache/xerces/impl/xpath/XPath$Tokens;Lmf/org/apache/xerces/xni/NamespaceContext;)Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;
+
+    move-result-object v3
+
+    invoke-direct {v10, v1, v3}, Lmf/org/apache/xerces/impl/xpath/XPath$Step;-><init>(Lmf/org/apache/xerces/impl/xpath/XPath$Axis;Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;)V
+
+    invoke-virtual {v11, v10}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+
+    const/4 v7, 0x0
+
+    goto :goto_0
+
+    :cond_3
+    new-instance v1, Lmf/org/apache/xerces/impl/xpath/XPathException;
+
+    const-string/jumbo v3, "c-general-xpath"
+
+    invoke-direct {v1, v3}, Lmf/org/apache/xerces/impl/xpath/XPathException;-><init>(Ljava/lang/String;)V
+
+    throw v1
 
     :sswitch_3
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/XPath;->check(Z)V
+    invoke-static {v7}, Lmf/org/apache/xerces/impl/xpath/XPath;->check(Z)V
 
-    new-instance v0, Lmf/org/apache/xerces/impl/xpath/XPath$Step;
+    new-instance v10, Lmf/org/apache/xerces/impl/xpath/XPath$Step;
 
-    new-instance v7, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;
+    new-instance v1, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;
 
-    invoke-direct {v7, v6}, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;-><init>(S)V
+    const/4 v3, 0x1
 
-    invoke-direct {p0, v5, v2, p1}, Lmf/org/apache/xerces/impl/xpath/XPath;->parseNodeTest(ILmf/org/apache/xerces/impl/xpath/XPath$Tokens;Lmf/org/apache/xerces/xni/NamespaceContext;)Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;
+    invoke-direct {v1, v3}, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;-><init>(S)V
 
-    move-result-object v5
+    invoke-direct {p0, v13, v2, p1}, Lmf/org/apache/xerces/impl/xpath/XPath;->parseNodeTest(ILmf/org/apache/xerces/impl/xpath/XPath$Tokens;Lmf/org/apache/xerces/xni/NamespaceContext;)Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;
 
-    invoke-direct {v0, v7, v5}, Lmf/org/apache/xerces/impl/xpath/XPath$Step;-><init>(Lmf/org/apache/xerces/impl/xpath/XPath$Axis;Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;)V
+    move-result-object v3
 
-    invoke-virtual {v1, v0}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+    invoke-direct {v10, v1, v3}, Lmf/org/apache/xerces/impl/xpath/XPath$Step;-><init>(Lmf/org/apache/xerces/impl/xpath/XPath$Axis;Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;)V
 
-    move v0, v4
+    invoke-virtual {v11, v10}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+
+    const/4 v7, 0x0
 
     goto/16 :goto_0
 
     :sswitch_4
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/XPath;->check(Z)V
+    invoke-static {v7}, Lmf/org/apache/xerces/impl/xpath/XPath;->check(Z)V
 
     invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->nextToken()I
 
-    move-result v0
+    move-result v1
 
-    if-ne v0, v10, :cond_3
+    const/16 v3, 0x8
 
-    new-instance v0, Lmf/org/apache/xerces/impl/xpath/XPath$Step;
+    if-ne v1, v3, :cond_4
 
-    new-instance v5, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;
+    new-instance v10, Lmf/org/apache/xerces/impl/xpath/XPath$Step;
 
-    invoke-direct {v5, v6}, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;-><init>(S)V
+    new-instance v1, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;
+
+    const/4 v3, 0x1
+
+    invoke-direct {v1, v3}, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;-><init>(S)V
 
     invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->nextToken()I
 
-    move-result v7
+    move-result v3
 
-    invoke-direct {p0, v7, v2, p1}, Lmf/org/apache/xerces/impl/xpath/XPath;->parseNodeTest(ILmf/org/apache/xerces/impl/xpath/XPath$Tokens;Lmf/org/apache/xerces/xni/NamespaceContext;)Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;
+    invoke-direct {p0, v3, v2, p1}, Lmf/org/apache/xerces/impl/xpath/XPath;->parseNodeTest(ILmf/org/apache/xerces/impl/xpath/XPath$Tokens;Lmf/org/apache/xerces/xni/NamespaceContext;)Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;
 
-    move-result-object v7
+    move-result-object v3
 
-    invoke-direct {v0, v5, v7}, Lmf/org/apache/xerces/impl/xpath/XPath$Step;-><init>(Lmf/org/apache/xerces/impl/xpath/XPath$Axis;Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;)V
+    invoke-direct {v10, v1, v3}, Lmf/org/apache/xerces/impl/xpath/XPath$Step;-><init>(Lmf/org/apache/xerces/impl/xpath/XPath$Axis;Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;)V
 
-    invoke-virtual {v1, v0}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+    invoke-virtual {v11, v10}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
 
-    move v0, v4
-
-    goto/16 :goto_0
-
-    :cond_3
-    new-instance v0, Lmf/org/apache/xerces/impl/xpath/XPathException;
-
-    const-string/jumbo v1, "c-general-xpath"
-
-    invoke-direct {v0, v1}, Lmf/org/apache/xerces/impl/xpath/XPathException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :sswitch_5
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/XPath;->check(Z)V
-
-    invoke-virtual {v1}, Ljava/util/Vector;->size()I
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    move v0, v4
+    const/4 v7, 0x0
 
     goto/16 :goto_0
 
     :cond_4
-    new-instance v0, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;
+    new-instance v1, Lmf/org/apache/xerces/impl/xpath/XPathException;
 
-    invoke-direct {v0, v8}, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;-><init>(S)V
+    const-string/jumbo v3, "c-general-xpath"
 
-    new-instance v5, Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;
+    invoke-direct {v1, v3}, Lmf/org/apache/xerces/impl/xpath/XPathException;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v5, v8}, Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;-><init>(S)V
+    throw v1
 
-    new-instance v7, Lmf/org/apache/xerces/impl/xpath/XPath$Step;
+    :sswitch_5
+    invoke-static {v7}, Lmf/org/apache/xerces/impl/xpath/XPath;->check(Z)V
 
-    invoke-direct {v7, v0, v5}, Lmf/org/apache/xerces/impl/xpath/XPath$Step;-><init>(Lmf/org/apache/xerces/impl/xpath/XPath$Axis;Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;)V
+    const/4 v7, 0x0
 
-    invoke-virtual {v1, v7}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+    invoke-virtual {v11}, Ljava/util/Vector;->size()I
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    new-instance v6, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;
+
+    const/4 v1, 0x3
+
+    invoke-direct {v6, v1}, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;-><init>(S)V
+
+    new-instance v9, Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;
+
+    const/4 v1, 0x3
+
+    invoke-direct {v9, v1}, Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;-><init>(S)V
+
+    new-instance v10, Lmf/org/apache/xerces/impl/xpath/XPath$Step;
+
+    invoke-direct {v10, v6, v9}, Lmf/org/apache/xerces/impl/xpath/XPath$Step;-><init>(Lmf/org/apache/xerces/impl/xpath/XPath$Axis;Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;)V
+
+    invoke-virtual {v11, v10}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
 
     invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->hasMore()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_5
+    if-eqz v1, :cond_0
 
-    move v0, v4
-
-    goto/16 :goto_0
-
-    :cond_5
     invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->peekToken()I
 
-    move-result v0
+    move-result v1
 
-    const/16 v5, 0x16
+    const/16 v3, 0x16
 
-    if-eq v0, v5, :cond_6
+    if-ne v1, v3, :cond_0
 
-    move v0, v4
-
-    goto/16 :goto_0
-
-    :cond_6
     invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->nextToken()I
 
-    new-instance v0, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;
+    new-instance v6, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;
 
-    const/4 v5, 0x4
+    const/4 v1, 0x4
 
-    invoke-direct {v0, v5}, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;-><init>(S)V
+    invoke-direct {v6, v1}, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;-><init>(S)V
 
-    new-instance v5, Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;
+    new-instance v9, Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;
 
-    invoke-direct {v5, v8}, Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;-><init>(S)V
+    const/4 v1, 0x3
 
-    new-instance v7, Lmf/org/apache/xerces/impl/xpath/XPath$Step;
+    invoke-direct {v9, v1}, Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;-><init>(S)V
 
-    invoke-direct {v7, v0, v5}, Lmf/org/apache/xerces/impl/xpath/XPath$Step;-><init>(Lmf/org/apache/xerces/impl/xpath/XPath$Axis;Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;)V
+    new-instance v10, Lmf/org/apache/xerces/impl/xpath/XPath$Step;
 
-    invoke-virtual {v1, v7}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+    invoke-direct {v10, v6, v9}, Lmf/org/apache/xerces/impl/xpath/XPath$Step;-><init>(Lmf/org/apache/xerces/impl/xpath/XPath$Axis;Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;)V
 
-    move v0, v6
+    invoke-virtual {v11, v10}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+
+    const/4 v7, 0x1
 
     goto/16 :goto_0
 
     :sswitch_6
-    new-instance v0, Lmf/org/apache/xerces/impl/xpath/XPathException;
+    new-instance v1, Lmf/org/apache/xerces/impl/xpath/XPathException;
 
-    const-string/jumbo v1, "c-general-xpath"
+    const-string/jumbo v3, "c-general-xpath"
 
-    invoke-direct {v0, v1}, Lmf/org/apache/xerces/impl/xpath/XPathException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v3}, Lmf/org/apache/xerces/impl/xpath/XPathException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v1
 
     :sswitch_7
-    new-instance v0, Lmf/org/apache/xerces/impl/xpath/XPathException;
+    new-instance v1, Lmf/org/apache/xerces/impl/xpath/XPathException;
 
-    const-string/jumbo v1, "c-general-xpath"
+    const-string/jumbo v3, "c-general-xpath"
 
-    invoke-direct {v0, v1}, Lmf/org/apache/xerces/impl/xpath/XPathException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v3}, Lmf/org/apache/xerces/impl/xpath/XPathException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v1
 
     :sswitch_8
-    if-nez v0, :cond_7
+    if-nez v7, :cond_5
 
-    move v0, v6
+    const/4 v1, 0x1
 
     :goto_2
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/XPath;->check(Z)V
+    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/XPath;->check(Z)V
 
-    move v0, v6
+    const/4 v7, 0x1
 
     goto/16 :goto_0
 
-    :cond_7
-    move v0, v4
+    :cond_5
+    const/4 v1, 0x0
 
     goto :goto_2
 
-    :cond_8
-    if-nez v0, :cond_9
+    :cond_6
+    if-nez v7, :cond_7
+
+    const/4 v1, 0x1
 
     :goto_3
-    invoke-static {v6}, Lmf/org/apache/xerces/impl/xpath/XPath;->check(Z)V
+    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/XPath;->check(Z)V
 
-    invoke-direct {p0, v1}, Lmf/org/apache/xerces/impl/xpath/XPath;->buildLocationPath(Ljava/util/Vector;)Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
+    invoke-direct {p0, v11}, Lmf/org/apache/xerces/impl/xpath/XPath;->buildLocationPath(Ljava/util/Vector;)Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
 
-    move-result v0
+    move-result v1
 
-    new-array v0, v0, [Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
+    new-array v1, v1, [Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
 
-    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-virtual {v8, v1}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, [Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
+    check-cast v1, [Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
 
-    return-object v0
+    return-object v1
 
-    :cond_9
-    move v6, v4
+    :cond_7
+    const/4 v1, 0x0
 
     goto :goto_3
-
-    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -629,132 +623,132 @@
 .end method
 
 .method private parseNodeTest(ILmf/org/apache/xerces/impl/xpath/XPath$Tokens;Lmf/org/apache/xerces/xni/NamespaceContext;)Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;
-    .locals 6
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/xpath/XPathException;
         }
     .end annotation
 
-    const/4 v0, 0x0
-
     packed-switch p1, :pswitch_data_0
 
-    new-instance v0, Lmf/org/apache/xerces/impl/xpath/XPathException;
+    new-instance v4, Lmf/org/apache/xerces/impl/xpath/XPathException;
 
-    const-string/jumbo v1, "c-general-xpath"
+    const-string/jumbo v5, "c-general-xpath"
 
-    invoke-direct {v0, v1}, Lmf/org/apache/xerces/impl/xpath/XPathException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v5}, Lmf/org/apache/xerces/impl/xpath/XPathException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v4
 
     :pswitch_0
-    new-instance v0, Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;
+    new-instance v4, Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;
 
-    const/4 v1, 0x2
+    const/4 v5, 0x2
 
-    invoke-direct {v0, v1}, Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;-><init>(S)V
+    invoke-direct {v4, v5}, Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;-><init>(S)V
 
-    return-object v0
+    return-object v4
 
     :pswitch_1
     invoke-virtual {p2}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->nextTokenAsString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
+
+    const/4 v3, 0x0
 
     if-nez p3, :cond_2
 
     :cond_0
     :goto_0
-    sget-object v1, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v4, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    if-ne v3, v1, :cond_3
+    if-ne v1, v4, :cond_3
 
     :cond_1
-    const/16 v1, 0xa
+    const/16 v4, 0xa
 
-    if-eq p1, v1, :cond_4
+    if-eq p1, v4, :cond_4
 
     invoke-virtual {p2}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->nextTokenAsString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    sget-object v1, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v4, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    if-ne v3, v1, :cond_5
+    if-ne v1, v4, :cond_5
 
-    move-object v1, v2
+    move-object v2, v0
 
     :goto_1
     new-instance v4, Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;
 
     new-instance v5, Lmf/org/apache/xerces/xni/QName;
 
-    invoke-direct {v5, v3, v2, v1, v0}, Lmf/org/apache/xerces/xni/QName;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v5, v1, v0, v2, v3}, Lmf/org/apache/xerces/xni/QName;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-direct {v4, v5}, Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;-><init>(Lmf/org/apache/xerces/xni/QName;)V
 
     return-object v4
 
     :cond_2
-    sget-object v1, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v4, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    if-eq v3, v1, :cond_0
+    if-eq v1, v4, :cond_0
 
-    invoke-interface {p3, v3}, Lmf/org/apache/xerces/xni/NamespaceContext;->getURI(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p3, v1}, Lmf/org/apache/xerces/xni/NamespaceContext;->getURI(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
     goto :goto_0
 
     :cond_3
     if-eqz p3, :cond_1
 
-    if-nez v0, :cond_1
+    if-nez v3, :cond_1
 
-    new-instance v0, Lmf/org/apache/xerces/impl/xpath/XPathException;
+    new-instance v4, Lmf/org/apache/xerces/impl/xpath/XPathException;
 
-    const-string/jumbo v1, "c-general-xpath-ns"
+    const-string/jumbo v5, "c-general-xpath-ns"
 
-    invoke-direct {v0, v1}, Lmf/org/apache/xerces/impl/xpath/XPathException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v5}, Lmf/org/apache/xerces/impl/xpath/XPathException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v4
 
     :cond_4
-    new-instance v1, Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;
+    new-instance v4, Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;
 
-    invoke-direct {v1, v3, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v4, v1, v3}, Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    return-object v1
+    return-object v4
 
     :cond_5
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xpath/XPath;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xpath/XPath;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-static {v3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const/16 v6, 0x3a
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v5, 0x3a
+    move-result-object v5
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v1, v4}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
+    move-result-object v2
 
     goto :goto_1
 
@@ -789,89 +783,85 @@
 .method public getLocationPaths()[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
     .locals 3
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
 
-    array-length v0, v0
+    array-length v2, v2
 
-    new-array v2, v0, [Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
-
-    const/4 v0, 0x0
-
-    move v1, v0
-
-    :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
-
-    array-length v0, v0
-
-    if-ge v1, v0, :cond_0
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
-
-    aget-object v0, v0, v1
-
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;->clone()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
-
-    aput-object v0, v2, v1
-
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
-
-    goto :goto_0
-
-    :cond_0
-    return-object v2
-.end method
-
-.method public toString()Ljava/lang/String;
-    .locals 3
+    new-array v1, v2, [Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
 
     const/4 v0, 0x0
-
-    new-instance v1, Ljava/lang/StringBuffer;
-
-    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
 
     :goto_0
     iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
 
     array-length v2, v2
 
-    if-ge v0, v2, :cond_1
+    if-ge v0, v2, :cond_0
 
-    if-gtz v0, :cond_0
-
-    :goto_1
     iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
 
     aget-object v2, v2, v0
 
-    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;->clone()Ljava/lang/Object;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    check-cast v2, Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
+
+    aput-object v2, v1, v0
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
+    return-object v1
+.end method
+
+.method public toString()Ljava/lang/String;
+    .locals 3
+
+    new-instance v0, Ljava/lang/StringBuffer;
+
+    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
+
+    const/4 v1, 0x0
+
+    :goto_0
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
+
+    array-length v2, v2
+
+    if-ge v1, v2, :cond_1
+
+    if-gtz v1, :cond_0
+
+    :goto_1
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
+
+    aget-object v2, v2, v1
+
+    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
     const/16 v2, 0x7c
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto :goto_1
 
     :cond_1
-    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 .end method

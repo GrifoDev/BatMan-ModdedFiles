@@ -34,51 +34,19 @@
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
 
-    const-string/jumbo v0, "NetworkPolicy"
+    const-string/jumbo v1, "android.net.NETWORK_TEMPLATE"
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v0
 
-    const-string/jumbo v2, "BroadcastReceiver - CallingUid : "
+    check-cast v0, Landroid/net/NetworkTemplate;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService$12;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    move-result-object v1
+    const/16 v2, 0x22
 
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, ", CallingPid : "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$12;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/android/server/net/NetworkPolicyManagerService;->setRestrictBackground(Z)V
+    invoke-virtual {v1, v0, v2}, Lcom/android/server/net/NetworkPolicyManagerService;->performSnooze(Landroid/net/NetworkTemplate;I)V
 
     return-void
 .end method

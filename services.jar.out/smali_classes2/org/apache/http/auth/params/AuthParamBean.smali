@@ -10,33 +10,21 @@
 
 # direct methods
 .method public constructor <init>(Lorg/apache/http/params/HttpParams;)V
-    .locals 2
+    .locals 0
 
-    const/4 v0, 0x0
+    invoke-direct {p0, p1}, Lorg/apache/http/params/HttpAbstractParamBean;-><init>(Lorg/apache/http/params/HttpParams;)V
 
-    check-cast v0, Lorg/apache/http/params/HttpParams;
-
-    invoke-direct {p0, v0}, Lorg/apache/http/params/HttpAbstractParamBean;-><init>(Lorg/apache/http/params/HttpParams;)V
-
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 
 # virtual methods
 .method public setCredentialCharset(Ljava/lang/String;)V
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/auth/params/AuthParamBean;->params:Lorg/apache/http/params/HttpParams;
 
-    const-string/jumbo v1, "Stub!"
+    invoke-static {v0, p1}, Lorg/apache/http/auth/params/AuthParams;->setCredentialCharset(Lorg/apache/http/params/HttpParams;Ljava/lang/String;)V
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method

@@ -211,120 +211,120 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .locals 5
 
-    const/16 v2, 0x3a
+    const/16 v4, 0x3a
 
-    new-instance v1, Ljava/lang/StringBuffer;
+    new-instance v2, Ljava/lang/StringBuffer;
 
-    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/xni/parser/XMLParseException;->fPublicId:Ljava/lang/String;
+    iget-object v3, p0, Lmf/org/apache/xerces/xni/parser/XMLParseException;->fPublicId:Ljava/lang/String;
 
-    if-nez v0, :cond_1
+    if-nez v3, :cond_1
 
     :goto_0
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/xni/parser/XMLParseException;->fLiteralSystemId:Ljava/lang/String;
+    iget-object v3, p0, Lmf/org/apache/xerces/xni/parser/XMLParseException;->fLiteralSystemId:Ljava/lang/String;
 
-    if-nez v0, :cond_2
+    if-nez v3, :cond_2
 
     :goto_1
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/xni/parser/XMLParseException;->fExpandedSystemId:Ljava/lang/String;
+    iget-object v3, p0, Lmf/org/apache/xerces/xni/parser/XMLParseException;->fExpandedSystemId:Ljava/lang/String;
 
-    if-nez v0, :cond_3
+    if-nez v3, :cond_3
 
     :goto_2
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/xni/parser/XMLParseException;->fBaseSystemId:Ljava/lang/String;
+    iget-object v3, p0, Lmf/org/apache/xerces/xni/parser/XMLParseException;->fBaseSystemId:Ljava/lang/String;
 
-    if-nez v0, :cond_4
+    if-nez v3, :cond_4
 
     :goto_3
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    iget v0, p0, Lmf/org/apache/xerces/xni/parser/XMLParseException;->fLineNumber:I
+    iget v3, p0, Lmf/org/apache/xerces/xni/parser/XMLParseException;->fLineNumber:I
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    iget v0, p0, Lmf/org/apache/xerces/xni/parser/XMLParseException;->fColumnNumber:I
+    iget v3, p0, Lmf/org/apache/xerces/xni/parser/XMLParseException;->fColumnNumber:I
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    iget v0, p0, Lmf/org/apache/xerces/xni/parser/XMLParseException;->fCharacterOffset:I
+    iget v3, p0, Lmf/org/apache/xerces/xni/parser/XMLParseException;->fCharacterOffset:I
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/xni/parser/XMLParseException;->getMessage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_5
+    if-eqz v1, :cond_5
 
     :cond_0
     :goto_4
-    if-nez v0, :cond_6
+    if-nez v1, :cond_6
 
     :goto_5
-    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    return-object v0
+    return-object v3
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/xni/parser/XMLParseException;->fPublicId:Ljava/lang/String;
+    iget-object v3, p0, Lmf/org/apache/xerces/xni/parser/XMLParseException;->fPublicId:Ljava/lang/String;
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_0
 
     :cond_2
-    iget-object v0, p0, Lmf/org/apache/xerces/xni/parser/XMLParseException;->fLiteralSystemId:Ljava/lang/String;
+    iget-object v3, p0, Lmf/org/apache/xerces/xni/parser/XMLParseException;->fLiteralSystemId:Ljava/lang/String;
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_1
 
     :cond_3
-    iget-object v0, p0, Lmf/org/apache/xerces/xni/parser/XMLParseException;->fExpandedSystemId:Ljava/lang/String;
+    iget-object v3, p0, Lmf/org/apache/xerces/xni/parser/XMLParseException;->fExpandedSystemId:Ljava/lang/String;
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_2
 
     :cond_4
-    iget-object v0, p0, Lmf/org/apache/xerces/xni/parser/XMLParseException;->fBaseSystemId:Ljava/lang/String;
+    iget-object v3, p0, Lmf/org/apache/xerces/xni/parser/XMLParseException;->fBaseSystemId:Ljava/lang/String;
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_3
 
     :cond_5
     invoke-virtual {p0}, Lmf/org/apache/xerces/xni/parser/XMLParseException;->getException()Ljava/lang/Exception;
 
-    move-result-object v2
-
-    if-eqz v2, :cond_0
-
-    invoke-virtual {v2}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
-
     move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+
+    move-result-object v1
 
     goto :goto_4
 
     :cond_6
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_5
 .end method

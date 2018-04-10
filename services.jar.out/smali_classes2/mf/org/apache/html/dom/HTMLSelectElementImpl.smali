@@ -149,48 +149,44 @@
 .method public getSelectedIndex()I
     .locals 3
 
+    const-string/jumbo v2, "OPTION"
+
+    invoke-virtual {p0, v2}, Lmf/org/apache/html/dom/HTMLSelectElementImpl;->getElementsByTagName(Ljava/lang/String;)Lmf/org/w3c/dom/NodeList;
+
+    move-result-object v1
+
     const/4 v0, 0x0
 
-    const-string/jumbo v1, "OPTION"
+    :goto_0
+    invoke-interface {v1}, Lmf/org/w3c/dom/NodeList;->getLength()I
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/html/dom/HTMLSelectElementImpl;->getElementsByTagName(Ljava/lang/String;)Lmf/org/w3c/dom/NodeList;
+    move-result v2
+
+    if-ge v0, v2, :cond_1
+
+    invoke-interface {v1, v0}, Lmf/org/w3c/dom/NodeList;->item(I)Lmf/org/w3c/dom/Node;
 
     move-result-object v2
 
-    move v1, v0
+    check-cast v2, Lmf/org/w3c/dom/html/HTMLOptionElement;
 
-    :goto_0
-    invoke-interface {v2}, Lmf/org/w3c/dom/NodeList;->getLength()I
+    invoke-interface {v2}, Lmf/org/w3c/dom/html/HTMLOptionElement;->getSelected()Z
 
-    move-result v0
+    move-result v2
 
-    if-ge v1, v0, :cond_1
+    if-nez v2, :cond_0
 
-    invoke-interface {v2, v1}, Lmf/org/w3c/dom/NodeList;->item(I)Lmf/org/w3c/dom/Node;
-
-    move-result-object v0
-
-    check-cast v0, Lmf/org/w3c/dom/html/HTMLOptionElement;
-
-    invoke-interface {v0}, Lmf/org/w3c/dom/html/HTMLOptionElement;->getSelected()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    return v1
+    return v0
 
     :cond_1
-    const/4 v0, -0x1
+    const/4 v2, -0x1
 
-    return v0
+    return v2
 .end method
 
 .method public getSize()I
@@ -250,29 +246,29 @@
 .end method
 
 .method public remove(I)V
-    .locals 2
+    .locals 3
 
-    const-string/jumbo v0, "OPTION"
+    const-string/jumbo v2, "OPTION"
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/html/dom/HTMLSelectElementImpl;->getElementsByTagName(Ljava/lang/String;)Lmf/org/w3c/dom/NodeList;
+    invoke-virtual {p0, v2}, Lmf/org/apache/html/dom/HTMLSelectElementImpl;->getElementsByTagName(Ljava/lang/String;)Lmf/org/w3c/dom/NodeList;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Lmf/org/w3c/dom/NodeList;->item(I)Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     :goto_0
     return-void
 
     :cond_0
-    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getParentNode()Lmf/org/w3c/dom/Node;
+    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getParentNode()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-interface {v1, v0}, Lmf/org/w3c/dom/Node;->removeChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-interface {v2, v1}, Lmf/org/w3c/dom/Node;->removeChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
     goto :goto_0
 .end method
@@ -308,46 +304,42 @@
 .end method
 
 .method public setSelectedIndex(I)V
-    .locals 5
+    .locals 4
 
-    const/4 v2, 0x0
+    const-string/jumbo v2, "OPTION"
 
-    const-string/jumbo v0, "OPTION"
+    invoke-virtual {p0, v2}, Lmf/org/apache/html/dom/HTMLSelectElementImpl;->getElementsByTagName(Ljava/lang/String;)Lmf/org/w3c/dom/NodeList;
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/html/dom/HTMLSelectElementImpl;->getElementsByTagName(Ljava/lang/String;)Lmf/org/w3c/dom/NodeList;
+    move-result-object v1
 
-    move-result-object v4
-
-    move v3, v2
+    const/4 v0, 0x0
 
     :goto_0
-    invoke-interface {v4}, Lmf/org/w3c/dom/NodeList;->getLength()I
+    invoke-interface {v1}, Lmf/org/w3c/dom/NodeList;->getLength()I
 
-    move-result v0
+    move-result v2
 
-    if-ge v3, v0, :cond_1
+    if-ge v0, v2, :cond_1
 
-    invoke-interface {v4, v3}, Lmf/org/w3c/dom/NodeList;->item(I)Lmf/org/w3c/dom/Node;
+    invoke-interface {v1, v0}, Lmf/org/w3c/dom/NodeList;->item(I)Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Lmf/org/apache/html/dom/HTMLOptionElementImpl;
+    check-cast v2, Lmf/org/apache/html/dom/HTMLOptionElementImpl;
 
-    if-eq v3, p1, :cond_0
+    if-eq v0, p1, :cond_0
 
-    move v1, v2
+    const/4 v3, 0x0
 
     :goto_1
-    invoke-virtual {v0, v1}, Lmf/org/apache/html/dom/HTMLOptionElementImpl;->setSelected(Z)V
+    invoke-virtual {v2, v3}, Lmf/org/apache/html/dom/HTMLOptionElementImpl;->setSelected(Z)V
 
-    add-int/lit8 v0, v3, 0x1
-
-    move v3, v0
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
     goto :goto_1
 
@@ -358,13 +350,13 @@
 .method public setSize(I)V
     .locals 2
 
-    const-string/jumbo v0, "size"
-
     invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/html/dom/HTMLSelectElementImpl;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
+    const-string/jumbo v1, "size"
+
+    invoke-virtual {p0, v1, v0}, Lmf/org/apache/html/dom/HTMLSelectElementImpl;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -372,13 +364,13 @@
 .method public setTabIndex(I)V
     .locals 2
 
-    const-string/jumbo v0, "tabindex"
-
     invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/html/dom/HTMLSelectElementImpl;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
+    const-string/jumbo v1, "tabindex"
+
+    invoke-virtual {p0, v1, v0}, Lmf/org/apache/html/dom/HTMLSelectElementImpl;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method

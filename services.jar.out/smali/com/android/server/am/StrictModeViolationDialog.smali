@@ -117,7 +117,7 @@
 
     aput-object v5, v4, v8
 
-    const v5, 0x10403b9
+    const v5, 0x10409b9
 
     invoke-virtual {v2, v5, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -128,7 +128,7 @@
     :goto_0
     invoke-virtual {p0, v7}, Lcom/android/server/am/StrictModeViolationDialog;->setCancelable(Z)V
 
-    const v4, 0x104042e
+    const v4, 0x10402ca
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -175,7 +175,7 @@
 
     if-eqz v4, :cond_1
 
-    const v4, 0x10403ae
+    const v4, 0x1040895
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -253,7 +253,7 @@
 
     aput-object v5, v4, v7
 
-    const v5, 0x10403ba
+    const v5, 0x10409ba
 
     invoke-virtual {v2, v5, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

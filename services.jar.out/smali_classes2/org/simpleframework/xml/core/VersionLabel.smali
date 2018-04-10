@@ -117,9 +117,7 @@
     return-object v2
 
     :cond_0
-    new-instance v0, Lorg/simpleframework/xml/core/AttributeException;
-
-    const-string/jumbo v2, "Cannot use %s to represent %s"
+    new-instance v2, Lorg/simpleframework/xml/core/AttributeException;
 
     const/4 v3, 0x2
 
@@ -133,9 +131,11 @@
 
     aput-object v1, v3, v4
 
-    invoke-direct {v0, v2, v3}, Lorg/simpleframework/xml/core/AttributeException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v4, "Cannot use %s to represent %s"
 
-    throw v0
+    invoke-direct {v2, v4, v3}, Lorg/simpleframework/xml/core/AttributeException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v2
 .end method
 
 .method public getDecorator()Lorg/simpleframework/xml/core/Decorator;
@@ -204,30 +204,30 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/VersionLabel;->format:Lorg/simpleframework/xml/stream/Format;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/VersionLabel;->format:Lorg/simpleframework/xml/stream/Format;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/stream/Format;->getStyle()Lorg/simpleframework/xml/stream/Style;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lorg/simpleframework/xml/core/VersionLabel;->detail:Lorg/simpleframework/xml/core/Introspector;
-
-    invoke-virtual {v1}, Lorg/simpleframework/xml/core/Introspector;->getName()Ljava/lang/String;
+    invoke-virtual {v2}, Lorg/simpleframework/xml/stream/Format;->getStyle()Lorg/simpleframework/xml/stream/Style;
 
     move-result-object v1
 
-    invoke-interface {v0, v1}, Lorg/simpleframework/xml/stream/Style;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/VersionLabel;->detail:Lorg/simpleframework/xml/core/Introspector;
+
+    invoke-virtual {v2}, Lorg/simpleframework/xml/core/Introspector;->getName()Ljava/lang/String;
 
     move-result-object v0
 
-    return-object v0
+    invoke-interface {v1, v0}, Lorg/simpleframework/xml/stream/Style;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    return-object v2
 .end method
 
 .method public getOverride()Ljava/lang/String;
@@ -239,7 +239,7 @@
 .end method
 
 .method public getPath()Ljava/lang/String;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -248,17 +248,17 @@
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/core/VersionLabel;->getExpression()Lorg/simpleframework/xml/core/Expression;
 
-    move-result-object v0
+    move-result-object v1
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/core/VersionLabel;->getName()Ljava/lang/String;
 
-    move-result-object v1
-
-    invoke-interface {v0, v1}, Lorg/simpleframework/xml/core/Expression;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
-
     move-result-object v0
 
-    return-object v0
+    invoke-interface {v1, v0}, Lorg/simpleframework/xml/core/Expression;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    return-object v2
 .end method
 
 .method public getType()Ljava/lang/Class;

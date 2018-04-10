@@ -91,189 +91,189 @@
 .end method
 
 .method public toString(I)Ljava/lang/String;
-    .locals 4
+    .locals 5
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;->type:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;->type:I
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v2, :sswitch_data_0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    return-object v0
+    return-object v1
 
     :sswitch_0
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;->chardata:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;->chardata:I
 
-    sparse-switch v0, :sswitch_data_1
+    sparse-switch v2, :sswitch_data_1
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;->chardata:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;->chardata:I
 
-    const/high16 v1, 0x10000
+    const/high16 v3, 0x10000
 
-    if-ge v0, v1, :cond_0
+    if-ge v2, v3, :cond_0
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;->chardata:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;->chardata:I
 
-    int-to-char v1, v1
+    int-to-char v3, v3
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     goto :goto_0
 
     :sswitch_1
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "\\"
+    const-string/jumbo v3, "\\"
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;->chardata:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;->chardata:I
 
-    int-to-char v1, v1
+    int-to-char v3, v3
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     goto :goto_0
 
     :sswitch_2
-    const-string/jumbo v0, "\\f"
+    const-string/jumbo v1, "\\f"
 
     goto :goto_0
 
     :sswitch_3
-    const-string/jumbo v0, "\\n"
+    const-string/jumbo v1, "\\n"
 
     goto :goto_0
 
     :sswitch_4
-    const-string/jumbo v0, "\\r"
+    const-string/jumbo v1, "\\r"
 
     goto :goto_0
 
     :sswitch_5
-    const-string/jumbo v0, "\\t"
+    const-string/jumbo v1, "\\t"
 
     goto :goto_0
 
     :sswitch_6
-    const-string/jumbo v0, "\\e"
+    const-string/jumbo v1, "\\e"
 
     goto :goto_0
 
     :cond_0
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "0"
+    const-string/jumbo v3, "0"
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;->chardata:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;->chardata:I
 
-    invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    invoke-static {v3}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    const-string/jumbo v3, "\\v"
 
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    const-string/jumbo v2, "\\v"
-
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
-
-    move-result v2
-
-    add-int/lit8 v2, v2, -0x6
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v3
 
-    invoke-virtual {v0, v2, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    add-int/lit8 v3, v3, -0x6
 
-    move-result-object v0
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v4
 
-    move-result-object v0
+    invoke-virtual {v0, v3, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v0
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     goto :goto_0
 
     :sswitch_7
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_linebeginning:Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    sget-object v2, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_linebeginning:Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    if-ne p0, v0, :cond_2
+    if-ne p0, v2, :cond_2
 
     :cond_1
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;->chardata:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;->chardata:I
 
-    int-to-char v1, v1
+    int-to-char v3, v3
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     goto/16 :goto_0
 
     :cond_2
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_lineend:Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    sget-object v2, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_lineend:Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    if-eq p0, v0, :cond_1
+    if-eq p0, v2, :cond_1
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "\\"
+    const-string/jumbo v3, "\\"
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;->chardata:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;->chardata:I
 
-    int-to-char v1, v1
+    int-to-char v3, v3
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     goto/16 :goto_0
 

@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public breakLine()V
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -67,39 +67,39 @@
     .end annotation
 
     :try_start_0
-    iget v0, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
+    iget v1, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
 
-    const/16 v1, 0x1000
+    const/16 v2, 0x1000
 
-    if-eq v0, v1, :cond_0
+    if-eq v1, v2, :cond_0
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/Printer;->_buffer:[C
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/Printer;->_buffer:[C
+
+    iget v2, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
+
+    const/16 v3, 0xa
+
+    aput-char v3, v1, v2
 
     iget v1, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
 
-    const/16 v2, 0xa
+    add-int/lit8 v1, v1, 0x1
 
-    aput-char v2, v0, v1
-
-    iget v0, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
-
-    add-int/lit8 v0, v0, 0x1
-
-    iput v0, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
+    iput v1, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/Printer;->_writer:Ljava/io/Writer;
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/Printer;->_writer:Ljava/io/Writer;
 
-    iget-object v1, p0, Lmf/org/apache/xml/serialize/Printer;->_buffer:[C
+    iget-object v2, p0, Lmf/org/apache/xml/serialize/Printer;->_buffer:[C
 
-    invoke-virtual {v0, v1}, Ljava/io/Writer;->write([C)V
+    invoke-virtual {v1, v2}, Ljava/io/Writer;->write([C)V
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    iput v0, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
+    iput v1, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -172,33 +172,33 @@
 .end method
 
 .method public flush()V
-    .locals 5
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/Printer;->_writer:Ljava/io/Writer;
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/Printer;->_writer:Ljava/io/Writer;
 
-    iget-object v1, p0, Lmf/org/apache/xml/serialize/Printer;->_buffer:[C
-
-    const/4 v2, 0x0
+    iget-object v2, p0, Lmf/org/apache/xml/serialize/Printer;->_buffer:[C
 
     iget v3, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
 
-    invoke-virtual {v0, v1, v2, v3}, Ljava/io/Writer;->write([CII)V
+    const/4 v4, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/Printer;->_writer:Ljava/io/Writer;
+    invoke-virtual {v1, v2, v4, v3}, Ljava/io/Writer;->write([CII)V
 
-    invoke-virtual {v0}, Ljava/io/Writer;->flush()V
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/Printer;->_writer:Ljava/io/Writer;
+
+    invoke-virtual {v1}, Ljava/io/Writer;->flush()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    iput v4, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
+    iput v5, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
 
     return-void
 
@@ -219,31 +219,31 @@
 .end method
 
 .method public flushLine(Z)V
-    .locals 5
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/Printer;->_writer:Ljava/io/Writer;
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/Printer;->_writer:Ljava/io/Writer;
 
-    iget-object v1, p0, Lmf/org/apache/xml/serialize/Printer;->_buffer:[C
-
-    const/4 v2, 0x0
+    iget-object v2, p0, Lmf/org/apache/xml/serialize/Printer;->_buffer:[C
 
     iget v3, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
 
-    invoke-virtual {v0, v1, v2, v3}, Ljava/io/Writer;->write([CII)V
+    const/4 v4, 0x0
+
+    invoke-virtual {v1, v2, v4, v3}, Ljava/io/Writer;->write([CII)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
     :goto_0
-    iput v4, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
+    iput v5, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
 
     return-void
 
@@ -318,7 +318,7 @@
 .end method
 
 .method public printSpace()V
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -326,39 +326,39 @@
     .end annotation
 
     :try_start_0
-    iget v0, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
+    iget v1, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
 
-    const/16 v1, 0x1000
+    const/16 v2, 0x1000
 
-    if-eq v0, v1, :cond_0
+    if-eq v1, v2, :cond_0
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/Printer;->_buffer:[C
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/Printer;->_buffer:[C
+
+    iget v2, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
+
+    const/16 v3, 0x20
+
+    aput-char v3, v1, v2
 
     iget v1, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
 
-    const/16 v2, 0x20
+    add-int/lit8 v1, v1, 0x1
 
-    aput-char v2, v0, v1
-
-    iget v0, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
-
-    add-int/lit8 v0, v0, 0x1
-
-    iput v0, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
+    iput v1, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/Printer;->_writer:Ljava/io/Writer;
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/Printer;->_writer:Ljava/io/Writer;
 
-    iget-object v1, p0, Lmf/org/apache/xml/serialize/Printer;->_buffer:[C
+    iget-object v2, p0, Lmf/org/apache/xml/serialize/Printer;->_buffer:[C
 
-    invoke-virtual {v0, v1}, Ljava/io/Writer;->write([C)V
+    invoke-virtual {v1, v2}, Ljava/io/Writer;->write([C)V
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    iput v0, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
+    iput v1, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -381,7 +381,7 @@
 .end method
 
 .method public printText(C)V
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -389,39 +389,39 @@
     .end annotation
 
     :try_start_0
-    iget v0, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
+    iget v1, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
 
-    const/16 v1, 0x1000
+    const/16 v2, 0x1000
 
-    if-eq v0, v1, :cond_0
+    if-eq v1, v2, :cond_0
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/Printer;->_buffer:[C
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/Printer;->_buffer:[C
+
+    iget v2, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
+
+    int-to-char v3, p1
+
+    aput-char v3, v1, v2
 
     iget v1, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
 
-    int-to-char v2, p1
+    add-int/lit8 v1, v1, 0x1
 
-    aput-char v2, v0, v1
-
-    iget v0, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
-
-    add-int/lit8 v0, v0, 0x1
-
-    iput v0, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
+    iput v1, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/Printer;->_writer:Ljava/io/Writer;
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/Printer;->_writer:Ljava/io/Writer;
 
-    iget-object v1, p0, Lmf/org/apache/xml/serialize/Printer;->_buffer:[C
+    iget-object v2, p0, Lmf/org/apache/xml/serialize/Printer;->_buffer:[C
 
-    invoke-virtual {v0, v1}, Ljava/io/Writer;->write([C)V
+    invoke-virtual {v1, v2}, Ljava/io/Writer;->write([C)V
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    iput v0, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
+    iput v1, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -444,62 +444,62 @@
 .end method
 
 .method public printText(Ljava/lang/String;)V
-    .locals 5
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    const/4 v0, 0x0
-
     :try_start_0
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v2
+
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v0, v1, :cond_2
-
-    iget v2, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
-
-    const/16 v3, 0x1000
-
-    if-eq v2, v3, :cond_0
-
-    :goto_1
-    iget-object v2, p0, Lmf/org/apache/xml/serialize/Printer;->_buffer:[C
+    if-ge v1, v2, :cond_2
 
     iget v3, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
+    const/16 v4, 0x1000
 
-    move-result v4
+    if-eq v3, v4, :cond_0
 
-    int-to-char v4, v4
+    :goto_1
+    iget-object v3, p0, Lmf/org/apache/xml/serialize/Printer;->_buffer:[C
 
-    aput-char v4, v2, v3
+    iget v4, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
 
-    iget v2, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
+    invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
 
-    add-int/lit8 v2, v2, 0x1
+    move-result v5
 
-    iput v2, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
+    int-to-char v5, v5
 
-    add-int/lit8 v0, v0, 0x1
+    aput-char v5, v3, v4
+
+    iget v3, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
+
+    add-int/lit8 v3, v3, 0x1
+
+    iput v3, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
+
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_0
-    iget-object v2, p0, Lmf/org/apache/xml/serialize/Printer;->_writer:Ljava/io/Writer;
+    iget-object v3, p0, Lmf/org/apache/xml/serialize/Printer;->_writer:Ljava/io/Writer;
 
-    iget-object v3, p0, Lmf/org/apache/xml/serialize/Printer;->_buffer:[C
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/Printer;->_buffer:[C
 
-    invoke-virtual {v2, v3}, Ljava/io/Writer;->write([C)V
+    invoke-virtual {v3, v4}, Ljava/io/Writer;->write([C)V
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    iput v2, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
+    iput v3, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -508,9 +508,9 @@
     :catch_0
     move-exception v0
 
-    iget-object v1, p0, Lmf/org/apache/xml/serialize/Printer;->_exception:Ljava/io/IOException;
+    iget-object v3, p0, Lmf/org/apache/xml/serialize/Printer;->_exception:Ljava/io/IOException;
 
-    if-eqz v1, :cond_1
+    if-eqz v3, :cond_1
 
     :goto_2
     throw v0
@@ -525,6 +525,87 @@
 .end method
 
 .method public printText(Ljava/lang/StringBuffer;)V
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    :try_start_0
+    invoke-virtual {p1}, Ljava/lang/StringBuffer;->length()I
+
+    move-result v2
+
+    const/4 v1, 0x0
+
+    :goto_0
+    if-ge v1, v2, :cond_2
+
+    iget v3, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
+
+    const/16 v4, 0x1000
+
+    if-eq v3, v4, :cond_0
+
+    :goto_1
+    iget-object v3, p0, Lmf/org/apache/xml/serialize/Printer;->_buffer:[C
+
+    iget v4, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuffer;->charAt(I)C
+
+    move-result v5
+
+    int-to-char v5, v5
+
+    aput-char v5, v3, v4
+
+    iget v3, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
+
+    add-int/lit8 v3, v3, 0x1
+
+    iput v3, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v3, p0, Lmf/org/apache/xml/serialize/Printer;->_writer:Ljava/io/Writer;
+
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/Printer;->_buffer:[C
+
+    invoke-virtual {v3, v4}, Ljava/io/Writer;->write([C)V
+
+    const/4 v3, 0x0
+
+    iput v3, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception v0
+
+    iget-object v3, p0, Lmf/org/apache/xml/serialize/Printer;->_exception:Ljava/io/IOException;
+
+    if-eqz v3, :cond_1
+
+    :goto_2
+    throw v0
+
+    :cond_1
+    iput-object v0, p0, Lmf/org/apache/xml/serialize/Printer;->_exception:Ljava/io/IOException;
+
+    goto :goto_2
+
+    :cond_2
+    return-void
+.end method
+
+.method public printText([CII)V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -532,16 +613,14 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
-
-    :try_start_0
-    invoke-virtual {p1}, Ljava/lang/StringBuffer;->length()I
-
-    move-result v1
+    move v1, p3
 
     :goto_0
-    if-ge v0, v1, :cond_2
+    add-int/lit8 p3, v1, -0x1
 
+    if-lez v1, :cond_2
+
+    :try_start_0
     iget v2, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
 
     const/16 v3, 0x1000
@@ -553,13 +632,13 @@
 
     iget v3, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->charAt(I)C
-
-    move-result v4
+    aget-char v4, p1, p2
 
     int-to-char v4, v4
 
     aput-char v4, v2, v3
+
+    add-int/lit8 p2, p2, 0x1
 
     iget v2, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
 
@@ -567,7 +646,7 @@
 
     iput v2, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
 
-    add-int/lit8 v0, v0, 0x1
+    move v1, p3
 
     goto :goto_0
 
@@ -589,86 +668,9 @@
     :catch_0
     move-exception v0
 
-    iget-object v1, p0, Lmf/org/apache/xml/serialize/Printer;->_exception:Ljava/io/IOException;
+    iget-object v2, p0, Lmf/org/apache/xml/serialize/Printer;->_exception:Ljava/io/IOException;
 
-    if-eqz v1, :cond_1
-
-    :goto_2
-    throw v0
-
-    :cond_1
-    iput-object v0, p0, Lmf/org/apache/xml/serialize/Printer;->_exception:Ljava/io/IOException;
-
-    goto :goto_2
-
-    :cond_2
-    return-void
-.end method
-
-.method public printText([CII)V
-    .locals 4
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    :goto_0
-    add-int/lit8 v0, p3, -0x1
-
-    if-lez p3, :cond_2
-
-    :try_start_0
-    iget v1, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
-
-    const/16 v2, 0x1000
-
-    if-eq v1, v2, :cond_0
-
-    :goto_1
-    iget-object v1, p0, Lmf/org/apache/xml/serialize/Printer;->_buffer:[C
-
-    iget v2, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
-
-    aget-char v3, p1, p2
-
-    int-to-char v3, v3
-
-    aput-char v3, v1, v2
-
-    add-int/lit8 p2, p2, 0x1
-
-    iget v1, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
-
-    add-int/lit8 v1, v1, 0x1
-
-    iput v1, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
-
-    move p3, v0
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v1, p0, Lmf/org/apache/xml/serialize/Printer;->_writer:Ljava/io/Writer;
-
-    iget-object v2, p0, Lmf/org/apache/xml/serialize/Printer;->_buffer:[C
-
-    invoke-virtual {v1, v2}, Ljava/io/Writer;->write([C)V
-
-    const/4 v1, 0x0
-
-    iput v1, p0, Lmf/org/apache/xml/serialize/Printer;->_pos:I
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_1
-
-    :catch_0
-    move-exception v0
-
-    iget-object v1, p0, Lmf/org/apache/xml/serialize/Printer;->_exception:Ljava/io/IOException;
-
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_1
 
     :goto_2
     throw v0

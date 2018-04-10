@@ -74,9 +74,9 @@
 
     iget-object v1, p0, Lcom/android/server/am/MARsTrigger$8;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    iget-object v1, v1, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+    iget-object v1, v1, Lcom/android/server/am/MARsTrigger;->mHandlerManager:Lcom/android/server/am/MARsHandler;
 
-    invoke-virtual {v1, v2, v3}, Lcom/android/server/am/MARsPolicyManager;->onAppUsedForTimeChanged(J)V
+    invoke-virtual {v1, v2, v3}, Lcom/android/server/am/MARsHandler;->sendTimeChangedMsgToMainHandler(J)V
 
     iget-object v1, p0, Lcom/android/server/am/MARsTrigger$8;->this$0:Lcom/android/server/am/MARsTrigger;
 

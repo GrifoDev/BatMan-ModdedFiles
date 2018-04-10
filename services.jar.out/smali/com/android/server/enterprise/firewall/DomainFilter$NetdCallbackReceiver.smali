@@ -276,23 +276,19 @@
 
     new-instance v3, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;
 
-    move-object/from16 v0, p0
+    const/4 v12, 0x2
 
-    iget-object v12, v0, Lcom/android/server/enterprise/firewall/DomainFilter$NetdCallbackReceiver;->this$0:Lcom/android/server/enterprise/firewall/DomainFilter;
+    aget-object v12, p3, v12
 
-    const/4 v13, 0x2
+    const/4 v13, 0x3
 
     aget-object v13, p3, v13
 
-    const/4 v14, 0x3
+    const/4 v14, 0x5
 
     aget-object v14, p3, v14
 
-    const/4 v15, 0x5
-
-    aget-object v15, p3, v15
-
-    invoke-direct {v3, v12, v13, v14, v15}, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;-><init>(Lcom/android/server/enterprise/firewall/DomainFilter;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v3, v12, v13, v14}, Lcom/android/server/enterprise/firewall/DomainFilter$BlockReport;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     const/4 v7, 0x0
 

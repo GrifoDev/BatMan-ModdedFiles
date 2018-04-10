@@ -68,11 +68,11 @@
 
     iget-object v1, p0, Lcom/android/server/power/PowerManagerService$AlpmLock;->binder:Landroid/os/IBinder;
 
-    invoke-static {v0, v2, v2, v2, v1}, Lcom/android/server/power/PowerManagerService;->-wrap40(Lcom/android/server/power/PowerManagerService;IIILandroid/os/IBinder;)V
+    invoke-static {v0, v2, v2, v2, v1}, Lcom/android/server/power/PowerManagerService;->-wrap42(Lcom/android/server/power/PowerManagerService;IIILandroid/os/IBinder;)V
 
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$AlpmLock;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->-wrap29(Lcom/android/server/power/PowerManagerService;)V
+    invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->-wrap31(Lcom/android/server/power/PowerManagerService;)V
 
     return-void
 .end method

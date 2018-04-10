@@ -46,17 +46,8 @@
 .method public abstract setFlashing(IIII)V
 .end method
 
-.method public abstract setSmartGlowEnabled(Z)V
-.end method
-
-.method public abstract setSmartGlowFlashing(I[I[I[II)V
-.end method
-
-.method public abstract setSmartGlowOff(II)V
+.method public abstract setVrMode(Z)V
 .end method
 
 .method public abstract turnOff()V
-.end method
-
-.method public abstract updateSmartGlowForPowerKeyPress()V
 .end method

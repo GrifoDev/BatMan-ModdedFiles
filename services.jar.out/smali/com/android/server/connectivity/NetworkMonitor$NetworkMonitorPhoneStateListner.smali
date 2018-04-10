@@ -36,6 +36,14 @@
 
     packed-switch p1, :pswitch_data_0
 
+    iget-object v0, p0, Lcom/android/server/connectivity/NetworkMonitor$NetworkMonitorPhoneStateListner;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
+
+    invoke-static {v0}, Lcom/android/server/connectivity/NetworkMonitor;->-get26(Lcom/android/server/connectivity/NetworkMonitor;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
     invoke-static {}, Lcom/android/server/connectivity/NetworkMonitor;->-get0()Ljava/lang/String;
 
     move-result-object v0
@@ -44,7 +52,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "Smart detection is disabled ("
+    const-string/jumbo v2, "onCallStateChanged - Smart detection is disabled ("
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -72,15 +80,24 @@
 
     invoke-static {v0, v1}, Lcom/android/server/connectivity/NetworkMonitor;->-set22(Lcom/android/server/connectivity/NetworkMonitor;Z)Z
 
+    :cond_0
     :goto_0
     return-void
 
     :pswitch_0
+    iget-object v0, p0, Lcom/android/server/connectivity/NetworkMonitor$NetworkMonitorPhoneStateListner;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
+
+    invoke-static {v0}, Lcom/android/server/connectivity/NetworkMonitor;->-get26(Lcom/android/server/connectivity/NetworkMonitor;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
     invoke-static {}, Lcom/android/server/connectivity/NetworkMonitor;->-get0()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v1, "Smart detection is enabled"
+    const-string/jumbo v1, "onCallStateChanged - Smart detection is enabled"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

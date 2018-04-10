@@ -60,11 +60,11 @@
 
     iget-object v1, p0, Lcom/android/server/connectivity/NetworkMonitor$1;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
-    invoke-static {v1, v4, v4}, Lcom/android/server/connectivity/NetworkMonitor;->-wrap6(Lcom/android/server/connectivity/NetworkMonitor;ZZ)V
+    invoke-static {v1, v4, v4}, Lcom/android/server/connectivity/NetworkMonitor;->-wrap13(Lcom/android/server/connectivity/NetworkMonitor;ZZ)V
 
     iget-object v1, p0, Lcom/android/server/connectivity/NetworkMonitor$1;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
-    invoke-static {v1}, Lcom/android/server/connectivity/NetworkMonitor;->-get24(Lcom/android/server/connectivity/NetworkMonitor;)Z
+    invoke-static {v1}, Lcom/android/server/connectivity/NetworkMonitor;->-get26(Lcom/android/server/connectivity/NetworkMonitor;)Z
 
     move-result v1
 
@@ -102,60 +102,15 @@
 
     iget-object v1, p0, Lcom/android/server/connectivity/NetworkMonitor$1;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
-    iget-object v1, v1, Lcom/android/server/connectivity/NetworkMonitor;->mWatchdogChannel:Lcom/android/internal/util/AsyncChannel;
-
     const-string/jumbo v2, "CWeb"
 
-    invoke-virtual {v1, v5, v0, v4, v2}, Lcom/android/internal/util/AsyncChannel;->sendMessage(IIILjava/lang/Object;)V
+    invoke-static {v1, v5, v0, v4, v2}, Lcom/android/server/connectivity/NetworkMonitor;->-wrap12(Lcom/android/server/connectivity/NetworkMonitor;IIILjava/lang/Object;)V
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    const-string/jumbo v1, "com.samsung.android.net.wifi.CAPTIVE_PORTAL_AUTHENTICATED"
-
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    iget-object v1, p0, Lcom/android/server/connectivity/NetworkMonitor$1;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
-
-    invoke-static {v1}, Lcom/android/server/connectivity/NetworkMonitor;->-wrap2(Lcom/android/server/connectivity/NetworkMonitor;)Lcom/android/internal/util/IState;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/server/connectivity/NetworkMonitor$1;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
-
-    invoke-static {v2}, Lcom/android/server/connectivity/NetworkMonitor;->-get4(Lcom/android/server/connectivity/NetworkMonitor;)Lcom/android/internal/util/State;
-
-    move-result-object v2
-
-    if-ne v1, v2, :cond_0
-
-    invoke-static {}, Lcom/android/server/connectivity/NetworkMonitor;->-get0()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "mCaptivePortalReceiver - CAPTIVE_PORTAL_AUTHENTICATED"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v1, p0, Lcom/android/server/connectivity/NetworkMonitor$1;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
-
-    const v2, 0x8200c
-
-    invoke-virtual {v1, v2, v4}, Lcom/android/server/connectivity/NetworkMonitor;->sendMessage(II)V
-
-    goto :goto_0
-
-    :cond_2
     const-string/jumbo v1, "android.net.netmon.dismissHunNotification"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -166,7 +121,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
     invoke-static {}, Lcom/android/server/connectivity/NetworkMonitor;->-get0()Ljava/lang/String;
 
@@ -184,7 +139,7 @@
 
     goto :goto_0
 
-    :cond_3
+    :cond_2
     const-string/jumbo v1, "android.net.netmon.signinHunNotification"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -195,7 +150,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_3
 
     invoke-static {}, Lcom/android/server/connectivity/NetworkMonitor;->-get0()Ljava/lang/String;
 
@@ -207,11 +162,11 @@
 
     iget-object v1, p0, Lcom/android/server/connectivity/NetworkMonitor$1;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
-    invoke-static {v1, v4, v4}, Lcom/android/server/connectivity/NetworkMonitor;->-wrap6(Lcom/android/server/connectivity/NetworkMonitor;ZZ)V
+    invoke-static {v1, v4, v4}, Lcom/android/server/connectivity/NetworkMonitor;->-wrap13(Lcom/android/server/connectivity/NetworkMonitor;ZZ)V
 
     iget-object v1, p0, Lcom/android/server/connectivity/NetworkMonitor$1;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
-    invoke-static {v1}, Lcom/android/server/connectivity/NetworkMonitor;->-get24(Lcom/android/server/connectivity/NetworkMonitor;)Z
+    invoke-static {v1}, Lcom/android/server/connectivity/NetworkMonitor;->-get26(Lcom/android/server/connectivity/NetworkMonitor;)Z
 
     move-result v1
 
@@ -227,18 +182,72 @@
 
     iget-object v1, p0, Lcom/android/server/connectivity/NetworkMonitor$1;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
-    iget-object v1, v1, Lcom/android/server/connectivity/NetworkMonitor;->mWatchdogChannel:Lcom/android/internal/util/AsyncChannel;
-
     const-string/jumbo v2, "CWeb"
 
     const/4 v3, 0x5
 
-    invoke-virtual {v1, v5, v3, v4, v2}, Lcom/android/internal/util/AsyncChannel;->sendMessage(IIILjava/lang/Object;)V
+    invoke-static {v1, v5, v3, v4, v2}, Lcom/android/server/connectivity/NetworkMonitor;->-wrap12(Lcom/android/server/connectivity/NetworkMonitor;IIILjava/lang/Object;)V
+
+    goto :goto_0
+
+    :cond_3
+    const-string/jumbo v1, "android.intent.action.SCREEN_ON"
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    invoke-static {}, Lcom/android/server/connectivity/NetworkMonitor;->-get0()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "mCaptivePortalReceiver - Screen on"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/android/server/connectivity/NetworkMonitor$1;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
+
+    invoke-static {v1}, Lcom/android/server/connectivity/NetworkMonitor;->-get27(Lcom/android/server/connectivity/NetworkMonitor;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    iget-object v1, p0, Lcom/android/server/connectivity/NetworkMonitor$1;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
+
+    invoke-virtual {v1}, Lcom/android/server/connectivity/NetworkMonitor;->getCurrentState()Lcom/android/internal/util/IState;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/server/connectivity/NetworkMonitor$1;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
+
+    invoke-static {v2}, Lcom/android/server/connectivity/NetworkMonitor;->-get6(Lcom/android/server/connectivity/NetworkMonitor;)Lcom/android/internal/util/State;
+
+    move-result-object v2
+
+    if-ne v1, v2, :cond_4
+
+    iget-object v1, p0, Lcom/android/server/connectivity/NetworkMonitor$1;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
+
+    const v2, 0x8200e
+
+    invoke-virtual {v1, v2}, Lcom/android/server/connectivity/NetworkMonitor;->sendMessage(I)V
+
+    :cond_4
+    iget-object v1, p0, Lcom/android/server/connectivity/NetworkMonitor$1;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
+
+    invoke-static {v1, v4}, Lcom/android/server/connectivity/NetworkMonitor;->-set17(Lcom/android/server/connectivity/NetworkMonitor;Z)Z
 
     goto/16 :goto_0
 
-    :cond_4
-    const-string/jumbo v1, "android.intent.action.SCREEN_ON"
+    :cond_5
+    const-string/jumbo v1, "android.intent.action.LOCALE_CHANGED"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -254,42 +263,23 @@
 
     move-result-object v1
 
-    const-string/jumbo v2, "mCaptivePortalReceiver - Screen on"
+    const-string/jumbo v2, "mCaptivePortalReceiver - Locale changed"
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v1, p0, Lcom/android/server/connectivity/NetworkMonitor$1;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
-    invoke-static {v1}, Lcom/android/server/connectivity/NetworkMonitor;->-get25(Lcom/android/server/connectivity/NetworkMonitor;)Z
+    invoke-static {v1}, Lcom/android/server/connectivity/NetworkMonitor;->-get26(Lcom/android/server/connectivity/NetworkMonitor;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Lcom/android/server/connectivity/NetworkMonitor$1;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
-    invoke-static {v1}, Lcom/android/server/connectivity/NetworkMonitor;->-wrap2(Lcom/android/server/connectivity/NetworkMonitor;)Lcom/android/internal/util/IState;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/server/connectivity/NetworkMonitor$1;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
-
-    invoke-static {v2}, Lcom/android/server/connectivity/NetworkMonitor;->-get4(Lcom/android/server/connectivity/NetworkMonitor;)Lcom/android/internal/util/State;
-
-    move-result-object v2
-
-    if-ne v1, v2, :cond_5
-
-    iget-object v1, p0, Lcom/android/server/connectivity/NetworkMonitor$1;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
-
-    const v2, 0x8200e
+    const v2, 0x82014
 
     invoke-virtual {v1, v2}, Lcom/android/server/connectivity/NetworkMonitor;->sendMessage(I)V
-
-    :cond_5
-    iget-object v1, p0, Lcom/android/server/connectivity/NetworkMonitor$1;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
-
-    invoke-static {v1, v4}, Lcom/android/server/connectivity/NetworkMonitor;->-set16(Lcom/android/server/connectivity/NetworkMonitor;Z)Z
 
     goto/16 :goto_0
 .end method

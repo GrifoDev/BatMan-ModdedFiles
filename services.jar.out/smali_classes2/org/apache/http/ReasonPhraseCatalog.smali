@@ -3,11 +3,6 @@
 .source "ReasonPhraseCatalog.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract getReason(ILjava/util/Locale;)Ljava/lang/String;
 .end method

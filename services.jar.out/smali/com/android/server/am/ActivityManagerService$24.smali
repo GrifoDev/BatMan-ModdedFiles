@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/am/ActivityManagerService;->handleApplicationWtf(Landroid/os/IBinder;Ljava/lang/String;ZLandroid/app/ApplicationErrorReport$CrashInfo;)Z
+    value = Lcom/android/server/am/ActivityManagerService;->handleApplicationWtf(Landroid/os/IBinder;Ljava/lang/String;ZLandroid/app/ApplicationErrorReport$ParcelableCrashInfo;)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -26,13 +26,13 @@
 
 .field final synthetic val$callingUid:I
 
-.field final synthetic val$crashInfo:Landroid/app/ApplicationErrorReport$CrashInfo;
+.field final synthetic val$crashInfo:Landroid/app/ApplicationErrorReport$ParcelableCrashInfo;
 
 .field final synthetic val$tag:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ActivityManagerService;IILandroid/os/IBinder;Ljava/lang/String;Landroid/app/ApplicationErrorReport$CrashInfo;)V
+.method constructor <init>(Lcom/android/server/am/ActivityManagerService;IILandroid/os/IBinder;Ljava/lang/String;Landroid/app/ApplicationErrorReport$ParcelableCrashInfo;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$24;->this$0:Lcom/android/server/am/ActivityManagerService;
@@ -45,7 +45,7 @@
 
     iput-object p5, p0, Lcom/android/server/am/ActivityManagerService$24;->val$tag:Ljava/lang/String;
 
-    iput-object p6, p0, Lcom/android/server/am/ActivityManagerService$24;->val$crashInfo:Landroid/app/ApplicationErrorReport$CrashInfo;
+    iput-object p6, p0, Lcom/android/server/am/ActivityManagerService$24;->val$crashInfo:Landroid/app/ApplicationErrorReport$ParcelableCrashInfo;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -67,7 +67,7 @@
 
     iget-object v4, p0, Lcom/android/server/am/ActivityManagerService$24;->val$tag:Ljava/lang/String;
 
-    iget-object v5, p0, Lcom/android/server/am/ActivityManagerService$24;->val$crashInfo:Landroid/app/ApplicationErrorReport$CrashInfo;
+    iget-object v5, p0, Lcom/android/server/am/ActivityManagerService$24;->val$crashInfo:Landroid/app/ApplicationErrorReport$ParcelableCrashInfo;
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/server/am/ActivityManagerService;->handleApplicationWtfInner(IILandroid/os/IBinder;Ljava/lang/String;Landroid/app/ApplicationErrorReport$CrashInfo;)Lcom/android/server/am/ProcessRecord;
 

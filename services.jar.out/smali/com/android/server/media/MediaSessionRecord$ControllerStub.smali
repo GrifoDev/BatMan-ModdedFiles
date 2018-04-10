@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap10(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap11(Lcom/android/server/media/MediaSessionRecord;)V
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
@@ -83,7 +83,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap10(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap11(Lcom/android/server/media/MediaSessionRecord;)V
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
@@ -448,7 +448,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap10(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap11(Lcom/android/server/media/MediaSessionRecord;)V
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
@@ -471,7 +471,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap10(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap11(Lcom/android/server/media/MediaSessionRecord;)V
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
@@ -494,7 +494,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap10(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap11(Lcom/android/server/media/MediaSessionRecord;)V
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
@@ -517,7 +517,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap10(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap11(Lcom/android/server/media/MediaSessionRecord;)V
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
@@ -540,7 +540,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap10(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap11(Lcom/android/server/media/MediaSessionRecord;)V
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
@@ -563,7 +563,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap10(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap11(Lcom/android/server/media/MediaSessionRecord;)V
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
@@ -586,7 +586,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap10(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap11(Lcom/android/server/media/MediaSessionRecord;)V
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
@@ -609,7 +609,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap10(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap11(Lcom/android/server/media/MediaSessionRecord;)V
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
@@ -632,7 +632,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap10(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap11(Lcom/android/server/media/MediaSessionRecord;)V
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
@@ -655,7 +655,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap10(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap11(Lcom/android/server/media/MediaSessionRecord;)V
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
@@ -678,7 +678,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap10(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap11(Lcom/android/server/media/MediaSessionRecord;)V
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
@@ -701,7 +701,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap10(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap11(Lcom/android/server/media/MediaSessionRecord;)V
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
@@ -715,7 +715,7 @@
 .end method
 
 .method public registerCallbackListener(Landroid/media/session/ISessionControllerCallback;)V
-    .locals 5
+    .locals 6
 
     iget-object v1, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
@@ -768,7 +768,17 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    new-instance v3, Lcom/android/server/media/MediaSessionRecord$ISessionControllerCallbackHolder;
+
+    iget-object v4, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v5
+
+    invoke-direct {v3, v4, p1, v5}, Lcom/android/server/media/MediaSessionRecord$ISessionControllerCallbackHolder;-><init>(Lcom/android/server/media/MediaSessionRecord;Landroid/media/session/ISessionControllerCallback;I)V
+
+    invoke-virtual {v1, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     invoke-static {}, Lcom/android/server/media/MediaSessionRecord;->-get0()Z
 
@@ -823,7 +833,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap10(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap11(Lcom/android/server/media/MediaSessionRecord;)V
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
@@ -846,7 +856,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap10(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap11(Lcom/android/server/media/MediaSessionRecord;)V
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
@@ -869,7 +879,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap10(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap11(Lcom/android/server/media/MediaSessionRecord;)V
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
@@ -892,7 +902,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap10(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap11(Lcom/android/server/media/MediaSessionRecord;)V
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
@@ -910,7 +920,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap10(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap11(Lcom/android/server/media/MediaSessionRecord;)V
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
@@ -934,7 +944,7 @@
 
     iget-object v3, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v3}, Lcom/android/server/media/MediaSessionRecord;->-wrap10(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v3}, Lcom/android/server/media/MediaSessionRecord;->-wrap11(Lcom/android/server/media/MediaSessionRecord;)V
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
@@ -968,7 +978,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap10(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap11(Lcom/android/server/media/MediaSessionRecord;)V
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
@@ -991,7 +1001,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap10(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-wrap11(Lcom/android/server/media/MediaSessionRecord;)V
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ControllerStub;->this$0:Lcom/android/server/media/MediaSessionRecord;
 

@@ -39,11 +39,11 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    new-array v0, v0, [Ljava/lang/Class;
+    new-array v1, v1, [Ljava/lang/Class;
 
-    invoke-virtual {p1, v0}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+    invoke-virtual {p1, v1}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v0
 
@@ -80,14 +80,12 @@
 
     invoke-direct {p0, p1, v0}, Lorg/simpleframework/xml/convert/ConverterFactory;->getConverter(Ljava/lang/Class;Ljava/lang/reflect/Constructor;)Lorg/simpleframework/xml/convert/Converter;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    new-instance v0, Lorg/simpleframework/xml/convert/ConvertException;
-
-    const-string/jumbo v1, "No default constructor for %s"
+    new-instance v1, Lorg/simpleframework/xml/convert/ConvertException;
 
     const/4 v2, 0x1
 
@@ -97,9 +95,11 @@
 
     aput-object p1, v2, v3
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/convert/ConvertException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v3, "No default constructor for %s"
 
-    throw v0
+    invoke-direct {v1, v3, v2}, Lorg/simpleframework/xml/convert/ConvertException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v1
 .end method
 
 .method private getConverter(Ljava/lang/Class;Ljava/lang/reflect/Constructor;)Lorg/simpleframework/xml/convert/Converter;
@@ -110,11 +110,11 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    new-array v0, v0, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/Object;
 
-    invoke-virtual {p2, v0}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p2, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -136,16 +136,16 @@
 
 # virtual methods
 .method public getInstance(Ljava/lang/Class;)Lorg/simpleframework/xml/convert/Converter;
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/convert/ConverterFactory;->cache:Lorg/simpleframework/xml/util/Cache;
+    iget-object v1, p0, Lorg/simpleframework/xml/convert/ConverterFactory;->cache:Lorg/simpleframework/xml/util/Cache;
 
-    invoke-interface {v0, p1}, Lorg/simpleframework/xml/util/Cache;->fetch(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, p1}, Lorg/simpleframework/xml/util/Cache;->fetch(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -158,20 +158,20 @@
     :cond_0
     invoke-direct {p0, p1}, Lorg/simpleframework/xml/convert/ConverterFactory;->getConverter(Ljava/lang/Class;)Lorg/simpleframework/xml/convert/Converter;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public getInstance(Lorg/simpleframework/xml/convert/Convert;)Lorg/simpleframework/xml/convert/Converter;
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     invoke-interface {p1}, Lorg/simpleframework/xml/convert/Convert;->value()Ljava/lang/Class;
 
@@ -185,22 +185,22 @@
 
     invoke-virtual {p0, v0}, Lorg/simpleframework/xml/convert/ConverterFactory;->getInstance(Ljava/lang/Class;)Lorg/simpleframework/xml/convert/Converter;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
     new-instance v1, Lorg/simpleframework/xml/convert/ConvertException;
 
-    const-string/jumbo v2, "Can not instantiate %s"
+    const/4 v2, 0x1
 
-    const/4 v3, 0x1
+    new-array v2, v2, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    aput-object v0, v2, v3
 
-    aput-object v0, v3, v4
+    const-string/jumbo v3, "Can not instantiate %s"
 
-    invoke-direct {v1, v2, v3}, Lorg/simpleframework/xml/convert/ConvertException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v1, v3, v2}, Lorg/simpleframework/xml/convert/ConvertException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
     throw v1
 .end method

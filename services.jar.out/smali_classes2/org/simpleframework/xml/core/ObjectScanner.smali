@@ -78,15 +78,15 @@
 
     invoke-virtual {v1, v0}, Lorg/simpleframework/xml/core/StructureBuilder;->build(Ljava/lang/Class;)Lorg/simpleframework/xml/core/Structure;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lorg/simpleframework/xml/core/ObjectScanner;->structure:Lorg/simpleframework/xml/core/Structure;
+    iput-object v1, p0, Lorg/simpleframework/xml/core/ObjectScanner;->structure:Lorg/simpleframework/xml/core/Structure;
 
     goto :goto_0
 .end method
 
 .method private field(Lorg/simpleframework/xml/core/Detail;)V
-    .locals 4
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -95,54 +95,54 @@
 
     invoke-interface {p1}, Lorg/simpleframework/xml/core/Detail;->getType()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v5
 
     invoke-interface {p1}, Lorg/simpleframework/xml/core/Detail;->getOverride()Lorg/simpleframework/xml/DefaultType;
 
-    move-result-object v1
-
-    iget-object v2, p0, Lorg/simpleframework/xml/core/ObjectScanner;->support:Lorg/simpleframework/xml/core/Support;
-
-    invoke-virtual {v2, v0, v1}, Lorg/simpleframework/xml/core/Support;->getFields(Ljava/lang/Class;Lorg/simpleframework/xml/DefaultType;)Lorg/simpleframework/xml/core/ContactList;
-
     move-result-object v0
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/ContactList;->iterator()Ljava/util/Iterator;
+    iget-object v6, p0, Lorg/simpleframework/xml/core/ObjectScanner;->support:Lorg/simpleframework/xml/core/Support;
 
-    move-result-object v1
+    invoke-virtual {v6, v5, v0}, Lorg/simpleframework/xml/core/Support;->getFields(Ljava/lang/Class;Lorg/simpleframework/xml/DefaultType;)Lorg/simpleframework/xml/core/ContactList;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lorg/simpleframework/xml/core/ContactList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
 
     :cond_0
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result v6
 
-    if-nez v0, :cond_1
+    if-nez v6, :cond_1
 
     return-void
 
     :cond_1
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lorg/simpleframework/xml/core/Contact;
+    check-cast v1, Lorg/simpleframework/xml/core/Contact;
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/core/Contact;->getAnnotation()Ljava/lang/annotation/Annotation;
+    invoke-interface {v1}, Lorg/simpleframework/xml/core/Contact;->getAnnotation()Ljava/lang/annotation/Annotation;
 
-    move-result-object v2
+    move-result-object v3
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
-    iget-object v3, p0, Lorg/simpleframework/xml/core/ObjectScanner;->builder:Lorg/simpleframework/xml/core/StructureBuilder;
+    iget-object v6, p0, Lorg/simpleframework/xml/core/ObjectScanner;->builder:Lorg/simpleframework/xml/core/StructureBuilder;
 
-    invoke-virtual {v3, v0, v2}, Lorg/simpleframework/xml/core/StructureBuilder;->process(Lorg/simpleframework/xml/core/Contact;Ljava/lang/annotation/Annotation;)V
+    invoke-virtual {v6, v1, v3}, Lorg/simpleframework/xml/core/StructureBuilder;->process(Lorg/simpleframework/xml/core/Contact;Ljava/lang/annotation/Annotation;)V
 
     goto :goto_0
 .end method
 
 .method private method(Lorg/simpleframework/xml/core/Detail;)V
-    .locals 4
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -151,48 +151,48 @@
 
     invoke-interface {p1}, Lorg/simpleframework/xml/core/Detail;->getType()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v5
 
     invoke-interface {p1}, Lorg/simpleframework/xml/core/Detail;->getOverride()Lorg/simpleframework/xml/DefaultType;
 
-    move-result-object v1
-
-    iget-object v2, p0, Lorg/simpleframework/xml/core/ObjectScanner;->support:Lorg/simpleframework/xml/core/Support;
-
-    invoke-virtual {v2, v0, v1}, Lorg/simpleframework/xml/core/Support;->getMethods(Ljava/lang/Class;Lorg/simpleframework/xml/DefaultType;)Lorg/simpleframework/xml/core/ContactList;
-
     move-result-object v0
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/ContactList;->iterator()Ljava/util/Iterator;
+    iget-object v6, p0, Lorg/simpleframework/xml/core/ObjectScanner;->support:Lorg/simpleframework/xml/core/Support;
 
-    move-result-object v1
+    invoke-virtual {v6, v5, v0}, Lorg/simpleframework/xml/core/Support;->getMethods(Ljava/lang/Class;Lorg/simpleframework/xml/DefaultType;)Lorg/simpleframework/xml/core/ContactList;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lorg/simpleframework/xml/core/ContactList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
 
     :cond_0
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result v6
 
-    if-nez v0, :cond_1
+    if-nez v6, :cond_1
 
     return-void
 
     :cond_1
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lorg/simpleframework/xml/core/Contact;
+    check-cast v1, Lorg/simpleframework/xml/core/Contact;
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/core/Contact;->getAnnotation()Ljava/lang/annotation/Annotation;
+    invoke-interface {v1}, Lorg/simpleframework/xml/core/Contact;->getAnnotation()Ljava/lang/annotation/Annotation;
 
-    move-result-object v2
+    move-result-object v3
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
-    iget-object v3, p0, Lorg/simpleframework/xml/core/ObjectScanner;->builder:Lorg/simpleframework/xml/core/StructureBuilder;
+    iget-object v6, p0, Lorg/simpleframework/xml/core/ObjectScanner;->builder:Lorg/simpleframework/xml/core/StructureBuilder;
 
-    invoke-virtual {v3, v0, v2}, Lorg/simpleframework/xml/core/StructureBuilder;->process(Lorg/simpleframework/xml/core/Contact;Ljava/lang/annotation/Annotation;)V
+    invoke-virtual {v6, v1, v3}, Lorg/simpleframework/xml/core/StructureBuilder;->process(Lorg/simpleframework/xml/core/Contact;Ljava/lang/annotation/Annotation;)V
 
     goto :goto_0
 .end method

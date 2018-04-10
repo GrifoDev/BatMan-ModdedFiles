@@ -37,51 +37,51 @@
     sput-boolean v5, Lmf/org/apache/xml/serialize/EncodingInfo$CharToByteConverterMethods;->fgConvertersAvailable:Z
 
     :try_start_0
-    const-string/jumbo v0, "sun.io.CharToByteConverter"
+    const-string/jumbo v2, "sun.io.CharToByteConverter"
 
-    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-static {v2}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v0
-
-    const-string/jumbo v1, "getConverter"
 
     const/4 v2, 0x1
 
     new-array v2, v2, [Ljava/lang/Class;
 
-    const/4 v3, 0x0
+    const-class v3, Ljava/lang/String;
 
-    const-class v4, Ljava/lang/String;
+    const/4 v4, 0x0
 
-    aput-object v4, v2, v3
+    aput-object v3, v2, v4
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    const-string/jumbo v3, "getConverter"
 
-    move-result-object v1
+    invoke-virtual {v0, v3, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    sput-object v1, Lmf/org/apache/xml/serialize/EncodingInfo$CharToByteConverterMethods;->fgGetConverterMethod:Ljava/lang/reflect/Method;
+    move-result-object v2
 
-    const-string/jumbo v1, "canConvert"
+    sput-object v2, Lmf/org/apache/xml/serialize/EncodingInfo$CharToByteConverterMethods;->fgGetConverterMethod:Ljava/lang/reflect/Method;
 
     const/4 v2, 0x1
 
     new-array v2, v2, [Ljava/lang/Class;
 
-    const/4 v3, 0x0
+    sget-object v3, Ljava/lang/Character;->TYPE:Ljava/lang/Class;
 
-    sget-object v4, Ljava/lang/Character;->TYPE:Ljava/lang/Class;
+    const/4 v4, 0x0
 
-    aput-object v4, v2, v3
+    aput-object v3, v2, v4
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    const-string/jumbo v3, "canConvert"
 
-    move-result-object v0
+    invoke-virtual {v0, v3, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    sput-object v0, Lmf/org/apache/xml/serialize/EncodingInfo$CharToByteConverterMethods;->fgCanConvertMethod:Ljava/lang/reflect/Method;
+    move-result-object v2
 
-    const/4 v0, 0x1
+    sput-object v2, Lmf/org/apache/xml/serialize/EncodingInfo$CharToByteConverterMethods;->fgCanConvertMethod:Ljava/lang/reflect/Method;
 
-    sput-boolean v0, Lmf/org/apache/xml/serialize/EncodingInfo$CharToByteConverterMethods;->fgConvertersAvailable:Z
+    const/4 v2, 0x1
+
+    sput-boolean v2, Lmf/org/apache/xml/serialize/EncodingInfo$CharToByteConverterMethods;->fgConvertersAvailable:Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -89,7 +89,7 @@
     return-void
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
     sput-object v6, Lmf/org/apache/xml/serialize/EncodingInfo$CharToByteConverterMethods;->fgGetConverterMethod:Ljava/lang/reflect/Method;
 

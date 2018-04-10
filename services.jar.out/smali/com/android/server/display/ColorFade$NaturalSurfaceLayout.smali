@@ -34,8 +34,6 @@
 
 .field public mDisplayWidth:I
 
-.field private mResized:Z
-
 .field private mSurfaceControl:Landroid/view/SurfaceControl;
 
 
@@ -43,11 +41,7 @@
 .method public constructor <init>(Landroid/hardware/display/DisplayManagerInternal;ILandroid/view/SurfaceControl;)V
     .locals 3
 
-    const/4 v1, 0x0
-
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object v1, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mCallback:Lcom/android/server/display/ColorFade$NaturalSurfaceLayout$OnResolutionChangedCb;
 
     iput-object p1, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mDisplayManagerInternal:Landroid/hardware/display/DisplayManagerInternal;
 
@@ -61,7 +55,7 @@
 
     const/4 v1, 0x0
 
-    iput-boolean v1, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mResized:Z
+    iput-object v1, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mCallback:Lcom/android/server/display/ColorFade$NaturalSurfaceLayout$OnResolutionChangedCb;
 
     iget-object v1, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mDisplayManagerInternal:Landroid/hardware/display/DisplayManagerInternal;
 
@@ -70,8 +64,6 @@
     invoke-virtual {v1, v2}, Landroid/hardware/display/DisplayManagerInternal;->getDisplayInfo(I)Landroid/view/DisplayInfo;
 
     move-result-object v0
-
-    if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Landroid/view/DisplayInfo;->getNaturalWidth()I
 
@@ -85,7 +77,6 @@
 
     iput v1, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mDisplayHeight:I
 
-    :cond_0
     return-void
 .end method
 
@@ -150,30 +141,13 @@
     packed-switch v3, :pswitch_data_0
 
     :goto_0
-    iget-boolean v3, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mResized:Z
-
-    if-eqz v3, :cond_1
-
-    iget-object v3, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mCallback:Lcom/android/server/display/ColorFade$NaturalSurfaceLayout$OnResolutionChangedCb;
-
-    if-eqz v3, :cond_1
-
-    iget-object v3, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mCallback:Lcom/android/server/display/ColorFade$NaturalSurfaceLayout$OnResolutionChangedCb;
-
-    invoke-interface {v3}, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout$OnResolutionChangedCb;->onResolutionChanged()V
-
-    const/4 v3, 0x0
-
-    iput-boolean v3, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mResized:Z
-
-    :cond_1
     invoke-virtual {v2}, Landroid/view/DisplayInfo;->getNaturalWidth()I
 
     move-result v1
 
     iget v3, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mDisplayWidth:I
 
-    if-eq v3, v1, :cond_2
+    if-eq v3, v1, :cond_1
 
     invoke-virtual {v2}, Landroid/view/DisplayInfo;->getNaturalHeight()I
 
@@ -201,13 +175,17 @@
     :try_start_3
     invoke-static {}, Landroid/view/SurfaceControl;->closeTransaction()V
 
-    const/4 v3, 0x1
+    iget-object v3, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mCallback:Lcom/android/server/display/ColorFade$NaturalSurfaceLayout$OnResolutionChangedCb;
 
-    iput-boolean v3, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mResized:Z
+    if-eqz v3, :cond_1
+
+    iget-object v3, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mCallback:Lcom/android/server/display/ColorFade$NaturalSurfaceLayout$OnResolutionChangedCb;
+
+    invoke-interface {v3}, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout$OnResolutionChangedCb;->onResolutionChanged()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    :cond_2
+    :cond_1
     monitor-exit p0
 
     return-void
@@ -321,7 +299,7 @@
 
     invoke-virtual {v3, v4, v5, v6, v7}, Landroid/view/SurfaceControl;->setMatrix(FFFF)V
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :catchall_1
     move-exception v3
@@ -331,8 +309,6 @@
     throw v3
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x0

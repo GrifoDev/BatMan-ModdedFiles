@@ -241,27 +241,27 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .locals 3
 
-    const-string/jumbo v0, "attribute %s=\'%s\'"
+    const/4 v0, 0x2
 
-    const/4 v1, 0x2
+    new-array v0, v0, [Ljava/lang/Object;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    iget-object v1, p0, Lorg/simpleframework/xml/stream/OutputAttribute;->name:Ljava/lang/String;
 
     const/4 v2, 0x0
 
-    iget-object v3, p0, Lorg/simpleframework/xml/stream/OutputAttribute;->name:Ljava/lang/String;
+    aput-object v1, v0, v2
 
-    aput-object v3, v1, v2
+    iget-object v1, p0, Lorg/simpleframework/xml/stream/OutputAttribute;->value:Ljava/lang/String;
 
     const/4 v2, 0x1
 
-    iget-object v3, p0, Lorg/simpleframework/xml/stream/OutputAttribute;->value:Ljava/lang/String;
+    aput-object v1, v0, v2
 
-    aput-object v3, v1, v2
+    const-string/jumbo v1, "attribute %s=\'%s\'"
 
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 

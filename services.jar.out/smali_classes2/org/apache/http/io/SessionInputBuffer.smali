@@ -3,11 +3,6 @@
 .source "SessionInputBuffer.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract getMetrics()Lorg/apache/http/io/HttpTransportMetrics;
 .end method
@@ -17,6 +12,9 @@
         value = {
             Ljava/io/IOException;
         }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end method
 

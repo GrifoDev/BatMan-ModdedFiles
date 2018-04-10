@@ -81,7 +81,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_3
 
     invoke-static {}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDriver;->-get0()Z
 
@@ -113,7 +113,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_2
 
     iget-object v3, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsDriver$KernelDataFetch;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsDriver;
 
@@ -121,35 +121,6 @@
 
     move-result-object v0
 
-    invoke-static {}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDriver;->-get0()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
-
-    const-string/jumbo v3, "NetworkAnalytics:NetworkAnalyticsDriver"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "_deliverDataToRecipients: data = "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     const-wide/16 v4, 0x19
@@ -164,7 +135,7 @@
     :catch_0
     move-exception v2
 
-    :cond_3
+    :cond_2
     :goto_1
     iget-object v3, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsDriver$KernelDataFetch;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsDriver;
 
@@ -172,13 +143,13 @@
 
     return-object v6
 
-    :cond_4
+    :cond_3
     :try_start_1
     invoke-static {}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDriver;->-get0()Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_4
 
     const-string/jumbo v3, "NetworkAnalytics:NetworkAnalyticsDriver"
 
@@ -186,7 +157,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_5
+    :cond_4
     iget-object v3, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsDriver$KernelDataFetch;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsDriver;
 
     const/4 v4, 0x0

@@ -43,22 +43,22 @@
 
 # virtual methods
 .method public run()Ljava/lang/Object;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    iget-object v0, p0, Lmf/javax/xml/validation/SecuritySupport$6;->val$cl:Ljava/lang/ClassLoader;
+    iget-object v1, p0, Lmf/javax/xml/validation/SecuritySupport$6;->val$cl:Ljava/lang/ClassLoader;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object v0, p0, Lmf/javax/xml/validation/SecuritySupport$6;->val$cl:Ljava/lang/ClassLoader;
+    iget-object v1, p0, Lmf/javax/xml/validation/SecuritySupport$6;->val$cl:Ljava/lang/ClassLoader;
 
-    iget-object v1, p0, Lmf/javax/xml/validation/SecuritySupport$6;->val$name:Ljava/lang/String;
+    iget-object v2, p0, Lmf/javax/xml/validation/SecuritySupport$6;->val$name:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/ClassLoader;->getResources(Ljava/lang/String;)Ljava/util/Enumeration;
+    invoke-virtual {v1, v2}, Ljava/lang/ClassLoader;->getResources(Ljava/lang/String;)Ljava/util/Enumeration;
 
     move-result-object v0
 
@@ -66,9 +66,9 @@
     return-object v0
 
     :cond_0
-    iget-object v0, p0, Lmf/javax/xml/validation/SecuritySupport$6;->val$name:Ljava/lang/String;
+    iget-object v1, p0, Lmf/javax/xml/validation/SecuritySupport$6;->val$name:Ljava/lang/String;
 
-    invoke-static {v0}, Ljava/lang/ClassLoader;->getSystemResources(Ljava/lang/String;)Ljava/util/Enumeration;
+    invoke-static {v1}, Ljava/lang/ClassLoader;->getSystemResources(Ljava/lang/String;)Ljava/util/Enumeration;
 
     move-result-object v0
 

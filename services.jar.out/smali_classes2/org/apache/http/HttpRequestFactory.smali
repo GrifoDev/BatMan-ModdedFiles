@@ -3,11 +3,6 @@
 .source "HttpRequestFactory.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract newHttpRequest(Ljava/lang/String;Ljava/lang/String;)Lorg/apache/http/HttpRequest;
     .annotation system Ldalvik/annotation/Throws;

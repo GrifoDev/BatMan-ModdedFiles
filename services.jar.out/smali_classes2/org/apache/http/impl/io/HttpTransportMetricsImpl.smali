@@ -6,9 +6,8 @@
 .implements Lorg/apache/http/io/HttpTransportMetrics;
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
+# instance fields
+.field private bytesTransferred:J
 
 
 # direct methods
@@ -17,13 +16,11 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const-wide/16 v0, 0x0
 
-    const-string/jumbo v1, "Stub!"
+    iput-wide v0, p0, Lorg/apache/http/impl/io/HttpTransportMetricsImpl;->bytesTransferred:J
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 
@@ -31,47 +28,37 @@
 .method public getBytesTransferred()J
     .locals 2
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-wide v0, p0, Lorg/apache/http/impl/io/HttpTransportMetricsImpl;->bytesTransferred:J
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-wide v0
 .end method
 
 .method public incrementBytesTransferred(J)V
-    .locals 2
+    .locals 3
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-wide v0, p0, Lorg/apache/http/impl/io/HttpTransportMetricsImpl;->bytesTransferred:J
 
-    const-string/jumbo v1, "Stub!"
+    add-long/2addr v0, p1
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    iput-wide v0, p0, Lorg/apache/http/impl/io/HttpTransportMetricsImpl;->bytesTransferred:J
 
-    throw v0
+    return-void
 .end method
 
 .method public reset()V
     .locals 2
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const-wide/16 v0, 0x0
 
-    const-string/jumbo v1, "Stub!"
+    iput-wide v0, p0, Lorg/apache/http/impl/io/HttpTransportMetricsImpl;->bytesTransferred:J
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 .method public setBytesTransferred(J)V
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iput-wide p1, p0, Lorg/apache/http/impl/io/HttpTransportMetricsImpl;->bytesTransferred:J
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method

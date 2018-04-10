@@ -49,7 +49,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_5
 
     const-string/jumbo v8, "android.intent.extra.REPLACING"
 
@@ -57,13 +57,10 @@
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    xor-int/lit8 v8, v8, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v8, :cond_5
 
-    :cond_1
     const-string/jumbo v8, "android.intent.extra.user_handle"
 
     invoke-virtual {p2, v8, v10}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
@@ -82,7 +79,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_0
 
     const-string/jumbo v8, "package:"
 
@@ -96,10 +93,10 @@
 
     move-result-object v1
 
-    :cond_2
-    if-eqz v1, :cond_6
+    :cond_0
+    if-eqz v1, :cond_4
 
-    if-eq v7, v10, :cond_6
+    if-eq v7, v10, :cond_4
 
     new-instance v8, Ljava/lang/StringBuilder;
 
@@ -147,19 +144,19 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_5
 
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v5
 
-    :cond_3
-    :goto_1
+    :cond_1
+    :goto_0
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_5
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -167,7 +164,7 @@
 
     check-cast v4, Ljava/lang/String;
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_1
 
     invoke-static {}, Lcom/android/server/enterprise/otp/engine/handler/securedata/TlcHandler;->getInstance()Lcom/android/server/enterprise/otp/engine/handler/securedata/TlcHandler;
 
@@ -177,7 +174,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_2
 
     new-instance v8, Ljava/lang/StringBuilder;
 
@@ -205,14 +202,14 @@
 
     invoke-static {v8}, Lcom/android/server/enterprise/otp/engine/common/Print;->d(Ljava/lang/String;)V
 
-    :goto_2
+    :goto_1
     iget-object v8, p0, Lcom/android/server/enterprise/otp/PackageRemovalReceiver;->dbHandler:Lcom/android/server/enterprise/otp/engine/handler/db/DBHandler;
 
     invoke-virtual {v8, v4}, Lcom/android/server/enterprise/otp/engine/handler/db/DBHandler;->removeOtpToken(Ljava/lang/String;)I
 
     move-result v3
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_3
 
     new-instance v8, Ljava/lang/StringBuilder;
 
@@ -240,9 +237,9 @@
 
     invoke-static {v8}, Lcom/android/server/enterprise/otp/engine/common/Print;->d(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_4
+    :cond_2
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -269,9 +266,9 @@
 
     invoke-static {v8}, Lcom/android/server/enterprise/otp/engine/common/Print;->e(Ljava/lang/String;)V
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_5
+    :cond_3
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -292,12 +289,13 @@
 
     invoke-static {v8}, Lcom/android/server/enterprise/otp/engine/common/Print;->e(Ljava/lang/String;)V
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
-    :cond_6
+    :cond_4
     const-string/jumbo v8, "Unable to get Package Info of the deleted App"
 
     invoke-static {v8}, Lcom/android/server/enterprise/otp/engine/common/Print;->e(Ljava/lang/String;)V
 
-    goto/16 :goto_0
+    :cond_5
+    return-void
 .end method

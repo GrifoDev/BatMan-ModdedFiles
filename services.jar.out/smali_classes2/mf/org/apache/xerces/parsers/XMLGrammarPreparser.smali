@@ -161,37 +161,37 @@
 .end method
 
 .method private clearModCounts()V
-    .locals 3
+    .locals 4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fLoaders:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fLoaders:Ljava/util/Hashtable;
 
-    invoke-virtual {v0}, Ljava/util/Hashtable;->elements()Ljava/util/Enumeration;
-
-    move-result-object v1
-
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Enumeration;->hasMoreElements()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v1}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
+    invoke-virtual {v2}, Ljava/util/Hashtable;->elements()Ljava/util/Enumeration;
 
     move-result-object v0
 
-    check-cast v0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Enumeration;->hasMoreElements()Z
 
-    iput v2, v0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;->modCount:I
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-interface {v0}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;
+
+    iput v3, v1, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;->modCount:I
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    iput v0, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fModCount:I
+    iput v2, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fModCount:I
 
     return-void
 .end method
@@ -219,23 +219,23 @@
 .end method
 
 .method public getFeature(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 1
+    .locals 2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fLoaders:Ljava/util/Hashtable;
+    iget-object v1, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fLoaders:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;
+    check-cast v1, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;->loader:Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;
+    iget-object v0, v1, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;->loader:Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;
 
     invoke-interface {v0, p2}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;->getFeature(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 .end method
 
 .method public getGrammarPool()Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
@@ -247,13 +247,13 @@
 .end method
 
 .method public getLoader(Ljava/lang/String;)Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;
-    .locals 2
+    .locals 3
 
     const/4 v1, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fLoaders:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fLoaders:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -261,13 +261,11 @@
 
     if-nez v0, :cond_0
 
-    move-object v0, v1
-
     :goto_0
-    return-object v0
+    return-object v1
 
     :cond_0
-    iget-object v0, v0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;->loader:Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;
+    iget-object v1, v0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;->loader:Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;
 
     goto :goto_0
 .end method
@@ -281,23 +279,23 @@
 .end method
 
 .method public getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
-    .locals 1
+    .locals 2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fLoaders:Ljava/util/Hashtable;
+    iget-object v1, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fLoaders:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;
+    check-cast v1, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;->loader:Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;
+    iget-object v0, v1, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;->loader:Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;
 
     invoke-interface {v0, p2}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public preparseGrammar(Ljava/lang/String;Lmf/org/apache/xerces/xni/parser/XMLInputSource;)Lmf/org/apache/xerces/xni/grammars/Grammar;
@@ -309,60 +307,60 @@
         }
     .end annotation
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fLoaders:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fLoaders:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p1}, Ljava/util/Hashtable;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v2, p1}, Ljava/util/Hashtable;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
-    return-object v1
+    return-object v3
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fLoaders:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fLoaders:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;
+    check-cast v1, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;
 
-    iget-object v1, v0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;->loader:Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;
+    iget-object v0, v1, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;->loader:Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;
 
-    iget v2, v0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;->modCount:I
+    iget v2, v1, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;->modCount:I
 
     iget v3, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fModCount:I
 
     if-ne v2, v3, :cond_1
 
     :goto_0
-    invoke-interface {v1, p2}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;->loadGrammar(Lmf/org/apache/xerces/xni/parser/XMLInputSource;)Lmf/org/apache/xerces/xni/grammars/Grammar;
+    invoke-interface {v0, p2}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;->loadGrammar(Lmf/org/apache/xerces/xni/parser/XMLInputSource;)Lmf/org/apache/xerces/xni/grammars/Grammar;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 
     :cond_1
-    const-string/jumbo v2, "http://apache.org/xml/properties/internal/symbol-table"
+    iget-object v2, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    const-string/jumbo v3, "http://apache.org/xml/properties/internal/symbol-table"
 
-    invoke-interface {v1, v2, v3}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-interface {v0, v3, v2}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
-    const-string/jumbo v2, "http://apache.org/xml/properties/internal/entity-resolver"
+    iget-object v2, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fEntityResolver:Lmf/org/apache/xerces/xni/parser/XMLEntityResolver;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fEntityResolver:Lmf/org/apache/xerces/xni/parser/XMLEntityResolver;
+    const-string/jumbo v3, "http://apache.org/xml/properties/internal/entity-resolver"
 
-    invoke-interface {v1, v2, v3}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-interface {v0, v3, v2}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
-    const-string/jumbo v2, "http://apache.org/xml/properties/internal/error-reporter"
+    iget-object v2, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    const-string/jumbo v3, "http://apache.org/xml/properties/internal/error-reporter"
 
-    invoke-interface {v1, v2, v3}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-interface {v0, v3, v2}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
     iget-object v2, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
 
@@ -371,17 +369,17 @@
     :goto_1
     iget v2, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fModCount:I
 
-    iput v2, v0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;->modCount:I
+    iput v2, v1, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;->modCount:I
 
     goto :goto_0
 
     :cond_2
     :try_start_0
-    const-string/jumbo v2, "http://apache.org/xml/properties/internal/grammar-pool"
+    iget-object v2, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
+    const-string/jumbo v3, "http://apache.org/xml/properties/internal/grammar-pool"
 
-    invoke-interface {v1, v2, v3}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-interface {v0, v3, v2}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -394,73 +392,73 @@
 .end method
 
 .method public registerPreparser(Ljava/lang/String;Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;)Z
-    .locals 5
+    .locals 8
 
-    const/4 v4, 0x1
+    const/4 v7, 0x1
 
-    const/4 v3, 0x0
+    const/4 v6, 0x0
 
     if-eqz p2, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fLoaders:Ljava/util/Hashtable;
+    iget-object v4, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fLoaders:Ljava/util/Hashtable;
 
-    new-instance v1, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;
+    new-instance v5, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;
 
-    invoke-direct {v1, p2}, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;-><init>(Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;)V
+    invoke-direct {v5, p2}, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;-><init>(Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;)V
 
-    invoke-virtual {v0, p1, v1}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, p1, v5}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    return v4
+    return v7
 
     :cond_0
-    sget-object v0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->KNOWN_LOADERS:Ljava/util/Hashtable;
+    sget-object v4, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->KNOWN_LOADERS:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p1}, Ljava/util/Hashtable;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v4, p1}, Ljava/util/Hashtable;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v4
 
-    if-nez v0, :cond_1
+    if-nez v4, :cond_1
 
-    return v3
+    return v6
 
     :cond_1
-    sget-object v0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->KNOWN_LOADERS:Ljava/util/Hashtable;
+    sget-object v4, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->KNOWN_LOADERS:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v3
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v3, Ljava/lang/String;
 
     :try_start_0
     invoke-static {}, Lmf/org/apache/xerces/parsers/ObjectFactory;->findClassLoader()Ljava/lang/ClassLoader;
 
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/parsers/ObjectFactory;->newInstance(Ljava/lang/String;Ljava/lang/ClassLoader;Z)Ljava/lang/Object;
-
     move-result-object v0
 
-    check-cast v0, Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;
+    const/4 v4, 0x1
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fLoaders:Ljava/util/Hashtable;
+    invoke-static {v3, v0, v4}, Lmf/org/apache/xerces/parsers/ObjectFactory;->newInstance(Ljava/lang/String;Ljava/lang/ClassLoader;Z)Ljava/lang/Object;
 
-    new-instance v2, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;
+    move-result-object v2
 
-    invoke-direct {v2, v0}, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;-><init>(Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;)V
+    check-cast v2, Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;
 
-    invoke-virtual {v1, p1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    iget-object v4, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fLoaders:Ljava/util/Hashtable;
+
+    new-instance v5, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;
+
+    invoke-direct {v5, v2}, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;-><init>(Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;)V
+
+    invoke-virtual {v4, p1, v5}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v4
+    return v7
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    return v3
+    return v6
 .end method
 
 .method public setEntityResolver(Lmf/org/apache/xerces/xni/parser/XMLEntityResolver;)V
@@ -506,28 +504,28 @@
 .end method
 
 .method public setFeature(Ljava/lang/String;Z)V
-    .locals 2
+    .locals 4
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fLoaders:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fLoaders:Ljava/util/Hashtable;
 
-    invoke-virtual {v0}, Ljava/util/Hashtable;->elements()Ljava/util/Enumeration;
+    invoke-virtual {v2}, Ljava/util/Hashtable;->elements()Ljava/util/Enumeration;
 
     move-result-object v1
 
     :goto_0
     invoke-interface {v1}, Ljava/util/Enumeration;->hasMoreElements()Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
     invoke-interface {v1}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;
+    check-cast v2, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;->loader:Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;
+    iget-object v0, v2, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;->loader:Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;
 
     :try_start_0
     invoke-interface {v0, p1, p2}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;->setFeature(Ljava/lang/String;Z)V
@@ -537,28 +535,28 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception v2
 
     goto :goto_0
 
     :cond_0
-    const-string/jumbo v0, "http://apache.org/xml/features/continue-after-fatal-error"
+    const-string/jumbo v2, "http://apache.org/xml/features/continue-after-fatal-error"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_1
+    if-nez v2, :cond_1
 
     :goto_1
     return-void
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v2, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v1, "http://apache.org/xml/features/continue-after-fatal-error"
+    const-string/jumbo v3, "http://apache.org/xml/features/continue-after-fatal-error"
 
-    invoke-virtual {v0, v1, p2}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {v2, v3, p2}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->setFeature(Ljava/lang/String;Z)V
 
     goto :goto_1
 .end method
@@ -606,28 +604,28 @@
 .end method
 
 .method public setProperty(Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 2
+    .locals 3
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fLoaders:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser;->fLoaders:Ljava/util/Hashtable;
 
-    invoke-virtual {v0}, Ljava/util/Hashtable;->elements()Ljava/util/Enumeration;
+    invoke-virtual {v2}, Ljava/util/Hashtable;->elements()Ljava/util/Enumeration;
 
     move-result-object v1
 
     :goto_0
     invoke-interface {v1}, Ljava/util/Enumeration;->hasMoreElements()Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
     invoke-interface {v1}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;
+    check-cast v2, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;->loader:Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;
+    iget-object v0, v2, Lmf/org/apache/xerces/parsers/XMLGrammarPreparser$XMLGrammarLoaderContainer;->loader:Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;
 
     :try_start_0
     invoke-interface {v0, p1, p2}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarLoader;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
@@ -637,7 +635,7 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception v2
 
     goto :goto_0
 

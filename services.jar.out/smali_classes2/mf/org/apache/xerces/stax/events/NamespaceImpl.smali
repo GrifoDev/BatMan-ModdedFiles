@@ -18,13 +18,13 @@
 
     const/4 v4, 0x0
 
-    const/16 v1, 0xd
-
     invoke-static {p1}, Lmf/org/apache/xerces/stax/events/NamespaceImpl;->makeAttributeQName(Ljava/lang/String;)Lmf/javax/xml/namespace/QName;
 
     move-result-object v2
 
     const/4 v5, 0x1
+
+    const/16 v1, 0xd
 
     move-object v0, p0
 

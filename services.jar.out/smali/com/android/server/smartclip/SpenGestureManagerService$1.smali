@@ -32,573 +32,346 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 22
+    .locals 16
 
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v2
 
-    const-string/jumbo v17, "android.intent.action.BATTERY_CHANGED"
+    const-string/jumbo v12, "android.intent.action.BATTERY_CHANGED"
 
-    move-object/from16 v0, v17
+    invoke-virtual {v12, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v12
 
-    move-result v17
-
-    if-eqz v17, :cond_0
+    if-eqz v12, :cond_0
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
+    iget-object v12, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
 
-    move-object/from16 v17, v0
+    const-string/jumbo v13, "online"
 
-    const-string/jumbo v18, "online"
-
-    const/16 v19, 0x1
+    const/4 v14, 0x1
 
     move-object/from16 v0, p2
 
-    move-object/from16 v1, v18
+    invoke-virtual {v0, v13, v14}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move/from16 v2, v19
+    move-result v13
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v18
-
-    invoke-static/range {v17 .. v18}, Lcom/android/server/smartclip/SpenGestureManagerService;->-set3(Lcom/android/server/smartclip/SpenGestureManagerService;I)I
+    invoke-static {v12, v13}, Lcom/android/server/smartclip/SpenGestureManagerService;->-set3(Lcom/android/server/smartclip/SpenGestureManagerService;I)I
 
     return-void
 
     :cond_0
-    sget-object v17, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
+    sget-object v12, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v13, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v19, "Receive broadcast : "
+    const-string/jumbo v14, "Receive broadcast : "
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v13
 
-    move-object/from16 v0, v18
+    invoke-virtual {v13, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v13
 
-    move-result-object v18
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v13
 
-    move-result-object v18
+    invoke-static {v12, v13}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v12, "com.samsung.pen.INSERT"
 
-    const-string/jumbo v17, "com.samsung.pen.INSERT"
+    invoke-virtual {v12, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-object/from16 v0, v17
+    move-result v12
 
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_7
+    if-eqz v12, :cond_7
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/smartclip/SpenGestureManagerService$1;->isInitialStickyBroadcast()Z
 
-    move-result v17
+    move-result v12
 
-    if-eqz v17, :cond_1
+    if-eqz v12, :cond_1
 
     return-void
 
     :cond_1
-    const-string/jumbo v17, "penInsert"
+    const-string/jumbo v12, "penInsert"
 
-    const/16 v18, 0x1
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, v17
-
-    move/from16 v2, v18
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v10
-
-    const-string/jumbo v17, "isBoot"
-
-    const/16 v18, 0x1
+    const/4 v13, 0x1
 
     move-object/from16 v0, p2
 
-    move-object/from16 v1, v17
-
-    move/from16 v2, v18
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-virtual {v0, v12, v13}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v8
 
-    sget-object v17, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
+    const-string/jumbo v12, "isBoot"
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    const/4 v13, 0x1
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    move-object/from16 v0, p2
 
-    const-string/jumbo v19, "penInsert : "
+    invoke-virtual {v0, v12, v13}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v7
 
-    move-result-object v18
+    sget-object v12, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
 
-    move-object/from16 v0, v18
+    new-instance v13, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v18
+    const-string/jumbo v14, "penInsert : "
 
-    const-string/jumbo v19, ".isBoot : "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/smartclip/SpenGestureManagerService;->-wrap0(Lcom/android/server/smartclip/SpenGestureManagerService;)Landroid/content/ComponentName;
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v13
 
-    if-eqz v13, :cond_4
+    invoke-virtual {v13, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v13}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    move-result-object v13
 
-    move-result-object v14
+    const-string/jumbo v14, ".isBoot : "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v12, v13}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
+
+    invoke-static {v12}, Lcom/android/server/smartclip/SpenGestureManagerService;->-wrap0(Lcom/android/server/smartclip/SpenGestureManagerService;)Landroid/content/ComponentName;
+
+    move-result-object v10
+
+    if-eqz v10, :cond_4
+
+    invoke-virtual {v10}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v11
 
     :goto_0
-    if-eqz v10, :cond_5
+    if-eqz v8, :cond_5
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v18
+    move-result-wide v12
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
+    iget-object v14, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
 
-    move-object/from16 v17, v0
+    invoke-static {v14}, Lcom/android/server/smartclip/SpenGestureManagerService;->-get12(Lcom/android/server/smartclip/SpenGestureManagerService;)J
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/smartclip/SpenGestureManagerService;->-get12(Lcom/android/server/smartclip/SpenGestureManagerService;)J
+    move-result-wide v14
 
-    move-result-wide v20
-
-    sub-long v6, v18, v20
+    sub-long v4, v12, v14
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
+    iget-object v12, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
 
-    move-object/from16 v17, v0
+    invoke-static {v12}, Lcom/android/server/smartclip/SpenGestureManagerService;->-get12(Lcom/android/server/smartclip/SpenGestureManagerService;)J
 
-    invoke-static/range {v17 .. v17}, Lcom/android/server/smartclip/SpenGestureManagerService;->-get12(Lcom/android/server/smartclip/SpenGestureManagerService;)J
+    move-result-wide v12
 
-    move-result-wide v18
+    const-wide/16 v14, 0x0
 
-    const-wide/16 v20, 0x0
+    cmp-long v12, v12, v14
 
-    cmp-long v17, v18, v20
-
-    if-eqz v17, :cond_2
+    if-eqz v12, :cond_2
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
+    iget-object v12, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
 
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    invoke-static {v0, v6, v7}, Lcom/android/server/smartclip/SpenGestureManagerService;->-wrap5(Lcom/android/server/smartclip/SpenGestureManagerService;J)V
+    invoke-static {v12, v4, v5}, Lcom/android/server/smartclip/SpenGestureManagerService;->-wrap5(Lcom/android/server/smartclip/SpenGestureManagerService;J)V
 
     :cond_2
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
+    iget-object v12, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
 
-    move-object/from16 v17, v0
+    const-wide/16 v14, 0x0
 
-    const-wide/16 v18, 0x0
-
-    invoke-static/range {v17 .. v19}, Lcom/android/server/smartclip/SpenGestureManagerService;->-set9(Lcom/android/server/smartclip/SpenGestureManagerService;J)J
+    invoke-static {v12, v14, v15}, Lcom/android/server/smartclip/SpenGestureManagerService;->-set8(Lcom/android/server/smartclip/SpenGestureManagerService;J)J
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
-
-    move-object/from16 v17, v0
+    iget-object v12, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
 
     invoke-static {}, Lcom/android/server/smartclip/SpenGestureManagerService;->-get1()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v13
 
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v18
-
-    invoke-static {v0, v14, v1}, Lcom/android/server/smartclip/SpenGestureManagerService;->-wrap12(Lcom/android/server/smartclip/SpenGestureManagerService;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v12, v11, v13}, Lcom/android/server/smartclip/SpenGestureManagerService;->-wrap12(Lcom/android/server/smartclip/SpenGestureManagerService;Ljava/lang/String;Ljava/lang/String;)V
 
     :goto_1
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
+    iget-object v12, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
 
-    move-object/from16 v17, v0
+    invoke-static {v12, v8}, Lcom/android/server/smartclip/SpenGestureManagerService;->-set6(Lcom/android/server/smartclip/SpenGestureManagerService;Z)Z
 
-    move-object/from16 v0, v17
+    sget-object v12, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
 
-    invoke-static {v0, v10}, Lcom/android/server/smartclip/SpenGestureManagerService;->-set7(Lcom/android/server/smartclip/SpenGestureManagerService;Z)Z
+    const-string/jumbo v13, "Start AirCommand. #1"
 
-    sget-object v17, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
+    invoke-static {v12, v13}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v18, "Start AirCommand. #1"
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v5, Landroid/os/Bundle;
+    new-instance v6, Landroid/os/Bundle;
 
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
-    move-result-object v17
+    move-result-object v12
 
-    move-object/from16 v0, v17
+    invoke-direct {v6, v12}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
 
-    invoke-direct {v5, v0}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
-
-    const-string/jumbo v17, "action"
+    const-string/jumbo v12, "action"
 
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v13
 
-    move-object/from16 v0, v17
+    invoke-virtual {v6, v12, v13}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-object/from16 v1, v18
+    const-string/jumbo v13, "topComponent"
 
-    invoke-virtual {v5, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    if-eqz v10, :cond_6
 
-    const-string/jumbo v18, "topComponent"
+    invoke-virtual {v10}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
 
-    if-eqz v13, :cond_6
-
-    invoke-virtual {v13}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
-
-    move-result-object v17
+    move-result-object v12
 
     :goto_2
-    move-object/from16 v0, v18
+    invoke-virtual {v6, v13, v12}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-object/from16 v1, v17
-
-    invoke-virtual {v5, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string/jumbo v17, "batteryStatus"
+    const-string/jumbo v12, "batteryStatus"
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
+    iget-object v13, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
 
-    move-object/from16 v18, v0
+    invoke-static {v13}, Lcom/android/server/smartclip/SpenGestureManagerService;->-get3(Lcom/android/server/smartclip/SpenGestureManagerService;)I
 
-    invoke-static/range {v18 .. v18}, Lcom/android/server/smartclip/SpenGestureManagerService;->-get3(Lcom/android/server/smartclip/SpenGestureManagerService;)I
+    move-result v13
 
-    move-result v18
+    invoke-virtual {v6, v12, v13}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    move-object/from16 v0, v17
-
-    move/from16 v1, v18
-
-    invoke-virtual {v5, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    const-string/jumbo v17, "coverOpened"
+    const-string/jumbo v12, "coverOpened"
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
+    iget-object v13, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
 
-    move-object/from16 v18, v0
+    invoke-static {v13}, Lcom/android/server/smartclip/SpenGestureManagerService;->-get4(Lcom/android/server/smartclip/SpenGestureManagerService;)Z
 
-    invoke-static/range {v18 .. v18}, Lcom/android/server/smartclip/SpenGestureManagerService;->-get4(Lcom/android/server/smartclip/SpenGestureManagerService;)Z
+    move-result v13
 
-    move-result v18
-
-    move-object/from16 v0, v17
-
-    move/from16 v1, v18
-
-    invoke-virtual {v5, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+    invoke-virtual {v6, v12, v13}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
+    iget-object v12, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
 
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    invoke-static {v0, v5}, Lcom/android/server/smartclip/SpenGestureManagerService;->-wrap14(Lcom/android/server/smartclip/SpenGestureManagerService;Landroid/os/Bundle;)V
+    invoke-static {v12, v6}, Lcom/android/server/smartclip/SpenGestureManagerService;->-wrap14(Lcom/android/server/smartclip/SpenGestureManagerService;Landroid/os/Bundle;)V
 
     :cond_3
     :goto_3
     return-void
 
     :cond_4
-    const-string/jumbo v14, ""
+    const-string/jumbo v11, ""
 
     goto/16 :goto_0
 
     :cond_5
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
-
-    move-object/from16 v17, v0
+    iget-object v12, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v18
+    move-result-wide v14
 
-    invoke-static/range {v17 .. v19}, Lcom/android/server/smartclip/SpenGestureManagerService;->-set9(Lcom/android/server/smartclip/SpenGestureManagerService;J)J
+    invoke-static {v12, v14, v15}, Lcom/android/server/smartclip/SpenGestureManagerService;->-set8(Lcom/android/server/smartclip/SpenGestureManagerService;J)J
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
-
-    move-object/from16 v17, v0
+    iget-object v12, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
 
     invoke-static {}, Lcom/android/server/smartclip/SpenGestureManagerService;->-get2()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v13
 
-    move-object/from16 v0, v17
+    invoke-static {v12, v11, v13}, Lcom/android/server/smartclip/SpenGestureManagerService;->-wrap12(Lcom/android/server/smartclip/SpenGestureManagerService;Ljava/lang/String;Ljava/lang/String;)V
 
-    move-object/from16 v1, v18
-
-    invoke-static {v0, v14, v1}, Lcom/android/server/smartclip/SpenGestureManagerService;->-wrap12(Lcom/android/server/smartclip/SpenGestureManagerService;Ljava/lang/String;Ljava/lang/String;)V
-
-    goto/16 :goto_1
+    goto :goto_1
 
     :cond_6
-    const-string/jumbo v17, ""
+    const-string/jumbo v12, ""
 
     goto :goto_2
 
     :cond_7
-    const-string/jumbo v17, "com.samsung.cover.OPEN"
+    const-string/jumbo v12, "com.sec.android.intent.action.BLACK_MEMO"
 
-    move-object/from16 v0, v17
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_8
-
-    const-string/jumbo v17, "coverOpen"
-
-    const/16 v18, 0x0
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, v17
-
-    move/from16 v2, v18
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v9
-
-    sget-object v17, Lcom/android/server/smartclip/SpenGestureManagerService;->TAG:Ljava/lang/String;
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v19, "isCoverOpen : "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    invoke-static {v0, v9}, Lcom/android/server/smartclip/SpenGestureManagerService;->-set4(Lcom/android/server/smartclip/SpenGestureManagerService;Z)Z
-
-    goto :goto_3
-
-    :cond_8
-    const-string/jumbo v17, "com.samsung.android.service.airviewdictionary.set"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_9
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
-
-    move-object/from16 v17, v0
-
-    const-string/jumbo v18, "active"
-
-    const/16 v19, 0x0
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, v18
-
-    move/from16 v2, v19
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v18
-
-    invoke-static/range {v17 .. v18}, Lcom/android/server/smartclip/SpenGestureManagerService;->-set5(Lcom/android/server/smartclip/SpenGestureManagerService;Z)Z
-
-    const-string/jumbo v17, "x"
-
-    const/16 v18, 0x0
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, v17
-
-    move/from16 v2, v18
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v15
-
-    const-string/jumbo v17, "y"
-
-    const/16 v18, 0x0
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, v17
-
-    move/from16 v2, v18
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v16
-
-    const-string/jumbo v17, "time"
-
-    const/16 v18, 0x0
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, v17
-
-    move/from16 v2, v18
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {v12, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v12
 
-    move-object/from16 v0, p0
+    if-eqz v12, :cond_3
 
-    iget-object v0, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
+    const/4 v9, 0x0
 
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    move/from16 v1, v16
-
-    invoke-virtual {v0, v15, v1, v12}, Lcom/android/server/smartclip/SpenGestureManagerService;->setHoverStayValues(III)V
-
-    goto/16 :goto_3
-
-    :cond_9
-    const-string/jumbo v17, "com.sec.android.intent.action.BLACK_MEMO"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_3
-
-    const-string/jumbo v17, "state"
+    :try_start_0
+    const-string/jumbo v12, "state"
 
     move-object/from16 v0, p2
 
-    move-object/from16 v1, v17
+    invoke-virtual {v0, v12}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v9
 
-    move-result-object v11
-
+    :goto_4
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
+    iget-object v12, v0, Lcom/android/server/smartclip/SpenGestureManagerService$1;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
 
-    move-object/from16 v17, v0
+    const-string/jumbo v13, "show"
 
-    const-string/jumbo v18, "show"
+    invoke-virtual {v13, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-object/from16 v0, v18
+    move-result v13
 
-    invoke-virtual {v0, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {v12, v13}, Lcom/android/server/smartclip/SpenGestureManagerService;->-set1(Lcom/android/server/smartclip/SpenGestureManagerService;Z)Z
 
-    move-result v18
+    goto :goto_3
 
-    invoke-static/range {v17 .. v18}, Lcom/android/server/smartclip/SpenGestureManagerService;->-set1(Lcom/android/server/smartclip/SpenGestureManagerService;Z)Z
+    :catch_0
+    move-exception v3
 
-    goto/16 :goto_3
+    goto :goto_4
 .end method

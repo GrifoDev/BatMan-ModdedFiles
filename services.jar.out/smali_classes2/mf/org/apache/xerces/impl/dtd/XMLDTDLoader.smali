@@ -160,15 +160,15 @@
 .end method
 
 .method constructor <init>(Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;Lmf/org/apache/xerces/impl/XMLErrorReporter;Lmf/org/apache/xerces/xni/parser/XMLEntityResolver;)V
-    .locals 3
+    .locals 4
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     invoke-direct {p0}, Lmf/org/apache/xerces/impl/dtd/XMLDTDProcessor;-><init>()V
 
-    iput-boolean v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fStrictURI:Z
+    iput-boolean v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fStrictURI:Z
 
-    iput-boolean v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fBalanceSyntaxTrees:Z
+    iput-boolean v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fBalanceSyntaxTrees:Z
 
     iput-object p1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
@@ -179,57 +179,57 @@
     :goto_0
     iput-object p3, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v1, "http://www.w3.org/TR/1998/REC-xml-19980210"
+    const-string/jumbo v2, "http://www.w3.org/TR/1998/REC-xml-19980210"
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->getMessageFormatter(Ljava/lang/String;)Lmf/org/apache/xerces/util/MessageFormatter;
+    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->getMessageFormatter(Ljava/lang/String;)Lmf/org/apache/xerces/util/MessageFormatter;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
     :goto_1
     iput-object p4, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityResolver:Lmf/org/apache/xerces/xni/parser/XMLEntityResolver;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityResolver:Lmf/org/apache/xerces/xni/parser/XMLEntityResolver;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityResolver:Lmf/org/apache/xerces/xni/parser/XMLEntityResolver;
 
-    instance-of v0, v0, Lmf/org/apache/xerces/impl/XMLEntityManager;
+    instance-of v1, v1, Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    if-nez v0, :cond_2
+    if-nez v1, :cond_2
 
-    new-instance v0, Lmf/org/apache/xerces/impl/XMLEntityManager;
+    new-instance v1, Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    invoke-direct {v0}, Lmf/org/apache/xerces/impl/XMLEntityManager;-><init>()V
+    invoke-direct {v1}, Lmf/org/apache/xerces/impl/XMLEntityManager;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
     :goto_2
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/error-reporter"
+    const-string/jumbo v2, "http://apache.org/xml/properties/internal/error-reporter"
 
-    invoke-virtual {v0, v1, p3}, Lmf/org/apache/xerces/impl/XMLEntityManager;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {v1, v2, p3}, Lmf/org/apache/xerces/impl/XMLEntityManager;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    invoke-virtual {p0, v0, v1, v2}, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->createDTDScanner(Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/impl/XMLErrorReporter;Lmf/org/apache/xerces/impl/XMLEntityManager;)Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;
+    invoke-virtual {p0, v1, v2, v3}, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->createDTDScanner(Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/impl/XMLErrorReporter;Lmf/org/apache/xerces/impl/XMLEntityManager;)Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDScanner:Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDScanner:Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDScanner:Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDScanner:Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;
 
-    invoke-virtual {v0, p0}, Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;->setDTDHandler(Lmf/org/apache/xerces/xni/XMLDTDHandler;)V
+    invoke-virtual {v1, p0}, Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;->setDTDHandler(Lmf/org/apache/xerces/xni/XMLDTDHandler;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDScanner:Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDScanner:Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;
 
-    invoke-virtual {v0, p0}, Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;->setDTDContentModelHandler(Lmf/org/apache/xerces/xni/XMLDTDContentModelHandler;)V
+    invoke-virtual {v1, p0}, Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;->setDTDContentModelHandler(Lmf/org/apache/xerces/xni/XMLDTDContentModelHandler;)V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->reset()V
 
@@ -240,13 +240,13 @@
 
     invoke-direct {p3}, Lmf/org/apache/xerces/impl/XMLErrorReporter;-><init>()V
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/error-handler"
-
     new-instance v1, Lmf/org/apache/xerces/util/DefaultErrorHandler;
 
     invoke-direct {v1}, Lmf/org/apache/xerces/util/DefaultErrorHandler;-><init>()V
 
-    invoke-virtual {p3, v0, v1}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    const-string/jumbo v2, "http://apache.org/xml/properties/internal/error-handler"
+
+    invoke-virtual {p3, v2, v1}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
     goto :goto_0
 
@@ -270,11 +270,11 @@
     goto :goto_1
 
     :cond_2
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityResolver:Lmf/org/apache/xerces/xni/parser/XMLEntityResolver;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityResolver:Lmf/org/apache/xerces/xni/parser/XMLEntityResolver;
 
-    check-cast v0, Lmf/org/apache/xerces/impl/XMLEntityManager;
+    check-cast v1, Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
     goto :goto_2
 .end method
@@ -569,7 +569,7 @@
 .end method
 
 .method public loadGrammar(Lmf/org/apache/xerces/xni/parser/XMLInputSource;)Lmf/org/apache/xerces/xni/grammars/Grammar;
-    .locals 8
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -577,25 +577,25 @@
         }
     .end annotation
 
-    const/4 v7, 0x1
+    const/4 v9, 0x1
 
     const/4 v5, 0x0
 
-    const/4 v6, 0x0
+    const/4 v8, 0x0
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->reset()V
 
     invoke-virtual {p1}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->getSystemId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     invoke-virtual {p1}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->getBaseSystemId()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    iget-boolean v2, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fStrictURI:Z
+    iget-boolean v3, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fStrictURI:Z
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/XMLEntityManager;->expandSystemId(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/impl/XMLEntityManager;->expandSystemId(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;
 
     move-result-object v4
 
@@ -628,50 +628,50 @@
     iput-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDGrammar:Lmf/org/apache/xerces/impl/dtd/DTDGrammar;
 
     :goto_0
-    new-instance v0, Lmf/org/apache/xerces/impl/dtd/DTDGrammarBucket;
+    new-instance v1, Lmf/org/apache/xerces/impl/dtd/DTDGrammarBucket;
 
-    invoke-direct {v0}, Lmf/org/apache/xerces/impl/dtd/DTDGrammarBucket;-><init>()V
+    invoke-direct {v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammarBucket;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fGrammarBucket:Lmf/org/apache/xerces/impl/dtd/DTDGrammarBucket;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fGrammarBucket:Lmf/org/apache/xerces/impl/dtd/DTDGrammarBucket;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fGrammarBucket:Lmf/org/apache/xerces/impl/dtd/DTDGrammarBucket;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fGrammarBucket:Lmf/org/apache/xerces/impl/dtd/DTDGrammarBucket;
 
-    invoke-virtual {v0, v6}, Lmf/org/apache/xerces/impl/dtd/DTDGrammarBucket;->setStandalone(Z)V
+    invoke-virtual {v1, v8}, Lmf/org/apache/xerces/impl/dtd/DTDGrammarBucket;->setStandalone(Z)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fGrammarBucket:Lmf/org/apache/xerces/impl/dtd/DTDGrammarBucket;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fGrammarBucket:Lmf/org/apache/xerces/impl/dtd/DTDGrammarBucket;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDGrammar:Lmf/org/apache/xerces/impl/dtd/DTDGrammar;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDGrammar:Lmf/org/apache/xerces/impl/dtd/DTDGrammar;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammarBucket;->setActiveGrammar(Lmf/org/apache/xerces/impl/dtd/DTDGrammar;)V
+    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/impl/dtd/DTDGrammarBucket;->setActiveGrammar(Lmf/org/apache/xerces/impl/dtd/DTDGrammar;)V
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDScanner:Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDScanner:Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;
 
-    invoke-virtual {v0, p1}, Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;->setInputSource(Lmf/org/apache/xerces/xni/parser/XMLInputSource;)V
+    invoke-virtual {v1, p1}, Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;->setInputSource(Lmf/org/apache/xerces/xni/parser/XMLInputSource;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDScanner:Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDScanner:Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;->scanDTDExternalSubset(Z)Z
+    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;->scanDTDExternalSubset(Z)Z
     :try_end_0
     .catch Ljava/io/EOFException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/XMLEntityManager;->closeReaders()V
+    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/XMLEntityManager;->closeReaders()V
 
     :goto_1
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDGrammar:Lmf/org/apache/xerces/impl/dtd/DTDGrammar;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDGrammar:Lmf/org/apache/xerces/impl/dtd/DTDGrammar;
 
-    if-nez v0, :cond_2
+    if-nez v1, :cond_2
 
     :cond_0
     :goto_2
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDGrammar:Lmf/org/apache/xerces/impl/dtd/DTDGrammar;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDGrammar:Lmf/org/apache/xerces/impl/dtd/DTDGrammar;
 
-    return-object v0
+    return-object v1
 
     :cond_1
     new-instance v1, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;
@@ -685,45 +685,45 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
-
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/XMLEntityManager;->closeReaders()V
-
-    goto :goto_1
-
-    :catchall_0
-    move-exception v0
+    move-exception v6
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
     invoke-virtual {v1}, Lmf/org/apache/xerces/impl/XMLEntityManager;->closeReaders()V
 
-    throw v0
+    goto :goto_1
+
+    :catchall_0
+    move-exception v7
+
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
+
+    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/XMLEntityManager;->closeReaders()V
+
+    throw v7
 
     :cond_2
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
 
-    const-string/jumbo v1, "http://www.w3.org/TR/REC-xml"
-
-    new-array v2, v7, [Lmf/org/apache/xerces/xni/grammars/Grammar;
+    new-array v2, v9, [Lmf/org/apache/xerces/xni/grammars/Grammar;
 
     iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDGrammar:Lmf/org/apache/xerces/impl/dtd/DTDGrammar;
 
-    aput-object v3, v2, v6
+    aput-object v3, v2, v8
 
-    invoke-interface {v0, v1, v2}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;->cacheGrammars(Ljava/lang/String;[Lmf/org/apache/xerces/xni/grammars/Grammar;)V
+    const-string/jumbo v3, "http://www.w3.org/TR/REC-xml"
+
+    invoke-interface {v1, v3, v2}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;->cacheGrammars(Ljava/lang/String;[Lmf/org/apache/xerces/xni/grammars/Grammar;)V
 
     goto :goto_2
 .end method
 
 .method public loadGrammarWithContext(Lmf/org/apache/xerces/impl/dtd/XMLDTDValidator;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 8
+    .locals 14
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -731,40 +731,36 @@
         }
     .end annotation
 
-    const/4 v7, 0x1
-
-    const/4 v6, 0x0
-
     invoke-virtual {p1}, Lmf/org/apache/xerces/impl/dtd/XMLDTDValidator;->getGrammarBucket()Lmf/org/apache/xerces/impl/dtd/DTDGrammarBucket;
 
-    move-result-object v0
+    move-result-object v12
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/dtd/DTDGrammarBucket;->getActiveGrammar()Lmf/org/apache/xerces/impl/dtd/DTDGrammar;
+    invoke-virtual {v12}, Lmf/org/apache/xerces/impl/dtd/DTDGrammarBucket;->getActiveGrammar()Lmf/org/apache/xerces/impl/dtd/DTDGrammar;
 
-    move-result-object v1
+    move-result-object v10
 
-    if-nez v1, :cond_1
+    if-nez v10, :cond_1
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->isImmutable()Z
+    invoke-virtual {v10}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->isImmutable()Z
 
-    move-result v1
+    move-result v3
 
-    if-nez v1, :cond_0
+    if-nez v3, :cond_0
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fGrammarBucket:Lmf/org/apache/xerces/impl/dtd/DTDGrammarBucket;
+    iput-object v12, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fGrammarBucket:Lmf/org/apache/xerces/impl/dtd/DTDGrammarBucket;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->getScannerVersion()S
 
-    move-result v1
+    move-result v4
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/XMLEntityManager;->setScannerVersion(S)V
+    invoke-virtual {v3, v4}, Lmf/org/apache/xerces/impl/XMLEntityManager;->setScannerVersion(S)V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->reset()V
 
@@ -774,68 +770,70 @@
     if-nez p4, :cond_4
 
     :goto_2
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/XMLEntityManager;->closeReaders()V
+    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/XMLEntityManager;->closeReaders()V
 
     goto :goto_0
 
     :cond_2
     :try_start_0
-    new-instance v1, Ljava/lang/StringBuffer;
+    new-instance v11, Ljava/lang/StringBuffer;
 
-    invoke-virtual {p6}, Ljava/lang/String;->length()I
+    invoke-virtual/range {p6 .. p6}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v3
 
-    add-int/lit8 v0, v0, 0x2
+    add-int/lit8 v3, v3, 0x2
 
-    invoke-direct {v1, v0}, Ljava/lang/StringBuffer;-><init>(I)V
+    invoke-direct {v11, v3}, Ljava/lang/StringBuffer;-><init>(I)V
 
-    invoke-virtual {v1, p6}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-object/from16 v0, p6
 
-    move-result-object v0
+    invoke-virtual {v11, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    const-string/jumbo v2, "]>"
+    move-result-object v3
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    const-string/jumbo v4, "]>"
 
-    new-instance v0, Lmf/org/apache/xerces/xni/parser/XMLInputSource;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    new-instance v4, Ljava/io/StringReader;
+    new-instance v1, Lmf/org/apache/xerces/xni/parser/XMLInputSource;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    new-instance v5, Ljava/io/StringReader;
 
-    move-result-object v1
+    invoke-virtual {v11}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    invoke-direct {v4, v1}, Ljava/io/StringReader;-><init>(Ljava/lang/String;)V
+    move-result-object v3
 
-    const/4 v1, 0x0
+    invoke-direct {v5, v3}, Ljava/io/StringReader;-><init>(Ljava/lang/String;)V
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    move-object v2, p5
+    const/4 v6, 0x0
 
-    invoke-direct/range {v0 .. v5}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/io/Reader;Ljava/lang/String;)V
+    move-object/from16 v3, p5
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    invoke-direct/range {v1 .. v6}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/io/Reader;Ljava/lang/String;)V
 
-    invoke-virtual {v1, v0}, Lmf/org/apache/xerces/impl/XMLEntityManager;->startDocumentEntity(Lmf/org/apache/xerces/xni/parser/XMLInputSource;)V
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDScanner:Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;
+    invoke-virtual {v3, v1}, Lmf/org/apache/xerces/impl/XMLEntityManager;->startDocumentEntity(Lmf/org/apache/xerces/xni/parser/XMLInputSource;)V
+
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDScanner:Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;
 
     if-nez p4, :cond_3
 
-    move v0, v6
-
-    :goto_3
-    const/4 v2, 0x1
-
     const/4 v3, 0x0
 
-    invoke-virtual {v1, v2, v3, v0}, Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;->scanDTDInternalSubset(ZZZ)Z
+    :goto_3
+    const/4 v5, 0x1
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v4, v5, v6, v3}, Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;->scanDTDInternalSubset(ZZZ)Z
     :try_end_0
     .catch Ljava/io/EOFException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -843,50 +841,50 @@
     goto :goto_1
 
     :catch_0
-    move-exception v0
+    move-exception v9
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/XMLEntityManager;->closeReaders()V
+    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/XMLEntityManager;->closeReaders()V
 
     goto :goto_0
 
     :cond_3
-    move v0, v7
+    const/4 v3, 0x1
 
     goto :goto_3
 
     :cond_4
     :try_start_1
-    new-instance v0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;
+    new-instance v2, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    move-object v1, p3
+    move-object/from16 v3, p3
 
-    move-object v2, p4
+    move-object/from16 v4, p4
 
-    move-object v3, p5
+    move-object/from16 v5, p5
 
-    move-object v5, p2
+    move-object/from16 v7, p2
 
-    invoke-direct/range {v0 .. v5}, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct/range {v2 .. v7}, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    invoke-virtual {v1, v0}, Lmf/org/apache/xerces/impl/XMLEntityManager;->resolveEntity(Lmf/org/apache/xerces/xni/XMLResourceIdentifier;)Lmf/org/apache/xerces/xni/parser/XMLInputSource;
+    invoke-virtual {v3, v2}, Lmf/org/apache/xerces/impl/XMLEntityManager;->resolveEntity(Lmf/org/apache/xerces/xni/XMLResourceIdentifier;)Lmf/org/apache/xerces/xni/parser/XMLInputSource;
 
-    move-result-object v0
+    move-result-object v13
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDScanner:Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDScanner:Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;
 
-    invoke-virtual {v1, v0}, Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;->setInputSource(Lmf/org/apache/xerces/xni/parser/XMLInputSource;)V
+    invoke-virtual {v3, v13}, Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;->setInputSource(Lmf/org/apache/xerces/xni/parser/XMLInputSource;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDScanner:Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDScanner:Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;
 
-    const/4 v1, 0x1
+    const/4 v4, 0x1
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;->scanDTDExternalSubset(Z)Z
+    invoke-virtual {v3, v4}, Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;->scanDTDExternalSubset(Z)Z
     :try_end_1
     .catch Ljava/io/EOFException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -894,13 +892,13 @@
     goto :goto_2
 
     :catchall_0
-    move-exception v0
+    move-exception v8
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/XMLEntityManager;->closeReaders()V
+    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/XMLEntityManager;->closeReaders()V
 
-    throw v0
+    throw v8
 .end method
 
 .method protected reset()V
@@ -1073,105 +1071,105 @@
         }
     .end annotation
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/symbol-table"
+    const-string/jumbo v1, "http://apache.org/xml/properties/internal/symbol-table"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/error-reporter"
+    const-string/jumbo v1, "http://apache.org/xml/properties/internal/error-reporter"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/error-handler"
+    const-string/jumbo v1, "http://apache.org/xml/properties/internal/error-handler"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_3
+    if-nez v1, :cond_3
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/entity-resolver"
+    const-string/jumbo v1, "http://apache.org/xml/properties/internal/entity-resolver"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_4
+    if-nez v1, :cond_4
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/locale"
+    const-string/jumbo v1, "http://apache.org/xml/properties/locale"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_5
+    if-nez v1, :cond_5
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/grammar-pool"
+    const-string/jumbo v1, "http://apache.org/xml/properties/internal/grammar-pool"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_6
+    if-nez v1, :cond_6
 
-    new-instance v0, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
+    new-instance v1, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
 
-    invoke-direct {v0, v1, p1}, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;-><init>(SLjava/lang/String;)V
+    invoke-direct {v1, v2, p1}, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;-><init>(SLjava/lang/String;)V
 
-    throw v0
+    throw v1
 
     :cond_0
-    move-object v0, p2
+    move-object v1, p2
 
-    check-cast v0, Lmf/org/apache/xerces/util/SymbolTable;
+    check-cast v1, Lmf/org/apache/xerces/util/SymbolTable;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDScanner:Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDScanner:Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;
 
-    invoke-virtual {v0, p1, p2}, Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {v1, p1, p2}, Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    invoke-virtual {v0, p1, p2}, Lmf/org/apache/xerces/impl/XMLEntityManager;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {v1, p1, p2}, Lmf/org/apache/xerces/impl/XMLEntityManager;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
     :goto_0
     return-void
 
     :cond_1
-    move-object v0, p2
+    move-object v1, p2
 
-    check-cast v0, Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    check-cast v1, Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v1, "http://www.w3.org/TR/1998/REC-xml-19980210"
+    const-string/jumbo v2, "http://www.w3.org/TR/1998/REC-xml-19980210"
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->getMessageFormatter(Ljava/lang/String;)Lmf/org/apache/xerces/util/MessageFormatter;
+    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->getMessageFormatter(Ljava/lang/String;)Lmf/org/apache/xerces/util/MessageFormatter;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
     :goto_1
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDScanner:Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fDTDScanner:Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;
 
-    invoke-virtual {v0, p1, p2}, Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {v1, p1, p2}, Lmf/org/apache/xerces/impl/XMLDTDScannerImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    invoke-virtual {v0, p1, p2}, Lmf/org/apache/xerces/impl/XMLEntityManager;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {v1, p1, p2}, Lmf/org/apache/xerces/impl/XMLEntityManager;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
     goto :goto_0
 
@@ -1195,22 +1193,22 @@
     goto :goto_1
 
     :cond_3
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    invoke-virtual {v0, p1, p2}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {v1, p1, p2}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
     goto :goto_0
 
     :cond_4
-    move-object v0, p2
+    move-object v1, p2
 
-    check-cast v0, Lmf/org/apache/xerces/xni/parser/XMLEntityResolver;
+    check-cast v1, Lmf/org/apache/xerces/xni/parser/XMLEntityResolver;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityResolver:Lmf/org/apache/xerces/xni/parser/XMLEntityResolver;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityResolver:Lmf/org/apache/xerces/xni/parser/XMLEntityResolver;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDLoader;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    invoke-virtual {v0, p1, p2}, Lmf/org/apache/xerces/impl/XMLEntityManager;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {v1, p1, p2}, Lmf/org/apache/xerces/impl/XMLEntityManager;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
     goto :goto_0
 

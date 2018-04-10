@@ -108,57 +108,57 @@
 
     const/4 v3, 0x1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fVector:Ljava/util/Vector;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fVector:Ljava/util/Vector;
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     if-eqz p1, :cond_1
 
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_0
-    iget v2, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fLength:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fLength:I
 
-    if-ge v0, v2, :cond_4
+    if-ge v0, v1, :cond_4
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fArray:[Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fArray:[Ljava/lang/String;
 
-    aget-object v2, v2, v0
+    aget-object v1, v1, v0
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_3
+    if-nez v1, :cond_3
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fVector:Ljava/util/Vector;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fVector:Ljava/util/Vector;
 
-    invoke-virtual {v0, p1}, Ljava/util/Vector;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/util/Vector;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 
     :cond_1
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_1
-    iget v2, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fLength:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fLength:I
 
-    if-ge v0, v2, :cond_4
+    if-ge v0, v1, :cond_4
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fArray:[Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fArray:[Ljava/lang/String;
 
-    aget-object v2, v2, v0
+    aget-object v1, v1, v0
 
-    if-eqz v2, :cond_2
+    if-eqz v1, :cond_2
 
     add-int/lit8 v0, v0, 0x1
 
@@ -171,7 +171,7 @@
     return v3
 
     :cond_4
-    return v1
+    return v2
 .end method
 
 .method public get(I)Ljava/lang/Object;
@@ -281,65 +281,65 @@
 .end method
 
 .method public toArray()[Ljava/lang/Object;
-    .locals 1
+    .locals 2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fVector:Ljava/util/Vector;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fVector:Ljava/util/Vector;
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fLength:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fLength:I
 
-    new-array v0, v0, [Ljava/lang/Object;
+    new-array v0, v1, [Ljava/lang/Object;
 
     invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->toArray0([Ljava/lang/Object;)V
 
     return-object v0
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fVector:Ljava/util/Vector;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fVector:Ljava/util/Vector;
 
-    invoke-virtual {v0}, Ljava/util/Vector;->toArray()[Ljava/lang/Object;
+    invoke-virtual {v1}, Ljava/util/Vector;->toArray()[Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 3
+    .locals 5
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fVector:Ljava/util/Vector;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fVector:Ljava/util/Vector;
 
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
-    array-length v0, p1
+    array-length v2, p1
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fLength:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fLength:I
 
-    if-lt v0, v1, :cond_1
+    if-lt v2, v3, :cond_1
 
     :goto_0
     invoke-direct {p0, p1}, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->toArray0([Ljava/lang/Object;)V
 
-    array-length v0, p1
+    array-length v2, p1
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fLength:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fLength:I
 
-    if-gt v0, v1, :cond_2
+    if-gt v2, v3, :cond_2
 
     :goto_1
     return-object p1
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fVector:Ljava/util/Vector;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fVector:Ljava/util/Vector;
 
-    invoke-virtual {v0, p1}, Ljava/util/Vector;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-virtual {v2, p1}, Ljava/util/Vector;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 
     :cond_1
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -348,24 +348,22 @@
 
     invoke-virtual {v0}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fLength:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fLength:I
 
-    invoke-static {v0, v1}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
+    invoke-static {v1, v2}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, [Ljava/lang/Object;
-
-    move-object p1, v0
+    check-cast p1, [Ljava/lang/Object;
 
     goto :goto_0
 
     :cond_2
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fLength:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->fLength:I
 
-    aput-object v2, p1, v0
+    aput-object v4, p1, v2
 
     goto :goto_1
 .end method

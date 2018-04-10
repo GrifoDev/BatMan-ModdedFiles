@@ -45,7 +45,7 @@
 .end method
 
 .method public read(Ljava/lang/String;)Ljava/util/concurrent/atomic/AtomicInteger;
-    .locals 2
+    .locals 3
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
 
@@ -55,9 +55,9 @@
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    move-result v0
+    move-result v2
 
-    invoke-direct {v1, v0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
+    invoke-direct {v1, v2}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
 
     return-object v1
 .end method

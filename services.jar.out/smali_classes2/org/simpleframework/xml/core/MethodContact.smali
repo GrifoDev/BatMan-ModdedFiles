@@ -130,9 +130,9 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/MethodContact;->get:Lorg/simpleframework/xml/core/MethodPart;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/MethodContact;->get:Lorg/simpleframework/xml/core/MethodPart;
 
-    invoke-interface {v0, p1}, Lorg/simpleframework/xml/core/MethodPart;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+    invoke-interface {v1, p1}, Lorg/simpleframework/xml/core/MethodPart;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
 
     move-result-object v0
 
@@ -150,22 +150,22 @@
     return-object v0
 
     :cond_1
-    iget-object v0, p0, Lorg/simpleframework/xml/core/MethodContact;->label:Ljava/lang/annotation/Annotation;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/MethodContact;->label:Ljava/lang/annotation/Annotation;
 
-    return-object v0
+    return-object v1
 
     :cond_2
     iget-object v1, p0, Lorg/simpleframework/xml/core/MethodContact;->set:Lorg/simpleframework/xml/core/MethodPart;
 
     if-eqz v1, :cond_0
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/MethodContact;->set:Lorg/simpleframework/xml/core/MethodPart;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/MethodContact;->set:Lorg/simpleframework/xml/core/MethodPart;
 
-    invoke-interface {v0, p1}, Lorg/simpleframework/xml/core/MethodPart;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+    invoke-interface {v1, p1}, Lorg/simpleframework/xml/core/MethodPart;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public getDeclaringClass()Ljava/lang/Class;
@@ -254,38 +254,36 @@
 
     const/4 v5, 0x0
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/MethodContact;->get:Lorg/simpleframework/xml/core/MethodPart;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/MethodContact;->get:Lorg/simpleframework/xml/core/MethodPart;
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/core/MethodPart;->getMethod()Ljava/lang/reflect/Method;
+    invoke-interface {v2}, Lorg/simpleframework/xml/core/MethodPart;->getMethod()Ljava/lang/reflect/Method;
 
     move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/reflect/Method;->getDeclaringClass()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
-    iget-object v1, p0, Lorg/simpleframework/xml/core/MethodContact;->set:Lorg/simpleframework/xml/core/MethodPart;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/MethodContact;->set:Lorg/simpleframework/xml/core/MethodPart;
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/MethodContact;->set:Lorg/simpleframework/xml/core/MethodPart;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/MethodContact;->set:Lorg/simpleframework/xml/core/MethodPart;
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/core/MethodPart;->getMethod()Ljava/lang/reflect/Method;
+    invoke-interface {v2}, Lorg/simpleframework/xml/core/MethodPart;->getMethod()Ljava/lang/reflect/Method;
 
-    move-result-object v0
+    move-result-object v2
 
-    new-array v1, v6, [Ljava/lang/Object;
+    new-array v3, v6, [Ljava/lang/Object;
 
-    aput-object p2, v1, v5
+    aput-object p2, v3, v5
 
-    invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
 
     :cond_0
-    new-instance v1, Lorg/simpleframework/xml/core/MethodException;
-
-    const-string/jumbo v2, "Property \'%s\' is read only in %s"
+    new-instance v2, Lorg/simpleframework/xml/core/MethodException;
 
     const/4 v3, 0x2
 
@@ -295,29 +293,31 @@
 
     aput-object v4, v3, v5
 
-    aput-object v0, v3, v6
+    aput-object v1, v3, v6
 
-    invoke-direct {v1, v2, v3}, Lorg/simpleframework/xml/core/MethodException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v4, "Property \'%s\' is read only in %s"
 
-    throw v1
+    invoke-direct {v2, v4, v3}, Lorg/simpleframework/xml/core/MethodException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v2
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .locals 3
 
-    const-string/jumbo v0, "method \'%s\'"
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
+    new-array v0, v0, [Ljava/lang/Object;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/MethodContact;->name:Ljava/lang/String;
 
     const/4 v2, 0x0
 
-    iget-object v3, p0, Lorg/simpleframework/xml/core/MethodContact;->name:Ljava/lang/String;
+    aput-object v1, v0, v2
 
-    aput-object v3, v1, v2
+    const-string/jumbo v1, "method \'%s\'"
 
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 

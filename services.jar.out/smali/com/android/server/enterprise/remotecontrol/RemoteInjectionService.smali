@@ -49,33 +49,39 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 4
+    .locals 5
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    const/4 v3, 0x2
+    const/4 v4, 0x2
 
     invoke-direct {p0}, Lcom/samsung/android/knox/remotecontrol/IRemoteInjection$Stub;-><init>()V
 
-    iput-object v2, p0, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
+    iput-object v3, p0, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
 
-    iput-object v2, p0, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iput-object v3, p0, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    new-instance v2, Landroid/util/SparseArray;
+    new-instance v3, Landroid/util/SparseArray;
 
-    invoke-direct {v2}, Landroid/util/SparseArray;-><init>()V
+    invoke-direct {v3}, Landroid/util/SparseArray;-><init>()V
 
-    iput-object v2, p0, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->mRemoteControlDisabled:Landroid/util/SparseArray;
+    iput-object v3, p0, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->mRemoteControlDisabled:Landroid/util/SparseArray;
 
     iput-object p1, p0, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->mContext:Landroid/content/Context;
 
     invoke-direct {p0}, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->getWindowManager()Landroid/view/WindowManager;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-interface {v2}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
+    invoke-interface {v3}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
 
     move-result-object v0
+
+    new-instance v2, Landroid/graphics/Point;
+
+    invoke-direct {v2}, Landroid/graphics/Point;-><init>()V
+
+    invoke-virtual {v0, v2}, Landroid/view/Display;->getRealSize(Landroid/graphics/Point;)V
 
     invoke-virtual {v0}, Landroid/view/Display;->getRotation()I
 
@@ -83,93 +89,118 @@
 
     if-eqz v1, :cond_0
 
-    if-ne v1, v3, :cond_2
+    if-ne v1, v4, :cond_2
 
     :cond_0
-    invoke-virtual {v0}, Landroid/view/Display;->getWidth()I
-
-    move-result v2
+    iget v3, v2, Landroid/graphics/Point;->x:I
 
     :goto_0
-    iput v2, p0, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->mRemoteScreenWidth:I
+    iput v3, p0, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->mRemoteScreenWidth:I
 
     if-eqz v1, :cond_1
 
-    if-ne v1, v3, :cond_3
+    if-ne v1, v4, :cond_3
 
     :cond_1
-    invoke-virtual {v0}, Landroid/view/Display;->getHeight()I
-
-    move-result v2
+    iget v3, v2, Landroid/graphics/Point;->y:I
 
     :goto_1
-    iput v2, p0, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->mRemoteScreenHeight:I
+    iput v3, p0, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->mRemoteScreenHeight:I
 
-    new-instance v2, Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    new-instance v3, Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    invoke-direct {v2, p1}, Lcom/android/server/enterprise/storage/EdmStorageProvider;-><init>(Landroid/content/Context;)V
+    invoke-direct {v3, p1}, Lcom/android/server/enterprise/storage/EdmStorageProvider;-><init>(Landroid/content/Context;)V
 
-    iput-object v2, p0, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iput-object v3, p0, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const/4 v2, -0x1
+    const/4 v3, -0x1
 
-    iput v2, p0, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->mSessionOwnerUid:I
+    iput v3, p0, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->mSessionOwnerUid:I
 
     sput-object p0, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->mSelf:Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;
 
     return-void
 
     :cond_2
-    invoke-virtual {v0}, Landroid/view/Display;->getHeight()I
-
-    move-result v2
+    iget v3, v2, Landroid/graphics/Point;->y:I
 
     goto :goto_0
 
     :cond_3
-    invoke-virtual {v0}, Landroid/view/Display;->getWidth()I
-
-    move-result v2
+    iget v3, v2, Landroid/graphics/Point;->x:I
 
     goto :goto_1
 .end method
 
-.method private enforceRemoteControlPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+.method private enforceRemoteControlPermission(Lcom/samsung/android/knox/ContextInfo;Z)Lcom/samsung/android/knox/ContextInfo;
     .locals 5
 
-    invoke-direct {p0}, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->getEDM()Lcom/samsung/android/knox/EnterpriseDeviceManager;
-
-    move-result-object v0
-
-    new-instance v1, Ljava/util/ArrayList;
-
-    const/4 v2, 0x2
-
-    new-array v2, v2, [Ljava/lang/String;
-
-    const-string/jumbo v3, "android.permission.sec.MDM_REMOTE_CONTROL"
-
-    const/4 v4, 0x0
-
-    aput-object v3, v2, v4
-
-    const-string/jumbo v3, "com.samsung.android.knox.permission.KNOX_REMOTE_CONTROL"
+    const/4 v1, 0x2
 
     const/4 v4, 0x1
 
-    aput-object v3, v2, v4
+    const/4 v3, 0x0
 
-    invoke-static {v2}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    const/4 v0, 0x0
 
-    move-result-object v2
+    if-eqz p2, :cond_0
 
-    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    new-instance v0, Ljava/util/ArrayList;
 
-    invoke-virtual {v0, p1, v1}, Lcom/samsung/android/knox/EnterpriseDeviceManager;->enforceActiveAdminPermissionByContext(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;)Lcom/samsung/android/knox/ContextInfo;
+    new-array v1, v1, [Ljava/lang/String;
 
-    move-result-object v0
+    const-string/jumbo v2, "com.sec.enterprise.knox.permission.KNOX_RESTRICTION"
 
-    return-object v0
+    aput-object v2, v1, v3
+
+    const-string/jumbo v2, "com.samsung.android.knox.permission.KNOX_ADVANCED_RESTRICTION"
+
+    aput-object v2, v1, v4
+
+    invoke-static {v1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->getEDM()Lcom/samsung/android/knox/EnterpriseDeviceManager;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1, v0}, Lcom/samsung/android/knox/EnterpriseDeviceManager;->enforceDoPoOnlyPermissionByContext(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;)Lcom/samsung/android/knox/ContextInfo;
+
+    move-result-object v1
+
+    return-object v1
+
+    :cond_0
+    new-instance v0, Ljava/util/ArrayList;
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const-string/jumbo v2, "android.permission.sec.MDM_REMOTE_CONTROL"
+
+    aput-object v2, v1, v3
+
+    const-string/jumbo v2, "com.samsung.android.knox.permission.KNOX_REMOTE_CONTROL"
+
+    aput-object v2, v1, v4
+
+    invoke-static {v1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->getEDM()Lcom/samsung/android/knox/EnterpriseDeviceManager;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1, v0}, Lcom/samsung/android/knox/EnterpriseDeviceManager;->enforceActiveAdminPermissionByContext(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;)Lcom/samsung/android/knox/ContextInfo;
+
+    move-result-object v1
+
+    return-object v1
 .end method
 
 .method private enforceRemoteControlPermissionNoActiveAdmin()V
@@ -566,7 +597,7 @@
 .end method
 
 .method private transformMotionEvent(Landroid/view/MotionEvent;)Landroid/view/MotionEvent;
-    .locals 29
+    .locals 30
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->getWindowManager()Landroid/view/WindowManager;
 
@@ -576,17 +607,27 @@
 
     move-result-object v20
 
-    invoke-virtual/range {v20 .. v20}, Landroid/view/Display;->getWidth()I
+    new-instance v29, Landroid/graphics/Point;
 
-    move-result v4
+    invoke-direct/range {v29 .. v29}, Landroid/graphics/Point;-><init>()V
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v29
+
+    invoke-virtual {v0, v1}, Landroid/view/Display;->getRealSize(Landroid/graphics/Point;)V
+
+    move-object/from16 v0, v29
+
+    iget v4, v0, Landroid/graphics/Point;->x:I
 
     int-to-float v0, v4
 
     move/from16 v22, v0
 
-    invoke-virtual/range {v20 .. v20}, Landroid/view/Display;->getHeight()I
+    move-object/from16 v0, v29
 
-    move-result v4
+    iget v4, v0, Landroid/graphics/Point;->y:I
 
     int-to-float v0, v4
 
@@ -599,6 +640,42 @@
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getPointerCount()I
 
     move-result v9
+
+    const-string/jumbo v4, "RemoteInjection"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "hwWidth "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    move/from16 v0, v22
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, ",hwHeight : "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    move/from16 v0, v21
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     if-eqz v24, :cond_0
 
@@ -635,6 +712,42 @@
     int-to-float v0, v4
 
     move/from16 v27, v0
+
+    const-string/jumbo v4, "RemoteInjection"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "remoteWidth "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    move/from16 v0, v28
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, ",remoteHeight : "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    move/from16 v0, v27
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     new-array v11, v9, [Landroid/view/MotionEvent$PointerCoords;
 
@@ -708,7 +821,7 @@
 
     iget v4, v0, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->mRemoteScreenHeight:I
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_3
     move-object/from16 v0, p0
@@ -771,12 +884,12 @@
 
 
 # virtual methods
-.method public allowRemoteControl(Lcom/samsung/android/knox/ContextInfo;Z)Z
+.method public allowRemoteControl(Lcom/samsung/android/knox/ContextInfo;ZZ)Z
     .locals 9
 
     const/4 v2, 0x0
 
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->enforceRemoteControlPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+    invoke-direct {p0, p1, p3}, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->enforceRemoteControlPermission(Lcom/samsung/android/knox/ContextInfo;Z)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
 
@@ -803,22 +916,19 @@
 
     move-result v3
 
-    iget-object v7, p0, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->mRemoteControlDisabled:Landroid/util/SparseArray;
+    iget-object v6, p0, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->mRemoteControlDisabled:Landroid/util/SparseArray;
 
     invoke-virtual {p0, v3}, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->isRemoteControlAllowed(I)Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_1
+    xor-int/lit8 v7, v7, 0x1
 
-    const/4 v6, 0x0
+    invoke-static {v7}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    :goto_0
-    invoke-static {v6}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    move-result-object v7
 
-    move-result-object v6
-
-    invoke-virtual {v7, v3, v6}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v6, v3, v7}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -826,13 +936,8 @@
     :cond_0
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    :goto_1
+    :goto_0
     return v2
-
-    :cond_1
-    const/4 v6, 0x1
-
-    goto :goto_0
 
     :catch_0
     move-exception v1
@@ -848,7 +953,7 @@
 
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    goto :goto_1
+    goto :goto_0
 
     :catchall_0
     move-exception v6
@@ -856,6 +961,81 @@
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     throw v6
+.end method
+
+.method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    .locals 7
+
+    iget-object v5, p0, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v6, "android.permission.DUMP"
+
+    invoke-virtual {v5, v6}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    const-string/jumbo v5, "Permission Denial: can\'t dump Enterprise Device Manager Service"
+
+    invoke-virtual {p2, v5}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return-void
+
+    :cond_0
+    const/4 v5, 0x1
+
+    invoke-static {v5}, Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter;->getUsers(Z)Ljava/util/List;
+
+    move-result-object v4
+
+    invoke-interface {v4}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    const-string/jumbo v5, "RemoteControl disallowed userId : "
+
+    invoke-virtual {p2, v5}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const/4 v2, 0x0
+
+    :goto_0
+    if-ge v2, v0, :cond_2
+
+    invoke-interface {v4, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/content/pm/UserInfo;
+
+    iget v3, v5, Landroid/content/pm/UserInfo;->id:I
+
+    invoke-virtual {p0, v3}, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->isRemoteControlAllowed(I)Z
+
+    move-result v5
+
+    if-nez v5, :cond_1
+
+    invoke-virtual {p2, v3}, Ljava/io/PrintWriter;->println(I)V
+
+    add-int/lit8 v1, v1, 0x1
+
+    :cond_1
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    if-nez v1, :cond_3
+
+    const-string/jumbo v5, "None"
+
+    invoke-virtual {p2, v5}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    :cond_3
+    return-void
 .end method
 
 .method public injectKeyEvent(Landroid/view/KeyEvent;Z)Z
@@ -1424,37 +1604,29 @@
 .method public onAdminRemoved(I)V
     .locals 3
 
-    iget-object v1, p0, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->mRemoteControlDisabled:Landroid/util/SparseArray;
+    iget-object v0, p0, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->mRemoteControlDisabled:Landroid/util/SparseArray;
+
+    invoke-static {p1}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v1
 
     invoke-static {p1}, Landroid/os/UserHandle;->getUserId(I)I
 
     move-result v2
 
-    invoke-static {p1}, Landroid/os/UserHandle;->getUserId(I)I
+    invoke-virtual {p0, v2}, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->isRemoteControlAllowed(I)Z
 
-    move-result v0
+    move-result v2
 
-    invoke-virtual {p0, v0}, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->isRemoteControlAllowed(I)Z
+    xor-int/lit8 v2, v2, 0x1
 
-    move-result v0
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    if-eqz v0, :cond_0
+    move-result-object v2
 
-    const/4 v0, 0x0
-
-    :goto_0
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v2, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method public onPreAdminRemoval(I)V
@@ -1480,16 +1652,78 @@
 .end method
 
 .method public updateRemoteScreenDimensionsAndCallerUid(III)V
-    .locals 2
+    .locals 5
 
     invoke-direct {p0}, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->enforceSystemUser()V
 
-    const-string/jumbo v0, "RemoteInjection"
+    const-string/jumbo v2, "RemoteInjection"
 
-    const-string/jumbo v1, "RemoteInjectionService: updateRemoteScreenDimensions()"
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
+    const-string/jumbo v4, "RemoteInjectionService: updateRemoteScreenDimensions() width : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, ", height : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, ", uid "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v2, -0x1
+
+    if-ne p3, v2, :cond_0
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->getWindowManager()Landroid/view/WindowManager;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
+
+    move-result-object v0
+
+    new-instance v1, Landroid/graphics/Point;
+
+    invoke-direct {v1}, Landroid/graphics/Point;-><init>()V
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0, v1}, Landroid/view/Display;->getRealSize(Landroid/graphics/Point;)V
+
+    :goto_0
+    iget p1, v1, Landroid/graphics/Point;->x:I
+
+    iget p2, v1, Landroid/graphics/Point;->y:I
+
+    :cond_0
     iput p1, p0, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->mRemoteScreenWidth:I
 
     iput p2, p0, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->mRemoteScreenHeight:I
@@ -1497,4 +1731,13 @@
     iput p3, p0, Lcom/android/server/enterprise/remotecontrol/RemoteInjectionService;->mSessionOwnerUid:I
 
     return-void
+
+    :cond_1
+    const-string/jumbo v2, "RemoteInjection"
+
+    const-string/jumbo v3, "RemoteInjectionService: updateRemoteScreenDimensions() : display is null"
+
+    invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
 .end method

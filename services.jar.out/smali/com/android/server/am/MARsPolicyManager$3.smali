@@ -55,7 +55,7 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/android/server/am/MARsPolicyManager;->-wrap4(Lcom/android/server/am/MARsPolicyManager;I)V
+    invoke-static {v0, v1}, Lcom/android/server/am/MARsPolicyManager;->-wrap2(Lcom/android/server/am/MARsPolicyManager;I)V
 
     iget-object v0, p0, Lcom/android/server/am/MARsPolicyManager$3;->this$0:Lcom/android/server/am/MARsPolicyManager;
 
@@ -69,27 +69,21 @@
 
     iget-object v0, p0, Lcom/android/server/am/MARsPolicyManager$3;->this$0:Lcom/android/server/am/MARsPolicyManager;
 
-    iget v0, v0, Lcom/android/server/am/MARsPolicyManager;->SecureFolderUserId:I
+    invoke-static {v0}, Lcom/android/server/am/MARsPolicyManager;->-get0(Lcom/android/server/am/MARsPolicyManager;)Z
 
-    const/16 v1, 0x96
+    move-result v0
 
-    if-lt v0, v1, :cond_1
-
-    iget-object v0, p0, Lcom/android/server/am/MARsPolicyManager$3;->this$0:Lcom/android/server/am/MARsPolicyManager;
-
-    iget v0, v0, Lcom/android/server/am/MARsPolicyManager;->SecureFolderUserId:I
-
-    const/16 v1, 0xa0
-
-    if-gt v0, v1, :cond_1
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/server/am/MARsPolicyManager$3;->this$0:Lcom/android/server/am/MARsPolicyManager;
 
     iget-object v1, p0, Lcom/android/server/am/MARsPolicyManager$3;->this$0:Lcom/android/server/am/MARsPolicyManager;
 
-    iget v1, v1, Lcom/android/server/am/MARsPolicyManager;->SecureFolderUserId:I
+    invoke-static {v1}, Lcom/android/server/am/MARsPolicyManager;->-get1(Lcom/android/server/am/MARsPolicyManager;)I
 
-    invoke-static {v0, v1}, Lcom/android/server/am/MARsPolicyManager;->-wrap4(Lcom/android/server/am/MARsPolicyManager;I)V
+    move-result v1
+
+    invoke-static {v0, v1}, Lcom/android/server/am/MARsPolicyManager;->-wrap2(Lcom/android/server/am/MARsPolicyManager;I)V
 
     :cond_1
     return-void

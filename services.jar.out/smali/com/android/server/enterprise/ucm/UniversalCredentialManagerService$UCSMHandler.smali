@@ -995,7 +995,7 @@
 
     invoke-direct/range {v68 .. v69}, Landroid/os/UserHandle;-><init>(I)V
 
-    const-string/jumbo v69, "com.samsung.android.knox.permission.KNOX_UCM_OTHER"
+    const-string/jumbo v69, "com.samsung.android.knox.permission.KNOX_UCM_OTHER_MGMT"
 
     move-object/from16 v0, v67
 
@@ -3701,7 +3701,7 @@
 
     :cond_2b
     :try_start_19
-    const-string/jumbo v63, "com.samsung.android.knox.permission.KNOX_UCM_ESE"
+    const-string/jumbo v63, "com.samsung.android.knox.permission.KNOX_UCM_ESE_MGMT"
 
     invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
 
@@ -3719,7 +3719,7 @@
 
     if-eqz v63, :cond_2c
 
-    const-string/jumbo v63, "com.samsung.android.knox.permission.KNOX_UCM_OTHER"
+    const-string/jumbo v63, "com.samsung.android.knox.permission.KNOX_UCM_OTHER_MGMT"
 
     invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
 
@@ -3811,7 +3811,7 @@
 
     :cond_2e
     :try_start_1a
-    const-string/jumbo v63, "com.samsung.android.knox.permission.KNOX_UCM_PLUGIN"
+    const-string/jumbo v63, "com.samsung.android.knox.permission.KNOX_UCM_PLUGIN_SERVICE"
 
     invoke-virtual/range {v34 .. v34}, Ljava/lang/Integer;->intValue()I
 

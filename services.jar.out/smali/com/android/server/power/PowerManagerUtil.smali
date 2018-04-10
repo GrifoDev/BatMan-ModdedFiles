@@ -26,8 +26,6 @@
 
 .field public static final AX_PROJECT:Z
 
-.field public static final CHAGALLATT_PROJECT:Z
-
 .field private static final DEBUG_LOW:Z
 
 .field private static final DEBUG_UNKNOWN:Z
@@ -36,31 +34,27 @@
 
 .field public static final ENABLE_SENSOR_WITH_DELAY:Z
 
-.field public static final GALAXY_VIEW_LTE:Z
-
-.field public static final GALAXY_VIEW_WIFI:Z
-
 .field public static final GRACE_PROJECT:Z
+
+.field public static final GREAT_PROJECT:Z
 
 .field public static final GT58_PROJECT:Z
 
 .field public static final GTS2_PROJECT:Z
 
-.field public static final GT_PROJECT:Z
-
 .field public static final HERO_PROJECT:Z
-
-.field public static final MATISSE10WIFI_PROJECT:Z
 
 .field public static final NOBLE_PROJECT:Z
 
-.field public static final NOVEL_PROJECT:Z
-
 .field public static final QCOM_PROJECT:Z
+
+.field public static final SEC_FEATURE_AFC:Z
 
 .field public static final SEC_FEATURE_BATTERY_SAVER_V2:Z
 
 .field public static final SEC_FEATURE_BATTERY_SIMULATION:Z
+
+.field public static final SEC_FEATURE_BATTERY_SW_ASOC:Z
 
 .field public static final SEC_FEATURE_DECOUPLE_FOR_DOZE:Z = true
 
@@ -68,11 +62,13 @@
 
 .field public static SEC_FEATURE_EXTENDED_BRIGHTNESS:Z = false
 
+.field private static final SEC_FEATURE_FLICKERING_PANEL_WHEN_WAKINGUP_FROM_DOZE:Z
+
 .field public static final SEC_FEATURE_FORCE_ADJUST_MANUAL_BRIGHTNESS_IN_LOW_LUX:Z
 
-.field public static final SEC_FEATURE_HALF_BRIGHTNESS_LOW_BATTERY:Z
-
 .field public static final SEC_FEATURE_MARKER_TRACKER:Z
+
+.field public static final SEC_FEATURE_NOT_SUPPORTED_HW_REV:Z
 
 .field public static final SEC_FEATURE_RESTRICTED_DEBUG_LEVEL:Z
 
@@ -80,17 +76,27 @@
 
 .field public static final SEC_FEATURE_SUPPORT_PERFORMANCE_MODE:Z
 
+.field public static SEC_FEATURE_SUSTAINABLE_HBM:Z = false
+
+.field public static final SEC_FEATURE_TOUCH_KEY_LIGHT:Z = true
+
+.field public static final SEC_FEATURE_USE_AFC:Z
+
 .field public static final SEC_FEATURE_USE_GED_DOZE:Z
 
 .field public static final SEC_FEATURE_USE_GED_SETINTERACTIVE_ORDER:Z
 
 .field public static final SEC_FEATURE_USE_HBM_AT_MANUAL_MAX:Z
 
-.field public static final SEC_FEATURE_USE_LOCKZONE:Z
-
 .field public static final SEC_FEATURE_USE_PMS_LOG:Z
 
+.field public static final SEC_FEATURE_USE_WIRELESS_AFC:Z
+
 .field public static final SEC_FEATURE_VZW_DEVICE_QUALITY_STATISTICS_DATA:Z = false
+
+.field public static final SEC_FEATURE_WA_COLOR_FADE_WHEN_WAKINGUP_FROM_DOZE:Z
+
+.field public static final SEC_FEATURE_WA_WAITING_AOD_WHEN_WAKINGUP_FROM_DOZE:Z
 
 .field public static final SEC_FEATURE_ZEROLUX_MINUSSTEP:Z
 
@@ -100,11 +106,9 @@
 
 .field private static final SHIP_BUILD:Z
 
+.field public static final STAR_PROJECT:Z
+
 .field private static final TAG:Ljava/lang/String; = "PowerManagerUtil"
-
-.field public static final T_PROJECT:Z
-
-.field public static final T_TMO_PROJECT:Z
 
 .field public static final USE_AUTO_BRIGHTNESS_DETAIL:Z
 
@@ -135,7 +139,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .locals 5
 
     const/4 v2, 0x0
 
@@ -187,7 +191,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_2
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
@@ -197,7 +201,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_2
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
@@ -207,7 +211,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_2
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
@@ -217,7 +221,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_2
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
@@ -227,7 +231,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_2
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
@@ -242,64 +246,13 @@
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
-    const-string/jumbo v3, "tblte"
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->T_PROJECT:Z
-
-    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
-
-    const-string/jumbo v3, "gt5"
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_a
-
-    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
-
-    const-string/jumbo v3, "gts2"
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v0
-
-    :goto_1
-    sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->GT_PROJECT:Z
-
-    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
-
-    const-string/jumbo v3, "gvwifi"
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->GALAXY_VIEW_WIFI:Z
-
-    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
-
-    const-string/jumbo v3, "gvlte"
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->GALAXY_VIEW_LTE:Z
-
-    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
-
     const-string/jumbo v3, "gt58"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_3
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
@@ -309,18 +262,8 @@
 
     move-result v0
 
-    :goto_2
+    :goto_1
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->GT58_PROJECT:Z
-
-    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
-
-    const-string/jumbo v3, "chagalllteatt"
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->CHAGALLATT_PROJECT:Z
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
@@ -331,67 +274,6 @@
     move-result v0
 
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->A8SKT_PROJECT:Z
-
-    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
-
-    const-string/jumbo v3, "trltetmo"
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_c
-
-    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
-
-    const-string/jumbo v3, "tbltetmo"
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_c
-
-    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
-
-    const-string/jumbo v3, "trltetmofrp"
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_c
-
-    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
-
-    const-string/jumbo v3, "tbltetmofrp"
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v0
-
-    :goto_3
-    sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->T_TMO_PROJECT:Z
-
-    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
-
-    const-string/jumbo v3, "matisse10wifikx"
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->MATISSE10WIFI_PROJECT:Z
-
-    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
-
-    const-string/jumbo v3, "novel"
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->NOVEL_PROJECT:Z
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
@@ -421,7 +303,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_4
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
@@ -431,7 +313,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_4
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
@@ -441,7 +323,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_4
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
@@ -451,7 +333,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_4
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
@@ -461,7 +343,7 @@
 
     move-result v0
 
-    :goto_4
+    :goto_2
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->HERO_PROJECT:Z
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
@@ -472,7 +354,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_5
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
@@ -482,7 +364,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_5
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
@@ -492,7 +374,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_5
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
@@ -502,7 +384,7 @@
 
     move-result v0
 
-    :goto_5
+    :goto_3
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->AX_PROJECT:Z
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
@@ -523,7 +405,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
@@ -533,12 +415,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    move v0, v2
+    if-eqz v0, :cond_6
 
-    :goto_6
+    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
+
+    const-string/jumbo v3, "gts28ve"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    :goto_4
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->GTS2_PROJECT:Z
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
@@ -569,7 +460,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_7
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
@@ -579,7 +470,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_7
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
@@ -589,7 +480,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_7
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
@@ -599,7 +490,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_7
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
@@ -609,7 +500,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_7
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
@@ -619,7 +510,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_7
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
@@ -629,7 +520,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_7
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
@@ -639,7 +530,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_7
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
@@ -649,56 +540,162 @@
 
     move-result v0
 
-    :goto_7
+    :goto_5
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->DREAM_PROJECT:Z
 
-    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->GALAXY_VIEW_WIFI:Z
+    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
-    if-nez v0, :cond_1
+    const-string/jumbo v3, "great"
 
-    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->GALAXY_VIEW_LTE:Z
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    if-eqz v0, :cond_12
+    move-result v0
 
-    :cond_1
-    move v0, v2
+    if-nez v0, :cond_8
 
-    :goto_8
-    sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_USE_LOCKZONE:Z
+    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
+
+    const-string/jumbo v3, "SGH-N473"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_8
+
+    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
+
+    const-string/jumbo v3, "SC-01K"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_8
+
+    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
+
+    const-string/jumbo v3, "OWY"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_8
+
+    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
+
+    const-string/jumbo v3, "SCV37"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    :goto_6
+    sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->GREAT_PROJECT:Z
+
+    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
+
+    const-string/jumbo v3, "star"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_9
+
+    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
+
+    const-string/jumbo v3, "SGH-N327"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_9
+
+    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
+
+    const-string/jumbo v3, "SC-02K"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_9
+
+    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
+
+    const-string/jumbo v3, "SGH-N943"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_9
+
+    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
+
+    const-string/jumbo v3, "SC-03K"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_9
+
+    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
+
+    const-string/jumbo v3, "PXZ"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_9
+
+    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
+
+    const-string/jumbo v3, "SCV38"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_9
+
+    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
+
+    const-string/jumbo v3, "QYA"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_9
+
+    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
+
+    const-string/jumbo v3, "SCV39"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    :goto_7
+    sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->STAR_PROJECT:Z
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->GT58_PROJECT:Z
 
-    if-nez v0, :cond_13
-
-    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->CHAGALLATT_PROJECT:Z
-
-    if-nez v0, :cond_13
+    if-nez v0, :cond_a
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->A8SKT_PROJECT:Z
 
-    if-nez v0, :cond_13
-
-    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->T_TMO_PROJECT:Z
-
-    :goto_9
+    :goto_8
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_DIM_BRIGHTNESS_BELOW_BATTERY_LEVEL_1:Z
-
-    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->MATISSE10WIFI_PROJECT:Z
-
-    sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_HALF_BRIGHTNESS_LOW_BATTERY:Z
-
-    sget-boolean v5, Landroid/os/Build;->renovateHeroSeries:Z
-
-    if-nez v5, :cond_2
 
     const-string/jumbo v0, "4"
 
-    goto :goto_a
-
-    :cond_2
-    const-string/jumbo v0, "3"
-
-    :goto_a
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v0
@@ -707,33 +704,33 @@
 
     sget v0, Lcom/android/server/power/PowerManagerUtil;->AUTO_BRIGHTNESS_TYPE:I
 
-    if-ne v0, v1, :cond_14
+    if-ne v0, v1, :cond_b
 
     move v0, v1
 
-    :goto_b
+    :goto_9
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->USE_AUTO_BRIGHTNESS_DETAIL:Z
 
     sget v0, Lcom/android/server/power/PowerManagerUtil;->AUTO_BRIGHTNESS_TYPE:I
 
     const/4 v3, 0x3
 
-    if-lt v0, v3, :cond_15
+    if-lt v0, v3, :cond_c
 
     move v0, v1
 
-    :goto_c
+    :goto_a
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->USE_PERSONAL_AUTO_BRIGHTNESS:Z
 
     sget v0, Lcom/android/server/power/PowerManagerUtil;->AUTO_BRIGHTNESS_TYPE:I
 
     const/4 v3, 0x4
 
-    if-ne v0, v3, :cond_16
+    if-ne v0, v3, :cond_d
 
     move v0, v1
 
-    :goto_d
+    :goto_b
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->USE_PERSONAL_AUTO_BRIGHTNESS_V3:Z
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->USE_PERSONAL_AUTO_BRIGHTNESS:Z
@@ -746,20 +743,17 @@
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->USE_PERSONAL_AUTO_BRIGHTNESS:Z
 
-    if-eqz v0, :cond_17
+    xor-int/lit8 v0, v0, 0x1
 
-    move v0, v2
-
-    :goto_e
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->USE_EBOOK_AUTO_BRIGHTNESS_TABLE:Z
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->NOBLE_PROJECT:Z
 
-    if-nez v0, :cond_18
+    if-nez v0, :cond_e
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->ZERO2_PROJECT:Z
 
-    :goto_f
+    :goto_c
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_MANUALTABLE_1:Z
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->HERO_PROJECT:Z
@@ -792,7 +786,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_0
 
     sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
 
@@ -802,57 +796,55 @@
 
     move-result v0
 
-    if-eqz v0, :cond_19
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_3
+    if-nez v0, :cond_f
+
+    :cond_0
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->mIsMocha:Z
 
-    :goto_10
+    :goto_d
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->upgradeLollipop:Z
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->upgradeLollipop:Z
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_10
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil$Sales;->VZW:Z
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_10
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->GTS2_PROJECT:Z
 
-    if-eqz v0, :cond_1a
+    :goto_e
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_4
-    move v0, v2
-
-    :goto_11
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_USE_HBM_AT_MANUAL_MAX:Z
 
-    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->GRACE_PROJECT:Z
+    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->ZERO_PROJECT:Z
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_11
 
-    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->DREAM_PROJECT:Z
+    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->ZERO2_PROJECT:Z
 
-    if-eqz v0, :cond_1b
+    if-nez v0, :cond_11
 
-    :cond_5
-    move v0, v2
+    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->HERO_PROJECT:Z
 
-    :goto_12
+    :goto_f
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_FORCE_ADJUST_MANUAL_BRIGHTNESS_IN_LOW_LUX:Z
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->ZERO_PROJECT:Z
 
-    if-nez v0, :cond_1c
+    if-nez v0, :cond_12
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->NOBLE_PROJECT:Z
 
-    if-nez v0, :cond_1c
+    if-nez v0, :cond_12
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->ZERO2_PROJECT:Z
 
-    :goto_13
+    :goto_10
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_ZEROLUX_MINUSSTEP:Z
 
     const-string/jumbo v0, "Unknown"
@@ -867,11 +859,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_13
 
     move v0, v1
 
-    :goto_14
+    :goto_11
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->DEBUG_UNKNOWN:Z
 
     const-string/jumbo v0, "0x4f4c"
@@ -886,11 +878,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_14
 
     move v0, v1
 
-    :goto_15
+    :goto_12
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->DEBUG_LOW:Z
 
     const-string/jumbo v0, "true"
@@ -915,62 +907,65 @@
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->DEBUG_UNKNOWN:Z
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_15
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->DEBUG_LOW:Z
 
-    if-eqz v0, :cond_1f
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_6
-    move v0, v2
-
-    :goto_16
+    :goto_13
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_USE_PMS_LOG:Z
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->DEBUG_UNKNOWN:Z
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_16
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->DEBUG_LOW:Z
 
-    if-eqz v0, :cond_20
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_7
-    move v0, v2
+    if-eqz v0, :cond_16
 
-    :goto_17
+    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SHIP_BUILD:Z
+
+    xor-int/lit8 v0, v0, 0x1
+
+    :goto_14
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_BATTERY_SIMULATION:Z
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->DEBUG_UNKNOWN:Z
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_17
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->DEBUG_LOW:Z
 
-    if-eqz v0, :cond_21
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_8
-    move v0, v2
+    if-eqz v0, :cond_17
 
-    :goto_18
+    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SHIP_BUILD:Z
+
+    xor-int/lit8 v0, v0, 0x1
+
+    :goto_15
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_RESTRICTED_DEBUG_LEVEL:Z
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->A9XPRO_PROJECT:Z
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_18
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->A8X_PROJECT:Z
 
-    :goto_19
+    :goto_16
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_USE_GED_SETINTERACTIVE_ORDER:Z
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->HERO_PROJECT:Z
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_19
 
     sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->QCOM_PROJECT:Z
 
-    :goto_1a
+    :goto_17
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->ENABLE_SENSOR_WITH_DELAY:Z
 
     const-string/jumbo v0, "ro.build.scafe.version"
@@ -989,18 +984,20 @@
 
     move-result v0
 
-    if-ltz v0, :cond_24
+    if-ltz v0, :cond_1a
 
-    :goto_1b
-    sput-boolean v1, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_BATTERY_SAVER_V2:Z
+    move v0, v1
+
+    :goto_18
+    sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_BATTERY_SAVER_V2:Z
 
     invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
 
     move-result-object v0
 
-    const-string/jumbo v1, "SEC_FLOATING_FEATURE_COMMON_SUPPORT_HIGH_PERFORMANCE_MODE"
+    const-string/jumbo v3, "SEC_FLOATING_FEATURE_COMMON_SUPPORT_HIGH_PERFORMANCE_MODE"
 
-    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v0, v3, v2}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v0
 
@@ -1010,187 +1007,305 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "SEC_FLOATING_FEATURE_FRAMEWORK_SUPPORT_AOD_DOZE_SERVICE"
+    const-string/jumbo v3, "SEC_FLOATING_FEATURE_FRAMEWORK_CONFIG_AOD_DOZE_SERVICE_VERSION"
 
-    invoke-virtual {v0, v1}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {v0, v3, v2}, Lcom/samsung/android/feature/SemFloatingFeature;->getInt(Ljava/lang/String;I)I
 
     move-result v0
 
+    if-lt v0, v1, :cond_1b
+
+    move v0, v1
+
+    :goto_19
+    sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_FLICKERING_PANEL_WHEN_WAKINGUP_FROM_DOZE:Z
+
+    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
+
+    move-result-object v0
+
+    const-string/jumbo v3, "SEC_FLOATING_FEATURE_FRAMEWORK_CONFIG_AOD_DOZE_SERVICE_VERSION"
+
+    invoke-virtual {v0, v3, v2}, Lcom/samsung/android/feature/SemFloatingFeature;->getInt(Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-lt v0, v1, :cond_1c
+
+    move v0, v1
+
+    :goto_1a
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_USE_GED_DOZE:Z
 
     invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
 
     move-result-object v0
 
-    const-string/jumbo v1, "SEC_FLOATING_FEATURE_COMMON_SUPPORT_SEAMLESS_WALLPAPER"
+    const-string/jumbo v3, "SEC_FLOATING_FEATURE_LOCKSCREEN_CONFIG_WALLPAPER_STYLE"
 
-    invoke-virtual {v0, v1}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {v0, v3}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v3, "INFINITY"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_SEAMLESS_AOD:Z
 
+    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_FLICKERING_PANEL_WHEN_WAKINGUP_FROM_DOZE:Z
+
+    if-eqz v0, :cond_1d
+
+    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_SEAMLESS_AOD:Z
+
+    :goto_1b
+    sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_WA_WAITING_AOD_WHEN_WAKINGUP_FROM_DOZE:Z
+
+    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_SEAMLESS_AOD:Z
+
+    if-nez v0, :cond_20
+
+    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_USE_GED_DOZE:Z
+
+    if-eqz v0, :cond_1e
+
+    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_USE_GED_DOZE:Z
+
+    if-eqz v0, :cond_1f
+
+    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_FLICKERING_PANEL_WHEN_WAKINGUP_FROM_DOZE:Z
+
+    :goto_1c
+    sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_WA_COLOR_FADE_WHEN_WAKINGUP_FROM_DOZE:Z
+
+    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->GRACE_PROJECT:Z
+
+    if-eqz v0, :cond_21
+
+    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil$Sales;->KOR:Z
+
+    if-eqz v0, :cond_21
+
+    const-string/jumbo v0, "ro.boot.hw_rev"
+
+    invoke-static {v0, v2}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+
+    move-result v0
+
+    const/16 v3, 0x11
+
+    if-ge v0, v3, :cond_21
+
+    move v0, v1
+
+    :goto_1d
+    sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_NOT_SUPPORTED_HW_REV:Z
+
+    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->DREAM_PROJECT:Z
+
+    if-nez v0, :cond_1
+
+    sget-boolean v1, Lcom/android/server/power/PowerManagerUtil;->GREAT_PROJECT:Z
+
+    :cond_1
+    sput-boolean v1, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_BATTERY_SW_ASOC:Z
+
+    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "SEC_FLOATING_FEATURE_BATTERY_SUPPORT_HV"
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_USE_AFC:Z
+
+    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "SEC_FLOATING_FEATURE_BATTERY_SUPPORT_WIRELESS_HV"
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_USE_WIRELESS_AFC:Z
+
+    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->STAR_PROJECT:Z
+
+    sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_AFC:Z
+
     sput-boolean v2, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_EXTENDED_BRIGHTNESS:Z
+
+    sput-boolean v2, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_SUSTAINABLE_HBM:Z
 
     return-void
 
-    :cond_9
+    :cond_2
     move v0, v1
 
     goto/16 :goto_0
 
-    :cond_a
+    :cond_3
     move v0, v1
 
     goto/16 :goto_1
 
-    :cond_b
+    :cond_4
     move v0, v1
 
     goto/16 :goto_2
 
-    :cond_c
+    :cond_5
     move v0, v1
 
     goto/16 :goto_3
 
-    :cond_d
-    move v0, v1
+    :cond_6
+    move v0, v2
 
     goto/16 :goto_4
 
-    :cond_e
+    :cond_7
     move v0, v1
 
     goto/16 :goto_5
 
-    :cond_f
-    sget-object v0, Lcom/android/server/power/PowerManagerUtil;->mProductName:Ljava/lang/String;
-
-    const-string/jumbo v3, "gts28ve"
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_10
-
-    move v0, v2
-
-    goto/16 :goto_6
-
-    :cond_10
+    :cond_8
     move v0, v1
 
     goto/16 :goto_6
 
-    :cond_11
+    :cond_9
     move v0, v1
 
     goto/16 :goto_7
 
-    :cond_12
+    :cond_a
     move v0, v1
 
     goto/16 :goto_8
 
-    :cond_13
-    move v0, v1
+    :cond_b
+    move v0, v2
 
     goto/16 :goto_9
 
-    :cond_14
+    :cond_c
+    move v0, v2
+
+    goto/16 :goto_a
+
+    :cond_d
     move v0, v2
 
     goto/16 :goto_b
 
-    :cond_15
-    move v0, v2
+    :cond_e
+    move v0, v1
 
     goto/16 :goto_c
 
-    :cond_16
-    move v0, v2
+    :cond_f
+    move v0, v1
 
     goto/16 :goto_d
 
-    :cond_17
+    :cond_10
     move v0, v1
 
     goto/16 :goto_e
 
-    :cond_18
+    :cond_11
     move v0, v1
 
     goto/16 :goto_f
 
-    :cond_19
+    :cond_12
     move v0, v1
 
     goto/16 :goto_10
 
-    :cond_1a
-    move v0, v1
+    :cond_13
+    move v0, v2
 
     goto/16 :goto_11
 
-    :cond_1b
-    move v0, v1
+    :cond_14
+    move v0, v2
 
     goto/16 :goto_12
 
-    :cond_1c
-    move v0, v1
+    :cond_15
+    move v0, v2
 
     goto/16 :goto_13
 
-    :cond_1d
+    :cond_16
     move v0, v2
 
     goto/16 :goto_14
 
-    :cond_1e
+    :cond_17
     move v0, v2
 
     goto/16 :goto_15
 
-    :cond_1f
+    :cond_18
     move v0, v1
 
     goto/16 :goto_16
 
-    :cond_20
-    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SHIP_BUILD:Z
-
-    if-nez v0, :cond_7
-
-    move v0, v1
+    :cond_19
+    move v0, v2
 
     goto/16 :goto_17
 
-    :cond_21
-    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SHIP_BUILD:Z
-
-    if-nez v0, :cond_8
-
-    move v0, v1
+    :cond_1a
+    move v0, v2
 
     goto/16 :goto_18
 
-    :cond_22
-    move v0, v1
+    :cond_1b
+    move v0, v2
 
     goto/16 :goto_19
 
-    :cond_23
+    :cond_1c
     move v0, v2
 
     goto/16 :goto_1a
 
-    :cond_24
-    move v1, v2
+    :cond_1d
+    move v0, v2
 
     goto/16 :goto_1b
+
+    :cond_1e
+    move v0, v1
+
+    goto/16 :goto_1c
+
+    :cond_1f
+    move v0, v2
+
+    goto/16 :goto_1c
+
+    :cond_20
+    move v0, v2
+
+    goto/16 :goto_1c
+
+    :cond_21
+    move v0, v2
+
+    goto/16 :goto_1d
 .end method
 
 .method public constructor <init>()V

@@ -3,11 +3,6 @@
 .source "ContentProducer.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract writeTo(Ljava/io/OutputStream;)V
     .annotation system Ldalvik/annotation/Throws;

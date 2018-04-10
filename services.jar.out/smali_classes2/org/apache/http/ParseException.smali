@@ -3,36 +3,23 @@
 .source "ParseException.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
+# static fields
+.field private static final serialVersionUID:J = -0x6527170a84993b1aL
 
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/RuntimeException;-><init>()V
 
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 2
+    .locals 0
 
-    invoke-direct {p0}, Ljava/lang/RuntimeException;-><init>()V
+    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method

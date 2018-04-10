@@ -51,22 +51,22 @@
 .end method
 
 .method public static newInstance()Lmf/javax/xml/parsers/DocumentBuilderFactory;
-    .locals 3
+    .locals 4
 
     :try_start_0
-    const-string/jumbo v0, "javax.xml.parsers.DocumentBuilderFactory"
+    const-string/jumbo v1, "javax.xml.parsers.DocumentBuilderFactory"
 
-    const-string/jumbo v1, "com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl"
+    const-string/jumbo v2, "com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl"
 
-    invoke-static {v0, v1}, Lmf/javax/xml/parsers/FactoryFinder;->find(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v1, v2}, Lmf/javax/xml/parsers/FactoryFinder;->find(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/javax/xml/parsers/DocumentBuilderFactory;
+    check-cast v1, Lmf/javax/xml/parsers/DocumentBuilderFactory;
     :try_end_0
     .catch Lmf/javax/xml/parsers/FactoryFinder$ConfigurationError; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object v1
 
     :catch_0
     move-exception v0
@@ -79,28 +79,28 @@
 
     invoke-virtual {v0}, Lmf/javax/xml/parsers/FactoryFinder$ConfigurationError;->getMessage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-direct {v1, v2, v0}, Lmf/javax/xml/parsers/FactoryConfigurationError;-><init>(Ljava/lang/Exception;Ljava/lang/String;)V
+    invoke-direct {v1, v2, v3}, Lmf/javax/xml/parsers/FactoryConfigurationError;-><init>(Ljava/lang/Exception;Ljava/lang/String;)V
 
     throw v1
 .end method
 
 .method public static newInstance(Ljava/lang/String;Ljava/lang/ClassLoader;)Lmf/javax/xml/parsers/DocumentBuilderFactory;
-    .locals 3
+    .locals 4
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     :try_start_0
-    invoke-static {p0, p1, v0}, Lmf/javax/xml/parsers/FactoryFinder;->newInstance(Ljava/lang/String;Ljava/lang/ClassLoader;Z)Ljava/lang/Object;
+    invoke-static {p0, p1, v1}, Lmf/javax/xml/parsers/FactoryFinder;->newInstance(Ljava/lang/String;Ljava/lang/ClassLoader;Z)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/javax/xml/parsers/DocumentBuilderFactory;
+    check-cast v1, Lmf/javax/xml/parsers/DocumentBuilderFactory;
     :try_end_0
     .catch Lmf/javax/xml/parsers/FactoryFinder$ConfigurationError; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object v1
 
     :catch_0
     move-exception v0
@@ -113,9 +113,9 @@
 
     invoke-virtual {v0}, Lmf/javax/xml/parsers/FactoryFinder$ConfigurationError;->getMessage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-direct {v1, v2, v0}, Lmf/javax/xml/parsers/FactoryConfigurationError;-><init>(Ljava/lang/Exception;Ljava/lang/String;)V
+    invoke-direct {v1, v2, v3}, Lmf/javax/xml/parsers/FactoryConfigurationError;-><init>(Ljava/lang/Exception;Ljava/lang/String;)V
 
     throw v1
 .end method

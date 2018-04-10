@@ -161,21 +161,21 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .locals 3
 
-    const-string/jumbo v0, "schema for %s"
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
+    new-array v0, v0, [Ljava/lang/Object;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/ClassSchema;->type:Ljava/lang/Class;
 
     const/4 v2, 0x0
 
-    iget-object v3, p0, Lorg/simpleframework/xml/core/ClassSchema;->type:Ljava/lang/Class;
+    aput-object v1, v0, v2
 
-    aput-object v3, v1, v2
+    const-string/jumbo v1, "schema for %s"
 
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 

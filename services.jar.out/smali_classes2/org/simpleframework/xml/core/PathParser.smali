@@ -156,22 +156,22 @@
 .end method
 
 .method private align()V
-    .locals 2
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->names:Ljava/util/List;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/PathParser;->names:Ljava/util/List;
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v0
 
-    iget-object v1, p0, Lorg/simpleframework/xml/core/PathParser;->indexes:Ljava/util/List;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/PathParser;->indexes:Ljava/util/List;
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v1
 
@@ -181,70 +181,70 @@
     return-void
 
     :cond_0
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->indexes:Ljava/util/List;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/PathParser;->indexes:Ljava/util/List;
 
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 .end method
 
 .method private attribute()V
-    .locals 7
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v6, 0x2
+    const/4 v7, 0x2
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    iget v0, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
+    iget v2, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v0, v2, 0x1
 
     iput v0, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
 
     :cond_0
-    iget v1, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
+    iget v2, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
 
-    iget v2, p0, Lorg/simpleframework/xml/core/PathParser;->count:I
+    iget v3, p0, Lorg/simpleframework/xml/core/PathParser;->count:I
 
-    if-lt v1, v2, :cond_1
+    if-lt v2, v3, :cond_1
 
-    iget v1, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
+    iget v2, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
 
-    if-le v1, v0, :cond_2
+    if-le v2, v0, :cond_2
 
-    iput-boolean v5, p0, Lorg/simpleframework/xml/core/PathParser;->attribute:Z
+    iput-boolean v6, p0, Lorg/simpleframework/xml/core/PathParser;->attribute:Z
 
-    iget v1, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
+    iget v2, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
 
-    sub-int/2addr v1, v0
+    sub-int/2addr v2, v0
 
-    invoke-direct {p0, v0, v1}, Lorg/simpleframework/xml/core/PathParser;->attribute(II)V
+    invoke-direct {p0, v0, v2}, Lorg/simpleframework/xml/core/PathParser;->attribute(II)V
 
     return-void
 
     :cond_1
-    iget-object v1, p0, Lorg/simpleframework/xml/core/PathParser;->data:[C
+    iget-object v2, p0, Lorg/simpleframework/xml/core/PathParser;->data:[C
 
-    iget v2, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
+    iget v3, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
 
-    add-int/lit8 v3, v2, 0x1
+    add-int/lit8 v4, v3, 0x1
 
-    iput v3, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
+    iput v4, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
 
-    aget-char v1, v1, v2
+    aget-char v1, v2, v3
 
     invoke-direct {p0, v1}, Lorg/simpleframework/xml/core/PathParser;->isValid(C)Z
 
@@ -252,9 +252,7 @@
 
     if-nez v2, :cond_0
 
-    new-instance v0, Lorg/simpleframework/xml/core/PathException;
-
-    const-string/jumbo v2, "Illegal character \'%s\' in attribute for \'%s\' in %s"
+    new-instance v2, Lorg/simpleframework/xml/core/PathException;
 
     const/4 v3, 0x3
 
@@ -262,40 +260,42 @@
 
     invoke-static {v1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
-    move-result-object v1
+    move-result-object v4
 
-    aput-object v1, v3, v4
+    aput-object v4, v3, v5
 
-    iget-object v1, p0, Lorg/simpleframework/xml/core/PathParser;->path:Ljava/lang/String;
+    iget-object v4, p0, Lorg/simpleframework/xml/core/PathParser;->path:Ljava/lang/String;
 
-    aput-object v1, v3, v5
+    aput-object v4, v3, v6
 
-    iget-object v1, p0, Lorg/simpleframework/xml/core/PathParser;->type:Lorg/simpleframework/xml/strategy/Type;
+    iget-object v4, p0, Lorg/simpleframework/xml/core/PathParser;->type:Lorg/simpleframework/xml/strategy/Type;
 
-    aput-object v1, v3, v6
+    aput-object v4, v3, v7
 
-    invoke-direct {v0, v2, v3}, Lorg/simpleframework/xml/core/PathException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v4, "Illegal character \'%s\' in attribute for \'%s\' in %s"
 
-    throw v0
+    invoke-direct {v2, v4, v3}, Lorg/simpleframework/xml/core/PathException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v2
 
     :cond_2
-    new-instance v0, Lorg/simpleframework/xml/core/PathException;
+    new-instance v2, Lorg/simpleframework/xml/core/PathException;
 
-    const-string/jumbo v1, "Attribute reference in \'%s\' for %s is empty"
+    new-array v3, v7, [Ljava/lang/Object;
 
-    new-array v2, v6, [Ljava/lang/Object;
+    iget-object v4, p0, Lorg/simpleframework/xml/core/PathParser;->path:Ljava/lang/String;
 
-    iget-object v3, p0, Lorg/simpleframework/xml/core/PathParser;->path:Ljava/lang/String;
+    aput-object v4, v3, v5
 
-    aput-object v3, v2, v4
+    iget-object v4, p0, Lorg/simpleframework/xml/core/PathParser;->type:Lorg/simpleframework/xml/strategy/Type;
 
-    iget-object v3, p0, Lorg/simpleframework/xml/core/PathParser;->type:Lorg/simpleframework/xml/strategy/Type;
+    aput-object v4, v3, v6
 
-    aput-object v3, v2, v5
+    const-string/jumbo v4, "Attribute reference in \'%s\' for %s is empty"
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/core/PathException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v2, v4, v3}, Lorg/simpleframework/xml/core/PathException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    throw v0
+    throw v2
 .end method
 
 .method private attribute(II)V
@@ -321,9 +321,9 @@
 .method private attribute(Ljava/lang/String;)V
     .locals 3
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->style:Lorg/simpleframework/xml/stream/Style;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/PathParser;->style:Lorg/simpleframework/xml/stream/Style;
 
-    invoke-interface {v0, p1}, Lorg/simpleframework/xml/stream/Style;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v1, p1}, Lorg/simpleframework/xml/stream/Style;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -343,61 +343,59 @@
 .method private build()V
     .locals 8
 
-    const/4 v0, 0x0
+    iget-object v6, p0, Lorg/simpleframework/xml/core/PathParser;->names:Ljava/util/List;
 
-    iget-object v1, p0, Lorg/simpleframework/xml/core/PathParser;->names:Ljava/util/List;
+    invoke-interface {v6}, Ljava/util/List;->size()I
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    move-result v0
 
-    move-result v4
+    add-int/lit8 v3, v0, -0x1
 
-    add-int/lit8 v5, v4, -0x1
-
-    move v3, v0
+    const/4 v1, 0x0
 
     :goto_0
-    if-lt v3, v4, :cond_0
+    if-lt v1, v0, :cond_0
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->builder:Ljava/lang/StringBuilder;
+    iget-object v6, p0, Lorg/simpleframework/xml/core/PathParser;->builder:Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v6
 
-    iput-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->location:Ljava/lang/String;
+    iput-object v6, p0, Lorg/simpleframework/xml/core/PathParser;->location:Ljava/lang/String;
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->prefixes:Ljava/util/List;
+    iget-object v6, p0, Lorg/simpleframework/xml/core/PathParser;->prefixes:Ljava/util/List;
 
-    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v6, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v4
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v4, Ljava/lang/String;
 
-    iget-object v1, p0, Lorg/simpleframework/xml/core/PathParser;->names:Ljava/util/List;
+    iget-object v6, p0, Lorg/simpleframework/xml/core/PathParser;->names:Ljava/util/List;
 
-    invoke-interface {v1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v6, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v5
 
-    check-cast v1, Ljava/lang/String;
+    check-cast v5, Ljava/lang/String;
 
-    iget-object v2, p0, Lorg/simpleframework/xml/core/PathParser;->indexes:Ljava/util/List;
+    iget-object v6, p0, Lorg/simpleframework/xml/core/PathParser;->indexes:Ljava/util/List;
 
-    invoke-interface {v2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v6, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v6
 
-    check-cast v2, Ljava/lang/Integer;
+    check-cast v6, Ljava/lang/Integer;
 
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
 
-    if-gtz v3, :cond_2
+    if-gtz v1, :cond_2
 
     :goto_1
     iget-boolean v6, p0, Lorg/simpleframework/xml/core/PathParser;->attribute:Z
@@ -405,33 +403,31 @@
     if-nez v6, :cond_3
 
     :cond_1
-    if-nez v0, :cond_4
+    if-nez v4, :cond_4
 
     :goto_2
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->builder:Ljava/lang/StringBuilder;
+    iget-object v6, p0, Lorg/simpleframework/xml/core/PathParser;->builder:Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->builder:Ljava/lang/StringBuilder;
+    iget-object v6, p0, Lorg/simpleframework/xml/core/PathParser;->builder:Ljava/lang/StringBuilder;
 
-    const/16 v1, 0x5b
+    const/16 v7, 0x5b
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->builder:Ljava/lang/StringBuilder;
+    iget-object v6, p0, Lorg/simpleframework/xml/core/PathParser;->builder:Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->builder:Ljava/lang/StringBuilder;
+    iget-object v6, p0, Lorg/simpleframework/xml/core/PathParser;->builder:Ljava/lang/StringBuilder;
 
-    const/16 v1, 0x5d
+    const/16 v7, 0x5d
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     :goto_3
-    add-int/lit8 v0, v3, 0x1
-
-    move v3, v0
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
@@ -445,47 +441,47 @@
     goto :goto_1
 
     :cond_3
-    if-ne v3, v5, :cond_1
+    if-ne v1, v3, :cond_1
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->builder:Ljava/lang/StringBuilder;
+    iget-object v6, p0, Lorg/simpleframework/xml/core/PathParser;->builder:Ljava/lang/StringBuilder;
 
-    const/16 v2, 0x40
+    const/16 v7, 0x40
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->builder:Ljava/lang/StringBuilder;
+    iget-object v6, p0, Lorg/simpleframework/xml/core/PathParser;->builder:Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_3
 
     :cond_4
     iget-object v6, p0, Lorg/simpleframework/xml/core/PathParser;->builder:Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->builder:Ljava/lang/StringBuilder;
+    iget-object v6, p0, Lorg/simpleframework/xml/core/PathParser;->builder:Ljava/lang/StringBuilder;
 
-    const/16 v6, 0x3a
+    const/16 v7, 0x3a
 
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     goto :goto_2
 .end method
 
 .method private element()V
-    .locals 6
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
+    const/4 v6, 0x0
+
+    iget v0, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
+
     const/4 v1, 0x0
-
-    iget v2, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
-
-    move v0, v1
 
     :goto_0
     iget v3, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
@@ -496,7 +492,7 @@
 
     :cond_0
     :goto_1
-    invoke-direct {p0, v2, v0}, Lorg/simpleframework/xml/core/PathParser;->element(II)V
+    invoke-direct {p0, v0, v1}, Lorg/simpleframework/xml/core/PathParser;->element(II)V
 
     return-void
 
@@ -509,67 +505,67 @@
 
     iput v5, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
 
-    aget-char v3, v3, v4
+    aget-char v2, v3, v4
 
-    invoke-direct {p0, v3}, Lorg/simpleframework/xml/core/PathParser;->isValid(C)Z
+    invoke-direct {p0, v2}, Lorg/simpleframework/xml/core/PathParser;->isValid(C)Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_2
+    if-eqz v3, :cond_2
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_2
-    const/16 v4, 0x40
+    const/16 v3, 0x40
 
-    if-eq v3, v4, :cond_3
+    if-eq v2, v3, :cond_3
 
-    const/16 v4, 0x5b
+    const/16 v3, 0x5b
 
-    if-eq v3, v4, :cond_4
+    if-eq v2, v3, :cond_4
 
-    const/16 v4, 0x2f
+    const/16 v3, 0x2f
 
-    if-eq v3, v4, :cond_0
+    if-eq v2, v3, :cond_0
 
-    new-instance v0, Lorg/simpleframework/xml/core/PathException;
-
-    const-string/jumbo v2, "Illegal character \'%s\' in element for \'%s\' in %s"
+    new-instance v3, Lorg/simpleframework/xml/core/PathException;
 
     const/4 v4, 0x3
 
     new-array v4, v4, [Ljava/lang/Object;
 
-    invoke-static {v3}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
+    invoke-static {v2}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
-    move-result-object v3
+    move-result-object v5
 
-    aput-object v3, v4, v1
+    aput-object v5, v4, v6
 
-    const/4 v1, 0x1
+    iget-object v5, p0, Lorg/simpleframework/xml/core/PathParser;->path:Ljava/lang/String;
 
-    iget-object v3, p0, Lorg/simpleframework/xml/core/PathParser;->path:Ljava/lang/String;
+    const/4 v6, 0x1
 
-    aput-object v3, v4, v1
+    aput-object v5, v4, v6
 
-    const/4 v1, 0x2
+    iget-object v5, p0, Lorg/simpleframework/xml/core/PathParser;->type:Lorg/simpleframework/xml/strategy/Type;
 
-    iget-object v3, p0, Lorg/simpleframework/xml/core/PathParser;->type:Lorg/simpleframework/xml/strategy/Type;
+    const/4 v6, 0x2
 
-    aput-object v3, v4, v1
+    aput-object v5, v4, v6
 
-    invoke-direct {v0, v2, v4}, Lorg/simpleframework/xml/core/PathException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v5, "Illegal character \'%s\' in element for \'%s\' in %s"
 
-    throw v0
+    invoke-direct {v3, v5, v4}, Lorg/simpleframework/xml/core/PathException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v3
 
     :cond_3
-    iget v1, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
+    iget v3, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v3, v3, -0x1
 
-    iput v1, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
+    iput v3, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
 
     goto :goto_1
 
@@ -600,45 +596,45 @@
 .end method
 
 .method private element(Ljava/lang/String;)V
-    .locals 3
+    .locals 5
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    const/16 v0, 0x3a
+    const/16 v3, 0x3a
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->indexOf(I)I
+    invoke-virtual {p1, v3}, Ljava/lang/String;->indexOf(I)I
 
     move-result v1
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
     if-gtz v1, :cond_0
 
     :goto_0
-    iget-object v1, p0, Lorg/simpleframework/xml/core/PathParser;->style:Lorg/simpleframework/xml/stream/Style;
+    iget-object v3, p0, Lorg/simpleframework/xml/core/PathParser;->style:Lorg/simpleframework/xml/stream/Style;
 
-    invoke-interface {v1, p1}, Lorg/simpleframework/xml/stream/Style;->getElement(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v3, p1}, Lorg/simpleframework/xml/stream/Style;->getElement(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    iget-object v2, p0, Lorg/simpleframework/xml/core/PathParser;->prefixes:Ljava/util/List;
+    iget-object v3, p0, Lorg/simpleframework/xml/core/PathParser;->prefixes:Ljava/util/List;
 
-    invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v3, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->names:Ljava/util/List;
+    iget-object v3, p0, Lorg/simpleframework/xml/core/PathParser;->names:Ljava/util/List;
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v3, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     return-void
 
     :cond_0
-    invoke-virtual {p1, v2, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {p1, v4, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v3, v1, 0x1
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {p1, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object p1
 
@@ -646,28 +642,28 @@
 .end method
 
 .method private index()V
-    .locals 5
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
+    const/4 v5, 0x0
+
     const/4 v1, 0x0
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->data:[C
+    iget-object v2, p0, Lorg/simpleframework/xml/core/PathParser;->data:[C
 
-    iget v2, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
+    iget v3, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
 
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 v3, v3, -0x1
 
-    aget-char v0, v0, v2
+    aget-char v2, v2, v3
 
-    const/16 v2, 0x5b
+    const/16 v3, 0x5b
 
-    if-eq v0, v2, :cond_3
-
-    move v0, v1
+    if-eq v2, v3, :cond_2
 
     :cond_0
     :goto_0
@@ -685,15 +681,15 @@
 
     const/16 v3, 0x5d
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_3
 
-    iget-object v1, p0, Lorg/simpleframework/xml/core/PathParser;->indexes:Ljava/util/List;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/PathParser;->indexes:Ljava/util/List;
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     return-void
 
@@ -706,21 +702,21 @@
 
     iput v4, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
 
-    aget-char v2, v2, v3
+    aget-char v0, v2, v3
 
-    invoke-direct {p0, v2}, Lorg/simpleframework/xml/core/PathParser;->isDigit(C)Z
+    invoke-direct {p0, v0}, Lorg/simpleframework/xml/core/PathParser;->isDigit(C)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
-    mul-int/lit8 v0, v0, 0xa
+    mul-int/lit8 v1, v1, 0xa
 
-    add-int/2addr v0, v2
+    add-int/2addr v1, v0
 
-    add-int/lit8 v0, v0, -0x30
+    add-int/lit8 v1, v1, -0x30
 
-    :goto_1
+    :cond_2
     iget v2, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
 
     iget v3, p0, Lorg/simpleframework/xml/core/PathParser;->count:I
@@ -729,10 +725,8 @@
 
     goto :goto_0
 
-    :cond_2
-    new-instance v0, Lorg/simpleframework/xml/core/PathException;
-
-    const-string/jumbo v2, "Invalid index for path \'%s\' in %s"
+    :cond_3
+    new-instance v2, Lorg/simpleframework/xml/core/PathException;
 
     const/4 v3, 0x2
 
@@ -740,22 +734,19 @@
 
     iget-object v4, p0, Lorg/simpleframework/xml/core/PathParser;->path:Ljava/lang/String;
 
-    aput-object v4, v3, v1
-
-    const/4 v1, 0x1
+    aput-object v4, v3, v5
 
     iget-object v4, p0, Lorg/simpleframework/xml/core/PathParser;->type:Lorg/simpleframework/xml/strategy/Type;
 
-    aput-object v4, v3, v1
+    const/4 v5, 0x1
 
-    invoke-direct {v0, v2, v3}, Lorg/simpleframework/xml/core/PathException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    aput-object v4, v3, v5
 
-    throw v0
+    const-string/jumbo v4, "Invalid index for path \'%s\' in %s"
 
-    :cond_3
-    move v0, v1
+    invoke-direct {v2, v4, v3}, Lorg/simpleframework/xml/core/PathException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    goto :goto_1
+    throw v2
 .end method
 
 .method private isDigit(C)Z
@@ -895,7 +886,7 @@
 .end method
 
 .method private path()V
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -904,9 +895,9 @@
 
     const/4 v2, 0x2
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->data:[C
 
@@ -944,19 +935,19 @@
     :cond_0
     new-instance v0, Lorg/simpleframework/xml/core/PathException;
 
-    const-string/jumbo v1, "Path \'%s\' in %s references document root"
+    new-array v1, v2, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/PathParser;->path:Ljava/lang/String;
 
-    iget-object v3, p0, Lorg/simpleframework/xml/core/PathParser;->path:Ljava/lang/String;
+    aput-object v2, v1, v3
 
-    aput-object v3, v2, v4
+    iget-object v2, p0, Lorg/simpleframework/xml/core/PathParser;->type:Lorg/simpleframework/xml/strategy/Type;
 
-    iget-object v3, p0, Lorg/simpleframework/xml/core/PathParser;->type:Lorg/simpleframework/xml/strategy/Type;
+    aput-object v2, v1, v4
 
-    aput-object v3, v2, v5
+    const-string/jumbo v2, "Path \'%s\' in %s references document root"
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/core/PathException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v0, v2, v1}, Lorg/simpleframework/xml/core/PathException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
     throw v0
 
@@ -977,19 +968,19 @@
     :cond_3
     new-instance v0, Lorg/simpleframework/xml/core/PathException;
 
-    const-string/jumbo v1, "Path \'%s\' in %s references an invalid attribute"
+    new-array v1, v2, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/PathParser;->path:Ljava/lang/String;
 
-    iget-object v3, p0, Lorg/simpleframework/xml/core/PathParser;->path:Ljava/lang/String;
+    aput-object v2, v1, v3
 
-    aput-object v3, v2, v4
+    iget-object v2, p0, Lorg/simpleframework/xml/core/PathParser;->type:Lorg/simpleframework/xml/strategy/Type;
 
-    iget-object v3, p0, Lorg/simpleframework/xml/core/PathParser;->type:Lorg/simpleframework/xml/strategy/Type;
+    aput-object v2, v1, v4
 
-    aput-object v3, v2, v5
+    const-string/jumbo v2, "Path \'%s\' in %s references an invalid attribute"
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/core/PathException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v0, v2, v1}, Lorg/simpleframework/xml/core/PathException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
     throw v0
 .end method
@@ -1002,11 +993,11 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->data:[C
+    iget-object v1, p0, Lorg/simpleframework/xml/core/PathParser;->data:[C
 
-    iget v1, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
+    iget v2, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
 
-    aget-char v0, v0, v1
+    aget-char v0, v1, v2
 
     const/16 v1, 0x2f
 
@@ -1024,29 +1015,29 @@
     return-void
 
     :cond_0
-    new-instance v0, Lorg/simpleframework/xml/core/PathException;
-
-    const-string/jumbo v1, "Invalid path expression \'%s\' in %s"
+    new-instance v1, Lorg/simpleframework/xml/core/PathException;
 
     const/4 v2, 0x2
 
     new-array v2, v2, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    iget-object v3, p0, Lorg/simpleframework/xml/core/PathParser;->path:Ljava/lang/String;
 
-    iget-object v4, p0, Lorg/simpleframework/xml/core/PathParser;->path:Ljava/lang/String;
+    const/4 v4, 0x0
 
-    aput-object v4, v2, v3
+    aput-object v3, v2, v4
 
-    const/4 v3, 0x1
+    iget-object v3, p0, Lorg/simpleframework/xml/core/PathParser;->type:Lorg/simpleframework/xml/strategy/Type;
 
-    iget-object v4, p0, Lorg/simpleframework/xml/core/PathParser;->type:Lorg/simpleframework/xml/strategy/Type;
+    const/4 v4, 0x1
 
-    aput-object v4, v2, v3
+    aput-object v3, v2, v4
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/core/PathException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v3, "Invalid path expression \'%s\' in %s"
 
-    throw v0
+    invoke-direct {v1, v3, v2}, Lorg/simpleframework/xml/core/PathException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v1
 
     :cond_1
     invoke-direct {p0}, Lorg/simpleframework/xml/core/PathParser;->attribute()V
@@ -1055,20 +1046,20 @@
 .end method
 
 .method private skip()V
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
     iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->data:[C
 
     array-length v0, v0
 
-    if-gt v0, v5, :cond_0
+    if-gt v0, v4, :cond_0
 
     :goto_0
     iget v0, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
@@ -1105,23 +1096,23 @@
     :cond_1
     new-instance v0, Lorg/simpleframework/xml/core/PathException;
 
-    const-string/jumbo v1, "Path \'%s\' in %s has an illegal syntax"
+    const/4 v1, 0x2
 
-    const/4 v2, 0x2
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/PathParser;->path:Ljava/lang/String;
 
     const/4 v3, 0x0
 
-    iget-object v4, p0, Lorg/simpleframework/xml/core/PathParser;->path:Ljava/lang/String;
+    aput-object v2, v1, v3
 
-    aput-object v4, v2, v3
+    iget-object v2, p0, Lorg/simpleframework/xml/core/PathParser;->type:Lorg/simpleframework/xml/strategy/Type;
 
-    iget-object v3, p0, Lorg/simpleframework/xml/core/PathParser;->type:Lorg/simpleframework/xml/strategy/Type;
+    aput-object v2, v1, v4
 
-    aput-object v3, v2, v5
+    const-string/jumbo v2, "Path \'%s\' in %s has an illegal syntax"
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/core/PathException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v0, v2, v1}, Lorg/simpleframework/xml/core/PathException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
     throw v0
 .end method
@@ -1183,26 +1174,26 @@
 .method public getAttribute(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->location:Ljava/lang/String;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/PathParser;->location:Ljava/lang/String;
 
-    invoke-direct {p0, v0}, Lorg/simpleframework/xml/core/PathParser;->isEmpty(Ljava/lang/String;)Z
+    invoke-direct {p0, v1}, Lorg/simpleframework/xml/core/PathParser;->isEmpty(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->style:Lorg/simpleframework/xml/stream/Style;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/PathParser;->style:Lorg/simpleframework/xml/stream/Style;
 
-    invoke-interface {v0, p1}, Lorg/simpleframework/xml/stream/Style;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v1, p1}, Lorg/simpleframework/xml/stream/Style;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->attributes:Lorg/simpleframework/xml/util/Cache;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/PathParser;->attributes:Lorg/simpleframework/xml/util/Cache;
 
-    invoke-interface {v0, p1}, Lorg/simpleframework/xml/util/Cache;->fetch(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, p1}, Lorg/simpleframework/xml/util/Cache;->fetch(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1215,9 +1206,9 @@
     return-object v0
 
     :cond_2
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->location:Ljava/lang/String;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/PathParser;->location:Ljava/lang/String;
 
-    invoke-virtual {p0, v0, p1}, Lorg/simpleframework/xml/core/PathParser;->getAttributePath(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v1, p1}, Lorg/simpleframework/xml/core/PathParser;->getAttributePath(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -1233,9 +1224,9 @@
 .method protected getAttributePath(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 3
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->style:Lorg/simpleframework/xml/stream/Style;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/PathParser;->style:Lorg/simpleframework/xml/stream/Style;
 
-    invoke-interface {v0, p2}, Lorg/simpleframework/xml/stream/Style;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v1, p2}, Lorg/simpleframework/xml/stream/Style;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -1261,13 +1252,13 @@
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
     return-object v0
@@ -1276,26 +1267,26 @@
 .method public getElement(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->location:Ljava/lang/String;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/PathParser;->location:Ljava/lang/String;
 
-    invoke-direct {p0, v0}, Lorg/simpleframework/xml/core/PathParser;->isEmpty(Ljava/lang/String;)Z
+    invoke-direct {p0, v1}, Lorg/simpleframework/xml/core/PathParser;->isEmpty(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->style:Lorg/simpleframework/xml/stream/Style;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/PathParser;->style:Lorg/simpleframework/xml/stream/Style;
 
-    invoke-interface {v0, p1}, Lorg/simpleframework/xml/stream/Style;->getElement(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v1, p1}, Lorg/simpleframework/xml/stream/Style;->getElement(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->elements:Lorg/simpleframework/xml/util/Cache;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/PathParser;->elements:Lorg/simpleframework/xml/util/Cache;
 
-    invoke-interface {v0, p1}, Lorg/simpleframework/xml/util/Cache;->fetch(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, p1}, Lorg/simpleframework/xml/util/Cache;->fetch(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1308,9 +1299,9 @@
     return-object v0
 
     :cond_2
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->location:Ljava/lang/String;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/PathParser;->location:Ljava/lang/String;
 
-    invoke-virtual {p0, v0, p1}, Lorg/simpleframework/xml/core/PathParser;->getElementPath(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v1, p1}, Lorg/simpleframework/xml/core/PathParser;->getElementPath(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -1326,9 +1317,9 @@
 .method protected getElementPath(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 3
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->style:Lorg/simpleframework/xml/stream/Style;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/PathParser;->style:Lorg/simpleframework/xml/stream/Style;
 
-    invoke-interface {v0, p2}, Lorg/simpleframework/xml/stream/Style;->getElement(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v1, p2}, Lorg/simpleframework/xml/stream/Style;->getElement(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -1360,19 +1351,19 @@
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string/jumbo v1, "[1]"
+    const-string/jumbo v2, "[1]"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
     return-object p1
@@ -1418,25 +1409,25 @@
 .end method
 
 .method public getLast()Ljava/lang/String;
-    .locals 2
+    .locals 3
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->names:Ljava/util/List;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/PathParser;->names:Ljava/util/List;
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v0
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 v1, v0, -0x1
 
-    iget-object v1, p0, Lorg/simpleframework/xml/core/PathParser;->names:Ljava/util/List;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/PathParser;->names:Ljava/util/List;
 
-    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v2, Ljava/lang/String;
 
-    return-object v0
+    return-object v2
 .end method
 
 .method public getPath()Ljava/lang/String;
@@ -1460,32 +1451,32 @@
 .end method
 
 .method public getPath(II)Lorg/simpleframework/xml/core/Expression;
-    .locals 2
+    .locals 3
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->names:Ljava/util/List;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/PathParser;->names:Ljava/util/List;
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-interface {v1}, Ljava/util/List;->size()I
 
-    move-result v0
+    move-result v1
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 v0, v1, -0x1
 
     sub-int v1, v0, p2
 
     if-ge v1, p1, :cond_0
 
-    new-instance v0, Lorg/simpleframework/xml/core/PathParser$PathSection;
+    new-instance v1, Lorg/simpleframework/xml/core/PathParser$PathSection;
 
-    invoke-direct {v0, p0, p1, p1}, Lorg/simpleframework/xml/core/PathParser$PathSection;-><init>(Lorg/simpleframework/xml/core/PathParser;II)V
+    invoke-direct {v1, p0, p1, p1}, Lorg/simpleframework/xml/core/PathParser$PathSection;-><init>(Lorg/simpleframework/xml/core/PathParser;II)V
 
-    return-object v0
+    return-object v1
 
     :cond_0
     new-instance v1, Lorg/simpleframework/xml/core/PathParser$PathSection;
 
-    sub-int/2addr v0, p2
+    sub-int v2, v0, p2
 
-    invoke-direct {v1, p0, p1, v0}, Lorg/simpleframework/xml/core/PathParser$PathSection;-><init>(Lorg/simpleframework/xml/core/PathParser;II)V
+    invoke-direct {v1, p0, p1, v2}, Lorg/simpleframework/xml/core/PathParser$PathSection;-><init>(Lorg/simpleframework/xml/core/PathParser;II)V
 
     return-object v1
 .end method
@@ -1569,20 +1560,20 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
-    iget v0, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
+    iget v1, p0, Lorg/simpleframework/xml/core/PathParser;->off:I
 
-    iget v1, p0, Lorg/simpleframework/xml/core/PathParser;->start:I
+    iget v2, p0, Lorg/simpleframework/xml/core/PathParser;->start:I
 
-    sub-int/2addr v0, v1
+    sub-int v0, v1, v2
 
     iget-object v1, p0, Lorg/simpleframework/xml/core/PathParser;->cache:Ljava/lang/String;
 
     if-eqz v1, :cond_0
 
     :goto_0
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PathParser;->cache:Ljava/lang/String;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/PathParser;->cache:Ljava/lang/String;
 
-    return-object v0
+    return-object v1
 
     :cond_0
     new-instance v1, Ljava/lang/String;

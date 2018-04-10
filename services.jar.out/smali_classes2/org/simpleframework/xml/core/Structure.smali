@@ -45,20 +45,20 @@
 .end method
 
 .method public getRevision()Lorg/simpleframework/xml/Version;
-    .locals 2
+    .locals 3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/Structure;->version:Lorg/simpleframework/xml/core/Label;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/Structure;->version:Lorg/simpleframework/xml/core/Label;
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    return-object v1
+    return-object v2
 
     :cond_0
-    iget-object v0, p0, Lorg/simpleframework/xml/core/Structure;->version:Lorg/simpleframework/xml/core/Label;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/Structure;->version:Lorg/simpleframework/xml/core/Label;
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/core/Label;->getContact()Lorg/simpleframework/xml/core/Contact;
+    invoke-interface {v1}, Lorg/simpleframework/xml/core/Label;->getContact()Lorg/simpleframework/xml/core/Contact;
 
     move-result-object v0
 
@@ -66,11 +66,11 @@
 
     invoke-interface {v0, v1}, Lorg/simpleframework/xml/core/Contact;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lorg/simpleframework/xml/Version;
+    check-cast v1, Lorg/simpleframework/xml/Version;
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public getSection()Lorg/simpleframework/xml/core/Section;

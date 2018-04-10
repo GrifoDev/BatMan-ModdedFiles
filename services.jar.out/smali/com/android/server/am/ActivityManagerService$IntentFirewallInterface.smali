@@ -35,27 +35,21 @@
 
 # virtual methods
 .method public checkComponentPermission(Landroid/content/Intent;Ljava/lang/String;IIIZ)I
-    .locals 9
+    .locals 6
 
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$IntentFirewallInterface;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    const/4 v6, 0x0
+    move-object v1, p2
 
-    const/4 v8, 0x0
+    move v2, p3
 
-    move-object v1, p1
+    move v3, p4
 
-    move-object v2, p2
+    move v4, p5
 
-    move v3, p3
+    move v5, p6
 
-    move v4, p4
-
-    move v5, p5
-
-    move v7, p6
-
-    invoke-virtual/range {v0 .. v8}, Lcom/android/server/am/ActivityManagerService;->checkComponentPermission(Landroid/content/Intent;Ljava/lang/String;IIILjava/lang/String;ZZ)I
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/am/ActivityManagerService;->checkComponentPermission(Ljava/lang/String;IIIZ)I
 
     move-result v0
 

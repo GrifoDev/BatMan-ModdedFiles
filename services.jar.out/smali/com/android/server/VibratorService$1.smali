@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/server/VibratorService$1;->this$0:Lcom/android/server/VibratorService;
 
-    invoke-static {v0}, Lcom/android/server/VibratorService;->-get16(Lcom/android/server/VibratorService;)Ljava/util/LinkedList;
+    invoke-static {v0}, Lcom/android/server/VibratorService;->-get13(Lcom/android/server/VibratorService;)Ljava/util/LinkedList;
 
     move-result-object v1
 
@@ -52,7 +52,7 @@
 
     iget-object v0, p0, Lcom/android/server/VibratorService$1;->this$0:Lcom/android/server/VibratorService;
 
-    invoke-static {v0}, Lcom/android/server/VibratorService;->-wrap5(Lcom/android/server/VibratorService;)V
+    invoke-static {v0}, Lcom/android/server/VibratorService;->-wrap7(Lcom/android/server/VibratorService;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

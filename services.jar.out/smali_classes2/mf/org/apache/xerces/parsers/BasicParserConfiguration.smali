@@ -62,148 +62,148 @@
 .end method
 
 .method protected constructor <init>(Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xni/parser/XMLComponentManager;)V
-    .locals 8
+    .locals 10
 
-    const/4 v7, 0x4
+    const/4 v9, 0x4
 
-    const/4 v6, 0x3
+    const/4 v8, 0x3
 
-    const/4 v5, 0x2
+    const/4 v7, 0x2
 
-    const/4 v4, 0x1
+    const/4 v6, 0x1
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
     invoke-direct {p0, p2}, Lmf/org/apache/xerces/util/ParserConfigurationSettings;-><init>(Lmf/org/apache/xerces/xni/parser/XMLComponentManager;)V
 
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v2, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fComponents:Ljava/util/ArrayList;
+    iput-object v2, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fComponents:Ljava/util/ArrayList;
 
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v2, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fRecognizedFeatures:Ljava/util/ArrayList;
+    iput-object v2, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fRecognizedFeatures:Ljava/util/ArrayList;
 
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v2, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fRecognizedProperties:Ljava/util/ArrayList;
+    iput-object v2, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fRecognizedProperties:Ljava/util/ArrayList;
 
-    new-instance v0, Ljava/util/HashMap;
+    new-instance v2, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fFeatures:Ljava/util/HashMap;
+    iput-object v2, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fFeatures:Ljava/util/HashMap;
 
-    new-instance v0, Ljava/util/HashMap;
+    new-instance v2, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fProperties:Ljava/util/HashMap;
+    iput-object v2, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fProperties:Ljava/util/HashMap;
 
-    const/4 v0, 0x5
+    const/4 v2, 0x5
 
-    new-array v0, v0, [Ljava/lang/String;
+    new-array v0, v2, [Ljava/lang/String;
 
-    const-string/jumbo v1, "http://apache.org/xml/features/internal/parser-settings"
+    const-string/jumbo v2, "http://apache.org/xml/features/internal/parser-settings"
 
-    aput-object v1, v0, v3
+    aput-object v2, v0, v5
 
-    const-string/jumbo v1, "http://xml.org/sax/features/validation"
+    const-string/jumbo v2, "http://xml.org/sax/features/validation"
 
-    aput-object v1, v0, v4
+    aput-object v2, v0, v6
 
-    const-string/jumbo v1, "http://xml.org/sax/features/namespaces"
+    const-string/jumbo v2, "http://xml.org/sax/features/namespaces"
 
-    aput-object v1, v0, v5
+    aput-object v2, v0, v7
 
-    const-string/jumbo v1, "http://xml.org/sax/features/external-general-entities"
+    const-string/jumbo v2, "http://xml.org/sax/features/external-general-entities"
 
-    aput-object v1, v0, v6
+    aput-object v2, v0, v8
 
-    const-string/jumbo v1, "http://xml.org/sax/features/external-parameter-entities"
+    const-string/jumbo v2, "http://xml.org/sax/features/external-parameter-entities"
 
-    aput-object v1, v0, v7
+    aput-object v2, v0, v9
 
     invoke-virtual {p0, v0}, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->addRecognizedFeatures([Ljava/lang/String;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fFeatures:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fFeatures:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/features/internal/parser-settings"
+    sget-object v3, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
-    sget-object v2, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    const-string/jumbo v4, "http://apache.org/xml/features/internal/parser-settings"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v4, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fFeatures:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fFeatures:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://xml.org/sax/features/validation"
+    sget-object v3, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
-    sget-object v2, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    const-string/jumbo v4, "http://xml.org/sax/features/validation"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v4, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fFeatures:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fFeatures:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://xml.org/sax/features/namespaces"
+    sget-object v3, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
-    sget-object v2, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    const-string/jumbo v4, "http://xml.org/sax/features/namespaces"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v4, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fFeatures:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fFeatures:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://xml.org/sax/features/external-general-entities"
+    sget-object v3, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
-    sget-object v2, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    const-string/jumbo v4, "http://xml.org/sax/features/external-general-entities"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v4, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fFeatures:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fFeatures:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://xml.org/sax/features/external-parameter-entities"
+    sget-object v3, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
-    sget-object v2, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    const-string/jumbo v4, "http://xml.org/sax/features/external-parameter-entities"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v4, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-array v0, v7, [Ljava/lang/String;
+    new-array v1, v9, [Ljava/lang/String;
 
-    const-string/jumbo v1, "http://xml.org/sax/properties/xml-string"
+    const-string/jumbo v2, "http://xml.org/sax/properties/xml-string"
 
-    aput-object v1, v0, v3
+    aput-object v2, v1, v5
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/symbol-table"
+    const-string/jumbo v2, "http://apache.org/xml/properties/internal/symbol-table"
 
-    aput-object v1, v0, v4
+    aput-object v2, v1, v6
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/error-handler"
+    const-string/jumbo v2, "http://apache.org/xml/properties/internal/error-handler"
 
-    aput-object v1, v0, v5
+    aput-object v2, v1, v7
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/entity-resolver"
+    const-string/jumbo v2, "http://apache.org/xml/properties/internal/entity-resolver"
 
-    aput-object v1, v0, v6
+    aput-object v2, v1, v8
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->addRecognizedProperties([Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->addRecognizedProperties([Ljava/lang/String;)V
 
     if-eqz p1, :cond_0
 
     :goto_0
     iput-object p1, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fProperties:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fProperties:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/symbol-table"
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    const-string/jumbo v4, "http://apache.org/xml/properties/internal/symbol-table"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v4, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
 
@@ -218,38 +218,36 @@
 
 # virtual methods
 .method protected addComponent(Lmf/org/apache/xerces/xni/parser/XMLComponent;)V
-    .locals 6
+    .locals 8
 
-    const/4 v1, 0x0
+    iget-object v7, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fComponents:Ljava/util/ArrayList;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fComponents:Ljava/util/ArrayList;
+    invoke-virtual {v7, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+    move-result v7
 
-    move-result v0
+    if-nez v7, :cond_2
 
-    if-nez v0, :cond_2
+    iget-object v7, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fComponents:Ljava/util/ArrayList;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fComponents:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v7, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     invoke-interface {p1}, Lmf/org/apache/xerces/xni/parser/XMLComponent;->getRecognizedFeatures()[Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->addRecognizedFeatures([Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->addRecognizedFeatures([Ljava/lang/String;)V
 
     invoke-interface {p1}, Lmf/org/apache/xerces/xni/parser/XMLComponent;->getRecognizedProperties()[Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->addRecognizedProperties([Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->addRecognizedProperties([Ljava/lang/String;)V
 
-    if-nez v2, :cond_3
+    if-nez v3, :cond_3
 
     :cond_0
-    if-nez v3, :cond_5
+    if-nez v4, :cond_5
 
     :cond_1
     return-void
@@ -258,75 +256,77 @@
     return-void
 
     :cond_3
-    move v0, v1
+    const/4 v1, 0x0
 
     :goto_0
-    array-length v4, v2
+    array-length v7, v3
 
-    if-ge v0, v4, :cond_0
+    if-ge v1, v7, :cond_0
 
-    aget-object v4, v2, v0
+    aget-object v0, v3, v1
 
-    invoke-interface {p1, v4}, Lmf/org/apache/xerces/xni/parser/XMLComponent;->getFeatureDefault(Ljava/lang/String;)Ljava/lang/Boolean;
+    invoke-interface {p1, v0}, Lmf/org/apache/xerces/xni/parser/XMLComponent;->getFeatureDefault(Ljava/lang/String;)Ljava/lang/Boolean;
 
     move-result-object v5
 
     if-nez v5, :cond_4
 
     :goto_1
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_4
     invoke-virtual {v5}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v5
+    move-result v7
 
-    invoke-super {p0, v4, v5}, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->setFeature(Ljava/lang/String;Z)V
+    invoke-super {p0, v0, v7}, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->setFeature(Ljava/lang/String;Z)V
 
     goto :goto_1
 
+    :cond_5
+    const/4 v1, 0x0
+
     :goto_2
-    aget-object v0, v3, v1
+    array-length v7, v4
 
-    invoke-interface {p1, v0}, Lmf/org/apache/xerces/xni/parser/XMLComponent;->getPropertyDefault(Ljava/lang/String;)Ljava/lang/Object;
+    if-ge v1, v7, :cond_1
 
-    move-result-object v2
+    aget-object v2, v4, v1
 
-    if-nez v2, :cond_6
+    invoke-interface {p1, v2}, Lmf/org/apache/xerces/xni/parser/XMLComponent;->getPropertyDefault(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v6
+
+    if-nez v6, :cond_6
 
     :goto_3
     add-int/lit8 v1, v1, 0x1
 
-    :cond_5
-    array-length v0, v3
-
-    if-ge v1, v0, :cond_1
-
     goto :goto_2
 
     :cond_6
-    invoke-super {p0, v0, v2}, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-super {p0, v2, v6}, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
     goto :goto_3
 .end method
 
 .method protected checkFeature(Ljava/lang/String;)V
-    .locals 2
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
         }
     .end annotation
 
-    const-string/jumbo v0, "http://apache.org/xml/features/"
+    const-string/jumbo v2, "http://apache.org/xml/features/"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_1
+    if-nez v2, :cond_1
 
     :cond_0
     invoke-super {p0, p1}, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->checkFeature(Ljava/lang/String;)V
@@ -336,56 +336,58 @@
     :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v2
 
-    const-string/jumbo v1, "http://apache.org/xml/features/"
+    const-string/jumbo v3, "http://apache.org/xml/features/"
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v3
 
-    sub-int/2addr v0, v1
+    sub-int v0, v2, v3
 
-    const-string/jumbo v1, "internal/parser-settings"
+    const-string/jumbo v2, "internal/parser-settings"
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v2, :cond_0
 
-    const-string/jumbo v0, "internal/parser-settings"
+    const-string/jumbo v2, "internal/parser-settings"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_0
-
-    new-instance v0, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
+    if-eqz v2, :cond_0
 
     const/4 v1, 0x1
 
-    invoke-direct {v0, v1, p1}, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;-><init>(SLjava/lang/String;)V
+    new-instance v2, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
 
-    throw v0
+    const/4 v3, 0x1
+
+    invoke-direct {v2, v3, p1}, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;-><init>(SLjava/lang/String;)V
+
+    throw v2
 .end method
 
 .method protected checkProperty(Ljava/lang/String;)V
-    .locals 2
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
         }
     .end annotation
 
-    const-string/jumbo v0, "http://xml.org/sax/properties/"
+    const-string/jumbo v2, "http://xml.org/sax/properties/"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_1
+    if-nez v2, :cond_1
 
     :cond_0
     invoke-super {p0, p1}, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->checkProperty(Ljava/lang/String;)V
@@ -395,39 +397,41 @@
     :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v2
 
-    const-string/jumbo v1, "http://xml.org/sax/properties/"
+    const-string/jumbo v3, "http://xml.org/sax/properties/"
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v3
 
-    sub-int/2addr v0, v1
+    sub-int v0, v2, v3
 
-    const-string/jumbo v1, "xml-string"
+    const-string/jumbo v2, "xml-string"
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v2, :cond_0
 
-    const-string/jumbo v0, "xml-string"
+    const-string/jumbo v2, "xml-string"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_0
-
-    new-instance v0, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
+    if-eqz v2, :cond_0
 
     const/4 v1, 0x1
 
-    invoke-direct {v0, v1, p1}, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;-><init>(SLjava/lang/String;)V
+    new-instance v2, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
 
-    throw v0
+    const/4 v3, 0x1
+
+    invoke-direct {v2, v3, p1}, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;-><init>(SLjava/lang/String;)V
+
+    throw v2
 .end method
 
 .method public getDTDContentModelHandler()Lmf/org/apache/xerces/xni/XMLDTDContentModelHandler;
@@ -504,29 +508,27 @@
 .end method
 
 .method protected reset()V
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fComponents:Ljava/util/ArrayList;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fComponents:Ljava/util/ArrayList;
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
-    move-result v2
+    move-result v1
 
-    const/4 v0, 0x0
-
-    move v1, v0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v1, v2, :cond_0
+    if-ge v2, v1, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fComponents:Ljava/util/ArrayList;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fComponents:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -534,9 +536,7 @@
 
     invoke-interface {v0, p0}, Lmf/org/apache/xerces/xni/parser/XMLComponent;->reset(Lmf/org/apache/xerces/xni/parser/XMLComponentManager;)V
 
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
@@ -618,29 +618,27 @@
 .end method
 
 .method public setFeature(Ljava/lang/String;Z)V
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
         }
     .end annotation
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fComponents:Ljava/util/ArrayList;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fComponents:Ljava/util/ArrayList;
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
-    move-result v2
+    move-result v1
 
-    const/4 v0, 0x0
-
-    move v1, v0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v1, v2, :cond_0
+    if-ge v2, v1, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fComponents:Ljava/util/ArrayList;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fComponents:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -648,9 +646,7 @@
 
     invoke-interface {v0, p1, p2}, Lmf/org/apache/xerces/xni/parser/XMLComponent;->setFeature(Ljava/lang/String;Z)V
 
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
@@ -674,29 +670,27 @@
 .end method
 
 .method public setProperty(Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
         }
     .end annotation
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fComponents:Ljava/util/ArrayList;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fComponents:Ljava/util/ArrayList;
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
-    move-result v2
+    move-result v1
 
-    const/4 v0, 0x0
-
-    move v1, v0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v1, v2, :cond_0
+    if-ge v2, v1, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fComponents:Ljava/util/ArrayList;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->fComponents:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -704,9 +698,7 @@
 
     invoke-interface {v0, p1, p2}, Lmf/org/apache/xerces/xni/parser/XMLComponent;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 

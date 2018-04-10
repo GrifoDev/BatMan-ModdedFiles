@@ -14,7 +14,7 @@
 # static fields
 .field static final DEBUG:Z = true
 
-.field private static final DEFAULT_CHECK_INTERVAL:J = 0x7530L
+.field private static final DEFAULT_CHECK_INTERVAL:J = 0xea60L
 
 .field private static final MAX_LOG_FILESIZE:J = 0x19000L
 
@@ -32,6 +32,8 @@
 
 .field private mLogFile:Ljava/io/File;
 
+.field private mState:Ljava/lang/String;
+
 .field private mSysFs:Ljava/io/File;
 
 
@@ -47,6 +49,10 @@
 
     iput-object v0, p0, Lcom/android/server/usb/UsbMonitorImpl;->mHandler:Landroid/os/Handler;
 
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/server/usb/UsbMonitorImpl;->mState:Ljava/lang/String;
+
     const-string/jumbo v0, "UsbMonitorImpl()"
 
     invoke-static {v0}, Lcom/android/server/usb/UsbMonitorImpl;->dbgPrint(Ljava/lang/String;)V
@@ -59,7 +65,7 @@
 
     const-string/jumbo v0, "UsbMonitorService"
 
-    invoke-static {v0, p0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p0}, Lcom/android/server/utils/sysfwutil/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method
@@ -302,45 +308,34 @@
 .method readUsbState()V
     .locals 4
 
-    const-string/jumbo v1, "readUsbState++"
-
-    invoke-static {v1}, Lcom/android/server/usb/UsbMonitorImpl;->dbgPrint(Ljava/lang/String;)V
-
     iget-object v1, p0, Lcom/android/server/usb/UsbMonitorImpl;->mSysFs:Ljava/io/File;
 
     invoke-direct {p0, v1}, Lcom/android/server/usb/UsbMonitorImpl;->readSysFsFile(Ljava/io/File;)Ljava/lang/String;
 
     move-result-object v0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    iget-object v1, p0, Lcom/android/server/usb/UsbMonitorImpl;->mState:Ljava/lang/String;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    if-eqz v1, :cond_0
 
-    const-string/jumbo v2, "!@readUsbState "
+    iget-object v1, p0, Lcom/android/server/usb/UsbMonitorImpl;->mState:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v1
+    move-result v1
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    xor-int/lit8 v1, v1, 0x1
 
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/android/server/usb/UsbMonitorImpl;->dbgPrint(Ljava/lang/String;)V
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Lcom/android/server/usb/UsbMonitorImpl;->mLogFile:Ljava/io/File;
 
     invoke-static {v1, v0}, Lcom/android/server/usb/UsbMonitorImpl;->stringToFile(Ljava/io/File;Ljava/lang/String;)V
 
-    const-string/jumbo v1, "Posting Message again"
+    :cond_0
+    iput-object v0, p0, Lcom/android/server/usb/UsbMonitorImpl;->mState:Ljava/lang/String;
 
-    invoke-static {v1}, Lcom/android/server/usb/UsbMonitorImpl;->dbgPrint(Ljava/lang/String;)V
-
-    const-wide/16 v2, 0x7530
+    const-wide/32 v2, 0xea60
 
     invoke-virtual {p0, v2, v3}, Lcom/android/server/usb/UsbMonitorImpl;->postReadUsbMsg(J)V
 

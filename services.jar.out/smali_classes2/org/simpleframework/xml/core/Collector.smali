@@ -47,48 +47,48 @@
 
 # virtual methods
 .method public commit(Ljava/lang/Object;)V
-    .locals 3
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/Collector;->registry:Lorg/simpleframework/xml/core/Collector$Registry;
+    iget-object v5, p0, Lorg/simpleframework/xml/core/Collector;->registry:Lorg/simpleframework/xml/core/Collector$Registry;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/Collector$Registry;->values()Ljava/util/Collection;
+    invoke-virtual {v5}, Lorg/simpleframework/xml/core/Collector$Registry;->values()Ljava/util/Collection;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-interface {v3}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v2
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result v5
 
-    if-nez v0, :cond_0
+    if-nez v5, :cond_0
 
     return-void
 
     :cond_0
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lorg/simpleframework/xml/core/Variable;
+
+    invoke-virtual {v1}, Lorg/simpleframework/xml/core/Variable;->getContact()Lorg/simpleframework/xml/core/Contact;
 
     move-result-object v0
 
-    check-cast v0, Lorg/simpleframework/xml/core/Variable;
+    invoke-virtual {v1}, Lorg/simpleframework/xml/core/Variable;->getValue()Ljava/lang/Object;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/Variable;->getContact()Lorg/simpleframework/xml/core/Contact;
+    move-result-object v4
 
-    move-result-object v2
-
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/Variable;->getValue()Ljava/lang/Object;
-
-    move-result-object v0
-
-    invoke-interface {v2, p1, v0}, Lorg/simpleframework/xml/core/Contact;->set(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-interface {v0, p1, v4}, Lorg/simpleframework/xml/core/Contact;->set(Ljava/lang/Object;Ljava/lang/Object;)V
 
     goto :goto_0
 .end method
@@ -115,11 +115,11 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     if-nez p1, :cond_0
 
-    return-object v0
+    return-object v1
 
     :cond_0
     invoke-interface {p1}, Lorg/simpleframework/xml/core/Label;->getKey()Ljava/lang/Object;
@@ -130,11 +130,11 @@
 
     invoke-virtual {v1, v0}, Lorg/simpleframework/xml/core/Collector$Registry;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lorg/simpleframework/xml/core/Variable;
+    check-cast v1, Lorg/simpleframework/xml/core/Variable;
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
@@ -192,16 +192,16 @@
 .end method
 
 .method public set(Lorg/simpleframework/xml/core/Label;Ljava/lang/Object;)V
-    .locals 7
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    new-instance v1, Lorg/simpleframework/xml/core/Variable;
+    new-instance v6, Lorg/simpleframework/xml/core/Variable;
 
-    invoke-direct {v1, p1, p2}, Lorg/simpleframework/xml/core/Variable;-><init>(Lorg/simpleframework/xml/core/Label;Ljava/lang/Object;)V
+    invoke-direct {v6, p1, p2}, Lorg/simpleframework/xml/core/Variable;-><init>(Lorg/simpleframework/xml/core/Label;Ljava/lang/Object;)V
 
     if-nez p1, :cond_0
 
@@ -211,33 +211,35 @@
     :cond_0
     invoke-interface {p1}, Lorg/simpleframework/xml/core/Label;->getPaths()[Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v5
 
     invoke-interface {p1}, Lorg/simpleframework/xml/core/Label;->getKey()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    array-length v4, v2
+    move-object v0, v5
 
-    const/4 v0, 0x0
+    array-length v3, v5
+
+    const/4 v1, 0x0
 
     :goto_1
-    if-lt v0, v4, :cond_1
+    if-lt v1, v3, :cond_1
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/Collector;->registry:Lorg/simpleframework/xml/core/Collector$Registry;
+    iget-object v7, p0, Lorg/simpleframework/xml/core/Collector;->registry:Lorg/simpleframework/xml/core/Collector$Registry;
 
-    invoke-virtual {v0, v3, v1}, Lorg/simpleframework/xml/core/Collector$Registry;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v7, v2, v6}, Lorg/simpleframework/xml/core/Collector$Registry;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
     :cond_1
-    aget-object v5, v2, v0
+    aget-object v4, v5, v1
 
-    iget-object v6, p0, Lorg/simpleframework/xml/core/Collector;->alias:Lorg/simpleframework/xml/core/Collector$Registry;
+    iget-object v7, p0, Lorg/simpleframework/xml/core/Collector;->alias:Lorg/simpleframework/xml/core/Collector$Registry;
 
-    invoke-virtual {v6, v5, v1}, Lorg/simpleframework/xml/core/Collector$Registry;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v7, v4, v6}, Lorg/simpleframework/xml/core/Collector$Registry;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 .end method

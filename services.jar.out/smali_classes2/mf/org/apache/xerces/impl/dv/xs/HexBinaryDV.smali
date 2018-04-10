@@ -43,9 +43,7 @@
     return-object v1
 
     :cond_0
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
-
-    const-string/jumbo v1, "cvc-datatype-valid.1.2.1"
+    new-instance v1, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
 
     const/4 v2, 0x2
 
@@ -55,15 +53,17 @@
 
     aput-object p1, v2, v3
 
-    const/4 v3, 0x1
+    const-string/jumbo v3, "hexBinary"
 
-    const-string/jumbo v4, "hexBinary"
+    const/4 v4, 0x1
 
-    aput-object v4, v2, v3
+    aput-object v3, v2, v4
 
-    invoke-direct {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v3, "cvc-datatype-valid.1.2.1"
 
-    throw v0
+    invoke-direct {v1, v3, v2}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v1
 .end method
 
 .method public getAllowedFacets()S

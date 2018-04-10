@@ -36,17 +36,17 @@
 
     new-array v0, v0, [Ljava/lang/Class;
 
-    const/4 v1, 0x0
+    const-class v1, Lmf/org/apache/html/dom/HTMLDocumentImpl;
 
-    const-class v2, Lmf/org/apache/html/dom/HTMLDocumentImpl;
+    const/4 v2, 0x0
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x1
+    const-class v1, Ljava/lang/String;
 
-    const-class v2, Ljava/lang/String;
+    const/4 v2, 0x1
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     sput-object v0, Lmf/org/apache/html/dom/HTMLDocumentImpl;->_elemClassSigHTML:[Ljava/lang/Class;
 
@@ -64,95 +64,95 @@
 .end method
 
 .method private getElementById(Ljava/lang/String;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     invoke-interface {p2}, Lmf/org/w3c/dom/Node;->getFirstChild()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v0
 
     :goto_0
-    if-eqz v1, :cond_3
+    if-eqz v0, :cond_3
 
-    instance-of v0, v1, Lmf/org/w3c/dom/Element;
+    instance-of v2, v0, Lmf/org/w3c/dom/Element;
 
-    if-nez v0, :cond_1
+    if-nez v2, :cond_1
 
     :cond_0
-    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v0
 
     goto :goto_0
 
     :cond_1
-    move-object v0, v1
+    move-object v2, v0
 
-    check-cast v0, Lmf/org/w3c/dom/Element;
+    check-cast v2, Lmf/org/w3c/dom/Element;
 
-    const-string/jumbo v2, "id"
+    const-string/jumbo v3, "id"
 
-    invoke-interface {v0, v2}, Lmf/org/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    invoke-direct {p0, p1, v1}, Lmf/org/apache/html/dom/HTMLDocumentImpl;->getElementById(Ljava/lang/String;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    return-object v0
-
-    :cond_2
-    check-cast v1, Lmf/org/w3c/dom/Element;
-
-    return-object v1
-
-    :cond_3
-    return-object v3
-.end method
-
-.method private static populateElementType(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 4
-
-    :try_start_0
-    sget-object v0, Lmf/org/apache/html/dom/HTMLDocumentImpl;->_elementTypesHTML:Ljava/util/Hashtable;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    const-string/jumbo v2, "org.apache.html.dom."
-
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-class v2, Lmf/org/apache/html/dom/HTMLDocumentImpl;
-
-    invoke-virtual {v2}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    invoke-interface {v2, v3}, Lmf/org/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    const/4 v3, 0x1
+    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-static {v1, v2, v3}, Lmf/org/apache/html/dom/ObjectFactory;->findProviderClass(Ljava/lang/String;Ljava/lang/ClassLoader;Z)Ljava/lang/Class;
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    invoke-direct {p0, p1, v0}, Lmf/org/apache/html/dom/HTMLDocumentImpl;->getElementById(Ljava/lang/String;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
 
     move-result-object v1
 
-    invoke-virtual {v0, p0, v1}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    if-eqz v1, :cond_0
+
+    return-object v1
+
+    :cond_2
+    check-cast v0, Lmf/org/w3c/dom/Element;
+
+    return-object v0
+
+    :cond_3
+    return-object v4
+.end method
+
+.method private static populateElementType(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 5
+
+    :try_start_0
+    sget-object v1, Lmf/org/apache/html/dom/HTMLDocumentImpl;->_elementTypesHTML:Ljava/util/Hashtable;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    const-string/jumbo v3, "org.apache.html.dom."
+
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-class v3, Lmf/org/apache/html/dom/HTMLDocumentImpl;
+
+    invoke-virtual {v3}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v3
+
+    const/4 v4, 0x1
+
+    invoke-static {v2, v3, v4}, Lmf/org/apache/html/dom/ObjectFactory;->findProviderClass(Ljava/lang/String;Ljava/lang/ClassLoader;Z)Ljava/lang/Class;
+
+    move-result-object v2
+
+    invoke-virtual {v1, p0, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -161,55 +161,55 @@
     :catch_0
     move-exception v0
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "HTM019 OpenXML Error: Could not find or execute class "
+    const-string/jumbo v3, "HTM019 OpenXML Error: Could not find or execute class "
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, " implementing HTML element "
+    const-string/jumbo v3, " implementing HTML element "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, "\n"
+    const-string/jumbo v3, "\n"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, "\t"
+    const-string/jumbo v3, "\t"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v1
 .end method
 
 .method private static declared-synchronized populateElementTypes()V
@@ -632,39 +632,39 @@
 
 # virtual methods
 .method protected canRenameElements(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/dom/ElementImpl;)Z
-    .locals 5
+    .locals 6
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     invoke-virtual {p3}, Lmf/org/apache/xerces/dom/ElementImpl;->getNamespaceURI()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
-    sget-object v0, Lmf/org/apache/html/dom/HTMLDocumentImpl;->_elementTypesHTML:Ljava/util/Hashtable;
+    sget-object v2, Lmf/org/apache/html/dom/HTMLDocumentImpl;->_elementTypesHTML:Ljava/util/Hashtable;
 
-    sget-object v1, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+    sget-object v3, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
-    invoke-virtual {p2, v1}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {p2, v3}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v0, v1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/lang/Class;
 
-    sget-object v1, Lmf/org/apache/html/dom/HTMLDocumentImpl;->_elementTypesHTML:Ljava/util/Hashtable;
+    sget-object v2, Lmf/org/apache/html/dom/HTMLDocumentImpl;->_elementTypesHTML:Ljava/util/Hashtable;
 
     invoke-virtual {p3}, Lmf/org/apache/xerces/dom/ElementImpl;->getTagName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v1, v2}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -672,18 +672,18 @@
 
     if-eq v0, v1, :cond_2
 
-    return v3
+    return v4
 
     :cond_0
     if-nez p1, :cond_1
 
-    return v3
+    return v4
 
     :cond_1
-    return v4
+    return v5
 
     :cond_2
-    return v4
+    return v5
 .end method
 
 .method public cloneNode(Z)Lmf/org/w3c/dom/Node;
@@ -742,97 +742,97 @@
 .end method
 
 .method public createElement(Ljava/lang/String;)Lmf/org/w3c/dom/Element;
-    .locals 4
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/w3c/dom/DOMException;
         }
     .end annotation
 
-    sget-object v0, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+    sget-object v3, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {p1, v3}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object p1
+
+    sget-object v3, Lmf/org/apache/html/dom/HTMLDocumentImpl;->_elementTypesHTML:Ljava/util/Hashtable;
+
+    invoke-virtual {v3, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
-    sget-object v0, Lmf/org/apache/html/dom/HTMLDocumentImpl;->_elementTypesHTML:Ljava/util/Hashtable;
+    check-cast v1, Ljava/lang/Class;
 
-    invoke-virtual {v0, v1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    if-nez v1, :cond_0
 
-    move-result-object v0
+    new-instance v3, Lmf/org/apache/html/dom/HTMLElementImpl;
 
-    check-cast v0, Ljava/lang/Class;
+    invoke-direct {v3, p0, p1}, Lmf/org/apache/html/dom/HTMLElementImpl;-><init>(Lmf/org/apache/html/dom/HTMLDocumentImpl;Ljava/lang/String;)V
 
-    if-nez v0, :cond_0
-
-    new-instance v0, Lmf/org/apache/html/dom/HTMLElementImpl;
-
-    invoke-direct {v0, p0, v1}, Lmf/org/apache/html/dom/HTMLElementImpl;-><init>(Lmf/org/apache/html/dom/HTMLDocumentImpl;Ljava/lang/String;)V
-
-    return-object v0
+    return-object v3
 
     :cond_0
     :try_start_0
-    sget-object v2, Lmf/org/apache/html/dom/HTMLDocumentImpl;->_elemClassSigHTML:[Ljava/lang/Class;
+    sget-object v3, Lmf/org/apache/html/dom/HTMLDocumentImpl;->_elemClassSigHTML:[Ljava/lang/Class;
 
-    invoke-virtual {v0, v2}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
-
-    move-result-object v0
-
-    const/4 v2, 0x2
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    const/4 v3, 0x0
-
-    aput-object p0, v2, v3
-
-    const/4 v3, 0x1
-
-    aput-object v1, v2, v3
-
-    invoke-virtual {v0, v2}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v3}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v0
 
-    check-cast v0, Lmf/org/w3c/dom/Element;
+    const/4 v3, 0x2
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const/4 v4, 0x0
+
+    aput-object p0, v3, v4
+
+    const/4 v4, 0x1
+
+    aput-object p1, v3, v4
+
+    invoke-virtual {v0, v3}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lmf/org/w3c/dom/Element;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object v3
 
     :catch_0
-    move-exception v0
+    move-exception v2
 
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance v3, Ljava/lang/IllegalStateException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v3, "HTM15 Tag \'"
+    const-string/jumbo v5, "HTM15 Tag \'"
 
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v4
 
-    const-string/jumbo v3, "\' associated with an Element class that failed to construct.\n"
+    const-string/jumbo v5, "\' associated with an Element class that failed to construct.\n"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v3
 .end method
 
 .method public createElementNS(Ljava/lang/String;Ljava/lang/String;)Lmf/org/w3c/dom/Element;
@@ -933,150 +933,154 @@
 .end method
 
 .method public declared-synchronized getBody()Lmf/org/w3c/dom/html/HTMLElement;
-    .locals 5
+    .locals 8
 
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Lmf/org/apache/html/dom/HTMLDocumentImpl;->getDocumentElement()Lmf/org/w3c/dom/Element;
 
-    move-result-object v3
+    move-result-object v5
 
     invoke-virtual {p0}, Lmf/org/apache/html/dom/HTMLDocumentImpl;->getHead()Lmf/org/w3c/dom/html/HTMLElement;
 
-    move-result-object v1
+    move-result-object v4
 
-    monitor-enter v3
+    move-object v0, v5
+
+    monitor-enter v5
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_2
 
     :try_start_1
-    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+    invoke-interface {v4}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v2
 
     :goto_0
-    if-nez v0, :cond_2
+    if-nez v2, :cond_2
 
     :cond_0
     :goto_1
-    if-nez v0, :cond_3
+    if-nez v2, :cond_3
 
-    new-instance v0, Lmf/org/apache/html/dom/HTMLBodyElementImpl;
+    new-instance v2, Lmf/org/apache/html/dom/HTMLBodyElementImpl;
 
-    const-string/jumbo v1, "BODY"
+    const-string/jumbo v7, "BODY"
 
-    invoke-direct {v0, p0, v1}, Lmf/org/apache/html/dom/HTMLBodyElementImpl;-><init>(Lmf/org/apache/html/dom/HTMLDocumentImpl;Ljava/lang/String;)V
+    invoke-direct {v2, p0, v7}, Lmf/org/apache/html/dom/HTMLBodyElementImpl;-><init>(Lmf/org/apache/html/dom/HTMLDocumentImpl;Ljava/lang/String;)V
 
-    invoke-interface {v3, v0}, Lmf/org/w3c/dom/Node;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-interface {v5, v2}, Lmf/org/w3c/dom/Node;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
-    monitor-exit v3
+    monitor-exit v5
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     :try_start_2
-    check-cast v0, Lmf/org/w3c/dom/html/HTMLElement;
+    check-cast v2, Lmf/org/w3c/dom/html/HTMLElement;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
     monitor-exit p0
 
-    return-object v0
+    return-object v2
 
     :cond_1
     :try_start_3
-    instance-of v2, v0, Lmf/org/w3c/dom/html/HTMLFrameSetElement;
+    instance-of v7, v2, Lmf/org/w3c/dom/html/HTMLFrameSetElement;
 
-    if-nez v2, :cond_0
+    if-nez v7, :cond_0
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v2
 
     goto :goto_0
 
     :cond_2
-    instance-of v2, v0, Lmf/org/w3c/dom/html/HTMLBodyElement;
+    instance-of v7, v2, Lmf/org/w3c/dom/html/HTMLBodyElement;
 
-    if-eqz v2, :cond_1
+    if-eqz v7, :cond_1
 
     goto :goto_1
 
     :cond_3
-    monitor-enter v0
+    move-object v1, v2
+
+    monitor-enter v2
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     :try_start_4
-    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+    invoke-interface {v4}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v3
 
     :goto_2
-    if-nez v1, :cond_5
+    if-nez v3, :cond_5
 
     :cond_4
-    monitor-exit v0
+    monitor-exit v1
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     :try_start_5
-    check-cast v0, Lmf/org/w3c/dom/html/HTMLElement;
+    check-cast v2, Lmf/org/w3c/dom/html/HTMLElement;
 
-    monitor-exit v3
+    monitor-exit v5
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
     monitor-exit p0
 
-    return-object v0
+    return-object v2
 
     :cond_5
-    if-eq v1, v0, :cond_4
+    if-eq v3, v2, :cond_4
 
     :try_start_6
-    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+    invoke-interface {v3}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
-    move-result-object v2
+    move-result-object v6
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getFirstChild()Lmf/org/w3c/dom/Node;
+    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->getFirstChild()Lmf/org/w3c/dom/Node;
 
-    move-result-object v4
+    move-result-object v7
 
-    invoke-interface {v0, v1, v4}, Lmf/org/w3c/dom/Node;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-interface {v2, v3, v7}, Lmf/org/w3c/dom/Node;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
-    move-object v1, v2
+    move-object v3, v6
 
     goto :goto_2
 
     :catchall_0
-    move-exception v1
+    move-exception v7
 
-    monitor-exit v0
+    monitor-exit v1
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     :try_start_7
-    throw v1
+    throw v7
 
     :catchall_1
-    move-exception v0
+    move-exception v7
 
-    monitor-exit v3
+    monitor-exit v5
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
     :try_start_8
-    throw v0
+    throw v7
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_2
 
     :catchall_2
-    move-exception v0
+    move-exception v7
 
     monitor-exit p0
 
-    throw v0
+    throw v7
 .end method
 
 .method public getCookie()Ljava/lang/String;
@@ -1088,79 +1092,79 @@
 .end method
 
 .method public declared-synchronized getDocumentElement()Lmf/org/w3c/dom/Element;
-    .locals 3
+    .locals 4
 
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Lmf/org/apache/html/dom/HTMLDocumentImpl;->getFirstChild()Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v1
 
     :goto_0
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
-    instance-of v1, v0, Lmf/org/w3c/dom/html/HTMLHtmlElement;
+    instance-of v3, v1, Lmf/org/w3c/dom/html/HTMLHtmlElement;
 
-    if-nez v1, :cond_0
+    if-nez v3, :cond_0
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v1
 
     goto :goto_0
 
     :cond_0
-    check-cast v0, Lmf/org/w3c/dom/html/HTMLElement;
+    check-cast v1, Lmf/org/w3c/dom/html/HTMLElement;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return-object v0
+    return-object v1
 
     :cond_1
     :try_start_1
-    new-instance v0, Lmf/org/apache/html/dom/HTMLHtmlElementImpl;
+    new-instance v1, Lmf/org/apache/html/dom/HTMLHtmlElementImpl;
 
-    const-string/jumbo v1, "HTML"
+    const-string/jumbo v3, "HTML"
 
-    invoke-direct {v0, p0, v1}, Lmf/org/apache/html/dom/HTMLHtmlElementImpl;-><init>(Lmf/org/apache/html/dom/HTMLDocumentImpl;Ljava/lang/String;)V
+    invoke-direct {v1, p0, v3}, Lmf/org/apache/html/dom/HTMLHtmlElementImpl;-><init>(Lmf/org/apache/html/dom/HTMLDocumentImpl;Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lmf/org/apache/html/dom/HTMLDocumentImpl;->getFirstChild()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v0
 
     :goto_1
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
-    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
     move-result-object v2
 
-    invoke-interface {v0, v1}, Lmf/org/w3c/dom/Node;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-interface {v1, v0}, Lmf/org/w3c/dom/Node;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
-    move-object v1, v2
+    move-object v0, v2
 
     goto :goto_1
 
     :cond_2
-    invoke-virtual {p0, v0}, Lmf/org/apache/html/dom/HTMLDocumentImpl;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-virtual {p0, v1}, Lmf/org/apache/html/dom/HTMLDocumentImpl;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
-    check-cast v0, Lmf/org/w3c/dom/html/HTMLElement;
+    check-cast v1, Lmf/org/w3c/dom/html/HTMLElement;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     monitor-exit p0
 
-    return-object v0
+    return-object v1
 
     :catchall_0
-    move-exception v0
+    move-exception v3
 
     monitor-exit p0
 
-    throw v0
+    throw v3
 .end method
 
 .method public getDomain()Ljava/lang/String;
@@ -1172,7 +1176,7 @@
 .end method
 
 .method public declared-synchronized getElementById(Ljava/lang/String;)Lmf/org/w3c/dom/Element;
-    .locals 1
+    .locals 2
 
     monitor-enter p0
 
@@ -1187,11 +1191,11 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result-object v0
+    move-result-object v1
 
     monitor-exit p0
 
-    return-object v0
+    return-object v1
 
     :cond_0
     monitor-exit p0
@@ -1199,11 +1203,11 @@
     return-object v0
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
     monitor-exit p0
 
-    throw v0
+    throw v1
 .end method
 
 .method public getElementsByName(Ljava/lang/String;)Lmf/org/w3c/dom/NodeList;
@@ -1299,142 +1303,146 @@
 .end method
 
 .method public declared-synchronized getHead()Lmf/org/w3c/dom/html/HTMLElement;
-    .locals 5
+    .locals 7
 
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Lmf/org/apache/html/dom/HTMLDocumentImpl;->getDocumentElement()Lmf/org/w3c/dom/Element;
 
-    move-result-object v3
+    move-result-object v4
 
-    monitor-enter v3
+    move-object v0, v4
+
+    monitor-enter v4
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_2
 
     :try_start_1
-    invoke-interface {v3}, Lmf/org/w3c/dom/Node;->getFirstChild()Lmf/org/w3c/dom/Node;
+    invoke-interface {v4}, Lmf/org/w3c/dom/Node;->getFirstChild()Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v3
 
     :goto_0
-    if-nez v0, :cond_1
+    if-nez v3, :cond_1
 
     :cond_0
-    if-nez v0, :cond_2
+    if-nez v3, :cond_2
 
-    new-instance v0, Lmf/org/apache/html/dom/HTMLHeadElementImpl;
+    new-instance v3, Lmf/org/apache/html/dom/HTMLHeadElementImpl;
 
-    const-string/jumbo v1, "HEAD"
+    const-string/jumbo v6, "HEAD"
 
-    invoke-direct {v0, p0, v1}, Lmf/org/apache/html/dom/HTMLHeadElementImpl;-><init>(Lmf/org/apache/html/dom/HTMLDocumentImpl;Ljava/lang/String;)V
+    invoke-direct {v3, p0, v6}, Lmf/org/apache/html/dom/HTMLHeadElementImpl;-><init>(Lmf/org/apache/html/dom/HTMLDocumentImpl;Ljava/lang/String;)V
 
-    invoke-interface {v3}, Lmf/org/w3c/dom/Node;->getFirstChild()Lmf/org/w3c/dom/Node;
+    invoke-interface {v4}, Lmf/org/w3c/dom/Node;->getFirstChild()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v6
 
-    invoke-interface {v3, v0, v1}, Lmf/org/w3c/dom/Node;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-interface {v4, v3, v6}, Lmf/org/w3c/dom/Node;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
-    monitor-exit v3
+    monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     :try_start_2
-    check-cast v0, Lmf/org/w3c/dom/html/HTMLElement;
+    check-cast v3, Lmf/org/w3c/dom/html/HTMLElement;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
     monitor-exit p0
 
-    return-object v0
+    return-object v3
 
     :cond_1
     :try_start_3
-    instance-of v1, v0, Lmf/org/w3c/dom/html/HTMLHeadElement;
+    instance-of v6, v3, Lmf/org/w3c/dom/html/HTMLHeadElement;
 
-    if-nez v1, :cond_0
+    if-nez v6, :cond_0
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+    invoke-interface {v3}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v3
 
     goto :goto_0
 
     :cond_2
-    monitor-enter v0
+    move-object v1, v3
+
+    monitor-enter v3
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     :try_start_4
-    invoke-interface {v3}, Lmf/org/w3c/dom/Node;->getFirstChild()Lmf/org/w3c/dom/Node;
+    invoke-interface {v4}, Lmf/org/w3c/dom/Node;->getFirstChild()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v2
 
     :goto_1
-    if-nez v1, :cond_4
+    if-nez v2, :cond_4
 
     :cond_3
-    monitor-exit v0
+    monitor-exit v1
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     :try_start_5
-    check-cast v0, Lmf/org/w3c/dom/html/HTMLElement;
+    check-cast v3, Lmf/org/w3c/dom/html/HTMLElement;
 
-    monitor-exit v3
+    monitor-exit v0
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
     monitor-exit p0
 
-    return-object v0
+    return-object v3
 
     :cond_4
-    if-eq v1, v0, :cond_3
+    if-eq v2, v3, :cond_3
 
     :try_start_6
-    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
-    move-result-object v2
+    move-result-object v5
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getFirstChild()Lmf/org/w3c/dom/Node;
+    invoke-interface {v3}, Lmf/org/w3c/dom/Node;->getFirstChild()Lmf/org/w3c/dom/Node;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-interface {v0, v1, v4}, Lmf/org/w3c/dom/Node;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-interface {v3, v2, v6}, Lmf/org/w3c/dom/Node;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
-    move-object v1, v2
+    move-object v2, v5
 
     goto :goto_1
 
     :catchall_0
-    move-exception v1
+    move-exception v6
 
-    monitor-exit v0
+    monitor-exit v1
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     :try_start_7
-    throw v1
+    throw v6
 
     :catchall_1
-    move-exception v0
+    move-exception v6
 
-    monitor-exit v3
+    monitor-exit v0
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
     :try_start_8
-    throw v0
+    throw v6
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_2
 
     :catchall_2
-    move-exception v0
+    move-exception v6
 
     monitor-exit p0
 
-    throw v0
+    throw v6
 .end method
 
 .method public getImages()Lmf/org/w3c/dom/html/HTMLCollection;
@@ -1502,7 +1510,7 @@
 .end method
 
 .method public declared-synchronized getTitle()Ljava/lang/String;
-    .locals 2
+    .locals 4
 
     monitor-enter p0
 
@@ -1511,52 +1519,52 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "TITLE"
+    const-string/jumbo v3, "TITLE"
 
-    invoke-interface {v0, v1}, Lmf/org/w3c/dom/html/HTMLElement;->getElementsByTagName(Ljava/lang/String;)Lmf/org/w3c/dom/NodeList;
+    invoke-interface {v0, v3}, Lmf/org/w3c/dom/html/HTMLElement;->getElementsByTagName(Ljava/lang/String;)Lmf/org/w3c/dom/NodeList;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/NodeList;->getLength()I
+    invoke-interface {v1}, Lmf/org/w3c/dom/NodeList;->getLength()I
 
-    move-result v1
+    move-result v3
 
-    if-gtz v1, :cond_0
+    if-gtz v3, :cond_0
 
-    const-string/jumbo v0, ""
+    const-string/jumbo v3, ""
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return-object v0
+    return-object v3
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
     :try_start_1
-    invoke-interface {v0, v1}, Lmf/org/w3c/dom/NodeList;->item(I)Lmf/org/w3c/dom/Node;
+    invoke-interface {v1, v3}, Lmf/org/w3c/dom/NodeList;->item(I)Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Lmf/org/w3c/dom/html/HTMLTitleElement;
+    check-cast v2, Lmf/org/w3c/dom/html/HTMLTitleElement;
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/html/HTMLTitleElement;->getText()Ljava/lang/String;
+    invoke-interface {v2}, Lmf/org/w3c/dom/html/HTMLTitleElement;->getText()Ljava/lang/String;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    move-result-object v0
+    move-result-object v3
 
     monitor-exit p0
 
-    return-object v0
+    return-object v3
 
     :catchall_0
-    move-exception v0
+    move-exception v3
 
     monitor-exit p0
 
-    throw v0
+    throw v3
 .end method
 
 .method public getURL()Ljava/lang/String;
@@ -1588,9 +1596,11 @@
 .end method
 
 .method public declared-synchronized setBody(Lmf/org/w3c/dom/html/HTMLElement;)V
-    .locals 4
+    .locals 9
 
     monitor-enter p0
+
+    move-object v0, p1
 
     :try_start_0
     monitor-enter p1
@@ -1600,32 +1610,34 @@
     :try_start_1
     invoke-virtual {p0}, Lmf/org/apache/html/dom/HTMLDocumentImpl;->getDocumentElement()Lmf/org/w3c/dom/Element;
 
-    move-result-object v1
+    move-result-object v6
 
     invoke-virtual {p0}, Lmf/org/apache/html/dom/HTMLDocumentImpl;->getHead()Lmf/org/w3c/dom/html/HTMLElement;
 
-    move-result-object v0
+    move-result-object v5
 
-    monitor-enter v1
+    move-object v1, v6
+
+    monitor-enter v6
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_2
 
     :try_start_2
-    const-string/jumbo v2, "BODY"
+    const-string/jumbo v8, "BODY"
 
-    invoke-virtual {p0, v2}, Lmf/org/apache/html/dom/HTMLDocumentImpl;->getElementsByTagName(Ljava/lang/String;)Lmf/org/w3c/dom/NodeList;
+    invoke-virtual {p0, v8}, Lmf/org/apache/html/dom/HTMLDocumentImpl;->getElementsByTagName(Ljava/lang/String;)Lmf/org/w3c/dom/NodeList;
 
-    move-result-object v2
+    move-result-object v7
 
-    invoke-interface {v2}, Lmf/org/w3c/dom/NodeList;->getLength()I
+    invoke-interface {v7}, Lmf/org/w3c/dom/NodeList;->getLength()I
 
-    move-result v3
+    move-result v8
 
-    if-gtz v3, :cond_0
+    if-gtz v8, :cond_0
 
-    invoke-interface {v1, p1}, Lmf/org/w3c/dom/Node;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-interface {v6, p1}, Lmf/org/w3c/dom/Node;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
-    monitor-exit v1
+    monitor-exit v6
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
@@ -1639,35 +1651,39 @@
     return-void
 
     :cond_0
-    const/4 v3, 0x0
+    const/4 v8, 0x0
 
     :try_start_4
-    invoke-interface {v2, v3}, Lmf/org/w3c/dom/NodeList;->item(I)Lmf/org/w3c/dom/Node;
+    invoke-interface {v7, v8}, Lmf/org/w3c/dom/NodeList;->item(I)Lmf/org/w3c/dom/Node;
 
-    move-result-object v2
+    move-result-object v3
 
-    monitor-enter v2
+    move-object v2, v3
+
+    monitor-enter v3
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
+    move-object v4, v5
+
     :goto_0
-    if-eqz v0, :cond_3
+    if-eqz v4, :cond_3
 
     :try_start_5
-    instance-of v3, v0, Lmf/org/w3c/dom/Element;
+    instance-of v8, v4, Lmf/org/w3c/dom/Element;
 
-    if-nez v3, :cond_1
+    if-nez v8, :cond_1
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+    invoke-interface {v4}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v4
 
     goto :goto_0
 
     :cond_1
-    if-ne v0, v2, :cond_2
+    if-ne v4, v3, :cond_2
 
-    invoke-interface {v1, p1, v2}, Lmf/org/w3c/dom/Node;->replaceChild(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-interface {v6, p1, v3}, Lmf/org/w3c/dom/Node;->replaceChild(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
     :goto_1
     monitor-exit v2
@@ -1675,7 +1691,7 @@
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     :try_start_6
-    monitor-exit v1
+    monitor-exit v6
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
@@ -1690,59 +1706,59 @@
 
     :cond_2
     :try_start_8
-    invoke-interface {v1, p1, v0}, Lmf/org/w3c/dom/Node;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-interface {v6, p1, v4}, Lmf/org/w3c/dom/Node;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
     goto :goto_1
 
     :catchall_0
-    move-exception v0
+    move-exception v8
 
     monitor-exit v2
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
     :try_start_9
-    throw v0
+    throw v8
 
     :catchall_1
-    move-exception v0
+    move-exception v8
 
-    monitor-exit v1
+    monitor-exit v6
     :try_end_9
     .catchall {:try_start_9 .. :try_end_9} :catchall_1
 
     :try_start_a
-    throw v0
+    throw v8
 
     :catchall_2
-    move-exception v0
+    move-exception v8
 
     monitor-exit p1
     :try_end_a
     .catchall {:try_start_a .. :try_end_a} :catchall_2
 
     :try_start_b
-    throw v0
+    throw v8
     :try_end_b
     .catchall {:try_start_b .. :try_end_b} :catchall_3
 
     :catchall_3
-    move-exception v0
+    move-exception v8
 
     monitor-exit p0
 
-    throw v0
+    throw v8
 
     :cond_3
     :try_start_c
-    invoke-interface {v1, p1}, Lmf/org/w3c/dom/Node;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-interface {v6, p1}, Lmf/org/w3c/dom/Node;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
     monitor-exit v2
     :try_end_c
     .catchall {:try_start_c .. :try_end_c} :catchall_0
 
     :try_start_d
-    monitor-exit v1
+    monitor-exit v6
     :try_end_d
     .catchall {:try_start_d .. :try_end_d} :catchall_1
 
@@ -1763,42 +1779,42 @@
 .end method
 
 .method public declared-synchronized setTitle(Ljava/lang/String;)V
-    .locals 4
+    .locals 5
 
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p0}, Lmf/org/apache/html/dom/HTMLDocumentImpl;->getHead()Lmf/org/w3c/dom/html/HTMLElement;
 
-    move-result-object v3
-
-    const-string/jumbo v1, "TITLE"
-
-    invoke-interface {v3, v1}, Lmf/org/w3c/dom/html/HTMLElement;->getElementsByTagName(Ljava/lang/String;)Lmf/org/w3c/dom/NodeList;
-
     move-result-object v1
 
-    invoke-interface {v1}, Lmf/org/w3c/dom/NodeList;->getLength()I
+    const-string/jumbo v4, "TITLE"
 
-    move-result v2
+    invoke-interface {v1, v4}, Lmf/org/w3c/dom/html/HTMLElement;->getElementsByTagName(Ljava/lang/String;)Lmf/org/w3c/dom/NodeList;
 
-    if-gtz v2, :cond_0
+    move-result-object v2
 
-    new-instance v2, Lmf/org/apache/html/dom/HTMLTitleElementImpl;
+    invoke-interface {v2}, Lmf/org/w3c/dom/NodeList;->getLength()I
 
-    const-string/jumbo v1, "TITLE"
+    move-result v4
 
-    invoke-direct {v2, p0, v1}, Lmf/org/apache/html/dom/HTMLTitleElementImpl;-><init>(Lmf/org/apache/html/dom/HTMLDocumentImpl;Ljava/lang/String;)V
+    if-gtz v4, :cond_0
 
-    move-object v0, v2
+    new-instance v3, Lmf/org/apache/html/dom/HTMLTitleElementImpl;
+
+    const-string/jumbo v4, "TITLE"
+
+    invoke-direct {v3, p0, v4}, Lmf/org/apache/html/dom/HTMLTitleElementImpl;-><init>(Lmf/org/apache/html/dom/HTMLDocumentImpl;Ljava/lang/String;)V
+
+    move-object v0, v3
 
     check-cast v0, Lmf/org/w3c/dom/html/HTMLTitleElement;
 
-    move-object v1, v0
+    move-object v4, v0
 
-    invoke-interface {v1, p1}, Lmf/org/w3c/dom/html/HTMLTitleElement;->setText(Ljava/lang/String;)V
+    invoke-interface {v4, p1}, Lmf/org/w3c/dom/html/HTMLTitleElement;->setText(Ljava/lang/String;)V
 
-    invoke-interface {v3, v2}, Lmf/org/w3c/dom/html/HTMLElement;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-interface {v1, v3}, Lmf/org/w3c/dom/html/HTMLElement;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -1808,38 +1824,42 @@
     return-void
 
     :cond_0
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
     :try_start_1
-    invoke-interface {v1, v2}, Lmf/org/w3c/dom/NodeList;->item(I)Lmf/org/w3c/dom/Node;
+    invoke-interface {v2, v4}, Lmf/org/w3c/dom/NodeList;->item(I)Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getParentNode()Lmf/org/w3c/dom/Node;
+    invoke-interface {v3}, Lmf/org/w3c/dom/Node;->getParentNode()Lmf/org/w3c/dom/Node;
 
-    move-result-object v2
+    move-result-object v4
 
-    if-ne v2, v3, :cond_1
+    if-ne v4, v1, :cond_1
 
     :goto_1
-    check-cast v1, Lmf/org/w3c/dom/html/HTMLTitleElement;
+    move-object v0, v3
 
-    invoke-interface {v1, p1}, Lmf/org/w3c/dom/html/HTMLTitleElement;->setText(Ljava/lang/String;)V
+    check-cast v0, Lmf/org/w3c/dom/html/HTMLTitleElement;
+
+    move-object v4, v0
+
+    invoke-interface {v4, p1}, Lmf/org/w3c/dom/html/HTMLTitleElement;->setText(Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
     :catchall_0
-    move-exception v1
+    move-exception v4
 
     monitor-exit p0
 
-    throw v1
+    throw v4
 
     :cond_1
     :try_start_2
-    invoke-interface {v3, v1}, Lmf/org/w3c/dom/html/HTMLElement;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-interface {v1, v3}, Lmf/org/w3c/dom/html/HTMLElement;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 

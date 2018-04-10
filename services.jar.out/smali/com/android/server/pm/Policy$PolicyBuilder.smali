@@ -15,13 +15,11 @@
 
 
 # instance fields
-.field private mAllowCategory:Ljava/lang/String;
+.field private mAllowSpace:Ljava/lang/String;
 
-.field private mBBCAllowCategory:Ljava/lang/String;
+.field private mBBCAllowSpace:Ljava/lang/String;
 
-.field private mBBCCategory:I
-
-.field private mCategory:I
+.field private mBBCSpace:I
 
 .field private final mCerts:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
@@ -50,12 +48,14 @@
 
 .field private mSeinfo:Ljava/lang/String;
 
+.field private mSpace:I
+
 
 # direct methods
 .method static synthetic -get0(Lcom/android/server/pm/Policy$PolicyBuilder;)Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mAllowCategory:Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mAllowSpace:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -63,7 +63,7 @@
 .method static synthetic -get1(Lcom/android/server/pm/Policy$PolicyBuilder;)Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mBBCAllowCategory:Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mBBCAllowSpace:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -71,20 +71,12 @@
 .method static synthetic -get2(Lcom/android/server/pm/Policy$PolicyBuilder;)I
     .locals 1
 
-    iget v0, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mBBCCategory:I
+    iget v0, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mBBCSpace:I
 
     return v0
 .end method
 
-.method static synthetic -get3(Lcom/android/server/pm/Policy$PolicyBuilder;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mCategory:I
-
-    return v0
-.end method
-
-.method static synthetic -get4(Lcom/android/server/pm/Policy$PolicyBuilder;)Ljava/util/Set;
+.method static synthetic -get3(Lcom/android/server/pm/Policy$PolicyBuilder;)Ljava/util/Set;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mCerts:Ljava/util/Set;
@@ -92,7 +84,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/android/server/pm/Policy$PolicyBuilder;)Ljava/util/Map;
+.method static synthetic -get4(Lcom/android/server/pm/Policy$PolicyBuilder;)Ljava/util/Map;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mPkgMap:Ljava/util/Map;
@@ -100,12 +92,20 @@
     return-object v0
 .end method
 
-.method static synthetic -get6(Lcom/android/server/pm/Policy$PolicyBuilder;)Ljava/lang/String;
+.method static synthetic -get5(Lcom/android/server/pm/Policy$PolicyBuilder;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mSeinfo:Ljava/lang/String;
 
     return-object v0
+.end method
+
+.method static synthetic -get6(Lcom/android/server/pm/Policy$PolicyBuilder;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mSpace:I
+
+    return v0
 .end method
 
 .method public constructor <init>()V
@@ -131,13 +131,13 @@
 
     iput-object v0, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mPkgMap:Ljava/util/Map;
 
-    iput v1, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mCategory:I
+    iput v1, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mSpace:I
 
-    iput v1, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mBBCCategory:I
+    iput v1, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mBBCSpace:I
 
-    iput-object v3, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mAllowCategory:Ljava/lang/String;
+    iput-object v3, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mAllowSpace:Ljava/lang/String;
 
-    iput-object v3, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mBBCAllowCategory:Ljava/lang/String;
+    iput-object v3, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mBBCAllowSpace:Ljava/lang/String;
 
     const/4 v0, 0x0
 
@@ -253,16 +253,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_2
-    iget-object v2, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mPkgMap:Ljava/util/Map;
+    if-eqz v2, :cond_2
 
-    invoke-interface {v2, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    return-object p0
-
-    :cond_3
     const-string/jumbo v0, "Conflicting seinfo value found"
 
     new-instance v2, Ljava/lang/IllegalStateException;
@@ -270,6 +264,13 @@
     invoke-direct {v2, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v2
+
+    :cond_2
+    iget-object v2, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mPkgMap:Ljava/util/Map;
+
+    invoke-interface {v2, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    return-object p0
 .end method
 
 .method public addSignature(Ljava/lang/String;)Lcom/android/server/pm/Policy$PolicyBuilder;
@@ -379,56 +380,79 @@
     return-object v1
 .end method
 
-.method public setAllowCategory(Ljava/lang/String;)Lcom/android/server/pm/Policy$PolicyBuilder;
-    .locals 1
+.method public setAllowSpace(Ljava/lang/String;)Lcom/android/server/pm/Policy$PolicyBuilder;
+    .locals 2
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
-    iput-object p1, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mAllowCategory:Ljava/lang/String;
+    iput-object p1, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mAllowSpace:Ljava/lang/String;
 
+    :cond_0
     :goto_0
     return-object p0
 
-    :cond_0
+    :cond_1
     const-string/jumbo v0, "0,701-1023"
 
-    iput-object v0, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mAllowCategory:Ljava/lang/String;
+    iput-object v0, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mAllowSpace:Ljava/lang/String;
+
+    sget-boolean v0, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "SELinuxMMAC"
+
+    const-string/jumbo v1, "The default (for untrusted app) allowSpace value is 0,701-1023"
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
 
-.method public setBBCAllowCategory(Ljava/lang/String;)Lcom/android/server/pm/Policy$PolicyBuilder;
-    .locals 1
+.method public setBBCAllowSpace(Ljava/lang/String;)Lcom/android/server/pm/Policy$PolicyBuilder;
+    .locals 2
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
-    iput-object p1, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mBBCAllowCategory:Ljava/lang/String;
+    iput-object p1, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mBBCAllowSpace:Ljava/lang/String;
 
+    :cond_0
     :goto_0
     return-object p0
 
-    :cond_0
+    :cond_1
     const-string/jumbo v0, "0,701-1023"
 
-    iput-object v0, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mBBCAllowCategory:Ljava/lang/String;
+    iput-object v0, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mBBCAllowSpace:Ljava/lang/String;
+
+    sget-boolean v0, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "SELinuxMMAC"
+
+    const-string/jumbo v1, "The default (for untrusted app) mBBCAllowSpace value is 0,701-1023"
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
 
-.method public setBBCCategoryOrThrow(Ljava/lang/String;)Lcom/android/server/pm/Policy$PolicyBuilder;
+.method public setBBCSpaceOrThrow(Ljava/lang/String;)Lcom/android/server/pm/Policy$PolicyBuilder;
     .locals 3
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     :try_start_0
     invoke-static {p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v1
 
-    iput v1, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mBBCCategory:I
+    iput v1, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mBBCSpace:I
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
+    :cond_0
     :goto_0
     return-object p0
 
@@ -437,7 +461,7 @@
 
     const-string/jumbo v1, "SELinuxMMAC"
 
-    const-string/jumbo v2, " Category value is incorrect"
+    const-string/jumbo v2, " Space value is incorrect"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -447,58 +471,28 @@
 
     throw v1
 
-    :cond_0
+    :cond_1
     const/16 v1, 0x3ff
 
-    iput v1, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mBBCCategory:I
+    iput v1, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mBBCSpace:I
 
-    goto :goto_0
-.end method
+    sget-boolean v1, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
 
-.method public setCategoryOrThrow(Ljava/lang/String;)Lcom/android/server/pm/Policy$PolicyBuilder;
-    .locals 3
-
-    if-eqz p1, :cond_0
-
-    :try_start_0
-    invoke-static {p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v1
-
-    iput v1, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mCategory:I
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return-object p0
-
-    :catch_0
-    move-exception v0
+    if-eqz v1, :cond_0
 
     const-string/jumbo v1, "SELinuxMMAC"
 
-    const-string/jumbo v2, " Category value is incorrect"
+    const-string/jumbo v2, "The default (for untrusted app) mBBCSpace value is 1023"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v1, Ljava/lang/IllegalArgumentException;
-
-    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/Throwable;)V
-
-    throw v1
-
-    :cond_0
-    const/16 v1, 0x3ff
-
-    iput v1, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mCategory:I
 
     goto :goto_0
 .end method
 
 .method public setContainerFlag(Ljava/lang/String;)Lcom/android/server/pm/Policy$PolicyBuilder;
-    .locals 1
+    .locals 2
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     const-string/jumbo v0, "true"
 
@@ -506,19 +500,30 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mIsContainerApp:Z
 
+    :cond_0
     :goto_0
     return-object p0
 
-    :cond_0
+    :cond_1
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mIsContainerApp:Z
+
+    sget-boolean v0, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "SELinuxMMAC"
+
+    const-string/jumbo v1, "The default (for untrusted app) mIsContainerApp value is false"
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
@@ -567,14 +572,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_1
-    iput-object p1, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mSeinfo:Ljava/lang/String;
+    if-eqz v1, :cond_1
 
-    return-object p0
-
-    :cond_2
     const-string/jumbo v0, "Duplicate seinfo tag found"
 
     new-instance v1, Ljava/lang/IllegalStateException;
@@ -582,4 +583,60 @@
     invoke-direct {v1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v1
+
+    :cond_1
+    iput-object p1, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mSeinfo:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method public setSpaceOrThrow(Ljava/lang/String;)Lcom/android/server/pm/Policy$PolicyBuilder;
+    .locals 3
+
+    if-eqz p1, :cond_1
+
+    :try_start_0
+    invoke-static {p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mSpace:I
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    :goto_0
+    return-object p0
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "SELinuxMMAC"
+
+    const-string/jumbo v2, " Space value is incorrect"
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v1
+
+    :cond_1
+    const/16 v1, 0x3ff
+
+    iput v1, p0, Lcom/android/server/pm/Policy$PolicyBuilder;->mSpace:I
+
+    sget-boolean v1, Lcom/samsung/android/knox/seams/SEAMSPolicy;->DEBUG:Z
+
+    if-eqz v1, :cond_0
+
+    const-string/jumbo v1, "SELinuxMMAC"
+
+    const-string/jumbo v2, "The default (for untrusted app) mSpace value is 1023"
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method

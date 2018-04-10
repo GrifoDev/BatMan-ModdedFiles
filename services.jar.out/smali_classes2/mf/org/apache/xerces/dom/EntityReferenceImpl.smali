@@ -52,29 +52,29 @@
 .end method
 
 .method public getBaseURI()Ljava/lang/String;
-    .locals 3
+    .locals 7
 
-    const/4 v2, 0x0
+    const/4 v6, 0x0
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->needsSyncData()Z
 
-    move-result v0
+    move-result v4
 
-    if-nez v0, :cond_1
+    if-nez v4, :cond_1
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->baseURI:Ljava/lang/String;
+    iget-object v4, p0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->baseURI:Ljava/lang/String;
 
-    if-eqz v0, :cond_2
+    if-eqz v4, :cond_2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->baseURI:Ljava/lang/String;
+    iget-object v4, p0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->baseURI:Ljava/lang/String;
 
-    if-nez v0, :cond_3
+    if-nez v4, :cond_3
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->baseURI:Ljava/lang/String;
+    iget-object v4, p0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->baseURI:Ljava/lang/String;
 
-    return-object v0
+    return-object v4
 
     :cond_1
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->synchronizeData()V
@@ -84,9 +84,9 @@
     :cond_2
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->getOwnerDocument()Lmf/org/w3c/dom/Document;
 
-    move-result-object v0
+    move-result-object v4
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Document;->getDoctype()Lmf/org/w3c/dom/DocumentType;
+    invoke-interface {v4}, Lmf/org/w3c/dom/Document;->getDoctype()Lmf/org/w3c/dom/DocumentType;
 
     move-result-object v0
 
@@ -94,83 +94,83 @@
 
     invoke-interface {v0}, Lmf/org/w3c/dom/DocumentType;->getEntities()Lmf/org/w3c/dom/NamedNodeMap;
 
-    move-result-object v0
+    move-result-object v3
 
-    if-eqz v0, :cond_0
+    if-eqz v3, :cond_0
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->getNodeName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-interface {v0, v1}, Lmf/org/w3c/dom/NamedNodeMap;->getNamedItem(Ljava/lang/String;)Lmf/org/w3c/dom/Node;
+    invoke-interface {v3, v4}, Lmf/org/w3c/dom/NamedNodeMap;->getNamedItem(Ljava/lang/String;)Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Lmf/org/apache/xerces/dom/EntityImpl;
+    check-cast v2, Lmf/org/apache/xerces/dom/EntityImpl;
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/EntityImpl;->getBaseURI()Ljava/lang/String;
+    invoke-virtual {v2}, Lmf/org/apache/xerces/dom/EntityImpl;->getBaseURI()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v4
 
-    return-object v0
+    return-object v4
 
     :cond_3
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->baseURI:Ljava/lang/String;
+    iget-object v4, p0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->baseURI:Ljava/lang/String;
 
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    invoke-virtual {v4}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v4
 
-    if-eqz v0, :cond_0
+    if-eqz v4, :cond_0
 
     :try_start_0
-    new-instance v0, Lmf/org/apache/xerces/util/URI;
+    new-instance v4, Lmf/org/apache/xerces/util/URI;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->baseURI:Ljava/lang/String;
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->baseURI:Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Lmf/org/apache/xerces/util/URI;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v5}, Lmf/org/apache/xerces/util/URI;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/URI;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Lmf/org/apache/xerces/util/URI;->toString()Ljava/lang/String;
     :try_end_0
     .catch Lmf/org/apache/xerces/util/URI$MalformedURIException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v0
+    move-result-object v4
 
-    return-object v0
+    return-object v4
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    return-object v2
+    return-object v6
 .end method
 
 .method protected getEntityRefValue()Ljava/lang/String;
-    .locals 6
+    .locals 7
 
-    const/4 v5, 0x5
+    const/4 v6, 0x5
 
-    const/4 v4, 0x3
+    const/4 v5, 0x3
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->needsSyncChildren()Z
 
-    move-result v0
+    move-result v3
 
-    if-nez v0, :cond_0
+    if-nez v3, :cond_0
 
     :goto_0
-    const-string/jumbo v0, ""
+    const-string/jumbo v2, ""
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    if-nez v0, :cond_1
+    if-nez v3, :cond_1
 
-    const-string/jumbo v0, ""
+    const-string/jumbo v3, ""
 
-    return-object v0
+    return-object v3
 
     :cond_0
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->synchronizeChildren()V
@@ -178,88 +178,88 @@
     goto :goto_0
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeType()S
+    invoke-virtual {v3}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeType()S
 
-    move-result v0
+    move-result v3
 
-    if-eq v0, v5, :cond_2
+    if-eq v3, v6, :cond_2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeType()S
+    invoke-virtual {v3}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeType()S
 
-    move-result v0
+    move-result v3
 
-    if-eq v0, v4, :cond_3
+    if-eq v3, v5, :cond_3
 
-    return-object v3
+    return-object v4
 
     :cond_2
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    check-cast v0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;
+    check-cast v3, Lmf/org/apache/xerces/dom/EntityReferenceImpl;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->getEntityRefValue()Ljava/lang/String;
+    invoke-virtual {v3}, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->getEntityRefValue()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
     :goto_1
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iget-object v1, v1, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v3, v3, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
-    if-eqz v1, :cond_4
+    if-eqz v3, :cond_4
 
-    new-instance v2, Ljava/lang/StringBuffer;
+    new-instance v0, Ljava/lang/StringBuffer;
 
-    invoke-direct {v2, v0}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v2}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iget-object v1, v0, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v1, v3, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
     :goto_2
     if-eqz v1, :cond_7
 
     invoke-virtual {v1}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeType()S
 
-    move-result v0
+    move-result v3
 
-    if-eq v0, v5, :cond_5
+    if-eq v3, v6, :cond_5
 
     invoke-virtual {v1}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeType()S
 
-    move-result v0
+    move-result v3
 
-    if-eq v0, v4, :cond_6
+    if-eq v3, v5, :cond_6
 
-    return-object v3
+    return-object v4
 
     :cond_3
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeValue()Ljava/lang/String;
+    invoke-virtual {v3}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeValue()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
     goto :goto_1
 
     :cond_4
-    return-object v0
+    return-object v2
 
     :cond_5
-    move-object v0, v1
+    move-object v3, v1
 
-    check-cast v0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;
+    check-cast v3, Lmf/org/apache/xerces/dom/EntityReferenceImpl;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->getEntityRefValue()Ljava/lang/String;
+    invoke-virtual {v3}, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->getEntityRefValue()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
     :goto_3
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     iget-object v1, v1, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
@@ -268,16 +268,16 @@
     :cond_6
     invoke-virtual {v1}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeValue()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
     goto :goto_3
 
     :cond_7
-    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    return-object v0
+    return-object v3
 .end method
 
 .method public getNodeName()Ljava/lang/String;
@@ -333,9 +333,9 @@
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->needsSyncData()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     :goto_0
     if-nez p2, :cond_2
@@ -353,9 +353,9 @@
     :cond_2
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->needsSyncChildren()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_3
+    if-nez v1, :cond_3
 
     :goto_1
     iget-object v0, p0, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
@@ -378,63 +378,63 @@
 .end method
 
 .method protected synchronizeChildren()V
-    .locals 5
+    .locals 9
 
-    const/4 v4, 0x0
+    const/4 v8, 0x0
 
-    const/4 v3, 0x1
+    const/4 v7, 0x1
 
-    const/4 v2, 0x0
+    const/4 v6, 0x0
 
-    invoke-virtual {p0, v4}, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->needsSyncChildren(Z)V
+    invoke-virtual {p0, v8}, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->needsSyncChildren(Z)V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->getOwnerDocument()Lmf/org/w3c/dom/Document;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Document;->getDoctype()Lmf/org/w3c/dom/DocumentType;
+    invoke-interface {v5}, Lmf/org/w3c/dom/Document;->getDoctype()Lmf/org/w3c/dom/DocumentType;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    invoke-interface {v0}, Lmf/org/w3c/dom/DocumentType;->getEntities()Lmf/org/w3c/dom/NamedNodeMap;
+    invoke-interface {v1}, Lmf/org/w3c/dom/DocumentType;->getEntities()Lmf/org/w3c/dom/NamedNodeMap;
 
-    move-result-object v0
+    move-result-object v3
 
-    if-eqz v0, :cond_0
+    if-eqz v3, :cond_0
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->getNodeName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v5
 
-    invoke-interface {v0, v1}, Lmf/org/w3c/dom/NamedNodeMap;->getNamedItem(Ljava/lang/String;)Lmf/org/w3c/dom/Node;
+    invoke-interface {v3, v5}, Lmf/org/w3c/dom/NamedNodeMap;->getNamedItem(Ljava/lang/String;)Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Lmf/org/apache/xerces/dom/EntityImpl;
+    check-cast v2, Lmf/org/apache/xerces/dom/EntityImpl;
 
-    if-eqz v0, :cond_2
+    if-eqz v2, :cond_2
 
-    invoke-virtual {p0, v4}, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->isReadOnly(Z)V
+    invoke-virtual {p0, v8}, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->isReadOnly(Z)V
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/EntityImpl;->getFirstChild()Lmf/org/w3c/dom/Node;
+    invoke-virtual {v2}, Lmf/org/apache/xerces/dom/EntityImpl;->getFirstChild()Lmf/org/w3c/dom/Node;
 
     move-result-object v0
 
     :goto_1
     if-eqz v0, :cond_3
 
-    invoke-interface {v0, v3}, Lmf/org/w3c/dom/Node;->cloneNode(Z)Lmf/org/w3c/dom/Node;
+    invoke-interface {v0, v7}, Lmf/org/w3c/dom/Node;->cloneNode(Z)Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-virtual {p0, v4, v6}, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
     invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
@@ -446,7 +446,7 @@
     return-void
 
     :cond_3
-    invoke-virtual {p0, v3, v3}, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->setReadOnly(ZZ)V
+    invoke-virtual {p0, v7, v7}, Lmf/org/apache/xerces/dom/EntityReferenceImpl;->setReadOnly(ZZ)V
 
     goto :goto_0
 .end method

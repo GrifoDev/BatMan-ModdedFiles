@@ -33,11 +33,11 @@
 
 # virtual methods
 .method get(Ljava/lang/String;)Lmf/org/apache/xerces/impl/xs/traversers/OneAttr;
-    .locals 1
+    .locals 2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/LargeContainer;->items:Ljava/util/Hashtable;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/LargeContainer;->items:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 

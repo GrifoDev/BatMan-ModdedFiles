@@ -271,7 +271,7 @@
 
     move-result-object v5
 
-    :cond_0
+    :goto_0
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
@@ -292,12 +292,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_1
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -315,7 +315,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_0
 
     iget-object v6, p0, Lcom/android/server/enterprise/certificate/CertificateCache;->mCache:Ljava/util/Map;
 
@@ -333,7 +333,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_0
+    goto :goto_1
 
     :catchall_0
     move-exception v6
@@ -342,7 +342,7 @@
 
     throw v6
 
-    :cond_1
+    :cond_0
     :try_start_1
     new-instance v3, Ljava/util/HashMap;
 
@@ -357,6 +357,15 @@
     move-result-object v7
 
     invoke-interface {v6, v7, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_1
+
+    :cond_1
+    iget-object v6, p0, Lcom/android/server/enterprise/certificate/CertificateCache;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v7, "CERTIFICATE_TRUSTED_UNTRUSTED"
+
+    invoke-static {v6, v7}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->sendCertificatePolicyCacheUpdateCommand(Landroid/content/Context;Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 

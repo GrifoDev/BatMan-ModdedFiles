@@ -62,23 +62,23 @@
 
     new-array v1, v1, [Ljava/lang/Class;
 
-    const/4 v2, 0x0
+    const-class v2, Lorg/simpleframework/xml/core/Contact;
 
-    const-class v3, Lorg/simpleframework/xml/core/Contact;
+    const/4 v3, 0x0
 
-    aput-object v3, v1, v2
+    aput-object v2, v1, v3
 
-    const/4 v2, 0x1
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ExtractorFactory$ExtractorBuilder;->label:Ljava/lang/Class;
 
-    iget-object v3, p0, Lorg/simpleframework/xml/core/ExtractorFactory$ExtractorBuilder;->label:Ljava/lang/Class;
+    const/4 v3, 0x1
 
-    aput-object v3, v1, v2
+    aput-object v2, v1, v3
 
-    const/4 v2, 0x2
+    const-class v2, Lorg/simpleframework/xml/stream/Format;
 
-    const-class v3, Lorg/simpleframework/xml/stream/Format;
+    const/4 v3, 0x2
 
-    aput-object v3, v1, v2
+    aput-object v2, v1, v3
 
     invoke-virtual {v0, v1}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 

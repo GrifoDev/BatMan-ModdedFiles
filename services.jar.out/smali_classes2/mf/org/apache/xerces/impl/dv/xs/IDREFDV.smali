@@ -30,14 +30,14 @@
 .end method
 
 .method public getActualValue(Ljava/lang/String;Lmf/org/apache/xerces/impl/dv/ValidationContext;)Ljava/lang/Object;
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
         }
     .end annotation
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     invoke-static {p1}, Lmf/org/apache/xerces/util/XMLChar;->isValidNCName(Ljava/lang/String;)Z
 
@@ -50,21 +50,21 @@
     :cond_0
     new-instance v0, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
 
-    const-string/jumbo v1, "cvc-datatype-valid.1.2.1"
+    const/4 v1, 0x2
 
-    const/4 v2, 0x2
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    aput-object p1, v1, v2
 
-    aput-object p1, v2, v3
+    const-string/jumbo v2, "NCName"
 
     const/4 v3, 0x1
 
-    const-string/jumbo v4, "NCName"
+    aput-object v2, v1, v3
 
-    aput-object v4, v2, v3
+    const-string/jumbo v2, "cvc-datatype-valid.1.2.1"
 
-    invoke-direct {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v0, v2, v1}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
     throw v0
 .end method

@@ -49,9 +49,9 @@
 
     invoke-virtual {v2, v1, v0}, Lorg/simpleframework/xml/core/AnnotationFactory;->getInstance(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 .end method
 
 .method private getDependents(Ljava/lang/reflect/Method;)[Ljava/lang/Class;
@@ -78,32 +78,32 @@
 
     if-eq v0, v1, :cond_2
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {p1, v0}, Lorg/simpleframework/xml/core/Reflector;->getParameterDependents(Ljava/lang/reflect/Method;I)[Ljava/lang/Class;
+    invoke-static {p1, v1}, Lorg/simpleframework/xml/core/Reflector;->getParameterDependents(Ljava/lang/reflect/Method;I)[Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_1
     invoke-static {p1}, Lorg/simpleframework/xml/core/Reflector;->getReturnDependents(Ljava/lang/reflect/Method;)[Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_2
     invoke-static {p1}, Lorg/simpleframework/xml/core/Reflector;->getReturnDependents(Ljava/lang/reflect/Method;)[Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method private getMethodType(Ljava/lang/reflect/Method;)Lorg/simpleframework/xml/core/MethodType;
@@ -133,28 +133,28 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_2
+    if-nez v1, :cond_2
 
-    sget-object v0, Lorg/simpleframework/xml/core/MethodType;->NONE:Lorg/simpleframework/xml/core/MethodType;
+    sget-object v1, Lorg/simpleframework/xml/core/MethodType;->NONE:Lorg/simpleframework/xml/core/MethodType;
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    sget-object v0, Lorg/simpleframework/xml/core/MethodType;->GET:Lorg/simpleframework/xml/core/MethodType;
+    sget-object v1, Lorg/simpleframework/xml/core/MethodType;->GET:Lorg/simpleframework/xml/core/MethodType;
 
-    return-object v0
+    return-object v1
 
     :cond_1
-    sget-object v0, Lorg/simpleframework/xml/core/MethodType;->IS:Lorg/simpleframework/xml/core/MethodType;
+    sget-object v1, Lorg/simpleframework/xml/core/MethodType;->IS:Lorg/simpleframework/xml/core/MethodType;
 
-    return-object v0
+    return-object v1
 
     :cond_2
-    sget-object v0, Lorg/simpleframework/xml/core/MethodType;->SET:Lorg/simpleframework/xml/core/MethodType;
+    sget-object v1, Lorg/simpleframework/xml/core/MethodType;->SET:Lorg/simpleframework/xml/core/MethodType;
 
-    return-object v0
+    return-object v1
 .end method
 
 .method private getName(Ljava/lang/reflect/Method;Ljava/lang/annotation/Annotation;)Lorg/simpleframework/xml/core/MethodName;
@@ -181,9 +181,7 @@
 
     if-eq v0, v1, :cond_2
 
-    new-instance v0, Lorg/simpleframework/xml/core/MethodException;
-
-    const-string/jumbo v1, "Annotation %s must mark a set or get method"
+    new-instance v1, Lorg/simpleframework/xml/core/MethodException;
 
     const/4 v2, 0x1
 
@@ -193,34 +191,36 @@
 
     aput-object p2, v2, v3
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/core/MethodException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v3, "Annotation %s must mark a set or get method"
 
-    throw v0
+    invoke-direct {v1, v3, v2}, Lorg/simpleframework/xml/core/MethodException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v1
 
     :cond_0
     invoke-direct {p0, p1, v0}, Lorg/simpleframework/xml/core/MethodPartFactory;->getRead(Ljava/lang/reflect/Method;Lorg/simpleframework/xml/core/MethodType;)Lorg/simpleframework/xml/core/MethodName;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_1
     invoke-direct {p0, p1, v0}, Lorg/simpleframework/xml/core/MethodPartFactory;->getRead(Ljava/lang/reflect/Method;Lorg/simpleframework/xml/core/MethodType;)Lorg/simpleframework/xml/core/MethodName;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_2
     invoke-direct {p0, p1, v0}, Lorg/simpleframework/xml/core/MethodPartFactory;->getWrite(Ljava/lang/reflect/Method;Lorg/simpleframework/xml/core/MethodType;)Lorg/simpleframework/xml/core/MethodName;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method private getParameterType(Ljava/lang/reflect/Method;)Ljava/lang/Class;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -231,39 +231,39 @@
 
     move-result-object v0
 
-    array-length v0, v0
+    array-length v1, v0
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v1, v2, :cond_0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 
     :cond_0
     invoke-virtual {p1}, Ljava/lang/reflect/Method;->getParameterTypes()[Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    aget-object v0, v0, v1
+    aget-object v1, v1, v2
 
-    return-object v0
+    return-object v1
 .end method
 
 .method private getRead(Ljava/lang/reflect/Method;Lorg/simpleframework/xml/core/MethodType;)Lorg/simpleframework/xml/core/MethodName;
-    .locals 4
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v2, 0x1
+    const/4 v4, 0x1
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
     invoke-virtual {p1}, Ljava/lang/reflect/Method;->getParameterTypes()[Ljava/lang/Class;
 
@@ -271,53 +271,53 @@
 
     invoke-virtual {p1}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
 
+    move-result-object v2
+
+    array-length v3, v0
+
+    if-nez v3, :cond_0
+
+    invoke-direct {p0, v2, p2}, Lorg/simpleframework/xml/core/MethodPartFactory;->getTypeName(Ljava/lang/String;Lorg/simpleframework/xml/core/MethodType;)Ljava/lang/String;
+
     move-result-object v1
 
-    array-length v0, v0
+    if-eqz v1, :cond_1
 
-    if-nez v0, :cond_0
+    new-instance v3, Lorg/simpleframework/xml/core/MethodName;
 
-    invoke-direct {p0, v1, p2}, Lorg/simpleframework/xml/core/MethodPartFactory;->getTypeName(Ljava/lang/String;Lorg/simpleframework/xml/core/MethodType;)Ljava/lang/String;
+    invoke-direct {v3, p1, p2, v1}, Lorg/simpleframework/xml/core/MethodName;-><init>(Ljava/lang/reflect/Method;Lorg/simpleframework/xml/core/MethodType;Ljava/lang/String;)V
 
-    move-result-object v0
-
-    if-eqz v0, :cond_1
-
-    new-instance v1, Lorg/simpleframework/xml/core/MethodName;
-
-    invoke-direct {v1, p1, p2, v0}, Lorg/simpleframework/xml/core/MethodName;-><init>(Ljava/lang/reflect/Method;Lorg/simpleframework/xml/core/MethodType;Ljava/lang/String;)V
-
-    return-object v1
+    return-object v3
 
     :cond_0
-    new-instance v0, Lorg/simpleframework/xml/core/MethodException;
+    new-instance v3, Lorg/simpleframework/xml/core/MethodException;
 
-    const-string/jumbo v1, "Get method %s is not a valid property"
+    new-array v4, v4, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    aput-object p1, v4, v5
 
-    aput-object p1, v2, v3
+    const-string/jumbo v5, "Get method %s is not a valid property"
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/core/MethodException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v3, v5, v4}, Lorg/simpleframework/xml/core/MethodException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    throw v0
+    throw v3
 
     :cond_1
-    new-instance v0, Lorg/simpleframework/xml/core/MethodException;
+    new-instance v3, Lorg/simpleframework/xml/core/MethodException;
 
-    const-string/jumbo v1, "Could not get name for %s"
+    new-array v4, v4, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    aput-object p1, v4, v5
 
-    aput-object p1, v2, v3
+    const-string/jumbo v5, "Could not get name for %s"
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/core/MethodException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v3, v5, v4}, Lorg/simpleframework/xml/core/MethodException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    throw v0
+    throw v3
 .end method
 
 .method private getReturnType(Ljava/lang/reflect/Method;)Ljava/lang/Class;
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -328,24 +328,24 @@
 
     move-result-object v0
 
-    array-length v0, v0
+    array-length v1, v0
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 
     :cond_0
     invoke-virtual {p1}, Ljava/lang/reflect/Method;->getReturnType()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method private getTypeName(Ljava/lang/String;Lorg/simpleframework/xml/core/MethodType;)Ljava/lang/String;
-    .locals 2
+    .locals 3
 
     invoke-virtual {p2}, Lorg/simpleframework/xml/core/MethodType;->getPrefix()I
 
@@ -360,9 +360,9 @@
     :goto_0
     invoke-static {p1}, Lorg/simpleframework/xml/core/Reflector;->getName(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 
     :cond_0
     invoke-virtual {p1, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -373,16 +373,16 @@
 .end method
 
 .method private getWrite(Ljava/lang/reflect/Method;Lorg/simpleframework/xml/core/MethodType;)Lorg/simpleframework/xml/core/MethodName;
-    .locals 4
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
-    const/4 v2, 0x1
+    const/4 v4, 0x1
 
     invoke-virtual {p1}, Ljava/lang/reflect/Method;->getParameterTypes()[Ljava/lang/Class;
 
@@ -390,49 +390,49 @@
 
     invoke-virtual {p1}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
 
+    move-result-object v2
+
+    array-length v3, v0
+
+    if-ne v3, v4, :cond_0
+
+    invoke-direct {p0, v2, p2}, Lorg/simpleframework/xml/core/MethodPartFactory;->getTypeName(Ljava/lang/String;Lorg/simpleframework/xml/core/MethodType;)Ljava/lang/String;
+
     move-result-object v1
 
-    array-length v0, v0
+    if-eqz v1, :cond_1
 
-    if-ne v0, v2, :cond_0
+    new-instance v3, Lorg/simpleframework/xml/core/MethodName;
 
-    invoke-direct {p0, v1, p2}, Lorg/simpleframework/xml/core/MethodPartFactory;->getTypeName(Ljava/lang/String;Lorg/simpleframework/xml/core/MethodType;)Ljava/lang/String;
+    invoke-direct {v3, p1, p2, v1}, Lorg/simpleframework/xml/core/MethodName;-><init>(Ljava/lang/reflect/Method;Lorg/simpleframework/xml/core/MethodType;Ljava/lang/String;)V
 
-    move-result-object v0
-
-    if-eqz v0, :cond_1
-
-    new-instance v1, Lorg/simpleframework/xml/core/MethodName;
-
-    invoke-direct {v1, p1, p2, v0}, Lorg/simpleframework/xml/core/MethodName;-><init>(Ljava/lang/reflect/Method;Lorg/simpleframework/xml/core/MethodType;Ljava/lang/String;)V
-
-    return-object v1
+    return-object v3
 
     :cond_0
-    new-instance v0, Lorg/simpleframework/xml/core/MethodException;
+    new-instance v3, Lorg/simpleframework/xml/core/MethodException;
 
-    const-string/jumbo v1, "Set method %s is not a valid property"
+    new-array v4, v4, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    aput-object p1, v4, v5
 
-    aput-object p1, v2, v3
+    const-string/jumbo v5, "Set method %s is not a valid property"
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/core/MethodException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v3, v5, v4}, Lorg/simpleframework/xml/core/MethodException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    throw v0
+    throw v3
 
     :cond_1
-    new-instance v0, Lorg/simpleframework/xml/core/MethodException;
+    new-instance v3, Lorg/simpleframework/xml/core/MethodException;
 
-    const-string/jumbo v1, "Could not get name for %s"
+    new-array v4, v4, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    aput-object p1, v4, v5
 
-    aput-object p1, v2, v3
+    const-string/jumbo v5, "Could not get name for %s"
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/core/MethodException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v3, v5, v4}, Lorg/simpleframework/xml/core/MethodException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    throw v0
+    throw v3
 .end method
 
 
@@ -457,18 +457,18 @@
 
     if-eq v1, v2, :cond_0
 
-    new-instance v1, Lorg/simpleframework/xml/core/GetPart;
+    new-instance v2, Lorg/simpleframework/xml/core/GetPart;
 
-    invoke-direct {v1, v0, p2, p3}, Lorg/simpleframework/xml/core/GetPart;-><init>(Lorg/simpleframework/xml/core/MethodName;Ljava/lang/annotation/Annotation;[Ljava/lang/annotation/Annotation;)V
+    invoke-direct {v2, v0, p2, p3}, Lorg/simpleframework/xml/core/GetPart;-><init>(Lorg/simpleframework/xml/core/MethodName;Ljava/lang/annotation/Annotation;[Ljava/lang/annotation/Annotation;)V
 
-    return-object v1
+    return-object v2
 
     :cond_0
-    new-instance v1, Lorg/simpleframework/xml/core/SetPart;
+    new-instance v2, Lorg/simpleframework/xml/core/SetPart;
 
-    invoke-direct {v1, v0, p2, p3}, Lorg/simpleframework/xml/core/SetPart;-><init>(Lorg/simpleframework/xml/core/MethodName;Ljava/lang/annotation/Annotation;[Ljava/lang/annotation/Annotation;)V
+    invoke-direct {v2, v0, p2, p3}, Lorg/simpleframework/xml/core/SetPart;-><init>(Lorg/simpleframework/xml/core/MethodName;Ljava/lang/annotation/Annotation;[Ljava/lang/annotation/Annotation;)V
 
-    return-object v1
+    return-object v2
 .end method
 
 .method public getInstance(Ljava/lang/reflect/Method;[Ljava/lang/annotation/Annotation;)Lorg/simpleframework/xml/core/MethodPart;
@@ -492,9 +492,9 @@
     :cond_0
     invoke-virtual {p0, p1, v0, p2}, Lorg/simpleframework/xml/core/MethodPartFactory;->getInstance(Ljava/lang/reflect/Method;Ljava/lang/annotation/Annotation;[Ljava/lang/annotation/Annotation;)Lorg/simpleframework/xml/core/MethodPart;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public getType(Ljava/lang/reflect/Method;)Ljava/lang/Class;
@@ -521,28 +521,28 @@
 
     if-eq v0, v1, :cond_2
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 
     :cond_0
     invoke-direct {p0, p1}, Lorg/simpleframework/xml/core/MethodPartFactory;->getParameterType(Ljava/lang/reflect/Method;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_1
     invoke-direct {p0, p1}, Lorg/simpleframework/xml/core/MethodPartFactory;->getReturnType(Ljava/lang/reflect/Method;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_2
     invoke-direct {p0, p1}, Lorg/simpleframework/xml/core/MethodPartFactory;->getReturnType(Ljava/lang/reflect/Method;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method

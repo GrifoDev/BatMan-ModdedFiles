@@ -51,27 +51,14 @@
 
     check-cast v0, Ljava/lang/String;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1
 
-    invoke-static {}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;->-get0()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    const-string/jumbo v1, "NetworkAnalytics:NetworkAnalyticsDataDelivery"
-
-    const-string/jumbo v2, "handleMessage: ACTION_ACCUMULATE_DATA: Datapoint received NULL"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
     return-void
 
-    :cond_2
+    :cond_1
     iget-object v1, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery$DataDeliveryHandler;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;
 
-    invoke-static {v1}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;->-get1(Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;)Ljava/util/List;
+    invoke-static {v1}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;->-get0(Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;)Ljava/util/List;
 
     move-result-object v1
 
@@ -79,7 +66,7 @@
 
     iget-object v1, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery$DataDeliveryHandler;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;
 
-    invoke-static {v1}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;->-get1(Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;)Ljava/util/List;
+    invoke-static {v1}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;->-get0(Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;)Ljava/util/List;
 
     move-result-object v1
 
@@ -89,7 +76,7 @@
 
     const/16 v2, 0x32
 
-    if-ge v1, v2, :cond_3
+    if-ge v1, v2, :cond_2
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -97,7 +84,7 @@
 
     iget-object v1, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery$DataDeliveryHandler;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;
 
-    invoke-static {v1}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;->-get2(Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;)J
+    invoke-static {v1}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;->-get1(Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;)J
 
     move-result-wide v4
 
@@ -107,14 +94,14 @@
 
     cmp-long v1, v2, v4
 
-    if-lez v1, :cond_4
+    if-lez v1, :cond_0
 
-    :cond_3
+    :cond_2
     iget-object v1, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery$DataDeliveryHandler;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;
 
     iget-object v2, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery$DataDeliveryHandler;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;
 
-    invoke-static {v2}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;->-get1(Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;)Ljava/util/List;
+    invoke-static {v2}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;->-get0(Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;)Ljava/util/List;
 
     move-result-object v2
 
@@ -122,7 +109,7 @@
 
     iget-object v1, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery$DataDeliveryHandler;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;
 
-    invoke-static {v1}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;->-get1(Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;)Ljava/util/List;
+    invoke-static {v1}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;->-get0(Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;)Ljava/util/List;
 
     move-result-object v1
 
@@ -135,37 +122,6 @@
     move-result-wide v2
 
     invoke-static {v1, v2, v3}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;->-set0(Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;J)J
-
-    goto :goto_0
-
-    :cond_4
-    invoke-static {}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;->-get0()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const-string/jumbo v1, "NetworkAnalytics:NetworkAnalyticsDataDelivery"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "handleMessage: ACTION_ACCUMULATE_DATA: Accumulated data point : "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 

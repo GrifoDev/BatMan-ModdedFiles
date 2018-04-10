@@ -16,20 +16,20 @@
 
 
 # static fields
+.field private static final MAX_ATTEMPTS:I = 0x3
+
 .field private static final MAX_TRIES:I = 0x5
 
 .field private static TAG:Ljava/lang/String;
-
-.field private static mAreRulesReloaded:Z
 
 .field protected static mHasIpv6FilterSupport:Z
 
 .field protected static mHasIpv6NatSupport:Z
 
-.field private static mIsDatabaseReady:Z
-
 
 # instance fields
+.field private mAreRulesReloaded:Z
+
 .field private mBootReceiver:Landroid/content/BroadcastReceiver;
 
 .field private mContext:Landroid/content/Context;
@@ -46,19 +46,29 @@
 
 .field private mFirewallRulesApplier:Lcom/android/server/enterprise/firewall/FirewallRulesApplier;
 
-.field protected mIsChainsCreated:Z
+.field private final mInitializingIpTablesRulesLock:Ljava/lang/Object;
+
+.field private mIsChainsCreated:Z
 
 
 # direct methods
-.method static synthetic -get0()Z
+.method static synthetic -get0()Ljava/lang/String;
     .locals 1
 
-    sget-boolean v0, Lcom/android/server/enterprise/firewall/Firewall;->mAreRulesReloaded:Z
+    sget-object v0, Lcom/android/server/enterprise/firewall/Firewall;->TAG:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1(Lcom/android/server/enterprise/firewall/Firewall;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/enterprise/firewall/Firewall;->mAreRulesReloaded:Z
 
     return v0
 .end method
 
-.method static synthetic -get1(Lcom/android/server/enterprise/firewall/Firewall;)Lcom/android/server/enterprise/firewall/FirewallRulesApplier;
+.method static synthetic -get2(Lcom/android/server/enterprise/firewall/Firewall;)Lcom/android/server/enterprise/firewall/FirewallRulesApplier;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/enterprise/firewall/Firewall;->mFirewallRulesApplier:Lcom/android/server/enterprise/firewall/FirewallRulesApplier;
@@ -66,28 +76,28 @@
     return-object v0
 .end method
 
-.method static synthetic -get2()Z
+.method static synthetic -get3(Lcom/android/server/enterprise/firewall/Firewall;)Ljava/lang/Object;
     .locals 1
 
-    sget-boolean v0, Lcom/android/server/enterprise/firewall/Firewall;->mIsDatabaseReady:Z
+    iget-object v0, p0, Lcom/android/server/enterprise/firewall/Firewall;->mInitializingIpTablesRulesLock:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
+.method static synthetic -get4(Lcom/android/server/enterprise/firewall/Firewall;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/enterprise/firewall/Firewall;->mIsChainsCreated:Z
 
     return v0
 .end method
 
-.method static synthetic -set0(Z)Z
+.method static synthetic -set0(Lcom/android/server/enterprise/firewall/Firewall;Z)Z
     .locals 0
 
-    sput-boolean p0, Lcom/android/server/enterprise/firewall/Firewall;->mAreRulesReloaded:Z
+    iput-boolean p1, p0, Lcom/android/server/enterprise/firewall/Firewall;->mAreRulesReloaded:Z
 
-    return p0
-.end method
-
-.method static synthetic -set1(Z)Z
-    .locals 0
-
-    sput-boolean p0, Lcom/android/server/enterprise/firewall/Firewall;->mIsDatabaseReady:Z
-
-    return p0
+    return p1
 .end method
 
 .method static synthetic -wrap0(Lcom/android/server/enterprise/firewall/Firewall;ZI)V
@@ -117,7 +127,7 @@
 .method static synthetic -wrap3(Lcom/android/server/enterprise/firewall/Firewall;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/server/enterprise/firewall/Firewall;->reloadIptablesRules()V
+    invoke-direct {p0}, Lcom/android/server/enterprise/firewall/Firewall;->initializeIpTables()V
 
     return-void
 .end method
@@ -139,15 +149,21 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 4
-
-    const/4 v3, 0x1
-
-    invoke-direct {p0}, Lcom/samsung/android/knox/net/firewall/IFirewall$Stub;-><init>()V
+    .locals 3
 
     const/4 v1, 0x0
 
+    invoke-direct {p0}, Lcom/samsung/android/knox/net/firewall/IFirewall$Stub;-><init>()V
+
     iput-boolean v1, p0, Lcom/android/server/enterprise/firewall/Firewall;->mIsChainsCreated:Z
+
+    iput-boolean v1, p0, Lcom/android/server/enterprise/firewall/Firewall;->mAreRulesReloaded:Z
+
+    new-instance v1, Ljava/lang/Object;
+
+    invoke-direct {v1}, Ljava/lang/Object;-><init>()V
+
+    iput-object v1, p0, Lcom/android/server/enterprise/firewall/Firewall;->mInitializingIpTablesRulesLock:Ljava/lang/Object;
 
     new-instance v1, Lcom/android/server/enterprise/firewall/Firewall$1;
 
@@ -181,10 +197,6 @@
 
     iput-object v1, p0, Lcom/android/server/enterprise/firewall/Firewall;->mEnterpriseDumpHelper:Lcom/android/server/enterprise/utils/EnterpriseDumpHelper;
 
-    sput-boolean v3, Lcom/android/server/enterprise/firewall/Firewall;->mIsDatabaseReady:Z
-
-    sput-boolean v3, Lcom/android/server/enterprise/firewall/Firewall;->mAreRulesReloaded:Z
-
     iget-object v1, p0, Lcom/android/server/enterprise/firewall/Firewall;->mFirewallRulesApplier:Lcom/android/server/enterprise/firewall/FirewallRulesApplier;
 
     const-string/jumbo v2, "filter"
@@ -213,15 +225,7 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    invoke-direct {p0}, Lcom/android/server/enterprise/firewall/Firewall;->createChains()V
-
-    iget-object v1, p0, Lcom/android/server/enterprise/firewall/Firewall;->mFirewallRulesApplier:Lcom/android/server/enterprise/firewall/FirewallRulesApplier;
-
-    invoke-virtual {v1}, Lcom/android/server/enterprise/firewall/FirewallRulesApplier;->flushAllChains()Z
-
-    const/4 v1, -0x1
-
-    invoke-direct {p0, v3, v1}, Lcom/android/server/enterprise/firewall/Firewall;->blockOrUnblockAll(ZI)V
+    invoke-direct {p0}, Lcom/android/server/enterprise/firewall/Firewall;->initializeIpTables()V
 
     return-void
 .end method
@@ -396,9 +400,28 @@
     :cond_2
     sget-boolean v14, Lcom/android/server/enterprise/firewall/Firewall;->mHasIpv6FilterSupport:Z
 
-    if-eqz v14, :cond_6
+    xor-int/lit8 v14, v14, 0x1
+
+    if-eqz v14, :cond_3
+
+    new-instance v14, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
+
+    sget-object v15, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->FAILED:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
+
+    sget-object v16, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->IPV6_NOT_SUPPORTED_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
+
+    const-string/jumbo v17, "This device does not have IPv6 support for this type of rule."
+
+    invoke-direct/range {v14 .. v17}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+
+    monitor-exit p0
+
+    return-object v14
 
     :cond_3
+    :try_start_6
     sget-object v14, Lcom/samsung/android/knox/net/firewall/FirewallRule$RuleType;->REDIRECT:Lcom/samsung/android/knox/net/firewall/FirewallRule$RuleType;
 
     invoke-virtual {v14, v11}, Lcom/samsung/android/knox/net/firewall/FirewallRule$RuleType;->equals(Ljava/lang/Object;)Z
@@ -418,45 +441,10 @@
     :cond_4
     sget-boolean v14, Lcom/android/server/enterprise/firewall/Firewall;->mHasIpv6NatSupport:Z
 
-    if-eqz v14, :cond_7
+    xor-int/lit8 v14, v14, 0x1
 
-    :cond_5
-    invoke-virtual/range {p2 .. p2}, Lcom/samsung/android/knox/net/firewall/FirewallRule;->getApplication()Lcom/samsung/android/knox/AppIdentity;
+    if-eqz v14, :cond_5
 
-    move-result-object v14
-
-    invoke-virtual {v14}, Lcom/samsung/android/knox/AppIdentity;->getPackageName()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v12}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v15
-
-    invoke-static {v14, v15}, Lcom/android/server/enterprise/firewall/FirewallUtils;->verifyPackageName(Ljava/lang/String;I)Z
-
-    move-result v14
-
-    if-nez v14, :cond_8
-
-    new-instance v14, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
-
-    sget-object v15, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->FAILED:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
-
-    sget-object v16, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->INVALID_PARAMETER_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
-
-    const-string/jumbo v17, "The specified package name is not installed."
-
-    invoke-direct/range {v14 .. v17}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
-
-    monitor-exit p0
-
-    return-object v14
-
-    :cond_6
-    :try_start_6
     new-instance v14, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
 
     sget-object v15, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->FAILED:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
@@ -473,15 +461,33 @@
 
     return-object v14
 
-    :cond_7
+    :cond_5
     :try_start_7
+    invoke-virtual/range {p2 .. p2}, Lcom/samsung/android/knox/net/firewall/FirewallRule;->getApplication()Lcom/samsung/android/knox/AppIdentity;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Lcom/samsung/android/knox/AppIdentity;->getPackageName()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-static {v12}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v15
+
+    invoke-static {v14, v15}, Lcom/android/server/enterprise/firewall/FirewallUtils;->verifyPackageName(Ljava/lang/String;I)Z
+
+    move-result v14
+
+    if-nez v14, :cond_6
+
     new-instance v14, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
 
     sget-object v15, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->FAILED:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
 
-    sget-object v16, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->IPV6_NOT_SUPPORTED_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
+    sget-object v16, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->INVALID_PARAMETER_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
 
-    const-string/jumbo v17, "This device does not have IPv6 support for this type of rule."
+    const-string/jumbo v17, "The specified package name is not installed."
 
     invoke-direct/range {v14 .. v17}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
     :try_end_7
@@ -491,7 +497,7 @@
 
     return-object v14
 
-    :cond_8
+    :cond_6
     :try_start_8
     move-object/from16 v0, p0
 
@@ -503,7 +509,7 @@
 
     move-result v14
 
-    if-eqz v14, :cond_9
+    if-eqz v14, :cond_7
 
     new-instance v14, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
 
@@ -521,13 +527,13 @@
 
     return-object v14
 
-    :cond_9
+    :cond_7
     :try_start_9
     invoke-virtual/range {p0 .. p1}, Lcom/android/server/enterprise/firewall/Firewall;->isFirewallEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
 
     move-result v14
 
-    if-eqz v14, :cond_a
+    if-eqz v14, :cond_8
 
     sget-object v14, Lcom/samsung/android/knox/net/firewall/FirewallRule$Status;->PENDING:Lcom/samsung/android/knox/net/firewall/FirewallRule$Status;
 
@@ -535,7 +541,7 @@
 
     invoke-virtual {v0, v14}, Lcom/samsung/android/knox/net/firewall/FirewallRule;->setStatus(Lcom/samsung/android/knox/net/firewall/FirewallRule$Status;)V
 
-    :cond_a
+    :cond_8
     move-object/from16 v0, p2
 
     invoke-static {v0, v12}, Lcom/android/server/enterprise/firewall/FirewallUtils;->getContentValuesFromRule(Lcom/samsung/android/knox/net/firewall/FirewallRule;I)Landroid/content/ContentValues;
@@ -556,7 +562,7 @@
 
     cmp-long v14, v8, v14
 
-    if-nez v14, :cond_b
+    if-nez v14, :cond_9
 
     new-instance v14, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
 
@@ -574,7 +580,7 @@
 
     return-object v14
 
-    :cond_b
+    :cond_9
     long-to-int v14, v8
 
     :try_start_a
@@ -1197,10 +1203,12 @@
     throw v5
 .end method
 
-.method private declared-synchronized createChains()V
-    .locals 7
+.method private createChains()V
+    .locals 8
 
-    monitor-enter p0
+    iget-object v5, p0, Lcom/android/server/enterprise/firewall/Firewall;->mInitializingIpTablesRulesLock:Ljava/lang/Object;
+
+    monitor-enter v5
 
     :try_start_0
     iget-boolean v4, p0, Lcom/android/server/enterprise/firewall/Firewall;->mIsChainsCreated:Z
@@ -1210,9 +1218,11 @@
     if-nez v4, :cond_0
 
     :try_start_1
-    invoke-static {}, Lcom/android/server/enterprise/firewall/FirewallRulesApplier;->createIptablesChains()V
+    iget-object v4, p0, Lcom/android/server/enterprise/firewall/Firewall;->mFirewallRulesApplier:Lcom/android/server/enterprise/firewall/FirewallRulesApplier;
 
-    const/4 v4, 0x1
+    invoke-virtual {v4}, Lcom/android/server/enterprise/firewall/FirewallRulesApplier;->createIptablesChains()Z
+
+    move-result v4
 
     iput-boolean v4, p0, Lcom/android/server/enterprise/firewall/Firewall;->mIsChainsCreated:Z
     :try_end_1
@@ -1224,7 +1234,7 @@
 
     :cond_0
     :goto_0
-    monitor-exit p0
+    monitor-exit v5
 
     return-void
 
@@ -1234,29 +1244,29 @@
     :try_start_2
     sget-object v4, Lcom/android/server/enterprise/firewall/Firewall;->TAG:Ljava/lang/String;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "createIptablesChains(): IllegalArgumentException was thrown."
+    const-string/jumbo v7, "createIptablesChains(): IllegalArgumentException was thrown."
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v1}, Ljava/lang/IllegalArgumentException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v6
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/IllegalArgumentException;->getMessage()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v4, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -1265,7 +1275,7 @@
     :catchall_0
     move-exception v4
 
-    monitor-exit p0
+    monitor-exit v5
 
     throw v4
 
@@ -1275,29 +1285,29 @@
     :try_start_3
     sget-object v4, Lcom/android/server/enterprise/firewall/Firewall;->TAG:Ljava/lang/String;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "createIptablesChains(): NullPointerException was thrown."
+    const-string/jumbo v7, "createIptablesChains(): NullPointerException was thrown."
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v2}, Ljava/lang/NullPointerException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v6
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2}, Ljava/lang/NullPointerException;->getMessage()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v4, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
@@ -1306,29 +1316,29 @@
 
     sget-object v4, Lcom/android/server/enterprise/firewall/Firewall;->TAG:Ljava/lang/String;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "createIptablesChains(): IOException was thrown."
+    const-string/jumbo v7, "createIptablesChains(): IOException was thrown."
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v0}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v6
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v4, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
@@ -1337,29 +1347,29 @@
 
     sget-object v4, Lcom/android/server/enterprise/firewall/Firewall;->TAG:Ljava/lang/String;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "createIptablesChains(): SecurityException was thrown."
+    const-string/jumbo v7, "createIptablesChains(): SecurityException was thrown."
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v3}, Ljava/lang/SecurityException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v6
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3}, Ljava/lang/SecurityException;->getMessage()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v4, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -2499,28 +2509,20 @@
     goto :goto_1
 .end method
 
-.method private declared-synchronized reloadIptablesRules()V
-    .locals 1
+.method private initializeIpTables()V
+    .locals 2
 
-    monitor-enter p0
+    new-instance v0, Ljava/lang/Thread;
 
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/enterprise/firewall/Firewall;->mFirewallRulesApplier:Lcom/android/server/enterprise/firewall/FirewallRulesApplier;
+    new-instance v1, Lcom/android/server/enterprise/firewall/Firewall$2;
 
-    invoke-virtual {v0}, Lcom/android/server/enterprise/firewall/FirewallRulesApplier;->reloadIptablesRules()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-direct {v1, p0}, Lcom/android/server/enterprise/firewall/Firewall$2;-><init>(Lcom/android/server/enterprise/firewall/Firewall;)V
 
-    monitor-exit p0
+    invoke-direct {v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
+
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
     return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
 .method private declared-synchronized removeRule(Lcom/samsung/android/knox/ContextInfo;Lcom/samsung/android/knox/net/firewall/FirewallRule;)Lcom/samsung/android/knox/net/firewall/FirewallResponse;
@@ -3100,6 +3102,8 @@
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/firewall/Firewall;->enforceFirewallPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
+
+    const/4 v2, 0x0
 
     invoke-static {}, Lcom/samsung/android/knox/net/firewall/FirewallRule$RuleType;->values()[Lcom/samsung/android/knox/net/firewall/FirewallRule$RuleType;
 
@@ -3755,9 +3759,7 @@
 .end method
 
 .method public isFirewallEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
-    .locals 8
-
-    const/4 v4, 0x0
+    .locals 7
 
     new-instance v2, Landroid/content/ContentValues;
 
@@ -3771,29 +3773,29 @@
 
     move-result v3
 
-    const-string/jumbo v5, "adminUid"
+    const-string/jumbo v4, "adminUid"
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v2, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    invoke-virtual {v2, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    const-string/jumbo v5, "userID"
+    const-string/jumbo v4, "userID"
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v2, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    invoke-virtual {v2, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    iget-object v5, p0, Lcom/android/server/enterprise/firewall/Firewall;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v4, p0, Lcom/android/server/enterprise/firewall/Firewall;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v6, "FirewallStatus"
+    const-string/jumbo v5, "FirewallStatus"
 
-    sget-object v7, Lcom/android/server/enterprise/storage/EdmStorageDefs;->FIREWALL_POLICY_STATUS_COLUMNS:[Ljava/lang/String;
+    sget-object v6, Lcom/android/server/enterprise/storage/EdmStorageDefs;->FIREWALL_POLICY_STATUS_COLUMNS:[Ljava/lang/String;
 
-    invoke-virtual {v5, v6, v7, v2}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getValues(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;)Ljava/util/List;
+    invoke-virtual {v4, v5, v6, v2}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getValues(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;)Ljava/util/List;
 
     move-result-object v1
 
@@ -3801,16 +3803,15 @@
 
     invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_1
+    xor-int/lit8 v4, v4, 0x1
 
-    :cond_0
     :goto_0
     return v4
 
-    :cond_1
-    const/4 v4, 0x1
+    :cond_0
+    const/4 v4, 0x0
 
     goto :goto_0
 .end method
@@ -3994,7 +3995,7 @@
     :goto_0
     array-length v4, p2
 
-    if-ge v1, v4, :cond_5
+    if-ge v1, v4, :cond_4
 
     aget-object v4, v0, v1
 
@@ -4027,7 +4028,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
     invoke-virtual {v2}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;->getResult()Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
 
@@ -4039,17 +4040,10 @@
 
     move-result v4
 
+    xor-int/lit8 v4, v4, 0x1
+
     if-eqz v4, :cond_3
 
-    :cond_2
-    aput-object v2, v3, v1
-
-    :goto_1
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_3
     new-instance v5, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
 
     sget-object v6, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->FAILED:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
@@ -4064,11 +4058,11 @@
 
     aget-object v4, v0, v1
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_2
 
     const-string/jumbo v4, ""
 
-    :goto_2
+    :goto_1
     invoke-virtual {v8, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
@@ -4088,20 +4082,13 @@
     invoke-direct {v5, v6, v7, v4}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
 
     aput-object v5, v3, v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1
+    :goto_2
+    add-int/lit8 v1, v1, 0x1
 
-    :catchall_0
-    move-exception v4
+    goto :goto_0
 
-    monitor-exit p0
-
-    throw v4
-
-    :cond_4
-    :try_start_2
+    :cond_2
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -4123,14 +4110,26 @@
     move-result-object v4
 
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     move-result-object v4
 
+    goto :goto_1
+
+    :cond_3
+    aput-object v2, v3, v1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
     goto :goto_2
 
-    :cond_5
+    :catchall_0
+    move-exception v4
+
+    monitor-exit p0
+
+    throw v4
+
+    :cond_4
     monitor-exit p0
 
     return-object v3

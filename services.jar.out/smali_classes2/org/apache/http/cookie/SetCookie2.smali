@@ -6,17 +6,18 @@
 .implements Lorg/apache/http/cookie/SetCookie;
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract setCommentURL(Ljava/lang/String;)V
+    .annotation build Lorg/apache/http/annotation/Obsolete;
+    .end annotation
 .end method
 
 .method public abstract setDiscard(Z)V
+    .annotation build Lorg/apache/http/annotation/Obsolete;
+    .end annotation
 .end method
 
 .method public abstract setPorts([I)V
+    .annotation build Lorg/apache/http/annotation/Obsolete;
+    .end annotation
 .end method

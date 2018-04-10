@@ -428,221 +428,221 @@
 .end method
 
 .method private appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
-    .locals 7
+    .locals 8
 
-    const/16 v6, 0x29
+    const/16 v7, 0x29
 
-    const/16 v4, 0x28
+    const/16 v6, 0x28
 
-    const/4 v2, 0x1
+    const/4 v5, 0x1
 
-    const/4 v1, 0x0
+    const/4 v4, 0x0
 
-    iget-short v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v3, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    and-int/lit8 v3, v0, 0xf
+    and-int/lit8 v1, v3, 0xf
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v1, :pswitch_data_0
 
-    const-string/jumbo v0, "???"
+    const-string/jumbo v3, "???"
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     :cond_0
     :goto_0
     return-void
 
     :pswitch_0
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v3, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    if-eqz v0, :cond_3
+    if-eqz v3, :cond_3
 
     :cond_1
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v3, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    if-eqz v0, :cond_4
+    if-eqz v3, :cond_4
 
     :cond_2
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v3, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    if-eqz v0, :cond_5
+    if-eqz v3, :cond_5
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v3, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
     goto :goto_0
 
     :cond_3
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v3, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    if-nez v0, :cond_1
+    if-nez v3, :cond_1
 
-    const-string/jumbo v0, "#PCDATA"
+    const-string/jumbo v3, "#PCDATA"
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_0
 
     :cond_4
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v3, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    if-eqz v0, :cond_2
+    if-eqz v3, :cond_2
 
-    const-string/jumbo v0, "##any:uri="
+    const-string/jumbo v3, "##any:uri="
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v3
 
-    iget-object v1, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v4, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
     goto :goto_0
 
     :cond_5
-    const-string/jumbo v0, "##any"
+    const-string/jumbo v3, "##any"
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_0
 
     :pswitch_1
-    const/4 v0, 0x3
+    const/4 v3, 0x3
 
-    if-ne p4, v0, :cond_7
+    if-ne p4, v3, :cond_7
 
     :cond_6
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v3, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    check-cast v0, [I
+    check-cast v3, [I
 
-    aget v0, v0, v1
+    aget v3, v3, v4
 
-    invoke-virtual {p0, v0, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
-
-    invoke-virtual {p2, v4}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
-
-    invoke-direct {p0, p1, p2, v2, v3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
+    invoke-virtual {p0, v3, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
 
     invoke-virtual {p2, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    :goto_1
-    const/16 v0, 0x3f
+    invoke-direct {p0, p1, p2, v5, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {p2, v7}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+
+    :goto_1
+    const/16 v3, 0x3f
+
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto :goto_0
 
     :cond_7
-    const/4 v0, 0x2
+    const/4 v3, 0x2
 
-    if-eq p4, v0, :cond_6
+    if-eq p4, v3, :cond_6
 
-    if-eq p4, v2, :cond_6
+    if-eq p4, v5, :cond_6
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v3, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    check-cast v0, [I
+    check-cast v3, [I
 
-    aget v0, v0, v1
+    aget v3, v3, v4
 
-    invoke-virtual {p0, v0, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
+    invoke-virtual {p0, v3, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
 
-    invoke-direct {p0, p1, p2, v2, v3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
+    invoke-direct {p0, p1, p2, v5, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
 
     goto :goto_1
 
     :pswitch_2
-    const/4 v0, 0x3
+    const/4 v3, 0x3
 
-    if-ne p4, v0, :cond_9
+    if-ne p4, v3, :cond_9
 
     :cond_8
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v3, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    check-cast v0, [I
+    check-cast v3, [I
 
-    aget v0, v0, v1
+    aget v3, v3, v4
 
-    invoke-virtual {p0, v0, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
-
-    invoke-virtual {p2, v4}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
-
-    invoke-direct {p0, p1, p2, v2, v3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
+    invoke-virtual {p0, v3, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
 
     invoke-virtual {p2, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    :goto_2
-    const/16 v0, 0x2a
+    invoke-direct {p0, p1, p2, v5, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {p2, v7}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+
+    :goto_2
+    const/16 v3, 0x2a
+
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto :goto_0
 
     :cond_9
-    const/4 v0, 0x2
+    const/4 v3, 0x2
 
-    if-eq p4, v0, :cond_8
+    if-eq p4, v3, :cond_8
 
-    if-eq p4, v2, :cond_8
+    if-eq p4, v5, :cond_8
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v3, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    check-cast v0, [I
+    check-cast v3, [I
 
-    aget v0, v0, v1
+    aget v3, v3, v4
 
-    invoke-virtual {p0, v0, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
+    invoke-virtual {p0, v3, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
 
-    invoke-direct {p0, p1, p2, v2, v3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
+    invoke-direct {p0, p1, p2, v5, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
 
     goto :goto_2
 
     :pswitch_3
-    const/4 v0, 0x3
+    const/4 v3, 0x3
 
-    if-ne p4, v0, :cond_b
+    if-ne p4, v3, :cond_b
 
     :cond_a
-    invoke-virtual {p2, v4}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
-
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
-
-    check-cast v0, [I
-
-    aget v0, v0, v1
-
-    invoke-virtual {p0, v0, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
-
-    invoke-direct {p0, p1, p2, v2, v3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
-
     invoke-virtual {p2, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    :goto_3
-    const/16 v0, 0x2b
+    iget-object v3, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    check-cast v3, [I
+
+    aget v3, v3, v4
+
+    invoke-virtual {p0, v3, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
+
+    invoke-direct {p0, p1, p2, v5, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
+
+    invoke-virtual {p2, v7}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+
+    :goto_3
+    const/16 v3, 0x2b
+
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto/16 :goto_0
 
     :cond_b
-    const/4 v0, 0x2
+    const/4 v3, 0x2
 
-    if-eq p4, v0, :cond_a
+    if-eq p4, v3, :cond_a
 
-    if-eq p4, v2, :cond_a
+    if-eq p4, v5, :cond_a
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v3, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    check-cast v0, [I
+    check-cast v3, [I
 
-    aget v0, v0, v1
+    aget v3, v3, v4
 
-    invoke-virtual {p0, v0, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
+    invoke-virtual {p0, v3, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
 
-    invoke-direct {p0, p1, p2, v2, v3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
+    invoke-direct {p0, p1, p2, v5, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
 
     goto :goto_3
 
@@ -650,101 +650,101 @@
     if-nez p3, :cond_c
 
     :goto_4
-    iget-short v4, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v2, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v3, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    check-cast v0, [I
+    check-cast v3, [I
 
-    aget v5, v0, v1
+    aget v0, v3, v4
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v3, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    check-cast v0, [I
+    check-cast v3, [I
 
-    aget v0, v0, v1
+    aget v3, v3, v4
 
-    invoke-virtual {p0, v0, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
+    invoke-virtual {p0, v3, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
 
-    iget-short v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v3, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    if-ne v0, v4, :cond_d
+    if-ne v3, v2, :cond_d
 
-    move v0, v1
+    move v3, v4
 
     :goto_5
-    invoke-direct {p0, p1, p2, v0, v3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
+    invoke-direct {p0, p1, p2, v3, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
 
-    const/4 v0, 0x4
+    const/4 v3, 0x4
 
-    if-eq v4, v0, :cond_e
+    if-eq v2, v3, :cond_e
 
-    const/16 v0, 0x2c
+    const/16 v3, 0x2c
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     :goto_6
-    invoke-virtual {p0, v5, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
+    invoke-virtual {p0, v0, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
 
-    invoke-direct {p0, p1, p2, v2, v3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
+    invoke-direct {p0, p1, p2, v5, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
 
     if-eqz p3, :cond_0
 
-    invoke-virtual {p2, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {p2, v7}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto/16 :goto_0
 
     :cond_c
-    invoke-virtual {p2, v4}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {p2, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto :goto_4
 
     :cond_d
-    move v0, v2
+    move v3, v5
 
     goto :goto_5
 
     :cond_e
-    const/16 v0, 0x7c
+    const/16 v3, 0x7c
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto :goto_6
 
     :pswitch_5
-    const-string/jumbo v0, "##any"
+    const-string/jumbo v3, "##any"
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v3, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    if-eqz v3, :cond_0
 
-    const-string/jumbo v0, ":uri="
+    const-string/jumbo v3, ":uri="
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v3, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
     goto/16 :goto_0
 
     :pswitch_6
-    const-string/jumbo v0, "##other:uri="
+    const-string/jumbo v3, "##other:uri="
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v3, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
     goto/16 :goto_0
 
     :pswitch_7
-    const-string/jumbo v0, "##local"
+    const-string/jumbo v3, "##local"
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto/16 :goto_0
 
@@ -765,762 +765,760 @@
 .end method
 
 .method private final buildSyntaxTree(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Lmf/org/apache/xerces/impl/dtd/models/CMNode;
-    .locals 6
+    .locals 8
 
-    const/4 v5, 0x2
+    const/4 v6, 0x2
 
-    const/4 v4, 0x0
+    const/4 v7, 0x0
 
-    const/4 v2, 0x0
+    const/4 v5, 0x0
+
+    const/4 v1, 0x0
 
     invoke-virtual {p0, p1, p2}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
 
-    iget-short v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v3, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    and-int/lit8 v0, v0, 0xf
+    and-int/lit8 v3, v3, 0xf
 
-    const/4 v1, 0x6
+    const/4 v4, 0x6
 
-    if-eq v0, v1, :cond_1
-
-    iget-short v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
-
-    and-int/lit8 v0, v0, 0xf
-
-    const/4 v1, 0x7
-
-    if-eq v0, v1, :cond_2
-
-    iget-short v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
-
-    and-int/lit8 v0, v0, 0xf
-
-    const/16 v1, 0x8
-
-    if-eq v0, v1, :cond_3
-
-    iget-short v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
-
-    if-eqz v0, :cond_4
-
-    iget-object v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
-
-    check-cast v0, [I
-
-    aget v1, v0, v2
-
-    iget-object v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
-
-    check-cast v0, [I
-
-    aget v2, v0, v2
-
-    iget-short v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
-
-    const/4 v3, 0x4
-
-    if-ne v0, v3, :cond_5
-
-    :cond_0
-    new-instance v0, Lmf/org/apache/xerces/impl/dtd/models/CMBinOp;
+    if-eq v3, v4, :cond_1
 
     iget-short v3, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    invoke-direct {p0, v1, p2}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->buildSyntaxTree(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Lmf/org/apache/xerces/impl/dtd/models/CMNode;
+    and-int/lit8 v3, v3, 0xf
 
-    move-result-object v1
+    const/4 v4, 0x7
+
+    if-eq v3, v4, :cond_2
+
+    iget-short v3, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+
+    and-int/lit8 v3, v3, 0xf
+
+    const/16 v4, 0x8
+
+    if-eq v3, v4, :cond_3
+
+    iget-short v3, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+
+    if-eqz v3, :cond_4
+
+    iget-object v3, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+
+    check-cast v3, [I
+
+    aget v0, v3, v5
+
+    iget-object v3, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+
+    check-cast v3, [I
+
+    aget v2, v3, v5
+
+    iget-short v3, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+
+    const/4 v4, 0x4
+
+    if-ne v3, v4, :cond_5
+
+    :cond_0
+    new-instance v1, Lmf/org/apache/xerces/impl/dtd/models/CMBinOp;
+
+    iget-short v3, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+
+    invoke-direct {p0, v0, p2}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->buildSyntaxTree(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Lmf/org/apache/xerces/impl/dtd/models/CMNode;
+
+    move-result-object v4
 
     invoke-direct {p0, v2, p2}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->buildSyntaxTree(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Lmf/org/apache/xerces/impl/dtd/models/CMNode;
 
-    move-result-object v2
+    move-result-object v5
 
-    invoke-direct {v0, v3, v1, v2}, Lmf/org/apache/xerces/impl/dtd/models/CMBinOp;-><init>(ILmf/org/apache/xerces/impl/dtd/models/CMNode;Lmf/org/apache/xerces/impl/dtd/models/CMNode;)V
+    invoke-direct {v1, v3, v4, v5}, Lmf/org/apache/xerces/impl/dtd/models/CMBinOp;-><init>(ILmf/org/apache/xerces/impl/dtd/models/CMNode;Lmf/org/apache/xerces/impl/dtd/models/CMNode;)V
 
     :goto_0
-    return-object v0
+    return-object v1
 
     :cond_1
     new-instance v1, Lmf/org/apache/xerces/impl/dtd/models/CMAny;
 
-    iget-short v2, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    iget-object v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v3, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v3, Ljava/lang/String;
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fLeafCount:I
+    iget v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fLeafCount:I
 
-    add-int/lit8 v4, v3, 0x1
+    add-int/lit8 v6, v5, 0x1
 
-    iput v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fLeafCount:I
+    iput v6, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fLeafCount:I
 
-    invoke-direct {v1, v2, v0, v3}, Lmf/org/apache/xerces/impl/dtd/models/CMAny;-><init>(ILjava/lang/String;I)V
-
-    move-object v0, v1
+    invoke-direct {v1, v4, v3, v5}, Lmf/org/apache/xerces/impl/dtd/models/CMAny;-><init>(ILjava/lang/String;I)V
 
     goto :goto_0
 
     :cond_2
     new-instance v1, Lmf/org/apache/xerces/impl/dtd/models/CMAny;
 
-    iget-short v2, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    iget-object v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v3, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v3, Ljava/lang/String;
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fLeafCount:I
+    iget v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fLeafCount:I
 
-    add-int/lit8 v4, v3, 0x1
+    add-int/lit8 v6, v5, 0x1
 
-    iput v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fLeafCount:I
+    iput v6, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fLeafCount:I
 
-    invoke-direct {v1, v2, v0, v3}, Lmf/org/apache/xerces/impl/dtd/models/CMAny;-><init>(ILjava/lang/String;I)V
-
-    move-object v0, v1
+    invoke-direct {v1, v4, v3, v5}, Lmf/org/apache/xerces/impl/dtd/models/CMAny;-><init>(ILjava/lang/String;I)V
 
     goto :goto_0
 
     :cond_3
-    new-instance v0, Lmf/org/apache/xerces/impl/dtd/models/CMAny;
+    new-instance v1, Lmf/org/apache/xerces/impl/dtd/models/CMAny;
 
-    iget-short v1, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v3, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fLeafCount:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fLeafCount:I
 
-    add-int/lit8 v3, v2, 0x1
+    add-int/lit8 v5, v4, 0x1
 
-    iput v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fLeafCount:I
+    iput v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fLeafCount:I
 
-    invoke-direct {v0, v1, v4, v2}, Lmf/org/apache/xerces/impl/dtd/models/CMAny;-><init>(ILjava/lang/String;I)V
+    invoke-direct {v1, v3, v7, v4}, Lmf/org/apache/xerces/impl/dtd/models/CMAny;-><init>(ILjava/lang/String;I)V
 
     goto :goto_0
 
     :cond_4
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName:Lmf/org/apache/xerces/xni/QName;
+
+    iget-object v3, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+
+    check-cast v3, Ljava/lang/String;
+
+    iget-object v4, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+
+    check-cast v4, Ljava/lang/String;
+
+    iget-object v5, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+
+    check-cast v5, Ljava/lang/String;
+
+    invoke-virtual {v6, v7, v3, v4, v5}, Lmf/org/apache/xerces/xni/QName;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    new-instance v1, Lmf/org/apache/xerces/impl/dtd/models/CMLeaf;
+
     iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fLeafCount:I
 
-    check-cast v0, Ljava/lang/String;
+    add-int/lit8 v5, v4, 0x1
 
-    iget-object v1, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iput v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fLeafCount:I
 
-    check-cast v1, Ljava/lang/String;
-
-    iget-object v2, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
-
-    check-cast v2, Ljava/lang/String;
-
-    invoke-virtual {v3, v4, v0, v1, v2}, Lmf/org/apache/xerces/xni/QName;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    new-instance v0, Lmf/org/apache/xerces/impl/dtd/models/CMLeaf;
-
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName:Lmf/org/apache/xerces/xni/QName;
-
-    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fLeafCount:I
-
-    add-int/lit8 v3, v2, 0x1
-
-    iput v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fLeafCount:I
-
-    invoke-direct {v0, v1, v2}, Lmf/org/apache/xerces/impl/dtd/models/CMLeaf;-><init>(Lmf/org/apache/xerces/xni/QName;I)V
+    invoke-direct {v1, v3, v4}, Lmf/org/apache/xerces/impl/dtd/models/CMLeaf;-><init>(Lmf/org/apache/xerces/xni/QName;I)V
 
     goto :goto_0
 
     :cond_5
-    iget-short v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v3, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    const/4 v3, 0x5
+    const/4 v4, 0x5
 
-    if-eq v0, v3, :cond_0
+    if-eq v3, v4, :cond_0
 
-    iget-short v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v3, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    if-eq v0, v5, :cond_7
+    if-eq v3, v6, :cond_7
 
-    iget-short v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v3, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    if-ne v0, v5, :cond_8
+    if-ne v3, v6, :cond_8
 
     :cond_6
-    new-instance v0, Lmf/org/apache/xerces/impl/dtd/models/CMUniOp;
+    new-instance v1, Lmf/org/apache/xerces/impl/dtd/models/CMUniOp;
 
-    iget-short v2, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v3, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    invoke-direct {p0, v1, p2}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->buildSyntaxTree(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Lmf/org/apache/xerces/impl/dtd/models/CMNode;
+    invoke-direct {p0, v0, p2}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->buildSyntaxTree(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Lmf/org/apache/xerces/impl/dtd/models/CMNode;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-direct {v0, v2, v1}, Lmf/org/apache/xerces/impl/dtd/models/CMUniOp;-><init>(ILmf/org/apache/xerces/impl/dtd/models/CMNode;)V
+    invoke-direct {v1, v3, v4}, Lmf/org/apache/xerces/impl/dtd/models/CMUniOp;-><init>(ILmf/org/apache/xerces/impl/dtd/models/CMNode;)V
 
     goto :goto_0
 
     :cond_7
-    new-instance v0, Lmf/org/apache/xerces/impl/dtd/models/CMUniOp;
+    new-instance v1, Lmf/org/apache/xerces/impl/dtd/models/CMUniOp;
 
-    iget-short v2, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v3, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    invoke-direct {p0, v1, p2}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->buildSyntaxTree(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Lmf/org/apache/xerces/impl/dtd/models/CMNode;
+    invoke-direct {p0, v0, p2}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->buildSyntaxTree(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Lmf/org/apache/xerces/impl/dtd/models/CMNode;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-direct {v0, v2, v1}, Lmf/org/apache/xerces/impl/dtd/models/CMUniOp;-><init>(ILmf/org/apache/xerces/impl/dtd/models/CMNode;)V
+    invoke-direct {v1, v3, v4}, Lmf/org/apache/xerces/impl/dtd/models/CMUniOp;-><init>(ILmf/org/apache/xerces/impl/dtd/models/CMNode;)V
 
     goto :goto_0
 
     :cond_8
-    iget-short v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v3, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    const/4 v2, 0x1
+    const/4 v4, 0x1
 
-    if-eq v0, v2, :cond_6
+    if-eq v3, v4, :cond_6
 
-    iget-short v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v3, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    const/4 v2, 0x3
+    const/4 v4, 0x3
 
-    if-eq v0, v2, :cond_6
+    if-eq v3, v4, :cond_6
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v3, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v1, "ImplementationMessages.VAL_CST"
+    const-string/jumbo v4, "ImplementationMessages.VAL_CST"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v3
 .end method
 
 .method private contentSpecTree(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;)V
-    .locals 7
+    .locals 11
 
-    const/4 v0, -0x1
+    const/4 v10, 0x0
 
     const/4 v6, 0x0
 
-    const/4 v3, 0x0
-
     invoke-virtual {p0, p1, p2}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
 
-    iget-short v1, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    if-nez v1, :cond_1
+    if-nez v4, :cond_1
 
     :cond_0
-    iget v0, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->length:I
+    iget v4, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->length:I
 
-    iget-object v1, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->qname:[Lmf/org/apache/xerces/xni/QName;
+    iget-object v5, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->qname:[Lmf/org/apache/xerces/xni/QName;
 
-    array-length v1, v1
+    array-length v5, v5
 
-    if-eq v0, v1, :cond_2
+    if-eq v4, v5, :cond_2
 
     :goto_0
-    iget-object v3, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->qname:[Lmf/org/apache/xerces/xni/QName;
+    iget-object v7, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->qname:[Lmf/org/apache/xerces/xni/QName;
+
+    iget v8, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->length:I
+
+    new-instance v9, Lmf/org/apache/xerces/xni/QName;
+
+    iget-object v4, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+
+    check-cast v4, Ljava/lang/String;
+
+    iget-object v5, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+
+    check-cast v5, Ljava/lang/String;
+
+    iget-object v6, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+
+    check-cast v6, Ljava/lang/String;
+
+    invoke-direct {v9, v10, v4, v5, v6}, Lmf/org/apache/xerces/xni/QName;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    aput-object v9, v7, v8
+
+    iget-object v4, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->type:[I
+
+    iget v5, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->length:I
+
+    iget-short v6, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+
+    aput v6, v4, v5
 
     iget v4, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->length:I
 
-    new-instance v5, Lmf/org/apache/xerces/xni/QName;
+    add-int/lit8 v4, v4, 0x1
 
-    iget-object v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
-
-    check-cast v0, Ljava/lang/String;
-
-    iget-object v1, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
-
-    check-cast v1, Ljava/lang/String;
-
-    iget-object v2, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
-
-    check-cast v2, Ljava/lang/String;
-
-    invoke-direct {v5, v6, v0, v1, v2}, Lmf/org/apache/xerces/xni/QName;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    aput-object v5, v3, v4
-
-    iget-object v0, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->type:[I
-
-    iget v1, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->length:I
-
-    iget-short v2, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
-
-    aput v2, v0, v1
-
-    iget v0, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->length:I
-
-    add-int/lit8 v0, v0, 0x1
-
-    iput v0, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->length:I
+    iput v4, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->length:I
 
     return-void
 
     :cond_1
-    iget-short v1, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    and-int/lit8 v1, v1, 0xf
+    and-int/lit8 v4, v4, 0xf
 
-    const/4 v2, 0x6
+    const/4 v5, 0x6
 
-    if-eq v1, v2, :cond_0
+    if-eq v4, v5, :cond_0
 
-    iget-short v1, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    and-int/lit8 v1, v1, 0xf
+    and-int/lit8 v4, v4, 0xf
 
-    const/16 v2, 0x8
+    const/16 v5, 0x8
 
-    if-eq v1, v2, :cond_0
+    if-eq v4, v5, :cond_0
 
-    iget-short v1, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    and-int/lit8 v1, v1, 0xf
+    and-int/lit8 v4, v4, 0xf
 
-    const/4 v2, 0x7
+    const/4 v5, 0x7
 
-    if-eq v1, v2, :cond_0
+    if-eq v4, v5, :cond_0
 
-    iget-object v1, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v4, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    if-nez v1, :cond_3
+    if-nez v4, :cond_3
+
+    const/4 v0, -0x1
 
     :goto_1
-    move v1, v0
+    const/4 v3, -0x1
 
-    iget-object v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v4, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    if-nez v0, :cond_4
+    if-nez v4, :cond_4
 
     return-void
 
     :cond_2
-    iget v0, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->length:I
+    iget v4, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->length:I
 
-    mul-int/lit8 v0, v0, 0x2
+    mul-int/lit8 v4, v4, 0x2
 
-    new-array v0, v0, [Lmf/org/apache/xerces/xni/QName;
+    new-array v1, v4, [Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v1, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->qname:[Lmf/org/apache/xerces/xni/QName;
+    iget-object v4, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->qname:[Lmf/org/apache/xerces/xni/QName;
 
-    iget v2, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->length:I
+    iget v5, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->length:I
 
-    invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v4, v6, v1, v6, v5}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    iput-object v0, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->qname:[Lmf/org/apache/xerces/xni/QName;
+    iput-object v1, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->qname:[Lmf/org/apache/xerces/xni/QName;
 
-    iget v0, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->length:I
+    iget v4, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->length:I
 
-    mul-int/lit8 v0, v0, 0x2
+    mul-int/lit8 v4, v4, 0x2
 
-    new-array v0, v0, [I
+    new-array v2, v4, [I
 
-    iget-object v1, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->type:[I
+    iget-object v4, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->type:[I
 
-    iget v2, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->length:I
+    iget v5, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->length:I
 
-    invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v4, v6, v2, v6, v5}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    iput-object v0, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->type:[I
+    iput-object v2, p3, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->type:[I
 
     goto :goto_0
 
     :cond_3
-    iget-object v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v4, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    check-cast v0, [I
+    check-cast v4, [I
 
-    aget v0, v0, v3
+    aget v0, v4, v6
 
     goto :goto_1
 
     :cond_4
-    iget-object v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v4, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    check-cast v0, [I
+    check-cast v4, [I
 
-    aget v0, v0, v3
+    aget v3, v4, v6
 
-    iget-short v2, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    const/4 v3, 0x4
+    const/4 v5, 0x4
 
-    if-ne v2, v3, :cond_6
+    if-ne v4, v5, :cond_6
 
     :cond_5
-    invoke-direct {p0, v1, p2, p3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->contentSpecTree(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;)V
-
     invoke-direct {p0, v0, p2, p3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->contentSpecTree(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;)V
+
+    invoke-direct {p0, v3, p2, p3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->contentSpecTree(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;)V
 
     return-void
 
     :cond_6
-    iget-short v2, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    const/4 v3, 0x5
+    const/4 v5, 0x5
 
-    if-eq v2, v3, :cond_5
+    if-eq v4, v5, :cond_5
 
-    iget-short v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    const/4 v2, 0x1
+    const/4 v5, 0x1
 
-    if-ne v0, v2, :cond_8
+    if-ne v4, v5, :cond_8
 
     :cond_7
-    invoke-direct {p0, v1, p2, p3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->contentSpecTree(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;)V
+    invoke-direct {p0, v0, p2, p3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->contentSpecTree(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;)V
 
     return-void
 
     :cond_8
-    iget-short v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    const/4 v2, 0x2
+    const/4 v5, 0x2
 
-    if-eq v0, v2, :cond_7
+    if-eq v4, v5, :cond_7
 
-    iget-short v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    const/4 v2, 0x3
+    const/4 v5, 0x3
 
-    if-eq v0, v2, :cond_7
+    if-eq v4, v5, :cond_7
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v4, Ljava/lang/RuntimeException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "Invalid content spec type seen in contentSpecTree() method of AbstractDTDGrammar class : "
+    const-string/jumbo v6, "Invalid content spec type seen in contentSpecTree() method of AbstractDTDGrammar class : "
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-short v2, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v6, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v5
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v5
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v5}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v4
 .end method
 
 .method private declared-synchronized createChildModel(I)Lmf/org/apache/xerces/impl/dtd/models/ContentModelValidator;
-    .locals 7
+    .locals 9
 
     monitor-enter p0
 
     :try_start_0
-    new-instance v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;
+    new-instance v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;
 
-    invoke-direct {v3}, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;-><init>()V
+    invoke-direct {v1}, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;-><init>()V
 
-    invoke-virtual {p0, p1, v3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
+    invoke-virtual {p0, p1, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
 
-    iget-short v0, v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    and-int/lit8 v0, v0, 0xf
+    and-int/lit8 v4, v4, 0xf
 
-    const/4 v1, 0x6
+    const/4 v5, 0x6
 
-    if-ne v0, v1, :cond_1
+    if-ne v4, v5, :cond_1
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v4, 0x0
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fLeafCount:I
+    iput v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fLeafCount:I
 
-    const/4 v0, 0x0
+    const/4 v4, 0x0
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fLeafCount:I
+    iput v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fLeafCount:I
 
-    invoke-direct {p0, p1, v3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->buildSyntaxTree(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Lmf/org/apache/xerces/impl/dtd/models/CMNode;
+    invoke-direct {p0, p1, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->buildSyntaxTree(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Lmf/org/apache/xerces/impl/dtd/models/CMNode;
 
     move-result-object v0
 
-    new-instance v1, Lmf/org/apache/xerces/impl/dtd/models/DFAContentModel;
+    new-instance v4, Lmf/org/apache/xerces/impl/dtd/models/DFAContentModel;
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fLeafCount:I
+    iget v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fLeafCount:I
 
-    const/4 v3, 0x0
+    const/4 v6, 0x0
 
-    invoke-direct {v1, v0, v2, v3}, Lmf/org/apache/xerces/impl/dtd/models/DFAContentModel;-><init>(Lmf/org/apache/xerces/impl/dtd/models/CMNode;IZ)V
+    invoke-direct {v4, v0, v5, v6}, Lmf/org/apache/xerces/impl/dtd/models/DFAContentModel;-><init>(Lmf/org/apache/xerces/impl/dtd/models/CMNode;IZ)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return-object v1
+    return-object v4
 
     :cond_1
     :try_start_1
-    iget-short v0, v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    and-int/lit8 v0, v0, 0xf
+    and-int/lit8 v4, v4, 0xf
 
-    const/4 v1, 0x7
+    const/4 v5, 0x7
 
-    if-eq v0, v1, :cond_0
+    if-eq v4, v5, :cond_0
 
-    iget-short v0, v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    and-int/lit8 v0, v0, 0xf
+    and-int/lit8 v4, v4, 0xf
 
-    const/16 v1, 0x8
+    const/16 v5, 0x8
 
-    if-eq v0, v1, :cond_0
+    if-eq v4, v5, :cond_0
 
-    iget-short v0, v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    if-eqz v0, :cond_3
+    if-eqz v4, :cond_3
 
-    iget-short v0, v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    const/4 v1, 0x4
+    const/4 v5, 0x4
 
-    if-ne v0, v1, :cond_6
+    if-ne v4, v5, :cond_6
 
     :cond_2
     new-instance v2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;
 
     invoke-direct {v2}, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;-><init>()V
 
-    new-instance v4, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;
+    new-instance v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;
 
-    invoke-direct {v4}, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;-><init>()V
+    invoke-direct {v3}, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;-><init>()V
 
-    iget-object v0, v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v4, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    check-cast v0, [I
+    check-cast v4, [I
 
-    const/4 v1, 0x0
+    const/4 v5, 0x0
 
-    aget v0, v0, v1
+    aget v4, v4, v5
 
-    invoke-virtual {p0, v0, v2}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
+    invoke-virtual {p0, v4, v2}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
 
-    iget-object v0, v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v4, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    check-cast v0, [I
+    check-cast v4, [I
 
-    const/4 v1, 0x0
+    const/4 v5, 0x0
 
-    aget v0, v0, v1
+    aget v4, v4, v5
 
-    invoke-virtual {p0, v0, v4}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
 
-    iget-short v0, v2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, v2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    if-nez v0, :cond_0
+    if-nez v4, :cond_0
 
-    iget-short v0, v4, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    if-nez v0, :cond_0
+    if-nez v4, :cond_0
 
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v7, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v0, v2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v4, v2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v4, Ljava/lang/String;
 
-    iget-object v1, v2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v5, v2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    check-cast v1, Ljava/lang/String;
+    check-cast v5, Ljava/lang/String;
 
-    iget-object v2, v2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v6, v2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    check-cast v2, Ljava/lang/String;
+    check-cast v6, Ljava/lang/String;
 
-    const/4 v6, 0x0
+    const/4 v8, 0x0
 
-    invoke-virtual {v5, v6, v0, v1, v2}, Lmf/org/apache/xerces/xni/QName;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v7, v8, v4, v5, v6}, Lmf/org/apache/xerces/xni/QName;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName2:Lmf/org/apache/xerces/xni/QName;
+    iget-object v7, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName2:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v0, v4, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v4, v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v4, Ljava/lang/String;
 
-    iget-object v1, v4, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v5, v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    check-cast v1, Ljava/lang/String;
+    check-cast v5, Ljava/lang/String;
 
-    iget-object v2, v4, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v6, v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    check-cast v2, Ljava/lang/String;
+    check-cast v6, Ljava/lang/String;
 
-    const/4 v4, 0x0
+    const/4 v8, 0x0
 
-    invoke-virtual {v5, v4, v0, v1, v2}, Lmf/org/apache/xerces/xni/QName;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v7, v8, v4, v5, v6}, Lmf/org/apache/xerces/xni/QName;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lmf/org/apache/xerces/impl/dtd/models/SimpleContentModel;
+    new-instance v4, Lmf/org/apache/xerces/impl/dtd/models/SimpleContentModel;
 
-    iget-short v1, v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v5, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName2:Lmf/org/apache/xerces/xni/QName;
+    iget-object v7, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName2:Lmf/org/apache/xerces/xni/QName;
 
-    invoke-direct {v0, v1, v2, v3}, Lmf/org/apache/xerces/impl/dtd/models/SimpleContentModel;-><init>(SLmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/QName;)V
+    invoke-direct {v4, v5, v6, v7}, Lmf/org/apache/xerces/impl/dtd/models/SimpleContentModel;-><init>(SLmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/QName;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     monitor-exit p0
 
-    return-object v0
+    return-object v4
 
     :cond_3
     :try_start_2
-    iget-object v0, v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v4, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    if-eqz v0, :cond_5
+    if-eqz v4, :cond_5
 
     :cond_4
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v7, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v0, v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v4, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v4, Ljava/lang/String;
 
-    iget-object v1, v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v5, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    check-cast v1, Ljava/lang/String;
+    check-cast v5, Ljava/lang/String;
 
-    iget-object v2, v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v6, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    check-cast v2, Ljava/lang/String;
+    check-cast v6, Ljava/lang/String;
 
-    const/4 v5, 0x0
+    const/4 v8, 0x0
 
-    invoke-virtual {v4, v5, v0, v1, v2}, Lmf/org/apache/xerces/xni/QName;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v7, v8, v4, v5, v6}, Lmf/org/apache/xerces/xni/QName;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lmf/org/apache/xerces/impl/dtd/models/SimpleContentModel;
+    new-instance v4, Lmf/org/apache/xerces/impl/dtd/models/SimpleContentModel;
 
-    iget-short v1, v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v5, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName:Lmf/org/apache/xerces/xni/QName;
 
-    const/4 v3, 0x0
+    const/4 v7, 0x0
 
-    invoke-direct {v0, v1, v2, v3}, Lmf/org/apache/xerces/impl/dtd/models/SimpleContentModel;-><init>(SLmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/QName;)V
+    invoke-direct {v4, v5, v6, v7}, Lmf/org/apache/xerces/impl/dtd/models/SimpleContentModel;-><init>(SLmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/QName;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     monitor-exit p0
 
-    return-object v0
+    return-object v4
 
     :cond_5
     :try_start_3
-    iget-object v0, v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v4, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    if-nez v0, :cond_4
+    if-nez v4, :cond_4
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v4, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v1, "ImplementationMessages.VAL_NPCD"
+    const-string/jumbo v5, "ImplementationMessages.VAL_NPCD"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v5}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v4
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     :catchall_0
-    move-exception v0
+    move-exception v4
 
     monitor-exit p0
 
-    throw v0
+    throw v4
 
     :cond_6
     :try_start_4
-    iget-short v0, v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    const/4 v1, 0x5
+    const/4 v5, 0x5
 
-    if-eq v0, v1, :cond_2
+    if-eq v4, v5, :cond_2
 
-    iget-short v0, v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    const/4 v1, 0x1
+    const/4 v5, 0x1
 
-    if-ne v0, v1, :cond_8
+    if-ne v4, v5, :cond_8
 
     :cond_7
     new-instance v2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;
 
     invoke-direct {v2}, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;-><init>()V
 
-    iget-object v0, v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v4, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    check-cast v0, [I
-
-    const/4 v1, 0x0
-
-    aget v0, v0, v1
-
-    invoke-virtual {p0, v0, v2}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
-
-    iget-short v0, v2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
-
-    if-nez v0, :cond_0
-
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName:Lmf/org/apache/xerces/xni/QName;
-
-    iget-object v0, v2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
-
-    check-cast v0, Ljava/lang/String;
-
-    iget-object v1, v2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
-
-    check-cast v1, Ljava/lang/String;
-
-    iget-object v2, v2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
-
-    check-cast v2, Ljava/lang/String;
+    check-cast v4, [I
 
     const/4 v5, 0x0
 
-    invoke-virtual {v4, v5, v0, v1, v2}, Lmf/org/apache/xerces/xni/QName;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    aget v4, v4, v5
 
-    new-instance v0, Lmf/org/apache/xerces/impl/dtd/models/SimpleContentModel;
+    invoke-virtual {p0, v4, v2}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
 
-    iget-short v1, v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, v2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName:Lmf/org/apache/xerces/xni/QName;
+    if-nez v4, :cond_0
 
-    const/4 v3, 0x0
+    iget-object v7, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName:Lmf/org/apache/xerces/xni/QName;
 
-    invoke-direct {v0, v1, v2, v3}, Lmf/org/apache/xerces/impl/dtd/models/SimpleContentModel;-><init>(SLmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/QName;)V
+    iget-object v4, v2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+
+    check-cast v4, Ljava/lang/String;
+
+    iget-object v5, v2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+
+    check-cast v5, Ljava/lang/String;
+
+    iget-object v6, v2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+
+    check-cast v6, Ljava/lang/String;
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v7, v8, v4, v5, v6}, Lmf/org/apache/xerces/xni/QName;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    new-instance v4, Lmf/org/apache/xerces/impl/dtd/models/SimpleContentModel;
+
+    iget-short v5, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName:Lmf/org/apache/xerces/xni/QName;
+
+    const/4 v7, 0x0
+
+    invoke-direct {v4, v5, v6, v7}, Lmf/org/apache/xerces/impl/dtd/models/SimpleContentModel;-><init>(SLmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/QName;)V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     monitor-exit p0
 
-    return-object v0
+    return-object v4
 
     :cond_8
     :try_start_5
-    iget-short v0, v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    const/4 v1, 0x2
+    const/4 v5, 0x2
 
-    if-eq v0, v1, :cond_7
+    if-eq v4, v5, :cond_7
 
-    iget-short v0, v3, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    const/4 v1, 0x3
+    const/4 v5, 0x3
 
-    if-eq v0, v1, :cond_7
+    if-eq v4, v5, :cond_7
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v4, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v1, "ImplementationMessages.VAL_CST"
+    const-string/jumbo v5, "ImplementationMessages.VAL_CST"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v5}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v4
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 .end method
@@ -2305,17 +2303,17 @@
 
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;->name:Lmf/org/apache/xerces/xni/QName;
+    iget-object v2, v0, Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;->name:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
+    iget-object v2, v2, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
 
-    invoke-virtual {v1, v0}, Ljava/io/PrintStream;->print(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Ljava/io/PrintStream;->print(Ljava/lang/String;)V
 
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    const-string/jumbo v1, " }"
+    const-string/jumbo v2, " }"
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->print(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Ljava/io/PrintStream;->print(Ljava/lang/String;)V
 
     goto :goto_0
 .end method
@@ -2449,9 +2447,9 @@
 
 # virtual methods
 .method protected addContentSpecNode(SII)I
-    .locals 4
+    .locals 5
 
-    const/4 v2, 0x1
+    const/4 v4, 0x1
 
     const/4 v3, 0x0
 
@@ -2459,9 +2457,9 @@
 
     move-result v0
 
-    new-array v1, v2, [I
+    new-array v1, v4, [I
 
-    new-array v2, v2, [I
+    new-array v2, v4, [I
 
     aput p2, v1, v3
 
@@ -2471,9 +2469,9 @@
 
     invoke-virtual {v3, p1, v1, v2}, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->setValues(SLjava/lang/Object;Ljava/lang/Object;)V
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fContentSpec:Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fContentSpec:Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->setContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)V
+    invoke-virtual {p0, v0, v3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->setContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)V
 
     return v0
 .end method
@@ -2499,60 +2497,60 @@
 .end method
 
 .method protected addContentSpecToElement(Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;)V
-    .locals 5
+    .locals 6
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
-    const/4 v2, 0x2
+    const/4 v3, 0x2
 
     const/4 v4, 0x0
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
 
-    if-nez v0, :cond_2
+    if-nez v1, :cond_2
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNodeIndexStack:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNodeIndexStack:[I
 
-    if-nez v0, :cond_3
+    if-nez v1, :cond_3
 
     :cond_1
     :goto_0
     return-void
 
     :cond_2
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v1, v2, :cond_1
 
-    iget-short v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->type:S
+    iget-short v1, p1, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->type:S
 
-    if-eq v0, v2, :cond_0
+    if-eq v1, v3, :cond_0
 
     goto :goto_0
 
     :cond_3
-    iget-short v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->type:S
+    iget-short v1, p1, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->type:S
 
-    if-eq v0, v2, :cond_4
+    if-eq v1, v3, :cond_4
 
     :goto_1
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fCurrentElementIndex:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fCurrentElementIndex:I
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNodeIndexStack:[I
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNodeIndexStack:[I
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
 
-    aget v1, v1, v2
+    aget v2, v2, v3
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->setContentSpecIndex(II)V
+    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->setContentSpecIndex(II)V
 
     goto :goto_0
 
     :cond_4
-    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->addUniqueLeafNode(Ljava/lang/String;)I
+    invoke-virtual {p0, v5}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->addUniqueLeafNode(Ljava/lang/String;)I
 
     move-result v0
 
@@ -2574,9 +2572,9 @@
 
     invoke-virtual {p0, v3, v0, v2}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->addContentSpecNode(SII)I
 
-    move-result v0
+    move-result v2
 
-    aput v0, v1, v4
+    aput v2, v1, v4
 
     goto :goto_1
 
@@ -2591,6 +2589,8 @@
 .method protected addUniqueLeafNode(Ljava/lang/String;)I
     .locals 4
 
+    const/4 v3, 0x0
+
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->createContentSpec()I
 
     move-result v0
@@ -2598,8 +2598,6 @@
     iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fContentSpec:Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;
 
     const/4 v2, 0x0
-
-    const/4 v3, 0x0
 
     invoke-virtual {v1, v2, p1, v3}, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->setValues(SLjava/lang/Object;Ljava/lang/Object;)V
 
@@ -2622,51 +2620,43 @@
 .end method
 
 .method public attributeDecl(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xni/XMLString;Lmf/org/apache/xerces/xni/XMLString;Lmf/org/apache/xerces/xni/Augmentations;)V
-    .locals 7
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
 
-    const/4 v6, 0x2
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclTab:Ljava/util/Hashtable;
 
-    const/4 v5, -0x1
+    invoke-virtual {v4, p1}, Ljava/util/Hashtable;->containsKey(Ljava/lang/Object;)Z
 
-    const/4 v3, 0x1
+    move-result v4
 
-    const/4 v1, 0x0
-
-    const/4 v2, 0x0
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclTab:Ljava/util/Hashtable;
-
-    invoke-virtual {v0, p1}, Ljava/util/Hashtable;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
+    if-eqz v4, :cond_3
 
     :goto_0
     invoke-virtual {p0, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getElementDeclIndex(Ljava/lang/String;)I
 
+    move-result v2
+
+    invoke-virtual {p0, v2, p2}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getAttributeDeclIndex(ILjava/lang/String;)I
+
     move-result v4
 
-    invoke-virtual {p0, v4, p2}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getAttributeDeclIndex(ILjava/lang/String;)I
+    const/4 v5, -0x1
 
-    move-result v0
-
-    if-ne v0, v5, :cond_4
+    if-ne v4, v5, :cond_4
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->createAttributeDecl()I
 
-    move-result v0
+    move-result v4
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fCurrentAttributeIndex:I
+    iput v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fCurrentAttributeIndex:I
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->clear()V
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->clear()V
 
     if-nez p5, :cond_5
 
@@ -2676,97 +2666,97 @@
 
     if-nez p6, :cond_8
 
-    move-object v0, v1
+    const/4 v4, 0x0
 
     :goto_2
-    iput-object v0, v5, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->defaultValue:Ljava/lang/String;
+    iput-object v4, v5, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->defaultValue:Ljava/lang/String;
 
     iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
     if-nez p7, :cond_9
 
-    move-object v0, v1
+    const/4 v4, 0x0
 
     :goto_3
-    iput-object v0, v5, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->nonNormalizedDefaultValue:Ljava/lang/String;
+    iput-object v4, v5, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->nonNormalizedDefaultValue:Ljava/lang/String;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
-    iput-object p4, v0, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->enumeration:[Ljava/lang/String;
+    iput-object p4, v4, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->enumeration:[Ljava/lang/String;
 
-    const-string/jumbo v0, "CDATA"
+    const-string/jumbo v4, "CDATA"
 
-    invoke-virtual {p3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v4
 
-    if-nez v0, :cond_a
+    if-nez v4, :cond_a
 
-    const-string/jumbo v0, "ID"
+    const-string/jumbo v4, "ID"
 
-    invoke-virtual {p3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v4
 
-    if-nez v0, :cond_b
+    if-nez v4, :cond_b
 
-    const-string/jumbo v0, "IDREF"
+    const-string/jumbo v4, "IDREF"
 
-    invoke-virtual {p3, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p3, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v4
 
-    if-nez v0, :cond_c
+    if-nez v4, :cond_c
 
-    const-string/jumbo v0, "ENTITIES"
+    const-string/jumbo v4, "ENTITIES"
 
-    invoke-virtual {p3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v4
 
-    if-nez v0, :cond_d
+    if-nez v4, :cond_d
 
-    const-string/jumbo v0, "ENTITY"
+    const-string/jumbo v4, "ENTITY"
 
-    invoke-virtual {p3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v4
 
-    if-nez v0, :cond_e
+    if-nez v4, :cond_e
 
-    const-string/jumbo v0, "NMTOKENS"
+    const-string/jumbo v4, "NMTOKENS"
 
-    invoke-virtual {p3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v4
 
-    if-nez v0, :cond_f
+    if-nez v4, :cond_f
 
-    const-string/jumbo v0, "NMTOKEN"
+    const-string/jumbo v4, "NMTOKEN"
 
-    invoke-virtual {p3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v4
 
-    if-nez v0, :cond_10
+    if-nez v4, :cond_10
 
-    const-string/jumbo v0, "NOTATION"
+    const-string/jumbo v4, "NOTATION"
 
-    invoke-virtual {p3, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p3, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v4
 
-    if-nez v0, :cond_11
+    if-nez v4, :cond_11
 
-    const-string/jumbo v0, "ENUMERATION"
+    const-string/jumbo v4, "ENUMERATION"
 
-    invoke-virtual {p3, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p3, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v4
 
-    if-nez v0, :cond_12
+    if-nez v4, :cond_12
 
-    sget-object v0, Ljava/lang/System;->err:Ljava/io/PrintStream;
+    sget-object v4, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -2782,78 +2772,90 @@
 
     move-result-object v5
 
-    invoke-virtual {v0, v5}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v4, v5}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     :cond_1
     :goto_4
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName:Lmf/org/apache/xerces/xni/QName;
 
-    invoke-virtual {v0, v1, p2, p2, v1}, Lmf/org/apache/xerces/xni/QName;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    const/4 v5, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDecl:Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;
+    const/4 v6, 0x0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName:Lmf/org/apache/xerces/xni/QName;
+    invoke-virtual {v4, v5, p2, p2, v6}, Lmf/org/apache/xerces/xni/QName;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDecl:Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;
 
-    invoke-virtual {v0, v1, v5, v2}, Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;->setValues(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;Z)V
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fCurrentAttributeIndex:I
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDecl:Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;
+    const/4 v7, 0x0
 
-    invoke-virtual {p0, v4, v0, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->setAttributeDecl(IILmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;)V
+    invoke-virtual {v4, v5, v6, v7}, Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;->setValues(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;Z)V
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fCurrentAttributeIndex:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fCurrentAttributeIndex:I
 
-    shr-int/lit8 v0, v0, 0x8
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDecl:Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fCurrentAttributeIndex:I
+    invoke-virtual {p0, v2, v4, v5}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->setAttributeDecl(IILmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;)V
 
-    and-int/lit16 v1, v1, 0xff
+    iget v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fCurrentAttributeIndex:I
+
+    shr-int/lit8 v0, v4, 0x8
+
+    iget v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fCurrentAttributeIndex:I
+
+    and-int/lit16 v3, v4, 0xff
 
     invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->ensureAttributeDeclCapacity(I)V
 
     iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclIsExternal:[[I
 
-    aget-object v4, v4, v0
+    aget-object v5, v4, v0
 
-    iget-boolean v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fReadingExternalDTD:Z
+    iget-boolean v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fReadingExternalDTD:Z
 
-    if-eqz v0, :cond_13
+    if-eqz v4, :cond_13
 
     :cond_2
-    move v0, v3
+    const/4 v4, 0x1
 
     :goto_5
-    aput v0, v4, v1
+    aput v4, v5, v3
 
     return-void
 
     :cond_3
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->createElementDecl()I
 
-    move-result v0
+    move-result v4
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fCurrentElementIndex:I
+    iput v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fCurrentElementIndex:I
 
-    new-instance v0, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;
+    new-instance v1, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;
 
-    invoke-direct {v0}, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;-><init>()V
+    invoke-direct {v1}, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;-><init>()V
 
-    iget-object v4, v0, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->name:Lmf/org/apache/xerces/xni/QName;
+    iget-object v4, v1, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->name:Lmf/org/apache/xerces/xni/QName;
 
-    invoke-virtual {v4, v1, p1, p1, v1}, Lmf/org/apache/xerces/xni/QName;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    const/4 v5, 0x0
 
-    iput v5, v0, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->scope:I
+    const/4 v6, 0x0
+
+    invoke-virtual {v4, v5, p1, p1, v6}, Lmf/org/apache/xerces/xni/QName;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v4, -0x1
+
+    iput v4, v1, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->scope:I
 
     iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclTab:Ljava/util/Hashtable;
 
-    invoke-virtual {v4, p1, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, p1, v1}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     iget v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fCurrentElementIndex:I
 
-    invoke-virtual {p0, v4, v0}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->setElementDecl(ILmf/org/apache/xerces/impl/dtd/XMLElementDecl;)V
+    invoke-virtual {p0, v4, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->setElementDecl(ILmf/org/apache/xerces/impl/dtd/XMLElementDecl;)V
 
     goto/16 :goto_0
 
@@ -2861,163 +2863,183 @@
     return-void
 
     :cond_5
-    const-string/jumbo v0, "#FIXED"
+    const-string/jumbo v4, "#FIXED"
 
-    invoke-virtual {p5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v4
 
-    if-nez v0, :cond_6
+    if-nez v4, :cond_6
 
-    const-string/jumbo v0, "#IMPLIED"
+    const-string/jumbo v4, "#IMPLIED"
 
-    invoke-virtual {p5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v4
 
-    if-nez v0, :cond_7
+    if-nez v4, :cond_7
 
-    const-string/jumbo v0, "#REQUIRED"
+    const-string/jumbo v4, "#REQUIRED"
 
-    invoke-virtual {p5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v4
 
-    if-eqz v0, :cond_0
+    if-eqz v4, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
-    iput-short v6, v0, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->defaultType:S
+    const/4 v5, 0x2
+
+    iput-short v5, v4, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->defaultType:S
 
     goto/16 :goto_1
 
     :cond_6
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
-    iput-short v3, v0, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->defaultType:S
+    const/4 v5, 0x1
+
+    iput-short v5, v4, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->defaultType:S
 
     goto/16 :goto_1
 
     :cond_7
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
-    iput-short v2, v0, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->defaultType:S
+    const/4 v5, 0x0
+
+    iput-short v5, v4, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->defaultType:S
 
     goto/16 :goto_1
 
     :cond_8
     invoke-virtual {p6}, Lmf/org/apache/xerces/xni/XMLString;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v4
 
     goto/16 :goto_2
 
     :cond_9
     invoke-virtual {p7}, Lmf/org/apache/xerces/xni/XMLString;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v4
 
     goto/16 :goto_3
 
     :cond_a
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
-    iput-short v2, v0, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->type:S
+    const/4 v5, 0x0
+
+    iput-short v5, v4, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->type:S
 
     goto/16 :goto_4
 
     :cond_b
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
     const/4 v5, 0x3
 
-    iput-short v5, v0, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->type:S
+    iput-short v5, v4, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->type:S
 
     goto/16 :goto_4
 
     :cond_c
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
     const/4 v5, 0x4
 
-    iput-short v5, v0, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->type:S
+    iput-short v5, v4, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->type:S
 
-    const-string/jumbo v0, "S"
+    const-string/jumbo v4, "S"
 
-    invoke-virtual {p3, v0}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+    invoke-virtual {p3, v4}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
-    move-result v0
+    move-result v4
 
-    if-lez v0, :cond_1
+    if-lez v4, :cond_1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
-    iput-boolean v3, v0, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->list:Z
+    const/4 v5, 0x1
+
+    iput-boolean v5, v4, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->list:Z
 
     goto/16 :goto_4
 
     :cond_d
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
-    iput-short v3, v0, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->type:S
+    const/4 v5, 0x1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iput-short v5, v4, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->type:S
 
-    iput-boolean v3, v0, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->list:Z
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+
+    const/4 v5, 0x1
+
+    iput-boolean v5, v4, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->list:Z
 
     goto/16 :goto_4
 
     :cond_e
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
-    iput-short v3, v0, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->type:S
+    const/4 v5, 0x1
+
+    iput-short v5, v4, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->type:S
 
     goto/16 :goto_4
 
     :cond_f
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
     const/4 v5, 0x5
 
-    iput-short v5, v0, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->type:S
+    iput-short v5, v4, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->type:S
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
-    iput-boolean v3, v0, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->list:Z
+    const/4 v5, 0x1
+
+    iput-boolean v5, v4, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->list:Z
 
     goto/16 :goto_4
 
     :cond_10
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
     const/4 v5, 0x5
 
-    iput-short v5, v0, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->type:S
+    iput-short v5, v4, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->type:S
 
     goto/16 :goto_4
 
     :cond_11
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
     const/4 v5, 0x6
 
-    iput-short v5, v0, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->type:S
+    iput-short v5, v4, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->type:S
 
     goto/16 :goto_4
 
     :cond_12
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fSimpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
-    iput-short v6, v0, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->type:S
+    const/4 v5, 0x2
+
+    iput-short v5, v4, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->type:S
 
     goto/16 :goto_4
 
     :cond_13
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPEDepth:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPEDepth:I
 
-    if-gtz v0, :cond_2
+    if-gtz v4, :cond_2
 
-    move v0, v2
+    const/4 v4, 0x0
 
     goto/16 :goto_5
 .end method
@@ -3040,13 +3062,13 @@
 
     const/4 v4, 0x0
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclCount:I
 
-    shr-int/lit8 v0, v0, 0x8
+    shr-int/lit8 v0, v2, 0x8
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclCount:I
 
-    and-int/lit16 v1, v1, 0xff
+    and-int/lit16 v1, v2, 0xff
 
     invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->ensureAttributeDeclCapacity(I)V
 
@@ -3100,17 +3122,17 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclNextAttributeDeclIndex:[[I
 
-    aget-object v0, v2, v0
+    aget-object v2, v2, v0
 
-    aput v5, v0, v1
+    aput v5, v2, v1
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclCount:I
 
-    add-int/lit8 v1, v0, 0x1
+    add-int/lit8 v3, v2, 0x1
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclCount:I
+    iput v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclCount:I
 
-    return v0
+    return v2
 .end method
 
 .method protected createContentSpec()I
@@ -3118,13 +3140,13 @@
 
     const/4 v4, 0x0
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fContentSpecCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fContentSpecCount:I
 
-    shr-int/lit8 v0, v0, 0x8
+    shr-int/lit8 v0, v2, 0x8
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fContentSpecCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fContentSpecCount:I
 
-    and-int/lit16 v1, v1, 0xff
+    and-int/lit16 v1, v2, 0xff
 
     invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->ensureContentSpecCapacity(I)V
 
@@ -3144,17 +3166,17 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fContentSpecOtherValue:[[Ljava/lang/Object;
 
-    aget-object v0, v2, v0
+    aget-object v2, v2, v0
 
-    aput-object v4, v0, v1
+    aput-object v4, v2, v1
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fContentSpecCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fContentSpecCount:I
 
-    add-int/lit8 v1, v0, 0x1
+    add-int/lit8 v3, v2, 0x1
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fContentSpecCount:I
+    iput v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fContentSpecCount:I
 
-    return v0
+    return v2
 .end method
 
 .method protected createElementDecl()I
@@ -3162,13 +3184,13 @@
 
     const/4 v4, -0x1
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
 
-    shr-int/lit8 v0, v0, 0x8
+    shr-int/lit8 v0, v2, 0x8
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
 
-    and-int/lit16 v1, v1, 0xff
+    and-int/lit16 v1, v2, 0xff
 
     invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->ensureElementDeclCapacity(I)V
 
@@ -3204,17 +3226,17 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclLastAttributeDeclIndex:[[I
 
-    aget-object v0, v2, v0
+    aget-object v2, v2, v0
 
-    aput v4, v0, v1
+    aput v4, v2, v1
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
 
-    add-int/lit8 v1, v0, 0x1
+    add-int/lit8 v3, v2, 0x1
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
+    iput v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
 
-    return v0
+    return v2
 .end method
 
 .method protected createEntityDecl()I
@@ -3222,13 +3244,13 @@
 
     const/4 v3, 0x0
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityCount:I
 
-    shr-int/lit8 v0, v0, 0x8
+    shr-int/lit8 v0, v2, 0x8
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityCount:I
 
-    and-int/lit16 v1, v1, 0xff
+    and-int/lit16 v1, v2, 0xff
 
     invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->ensureEntityDeclCapacity(I)V
 
@@ -3240,35 +3262,35 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityInExternal:[[B
 
-    aget-object v0, v2, v0
+    aget-object v2, v2, v0
 
-    aput-byte v3, v0, v1
+    aput-byte v3, v2, v1
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityCount:I
 
-    add-int/lit8 v1, v0, 0x1
+    add-int/lit8 v3, v2, 0x1
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityCount:I
+    iput v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityCount:I
 
-    return v0
+    return v2
 .end method
 
 .method protected createNotationDecl()I
-    .locals 2
+    .locals 3
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNotationCount:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNotationCount:I
 
-    shr-int/lit8 v0, v0, 0x8
+    shr-int/lit8 v0, v1, 0x8
 
     invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->ensureNotationDeclCapacity(I)V
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNotationCount:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNotationCount:I
 
-    add-int/lit8 v1, v0, 0x1
+    add-int/lit8 v2, v1, 0x1
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNotationCount:I
+    iput v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNotationCount:I
 
-    return v0
+    return v1
 .end method
 
 .method public element(Ljava/lang/String;Lmf/org/apache/xerces/xni/Augmentations;)V
@@ -3348,175 +3370,173 @@
 .end method
 
 .method public elementDecl(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xni/Augmentations;)V
-    .locals 7
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
 
-    const/4 v2, 0x1
+    const/4 v5, 0x1
 
-    const/4 v6, -0x1
+    const/4 v9, -0x1
 
-    const/4 v5, 0x0
+    const/4 v8, 0x0
 
-    const/4 v1, 0x0
+    const/4 v4, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclTab:Ljava/util/Hashtable;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclTab:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v3
 
-    check-cast v0, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;
+    check-cast v3, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;
 
-    if-nez v0, :cond_1
+    if-nez v3, :cond_1
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->createElementDecl()I
 
-    move-result v0
+    move-result v6
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fCurrentElementIndex:I
+    iput v6, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fCurrentElementIndex:I
 
     :goto_0
-    new-instance v0, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;
+    new-instance v1, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;
 
-    invoke-direct {v0}, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;-><init>()V
+    invoke-direct {v1}, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;-><init>()V
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName:Lmf/org/apache/xerces/xni/QName;
 
-    invoke-virtual {v3, v5, p1, p1, v5}, Lmf/org/apache/xerces/xni/QName;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v6, v8, p1, p1, v8}, Lmf/org/apache/xerces/xni/QName;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    iget-object v3, v0, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->name:Lmf/org/apache/xerces/xni/QName;
+    iget-object v6, v1, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->name:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v7, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fQName:Lmf/org/apache/xerces/xni/QName;
 
-    invoke-virtual {v3, v4}, Lmf/org/apache/xerces/xni/QName;->setValues(Lmf/org/apache/xerces/xni/QName;)V
+    invoke-virtual {v6, v7}, Lmf/org/apache/xerces/xni/QName;->setValues(Lmf/org/apache/xerces/xni/QName;)V
 
-    iput-object v5, v0, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->contentModelValidator:Lmf/org/apache/xerces/impl/dtd/models/ContentModelValidator;
+    iput-object v8, v1, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->contentModelValidator:Lmf/org/apache/xerces/impl/dtd/models/ContentModelValidator;
 
-    iput v6, v0, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->scope:I
+    iput v9, v1, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->scope:I
 
-    const-string/jumbo v3, "EMPTY"
+    const-string/jumbo v6, "EMPTY"
 
-    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v6
 
-    if-nez v3, :cond_3
+    if-nez v6, :cond_3
 
-    const-string/jumbo v3, "ANY"
+    const-string/jumbo v6, "ANY"
 
-    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v6
 
-    if-nez v3, :cond_4
+    if-nez v6, :cond_4
 
-    const-string/jumbo v3, "("
+    const-string/jumbo v6, "("
 
-    invoke-virtual {p2, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p2, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v6
 
-    if-nez v3, :cond_5
+    if-nez v6, :cond_5
 
     :goto_1
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclTab:Ljava/util/Hashtable;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclTab:Ljava/util/Hashtable;
 
-    invoke-virtual {v3, p1, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, p1, v1}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDecl:Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDecl:Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->addContentSpecToElement(Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;)V
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->addContentSpecToElement(Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;)V
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fCurrentElementIndex:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fCurrentElementIndex:I
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDecl:Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;
+    iget-object v7, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDecl:Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;
 
-    invoke-virtual {p0, v0, v3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->setElementDecl(ILmf/org/apache/xerces/impl/dtd/XMLElementDecl;)V
+    invoke-virtual {p0, v6, v7}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->setElementDecl(ILmf/org/apache/xerces/impl/dtd/XMLElementDecl;)V
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fCurrentElementIndex:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fCurrentElementIndex:I
 
-    shr-int/lit8 v0, v0, 0x8
+    shr-int/lit8 v0, v6, 0x8
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fCurrentElementIndex:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fCurrentElementIndex:I
 
-    and-int/lit16 v3, v3, 0xff
+    and-int/lit16 v2, v6, 0xff
 
     invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->ensureElementDeclCapacity(I)V
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclIsExternal:[[I
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclIsExternal:[[I
 
-    aget-object v4, v4, v0
+    aget-object v6, v6, v0
 
-    iget-boolean v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fReadingExternalDTD:Z
+    iget-boolean v7, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fReadingExternalDTD:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v7, :cond_7
 
     :cond_0
-    move v0, v2
+    move v4, v5
 
     :goto_2
-    aput v0, v4, v3
+    aput v4, v6, v2
 
     return-void
 
     :cond_1
-    iget-short v0, v0, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->type:S
+    iget-short v6, v3, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->type:S
 
-    if-eq v0, v6, :cond_2
+    if-eq v6, v9, :cond_2
 
     return-void
 
     :cond_2
     invoke-virtual {p0, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getElementDeclIndex(Ljava/lang/String;)I
 
-    move-result v0
+    move-result v6
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fCurrentElementIndex:I
+    iput v6, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fCurrentElementIndex:I
 
     goto :goto_0
 
     :cond_3
-    iput-short v2, v0, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->type:S
+    iput-short v5, v1, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->type:S
 
     goto :goto_1
 
     :cond_4
-    iput-short v1, v0, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->type:S
+    iput-short v4, v1, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->type:S
 
     goto :goto_1
 
     :cond_5
-    const-string/jumbo v3, "#PCDATA"
+    const-string/jumbo v6, "#PCDATA"
 
-    invoke-virtual {p2, v3}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+    invoke-virtual {p2, v6}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
-    move-result v3
+    move-result v6
 
-    if-gtz v3, :cond_6
+    if-gtz v6, :cond_6
 
-    const/4 v3, 0x3
+    const/4 v6, 0x3
 
-    iput-short v3, v0, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->type:S
+    iput-short v6, v1, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->type:S
 
     goto :goto_1
 
     :cond_6
-    const/4 v3, 0x2
+    const/4 v6, 0x2
 
-    iput-short v3, v0, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->type:S
+    iput-short v6, v1, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->type:S
 
     goto :goto_1
 
     :cond_7
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPEDepth:I
+    iget v7, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPEDepth:I
 
-    if-gtz v0, :cond_0
-
-    move v0, v1
+    if-gtz v7, :cond_0
 
     goto :goto_2
 .end method
@@ -3566,62 +3586,66 @@
 .end method
 
 .method public endDTD(Lmf/org/apache/xerces/xni/Augmentations;)V
-    .locals 6
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 v6, 0x1
 
-    const/4 v1, 0x1
+    iput-boolean v6, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fIsImmutable:Z
 
-    iput-boolean v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fIsImmutable:Z
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fGrammarDescription:Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fGrammarDescription:Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;
+    invoke-virtual {v6}, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->getRootName()Ljava/lang/String;
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->getRootName()Ljava/lang/String;
+    move-result-object v6
 
-    move-result-object v1
-
-    if-eqz v1, :cond_0
+    if-eqz v6, :cond_0
 
     :goto_0
     return-void
 
     :cond_0
-    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
+    const/4 v4, 0x0
+
+    const/4 v1, 0x0
+
+    iget v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
 
     new-instance v2, Ljava/util/ArrayList;
 
-    invoke-direct {v2, v1}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {v2, v5}, Ljava/util/ArrayList;-><init>(I)V
+
+    const/4 v3, 0x0
 
     :goto_1
-    if-ge v0, v1, :cond_1
+    if-ge v3, v5, :cond_1
 
-    shr-int/lit8 v3, v0, 0x8
+    shr-int/lit8 v0, v3, 0x8
 
-    and-int/lit16 v4, v0, 0xff
+    and-int/lit16 v4, v3, 0xff
 
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclName:[[Lmf/org/apache/xerces/xni/QName;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclName:[[Lmf/org/apache/xerces/xni/QName;
 
-    aget-object v3, v5, v3
+    aget-object v6, v6, v0
 
-    aget-object v3, v3, v4
+    aget-object v6, v6, v4
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+    iget-object v1, v6, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fGrammarDescription:Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fGrammarDescription:Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;
 
-    invoke-virtual {v0, v2}, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->setPossibleRoots(Ljava/util/ArrayList;)V
+    invoke-virtual {v6, v2}, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->setPossibleRoots(Ljava/util/ArrayList;)V
 
     goto :goto_0
 .end method
@@ -3642,41 +3666,41 @@
 .end method
 
 .method public endGroup(Lmf/org/apache/xerces/xni/Augmentations;)V
-    .locals 6
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
 
-    iget-boolean v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fMixed:Z
+    iget-boolean v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fMixed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     :goto_0
     return-void
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPrevNodeIndexStack:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPrevNodeIndexStack:[I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
 
-    aget v0, v0, v1
+    aget v1, v1, v2
 
-    const/4 v1, -0x1
+    const/4 v2, -0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v1, v2, :cond_1
 
     :goto_1
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNodeIndexStack:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNodeIndexStack:[I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
 
-    add-int/lit8 v2, v1, -0x1
+    add-int/lit8 v3, v2, -0x1
 
-    iput v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
+    iput v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
 
-    aget v0, v0, v1
+    aget v0, v1, v2
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNodeIndexStack:[I
 
@@ -3687,33 +3711,33 @@
     goto :goto_0
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNodeIndexStack:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNodeIndexStack:[I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fOpStack:[S
-
-    iget v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
-
-    aget-short v2, v2, v3
-
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPrevNodeIndexStack:[I
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fOpStack:[S
 
     iget v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
 
-    aget v3, v3, v4
+    aget-short v3, v3, v4
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNodeIndexStack:[I
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPrevNodeIndexStack:[I
 
     iget v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
 
     aget v4, v4, v5
 
-    invoke-virtual {p0, v2, v3, v4}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->addContentSpecNode(SII)I
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNodeIndexStack:[I
 
-    move-result v2
+    iget v6, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
 
-    aput v2, v0, v1
+    aget v5, v5, v6
+
+    invoke-virtual {p0, v3, v4, v5}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->addContentSpecNode(SII)I
+
+    move-result v3
+
+    aput v3, v1, v2
 
     goto :goto_1
 .end method
@@ -3751,17 +3775,17 @@
         }
     .end annotation
 
-    const/4 v5, 0x0
-
     const/4 v8, 0x0
+
+    const/4 v5, 0x0
 
     invoke-virtual {p0, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getEntityDeclIndex(Ljava/lang/String;)I
 
-    move-result v0
+    move-result v9
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v9, v1, :cond_0
 
     :goto_0
     return-void
@@ -3771,15 +3795,15 @@
 
     move-result v9
 
-    const-string/jumbo v0, "%"
+    const-string/jumbo v1, "%"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v7
 
-    iget-boolean v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fReadingExternalDTD:Z
+    iget-boolean v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fReadingExternalDTD:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
     :goto_1
     const/4 v8, 0x1
@@ -3812,9 +3836,9 @@
     goto :goto_0
 
     :cond_2
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPEDepth:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPEDepth:I
 
-    if-lez v0, :cond_1
+    if-lez v1, :cond_1
 
     goto :goto_1
 .end method
@@ -3822,73 +3846,70 @@
 .method public getAttributeDecl(ILmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;)Z
     .locals 12
 
-    const/4 v9, 0x1
+    const/4 v11, 0x1
 
-    const/4 v1, -0x1
-
-    const/4 v0, 0x0
+    const/4 v4, 0x0
 
     if-gez p1, :cond_1
 
     :cond_0
-    return v0
+    return v4
 
     :cond_1
-    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclCount:I
+    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclCount:I
 
-    if-ge p1, v2, :cond_0
+    if-ge p1, v0, :cond_0
 
-    shr-int/lit8 v8, p1, 0x8
+    shr-int/lit8 v9, p1, 0x8
 
     and-int/lit16 v10, p1, 0xff
 
-    iget-object v2, p2, Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;->name:Lmf/org/apache/xerces/xni/QName;
+    iget-object v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;->name:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclName:[[Lmf/org/apache/xerces/xni/QName;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclName:[[Lmf/org/apache/xerces/xni/QName;
 
-    aget-object v3, v3, v8
+    aget-object v2, v2, v9
 
-    aget-object v3, v3, v10
+    aget-object v2, v2, v10
 
-    invoke-virtual {v2, v3}, Lmf/org/apache/xerces/xni/QName;->setValues(Lmf/org/apache/xerces/xni/QName;)V
+    invoke-virtual {v0, v2}, Lmf/org/apache/xerces/xni/QName;->setValues(Lmf/org/apache/xerces/xni/QName;)V
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclType:[[S
+    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclType:[[S
 
-    aget-object v2, v2, v8
+    aget-object v0, v0, v9
 
-    aget-short v2, v2, v10
+    aget-short v0, v0, v10
 
-    if-eq v2, v1, :cond_2
+    const/4 v2, -0x1
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclType:[[S
+    if-eq v0, v2, :cond_2
 
-    aget-object v1, v1, v8
+    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclType:[[S
 
-    aget-short v1, v1, v10
+    aget-object v0, v0, v9
 
-    and-int/lit16 v1, v1, -0x81
+    aget-short v0, v0, v10
 
-    int-to-short v1, v1
+    and-int/lit16 v0, v0, -0x81
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclType:[[S
+    int-to-short v1, v0
 
-    aget-object v2, v2, v8
+    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclType:[[S
 
-    aget-short v2, v2, v10
+    aget-object v0, v0, v9
 
-    and-int/lit16 v2, v2, 0x80
+    aget-short v0, v0, v10
 
-    if-nez v2, :cond_3
+    and-int/lit16 v0, v0, 0x80
+
+    if-nez v0, :cond_3
 
     :goto_0
-    move v4, v0
-
-    :goto_1
     iget-object v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;->simpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclName:[[Lmf/org/apache/xerces/xni/QName;
 
-    aget-object v2, v2, v8
+    aget-object v2, v2, v9
 
     aget-object v2, v2, v10
 
@@ -3896,45 +3917,47 @@
 
     iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclEnumeration:[[[Ljava/lang/String;
 
-    aget-object v3, v3, v8
+    aget-object v3, v3, v9
 
     aget-object v3, v3, v10
 
     iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclDefaultType:[[S
 
-    aget-object v5, v5, v8
+    aget-object v5, v5, v9
 
     aget-short v5, v5, v10
 
     iget-object v6, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclDefaultValue:[[Ljava/lang/String;
 
-    aget-object v6, v6, v8
+    aget-object v6, v6, v9
 
     aget-object v6, v6, v10
 
     iget-object v7, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclNonNormalizedDefaultValue:[[Ljava/lang/String;
 
-    aget-object v7, v7, v8
+    aget-object v7, v7, v9
 
     aget-object v7, v7, v10
 
-    iget-object v11, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclDatatypeValidator:[[Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
+    iget-object v8, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclDatatypeValidator:[[Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
 
-    aget-object v8, v11, v8
+    aget-object v8, v8, v9
 
     aget-object v8, v8, v10
 
     invoke-virtual/range {v0 .. v8}, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->setValues(SLjava/lang/String;[Ljava/lang/String;ZSLjava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/impl/dv/DatatypeValidator;)V
 
-    return v9
+    return v11
 
     :cond_2
-    move v4, v0
+    const/4 v1, -0x1
 
-    goto :goto_1
+    const/4 v4, 0x0
+
+    goto :goto_0
 
     :cond_3
-    move v0, v9
+    move v4, v11
 
     goto :goto_0
 .end method
@@ -4007,11 +4030,11 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclIsExternal:[[I
 
-    aget-object v0, v2, v0
+    aget-object v2, v2, v0
 
-    aget v0, v0, v1
+    aget v2, v2, v1
 
-    if-nez v0, :cond_1
+    if-nez v2, :cond_1
 
     return v3
 
@@ -4019,25 +4042,25 @@
     return v3
 
     :cond_1
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    return v0
+    return v2
 .end method
 
 .method public getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
-    .locals 3
+    .locals 4
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
     if-gez p1, :cond_1
 
     :cond_0
-    return v1
+    return v3
 
     :cond_1
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fContentSpecCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fContentSpecCount:I
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v2, :cond_0
 
     shr-int/lit8 v0, p1, 0x8
 
@@ -4063,399 +4086,399 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fContentSpecOtherValue:[[Ljava/lang/Object;
 
-    aget-object v0, v2, v0
+    aget-object v2, v2, v0
 
-    aget-object v0, v0, v1
+    aget-object v2, v2, v1
 
-    iput-object v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iput-object v2, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    return v0
+    return v2
 .end method
 
 .method public getContentSpecAsString(I)Ljava/lang/String;
-    .locals 8
+    .locals 13
 
-    const/16 v7, 0x29
+    const/16 v12, 0x29
 
-    const/16 v6, 0x28
+    const/16 v11, 0x28
 
-    const/4 v4, 0x0
+    const/4 v10, 0x0
 
-    const/4 v5, 0x1
+    const/4 v9, 0x1
 
-    const/4 v3, 0x0
+    const/4 v8, 0x0
 
     if-gez p1, :cond_1
 
     :cond_0
-    return-object v3
+    return-object v8
 
     :cond_1
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
+    iget v7, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v7, :cond_0
 
     shr-int/lit8 v0, p1, 0x8
 
-    and-int/lit16 v1, p1, 0xff
+    and-int/lit16 v3, p1, 0xff
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclContentSpecIndex:[[I
+    iget-object v7, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclContentSpecIndex:[[I
 
-    aget-object v0, v2, v0
+    aget-object v7, v7, v0
 
-    aget v0, v0, v1
+    aget v2, v7, v3
 
     new-instance v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;
 
     invoke-direct {v1}, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;-><init>()V
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
+    invoke-virtual {p0, v2, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
 
-    move-result v0
+    move-result v7
 
-    if-nez v0, :cond_2
+    if-nez v7, :cond_2
 
-    return-object v3
+    return-object v8
 
     :cond_2
-    new-instance v2, Ljava/lang/StringBuffer;
+    new-instance v6, Ljava/lang/StringBuffer;
 
-    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuffer;-><init>()V
 
-    iget-short v0, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v7, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    and-int/lit8 v3, v0, 0xf
+    and-int/lit8 v5, v7, 0xf
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v5, :pswitch_data_0
 
-    const-string/jumbo v0, "???"
+    const-string/jumbo v7, "???"
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     :cond_3
     :goto_0
-    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v7
 
-    return-object v0
+    return-object v7
 
     :pswitch_0
-    invoke-virtual {v2, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v11}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    iget-object v0, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v7, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    if-eqz v0, :cond_5
+    if-eqz v7, :cond_5
 
     :cond_4
-    iget-object v0, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v7, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
     :goto_1
-    invoke-virtual {v2, v7}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v12}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto :goto_0
 
     :cond_5
-    iget-object v0, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v7, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    if-nez v0, :cond_4
+    if-nez v7, :cond_4
 
-    const-string/jumbo v0, "#PCDATA"
+    const-string/jumbo v7, "#PCDATA"
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_1
 
     :pswitch_1
-    iget-object v0, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v7, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    check-cast v0, [I
+    check-cast v7, [I
 
-    aget v0, v0, v4
+    aget v7, v7, v10
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
+    invoke-virtual {p0, v7, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
 
-    iget-short v0, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    if-eqz v0, :cond_7
+    if-eqz v4, :cond_7
 
-    const/4 v4, 0x3
+    const/4 v7, 0x3
 
-    if-ne v0, v4, :cond_8
+    if-ne v4, v7, :cond_8
 
     :cond_6
-    invoke-virtual {v2, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v11}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    invoke-direct {p0, v1, v2, v5, v3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
+    invoke-direct {p0, v1, v6, v9, v5}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
 
-    invoke-virtual {v2, v7}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v12}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     :goto_2
-    const/16 v0, 0x3f
+    const/16 v7, 0x3f
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto :goto_0
 
     :cond_7
-    invoke-virtual {v2, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v11}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    iget-object v0, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v7, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v2, v7}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v12}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto :goto_2
 
     :cond_8
-    const/4 v4, 0x2
+    const/4 v7, 0x2
 
-    if-eq v0, v4, :cond_6
+    if-eq v4, v7, :cond_6
 
-    if-eq v0, v5, :cond_6
+    if-eq v4, v9, :cond_6
 
-    invoke-direct {p0, v1, v2, v5, v3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
+    invoke-direct {p0, v1, v6, v9, v5}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
 
     goto :goto_2
 
     :pswitch_2
-    iget-object v0, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v7, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    check-cast v0, [I
+    check-cast v7, [I
 
-    aget v0, v0, v4
+    aget v7, v7, v10
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
+    invoke-virtual {p0, v7, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
 
-    iget-short v0, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    if-eqz v0, :cond_a
+    if-eqz v4, :cond_a
 
-    const/4 v4, 0x3
+    const/4 v7, 0x3
 
-    if-ne v0, v4, :cond_f
+    if-ne v4, v7, :cond_f
 
     :cond_9
-    invoke-virtual {v2, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v11}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    invoke-direct {p0, v1, v2, v5, v3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
+    invoke-direct {p0, v1, v6, v9, v5}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
 
-    invoke-virtual {v2, v7}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v12}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     :goto_3
-    const/16 v0, 0x2a
+    const/16 v7, 0x2a
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto :goto_0
 
     :cond_a
-    invoke-virtual {v2, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v11}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    iget-object v0, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v7, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    if-eqz v0, :cond_c
+    if-eqz v7, :cond_c
 
     :cond_b
-    iget-object v0, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v7, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    if-nez v0, :cond_d
+    if-nez v7, :cond_d
 
-    iget-object v0, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v7, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    if-eqz v0, :cond_e
+    if-eqz v7, :cond_e
 
-    invoke-direct {p0, v1, v2, v5, v3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
+    invoke-direct {p0, v1, v6, v9, v5}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
 
     :goto_4
-    invoke-virtual {v2, v7}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v12}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto :goto_3
 
     :cond_c
-    iget-object v0, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v7, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    if-nez v0, :cond_b
+    if-nez v7, :cond_b
 
-    const-string/jumbo v0, "#PCDATA"
+    const-string/jumbo v7, "#PCDATA"
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_4
 
     :cond_d
-    const-string/jumbo v0, "##any:uri="
+    const-string/jumbo v7, "##any:uri="
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v7
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v8, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
     goto :goto_4
 
     :cond_e
-    const-string/jumbo v0, "##any"
+    const-string/jumbo v7, "##any"
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_4
 
     :cond_f
-    const/4 v4, 0x2
+    const/4 v7, 0x2
 
-    if-eq v0, v4, :cond_9
+    if-eq v4, v7, :cond_9
 
-    if-eq v0, v5, :cond_9
+    if-eq v4, v9, :cond_9
 
-    invoke-direct {p0, v1, v2, v5, v3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
+    invoke-direct {p0, v1, v6, v9, v5}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
 
     goto :goto_3
 
     :pswitch_3
-    iget-object v0, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v7, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    check-cast v0, [I
+    check-cast v7, [I
 
-    aget v0, v0, v4
+    aget v7, v7, v10
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
+    invoke-virtual {p0, v7, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
 
-    iget-short v0, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v4, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    if-eqz v0, :cond_11
+    if-eqz v4, :cond_11
 
-    const/4 v4, 0x3
+    const/4 v7, 0x3
 
-    if-ne v0, v4, :cond_16
+    if-ne v4, v7, :cond_16
 
     :cond_10
-    invoke-virtual {v2, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v11}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    invoke-direct {p0, v1, v2, v5, v3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
+    invoke-direct {p0, v1, v6, v9, v5}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
 
-    invoke-virtual {v2, v7}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v12}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     :goto_5
-    const/16 v0, 0x2b
+    const/16 v7, 0x2b
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto/16 :goto_0
 
     :cond_11
-    invoke-virtual {v2, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v11}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    iget-object v0, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v7, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    if-eqz v0, :cond_13
+    if-eqz v7, :cond_13
 
     :cond_12
-    iget-object v0, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v7, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    if-nez v0, :cond_14
+    if-nez v7, :cond_14
 
-    iget-object v0, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v7, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    if-eqz v0, :cond_15
+    if-eqz v7, :cond_15
 
-    iget-object v0, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v7, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
     :goto_6
-    invoke-virtual {v2, v7}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v12}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto :goto_5
 
     :cond_13
-    iget-object v0, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v7, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    if-nez v0, :cond_12
+    if-nez v7, :cond_12
 
-    const-string/jumbo v0, "#PCDATA"
+    const-string/jumbo v7, "#PCDATA"
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_6
 
     :cond_14
-    const-string/jumbo v0, "##any:uri="
+    const-string/jumbo v7, "##any:uri="
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v7
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v8, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
     goto :goto_6
 
     :cond_15
-    const-string/jumbo v0, "##any"
+    const-string/jumbo v7, "##any"
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_6
 
     :cond_16
-    const/4 v4, 0x2
+    const/4 v7, 0x2
 
-    if-eq v0, v4, :cond_10
+    if-eq v4, v7, :cond_10
 
-    if-eq v0, v5, :cond_10
+    if-eq v4, v9, :cond_10
 
-    invoke-direct {p0, v1, v2, v5, v3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
+    invoke-direct {p0, v1, v6, v9, v5}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
 
     goto :goto_5
 
     :pswitch_4
-    invoke-direct {p0, v1, v2, v5, v3}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
+    invoke-direct {p0, v1, v6, v9, v5}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->appendContentSpec(Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;Ljava/lang/StringBuffer;ZI)V
 
     goto/16 :goto_0
 
     :pswitch_5
-    const-string/jumbo v0, "##any"
+    const-string/jumbo v7, "##any"
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    iget-object v0, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v7, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    if-eqz v0, :cond_3
+    if-eqz v7, :cond_3
 
-    const-string/jumbo v0, ":uri="
+    const-string/jumbo v7, ":uri="
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    iget-object v0, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v7, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
     goto/16 :goto_0
 
     :pswitch_6
-    const-string/jumbo v0, "##other:uri="
+    const-string/jumbo v7, "##other:uri="
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    iget-object v0, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v7, v1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
     goto/16 :goto_0
 
     :pswitch_7
-    const-string/jumbo v0, "##local"
+    const-string/jumbo v7, "##local"
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto/16 :goto_0
 
@@ -4479,14 +4502,14 @@
     if-gez p1, :cond_1
 
     :cond_0
-    const/4 v0, -0x1
+    const/4 v2, -0x1
 
-    return v0
+    return v2
 
     :cond_1
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v2, :cond_0
 
     shr-int/lit8 v0, p1, 0x8
 
@@ -4494,11 +4517,11 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclContentSpecIndex:[[I
 
-    aget-object v0, v2, v0
+    aget-object v2, v2, v0
 
-    aget v0, v0, v1
+    aget v2, v2, v1
 
-    return v0
+    return v2
 .end method
 
 .method public getContentSpecType(I)S
@@ -4512,9 +4535,9 @@
     return v3
 
     :cond_1
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v2, :cond_0
 
     shr-int/lit8 v0, p1, 0x8
 
@@ -4530,15 +4553,15 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclType:[[S
 
-    aget-object v0, v2, v0
+    aget-object v2, v2, v0
 
-    aget-short v0, v0, v1
+    aget-short v2, v2, v1
 
-    and-int/lit16 v0, v0, -0x81
+    and-int/lit16 v2, v2, -0x81
 
-    int-to-short v0, v0
+    int-to-short v2, v2
 
-    return v0
+    return v2
 
     :cond_2
     return v3
@@ -4561,61 +4584,61 @@
 .end method
 
 .method protected getElementContentModelValidator(I)Lmf/org/apache/xerces/impl/dtd/models/ContentModelValidator;
-    .locals 8
+    .locals 12
 
     const/4 v2, 0x0
 
     const/4 v3, 0x0
 
-    shr-int/lit8 v6, p1, 0x8
+    shr-int/lit8 v7, p1, 0x8
 
-    and-int/lit16 v7, p1, 0xff
+    and-int/lit16 v11, p1, 0xff
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclContentModelValidator:[[Lmf/org/apache/xerces/impl/dtd/models/ContentModelValidator;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclContentModelValidator:[[Lmf/org/apache/xerces/impl/dtd/models/ContentModelValidator;
 
-    aget-object v0, v0, v6
+    aget-object v1, v1, v7
 
-    aget-object v0, v0, v7
+    aget-object v0, v1, v11
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclType:[[S
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclType:[[S
 
-    aget-object v0, v0, v6
+    aget-object v1, v1, v7
 
-    aget-short v0, v0, v7
+    aget-short v10, v1, v11
 
     const/4 v1, 0x4
 
-    if-eq v0, v1, :cond_1
+    if-eq v10, v1, :cond_1
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclContentSpecIndex:[[I
 
-    aget-object v1, v1, v6
+    aget-object v1, v1, v7
 
-    aget v1, v1, v7
+    aget v9, v1, v11
 
-    new-instance v2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;
+    new-instance v8, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;
 
-    invoke-direct {v2}, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;-><init>()V
+    invoke-direct {v8}, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;-><init>()V
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
+    invoke-virtual {p0, v9, v8}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getContentSpec(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;)Z
 
-    const/4 v4, 0x2
+    const/4 v1, 0x2
 
-    if-eq v0, v4, :cond_2
+    if-eq v10, v1, :cond_2
 
-    const/4 v2, 0x3
+    const/4 v1, 0x3
 
-    if-eq v0, v2, :cond_3
+    if-eq v10, v1, :cond_3
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v1, "Unknown content type for a element decl in getElementContentModelValidator() in AbstractDTDGrammar class"
+    const-string/jumbo v2, "Unknown content type for a element decl in getElementContentModelValidator() in AbstractDTDGrammar class"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v1
 
     :cond_0
     return-object v0
@@ -4624,19 +4647,19 @@
     return-object v2
 
     :cond_2
-    new-instance v4, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;
+    new-instance v6, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;
 
-    invoke-direct {v4}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;-><init>()V
+    invoke-direct {v6}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;-><init>()V
 
-    invoke-direct {p0, v1, v2, v4}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->contentSpecTree(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;)V
+    invoke-direct {p0, v9, v8, v6}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->contentSpecTree(ILmf/org/apache/xerces/impl/dtd/XMLContentSpec;Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;)V
 
     new-instance v0, Lmf/org/apache/xerces/impl/dtd/models/MixedContentModel;
 
-    iget-object v1, v4, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->qname:[Lmf/org/apache/xerces/xni/QName;
+    iget-object v1, v6, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->qname:[Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v2, v4, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->type:[I
+    iget-object v2, v6, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->type:[I
 
-    iget v4, v4, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->length:I
+    iget v4, v6, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$ChildrenList;->length:I
 
     move v5, v3
 
@@ -4645,14 +4668,14 @@
     :goto_0
     iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclContentModelValidator:[[Lmf/org/apache/xerces/impl/dtd/models/ContentModelValidator;
 
-    aget-object v1, v1, v6
+    aget-object v1, v1, v7
 
-    aput-object v0, v1, v7
+    aput-object v0, v1, v11
 
     return-object v0
 
     :cond_3
-    invoke-direct {p0, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->createChildModel(I)Lmf/org/apache/xerces/impl/dtd/models/ContentModelValidator;
+    invoke-direct {p0, v9}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->createChildModel(I)Lmf/org/apache/xerces/impl/dtd/models/ContentModelValidator;
 
     move-result-object v0
 
@@ -4664,49 +4687,49 @@
 
     const/4 v7, 0x0
 
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
     const/4 v6, -0x1
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
     if-gez p1, :cond_1
 
     :cond_0
-    return v0
+    return v2
 
     :cond_1
-    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
 
-    if-ge p1, v2, :cond_0
+    if-ge p1, v4, :cond_0
 
-    shr-int/lit8 v2, p1, 0x8
+    shr-int/lit8 v0, p1, 0x8
 
-    and-int/lit16 v3, p1, 0xff
+    and-int/lit16 v1, p1, 0xff
 
     iget-object v4, p2, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->name:Lmf/org/apache/xerces/xni/QName;
 
     iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclName:[[Lmf/org/apache/xerces/xni/QName;
 
-    aget-object v5, v5, v2
+    aget-object v5, v5, v0
 
-    aget-object v5, v5, v3
+    aget-object v5, v5, v1
 
     invoke-virtual {v4, v5}, Lmf/org/apache/xerces/xni/QName;->setValues(Lmf/org/apache/xerces/xni/QName;)V
 
     iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclType:[[S
 
-    aget-object v4, v4, v2
+    aget-object v4, v4, v0
 
-    aget-short v4, v4, v3
+    aget-short v4, v4, v1
 
     if-eq v4, v6, :cond_3
 
     iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclType:[[S
 
-    aget-object v4, v4, v2
+    aget-object v4, v4, v0
 
-    aget-short v4, v4, v3
+    aget-short v4, v4, v1
 
     and-int/lit16 v4, v4, -0x81
 
@@ -4720,76 +4743,76 @@
 
     iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclType:[[S
 
-    aget-object v2, v5, v2
+    aget-object v5, v5, v0
 
-    aget-short v2, v2, v3
+    aget-short v5, v5, v1
 
-    and-int/lit16 v2, v2, 0x80
+    and-int/lit16 v5, v5, 0x80
 
-    if-nez v2, :cond_4
+    if-nez v5, :cond_4
 
     :goto_0
-    iput-boolean v0, v4, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->list:Z
+    iput-boolean v2, v4, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->list:Z
 
     :goto_1
-    iget-short v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->type:S
+    iget-short v2, p2, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->type:S
 
-    const/4 v2, 0x3
+    const/4 v4, 0x3
 
-    if-ne v0, v2, :cond_5
+    if-ne v2, v4, :cond_5
 
     :cond_2
     invoke-virtual {p0, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getElementContentModelValidator(I)Lmf/org/apache/xerces/impl/dtd/models/ContentModelValidator;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->contentModelValidator:Lmf/org/apache/xerces/impl/dtd/models/ContentModelValidator;
+    iput-object v2, p2, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->contentModelValidator:Lmf/org/apache/xerces/impl/dtd/models/ContentModelValidator;
 
     :goto_2
-    iget-object v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->simpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v2, p2, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->simpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
-    iput-object v7, v0, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->datatypeValidator:Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
+    iput-object v7, v2, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->datatypeValidator:Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
 
-    iget-object v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->simpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v2, p2, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->simpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
-    iput-short v6, v0, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->defaultType:S
+    iput-short v6, v2, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->defaultType:S
 
-    iget-object v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->simpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v2, p2, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->simpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
-    iput-object v7, v0, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->defaultValue:Ljava/lang/String;
+    iput-object v7, v2, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->defaultValue:Ljava/lang/String;
 
-    return v1
+    return v3
 
     :cond_3
     iput-short v6, p2, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->type:S
 
-    iget-object v2, p2, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->simpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v4, p2, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->simpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
-    iput-boolean v0, v2, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->list:Z
+    iput-boolean v2, v4, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->list:Z
 
     goto :goto_1
 
     :cond_4
-    move v0, v1
+    move v2, v3
 
     goto :goto_0
 
     :cond_5
-    iget-short v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->type:S
+    iget-short v2, p2, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->type:S
 
-    const/4 v2, 0x2
+    const/4 v4, 0x2
 
-    if-eq v0, v2, :cond_2
+    if-eq v2, v4, :cond_2
 
     goto :goto_2
 .end method
 
 .method public getElementDeclIndex(Ljava/lang/String;)I
-    .locals 1
+    .locals 2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementIndexMap:Lmf/org/apache/xerces/impl/dtd/DTDGrammar$QNameHashtable;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementIndexMap:Lmf/org/apache/xerces/impl/dtd/DTDGrammar$QNameHashtable;
 
-    invoke-virtual {v0, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$QNameHashtable;->get(Ljava/lang/String;)I
+    invoke-virtual {v1, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$QNameHashtable;->get(Ljava/lang/String;)I
 
     move-result v0
 
@@ -4821,11 +4844,11 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclIsExternal:[[I
 
-    aget-object v0, v2, v0
+    aget-object v2, v2, v0
 
-    aget v0, v0, v1
+    aget v2, v2, v1
 
-    if-nez v0, :cond_1
+    if-nez v2, :cond_1
 
     return v3
 
@@ -4833,9 +4856,9 @@
     return v3
 
     :cond_1
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    return v0
+    return v2
 .end method
 
 .method getElementDeclName(I)Lmf/org/apache/xerces/xni/QName;
@@ -4844,14 +4867,14 @@
     if-gez p1, :cond_1
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    return-object v0
+    return-object v2
 
     :cond_1
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v2, :cond_0
 
     shr-int/lit8 v0, p1, 0x8
 
@@ -4859,17 +4882,17 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclName:[[Lmf/org/apache/xerces/xni/QName;
 
-    aget-object v0, v2, v0
+    aget-object v2, v2, v0
 
-    aget-object v0, v0, v1
+    aget-object v2, v2, v1
 
-    return-object v0
+    return-object v2
 .end method
 
 .method public getEntityDecl(ILmf/org/apache/xerces/impl/dtd/XMLEntityDecl;)Z
     .locals 12
 
-    const/4 v9, 0x1
+    const/4 v11, 0x1
 
     const/4 v0, 0x0
 
@@ -4883,73 +4906,73 @@
 
     if-ge p1, v1, :cond_0
 
-    shr-int/lit8 v8, p1, 0x8
+    shr-int/lit8 v9, p1, 0x8
 
     and-int/lit16 v10, p1, 0xff
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityName:[[Ljava/lang/String;
 
-    aget-object v1, v1, v8
+    aget-object v1, v1, v9
 
     aget-object v1, v1, v10
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityPublicId:[[Ljava/lang/String;
 
-    aget-object v2, v2, v8
+    aget-object v2, v2, v9
 
     aget-object v2, v2, v10
 
     iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntitySystemId:[[Ljava/lang/String;
 
-    aget-object v3, v3, v8
+    aget-object v3, v3, v9
 
     aget-object v3, v3, v10
 
     iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityBaseSystemId:[[Ljava/lang/String;
 
-    aget-object v4, v4, v8
+    aget-object v4, v4, v9
 
     aget-object v4, v4, v10
 
     iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityNotation:[[Ljava/lang/String;
 
-    aget-object v5, v5, v8
+    aget-object v5, v5, v9
 
     aget-object v5, v5, v10
 
     iget-object v6, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityValue:[[Ljava/lang/String;
 
-    aget-object v6, v6, v8
+    aget-object v6, v6, v9
 
     aget-object v6, v6, v10
 
     iget-object v7, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityIsPE:[[B
 
-    aget-object v7, v7, v8
+    aget-object v7, v7, v9
 
     aget-byte v7, v7, v10
 
     if-eqz v7, :cond_2
 
-    move v7, v9
+    move v7, v11
 
     :goto_0
-    iget-object v11, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityInExternal:[[B
+    iget-object v8, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityInExternal:[[B
 
-    aget-object v8, v11, v8
+    aget-object v8, v8, v9
 
     aget-byte v8, v8, v10
 
     if-eqz v8, :cond_3
 
-    move v8, v9
+    move v8, v11
 
     :goto_1
     move-object v0, p2
 
     invoke-virtual/range {v0 .. v8}, Lmf/org/apache/xerces/impl/dtd/XMLEntityDecl;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)V
 
-    return v9
+    return v11
 
     :cond_2
     move v7, v0
@@ -4990,11 +5013,11 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclFirstAttributeDeclIndex:[[I
 
-    aget-object v0, v2, v0
+    aget-object v2, v2, v0
 
-    aget v0, v0, v1
+    aget v2, v2, v1
 
-    return v0
+    return v2
 .end method
 
 .method public getFirstElementDeclIndex()I
@@ -5029,11 +5052,11 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclNextAttributeDeclIndex:[[I
 
-    aget-object v0, v2, v0
+    aget-object v2, v2, v0
 
-    aget v0, v0, v1
+    aget v2, v2, v1
 
-    return v0
+    return v2
 .end method
 
 .method public getNextElementDeclIndex(I)I
@@ -5059,17 +5082,17 @@
 .method public getNotationDecl(ILmf/org/apache/xerces/impl/dtd/XMLNotationDecl;)Z
     .locals 6
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
     if-gez p1, :cond_1
 
     :cond_0
-    return v1
+    return v3
 
     :cond_1
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNotationCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNotationCount:I
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v2, :cond_0
 
     shr-int/lit8 v0, p1, 0x8
 
@@ -5095,15 +5118,15 @@
 
     iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNotationBaseSystemId:[[Ljava/lang/String;
 
-    aget-object v0, v5, v0
+    aget-object v5, v5, v0
 
-    aget-object v0, v0, v1
+    aget-object v5, v5, v1
 
-    invoke-virtual {p2, v2, v3, v4, v0}, Lmf/org/apache/xerces/impl/dtd/XMLNotationDecl;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p2, v2, v3, v4, v5}, Lmf/org/apache/xerces/impl/dtd/XMLNotationDecl;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    return v0
+    return v2
 .end method
 
 .method public getNotationDeclIndex(Ljava/lang/String;)I
@@ -5145,102 +5168,102 @@
 .end method
 
 .method protected initializeContentModelStack()V
-    .locals 5
+    .locals 6
 
-    const/16 v1, 0x8
+    const/16 v3, 0x8
 
-    const/4 v4, -0x1
+    const/4 v5, -0x1
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fOpStack:[S
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fOpStack:[S
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fOpStack:[S
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fOpStack:[S
 
-    array-length v1, v1
+    array-length v3, v3
 
-    if-eq v0, v1, :cond_1
+    if-eq v2, v3, :cond_1
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fOpStack:[S
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fOpStack:[S
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
 
-    aput-short v4, v0, v1
+    aput-short v5, v2, v3
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNodeIndexStack:[I
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNodeIndexStack:[I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
 
-    aput v4, v0, v1
+    aput v5, v2, v3
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPrevNodeIndexStack:[I
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPrevNodeIndexStack:[I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
 
-    aput v4, v0, v1
+    aput v5, v2, v3
 
     return-void
 
     :cond_0
-    new-array v0, v1, [S
+    new-array v2, v3, [S
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fOpStack:[S
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fOpStack:[S
 
-    new-array v0, v1, [I
+    new-array v2, v3, [I
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNodeIndexStack:[I
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNodeIndexStack:[I
 
-    new-array v0, v1, [I
+    new-array v2, v3, [I
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPrevNodeIndexStack:[I
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPrevNodeIndexStack:[I
 
     goto :goto_0
 
     :cond_1
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
 
-    mul-int/lit8 v0, v0, 0x2
+    mul-int/lit8 v2, v2, 0x2
 
-    new-array v0, v0, [S
+    new-array v1, v2, [S
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fOpStack:[S
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fOpStack:[S
+
+    iget v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
+
+    invoke-static {v2, v4, v1, v4, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fOpStack:[S
 
     iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
 
-    invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    mul-int/lit8 v2, v2, 0x2
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fOpStack:[S
+    new-array v0, v2, [I
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNodeIndexStack:[I
 
-    mul-int/lit8 v0, v0, 0x2
+    iget v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
 
-    new-array v0, v0, [I
-
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNodeIndexStack:[I
-
-    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
-
-    invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v2, v4, v0, v4, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNodeIndexStack:[I
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
-
-    mul-int/lit8 v0, v0, 0x2
-
-    new-array v0, v0, [I
-
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPrevNodeIndexStack:[I
-
     iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
 
-    invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    mul-int/lit8 v2, v2, 0x2
+
+    new-array v0, v2, [I
+
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPrevNodeIndexStack:[I
+
+    iget v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
+
+    invoke-static {v2, v4, v0, v4, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPrevNodeIndexStack:[I
 
@@ -5261,11 +5284,11 @@
 
     invoke-virtual {p0, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getEntityDeclIndex(Ljava/lang/String;)I
 
-    move-result v0
+    move-result v9
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v9, v1, :cond_0
 
     :goto_0
     return-void
@@ -5275,15 +5298,15 @@
 
     move-result v9
 
-    const-string/jumbo v0, "%"
+    const-string/jumbo v1, "%"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v7
 
-    iget-boolean v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fReadingExternalDTD:Z
+    iget-boolean v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fReadingExternalDTD:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
     :goto_1
     const/4 v8, 0x1
@@ -5312,9 +5335,9 @@
     goto :goto_0
 
     :cond_2
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPEDepth:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPEDepth:I
 
-    if-lez v0, :cond_1
+    if-lez v1, :cond_1
 
     goto :goto_1
 .end method
@@ -5332,23 +5355,23 @@
 
     invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getAttributeDecl(ILmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    return v0
+    return v1
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDecl:Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDecl:Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;->simpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v1, v1, Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;->simpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
-    iget-short v0, v0, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->type:S
+    iget-short v1, v1, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->type:S
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     return v2
 .end method
@@ -5376,38 +5399,38 @@
 .end method
 
 .method public isEntityUnparsed(Ljava/lang/String;)Z
-    .locals 4
+    .locals 5
 
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
     invoke-virtual {p0, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getEntityDeclIndex(Ljava/lang/String;)I
 
     move-result v1
 
-    const/4 v2, -0x1
+    const/4 v4, -0x1
 
-    if-gt v1, v2, :cond_0
+    if-gt v1, v4, :cond_0
 
-    return v0
+    return v3
 
     :cond_0
-    shr-int/lit8 v2, v1, 0x8
+    shr-int/lit8 v0, v1, 0x8
 
-    and-int/lit16 v1, v1, 0xff
+    and-int/lit16 v2, v1, 0xff
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityNotation:[[Ljava/lang/String;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityNotation:[[Ljava/lang/String;
 
-    aget-object v2, v3, v2
+    aget-object v4, v4, v0
 
-    aget-object v1, v2, v1
+    aget-object v4, v4, v2
 
-    if-nez v1, :cond_1
+    if-nez v4, :cond_1
 
     :goto_0
-    return v0
+    return v3
 
     :cond_1
-    const/4 v0, 0x1
+    const/4 v3, 0x1
 
     goto :goto_0
 .end method
@@ -5429,7 +5452,7 @@
 .end method
 
 .method public notationDecl(Ljava/lang/String;Lmf/org/apache/xerces/xni/XMLResourceIdentifier;Lmf/org/apache/xerces/xni/Augmentations;)V
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
@@ -5442,17 +5465,17 @@
 
     invoke-interface {p2}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getPublicId()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
     invoke-interface {p2}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getLiteralSystemId()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
     invoke-interface {p2}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getBaseSystemId()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v0, p1, v1, v2, v3}, Lmf/org/apache/xerces/impl/dtd/XMLNotationDecl;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, p1, v2, v3, v4}, Lmf/org/apache/xerces/impl/dtd/XMLNotationDecl;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-virtual {p0, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getNotationDeclIndex(Ljava/lang/String;)I
 
@@ -5630,68 +5653,68 @@
     goto :goto_0
 
     :cond_1
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    const-string/jumbo v1, " ]"
+    const-string/jumbo v2, " ]"
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method public printElements()V
-    .locals 5
+    .locals 6
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    new-instance v2, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;
+    new-instance v0, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;
 
-    invoke-direct {v2}, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;-><init>()V
+    invoke-direct {v0}, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;-><init>()V
 
     :goto_0
-    add-int/lit8 v1, v0, 0x1
+    add-int/lit8 v2, v1, 0x1
 
-    invoke-virtual {p0, v0, v2}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getElementDecl(ILmf/org/apache/xerces/impl/dtd/XMLElementDecl;)Z
+    invoke-virtual {p0, v1, v0}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getElementDecl(ILmf/org/apache/xerces/impl/dtd/XMLElementDecl;)Z
 
-    move-result v0
+    move-result v3
 
-    if-eqz v0, :cond_0
+    if-eqz v3, :cond_0
 
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v3, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v4, "element decl: "
+    const-string/jumbo v5, "element decl: "
 
-    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-object v4, v2, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->name:Lmf/org/apache/xerces/xni/QName;
+    iget-object v5, v0, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->name:Lmf/org/apache/xerces/xni/QName;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    const-string/jumbo v4, ", "
+    const-string/jumbo v5, ", "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    iget-object v4, v2, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->name:Lmf/org/apache/xerces/xni/QName;
+    iget-object v5, v0, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->name:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v4, v4, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+    iget-object v5, v5, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v0, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v3, v4}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    move v0, v1
+    move v1, v2
 
     goto :goto_0
 
@@ -5885,185 +5908,185 @@
 .end method
 
 .method protected setAttributeDecl(IILmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;)V
-    .locals 6
+    .locals 8
 
-    const/4 v5, -0x1
+    const/4 v7, -0x1
 
     shr-int/lit8 v0, p2, 0x8
 
     and-int/lit16 v1, p2, 0xff
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclName:[[Lmf/org/apache/xerces/xni/QName;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclName:[[Lmf/org/apache/xerces/xni/QName;
 
-    aget-object v2, v2, v0
+    aget-object v5, v5, v0
 
-    aget-object v2, v2, v1
+    aget-object v5, v5, v1
 
-    iget-object v3, p3, Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;->name:Lmf/org/apache/xerces/xni/QName;
+    iget-object v6, p3, Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;->name:Lmf/org/apache/xerces/xni/QName;
 
-    invoke-virtual {v2, v3}, Lmf/org/apache/xerces/xni/QName;->setValues(Lmf/org/apache/xerces/xni/QName;)V
+    invoke-virtual {v5, v6}, Lmf/org/apache/xerces/xni/QName;->setValues(Lmf/org/apache/xerces/xni/QName;)V
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclType:[[S
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclType:[[S
 
-    aget-object v2, v2, v0
+    aget-object v5, v5, v0
 
-    iget-object v3, p3, Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;->simpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v6, p3, Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;->simpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
-    iget-short v3, v3, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->type:S
+    iget-short v6, v6, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->type:S
 
-    int-to-short v3, v3
+    int-to-short v6, v6
 
-    aput-short v3, v2, v1
+    aput-short v6, v5, v1
 
-    iget-object v2, p3, Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;->simpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v5, p3, Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;->simpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
-    iget-boolean v2, v2, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->list:Z
+    iget-boolean v5, v5, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->list:Z
 
-    if-nez v2, :cond_0
+    if-nez v5, :cond_0
 
     :goto_0
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclEnumeration:[[[Ljava/lang/String;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclEnumeration:[[[Ljava/lang/String;
 
-    aget-object v2, v2, v0
+    aget-object v5, v5, v0
 
-    iget-object v3, p3, Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;->simpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v6, p3, Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;->simpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
-    iget-object v3, v3, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->enumeration:[Ljava/lang/String;
+    iget-object v6, v6, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->enumeration:[Ljava/lang/String;
 
-    aput-object v3, v2, v1
+    aput-object v6, v5, v1
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclDefaultType:[[S
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclDefaultType:[[S
 
-    aget-object v2, v2, v0
+    aget-object v5, v5, v0
 
-    iget-object v3, p3, Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;->simpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v6, p3, Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;->simpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
-    iget-short v3, v3, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->defaultType:S
+    iget-short v6, v6, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->defaultType:S
 
-    int-to-short v3, v3
+    int-to-short v6, v6
 
-    aput-short v3, v2, v1
+    aput-short v6, v5, v1
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclDatatypeValidator:[[Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclDatatypeValidator:[[Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
 
-    aget-object v2, v2, v0
+    aget-object v5, v5, v0
 
-    iget-object v3, p3, Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;->simpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v6, p3, Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;->simpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
-    iget-object v3, v3, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->datatypeValidator:Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
+    iget-object v6, v6, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->datatypeValidator:Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
 
-    aput-object v3, v2, v1
+    aput-object v6, v5, v1
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclDefaultValue:[[Ljava/lang/String;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclDefaultValue:[[Ljava/lang/String;
 
-    aget-object v2, v2, v0
+    aget-object v5, v5, v0
 
-    iget-object v3, p3, Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;->simpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v6, p3, Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;->simpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
-    iget-object v3, v3, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->defaultValue:Ljava/lang/String;
+    iget-object v6, v6, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->defaultValue:Ljava/lang/String;
 
-    aput-object v3, v2, v1
+    aput-object v6, v5, v1
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclNonNormalizedDefaultValue:[[Ljava/lang/String;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclNonNormalizedDefaultValue:[[Ljava/lang/String;
 
-    aget-object v0, v2, v0
+    aget-object v5, v5, v0
 
-    iget-object v2, p3, Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;->simpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
+    iget-object v6, p3, Lmf/org/apache/xerces/impl/dtd/XMLAttributeDecl;->simpleType:Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;
 
-    iget-object v2, v2, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->nonNormalizedDefaultValue:Ljava/lang/String;
+    iget-object v6, v6, Lmf/org/apache/xerces/impl/dtd/XMLSimpleType;->nonNormalizedDefaultValue:Ljava/lang/String;
 
-    aput-object v2, v0, v1
+    aput-object v6, v5, v1
 
-    shr-int/lit8 v1, p1, 0x8
+    shr-int/lit8 v2, p1, 0x8
 
-    and-int/lit16 v2, p1, 0xff
+    and-int/lit16 v3, p1, 0xff
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclFirstAttributeDeclIndex:[[I
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclFirstAttributeDeclIndex:[[I
 
-    aget-object v0, v0, v1
+    aget-object v5, v5, v2
 
-    aget v0, v0, v2
+    aget v4, v5, v3
 
     :goto_1
-    if-eq v0, v5, :cond_1
+    if-eq v4, v7, :cond_1
 
-    if-eq v0, p2, :cond_1
+    if-eq v4, p2, :cond_1
 
-    shr-int/lit8 v3, v0, 0x8
+    shr-int/lit8 v0, v4, 0x8
 
-    and-int/lit16 v0, v0, 0xff
+    and-int/lit16 v1, v4, 0xff
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclNextAttributeDeclIndex:[[I
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclNextAttributeDeclIndex:[[I
 
-    aget-object v3, v4, v3
+    aget-object v5, v5, v0
 
-    aget v0, v3, v0
+    aget v4, v5, v1
 
     goto :goto_1
 
     :cond_0
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclType:[[S
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclType:[[S
 
-    aget-object v2, v2, v0
+    aget-object v5, v5, v0
 
-    aget-short v3, v2, v1
+    aget-short v6, v5, v1
 
-    or-int/lit16 v3, v3, 0x80
+    or-int/lit16 v6, v6, 0x80
 
-    int-to-short v3, v3
+    int-to-short v6, v6
 
-    int-to-short v3, v3
+    int-to-short v6, v6
 
-    aput-short v3, v2, v1
+    aput-short v6, v5, v1
 
     goto :goto_0
 
     :cond_1
-    if-eq v0, v5, :cond_2
+    if-eq v4, v7, :cond_2
 
     :goto_2
     return-void
 
     :cond_2
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclFirstAttributeDeclIndex:[[I
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclFirstAttributeDeclIndex:[[I
 
-    aget-object v0, v0, v1
+    aget-object v5, v5, v2
 
-    aget v0, v0, v2
+    aget v5, v5, v3
 
-    if-eq v0, v5, :cond_3
+    if-eq v5, v7, :cond_3
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclLastAttributeDeclIndex:[[I
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclLastAttributeDeclIndex:[[I
 
-    aget-object v0, v0, v1
+    aget-object v5, v5, v2
 
-    aget v0, v0, v2
+    aget v4, v5, v3
 
-    shr-int/lit8 v3, v0, 0x8
+    shr-int/lit8 v0, v4, 0x8
 
-    and-int/lit16 v0, v0, 0xff
+    and-int/lit16 v1, v4, 0xff
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclNextAttributeDeclIndex:[[I
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fAttributeDeclNextAttributeDeclIndex:[[I
 
-    aget-object v3, v4, v3
+    aget-object v5, v5, v0
 
-    aput p2, v3, v0
+    aput p2, v5, v1
 
     :goto_3
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclLastAttributeDeclIndex:[[I
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclLastAttributeDeclIndex:[[I
 
-    aget-object v0, v0, v1
+    aget-object v5, v5, v2
 
-    aput p2, v0, v2
+    aput p2, v5, v3
 
     goto :goto_2
 
     :cond_3
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclFirstAttributeDeclIndex:[[I
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclFirstAttributeDeclIndex:[[I
 
-    aget-object v0, v0, v1
+    aget-object v5, v5, v2
 
-    aput p2, v0, v2
+    aput p2, v5, v3
 
     goto :goto_3
 .end method
@@ -6095,11 +6118,11 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fContentSpecOtherValue:[[Ljava/lang/Object;
 
-    aget-object v0, v2, v0
+    aget-object v2, v2, v0
 
-    iget-object v2, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v3, p2, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    aput-object v2, v0, v1
+    aput-object v3, v2, v1
 
     return-void
 .end method
@@ -6113,9 +6136,9 @@
     return-void
 
     :cond_1
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v2, :cond_0
 
     shr-int/lit8 v0, p1, 0x8
 
@@ -6123,9 +6146,9 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclContentSpecIndex:[[I
 
-    aget-object v0, v2, v0
+    aget-object v2, v2, v0
 
-    aput p2, v0, v1
+    aput p2, v2, v1
 
     return-void
 .end method
@@ -6155,9 +6178,9 @@
     return-void
 
     :cond_1
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v2, :cond_0
 
     shr-int/lit8 v0, p1, 0x8
 
@@ -6198,30 +6221,30 @@
     if-nez v2, :cond_2
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementIndexMap:Lmf/org/apache/xerces/impl/dtd/DTDGrammar$QNameHashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementIndexMap:Lmf/org/apache/xerces/impl/dtd/DTDGrammar$QNameHashtable;
 
-    iget-object v1, p2, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->name:Lmf/org/apache/xerces/xni/QName;
+    iget-object v3, p2, Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;->name:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v1, v1, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$QNameHashtable;->put(Ljava/lang/String;I)V
+    invoke-virtual {v2, v3, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$QNameHashtable;->put(Ljava/lang/String;I)V
 
     return-void
 
     :cond_2
     iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclType:[[S
 
-    aget-object v0, v2, v0
+    aget-object v2, v2, v0
 
-    aget-short v2, v0, v1
+    aget-short v3, v2, v1
 
-    or-int/lit16 v2, v2, 0x80
+    or-int/lit16 v3, v3, 0x80
 
-    int-to-short v2, v2
+    int-to-short v3, v3
 
-    int-to-short v2, v2
+    int-to-short v3, v3
 
-    aput-short v2, v0, v1
+    aput-short v3, v2, v1
 
     goto :goto_0
 .end method
@@ -6229,105 +6252,105 @@
 .method protected setEntityDecl(ILmf/org/apache/xerces/impl/dtd/XMLEntityDecl;)V
     .locals 6
 
-    const/4 v2, 0x1
+    const/4 v4, 0x1
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    shr-int/lit8 v3, p1, 0x8
+    shr-int/lit8 v0, p1, 0x8
 
-    and-int/lit16 v4, p1, 0xff
+    and-int/lit16 v1, p1, 0xff
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityName:[[Ljava/lang/String;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityName:[[Ljava/lang/String;
 
-    aget-object v0, v0, v3
+    aget-object v2, v2, v0
 
     iget-object v5, p2, Lmf/org/apache/xerces/impl/dtd/XMLEntityDecl;->name:Ljava/lang/String;
 
-    aput-object v5, v0, v4
+    aput-object v5, v2, v1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityValue:[[Ljava/lang/String;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityValue:[[Ljava/lang/String;
 
-    aget-object v0, v0, v3
+    aget-object v2, v2, v0
 
     iget-object v5, p2, Lmf/org/apache/xerces/impl/dtd/XMLEntityDecl;->value:Ljava/lang/String;
 
-    aput-object v5, v0, v4
+    aput-object v5, v2, v1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityPublicId:[[Ljava/lang/String;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityPublicId:[[Ljava/lang/String;
 
-    aget-object v0, v0, v3
+    aget-object v2, v2, v0
 
     iget-object v5, p2, Lmf/org/apache/xerces/impl/dtd/XMLEntityDecl;->publicId:Ljava/lang/String;
 
-    aput-object v5, v0, v4
+    aput-object v5, v2, v1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntitySystemId:[[Ljava/lang/String;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntitySystemId:[[Ljava/lang/String;
 
-    aget-object v0, v0, v3
+    aget-object v2, v2, v0
 
     iget-object v5, p2, Lmf/org/apache/xerces/impl/dtd/XMLEntityDecl;->systemId:Ljava/lang/String;
 
-    aput-object v5, v0, v4
+    aput-object v5, v2, v1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityBaseSystemId:[[Ljava/lang/String;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityBaseSystemId:[[Ljava/lang/String;
 
-    aget-object v0, v0, v3
+    aget-object v2, v2, v0
 
     iget-object v5, p2, Lmf/org/apache/xerces/impl/dtd/XMLEntityDecl;->baseSystemId:Ljava/lang/String;
 
-    aput-object v5, v0, v4
+    aput-object v5, v2, v1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityNotation:[[Ljava/lang/String;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityNotation:[[Ljava/lang/String;
 
-    aget-object v0, v0, v3
+    aget-object v2, v2, v0
 
     iget-object v5, p2, Lmf/org/apache/xerces/impl/dtd/XMLEntityDecl;->notation:Ljava/lang/String;
 
-    aput-object v5, v0, v4
+    aput-object v5, v2, v1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityIsPE:[[B
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityIsPE:[[B
 
-    aget-object v5, v0, v3
+    aget-object v5, v2, v0
 
-    iget-boolean v0, p2, Lmf/org/apache/xerces/impl/dtd/XMLEntityDecl;->isPE:Z
+    iget-boolean v2, p2, Lmf/org/apache/xerces/impl/dtd/XMLEntityDecl;->isPE:Z
 
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
-    move v0, v1
+    move v2, v3
 
     :goto_0
-    int-to-byte v0, v0
+    int-to-byte v2, v2
 
-    aput-byte v0, v5, v4
+    aput-byte v2, v5, v1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityInExternal:[[B
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityInExternal:[[B
 
-    aget-object v0, v0, v3
+    aget-object v2, v2, v0
 
-    iget-boolean v3, p2, Lmf/org/apache/xerces/impl/dtd/XMLEntityDecl;->inExternal:Z
+    iget-boolean v5, p2, Lmf/org/apache/xerces/impl/dtd/XMLEntityDecl;->inExternal:Z
 
-    if-nez v3, :cond_1
+    if-nez v5, :cond_1
 
     :goto_1
-    int-to-byte v1, v1
+    int-to-byte v3, v3
 
-    aput-byte v1, v0, v4
+    aput-byte v3, v2, v1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityIndexMap:Lmf/org/apache/xerces/impl/dtd/DTDGrammar$QNameHashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fEntityIndexMap:Lmf/org/apache/xerces/impl/dtd/DTDGrammar$QNameHashtable;
 
-    iget-object v1, p2, Lmf/org/apache/xerces/impl/dtd/XMLEntityDecl;->name:Ljava/lang/String;
+    iget-object v3, p2, Lmf/org/apache/xerces/impl/dtd/XMLEntityDecl;->name:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$QNameHashtable;->put(Ljava/lang/String;I)V
+    invoke-virtual {v2, v3, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$QNameHashtable;->put(Ljava/lang/String;I)V
 
     return-void
 
     :cond_0
-    move v0, v2
+    move v2, v4
 
     goto :goto_0
 
     :cond_1
-    move v1, v2
+    move v3, v4
 
     goto :goto_1
 .end method
@@ -6341,9 +6364,9 @@
     return-void
 
     :cond_1
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclCount:I
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v2, :cond_0
 
     shr-int/lit8 v0, p1, 0x8
 
@@ -6351,9 +6374,9 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclFirstAttributeDeclIndex:[[I
 
-    aget-object v0, v2, v0
+    aget-object v2, v2, v0
 
-    aput p2, v0, v1
+    aput p2, v2, v1
 
     return-void
 .end method
@@ -6391,17 +6414,17 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNotationBaseSystemId:[[Ljava/lang/String;
 
-    aget-object v0, v2, v0
+    aget-object v2, v2, v0
 
-    iget-object v2, p2, Lmf/org/apache/xerces/impl/dtd/XMLNotationDecl;->baseSystemId:Ljava/lang/String;
+    iget-object v3, p2, Lmf/org/apache/xerces/impl/dtd/XMLNotationDecl;->baseSystemId:Ljava/lang/String;
 
-    aput-object v2, v0, v1
+    aput-object v3, v2, v1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNotationIndexMap:Lmf/org/apache/xerces/impl/dtd/DTDGrammar$QNameHashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fNotationIndexMap:Lmf/org/apache/xerces/impl/dtd/DTDGrammar$QNameHashtable;
 
-    iget-object v1, p2, Lmf/org/apache/xerces/impl/dtd/XMLNotationDecl;->name:Ljava/lang/String;
+    iget-object v3, p2, Lmf/org/apache/xerces/impl/dtd/XMLNotationDecl;->name:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$QNameHashtable;->put(Ljava/lang/String;I)V
+    invoke-virtual {v2, v3, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar$QNameHashtable;->put(Ljava/lang/String;I)V
 
     return-void
 .end method
@@ -6429,16 +6452,16 @@
 .end method
 
 .method public startContentModel(Ljava/lang/String;Lmf/org/apache/xerces/xni/Augmentations;)V
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclTab:Ljava/util/Hashtable;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fElementDeclTab:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -6447,9 +6470,9 @@
     if-nez v0, :cond_0
 
     :goto_0
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
+    iput v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fDepth:I
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->initializeContentModelStack()V
 
@@ -6528,39 +6551,39 @@
 
     const/4 v3, 0x0
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPEDepth:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPEDepth:I
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPEntityStack:[Z
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPEntityStack:[Z
 
-    array-length v1, v1
+    array-length v2, v2
 
-    if-eq v0, v1, :cond_0
+    if-eq v1, v2, :cond_0
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPEntityStack:[Z
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPEntityStack:[Z
+
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPEDepth:I
+
+    iget-boolean v3, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fReadingExternalDTD:Z
+
+    aput-boolean v3, v1, v2
 
     iget v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPEDepth:I
 
-    iget-boolean v2, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fReadingExternalDTD:Z
+    add-int/lit8 v1, v1, 0x1
 
-    aput-boolean v2, v0, v1
-
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPEDepth:I
-
-    add-int/lit8 v0, v0, 0x1
-
-    iput v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPEDepth:I
+    iput v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPEDepth:I
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPEntityStack:[Z
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPEntityStack:[Z
 
-    array-length v0, v0
+    array-length v1, v1
 
-    mul-int/lit8 v0, v0, 0x2
+    mul-int/lit8 v1, v1, 0x2
 
-    new-array v0, v0, [Z
+    new-array v0, v1, [Z
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->fPEntityStack:[Z
 
@@ -6587,12 +6610,14 @@
 .end method
 
 .method public unparsedEntityDecl(Ljava/lang/String;Lmf/org/apache/xerces/xni/XMLResourceIdentifier;Ljava/lang/String;Lmf/org/apache/xerces/xni/Augmentations;)V
-    .locals 9
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
+
+    const/4 v6, 0x0
 
     const/4 v8, 0x0
 
@@ -6626,8 +6651,6 @@
 
     move-result-object v4
 
-    const/4 v6, 0x0
-
     move-object v1, p1
 
     move-object v5, p3
@@ -6636,11 +6659,11 @@
 
     invoke-virtual {p0, p1}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->getEntityDeclIndex(Ljava/lang/String;)I
 
-    move-result v1
+    move-result v9
 
-    const/4 v2, -0x1
+    const/4 v1, -0x1
 
-    if-eq v1, v2, :cond_2
+    if-eq v9, v1, :cond_2
 
     :goto_1
     return-void
@@ -6655,9 +6678,9 @@
     :cond_2
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->createEntityDecl()I
 
-    move-result v1
+    move-result v9
 
-    invoke-virtual {p0, v1, v0}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->setEntityDecl(ILmf/org/apache/xerces/impl/dtd/XMLEntityDecl;)V
+    invoke-virtual {p0, v9, v0}, Lmf/org/apache/xerces/impl/dtd/DTDGrammar;->setEntityDecl(ILmf/org/apache/xerces/impl/dtd/XMLEntityDecl;)V
 
     goto :goto_1
 .end method

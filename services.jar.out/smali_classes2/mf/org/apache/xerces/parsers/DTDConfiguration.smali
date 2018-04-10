@@ -112,268 +112,268 @@
 .end method
 
 .method public constructor <init>(Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;Lmf/org/apache/xerces/xni/parser/XMLComponentManager;)V
-    .locals 5
+    .locals 7
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
 
-    const/4 v3, 0x1
+    const/4 v5, 0x1
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
     invoke-direct {p0, p1, p3}, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;-><init>(Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xni/parser/XMLComponentManager;)V
 
-    iput-boolean v2, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fParseInProgress:Z
+    iput-boolean v4, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fParseInProgress:Z
 
-    new-array v0, v4, [Ljava/lang/String;
+    new-array v0, v6, [Ljava/lang/String;
 
-    const-string/jumbo v1, "http://apache.org/xml/features/continue-after-fatal-error"
+    const-string/jumbo v3, "http://apache.org/xml/features/continue-after-fatal-error"
 
-    aput-object v1, v0, v2
+    aput-object v3, v0, v4
 
-    const-string/jumbo v1, "http://apache.org/xml/features/nonvalidating/load-external-dtd"
+    const-string/jumbo v3, "http://apache.org/xml/features/nonvalidating/load-external-dtd"
 
-    aput-object v1, v0, v3
+    aput-object v3, v0, v5
 
     invoke-virtual {p0, v0}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->addRecognizedFeatures([Ljava/lang/String;)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/continue-after-fatal-error"
+    const-string/jumbo v3, "http://apache.org/xml/features/continue-after-fatal-error"
 
-    invoke-virtual {p0, v0, v2}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v3, v4}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/nonvalidating/load-external-dtd"
+    const-string/jumbo v3, "http://apache.org/xml/features/nonvalidating/load-external-dtd"
 
-    invoke-virtual {p0, v0, v3}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v3, v5}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setFeature(Ljava/lang/String;Z)V
 
-    const/16 v0, 0xd
+    const/16 v3, 0xd
 
-    new-array v0, v0, [Ljava/lang/String;
+    new-array v1, v3, [Ljava/lang/String;
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/error-reporter"
+    const-string/jumbo v3, "http://apache.org/xml/properties/internal/error-reporter"
 
-    aput-object v1, v0, v2
+    aput-object v3, v1, v4
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/entity-manager"
+    const-string/jumbo v3, "http://apache.org/xml/properties/internal/entity-manager"
 
-    aput-object v1, v0, v3
+    aput-object v3, v1, v5
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/document-scanner"
+    const-string/jumbo v3, "http://apache.org/xml/properties/internal/document-scanner"
 
-    aput-object v1, v0, v4
+    aput-object v3, v1, v6
 
-    const/4 v1, 0x3
+    const/4 v3, 0x3
 
-    const-string/jumbo v2, "http://apache.org/xml/properties/internal/dtd-scanner"
+    const-string/jumbo v4, "http://apache.org/xml/properties/internal/dtd-scanner"
 
-    aput-object v2, v0, v1
+    aput-object v4, v1, v3
 
-    const/4 v1, 0x4
+    const/4 v3, 0x4
 
-    const-string/jumbo v2, "http://apache.org/xml/properties/internal/dtd-processor"
+    const-string/jumbo v4, "http://apache.org/xml/properties/internal/dtd-processor"
 
-    aput-object v2, v0, v1
+    aput-object v4, v1, v3
 
-    const/4 v1, 0x5
+    const/4 v3, 0x5
 
-    const-string/jumbo v2, "http://apache.org/xml/properties/internal/validator/dtd"
+    const-string/jumbo v4, "http://apache.org/xml/properties/internal/validator/dtd"
 
-    aput-object v2, v0, v1
+    aput-object v4, v1, v3
 
-    const/4 v1, 0x6
+    const/4 v3, 0x6
 
-    const-string/jumbo v2, "http://apache.org/xml/properties/internal/namespace-binder"
+    const-string/jumbo v4, "http://apache.org/xml/properties/internal/namespace-binder"
 
-    aput-object v2, v0, v1
+    aput-object v4, v1, v3
 
-    const/4 v1, 0x7
+    const/4 v3, 0x7
 
-    const-string/jumbo v2, "http://apache.org/xml/properties/internal/grammar-pool"
+    const-string/jumbo v4, "http://apache.org/xml/properties/internal/grammar-pool"
 
-    aput-object v2, v0, v1
+    aput-object v4, v1, v3
 
-    const/16 v1, 0x8
+    const/16 v3, 0x8
 
-    const-string/jumbo v2, "http://apache.org/xml/properties/internal/datatype-validator-factory"
+    const-string/jumbo v4, "http://apache.org/xml/properties/internal/datatype-validator-factory"
 
-    aput-object v2, v0, v1
+    aput-object v4, v1, v3
 
-    const/16 v1, 0x9
+    const/16 v3, 0x9
 
-    const-string/jumbo v2, "http://apache.org/xml/properties/internal/validation-manager"
+    const-string/jumbo v4, "http://apache.org/xml/properties/internal/validation-manager"
 
-    aput-object v2, v0, v1
+    aput-object v4, v1, v3
 
-    const/16 v1, 0xa
+    const/16 v3, 0xa
 
-    const-string/jumbo v2, "http://java.sun.com/xml/jaxp/properties/schemaSource"
+    const-string/jumbo v4, "http://java.sun.com/xml/jaxp/properties/schemaSource"
 
-    aput-object v2, v0, v1
+    aput-object v4, v1, v3
 
-    const/16 v1, 0xb
+    const/16 v3, 0xb
 
-    const-string/jumbo v2, "http://java.sun.com/xml/jaxp/properties/schemaLanguage"
+    const-string/jumbo v4, "http://java.sun.com/xml/jaxp/properties/schemaLanguage"
 
-    aput-object v2, v0, v1
+    aput-object v4, v1, v3
 
-    const/16 v1, 0xc
+    const/16 v3, 0xc
 
-    const-string/jumbo v2, "http://apache.org/xml/properties/locale"
+    const-string/jumbo v4, "http://apache.org/xml/properties/locale"
 
-    aput-object v2, v0, v1
+    aput-object v4, v1, v3
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->addRecognizedProperties([Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->addRecognizedProperties([Ljava/lang/String;)V
 
     iput-object p2, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
 
-    if-nez v0, :cond_1
+    if-nez v3, :cond_1
 
     :goto_0
     invoke-virtual {p0}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->createEntityManager()Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    move-result-object v0
+    move-result-object v3
 
-    iput-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iput-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/entity-manager"
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    const-string/jumbo v4, "http://apache.org/xml/properties/internal/entity-manager"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->addComponent(Lmf/org/apache/xerces/xni/parser/XMLComponent;)V
+    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->addComponent(Lmf/org/apache/xerces/xni/parser/XMLComponent;)V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->createErrorReporter()Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    move-result-object v0
+    move-result-object v3
 
-    iput-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iput-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v4, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/XMLEntityManager;->getEntityScanner()Lmf/org/apache/xerces/impl/XMLEntityScanner;
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/XMLEntityManager;->getEntityScanner()Lmf/org/apache/xerces/impl/XMLEntityScanner;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->setDocumentLocator(Lmf/org/apache/xerces/xni/XMLLocator;)V
+    invoke-virtual {v3, v4}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->setDocumentLocator(Lmf/org/apache/xerces/xni/XMLLocator;)V
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/error-reporter"
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    const-string/jumbo v4, "http://apache.org/xml/properties/internal/error-reporter"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->addComponent(Lmf/org/apache/xerces/xni/parser/XMLComponent;)V
+    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->addComponent(Lmf/org/apache/xerces/xni/parser/XMLComponent;)V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->createDocumentScanner()Lmf/org/apache/xerces/xni/parser/XMLDocumentScanner;
 
-    move-result-object v0
+    move-result-object v3
 
-    iput-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fScanner:Lmf/org/apache/xerces/xni/parser/XMLDocumentScanner;
+    iput-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fScanner:Lmf/org/apache/xerces/xni/parser/XMLDocumentScanner;
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/document-scanner"
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fScanner:Lmf/org/apache/xerces/xni/parser/XMLDocumentScanner;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fScanner:Lmf/org/apache/xerces/xni/parser/XMLDocumentScanner;
+    const-string/jumbo v4, "http://apache.org/xml/properties/internal/document-scanner"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fScanner:Lmf/org/apache/xerces/xni/parser/XMLDocumentScanner;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fScanner:Lmf/org/apache/xerces/xni/parser/XMLDocumentScanner;
 
-    instance-of v0, v0, Lmf/org/apache/xerces/xni/parser/XMLComponent;
+    instance-of v3, v3, Lmf/org/apache/xerces/xni/parser/XMLComponent;
 
-    if-nez v0, :cond_2
+    if-nez v3, :cond_2
 
     :goto_1
     invoke-virtual {p0}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->createDTDScanner()Lmf/org/apache/xerces/xni/parser/XMLDTDScanner;
 
-    move-result-object v0
+    move-result-object v3
 
-    iput-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDScanner:Lmf/org/apache/xerces/xni/parser/XMLDTDScanner;
+    iput-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDScanner:Lmf/org/apache/xerces/xni/parser/XMLDTDScanner;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDScanner:Lmf/org/apache/xerces/xni/parser/XMLDTDScanner;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDScanner:Lmf/org/apache/xerces/xni/parser/XMLDTDScanner;
 
-    if-nez v0, :cond_3
+    if-nez v3, :cond_3
 
     :cond_0
     :goto_2
     invoke-virtual {p0}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->createDTDProcessor()Lmf/org/apache/xerces/impl/dtd/XMLDTDProcessor;
 
-    move-result-object v0
+    move-result-object v3
 
-    iput-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDProcessor:Lmf/org/apache/xerces/impl/dtd/XMLDTDProcessor;
+    iput-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDProcessor:Lmf/org/apache/xerces/impl/dtd/XMLDTDProcessor;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDProcessor:Lmf/org/apache/xerces/impl/dtd/XMLDTDProcessor;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDProcessor:Lmf/org/apache/xerces/impl/dtd/XMLDTDProcessor;
 
-    if-nez v0, :cond_4
+    if-nez v3, :cond_4
 
     :goto_3
     invoke-virtual {p0}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->createDTDValidator()Lmf/org/apache/xerces/impl/dtd/XMLDTDValidator;
 
-    move-result-object v0
+    move-result-object v3
 
-    iput-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDValidator:Lmf/org/apache/xerces/impl/dtd/XMLDTDValidator;
+    iput-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDValidator:Lmf/org/apache/xerces/impl/dtd/XMLDTDValidator;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDValidator:Lmf/org/apache/xerces/impl/dtd/XMLDTDValidator;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDValidator:Lmf/org/apache/xerces/impl/dtd/XMLDTDValidator;
 
-    if-nez v0, :cond_5
+    if-nez v3, :cond_5
 
     :goto_4
     invoke-virtual {p0}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->createNamespaceBinder()Lmf/org/apache/xerces/impl/XMLNamespaceBinder;
 
-    move-result-object v0
+    move-result-object v3
 
-    iput-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fNamespaceBinder:Lmf/org/apache/xerces/impl/XMLNamespaceBinder;
+    iput-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fNamespaceBinder:Lmf/org/apache/xerces/impl/XMLNamespaceBinder;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fNamespaceBinder:Lmf/org/apache/xerces/impl/XMLNamespaceBinder;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fNamespaceBinder:Lmf/org/apache/xerces/impl/XMLNamespaceBinder;
 
-    if-nez v0, :cond_6
+    if-nez v3, :cond_6
 
     :goto_5
     invoke-virtual {p0}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->createDatatypeValidatorFactory()Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
 
-    move-result-object v0
+    move-result-object v3
 
-    iput-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDatatypeValidatorFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
+    iput-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDatatypeValidatorFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDatatypeValidatorFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDatatypeValidatorFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
 
-    if-nez v0, :cond_7
+    if-nez v3, :cond_7
 
     :goto_6
     invoke-virtual {p0}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->createValidationManager()Lmf/org/apache/xerces/impl/validation/ValidationManager;
 
-    move-result-object v0
+    move-result-object v3
 
-    iput-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fValidationManager:Lmf/org/apache/xerces/impl/validation/ValidationManager;
+    iput-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fValidationManager:Lmf/org/apache/xerces/impl/validation/ValidationManager;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fValidationManager:Lmf/org/apache/xerces/impl/validation/ValidationManager;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fValidationManager:Lmf/org/apache/xerces/impl/validation/ValidationManager;
 
-    if-nez v0, :cond_8
+    if-nez v3, :cond_8
 
     :goto_7
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v1, "http://www.w3.org/TR/1998/REC-xml-19980210"
+    const-string/jumbo v4, "http://www.w3.org/TR/1998/REC-xml-19980210"
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->getMessageFormatter(Ljava/lang/String;)Lmf/org/apache/xerces/util/MessageFormatter;
+    invoke-virtual {v3, v4}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->getMessageFormatter(Ljava/lang/String;)Lmf/org/apache/xerces/util/MessageFormatter;
 
-    move-result-object v0
+    move-result-object v3
 
-    if-eqz v0, :cond_9
+    if-eqz v3, :cond_9
 
     :goto_8
     :try_start_0
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setLocale(Ljava/util/Locale;)V
+    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setLocale(Ljava/util/Locale;)V
     :try_end_0
     .catch Lmf/org/apache/xerces/xni/XNIException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -381,122 +381,122 @@
     return-void
 
     :cond_1
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/grammar-pool"
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
+    const-string/jumbo v4, "http://apache.org/xml/properties/internal/grammar-pool"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
     goto/16 :goto_0
 
     :cond_2
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fScanner:Lmf/org/apache/xerces/xni/parser/XMLDocumentScanner;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fScanner:Lmf/org/apache/xerces/xni/parser/XMLDocumentScanner;
 
-    check-cast v0, Lmf/org/apache/xerces/xni/parser/XMLComponent;
+    check-cast v3, Lmf/org/apache/xerces/xni/parser/XMLComponent;
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->addComponent(Lmf/org/apache/xerces/xni/parser/XMLComponent;)V
+    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->addComponent(Lmf/org/apache/xerces/xni/parser/XMLComponent;)V
 
     goto :goto_1
 
     :cond_3
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/dtd-scanner"
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDScanner:Lmf/org/apache/xerces/xni/parser/XMLDTDScanner;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDScanner:Lmf/org/apache/xerces/xni/parser/XMLDTDScanner;
+    const-string/jumbo v4, "http://apache.org/xml/properties/internal/dtd-scanner"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDScanner:Lmf/org/apache/xerces/xni/parser/XMLDTDScanner;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDScanner:Lmf/org/apache/xerces/xni/parser/XMLDTDScanner;
 
-    instance-of v0, v0, Lmf/org/apache/xerces/xni/parser/XMLComponent;
+    instance-of v3, v3, Lmf/org/apache/xerces/xni/parser/XMLComponent;
 
-    if-eqz v0, :cond_0
+    if-eqz v3, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDScanner:Lmf/org/apache/xerces/xni/parser/XMLDTDScanner;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDScanner:Lmf/org/apache/xerces/xni/parser/XMLDTDScanner;
 
-    check-cast v0, Lmf/org/apache/xerces/xni/parser/XMLComponent;
+    check-cast v3, Lmf/org/apache/xerces/xni/parser/XMLComponent;
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->addComponent(Lmf/org/apache/xerces/xni/parser/XMLComponent;)V
+    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->addComponent(Lmf/org/apache/xerces/xni/parser/XMLComponent;)V
 
     goto :goto_2
 
     :cond_4
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/dtd-processor"
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDProcessor:Lmf/org/apache/xerces/impl/dtd/XMLDTDProcessor;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDProcessor:Lmf/org/apache/xerces/impl/dtd/XMLDTDProcessor;
+    const-string/jumbo v4, "http://apache.org/xml/properties/internal/dtd-processor"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDProcessor:Lmf/org/apache/xerces/impl/dtd/XMLDTDProcessor;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDProcessor:Lmf/org/apache/xerces/impl/dtd/XMLDTDProcessor;
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->addComponent(Lmf/org/apache/xerces/xni/parser/XMLComponent;)V
+    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->addComponent(Lmf/org/apache/xerces/xni/parser/XMLComponent;)V
 
     goto :goto_3
 
     :cond_5
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/validator/dtd"
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDValidator:Lmf/org/apache/xerces/impl/dtd/XMLDTDValidator;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDValidator:Lmf/org/apache/xerces/impl/dtd/XMLDTDValidator;
+    const-string/jumbo v4, "http://apache.org/xml/properties/internal/validator/dtd"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDValidator:Lmf/org/apache/xerces/impl/dtd/XMLDTDValidator;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDValidator:Lmf/org/apache/xerces/impl/dtd/XMLDTDValidator;
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->addComponent(Lmf/org/apache/xerces/xni/parser/XMLComponent;)V
+    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->addComponent(Lmf/org/apache/xerces/xni/parser/XMLComponent;)V
 
     goto :goto_4
 
     :cond_6
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/namespace-binder"
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fNamespaceBinder:Lmf/org/apache/xerces/impl/XMLNamespaceBinder;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fNamespaceBinder:Lmf/org/apache/xerces/impl/XMLNamespaceBinder;
+    const-string/jumbo v4, "http://apache.org/xml/properties/internal/namespace-binder"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fNamespaceBinder:Lmf/org/apache/xerces/impl/XMLNamespaceBinder;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fNamespaceBinder:Lmf/org/apache/xerces/impl/XMLNamespaceBinder;
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->addComponent(Lmf/org/apache/xerces/xni/parser/XMLComponent;)V
+    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->addComponent(Lmf/org/apache/xerces/xni/parser/XMLComponent;)V
 
     goto :goto_5
 
     :cond_7
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/datatype-validator-factory"
+    const-string/jumbo v3, "http://apache.org/xml/properties/internal/datatype-validator-factory"
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDatatypeValidatorFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
+    iget-object v4, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDatatypeValidatorFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v3, v4}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
     goto :goto_6
 
     :cond_8
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/validation-manager"
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fValidationManager:Lmf/org/apache/xerces/impl/validation/ValidationManager;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fValidationManager:Lmf/org/apache/xerces/impl/validation/ValidationManager;
+    const-string/jumbo v4, "http://apache.org/xml/properties/internal/validation-manager"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
     goto :goto_7
 
     :cond_9
-    new-instance v0, Lmf/org/apache/xerces/impl/msg/XMLMessageFormatter;
+    new-instance v2, Lmf/org/apache/xerces/impl/msg/XMLMessageFormatter;
 
-    invoke-direct {v0}, Lmf/org/apache/xerces/impl/msg/XMLMessageFormatter;-><init>()V
+    invoke-direct {v2}, Lmf/org/apache/xerces/impl/msg/XMLMessageFormatter;-><init>()V
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v2, "http://www.w3.org/TR/1998/REC-xml-19980210"
+    const-string/jumbo v4, "http://www.w3.org/TR/1998/REC-xml-19980210"
 
-    invoke-virtual {v1, v2, v0}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->putMessageFormatter(Ljava/lang/String;Lmf/org/apache/xerces/util/MessageFormatter;)V
+    invoke-virtual {v3, v4, v2}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->putMessageFormatter(Ljava/lang/String;Lmf/org/apache/xerces/util/MessageFormatter;)V
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v2, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+    const-string/jumbo v4, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
 
-    invoke-virtual {v1, v2, v0}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->putMessageFormatter(Ljava/lang/String;Lmf/org/apache/xerces/util/MessageFormatter;)V
+    invoke-virtual {v3, v4, v2}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->putMessageFormatter(Ljava/lang/String;Lmf/org/apache/xerces/util/MessageFormatter;)V
 
     goto/16 :goto_8
 
     :catch_0
-    move-exception v0
+    move-exception v3
 
     goto :goto_9
 .end method
@@ -504,22 +504,22 @@
 
 # virtual methods
 .method protected checkFeature(Ljava/lang/String;)V
-    .locals 3
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
         }
     .end annotation
 
-    const/4 v2, 0x1
+    const/4 v4, 0x1
 
-    const-string/jumbo v0, "http://apache.org/xml/features/"
+    const-string/jumbo v2, "http://apache.org/xml/features/"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_1
+    if-nez v2, :cond_1
 
     :cond_0
     invoke-super {p0, p1}, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->checkFeature(Ljava/lang/String;)V
@@ -529,162 +529,168 @@
     :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v2
 
-    const-string/jumbo v1, "http://apache.org/xml/features/"
+    const-string/jumbo v3, "http://apache.org/xml/features/"
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v3
 
-    sub-int/2addr v0, v1
+    sub-int v0, v2, v3
 
-    const-string/jumbo v1, "validation/dynamic"
+    const-string/jumbo v2, "validation/dynamic"
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v2
 
-    if-eq v0, v1, :cond_7
+    if-eq v0, v2, :cond_7
 
     :cond_2
-    const-string/jumbo v1, "validation/default-attribute-values"
+    const-string/jumbo v2, "validation/default-attribute-values"
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v2
 
-    if-eq v0, v1, :cond_8
+    if-eq v0, v2, :cond_8
 
     :cond_3
-    const-string/jumbo v1, "validation/validate-content-models"
+    const-string/jumbo v2, "validation/validate-content-models"
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v2
 
-    if-eq v0, v1, :cond_9
+    if-eq v0, v2, :cond_9
 
     :cond_4
-    const-string/jumbo v1, "nonvalidating/load-dtd-grammar"
+    const-string/jumbo v2, "nonvalidating/load-dtd-grammar"
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v2
 
-    if-eq v0, v1, :cond_a
+    if-eq v0, v2, :cond_a
 
     :cond_5
-    const-string/jumbo v1, "nonvalidating/load-external-dtd"
+    const-string/jumbo v2, "nonvalidating/load-external-dtd"
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v2
 
-    if-eq v0, v1, :cond_b
+    if-eq v0, v2, :cond_b
 
     :cond_6
-    const-string/jumbo v1, "validation/validate-datatypes"
+    const-string/jumbo v2, "validation/validate-datatypes"
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v2, :cond_0
 
-    const-string/jumbo v0, "validation/validate-datatypes"
+    const-string/jumbo v2, "validation/validate-datatypes"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
-    new-instance v0, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
+    const/4 v1, 0x1
 
-    invoke-direct {v0, v2, p1}, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;-><init>(SLjava/lang/String;)V
+    new-instance v2, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
 
-    throw v0
+    invoke-direct {v2, v4, p1}, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;-><init>(SLjava/lang/String;)V
+
+    throw v2
 
     :cond_7
-    const-string/jumbo v1, "validation/dynamic"
+    const-string/jumbo v2, "validation/dynamic"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_2
+    if-eqz v2, :cond_2
 
     return-void
 
     :cond_8
-    const-string/jumbo v1, "validation/default-attribute-values"
+    const-string/jumbo v2, "validation/default-attribute-values"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_3
+    if-eqz v2, :cond_3
 
-    new-instance v0, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
+    const/4 v1, 0x1
 
-    invoke-direct {v0, v2, p1}, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;-><init>(SLjava/lang/String;)V
+    new-instance v2, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
 
-    throw v0
+    invoke-direct {v2, v4, p1}, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;-><init>(SLjava/lang/String;)V
+
+    throw v2
 
     :cond_9
-    const-string/jumbo v1, "validation/validate-content-models"
+    const-string/jumbo v2, "validation/validate-content-models"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_4
+    if-eqz v2, :cond_4
 
-    new-instance v0, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
+    const/4 v1, 0x1
 
-    invoke-direct {v0, v2, p1}, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;-><init>(SLjava/lang/String;)V
+    new-instance v2, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
 
-    throw v0
+    invoke-direct {v2, v4, p1}, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;-><init>(SLjava/lang/String;)V
+
+    throw v2
 
     :cond_a
-    const-string/jumbo v1, "nonvalidating/load-dtd-grammar"
+    const-string/jumbo v2, "nonvalidating/load-dtd-grammar"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_5
+    if-eqz v2, :cond_5
 
     return-void
 
     :cond_b
-    const-string/jumbo v1, "nonvalidating/load-external-dtd"
+    const-string/jumbo v2, "nonvalidating/load-external-dtd"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_6
+    if-eqz v2, :cond_6
 
     return-void
 .end method
 
 .method protected checkProperty(Ljava/lang/String;)V
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
         }
     .end annotation
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/"
+    const-string/jumbo v1, "http://apache.org/xml/properties/"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     :cond_0
     invoke-super {p0, p1}, Lmf/org/apache/xerces/parsers/BasicParserConfiguration;->checkProperty(Ljava/lang/String;)V
@@ -694,15 +700,15 @@
     :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v0
-
-    const-string/jumbo v1, "http://apache.org/xml/properties/"
-
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
-
     move-result v1
 
-    sub-int/2addr v0, v1
+    const-string/jumbo v2, "http://apache.org/xml/properties/"
+
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    sub-int v0, v1, v2
 
     const-string/jumbo v1, "internal/dtd-scanner"
 
@@ -712,13 +718,13 @@
 
     if-ne v0, v1, :cond_0
 
-    const-string/jumbo v0, "internal/dtd-scanner"
+    const-string/jumbo v1, "internal/dtd-scanner"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     return-void
 .end method
@@ -747,11 +753,11 @@
     :cond_1
     iget-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fProperties:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/dtd-scanner"
+    iget-object v1, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDScanner:Lmf/org/apache/xerces/xni/parser/XMLDTDScanner;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDScanner:Lmf/org/apache/xerces/xni/parser/XMLDTDScanner;
+    const-string/jumbo v2, "http://apache.org/xml/properties/internal/dtd-scanner"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v2, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDProcessor:Lmf/org/apache/xerces/impl/dtd/XMLDTDProcessor;
 
@@ -789,11 +795,11 @@
     :cond_2
     iget-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fProperties:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/dtd-processor"
+    iget-object v1, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDProcessor:Lmf/org/apache/xerces/impl/dtd/XMLDTDProcessor;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDProcessor:Lmf/org/apache/xerces/impl/dtd/XMLDTDProcessor;
+    const-string/jumbo v2, "http://apache.org/xml/properties/internal/dtd-processor"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v2, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fDTDScanner:Lmf/org/apache/xerces/xni/parser/XMLDTDScanner;
 
@@ -1116,7 +1122,7 @@
 .end method
 
 .method public parse(Lmf/org/apache/xerces/xni/parser/XMLInputSource;)V
-    .locals 3
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;,
@@ -1124,22 +1130,22 @@
         }
     .end annotation
 
-    const/4 v1, 0x1
+    const/4 v7, 0x1
 
-    const/4 v2, 0x0
+    const/4 v6, 0x0
 
-    iget-boolean v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fParseInProgress:Z
+    iget-boolean v5, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fParseInProgress:Z
 
-    if-nez v0, :cond_0
+    if-nez v5, :cond_0
 
-    iput-boolean v1, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fParseInProgress:Z
+    iput-boolean v7, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fParseInProgress:Z
 
     :try_start_0
     invoke-virtual {p0, p1}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->setInputSource(Lmf/org/apache/xerces/xni/parser/XMLInputSource;)V
 
-    const/4 v0, 0x1
+    const/4 v5, 0x1
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->parse(Z)Z
+    invoke-virtual {p0, v5}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->parse(Z)Z
     :try_end_0
     .catch Lmf/org/apache/xerces/xni/XNIException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
@@ -1147,63 +1153,63 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_3
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    iput-boolean v2, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fParseInProgress:Z
+    iput-boolean v6, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fParseInProgress:Z
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->cleanup()V
 
     return-void
 
     :cond_0
-    new-instance v0, Lmf/org/apache/xerces/xni/XNIException;
+    new-instance v5, Lmf/org/apache/xerces/xni/XNIException;
 
-    const-string/jumbo v1, "FWK005 parse may not be called while parsing."
+    const-string/jumbo v6, "FWK005 parse may not be called while parsing."
 
-    invoke-direct {v0, v1}, Lmf/org/apache/xerces/xni/XNIException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5, v6}, Lmf/org/apache/xerces/xni/XNIException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v5
 
     :catch_0
-    move-exception v0
+    move-exception v4
 
     :try_start_1
-    throw v0
+    throw v4
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :catchall_0
     move-exception v0
 
-    iput-boolean v2, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fParseInProgress:Z
+    iput-boolean v6, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fParseInProgress:Z
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->cleanup()V
 
     throw v0
 
     :catch_1
-    move-exception v0
+    move-exception v1
 
     :try_start_2
-    throw v0
+    throw v1
 
     :catch_2
-    move-exception v0
+    move-exception v3
 
-    throw v0
+    throw v3
 
     :catch_3
-    move-exception v0
+    move-exception v2
 
-    new-instance v1, Lmf/org/apache/xerces/xni/XNIException;
+    new-instance v5, Lmf/org/apache/xerces/xni/XNIException;
 
-    invoke-direct {v1, v0}, Lmf/org/apache/xerces/xni/XNIException;-><init>(Ljava/lang/Exception;)V
+    invoke-direct {v5, v2}, Lmf/org/apache/xerces/xni/XNIException;-><init>(Ljava/lang/Exception;)V
 
-    throw v1
+    throw v5
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 .end method
 
 .method public parse(Z)Z
-    .locals 2
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;,
@@ -1211,38 +1217,38 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fInputSource:Lmf/org/apache/xerces/xni/parser/XMLInputSource;
+    iget-object v4, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fInputSource:Lmf/org/apache/xerces/xni/parser/XMLInputSource;
 
-    if-nez v0, :cond_0
+    if-nez v4, :cond_0
 
     :goto_0
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fScanner:Lmf/org/apache/xerces/xni/parser/XMLDocumentScanner;
+    iget-object v4, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fScanner:Lmf/org/apache/xerces/xni/parser/XMLDocumentScanner;
 
-    invoke-interface {v0, p1}, Lmf/org/apache/xerces/xni/parser/XMLDocumentScanner;->scanDocument(Z)Z
+    invoke-interface {v4, p1}, Lmf/org/apache/xerces/xni/parser/XMLDocumentScanner;->scanDocument(Z)Z
     :try_end_0
     .catch Lmf/org/apache/xerces/xni/XNIException; {:try_start_0 .. :try_end_0} :catch_4
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_5
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_6
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_7
 
-    move-result v0
+    move-result v4
 
-    return v0
+    return v4
 
     :cond_0
     :try_start_1
     invoke-virtual {p0}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->reset()V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fScanner:Lmf/org/apache/xerces/xni/parser/XMLDocumentScanner;
+    iget-object v4, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fScanner:Lmf/org/apache/xerces/xni/parser/XMLDocumentScanner;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fInputSource:Lmf/org/apache/xerces/xni/parser/XMLInputSource;
+    iget-object v5, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fInputSource:Lmf/org/apache/xerces/xni/parser/XMLInputSource;
 
-    invoke-interface {v0, v1}, Lmf/org/apache/xerces/xni/parser/XMLDocumentScanner;->setInputSource(Lmf/org/apache/xerces/xni/parser/XMLInputSource;)V
+    invoke-interface {v4, v5}, Lmf/org/apache/xerces/xni/parser/XMLDocumentScanner;->setInputSource(Lmf/org/apache/xerces/xni/parser/XMLInputSource;)V
 
-    const/4 v0, 0x0
+    const/4 v4, 0x0
 
-    iput-object v0, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fInputSource:Lmf/org/apache/xerces/xni/parser/XMLInputSource;
+    iput-object v4, p0, Lmf/org/apache/xerces/parsers/DTDConfiguration;->fInputSource:Lmf/org/apache/xerces/xni/parser/XMLInputSource;
     :try_end_1
     .catch Lmf/org/apache/xerces/xni/XNIException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
@@ -1252,9 +1258,9 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception v3
 
-    throw v0
+    throw v3
 
     :catch_1
     move-exception v0
@@ -1262,23 +1268,23 @@
     throw v0
 
     :catch_2
-    move-exception v0
+    move-exception v2
 
-    throw v0
+    throw v2
 
     :catch_3
-    move-exception v0
+    move-exception v1
 
-    new-instance v1, Lmf/org/apache/xerces/xni/XNIException;
+    new-instance v4, Lmf/org/apache/xerces/xni/XNIException;
 
-    invoke-direct {v1, v0}, Lmf/org/apache/xerces/xni/XNIException;-><init>(Ljava/lang/Exception;)V
+    invoke-direct {v4, v1}, Lmf/org/apache/xerces/xni/XNIException;-><init>(Ljava/lang/Exception;)V
 
-    throw v1
+    throw v4
 
     :catch_4
-    move-exception v0
+    move-exception v3
 
-    throw v0
+    throw v3
 
     :catch_5
     move-exception v0
@@ -1286,18 +1292,18 @@
     throw v0
 
     :catch_6
-    move-exception v0
+    move-exception v2
 
-    throw v0
+    throw v2
 
     :catch_7
-    move-exception v0
+    move-exception v1
 
-    new-instance v1, Lmf/org/apache/xerces/xni/XNIException;
+    new-instance v4, Lmf/org/apache/xerces/xni/XNIException;
 
-    invoke-direct {v1, v0}, Lmf/org/apache/xerces/xni/XNIException;-><init>(Ljava/lang/Exception;)V
+    invoke-direct {v4, v1}, Lmf/org/apache/xerces/xni/XNIException;-><init>(Ljava/lang/Exception;)V
 
-    throw v1
+    throw v4
 .end method
 
 .method protected reset()V

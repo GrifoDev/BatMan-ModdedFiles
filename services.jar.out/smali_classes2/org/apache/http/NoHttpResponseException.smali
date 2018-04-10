@@ -3,22 +3,15 @@
 .source "NoHttpResponseException.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
+# static fields
+.field private static final serialVersionUID:J = -0x6a4a05b41a0a362eL
 
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 2
+    .locals 0
 
-    invoke-direct {p0}, Ljava/io/IOException;-><init>()V
+    invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method

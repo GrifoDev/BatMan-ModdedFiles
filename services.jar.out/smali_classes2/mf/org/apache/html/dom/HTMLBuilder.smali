@@ -418,77 +418,74 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
-
     monitor-enter p0
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/html/dom/HTMLBuilder;->_document:Lmf/org/apache/html/dom/HTMLDocumentImpl;
+    iget-object v3, p0, Lmf/org/apache/html/dom/HTMLBuilder;->_document:Lmf/org/apache/html/dom/HTMLDocumentImpl;
 
-    if-eqz v0, :cond_2
+    if-eqz v3, :cond_3
 
-    iget-object v0, p0, Lmf/org/apache/html/dom/HTMLBuilder;->_current:Lmf/org/apache/xerces/dom/ElementImpl;
+    iget-object v3, p0, Lmf/org/apache/html/dom/HTMLBuilder;->_current:Lmf/org/apache/xerces/dom/ElementImpl;
 
-    if-eqz v0, :cond_6
+    if-eqz v3, :cond_6
 
-    iget-object v0, p0, Lmf/org/apache/html/dom/HTMLBuilder;->_document:Lmf/org/apache/html/dom/HTMLDocumentImpl;
+    iget-object v3, p0, Lmf/org/apache/html/dom/HTMLBuilder;->_document:Lmf/org/apache/html/dom/HTMLDocumentImpl;
 
-    invoke-virtual {v0, p1}, Lmf/org/apache/html/dom/HTMLDocumentImpl;->createElement(Ljava/lang/String;)Lmf/org/w3c/dom/Element;
+    invoke-virtual {v3, p1}, Lmf/org/apache/html/dom/HTMLDocumentImpl;->createElement(Ljava/lang/String;)Lmf/org/w3c/dom/Element;
 
     move-result-object v0
 
     check-cast v0, Lmf/org/apache/xerces/dom/ElementImpl;
 
-    iget-object v1, p0, Lmf/org/apache/html/dom/HTMLBuilder;->_current:Lmf/org/apache/xerces/dom/ElementImpl;
+    iget-object v3, p0, Lmf/org/apache/html/dom/HTMLBuilder;->_current:Lmf/org/apache/xerces/dom/ElementImpl;
 
-    invoke-virtual {v1, v0}, Lmf/org/apache/xerces/dom/ElementImpl;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-virtual {v3, v0}, Lmf/org/apache/xerces/dom/ElementImpl;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
     iput-object v0, p0, Lmf/org/apache/html/dom/HTMLBuilder;->_current:Lmf/org/apache/xerces/dom/ElementImpl;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-object v1, v0
-
+    :cond_0
     :goto_0
     if-nez p2, :cond_7
 
-    :cond_0
+    :cond_1
     monitor-exit p0
 
     return-void
 
-    :cond_1
+    :cond_2
     :try_start_1
-    new-instance v0, Lorg/xml/sax/SAXException;
+    new-instance v3, Lorg/xml/sax/SAXException;
 
-    const-string/jumbo v1, "HTM004 Argument \'tagName\' is null."
+    const-string/jumbo v4, "HTM004 Argument \'tagName\' is null."
 
-    invoke-direct {v0, v1}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v3
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :catchall_0
-    move-exception v0
+    move-exception v3
 
     monitor-exit p0
 
-    throw v0
+    throw v3
 
-    :cond_2
+    :cond_3
     :try_start_2
-    new-instance v0, Lmf/org/apache/html/dom/HTMLDocumentImpl;
+    new-instance v3, Lmf/org/apache/html/dom/HTMLDocumentImpl;
 
-    invoke-direct {v0}, Lmf/org/apache/html/dom/HTMLDocumentImpl;-><init>()V
+    invoke-direct {v3}, Lmf/org/apache/html/dom/HTMLDocumentImpl;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/html/dom/HTMLBuilder;->_document:Lmf/org/apache/html/dom/HTMLDocumentImpl;
+    iput-object v3, p0, Lmf/org/apache/html/dom/HTMLBuilder;->_document:Lmf/org/apache/html/dom/HTMLDocumentImpl;
 
-    iget-object v0, p0, Lmf/org/apache/html/dom/HTMLBuilder;->_document:Lmf/org/apache/html/dom/HTMLDocumentImpl;
+    iget-object v3, p0, Lmf/org/apache/html/dom/HTMLBuilder;->_document:Lmf/org/apache/html/dom/HTMLDocumentImpl;
 
-    invoke-virtual {v0}, Lmf/org/apache/html/dom/HTMLDocumentImpl;->getDocumentElement()Lmf/org/w3c/dom/Element;
+    invoke-virtual {v3}, Lmf/org/apache/html/dom/HTMLDocumentImpl;->getDocumentElement()Lmf/org/w3c/dom/Element;
 
     move-result-object v0
 
@@ -496,96 +493,91 @@
 
     iput-object v0, p0, Lmf/org/apache/html/dom/HTMLBuilder;->_current:Lmf/org/apache/xerces/dom/ElementImpl;
 
-    iget-object v1, p0, Lmf/org/apache/html/dom/HTMLBuilder;->_current:Lmf/org/apache/xerces/dom/ElementImpl;
+    iget-object v3, p0, Lmf/org/apache/html/dom/HTMLBuilder;->_current:Lmf/org/apache/xerces/dom/ElementImpl;
 
-    if-eqz v1, :cond_3
+    if-eqz v3, :cond_4
 
-    iget-object v1, p0, Lmf/org/apache/html/dom/HTMLBuilder;->_preRootNodes:Ljava/util/Vector;
+    iget-object v3, p0, Lmf/org/apache/html/dom/HTMLBuilder;->_preRootNodes:Ljava/util/Vector;
 
-    if-nez v1, :cond_4
+    if-eqz v3, :cond_0
 
-    move-object v1, v0
+    iget-object v3, p0, Lmf/org/apache/html/dom/HTMLBuilder;->_preRootNodes:Ljava/util/Vector;
 
-    goto :goto_0
-
-    :cond_3
-    new-instance v0, Lorg/xml/sax/SAXException;
-
-    const-string/jumbo v1, "HTM005 State error: Document.getDocumentElement returns null."
-
-    invoke-direct {v0, v1}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_4
-    iget-object v1, p0, Lmf/org/apache/html/dom/HTMLBuilder;->_preRootNodes:Ljava/util/Vector;
-
-    invoke-virtual {v1}, Ljava/util/Vector;->size()I
+    invoke-virtual {v3}, Ljava/util/Vector;->size()I
 
     move-result v1
 
-    :goto_1
-    add-int/lit8 v3, v1, -0x1
+    move v2, v1
 
-    if-lez v1, :cond_5
+    :goto_1
+    add-int/lit8 v1, v2, -0x1
+
+    if-lez v2, :cond_5
 
     iget-object v4, p0, Lmf/org/apache/html/dom/HTMLBuilder;->_document:Lmf/org/apache/html/dom/HTMLDocumentImpl;
 
-    iget-object v1, p0, Lmf/org/apache/html/dom/HTMLBuilder;->_preRootNodes:Ljava/util/Vector;
+    iget-object v3, p0, Lmf/org/apache/html/dom/HTMLBuilder;->_preRootNodes:Ljava/util/Vector;
 
-    invoke-virtual {v1, v3}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v3
 
-    check-cast v1, Lmf/org/w3c/dom/Node;
+    check-cast v3, Lmf/org/w3c/dom/Node;
 
-    invoke-virtual {v4, v1, v0}, Lmf/org/apache/html/dom/HTMLDocumentImpl;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-virtual {v4, v3, v0}, Lmf/org/apache/html/dom/HTMLDocumentImpl;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
-    move v1, v3
+    move v2, v1
 
     goto :goto_1
 
+    :cond_4
+    new-instance v3, Lorg/xml/sax/SAXException;
+
+    const-string/jumbo v4, "HTM005 State error: Document.getDocumentElement returns null."
+
+    invoke-direct {v3, v4}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+
     :cond_5
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    iput-object v1, p0, Lmf/org/apache/html/dom/HTMLBuilder;->_preRootNodes:Ljava/util/Vector;
-
-    move-object v1, v0
+    iput-object v3, p0, Lmf/org/apache/html/dom/HTMLBuilder;->_preRootNodes:Ljava/util/Vector;
 
     goto :goto_0
 
     :cond_6
-    new-instance v0, Lorg/xml/sax/SAXException;
+    new-instance v3, Lorg/xml/sax/SAXException;
 
-    const-string/jumbo v1, "HTM006 State error: startElement called after end of document element."
+    const-string/jumbo v4, "HTM006 State error: startElement called after end of document element."
 
-    invoke-direct {v0, v1}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v3
 
     :cond_7
-    move v0, v2
+    const/4 v1, 0x0
 
     :goto_2
     invoke-interface {p2}, Lorg/xml/sax/AttributeList;->getLength()I
 
-    move-result v2
+    move-result v3
 
-    if-ge v0, v2, :cond_0
+    if-ge v1, v3, :cond_1
 
-    invoke-interface {p2, v0}, Lorg/xml/sax/AttributeList;->getName(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-interface {p2, v0}, Lorg/xml/sax/AttributeList;->getValue(I)Ljava/lang/String;
+    invoke-interface {p2, v1}, Lorg/xml/sax/AttributeList;->getName(I)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v1, v2, v3}, Lmf/org/apache/xerces/dom/ElementImpl;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-interface {p2, v1}, Lorg/xml/sax/AttributeList;->getValue(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v3, v4}, Lmf/org/apache/xerces/dom/ElementImpl;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_2
 .end method

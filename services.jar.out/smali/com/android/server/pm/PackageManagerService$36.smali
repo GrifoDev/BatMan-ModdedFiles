@@ -1,14 +1,11 @@
 .class Lcom/android/server/pm/PackageManagerService$36;
-.super Ljava/lang/Object;
+.super Ljava/lang/Thread;
 .source "PackageManagerService.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/pm/PackageManagerService;->removeUnusedPackagesLPw(Lcom/android/server/pm/UserManagerService;I)V
+    value = Lcom/android/server/pm/PackageManagerService;->checkDPMAndSaveHash(Ljava/lang/String;Ljava/io/File;I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,22 +17,26 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/pm/PackageManagerService;
 
+.field final synthetic val$apkFilePath:Ljava/io/File;
+
 .field final synthetic val$packageName:Ljava/lang/String;
 
 .field final synthetic val$userHandle:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;I)V
+.method constructor <init>(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;Ljava/io/File;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$36;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iput-object p2, p0, Lcom/android/server/pm/PackageManagerService$36;->val$packageName:Ljava/lang/String;
 
-    iput p3, p0, Lcom/android/server/pm/PackageManagerService$36;->val$userHandle:I
+    iput-object p3, p0, Lcom/android/server/pm/PackageManagerService$36;->val$apkFilePath:Ljava/io/File;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput p4, p0, Lcom/android/server/pm/PackageManagerService$36;->val$userHandle:I
+
+    invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
 
     return-void
 .end method
@@ -49,11 +50,11 @@
 
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$36;->val$packageName:Ljava/lang/String;
 
-    iget v2, p0, Lcom/android/server/pm/PackageManagerService$36;->val$userHandle:I
+    iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$36;->val$apkFilePath:Ljava/io/File;
 
-    const/4 v3, 0x0
+    iget v3, p0, Lcom/android/server/pm/PackageManagerService$36;->val$userHandle:I
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/server/pm/PackageManagerService;->-wrap15(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;II)I
+    invoke-static {v0, v1, v2, v3}, Lcom/android/server/pm/PackageManagerService;->-wrap57(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;Ljava/io/File;I)V
 
     return-void
 .end method

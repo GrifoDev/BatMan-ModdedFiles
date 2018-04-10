@@ -58,13 +58,13 @@
 
     const/4 v2, -0x1
 
-    invoke-static {v1, v2}, Lcom/android/server/media/MediaSessionRecord;->-set10(Lcom/android/server/media/MediaSessionRecord;I)I
+    invoke-static {v1, v2}, Lcom/android/server/media/MediaSessionRecord;->-set9(Lcom/android/server/media/MediaSessionRecord;I)I
 
     if-eqz v0, :cond_0
 
     iget-object v1, p0, Lcom/android/server/media/MediaSessionRecord$1;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v1}, Lcom/android/server/media/MediaSessionRecord;->-wrap9(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {v1}, Lcom/android/server/media/MediaSessionRecord;->-wrap10(Lcom/android/server/media/MediaSessionRecord;)V
 
     :cond_0
     return-void

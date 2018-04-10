@@ -109,7 +109,7 @@
 .end method
 
 .method private setOtpVersion()V
-    .locals 3
+    .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -135,78 +135,11 @@
 
     invoke-static {v0}, Lcom/android/server/enterprise/otp/engine/common/Print;->d(Ljava/lang/String;)V
 
-    invoke-static {}, Lcom/android/server/enterprise/otp/OTPSecProdFeatureMonitor;->isOTPFeatureSupported()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v0, "2.6.0"
-
-    sput-object v0, Lcom/android/server/enterprise/otp/OTPService;->OTP_CURRENT_VERSION:Ljava/lang/String;
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v1, "setOtpVersion setting OTP_CURRENT_VERSION "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    sget-object v1, Lcom/android/server/enterprise/otp/OTPService;->OTP_CURRENT_VERSION:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/android/server/enterprise/otp/engine/common/Print;->d(Ljava/lang/String;)V
-
-    const-string/jumbo v0, "sys.enterprise.otp.version"
-
-    sget-object v1, Lcom/android/server/enterprise/otp/OTPService;->OTP_CURRENT_VERSION:Ljava/lang/String;
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v1, "setOtpVersion SystemProperties.get(SYSTEM_PROP_OTP): "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "sys.enterprise.otp.version"
-
-    const/4 v2, 0x0
-
-    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/android/server/enterprise/otp/engine/common/Print;->d(Ljava/lang/String;)V
-
-    :cond_0
     return-void
 .end method
 
 .method private setupIntentFilter()V
-    .locals 11
+    .locals 15
 
     const/4 v4, 0x0
 
@@ -236,17 +169,19 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
-    new-instance v6, Lcom/android/server/enterprise/otp/OTPTimeChangeLogger;
+    const-string/jumbo v0, "OTPService:: registering FactoryResetReceiver"
 
-    invoke-direct {v6}, Lcom/android/server/enterprise/otp/OTPTimeChangeLogger;-><init>()V
+    invoke-static {v0}, Lcom/android/server/enterprise/otp/engine/common/Print;->d(Ljava/lang/String;)V
+
+    new-instance v6, Lcom/android/server/enterprise/otp/FactoryResetReceiver;
+
+    invoke-direct {v6}, Lcom/android/server/enterprise/otp/FactoryResetReceiver;-><init>()V
 
     new-instance v8, Landroid/content/IntentFilter;
 
-    invoke-direct {v8}, Landroid/content/IntentFilter;-><init>()V
+    const-string/jumbo v0, "android.intent.action.MASTER_CLEAR"
 
-    const-string/jumbo v0, "android.intent.action.TIME_SET"
-
-    invoke-virtual {v8, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-direct {v8, v0}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
     iget-object v5, p0, Lcom/android/server/enterprise/otp/OTPService;->context:Landroid/content/Context;
 
@@ -257,6 +192,28 @@
     move-object v10, v4
 
     invoke-virtual/range {v5 .. v10}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+
+    new-instance v10, Lcom/android/server/enterprise/otp/OTPTimeChangeLogger;
+
+    invoke-direct {v10}, Lcom/android/server/enterprise/otp/OTPTimeChangeLogger;-><init>()V
+
+    new-instance v12, Landroid/content/IntentFilter;
+
+    invoke-direct {v12}, Landroid/content/IntentFilter;-><init>()V
+
+    const-string/jumbo v0, "android.intent.action.TIME_SET"
+
+    invoke-virtual {v12, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    iget-object v9, p0, Lcom/android/server/enterprise/otp/OTPService;->context:Landroid/content/Context;
+
+    sget-object v11, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    move-object v13, v4
+
+    move-object v14, v4
+
+    invoke-virtual/range {v9 .. v14}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
     return-void
 .end method
@@ -3043,7 +3000,7 @@
 .end method
 
 .method public systemReady()V
-    .locals 3
+    .locals 2
 
     const-string/jumbo v0, "OTPService::systemReady | Enter"
 
@@ -3075,48 +3032,5 @@
 
     invoke-direct {p0}, Lcom/android/server/enterprise/otp/OTPService;->setOtpVersion()V
 
-    invoke-static {}, Lcom/android/server/enterprise/otp/OTPSecProdFeatureMonitor;->isOTPFeatureSupported()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v0, "sys.enterprise.otp.version"
-
-    sget-object v1, Lcom/android/server/enterprise/otp/OTPService;->OTP_CURRENT_VERSION:Ljava/lang/String;
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v1, "systemReady SystemProperties.get(SYSTEM_PROP_OTP, null): "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "sys.enterprise.otp.version"
-
-    const/4 v2, 0x0
-
-    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/android/server/enterprise/otp/engine/common/Print;->d(Ljava/lang/String;)V
-
-    invoke-direct {p0}, Lcom/android/server/enterprise/otp/OTPService;->handleDBUpgrade()V
-
-    :cond_0
     return-void
 .end method

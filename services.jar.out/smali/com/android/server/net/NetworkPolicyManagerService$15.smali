@@ -32,104 +32,135 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 7
+    .locals 5
 
-    const-string/jumbo v5, "networkInfo"
+    const/4 v3, 0x0
 
-    invoke-virtual {p2, v5}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/net/NetworkInfo;
-
-    invoke-virtual {v2}, Landroid/net/NetworkInfo;->isConnected()Z
-
-    move-result v5
-
-    if-nez v5, :cond_0
-
-    return-void
-
-    :cond_0
-    const-string/jumbo v5, "wifiInfo"
-
-    invoke-virtual {p2, v5}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    check-cast v0, Landroid/net/wifi/WifiInfo;
+    const-string/jumbo v2, "android.intent.action.ACTION_SUBINFO_RECORD_UPDATED"
 
-    invoke-virtual {v0}, Landroid/net/wifi/WifiInfo;->getMeteredHint()Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    invoke-virtual {v0}, Landroid/net/wifi/WifiInfo;->getSSID()Ljava/lang/String;
+    if-nez v2, :cond_0
 
-    move-result-object v5
+    const-string/jumbo v2, "android.intent.action.RADIO_TECHNOLOGY"
 
-    invoke-static {v5}, Landroid/net/NetworkTemplate;->buildTemplateWifi(Ljava/lang/String;)Landroid/net/NetworkTemplate;
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v4
+    move-result v2
 
-    iget-object v5, p0, Lcom/android/server/net/NetworkPolicyManagerService$15;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
+    if-nez v2, :cond_0
 
-    iget-object v6, v5, Lcom/android/server/net/NetworkPolicyManagerService;->mRulesLock:Ljava/lang/Object;
+    const-string/jumbo v2, "com.samsung.intent.action.SIMHOTSWAP"
 
-    monitor-enter v6
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    :try_start_0
-    iget-object v5, p0, Lcom/android/server/net/NetworkPolicyManagerService$15;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
+    move-result v2
 
-    iget-object v5, v5, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Landroid/util/ArrayMap;
+    if-eqz v2, :cond_2
 
-    invoke-virtual {v5, v4}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    :cond_0
+    iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService$15;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
+
+    invoke-static {v2, v3}, Lcom/android/server/net/NetworkPolicyManagerService;->-set0(Lcom/android/server/net/NetworkPolicyManagerService;Z)Z
+
+    iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService$15;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
+
+    invoke-static {v2}, Lcom/android/server/net/NetworkPolicyManagerService;->-get15(Lcom/android/server/net/NetworkPolicyManagerService;)Ljava/util/HashMap;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/HashMap;->clear()V
+
+    const-string/jumbo v2, "NetworkPolicy"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "clear isSubIdValid/mStoredSubscriberIds due to "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    check-cast v3, Landroid/net/NetworkPolicy;
-
-    if-nez v3, :cond_2
-
-    if-eqz v1, :cond_2
-
-    invoke-static {v4, v1}, Lcom/android/server/net/NetworkPolicyManagerService;->newWifiPolicy(Landroid/net/NetworkTemplate;Z)Landroid/net/NetworkPolicy;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    iget-object v5, p0, Lcom/android/server/net/NetworkPolicyManagerService$15;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v5, v3}, Lcom/android/server/net/NetworkPolicyManagerService;->addNetworkPolicyLocked(Landroid/net/NetworkPolicy;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
     :goto_0
-    monitor-exit v6
-
     return-void
 
     :cond_2
-    if-eqz v3, :cond_1
+    const-string/jumbo v2, "android.intent.action.SIM_STATE_CHANGED"
 
-    :try_start_1
-    iget-boolean v5, v3, Landroid/net/NetworkPolicy;->inferred:Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v5, :cond_1
+    move-result v2
 
-    iput-boolean v1, v3, Landroid/net/NetworkPolicy;->metered:Z
+    if-eqz v2, :cond_1
 
-    iget-object v5, p0, Lcom/android/server/net/NetworkPolicyManagerService$15;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
+    const-string/jumbo v2, "ss"
 
-    invoke-virtual {v5}, Lcom/android/server/net/NetworkPolicyManagerService;->updateNetworkRulesLocked()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    invoke-virtual {p2, v2}, Landroid/content/Intent;->getExtra(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/String;
+
+    const-string/jumbo v2, "LOADED"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService$15;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
+
+    invoke-static {v2, v3}, Lcom/android/server/net/NetworkPolicyManagerService;->-set0(Lcom/android/server/net/NetworkPolicyManagerService;Z)Z
+
+    iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService$15;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
+
+    invoke-static {v2}, Lcom/android/server/net/NetworkPolicyManagerService;->-get15(Lcom/android/server/net/NetworkPolicyManagerService;)Ljava/util/HashMap;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/HashMap;->clear()V
+
+    const-string/jumbo v2, "NetworkPolicy"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "clear isSubIdValid/mStoredSubscriberIds due to "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
-
-    :catchall_0
-    move-exception v5
-
-    monitor-exit v6
-
-    throw v5
 .end method

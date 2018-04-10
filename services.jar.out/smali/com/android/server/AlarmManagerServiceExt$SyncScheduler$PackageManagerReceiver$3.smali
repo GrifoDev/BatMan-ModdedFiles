@@ -170,69 +170,10 @@
     :goto_3
     if-eqz v5, :cond_0
 
-    if-eqz v1, :cond_5
+    xor-int/lit8 v5, v1, 0x1
 
-    :cond_0
-    :goto_4
-    return-void
+    if-eqz v5, :cond_0
 
-    :cond_1
-    iget-object v5, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver$3;->this$2:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver;
-
-    iget-object v5, v5, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver;->this$1:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;
-
-    iget-object v5, v5, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->pm:Landroid/content/pm/PackageManager;
-
-    const/4 v6, 0x0
-
-    invoke-virtual {v5, v4, v6}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_2
-    iget-object v5, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver$3;->this$2:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver;
-
-    iget-object v5, v5, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver;->this$1:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;
-
-    iget-object v5, v5, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->pm:Landroid/content/pm/PackageManager;
-
-    const/4 v6, 0x0
-
-    invoke-virtual {v5, v4, v6}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
-
-    move-result-object v3
-
-    goto :goto_1
-
-    :cond_3
-    const/4 v1, 0x1
-
-    goto :goto_2
-
-    :catchall_0
-    move-exception v5
-
-    monitor-exit v6
-
-    throw v5
-
-    :catch_0
-    move-exception v2
-
-    goto :goto_4
-
-    :cond_4
-    iget v5, v0, Landroid/content/pm/ApplicationInfo;->uid:I
-
-    invoke-static {v5}, Lcom/android/server/AlarmManagerServiceExt;->isApplicationUid(I)Z
-
-    move-result v5
-
-    goto :goto_3
-
-    :cond_5
     iget-object v5, v3, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     iget v5, v5, Landroid/content/pm/ApplicationInfo;->flags:I
@@ -307,7 +248,65 @@
 
     invoke-static {v5, v6}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    :cond_0
+    :goto_4
+    return-void
+
+    :cond_1
+    iget-object v5, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver$3;->this$2:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver;
+
+    iget-object v5, v5, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver;->this$1:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;
+
+    iget-object v5, v5, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->pm:Landroid/content/pm/PackageManager;
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v5, v4, v6}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v0
+
+    goto/16 :goto_0
+
+    :cond_2
+    iget-object v5, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver$3;->this$2:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver;
+
+    iget-object v5, v5, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver;->this$1:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;
+
+    iget-object v5, v5, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->pm:Landroid/content/pm/PackageManager;
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v5, v4, v6}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+
+    move-result-object v3
+
+    goto/16 :goto_1
+
+    :cond_3
+    const/4 v1, 0x1
+
+    goto :goto_2
+
+    :catchall_0
+    move-exception v5
+
+    monitor-exit v6
+
+    throw v5
+
+    :catch_0
+    move-exception v2
+
     goto :goto_4
+
+    :cond_4
+    iget v5, v0, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    invoke-static {v5}, Lcom/android/server/AlarmManagerServiceExt;->isApplicationUid(I)Z
+
+    move-result v5
+
+    goto :goto_3
 
     :catchall_1
     move-exception v5

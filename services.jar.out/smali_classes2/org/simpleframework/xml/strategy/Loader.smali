@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public load(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -67,9 +67,9 @@
     :goto_0
     invoke-virtual {v0, p1}, Ljava/lang/ClassLoader;->loadClass(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
     invoke-static {}, Lorg/simpleframework/xml/strategy/Loader;->getCallerClassLoader()Ljava/lang/ClassLoader;

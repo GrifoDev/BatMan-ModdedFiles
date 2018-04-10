@@ -150,11 +150,11 @@
 
     aput-byte v2, v0, v1
 
-    const/16 v1, 0x21
+    const/4 v1, 0x3
 
-    const/4 v2, 0x3
+    const/16 v2, 0x21
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     const/16 v1, 0x22
 
@@ -164,11 +164,11 @@
 
     aput-byte v4, v0, v1
 
-    const/16 v1, 0x24
+    const/4 v1, 0x5
 
-    const/4 v2, 0x5
+    const/16 v2, 0x24
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     const/16 v1, 0x25
 
@@ -182,53 +182,53 @@
 
     aput-byte v6, v0, v1
 
-    const/16 v1, 0x28
+    const/4 v1, 0x6
 
-    const/4 v2, 0x6
+    const/16 v2, 0x28
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
-    const/16 v1, 0x29
+    const/4 v1, 0x7
 
-    const/4 v2, 0x7
+    const/16 v2, 0x29
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
-    const/16 v1, 0x2a
+    const/16 v1, 0x8
 
-    const/16 v2, 0x8
+    const/16 v2, 0x2a
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
-    const/16 v1, 0x2b
+    const/16 v1, 0x9
 
-    const/16 v2, 0x9
+    const/16 v2, 0x2b
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
-    const/16 v1, 0x2c
+    const/16 v1, 0xa
 
-    const/16 v2, 0xa
+    const/16 v2, 0x2c
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
-    const/16 v1, 0x2d
+    const/16 v1, 0xb
 
-    const/16 v2, 0xb
+    const/16 v2, 0x2d
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
-    const/16 v1, 0x2e
+    const/16 v1, 0xc
 
-    const/16 v2, 0xc
+    const/16 v2, 0x2e
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
-    const/16 v1, 0x2f
+    const/16 v1, 0xd
 
-    const/16 v2, 0xd
+    const/16 v2, 0x2f
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     const/16 v1, 0x30
 
@@ -270,33 +270,33 @@
 
     aput-byte v5, v0, v1
 
-    const/16 v1, 0x3a
+    const/16 v1, 0xf
 
-    const/16 v2, 0xf
+    const/16 v2, 0x3a
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     const/16 v1, 0x3b
 
     aput-byte v4, v0, v1
 
-    const/16 v1, 0x3c
+    const/16 v1, 0x10
 
-    const/16 v2, 0x10
+    const/16 v2, 0x3c
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
-    const/16 v1, 0x3d
+    const/16 v1, 0x11
 
-    const/16 v2, 0x11
+    const/16 v2, 0x3d
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
-    const/16 v1, 0x3e
+    const/16 v1, 0x12
 
-    const/16 v2, 0x12
+    const/16 v2, 0x3e
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     const/16 v1, 0x3f
 
@@ -412,31 +412,31 @@
 
     aput-byte v3, v0, v1
 
-    const/16 v1, 0x5b
+    const/16 v1, 0x15
 
-    const/16 v2, 0x15
+    const/16 v2, 0x5b
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     const/16 v1, 0x5c
 
     aput-byte v4, v0, v1
 
-    const/16 v1, 0x5d
+    const/16 v1, 0x16
 
-    const/16 v2, 0x16
+    const/16 v2, 0x5d
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     const/16 v1, 0x5e
 
     aput-byte v4, v0, v1
 
-    const/16 v1, 0x5f
+    const/16 v1, 0x17
 
-    const/16 v2, 0x17
+    const/16 v2, 0x5f
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     const/16 v1, 0x60
 
@@ -550,11 +550,11 @@
 
     aput-byte v4, v0, v1
 
-    const/16 v1, 0x7c
+    const/16 v1, 0x18
 
-    const/16 v2, 0x18
+    const/16 v2, 0x7c
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     const/16 v1, 0x7d
 
@@ -758,111 +758,87 @@
 
     const/16 v5, 0x30
 
-    const/4 v0, 0x0
+    invoke-virtual {p2, p4}, Ljava/lang/String;->charAt(I)C
+
+    move-result v0
+
+    const/4 v2, 0x0
+
+    const/4 v1, 0x0
+
+    :goto_0
+    if-ge v0, v5, :cond_2
+
+    :cond_0
+    const/16 v3, 0x2e
+
+    if-eq v0, v3, :cond_3
+
+    :cond_1
+    invoke-virtual {p1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->addToken(I)V
+
+    invoke-virtual {p1, v1}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->addToken(I)V
+
+    return p4
+
+    :cond_2
+    if-gt v0, v6, :cond_0
+
+    mul-int/lit8 v3, v2, 0xa
+
+    add-int/lit8 v4, v0, -0x30
+
+    add-int v2, v3, v4
+
+    add-int/lit8 p4, p4, 0x1
+
+    if-eq p4, p3, :cond_0
 
     invoke-virtual {p2, p4}, Ljava/lang/String;->charAt(I)C
 
-    move-result v1
-
-    move v4, v1
-
-    move v2, p4
-
-    move v1, v0
-
-    :goto_0
-    if-ge v4, v5, :cond_1
-
-    move v3, v1
-
-    move v1, v2
-
-    :goto_1
-    const/16 v2, 0x2e
-
-    if-eq v4, v2, :cond_3
-
-    :cond_0
-    invoke-virtual {p1, v3}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->addToken(I)V
-
-    invoke-virtual {p1, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->addToken(I)V
-
-    return v1
-
-    :cond_1
-    if-gt v4, v6, :cond_6
-
-    mul-int/lit8 v1, v1, 0xa
-
-    add-int/lit8 v3, v4, -0x30
-
-    add-int/2addr v1, v3
-
-    add-int/lit8 v2, v2, 0x1
-
-    if-eq v2, p3, :cond_2
-
-    invoke-virtual {p2, v2}, Ljava/lang/String;->charAt(I)C
-
-    move-result v3
-
-    move v4, v3
+    move-result v0
 
     goto :goto_0
 
-    :cond_2
-    move v3, v1
-
-    move v1, v2
-
-    goto :goto_1
-
     :cond_3
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p4, p4, 0x1
 
-    if-ge v1, p3, :cond_0
+    if-ge p4, p3, :cond_1
 
-    invoke-virtual {p2, v1}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p2, p4}, Ljava/lang/String;->charAt(I)C
 
-    move-result v2
+    move-result v0
 
-    :goto_2
-    if-ge v2, v5, :cond_5
+    :goto_1
+    if-ge v0, v5, :cond_5
 
     :cond_4
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v3, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v1, "find a solution!"
+    const-string/jumbo v4, "find a solution!"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v3
 
     :cond_5
-    if-gt v2, v6, :cond_4
+    if-gt v0, v6, :cond_4
 
-    mul-int/lit8 v0, v0, 0xa
+    mul-int/lit8 v3, v1, 0xa
 
-    add-int/lit8 v2, v2, -0x30
+    add-int/lit8 v4, v0, -0x30
 
-    add-int/2addr v0, v2
+    add-int v1, v3, v4
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p4, p4, 0x1
 
-    if-eq v1, p3, :cond_4
+    if-eq p4, p3, :cond_4
 
-    invoke-virtual {p2, v1}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p2, p4}, Ljava/lang/String;->charAt(I)C
 
-    move-result v2
-
-    goto :goto_2
-
-    :cond_6
-    move v3, v1
-
-    move v1, v2
+    move-result v0
 
     goto :goto_1
 .end method
@@ -883,1547 +859,1962 @@
 .end method
 
 .method public scanExpr(Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;Ljava/lang/String;II)Z
-    .locals 9
+    .locals 18
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/xpath/XPathException;
         }
     .end annotation
 
-    const/4 v0, 0x0
-
-    move v7, v0
-
-    move v1, p4
-
-    :goto_0
-    if-eq v1, p5, :cond_66
-
-    invoke-virtual {p3, v1}, Ljava/lang/String;->charAt(I)C
-
-    move-result v0
-
-    move v3, v0
-
-    :goto_1
-    const/16 v0, 0x20
-
-    if-ne v3, v0, :cond_1
+    const/4 v15, 0x0
 
     :cond_0
-    add-int/lit8 v1, v1, 0x1
+    :goto_0
+    move/from16 v0, p4
 
-    if-eq v1, p5, :cond_2
+    move/from16 v1, p5
 
-    invoke-virtual {p3, v1}, Ljava/lang/String;->charAt(I)C
+    if-eq v0, v1, :cond_51
 
-    move-result v0
+    invoke-virtual/range {p3 .. p4}, Ljava/lang/String;->charAt(I)C
 
-    move v3, v0
+    move-result v5
+
+    :goto_1
+    const/16 v16, 0x20
+
+    move/from16 v0, v16
+
+    if-ne v5, v0, :cond_2
+
+    :cond_1
+    add-int/lit8 p4, p4, 0x1
+
+    move/from16 v0, p4
+
+    move/from16 v1, p5
+
+    if-eq v0, v1, :cond_3
+
+    invoke-virtual/range {p3 .. p4}, Ljava/lang/String;->charAt(I)C
+
+    move-result v5
 
     goto :goto_1
 
-    :cond_1
-    const/16 v0, 0xa
-
-    if-eq v3, v0, :cond_0
-
-    const/16 v0, 0x9
-
-    if-eq v3, v0, :cond_0
-
-    const/16 v0, 0xd
-
-    if-eq v3, v0, :cond_0
-
     :cond_2
-    if-eq v1, p5, :cond_66
+    const/16 v16, 0xa
 
-    const/16 v0, 0x80
+    move/from16 v0, v16
 
-    if-ge v3, v0, :cond_3
+    if-eq v5, v0, :cond_1
 
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fASCIICharMap:[B
+    const/16 v16, 0x9
 
-    aget-byte v0, v0, v3
+    move/from16 v0, v16
 
-    :goto_2
-    packed-switch v0, :pswitch_data_0
+    if-eq v5, v0, :cond_1
 
-    const/4 v0, 0x0
+    const/16 v16, 0xd
 
-    return v0
+    move/from16 v0, v16
+
+    if-eq v5, v0, :cond_1
 
     :cond_3
-    const/16 v0, 0x19
+    move/from16 v0, p4
+
+    move/from16 v1, p5
+
+    if-eq v0, v1, :cond_51
+
+    const/16 v16, 0x80
+
+    move/from16 v0, v16
+
+    if-ge v5, v0, :cond_4
+
+    sget-object v16, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fASCIICharMap:[B
+
+    aget-byte v6, v16, v5
+
+    :goto_2
+    packed-switch v6, :pswitch_data_0
+
+    const/16 v16, 0x0
+
+    return v16
+
+    :cond_4
+    const/16 v6, 0x19
 
     goto :goto_2
 
     :pswitch_0
-    const/4 v0, 0x0
+    const/16 v16, 0x0
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move-object/from16 v0, p0
 
-    const/4 v0, 0x0
+    move-object/from16 v1, p2
 
-    add-int/lit8 v1, v1, 0x1
+    move/from16 v2, v16
 
-    if-eq v1, p5, :cond_4
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
-    move v7, v0
+    const/4 v15, 0x0
 
-    goto :goto_0
-
-    :cond_4
-    move v7, v0
+    add-int/lit8 p4, p4, 0x1
 
     goto :goto_0
 
     :pswitch_1
-    const/4 v0, 0x1
+    const/16 v16, 0x1
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move-object/from16 v0, p0
 
-    const/4 v0, 0x1
+    move-object/from16 v1, p2
 
-    add-int/lit8 v1, v1, 0x1
+    move/from16 v2, v16
 
-    if-eq v1, p5, :cond_5
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
-    move v7, v0
+    const/4 v15, 0x1
 
-    goto :goto_0
-
-    :cond_5
-    move v7, v0
+    add-int/lit8 p4, p4, 0x1
 
     goto :goto_0
 
     :pswitch_2
-    const/4 v0, 0x2
+    const/16 v16, 0x2
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move-object/from16 v0, p0
 
-    const/4 v0, 0x0
+    move-object/from16 v1, p2
 
-    add-int/lit8 v1, v1, 0x1
+    move/from16 v2, v16
 
-    if-eq v1, p5, :cond_6
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
-    move v7, v0
+    const/4 v15, 0x0
 
-    goto :goto_0
-
-    :cond_6
-    move v7, v0
+    add-int/lit8 p4, p4, 0x1
 
     goto :goto_0
 
     :pswitch_3
-    const/4 v0, 0x3
+    const/16 v16, 0x3
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move-object/from16 v0, p0
 
-    const/4 v0, 0x1
+    move-object/from16 v1, p2
 
-    add-int/lit8 v1, v1, 0x1
+    move/from16 v2, v16
 
-    if-eq v1, p5, :cond_7
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
-    move v7, v0
+    const/4 v15, 0x1
 
-    goto :goto_0
+    add-int/lit8 p4, p4, 0x1
 
-    :cond_7
-    move v7, v0
-
-    goto :goto_0
+    goto/16 :goto_0
 
     :pswitch_4
-    add-int/lit8 v0, v1, 0x1
+    add-int/lit8 v16, p4, 0x1
 
-    if-eq v0, p5, :cond_c
+    move/from16 v0, v16
 
-    add-int/lit8 v0, v1, 0x1
+    move/from16 v1, p5
 
-    invoke-virtual {p3, v0}, Ljava/lang/String;->charAt(I)C
+    if-eq v0, v1, :cond_9
 
-    move-result v0
+    add-int/lit8 v16, p4, 0x1
 
-    const/16 v2, 0x2e
+    move-object/from16 v0, p3
 
-    if-eq v0, v2, :cond_d
+    move/from16 v1, v16
 
-    const/16 v2, 0x30
+    invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C
 
-    if-ge v0, v2, :cond_e
+    move-result v5
+
+    const/16 v16, 0x2e
+
+    move/from16 v0, v16
+
+    if-eq v5, v0, :cond_a
+
+    const/16 v16, 0x30
+
+    move/from16 v0, v16
+
+    if-ge v5, v0, :cond_b
+
+    :cond_5
+    const/16 v16, 0x2f
+
+    move/from16 v0, v16
+
+    if-eq v5, v0, :cond_c
+
+    const/16 v16, 0x7c
+
+    move/from16 v0, v16
+
+    if-eq v5, v0, :cond_d
+
+    const/16 v16, 0x20
+
+    move/from16 v0, v16
+
+    if-ne v5, v0, :cond_e
+
+    :cond_6
+    add-int/lit8 p4, p4, 0x1
+
+    move/from16 v0, p4
+
+    move/from16 v1, p5
+
+    if-eq v0, v1, :cond_7
+
+    invoke-virtual/range {p3 .. p4}, Ljava/lang/String;->charAt(I)C
+
+    move-result v5
+
+    const/16 v16, 0x20
+
+    move/from16 v0, v16
+
+    if-eq v5, v0, :cond_6
+
+    const/16 v16, 0xa
+
+    move/from16 v0, v16
+
+    if-eq v5, v0, :cond_6
+
+    const/16 v16, 0x9
+
+    move/from16 v0, v16
+
+    if-eq v5, v0, :cond_6
+
+    const/16 v16, 0xd
+
+    move/from16 v0, v16
+
+    if-eq v5, v0, :cond_6
+
+    :cond_7
+    move/from16 v0, p4
+
+    move/from16 v1, p5
+
+    if-ne v0, v1, :cond_f
 
     :cond_8
-    const/16 v2, 0x2f
+    const/16 v16, 0x4
 
-    if-eq v0, v2, :cond_f
+    move-object/from16 v0, p0
 
-    const/16 v2, 0x7c
+    move-object/from16 v1, p2
 
-    if-eq v0, v2, :cond_10
+    move/from16 v2, v16
 
-    const/16 v2, 0x20
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
-    if-ne v0, v2, :cond_11
+    const/4 v15, 0x1
+
+    goto/16 :goto_0
 
     :cond_9
-    add-int/lit8 v1, v1, 0x1
+    const/16 v16, 0x4
 
-    if-eq v1, p5, :cond_a
+    move-object/from16 v0, p0
 
-    invoke-virtual {p3, v1}, Ljava/lang/String;->charAt(I)C
+    move-object/from16 v1, p2
 
-    move-result v0
+    move/from16 v2, v16
 
-    const/16 v2, 0x20
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
-    if-eq v0, v2, :cond_9
+    const/4 v15, 0x1
 
-    const/16 v2, 0xa
+    add-int/lit8 p4, p4, 0x1
 
-    if-eq v0, v2, :cond_9
-
-    const/16 v2, 0x9
-
-    if-eq v0, v2, :cond_9
-
-    const/16 v2, 0xd
-
-    if-eq v0, v2, :cond_9
+    goto/16 :goto_0
 
     :cond_a
-    if-ne v1, p5, :cond_12
+    const/16 v16, 0x5
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    const/4 v15, 0x1
+
+    add-int/lit8 p4, p4, 0x2
+
+    goto/16 :goto_0
 
     :cond_b
-    const/4 v0, 0x4
+    const/16 v16, 0x39
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move/from16 v0, v16
 
-    const/4 v0, 0x1
+    if-gt v5, v0, :cond_5
 
-    move v7, v0
+    const/16 v16, 0x2f
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    const/4 v15, 0x1
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move-object/from16 v2, p3
+
+    move/from16 v3, p5
+
+    move/from16 v4, p4
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->scanNumber(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;Ljava/lang/String;II)I
+
+    move-result p4
 
     goto/16 :goto_0
 
     :cond_c
-    const/4 v0, 0x4
+    const/16 v16, 0x4
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move-object/from16 v0, p0
 
-    const/4 v0, 0x1
+    move-object/from16 v1, p2
 
-    add-int/lit8 v1, v1, 0x1
+    move/from16 v2, v16
 
-    move v7, v0
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    const/4 v15, 0x1
+
+    add-int/lit8 p4, p4, 0x1
 
     goto/16 :goto_0
 
     :cond_d
-    const/4 v0, 0x5
+    const/16 v16, 0x4
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move-object/from16 v0, p0
 
-    const/4 v0, 0x1
+    move-object/from16 v1, p2
 
-    add-int/lit8 v1, v1, 0x2
+    move/from16 v2, v16
 
-    :goto_3
-    if-eq v1, p5, :cond_13
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
-    move v7, v0
+    const/4 v15, 0x1
+
+    add-int/lit8 p4, p4, 0x1
 
     goto/16 :goto_0
 
     :cond_e
-    const/16 v2, 0x39
+    const/16 v16, 0xa
 
-    if-gt v0, v2, :cond_8
+    move/from16 v0, v16
 
-    const/16 v0, 0x2f
+    if-eq v5, v0, :cond_6
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    const/16 v16, 0x9
 
-    const/4 v0, 0x1
+    move/from16 v0, v16
 
-    invoke-direct {p0, p2, p3, p5, v1}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->scanNumber(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;Ljava/lang/String;II)I
+    if-eq v5, v0, :cond_6
 
-    move-result v1
+    const/16 v16, 0xd
 
-    goto :goto_3
+    move/from16 v0, v16
+
+    if-eq v5, v0, :cond_6
+
+    new-instance v16, Lmf/org/apache/xerces/impl/xpath/XPathException;
+
+    const-string/jumbo v17, "c-general-xpath"
+
+    invoke-direct/range {v16 .. v17}, Lmf/org/apache/xerces/impl/xpath/XPathException;-><init>(Ljava/lang/String;)V
+
+    throw v16
 
     :cond_f
-    const/4 v0, 0x4
+    const/16 v16, 0x7c
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move/from16 v0, v16
 
-    const/4 v0, 0x1
+    if-eq v5, v0, :cond_8
 
-    add-int/lit8 v1, v1, 0x1
+    new-instance v16, Lmf/org/apache/xerces/impl/xpath/XPathException;
 
-    goto :goto_3
+    const-string/jumbo v17, "c-general-xpath"
 
-    :cond_10
-    const/4 v0, 0x4
+    invoke-direct/range {v16 .. v17}, Lmf/org/apache/xerces/impl/xpath/XPathException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
-
-    const/4 v0, 0x1
-
-    add-int/lit8 v1, v1, 0x1
-
-    move v7, v0
-
-    goto/16 :goto_0
-
-    :cond_11
-    const/16 v2, 0xa
-
-    if-eq v0, v2, :cond_9
-
-    const/16 v2, 0x9
-
-    if-eq v0, v2, :cond_9
-
-    const/16 v2, 0xd
-
-    if-eq v0, v2, :cond_9
-
-    new-instance v0, Lmf/org/apache/xerces/impl/xpath/XPathException;
-
-    const-string/jumbo v1, "c-general-xpath"
-
-    invoke-direct {v0, v1}, Lmf/org/apache/xerces/impl/xpath/XPathException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_12
-    const/16 v2, 0x7c
-
-    if-eq v0, v2, :cond_b
-
-    new-instance v0, Lmf/org/apache/xerces/impl/xpath/XPathException;
-
-    const-string/jumbo v1, "c-general-xpath"
-
-    invoke-direct {v0, v1}, Lmf/org/apache/xerces/impl/xpath/XPathException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_13
-    move v7, v0
-
-    goto/16 :goto_0
+    throw v16
 
     :pswitch_5
-    const/4 v0, 0x6
+    const/16 v16, 0x6
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move-object/from16 v0, p0
 
-    const/4 v0, 0x0
+    move-object/from16 v1, p2
 
-    add-int/lit8 v1, v1, 0x1
+    move/from16 v2, v16
 
-    if-eq v1, p5, :cond_14
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
-    move v7, v0
+    const/4 v15, 0x0
 
-    goto/16 :goto_0
-
-    :cond_14
-    move v7, v0
+    add-int/lit8 p4, p4, 0x1
 
     goto/16 :goto_0
 
     :pswitch_6
-    const/4 v0, 0x7
+    const/16 v16, 0x7
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move-object/from16 v0, p0
 
-    const/4 v0, 0x0
+    move-object/from16 v1, p2
 
-    add-int/lit8 v1, v1, 0x1
+    move/from16 v2, v16
 
-    if-eq v1, p5, :cond_15
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
-    move v7, v0
+    const/4 v15, 0x0
 
-    goto/16 :goto_0
-
-    :cond_15
-    move v7, v0
+    add-int/lit8 p4, p4, 0x1
 
     goto/16 :goto_0
 
     :pswitch_7
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p4, p4, 0x1
 
-    if-eq v1, p5, :cond_16
+    move/from16 v0, p4
 
-    invoke-virtual {p3, v1}, Ljava/lang/String;->charAt(I)C
+    move/from16 v1, p5
 
-    move-result v0
+    if-eq v0, v1, :cond_10
 
-    const/16 v2, 0x3a
+    invoke-virtual/range {p3 .. p4}, Ljava/lang/String;->charAt(I)C
 
-    if-ne v0, v2, :cond_17
+    move-result v5
 
-    const/16 v0, 0x8
+    const/16 v16, 0x3a
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move/from16 v0, v16
 
-    const/4 v0, 0x0
+    if-ne v5, v0, :cond_11
 
-    add-int/lit8 v1, v1, 0x1
+    const/16 v16, 0x8
 
-    if-eq v1, p5, :cond_18
+    move-object/from16 v0, p0
 
-    move v7, v0
+    move-object/from16 v1, p2
 
-    goto/16 :goto_0
+    move/from16 v2, v16
 
-    :cond_16
-    const/4 v0, 0x0
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
-    return v0
+    const/4 v15, 0x0
 
-    :cond_17
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_18
-    move v7, v0
+    add-int/lit8 p4, p4, 0x1
 
     goto/16 :goto_0
+
+    :cond_10
+    const/16 v16, 0x0
+
+    return v16
+
+    :cond_11
+    const/16 v16, 0x0
+
+    return v16
 
     :pswitch_8
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p4, p4, 0x1
 
-    if-eq v1, p5, :cond_19
+    move/from16 v0, p4
 
-    invoke-virtual {p3, v1}, Ljava/lang/String;->charAt(I)C
+    move/from16 v1, p5
 
-    move-result v0
+    if-eq v0, v1, :cond_12
 
-    const/16 v2, 0x2f
+    invoke-virtual/range {p3 .. p4}, Ljava/lang/String;->charAt(I)C
 
-    if-eq v0, v2, :cond_1a
+    move-result v5
 
-    const/16 v0, 0x15
+    const/16 v16, 0x2f
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move/from16 v0, v16
 
-    const/4 v0, 0x0
+    if-eq v5, v0, :cond_13
 
-    move v7, v0
+    const/16 v16, 0x15
 
-    goto/16 :goto_0
+    move-object/from16 v0, p0
 
-    :cond_19
-    const/16 v0, 0x15
+    move-object/from16 v1, p2
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move/from16 v2, v16
 
-    const/4 v0, 0x0
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
-    move v7, v0
-
-    goto/16 :goto_0
-
-    :cond_1a
-    const/16 v0, 0x16
-
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
-
-    const/4 v0, 0x0
-
-    add-int/lit8 v1, v1, 0x1
-
-    if-eq v1, p5, :cond_1b
-
-    move v7, v0
+    const/4 v15, 0x0
 
     goto/16 :goto_0
 
-    :cond_1b
-    move v7, v0
+    :cond_12
+    const/16 v16, 0x15
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    const/4 v15, 0x0
+
+    goto/16 :goto_0
+
+    :cond_13
+    const/16 v16, 0x16
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    const/4 v15, 0x0
+
+    add-int/lit8 p4, p4, 0x1
 
     goto/16 :goto_0
 
     :pswitch_9
-    const/16 v0, 0x17
+    const/16 v16, 0x17
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move-object/from16 v0, p0
 
-    const/4 v0, 0x0
+    move-object/from16 v1, p2
 
-    add-int/lit8 v1, v1, 0x1
+    move/from16 v2, v16
 
-    if-eq v1, p5, :cond_1c
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
-    move v7, v0
+    const/4 v15, 0x0
 
-    goto/16 :goto_0
-
-    :cond_1c
-    move v7, v0
+    add-int/lit8 p4, p4, 0x1
 
     goto/16 :goto_0
 
     :pswitch_a
-    const/16 v0, 0x18
+    const/16 v16, 0x18
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move-object/from16 v0, p0
 
-    const/4 v0, 0x0
+    move-object/from16 v1, p2
 
-    add-int/lit8 v1, v1, 0x1
+    move/from16 v2, v16
 
-    if-eq v1, p5, :cond_1d
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
-    move v7, v0
+    const/4 v15, 0x0
 
-    goto/16 :goto_0
-
-    :cond_1d
-    move v7, v0
+    add-int/lit8 p4, p4, 0x1
 
     goto/16 :goto_0
 
     :pswitch_b
-    const/16 v0, 0x19
+    const/16 v16, 0x19
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move-object/from16 v0, p0
 
-    const/4 v0, 0x0
+    move-object/from16 v1, p2
 
-    add-int/lit8 v1, v1, 0x1
+    move/from16 v2, v16
 
-    if-eq v1, p5, :cond_1e
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
-    move v7, v0
+    const/4 v15, 0x0
 
-    goto/16 :goto_0
-
-    :cond_1e
-    move v7, v0
+    add-int/lit8 p4, p4, 0x1
 
     goto/16 :goto_0
 
     :pswitch_c
-    const/16 v0, 0x1a
+    const/16 v16, 0x1a
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move-object/from16 v0, p0
 
-    const/4 v0, 0x0
+    move-object/from16 v1, p2
 
-    add-int/lit8 v1, v1, 0x1
+    move/from16 v2, v16
 
-    if-eq v1, p5, :cond_1f
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
-    move v7, v0
+    const/4 v15, 0x0
 
-    goto/16 :goto_0
-
-    :cond_1f
-    move v7, v0
+    add-int/lit8 p4, p4, 0x1
 
     goto/16 :goto_0
 
     :pswitch_d
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p4, p4, 0x1
 
-    if-eq v1, p5, :cond_20
+    move/from16 v0, p4
 
-    invoke-virtual {p3, v1}, Ljava/lang/String;->charAt(I)C
+    move/from16 v1, p5
 
-    move-result v0
+    if-eq v0, v1, :cond_14
 
-    const/16 v2, 0x3d
+    invoke-virtual/range {p3 .. p4}, Ljava/lang/String;->charAt(I)C
 
-    if-ne v0, v2, :cond_21
+    move-result v5
 
-    const/16 v0, 0x1b
+    const/16 v16, 0x3d
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move/from16 v0, v16
 
-    const/4 v0, 0x0
+    if-ne v5, v0, :cond_15
 
-    add-int/lit8 v1, v1, 0x1
+    const/16 v16, 0x1b
 
-    if-eq v1, p5, :cond_22
+    move-object/from16 v0, p0
 
-    move v7, v0
+    move-object/from16 v1, p2
 
-    goto/16 :goto_0
+    move/from16 v2, v16
 
-    :cond_20
-    const/4 v0, 0x0
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
-    return v0
+    const/4 v15, 0x0
 
-    :cond_21
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_22
-    move v7, v0
+    add-int/lit8 p4, p4, 0x1
 
     goto/16 :goto_0
+
+    :cond_14
+    const/16 v16, 0x0
+
+    return v16
+
+    :cond_15
+    const/16 v16, 0x0
+
+    return v16
 
     :pswitch_e
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p4, p4, 0x1
 
-    if-eq v1, p5, :cond_23
+    move/from16 v0, p4
 
-    invoke-virtual {p3, v1}, Ljava/lang/String;->charAt(I)C
+    move/from16 v1, p5
 
-    move-result v0
+    if-eq v0, v1, :cond_16
 
-    const/16 v2, 0x3d
+    invoke-virtual/range {p3 .. p4}, Ljava/lang/String;->charAt(I)C
 
-    if-eq v0, v2, :cond_24
+    move-result v5
 
-    const/16 v0, 0x1c
+    const/16 v16, 0x3d
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move/from16 v0, v16
 
-    const/4 v0, 0x0
+    if-eq v5, v0, :cond_17
 
-    move v7, v0
+    const/16 v16, 0x1c
 
-    goto/16 :goto_0
+    move-object/from16 v0, p0
 
-    :cond_23
-    const/16 v0, 0x1c
+    move-object/from16 v1, p2
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move/from16 v2, v16
 
-    const/4 v0, 0x0
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
-    move v7, v0
-
-    goto/16 :goto_0
-
-    :cond_24
-    const/16 v0, 0x1d
-
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
-
-    const/4 v0, 0x0
-
-    add-int/lit8 v1, v1, 0x1
-
-    if-eq v1, p5, :cond_25
-
-    move v7, v0
+    const/4 v15, 0x0
 
     goto/16 :goto_0
 
-    :cond_25
-    move v7, v0
+    :cond_16
+    const/16 v16, 0x1c
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    const/4 v15, 0x0
+
+    goto/16 :goto_0
+
+    :cond_17
+    const/16 v16, 0x1d
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    const/4 v15, 0x0
+
+    add-int/lit8 p4, p4, 0x1
 
     goto/16 :goto_0
 
     :pswitch_f
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p4, p4, 0x1
 
-    if-eq v1, p5, :cond_26
+    move/from16 v0, p4
 
-    invoke-virtual {p3, v1}, Ljava/lang/String;->charAt(I)C
+    move/from16 v1, p5
 
-    move-result v0
+    if-eq v0, v1, :cond_18
 
-    const/16 v2, 0x3d
+    invoke-virtual/range {p3 .. p4}, Ljava/lang/String;->charAt(I)C
 
-    if-eq v0, v2, :cond_27
+    move-result v5
 
-    const/16 v0, 0x1e
+    const/16 v16, 0x3d
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move/from16 v0, v16
 
-    const/4 v0, 0x0
+    if-eq v5, v0, :cond_19
 
-    move v7, v0
+    const/16 v16, 0x1e
 
-    goto/16 :goto_0
+    move-object/from16 v0, p0
 
-    :cond_26
-    const/16 v0, 0x1e
+    move-object/from16 v1, p2
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move/from16 v2, v16
 
-    const/4 v0, 0x0
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
-    move v7, v0
-
-    goto/16 :goto_0
-
-    :cond_27
-    const/16 v0, 0x1f
-
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
-
-    const/4 v0, 0x0
-
-    add-int/lit8 v1, v1, 0x1
-
-    if-eq v1, p5, :cond_28
-
-    move v7, v0
+    const/4 v15, 0x0
 
     goto/16 :goto_0
 
-    :cond_28
-    move v7, v0
+    :cond_18
+    const/16 v16, 0x1e
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    const/4 v15, 0x0
+
+    goto/16 :goto_0
+
+    :cond_19
+    const/16 v16, 0x1f
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    const/4 v15, 0x0
+
+    add-int/lit8 p4, p4, 0x1
 
     goto/16 :goto_0
 
     :pswitch_10
-    add-int/lit8 v2, v1, 0x1
+    move v14, v5
 
-    if-eq v2, p5, :cond_29
+    add-int/lit8 p4, p4, 0x1
 
-    invoke-virtual {p3, v2}, Ljava/lang/String;->charAt(I)C
+    move/from16 v0, p4
 
-    move-result v0
+    move/from16 v1, p5
 
-    move v1, v2
+    if-eq v0, v1, :cond_1a
 
-    :goto_4
-    if-eq v0, v3, :cond_2b
+    invoke-virtual/range {p3 .. p4}, Ljava/lang/String;->charAt(I)C
 
-    add-int/lit8 v1, v1, 0x1
+    move-result v5
 
-    if-eq v1, p5, :cond_2a
+    move/from16 v10, p4
 
-    invoke-virtual {p3, v1}, Ljava/lang/String;->charAt(I)C
+    :goto_3
+    if-eq v5, v14, :cond_1c
 
-    move-result v0
+    add-int/lit8 p4, p4, 0x1
 
-    goto :goto_4
+    move/from16 v0, p4
 
-    :cond_29
-    const/4 v0, 0x0
+    move/from16 v1, p5
 
-    return v0
+    if-eq v0, v1, :cond_1b
 
-    :cond_2a
-    const/4 v0, 0x0
+    invoke-virtual/range {p3 .. p4}, Ljava/lang/String;->charAt(I)C
 
-    return v0
+    move-result v5
 
-    :cond_2b
-    sub-int v3, v1, v2
+    goto :goto_3
 
-    const/16 v0, 0x2e
+    :cond_1a
+    const/16 v16, 0x0
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    return v16
 
-    const/4 v0, 0x1
+    :cond_1b
+    const/16 v16, 0x0
 
-    add-int/2addr v3, v2
+    return v16
 
-    invoke-virtual {p3, v2, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    :cond_1c
+    sub-int v9, p4, v10
 
-    move-result-object v2
+    const/16 v16, 0x2e
 
-    invoke-virtual {p1, v2}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    move-result-object v2
+    move-object/from16 v1, p2
 
-    invoke-virtual {p2, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->addToken(Ljava/lang/String;)V
+    move/from16 v2, v16
 
-    add-int/lit8 v1, v1, 0x1
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
-    if-eq v1, p5, :cond_2c
+    const/4 v15, 0x1
 
-    move v7, v0
+    add-int v16, v10, v9
 
-    goto/16 :goto_0
+    move-object/from16 v0, p3
 
-    :cond_2c
-    move v7, v0
+    move/from16 v1, v16
+
+    invoke-virtual {v0, v10, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v16
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v16
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->addToken(Ljava/lang/String;)V
+
+    add-int/lit8 p4, p4, 0x1
 
     goto/16 :goto_0
 
     :pswitch_11
-    const/16 v0, 0x2f
+    const/16 v16, 0x2f
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move-object/from16 v0, p0
 
-    const/4 v0, 0x1
+    move-object/from16 v1, p2
 
-    invoke-direct {p0, p2, p3, p5, v1}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->scanNumber(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;Ljava/lang/String;II)I
+    move/from16 v2, v16
 
-    move-result v1
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
-    move v7, v0
+    const/4 v15, 0x1
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move-object/from16 v2, p3
+
+    move/from16 v3, p5
+
+    move/from16 v4, p4
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->scanNumber(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;Ljava/lang/String;II)I
+
+    move-result p4
 
     goto/16 :goto_0
 
     :pswitch_12
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p4, p4, 0x1
 
-    if-eq v1, p5, :cond_2d
+    move/from16 v0, p4
 
-    invoke-virtual {p0, p3, p5, v1}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->scanNCName(Ljava/lang/String;II)I
+    move/from16 v1, p5
 
-    move-result v2
+    if-eq v0, v1, :cond_1d
 
-    if-eq v2, v1, :cond_2e
+    move/from16 v12, p4
 
-    if-lt v2, p5, :cond_2f
+    move-object/from16 v0, p0
 
-    const/4 v0, -0x1
+    move-object/from16 v1, p3
+
+    move/from16 v2, p5
+
+    move/from16 v3, p4
+
+    invoke-virtual {v0, v1, v2, v3}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->scanNCName(Ljava/lang/String;II)I
+
+    move-result p4
+
+    move/from16 v0, p4
+
+    if-eq v0, v12, :cond_1e
+
+    move/from16 v0, p4
+
+    move/from16 v1, p5
+
+    if-lt v0, v1, :cond_1f
+
+    const/4 v5, -0x1
+
+    :goto_4
+    move-object/from16 v0, p3
+
+    move/from16 v1, p4
+
+    invoke-virtual {v0, v12, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v16
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    const/16 v16, 0x3a
+
+    move/from16 v0, v16
+
+    if-ne v5, v0, :cond_20
+
+    move-object v13, v11
+
+    add-int/lit8 p4, p4, 0x1
+
+    move/from16 v0, p4
+
+    move/from16 v1, p5
+
+    if-eq v0, v1, :cond_21
+
+    move/from16 v12, p4
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p3
+
+    move/from16 v2, p5
+
+    move/from16 v3, p4
+
+    invoke-virtual {v0, v1, v2, v3}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->scanNCName(Ljava/lang/String;II)I
+
+    move-result p4
+
+    move/from16 v0, p4
+
+    if-eq v0, v12, :cond_22
+
+    move/from16 v0, p4
+
+    move/from16 v1, p5
+
+    if-lt v0, v1, :cond_23
+
+    const/4 v5, -0x1
 
     :goto_5
-    invoke-virtual {p3, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    move-object/from16 v0, p3
 
-    move-result-object v1
+    move/from16 v1, p4
 
-    invoke-virtual {p1, v1}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v12, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v16
 
-    const/16 v3, 0x3a
+    move-object/from16 v0, p1
 
-    if-ne v0, v3, :cond_30
+    move-object/from16 v1, v16
 
-    add-int/lit8 v0, v2, 0x1
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
 
-    if-eq v0, p5, :cond_31
-
-    invoke-virtual {p0, p3, p5, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->scanNCName(Ljava/lang/String;II)I
-
-    move-result v2
-
-    if-eq v2, v0, :cond_32
-
-    if-lt v2, p5, :cond_33
+    move-result-object v11
 
     :goto_6
-    invoke-virtual {p3, v0, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    const/16 v16, 0x30
 
-    move-result-object v0
+    move-object/from16 v0, p0
 
-    invoke-virtual {p1, v0}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v1, p2
 
-    move-result-object v0
+    move/from16 v2, v16
 
-    move-object v8, v1
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
-    move-object v1, v0
+    const/4 v15, 0x1
 
-    move-object v0, v8
+    move-object/from16 v0, p2
 
-    :goto_7
-    const/16 v3, 0x30
+    invoke-virtual {v0, v13}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->addToken(Ljava/lang/String;)V
 
-    invoke-virtual {p0, p2, v3}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move-object/from16 v0, p2
 
-    const/4 v3, 0x1
-
-    invoke-virtual {p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->addToken(Ljava/lang/String;)V
-
-    invoke-virtual {p2, v1}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->addToken(Ljava/lang/String;)V
-
-    move v7, v3
-
-    move v1, v2
+    invoke-virtual {v0, v11}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->addToken(Ljava/lang/String;)V
 
     goto/16 :goto_0
 
-    :cond_2d
-    const/4 v0, 0x0
+    :cond_1d
+    const/16 v16, 0x0
 
-    return v0
+    return v16
 
-    :cond_2e
-    const/4 v0, 0x0
+    :cond_1e
+    const/16 v16, 0x0
 
-    return v0
+    return v16
 
-    :cond_2f
-    invoke-virtual {p3, v2}, Ljava/lang/String;->charAt(I)C
+    :cond_1f
+    invoke-virtual/range {p3 .. p4}, Ljava/lang/String;->charAt(I)C
 
-    move-result v0
+    move-result v5
 
-    goto :goto_5
+    goto :goto_4
 
-    :cond_30
-    sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
-
-    goto :goto_7
-
-    :cond_31
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_32
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_33
-    invoke-virtual {p3, v2}, Ljava/lang/String;->charAt(I)C
+    :cond_20
+    sget-object v13, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
     goto :goto_6
 
-    :pswitch_13
-    if-nez v7, :cond_34
+    :cond_21
+    const/16 v16, 0x0
 
-    const/16 v0, 0x9
+    return v16
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    :cond_22
+    const/16 v16, 0x0
 
-    const/4 v0, 0x1
+    return v16
 
-    :goto_8
-    add-int/lit8 v1, v1, 0x1
-
-    if-eq v1, p5, :cond_35
-
-    move v7, v0
-
-    goto/16 :goto_0
-
-    :cond_34
-    const/16 v0, 0x14
-
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
-
-    const/4 v0, 0x0
-
-    goto :goto_8
-
-    :cond_35
-    move v7, v0
-
-    goto/16 :goto_0
-
-    :pswitch_14
-    invoke-virtual {p0, p3, p5, v1}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->scanNCName(Ljava/lang/String;II)I
+    :cond_23
+    invoke-virtual/range {p3 .. p4}, Ljava/lang/String;->charAt(I)C
 
     move-result v5
 
-    if-eq v5, v1, :cond_37
+    goto :goto_5
 
-    if-lt v5, p5, :cond_38
+    :pswitch_13
+    if-nez v15, :cond_24
 
-    const/4 v0, -0x1
+    const/16 v16, 0x9
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    const/4 v15, 0x1
+
+    :goto_7
+    add-int/lit8 p4, p4, 0x1
+
+    goto/16 :goto_0
+
+    :cond_24
+    const/16 v16, 0x14
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    const/4 v15, 0x0
+
+    goto :goto_7
+
+    :pswitch_14
+    move/from16 v12, p4
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p3
+
+    move/from16 v2, p5
+
+    move/from16 v3, p4
+
+    invoke-virtual {v0, v1, v2, v3}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->scanNCName(Ljava/lang/String;II)I
+
+    move-result p4
+
+    move/from16 v0, p4
+
+    if-eq v0, v12, :cond_26
+
+    move/from16 v0, p4
+
+    move/from16 v1, p5
+
+    if-lt v0, v1, :cond_27
+
+    const/4 v5, -0x1
+
+    :goto_8
+    move-object/from16 v0, p3
+
+    move/from16 v1, p4
+
+    invoke-virtual {v0, v12, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v16
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    const/4 v8, 0x0
+
+    const/4 v7, 0x0
+
+    sget-object v13, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+
+    const/16 v16, 0x3a
+
+    move/from16 v0, v16
+
+    if-eq v5, v0, :cond_28
 
     :goto_9
-    invoke-virtual {p3, v1, v5}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    const/16 v16, 0x20
 
-    move-result-object v1
+    move/from16 v0, v16
 
-    invoke-virtual {p1, v1}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    if-ne v5, v0, :cond_30
 
-    move-result-object v4
+    :cond_25
+    add-int/lit8 p4, p4, 0x1
 
-    const/4 v2, 0x0
+    move/from16 v0, p4
 
-    const/4 v1, 0x0
+    move/from16 v1, p5
 
-    sget-object v3, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    if-eq v0, v1, :cond_31
 
-    const/16 v6, 0x3a
+    invoke-virtual/range {p3 .. p4}, Ljava/lang/String;->charAt(I)C
 
-    if-eq v0, v6, :cond_39
-
-    move v6, v0
-
-    move v0, v5
-
-    move-object v5, v4
-
-    move-object v4, v3
-
-    move v3, v2
-
-    move v2, v1
-
-    :goto_a
-    const/16 v1, 0x20
-
-    if-ne v6, v1, :cond_44
-
-    :cond_36
-    add-int/lit8 v0, v0, 0x1
-
-    if-eq v0, p5, :cond_41
-
-    invoke-virtual {p3, v0}, Ljava/lang/String;->charAt(I)C
-
-    move-result v1
-
-    move v6, v1
-
-    goto :goto_a
-
-    :cond_37
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_38
-    invoke-virtual {p3, v5}, Ljava/lang/String;->charAt(I)C
-
-    move-result v0
+    move-result v5
 
     goto :goto_9
 
-    :cond_39
-    add-int/lit8 v6, v5, 0x1
+    :cond_26
+    const/16 v16, 0x0
 
-    if-eq v6, p5, :cond_3a
+    return v16
 
-    invoke-virtual {p3, v6}, Ljava/lang/String;->charAt(I)C
-
-    move-result v0
-
-    const/16 v5, 0x2a
-
-    if-eq v0, v5, :cond_3b
-
-    const/16 v5, 0x3a
-
-    if-eq v0, v5, :cond_3d
-
-    invoke-virtual {p0, p3, p5, v6}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->scanNCName(Ljava/lang/String;II)I
+    :cond_27
+    invoke-virtual/range {p3 .. p4}, Ljava/lang/String;->charAt(I)C
 
     move-result v5
 
-    if-eq v5, v6, :cond_3f
+    goto :goto_8
 
-    if-lt v5, p5, :cond_40
+    :cond_28
+    add-int/lit8 p4, p4, 0x1
 
-    const/4 v0, -0x1
+    move/from16 v0, p4
+
+    move/from16 v1, p5
+
+    if-eq v0, v1, :cond_29
+
+    invoke-virtual/range {p3 .. p4}, Ljava/lang/String;->charAt(I)C
+
+    move-result v5
+
+    const/16 v16, 0x2a
+
+    move/from16 v0, v16
+
+    if-eq v5, v0, :cond_2a
+
+    const/16 v16, 0x3a
+
+    move/from16 v0, v16
+
+    if-eq v5, v0, :cond_2c
+
+    move-object v13, v11
+
+    move/from16 v12, p4
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p3
+
+    move/from16 v2, p5
+
+    move/from16 v3, p4
+
+    invoke-virtual {v0, v1, v2, v3}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->scanNCName(Ljava/lang/String;II)I
+
+    move-result p4
+
+    move/from16 v0, p4
+
+    if-eq v0, v12, :cond_2e
+
+    move/from16 v0, p4
+
+    move/from16 v1, p5
+
+    if-lt v0, v1, :cond_2f
+
+    const/4 v5, -0x1
+
+    :goto_a
+    move-object/from16 v0, p3
+
+    move/from16 v1, p4
+
+    invoke-virtual {v0, v12, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v16
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    goto :goto_9
+
+    :cond_29
+    const/16 v16, 0x0
+
+    return v16
+
+    :cond_2a
+    add-int/lit8 p4, p4, 0x1
+
+    move/from16 v0, p4
+
+    move/from16 v1, p5
+
+    if-lt v0, v1, :cond_2b
 
     :goto_b
-    invoke-virtual {p3, v6, v5}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    const/4 v8, 0x1
 
-    move-result-object v3
+    goto :goto_9
 
-    invoke-virtual {p1, v3}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    :cond_2b
+    invoke-virtual/range {p3 .. p4}, Ljava/lang/String;->charAt(I)C
 
-    move-result-object v3
-
-    move v6, v0
-
-    move v0, v5
-
-    move-object v5, v3
-
-    move v3, v2
-
-    move v2, v1
-
-    goto :goto_a
-
-    :cond_3a
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_3b
-    add-int/lit8 v5, v6, 0x1
-
-    if-lt v5, p5, :cond_3c
-
-    :goto_c
-    const/4 v2, 0x1
-
-    move v6, v0
-
-    move v0, v5
-
-    move-object v5, v4
-
-    move-object v4, v3
-
-    move v3, v2
-
-    move v2, v1
-
-    goto :goto_a
-
-    :cond_3c
-    invoke-virtual {p3, v5}, Ljava/lang/String;->charAt(I)C
-
-    move-result v0
-
-    goto :goto_c
-
-    :cond_3d
-    add-int/lit8 v5, v6, 0x1
-
-    if-lt v5, p5, :cond_3e
-
-    :goto_d
-    const/4 v1, 0x1
-
-    move v6, v0
-
-    move v0, v5
-
-    move-object v5, v4
-
-    move-object v4, v3
-
-    move v3, v2
-
-    move v2, v1
-
-    goto :goto_a
-
-    :cond_3e
-    invoke-virtual {p3, v5}, Ljava/lang/String;->charAt(I)C
-
-    move-result v0
-
-    goto :goto_d
-
-    :cond_3f
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_40
-    invoke-virtual {p3, v5}, Ljava/lang/String;->charAt(I)C
-
-    move-result v0
+    move-result v5
 
     goto :goto_b
 
-    :cond_41
-    move v1, v0
+    :cond_2c
+    add-int/lit8 p4, p4, 0x1
+
+    move/from16 v0, p4
+
+    move/from16 v1, p5
+
+    if-lt v0, v1, :cond_2d
+
+    :goto_c
+    const/4 v7, 0x1
+
+    goto :goto_9
+
+    :cond_2d
+    invoke-virtual/range {p3 .. p4}, Ljava/lang/String;->charAt(I)C
+
+    move-result v5
+
+    goto :goto_c
+
+    :cond_2e
+    const/16 v16, 0x0
+
+    return v16
+
+    :cond_2f
+    invoke-virtual/range {p3 .. p4}, Ljava/lang/String;->charAt(I)C
+
+    move-result v5
+
+    goto :goto_a
+
+    :cond_30
+    const/16 v16, 0xa
+
+    move/from16 v0, v16
+
+    if-eq v5, v0, :cond_25
+
+    const/16 v16, 0x9
+
+    move/from16 v0, v16
+
+    if-eq v5, v0, :cond_25
+
+    const/16 v16, 0xd
+
+    move/from16 v0, v16
+
+    if-eq v5, v0, :cond_25
+
+    :cond_31
+    if-nez v15, :cond_34
+
+    const/16 v16, 0x28
+
+    move/from16 v0, v16
+
+    if-eq v5, v0, :cond_3a
+
+    :cond_32
+    if-eqz v7, :cond_3f
+
+    :cond_33
+    sget-object v16, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fAncestorSymbol:Ljava/lang/String;
+
+    move-object/from16 v0, v16
+
+    if-eq v11, v0, :cond_42
+
+    sget-object v16, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fAncestorOrSelfSymbol:Ljava/lang/String;
+
+    move-object/from16 v0, v16
+
+    if-eq v11, v0, :cond_43
+
+    sget-object v16, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fAttributeSymbol:Ljava/lang/String;
+
+    move-object/from16 v0, v16
+
+    if-eq v11, v0, :cond_44
+
+    sget-object v16, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fChildSymbol:Ljava/lang/String;
+
+    move-object/from16 v0, v16
+
+    if-eq v11, v0, :cond_45
+
+    sget-object v16, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fDescendantSymbol:Ljava/lang/String;
+
+    move-object/from16 v0, v16
+
+    if-eq v11, v0, :cond_46
+
+    sget-object v16, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fDescendantOrSelfSymbol:Ljava/lang/String;
+
+    move-object/from16 v0, v16
+
+    if-eq v11, v0, :cond_47
+
+    sget-object v16, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fFollowingSymbol:Ljava/lang/String;
+
+    move-object/from16 v0, v16
+
+    if-eq v11, v0, :cond_48
+
+    sget-object v16, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fFollowingSiblingSymbol:Ljava/lang/String;
+
+    move-object/from16 v0, v16
+
+    if-eq v11, v0, :cond_49
+
+    sget-object v16, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fNamespaceSymbol:Ljava/lang/String;
+
+    move-object/from16 v0, v16
+
+    if-eq v11, v0, :cond_4a
+
+    sget-object v16, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fParentSymbol:Ljava/lang/String;
+
+    move-object/from16 v0, v16
+
+    if-eq v11, v0, :cond_4b
+
+    sget-object v16, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fPrecedingSymbol:Ljava/lang/String;
+
+    move-object/from16 v0, v16
+
+    if-eq v11, v0, :cond_4c
+
+    sget-object v16, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fPrecedingSiblingSymbol:Ljava/lang/String;
+
+    move-object/from16 v0, v16
+
+    if-eq v11, v0, :cond_4d
+
+    sget-object v16, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fSelfSymbol:Ljava/lang/String;
+
+    move-object/from16 v0, v16
+
+    if-eq v11, v0, :cond_4e
+
+    const/16 v16, 0x0
+
+    return v16
+
+    :cond_34
+    sget-object v16, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fAndSymbol:Ljava/lang/String;
+
+    move-object/from16 v0, v16
+
+    if-eq v11, v0, :cond_35
+
+    sget-object v16, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fOrSymbol:Ljava/lang/String;
+
+    move-object/from16 v0, v16
+
+    if-eq v11, v0, :cond_36
+
+    sget-object v16, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fModSymbol:Ljava/lang/String;
+
+    move-object/from16 v0, v16
+
+    if-eq v11, v0, :cond_37
+
+    sget-object v16, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fDivSymbol:Ljava/lang/String;
+
+    move-object/from16 v0, v16
+
+    if-eq v11, v0, :cond_38
+
+    const/16 v16, 0x0
+
+    return v16
+
+    :cond_35
+    const/16 v16, 0x10
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    const/4 v15, 0x0
+
+    :goto_d
+    if-nez v8, :cond_39
+
+    if-eqz v7, :cond_0
+
+    const/16 v16, 0x0
+
+    return v16
+
+    :cond_36
+    const/16 v16, 0x11
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    const/4 v15, 0x0
+
+    goto :goto_d
+
+    :cond_37
+    const/16 v16, 0x12
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    const/4 v15, 0x0
+
+    goto :goto_d
+
+    :cond_38
+    const/16 v16, 0x13
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    const/4 v15, 0x0
+
+    goto :goto_d
+
+    :cond_39
+    const/16 v16, 0x0
+
+    return v16
+
+    :cond_3a
+    if-nez v8, :cond_32
+
+    if-nez v7, :cond_32
+
+    sget-object v16, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fCommentSymbol:Ljava/lang/String;
+
+    move-object/from16 v0, v16
+
+    if-eq v11, v0, :cond_3b
+
+    sget-object v16, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fTextSymbol:Ljava/lang/String;
+
+    move-object/from16 v0, v16
+
+    if-eq v11, v0, :cond_3c
+
+    sget-object v16, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fPISymbol:Ljava/lang/String;
+
+    move-object/from16 v0, v16
+
+    if-eq v11, v0, :cond_3d
+
+    sget-object v16, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fNodeSymbol:Ljava/lang/String;
+
+    move-object/from16 v0, v16
+
+    if-eq v11, v0, :cond_3e
+
+    const/16 v16, 0x20
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v13}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->addToken(Ljava/lang/String;)V
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v11}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->addToken(Ljava/lang/String;)V
 
     :goto_e
-    if-nez v7, :cond_45
+    const/16 v16, 0x0
 
-    const/16 v0, 0x28
+    move-object/from16 v0, p0
 
-    if-eq v6, v0, :cond_4c
+    move-object/from16 v1, p2
 
-    :cond_42
-    if-eqz v2, :cond_52
+    move/from16 v2, v16
 
-    :cond_43
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fAncestorSymbol:Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
-    if-eq v5, v0, :cond_55
+    const/4 v15, 0x0
 
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fAncestorOrSelfSymbol:Ljava/lang/String;
+    add-int/lit8 p4, p4, 0x1
 
-    if-eq v5, v0, :cond_56
+    goto/16 :goto_0
 
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fAttributeSymbol:Ljava/lang/String;
+    :cond_3b
+    const/16 v16, 0xc
 
-    if-eq v5, v0, :cond_57
+    move-object/from16 v0, p0
 
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fChildSymbol:Ljava/lang/String;
+    move-object/from16 v1, p2
 
-    if-eq v5, v0, :cond_58
+    move/from16 v2, v16
 
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fDescendantSymbol:Ljava/lang/String;
-
-    if-eq v5, v0, :cond_59
-
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fDescendantOrSelfSymbol:Ljava/lang/String;
-
-    if-eq v5, v0, :cond_5a
-
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fFollowingSymbol:Ljava/lang/String;
-
-    if-eq v5, v0, :cond_5b
-
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fFollowingSiblingSymbol:Ljava/lang/String;
-
-    if-eq v5, v0, :cond_5c
-
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fNamespaceSymbol:Ljava/lang/String;
-
-    if-eq v5, v0, :cond_5d
-
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fParentSymbol:Ljava/lang/String;
-
-    if-eq v5, v0, :cond_5e
-
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fPrecedingSymbol:Ljava/lang/String;
-
-    if-eq v5, v0, :cond_5f
-
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fPrecedingSiblingSymbol:Ljava/lang/String;
-
-    if-eq v5, v0, :cond_60
-
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fSelfSymbol:Ljava/lang/String;
-
-    if-eq v5, v0, :cond_61
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_44
-    const/16 v1, 0xa
-
-    if-eq v6, v1, :cond_36
-
-    const/16 v1, 0x9
-
-    if-eq v6, v1, :cond_36
-
-    const/16 v1, 0xd
-
-    if-eq v6, v1, :cond_36
-
-    move v1, v0
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
     goto :goto_e
 
-    :cond_45
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fAndSymbol:Ljava/lang/String;
+    :cond_3c
+    const/16 v16, 0xd
 
-    if-eq v5, v0, :cond_46
+    move-object/from16 v0, p0
 
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fOrSymbol:Ljava/lang/String;
+    move-object/from16 v1, p2
 
-    if-eq v5, v0, :cond_47
+    move/from16 v2, v16
 
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fModSymbol:Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
-    if-eq v5, v0, :cond_48
+    goto :goto_e
 
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fDivSymbol:Ljava/lang/String;
+    :cond_3d
+    const/16 v16, 0xe
 
-    if-eq v5, v0, :cond_49
+    move-object/from16 v0, p0
 
-    const/4 v0, 0x0
+    move-object/from16 v1, p2
 
-    return v0
+    move/from16 v2, v16
 
-    :cond_46
-    const/16 v0, 0x10
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    goto :goto_e
 
-    const/4 v0, 0x0
+    :cond_3e
+    const/16 v16, 0xf
 
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    goto :goto_e
+
+    :cond_3f
+    const/16 v16, 0x3a
+
+    move/from16 v0, v16
+
+    if-eq v5, v0, :cond_41
+
+    :cond_40
     :goto_f
-    if-nez v3, :cond_4a
+    if-nez v8, :cond_50
 
-    if-nez v2, :cond_4b
+    const/16 v16, 0xb
 
-    move v7, v0
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    const/4 v15, 0x1
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v13}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->addToken(Ljava/lang/String;)V
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v11}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->addToken(Ljava/lang/String;)V
 
     goto/16 :goto_0
 
-    :cond_47
-    const/16 v0, 0x11
+    :cond_41
+    add-int/lit8 v16, p4, 0x1
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move/from16 v0, v16
 
-    const/4 v0, 0x0
+    move/from16 v1, p5
+
+    if-ge v0, v1, :cond_40
+
+    add-int/lit8 v16, p4, 0x1
+
+    move-object/from16 v0, p3
+
+    move/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C
+
+    move-result v16
+
+    const/16 v17, 0x3a
+
+    move/from16 v0, v16
+
+    move/from16 v1, v17
+
+    if-eq v0, v1, :cond_33
 
     goto :goto_f
 
-    :cond_48
-    const/16 v0, 0x12
+    :cond_42
+    const/16 v16, 0x21
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move-object/from16 v0, p0
 
-    const/4 v0, 0x0
+    move-object/from16 v1, p2
 
-    goto :goto_f
+    move/from16 v2, v16
 
-    :cond_49
-    const/16 v0, 0x13
-
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
-
-    const/4 v0, 0x0
-
-    goto :goto_f
-
-    :cond_4a
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_4b
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_4c
-    if-nez v3, :cond_42
-
-    if-nez v2, :cond_42
-
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fCommentSymbol:Ljava/lang/String;
-
-    if-eq v5, v0, :cond_4d
-
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fTextSymbol:Ljava/lang/String;
-
-    if-eq v5, v0, :cond_4e
-
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fPISymbol:Ljava/lang/String;
-
-    if-eq v5, v0, :cond_4f
-
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fNodeSymbol:Ljava/lang/String;
-
-    if-eq v5, v0, :cond_50
-
-    const/16 v0, 0x20
-
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
-
-    invoke-virtual {p2, v4}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->addToken(Ljava/lang/String;)V
-
-    invoke-virtual {p2, v5}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->addToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
 
     :goto_10
-    const/4 v0, 0x0
+    if-nez v8, :cond_4f
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    const/16 v16, 0x8
 
-    const/4 v0, 0x0
+    move-object/from16 v0, p0
 
-    add-int/lit8 v1, v1, 0x1
+    move-object/from16 v1, p2
 
-    if-eq v1, p5, :cond_51
+    move/from16 v2, v16
 
-    move v7, v0
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    const/4 v15, 0x0
+
+    if-nez v7, :cond_0
+
+    add-int/lit8 p4, p4, 0x1
+
+    add-int/lit8 p4, p4, 0x1
 
     goto/16 :goto_0
+
+    :cond_43
+    const/16 v16, 0x22
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    goto :goto_10
+
+    :cond_44
+    const/16 v16, 0x23
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    goto :goto_10
+
+    :cond_45
+    const/16 v16, 0x24
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    goto :goto_10
+
+    :cond_46
+    const/16 v16, 0x25
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    goto :goto_10
+
+    :cond_47
+    const/16 v16, 0x26
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    goto :goto_10
+
+    :cond_48
+    const/16 v16, 0x27
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    goto :goto_10
+
+    :cond_49
+    const/16 v16, 0x28
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    goto :goto_10
+
+    :cond_4a
+    const/16 v16, 0x29
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    goto :goto_10
+
+    :cond_4b
+    const/16 v16, 0x2a
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    goto/16 :goto_10
+
+    :cond_4c
+    const/16 v16, 0x2b
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    goto/16 :goto_10
 
     :cond_4d
-    const/16 v0, 0xc
+    const/16 v16, 0x2c
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move-object/from16 v0, p0
 
-    goto :goto_10
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    goto/16 :goto_10
 
     :cond_4e
-    const/16 v0, 0xd
+    const/16 v16, 0x2d
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move-object/from16 v0, p0
 
-    goto :goto_10
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    goto/16 :goto_10
 
     :cond_4f
-    const/16 v0, 0xe
+    const/16 v16, 0x0
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
-
-    goto :goto_10
+    return v16
 
     :cond_50
-    const/16 v0, 0xf
+    const/16 v16, 0xa
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+    move-object/from16 v0, p0
 
-    goto :goto_10
+    move-object/from16 v1, p2
+
+    move/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
+
+    const/4 v15, 0x1
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v11}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->addToken(Ljava/lang/String;)V
+
+    goto/16 :goto_0
 
     :cond_51
-    move v7, v0
+    const/16 v16, 0x1
 
-    goto/16 :goto_0
-
-    :cond_52
-    const/16 v0, 0x3a
-
-    if-eq v6, v0, :cond_54
-
-    :cond_53
-    :goto_11
-    if-nez v3, :cond_65
-
-    const/16 v0, 0xb
-
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p2, v4}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->addToken(Ljava/lang/String;)V
-
-    invoke-virtual {p2, v5}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->addToken(Ljava/lang/String;)V
-
-    move v7, v0
-
-    goto/16 :goto_0
-
-    :cond_54
-    add-int/lit8 v0, v1, 0x1
-
-    if-ge v0, p5, :cond_53
-
-    add-int/lit8 v0, v1, 0x1
-
-    invoke-virtual {p3, v0}, Ljava/lang/String;->charAt(I)C
-
-    move-result v0
-
-    const/16 v6, 0x3a
-
-    if-eq v0, v6, :cond_43
-
-    goto :goto_11
-
-    :cond_55
-    const/16 v0, 0x21
-
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
-
-    :goto_12
-    if-nez v3, :cond_62
-
-    const/16 v0, 0x8
-
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
-
-    const/4 v0, 0x0
-
-    if-eqz v2, :cond_63
-
-    move v7, v0
-
-    goto/16 :goto_0
-
-    :cond_56
-    const/16 v0, 0x22
-
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
-
-    goto :goto_12
-
-    :cond_57
-    const/16 v0, 0x23
-
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
-
-    goto :goto_12
-
-    :cond_58
-    const/16 v0, 0x24
-
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
-
-    goto :goto_12
-
-    :cond_59
-    const/16 v0, 0x25
-
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
-
-    goto :goto_12
-
-    :cond_5a
-    const/16 v0, 0x26
-
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
-
-    goto :goto_12
-
-    :cond_5b
-    const/16 v0, 0x27
-
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
-
-    goto :goto_12
-
-    :cond_5c
-    const/16 v0, 0x28
-
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
-
-    goto :goto_12
-
-    :cond_5d
-    const/16 v0, 0x29
-
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
-
-    goto :goto_12
-
-    :cond_5e
-    const/16 v0, 0x2a
-
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
-
-    goto :goto_12
-
-    :cond_5f
-    const/16 v0, 0x2b
-
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
-
-    goto :goto_12
-
-    :cond_60
-    const/16 v0, 0x2c
-
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
-
-    goto :goto_12
-
-    :cond_61
-    const/16 v0, 0x2d
-
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
-
-    goto :goto_12
-
-    :cond_62
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_63
-    add-int/lit8 v1, v1, 0x1
-
-    add-int/lit8 v1, v1, 0x1
-
-    if-eq v1, p5, :cond_64
-
-    move v7, v0
-
-    goto/16 :goto_0
-
-    :cond_64
-    move v7, v0
-
-    goto/16 :goto_0
-
-    :cond_65
-    const/16 v0, 0xa
-
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->addToken(Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;I)V
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p2, v5}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->addToken(Ljava/lang/String;)V
-
-    move v7, v0
-
-    goto/16 :goto_0
-
-    :cond_66
-    const/4 v0, 0x1
-
-    return v0
+    return v16
 
     nop
 
@@ -2456,25 +2847,25 @@
 .end method
 
 .method scanNCName(Ljava/lang/String;II)I
-    .locals 5
+    .locals 6
 
-    const/16 v4, 0x80
+    const/16 v5, 0x80
 
-    const/16 v3, 0x17
+    const/16 v4, 0x17
 
-    const/16 v2, 0x14
+    const/16 v3, 0x14
 
     invoke-virtual {p1, p3}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
-    if-ge v0, v4, :cond_2
+    if-ge v0, v5, :cond_2
 
-    sget-object v1, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fASCIICharMap:[B
+    sget-object v2, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fASCIICharMap:[B
 
-    aget-byte v0, v1, v0
+    aget-byte v1, v2, v0
 
-    if-ne v0, v2, :cond_3
+    if-ne v1, v3, :cond_3
 
     :cond_0
     :goto_0
@@ -2486,27 +2877,27 @@
 
     move-result v0
 
-    if-ge v0, v4, :cond_4
+    if-ge v0, v5, :cond_4
 
-    sget-object v1, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fASCIICharMap:[B
+    sget-object v2, Lmf/org/apache/xerces/impl/xpath/XPath$Scanner;->fASCIICharMap:[B
 
-    aget-byte v0, v1, v0
+    aget-byte v1, v2, v0
 
-    if-eq v0, v2, :cond_0
+    if-eq v1, v3, :cond_0
 
-    const/16 v1, 0xe
+    const/16 v2, 0xe
 
-    if-eq v0, v1, :cond_0
+    if-eq v1, v2, :cond_0
 
-    const/16 v1, 0xc
+    const/16 v2, 0xc
 
-    if-eq v0, v1, :cond_0
+    if-eq v1, v2, :cond_0
 
-    const/16 v1, 0xb
+    const/16 v2, 0xb
 
-    if-eq v0, v1, :cond_0
+    if-eq v1, v2, :cond_0
 
-    if-eq v0, v3, :cond_0
+    if-eq v1, v4, :cond_0
 
     :cond_1
     return p3
@@ -2514,23 +2905,23 @@
     :cond_2
     invoke-static {v0}, Lmf/org/apache/xerces/util/XMLChar;->isNameStart(I)Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
     return p3
 
     :cond_3
-    if-eq v0, v3, :cond_0
+    if-eq v1, v4, :cond_0
 
     return p3
 
     :cond_4
     invoke-static {v0}, Lmf/org/apache/xerces/util/XMLChar;->isName(I)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_1
+    if-eqz v2, :cond_1
 
     goto :goto_0
 .end method

@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 4
 
     const-string/jumbo v0, "PowerManagerService"
 
@@ -43,7 +43,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "Hide QuickPanel Brightness Bar: "
+    const-string/jumbo v2, "Tracking Direct to gameBrightness: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -51,11 +51,11 @@
 
     iget-object v2, p0, Lcom/android/server/power/PowerManagerService$11;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v2}, Lcom/android/server/power/PowerManagerService;->-get35(Lcom/android/server/power/PowerManagerService;)Z
+    invoke-static {v2}, Lcom/android/server/power/PowerManagerService;->-get49(Lcom/android/server/power/PowerManagerService;)I
 
     move-result v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -73,27 +73,25 @@
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string/jumbo v2, "pms_notification_panel_brightness_adjustment"
+    const-string/jumbo v1, "brightness_pms_marker_screen"
 
-    iget-object v0, p0, Lcom/android/server/power/PowerManagerService$11;->this$0:Lcom/android/server/power/PowerManagerService;
+    iget-object v2, p0, Lcom/android/server/power/PowerManagerService$11;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->-get35(Lcom/android/server/power/PowerManagerService;)Z
+    invoke-static {v2}, Lcom/android/server/power/PowerManagerService;->-get49(Lcom/android/server/power/PowerManagerService;)I
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_0
+    const/16 v3, 0xff
 
-    const/4 v0, 0x0
+    invoke-static {v2, v3}, Ljava/lang/Math;->min(II)I
 
-    :goto_0
-    invoke-static {v1, v2, v0}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    move-result v2
+
+    const/4 v3, -0x2
+
+    invoke-static {v0, v1, v2, v3}, Landroid/provider/Settings$Secure;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method

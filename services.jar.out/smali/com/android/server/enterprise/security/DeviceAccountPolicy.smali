@@ -2633,7 +2633,7 @@
 
     if-eqz p3, :cond_3
 
-    const v7, 0x1040a01
+    const v7, 0x1040077
 
     invoke-static {v7}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -2785,7 +2785,7 @@
 
     if-eqz p3, :cond_3
 
-    const v5, 0x1040a00
+    const v5, 0x1040078
 
     invoke-static {v5}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 

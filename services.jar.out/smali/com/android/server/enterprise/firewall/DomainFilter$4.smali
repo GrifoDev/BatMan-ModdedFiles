@@ -66,16 +66,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v2, :cond_0
 
-    :cond_1
     iget-object v2, p0, Lcom/android/server/enterprise/firewall/DomainFilter$4;->this$0:Lcom/android/server/enterprise/firewall/DomainFilter;
 
     invoke-static {v2, v0}, Lcom/android/server/enterprise/firewall/DomainFilter;->-wrap5(Lcom/android/server/enterprise/firewall/DomainFilter;Ljava/lang/String;)V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method

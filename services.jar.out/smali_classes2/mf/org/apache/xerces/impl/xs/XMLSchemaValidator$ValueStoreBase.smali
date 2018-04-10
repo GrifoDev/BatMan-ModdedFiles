@@ -57,17 +57,17 @@
 
 # direct methods
 .method protected constructor <init>(Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;)V
-    .locals 3
+    .locals 4
+
+    const/4 v3, 0x0
 
     const/4 v2, 0x0
-
-    const/4 v0, 0x0
 
     iput-object p1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->this$0:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFieldCount:I
+    iput v3, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFieldCount:I
 
     iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFields:[Lmf/org/apache/xerces/impl/xs/identity/Field;
 
@@ -87,15 +87,15 @@
 
     iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fItemValueTypes:Ljava/util/Vector;
 
-    iput-boolean v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fUseValueTypeVector:Z
+    iput-boolean v3, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fUseValueTypeVector:Z
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValueTypesLength:I
+    iput v3, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValueTypesLength:I
 
-    iput-short v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValueType:S
+    iput-short v3, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValueType:S
 
-    iput-boolean v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fUseItemValueTypeVector:Z
+    iput-boolean v3, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fUseItemValueTypeVector:Z
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fItemValueTypesLength:I
+    iput v3, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fItemValueTypesLength:I
 
     iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fItemValueType:Lmf/org/apache/xerces/xs/ShortList;
 
@@ -139,6 +139,8 @@
 
     iput-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fLocalItemValueTypes:[Lmf/org/apache/xerces/xs/ShortList;
 
+    const/4 v0, 0x0
+
     :goto_0
     iget v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFieldCount:I
 
@@ -165,8 +167,6 @@
 .method private addItemValueType(Lmf/org/apache/xerces/xs/ShortList;)V
     .locals 3
 
-    const/4 v0, 0x1
-
     iget-boolean v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fUseItemValueTypeVector:Z
 
     if-nez v1, :cond_0
@@ -187,9 +187,9 @@
     return-void
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fItemValueTypes:Ljava/util/Vector;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fItemValueTypes:Ljava/util/Vector;
 
-    invoke-virtual {v0, p1}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
@@ -204,13 +204,18 @@
     if-nez v1, :cond_4
 
     :cond_3
-    iput-boolean v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fUseItemValueTypeVector:Z
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fUseItemValueTypeVector:Z
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fItemValueTypes:Ljava/util/Vector;
 
     if-eqz v1, :cond_5
 
     :goto_1
+    const/4 v0, 0x1
+
+    :goto_2
     iget v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fItemValueTypesLength:I
 
     if-ge v0, v1, :cond_6
@@ -223,7 +228,7 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_4
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fItemValueType:Lmf/org/apache/xerces/xs/ShortList;
@@ -250,17 +255,15 @@
     goto :goto_1
 
     :cond_6
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fItemValueTypes:Ljava/util/Vector;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fItemValueTypes:Ljava/util/Vector;
 
-    invoke-virtual {v0, p1}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 .end method
 
 .method private addValueType(S)V
     .locals 3
-
-    const/4 v0, 0x1
 
     iget-boolean v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fUseValueTypeVector:Z
 
@@ -282,27 +285,32 @@
     return-void
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValueTypes:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ShortVector;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValueTypes:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ShortVector;
 
-    invoke-virtual {v0, p1}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ShortVector;->add(S)V
+    invoke-virtual {v1, p1}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ShortVector;->add(S)V
 
     goto :goto_0
 
     :cond_1
-    int-to-short v0, p1
+    int-to-short v1, p1
 
-    iput-short v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValueType:S
+    iput-short v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValueType:S
 
     goto :goto_0
 
     :cond_2
-    iput-boolean v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fUseValueTypeVector:Z
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fUseValueTypeVector:Z
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValueTypes:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ShortVector;
 
     if-eqz v1, :cond_3
 
     :goto_1
+    const/4 v0, 0x1
+
+    :goto_2
     iget v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValueTypesLength:I
 
     if-ge v0, v1, :cond_4
@@ -315,7 +323,7 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_3
     new-instance v1, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ShortVector;
@@ -331,9 +339,9 @@
     goto :goto_1
 
     :cond_4
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValueTypes:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ShortVector;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValueTypes:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ShortVector;
 
-    invoke-virtual {v0, p1}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ShortVector;->add(S)V
+    invoke-virtual {v1, p1}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ShortVector;->add(S)V
 
     goto :goto_0
 .end method
@@ -462,78 +470,82 @@
 
 # virtual methods
 .method public addValue(Lmf/org/apache/xerces/impl/xs/identity/Field;ZLjava/lang/Object;SLmf/org/apache/xerces/xs/ShortList;)V
-    .locals 9
+    .locals 10
 
-    const/4 v8, 0x2
+    const/4 v9, 0x2
 
-    const/4 v7, 0x1
+    const/4 v8, 0x1
 
-    const/4 v3, -0x1
+    const/4 v5, -0x1
 
-    const/4 v0, 0x0
+    const/4 v7, 0x0
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFieldCount:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFieldCount:I
 
-    :cond_0
-    add-int/lit8 v1, v1, -0x1
-
-    if-le v1, v3, :cond_1
-
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFields:[Lmf/org/apache/xerces/impl/xs/identity/Field;
-
-    aget-object v2, v2, v1
-
-    if-ne v2, p1, :cond_0
-
-    :cond_1
-    if-eq v1, v3, :cond_3
-
-    if-eqz p2, :cond_4
-
-    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValuesCount:I
-
-    add-int/lit8 v2, v2, 0x1
-
-    iput v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValuesCount:I
+    add-int/lit8 v3, v4, -0x1
 
     :goto_0
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fLocalValues:[Ljava/lang/Object;
+    if-le v3, v5, :cond_0
 
-    aput-object p3, v2, v1
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFields:[Lmf/org/apache/xerces/impl/xs/identity/Field;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fLocalValueTypes:[S
+    aget-object v4, v4, v3
 
-    int-to-short v3, p4
+    if-eq v4, p1, :cond_0
 
-    aput-short v3, v2, v1
+    add-int/lit8 v3, v3, -0x1
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fLocalItemValueTypes:[Lmf/org/apache/xerces/xs/ShortList;
+    goto :goto_0
 
-    aput-object p5, v2, v1
+    :cond_0
+    if-eq v3, v5, :cond_2
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValuesCount:I
+    if-eqz p2, :cond_3
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFieldCount:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValuesCount:I
 
-    if-eq v1, v2, :cond_5
+    add-int/lit8 v4, v4, 0x1
 
-    :cond_2
+    iput v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValuesCount:I
+
+    :goto_1
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fLocalValues:[Ljava/lang/Object;
+
+    aput-object p3, v4, v3
+
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fLocalValueTypes:[S
+
+    int-to-short v5, p4
+
+    aput-short v5, v4, v3
+
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fLocalItemValueTypes:[Lmf/org/apache/xerces/xs/ShortList;
+
+    aput-object p5, v4, v3
+
+    iget v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValuesCount:I
+
+    iget v5, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFieldCount:I
+
+    if-eq v4, v5, :cond_4
+
+    :cond_1
     return-void
 
-    :cond_3
+    :cond_2
     const-string/jumbo v1, "UnknownField"
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
 
-    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getElementName()Ljava/lang/String;
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getElementName()Ljava/lang/String;
 
     move-result-object v2
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
 
-    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getIdentityConstraintName()Ljava/lang/String;
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getIdentityConstraintName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
     iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->this$0:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
 
@@ -545,72 +557,74 @@
 
     move-result-object v6
 
-    aput-object v6, v5, v0
+    aput-object v6, v5, v7
 
-    aput-object v2, v5, v7
+    aput-object v2, v5, v8
 
-    aput-object v3, v5, v8
+    aput-object v0, v5, v9
 
     invoke-virtual {v4, v1, v5}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     return-void
 
-    :cond_4
-    const-string/jumbo v2, "FieldMultipleMatch"
+    :cond_3
+    const-string/jumbo v1, "FieldMultipleMatch"
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
 
-    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getIdentityConstraintName()Ljava/lang/String;
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getIdentityConstraintName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
     iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->this$0:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
 
-    new-array v5, v8, [Ljava/lang/Object;
+    new-array v5, v9, [Ljava/lang/Object;
 
     invoke-virtual {p1}, Lmf/org/apache/xerces/impl/xs/identity/Field;->toString()Ljava/lang/String;
 
     move-result-object v6
 
-    aput-object v6, v5, v0
+    aput-object v6, v5, v7
 
-    aput-object v3, v5, v7
+    aput-object v0, v5, v8
 
-    invoke-virtual {v4, v2, v5}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;)V
-
-    goto :goto_0
-
-    :cond_5
-    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->checkDuplicateValues()V
-
-    :goto_1
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFieldCount:I
-
-    if-ge v0, v1, :cond_2
-
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValues:Ljava/util/Vector;
-
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fLocalValues:[Ljava/lang/Object;
-
-    aget-object v2, v2, v0
-
-    invoke-virtual {v1, v2}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
-
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fLocalValueTypes:[S
-
-    aget-short v1, v1, v0
-
-    invoke-direct {p0, v1}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->addValueType(S)V
-
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fLocalItemValueTypes:[Lmf/org/apache/xerces/xs/ShortList;
-
-    aget-object v1, v1, v0
-
-    invoke-direct {p0, v1}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->addItemValueType(Lmf/org/apache/xerces/xs/ShortList;)V
-
-    add-int/lit8 v0, v0, 0x1
+    invoke-virtual {v4, v1, v5}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_1
+
+    :cond_4
+    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->checkDuplicateValues()V
+
+    const/4 v3, 0x0
+
+    :goto_2
+    iget v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFieldCount:I
+
+    if-ge v3, v4, :cond_1
+
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValues:Ljava/util/Vector;
+
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fLocalValues:[Ljava/lang/Object;
+
+    aget-object v5, v5, v3
+
+    invoke-virtual {v4, v5}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fLocalValueTypes:[S
+
+    aget-short v4, v4, v3
+
+    invoke-direct {p0, v4}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->addValueType(S)V
+
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fLocalItemValueTypes:[Lmf/org/apache/xerces/xs/ShortList;
+
+    aget-object v4, v4, v3
+
+    invoke-direct {p0, v4}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->addItemValueType(Lmf/org/apache/xerces/xs/ShortList;)V
+
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_2
 .end method
 
 .method public append(Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;)V
@@ -704,313 +718,351 @@
 .end method
 
 .method public contains(Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;)I
-    .locals 13
+    .locals 16
 
-    const/16 v12, 0x2c
+    move-object/from16 v0, p1
 
-    const/16 v11, 0x2b
+    iget-object v13, v0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValues:Ljava/util/Vector;
 
-    const/4 v1, 0x0
-
-    iget-object v4, p1, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValues:Ljava/util/Vector;
-
-    invoke-virtual {v4}, Ljava/util/Vector;->size()I
-
-    move-result v5
-
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFieldCount:I
-
-    const/4 v2, 0x1
-
-    if-le v0, v2, :cond_4
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValues:Ljava/util/Vector;
-
-    invoke-virtual {v0}, Ljava/util/Vector;->size()I
+    invoke-virtual {v13}, Ljava/util/Vector;->size()I
 
     move-result v6
 
-    move v2, v1
+    move-object/from16 v0, p0
+
+    iget v14, v0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFieldCount:I
+
+    const/4 v15, 0x1
+
+    if-le v14, v15, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValues:Ljava/util/Vector;
+
+    invoke-virtual {v14}, Ljava/util/Vector;->size()I
+
+    move-result v7
+
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v2, v5, :cond_d
+    if-ge v1, v6, :cond_d
 
-    move v3, v1
+    const/4 v2, 0x0
 
     :goto_1
-    if-ge v3, v6, :cond_b
+    if-ge v2, v7, :cond_b
 
-    move v0, v1
+    const/4 v3, 0x0
 
     :goto_2
-    iget v7, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFieldCount:I
+    move-object/from16 v0, p0
 
-    if-ge v0, v7, :cond_c
+    iget v14, v0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFieldCount:I
 
-    add-int v7, v2, v0
+    if-ge v3, v14, :cond_c
 
-    invoke-virtual {v4, v7}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    add-int v14, v1, v3
 
-    move-result-object v7
+    invoke-virtual {v13, v14}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    iget-object v8, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValues:Ljava/util/Vector;
+    move-result-object v9
 
-    add-int v9, v3, v0
+    move-object/from16 v0, p0
 
-    invoke-virtual {v8, v9}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    iget-object v14, v0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValues:Ljava/util/Vector;
 
-    move-result-object v8
+    add-int v15, v2, v3
 
-    add-int v9, v2, v0
+    invoke-virtual {v14, v15}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    invoke-direct {p1, v9}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->getValueTypeAt(I)S
+    move-result-object v10
 
-    move-result v9
+    add-int v14, v1, v3
 
-    add-int v10, v3, v0
+    move-object/from16 v0, p1
 
-    invoke-direct {p0, v10}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->getValueTypeAt(I)S
+    invoke-direct {v0, v14}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->getValueTypeAt(I)S
 
-    move-result v10
+    move-result v11
 
-    if-ne v7, v8, :cond_8
+    add-int v14, v2, v3
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v14}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->getValueTypeAt(I)S
+
+    move-result v12
+
+    if-ne v9, v10, :cond_8
 
     :goto_3
-    if-ne v9, v12, :cond_9
+    const/16 v14, 0x2c
+
+    if-ne v11, v14, :cond_9
 
     :cond_0
-    add-int v7, v2, v0
+    add-int v14, v1, v3
 
-    invoke-direct {p1, v7}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->getItemValueTypeAt(I)Lmf/org/apache/xerces/xs/ShortList;
+    move-object/from16 v0, p1
 
-    move-result-object v7
+    invoke-direct {v0, v14}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->getItemValueTypeAt(I)Lmf/org/apache/xerces/xs/ShortList;
 
-    add-int v8, v3, v0
+    move-result-object v4
 
-    invoke-direct {p0, v8}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->getItemValueTypeAt(I)Lmf/org/apache/xerces/xs/ShortList;
+    add-int v14, v2, v3
 
-    move-result-object v8
+    move-object/from16 v0, p0
 
-    if-nez v7, :cond_a
+    invoke-direct {v0, v14}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->getItemValueTypeAt(I)Lmf/org/apache/xerces/xs/ShortList;
+
+    move-result-object v5
+
+    if-nez v4, :cond_a
 
     :cond_1
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFieldCount:I
+    move-object/from16 v0, p0
 
-    add-int/2addr v0, v3
+    iget v14, v0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFieldCount:I
 
-    move v3, v0
+    add-int/2addr v2, v14
 
     goto :goto_1
 
     :cond_2
-    if-eq v0, v11, :cond_7
+    const/4 v1, 0x0
+
+    :goto_4
+    if-ge v1, v6, :cond_d
+
+    move-object/from16 v0, p1
+
+    invoke-direct {v0, v1}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->getValueTypeAt(I)S
+
+    move-result v8
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v8}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->valueTypeContains(S)Z
+
+    move-result v14
+
+    if-nez v14, :cond_4
 
     :cond_3
-    add-int/lit8 v1, v1, 0x1
-
-    :cond_4
-    if-ge v1, v5, :cond_d
-
-    invoke-direct {p1, v1}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->getValueTypeAt(I)S
-
-    move-result v0
-
-    invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->valueTypeContains(S)Z
-
-    move-result v2
-
-    if-nez v2, :cond_6
-
-    :cond_5
     return v1
 
+    :cond_4
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValues:Ljava/util/Vector;
+
+    invoke-virtual {v13, v1}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+
+    move-result-object v15
+
+    invoke-virtual {v14, v15}, Ljava/util/Vector;->contains(Ljava/lang/Object;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_3
+
+    const/16 v14, 0x2c
+
+    if-ne v8, v14, :cond_6
+
+    :cond_5
+    move-object/from16 v0, p1
+
+    invoke-direct {v0, v1}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->getItemValueTypeAt(I)Lmf/org/apache/xerces/xs/ShortList;
+
+    move-result-object v4
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v4}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->itemValueTypeContains(Lmf/org/apache/xerces/xs/ShortList;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_7
+
+    :goto_5
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_4
+
     :cond_6
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValues:Ljava/util/Vector;
+    const/16 v14, 0x2b
 
-    invoke-virtual {v4, v1}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    if-eq v8, v14, :cond_5
 
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/Vector;->contains(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_5
-
-    if-ne v0, v12, :cond_2
+    goto :goto_5
 
     :cond_7
-    invoke-direct {p1, v1}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->getItemValueTypeAt(I)Lmf/org/apache/xerces/xs/ShortList;
-
-    move-result-object v0
-
-    invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->itemValueTypeContains(Lmf/org/apache/xerces/xs/ShortList;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_3
-
     return v1
 
     :cond_8
-    if-ne v9, v10, :cond_1
+    if-ne v11, v12, :cond_1
 
-    if-eqz v7, :cond_1
+    if-eqz v9, :cond_1
 
-    invoke-virtual {v7, v8}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v10}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v14
 
-    if-eqz v7, :cond_1
+    if-eqz v14, :cond_1
 
     goto :goto_3
 
     :cond_9
-    if-eq v9, v11, :cond_0
+    const/16 v14, 0x2b
 
-    :goto_4
-    add-int/lit8 v0, v0, 0x1
+    if-eq v11, v14, :cond_0
 
-    goto :goto_2
+    :goto_6
+    add-int/lit8 v3, v3, 0x1
+
+    goto/16 :goto_2
 
     :cond_a
-    if-eqz v8, :cond_1
+    if-eqz v5, :cond_1
 
-    invoke-interface {v7, v8}, Lmf/org/apache/xerces/xs/ShortList;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v4, v5}, Lmf/org/apache/xerces/xs/ShortList;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v14
 
-    if-eqz v7, :cond_1
+    if-eqz v14, :cond_1
 
-    goto :goto_4
+    goto :goto_6
 
     :cond_b
-    return v2
+    return v1
 
     :cond_c
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFieldCount:I
+    move-object/from16 v0, p0
 
-    add-int/2addr v0, v2
+    iget v14, v0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFieldCount:I
 
-    move v2, v0
+    add-int/2addr v1, v14
 
     goto/16 :goto_0
 
     :cond_d
-    const/4 v0, -0x1
+    const/4 v14, -0x1
 
-    return v0
+    return v14
 .end method
 
 .method public contains()Z
-    .locals 9
+    .locals 12
+
+    const/4 v11, 0x0
+
+    const/4 v4, 0x0
+
+    iget-object v10, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValues:Ljava/util/Vector;
+
+    invoke-virtual {v10}, Ljava/util/Vector;->size()I
+
+    move-result v5
+
+    const/4 v0, 0x0
+
+    :goto_0
+    if-ge v0, v5, :cond_5
+
+    iget v10, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFieldCount:I
+
+    add-int v4, v0, v10
 
     const/4 v1, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValues:Ljava/util/Vector;
-
-    invoke-virtual {v0}, Ljava/util/Vector;->size()I
-
-    move-result v4
-
-    move v0, v1
-
-    :goto_0
-    if-ge v0, v4, :cond_5
-
-    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFieldCount:I
-
-    add-int v3, v0, v2
-
-    move v2, v0
-
-    move v0, v1
-
     :goto_1
-    iget v5, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFieldCount:I
+    iget v10, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFieldCount:I
 
-    if-ge v0, v5, :cond_4
+    if-ge v1, v10, :cond_4
 
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fLocalValues:[Ljava/lang/Object;
+    iget-object v10, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fLocalValues:[Ljava/lang/Object;
 
-    aget-object v5, v5, v0
+    aget-object v6, v10, v1
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValues:Ljava/util/Vector;
+    iget-object v10, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValues:Ljava/util/Vector;
 
-    invoke-virtual {v6, v2}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v10, v0}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v7
 
-    iget-object v7, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fLocalValueTypes:[S
+    iget-object v10, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fLocalValueTypes:[S
 
-    aget-short v7, v7, v0
+    aget-short v8, v10, v1
 
-    invoke-direct {p0, v2}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->getValueTypeAt(I)S
+    invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->getValueTypeAt(I)S
 
-    move-result v8
+    move-result v9
 
-    if-nez v5, :cond_1
+    if-nez v6, :cond_1
 
     :cond_0
-    move v0, v3
+    move v0, v4
 
     goto :goto_0
 
     :cond_1
-    if-eqz v6, :cond_0
+    if-eqz v7, :cond_0
 
-    if-ne v7, v8, :cond_0
+    if-ne v8, v9, :cond_0
 
-    invoke-virtual {v5, v6}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v7}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v10
 
-    if-eqz v5, :cond_0
+    if-eqz v10, :cond_0
 
-    const/16 v5, 0x2c
+    const/16 v10, 0x2c
 
-    if-ne v7, v5, :cond_3
+    if-ne v8, v10, :cond_3
 
     :cond_2
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fLocalItemValueTypes:[Lmf/org/apache/xerces/xs/ShortList;
+    iget-object v10, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fLocalItemValueTypes:[Lmf/org/apache/xerces/xs/ShortList;
 
-    aget-object v5, v5, v0
+    aget-object v2, v10, v1
 
-    invoke-direct {p0, v2}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->getItemValueTypeAt(I)Lmf/org/apache/xerces/xs/ShortList;
+    invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->getItemValueTypeAt(I)Lmf/org/apache/xerces/xs/ShortList;
 
-    move-result-object v6
+    move-result-object v3
 
-    if-eqz v5, :cond_0
+    if-eqz v2, :cond_0
 
-    if-eqz v6, :cond_0
+    if-eqz v3, :cond_0
 
-    invoke-interface {v5, v6}, Lmf/org/apache/xerces/xs/ShortList;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v2, v3}, Lmf/org/apache/xerces/xs/ShortList;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v10
 
-    if-eqz v5, :cond_0
+    if-eqz v10, :cond_0
 
     :goto_2
-    add-int/lit8 v2, v2, 0x1
-
     add-int/lit8 v0, v0, 0x1
+
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
     :cond_3
-    const/16 v5, 0x2b
+    const/16 v10, 0x2b
 
-    if-eq v7, v5, :cond_2
+    if-eq v8, v10, :cond_2
 
     goto :goto_2
 
     :cond_4
-    const/4 v0, 0x1
+    const/4 v10, 0x1
 
-    return v0
+    return v10
 
     :cond_5
-    return v1
+    return v11
 .end method
 
 .method public endDocument()V
@@ -1026,73 +1078,73 @@
 .end method
 
 .method public endValueScope()V
-    .locals 7
+    .locals 9
 
-    const/4 v4, 0x2
+    const/4 v8, 0x2
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValuesCount:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValuesCount:I
 
-    if-eqz v0, :cond_0
+    if-eqz v4, :cond_0
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValuesCount:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValuesCount:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFieldCount:I
+    iget v5, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFieldCount:I
 
-    if-ne v0, v1, :cond_2
+    if-ne v4, v5, :cond_2
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getCategory()S
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getCategory()S
 
-    move-result v0
+    move-result v4
 
-    if-eq v0, v5, :cond_1
+    if-eq v4, v6, :cond_1
 
     :goto_0
     return-void
 
     :cond_1
-    const-string/jumbo v0, "AbsentKeyValue"
+    const-string/jumbo v1, "AbsentKeyValue"
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getElementName()Ljava/lang/String;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
-
-    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getIdentityConstraintName()Ljava/lang/String;
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getElementName()Ljava/lang/String;
 
     move-result-object v2
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->this$0:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
 
-    new-array v4, v4, [Ljava/lang/Object;
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getIdentityConstraintName()Ljava/lang/String;
 
-    aput-object v1, v4, v6
+    move-result-object v0
 
-    aput-object v2, v4, v5
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->this$0:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
 
-    invoke-virtual {v3, v0, v4}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;)V
+    new-array v5, v8, [Ljava/lang/Object;
+
+    aput-object v2, v5, v7
+
+    aput-object v0, v5, v6
+
+    invoke-virtual {v4, v1, v5}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_0
 
     :cond_2
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getCategory()S
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getCategory()S
 
-    move-result v0
+    move-result v4
 
-    if-eq v0, v5, :cond_3
+    if-eq v4, v6, :cond_3
 
     :goto_1
     return-void
@@ -1100,29 +1152,29 @@
     :cond_3
     const-string/jumbo v1, "KeyNotEnoughValues"
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
 
-    check-cast v0, Lmf/org/apache/xerces/impl/xs/identity/UniqueOrKey;
+    check-cast v3, Lmf/org/apache/xerces/impl/xs/identity/UniqueOrKey;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
 
-    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getElementName()Ljava/lang/String;
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getElementName()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xs/identity/UniqueOrKey;->getIdentityConstraintName()Ljava/lang/String;
+    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/xs/identity/UniqueOrKey;->getIdentityConstraintName()Ljava/lang/String;
 
     move-result-object v0
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->this$0:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->this$0:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
 
-    new-array v4, v4, [Ljava/lang/Object;
+    new-array v5, v8, [Ljava/lang/Object;
 
-    aput-object v2, v4, v6
+    aput-object v2, v5, v7
 
-    aput-object v0, v4, v5
+    aput-object v0, v5, v6
 
-    invoke-virtual {v3, v1, v4}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-virtual {v4, v1, v5}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_1
 .end method
@@ -1142,28 +1194,28 @@
 
     const/4 v3, 0x0
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValuesCount:I
+    iput v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fValuesCount:I
 
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_0
-    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFieldCount:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fFieldCount:I
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v1, :cond_0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fLocalValues:[Ljava/lang/Object;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fLocalValues:[Ljava/lang/Object;
 
-    aput-object v3, v2, v0
+    aput-object v3, v1, v0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fLocalValueTypes:[S
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fLocalValueTypes:[S
 
-    aput-short v1, v2, v0
+    aput-short v2, v1, v0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fLocalItemValueTypes:[Lmf/org/apache/xerces/xs/ShortList;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fLocalItemValueTypes:[Lmf/org/apache/xerces/xs/ShortList;
 
-    aput-object v3, v2, v0
+    aput-object v3, v1, v0
 
     add-int/lit8 v0, v0, 0x1
 
@@ -1174,79 +1226,79 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .locals 5
 
-    const/4 v2, -0x1
+    const/4 v4, -0x1
 
     invoke-super {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    const/16 v1, 0x24
+    const/16 v3, 0x24
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->lastIndexOf(I)I
+    invoke-virtual {v2, v3}, Ljava/lang/String;->lastIndexOf(I)I
 
-    move-result v1
+    move-result v0
 
-    if-ne v1, v2, :cond_0
+    if-ne v0, v4, :cond_0
 
     :goto_0
-    const/16 v1, 0x2e
+    const/16 v3, 0x2e
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->lastIndexOf(I)I
+    invoke-virtual {v2, v3}, Ljava/lang/String;->lastIndexOf(I)I
 
     move-result v1
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v4, :cond_1
 
     :goto_1
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v4
 
-    invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    const/16 v0, 0x5b
+    const/16 v4, 0x5b
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v3
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v3
 
-    const/16 v1, 0x5d
+    const/16 v4, 0x5d
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    return-object v0
+    return-object v3
 
     :cond_0
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v3, v0, 0x1
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
     goto :goto_0
 
     :cond_1
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v3, v1, 0x1
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
     goto :goto_1
 .end method
@@ -1254,17 +1306,17 @@
 .method protected toString(Ljava/util/Vector;II)Ljava/lang/String;
     .locals 3
 
-    const/4 v0, 0x0
-
     if-eqz p3, :cond_0
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    if-eq p3, v1, :cond_1
+    if-eq p3, v2, :cond_1
 
     new-instance v1, Ljava/lang/StringBuffer;
 
     invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
+
+    const/4 v0, 0x0
 
     :goto_0
     if-ge v0, p3, :cond_3
@@ -1285,20 +1337,20 @@
     goto :goto_0
 
     :cond_0
-    const-string/jumbo v0, ""
+    const-string/jumbo v2, ""
 
-    return-object v0
+    return-object v2
 
     :cond_1
     invoke-virtual {p1, p2}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 
     :cond_2
     const/16 v2, 0x2c
@@ -1310,15 +1362,15 @@
     :cond_3
     invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 .end method
 
 .method protected toString([Ljava/lang/Object;)Ljava/lang/String;
     .locals 4
 
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
     array-length v1, p1
 
@@ -1326,7 +1378,9 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fTempBuffer:Ljava/lang/StringBuffer;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->setLength(I)V
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->setLength(I)V
+
+    const/4 v0, 0x0
 
     :goto_0
     if-ge v0, v1, :cond_2
@@ -1345,9 +1399,9 @@
     goto :goto_0
 
     :cond_0
-    const-string/jumbo v0, ""
+    const-string/jumbo v2, ""
 
-    return-object v0
+    return-object v2
 
     :cond_1
     iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fTempBuffer:Ljava/lang/StringBuffer;
@@ -1359,11 +1413,11 @@
     goto :goto_1
 
     :cond_2
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fTempBuffer:Ljava/lang/StringBuffer;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreBase;->fTempBuffer:Ljava/lang/StringBuffer;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 .end method

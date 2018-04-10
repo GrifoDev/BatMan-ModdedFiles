@@ -261,40 +261,40 @@
 .end method
 
 .method public getCatalogParser(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .locals 3
 
     if-nez p1, :cond_0
 
-    const-string/jumbo v0, ""
+    const-string/jumbo p1, ""
 
     :goto_0
-    iget-object v1, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->namespaceMap:Ljava/util/Hashtable;
+    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->namespaceMap:Ljava/util/Hashtable;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v3, "{"
+    const-string/jumbo v2, "{"
 
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v1
 
     const-string/jumbo v2, "}"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v1, v0}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -305,7 +305,7 @@
     :cond_0
     invoke-virtual {p1}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
     goto :goto_0
 .end method
@@ -373,7 +373,7 @@
 .end method
 
 .method public readCatalog(Lmf/org/apache/xml/resolver/Catalog;Ljava/io/InputStream;)V
-    .locals 6
+    .locals 17
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -381,77 +381,91 @@
         }
     .end annotation
 
-    const/4 v5, 0x7
+    move-object/from16 v0, p0
 
-    const/4 v2, 0x1
+    iget-object v14, v0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->parserFactory:Lmf/javax/xml/parsers/SAXParserFactory;
 
-    const/4 v4, 0x6
-
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->parserFactory:Lmf/javax/xml/parsers/SAXParserFactory;
-
-    if-eqz v0, :cond_1
+    if-eqz v14, :cond_1
 
     :cond_0
-    invoke-virtual {p1}, Lmf/org/apache/xml/resolver/Catalog;->getCatalogManager()Lmf/org/apache/xml/resolver/CatalogManager;
+    invoke-virtual/range {p1 .. p1}, Lmf/org/apache/xml/resolver/Catalog;->getCatalogManager()Lmf/org/apache/xml/resolver/CatalogManager;
 
-    move-result-object v0
+    move-result-object v14
 
-    iget-object v0, v0, Lmf/org/apache/xml/resolver/CatalogManager;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    iget-object v14, v14, Lmf/org/apache/xml/resolver/CatalogManager;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    iput-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    move-object/from16 v0, p0
 
-    invoke-virtual {p1}, Lmf/org/apache/xml/resolver/Catalog;->getCatalogManager()Lmf/org/apache/xml/resolver/CatalogManager;
+    iput-object v14, v0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    move-result-object v0
+    invoke-virtual/range {p1 .. p1}, Lmf/org/apache/xml/resolver/Catalog;->getCatalogManager()Lmf/org/apache/xml/resolver/CatalogManager;
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/resolver/CatalogManager;->getBootstrapResolver()Lmf/org/apache/xml/resolver/helpers/BootstrapResolver;
+    move-result-object v14
 
-    move-result-object v1
+    invoke-virtual {v14}, Lmf/org/apache/xml/resolver/CatalogManager;->getBootstrapResolver()Lmf/org/apache/xml/resolver/helpers/BootstrapResolver;
 
-    iput-object p1, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->catalog:Lmf/org/apache/xml/resolver/Catalog;
+    move-result-object v2
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->catalog:Lmf/org/apache/xml/resolver/Catalog;
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->parserFactory:Lmf/javax/xml/parsers/SAXParserFactory;
+    move-object/from16 v0, p0
 
-    if-nez v0, :cond_2
+    iget-object v14, v0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->parserFactory:Lmf/javax/xml/parsers/SAXParserFactory;
 
-    iget-object v2, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->parserClass:Ljava/lang/String;
+    if-nez v14, :cond_2
 
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->loader:Ljava/lang/ClassLoader;
+    move-object/from16 v0, p0
 
-    if-nez v0, :cond_4
+    iget-object v15, v0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->parserClass:Ljava/lang/String;
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    move-object/from16 v0, p0
 
-    move-result-object v0
+    iget-object v14, v0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->loader:Ljava/lang/ClassLoader;
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    if-nez v14, :cond_4
 
-    move-result-object v0
+    invoke-virtual/range {p0 .. p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v14
 
     :goto_0
-    const/4 v3, 0x1
+    const/16 v16, 0x1
 
-    invoke-static {v2, v3, v0}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
+    move/from16 v0, v16
 
-    move-result-object v0
+    invoke-static {v15, v0, v14}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
-    invoke-virtual {v0}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
+    move-result-object v14
 
-    move-result-object v0
+    invoke-virtual {v14}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
-    check-cast v0, Lorg/xml/sax/Parser;
+    move-result-object v9
 
-    invoke-interface {v0, p0}, Lorg/xml/sax/Parser;->setDocumentHandler(Lorg/xml/sax/DocumentHandler;)V
+    check-cast v9, Lorg/xml/sax/Parser;
 
-    if-nez v1, :cond_5
+    move-object/from16 v0, p0
+
+    invoke-interface {v9, v0}, Lorg/xml/sax/Parser;->setDocumentHandler(Lorg/xml/sax/DocumentHandler;)V
+
+    if-nez v2, :cond_5
 
     :goto_1
-    new-instance v1, Lorg/xml/sax/InputSource;
+    new-instance v14, Lorg/xml/sax/InputSource;
 
-    invoke-direct {v1, p2}, Lorg/xml/sax/InputSource;-><init>(Ljava/io/InputStream;)V
+    move-object/from16 v0, p2
 
-    invoke-interface {v0, v1}, Lorg/xml/sax/Parser;->parse(Lorg/xml/sax/InputSource;)V
+    invoke-direct {v14, v0}, Lorg/xml/sax/InputSource;-><init>(Ljava/io/InputStream;)V
+
+    invoke-interface {v9, v14}, Lorg/xml/sax/Parser;->parse(Lorg/xml/sax/InputSource;)V
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
@@ -463,44 +477,60 @@
     return-void
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->parserClass:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    if-nez v0, :cond_0
+    iget-object v14, v0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->parserClass:Ljava/lang/String;
 
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    if-nez v14, :cond_0
 
-    const-string/jumbo v1, "Cannot read SAX catalog without a parser"
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v2, v1}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
+    iget-object v14, v0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    new-instance v0, Lmf/org/apache/xml/resolver/CatalogException;
+    const-string/jumbo v15, "Cannot read SAX catalog without a parser"
 
-    invoke-direct {v0, v4}, Lmf/org/apache/xml/resolver/CatalogException;-><init>(I)V
+    const/16 v16, 0x1
 
-    throw v0
+    move/from16 v0, v16
+
+    invoke-virtual {v14, v0, v15}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
+
+    new-instance v14, Lmf/org/apache/xml/resolver/CatalogException;
+
+    const/4 v15, 0x6
+
+    invoke-direct {v14, v15}, Lmf/org/apache/xml/resolver/CatalogException;-><init>(I)V
+
+    throw v14
 
     :cond_2
     :try_start_1
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->parserFactory:Lmf/javax/xml/parsers/SAXParserFactory;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Lmf/javax/xml/parsers/SAXParserFactory;->newSAXParser()Lmf/javax/xml/parsers/SAXParser;
+    iget-object v14, v0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->parserFactory:Lmf/javax/xml/parsers/SAXParserFactory;
 
-    move-result-object v0
+    invoke-virtual {v14}, Lmf/javax/xml/parsers/SAXParserFactory;->newSAXParser()Lmf/javax/xml/parsers/SAXParser;
 
-    new-instance v2, Lmf/org/apache/xml/resolver/readers/SAXParserHandler;
+    move-result-object v8
 
-    invoke-direct {v2}, Lmf/org/apache/xml/resolver/readers/SAXParserHandler;-><init>()V
+    new-instance v12, Lmf/org/apache/xml/resolver/readers/SAXParserHandler;
 
-    invoke-virtual {v2, p0}, Lmf/org/apache/xml/resolver/readers/SAXParserHandler;->setContentHandler(Lorg/xml/sax/ContentHandler;)V
+    invoke-direct {v12}, Lmf/org/apache/xml/resolver/readers/SAXParserHandler;-><init>()V
 
-    if-nez v1, :cond_3
+    move-object/from16 v0, p0
+
+    invoke-virtual {v12, v0}, Lmf/org/apache/xml/resolver/readers/SAXParserHandler;->setContentHandler(Lorg/xml/sax/ContentHandler;)V
+
+    if-nez v2, :cond_3
 
     :goto_3
-    new-instance v1, Lorg/xml/sax/InputSource;
+    new-instance v14, Lorg/xml/sax/InputSource;
 
-    invoke-direct {v1, p2}, Lorg/xml/sax/InputSource;-><init>(Ljava/io/InputStream;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {v0, v1, v2}, Lmf/javax/xml/parsers/SAXParser;->parse(Lorg/xml/sax/InputSource;Lorg/xml/sax/helpers/DefaultHandler;)V
+    invoke-direct {v14, v0}, Lorg/xml/sax/InputSource;-><init>(Ljava/io/InputStream;)V
+
+    invoke-virtual {v8, v14, v12}, Lmf/javax/xml/parsers/SAXParser;->parse(Lorg/xml/sax/InputSource;Lorg/xml/sax/helpers/DefaultHandler;)V
     :try_end_1
     .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_1
@@ -511,17 +541,19 @@
     goto :goto_2
 
     :catch_0
-    move-exception v0
+    move-exception v3
 
-    new-instance v0, Lmf/org/apache/xml/resolver/CatalogException;
+    new-instance v14, Lmf/org/apache/xml/resolver/CatalogException;
 
-    invoke-direct {v0, v4}, Lmf/org/apache/xml/resolver/CatalogException;-><init>(I)V
+    const/4 v15, 0x6
 
-    throw v0
+    invoke-direct {v14, v15}, Lmf/org/apache/xml/resolver/CatalogException;-><init>(I)V
+
+    throw v14
 
     :cond_3
     :try_start_2
-    invoke-virtual {v2, v1}, Lmf/org/apache/xml/resolver/readers/SAXParserHandler;->setEntityResolver(Lorg/xml/sax/EntityResolver;)V
+    invoke-virtual {v12, v2}, Lmf/org/apache/xml/resolver/readers/SAXParserHandler;->setEntityResolver(Lorg/xml/sax/EntityResolver;)V
     :try_end_2
     .catch Ljava/lang/ClassNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_2 .. :try_end_2} :catch_1
@@ -532,22 +564,26 @@
     goto :goto_3
 
     :catch_1
-    move-exception v0
+    move-exception v6
 
-    new-instance v0, Lmf/org/apache/xml/resolver/CatalogException;
+    new-instance v14, Lmf/org/apache/xml/resolver/CatalogException;
 
-    invoke-direct {v0, v4}, Lmf/org/apache/xml/resolver/CatalogException;-><init>(I)V
+    const/4 v15, 0x6
 
-    throw v0
+    invoke-direct {v14, v15}, Lmf/org/apache/xml/resolver/CatalogException;-><init>(I)V
+
+    throw v14
 
     :cond_4
     :try_start_3
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->loader:Ljava/lang/ClassLoader;
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->loader:Ljava/lang/ClassLoader;
 
     goto :goto_0
 
     :cond_5
-    invoke-interface {v0, v1}, Lorg/xml/sax/Parser;->setEntityResolver(Lorg/xml/sax/EntityResolver;)V
+    invoke-interface {v9, v2}, Lorg/xml/sax/Parser;->setEntityResolver(Lorg/xml/sax/EntityResolver;)V
     :try_end_3
     .catch Ljava/lang/ClassNotFoundException; {:try_start_3 .. :try_end_3} :catch_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_3 .. :try_end_3} :catch_1
@@ -558,94 +594,100 @@
     goto :goto_1
 
     :catch_2
-    move-exception v0
+    move-exception v7
 
-    new-instance v0, Lmf/org/apache/xml/resolver/CatalogException;
+    new-instance v14, Lmf/org/apache/xml/resolver/CatalogException;
 
-    invoke-direct {v0, v4}, Lmf/org/apache/xml/resolver/CatalogException;-><init>(I)V
+    const/4 v15, 0x6
 
-    throw v0
+    invoke-direct {v14, v15}, Lmf/org/apache/xml/resolver/CatalogException;-><init>(I)V
+
+    throw v14
 
     :catch_3
-    move-exception v0
+    move-exception v10
 
-    new-instance v0, Lmf/org/apache/xml/resolver/CatalogException;
+    new-instance v14, Lmf/org/apache/xml/resolver/CatalogException;
 
-    const/4 v1, 0x5
+    const/4 v15, 0x5
 
-    invoke-direct {v0, v1}, Lmf/org/apache/xml/resolver/CatalogException;-><init>(I)V
+    invoke-direct {v14, v15}, Lmf/org/apache/xml/resolver/CatalogException;-><init>(I)V
 
-    throw v0
+    throw v14
 
     :catch_4
-    move-exception v0
+    move-exception v11
 
-    invoke-virtual {v0}, Lorg/xml/sax/SAXException;->getException()Ljava/lang/Exception;
-
-    move-result-object v1
-
-    new-instance v2, Ljava/net/UnknownHostException;
-
-    invoke-direct {v2}, Ljava/net/UnknownHostException;-><init>()V
-
-    new-instance v3, Ljava/io/FileNotFoundException;
-
-    invoke-direct {v3}, Ljava/io/FileNotFoundException;-><init>()V
-
-    if-nez v1, :cond_7
-
-    :cond_6
-    new-instance v1, Lmf/org/apache/xml/resolver/CatalogException;
-
-    invoke-direct {v1, v0}, Lmf/org/apache/xml/resolver/CatalogException;-><init>(Ljava/lang/Exception;)V
-
-    throw v1
-
-    :cond_7
-    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v11}, Lorg/xml/sax/SAXException;->getException()Ljava/lang/Exception;
 
     move-result-object v4
 
-    invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    new-instance v13, Ljava/net/UnknownHostException;
 
-    move-result-object v2
+    invoke-direct {v13}, Ljava/net/UnknownHostException;-><init>()V
 
-    if-eq v4, v2, :cond_8
+    new-instance v5, Ljava/io/FileNotFoundException;
 
-    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-direct {v5}, Ljava/io/FileNotFoundException;-><init>()V
 
-    move-result-object v2
+    if-nez v4, :cond_7
 
-    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    :cond_6
+    new-instance v14, Lmf/org/apache/xml/resolver/CatalogException;
 
-    move-result-object v3
+    invoke-direct {v14, v11}, Lmf/org/apache/xml/resolver/CatalogException;-><init>(Ljava/lang/Exception;)V
 
-    if-ne v2, v3, :cond_6
+    throw v14
 
-    new-instance v0, Lmf/org/apache/xml/resolver/CatalogException;
+    :cond_7
+    invoke-virtual {v4}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+    move-result-object v14
 
-    move-result-object v1
+    invoke-virtual {v13}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-direct {v0, v5, v1}, Lmf/org/apache/xml/resolver/CatalogException;-><init>(ILjava/lang/String;)V
+    move-result-object v15
 
-    throw v0
+    if-eq v14, v15, :cond_8
+
+    invoke-virtual {v4}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v14
+
+    invoke-virtual {v5}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v15
+
+    if-ne v14, v15, :cond_6
+
+    new-instance v14, Lmf/org/apache/xml/resolver/CatalogException;
+
+    const/4 v15, 0x7
+
+    invoke-virtual {v4}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+
+    move-result-object v16
+
+    invoke-direct/range {v14 .. v16}, Lmf/org/apache/xml/resolver/CatalogException;-><init>(ILjava/lang/String;)V
+
+    throw v14
 
     :cond_8
-    new-instance v0, Lmf/org/apache/xml/resolver/CatalogException;
+    new-instance v14, Lmf/org/apache/xml/resolver/CatalogException;
 
-    invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+    const/4 v15, 0x7
 
-    move-result-object v1
+    invoke-virtual {v4}, Ljava/lang/Exception;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v5, v1}, Lmf/org/apache/xml/resolver/CatalogException;-><init>(ILjava/lang/String;)V
+    move-result-object v16
 
-    throw v0
+    invoke-direct/range {v14 .. v16}, Lmf/org/apache/xml/resolver/CatalogException;-><init>(ILjava/lang/String;)V
+
+    throw v14
 .end method
 
 .method public readCatalog(Lmf/org/apache/xml/resolver/Catalog;Ljava/lang/String;)V
-    .locals 4
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/MalformedURLException;,
@@ -654,32 +696,34 @@
         }
     .end annotation
 
-    :try_start_0
-    new-instance v0, Ljava/net/URL;
+    const/4 v2, 0x0
 
-    invoke-direct {v0, p2}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
+    :try_start_0
+    new-instance v2, Ljava/net/URL;
+
+    invoke-direct {v2, p2}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/net/MalformedURLException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
     invoke-virtual {p1}, Lmf/org/apache/xml/resolver/Catalog;->getCatalogManager()Lmf/org/apache/xml/resolver/CatalogManager;
 
-    move-result-object v1
+    move-result-object v4
 
-    iget-object v1, v1, Lmf/org/apache/xml/resolver/CatalogManager;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    iget-object v4, v4, Lmf/org/apache/xml/resolver/CatalogManager;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    iput-object v1, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    iput-object v4, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
     :try_start_1
-    invoke-virtual {v0}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
+    invoke-virtual {v2}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1}, Ljava/net/URLConnection;->getInputStream()Ljava/io/InputStream;
+    invoke-virtual {v3}, Ljava/net/URLConnection;->getInputStream()Ljava/io/InputStream;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-virtual {p0, p1, v1}, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->readCatalog(Lmf/org/apache/xml/resolver/Catalog;Ljava/io/InputStream;)V
+    invoke-virtual {p0, p1, v4}, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->readCatalog(Lmf/org/apache/xml/resolver/Catalog;Ljava/io/InputStream;)V
     :try_end_1
     .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
 
@@ -687,15 +731,75 @@
     return-void
 
     :catch_0
+    move-exception v1
+
+    new-instance v2, Ljava/net/URL;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    const-string/jumbo v5, "file:///"
+
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v2, v4}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :catch_1
     move-exception v0
 
-    new-instance v0, Ljava/net/URL;
+    invoke-virtual {p1}, Lmf/org/apache/xml/resolver/Catalog;->getCatalogManager()Lmf/org/apache/xml/resolver/CatalogManager;
+
+    move-result-object v4
+
+    iget-object v4, v4, Lmf/org/apache/xml/resolver/CatalogManager;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+
+    const/4 v5, 0x1
+
+    const-string/jumbo v6, "Failed to load catalog, file not found"
+
+    invoke-virtual {v2}, Ljava/net/URL;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v4, v5, v6, v7}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_1
+.end method
+
+.method public setCatalogParser(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 3
+
+    if-nez p1, :cond_0
+
+    const-string/jumbo p1, ""
+
+    :goto_0
+    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->namespaceMap:Ljava/util/Hashtable;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "file:///"
+    const-string/jumbo v2, "{"
 
     invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "}"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -705,74 +809,14 @@
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    :catch_1
-    move-exception v1
-
-    invoke-virtual {p1}, Lmf/org/apache/xml/resolver/Catalog;->getCatalogManager()Lmf/org/apache/xml/resolver/CatalogManager;
-
-    move-result-object v1
-
-    iget-object v1, v1, Lmf/org/apache/xml/resolver/CatalogManager;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
-
-    const/4 v2, 0x1
-
-    const-string/jumbo v3, "Failed to load catalog, file not found"
-
-    invoke-virtual {v0}, Ljava/net/URL;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v2, v3, v0}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_1
-.end method
-
-.method public setCatalogParser(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 4
-
-    if-nez p1, :cond_0
-
-    const-string/jumbo v0, ""
-
-    :goto_0
-    iget-object v1, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->namespaceMap:Ljava/util/Hashtable;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    const-string/jumbo v3, "{"
-
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v2, "}"
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v0, p3}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1, p3}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
 
     :cond_0
     invoke-virtual {p1}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
     goto :goto_0
 .end method
@@ -862,30 +906,30 @@
 .end method
 
 .method public startElement(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V
-    .locals 6
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;
         }
     .end annotation
 
-    const/4 v5, 0x2
+    const/4 v9, 0x2
 
-    const/4 v4, 0x1
+    const/4 v8, 0x1
 
-    const/4 v3, 0x0
+    const/4 v7, 0x0
 
-    iget-boolean v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->abandonHope:Z
+    iget-boolean v5, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->abandonHope:Z
 
-    if-nez v0, :cond_0
+    if-nez v5, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
+    iget-object v5, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
 
-    if-eqz v0, :cond_1
+    if-eqz v5, :cond_1
 
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
+    iget-object v5, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
 
-    invoke-interface {v0, p1, p2, p3, p4}, Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;->startElement(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V
+    invoke-interface {v5, p1, p2, p3, p4}, Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;->startElement(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V
 
     :goto_0
     return-void
@@ -896,51 +940,51 @@
     :cond_1
     invoke-virtual {p0, p1, p2}, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->getCatalogParser(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v4
 
-    if-eqz v1, :cond_2
+    if-eqz v4, :cond_2
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->loader:Ljava/lang/ClassLoader;
+    iget-object v5, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->loader:Ljava/lang/ClassLoader;
 
-    if-nez v0, :cond_4
+    if-nez v5, :cond_4
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    invoke-virtual {v5}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
-    move-result-object v0
+    move-result-object v5
 
     :goto_1
-    const/4 v2, 0x1
+    const/4 v6, 0x1
 
-    invoke-static {v1, v2, v0}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
+    invoke-static {v4, v6, v5}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-virtual {v0}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
+    invoke-virtual {v5}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v5
 
-    check-cast v0, Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
+    check-cast v5, Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
 
-    iput-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
+    iput-object v5, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
 
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
+    iget-object v5, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
 
-    iget-object v1, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->catalog:Lmf/org/apache/xml/resolver/Catalog;
+    iget-object v6, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->catalog:Lmf/org/apache/xml/resolver/Catalog;
 
-    invoke-interface {v0, v1}, Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;->setCatalog(Lmf/org/apache/xml/resolver/Catalog;)V
+    invoke-interface {v5, v6}, Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;->setCatalog(Lmf/org/apache/xml/resolver/Catalog;)V
 
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
+    iget-object v5, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
 
-    invoke-interface {v0}, Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;->startDocument()V
+    invoke-interface {v5}, Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;->startDocument()V
 
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
+    iget-object v5, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
 
-    invoke-interface {v0, p1, p2, p3, p4}, Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;->startElement(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V
+    invoke-interface {v5, p1, p2, p3, p4}, Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;->startElement(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_1
@@ -950,82 +994,82 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    iput-object v3, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
+    iput-object v7, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
 
-    iput-boolean v4, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->abandonHope:Z
+    iput-boolean v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->abandonHope:Z
 
-    iget-object v1, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    iget-object v5, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    invoke-virtual {v0}, Ljava/lang/ClassNotFoundException;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/ClassNotFoundException;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {v1, v5, v0}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
+    invoke-virtual {v5, v9, v6}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
 
     goto :goto_0
 
     :cond_2
-    iput-boolean v4, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->abandonHope:Z
+    iput-boolean v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->abandonHope:Z
 
     if-eqz p1, :cond_3
 
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    iget-object v5, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "No Catalog parser for {"
+    const-string/jumbo v7, "No Catalog parser for {"
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v6
 
-    const-string/jumbo v2, "}"
+    const-string/jumbo v7, "}"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v6
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v6
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v6
 
-    invoke-virtual {v0, v5, v1}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
+    invoke-virtual {v5, v9, v6}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
 
     :goto_2
     return-void
 
     :cond_3
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    iget-object v5, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "No Catalog parser for "
+    const-string/jumbo v7, "No Catalog parser for "
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v6
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v6
 
-    invoke-virtual {v0, v5, v1}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
+    invoke-virtual {v5, v9, v6}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
 
     goto :goto_2
 
     :cond_4
     :try_start_1
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->loader:Ljava/lang/ClassLoader;
+    iget-object v5, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->loader:Ljava/lang/ClassLoader;
     :try_end_1
     .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/lang/InstantiationException; {:try_start_1 .. :try_end_1} :catch_1
@@ -1035,86 +1079,76 @@
     goto :goto_1
 
     :catch_1
-    move-exception v0
+    move-exception v3
 
-    iput-object v3, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
+    iput-object v7, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
 
-    iput-boolean v4, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->abandonHope:Z
+    iput-boolean v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->abandonHope:Z
 
-    iget-object v1, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    iget-object v5, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    invoke-virtual {v0}, Ljava/lang/InstantiationException;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/InstantiationException;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {v1, v5, v0}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
+    invoke-virtual {v5, v9, v6}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
 
     goto/16 :goto_0
 
     :catch_2
-    move-exception v0
+    move-exception v2
 
-    iput-object v3, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
+    iput-object v7, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
 
-    iput-boolean v4, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->abandonHope:Z
+    iput-boolean v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->abandonHope:Z
 
-    iget-object v1, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    iget-object v5, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    invoke-virtual {v0}, Ljava/lang/IllegalAccessException;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/IllegalAccessException;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {v1, v5, v0}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
+    invoke-virtual {v5, v9, v6}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
 
     goto/16 :goto_0
 
     :catch_3
     move-exception v0
 
-    iput-object v3, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
+    iput-object v7, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
 
-    iput-boolean v4, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->abandonHope:Z
+    iput-boolean v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->abandonHope:Z
 
-    iget-object v1, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    iget-object v5, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
     invoke-virtual {v0}, Ljava/lang/ClassCastException;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {v1, v5, v0}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
+    invoke-virtual {v5, v9, v6}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
 
     goto/16 :goto_0
 .end method
 
 .method public startElement(Ljava/lang/String;Lorg/xml/sax/AttributeList;)V
-    .locals 7
+    .locals 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;
         }
     .end annotation
 
-    const/16 v3, 0x3a
+    iget-boolean v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->abandonHope:Z
 
-    const/4 v2, 0x0
+    if-nez v8, :cond_0
 
-    const/4 v6, 0x2
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
 
-    const/4 v5, 0x1
+    if-eqz v8, :cond_1
 
-    const/4 v4, 0x0
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
 
-    iget-boolean v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->abandonHope:Z
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
-
-    invoke-interface {v0, p1, p2}, Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;->startElement(Ljava/lang/String;Lorg/xml/sax/AttributeList;)V
+    invoke-interface {v8, p1, p2}, Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;->startElement(Ljava/lang/String;Lorg/xml/sax/AttributeList;)V
 
     :goto_0
     return-void
@@ -1123,98 +1157,104 @@
     return-void
 
     :cond_1
-    const-string/jumbo v0, ""
+    const-string/jumbo v6, ""
 
-    invoke-virtual {p1, v3}, Ljava/lang/String;->indexOf(I)I
+    const/16 v8, 0x3a
 
-    move-result v1
+    invoke-virtual {p1, v8}, Ljava/lang/String;->indexOf(I)I
 
-    if-gtz v1, :cond_2
+    move-result v8
+
+    if-gtz v8, :cond_2
 
     :goto_1
-    invoke-virtual {p1, v3}, Ljava/lang/String;->indexOf(I)I
+    move-object v4, p1
 
-    move-result v1
+    const/16 v8, 0x3a
 
-    if-gtz v1, :cond_3
+    invoke-virtual {p1, v8}, Ljava/lang/String;->indexOf(I)I
 
-    move-object v1, p1
+    move-result v8
+
+    if-gtz v8, :cond_3
 
     :goto_2
-    const-string/jumbo v2, ""
+    const/4 v5, 0x0
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v8, ""
 
-    move-result v2
+    invoke-virtual {v6, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-nez v2, :cond_4
+    move-result v8
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    if-nez v8, :cond_4
 
-    const-string/jumbo v3, "xmlns:"
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    const-string/jumbo v9, "xmlns:"
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v8, v9}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    move-result-object v0
+    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v8
 
-    move-result-object v0
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-interface {p2, v0}, Lorg/xml/sax/AttributeList;->getValue(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v8
 
-    move-result-object v0
+    invoke-interface {p2, v8}, Lorg/xml/sax/AttributeList;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
 
     :goto_3
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->getCatalogParser(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v5, v4}, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->getCatalogParser(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v7
 
-    if-eqz v1, :cond_5
+    if-eqz v7, :cond_5
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->loader:Ljava/lang/ClassLoader;
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->loader:Ljava/lang/ClassLoader;
 
-    if-nez v0, :cond_7
+    if-nez v8, :cond_7
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v8
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    invoke-virtual {v8}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
-    move-result-object v0
+    move-result-object v8
 
     :goto_4
-    const/4 v2, 0x1
+    const/4 v9, 0x1
 
-    invoke-static {v1, v2, v0}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
+    invoke-static {v7, v9, v8}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v8
 
-    invoke-virtual {v0}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
+    invoke-virtual {v8}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v8
 
-    check-cast v0, Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
+    check-cast v8, Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
 
-    iput-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
+    iput-object v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
 
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
 
-    iget-object v1, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->catalog:Lmf/org/apache/xml/resolver/Catalog;
+    iget-object v9, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->catalog:Lmf/org/apache/xml/resolver/Catalog;
 
-    invoke-interface {v0, v1}, Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;->setCatalog(Lmf/org/apache/xml/resolver/Catalog;)V
+    invoke-interface {v8, v9}, Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;->setCatalog(Lmf/org/apache/xml/resolver/Catalog;)V
 
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
 
-    invoke-interface {v0}, Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;->startDocument()V
+    invoke-interface {v8}, Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;->startDocument()V
 
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
 
-    invoke-interface {v0, p1, p2}, Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;->startElement(Ljava/lang/String;Lorg/xml/sax/AttributeList;)V
+    invoke-interface {v8, p1, p2}, Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;->startElement(Ljava/lang/String;Lorg/xml/sax/AttributeList;)V
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_1
@@ -1224,115 +1264,133 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    iput-object v4, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
+    const/4 v8, 0x0
 
-    iput-boolean v5, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->abandonHope:Z
+    iput-object v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
 
-    iget-object v1, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    const/4 v8, 0x1
 
-    invoke-virtual {v0}, Ljava/lang/ClassNotFoundException;->toString()Ljava/lang/String;
+    iput-boolean v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->abandonHope:Z
 
-    move-result-object v0
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    invoke-virtual {v1, v6, v0}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
+    invoke-virtual {v1}, Ljava/lang/ClassNotFoundException;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x2
+
+    invoke-virtual {v8, v10, v9}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
 
     goto :goto_0
 
     :cond_2
-    invoke-virtual {p1, v3}, Ljava/lang/String;->indexOf(I)I
+    const/16 v8, 0x3a
 
-    move-result v0
+    invoke-virtual {p1, v8}, Ljava/lang/String;->indexOf(I)I
 
-    invoke-virtual {p1, v2, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    move-result v8
 
-    move-result-object v0
+    const/4 v9, 0x0
+
+    invoke-virtual {p1, v9, v8}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v6
 
     goto :goto_1
 
     :cond_3
-    invoke-virtual {p1, v3}, Ljava/lang/String;->indexOf(I)I
+    const/16 v8, 0x3a
 
-    move-result v1
+    invoke-virtual {p1, v8}, Ljava/lang/String;->indexOf(I)I
 
-    add-int/lit8 v1, v1, 0x1
+    move-result v8
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    add-int/lit8 v8, v8, 0x1
 
-    move-result-object v1
+    invoke-virtual {p1, v8}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v4
 
     goto :goto_2
 
     :cond_4
-    const-string/jumbo v0, "xmlns"
+    const-string/jumbo v8, "xmlns"
 
-    invoke-interface {p2, v0}, Lorg/xml/sax/AttributeList;->getValue(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p2, v8}, Lorg/xml/sax/AttributeList;->getValue(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v5
 
     goto :goto_3
 
     :cond_5
-    iput-boolean v5, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->abandonHope:Z
+    const/4 v8, 0x1
 
-    if-eqz v0, :cond_6
+    iput-boolean v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->abandonHope:Z
 
-    iget-object v1, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    if-eqz v5, :cond_6
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    const-string/jumbo v3, "No Catalog parser for {"
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    const-string/jumbo v10, "No Catalog parser for {"
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    move-result-object v0
+    const/4 v10, 0x2
 
-    const-string/jumbo v2, "}"
+    invoke-virtual {v9, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v9
 
-    move-result-object v0
+    const-string/jumbo v11, "}"
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v9
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v9
 
-    invoke-virtual {v1, v6, v0}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v10, v9}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
 
     :goto_5
     return-void
 
     :cond_6
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "No Catalog parser for "
+    const-string/jumbo v10, "No Catalog parser for "
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v9
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v9
 
-    invoke-virtual {v0, v6, v1}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
+    const/4 v10, 0x2
+
+    invoke-virtual {v8, v10, v9}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
 
     goto :goto_5
 
     :cond_7
     :try_start_1
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->loader:Ljava/lang/ClassLoader;
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->loader:Ljava/lang/ClassLoader;
     :try_end_1
     .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/lang/InstantiationException; {:try_start_1 .. :try_end_1} :catch_1
@@ -1342,53 +1400,71 @@
     goto/16 :goto_4
 
     :catch_1
-    move-exception v0
+    move-exception v3
 
-    iput-object v4, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
+    const/4 v8, 0x0
 
-    iput-boolean v5, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->abandonHope:Z
+    iput-object v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
 
-    iget-object v1, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    const/4 v8, 0x1
 
-    invoke-virtual {v0}, Ljava/lang/InstantiationException;->toString()Ljava/lang/String;
+    iput-boolean v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->abandonHope:Z
 
-    move-result-object v0
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    invoke-virtual {v1, v6, v0}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
+    invoke-virtual {v3}, Ljava/lang/InstantiationException;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x2
+
+    invoke-virtual {v8, v10, v9}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
 
     goto/16 :goto_0
 
     :catch_2
-    move-exception v0
+    move-exception v2
 
-    iput-object v4, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
+    const/4 v8, 0x0
 
-    iput-boolean v5, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->abandonHope:Z
+    iput-object v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
 
-    iget-object v1, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    const/4 v8, 0x1
 
-    invoke-virtual {v0}, Ljava/lang/IllegalAccessException;->toString()Ljava/lang/String;
+    iput-boolean v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->abandonHope:Z
 
-    move-result-object v0
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    invoke-virtual {v1, v6, v0}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
+    invoke-virtual {v2}, Ljava/lang/IllegalAccessException;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x2
+
+    invoke-virtual {v8, v10, v9}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
 
     goto/16 :goto_0
 
     :catch_3
     move-exception v0
 
-    iput-object v4, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
+    const/4 v8, 0x0
 
-    iput-boolean v5, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->abandonHope:Z
+    iput-object v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->saxParser:Lmf/org/apache/xml/resolver/readers/SAXCatalogParser;
 
-    iget-object v1, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    const/4 v8, 0x1
+
+    iput-boolean v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->abandonHope:Z
+
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
     invoke-virtual {v0}, Ljava/lang/ClassCastException;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v9
 
-    invoke-virtual {v1, v6, v0}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
+    const/4 v10, 0x2
+
+    invoke-virtual {v8, v10, v9}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;)V
 
     goto/16 :goto_0
 .end method

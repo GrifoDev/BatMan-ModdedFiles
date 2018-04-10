@@ -39,66 +39,68 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    instance-of v0, p1, Ljava/util/Map$Entry;
+    instance-of v3, p1, Ljava/util/Map$Entry;
 
-    if-nez v0, :cond_0
+    if-nez v3, :cond_0
 
-    return v3
+    return v4
 
     :cond_0
-    check-cast p1, Ljava/util/Map$Entry;
+    move-object v0, p1
 
-    invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    check-cast v0, Ljava/util/Map$Entry;
 
-    move-result-object v0
-
-    invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v1
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl$XSNamedMapEntry;->key:Lmf/javax/xml/namespace/QName;
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    if-eqz v2, :cond_2
+    move-result-object v2
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl$XSNamedMapEntry;->key:Lmf/javax/xml/namespace/QName;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl$XSNamedMapEntry;->key:Lmf/javax/xml/namespace/QName;
 
-    invoke-virtual {v2, v0}, Lmf/javax/xml/namespace/QName;->equals(Ljava/lang/Object;)Z
+    if-eqz v3, :cond_2
 
-    move-result v0
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl$XSNamedMapEntry;->key:Lmf/javax/xml/namespace/QName;
 
-    if-nez v0, :cond_3
+    invoke-virtual {v3, v1}, Lmf/javax/xml/namespace/QName;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_3
 
     :cond_1
     :goto_0
-    return v3
+    return v4
 
     :cond_2
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     :cond_3
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl$XSNamedMapEntry;->value:Lmf/org/apache/xerces/xs/XSObject;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl$XSNamedMapEntry;->value:Lmf/org/apache/xerces/xs/XSObject;
 
-    if-eqz v0, :cond_5
+    if-eqz v3, :cond_5
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl$XSNamedMapEntry;->value:Lmf/org/apache/xerces/xs/XSObject;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl$XSNamedMapEntry;->value:Lmf/org/apache/xerces/xs/XSObject;
 
-    invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v3
 
-    if-eqz v0, :cond_1
+    if-eqz v3, :cond_1
 
     :cond_4
-    const/4 v0, 0x1
+    const/4 v3, 0x1
 
-    return v0
+    return v3
 
     :cond_5
-    if-eqz v1, :cond_4
+    if-eqz v2, :cond_4
 
     goto :goto_0
 .end method
@@ -195,7 +197,7 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method

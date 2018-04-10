@@ -3,11 +3,6 @@
 .source "HttpRequestInterceptor.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract process(Lorg/apache/http/HttpRequest;Lorg/apache/http/protocol/HttpContext;)V
     .annotation system Ldalvik/annotation/Throws;

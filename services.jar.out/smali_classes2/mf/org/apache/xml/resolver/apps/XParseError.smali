@@ -24,48 +24,48 @@
 
 # direct methods
 .method public constructor <init>(ZZ)V
-    .locals 2
+    .locals 4
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    iput-boolean v0, p0, Lmf/org/apache/xml/resolver/apps/XParseError;->showErrors:Z
+    iput-boolean v2, p0, Lmf/org/apache/xml/resolver/apps/XParseError;->showErrors:Z
 
-    iput-boolean v1, p0, Lmf/org/apache/xml/resolver/apps/XParseError;->showWarnings:Z
+    iput-boolean v3, p0, Lmf/org/apache/xml/resolver/apps/XParseError;->showWarnings:Z
 
-    const/16 v0, 0xa
+    const/16 v2, 0xa
 
-    iput v0, p0, Lmf/org/apache/xml/resolver/apps/XParseError;->maxMessages:I
+    iput v2, p0, Lmf/org/apache/xml/resolver/apps/XParseError;->maxMessages:I
 
-    iput v1, p0, Lmf/org/apache/xml/resolver/apps/XParseError;->fatalCount:I
+    iput v3, p0, Lmf/org/apache/xml/resolver/apps/XParseError;->fatalCount:I
 
-    iput v1, p0, Lmf/org/apache/xml/resolver/apps/XParseError;->errorCount:I
+    iput v3, p0, Lmf/org/apache/xml/resolver/apps/XParseError;->errorCount:I
 
-    iput v1, p0, Lmf/org/apache/xml/resolver/apps/XParseError;->warningCount:I
+    iput v3, p0, Lmf/org/apache/xml/resolver/apps/XParseError;->warningCount:I
 
-    const-string/jumbo v0, ""
+    const-string/jumbo v2, ""
 
-    iput-object v0, p0, Lmf/org/apache/xml/resolver/apps/XParseError;->baseURI:Ljava/lang/String;
+    iput-object v2, p0, Lmf/org/apache/xml/resolver/apps/XParseError;->baseURI:Ljava/lang/String;
 
     iput-boolean p1, p0, Lmf/org/apache/xml/resolver/apps/XParseError;->showErrors:Z
 
     iput-boolean p2, p0, Lmf/org/apache/xml/resolver/apps/XParseError;->showWarnings:Z
 
     :try_start_0
-    const-string/jumbo v0, "basename"
+    const-string/jumbo v2, "basename"
 
-    invoke-static {v0}, Lmf/org/apache/xml/resolver/helpers/FileURL;->makeURL(Ljava/lang/String;)Ljava/net/URL;
+    invoke-static {v2}, Lmf/org/apache/xml/resolver/helpers/FileURL;->makeURL(Ljava/lang/String;)Ljava/net/URL;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Ljava/net/URL;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/net/URL;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lmf/org/apache/xml/resolver/apps/XParseError;->baseURI:Ljava/lang/String;
+    iput-object v2, p0, Lmf/org/apache/xml/resolver/apps/XParseError;->baseURI:Ljava/lang/String;
     :try_end_0
     .catch Ljava/net/MalformedURLException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -112,56 +112,56 @@
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-string/jumbo v2, ":"
+    const-string/jumbo v3, ":"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {p2}, Lorg/xml/sax/SAXParseException;->getLineNumber()I
-
-    move-result v2
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Ljava/io/PrintStream;->print(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Lorg/xml/sax/SAXParseException;->getColumnNumber()I
-
-    move-result v0
-
-    if-gtz v0, :cond_1
-
-    :goto_1
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    const-string/jumbo v2, ":"
-
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Lorg/xml/sax/SAXParseException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2}, Lorg/xml/sax/SAXParseException;->getLineNumber()I
 
-    move-result-object v1
+    move-result v3
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/io/PrintStream;->print(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Lorg/xml/sax/SAXParseException;->getColumnNumber()I
+
+    move-result v1
+
+    if-gtz v1, :cond_1
+
+    :goto_1
+    sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    const-string/jumbo v3, ":"
+
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Lorg/xml/sax/SAXParseException;->getMessage()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     return-void
 
@@ -179,27 +179,27 @@
     goto :goto_0
 
     :cond_1
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, ":"
+    const-string/jumbo v3, ":"
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Lorg/xml/sax/SAXParseException;->getColumnNumber()I
 
-    move-result v2
+    move-result v3
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->print(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Ljava/io/PrintStream;->print(Ljava/lang/String;)V
 
     goto :goto_1
 .end method

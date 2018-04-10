@@ -47,7 +47,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/audio/MediaFocusControl$1;->this$0:Lcom/android/server/audio/MediaFocusControl;
 
-    invoke-static {v1}, Lcom/android/server/audio/MediaFocusControl;->-get4(Lcom/android/server/audio/MediaFocusControl;)Ljava/util/Stack;
+    invoke-static {v1}, Lcom/android/server/audio/MediaFocusControl;->-get5(Lcom/android/server/audio/MediaFocusControl;)Ljava/util/Stack;
 
     move-result-object v1
 
@@ -69,7 +69,7 @@
 
     iget-object v1, p0, Lcom/android/server/audio/MediaFocusControl$1;->this$0:Lcom/android/server/audio/MediaFocusControl;
 
-    invoke-static {v1}, Lcom/android/server/audio/MediaFocusControl;->-get4(Lcom/android/server/audio/MediaFocusControl;)Ljava/util/Stack;
+    invoke-static {v1}, Lcom/android/server/audio/MediaFocusControl;->-get5(Lcom/android/server/audio/MediaFocusControl;)Ljava/util/Stack;
 
     move-result-object v1
 

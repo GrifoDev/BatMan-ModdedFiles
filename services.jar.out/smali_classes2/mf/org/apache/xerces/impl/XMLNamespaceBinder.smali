@@ -381,14 +381,14 @@
     :cond_0
     sget-object v1, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->FEATURE_DEFAULTS:[Ljava/lang/Boolean;
 
-    aget-object v0, v1, v0
+    aget-object v1, v1, v0
 
-    return-object v0
+    return-object v1
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public getOnlyPassPrefixMappingEvents()Z
@@ -428,14 +428,14 @@
     :cond_0
     sget-object v1, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->PROPERTY_DEFAULTS:[Ljava/lang/Object;
 
-    aget-object v0, v1, v0
+    aget-object v1, v1, v0
 
-    return-object v0
+    return-object v1
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public getRecognizedFeatures()[Ljava/lang/String;
@@ -474,9 +474,9 @@
         }
     .end annotation
 
-    iget-object v0, p1, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    iget-object v1, p1, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
@@ -494,15 +494,15 @@
     if-nez v1, :cond_2
 
     :goto_1
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fDocumentHandler:Lmf/org/apache/xerces/xni/XMLDocumentHandler;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fDocumentHandler:Lmf/org/apache/xerces/xni/XMLDocumentHandler;
 
-    if-nez v0, :cond_3
+    if-nez v1, :cond_3
 
     :cond_0
     :goto_2
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
 
-    invoke-interface {v0}, Lmf/org/apache/xerces/xni/NamespaceContext;->popContext()V
+    invoke-interface {v1}, Lmf/org/apache/xerces/xni/NamespaceContext;->popContext()V
 
     return-void
 
@@ -517,615 +517,926 @@
     goto :goto_1
 
     :cond_3
-    iget-boolean v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fOnlyPassPrefixMappingEvents:Z
+    iget-boolean v1, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fOnlyPassPrefixMappingEvents:Z
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     if-nez p3, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fDocumentHandler:Lmf/org/apache/xerces/xni/XMLDocumentHandler;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fDocumentHandler:Lmf/org/apache/xerces/xni/XMLDocumentHandler;
 
-    invoke-interface {v0, p1, p2}, Lmf/org/apache/xerces/xni/XMLDocumentHandler;->endElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/Augmentations;)V
+    invoke-interface {v1, p1, p2}, Lmf/org/apache/xerces/xni/XMLDocumentHandler;->endElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/Augmentations;)V
 
     goto :goto_2
 .end method
 
 .method protected handleStartElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;Z)V
-    .locals 11
+    .locals 23
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
+    move-object/from16 v0, p0
 
-    invoke-interface {v0}, Lmf/org/apache/xerces/xni/NamespaceContext;->pushContext()V
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    move-object/from16 v17, v0
 
-    sget-object v1, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
+    invoke-interface/range {v17 .. v17}, Lmf/org/apache/xerces/xni/NamespaceContext;->pushContext()V
 
-    if-eq v0, v1, :cond_4
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+
+    move-object/from16 v17, v0
+
+    sget-object v18, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v18
+
+    if-eq v0, v1, :cond_5
 
     :goto_0
-    invoke-interface {p2}, Lmf/org/apache/xerces/xni/XMLAttributes;->getLength()I
+    invoke-interface/range {p2 .. p2}, Lmf/org/apache/xerces/xni/XMLAttributes;->getLength()I
 
-    move-result v4
+    move-result v13
 
-    const/4 v0, 0x0
-
-    move v3, v0
+    const/4 v11, 0x0
 
     :goto_1
-    if-ge v3, v4, :cond_d
+    if-ge v11, v13, :cond_d
 
-    invoke-interface {p2, v3}, Lmf/org/apache/xerces/xni/XMLAttributes;->getLocalName(I)Ljava/lang/String;
+    move-object/from16 v0, p2
 
-    move-result-object v1
+    invoke-interface {v0, v11}, Lmf/org/apache/xerces/xni/XMLAttributes;->getLocalName(I)Ljava/lang/String;
 
-    invoke-interface {p2, v3}, Lmf/org/apache/xerces/xni/XMLAttributes;->getPrefix(I)Ljava/lang/String;
+    move-result-object v14
 
-    move-result-object v0
+    move-object/from16 v0, p2
 
-    sget-object v2, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
+    invoke-interface {v0, v11}, Lmf/org/apache/xerces/xni/XMLAttributes;->getPrefix(I)Ljava/lang/String;
 
-    if-ne v0, v2, :cond_5
+    move-result-object v15
+
+    sget-object v17, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
+
+    move-object/from16 v0, v17
+
+    if-ne v15, v0, :cond_6
 
     :cond_0
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    move-object/from16 v0, p0
 
-    invoke-interface {p2, v3}, Lmf/org/apache/xerces/xni/XMLAttributes;->getValue(I)Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    move-result-object v5
+    move-object/from16 v17, v0
 
-    invoke-virtual {v2, v5}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v0, p2
 
-    move-result-object v2
+    invoke-interface {v0, v11}, Lmf/org/apache/xerces/xni/XMLAttributes;->getValue(I)Ljava/lang/String;
 
-    sget-object v5, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
+    move-result-object v18
 
-    if-eq v0, v5, :cond_6
+    invoke-virtual/range {v17 .. v18}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v16
+
+    sget-object v17, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
+
+    move-object/from16 v0, v17
+
+    if-eq v15, v0, :cond_7
 
     :cond_1
     :goto_2
-    sget-object v0, Lmf/org/apache/xerces/xni/NamespaceContext;->XMLNS_URI:Ljava/lang/String;
+    sget-object v17, Lmf/org/apache/xerces/xni/NamespaceContext;->XMLNS_URI:Ljava/lang/String;
 
-    if-eq v2, v0, :cond_7
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v17
+
+    if-eq v0, v1, :cond_8
 
     :goto_3
-    sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XML:Ljava/lang/String;
+    sget-object v17, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XML:Ljava/lang/String;
 
-    if-eq v1, v0, :cond_8
+    move-object/from16 v0, v17
 
-    sget-object v0, Lmf/org/apache/xerces/xni/NamespaceContext;->XML_URI:Ljava/lang/String;
+    if-eq v14, v0, :cond_9
 
-    if-eq v2, v0, :cond_9
+    sget-object v17, Lmf/org/apache/xerces/xni/NamespaceContext;->XML_URI:Ljava/lang/String;
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v17
+
+    if-eq v0, v1, :cond_a
 
     :cond_2
     :goto_4
-    sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
+    sget-object v17, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
 
-    if-ne v1, v0, :cond_a
+    move-object/from16 v0, v17
 
-    sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    if-ne v14, v0, :cond_b
+
+    sget-object v15, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
     :goto_5
-    invoke-virtual {p0, v2, v1}, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->prefixBoundToNullURI(Ljava/lang/String;Ljava/lang/String;)Z
+    move-object/from16 v0, p0
 
-    move-result v1
+    move-object/from16 v1, v16
 
-    if-nez v1, :cond_b
+    invoke-virtual {v0, v1, v14}, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->prefixBoundToNullURI(Ljava/lang/String;Ljava/lang/String;)Z
 
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
+    move-result v17
 
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
+    if-nez v17, :cond_c
 
-    move-result v1
+    move-object/from16 v0, p0
 
-    if-nez v1, :cond_c
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
 
-    const/4 v1, 0x0
+    move-object/from16 v17, v0
 
-    :goto_6
-    invoke-interface {v5, v0, v1}, Lmf/org/apache/xerces/xni/NamespaceContext;->declarePrefix(Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/String;->length()I
+
+    move-result v18
+
+    if-nez v18, :cond_3
+
+    const/16 v16, 0x0
 
     :cond_3
-    :goto_7
-    add-int/lit8 v0, v3, 0x1
+    move-object/from16 v0, v17
 
-    move v3, v0
+    move-object/from16 v1, v16
+
+    invoke-interface {v0, v15, v1}, Lmf/org/apache/xerces/xni/NamespaceContext;->declarePrefix(Ljava/lang/String;Ljava/lang/String;)Z
+
+    :cond_4
+    :goto_6
+    add-int/lit8 v11, v11, 0x1
 
     goto :goto_1
 
-    :cond_4
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
-
-    const-string/jumbo v1, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
-
-    const-string/jumbo v2, "ElementXMLNSPrefix"
-
-    const/4 v3, 0x1
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    const/4 v4, 0x0
-
-    iget-object v5, p1, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
-
-    aput-object v5, v3, v4
-
-    const/4 v4, 0x2
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
-
-    goto :goto_0
-
     :cond_5
-    sget-object v2, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    if-ne v0, v2, :cond_3
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    sget-object v2, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
+    move-object/from16 v17, v0
 
-    if-eq v1, v2, :cond_0
+    const-string/jumbo v18, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
 
-    goto :goto_7
+    const-string/jumbo v19, "ElementXMLNSPrefix"
+
+    const/16 v20, 0x1
+
+    move/from16 v0, v20
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+
+    move-object/from16 v21, v0
+
+    const/16 v22, 0x0
+
+    aput-object v21, v20, v22
+
+    const/16 v21, 0x2
+
+    invoke-virtual/range {v17 .. v21}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+
+    goto/16 :goto_0
 
     :cond_6
-    sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
+    sget-object v17, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    if-ne v1, v0, :cond_1
+    move-object/from16 v0, v17
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    if-ne v15, v0, :cond_4
 
-    const-string/jumbo v5, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+    sget-object v17, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
 
-    const-string/jumbo v6, "CantBindXMLNS"
+    move-object/from16 v0, v17
 
-    const/4 v7, 0x1
+    if-eq v14, v0, :cond_0
 
-    new-array v7, v7, [Ljava/lang/Object;
-
-    const/4 v8, 0x0
-
-    invoke-interface {p2, v3}, Lmf/org/apache/xerces/xni/XMLAttributes;->getQName(I)Ljava/lang/String;
-
-    move-result-object v9
-
-    aput-object v9, v7, v8
-
-    const/4 v8, 0x2
-
-    invoke-virtual {v0, v5, v6, v7, v8}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
-
-    goto :goto_2
+    goto :goto_6
 
     :cond_7
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    sget-object v17, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
 
-    const-string/jumbo v5, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+    move-object/from16 v0, v17
 
-    const-string/jumbo v6, "CantBindXMLNS"
+    if-ne v14, v0, :cond_1
 
-    const/4 v7, 0x1
+    move-object/from16 v0, p0
 
-    new-array v7, v7, [Ljava/lang/Object;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const/4 v8, 0x0
+    move-object/from16 v17, v0
 
-    invoke-interface {p2, v3}, Lmf/org/apache/xerces/xni/XMLAttributes;->getQName(I)Ljava/lang/String;
+    const-string/jumbo v18, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
 
-    move-result-object v9
+    const-string/jumbo v19, "CantBindXMLNS"
 
-    aput-object v9, v7, v8
+    const/16 v20, 0x1
 
-    const/4 v8, 0x2
+    move/from16 v0, v20
 
-    invoke-virtual {v0, v5, v6, v7, v8}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    goto :goto_3
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v0, v11}, Lmf/org/apache/xerces/xni/XMLAttributes;->getQName(I)Ljava/lang/String;
+
+    move-result-object v21
+
+    const/16 v22, 0x0
+
+    aput-object v21, v20, v22
+
+    const/16 v21, 0x2
+
+    invoke-virtual/range {v17 .. v21}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+
+    goto/16 :goto_2
 
     :cond_8
-    sget-object v0, Lmf/org/apache/xerces/xni/NamespaceContext;->XML_URI:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    if-eq v2, v0, :cond_2
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    move-object/from16 v17, v0
 
-    const-string/jumbo v5, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+    const-string/jumbo v18, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
 
-    const-string/jumbo v6, "CantBindXML"
+    const-string/jumbo v19, "CantBindXMLNS"
 
-    const/4 v7, 0x1
+    const/16 v20, 0x1
 
-    new-array v7, v7, [Ljava/lang/Object;
+    move/from16 v0, v20
 
-    const/4 v8, 0x0
+    new-array v0, v0, [Ljava/lang/Object;
 
-    invoke-interface {p2, v3}, Lmf/org/apache/xerces/xni/XMLAttributes;->getQName(I)Ljava/lang/String;
+    move-object/from16 v20, v0
 
-    move-result-object v9
+    move-object/from16 v0, p2
 
-    aput-object v9, v7, v8
+    invoke-interface {v0, v11}, Lmf/org/apache/xerces/xni/XMLAttributes;->getQName(I)Ljava/lang/String;
 
-    const/4 v8, 0x2
+    move-result-object v21
 
-    invoke-virtual {v0, v5, v6, v7, v8}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    const/16 v22, 0x0
 
-    goto/16 :goto_4
+    aput-object v21, v20, v22
+
+    const/16 v21, 0x2
+
+    invoke-virtual/range {v17 .. v21}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+
+    goto/16 :goto_3
 
     :cond_9
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    sget-object v17, Lmf/org/apache/xerces/xni/NamespaceContext;->XML_URI:Ljava/lang/String;
 
-    const-string/jumbo v5, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+    move-object/from16 v0, v16
 
-    const-string/jumbo v6, "CantBindXML"
+    move-object/from16 v1, v17
 
-    const/4 v7, 0x1
+    if-eq v0, v1, :cond_2
 
-    new-array v7, v7, [Ljava/lang/Object;
+    move-object/from16 v0, p0
 
-    const/4 v8, 0x0
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    invoke-interface {p2, v3}, Lmf/org/apache/xerces/xni/XMLAttributes;->getQName(I)Ljava/lang/String;
+    move-object/from16 v17, v0
 
-    move-result-object v9
+    const-string/jumbo v18, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
 
-    aput-object v9, v7, v8
+    const-string/jumbo v19, "CantBindXML"
 
-    const/4 v8, 0x2
+    const/16 v20, 0x1
 
-    invoke-virtual {v0, v5, v6, v7, v8}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    move/from16 v0, v20
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v0, v11}, Lmf/org/apache/xerces/xni/XMLAttributes;->getQName(I)Ljava/lang/String;
+
+    move-result-object v21
+
+    const/16 v22, 0x0
+
+    aput-object v21, v20, v22
+
+    const/16 v21, 0x2
+
+    invoke-virtual/range {v17 .. v21}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
 
     goto/16 :goto_4
 
     :cond_a
-    move-object v0, v1
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+
+    move-object/from16 v17, v0
+
+    const-string/jumbo v18, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+
+    const-string/jumbo v19, "CantBindXML"
+
+    const/16 v20, 0x1
+
+    move/from16 v0, v20
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v0, v11}, Lmf/org/apache/xerces/xni/XMLAttributes;->getQName(I)Ljava/lang/String;
+
+    move-result-object v21
+
+    const/16 v22, 0x0
+
+    aput-object v21, v20, v22
+
+    const/16 v21, 0x2
+
+    invoke-virtual/range {v17 .. v21}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+
+    goto/16 :goto_4
+
+    :cond_b
+    move-object v15, v14
 
     goto/16 :goto_5
 
-    :cond_b
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
-
-    const-string/jumbo v1, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
-
-    const-string/jumbo v2, "EmptyPrefixedAttName"
-
-    const/4 v5, 0x1
-
-    new-array v5, v5, [Ljava/lang/Object;
-
-    const/4 v6, 0x0
-
-    invoke-interface {p2, v3}, Lmf/org/apache/xerces/xni/XMLAttributes;->getQName(I)Ljava/lang/String;
-
-    move-result-object v7
-
-    aput-object v7, v5, v6
-
-    const/4 v6, 0x2
-
-    invoke-virtual {v0, v1, v2, v5, v6}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
-
-    goto/16 :goto_7
-
     :cond_c
-    move-object v1, v2
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+
+    move-object/from16 v17, v0
+
+    const-string/jumbo v18, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+
+    const-string/jumbo v19, "EmptyPrefixedAttName"
+
+    const/16 v20, 0x1
+
+    move/from16 v0, v20
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v0, v11}, Lmf/org/apache/xerces/xni/XMLAttributes;->getQName(I)Ljava/lang/String;
+
+    move-result-object v21
+
+    const/16 v22, 0x0
+
+    aput-object v21, v20, v22
+
+    const/16 v21, 0x2
+
+    invoke-virtual/range {v17 .. v21}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
 
     goto/16 :goto_6
 
     :cond_d
-    iget-object v0, p1, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
-
-    if-nez v0, :cond_10
-
-    sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
-
-    :goto_8
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
-
-    invoke-interface {v1, v0}, Lmf/org/apache/xerces/xni/NamespaceContext;->getURI(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p1, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
-
-    iget-object v0, p1, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
-
-    if-eqz v0, :cond_11
-
-    :cond_e
-    :goto_9
-    iget-object v0, p1, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
-
-    if-nez v0, :cond_12
-
-    :cond_f
-    :goto_a
-    const/4 v0, 0x0
-
-    move v1, v0
-
-    :goto_b
-    if-ge v1, v4, :cond_17
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
-
-    invoke-interface {p2, v1, v0}, Lmf/org/apache/xerces/xni/XMLAttributes;->getName(ILmf/org/apache/xerces/xni/QName;)V
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    move-object/from16 v0, p1
 
     iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
 
-    if-nez v0, :cond_13
+    move-object/from16 v17, v0
 
-    sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    if-nez v17, :cond_10
+
+    sget-object v15, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+
+    :goto_7
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
+
+    move-object/from16 v17, v0
+
+    move-object/from16 v0, v17
+
+    invoke-interface {v0, v15}, Lmf/org/apache/xerces/xni/NamespaceContext;->getURI(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v17
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, p1
+
+    iput-object v0, v1, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+
+    move-object/from16 v17, v0
+
+    if-eqz v17, :cond_11
+
+    :cond_e
+    :goto_8
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+
+    move-object/from16 v17, v0
+
+    if-nez v17, :cond_12
+
+    :cond_f
+    :goto_9
+    const/4 v11, 0x0
+
+    :goto_a
+    if-ge v11, v13, :cond_17
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+
+    move-object/from16 v17, v0
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v17
+
+    invoke-interface {v0, v11, v1}, Lmf/org/apache/xerces/xni/XMLAttributes;->getName(ILmf/org/apache/xerces/xni/QName;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+
+    move-object/from16 v17, v0
+
+    move-object/from16 v0, v17
+
+    iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+
+    move-object/from16 v17, v0
+
+    if-nez v17, :cond_13
+
+    sget-object v5, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+
+    :goto_b
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+
+    move-object/from16 v17, v0
+
+    move-object/from16 v0, v17
+
+    iget-object v6, v0, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+
+    sget-object v17, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
+
+    move-object/from16 v0, v17
+
+    if-eq v6, v0, :cond_14
+
+    sget-object v17, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+
+    move-object/from16 v0, v17
+
+    if-ne v5, v0, :cond_15
 
     :goto_c
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
-
-    iget-object v2, v2, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
-
-    sget-object v3, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
-
-    if-eq v2, v3, :cond_14
-
-    sget-object v3, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
-
-    if-ne v0, v3, :cond_15
-
-    :goto_d
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
-
-    goto :goto_b
-
-    :cond_10
-    iget-object v0, p1, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
-
-    goto :goto_8
-
-    :cond_11
-    iget-object v0, p1, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
-
-    if-eqz v0, :cond_e
-
-    sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
-
-    iput-object v0, p1, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
-
-    goto :goto_9
-
-    :cond_12
-    iget-object v0, p1, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
-
-    if-nez v0, :cond_f
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
-
-    const-string/jumbo v1, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
-
-    const-string/jumbo v2, "ElementPrefixUnbound"
-
-    const/4 v3, 0x2
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    const/4 v5, 0x0
-
-    iget-object v6, p1, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
-
-    aput-object v6, v3, v5
-
-    const/4 v5, 0x1
-
-    iget-object v6, p1, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
-
-    aput-object v6, v3, v5
-
-    const/4 v5, 0x2
-
-    invoke-virtual {v0, v1, v2, v3, v5}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    add-int/lit8 v11, v11, 0x1
 
     goto :goto_a
 
-    :cond_13
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    :cond_10
+    move-object/from16 v0, p1
+
+    iget-object v15, v0, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+
+    goto :goto_7
+
+    :cond_11
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+
+    move-object/from16 v17, v0
+
+    if-eqz v17, :cond_e
+
+    sget-object v17, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, p1
+
+    iput-object v0, v1, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+
+    goto :goto_8
+
+    :cond_12
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+
+    move-object/from16 v17, v0
+
+    if-nez v17, :cond_f
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+
+    move-object/from16 v17, v0
+
+    const-string/jumbo v18, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+
+    const-string/jumbo v19, "ElementPrefixUnbound"
+
+    const/16 v20, 0x2
+
+    move/from16 v0, v20
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, p1
 
     iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
 
-    goto :goto_c
+    move-object/from16 v21, v0
+
+    const/16 v22, 0x0
+
+    aput-object v21, v20, v22
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+
+    move-object/from16 v21, v0
+
+    const/16 v22, 0x1
+
+    aput-object v21, v20, v22
+
+    const/16 v21, 0x2
+
+    invoke-virtual/range {v17 .. v21}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+
+    goto/16 :goto_9
+
+    :cond_13
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+
+    move-object/from16 v17, v0
+
+    move-object/from16 v0, v17
+
+    iget-object v5, v0, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+
+    goto :goto_b
 
     :cond_14
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    sget-object v3, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
+    move-object/from16 v17, v0
 
-    invoke-interface {v2, v3}, Lmf/org/apache/xerces/xni/NamespaceContext;->getURI(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    move-result-object v2
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
 
-    iput-object v2, v0, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    move-object/from16 v18, v0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    sget-object v19, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
 
-    invoke-interface {p2, v1, v0}, Lmf/org/apache/xerces/xni/XMLAttributes;->setName(ILmf/org/apache/xerces/xni/QName;)V
+    invoke-interface/range {v18 .. v19}, Lmf/org/apache/xerces/xni/NamespaceContext;->getURI(Ljava/lang/String;)Ljava/lang/String;
 
-    goto :goto_d
+    move-result-object v18
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v17
+
+    iput-object v0, v1, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+
+    move-object/from16 v17, v0
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v17
+
+    invoke-interface {v0, v11, v1}, Lmf/org/apache/xerces/xni/XMLAttributes;->setName(ILmf/org/apache/xerces/xni/QName;)V
+
+    goto :goto_c
 
     :cond_15
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    move-object/from16 v0, p0
 
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    invoke-interface {v5, v0}, Lmf/org/apache/xerces/xni/NamespaceContext;->getURI(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v17, v0
 
-    move-result-object v5
+    move-object/from16 v0, p0
 
-    iput-object v5, v3, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    move-object/from16 v18, v0
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    move-object/from16 v0, v18
 
-    if-eqz v3, :cond_16
+    invoke-interface {v0, v5}, Lmf/org/apache/xerces/xni/NamespaceContext;->getURI(Ljava/lang/String;)Ljava/lang/String;
 
-    :goto_e
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    move-result-object v18
 
-    invoke-interface {p2, v1, v0}, Lmf/org/apache/xerces/xni/XMLAttributes;->setName(ILmf/org/apache/xerces/xni/QName;)V
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v17
+
+    iput-object v0, v1, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+
+    move-object/from16 v17, v0
+
+    move-object/from16 v0, v17
+
+    iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+
+    move-object/from16 v17, v0
+
+    if-eqz v17, :cond_16
+
+    :goto_d
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+
+    move-object/from16 v17, v0
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v17
+
+    invoke-interface {v0, v11, v1}, Lmf/org/apache/xerces/xni/XMLAttributes;->setName(ILmf/org/apache/xerces/xni/QName;)V
+
+    goto/16 :goto_c
+
+    :cond_16
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+
+    move-object/from16 v17, v0
+
+    const-string/jumbo v18, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+
+    const-string/jumbo v19, "AttributePrefixUnbound"
+
+    const/16 v20, 0x3
+
+    move/from16 v0, v20
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+
+    move-object/from16 v21, v0
+
+    const/16 v22, 0x0
+
+    aput-object v21, v20, v22
+
+    const/16 v21, 0x1
+
+    aput-object v6, v20, v21
+
+    const/16 v21, 0x2
+
+    aput-object v5, v20, v21
+
+    const/16 v21, 0x2
+
+    invoke-virtual/range {v17 .. v21}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
 
     goto :goto_d
 
-    :cond_16
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    :cond_17
+    invoke-interface/range {p2 .. p2}, Lmf/org/apache/xerces/xni/XMLAttributes;->getLength()I
 
-    const-string/jumbo v5, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+    move-result v7
 
-    const-string/jumbo v6, "AttributePrefixUnbound"
+    const/4 v11, 0x0
 
-    const/4 v7, 0x3
+    :goto_e
+    add-int/lit8 v17, v7, -0x1
 
-    new-array v7, v7, [Ljava/lang/Object;
+    move/from16 v0, v17
 
-    const/4 v8, 0x0
+    if-ge v11, v0, :cond_1c
 
-    iget-object v9, p1, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+    move-object/from16 v0, p2
 
-    aput-object v9, v7, v8
+    invoke-interface {v0, v11}, Lmf/org/apache/xerces/xni/XMLAttributes;->getURI(I)Ljava/lang/String;
 
-    const/4 v8, 0x1
+    move-result-object v8
 
-    aput-object v2, v7, v8
+    if-nez v8, :cond_19
 
-    const/4 v2, 0x2
-
-    aput-object v0, v7, v2
-
-    const/4 v0, 0x2
-
-    invoke-virtual {v3, v5, v6, v7, v0}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    :cond_18
+    add-int/lit8 v11, v11, 0x1
 
     goto :goto_e
 
-    :cond_17
-    invoke-interface {p2}, Lmf/org/apache/xerces/xni/XMLAttributes;->getLength()I
-
-    move-result v2
-
-    const/4 v0, 0x0
-
-    :goto_f
-    add-int/lit8 v1, v2, -0x1
-
-    if-ge v0, v1, :cond_1c
-
-    invoke-interface {p2, v0}, Lmf/org/apache/xerces/xni/XMLAttributes;->getURI(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    if-nez v3, :cond_19
-
-    :cond_18
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_f
-
     :cond_19
-    sget-object v1, Lmf/org/apache/xerces/xni/NamespaceContext;->XMLNS_URI:Ljava/lang/String;
+    sget-object v17, Lmf/org/apache/xerces/xni/NamespaceContext;->XMLNS_URI:Ljava/lang/String;
 
-    if-eq v3, v1, :cond_18
+    move-object/from16 v0, v17
 
-    invoke-interface {p2, v0}, Lmf/org/apache/xerces/xni/XMLAttributes;->getLocalName(I)Ljava/lang/String;
+    if-eq v8, v0, :cond_18
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v0, v11}, Lmf/org/apache/xerces/xni/XMLAttributes;->getLocalName(I)Ljava/lang/String;
 
     move-result-object v4
 
-    add-int/lit8 v1, v0, 0x1
+    add-int/lit8 v12, v11, 0x1
 
-    :goto_10
-    if-ge v1, v2, :cond_18
+    :goto_f
+    if-ge v12, v7, :cond_18
 
-    invoke-interface {p2, v1}, Lmf/org/apache/xerces/xni/XMLAttributes;->getLocalName(I)Ljava/lang/String;
+    move-object/from16 v0, p2
 
-    move-result-object v5
+    invoke-interface {v0, v12}, Lmf/org/apache/xerces/xni/XMLAttributes;->getLocalName(I)Ljava/lang/String;
 
-    invoke-interface {p2, v1}, Lmf/org/apache/xerces/xni/XMLAttributes;->getURI(I)Ljava/lang/String;
+    move-result-object v9
 
-    move-result-object v6
+    move-object/from16 v0, p2
 
-    if-eq v4, v5, :cond_1b
+    invoke-interface {v0, v12}, Lmf/org/apache/xerces/xni/XMLAttributes;->getURI(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    if-eq v4, v9, :cond_1b
 
     :cond_1a
-    :goto_11
-    add-int/lit8 v1, v1, 0x1
+    :goto_10
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_f
+
+    :cond_1b
+    if-ne v8, v10, :cond_1a
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+
+    move-object/from16 v17, v0
+
+    const-string/jumbo v18, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+
+    const-string/jumbo v19, "AttributeNSNotUnique"
+
+    const/16 v20, 0x3
+
+    move/from16 v0, v20
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+
+    move-object/from16 v21, v0
+
+    const/16 v22, 0x0
+
+    aput-object v21, v20, v22
+
+    const/16 v21, 0x1
+
+    aput-object v4, v20, v21
+
+    const/16 v21, 0x2
+
+    aput-object v8, v20, v21
+
+    const/16 v21, 0x2
+
+    invoke-virtual/range {v17 .. v21}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
 
     goto :goto_10
 
-    :cond_1b
-    if-ne v3, v6, :cond_1a
-
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
-
-    const-string/jumbo v6, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
-
-    const-string/jumbo v7, "AttributeNSNotUnique"
-
-    const/4 v8, 0x3
-
-    new-array v8, v8, [Ljava/lang/Object;
-
-    const/4 v9, 0x0
-
-    iget-object v10, p1, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
-
-    aput-object v10, v8, v9
-
-    const/4 v9, 0x1
-
-    aput-object v4, v8, v9
-
-    const/4 v9, 0x2
-
-    aput-object v3, v8, v9
-
-    const/4 v9, 0x2
-
-    invoke-virtual {v5, v6, v7, v8, v9}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
-
-    goto :goto_11
-
     :cond_1c
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fDocumentHandler:Lmf/org/apache/xerces/xni/XMLDocumentHandler;
+    move-object/from16 v0, p0
 
-    if-nez v0, :cond_1e
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fDocumentHandler:Lmf/org/apache/xerces/xni/XMLDocumentHandler;
+
+    move-object/from16 v17, v0
+
+    if-nez v17, :cond_1e
 
     :cond_1d
-    :goto_12
+    :goto_11
     return-void
 
     :cond_1e
-    iget-boolean v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fOnlyPassPrefixMappingEvents:Z
+    move-object/from16 v0, p0
 
-    if-nez v0, :cond_1d
+    iget-boolean v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fOnlyPassPrefixMappingEvents:Z
+
+    move/from16 v17, v0
+
+    if-nez v17, :cond_1d
 
     if-nez p4, :cond_1f
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fDocumentHandler:Lmf/org/apache/xerces/xni/XMLDocumentHandler;
+    move-object/from16 v0, p0
 
-    invoke-interface {v0, p1, p2, p3}, Lmf/org/apache/xerces/xni/XMLDocumentHandler;->startElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;)V
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fDocumentHandler:Lmf/org/apache/xerces/xni/XMLDocumentHandler;
 
-    goto :goto_12
+    move-object/from16 v17, v0
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, p1
+
+    move-object/from16 v2, p2
+
+    move-object/from16 v3, p3
+
+    invoke-interface {v0, v1, v2, v3}, Lmf/org/apache/xerces/xni/XMLDocumentHandler;->startElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;)V
+
+    goto :goto_11
 
     :cond_1f
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fDocumentHandler:Lmf/org/apache/xerces/xni/XMLDocumentHandler;
+    move-object/from16 v0, p0
 
-    invoke-interface {v0, p1, p2, p3}, Lmf/org/apache/xerces/xni/XMLDocumentHandler;->emptyElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;)V
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fDocumentHandler:Lmf/org/apache/xerces/xni/XMLDocumentHandler;
 
-    goto :goto_12
+    move-object/from16 v17, v0
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, p1
+
+    move-object/from16 v2, p2
+
+    move-object/from16 v3, p3
+
+    invoke-interface {v0, v1, v2, v3}, Lmf/org/apache/xerces/xni/XMLDocumentHandler;->emptyElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;)V
+
+    goto :goto_11
 .end method
 
 .method public ignorableWhitespace(Lmf/org/apache/xerces/xni/XMLString;Lmf/org/apache/xerces/xni/Augmentations;)V
@@ -1207,7 +1518,7 @@
 .end method
 
 .method public reset(Lmf/org/apache/xerces/xni/parser/XMLComponentManager;)V
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
@@ -1215,45 +1526,45 @@
     .end annotation
 
     :try_start_0
-    const-string/jumbo v0, "http://xml.org/sax/features/namespaces"
+    const-string/jumbo v1, "http://xml.org/sax/features/namespaces"
 
-    invoke-interface {p1, v0}, Lmf/org/apache/xerces/xni/parser/XMLComponentManager;->getFeature(Ljava/lang/String;)Z
+    invoke-interface {p1, v1}, Lmf/org/apache/xerces/xni/parser/XMLComponentManager;->getFeature(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    iput-boolean v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fNamespaces:Z
+    iput-boolean v1, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fNamespaces:Z
     :try_end_0
     .catch Lmf/org/apache/xerces/xni/parser/XMLConfigurationException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/symbol-table"
+    const-string/jumbo v1, "http://apache.org/xml/properties/internal/symbol-table"
 
-    invoke-interface {p1, v0}, Lmf/org/apache/xerces/xni/parser/XMLComponentManager;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-interface {p1, v1}, Lmf/org/apache/xerces/xni/parser/XMLComponentManager;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/org/apache/xerces/util/SymbolTable;
+    check-cast v1, Lmf/org/apache/xerces/util/SymbolTable;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/error-reporter"
+    const-string/jumbo v1, "http://apache.org/xml/properties/internal/error-reporter"
 
-    invoke-interface {p1, v0}, Lmf/org/apache/xerces/xni/parser/XMLComponentManager;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-interface {p1, v1}, Lmf/org/apache/xerces/xni/parser/XMLComponentManager;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    check-cast v1, Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
     return-void
 
     :catch_0
     move-exception v0
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    iput-boolean v0, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fNamespaces:Z
+    iput-boolean v1, p0, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->fNamespaces:Z
 
     goto :goto_0
 .end method
@@ -1294,35 +1605,35 @@
 .end method
 
 .method public setProperty(Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
         }
     .end annotation
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/"
+    const-string/jumbo v1, "http://apache.org/xml/properties/"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     return-void
 
     :cond_0
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v0
-
-    const-string/jumbo v1, "http://apache.org/xml/properties/"
-
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
-
     move-result v1
 
-    sub-int/2addr v0, v1
+    const-string/jumbo v2, "http://apache.org/xml/properties/"
+
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    sub-int v0, v1, v2
 
     const-string/jumbo v1, "internal/symbol-table"
 
@@ -1361,13 +1672,13 @@
     goto :goto_0
 
     :cond_4
-    const-string/jumbo v0, "internal/error-reporter"
+    const-string/jumbo v1, "internal/error-reporter"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
     check-cast p2, Lmf/org/apache/xerces/impl/XMLErrorReporter;
 

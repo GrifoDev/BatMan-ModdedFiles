@@ -50,8 +50,6 @@
 .method public declared-synchronized clone()Ljava/lang/Object;
     .locals 3
 
-    const/4 v0, 0x0
-
     monitor-enter p0
 
     :try_start_0
@@ -86,6 +84,9 @@
     if-nez v2, :cond_3
 
     :goto_1
+    const/4 v0, 0x0
+
+    :goto_2
     iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->nofgroups:I
 
     if-ge v0, v2, :cond_0
@@ -104,7 +105,7 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_2
     iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->ciSource:Ljava/text/CharacterIterator;
@@ -116,11 +117,11 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v0
+    move-exception v2
 
     monitor-exit p0
 
-    throw v0
+    throw v2
 
     :cond_3
     :try_start_2
@@ -197,113 +198,113 @@
 .end method
 
 .method public getCapturedText(I)Ljava/lang/String;
-    .locals 4
+    .locals 6
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->beginpos:[I
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->beginpos:[I
 
-    if-eqz v0, :cond_1
+    if-eqz v3, :cond_1
 
     if-gez p1, :cond_2
 
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v3, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "The parameter must be less than "
+    const-string/jumbo v5, "The parameter must be less than "
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->nofgroups:I
+    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->nofgroups:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v4
 
-    const-string/jumbo v2, ": "
+    const-string/jumbo v5, ": "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v3
 
     :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance v3, Ljava/lang/IllegalStateException;
 
-    const-string/jumbo v1, "match() has never been called."
+    const-string/jumbo v4, "match() has never been called."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v3
 
     :cond_2
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->nofgroups:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->nofgroups:I
 
-    if-le v0, p1, :cond_0
+    if-le v3, p1, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->beginpos:[I
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->beginpos:[I
 
-    aget v1, v0, p1
+    aget v0, v3, p1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->endpos:[I
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->endpos:[I
 
-    aget v2, v0, p1
+    aget v1, v3, p1
 
-    if-gez v1, :cond_4
+    if-gez v0, :cond_4
 
     :cond_3
-    return-object v3
+    return-object v4
 
     :cond_4
-    if-ltz v2, :cond_3
+    if-ltz v1, :cond_3
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->ciSource:Ljava/text/CharacterIterator;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->ciSource:Ljava/text/CharacterIterator;
 
-    if-nez v0, :cond_5
+    if-nez v3, :cond_5
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->strSource:Ljava/lang/String;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->strSource:Ljava/lang/String;
 
-    if-nez v0, :cond_6
+    if-nez v3, :cond_6
 
-    new-instance v0, Ljava/lang/String;
+    new-instance v2, Ljava/lang/String;
 
     iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->charSource:[C
 
-    sub-int/2addr v2, v1
+    sub-int v4, v1, v0
 
-    invoke-direct {v0, v3, v1, v2}, Ljava/lang/String;-><init>([CII)V
+    invoke-direct {v2, v3, v0, v4}, Ljava/lang/String;-><init>([CII)V
 
     :goto_0
-    return-object v0
+    return-object v2
 
     :cond_5
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->ciSource:Ljava/text/CharacterIterator;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->ciSource:Ljava/text/CharacterIterator;
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->substring(Ljava/text/CharacterIterator;II)Ljava/lang/String;
+    invoke-static {v3, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->substring(Ljava/text/CharacterIterator;II)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
     goto :goto_0
 
     :cond_6
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->strSource:Ljava/lang/String;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->strSource:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v3, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
     goto :goto_0
 .end method
@@ -415,8 +416,6 @@
 .method protected setNumberOfGroups(I)V
     .locals 4
 
-    const/4 v0, 0x0
-
     const/4 v3, -0x1
 
     iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->nofgroups:I
@@ -426,28 +425,31 @@
     if-gtz v1, :cond_1
 
     :cond_0
-    new-array v1, p1, [I
+    new-array v2, p1, [I
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->beginpos:[I
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->beginpos:[I
 
-    new-array v1, p1, [I
+    new-array v2, p1, [I
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->endpos:[I
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->endpos:[I
 
     :goto_0
+    const/4 v0, 0x0
+
+    :goto_1
     if-ge v0, p1, :cond_2
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->beginpos:[I
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->beginpos:[I
 
-    aput v3, v1, v0
+    aput v3, v2, v0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->endpos:[I
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/Match;->endpos:[I
 
-    aput v3, v1, v0
+    aput v3, v2, v0
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_1
     if-lt v1, p1, :cond_0

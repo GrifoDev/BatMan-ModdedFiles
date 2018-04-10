@@ -51,20 +51,22 @@
 .end method
 
 .method public endContentModel([I)Z
-    .locals 2
+    .locals 3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    aget v0, p1, v1
+    const/4 v0, 0x0
 
-    if-ltz v0, :cond_0
+    aget v1, p1, v2
 
-    const/4 v0, 0x1
+    if-ltz v1, :cond_0
 
-    return v0
+    const/4 v2, 0x1
+
+    return v2
 
     :cond_0
-    return v1
+    return v2
 .end method
 
 .method public getTermName(I)Ljava/lang/String;

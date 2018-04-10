@@ -126,8 +126,6 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
-
     goto :goto_0
 .end method
 
@@ -240,8 +238,6 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
-
     goto :goto_0
 .end method
 
@@ -275,8 +271,6 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
-
     goto :goto_0
 .end method
 
@@ -309,8 +303,6 @@
     invoke-virtual {p1}, Lcom/android/server/enterprise/otp/engine/handler/proto/pskc/generic/StructureData;->getEncryptedValue()Lcom/android/server/enterprise/otp/engine/handler/proto/pskc/encryptionkey/EncryptedType;
 
     move-result-object v0
-
-    if-eqz v0, :cond_0
 
     goto :goto_0
 .end method

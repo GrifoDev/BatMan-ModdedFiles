@@ -1,6 +1,9 @@
 .class Lcom/android/server/power/ShutdownThread$18;
-.super Ljava/lang/Thread;
+.super Ljava/lang/Object;
 .source "ShutdownThread.java"
+
+# interfaces
+.implements Landroid/os/RecoverySystem$ProgressListener;
 
 
 # annotations
@@ -17,93 +20,115 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/power/ShutdownThread;
 
-.field final synthetic val$done:[Z
-
-.field final synthetic val$progressListener:Landroid/os/RecoverySystem$ProgressListener;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/server/power/ShutdownThread;Landroid/os/RecoverySystem$ProgressListener;[Z)V
+.method constructor <init>(Lcom/android/server/power/ShutdownThread;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/power/ShutdownThread$18;->this$0:Lcom/android/server/power/ShutdownThread;
 
-    iput-object p2, p0, Lcom/android/server/power/ShutdownThread$18;->val$progressListener:Landroid/os/RecoverySystem$ProgressListener;
-
-    iput-object p3, p0, Lcom/android/server/power/ShutdownThread$18;->val$done:[Z
-
-    invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 7
+.method public onProgress(I)V
+    .locals 4
 
-    const/4 v6, 0x0
+    const/16 v0, 0x64
 
-    iget-object v3, p0, Lcom/android/server/power/ShutdownThread$18;->this$0:Lcom/android/server/power/ShutdownThread;
+    if-ltz p1, :cond_1
 
-    invoke-static {v3}, Lcom/android/server/power/ShutdownThread;->-get8(Lcom/android/server/power/ShutdownThread;)Landroid/content/Context;
+    if-ge p1, v0, :cond_1
 
-    move-result-object v3
+    int-to-double v0, p1
 
-    const-string/jumbo v4, "recovery"
+    const-wide/high16 v2, 0x4054000000000000L    # 80.0
 
-    invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    mul-double/2addr v0, v2
+
+    const-wide/high16 v2, 0x4059000000000000L    # 100.0
+
+    div-double/2addr v0, v2
+
+    double-to-int v0, v0
+
+    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->-set10(I)I
+
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get22()I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, 0x14
+
+    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->-set10(I)I
+
+    iget-object v0, p0, Lcom/android/server/power/ShutdownThread$18;->this$0:Lcom/android/server/power/ShutdownThread;
+
+    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->-get9(Lcom/android/server/power/ShutdownThread;)Landroid/content/Context;
+
+    move-result-object v0
+
+    const v1, 0x104087c
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->-set9(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get25()Lcom/android/server/power/ShutdownThread;
+
+    move-result-object v0
+
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get22()I
+
+    move-result v1
+
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get21()Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    check-cast v2, Landroid/os/RecoverySystem;
+    invoke-static {v0, v1, v2}, Lcom/android/server/power/ShutdownThread;->-wrap13(Lcom/android/server/power/ShutdownThread;ILjava/lang/CharSequence;)V
 
-    const/4 v1, 0x0
-
-    :try_start_0
-    sget-object v3, Landroid/os/RecoverySystem;->UNCRYPT_PACKAGE_FILE:Ljava/io/File;
-
-    const/4 v4, 0x0
-
-    const/4 v5, 0x0
-
-    invoke-static {v3, v4, v5}, Landroid/os/FileUtils;->readTextFile(Ljava/io/File;ILjava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    iget-object v3, p0, Lcom/android/server/power/ShutdownThread$18;->this$0:Lcom/android/server/power/ShutdownThread;
-
-    invoke-static {v3}, Lcom/android/server/power/ShutdownThread;->-get8(Lcom/android/server/power/ShutdownThread;)Landroid/content/Context;
-
-    move-result-object v3
-
-    new-instance v4, Ljava/io/File;
-
-    invoke-direct {v4, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    iget-object v5, p0, Lcom/android/server/power/ShutdownThread$18;->val$progressListener:Landroid/os/RecoverySystem$ProgressListener;
-
-    invoke-static {v3, v4, v5}, Landroid/os/RecoverySystem;->processPackage(Landroid/content/Context;Ljava/io/File;Landroid/os/RecoverySystem$ProgressListener;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-
+    :cond_0
     :goto_0
-    iget-object v3, p0, Lcom/android/server/power/ShutdownThread$18;->val$done:[Z
-
-    const/4 v4, 0x1
-
-    aput-boolean v4, v3, v6
-
     return-void
 
-    :catch_0
-    move-exception v0
+    :cond_1
+    if-ne p1, v0, :cond_0
 
-    const-string/jumbo v3, "ShutdownThread"
+    invoke-static {p1}, Lcom/android/server/power/ShutdownThread;->-set10(I)I
 
-    const-string/jumbo v4, "Error uncrypting file"
+    iget-object v0, p0, Lcom/android/server/power/ShutdownThread$18;->this$0:Lcom/android/server/power/ShutdownThread;
 
-    invoke-static {v3, v4, v0}, Lcom/android/server/power/ShutdownThread$Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)I
+    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->-get9(Lcom/android/server/power/ShutdownThread;)Landroid/content/Context;
+
+    move-result-object v0
+
+    const v1, 0x104087e
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->-set9(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get25()Lcom/android/server/power/ShutdownThread;
+
+    move-result-object v0
+
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get22()I
+
+    move-result v1
+
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get21()Ljava/lang/CharSequence;
+
+    move-result-object v2
+
+    invoke-static {v0, v1, v2}, Lcom/android/server/power/ShutdownThread;->-wrap13(Lcom/android/server/power/ShutdownThread;ILjava/lang/CharSequence;)V
 
     goto :goto_0
 .end method

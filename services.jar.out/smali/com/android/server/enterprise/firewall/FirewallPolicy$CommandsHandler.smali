@@ -32,122 +32,90 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 14
-
-    const/4 v11, 0x0
+    .locals 7
 
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
-    move-result-object v4
+    move-result-object v1
 
-    const-string/jumbo v12, "command"
+    const-string/jumbo v4, "command"
 
-    invoke-virtual {v4, v12}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, v4}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v12, "type"
+    const-string/jumbo v4, "type"
 
-    const/4 v13, -0x1
+    const/4 v5, -0x1
 
-    invoke-virtual {v4, v12, v13}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {v1, v4, v5}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
-    move-result v10
+    move-result v3
 
-    new-instance v3, Ljava/util/ArrayList;
+    iget-object v4, p0, Lcom/android/server/enterprise/firewall/FirewallPolicy$CommandsHandler;->this$0:Lcom/android/server/enterprise/firewall/FirewallPolicy;
 
-    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+    invoke-static {v4}, Lcom/android/server/enterprise/firewall/FirewallPolicy;->-get2(Lcom/android/server/enterprise/firewall/FirewallPolicy;)Landroid/net/INetd;
 
-    const-string/jumbo v12, " "
+    move-result-object v4
 
-    invoke-virtual {v0, v12}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    if-nez v4, :cond_0
 
-    move-result-object v2
+    iget-object v4, p0, Lcom/android/server/enterprise/firewall/FirewallPolicy$CommandsHandler;->this$0:Lcom/android/server/enterprise/firewall/FirewallPolicy;
 
-    const-string/jumbo v9, ""
-
-    array-length v12, v2
-
-    :goto_0
-    if-ge v11, v12, :cond_0
-
-    aget-object v1, v2, v11
-
-    invoke-interface {v3, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    add-int/lit8 v11, v11, 0x1
-
-    goto :goto_0
+    invoke-static {v4}, Lcom/android/server/enterprise/firewall/FirewallPolicy;->-wrap4(Lcom/android/server/enterprise/firewall/FirewallPolicy;)V
 
     :cond_0
+    iget-object v4, p0, Lcom/android/server/enterprise/firewall/FirewallPolicy$CommandsHandler;->this$0:Lcom/android/server/enterprise/firewall/FirewallPolicy;
+
+    invoke-static {v4}, Lcom/android/server/enterprise/firewall/FirewallPolicy;->-get2(Lcom/android/server/enterprise/firewall/FirewallPolicy;)Landroid/net/INetd;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_1
+
     :try_start_0
-    new-instance v11, Ljava/lang/ProcessBuilder;
+    iget-object v4, p0, Lcom/android/server/enterprise/firewall/FirewallPolicy$CommandsHandler;->this$0:Lcom/android/server/enterprise/firewall/FirewallPolicy;
 
-    const/4 v12, 0x0
+    invoke-static {v4}, Lcom/android/server/enterprise/firewall/FirewallPolicy;->-get2(Lcom/android/server/enterprise/firewall/FirewallPolicy;)Landroid/net/INetd;
 
-    new-array v12, v12, [Ljava/lang/String;
+    move-result-object v4
 
-    invoke-direct {v11, v12}, Ljava/lang/ProcessBuilder;-><init>([Ljava/lang/String;)V
-
-    invoke-virtual {v11, v3}, Ljava/lang/ProcessBuilder;->command(Ljava/util/List;)Ljava/lang/ProcessBuilder;
-
-    move-result-object v11
-
-    const/4 v12, 0x1
-
-    invoke-virtual {v11, v12}, Ljava/lang/ProcessBuilder;->redirectErrorStream(Z)Ljava/lang/ProcessBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/ProcessBuilder;->start()Ljava/lang/Process;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/Process;->waitFor()I
-
-    iget-object v11, p0, Lcom/android/server/enterprise/firewall/FirewallPolicy$CommandsHandler;->this$0:Lcom/android/server/enterprise/firewall/FirewallPolicy;
-
-    invoke-static {v11, v8}, Lcom/android/server/enterprise/firewall/FirewallPolicy;->-wrap3(Lcom/android/server/enterprise/firewall/FirewallPolicy;Ljava/lang/Process;)Ljava/lang/String;
+    invoke-interface {v4, v0}, Landroid/net/INetd;->runShellCommand(Ljava/lang/String;)Ljava/lang/String;
     :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v9
-
-    :goto_1
+    :cond_1
+    :goto_0
     return-void
 
     :catch_0
-    move-exception v6
+    move-exception v2
 
-    const-string/jumbo v11, "FirewallPolicy"
+    const-string/jumbo v4, "FirewallPolicy"
 
-    const-string/jumbo v12, "Exception on CommandThread"
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-static {v11, v12}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    goto :goto_1
+    const-string/jumbo v6, "Binding: "
 
-    :catch_1
-    move-exception v7
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v11, "FirewallPolicy"
+    move-result-object v5
 
-    const-string/jumbo v12, "InterruptedException iptables command failed "
+    invoke-virtual {v2}, Landroid/os/RemoteException;->getMessage()Ljava/lang/String;
 
-    invoke-static {v11, v12}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v6
 
-    goto :goto_1
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :catch_2
-    move-exception v5
+    move-result-object v5
 
-    const-string/jumbo v11, "FirewallPolicy"
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string/jumbo v12, "IOException iptables command failed "
+    move-result-object v5
 
-    invoke-static {v11, v12}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_0
 .end method

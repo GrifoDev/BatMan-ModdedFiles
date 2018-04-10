@@ -55,43 +55,43 @@
 
     const/4 v3, 0x0
 
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->fNamespaceSize:I
+    iget v1, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->fNamespaceSize:I
+
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->fNamespace:[Ljava/lang/String;
+
+    array-length v2, v2
+
+    if-eq v1, v2, :cond_0
+
+    :goto_0
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->fNamespace:[Ljava/lang/String;
+
+    iget v2, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->fNamespaceSize:I
+
+    add-int/lit8 v3, v2, 0x1
+
+    iput v3, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->fNamespaceSize:I
+
+    aput-object p1, v1, v2
 
     iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->fNamespace:[Ljava/lang/String;
 
-    array-length v1, v1
+    iget v2, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->fNamespaceSize:I
 
-    if-eq v0, v1, :cond_0
+    add-int/lit8 v3, v2, 0x1
 
-    :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->fNamespace:[Ljava/lang/String;
+    iput v3, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->fNamespaceSize:I
 
-    iget v1, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->fNamespaceSize:I
-
-    add-int/lit8 v2, v1, 0x1
-
-    iput v2, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->fNamespaceSize:I
-
-    aput-object p1, v0, v1
-
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->fNamespace:[Ljava/lang/String;
-
-    iget v1, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->fNamespaceSize:I
-
-    add-int/lit8 v2, v1, 0x1
-
-    iput v2, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->fNamespaceSize:I
-
-    aput-object p2, v0, v1
+    aput-object p2, v1, v2
 
     return-void
 
     :cond_0
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->fNamespaceSize:I
+    iget v1, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->fNamespaceSize:I
 
-    mul-int/lit8 v0, v0, 0x2
+    mul-int/lit8 v1, v1, 0x2
 
-    new-array v0, v0, [Ljava/lang/String;
+    new-array v0, v1, [Ljava/lang/String;
 
     iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->fNamespace:[Ljava/lang/String;
 
@@ -105,71 +105,65 @@
 .end method
 
 .method private fillNamespaceContext()V
-    .locals 10
+    .locals 9
 
-    const/4 v5, 0x0
+    const/4 v7, 0x0
 
-    const/4 v2, 0x0
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->this$0:Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->this$0:Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;
+    invoke-static {v6}, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;->access$1(Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;)Lmf/org/w3c/dom/Node;
 
-    invoke-static {v0}, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;->access$1(Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;)Lmf/org/w3c/dom/Node;
+    move-result-object v6
 
-    move-result-object v0
-
-    if-nez v0, :cond_1
+    if-nez v6, :cond_1
 
     :cond_0
     return-void
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->this$0:Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->this$0:Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;
 
-    invoke-static {v0}, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;->access$1(Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;)Lmf/org/w3c/dom/Node;
+    invoke-static {v6}, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;->access$1(Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;)Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getParentNode()Lmf/org/w3c/dom/Node;
+    invoke-interface {v6}, Lmf/org/w3c/dom/Node;->getParentNode()Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
-
-    move-object v3, v0
+    move-result-object v3
 
     :goto_0
     if-eqz v3, :cond_0
 
     invoke-interface {v3}, Lmf/org/w3c/dom/Node;->getNodeType()S
 
-    move-result v0
+    move-result v6
 
-    const/4 v1, 0x1
+    const/4 v8, 0x1
 
-    if-eq v1, v0, :cond_3
+    if-eq v8, v6, :cond_3
 
     :cond_2
     invoke-interface {v3}, Lmf/org/w3c/dom/Node;->getParentNode()Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
-
-    move-object v3, v0
+    move-result-object v3
 
     goto :goto_0
 
     :cond_3
     invoke-interface {v3}, Lmf/org/w3c/dom/Node;->getAttributes()Lmf/org/w3c/dom/NamedNodeMap;
 
-    move-result-object v6
+    move-result-object v2
 
-    invoke-interface {v6}, Lmf/org/w3c/dom/NamedNodeMap;->getLength()I
+    invoke-interface {v2}, Lmf/org/w3c/dom/NamedNodeMap;->getLength()I
 
-    move-result v7
+    move-result v1
 
-    move v4, v5
+    const/4 v4, 0x0
 
     :goto_1
-    if-ge v4, v7, :cond_2
+    if-ge v4, v1, :cond_2
 
-    invoke-interface {v6, v4}, Lmf/org/w3c/dom/NamedNodeMap;->item(I)Lmf/org/w3c/dom/Node;
+    invoke-interface {v2, v4}, Lmf/org/w3c/dom/NamedNodeMap;->item(I)Lmf/org/w3c/dom/Node;
 
     move-result-object v0
 
@@ -177,116 +171,114 @@
 
     invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getValue()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v5
 
-    if-eqz v1, :cond_4
+    if-eqz v5, :cond_4
 
     :goto_2
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->this$0:Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;
+
     iget-object v8, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->this$0:Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;
 
-    iget-object v9, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->this$0:Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;
+    iget-object v8, v8, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v9, v9, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    invoke-static {v6, v8, v0}, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;->access$2(Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;Lmf/org/apache/xerces/xni/QName;Lmf/org/w3c/dom/Node;)V
 
-    invoke-static {v8, v9, v0}, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;->access$2(Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;Lmf/org/apache/xerces/xni/QName;Lmf/org/w3c/dom/Node;)V
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->this$0:Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->this$0:Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;
+    iget-object v6, v6, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
-
-    iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    iget-object v6, v6, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
 
     sget-object v8, Lmf/org/apache/xerces/xni/NamespaceContext;->XMLNS_URI:Ljava/lang/String;
 
-    if-eq v0, v8, :cond_5
+    if-eq v6, v8, :cond_5
 
     :goto_3
-    add-int/lit8 v0, v4, 0x1
-
-    move v4, v0
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_1
 
     :cond_4
-    sget-object v1, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v5, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
     goto :goto_2
 
     :cond_5
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->this$0:Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->this$0:Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v6, v6, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    iget-object v6, v6, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
 
     sget-object v8, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
 
-    if-eq v0, v8, :cond_6
+    if-eq v6, v8, :cond_6
 
     sget-object v8, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v6
 
-    if-nez v0, :cond_8
+    if-nez v6, :cond_8
 
-    move-object v0, v2
+    move-object v6, v7
 
     :goto_4
-    invoke-direct {p0, v8, v0}, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->declarePrefix0(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {p0, v8, v6}, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->declarePrefix0(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_3
 
     :cond_6
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->this$0:Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->this$0:Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v6, v6, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v8, v0, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
+    iget-object v8, v6, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v6
 
-    if-nez v0, :cond_7
+    if-nez v6, :cond_7
 
-    move-object v0, v2
+    move-object v6, v7
 
     :goto_5
-    invoke-direct {p0, v8, v0}, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->declarePrefix0(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {p0, v8, v6}, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->declarePrefix0(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_3
 
     :cond_7
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->this$0:Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->this$0:Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;
 
-    invoke-static {v0}, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;->access$3(Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;)Lmf/org/apache/xerces/util/SymbolTable;
+    invoke-static {v6}, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;->access$3(Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;)Lmf/org/apache/xerces/util/SymbolTable;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v6, v5}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v6
 
     goto :goto_5
 
     :cond_8
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->this$0:Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->this$0:Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;
 
-    invoke-static {v0}, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;->access$3(Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;)Lmf/org/apache/xerces/util/SymbolTable;
+    invoke-static {v6}, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;->access$3(Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;)Lmf/org/apache/xerces/util/SymbolTable;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v6, v5}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v6
 
     goto :goto_4
 .end method
 
 .method private getURI0(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .locals 3
 
     const/4 v0, 0x0
 
@@ -308,16 +300,16 @@
     :cond_0
     iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->fNamespace:[Ljava/lang/String;
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v0, 0x1
 
-    aget-object v0, v1, v0
+    aget-object v1, v1, v2
 
-    return-object v0
+    return-object v1
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 .end method
 
 
@@ -405,13 +397,13 @@
 .method public getURI(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->this$0:Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;->this$0:Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;
 
-    invoke-static {v0}, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;->access$0(Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;)Lmf/org/apache/xerces/util/NamespaceSupport;
+    invoke-static {v1}, Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;->access$0(Lmf/org/apache/xerces/jaxp/validation/DOMValidatorHelper;)Lmf/org/apache/xerces/util/NamespaceSupport;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, p1}, Lmf/org/apache/xerces/util/NamespaceSupport;->getURI(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, p1}, Lmf/org/apache/xerces/util/NamespaceSupport;->getURI(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 

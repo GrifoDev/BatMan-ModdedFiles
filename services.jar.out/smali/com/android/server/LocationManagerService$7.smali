@@ -1,6 +1,9 @@
 .class Lcom/android/server/LocationManagerService$7;
-.super Landroid/content/BroadcastReceiver;
+.super Ljava/lang/Object;
 .source "LocationManagerService.java"
+
+# interfaces
+.implements Landroid/app/ActivityManager$OnUidImportanceListener;
 
 
 # annotations
@@ -24,266 +27,472 @@
 
     iput-object p1, p0, Lcom/android/server/LocationManagerService$7;->this$0:Lcom/android/server/LocationManagerService;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 8
+.method public onUidImportance(II)V
+    .locals 14
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v5, "LocationManagerService"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "broadcast received action : "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v5, "android.intent.action.USER_SWITCHED"
-
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static/range {p2 .. p2}, Lcom/android/server/LocationManagerService;->-wrap2(I)Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    new-instance v0, Ljava/util/HashSet;
 
-    iget-object v5, p0, Lcom/android/server/LocationManagerService$7;->this$0:Lcom/android/server/LocationManagerService;
+    iget-object v10, p0, Lcom/android/server/LocationManagerService$7;->this$0:Lcom/android/server/LocationManagerService;
 
-    const-string/jumbo v6, "android.intent.extra.user_handle"
+    invoke-static {v10}, Lcom/android/server/LocationManagerService;->-get21(Lcom/android/server/LocationManagerService;)Ljava/util/HashMap;
 
-    const/4 v7, 0x0
+    move-result-object v10
 
-    invoke-virtual {p2, v6, v7}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {v10}, Ljava/util/HashMap;->size()I
 
-    move-result v6
+    move-result v10
 
-    invoke-static {v5, v6}, Lcom/android/server/LocationManagerService;->-wrap7(Lcom/android/server/LocationManagerService;I)V
+    invoke-direct {v0, v10}, Ljava/util/HashSet;-><init>(I)V
+
+    iget-object v10, p0, Lcom/android/server/LocationManagerService$7;->this$0:Lcom/android/server/LocationManagerService;
+
+    invoke-static {v10}, Lcom/android/server/LocationManagerService;->-get17(Lcom/android/server/LocationManagerService;)Ljava/lang/Object;
+
+    move-result-object v11
+
+    monitor-enter v11
+
+    :try_start_0
+    iget-object v10, p0, Lcom/android/server/LocationManagerService$7;->this$0:Lcom/android/server/LocationManagerService;
+
+    invoke-static {v10}, Lcom/android/server/LocationManagerService;->-get21(Lcom/android/server/LocationManagerService;)Ljava/util/HashMap;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
+
+    move-result-object v10
+
+    invoke-interface {v10}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
 
     :cond_0
-    :goto_0
-    return-void
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
-    :cond_1
-    const-string/jumbo v5, "android.intent.action.MANAGED_PROFILE_ADDED"
+    move-result v10
 
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-eqz v10, :cond_3
 
-    move-result v5
-
-    if-nez v5, :cond_2
-
-    const-string/jumbo v5, "android.intent.action.MANAGED_PROFILE_REMOVED"
-
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_3
-
-    :cond_2
-    iget-object v5, p0, Lcom/android/server/LocationManagerService$7;->this$0:Lcom/android/server/LocationManagerService;
-
-    iget-object v6, p0, Lcom/android/server/LocationManagerService$7;->this$0:Lcom/android/server/LocationManagerService;
-
-    invoke-static {v6}, Lcom/android/server/LocationManagerService;->-get2(Lcom/android/server/LocationManagerService;)I
-
-    move-result v6
-
-    invoke-virtual {v5, v6}, Lcom/android/server/LocationManagerService;->updateUserProfiles(I)V
-
-    goto :goto_0
-
-    :cond_3
-    const-string/jumbo v5, "android.intent.action.ACTION_SHUTDOWN"
-
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_4
-
-    iget-object v5, p0, Lcom/android/server/LocationManagerService$7;->this$0:Lcom/android/server/LocationManagerService;
-
-    invoke-static {v5}, Lcom/android/server/LocationManagerService;->-wrap6(Lcom/android/server/LocationManagerService;)V
-
-    goto :goto_0
-
-    :cond_4
-    const-string/jumbo v5, "android.intent.action.BOOT_COMPLETED"
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_5
-
-    iget-object v5, p0, Lcom/android/server/LocationManagerService$7;->this$0:Lcom/android/server/LocationManagerService;
-
-    new-instance v6, Lcom/samsung/android/location/CellGeofenceProvider;
-
-    invoke-direct {v6}, Lcom/samsung/android/location/CellGeofenceProvider;-><init>()V
-
-    iput-object v6, v5, Lcom/android/server/LocationManagerService;->cellProvider:Lcom/samsung/android/location/CellGeofenceProvider;
-
-    iget-object v5, p0, Lcom/android/server/LocationManagerService$7;->this$0:Lcom/android/server/LocationManagerService;
-
-    iget-object v5, v5, Lcom/android/server/LocationManagerService;->cellProvider:Lcom/samsung/android/location/CellGeofenceProvider;
-
-    invoke-virtual {v5}, Lcom/samsung/android/location/CellGeofenceProvider;->isEnabled()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_0
-
-    iget-object v5, p0, Lcom/android/server/LocationManagerService$7;->this$0:Lcom/android/server/LocationManagerService;
-
-    iget-object v5, v5, Lcom/android/server/LocationManagerService;->cellProvider:Lcom/samsung/android/location/CellGeofenceProvider;
-
-    invoke-virtual {v5}, Lcom/samsung/android/location/CellGeofenceProvider;->enable()V
-
-    goto :goto_0
-
-    :cond_5
-    const-string/jumbo v5, "ATT"
-
-    invoke-static {}, Lcom/android/server/LocationManagerService;->-get11()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-nez v5, :cond_6
-
-    const-string/jumbo v5, "AIO"
-
-    invoke-static {}, Lcom/android/server/LocationManagerService;->-get11()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_0
-
-    :cond_6
-    const-string/jumbo v5, "com.samsung.intent.action.BCS_REQUEST"
-
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_0
-
-    invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
-    if-nez v3, :cond_7
+    check-cast v3, Ljava/util/Map$Entry;
 
-    const-string/jumbo v5, "LocationManagerService"
+    invoke-interface {v3}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    const-string/jumbo v6, "extra is null "
+    move-result-object v6
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    check-cast v6, Ljava/lang/String;
 
-    goto/16 :goto_0
+    invoke-interface {v3}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v10
+
+    check-cast v10, Ljava/util/ArrayList;
+
+    invoke-interface {v10}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v9
+
+    :cond_1
+    :goto_0
+    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_0
+
+    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Lcom/android/server/LocationManagerService$UpdateRecord;
+
+    iget-object v10, v8, Lcom/android/server/LocationManagerService$UpdateRecord;->mReceiver:Lcom/android/server/LocationManagerService$Receiver;
+
+    iget-object v10, v10, Lcom/android/server/LocationManagerService$Receiver;->mIdentity:Lcom/android/server/LocationManagerService$Identity;
+
+    iget v10, v10, Lcom/android/server/LocationManagerService$Identity;->mUid:I
+
+    if-ne v10, p1, :cond_1
+
+    iget-boolean v10, v8, Lcom/android/server/LocationManagerService$UpdateRecord;->mIsForegroundUid:Z
+
+    if-eq v10, v5, :cond_1
+
+    const-string/jumbo v12, "LocationManagerService"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v13, "request from uid "
+
+    invoke-virtual {v10, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v13, " is now "
+
+    invoke-virtual {v10, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    if-eqz v5, :cond_2
+
+    const-string/jumbo v10, "foreground"
+
+    :goto_1
+    invoke-virtual {v13, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v12, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput-boolean v5, v8, Lcom/android/server/LocationManagerService$UpdateRecord;->mIsForegroundUid:Z
+
+    iget-object v10, p0, Lcom/android/server/LocationManagerService$7;->this$0:Lcom/android/server/LocationManagerService;
+
+    iget-object v12, v8, Lcom/android/server/LocationManagerService$UpdateRecord;->mReceiver:Lcom/android/server/LocationManagerService$Receiver;
+
+    iget-object v12, v12, Lcom/android/server/LocationManagerService$Receiver;->mIdentity:Lcom/android/server/LocationManagerService$Identity;
+
+    invoke-static {v10, v12}, Lcom/android/server/LocationManagerService;->-wrap3(Lcom/android/server/LocationManagerService;Lcom/android/server/LocationManagerService$Identity;)Z
+
+    move-result v10
+
+    if-nez v10, :cond_1
+
+    invoke-virtual {v0, v6}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v10
+
+    monitor-exit v11
+
+    throw v10
+
+    :cond_2
+    :try_start_1
+    const-string/jumbo v10, "background)"
+
+    goto :goto_1
+
+    :cond_3
+    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v7
+
+    :goto_2
+    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_4
+
+    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Ljava/lang/String;
+
+    iget-object v10, p0, Lcom/android/server/LocationManagerService$7;->this$0:Lcom/android/server/LocationManagerService;
+
+    invoke-static {v10, v6}, Lcom/android/server/LocationManagerService;->-wrap7(Lcom/android/server/LocationManagerService;Ljava/lang/String;)V
+
+    goto :goto_2
+
+    :cond_4
+    iget-object v10, p0, Lcom/android/server/LocationManagerService$7;->this$0:Lcom/android/server/LocationManagerService;
+
+    invoke-static {v10}, Lcom/android/server/LocationManagerService;->-get8(Lcom/android/server/LocationManagerService;)Landroid/util/ArrayMap;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Landroid/util/ArrayMap;->entrySet()Ljava/util/Set;
+
+    move-result-object v10
+
+    invoke-interface {v10}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :cond_5
+    :goto_3
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_9
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/util/Map$Entry;
+
+    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v10
+
+    check-cast v10, Lcom/android/server/LocationManagerService$Identity;
+
+    iget v10, v10, Lcom/android/server/LocationManagerService$Identity;->mUid:I
+
+    if-ne v10, p1, :cond_5
+
+    const-string/jumbo v12, "LocationManagerService"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v13, "gnss measurements listener from uid "
+
+    invoke-virtual {v10, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v13, " is now "
+
+    invoke-virtual {v10, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    if-eqz v5, :cond_7
+
+    const-string/jumbo v10, "foreground"
+
+    :goto_4
+    invoke-virtual {v13, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v12, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-nez v5, :cond_6
+
+    iget-object v12, p0, Lcom/android/server/LocationManagerService$7;->this$0:Lcom/android/server/LocationManagerService;
+
+    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v10
+
+    check-cast v10, Lcom/android/server/LocationManagerService$Identity;
+
+    invoke-static {v12, v10}, Lcom/android/server/LocationManagerService;->-wrap3(Lcom/android/server/LocationManagerService;Lcom/android/server/LocationManagerService$Identity;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_8
+
+    :cond_6
+    iget-object v10, p0, Lcom/android/server/LocationManagerService$7;->this$0:Lcom/android/server/LocationManagerService;
+
+    invoke-static {v10}, Lcom/android/server/LocationManagerService;->-get9(Lcom/android/server/LocationManagerService;)Lcom/android/server/location/GnssMeasurementsProvider;
+
+    move-result-object v12
+
+    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v10
+
+    check-cast v10, Landroid/location/IGnssMeasurementsListener;
+
+    invoke-virtual {v12, v10}, Lcom/android/server/location/GnssMeasurementsProvider;->addListener(Landroid/os/IInterface;)Z
+
+    goto :goto_3
 
     :cond_7
-    const-string/jumbo v5, "command"
+    const-string/jumbo v10, "background)"
 
-    invoke-virtual {v3, v5}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    goto :goto_4
+
+    :cond_8
+    iget-object v10, p0, Lcom/android/server/LocationManagerService$7;->this$0:Lcom/android/server/LocationManagerService;
+
+    invoke-static {v10}, Lcom/android/server/LocationManagerService;->-get9(Lcom/android/server/LocationManagerService;)Lcom/android/server/location/GnssMeasurementsProvider;
+
+    move-result-object v12
+
+    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v10
+
+    check-cast v10, Landroid/location/IGnssMeasurementsListener;
+
+    invoke-virtual {v12, v10}, Lcom/android/server/location/GnssMeasurementsProvider;->removeListener(Landroid/os/IInterface;)V
+
+    goto :goto_3
+
+    :cond_9
+    iget-object v10, p0, Lcom/android/server/LocationManagerService$7;->this$0:Lcom/android/server/LocationManagerService;
+
+    invoke-static {v10}, Lcom/android/server/LocationManagerService;->-get10(Lcom/android/server/LocationManagerService;)Landroid/util/ArrayMap;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Landroid/util/ArrayMap;->entrySet()Ljava/util/Set;
+
+    move-result-object v10
+
+    invoke-interface {v10}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :cond_a
+    :goto_5
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_e
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
-    const-string/jumbo v5, "LocationManagerService"
+    check-cast v2, Ljava/util/Map$Entry;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v10
 
-    const-string/jumbo v7, "command: "
+    check-cast v10, Lcom/android/server/LocationManagerService$Identity;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v10, v10, Lcom/android/server/LocationManagerService$Identity;->mUid:I
 
-    move-result-object v6
+    if-ne v10, p1, :cond_a
 
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v12, "LocationManagerService"
 
-    move-result-object v6
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v6
+    const-string/jumbo v13, "gnss navigation message listener from uid "
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v10, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v5, "AT+GPSVALUE"
+    move-result-object v10
 
-    invoke-virtual {v5, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result v5
+    move-result-object v10
 
-    if-eqz v5, :cond_0
+    const-string/jumbo v13, " is now "
 
-    new-instance v1, Landroid/content/Intent;
+    invoke-virtual {v10, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v5, "com.samsung.intent.action.BCS_RESPONSE"
+    move-result-object v13
 
-    invoke-direct {v1, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    if-eqz v5, :cond_c
 
-    iget-object v5, p0, Lcom/android/server/LocationManagerService$7;->this$0:Lcom/android/server/LocationManagerService;
+    const-string/jumbo v10, "foreground"
 
-    const-string/jumbo v6, "gps"
+    :goto_6
+    invoke-virtual {v13, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Lcom/android/server/LocationManagerService;->isProviderEnabled(Ljava/lang/String;)Z
+    move-result-object v10
 
-    move-result v5
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    if-eqz v5, :cond_8
+    move-result-object v10
 
-    const-string/jumbo v4, "ON"
+    invoke-static {v12, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_1
-    const-string/jumbo v5, "response"
+    if-nez v5, :cond_b
 
-    invoke-virtual {v1, v5, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    iget-object v12, p0, Lcom/android/server/LocationManagerService$7;->this$0:Lcom/android/server/LocationManagerService;
 
-    iget-object v5, p0, Lcom/android/server/LocationManagerService$7;->this$0:Lcom/android/server/LocationManagerService;
+    invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    invoke-static {v5}, Lcom/android/server/LocationManagerService;->-get1(Lcom/android/server/LocationManagerService;)Landroid/content/Context;
+    move-result-object v10
 
-    move-result-object v5
+    check-cast v10, Lcom/android/server/LocationManagerService$Identity;
 
-    invoke-virtual {v5, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-static {v12, v10}, Lcom/android/server/LocationManagerService;->-wrap3(Lcom/android/server/LocationManagerService;Lcom/android/server/LocationManagerService$Identity;)Z
 
-    goto/16 :goto_0
+    move-result v10
 
-    :cond_8
-    const-string/jumbo v4, "OFF"
+    if-eqz v10, :cond_d
 
-    goto :goto_1
+    :cond_b
+    iget-object v10, p0, Lcom/android/server/LocationManagerService$7;->this$0:Lcom/android/server/LocationManagerService;
+
+    invoke-static {v10}, Lcom/android/server/LocationManagerService;->-get11(Lcom/android/server/LocationManagerService;)Lcom/android/server/location/GnssNavigationMessageProvider;
+
+    move-result-object v12
+
+    invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v10
+
+    check-cast v10, Landroid/location/IGnssNavigationMessageListener;
+
+    invoke-virtual {v12, v10}, Lcom/android/server/location/GnssNavigationMessageProvider;->addListener(Landroid/os/IInterface;)Z
+
+    goto :goto_5
+
+    :cond_c
+    const-string/jumbo v10, "background)"
+
+    goto :goto_6
+
+    :cond_d
+    iget-object v10, p0, Lcom/android/server/LocationManagerService$7;->this$0:Lcom/android/server/LocationManagerService;
+
+    invoke-static {v10}, Lcom/android/server/LocationManagerService;->-get11(Lcom/android/server/LocationManagerService;)Lcom/android/server/location/GnssNavigationMessageProvider;
+
+    move-result-object v12
+
+    invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v10
+
+    check-cast v10, Landroid/location/IGnssNavigationMessageListener;
+
+    invoke-virtual {v12, v10}, Lcom/android/server/location/GnssNavigationMessageProvider;->removeListener(Landroid/os/IInterface;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_5
+
+    :cond_e
+    monitor-exit v11
+
+    return-void
 .end method

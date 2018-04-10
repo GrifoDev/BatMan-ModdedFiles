@@ -11,117 +11,121 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .locals 7
 
-    new-instance v0, Ljava/util/Hashtable;
+    new-instance v5, Ljava/util/Hashtable;
 
-    invoke-direct {v0}, Ljava/util/Hashtable;-><init>()V
+    invoke-direct {v5}, Ljava/util/Hashtable;-><init>()V
 
-    sput-object v0, Lmf/org/apache/xml/serialize/SerializerFactory;->_factories:Ljava/util/Hashtable;
+    sput-object v5, Lmf/org/apache/xml/serialize/SerializerFactory;->_factories:Ljava/util/Hashtable;
 
-    new-instance v0, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;
+    new-instance v2, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;
 
-    const-string/jumbo v1, "xml"
+    const-string/jumbo v5, "xml"
 
-    invoke-direct {v0, v1}, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v5}, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;-><init>(Ljava/lang/String;)V
 
-    invoke-static {v0}, Lmf/org/apache/xml/serialize/SerializerFactory;->registerSerializerFactory(Lmf/org/apache/xml/serialize/SerializerFactory;)V
+    invoke-static {v2}, Lmf/org/apache/xml/serialize/SerializerFactory;->registerSerializerFactory(Lmf/org/apache/xml/serialize/SerializerFactory;)V
 
-    new-instance v0, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;
+    new-instance v2, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;
 
-    const-string/jumbo v1, "html"
+    const-string/jumbo v5, "html"
 
-    invoke-direct {v0, v1}, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v5}, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;-><init>(Ljava/lang/String;)V
 
-    invoke-static {v0}, Lmf/org/apache/xml/serialize/SerializerFactory;->registerSerializerFactory(Lmf/org/apache/xml/serialize/SerializerFactory;)V
+    invoke-static {v2}, Lmf/org/apache/xml/serialize/SerializerFactory;->registerSerializerFactory(Lmf/org/apache/xml/serialize/SerializerFactory;)V
 
-    new-instance v0, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;
+    new-instance v2, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;
 
-    const-string/jumbo v1, "xhtml"
+    const-string/jumbo v5, "xhtml"
 
-    invoke-direct {v0, v1}, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v5}, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;-><init>(Ljava/lang/String;)V
 
-    invoke-static {v0}, Lmf/org/apache/xml/serialize/SerializerFactory;->registerSerializerFactory(Lmf/org/apache/xml/serialize/SerializerFactory;)V
+    invoke-static {v2}, Lmf/org/apache/xml/serialize/SerializerFactory;->registerSerializerFactory(Lmf/org/apache/xml/serialize/SerializerFactory;)V
 
-    new-instance v0, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;
+    new-instance v2, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;
 
-    const-string/jumbo v1, "text"
+    const-string/jumbo v5, "text"
 
-    invoke-direct {v0, v1}, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v5}, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;-><init>(Ljava/lang/String;)V
 
-    invoke-static {v0}, Lmf/org/apache/xml/serialize/SerializerFactory;->registerSerializerFactory(Lmf/org/apache/xml/serialize/SerializerFactory;)V
+    invoke-static {v2}, Lmf/org/apache/xml/serialize/SerializerFactory;->registerSerializerFactory(Lmf/org/apache/xml/serialize/SerializerFactory;)V
 
-    const-string/jumbo v0, "org.apache.xml.serialize.factories"
+    const-string/jumbo v5, "org.apache.xml.serialize.factories"
 
-    invoke-static {v0}, Lmf/org/apache/xml/serialize/SecuritySupport;->getSystemProperty(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v5}, Lmf/org/apache/xml/serialize/SecuritySupport;->getSystemProperty(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    if-nez v0, :cond_1
+    if-nez v3, :cond_1
 
     :cond_0
     return-void
 
     :cond_1
-    new-instance v1, Ljava/util/StringTokenizer;
+    new-instance v4, Ljava/util/StringTokenizer;
 
-    const-string/jumbo v2, " ;,:"
+    const-string/jumbo v5, " ;,:"
 
-    invoke-direct {v1, v0, v2}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v4, v3, v5}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_2
     :goto_0
-    invoke-virtual {v1}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
+    invoke-virtual {v4}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
 
-    move-result v0
+    move-result v5
 
-    if-eqz v0, :cond_0
+    if-eqz v5, :cond_0
 
-    invoke-virtual {v1}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     :try_start_0
-    const-class v2, Lmf/org/apache/xml/serialize/SerializerFactory;
+    const-class v5, Lmf/org/apache/xml/serialize/SerializerFactory;
 
-    invoke-virtual {v2}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    invoke-virtual {v5}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
-    move-result-object v2
+    move-result-object v5
 
-    const/4 v3, 0x1
+    const/4 v6, 0x1
 
-    invoke-static {v0, v2, v3}, Lmf/org/apache/xml/serialize/ObjectFactory;->newInstance(Ljava/lang/String;Ljava/lang/ClassLoader;Z)Ljava/lang/Object;
+    invoke-static {v1, v5, v6}, Lmf/org/apache/xml/serialize/ObjectFactory;->newInstance(Ljava/lang/String;Ljava/lang/ClassLoader;Z)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v5
+
+    move-object v0, v5
 
     check-cast v0, Lmf/org/apache/xml/serialize/SerializerFactory;
 
-    sget-object v2, Lmf/org/apache/xml/serialize/SerializerFactory;->_factories:Ljava/util/Hashtable;
+    move-object v2, v0
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/serialize/SerializerFactory;->getSupportedMethod()Ljava/lang/String;
+    sget-object v5, Lmf/org/apache/xml/serialize/SerializerFactory;->_factories:Ljava/util/Hashtable;
 
-    move-result-object v3
+    invoke-virtual {v2}, Lmf/org/apache/xml/serialize/SerializerFactory;->getSupportedMethod()Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/util/Hashtable;->containsKey(Ljava/lang/Object;)Z
+    move-result-object v6
 
-    move-result v2
+    invoke-virtual {v5, v6}, Ljava/util/Hashtable;->containsKey(Ljava/lang/Object;)Z
 
-    if-eqz v2, :cond_2
+    move-result v5
 
-    sget-object v2, Lmf/org/apache/xml/serialize/SerializerFactory;->_factories:Ljava/util/Hashtable;
+    if-eqz v5, :cond_2
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/serialize/SerializerFactory;->getSupportedMethod()Ljava/lang/String;
+    sget-object v5, Lmf/org/apache/xml/serialize/SerializerFactory;->_factories:Ljava/util/Hashtable;
 
-    move-result-object v3
+    invoke-virtual {v2}, Lmf/org/apache/xml/serialize/SerializerFactory;->getSupportedMethod()Ljava/lang/String;
 
-    invoke-virtual {v2, v3, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v6
+
+    invoke-virtual {v5, v6, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception v5
 
     goto :goto_0
 .end method
@@ -151,31 +155,31 @@
 .method public static registerSerializerFactory(Lmf/org/apache/xml/serialize/SerializerFactory;)V
     .locals 3
 
-    sget-object v1, Lmf/org/apache/xml/serialize/SerializerFactory;->_factories:Ljava/util/Hashtable;
+    sget-object v0, Lmf/org/apache/xml/serialize/SerializerFactory;->_factories:Ljava/util/Hashtable;
 
-    monitor-enter v1
+    monitor-enter v0
 
     :try_start_0
     invoke-virtual {p0}, Lmf/org/apache/xml/serialize/SerializerFactory;->getSupportedMethod()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     sget-object v2, Lmf/org/apache/xml/serialize/SerializerFactory;->_factories:Ljava/util/Hashtable;
 
-    invoke-virtual {v2, v0, p0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v1, p0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    monitor-exit v1
+    monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception v2
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v2
 .end method
 
 

@@ -3,11 +3,6 @@
 .source "HeaderElement.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract getName()Ljava/lang/String;
 .end method

@@ -10,10 +10,10 @@
 # static fields
 .field private static final BUFFER_SIZE:I = 0x1000
 
+.field private static final TAG:Ljava/lang/String; = "DomainFilterDaemonConnector"
+
 
 # instance fields
-.field private final TAG:Ljava/lang/String;
-
 .field private mCallback:Lcom/android/server/enterprise/firewall/INativeDaemonConnectorCallback;
 
 .field private mCallbackHandler:Landroid/os/Handler;
@@ -32,10 +32,6 @@
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const-string/jumbo v0, "DomainFilterDaemonConnector"
-
-    iput-object v0, p0, Lcom/android/server/enterprise/firewall/DomainFilterDaemonConnector;->TAG:Ljava/lang/String;
 
     new-instance v0, Ljava/lang/Object;
 
@@ -57,8 +53,6 @@
 .method static appendEscaped(Ljava/lang/StringBuilder;Ljava/lang/String;)V
     .locals 6
 
-    const/4 v1, 0x0
-
     const/16 v5, 0x22
 
     const/16 v4, 0x20
@@ -67,23 +61,23 @@
 
     move-result v4
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_1
 
     const/4 v1, 0x1
 
-    :cond_0
-    if-eqz v1, :cond_1
+    :goto_0
+    if-eqz v1, :cond_0
 
     invoke-virtual {p0, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :cond_1
+    :cond_0
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v3
 
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_1
     if-ge v2, v3, :cond_4
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
@@ -96,8 +90,13 @@
 
     invoke-virtual {p0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :goto_1
+    :goto_2
     add-int/lit8 v2, v2, 0x1
+
+    goto :goto_1
+
+    :cond_1
+    const/4 v1, 0x0
 
     goto :goto_0
 
@@ -110,12 +109,12 @@
 
     invoke-virtual {p0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_3
     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_4
     if-eqz v1, :cond_5

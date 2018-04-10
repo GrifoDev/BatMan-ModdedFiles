@@ -47,179 +47,179 @@
 
 # virtual methods
 .method public getAttribute(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 4
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
         }
     .end annotation
 
-    const/4 v1, 0x0
+    iget-object v5, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
-
-    if-nez v0, :cond_1
+    if-nez v5, :cond_1
 
     :cond_0
+    const/4 v0, 0x0
+
     :try_start_0
-    new-instance v0, Lmf/org/apache/xerces/jaxp/DocumentBuilderImpl;
+    new-instance v5, Lmf/org/apache/xerces/jaxp/DocumentBuilderImpl;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->features:Ljava/util/Hashtable;
+    iget-object v7, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->features:Ljava/util/Hashtable;
 
-    invoke-direct {v0, p0, v2, v3}, Lmf/org/apache/xerces/jaxp/DocumentBuilderImpl;-><init>(Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;Ljava/util/Hashtable;Ljava/util/Hashtable;)V
+    invoke-direct {v5, p0, v6, v7}, Lmf/org/apache/xerces/jaxp/DocumentBuilderImpl;-><init>(Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;Ljava/util/Hashtable;Ljava/util/Hashtable;)V
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/jaxp/DocumentBuilderImpl;->getDOMParser()Lmf/org/apache/xerces/parsers/DOMParser;
+    invoke-virtual {v5}, Lmf/org/apache/xerces/jaxp/DocumentBuilderImpl;->getDOMParser()Lmf/org/apache/xerces/parsers/DOMParser;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, p1}, Lmf/org/apache/xerces/parsers/DOMParser;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Lmf/org/apache/xerces/parsers/DOMParser;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
     :try_end_0
     .catch Lorg/xml/sax/SAXException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v0
+    move-result-object v5
 
-    return-object v0
+    return-object v5
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
+    iget-object v5, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v4
 
-    if-eqz v0, :cond_0
+    if-eqz v4, :cond_0
 
-    return-object v0
+    return-object v4
 
     :catch_0
-    move-exception v0
+    move-exception v2
 
     :try_start_1
-    invoke-virtual {v1, p1}, Lmf/org/apache/xerces/parsers/DOMParser;->getFeature(Ljava/lang/String;)Z
+    invoke-virtual {v0, p1}, Lmf/org/apache/xerces/parsers/DOMParser;->getFeature(Ljava/lang/String;)Z
 
     move-result v1
 
     if-nez v1, :cond_2
 
-    sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    sget-object v5, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     :goto_0
-    return-object v0
+    return-object v5
 
     :cond_2
-    sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    sget-object v5, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
     :try_end_1
     .catch Lorg/xml/sax/SAXException; {:try_start_1 .. :try_end_1} :catch_1
 
     goto :goto_0
 
     :catch_1
-    move-exception v1
+    move-exception v3
 
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance v5, Ljava/lang/IllegalArgumentException;
 
-    invoke-virtual {v0}, Lorg/xml/sax/SAXException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Lorg/xml/sax/SAXException;->getMessage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5, v6}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v5
 .end method
 
 .method public getFeature(Ljava/lang/String;)Z
-    .locals 3
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/javax/xml/parsers/ParserConfigurationException;
         }
     .end annotation
 
-    const/4 v0, 0x1
+    const/4 v3, 0x1
 
-    const/4 v1, 0x0
+    const/4 v4, 0x0
 
-    const-string/jumbo v2, "http://javax.xml.XMLConstants/feature/secure-processing"
+    const-string/jumbo v5, "http://javax.xml.XMLConstants/feature/secure-processing"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v5
 
-    if-nez v2, :cond_1
+    if-nez v5, :cond_1
 
-    const-string/jumbo v2, "http://xml.org/sax/features/namespaces"
+    const-string/jumbo v5, "http://xml.org/sax/features/namespaces"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v5
 
-    if-nez v2, :cond_2
+    if-nez v5, :cond_2
 
-    const-string/jumbo v2, "http://xml.org/sax/features/validation"
+    const-string/jumbo v5, "http://xml.org/sax/features/validation"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v5
 
-    if-nez v2, :cond_3
+    if-nez v5, :cond_3
 
-    const-string/jumbo v2, "http://apache.org/xml/features/xinclude"
+    const-string/jumbo v5, "http://apache.org/xml/features/xinclude"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v5
 
-    if-nez v2, :cond_4
+    if-nez v5, :cond_4
 
-    const-string/jumbo v2, "http://apache.org/xml/features/dom/include-ignorable-whitespace"
+    const-string/jumbo v5, "http://apache.org/xml/features/dom/include-ignorable-whitespace"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v5
 
-    if-nez v2, :cond_5
+    if-nez v5, :cond_5
 
-    const-string/jumbo v2, "http://apache.org/xml/features/dom/create-entity-ref-nodes"
+    const-string/jumbo v5, "http://apache.org/xml/features/dom/create-entity-ref-nodes"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v5
 
-    if-nez v2, :cond_7
+    if-nez v5, :cond_7
 
-    const-string/jumbo v2, "http://apache.org/xml/features/include-comments"
+    const-string/jumbo v5, "http://apache.org/xml/features/include-comments"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v5
 
-    if-nez v2, :cond_9
+    if-nez v5, :cond_9
 
-    const-string/jumbo v2, "http://apache.org/xml/features/create-cdata-nodes"
+    const-string/jumbo v5, "http://apache.org/xml/features/create-cdata-nodes"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v5
 
-    if-nez v2, :cond_b
+    if-nez v5, :cond_b
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->features:Ljava/util/Hashtable;
+    iget-object v3, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->features:Ljava/util/Hashtable;
 
-    if-nez v0, :cond_d
+    if-nez v3, :cond_d
 
     :cond_0
     :try_start_0
-    new-instance v0, Lmf/org/apache/xerces/jaxp/DocumentBuilderImpl;
+    new-instance v3, Lmf/org/apache/xerces/jaxp/DocumentBuilderImpl;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
+    iget-object v4, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->features:Ljava/util/Hashtable;
+    iget-object v5, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->features:Ljava/util/Hashtable;
 
-    invoke-direct {v0, p0, v1, v2}, Lmf/org/apache/xerces/jaxp/DocumentBuilderImpl;-><init>(Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;Ljava/util/Hashtable;Ljava/util/Hashtable;)V
+    invoke-direct {v3, p0, v4, v5}, Lmf/org/apache/xerces/jaxp/DocumentBuilderImpl;-><init>(Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;Ljava/util/Hashtable;Ljava/util/Hashtable;)V
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/jaxp/DocumentBuilderImpl;->getDOMParser()Lmf/org/apache/xerces/parsers/DOMParser;
+    invoke-virtual {v3}, Lmf/org/apache/xerces/jaxp/DocumentBuilderImpl;->getDOMParser()Lmf/org/apache/xerces/parsers/DOMParser;
 
     move-result-object v0
 
@@ -227,125 +227,125 @@
     :try_end_0
     .catch Lorg/xml/sax/SAXException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v0
+    move-result v3
 
-    return v0
+    return v3
 
     :cond_1
-    iget-boolean v0, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->fSecureProcess:Z
+    iget-boolean v3, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->fSecureProcess:Z
 
-    return v0
+    return v3
 
     :cond_2
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->isNamespaceAware()Z
 
-    move-result v0
+    move-result v3
 
-    return v0
+    return v3
 
     :cond_3
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->isValidating()Z
 
-    move-result v0
+    move-result v3
 
-    return v0
+    return v3
 
     :cond_4
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->isXIncludeAware()Z
 
-    move-result v0
+    move-result v3
 
-    return v0
+    return v3
 
     :cond_5
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->isIgnoringElementContentWhitespace()Z
 
-    move-result v2
+    move-result v5
 
-    if-nez v2, :cond_6
+    if-nez v5, :cond_6
 
     :goto_0
-    return v0
+    return v3
 
     :cond_6
-    move v0, v1
+    move v3, v4
 
     goto :goto_0
 
     :cond_7
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->isExpandEntityReferences()Z
 
-    move-result v2
+    move-result v5
 
-    if-nez v2, :cond_8
+    if-nez v5, :cond_8
 
     :goto_1
-    return v0
+    return v3
 
     :cond_8
-    move v0, v1
+    move v3, v4
 
     goto :goto_1
 
     :cond_9
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->isIgnoringComments()Z
 
-    move-result v2
+    move-result v5
 
-    if-nez v2, :cond_a
+    if-nez v5, :cond_a
 
     :goto_2
-    return v0
+    return v3
 
     :cond_a
-    move v0, v1
+    move v3, v4
 
     goto :goto_2
 
     :cond_b
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->isCoalescing()Z
 
-    move-result v2
+    move-result v5
 
-    if-nez v2, :cond_c
+    if-nez v5, :cond_c
 
     :goto_3
-    return v0
+    return v3
 
     :cond_c
-    move v0, v1
+    move v3, v4
 
     goto :goto_3
 
     :cond_d
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->features:Ljava/util/Hashtable;
+    iget-object v3, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->features:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
-    check-cast v0, Ljava/lang/Boolean;
+    check-cast v2, Ljava/lang/Boolean;
 
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v0
+    move-result v3
 
-    return v0
+    return v3
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    new-instance v1, Lmf/javax/xml/parsers/ParserConfigurationException;
+    new-instance v3, Lmf/javax/xml/parsers/ParserConfigurationException;
 
-    invoke-virtual {v0}, Lorg/xml/sax/SAXException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Lorg/xml/sax/SAXException;->getMessage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v4
 
-    invoke-direct {v1, v0}, Lmf/javax/xml/parsers/ParserConfigurationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Lmf/javax/xml/parsers/ParserConfigurationException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v3
 .end method
 
 .method public getSchema()Lmf/javax/xml/validation/Schema;
@@ -372,93 +372,93 @@
         }
     .end annotation
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
     const/4 v5, 0x0
 
     const/4 v4, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->grammar:Lmf/javax/xml/validation/Schema;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->grammar:Lmf/javax/xml/validation/Schema;
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     :cond_0
     :try_start_0
-    new-instance v0, Lmf/org/apache/xerces/jaxp/DocumentBuilderImpl;
+    new-instance v1, Lmf/org/apache/xerces/jaxp/DocumentBuilderImpl;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->features:Ljava/util/Hashtable;
+    iget-object v3, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->features:Ljava/util/Hashtable;
 
-    iget-boolean v3, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->fSecureProcess:Z
+    iget-boolean v4, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->fSecureProcess:Z
 
-    invoke-direct {v0, p0, v1, v2, v3}, Lmf/org/apache/xerces/jaxp/DocumentBuilderImpl;-><init>(Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;Ljava/util/Hashtable;Ljava/util/Hashtable;Z)V
+    invoke-direct {v1, p0, v2, v3, v4}, Lmf/org/apache/xerces/jaxp/DocumentBuilderImpl;-><init>(Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;Ljava/util/Hashtable;Ljava/util/Hashtable;Z)V
     :try_end_0
     .catch Lorg/xml/sax/SAXException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object v1
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
 
-    const-string/jumbo v1, "http://java.sun.com/xml/jaxp/properties/schemaLanguage"
+    const-string/jumbo v2, "http://java.sun.com/xml/jaxp/properties/schemaLanguage"
 
-    invoke-virtual {v0, v1}, Ljava/util/Hashtable;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/util/Hashtable;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_2
+    if-nez v1, :cond_2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
 
-    const-string/jumbo v1, "http://java.sun.com/xml/jaxp/properties/schemaSource"
+    const-string/jumbo v2, "http://java.sun.com/xml/jaxp/properties/schemaSource"
 
-    invoke-virtual {v0, v1}, Ljava/util/Hashtable;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/util/Hashtable;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    new-instance v0, Lmf/javax/xml/parsers/ParserConfigurationException;
+    new-instance v1, Lmf/javax/xml/parsers/ParserConfigurationException;
 
-    const-string/jumbo v1, "schema-already-specified"
-
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v2, v3, [Ljava/lang/Object;
 
     const-string/jumbo v3, "http://java.sun.com/xml/jaxp/properties/schemaSource"
 
-    aput-object v3, v2, v4
+    aput-object v3, v2, v5
 
-    invoke-static {v5, v1, v2}, Lmf/org/apache/xerces/util/SAXMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    const-string/jumbo v3, "schema-already-specified"
 
-    move-result-object v1
+    invoke-static {v4, v3, v2}, Lmf/org/apache/xerces/util/SAXMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Lmf/javax/xml/parsers/ParserConfigurationException;-><init>(Ljava/lang/String;)V
+    move-result-object v2
 
-    throw v0
+    invoke-direct {v1, v2}, Lmf/javax/xml/parsers/ParserConfigurationException;-><init>(Ljava/lang/String;)V
+
+    throw v1
 
     :cond_2
-    new-instance v0, Lmf/javax/xml/parsers/ParserConfigurationException;
+    new-instance v1, Lmf/javax/xml/parsers/ParserConfigurationException;
 
-    const-string/jumbo v1, "schema-already-specified"
-
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v2, v3, [Ljava/lang/Object;
 
     const-string/jumbo v3, "http://java.sun.com/xml/jaxp/properties/schemaLanguage"
 
-    aput-object v3, v2, v4
+    aput-object v3, v2, v5
 
-    invoke-static {v5, v1, v2}, Lmf/org/apache/xerces/util/SAXMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    const-string/jumbo v3, "schema-already-specified"
 
-    move-result-object v1
+    invoke-static {v4, v3, v2}, Lmf/org/apache/xerces/util/SAXMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Lmf/javax/xml/parsers/ParserConfigurationException;-><init>(Ljava/lang/String;)V
+    move-result-object v2
 
-    throw v0
+    invoke-direct {v1, v2}, Lmf/javax/xml/parsers/ParserConfigurationException;-><init>(Ljava/lang/String;)V
+
+    throw v1
 
     :catch_0
     move-exception v0
@@ -467,15 +467,15 @@
 
     invoke-virtual {v0}, Lorg/xml/sax/SAXException;->getMessage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-direct {v1, v0}, Lmf/javax/xml/parsers/ParserConfigurationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Lmf/javax/xml/parsers/ParserConfigurationException;-><init>(Ljava/lang/String;)V
 
     throw v1
 .end method
 
 .method public setAttribute(Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -484,49 +484,49 @@
 
     if-eqz p2, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
-
-    if-eqz v0, :cond_2
-
-    :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
-
-    invoke-virtual {v0, p1, p2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    :try_start_0
-    new-instance v0, Lmf/org/apache/xerces/jaxp/DocumentBuilderImpl;
-
     iget-object v1, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->features:Ljava/util/Hashtable;
+    if-eqz v1, :cond_2
 
-    invoke-direct {v0, p0, v1, v2}, Lmf/org/apache/xerces/jaxp/DocumentBuilderImpl;-><init>(Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;Ljava/util/Hashtable;Ljava/util/Hashtable;)V
+    :goto_0
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
+
+    invoke-virtual {v1, p1, p2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :try_start_0
+    new-instance v1, Lmf/org/apache/xerces/jaxp/DocumentBuilderImpl;
+
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
+
+    iget-object v3, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->features:Ljava/util/Hashtable;
+
+    invoke-direct {v1, p0, v2, v3}, Lmf/org/apache/xerces/jaxp/DocumentBuilderImpl;-><init>(Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;Ljava/util/Hashtable;Ljava/util/Hashtable;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     :goto_1
     return-void
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p1}, Ljava/util/Hashtable;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_1
 
     :cond_2
-    new-instance v0, Ljava/util/Hashtable;
+    new-instance v1, Ljava/util/Hashtable;
 
-    invoke-direct {v0}, Ljava/util/Hashtable;-><init>()V
+    invoke-direct {v1}, Ljava/util/Hashtable;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
+    iput-object v1, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
 
     goto :goto_0
 
@@ -541,111 +541,111 @@
 
     invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v1
 .end method
 
 .method public setFeature(Ljava/lang/String;Z)V
-    .locals 3
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/javax/xml/parsers/ParserConfigurationException;
         }
     .end annotation
 
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    const-string/jumbo v2, "http://javax.xml.XMLConstants/feature/secure-processing"
+    const-string/jumbo v4, "http://javax.xml.XMLConstants/feature/secure-processing"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v4
 
-    if-nez v2, :cond_0
+    if-nez v4, :cond_0
 
-    const-string/jumbo v2, "http://xml.org/sax/features/namespaces"
+    const-string/jumbo v4, "http://xml.org/sax/features/namespaces"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v4
 
-    if-nez v2, :cond_1
+    if-nez v4, :cond_1
 
-    const-string/jumbo v2, "http://xml.org/sax/features/validation"
+    const-string/jumbo v4, "http://xml.org/sax/features/validation"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v4
 
-    if-nez v2, :cond_2
+    if-nez v4, :cond_2
 
-    const-string/jumbo v2, "http://apache.org/xml/features/xinclude"
+    const-string/jumbo v4, "http://apache.org/xml/features/xinclude"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v4
 
-    if-nez v2, :cond_3
+    if-nez v4, :cond_3
 
-    const-string/jumbo v2, "http://apache.org/xml/features/dom/include-ignorable-whitespace"
+    const-string/jumbo v4, "http://apache.org/xml/features/dom/include-ignorable-whitespace"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v4
 
-    if-nez v2, :cond_4
+    if-nez v4, :cond_4
 
-    const-string/jumbo v2, "http://apache.org/xml/features/dom/create-entity-ref-nodes"
+    const-string/jumbo v4, "http://apache.org/xml/features/dom/create-entity-ref-nodes"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v4
 
-    if-nez v2, :cond_6
+    if-nez v4, :cond_6
 
-    const-string/jumbo v2, "http://apache.org/xml/features/include-comments"
+    const-string/jumbo v4, "http://apache.org/xml/features/include-comments"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v4
 
-    if-nez v2, :cond_8
+    if-nez v4, :cond_8
 
-    const-string/jumbo v2, "http://apache.org/xml/features/create-cdata-nodes"
+    const-string/jumbo v4, "http://apache.org/xml/features/create-cdata-nodes"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v4
 
-    if-nez v2, :cond_a
-
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->features:Ljava/util/Hashtable;
-
-    if-eqz v0, :cond_c
-
-    :goto_0
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->features:Ljava/util/Hashtable;
-
-    if-nez p2, :cond_d
-
-    sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
-
-    :goto_1
-    invoke-virtual {v1, p1, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    :try_start_0
-    new-instance v0, Lmf/org/apache/xerces/jaxp/DocumentBuilderImpl;
-
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
+    if-nez v4, :cond_a
 
     iget-object v2, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->features:Ljava/util/Hashtable;
 
-    invoke-direct {v0, p0, v1, v2}, Lmf/org/apache/xerces/jaxp/DocumentBuilderImpl;-><init>(Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;Ljava/util/Hashtable;Ljava/util/Hashtable;)V
+    if-eqz v2, :cond_c
+
+    :goto_0
+    iget-object v3, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->features:Ljava/util/Hashtable;
+
+    if-nez p2, :cond_d
+
+    sget-object v2, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+
+    :goto_1
+    invoke-virtual {v3, p1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :try_start_0
+    new-instance v2, Lmf/org/apache/xerces/jaxp/DocumentBuilderImpl;
+
+    iget-object v3, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->attributes:Ljava/util/Hashtable;
+
+    iget-object v4, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->features:Ljava/util/Hashtable;
+
+    invoke-direct {v2, p0, v3, v4}, Lmf/org/apache/xerces/jaxp/DocumentBuilderImpl;-><init>(Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;Ljava/util/Hashtable;Ljava/util/Hashtable;)V
     :try_end_0
     .catch Lorg/xml/sax/SAXNotSupportedException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Lorg/xml/sax/SAXNotRecognizedException; {:try_start_0 .. :try_end_0} :catch_1
@@ -676,12 +676,12 @@
     if-nez p2, :cond_5
 
     :goto_2
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->setIgnoringElementContentWhitespace(Z)V
+    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->setIgnoringElementContentWhitespace(Z)V
 
     return-void
 
     :cond_5
-    move v0, v1
+    move v2, v3
 
     goto :goto_2
 
@@ -689,12 +689,12 @@
     if-nez p2, :cond_7
 
     :goto_3
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->setExpandEntityReferences(Z)V
+    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->setExpandEntityReferences(Z)V
 
     return-void
 
     :cond_7
-    move v0, v1
+    move v2, v3
 
     goto :goto_3
 
@@ -702,12 +702,12 @@
     if-nez p2, :cond_9
 
     :goto_4
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->setIgnoringComments(Z)V
+    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->setIgnoringComments(Z)V
 
     return-void
 
     :cond_9
-    move v0, v1
+    move v2, v3
 
     goto :goto_4
 
@@ -715,62 +715,62 @@
     if-nez p2, :cond_b
 
     :goto_5
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->setCoalescing(Z)V
+    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->setCoalescing(Z)V
 
     return-void
 
     :cond_b
-    move v0, v1
+    move v2, v3
 
     goto :goto_5
 
     :cond_c
-    new-instance v0, Ljava/util/Hashtable;
+    new-instance v2, Ljava/util/Hashtable;
 
-    invoke-direct {v0}, Ljava/util/Hashtable;-><init>()V
+    invoke-direct {v2}, Ljava/util/Hashtable;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->features:Ljava/util/Hashtable;
+    iput-object v2, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->features:Ljava/util/Hashtable;
 
     goto :goto_0
 
     :cond_d
-    sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    sget-object v2, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     goto :goto_1
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->features:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->features:Ljava/util/Hashtable;
 
-    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1}, Ljava/util/Hashtable;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v1, Lmf/javax/xml/parsers/ParserConfigurationException;
+    new-instance v2, Lmf/javax/xml/parsers/ParserConfigurationException;
 
-    invoke-virtual {v0}, Lorg/xml/sax/SAXNotSupportedException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Lorg/xml/sax/SAXNotSupportedException;->getMessage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-direct {v1, v0}, Lmf/javax/xml/parsers/ParserConfigurationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Lmf/javax/xml/parsers/ParserConfigurationException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v2
 
     :catch_1
     move-exception v0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->features:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/DocumentBuilderFactoryImpl;->features:Ljava/util/Hashtable;
 
-    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1}, Ljava/util/Hashtable;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v1, Lmf/javax/xml/parsers/ParserConfigurationException;
+    new-instance v2, Lmf/javax/xml/parsers/ParserConfigurationException;
 
     invoke-virtual {v0}, Lorg/xml/sax/SAXNotRecognizedException;->getMessage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-direct {v1, v0}, Lmf/javax/xml/parsers/ParserConfigurationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Lmf/javax/xml/parsers/ParserConfigurationException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v2
 .end method
 
 .method public setSchema(Lmf/javax/xml/validation/Schema;)V

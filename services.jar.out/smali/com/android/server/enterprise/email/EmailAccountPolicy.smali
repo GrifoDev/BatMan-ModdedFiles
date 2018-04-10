@@ -147,79 +147,78 @@
 .end method
 
 .method private fillInEmailAccountData(Lcom/android/server/enterprise/email/AccountMetaData;)Lcom/samsung/android/knox/accounts/Account;
-    .locals 7
+    .locals 6
 
-    const/4 v1, 0x0
-
-    const/4 v6, -0x1
+    const/4 v3, -0x1
 
     const-wide/16 v4, -0x1
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     new-instance v0, Lcom/samsung/android/knox/accounts/Account;
 
     invoke-direct {v0}, Lcom/samsung/android/knox/accounts/Account;-><init>()V
 
-    iget v2, p1, Lcom/android/server/enterprise/email/AccountMetaData;->mId:I
+    iget v1, p1, Lcom/android/server/enterprise/email/AccountMetaData;->mId:I
 
-    iput v2, v0, Lcom/samsung/android/knox/accounts/Account;->id:I
+    iput v1, v0, Lcom/samsung/android/knox/accounts/Account;->id:I
 
-    iget-object v2, p1, Lcom/android/server/enterprise/email/AccountMetaData;->mDisplayName:Ljava/lang/String;
+    iget-object v1, p1, Lcom/android/server/enterprise/email/AccountMetaData;->mDisplayName:Ljava/lang/String;
 
-    iput-object v2, v0, Lcom/samsung/android/knox/accounts/Account;->displayName:Ljava/lang/String;
+    iput-object v1, v0, Lcom/samsung/android/knox/accounts/Account;->displayName:Ljava/lang/String;
 
-    iget-object v2, p1, Lcom/android/server/enterprise/email/AccountMetaData;->mEmailAddress:Ljava/lang/String;
+    iget-object v1, p1, Lcom/android/server/enterprise/email/AccountMetaData;->mEmailAddress:Ljava/lang/String;
 
-    iput-object v2, v0, Lcom/samsung/android/knox/accounts/Account;->emailAddress:Ljava/lang/String;
+    iput-object v1, v0, Lcom/samsung/android/knox/accounts/Account;->emailAddress:Ljava/lang/String;
 
-    const-string/jumbo v2, "0"
+    const-string/jumbo v1, "0"
 
-    iput-object v2, v0, Lcom/samsung/android/knox/accounts/Account;->syncKey:Ljava/lang/String;
+    iput-object v1, v0, Lcom/samsung/android/knox/accounts/Account;->syncKey:Ljava/lang/String;
+
+    const/4 v1, 0x0
 
     iput v1, v0, Lcom/samsung/android/knox/accounts/Account;->syncLookback:I
 
-    iget v2, p1, Lcom/android/server/enterprise/email/AccountMetaData;->mSyncInterval:I
+    iget v1, p1, Lcom/android/server/enterprise/email/AccountMetaData;->mSyncInterval:I
 
-    iput v2, v0, Lcom/samsung/android/knox/accounts/Account;->syncInterval:I
+    iput v1, v0, Lcom/samsung/android/knox/accounts/Account;->syncInterval:I
 
     iput-wide v4, v0, Lcom/samsung/android/knox/accounts/Account;->hostAuthKeyRecv:J
 
     iput-wide v4, v0, Lcom/samsung/android/knox/accounts/Account;->hostAuthKeySend:J
 
-    iget v2, p1, Lcom/android/server/enterprise/email/AccountMetaData;->mFlags:I
+    iget v1, p1, Lcom/android/server/enterprise/email/AccountMetaData;->mFlags:I
 
-    iput v2, v0, Lcom/samsung/android/knox/accounts/Account;->flags:I
+    iput v1, v0, Lcom/samsung/android/knox/accounts/Account;->flags:I
 
-    iget-boolean v2, p1, Lcom/android/server/enterprise/email/AccountMetaData;->mIsDefault:Z
+    iget-boolean v1, p1, Lcom/android/server/enterprise/email/AccountMetaData;->mIsDefault:Z
 
-    iput-boolean v2, v0, Lcom/samsung/android/knox/accounts/Account;->isDefault:Z
+    iput-boolean v1, v0, Lcom/samsung/android/knox/accounts/Account;->isDefault:Z
 
-    iput-object v3, v0, Lcom/samsung/android/knox/accounts/Account;->compatibilityUuid:Ljava/lang/String;
+    iput-object v2, v0, Lcom/samsung/android/knox/accounts/Account;->compatibilityUuid:Ljava/lang/String;
 
-    iget-object v2, p1, Lcom/android/server/enterprise/email/AccountMetaData;->mSenderName:Ljava/lang/String;
+    iget-object v1, p1, Lcom/android/server/enterprise/email/AccountMetaData;->mSenderName:Ljava/lang/String;
 
-    iput-object v2, v0, Lcom/samsung/android/knox/accounts/Account;->senderName:Ljava/lang/String;
+    iput-object v1, v0, Lcom/samsung/android/knox/accounts/Account;->senderName:Ljava/lang/String;
 
-    iput-object v3, v0, Lcom/samsung/android/knox/accounts/Account;->ringtoneUri:Ljava/lang/String;
+    iput-object v2, v0, Lcom/samsung/android/knox/accounts/Account;->ringtoneUri:Ljava/lang/String;
 
-    iput-object v3, v0, Lcom/samsung/android/knox/accounts/Account;->protocolVersion:Ljava/lang/String;
+    iput-object v2, v0, Lcom/samsung/android/knox/accounts/Account;->protocolVersion:Ljava/lang/String;
 
-    iput-object v3, v0, Lcom/samsung/android/knox/accounts/Account;->securitySyncKey:Ljava/lang/String;
+    iput-object v2, v0, Lcom/samsung/android/knox/accounts/Account;->securitySyncKey:Ljava/lang/String;
 
-    iget-object v2, p1, Lcom/android/server/enterprise/email/AccountMetaData;->mSignature:Ljava/lang/String;
+    iget-object v1, p1, Lcom/android/server/enterprise/email/AccountMetaData;->mSignature:Ljava/lang/String;
 
-    iput-object v2, v0, Lcom/samsung/android/knox/accounts/Account;->signature:Ljava/lang/String;
+    iput-object v1, v0, Lcom/samsung/android/knox/accounts/Account;->signature:Ljava/lang/String;
 
-    iget-boolean v2, p1, Lcom/android/server/enterprise/email/AccountMetaData;->mEmailNotificationVibrateAlways:Z
+    iget-boolean v1, p1, Lcom/android/server/enterprise/email/AccountMetaData;->mEmailNotificationVibrateAlways:Z
 
-    iput-boolean v2, v0, Lcom/samsung/android/knox/accounts/Account;->emailNotificationVibrateAlways:Z
+    iput-boolean v1, v0, Lcom/samsung/android/knox/accounts/Account;->emailNotificationVibrateAlways:Z
 
-    iget-boolean v2, p1, Lcom/android/server/enterprise/email/AccountMetaData;->mEmailNotificationVibrateAlways:Z
+    iget-boolean v1, p1, Lcom/android/server/enterprise/email/AccountMetaData;->mEmailNotificationVibrateAlways:Z
 
-    if-eqz v2, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
-    :goto_0
     iput-boolean v1, v0, Lcom/samsung/android/knox/accounts/Account;->emailNotificationVibrateWhenSilent:Z
 
     new-instance v1, Lcom/samsung/android/knox/accounts/HostAuth;
@@ -230,7 +229,7 @@
 
     iget-object v1, v0, Lcom/samsung/android/knox/accounts/Account;->hostAuthRecv:Lcom/samsung/android/knox/accounts/HostAuth;
 
-    iput v6, v1, Lcom/samsung/android/knox/accounts/HostAuth;->id:I
+    iput v3, v1, Lcom/samsung/android/knox/accounts/HostAuth;->id:I
 
     iget-object v1, v0, Lcom/samsung/android/knox/accounts/Account;->hostAuthRecv:Lcom/samsung/android/knox/accounts/HostAuth;
 
@@ -304,7 +303,7 @@
 
     iget-object v1, v0, Lcom/samsung/android/knox/accounts/Account;->hostAuthSend:Lcom/samsung/android/knox/accounts/HostAuth;
 
-    iput v6, v1, Lcom/samsung/android/knox/accounts/HostAuth;->id:I
+    iput v3, v1, Lcom/samsung/android/knox/accounts/HostAuth;->id:I
 
     iget-object v1, v0, Lcom/samsung/android/knox/accounts/Account;->hostAuthSend:Lcom/samsung/android/knox/accounts/HostAuth;
 
@@ -371,11 +370,6 @@
     iput-wide v4, v1, Lcom/samsung/android/knox/accounts/HostAuth;->accountKey:J
 
     return-object v0
-
-    :cond_0
-    const/4 v1, 0x1
-
-    goto/16 :goto_0
 .end method
 
 .method private getEDM()Lcom/samsung/android/knox/EnterpriseDeviceManager;
@@ -430,10 +424,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    const/4 p1, 0x0
 
     :cond_0
-    :goto_0
     const-string/jumbo v0, "EmailAccountPolicy"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -457,11 +454,6 @@
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-object p1
-
-    :cond_1
-    const/4 p1, 0x0
-
-    goto :goto_0
 .end method
 
 .method private getValidOutgoingProtocol(Ljava/lang/String;)Ljava/lang/String;
@@ -730,7 +722,9 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    xor-int/lit8 v4, v4, 0x1
+
+    if-nez v4, :cond_0
 
     if-nez p4, :cond_1
 
@@ -850,24 +844,39 @@
 
     if-eqz p13, :cond_4
 
-    if-eqz p14, :cond_c
+    xor-int/lit8 v4, p14, 0x1
+
+    if-eqz v4, :cond_4
+
+    xor-int/lit8 v4, p15, 0x1
+
+    if-eqz v4, :cond_4
+
+    const-string/jumbo v21, "ssl"
 
     :cond_4
-    :goto_0
     if-nez p13, :cond_5
 
     if-eqz p14, :cond_5
 
-    if-eqz p15, :cond_d
+    xor-int/lit8 v4, p15, 0x1
+
+    if-eqz v4, :cond_5
+
+    const-string/jumbo v21, "tls"
 
     :cond_5
-    :goto_1
     if-eqz p13, :cond_6
 
-    if-eqz p14, :cond_e
+    xor-int/lit8 v4, p14, 0x1
+
+    if-eqz v4, :cond_6
+
+    if-eqz p15, :cond_6
+
+    const-string/jumbo v21, "ssl+trustallcerts"
 
     :cond_6
-    :goto_2
     if-nez p13, :cond_7
 
     if-eqz p14, :cond_7
@@ -879,24 +888,39 @@
     :cond_7
     if-eqz p16, :cond_8
 
-    if-eqz p17, :cond_f
+    xor-int/lit8 v4, p17, 0x1
+
+    if-eqz v4, :cond_8
+
+    xor-int/lit8 v4, p18, 0x1
+
+    if-eqz v4, :cond_8
+
+    const-string/jumbo v20, "ssl"
 
     :cond_8
-    :goto_3
     if-nez p16, :cond_9
 
     if-eqz p17, :cond_9
 
-    if-eqz p18, :cond_10
+    xor-int/lit8 v4, p18, 0x1
+
+    if-eqz v4, :cond_9
+
+    const-string/jumbo v20, "tls"
 
     :cond_9
-    :goto_4
     if-eqz p16, :cond_a
 
-    if-eqz p17, :cond_11
+    xor-int/lit8 v4, p17, 0x1
+
+    if-eqz v4, :cond_a
+
+    if-eqz p18, :cond_a
+
+    const-string/jumbo v20, "ssl+trustallcerts"
 
     :cond_a
-    :goto_5
     if-nez p16, :cond_b
 
     if-eqz p17, :cond_b
@@ -1292,7 +1316,7 @@
 
     invoke-static/range {v22 .. v23}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    :goto_6
+    :goto_0
     const-string/jumbo v4, "EmailAccountPolicy"
 
     const-string/jumbo v5, "<<<<<<<<<<<<<<<<<\t\taddNewAccount EX : Broadcasting Email"
@@ -1327,44 +1351,6 @@
 
     return-wide v4
 
-    :cond_c
-    if-nez p15, :cond_4
-
-    const-string/jumbo v21, "ssl"
-
-    goto/16 :goto_0
-
-    :cond_d
-    const-string/jumbo v21, "tls"
-
-    goto/16 :goto_1
-
-    :cond_e
-    if-eqz p15, :cond_6
-
-    const-string/jumbo v21, "ssl+trustallcerts"
-
-    goto/16 :goto_2
-
-    :cond_f
-    if-nez p18, :cond_8
-
-    const-string/jumbo v20, "ssl"
-
-    goto/16 :goto_3
-
-    :cond_10
-    const-string/jumbo v20, "tls"
-
-    goto/16 :goto_4
-
-    :cond_11
-    if-eqz p18, :cond_a
-
-    const-string/jumbo v20, "ssl+trustallcerts"
-
-    goto/16 :goto_5
-
     :catch_0
     move-exception v17
 
@@ -1381,7 +1367,7 @@
 
     invoke-static/range {v22 .. v23}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    goto :goto_6
+    goto :goto_0
 
     :catchall_0
     move-exception v4
@@ -1519,7 +1505,9 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    xor-int/lit8 v4, v4, 0x1
+
+    if-nez v4, :cond_1
 
     if-nez v7, :cond_2
 
@@ -1641,10 +1629,21 @@
 
     iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/EmailAccount;->outgoingServerUseTLS:Z
 
-    if-eqz v4, :cond_d
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_5
+
+    move-object/from16 v0, p2
+
+    iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/EmailAccount;->outgoingServerAcceptAllCertificates:Z
+
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_5
+
+    const-string/jumbo v29, "ssl"
 
     :cond_5
-    :goto_0
     move-object/from16 v0, p2
 
     iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/EmailAccount;->outgoingServerUseSSL:Z
@@ -1661,10 +1660,13 @@
 
     iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/EmailAccount;->outgoingServerAcceptAllCertificates:Z
 
-    if-eqz v4, :cond_e
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_6
+
+    const-string/jumbo v29, "tls"
 
     :cond_6
-    :goto_1
     move-object/from16 v0, p2
 
     iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/EmailAccount;->outgoingServerUseSSL:Z
@@ -1675,10 +1677,19 @@
 
     iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/EmailAccount;->outgoingServerUseTLS:Z
 
-    if-eqz v4, :cond_f
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_7
+
+    move-object/from16 v0, p2
+
+    iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/EmailAccount;->outgoingServerAcceptAllCertificates:Z
+
+    if-eqz v4, :cond_7
+
+    const-string/jumbo v29, "ssl+trustallcerts"
 
     :cond_7
-    :goto_2
     move-object/from16 v0, p2
 
     iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/EmailAccount;->outgoingServerUseSSL:Z
@@ -1710,10 +1721,21 @@
 
     iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/EmailAccount;->incomingServerUseTLS:Z
 
-    if-eqz v4, :cond_10
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_9
+
+    move-object/from16 v0, p2
+
+    iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/EmailAccount;->incomingServerAcceptAllCertificates:Z
+
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_9
+
+    const-string/jumbo v28, "ssl"
 
     :cond_9
-    :goto_3
     move-object/from16 v0, p2
 
     iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/EmailAccount;->incomingServerUseSSL:Z
@@ -1730,10 +1752,13 @@
 
     iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/EmailAccount;->incomingServerAcceptAllCertificates:Z
 
-    if-eqz v4, :cond_11
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_a
+
+    const-string/jumbo v28, "tls"
 
     :cond_a
-    :goto_4
     move-object/from16 v0, p2
 
     iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/EmailAccount;->incomingServerUseSSL:Z
@@ -1744,10 +1769,19 @@
 
     iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/EmailAccount;->incomingServerUseTLS:Z
 
-    if-eqz v4, :cond_12
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_b
+
+    move-object/from16 v0, p2
+
+    iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/EmailAccount;->incomingServerAcceptAllCertificates:Z
+
+    if-eqz v4, :cond_b
+
+    const-string/jumbo v28, "ssl+trustallcerts"
 
     :cond_b
-    :goto_5
     move-object/from16 v0, p2
 
     iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/EmailAccount;->incomingServerUseSSL:Z
@@ -2125,7 +2159,7 @@
 
     invoke-static/range {v30 .. v31}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    :goto_6
+    :goto_0
     const-string/jumbo v4, "EmailAccountPolicy"
 
     const-string/jumbo v5, "<<<<<<<<<<<<<<<<<\t\taddNewAccount NEW : Broadcasting Email"
@@ -2160,60 +2194,6 @@
 
     return-wide v4
 
-    :cond_d
-    move-object/from16 v0, p2
-
-    iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/EmailAccount;->outgoingServerAcceptAllCertificates:Z
-
-    if-nez v4, :cond_5
-
-    const-string/jumbo v29, "ssl"
-
-    goto/16 :goto_0
-
-    :cond_e
-    const-string/jumbo v29, "tls"
-
-    goto/16 :goto_1
-
-    :cond_f
-    move-object/from16 v0, p2
-
-    iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/EmailAccount;->outgoingServerAcceptAllCertificates:Z
-
-    if-eqz v4, :cond_7
-
-    const-string/jumbo v29, "ssl+trustallcerts"
-
-    goto/16 :goto_2
-
-    :cond_10
-    move-object/from16 v0, p2
-
-    iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/EmailAccount;->incomingServerAcceptAllCertificates:Z
-
-    if-nez v4, :cond_9
-
-    const-string/jumbo v28, "ssl"
-
-    goto/16 :goto_3
-
-    :cond_11
-    const-string/jumbo v28, "tls"
-
-    goto/16 :goto_4
-
-    :cond_12
-    move-object/from16 v0, p2
-
-    iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/EmailAccount;->incomingServerAcceptAllCertificates:Z
-
-    if-eqz v4, :cond_b
-
-    const-string/jumbo v28, "ssl+trustallcerts"
-
-    goto/16 :goto_5
-
     :catch_0
     move-exception v17
 
@@ -2230,7 +2210,7 @@
 
     invoke-static/range {v30 .. v31}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    goto :goto_6
+    goto :goto_0
 
     :catchall_0
     move-exception v4
@@ -2696,17 +2676,18 @@
 
     iget-boolean v2, v0, Lcom/android/server/enterprise/email/AccountMetaData;->mIsEAS:Z
 
-    if-eqz v2, :cond_3
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_2
-    return-object v5
+    if-eqz v2, :cond_2
 
-    :cond_3
     invoke-direct {p0, v0}, Lcom/android/server/enterprise/email/EmailAccountPolicy;->fillInEmailAccountData(Lcom/android/server/enterprise/email/AccountMetaData;)Lcom/samsung/android/knox/accounts/Account;
 
     move-result-object v2
 
     return-object v2
+
+    :cond_2
+    return-object v5
 .end method
 
 .method public getAccountId(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)J
@@ -2888,25 +2869,6 @@
 .method public getSecurityInComingServerPassword(Lcom/samsung/android/knox/ContextInfo;J)Ljava/lang/String;
     .locals 8
 
-    iget-object v5, p0, Lcom/android/server/enterprise/email/EmailAccountPolicy;->mContext:Landroid/content/Context;
-
-    invoke-static {v5, p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->isManagedProfileUser(Landroid/content/Context;Lcom/samsung/android/knox/ContextInfo;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_0
-
-    const-string/jumbo v5, "EmailAccountPolicy"
-
-    const-string/jumbo v6, " getSecurityInComingServerPassword calls from Profile return default value"
-
-    invoke-static {v5, v6}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    const/4 v5, 0x0
-
-    return-object v5
-
-    :cond_0
     invoke-direct {p0}, Lcom/android/server/enterprise/email/EmailAccountPolicy;->getEDM()Lcom/samsung/android/knox/EnterpriseDeviceManager;
 
     move-result-object v5
@@ -2976,25 +2938,6 @@
 .method public getSecurityOutGoingServerPassword(Lcom/samsung/android/knox/ContextInfo;J)Ljava/lang/String;
     .locals 8
 
-    iget-object v5, p0, Lcom/android/server/enterprise/email/EmailAccountPolicy;->mContext:Landroid/content/Context;
-
-    invoke-static {v5, p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->isManagedProfileUser(Landroid/content/Context;Lcom/samsung/android/knox/ContextInfo;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_0
-
-    const-string/jumbo v5, "EmailAccountPolicy"
-
-    const-string/jumbo v6, " getSecurityOutGoingServerPassword calls from Profile return default value"
-
-    invoke-static {v5, v6}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    const/4 v5, 0x0
-
-    return-object v5
-
-    :cond_0
     invoke-direct {p0}, Lcom/android/server/enterprise/email/EmailAccountPolicy;->getEDM()Lcom/samsung/android/knox/EnterpriseDeviceManager;
 
     move-result-object v5
@@ -6025,27 +5968,8 @@
 .end method
 
 .method public setSecurityInComingServerPassword(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)J
-    .locals 8
+    .locals 6
 
-    const-wide/16 v6, -0x1
-
-    iget-object v4, p0, Lcom/android/server/enterprise/email/EmailAccountPolicy;->mContext:Landroid/content/Context;
-
-    invoke-static {v4, p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->isManagedProfileUser(Landroid/content/Context;Lcom/samsung/android/knox/ContextInfo;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    const-string/jumbo v4, "EmailAccountPolicy"
-
-    const-string/jumbo v5, " setSecurityInComingServerPassword calls from Profile return default value"
-
-    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    return-wide v6
-
-    :cond_0
     invoke-direct {p0}, Lcom/android/server/enterprise/email/EmailAccountPolicy;->getEDM()Lcom/samsung/android/knox/EnterpriseDeviceManager;
 
     move-result-object v4
@@ -6060,7 +5984,7 @@
 
     move-result-wide v0
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_0
 
     const-string/jumbo v4, "EmailAccountPolicy"
 
@@ -6068,9 +5992,11 @@
 
     invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    return-wide v6
+    const-wide/16 v4, -0x1
 
-    :cond_1
+    return-wide v4
+
+    :cond_0
     :try_start_0
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -6124,27 +6050,8 @@
 .end method
 
 .method public setSecurityOutGoingServerPassword(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)J
-    .locals 8
+    .locals 6
 
-    const-wide/16 v6, -0x1
-
-    iget-object v4, p0, Lcom/android/server/enterprise/email/EmailAccountPolicy;->mContext:Landroid/content/Context;
-
-    invoke-static {v4, p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->isManagedProfileUser(Landroid/content/Context;Lcom/samsung/android/knox/ContextInfo;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    const-string/jumbo v4, "EmailAccountPolicy"
-
-    const-string/jumbo v5, " setSecurityOutGoingServerPassword calls from Profile return default value"
-
-    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    return-wide v6
-
-    :cond_0
     invoke-direct {p0}, Lcom/android/server/enterprise/email/EmailAccountPolicy;->getEDM()Lcom/samsung/android/knox/EnterpriseDeviceManager;
 
     move-result-object v4
@@ -6159,7 +6066,7 @@
 
     move-result-wide v0
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_0
 
     const-string/jumbo v4, "EmailAccountPolicy"
 
@@ -6167,9 +6074,11 @@
 
     invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    return-wide v6
+    const-wide/16 v4, -0x1
 
-    :cond_1
+    return-wide v4
+
+    :cond_0
     :try_start_0
     new-instance v4, Ljava/lang/StringBuilder;
 

@@ -24,27 +24,37 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityStackSupervisor;Lcom/android/server/am/ActivityRecord;Landroid/app/IActivityContainerCallback;I)V
-    .locals 2
+    .locals 5
+
+    const/4 v0, 0x0
+
+    const/4 v4, 0x1
+
+    const/4 v3, 0x0
 
     iput-object p1, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityContainer;->this$0:Lcom/android/server/am/ActivityStackSupervisor;
 
     invoke-virtual {p1}, Lcom/android/server/am/ActivityStackSupervisor;->getNextStackId()I
 
-    move-result v0
+    move-result v1
 
-    invoke-direct {p0, p1, v0}, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;-><init>(Lcom/android/server/am/ActivityStackSupervisor;I)V
+    if-eqz p2, :cond_0
 
-    const/4 v0, 0x0
+    and-int/lit8 v2, p4, 0x1
 
-    iput-boolean v0, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityContainer;->mDrawn:Z
+    if-eqz v2, :cond_1
+
+    :cond_0
+    :goto_0
+    invoke-direct {p0, p1, v1, v0, v4}, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;-><init>(Lcom/android/server/am/ActivityStackSupervisor;ILcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;Z)V
+
+    iput-boolean v3, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityContainer;->mDrawn:Z
 
     iput-object p2, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityContainer;->mParentActivity:Lcom/android/server/am/ActivityRecord;
 
     iput-object p3, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityContainer;->mCallback:Landroid/app/IActivityContainerCallback;
 
-    const/4 v0, 0x1
-
-    iput v0, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityContainer;->mContainerState:I
+    iput v4, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityContainer;->mContainerState:I
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -89,6 +99,17 @@
     iput p4, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityContainer;->mFlags:I
 
     return-void
+
+    :cond_1
+    invoke-virtual {p2}, Lcom/android/server/am/ActivityRecord;->getStack()Lcom/android/server/am/ActivityStack;
+
+    move-result-object v0
+
+    iget-object v0, v0, Lcom/android/server/am/ActivityStack;->mActivityContainer:Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;
+
+    iget-object v0, v0, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->mActivityDisplay:Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
+
+    goto :goto_0
 .end method
 
 .method private setSurfaceIfReadyLocked()V
@@ -125,7 +146,9 @@
 .end method
 
 .method private setSurfaceLocked(Landroid/view/Surface;III)V
-    .locals 9
+    .locals 10
+
+    const/4 v9, 0x2
 
     const/4 v8, 0x1
 
@@ -135,19 +158,11 @@
 
     iget v1, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityContainer;->mContainerState:I
 
-    const/4 v2, 0x2
-
-    if-ne v1, v2, :cond_0
+    if-ne v1, v9, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityContainer;->mActivityDisplay:Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
-
-    check-cast v0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityDisplay;
-
-    if-nez v0, :cond_3
-
     const/4 v5, 0x0
 
     iget v1, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityContainer;->mFlags:I
@@ -156,7 +171,7 @@
 
     if-eqz v1, :cond_1
 
-    const/16 v5, 0x80
+    const/16 v5, 0x200
 
     :cond_1
     iget v1, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityContainer;->mFlags:I
@@ -194,6 +209,12 @@
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
+    iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityContainer;->mActivityDisplay:Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
+
+    check-cast v0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityDisplay;
+
+    if-nez v0, :cond_3
+
     new-instance v0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityDisplay;
 
     iget-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityContainer;->this$0:Lcom/android/server/am/ActivityStackSupervisor;
@@ -206,7 +227,23 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityDisplay;-><init>(Lcom/android/server/am/ActivityStackSupervisor;IIII)V
 
-    iput-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityContainer;->mActivityDisplay:Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;
+    new-array v1, v9, [Ljava/lang/Object;
+
+    iget v2, v0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityDisplay;->mDisplayId:I
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    aput-object v2, v1, v7
+
+    const-string/jumbo v2, "setSurfaceLocked"
+
+    aput-object v2, v1, v8
+
+    const v2, 0x1360f0
+
+    invoke-static {v2, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
     iget-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityContainer;->this$0:Lcom/android/server/am/ActivityStackSupervisor;
 
@@ -218,7 +255,7 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    invoke-virtual {p0, v0, v8}, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityContainer;->attachToDisplayLocked(Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;Z)V
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityContainer;->addToDisplayLocked(Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;)V
 
     :cond_3
     iget-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityContainer;->mSurface:Landroid/view/Surface;
@@ -236,7 +273,7 @@
 
     iget v1, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityContainer;->mFlags:I
 
-    and-int/lit8 v1, v1, 0x4
+    and-int/lit8 v1, v1, 0x1
 
     if-eqz v1, :cond_5
 
@@ -260,7 +297,7 @@
 
     check-cast v1, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityDisplay;
 
-    invoke-virtual {v1, v7}, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityDisplay;->setSurface(Landroid/view/Surface;)V
+    invoke-virtual {v1, v6}, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityDisplay;->setSurface(Landroid/view/Surface;)V
 
     iget-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityContainer;->mStack:Lcom/android/server/am/ActivityStack;
 
@@ -276,13 +313,28 @@
 
     iget-object v1, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityContainer;->mStack:Lcom/android/server/am/ActivityStack;
 
-    invoke-virtual {v1, v6, v8, v6, v6}, Lcom/android/server/am/ActivityStack;->startPausingLocked(ZZZZ)Z
+    invoke-virtual {v1, v7, v8, v6, v7}, Lcom/android/server/am/ActivityStack;->startPausingLocked(ZZLcom/android/server/am/ActivityRecord;Z)Z
 
     goto :goto_0
 .end method
 
 
 # virtual methods
+.method checkEmbeddedAllowedInner(ILandroid/content/Intent;Ljava/lang/String;)V
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityContainer;->mFlags:I
+
+    and-int/lit8 v0, v0, 0x1
+
+    if-nez v0, :cond_0
+
+    invoke-super {p0, p1, p2, p3}, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->checkEmbeddedAllowedInner(ILandroid/content/Intent;Ljava/lang/String;)V
+
+    :cond_0
+    return-void
+.end method
+
 .method isAttachedLocked()Z
     .locals 1
 
@@ -320,6 +372,29 @@
 
     :cond_0
     return v1
+.end method
+
+.method removeLocked()V
+    .locals 2
+
+    iget v0, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityContainer;->mFlags:I
+
+    and-int/lit8 v0, v0, 0x4
+
+    if-eqz v0, :cond_0
+
+    iget v0, p0, Lcom/android/server/am/ActivityStackSupervisor$VirtualActivityContainer;->mContainerState:I
+
+    const/4 v1, 0x2
+
+    if-eq v0, v1, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-super {p0}, Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;->removeLocked()V
+
+    return-void
 .end method
 
 .method setDrawn()V

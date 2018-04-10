@@ -195,18 +195,16 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_0
-    :goto_0
-    return-object v0
+    if-eqz v2, :cond_0
 
-    :cond_1
     sget-object v2, Lcom/android/server/search/Searchables;->GLOBAL_SEARCH_RANKER:Ljava/util/Comparator;
 
     invoke-static {v0, v2}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    goto :goto_0
+    :cond_0
+    return-object v0
 .end method
 
 .method private findGlobalSearchActivity(Ljava/util/List;)Landroid/content/ComponentName;
@@ -288,18 +286,10 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    xor-int/lit8 v3, v3, 0x1
 
-    :cond_1
-    const-string/jumbo v3, "Searchables"
+    if-eqz v3, :cond_1
 
-    const-string/jumbo v4, "No web search activity found"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-object v5
-
-    :cond_2
     const/4 v3, 0x0
 
     invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -319,6 +309,15 @@
     invoke-direct {v3, v4, v5}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     return-object v3
+
+    :cond_1
+    const-string/jumbo v3, "Searchables"
+
+    const-string/jumbo v4, "No web search activity found"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-object v5
 .end method
 
 .method private getDefaultGlobalSearchProvider(Ljava/util/List;)Landroid/content/ComponentName;
@@ -342,18 +341,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    const-string/jumbo v1, "Searchables"
+    if-eqz v1, :cond_0
 
-    const-string/jumbo v2, "No global search activity found"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-object v3
-
-    :cond_1
     const/4 v1, 0x0
 
     invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -373,6 +364,15 @@
     invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     return-object v1
+
+    :cond_0
+    const-string/jumbo v1, "Searchables"
+
+    const-string/jumbo v2, "No global search activity found"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-object v3
 .end method
 
 .method private getGlobalSearchProviderSetting()Ljava/lang/String;
@@ -416,15 +416,16 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_0
-    const/4 v2, 0x0
+    if-eqz v2, :cond_0
+
+    const/4 v2, 0x1
 
     return v2
 
-    :cond_1
-    const/4 v2, 0x1
+    :cond_0
+    const/4 v2, 0x0
 
     return v2
 .end method
@@ -1128,11 +1129,9 @@
 
     invoke-interface {v0, v8}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v30
+    move-result-object v9
 
-    check-cast v30, Landroid/content/pm/ResolveInfo;
-
-    move-object/from16 v9, v30
+    check-cast v9, Landroid/content/pm/ResolveInfo;
 
     :goto_5
     iget-object v4, v9, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
@@ -1337,11 +1336,9 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v30
+    move-result-object v9
 
-    check-cast v30, Landroid/content/pm/ResolveInfo;
-
-    move-object/from16 v9, v30
+    check-cast v9, Landroid/content/pm/ResolveInfo;
 
     goto/16 :goto_5
 
@@ -1362,11 +1359,9 @@
 
     invoke-interface {v10, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v30
+    move-result-object v9
 
-    check-cast v30, Landroid/content/pm/ResolveInfo;
-
-    move-object/from16 v9, v30
+    check-cast v9, Landroid/content/pm/ResolveInfo;
 
     goto/16 :goto_5
 
@@ -1383,11 +1378,9 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v30
+    move-result-object v9
 
-    check-cast v30, Landroid/content/pm/ResolveInfo;
-
-    move-object/from16 v9, v30
+    check-cast v9, Landroid/content/pm/ResolveInfo;
 
     goto/16 :goto_5
 

@@ -45,109 +45,111 @@
 .end method
 
 .method public getMessage()Ljava/lang/String;
-    .locals 4
+    .locals 7
 
-    const-string/jumbo v0, "mf.org.apache.xerces.impl.msg.XMLSchemaMessages"
+    const/4 v2, 0x0
 
-    invoke-static {v0}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;)Ljava/util/ResourceBundle;
+    const-string/jumbo v3, "mf.org.apache.xerces.impl.msg.XMLSchemaMessages"
+
+    invoke-static {v3}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;)Ljava/util/ResourceBundle;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_0
+
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/DatatypeException;->key:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/DatatypeException;->key:Ljava/lang/String;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/DatatypeException;->args:[Ljava/lang/Object;
 
-    invoke-virtual {v1, v0}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/DatatypeException;->args:[Ljava/lang/Object;
-
-    if-nez v2, :cond_2
+    if-nez v3, :cond_2
 
     :goto_0
-    return-object v0
+    return-object v1
 
     :cond_0
-    new-instance v0, Ljava/util/MissingResourceException;
+    new-instance v3, Ljava/util/MissingResourceException;
 
-    const-string/jumbo v1, "Property file not found!"
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/DatatypeException;->key:Ljava/lang/String;
 
-    const-string/jumbo v2, "mf.org.apache.xerces.impl.msg.XMLSchemaMessages"
+    const-string/jumbo v5, "Property file not found!"
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/DatatypeException;->key:Ljava/lang/String;
+    const-string/jumbo v6, "mf.org.apache.xerces.impl.msg.XMLSchemaMessages"
 
-    invoke-direct {v0, v1, v2, v3}, Ljava/util/MissingResourceException;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v3, v5, v6, v4}, Ljava/util/MissingResourceException;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    throw v0
+    throw v3
 
     :cond_1
-    const-string/jumbo v0, "BadMessageKey"
+    const-string/jumbo v3, "BadMessageKey"
 
-    invoke-virtual {v1, v0}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    new-instance v1, Ljava/util/MissingResourceException;
+    new-instance v3, Ljava/util/MissingResourceException;
 
-    const-string/jumbo v2, "mf.org.apache.xerces.impl.msg.XMLSchemaMessages"
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/DatatypeException;->key:Ljava/lang/String;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/DatatypeException;->key:Ljava/lang/String;
+    const-string/jumbo v5, "mf.org.apache.xerces.impl.msg.XMLSchemaMessages"
 
-    invoke-direct {v1, v0, v2, v3}, Ljava/util/MissingResourceException;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v3, v1, v5, v4}, Ljava/util/MissingResourceException;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    throw v1
+    throw v3
 
     :cond_2
     :try_start_0
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/DatatypeException;->args:[Ljava/lang/Object;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/DatatypeException;->args:[Ljava/lang/Object;
 
-    invoke-static {v0, v2}, Ljava/text/MessageFormat;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v3}, Ljava/text/MessageFormat;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v0
+    move-result-object v1
 
     goto :goto_0
 
     :catch_0
     move-exception v0
 
-    const-string/jumbo v0, "FormatFailed"
+    const-string/jumbo v3, "FormatFailed"
 
-    invoke-virtual {v1, v0}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v0, " "
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/DatatypeException;->key:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v4
 
-    move-result-object v0
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v4, " "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/DatatypeException;->key:Ljava/lang/String;
+
+    invoke-virtual {v2, v4}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     goto :goto_0
 .end method

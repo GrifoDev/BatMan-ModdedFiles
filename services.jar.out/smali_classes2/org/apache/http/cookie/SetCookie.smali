@@ -6,13 +6,10 @@
 .implements Lorg/apache/http/cookie/Cookie;
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract setComment(Ljava/lang/String;)V
+    .annotation build Lorg/apache/http/annotation/Obsolete;
+    .end annotation
 .end method
 
 .method public abstract setDomain(Ljava/lang/String;)V
@@ -31,4 +28,6 @@
 .end method
 
 .method public abstract setVersion(I)V
+    .annotation build Lorg/apache/http/annotation/Obsolete;
+    .end annotation
 .end method

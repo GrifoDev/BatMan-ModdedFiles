@@ -45,35 +45,35 @@
 
     sget-object v0, Lmf/org/apache/xerces/util/XMLChar;->CHARS:[B
 
-    const/16 v1, 0x9
+    const/16 v1, 0x23
 
-    const/16 v2, 0x23
+    const/16 v2, 0x9
 
-    aput-byte v2, v0, v1
-
-    sget-object v0, Lmf/org/apache/xerces/util/XMLChar;->CHARS:[B
-
-    const/16 v1, 0xa
-
-    const/16 v2, 0x13
-
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     sget-object v0, Lmf/org/apache/xerces/util/XMLChar;->CHARS:[B
 
-    const/16 v1, 0xd
+    const/16 v1, 0x13
 
-    const/16 v2, 0x13
+    const/16 v2, 0xa
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     sget-object v0, Lmf/org/apache/xerces/util/XMLChar;->CHARS:[B
 
-    const/16 v1, 0x20
+    const/16 v1, 0x13
 
-    const/16 v2, 0x33
+    const/16 v2, 0xd
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
+
+    sget-object v0, Lmf/org/apache/xerces/util/XMLChar;->CHARS:[B
+
+    const/16 v1, 0x33
+
+    const/16 v2, 0x20
+
+    aput-byte v1, v0, v2
 
     sget-object v0, Lmf/org/apache/xerces/util/XMLChar;->CHARS:[B
 
@@ -95,11 +95,11 @@
 
     sget-object v0, Lmf/org/apache/xerces/util/XMLChar;->CHARS:[B
 
-    const/16 v1, 0x26
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    const/16 v2, 0x26
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     sget-object v0, Lmf/org/apache/xerces/util/XMLChar;->CHARS:[B
 
@@ -111,13 +111,13 @@
 
     sget-object v0, Lmf/org/apache/xerces/util/XMLChar;->CHARS:[B
 
-    const/16 v1, 0x2d
+    const/16 v1, -0x47
 
-    const/16 v2, 0x2f
+    const/16 v2, 0x2d
 
-    const/16 v3, -0x47
+    const/16 v3, 0x2f
 
-    invoke-static {v0, v1, v2, v3}, Ljava/util/Arrays;->fill([BIIB)V
+    invoke-static {v0, v2, v3, v1}, Ljava/util/Arrays;->fill([BIIB)V
 
     sget-object v0, Lmf/org/apache/xerces/util/XMLChar;->CHARS:[B
 
@@ -127,21 +127,21 @@
 
     sget-object v0, Lmf/org/apache/xerces/util/XMLChar;->CHARS:[B
 
-    const/16 v1, 0x30
+    const/16 v1, -0x47
 
-    const/16 v2, 0x3a
+    const/16 v2, 0x30
 
-    const/16 v3, -0x47
+    const/16 v3, 0x3a
 
-    invoke-static {v0, v1, v2, v3}, Ljava/util/Arrays;->fill([BIIB)V
+    invoke-static {v0, v2, v3, v1}, Ljava/util/Arrays;->fill([BIIB)V
 
     sget-object v0, Lmf/org/apache/xerces/util/XMLChar;->CHARS:[B
 
-    const/16 v1, 0x3a
+    const/16 v1, 0x3d
 
-    const/16 v2, 0x3d
+    const/16 v2, 0x3a
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     sget-object v0, Lmf/org/apache/xerces/util/XMLChar;->CHARS:[B
 
@@ -151,11 +151,11 @@
 
     sget-object v0, Lmf/org/apache/xerces/util/XMLChar;->CHARS:[B
 
-    const/16 v1, 0x3c
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    const/16 v2, 0x3c
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     sget-object v0, Lmf/org/apache/xerces/util/XMLChar;->CHARS:[B
 
@@ -195,11 +195,11 @@
 
     sget-object v0, Lmf/org/apache/xerces/util/XMLChar;->CHARS:[B
 
-    const/16 v1, 0x5d
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    const/16 v2, 0x5d
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     sget-object v0, Lmf/org/apache/xerces/util/XMLChar;->CHARS:[B
 
@@ -4948,20 +4948,20 @@
 .method public static isValidIANAEncoding(Ljava/lang/String;)Z
     .locals 9
 
-    const/16 v8, 0x61
+    const/16 v8, 0x7a
 
-    const/16 v7, 0x5a
+    const/16 v7, 0x61
 
-    const/16 v6, 0x41
+    const/16 v6, 0x5a
 
-    const/4 v1, 0x1
+    const/16 v5, 0x41
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
     if-nez p0, :cond_1
 
     :cond_0
-    return v5
+    return v4
 
     :cond_1
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -4970,100 +4970,96 @@
 
     if-lez v2, :cond_0
 
-    invoke-virtual {p0, v5}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, v4}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
-    if-ge v0, v6, :cond_7
+    if-ge v0, v5, :cond_7
 
     :cond_2
-    if-lt v0, v8, :cond_0
+    if-lt v0, v7, :cond_0
 
-    const/16 v3, 0x7a
-
-    if-gt v0, v3, :cond_0
+    if-gt v0, v8, :cond_0
 
     :goto_0
-    move v0, v1
+    const/4 v1, 0x1
 
     :goto_1
-    if-ge v0, v2, :cond_c
+    if-ge v1, v2, :cond_c
 
-    invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
-    move-result v3
+    move-result v0
 
-    if-ge v3, v6, :cond_8
+    if-ge v0, v5, :cond_8
 
     :cond_3
-    if-ge v3, v8, :cond_9
+    if-ge v0, v7, :cond_9
 
     :cond_4
-    const/16 v4, 0x30
+    const/16 v3, 0x30
 
-    if-ge v3, v4, :cond_a
+    if-ge v0, v3, :cond_a
 
     :cond_5
-    const/16 v4, 0x2e
+    const/16 v3, 0x2e
 
-    if-ne v3, v4, :cond_b
+    if-ne v0, v3, :cond_b
 
     :cond_6
     :goto_2
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
     :cond_7
-    if-gt v0, v7, :cond_2
+    if-gt v0, v6, :cond_2
 
     goto :goto_0
 
     :cond_8
-    if-gt v3, v7, :cond_3
+    if-gt v0, v6, :cond_3
 
     goto :goto_2
 
     :cond_9
-    const/16 v4, 0x7a
-
-    if-gt v3, v4, :cond_4
+    if-gt v0, v8, :cond_4
 
     goto :goto_2
 
     :cond_a
-    const/16 v4, 0x39
+    const/16 v3, 0x39
 
-    if-gt v3, v4, :cond_5
+    if-gt v0, v3, :cond_5
 
     goto :goto_2
 
     :cond_b
-    const/16 v4, 0x5f
+    const/16 v3, 0x5f
 
-    if-eq v3, v4, :cond_6
+    if-eq v0, v3, :cond_6
 
-    const/16 v4, 0x2d
+    const/16 v3, 0x2d
 
-    if-eq v3, v4, :cond_6
+    if-eq v0, v3, :cond_6
 
-    return v5
+    return v4
 
     :cond_c
-    return v1
+    const/4 v3, 0x1
+
+    return v3
 .end method
 
 .method public static isValidJavaEncoding(Ljava/lang/String;)Z
-    .locals 6
+    .locals 5
 
-    const/4 v1, 0x1
-
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
     if-nez p0, :cond_1
 
     :cond_0
-    return v5
+    return v4
 
     :cond_1
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -5072,80 +5068,80 @@
 
     if-lez v2, :cond_0
 
-    move v0, v1
+    const/4 v1, 0x1
 
     :goto_0
-    if-ge v0, v2, :cond_a
+    if-ge v1, v2, :cond_a
 
-    invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
-    move-result v3
+    move-result v0
 
-    const/16 v4, 0x41
+    const/16 v3, 0x41
 
-    if-ge v3, v4, :cond_6
+    if-ge v0, v3, :cond_6
 
     :cond_2
-    const/16 v4, 0x61
+    const/16 v3, 0x61
 
-    if-ge v3, v4, :cond_7
+    if-ge v0, v3, :cond_7
 
     :cond_3
-    const/16 v4, 0x30
+    const/16 v3, 0x30
 
-    if-ge v3, v4, :cond_8
+    if-ge v0, v3, :cond_8
 
     :cond_4
-    const/16 v4, 0x2e
+    const/16 v3, 0x2e
 
-    if-ne v3, v4, :cond_9
+    if-ne v0, v3, :cond_9
 
     :cond_5
     :goto_1
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_6
-    const/16 v4, 0x5a
+    const/16 v3, 0x5a
 
-    if-gt v3, v4, :cond_2
+    if-gt v0, v3, :cond_2
 
     goto :goto_1
 
     :cond_7
-    const/16 v4, 0x7a
+    const/16 v3, 0x7a
 
-    if-gt v3, v4, :cond_3
+    if-gt v0, v3, :cond_3
 
     goto :goto_1
 
     :cond_8
-    const/16 v4, 0x39
+    const/16 v3, 0x39
 
-    if-gt v3, v4, :cond_4
+    if-gt v0, v3, :cond_4
 
     goto :goto_1
 
     :cond_9
-    const/16 v4, 0x5f
+    const/16 v3, 0x5f
 
-    if-eq v3, v4, :cond_5
+    if-eq v0, v3, :cond_5
 
-    const/16 v4, 0x2d
+    const/16 v3, 0x2d
 
-    if-eq v3, v4, :cond_5
+    if-eq v0, v3, :cond_5
 
-    return v5
+    return v4
 
     :cond_a
-    return v1
+    const/4 v3, 0x1
+
+    return v3
 .end method
 
 .method public static isValidNCName(Ljava/lang/String;)Z
     .locals 5
-
-    const/4 v1, 0x1
 
     const/4 v4, 0x0
 
@@ -5161,26 +5157,26 @@
 
     invoke-static {v0}, Lmf/org/apache/xerces/util/XMLChar;->isNCNameStart(I)Z
 
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    move v0, v1
-
-    :goto_0
-    if-ge v0, v2, :cond_3
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
-
     move-result v3
 
-    invoke-static {v3}, Lmf/org/apache/xerces/util/XMLChar;->isNCName(I)Z
+    if-eqz v3, :cond_1
+
+    const/4 v1, 0x1
+
+    :goto_0
+    if-ge v1, v2, :cond_3
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
+
+    move-result v0
+
+    invoke-static {v0}, Lmf/org/apache/xerces/util/XMLChar;->isNCName(I)Z
 
     move-result v3
 
     if-eqz v3, :cond_2
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
@@ -5194,13 +5190,13 @@
     return v4
 
     :cond_3
-    return v1
+    const/4 v3, 0x1
+
+    return v3
 .end method
 
 .method public static isValidName(Ljava/lang/String;)Z
     .locals 5
-
-    const/4 v1, 0x1
 
     const/4 v4, 0x0
 
@@ -5216,26 +5212,26 @@
 
     invoke-static {v0}, Lmf/org/apache/xerces/util/XMLChar;->isNameStart(I)Z
 
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    move v0, v1
-
-    :goto_0
-    if-ge v0, v2, :cond_3
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
-
     move-result v3
 
-    invoke-static {v3}, Lmf/org/apache/xerces/util/XMLChar;->isName(I)Z
+    if-eqz v3, :cond_1
+
+    const/4 v1, 0x1
+
+    :goto_0
+    if-ge v1, v2, :cond_3
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
+
+    move-result v0
+
+    invoke-static {v0}, Lmf/org/apache/xerces/util/XMLChar;->isName(I)Z
 
     move-result v3
 
     if-eqz v3, :cond_2
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
@@ -5249,13 +5245,15 @@
     return v4
 
     :cond_3
-    return v1
+    const/4 v3, 0x1
+
+    return v3
 .end method
 
 .method public static isValidNmtoken(Ljava/lang/String;)Z
-    .locals 4
+    .locals 5
 
-    const/4 v1, 0x0
+    const/4 v4, 0x0
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
@@ -5263,35 +5261,35 @@
 
     if-eqz v2, :cond_0
 
-    move v0, v1
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v0, v2, :cond_2
+    if-ge v1, v2, :cond_2
 
-    invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
-    move-result v3
+    move-result v0
 
-    invoke-static {v3}, Lmf/org/apache/xerces/util/XMLChar;->isName(I)Z
+    invoke-static {v0}, Lmf/org/apache/xerces/util/XMLChar;->isName(I)Z
 
     move-result v3
 
     if-eqz v3, :cond_1
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_0
-    return v1
+    return v4
 
     :cond_1
-    return v1
+    return v4
 
     :cond_2
-    const/4 v0, 0x1
+    const/4 v3, 0x1
 
-    return v0
+    return v3
 .end method
 
 .method public static lowSurrogate(I)C
@@ -5337,32 +5335,28 @@
 .method public static trim(Ljava/lang/String;)Ljava/lang/String;
     .locals 4
 
-    const/4 v0, 0x0
-
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v3
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v1, v3, -0x1
 
-    move v2, v0
+    const/4 v2, 0x0
 
     :goto_0
     if-gt v2, v1, :cond_0
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
 
-    move-result v0
+    move-result v3
 
-    invoke-static {v0}, Lmf/org/apache/xerces/util/XMLChar;->isSpace(I)Z
+    invoke-static {v3}, Lmf/org/apache/xerces/util/XMLChar;->isSpace(I)Z
 
-    move-result v0
+    move-result v3
 
-    if-eqz v0, :cond_0
+    if-eqz v3, :cond_0
 
-    add-int/lit8 v0, v2, 0x1
-
-    move v2, v0
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
@@ -5392,13 +5386,13 @@
     :cond_2
     if-gt v2, v1, :cond_4
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v3, v0, 0x1
 
-    invoke-virtual {p0, v2, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {p0, v2, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    return-object v0
+    return-object v3
 
     :cond_3
     if-ne v0, v1, :cond_2
@@ -5406,7 +5400,7 @@
     return-object p0
 
     :cond_4
-    const-string/jumbo v0, ""
+    const-string/jumbo v3, ""
 
-    return-object v0
+    return-object v3
 .end method

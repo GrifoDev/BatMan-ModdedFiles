@@ -64,13 +64,13 @@
     :cond_0
     iget v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaLoader$LocationArray;->length:I
 
-    const/4 v1, 0x1
+    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaLoader$LocationArray;->length:I
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaLoader$LocationArray;->length:I
+    mul-int/lit8 v1, v1, 0x2
 
-    mul-int/lit8 v2, v2, 0x2
+    const/4 v2, 0x1
 
-    invoke-static {v1, v2}, Ljava/lang/Math;->max(II)I
+    invoke-static {v2, v1}, Ljava/lang/Math;->max(II)I
 
     move-result v1
 
@@ -156,9 +156,9 @@
 
     invoke-static {p1, p2}, Ljava/lang/Math;->min(II)I
 
-    move-result v0
+    move-result v1
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaLoader$LocationArray;->length:I
+    iput v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaLoader$LocationArray;->length:I
 
     return-void
 .end method

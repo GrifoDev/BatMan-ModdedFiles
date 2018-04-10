@@ -114,72 +114,72 @@
 .end method
 
 .method public startElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;)V
-    .locals 5
-
-    const/4 v0, 0x0
+    .locals 7
 
     invoke-super {p0, p1, p2}, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->startElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;)V
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/identity/Selector$Matcher;->fElementDepth:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xs/identity/Selector$Matcher;->fElementDepth:I
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v4, v4, 0x1
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/xs/identity/Selector$Matcher;->fElementDepth:I
+    iput v4, p0, Lmf/org/apache/xerces/impl/xs/identity/Selector$Matcher;->fElementDepth:I
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xs/identity/Selector$Matcher;->isMatched()Z
 
-    move-result v1
+    move-result v4
 
-    if-nez v1, :cond_1
+    if-nez v4, :cond_1
 
     :cond_0
     return-void
 
     :cond_1
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/identity/Selector$Matcher;->fElementDepth:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xs/identity/Selector$Matcher;->fElementDepth:I
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/xs/identity/Selector$Matcher;->fMatchedDepth:I
+    iput v4, p0, Lmf/org/apache/xerces/impl/xs/identity/Selector$Matcher;->fMatchedDepth:I
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/Selector$Matcher;->fFieldActivator:Lmf/org/apache/xerces/impl/xs/identity/FieldActivator;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/identity/Selector$Matcher;->fFieldActivator:Lmf/org/apache/xerces/impl/xs/identity/FieldActivator;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/identity/Selector$Matcher;->this$0:Lmf/org/apache/xerces/impl/xs/identity/Selector;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/xs/identity/Selector$Matcher;->this$0:Lmf/org/apache/xerces/impl/xs/identity/Selector;
 
-    iget-object v2, v2, Lmf/org/apache/xerces/impl/xs/identity/Selector;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
+    iget-object v5, v5, Lmf/org/apache/xerces/impl/xs/identity/Selector;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/xs/identity/Selector$Matcher;->fInitialDepth:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xs/identity/Selector$Matcher;->fInitialDepth:I
 
-    invoke-interface {v1, v2, v3}, Lmf/org/apache/xerces/impl/xs/identity/FieldActivator;->startValueScopeFor(Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;I)V
+    invoke-interface {v4, v5, v6}, Lmf/org/apache/xerces/impl/xs/identity/FieldActivator;->startValueScopeFor(Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;I)V
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/Selector$Matcher;->this$0:Lmf/org/apache/xerces/impl/xs/identity/Selector;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/identity/Selector$Matcher;->this$0:Lmf/org/apache/xerces/impl/xs/identity/Selector;
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/xs/identity/Selector;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
+    iget-object v4, v4, Lmf/org/apache/xerces/impl/xs/identity/Selector;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getFieldCount()I
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getFieldCount()I
 
-    move-result v1
+    move-result v0
+
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v0, v1, :cond_0
+    if-ge v2, v0, :cond_0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/identity/Selector$Matcher;->this$0:Lmf/org/apache/xerces/impl/xs/identity/Selector;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/identity/Selector$Matcher;->this$0:Lmf/org/apache/xerces/impl/xs/identity/Selector;
 
-    iget-object v2, v2, Lmf/org/apache/xerces/impl/xs/identity/Selector;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
+    iget-object v4, v4, Lmf/org/apache/xerces/impl/xs/identity/Selector;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
 
-    invoke-virtual {v2, v0}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getFieldAt(I)Lmf/org/apache/xerces/impl/xs/identity/Field;
+    invoke-virtual {v4, v2}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getFieldAt(I)Lmf/org/apache/xerces/impl/xs/identity/Field;
 
-    move-result-object v2
+    move-result-object v1
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/identity/Selector$Matcher;->fFieldActivator:Lmf/org/apache/xerces/impl/xs/identity/FieldActivator;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/identity/Selector$Matcher;->fFieldActivator:Lmf/org/apache/xerces/impl/xs/identity/FieldActivator;
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/xs/identity/Selector$Matcher;->fInitialDepth:I
+    iget v5, p0, Lmf/org/apache/xerces/impl/xs/identity/Selector$Matcher;->fInitialDepth:I
 
-    invoke-interface {v3, v2, v4}, Lmf/org/apache/xerces/impl/xs/identity/FieldActivator;->activateField(Lmf/org/apache/xerces/impl/xs/identity/Field;I)Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;
+    invoke-interface {v4, v1, v5}, Lmf/org/apache/xerces/impl/xs/identity/FieldActivator;->activateField(Lmf/org/apache/xerces/impl/xs/identity/Field;I)Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2, p1, p2}, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->startElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;)V
+    invoke-virtual {v3, p1, p2}, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->startElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;)V
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 .end method

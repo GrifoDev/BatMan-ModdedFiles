@@ -47,17 +47,17 @@
     .end annotation
 
     :try_start_0
-    const-string/jumbo v0, "<!--"
+    const-string/jumbo v1, "<!--"
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/stax/events/CommentImpl;->fText:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xerces/stax/events/CommentImpl;->fText:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    const-string/jumbo v0, "-->"
+    const-string/jumbo v1, "-->"
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 

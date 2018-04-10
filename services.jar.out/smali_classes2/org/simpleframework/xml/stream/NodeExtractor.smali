@@ -50,21 +50,21 @@
 
     invoke-interface {p1}, Lorg/w3c/dom/Node;->getChildNodes()Lorg/w3c/dom/NodeList;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-interface {v1}, Lorg/w3c/dom/NodeList;->getLength()I
+    invoke-interface {v2}, Lorg/w3c/dom/NodeList;->getLength()I
 
-    move-result v2
+    move-result v1
 
     const/4 v0, 0x0
 
     :goto_0
-    if-lt v0, v2, :cond_0
+    if-lt v0, v1, :cond_0
 
     return-void
 
     :cond_0
-    invoke-interface {v1, v0}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
+    invoke-interface {v2, v0}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
 
     move-result-object v3
 

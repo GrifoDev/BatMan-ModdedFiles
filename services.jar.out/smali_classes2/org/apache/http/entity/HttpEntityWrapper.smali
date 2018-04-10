@@ -6,151 +6,149 @@
 .implements Lorg/apache/http/HttpEntity;
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # instance fields
 .field protected wrappedEntity:Lorg/apache/http/HttpEntity;
 
 
 # direct methods
 .method public constructor <init>(Lorg/apache/http/HttpEntity;)V
-    .locals 2
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const-string/jumbo v0, "Wrapped entity"
 
-    const-string/jumbo v1, "Stub!"
+    invoke-static {p1, v0}, Lorg/apache/http/util/Args;->notNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    move-result-object v0
 
-    throw v0
+    check-cast v0, Lorg/apache/http/HttpEntity;
+
+    iput-object v0, p0, Lorg/apache/http/entity/HttpEntityWrapper;->wrappedEntity:Lorg/apache/http/HttpEntity;
+
+    return-void
 .end method
 
 
 # virtual methods
 .method public consumeContent()V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    const-string/jumbo v1, "Stub!"
+    iget-object v0, p0, Lorg/apache/http/entity/HttpEntityWrapper;->wrappedEntity:Lorg/apache/http/HttpEntity;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-interface {v0}, Lorg/apache/http/HttpEntity;->consumeContent()V
 
-    throw v0
+    return-void
 .end method
 
 .method public getContent()Ljava/io/InputStream;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/entity/HttpEntityWrapper;->wrappedEntity:Lorg/apache/http/HttpEntity;
 
-    const-string/jumbo v1, "Stub!"
+    invoke-interface {v0}, Lorg/apache/http/HttpEntity;->getContent()Ljava/io/InputStream;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    move-result-object v0
 
-    throw v0
+    return-object v0
 .end method
 
 .method public getContentEncoding()Lorg/apache/http/Header;
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/entity/HttpEntityWrapper;->wrappedEntity:Lorg/apache/http/HttpEntity;
 
-    const-string/jumbo v1, "Stub!"
+    invoke-interface {v0}, Lorg/apache/http/HttpEntity;->getContentEncoding()Lorg/apache/http/Header;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    move-result-object v0
 
-    throw v0
+    return-object v0
 .end method
 
 .method public getContentLength()J
     .locals 2
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/entity/HttpEntityWrapper;->wrappedEntity:Lorg/apache/http/HttpEntity;
 
-    const-string/jumbo v1, "Stub!"
+    invoke-interface {v0}, Lorg/apache/http/HttpEntity;->getContentLength()J
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    move-result-wide v0
 
-    throw v0
+    return-wide v0
 .end method
 
 .method public getContentType()Lorg/apache/http/Header;
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/entity/HttpEntityWrapper;->wrappedEntity:Lorg/apache/http/HttpEntity;
 
-    const-string/jumbo v1, "Stub!"
+    invoke-interface {v0}, Lorg/apache/http/HttpEntity;->getContentType()Lorg/apache/http/Header;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    move-result-object v0
 
-    throw v0
+    return-object v0
 .end method
 
 .method public isChunked()Z
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/entity/HttpEntityWrapper;->wrappedEntity:Lorg/apache/http/HttpEntity;
 
-    const-string/jumbo v1, "Stub!"
+    invoke-interface {v0}, Lorg/apache/http/HttpEntity;->isChunked()Z
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    move-result v0
 
-    throw v0
+    return v0
 .end method
 
 .method public isRepeatable()Z
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/entity/HttpEntityWrapper;->wrappedEntity:Lorg/apache/http/HttpEntity;
 
-    const-string/jumbo v1, "Stub!"
+    invoke-interface {v0}, Lorg/apache/http/HttpEntity;->isRepeatable()Z
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    move-result v0
 
-    throw v0
+    return v0
 .end method
 
 .method public isStreaming()Z
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/entity/HttpEntityWrapper;->wrappedEntity:Lorg/apache/http/HttpEntity;
 
-    const-string/jumbo v1, "Stub!"
+    invoke-interface {v0}, Lorg/apache/http/HttpEntity;->isStreaming()Z
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    move-result v0
 
-    throw v0
+    return v0
 .end method
 
 .method public writeTo(Ljava/io/OutputStream;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/entity/HttpEntityWrapper;->wrappedEntity:Lorg/apache/http/HttpEntity;
 
-    const-string/jumbo v1, "Stub!"
+    invoke-interface {v0, p1}, Lorg/apache/http/HttpEntity;->writeTo(Ljava/io/OutputStream;)V
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method

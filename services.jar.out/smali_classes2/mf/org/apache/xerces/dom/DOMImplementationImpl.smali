@@ -52,96 +52,96 @@
 .end method
 
 .method public hasFeature(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 4
+    .locals 5
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     invoke-super {p0, p1, p2}, Lmf/org/apache/xerces/dom/CoreDOMImplementationImpl;->hasFeature(Ljava/lang/String;Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    return v0
+    return v1
 
     :cond_0
     if-nez p2, :cond_7
 
     :cond_1
-    move v0, v2
+    move v0, v3
 
     :goto_0
-    const-string/jumbo v3, "+"
+    const-string/jumbo v4, "+"
 
-    invoke-virtual {p1, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_8
+    if-nez v4, :cond_8
 
     :goto_1
-    const-string/jumbo v3, "Events"
+    const-string/jumbo v4, "Events"
 
-    invoke-virtual {p1, v3}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_9
+    if-nez v4, :cond_9
 
     :cond_2
-    const-string/jumbo v3, "MutationEvents"
+    const-string/jumbo v4, "MutationEvents"
 
-    invoke-virtual {p1, v3}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_c
+    if-nez v4, :cond_c
 
     :cond_3
-    const-string/jumbo v3, "Traversal"
+    const-string/jumbo v4, "Traversal"
 
-    invoke-virtual {p1, v3}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_d
+    if-nez v4, :cond_d
 
     :cond_4
-    const-string/jumbo v3, "Range"
+    const-string/jumbo v4, "Range"
 
-    invoke-virtual {p1, v3}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_e
+    if-nez v4, :cond_e
 
     :cond_5
-    const-string/jumbo v3, "MutationEvents"
+    const-string/jumbo v4, "MutationEvents"
 
-    invoke-virtual {p1, v3}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_f
+    if-nez v4, :cond_f
 
     :cond_6
-    return v1
+    return v2
 
     :cond_7
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v4
 
-    if-eqz v0, :cond_1
+    if-eqz v4, :cond_1
 
-    move v0, v1
+    move v0, v2
 
     goto :goto_0
 
     :cond_8
-    invoke-virtual {p1, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {p1, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object p1
 
@@ -152,68 +152,68 @@
 
     :cond_a
     :goto_2
-    return v2
+    return v3
 
     :cond_b
-    const-string/jumbo v3, "2.0"
+    const-string/jumbo v4, "2.0"
 
-    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_2
+    if-eqz v4, :cond_2
 
     goto :goto_2
 
     :cond_c
     if-nez v0, :cond_a
 
-    const-string/jumbo v3, "2.0"
+    const-string/jumbo v4, "2.0"
 
-    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_3
+    if-eqz v4, :cond_3
 
     goto :goto_2
 
     :cond_d
     if-nez v0, :cond_a
 
-    const-string/jumbo v3, "2.0"
+    const-string/jumbo v4, "2.0"
 
-    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_4
+    if-eqz v4, :cond_4
 
     goto :goto_2
 
     :cond_e
     if-nez v0, :cond_a
 
-    const-string/jumbo v3, "2.0"
+    const-string/jumbo v4, "2.0"
 
-    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_5
+    if-eqz v4, :cond_5
 
     goto :goto_2
 
     :cond_f
     if-nez v0, :cond_a
 
-    const-string/jumbo v0, "2.0"
+    const-string/jumbo v4, "2.0"
 
-    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v4
 
-    if-eqz v0, :cond_6
+    if-eqz v4, :cond_6
 
     goto :goto_2
 .end method

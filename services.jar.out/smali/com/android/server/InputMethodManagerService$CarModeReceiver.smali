@@ -42,7 +42,7 @@
 
     const-string/jumbo v1, "InputMethodManagerService"
 
-    const-string/jumbo v2, "Failed to return the previous IME becuase the stored info is null"
+    const-string/jumbo v2, "CarModeReceiver : Failed to return the previous IME becuase the stored info is null"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -59,7 +59,7 @@
 
     iget-object v3, v3, Lcom/android/server/InputMethodManagerService;->mContentResolver:Landroid/content/ContentResolver;
 
-    invoke-static {v1, v2, v3}, Lcom/android/server/InputMethodManagerService;->-wrap5(Lcom/android/server/InputMethodManagerService;Landroid/content/Context;Landroid/content/ContentResolver;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lcom/android/server/InputMethodManagerService;->-wrap4(Lcom/android/server/InputMethodManagerService;Landroid/content/Context;Landroid/content/ContentResolver;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -75,13 +75,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_1
-    :goto_0
-    return-void
+    if-eqz v1, :cond_1
 
-    :cond_2
     const-string/jumbo v1, "InputMethodManagerService"
 
     const-string/jumbo v2, "Restore the Previous Used IME because MirrorLink Disconnected"
@@ -112,7 +109,8 @@
 
     invoke-virtual {v1, v2, v3}, Lcom/android/server/InputMethodManagerService;->setInputMethodLocked(Ljava/lang/String;I)V
 
-    goto :goto_0
+    :cond_1
+    return-void
 .end method
 
 
@@ -189,15 +187,15 @@
 
     iget-object v4, v4, Lcom/android/server/InputMethodManagerService;->mContentResolver:Landroid/content/ContentResolver;
 
-    invoke-static {v2, v3, v4}, Lcom/android/server/InputMethodManagerService;->-wrap5(Lcom/android/server/InputMethodManagerService;Landroid/content/Context;Landroid/content/ContentResolver;)Ljava/lang/String;
+    invoke-static {v2, v3, v4}, Lcom/android/server/InputMethodManagerService;->-wrap4(Lcom/android/server/InputMethodManagerService;Landroid/content/Context;Landroid/content/ContentResolver;)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Lcom/android/server/InputMethodManagerService;->-set4(Lcom/android/server/InputMethodManagerService;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1, v2}, Lcom/android/server/InputMethodManagerService;->-set3(Lcom/android/server/InputMethodManagerService;Ljava/lang/String;)Ljava/lang/String;
 
     iget-object v1, p0, Lcom/android/server/InputMethodManagerService$CarModeReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    invoke-static {v1}, Lcom/android/server/InputMethodManagerService;->-wrap9(Lcom/android/server/InputMethodManagerService;)V
+    invoke-static {v1}, Lcom/android/server/InputMethodManagerService;->-wrap8(Lcom/android/server/InputMethodManagerService;)V
 
     :cond_0
     :goto_0

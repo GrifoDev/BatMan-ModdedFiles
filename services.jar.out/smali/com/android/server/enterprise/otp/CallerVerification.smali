@@ -333,11 +333,11 @@
 
     move-result v2
 
-    const/16 v3, 0xc
+    const/16 v3, 0x1e
 
     if-lt v2, v3, :cond_0
 
-    const-string/jumbo v3, "Maximum token limit per device exceeded. Only 12 tokens per device can be provisioned"
+    const-string/jumbo v3, "Maximum token limit per device exceeded. Only 30 tokens per device can be provisioned"
 
     invoke-static {v3}, Lcom/android/server/enterprise/otp/engine/common/Print;->e(Ljava/lang/String;)V
 

@@ -64,9 +64,9 @@
 .method public putItem(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/util/AugmentationsImpl;->fAugmentationsContainer:Lmf/org/apache/xerces/util/AugmentationsImpl$AugmentationsItemsContainer;
+    iget-object v1, p0, Lmf/org/apache/xerces/util/AugmentationsImpl;->fAugmentationsContainer:Lmf/org/apache/xerces/util/AugmentationsImpl$AugmentationsItemsContainer;
 
-    invoke-virtual {v0, p1, p2}, Lmf/org/apache/xerces/util/AugmentationsImpl$AugmentationsItemsContainer;->putItem(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p1, p2}, Lmf/org/apache/xerces/util/AugmentationsImpl$AugmentationsItemsContainer;->putItem(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 

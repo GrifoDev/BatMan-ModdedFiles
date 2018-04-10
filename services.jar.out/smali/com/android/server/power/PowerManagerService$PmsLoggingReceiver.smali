@@ -78,11 +78,11 @@
 
     iget-object v1, p0, Lcom/android/server/power/PowerManagerService$PmsLoggingReceiver;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-wrap39(Lcom/android/server/power/PowerManagerService;)V
+    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-wrap41(Lcom/android/server/power/PowerManagerService;)V
 
     iget-object v1, p0, Lcom/android/server/power/PowerManagerService$PmsLoggingReceiver;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-wrap38(Lcom/android/server/power/PowerManagerService;)V
+    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-wrap40(Lcom/android/server/power/PowerManagerService;)V
 
     :cond_0
     return-void

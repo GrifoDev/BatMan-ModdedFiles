@@ -19,11 +19,11 @@
 
     new-array v0, v0, [Ljava/lang/String;
 
-    const/4 v1, 0x0
+    const-string/jumbo v1, "name"
 
-    const-string/jumbo v2, "name"
+    const/4 v2, 0x0
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     invoke-direct {p0, v0}, Lorg/simpleframework/xml/core/Comparer;-><init>([Ljava/lang/String;)V
 
@@ -41,125 +41,127 @@
 .end method
 
 .method private isIgnore(Ljava/lang/reflect/Method;)Z
-    .locals 6
+    .locals 7
 
-    const/4 v1, 0x0
+    const/4 v6, 0x0
 
     invoke-virtual {p1}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/Comparer;->ignore:[Ljava/lang/String;
+    iget-object v5, p0, Lorg/simpleframework/xml/core/Comparer;->ignore:[Ljava/lang/String;
 
-    if-nez v0, :cond_1
+    if-nez v5, :cond_1
 
     :cond_0
-    return v1
+    return v6
 
     :cond_1
-    iget-object v3, p0, Lorg/simpleframework/xml/core/Comparer;->ignore:[Ljava/lang/String;
+    iget-object v0, p0, Lorg/simpleframework/xml/core/Comparer;->ignore:[Ljava/lang/String;
 
-    array-length v4, v3
+    array-length v2, v0
 
-    move v0, v1
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v0, v4, :cond_0
+    if-ge v1, v2, :cond_0
 
-    aget-object v5, v3, v0
+    aget-object v4, v0, v1
 
-    invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
     if-nez v5, :cond_2
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_2
-    const/4 v0, 0x1
+    const/4 v5, 0x1
 
-    return v0
+    return v5
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/annotation/Annotation;Ljava/lang/annotation/Annotation;)Z
-    .locals 7
+    .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v1, 0x0
+    const/4 v10, 0x0
 
     invoke-interface {p1}, Ljava/lang/annotation/Annotation;->annotationType()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v7
 
     invoke-interface {p2}, Ljava/lang/annotation/Annotation;->annotationType()Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getDeclaredMethods()[Ljava/lang/reflect/Method;
+    invoke-virtual {v7}, Ljava/lang/Class;->getDeclaredMethods()[Ljava/lang/reflect/Method;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v0, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v9
 
-    if-nez v0, :cond_0
+    if-nez v9, :cond_0
 
-    return v1
+    return v10
 
     :cond_0
-    array-length v2, v3
+    move-object v0, v4
 
-    move v0, v1
+    array-length v3, v4
+
+    const/4 v2, 0x0
 
     :goto_0
-    if-lt v0, v2, :cond_1
+    if-lt v2, v3, :cond_1
 
-    const/4 v0, 0x1
+    const/4 v9, 0x1
 
-    return v0
+    return v9
 
     :cond_1
-    aget-object v4, v3, v0
+    aget-object v5, v4, v2
 
-    invoke-direct {p0, v4}, Lorg/simpleframework/xml/core/Comparer;->isIgnore(Ljava/lang/reflect/Method;)Z
+    invoke-direct {p0, v5}, Lorg/simpleframework/xml/core/Comparer;->isIgnore(Ljava/lang/reflect/Method;)Z
 
-    move-result v5
+    move-result v9
 
-    if-eqz v5, :cond_3
+    if-eqz v9, :cond_3
 
     :cond_2
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_3
-    new-array v5, v1, [Ljava/lang/Object;
+    new-array v9, v10, [Ljava/lang/Object;
 
-    invoke-virtual {v4, p1, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, p1, v9}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v8
 
-    new-array v6, v1, [Ljava/lang/Object;
+    new-array v9, v10, [Ljava/lang/Object;
 
-    invoke-virtual {v4, p2, v6}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, p2, v9}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-virtual {v5, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v6}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v9
 
-    if-nez v4, :cond_2
+    if-nez v9, :cond_2
 
-    return v1
+    return v10
 .end method

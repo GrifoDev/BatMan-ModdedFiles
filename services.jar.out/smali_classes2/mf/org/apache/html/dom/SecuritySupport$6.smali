@@ -39,17 +39,17 @@
 
 # virtual methods
 .method public run()Ljava/lang/Object;
-    .locals 2
+    .locals 3
 
-    iget-object v0, p0, Lmf/org/apache/html/dom/SecuritySupport$6;->val$cl:Ljava/lang/ClassLoader;
+    iget-object v1, p0, Lmf/org/apache/html/dom/SecuritySupport$6;->val$cl:Ljava/lang/ClassLoader;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/html/dom/SecuritySupport$6;->val$cl:Ljava/lang/ClassLoader;
+    iget-object v1, p0, Lmf/org/apache/html/dom/SecuritySupport$6;->val$cl:Ljava/lang/ClassLoader;
 
-    iget-object v1, p0, Lmf/org/apache/html/dom/SecuritySupport$6;->val$name:Ljava/lang/String;
+    iget-object v2, p0, Lmf/org/apache/html/dom/SecuritySupport$6;->val$name:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/ClassLoader;->getResourceAsStream(Ljava/lang/String;)Ljava/io/InputStream;
+    invoke-virtual {v1, v2}, Ljava/lang/ClassLoader;->getResourceAsStream(Ljava/lang/String;)Ljava/io/InputStream;
 
     move-result-object v0
 
@@ -57,9 +57,9 @@
     return-object v0
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/html/dom/SecuritySupport$6;->val$name:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/html/dom/SecuritySupport$6;->val$name:Ljava/lang/String;
 
-    invoke-static {v0}, Ljava/lang/ClassLoader;->getSystemResourceAsStream(Ljava/lang/String;)Ljava/io/InputStream;
+    invoke-static {v1}, Ljava/lang/ClassLoader;->getSystemResourceAsStream(Ljava/lang/String;)Ljava/io/InputStream;
 
     move-result-object v0
 

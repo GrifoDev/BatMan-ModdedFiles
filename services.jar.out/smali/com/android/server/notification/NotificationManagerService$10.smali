@@ -3,12 +3,12 @@
 .source "NotificationManagerService.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/android/server/notification/GroupHelper$Callback;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/notification/NotificationManagerService;->removeEdgeNotificationInternal(IILjava/lang/String;ILandroid/os/Bundle;I)V
+    value = Lcom/android/server/notification/NotificationManagerService;->init(Landroid/os/Looper;Landroid/content/pm/IPackageManager;Landroid/content/pm/PackageManager;Lcom/android/server/lights/LightsManager;Lcom/android/server/notification/NotificationManagerService$NotificationListeners;Landroid/companion/ICompanionDeviceManager;Lcom/android/server/notification/SnoozeHelper;Lcom/android/server/notification/NotificationUsageStats;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,28 +20,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/notification/NotificationManagerService;
 
-.field final synthetic val$extra:Landroid/os/Bundle;
-
-.field final synthetic val$id:I
-
-.field final synthetic val$pkg:Ljava/lang/String;
-
-.field final synthetic val$userId:I
-
 
 # direct methods
-.method constructor <init>(Lcom/android/server/notification/NotificationManagerService;Ljava/lang/String;ILandroid/os/Bundle;I)V
+.method constructor <init>(Lcom/android/server/notification/NotificationManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/notification/NotificationManagerService$10;->this$0:Lcom/android/server/notification/NotificationManagerService;
-
-    iput-object p2, p0, Lcom/android/server/notification/NotificationManagerService$10;->val$pkg:Ljava/lang/String;
-
-    iput p3, p0, Lcom/android/server/notification/NotificationManagerService$10;->val$id:I
-
-    iput-object p4, p0, Lcom/android/server/notification/NotificationManagerService$10;->val$extra:Landroid/os/Bundle;
-
-    iput p5, p0, Lcom/android/server/notification/NotificationManagerService$10;->val$userId:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -50,24 +34,116 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 5
+.method public addAutoGroup(Ljava/lang/String;)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$10;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    invoke-static {v0}, Lcom/android/server/notification/NotificationManagerService;->-get14(Lcom/android/server/notification/NotificationManagerService;)Lcom/android/server/notification/NotificationManagerService$NotificationListeners;
+    iget-object v1, v0, Lcom/android/server/notification/NotificationManagerService;->mNotificationLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$10;->this$0:Lcom/android/server/notification/NotificationManagerService;
+
+    invoke-static {v0, p1}, Lcom/android/server/notification/NotificationManagerService;->-wrap10(Lcom/android/server/notification/NotificationManagerService;Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
+
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$10;->this$0:Lcom/android/server/notification/NotificationManagerService;
+
+    invoke-static {v0}, Lcom/android/server/notification/NotificationManagerService;->-get27(Lcom/android/server/notification/NotificationManagerService;)Lcom/android/server/notification/RankingHandler;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/server/notification/NotificationManagerService$10;->val$pkg:Ljava/lang/String;
+    const/4 v1, 0x0
 
-    iget v2, p0, Lcom/android/server/notification/NotificationManagerService$10;->val$id:I
-
-    iget-object v3, p0, Lcom/android/server/notification/NotificationManagerService$10;->val$extra:Landroid/os/Bundle;
-
-    iget v4, p0, Lcom/android/server/notification/NotificationManagerService$10;->val$userId:I
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/server/notification/NotificationManagerService$NotificationListeners;->removeEdgeNotification(Ljava/lang/String;ILandroid/os/Bundle;I)V
+    invoke-interface {v0, v1}, Lcom/android/server/notification/RankingHandler;->requestSort(Z)V
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method
+
+.method public addAutoGroupSummary(ILjava/lang/String;Ljava/lang/String;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$10;->this$0:Lcom/android/server/notification/NotificationManagerService;
+
+    invoke-static {v0, p1, p2, p3}, Lcom/android/server/notification/NotificationManagerService;->-wrap24(Lcom/android/server/notification/NotificationManagerService;ILjava/lang/String;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public removeAutoGroup(Ljava/lang/String;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$10;->this$0:Lcom/android/server/notification/NotificationManagerService;
+
+    iget-object v1, v0, Lcom/android/server/notification/NotificationManagerService;->mNotificationLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$10;->this$0:Lcom/android/server/notification/NotificationManagerService;
+
+    invoke-static {v0, p1}, Lcom/android/server/notification/NotificationManagerService;->-wrap37(Lcom/android/server/notification/NotificationManagerService;Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
+
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$10;->this$0:Lcom/android/server/notification/NotificationManagerService;
+
+    invoke-static {v0}, Lcom/android/server/notification/NotificationManagerService;->-get27(Lcom/android/server/notification/NotificationManagerService;)Lcom/android/server/notification/RankingHandler;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-interface {v0, v1}, Lcom/android/server/notification/RankingHandler;->requestSort(Z)V
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method
+
+.method public removeAutoGroupSummary(ILjava/lang/String;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$10;->this$0:Lcom/android/server/notification/NotificationManagerService;
+
+    iget-object v1, v0, Lcom/android/server/notification/NotificationManagerService;->mNotificationLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$10;->this$0:Lcom/android/server/notification/NotificationManagerService;
+
+    invoke-static {v0, p1, p2}, Lcom/android/server/notification/NotificationManagerService;->-wrap20(Lcom/android/server/notification/NotificationManagerService;ILjava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method

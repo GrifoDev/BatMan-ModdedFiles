@@ -66,14 +66,14 @@
     :cond_0
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/opti/NamedNodeMapImpl;->attrs:[Lmf/org/w3c/dom/Attr;
 
-    aget-object v0, v1, v0
+    aget-object v1, v1, v0
 
-    return-object v0
+    return-object v1
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public getNamedItemNS(Ljava/lang/String;Ljava/lang/String;)Lmf/org/w3c/dom/Node;
@@ -124,14 +124,14 @@
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/opti/NamedNodeMapImpl;->attrs:[Lmf/org/w3c/dom/Attr;
 
-    aget-object v0, v1, v0
+    aget-object v1, v1, v0
 
-    return-object v0
+    return-object v1
 
     :cond_2
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public item(I)Lmf/org/w3c/dom/Node;
@@ -168,11 +168,11 @@
 
     new-instance v0, Lmf/org/w3c/dom/DOMException;
 
-    const-string/jumbo v1, "Method not supported"
+    const/16 v1, 0x9
 
-    const/16 v2, 0x9
+    const-string/jumbo v2, "Method not supported"
 
-    invoke-direct {v0, v2, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
 
     throw v0
 .end method
@@ -187,11 +187,11 @@
 
     new-instance v0, Lmf/org/w3c/dom/DOMException;
 
-    const-string/jumbo v1, "Method not supported"
+    const/16 v1, 0x9
 
-    const/16 v2, 0x9
+    const-string/jumbo v2, "Method not supported"
 
-    invoke-direct {v0, v2, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
 
     throw v0
 .end method
@@ -206,11 +206,11 @@
 
     new-instance v0, Lmf/org/w3c/dom/DOMException;
 
-    const-string/jumbo v1, "Method not supported"
+    const/16 v1, 0x9
 
-    const/16 v2, 0x9
+    const-string/jumbo v2, "Method not supported"
 
-    invoke-direct {v0, v2, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
 
     throw v0
 .end method
@@ -225,11 +225,11 @@
 
     new-instance v0, Lmf/org/w3c/dom/DOMException;
 
-    const-string/jumbo v1, "Method not supported"
+    const/16 v1, 0x9
 
-    const/16 v2, 0x9
+    const-string/jumbo v2, "Method not supported"
 
-    invoke-direct {v0, v2, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
 
     throw v0
 .end method

@@ -62,15 +62,15 @@
 .end method
 
 .method public createDOMASWriter()Lmf/org/apache/xerces/dom3/as/DOMASWriter;
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 

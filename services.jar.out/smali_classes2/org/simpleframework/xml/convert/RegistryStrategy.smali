@@ -79,9 +79,9 @@
 
     invoke-virtual {v1, v0}, Lorg/simpleframework/xml/convert/Registry;->lookup(Ljava/lang/Class;)Lorg/simpleframework/xml/convert/Converter;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
     invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -110,9 +110,9 @@
 
     invoke-virtual {v1, v0}, Lorg/simpleframework/xml/convert/Registry;->lookup(Ljava/lang/Class;)Lorg/simpleframework/xml/convert/Converter;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
     invoke-interface {p2}, Lorg/simpleframework/xml/strategy/Value;->getType()Ljava/lang/Class;
@@ -123,7 +123,7 @@
 .end method
 
 .method private read(Lorg/simpleframework/xml/strategy/Type;Lorg/simpleframework/xml/stream/NodeMap;Lorg/simpleframework/xml/strategy/Value;)Lorg/simpleframework/xml/strategy/Value;
-    .locals 3
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -150,40 +150,40 @@
 
     invoke-interface {p2}, Lorg/simpleframework/xml/stream/NodeMap;->getNode()Lorg/simpleframework/xml/stream/Node;
 
-    move-result-object v0
+    move-result-object v3
 
-    check-cast v0, Lorg/simpleframework/xml/stream/InputNode;
+    check-cast v3, Lorg/simpleframework/xml/stream/InputNode;
 
     if-nez v1, :cond_0
 
     return-object p3
 
     :cond_0
-    invoke-interface {v1, v0}, Lorg/simpleframework/xml/convert/Converter;->read(Lorg/simpleframework/xml/stream/InputNode;)Ljava/lang/Object;
+    invoke-interface {v1, v3}, Lorg/simpleframework/xml/convert/Converter;->read(Lorg/simpleframework/xml/stream/InputNode;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
     invoke-interface {p1}, Lorg/simpleframework/xml/strategy/Type;->getType()Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object v0
 
     if-nez p3, :cond_1
 
     :goto_0
-    new-instance v2, Lorg/simpleframework/xml/convert/Reference;
+    new-instance v4, Lorg/simpleframework/xml/convert/Reference;
 
-    invoke-direct {v2, p3, v0, v1}, Lorg/simpleframework/xml/convert/Reference;-><init>(Lorg/simpleframework/xml/strategy/Value;Ljava/lang/Object;Ljava/lang/Class;)V
+    invoke-direct {v4, p3, v2, v0}, Lorg/simpleframework/xml/convert/Reference;-><init>(Lorg/simpleframework/xml/strategy/Value;Ljava/lang/Object;Ljava/lang/Class;)V
 
-    return-object v2
+    return-object v4
 
     :cond_1
-    invoke-interface {p3, v0}, Lorg/simpleframework/xml/strategy/Value;->setValue(Ljava/lang/Object;)V
+    invoke-interface {p3, v2}, Lorg/simpleframework/xml/strategy/Value;->setValue(Ljava/lang/Object;)V
 
     goto :goto_0
 .end method
 
 .method private write(Lorg/simpleframework/xml/strategy/Type;Ljava/lang/Object;Lorg/simpleframework/xml/stream/NodeMap;)Z
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -204,26 +204,26 @@
 
     invoke-direct {p0, p1, p2}, Lorg/simpleframework/xml/convert/RegistryStrategy;->lookup(Lorg/simpleframework/xml/strategy/Type;Ljava/lang/Object;)Lorg/simpleframework/xml/convert/Converter;
 
-    move-result-object v1
+    move-result-object v0
 
     invoke-interface {p3}, Lorg/simpleframework/xml/stream/NodeMap;->getNode()Lorg/simpleframework/xml/stream/Node;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lorg/simpleframework/xml/stream/OutputNode;
+    check-cast v1, Lorg/simpleframework/xml/stream/OutputNode;
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    return v0
+    return v2
 
     :cond_0
-    invoke-interface {v1, v0, p2}, Lorg/simpleframework/xml/convert/Converter;->write(Lorg/simpleframework/xml/stream/OutputNode;Ljava/lang/Object;)V
+    invoke-interface {v0, v1, p2}, Lorg/simpleframework/xml/convert/Converter;->write(Lorg/simpleframework/xml/stream/OutputNode;Ljava/lang/Object;)V
 
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    return v0
+    return v2
 .end method
 
 
@@ -250,9 +250,9 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/convert/RegistryStrategy;->strategy:Lorg/simpleframework/xml/strategy/Strategy;
+    iget-object v1, p0, Lorg/simpleframework/xml/convert/RegistryStrategy;->strategy:Lorg/simpleframework/xml/strategy/Strategy;
 
-    invoke-interface {v0, p1, p2, p3}, Lorg/simpleframework/xml/strategy/Strategy;->read(Lorg/simpleframework/xml/strategy/Type;Lorg/simpleframework/xml/stream/NodeMap;Ljava/util/Map;)Lorg/simpleframework/xml/strategy/Value;
+    invoke-interface {v1, p1, p2, p3}, Lorg/simpleframework/xml/strategy/Strategy;->read(Lorg/simpleframework/xml/strategy/Type;Lorg/simpleframework/xml/stream/NodeMap;Ljava/util/Map;)Lorg/simpleframework/xml/strategy/Value;
 
     move-result-object v0
 
@@ -264,16 +264,16 @@
 
     invoke-direct {p0, p1, p2, v0}, Lorg/simpleframework/xml/convert/RegistryStrategy;->read(Lorg/simpleframework/xml/strategy/Type;Lorg/simpleframework/xml/stream/NodeMap;Lorg/simpleframework/xml/strategy/Value;)Lorg/simpleframework/xml/strategy/Value;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
     return-object v0
 .end method
 
 .method public write(Lorg/simpleframework/xml/strategy/Type;Ljava/lang/Object;Lorg/simpleframework/xml/stream/NodeMap;Ljava/util/Map;)Z
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -294,9 +294,9 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/convert/RegistryStrategy;->strategy:Lorg/simpleframework/xml/strategy/Strategy;
+    iget-object v1, p0, Lorg/simpleframework/xml/convert/RegistryStrategy;->strategy:Lorg/simpleframework/xml/strategy/Strategy;
 
-    invoke-interface {v0, p1, p2, p3, p4}, Lorg/simpleframework/xml/strategy/Strategy;->write(Lorg/simpleframework/xml/strategy/Type;Ljava/lang/Object;Lorg/simpleframework/xml/stream/NodeMap;Ljava/util/Map;)Z
+    invoke-interface {v1, p1, p2, p3, p4}, Lorg/simpleframework/xml/strategy/Strategy;->write(Lorg/simpleframework/xml/strategy/Type;Ljava/lang/Object;Lorg/simpleframework/xml/stream/NodeMap;Ljava/util/Map;)Z
 
     move-result v0
 
@@ -307,7 +307,7 @@
     :cond_0
     invoke-direct {p0, p1, p2, p3}, Lorg/simpleframework/xml/convert/RegistryStrategy;->write(Lorg/simpleframework/xml/strategy/Type;Ljava/lang/Object;Lorg/simpleframework/xml/stream/NodeMap;)Z
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 .end method

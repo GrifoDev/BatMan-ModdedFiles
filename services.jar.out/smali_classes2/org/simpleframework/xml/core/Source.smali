@@ -177,14 +177,12 @@
 
     invoke-interface {v1, p1, v0, v2}, Lorg/simpleframework/xml/strategy/Strategy;->read(Lorg/simpleframework/xml/strategy/Type;Lorg/simpleframework/xml/stream/NodeMap;Ljava/util/Map;)Lorg/simpleframework/xml/strategy/Value;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    new-instance v0, Lorg/simpleframework/xml/core/PersistenceException;
-
-    const-string/jumbo v1, "No attributes for %s"
+    new-instance v1, Lorg/simpleframework/xml/core/PersistenceException;
 
     const/4 v2, 0x1
 
@@ -194,9 +192,11 @@
 
     aput-object p2, v2, v3
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/core/PersistenceException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v3, "No attributes for %s"
 
-    throw v0
+    invoke-direct {v1, v3, v2}, Lorg/simpleframework/xml/core/PersistenceException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v1
 .end method
 
 .method public getProperty(Ljava/lang/String;)Ljava/lang/String;
@@ -232,9 +232,7 @@
     return-object v1
 
     :cond_0
-    new-instance v0, Lorg/simpleframework/xml/core/PersistenceException;
-
-    const-string/jumbo v1, "Invalid schema class %s"
+    new-instance v1, Lorg/simpleframework/xml/core/PersistenceException;
 
     const/4 v2, 0x1
 
@@ -244,9 +242,11 @@
 
     aput-object p1, v2, v3
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/core/PersistenceException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v3, "Invalid schema class %s"
 
-    throw v0
+    invoke-direct {v1, v3, v2}, Lorg/simpleframework/xml/core/PersistenceException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v1
 .end method
 
 .method public getSession()Lorg/simpleframework/xml/core/Session;
@@ -419,14 +419,12 @@
 
     invoke-interface {v1, p1, p2, v0, v2}, Lorg/simpleframework/xml/strategy/Strategy;->write(Lorg/simpleframework/xml/strategy/Type;Ljava/lang/Object;Lorg/simpleframework/xml/stream/NodeMap;Ljava/util/Map;)Z
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 
     :cond_0
-    new-instance v0, Lorg/simpleframework/xml/core/PersistenceException;
-
-    const-string/jumbo v1, "No attributes for %s"
+    new-instance v1, Lorg/simpleframework/xml/core/PersistenceException;
 
     const/4 v2, 0x1
 
@@ -436,7 +434,9 @@
 
     aput-object p3, v2, v3
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/core/PersistenceException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v3, "No attributes for %s"
 
-    throw v0
+    invoke-direct {v1, v3, v2}, Lorg/simpleframework/xml/core/PersistenceException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v1
 .end method

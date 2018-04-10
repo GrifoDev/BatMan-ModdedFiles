@@ -42,39 +42,35 @@
 .end method
 
 .method public deleteCell(I)V
-    .locals 3
+    .locals 2
 
     invoke-virtual {p0}, Lmf/org/apache/html/dom/HTMLTableRowElementImpl;->getFirstChild()Lmf/org/w3c/dom/Node;
 
     move-result-object v0
 
-    move-object v1, v0
-
-    move v0, p1
-
     :goto_0
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
-    instance-of v2, v1, Lmf/org/w3c/dom/html/HTMLTableCellElement;
+    instance-of v1, v0, Lmf/org/w3c/dom/html/HTMLTableCellElement;
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
     :goto_1
-    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v0
 
     goto :goto_0
 
     :cond_0
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p1, p1, -0x1
 
     goto :goto_1
 
     :cond_1
-    invoke-virtual {p0, v1}, Lmf/org/apache/html/dom/HTMLTableRowElementImpl;->removeChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-virtual {p0, v0}, Lmf/org/apache/html/dom/HTMLTableRowElementImpl;->removeChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
     return-void
 
@@ -139,9 +135,9 @@
 
     const/4 v2, 0x1
 
-    const-string/jumbo v0, "char"
+    const-string/jumbo v1, "char"
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/html/dom/HTMLTableRowElementImpl;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Lmf/org/apache/html/dom/HTMLTableRowElementImpl;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -195,9 +191,9 @@
 
     if-nez v1, :cond_1
 
-    const/4 v0, -0x1
+    const/4 v1, -0x1
 
-    return v0
+    return v1
 
     :cond_0
     invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getParentNode()Lmf/org/w3c/dom/Node;
@@ -209,9 +205,9 @@
     :cond_1
     invoke-virtual {p0, v0}, Lmf/org/apache/html/dom/HTMLTableRowElementImpl;->getRowIndex(Lmf/org/w3c/dom/Node;)I
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 .end method
 
 .method getRowIndex(Lmf/org/w3c/dom/Node;)I
@@ -219,9 +215,9 @@
 
     check-cast p1, Lmf/org/w3c/dom/html/HTMLElement;
 
-    const-string/jumbo v0, "TR"
+    const-string/jumbo v2, "TR"
 
-    invoke-interface {p1, v0}, Lmf/org/w3c/dom/html/HTMLElement;->getElementsByTagName(Ljava/lang/String;)Lmf/org/w3c/dom/NodeList;
+    invoke-interface {p1, v2}, Lmf/org/w3c/dom/html/HTMLElement;->getElementsByTagName(Ljava/lang/String;)Lmf/org/w3c/dom/NodeList;
 
     move-result-object v1
 
@@ -248,9 +244,9 @@
     return v0
 
     :cond_1
-    const/4 v0, -0x1
+    const/4 v2, -0x1
 
-    return v0
+    return v2
 .end method
 
 .method public getSectionRowIndex()I
@@ -264,16 +260,16 @@
 
     if-nez v1, :cond_0
 
-    const/4 v0, -0x1
+    const/4 v1, -0x1
 
-    return v0
+    return v1
 
     :cond_0
     invoke-virtual {p0, v0}, Lmf/org/apache/html/dom/HTMLTableRowElementImpl;->getRowIndex(Lmf/org/w3c/dom/Node;)I
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 .end method
 
 .method public getVAlign()Ljava/lang/String;
@@ -295,56 +291,52 @@
 .method public insertCell(I)Lmf/org/w3c/dom/html/HTMLElement;
     .locals 4
 
-    new-instance v2, Lmf/org/apache/html/dom/HTMLTableCellElementImpl;
+    new-instance v1, Lmf/org/apache/html/dom/HTMLTableCellElementImpl;
 
     invoke-virtual {p0}, Lmf/org/apache/html/dom/HTMLTableRowElementImpl;->getOwnerDocument()Lmf/org/w3c/dom/Document;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Lmf/org/apache/html/dom/HTMLDocumentImpl;
+    check-cast v2, Lmf/org/apache/html/dom/HTMLDocumentImpl;
 
-    const-string/jumbo v1, "TD"
+    const-string/jumbo v3, "TD"
 
-    invoke-direct {v2, v0, v1}, Lmf/org/apache/html/dom/HTMLTableCellElementImpl;-><init>(Lmf/org/apache/html/dom/HTMLDocumentImpl;Ljava/lang/String;)V
+    invoke-direct {v1, v2, v3}, Lmf/org/apache/html/dom/HTMLTableCellElementImpl;-><init>(Lmf/org/apache/html/dom/HTMLDocumentImpl;Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lmf/org/apache/html/dom/HTMLTableRowElementImpl;->getFirstChild()Lmf/org/w3c/dom/Node;
 
     move-result-object v0
 
-    move-object v1, v0
-
-    move v0, p1
-
     :goto_0
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
-    instance-of v3, v1, Lmf/org/w3c/dom/html/HTMLTableCellElement;
+    instance-of v2, v0, Lmf/org/w3c/dom/html/HTMLTableCellElement;
 
-    if-nez v3, :cond_0
+    if-nez v2, :cond_0
 
     :goto_1
-    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v0
 
     goto :goto_0
 
     :cond_0
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p1, p1, -0x1
 
     goto :goto_1
 
     :cond_1
-    invoke-virtual {p0, v2, v1}, Lmf/org/apache/html/dom/HTMLTableRowElementImpl;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-virtual {p0, v1, v0}, Lmf/org/apache/html/dom/HTMLTableRowElementImpl;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
-    return-object v2
+    return-object v1
 
     :cond_2
-    invoke-virtual {p0, v2}, Lmf/org/apache/html/dom/HTMLTableRowElementImpl;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-virtual {p0, v1}, Lmf/org/apache/html/dom/HTMLTableRowElementImpl;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
-    return-object v2
+    return-object v1
 .end method
 
 .method public setAlign(Ljava/lang/String;)V
@@ -368,40 +360,42 @@
 .end method
 
 .method public setCells(Lmf/org/w3c/dom/html/HTMLCollection;)V
-    .locals 2
-
-    const/4 v0, 0x0
+    .locals 3
 
     invoke-virtual {p0}, Lmf/org/apache/html/dom/HTMLTableRowElementImpl;->getFirstChild()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v0
 
     :goto_0
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/html/dom/HTMLTableRowElementImpl;->removeChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-virtual {p0, v0}, Lmf/org/apache/html/dom/HTMLTableRowElementImpl;->removeChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
-    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v0
 
     goto :goto_0
 
     :cond_0
-    invoke-interface {p1, v0}, Lmf/org/w3c/dom/html/HTMLCollection;->item(I)Lmf/org/w3c/dom/Node;
+    const/4 v1, 0x0
 
-    move-result-object v1
+    const/4 v2, 0x0
+
+    invoke-interface {p1, v2}, Lmf/org/w3c/dom/html/HTMLCollection;->item(I)Lmf/org/w3c/dom/Node;
+
+    move-result-object v0
 
     :goto_1
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/html/dom/HTMLTableRowElementImpl;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-virtual {p0, v0}, Lmf/org/apache/html/dom/HTMLTableRowElementImpl;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    invoke-interface {p1, v0}, Lmf/org/w3c/dom/html/HTMLCollection;->item(I)Lmf/org/w3c/dom/Node;
+    invoke-interface {p1, v1}, Lmf/org/w3c/dom/html/HTMLCollection;->item(I)Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v0
 
     goto :goto_1
 

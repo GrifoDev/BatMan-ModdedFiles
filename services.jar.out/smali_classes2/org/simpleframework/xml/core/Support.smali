@@ -125,9 +125,9 @@
 
     invoke-virtual {p1}, Ljava/lang/Class;->isArray()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     :goto_0
     invoke-virtual {p1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -142,9 +142,9 @@
 
     invoke-static {v0}, Lorg/simpleframework/xml/core/Reflector;->getName(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
     invoke-virtual {p1}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
@@ -523,7 +523,7 @@
 .end method
 
 .method public getName(Ljava/lang/Class;)Ljava/lang/String;
-    .locals 1
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -532,9 +532,9 @@
 
     invoke-virtual {p0, p1}, Lorg/simpleframework/xml/core/Support;->getScanner(Ljava/lang/Class;)Lorg/simpleframework/xml/core/Scanner;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/core/Scanner;->getName()Ljava/lang/String;
+    invoke-interface {v1}, Lorg/simpleframework/xml/core/Scanner;->getName()Ljava/lang/String;
 
     move-result-object v0
 
@@ -542,9 +542,9 @@
 
     invoke-direct {p0, p1}, Lorg/simpleframework/xml/core/Support;->getClassName(Ljava/lang/Class;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 
     :cond_0
     return-object v0

@@ -37,121 +37,117 @@
 
 # virtual methods
 .method addChild(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
-    .locals 7
+    .locals 11
 
-    const/high16 v6, 0x10000
+    const/high16 v10, 0x10000
 
-    const/16 v5, 0xa
+    const/16 v9, 0xa
 
-    const/4 v4, 0x0
+    const/4 v8, 0x0
 
-    const/4 v1, 0x2
-
-    const/4 v0, 0x0
+    const/4 v3, 0x2
 
     if-eqz p1, :cond_2
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
 
-    if-eqz v2, :cond_3
+    if-eqz v6, :cond_3
 
     :goto_0
-    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->type:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->type:I
 
-    if-eq v2, v1, :cond_4
+    if-eq v6, v3, :cond_4
 
-    iget v2, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
+    iget v6, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
 
-    const/4 v3, 0x1
+    const/4 v7, 0x1
 
-    if-eq v2, v3, :cond_6
+    if-eq v6, v7, :cond_5
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
 
-    invoke-virtual {v0}, Ljava/util/Vector;->size()I
+    invoke-virtual {v6}, Ljava/util/Vector;->size()I
 
-    move-result v3
+    move-result v5
 
-    if-eqz v3, :cond_7
+    if-eqz v5, :cond_7
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
 
-    add-int/lit8 v2, v3, -0x1
+    add-int/lit8 v7, v5, -0x1
 
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v6, v7}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v4
 
-    check-cast v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    check-cast v4, Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    iget v2, v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
+    iget v6, v4, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
 
-    if-nez v2, :cond_8
+    if-nez v6, :cond_8
 
     :cond_0
-    iget v2, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
+    iget v6, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
 
-    if-nez v2, :cond_a
+    if-nez v6, :cond_a
 
     :goto_1
-    iget v2, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
+    iget v6, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
 
-    if-eqz v2, :cond_1
+    if-eqz v6, :cond_1
 
     invoke-virtual {p1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v6
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
-
-    move-result v1
-
-    :cond_1
-    iget v2, v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
-
-    if-eqz v2, :cond_b
-
-    new-instance v2, Ljava/lang/StringBuffer;
-
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
+    invoke-virtual {v6}, Ljava/lang/String;->length()I
 
     move-result v3
 
-    add-int/2addr v1, v3
+    :cond_1
+    iget v6, v4, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
 
-    invoke-direct {v2, v1}, Ljava/lang/StringBuffer;-><init>(I)V
+    if-eqz v6, :cond_b
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getString()Ljava/lang/String;
+    new-instance v0, Ljava/lang/StringBuffer;
 
-    move-result-object v1
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getString()Ljava/lang/String;
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-result-object v6
 
-    move-object v1, v2
+    invoke-virtual {v6}, Ljava/lang/String;->length()I
+
+    move-result v6
+
+    add-int/2addr v6, v3
+
+    invoke-direct {v0, v6}, Ljava/lang/StringBuffer;-><init>(I)V
+
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     :goto_2
-    iget v2, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
+    iget v6, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
 
-    if-eqz v2, :cond_d
+    if-eqz v6, :cond_d
 
     invoke-virtual {p1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v6
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     :goto_3
-    check-cast v0, Lmf/org/apache/xerces/impl/xpath/regex/Token$StringToken;
+    check-cast v4, Lmf/org/apache/xerces/impl/xpath/regex/Token$StringToken;
 
-    new-instance v2, Ljava/lang/String;
+    new-instance v6, Ljava/lang/String;
 
-    invoke-direct {v2, v1}, Ljava/lang/String;-><init>(Ljava/lang/StringBuffer;)V
+    invoke-direct {v6, v0}, Ljava/lang/String;-><init>(Ljava/lang/StringBuffer;)V
 
-    iput-object v2, v0, Lmf/org/apache/xerces/impl/xpath/regex/Token$StringToken;->string:Ljava/lang/String;
+    iput-object v6, v4, Lmf/org/apache/xerces/impl/xpath/regex/Token$StringToken;->string:Ljava/lang/String;
 
     return-void
 
@@ -159,125 +155,128 @@
     return-void
 
     :cond_3
-    new-instance v2, Ljava/util/Vector;
+    new-instance v6, Ljava/util/Vector;
 
-    invoke-direct {v2}, Ljava/util/Vector;-><init>()V
+    invoke-direct {v6}, Ljava/util/Vector;-><init>()V
 
-    iput-object v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
+    iput-object v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
 
     goto :goto_0
 
     :cond_4
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
 
-    invoke-virtual {v0, p1}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+    invoke-virtual {v6, p1}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
 
     return-void
 
     :cond_5
-    invoke-virtual {p1, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    const/4 v2, 0x0
 
-    move-result-object v1
-
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->addChild(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
-
-    add-int/lit8 v0, v0, 0x1
-
-    :cond_6
+    :goto_4
     invoke-virtual {p1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->size()I
 
-    move-result v1
+    move-result v6
 
-    if-lt v0, v1, :cond_5
+    if-ge v2, v6, :cond_6
 
+    invoke-virtual {p1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+
+    move-result-object v6
+
+    invoke-virtual {p0, v6}, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->addChild(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_4
+
+    :cond_6
     return-void
 
     :cond_7
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
 
-    invoke-virtual {v0, p1}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+    invoke-virtual {v6, p1}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
 
     return-void
 
     :cond_8
-    iget v2, v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
+    iget v6, v4, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
 
-    if-eq v2, v5, :cond_0
+    if-eq v6, v9, :cond_0
 
     :cond_9
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
 
-    invoke-virtual {v0, p1}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+    invoke-virtual {v6, p1}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
 
     return-void
 
     :cond_a
-    iget v2, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
+    iget v6, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
 
-    if-ne v2, v5, :cond_9
+    if-ne v6, v9, :cond_9
 
     goto :goto_1
 
     :cond_b
-    new-instance v2, Ljava/lang/StringBuffer;
+    new-instance v0, Ljava/lang/StringBuffer;
 
-    add-int/lit8 v1, v1, 0x2
+    add-int/lit8 v6, v3, 0x2
 
-    invoke-direct {v2, v1}, Ljava/lang/StringBuffer;-><init>(I)V
+    invoke-direct {v0, v6}, Ljava/lang/StringBuffer;-><init>(I)V
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChar()I
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChar()I
 
-    move-result v0
+    move-result v1
 
-    if-ge v0, v6, :cond_c
+    if-ge v1, v10, :cond_c
 
-    int-to-char v0, v0
+    int-to-char v6, v1
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    :goto_4
-    invoke-static {v4}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createString(Ljava/lang/String;)Lmf/org/apache/xerces/impl/xpath/regex/Token$StringToken;
+    :goto_5
+    invoke-static {v8}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createString(Ljava/lang/String;)Lmf/org/apache/xerces/impl/xpath/regex/Token$StringToken;
 
-    move-result-object v0
+    move-result-object v4
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
 
-    add-int/lit8 v3, v3, -0x1
+    add-int/lit8 v7, v5, -0x1
 
-    invoke-virtual {v1, v0, v3}, Ljava/util/Vector;->setElementAt(Ljava/lang/Object;I)V
-
-    move-object v1, v2
+    invoke-virtual {v6, v4, v7}, Ljava/util/Vector;->setElementAt(Ljava/lang/Object;I)V
 
     goto :goto_2
 
     :cond_c
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->decomposeToSurrogates(I)Ljava/lang/String;
+    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->decomposeToSurrogates(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    goto :goto_4
+    goto :goto_5
 
     :cond_d
     invoke-virtual {p1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChar()I
 
-    move-result v2
+    move-result v1
 
-    if-ge v2, v6, :cond_e
+    if-ge v1, v10, :cond_e
 
-    int-to-char v2, v2
+    int-to-char v6, v1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto :goto_3
 
     :cond_e
-    invoke-static {v2}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->decomposeToSurrogates(I)Ljava/lang/String;
+    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->decomposeToSurrogates(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v6
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_3
 .end method
@@ -319,331 +318,329 @@
 .end method
 
 .method public toString(I)Ljava/lang/String;
-    .locals 5
+    .locals 10
 
-    const/4 v4, 0x7
+    const/4 v9, 0x7
 
-    const/4 v3, 0x2
+    const/4 v8, 0x2
 
-    const/4 v1, 0x1
+    const/4 v6, 0x1
 
-    const/4 v0, 0x0
+    const/4 v7, 0x0
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->type:I
+    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->type:I
 
-    if-eq v2, v1, :cond_2
+    if-eq v5, v6, :cond_2
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
 
-    invoke-virtual {v2}, Ljava/util/Vector;->size()I
+    invoke-virtual {v5}, Ljava/util/Vector;->size()I
 
-    move-result v2
+    move-result v5
 
-    if-eq v2, v3, :cond_9
+    if-eq v5, v8, :cond_9
 
     :cond_0
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
 
-    invoke-virtual {v2}, Ljava/util/Vector;->size()I
+    invoke-virtual {v5}, Ljava/util/Vector;->size()I
 
-    move-result v2
+    move-result v5
 
-    if-eq v2, v3, :cond_a
+    if-eq v5, v8, :cond_a
 
     :cond_1
-    new-instance v2, Ljava/lang/StringBuffer;
+    new-instance v4, Ljava/lang/StringBuffer;
 
-    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuffer;-><init>()V
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
 
-    invoke-virtual {v3, v0}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v5, v7}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v5
 
-    check-cast v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    check-cast v5, Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    invoke-virtual {v0, p1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->toString(I)Ljava/lang/String;
+    invoke-virtual {v5, p1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->toString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    const/4 v2, 0x1
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
 
-    invoke-virtual {v0}, Ljava/util/Vector;->size()I
+    invoke-virtual {v5}, Ljava/util/Vector;->size()I
 
-    move-result v0
+    move-result v5
 
-    if-ge v1, v0, :cond_b
+    if-ge v2, v5, :cond_b
 
-    const/16 v0, 0x7c
+    const/16 v5, 0x7c
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
 
-    invoke-virtual {v0, v1}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v5, v2}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v5
 
-    check-cast v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    check-cast v5, Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    invoke-virtual {v0, p1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->toString(I)Ljava/lang/String;
+    invoke-virtual {v5, p1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->toString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_2
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
 
-    invoke-virtual {v2}, Ljava/util/Vector;->size()I
+    invoke-virtual {v5}, Ljava/util/Vector;->size()I
 
-    move-result v2
+    move-result v5
 
-    if-eq v2, v3, :cond_3
+    if-eq v5, v8, :cond_3
 
-    new-instance v2, Ljava/lang/StringBuffer;
+    new-instance v4, Ljava/lang/StringBuffer;
 
-    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuffer;-><init>()V
 
-    move v1, v0
+    const/4 v2, 0x0
 
     :goto_1
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
 
-    invoke-virtual {v0}, Ljava/util/Vector;->size()I
+    invoke-virtual {v5}, Ljava/util/Vector;->size()I
 
-    move-result v0
+    move-result v5
 
-    if-ge v1, v0, :cond_8
+    if-ge v2, v5, :cond_8
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->children:Ljava/util/Vector;
 
-    invoke-virtual {v0, v1}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v5, v2}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v5
 
-    check-cast v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    check-cast v5, Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    invoke-virtual {v0, p1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->toString(I)Ljava/lang/String;
+    invoke-virtual {v5, p1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->toString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
     :cond_3
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-virtual {p0, v7}, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-virtual {p0, v6}, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
     move-result-object v1
 
-    iget v3, v1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
+    iget v5, v1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
 
-    const/4 v4, 0x3
+    const/4 v6, 0x3
 
-    if-eq v3, v4, :cond_6
+    if-eq v5, v6, :cond_6
 
     :cond_4
-    iget v3, v1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
+    iget v5, v1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
 
-    const/16 v4, 0x9
+    const/16 v6, 0x9
 
-    if-eq v3, v4, :cond_7
+    if-eq v5, v6, :cond_7
 
     :cond_5
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->toString(I)Ljava/lang/String;
+    invoke-virtual {v0, p1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->toString(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v6
 
-    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v6}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v6
 
-    invoke-direct {v0, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->toString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v6
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    :goto_2
-    return-object v0
-
-    :cond_6
-    invoke-virtual {v1, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    if-ne v3, v2, :cond_4
+    :goto_2
+    return-object v3
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    :cond_6
+    invoke-virtual {v1, v7}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    invoke-virtual {v2, p1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->toString(I)Ljava/lang/String;
+    move-result-object v5
 
-    move-result-object v1
+    if-ne v5, v0, :cond_4
 
-    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    invoke-virtual {v0, p1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->toString(I)Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    move-result-object v6
 
-    const-string/jumbo v1, "+"
+    invoke-static {v6}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    move-result-object v0
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v6, "+"
 
-    move-result-object v0
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
 
     goto :goto_2
 
     :cond_7
-    invoke-virtual {v1, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-virtual {v1, v7}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v5
 
-    if-ne v0, v2, :cond_5
+    if-ne v5, v0, :cond_5
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->toString(I)Ljava/lang/String;
+    invoke-virtual {v0, p1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->toString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v6
 
-    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v6}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v6
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v1, "+?"
+    const-string/jumbo v6, "+?"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
     goto :goto_2
 
     :cond_8
-    new-instance v0, Ljava/lang/String;
+    new-instance v3, Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/lang/String;-><init>(Ljava/lang/StringBuffer;)V
+    invoke-direct {v3, v4}, Ljava/lang/String;-><init>(Ljava/lang/StringBuffer;)V
 
     goto :goto_2
 
     :cond_9
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-virtual {p0, v6}, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v2
+    move-result-object v5
 
-    iget v2, v2, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
+    iget v5, v5, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
 
-    if-ne v2, v4, :cond_0
+    if-ne v5, v9, :cond_0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-virtual {p0, v7}, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {v0, p1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->toString(I)Ljava/lang/String;
+    invoke-virtual {v6, p1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->toString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v6}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v0, "?"
+    const-string/jumbo v6, "?"
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
     :goto_3
-    return-object v0
+    return-object v3
 
     :cond_a
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-virtual {p0, v7}, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v2
+    move-result-object v5
 
-    iget v2, v2, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
+    iget v5, v5, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
 
-    if-ne v2, v4, :cond_1
+    if-ne v5, v9, :cond_1
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-virtual {p0, v6}, Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v1
+    move-result-object v6
 
-    invoke-virtual {v1, p1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->toString(I)Ljava/lang/String;
+    invoke-virtual {v6, p1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->toString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v6
 
-    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v6}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v6
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v1, "??"
+    const-string/jumbo v6, "??"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
     goto :goto_3
 
     :cond_b
-    new-instance v0, Ljava/lang/String;
+    new-instance v3, Ljava/lang/String;
 
-    invoke-direct {v0, v2}, Ljava/lang/String;-><init>(Ljava/lang/StringBuffer;)V
+    invoke-direct {v3, v4}, Ljava/lang/String;-><init>(Ljava/lang/StringBuffer;)V
 
     goto :goto_3
 .end method

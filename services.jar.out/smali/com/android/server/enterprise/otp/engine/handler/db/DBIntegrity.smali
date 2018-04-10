@@ -637,7 +637,9 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_0
 
     :cond_2
     const-string/jumbo v3, "DBIntegrity::verify - calculated and stored hmac not match"

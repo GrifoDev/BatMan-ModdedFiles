@@ -39,6 +39,8 @@
 
 .field private static final ESE_CHIP_VENDOR:Ljava/lang/String; = "GEMALTO"
 
+.field private static final ESE_CHIP_VERSION:Ljava/lang/String; = "UT3.0"
+
 .field private static final EVENT_MSG_KERNEL_METADATA_MODIFIED:I = 0x4
 
 .field private static final EVENT_MSG_KERNEL_MODIFIED:I = 0x3
@@ -65,6 +67,8 @@
 
 .field private static final KAP_SAVED_BUILD_FINGERPRINT:Ljava/lang/String; = "persist.sys.kap.date"
 
+.field public static final KNOX_ATTESTATION_PERMISSION:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_REMOTE_ATTESTATION"
+
 .field private static final PACKAGE_SECURITY_LOGUPLOAD_AGENT:Ljava/lang/String; = "com.samsung.android.securitylogagent"
 
 .field private static final TAG:Ljava/lang/String; = "TimaService"
@@ -76,8 +80,6 @@
 .field private static final TIMA_CCM_DB_FILE:Ljava/lang/String; = "/data/misc/tz_ccm/key_db"
 
 .field private static final TIMA_CCM_DIR:Ljava/lang/String; = "/data/misc/tz_ccm"
-
-.field private static final TIMA_DUMP_LOG_EXEC:Ljava/lang/String; = "/system/bin/tima_dump_log -s 20 -d 40 -o "
 
 .field private static final TIMA_ERROR_KEYSTORE_NO_PERMISSON:I = 0x64
 
@@ -206,17 +208,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap2(Lcom/android/server/TimaService;)Ljava/lang/String;
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/server/TimaService;->getCCMVersionBoot()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic -wrap3(Lcom/android/server/TimaService;)V
+.method static synthetic -wrap2(Lcom/android/server/TimaService;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/TimaService;->notifyKapEnabled()V
@@ -224,7 +216,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap4(Lcom/android/server/TimaService;)V
+.method static synthetic -wrap3(Lcom/android/server/TimaService;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/TimaService;->setKapBuildProp()V
@@ -232,7 +224,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap5(Lcom/android/server/TimaService;)V
+.method static synthetic -wrap4(Lcom/android/server/TimaService;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/TimaService;->startAttestationBoot()V
@@ -476,6 +468,276 @@
 .method static native ccm_register_for_default_cert(II)J
 .end method
 
+.method private checkAttestationAccessPermission(I)Z
+    .locals 10
+
+    const/4 v9, 0x1
+
+    const/4 v8, 0x0
+
+    const-string/jumbo v5, "TimaService"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "checkAttestationAccessPermission : "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v5, p0, Lcom/android/server/TimaService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p1}, Landroid/content/pm/PackageManager;->getPackagesForUid(I)[Ljava/lang/String;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_0
+
+    array-length v5, v4
+
+    if-nez v5, :cond_1
+
+    :cond_0
+    const-string/jumbo v5, "TimaService"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Failed to get package name of callerUid : "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v8
+
+    :cond_1
+    const/4 v5, 0x0
+
+    :try_start_0
+    aget-object v3, v4, v5
+
+    iget-object v5, p0, Lcom/android/server/TimaService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v5
+
+    const/16 v6, 0x80
+
+    invoke-virtual {v5, v3, v6}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_2
+
+    iget-object v5, v0, Landroid/content/pm/ApplicationInfo;->seInfo:Ljava/lang/String;
+
+    if-nez v5, :cond_3
+
+    :cond_2
+    const-string/jumbo v5, "TimaService"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Failed to get application info or seinfo : "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v8
+
+    :cond_3
+    const-string/jumbo v5, "TimaService"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Caller SEInfo : "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    iget-object v7, v0, Landroid/content/pm/ApplicationInfo;->seInfo:Ljava/lang/String;
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v5, v0, Landroid/content/pm/ApplicationInfo;->seInfo:Ljava/lang/String;
+
+    const-string/jumbo v6, "platform"
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_4
+
+    iget-object v5, v0, Landroid/content/pm/ApplicationInfo;->seInfo:Ljava/lang/String;
+
+    const-string/jumbo v6, "spay"
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_4
+
+    iget-object v5, p0, Lcom/android/server/TimaService;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v6, "com.samsung.android.knox.permission.KNOX_REMOTE_ATTESTATION"
+
+    const-string/jumbo v7, "Need Permission : com.samsung.android.knox.permission.KNOX_REMOTE_ATTESTATION"
+
+    invoke-virtual {v5, v6, v7}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    return v9
+
+    :cond_4
+    const-string/jumbo v5, "TimaService"
+
+    const-string/jumbo v6, "request from platform signed app, so need to check license activation"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_2
+
+    :try_start_1
+    const-string/jumbo v5, "checkAttestationAccessPermission"
+
+    invoke-static {v5}, Lcom/android/server/TimaService;->checkCallerPermissionFor(Ljava/lang/String;)I
+    :try_end_1
+    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_2
+
+    return v9
+
+    :catch_0
+    move-exception v2
+
+    :try_start_2
+    const-string/jumbo v5, "TimaService"
+
+    const-string/jumbo v6, "Need to check license activation"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0, p1}, Lcom/android/server/TimaService;->isActivated(I)Z
+    :try_end_2
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_2
+
+    move-result v5
+
+    if-eqz v5, :cond_5
+
+    :try_start_3
+    iget-object v5, p0, Lcom/android/server/TimaService;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v6, "com.samsung.android.knox.permission.KNOX_REMOTE_ATTESTATION"
+
+    const-string/jumbo v7, "Need Permission : com.samsung.android.knox.permission.KNOX_REMOTE_ATTESTATION"
+
+    invoke-virtual {v5, v6, v7}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_3
+    .catch Ljava/lang/SecurityException; {:try_start_3 .. :try_end_3} :catch_1
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_3 .. :try_end_3} :catch_2
+
+    return v9
+
+    :catch_1
+    move-exception v2
+
+    :try_start_4
+    const-string/jumbo v5, "TimaService"
+
+    const-string/jumbo v6, "Need Permission : com.samsung.android.knox.permission.KNOX_REMOTE_ATTESTATION"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_4
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_4 .. :try_end_4} :catch_2
+
+    return v8
+
+    :cond_5
+    return v8
+
+    :catch_2
+    move-exception v1
+
+    const-string/jumbo v5, "TimaService"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "NameNotFoundException : "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v8
+.end method
+
 .method private static checkCallerPermissionFor(Ljava/lang/String;)I
     .locals 6
 
@@ -614,90 +876,6 @@
     return v1
 .end method
 
-.method private declared-synchronized getCCMVersionBoot()Ljava/lang/String;
-    .locals 5
-
-    const/4 v4, 0x0
-
-    monitor-enter p0
-
-    :try_start_0
-    const-string/jumbo v1, "1"
-
-    const-string/jumbo v2, "ro.config.tima"
-
-    const-string/jumbo v3, "0"
-
-    invoke-static {v2, v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    const-string/jumbo v1, "TimaService"
-
-    const-string/jumbo v2, "in getCCMVersionBoot"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {p0}, Lcom/android/server/TimaService;->getTimaVersion()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "3.0"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    monitor-exit p0
-
-    return-object v4
-
-    :cond_0
-    :try_start_1
-    const-string/jumbo v1, "TimaService"
-
-    const-string/jumbo v2, "getCCMVersionBoot - TIMA version does not include CCM"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    monitor-exit p0
-
-    return-object v4
-
-    :cond_1
-    :try_start_2
-    const-string/jumbo v1, "TimaService"
-
-    const-string/jumbo v2, "getCCMVersionBoot - ro.config.tima is not ture"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    monitor-exit p0
-
-    return-object v4
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit p0
-
-    throw v1
-.end method
-
 .method private getCollectorApkDigest(Ljava/lang/String;)[B
     .locals 9
 
@@ -821,712 +999,619 @@
 .end method
 
 .method private getCollectorBlob(I)[B
-    .locals 30
+    .locals 24
 
-    const/4 v8, 0x0
+    const/4 v6, 0x0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/TimaService;->mContext:Landroid/content/Context;
 
-    move-object/from16 v25, v0
+    move-object/from16 v21, v0
 
-    invoke-virtual/range {v25 .. v25}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual/range {v21 .. v21}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v25
+    move-result-object v21
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v21
 
     move/from16 v1, p1
 
     invoke-virtual {v0, v1}, Landroid/content/pm/PackageManager;->getPackagesForUid(I)[Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v16
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v16
 
     array-length v0, v0
 
-    move/from16 v25, v0
+    move/from16 v21, v0
 
-    const/16 v26, 0xa
+    const/16 v22, 0xa
 
-    move/from16 v0, v25
+    move/from16 v0, v21
 
-    move/from16 v1, v26
+    move/from16 v1, v22
 
     if-le v0, v1, :cond_0
 
-    const/16 v8, 0xa
+    const/16 v6, 0xa
 
     :goto_0
-    const/16 v25, 0x3e8
+    const/16 v21, 0x3e8
 
     move/from16 v0, p1
 
-    move/from16 v1, v25
+    move/from16 v1, v21
 
     if-ne v0, v1, :cond_1
 
-    const-string/jumbo v25, "TimaService"
+    const-string/jumbo v21, "TimaService"
 
-    const-string/jumbo v26, "This call was from System UID app."
+    const-string/jumbo v22, "This call was from System UID app."
 
-    invoke-static/range {v25 .. v26}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v21 .. v22}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v25, 0x0
+    const/16 v21, 0x0
 
-    move/from16 v0, v25
+    move/from16 v0, v21
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/TimaService;->mODEEnabled:I
 
-    const/16 v25, 0x16
+    const/16 v21, 0x16
 
-    move/from16 v0, v25
+    move/from16 v0, v21
 
     new-array v0, v0, [B
 
-    move-object/from16 v21, v0
+    move-object/from16 v18, v0
 
-    fill-array-data v21, :array_0
+    fill-array-data v18, :array_0
 
-    return-object v21
+    return-object v18
 
     :cond_0
-    move-object/from16 v0, v19
+    move-object/from16 v0, v16
 
-    array-length v8, v0
+    array-length v6, v0
 
     goto :goto_0
 
     :cond_1
-    mul-int/lit8 v25, v8, 0x20
+    mul-int/lit8 v21, v6, 0x20
 
-    add-int/lit8 v6, v25, 0x8
+    add-int/lit8 v5, v21, 0x8
 
-    new-array v5, v6, [B
+    new-array v4, v5, [B
 
-    const/16 v25, 0x0
+    const/4 v9, 0x0
 
-    const/4 v12, 0x1
+    const/16 v21, 0x0
 
-    const/16 v26, 0x40
+    const/4 v9, 0x1
 
-    aput-byte v26, v5, v25
+    const/16 v22, 0x40
 
-    add-int/lit8 v13, v12, 0x1
+    aput-byte v22, v4, v21
 
-    const/16 v25, 0x0
+    add-int/lit8 v10, v9, 0x1
 
-    aput-byte v25, v5, v12
+    const/16 v21, 0x0
 
-    add-int/lit8 v12, v13, 0x1
+    aput-byte v21, v4, v9
 
-    const/16 v25, 0x2
+    add-int/lit8 v9, v10, 0x1
 
-    aput-byte v25, v5, v13
+    const/16 v21, 0x2
 
-    add-int/lit8 v13, v12, 0x1
+    aput-byte v21, v4, v10
 
-    ushr-int/lit8 v25, v8, 0x8
+    add-int/lit8 v10, v9, 0x1
 
-    move/from16 v0, v25
+    ushr-int/lit8 v21, v6, 0x8
 
-    int-to-byte v0, v0
-
-    move/from16 v25, v0
-
-    aput-byte v25, v5, v12
-
-    add-int/lit8 v12, v13, 0x1
-
-    int-to-byte v0, v8
-
-    move/from16 v25, v0
-
-    aput-byte v25, v5, v13
-
-    add-int/lit8 v13, v12, 0x1
-
-    const/16 v25, 0x41
-
-    aput-byte v25, v5, v12
-
-    add-int/lit8 v12, v13, 0x1
-
-    mul-int/lit8 v25, v8, 0x20
-
-    ushr-int/lit8 v25, v25, 0x8
-
-    move/from16 v0, v25
+    move/from16 v0, v21
 
     int-to-byte v0, v0
 
-    move/from16 v25, v0
+    move/from16 v21, v0
 
-    aput-byte v25, v5, v13
+    aput-byte v21, v4, v9
 
-    add-int/lit8 v13, v12, 0x1
+    add-int/lit8 v9, v10, 0x1
 
-    mul-int/lit8 v25, v8, 0x20
+    int-to-byte v0, v6
 
-    move/from16 v0, v25
+    move/from16 v21, v0
+
+    aput-byte v21, v4, v10
+
+    add-int/lit8 v10, v9, 0x1
+
+    const/16 v21, 0x41
+
+    aput-byte v21, v4, v9
+
+    add-int/lit8 v9, v10, 0x1
+
+    mul-int/lit8 v21, v6, 0x20
+
+    ushr-int/lit8 v21, v21, 0x8
+
+    move/from16 v0, v21
 
     int-to-byte v0, v0
 
-    move/from16 v25, v0
+    move/from16 v21, v0
 
-    aput-byte v25, v5, v12
+    aput-byte v21, v4, v10
 
-    const/4 v11, 0x0
+    add-int/lit8 v10, v9, 0x1
 
-    move v12, v13
+    mul-int/lit8 v21, v6, 0x20
+
+    move/from16 v0, v21
+
+    int-to-byte v0, v0
+
+    move/from16 v21, v0
+
+    aput-byte v21, v4, v9
+
+    const/4 v8, 0x0
+
+    move v9, v10
 
     :goto_1
-    if-ge v11, v8, :cond_3
+    if-ge v8, v6, :cond_3
 
-    aget-object v25, v19, v11
+    aget-object v21, v16, v8
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v21
 
     invoke-direct {v0, v1}, Lcom/android/server/TimaService;->getCollectorApkDigest(Ljava/lang/String;)[B
 
-    move-result-object v3
+    move-result-object v2
 
-    if-eqz v3, :cond_2
+    if-eqz v2, :cond_2
 
-    array-length v0, v3
+    array-length v0, v2
 
-    move/from16 v25, v0
+    move/from16 v21, v0
 
-    const/16 v26, 0x0
+    const/16 v22, 0x0
 
-    move/from16 v0, v26
+    move/from16 v0, v22
 
-    move/from16 v1, v25
+    move/from16 v1, v21
 
-    invoke-static {v3, v0, v5, v12, v1}, Ljava/lang/System;->arraycopy([BI[BII)V
+    invoke-static {v2, v0, v4, v9, v1}, Ljava/lang/System;->arraycopy([BI[BII)V
 
-    array-length v0, v3
+    array-length v0, v2
 
-    move/from16 v25, v0
+    move/from16 v21, v0
 
-    add-int v12, v12, v25
+    add-int v9, v9, v21
 
-    const-string/jumbo v25, "TimaService"
+    const-string/jumbo v21, "TimaService"
 
-    new-instance v26, Ljava/lang/StringBuilder;
+    new-instance v22, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v27, "ISV blob has been filled with "
+    const-string/jumbo v23, "ISV blob has been filled with "
 
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v26
+    move-result-object v22
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v22
 
-    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v26
+    move-result-object v22
 
-    const-string/jumbo v27, " bytes"
+    const-string/jumbo v23, " bytes"
 
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v26
+    move-result-object v22
 
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v26
+    move-result-object v22
 
-    invoke-static/range {v25 .. v26}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v21 .. v22}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_2
-    add-int/lit8 v11, v11, 0x1
+    add-int/lit8 v8, v8, 0x1
 
     goto :goto_1
 
     :cond_2
-    const-string/jumbo v25, "TimaService"
+    const-string/jumbo v21, "TimaService"
 
-    const-string/jumbo v26, "ISV apkDigest is null"
+    const-string/jumbo v22, "ISV apkDigest is null"
 
-    invoke-static/range {v25 .. v26}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v21 .. v22}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_2
 
     :cond_3
-    const-string/jumbo v25, "TimaService"
+    const-string/jumbo v21, "TimaService"
 
-    new-instance v26, Ljava/lang/StringBuilder;
+    new-instance v22, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v27, "ISV blob total size="
+    const-string/jumbo v23, "ISV blob total size="
 
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v26
+    move-result-object v22
 
-    array-length v0, v5
+    array-length v0, v4
 
-    move/from16 v27, v0
+    move/from16 v23, v0
 
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v26
+    move-result-object v22
 
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v26
+    move-result-object v22
 
-    invoke-static/range {v25 .. v26}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v21 .. v22}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v25, 0x0
+    new-instance v3, Ljava/io/ByteArrayOutputStream;
 
-    array-length v0, v5
-
-    move/from16 v26, v0
-
-    :goto_3
-    move/from16 v0, v25
-
-    move/from16 v1, v26
-
-    if-ge v0, v1, :cond_4
-
-    aget-byte v24, v5, v25
-
-    const-string/jumbo v27, "TimaService"
-
-    new-instance v28, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v29, "blob"
-
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    move-object/from16 v0, v28
-
-    move/from16 v1, v24
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v28
-
-    invoke-static/range {v27 .. v28}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    add-int/lit8 v25, v25, 0x1
-
-    goto :goto_3
-
-    :cond_4
-    new-instance v4, Ljava/io/ByteArrayOutputStream;
-
-    invoke-direct {v4}, Ljava/io/ByteArrayOutputStream;-><init>()V
+    invoke-direct {v3}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
     :try_start_0
-    invoke-virtual {v4, v5}, Ljava/io/ByteArrayOutputStream;->write([B)V
+    invoke-virtual {v3, v4}, Ljava/io/ByteArrayOutputStream;->write([B)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    :goto_4
+    :goto_3
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v16
 
-    invoke-direct {v0, v4, v1, v8}, Lcom/android/server/TimaService;->writePackageNames(Ljava/io/ByteArrayOutputStream;[Ljava/lang/String;I)V
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v19
-
-    invoke-direct {v0, v4, v1, v8}, Lcom/android/server/TimaService;->writePackageVersions(Ljava/io/ByteArrayOutputStream;[Ljava/lang/String;I)V
-
-    const/16 v25, 0x0
-
-    aget-object v25, v19, v25
+    invoke-direct {v0, v3, v1, v6}, Lcom/android/server/TimaService;->writePackageNames(Ljava/io/ByteArrayOutputStream;[Ljava/lang/String;I)V
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v16
 
-    invoke-direct {v0, v4, v1, v8}, Lcom/android/server/TimaService;->writeCertificateDigests(Ljava/io/ByteArrayOutputStream;Ljava/lang/String;I)V
+    invoke-direct {v0, v3, v1, v6}, Lcom/android/server/TimaService;->writePackageVersions(Ljava/io/ByteArrayOutputStream;[Ljava/lang/String;I)V
 
-    invoke-static {}, Lcom/samsung/android/knox/EnterpriseKnoxManager;->getInstance()Lcom/samsung/android/knox/EnterpriseKnoxManager;
+    const/16 v21, 0x0
 
-    move-result-object v10
+    aget-object v21, v16, v21
 
-    if-eqz v10, :cond_b
+    move-object/from16 v0, p0
 
-    invoke-virtual {v10}, Lcom/samsung/android/knox/EnterpriseKnoxManager;->getVersion()Lcom/samsung/android/knox/EnterpriseKnoxManager$EnterpriseKnoxSdkVersion;
+    move-object/from16 v1, v21
 
-    move-result-object v7
+    invoke-direct {v0, v3, v1, v6}, Lcom/android/server/TimaService;->writeCertificateDigests(Ljava/io/ByteArrayOutputStream;Ljava/lang/String;I)V
 
-    sget-object v25, Lcom/samsung/android/knox/EnterpriseKnoxManager$EnterpriseKnoxSdkVersion;->KNOX_ENTERPRISE_SDK_VERSION_2_8:Lcom/samsung/android/knox/EnterpriseKnoxManager$EnterpriseKnoxSdkVersion;
+    const-string/jumbo v21, "com.samsung.ucs.ucsservice"
 
-    move-object/from16 v0, v25
+    invoke-static/range {v21 .. v21}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    invoke-virtual {v7, v0}, Lcom/samsung/android/knox/EnterpriseKnoxManager$EnterpriseKnoxSdkVersion;->compareTo(Ljava/lang/Enum;)I
+    move-result-object v20
 
-    move-result v25
+    check-cast v20, Lcom/samsung/ucm/ucmservice/CredentialManagerService;
 
-    if-ltz v25, :cond_5
+    if-eqz v20, :cond_4
 
-    const-string/jumbo v25, "TimaService"
+    const-string/jumbo v21, "TimaService"
 
-    const-string/jumbo v26, "knox version is upper than v2.8"
+    const-string/jumbo v22, "UCM ODE blob"
 
-    invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v25, "com.samsung.ucs.ucsservice"
+    invoke-virtual/range {v20 .. v20}, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->getODESettingsConfiguration()Landroid/os/Bundle;
 
-    invoke-static/range {v25 .. v25}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    move-result-object v11
 
-    move-result-object v23
+    const/4 v14, 0x0
 
-    check-cast v23, Lcom/samsung/ucm/ucmservice/CredentialManagerService;
-
-    if-eqz v23, :cond_5
-
-    const-string/jumbo v25, "TimaService"
-
-    const-string/jumbo v26, "UCM ODE blob"
-
-    invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual/range {v23 .. v23}, Lcom/samsung/ucm/ucmservice/CredentialManagerService;->getODESettingsConfiguration()Landroid/os/Bundle;
-
-    move-result-object v14
-
-    const/16 v17, 0x0
+    const/4 v12, 0x0
 
     const/4 v15, 0x0
 
-    const/16 v18, 0x0
+    const/4 v13, 0x0
 
-    const/16 v16, 0x0
+    if-eqz v11, :cond_9
 
-    if-eqz v14, :cond_a
+    const-string/jumbo v21, "odeEnabled"
 
-    const-string/jumbo v25, "odeEnabled"
+    move-object/from16 v0, v21
 
-    move-object/from16 v0, v25
+    invoke-virtual {v11, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
-    invoke-virtual {v14, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+    move-result v21
 
-    move-result v25
+    if-eqz v21, :cond_8
 
-    if-eqz v25, :cond_9
+    const/16 v21, 0x1
 
-    const/16 v25, 0x1
-
-    move/from16 v0, v25
+    move/from16 v0, v21
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/TimaService;->mODEEnabled:I
 
-    const-string/jumbo v25, "id"
+    const-string/jumbo v21, "id"
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v21
 
-    invoke-virtual {v14, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v11, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v19
 
-    if-eqz v22, :cond_7
+    if-eqz v19, :cond_6
 
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/String;->getBytes()[B
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object v17
+    move-result-object v14
 
-    move-object/from16 v0, v17
+    array-length v15, v14
 
-    array-length v0, v0
+    const/16 v21, 0x46
 
-    move/from16 v18, v0
+    move/from16 v0, v21
 
-    const/16 v25, 0x46
+    invoke-virtual {v3, v0}, Ljava/io/ByteArrayOutputStream;->write(I)V
 
-    move/from16 v0, v25
+    ushr-int/lit8 v21, v15, 0x8
 
-    invoke-virtual {v4, v0}, Ljava/io/ByteArrayOutputStream;->write(I)V
-
-    ushr-int/lit8 v25, v18, 0x8
-
-    move/from16 v0, v25
+    move/from16 v0, v21
 
     int-to-byte v0, v0
 
-    move/from16 v25, v0
+    move/from16 v21, v0
 
-    move/from16 v0, v25
+    move/from16 v0, v21
 
-    invoke-virtual {v4, v0}, Ljava/io/ByteArrayOutputStream;->write(I)V
+    invoke-virtual {v3, v0}, Ljava/io/ByteArrayOutputStream;->write(I)V
 
-    move/from16 v0, v18
+    int-to-byte v0, v15
+
+    move/from16 v21, v0
+
+    move/from16 v0, v21
+
+    invoke-virtual {v3, v0}, Ljava/io/ByteArrayOutputStream;->write(I)V
+
+    const/16 v21, 0x0
+
+    move/from16 v0, v21
+
+    invoke-virtual {v3, v14, v0, v15}, Ljava/io/ByteArrayOutputStream;->write([BII)V
+
+    :goto_4
+    const-string/jumbo v21, "odeSignature"
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v11, v0}, Landroid/os/Bundle;->getByteArray(Ljava/lang/String;)[B
+
+    move-result-object v12
+
+    if-eqz v12, :cond_7
+
+    array-length v13, v12
+
+    const/16 v21, 0x47
+
+    move/from16 v0, v21
+
+    invoke-virtual {v3, v0}, Ljava/io/ByteArrayOutputStream;->write(I)V
+
+    ushr-int/lit8 v21, v13, 0x8
+
+    move/from16 v0, v21
 
     int-to-byte v0, v0
 
-    move/from16 v25, v0
+    move/from16 v21, v0
 
-    move/from16 v0, v25
+    move/from16 v0, v21
 
-    invoke-virtual {v4, v0}, Ljava/io/ByteArrayOutputStream;->write(I)V
+    invoke-virtual {v3, v0}, Ljava/io/ByteArrayOutputStream;->write(I)V
 
-    const/16 v25, 0x0
+    int-to-byte v0, v13
 
-    move-object/from16 v0, v17
+    move/from16 v21, v0
 
-    move/from16 v1, v25
+    move/from16 v0, v21
 
-    move/from16 v2, v18
+    invoke-virtual {v3, v0}, Ljava/io/ByteArrayOutputStream;->write(I)V
 
-    invoke-virtual {v4, v0, v1, v2}, Ljava/io/ByteArrayOutputStream;->write([BII)V
+    const/16 v21, 0x0
+
+    move/from16 v0, v21
+
+    invoke-virtual {v3, v12, v0, v13}, Ljava/io/ByteArrayOutputStream;->write([BII)V
 
     :goto_5
-    const-string/jumbo v25, "odeSignature"
+    const-string/jumbo v21, "TimaService"
 
-    move-object/from16 v0, v25
+    new-instance v22, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v14, v0}, Landroid/os/Bundle;->getByteArray(Ljava/lang/String;)[B
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v15
+    const-string/jumbo v23, "ODESettingsConfiguration mODEEnabled : "
 
-    if-eqz v15, :cond_8
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    array-length v0, v15
-
-    move/from16 v16, v0
-
-    const/16 v25, 0x47
-
-    move/from16 v0, v25
-
-    invoke-virtual {v4, v0}, Ljava/io/ByteArrayOutputStream;->write(I)V
-
-    ushr-int/lit8 v25, v16, 0x8
-
-    move/from16 v0, v25
-
-    int-to-byte v0, v0
-
-    move/from16 v25, v0
-
-    move/from16 v0, v25
-
-    invoke-virtual {v4, v0}, Ljava/io/ByteArrayOutputStream;->write(I)V
-
-    move/from16 v0, v16
-
-    int-to-byte v0, v0
-
-    move/from16 v25, v0
-
-    move/from16 v0, v25
-
-    invoke-virtual {v4, v0}, Ljava/io/ByteArrayOutputStream;->write(I)V
-
-    const/16 v25, 0x0
-
-    move/from16 v0, v25
-
-    move/from16 v1, v16
-
-    invoke-virtual {v4, v15, v0, v1}, Ljava/io/ByteArrayOutputStream;->write([BII)V
-
-    :goto_6
-    const-string/jumbo v25, "TimaService"
-
-    new-instance v26, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v27, "ODESettingsConfiguration mODEEnabled : "
-
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v26
+    move-result-object v22
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/TimaService;->mODEEnabled:I
 
-    move/from16 v27, v0
+    move/from16 v23, v0
 
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v26
+    move-result-object v22
 
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v26
+    move-result-object v22
 
-    invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_5
-    :goto_7
+    :cond_4
+    :goto_6
     :try_start_1
-    invoke-virtual {v4}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
+    invoke-virtual {v3}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
-    move-result-object v20
+    move-result-object v17
 
-    const-string/jumbo v25, "TimaService"
+    const-string/jumbo v21, "TimaService"
 
-    new-instance v26, Ljava/lang/StringBuilder;
+    new-instance v22, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v27, "TimaService.getCollectorBlob() returnBytes.length "
+    const-string/jumbo v23, "TimaService.getCollectorBlob() returnBytes.length "
 
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v26
+    move-result-object v22
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v17
 
     array-length v0, v0
 
-    move/from16 v27, v0
+    move/from16 v23, v0
 
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v26
+    move-result-object v22
 
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v26
+    move-result-object v22
 
-    invoke-static/range {v25 .. v26}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v21 .. v22}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-eqz v4, :cond_6
+    if-eqz v3, :cond_5
 
     :try_start_2
-    invoke-virtual {v4}, Ljava/io/ByteArrayOutputStream;->close()V
+    invoke-virtual {v3}, Ljava/io/ByteArrayOutputStream;->close()V
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
 
-    :cond_6
-    :goto_8
-    return-object v20
+    :cond_5
+    :goto_7
+    return-object v17
 
     :catch_0
-    move-exception v9
+    move-exception v7
 
-    const-string/jumbo v25, "TimaService"
+    const-string/jumbo v21, "TimaService"
 
-    new-instance v26, Ljava/lang/StringBuilder;
+    new-instance v22, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v27, "Exception in getCollectorApkDigest : "
+    const-string/jumbo v23, "Exception in getCollectorApkDigest : "
 
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v26
+    move-result-object v22
 
-    invoke-virtual {v9}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
-    move-result-object v27
+    move-result-object v23
 
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v26
+    move-result-object v22
 
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v26
+    move-result-object v22
 
-    invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_3
+
+    :cond_6
+    const-string/jumbo v21, "TimaService"
+
+    const-string/jumbo v22, "odeVendorId is null"
+
+    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_4
 
     :cond_7
-    const-string/jumbo v25, "TimaService"
+    const-string/jumbo v21, "TimaService"
 
-    const-string/jumbo v26, "odeVendorId is null"
+    const-string/jumbo v22, "odeSignature is null"
 
-    invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_5
+    goto :goto_5
 
     :cond_8
-    const-string/jumbo v25, "TimaService"
+    const/16 v21, 0x0
 
-    const-string/jumbo v26, "odeSignature is null"
-
-    invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_6
-
-    :cond_9
-    const/16 v25, 0x0
-
-    move/from16 v0, v25
+    move/from16 v0, v21
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/TimaService;->mODEEnabled:I
 
-    goto/16 :goto_6
+    goto/16 :goto_5
 
-    :cond_a
-    const-string/jumbo v25, "TimaService"
+    :cond_9
+    const-string/jumbo v21, "TimaService"
 
-    const-string/jumbo v26, "odeData is null"
+    const-string/jumbo v22, "odeData is null"
 
-    invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_7
-
-    :cond_b
-    const-string/jumbo v25, "TimaService"
-
-    const-string/jumbo v26, "Failed to getInstance of ekm"
-
-    invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_7
+    goto :goto_6
 
     :catch_1
-    move-exception v9
+    move-exception v7
 
-    goto :goto_8
+    goto :goto_7
 
     :catchall_0
-    move-exception v25
+    move-exception v21
 
-    if-eqz v4, :cond_c
+    if-eqz v3, :cond_a
 
     :try_start_3
-    invoke-virtual {v4}, Ljava/io/ByteArrayOutputStream;->close()V
+    invoke-virtual {v3}, Ljava/io/ByteArrayOutputStream;->close()V
     :try_end_3
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_2
 
-    :cond_c
-    :goto_9
-    throw v25
+    :cond_a
+    :goto_8
+    throw v21
 
     :catch_2
-    move-exception v9
+    move-exception v7
 
-    goto :goto_9
+    goto :goto_8
+
+    nop
 
     :array_0
     .array-data 1
@@ -2357,12 +2442,40 @@
     if-eqz v5, :cond_0
 
     invoke-interface {v5}, Ljava/util/List;->isEmpty()Z
+
+    move-result v7
+
+    xor-int/lit8 v7, v7, 0x1
+
+    if-eqz v7, :cond_0
+
+    const/4 v7, 0x0
+
+    invoke-interface {v5, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/content/ContentValues;
+
+    if-eqz v1, :cond_0
+
+    const-string/jumbo v7, "kapstate"
+
+    invoke-virtual {v1, v7}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_0
+
+    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-ne v7, v9, :cond_1
+
+    const/4 v6, 0x1
 
     :cond_0
     :goto_0
@@ -2391,38 +2504,6 @@
     return v6
 
     :cond_1
-    const/4 v7, 0x0
-
-    :try_start_1
-    invoke-interface {v5, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/content/ContentValues;
-
-    if-eqz v1, :cond_0
-
-    const-string/jumbo v7, "kapstate"
-
-    invoke-virtual {v1, v7}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    if-eqz v4, :cond_0
-
-    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-
-    move-result v7
-
-    if-ne v7, v9, :cond_2
-
-    const/4 v6, 0x1
-
-    goto :goto_0
-
-    :cond_2
     const/4 v6, 0x0
 
     goto :goto_0
@@ -2731,54 +2812,141 @@
     goto :goto_0
 .end method
 
-.method private isDCMsupported()Z
-    .locals 4
+.method private isActivated(I)Z
+    .locals 10
 
-    const/4 v1, 0x0
+    const/4 v9, 0x0
 
-    const-string/jumbo v2, "ro.product.name"
+    new-instance v2, Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v3, "NONE"
+    iget-object v6, p0, Lcom/android/server/TimaService;->mContext:Landroid/content/Context;
 
-    invoke-static {v2, v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-direct {v2, v6}, Lcom/android/server/enterprise/storage/EdmStorageProvider;-><init>(Landroid/content/Context;)V
 
-    move-result-object v0
+    iget-object v6, p0, Lcom/android/server/TimaService;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v2, "noble"
+    invoke-virtual {v6}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result-object v6
 
-    move-result v2
+    invoke-virtual {v6, p1}, Landroid/content/pm/PackageManager;->getPackagesForUid(I)[Ljava/lang/String;
 
-    if-nez v2, :cond_0
+    move-result-object v5
 
-    const-string/jumbo v2, "zen"
+    if-eqz v5, :cond_0
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    array-length v6, v5
 
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    const-string/jumbo v2, "zero"
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
+    if-nez v6, :cond_1
 
     :cond_0
-    const-string/jumbo v2, "TimaService"
+    const-string/jumbo v6, "TimaService"
 
-    const-string/jumbo v3, "DCM is supported"
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const/4 v1, 0x1
+    const-string/jumbo v8, "Failed to get package name of callerUid : "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v9
 
     :cond_1
-    return v1
+    const/4 v3, 0x0
+
+    :goto_0
+    array-length v6, v5
+
+    if-ge v3, v6, :cond_5
+
+    aget-object v4, v5, v3
+
+    if-eqz v4, :cond_2
+
+    invoke-virtual {v4}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_4
+
+    :cond_2
+    const-string/jumbo v6, "TimaService"
+
+    const-string/jumbo v7, "packageName is empty, so continue..."
+
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_3
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :cond_4
+    new-instance v1, Landroid/content/ContentValues;
+
+    invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V
+
+    const-string/jumbo v6, "pkgName"
+
+    invoke-virtual {v1, v6, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v6, "LICENSE"
+
+    invoke-virtual {v2, v6, v1}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCount(Ljava/lang/String;Landroid/content/ContentValues;)I
+
+    move-result v0
+
+    if-lez v0, :cond_3
+
+    const-string/jumbo v6, "TimaService"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, " is activated"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v6, 0x1
+
+    return v6
+
+    :cond_5
+    return v9
+.end method
+
+.method private isDCMsupported()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method private isESECOMMSupported()Z
@@ -2814,9 +2982,66 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     :cond_0
+    const-string/jumbo v1, "TimaService"
+
+    const-string/jumbo v2, "ro.security.ese.cosname --> UT3.0"
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v1, "PEARL4.0"
+
+    const-string/jumbo v2, "UT3.0"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    const-string/jumbo v1, "JCOP3.3"
+
+    const-string/jumbo v2, "UT3.0"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    const-string/jumbo v1, "JCOP4.0"
+
+    const-string/jumbo v2, "UT3.0"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    const-string/jumbo v1, "UT2.0"
+
+    const-string/jumbo v2, "UT3.0"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    const-string/jumbo v1, "UT3.0"
+
+    const-string/jumbo v2, "UT3.0"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    :cond_1
     const-string/jumbo v1, "TimaService"
 
     const-string/jumbo v2, "ESECOMM is supported"
@@ -2825,7 +3050,7 @@
 
     const/4 v0, 0x1
 
-    :cond_1
+    :cond_2
     return v0
 .end method
 
@@ -2915,12 +3140,40 @@
     if-eqz v5, :cond_0
 
     invoke-interface {v5}, Ljava/util/List;->isEmpty()Z
+
+    move-result v7
+
+    xor-int/lit8 v7, v7, 0x1
+
+    if-eqz v7, :cond_0
+
+    const/4 v7, 0x0
+
+    invoke-interface {v5, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/content/ContentValues;
+
+    if-eqz v1, :cond_0
+
+    const-string/jumbo v7, "licensestate"
+
+    invoke-virtual {v1, v7}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_0
+
+    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    if-ne v7, v9, :cond_1
+
+    const/4 v6, 0x1
 
     :cond_0
     :goto_0
@@ -2949,38 +3202,6 @@
     return v6
 
     :cond_1
-    const/4 v7, 0x0
-
-    :try_start_1
-    invoke-interface {v5, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/content/ContentValues;
-
-    if-eqz v1, :cond_0
-
-    const-string/jumbo v7, "licensestate"
-
-    invoke-virtual {v1, v7}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    if-eqz v4, :cond_0
-
-    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-
-    move-result v7
-
-    if-ne v7, v9, :cond_2
-
-    const/4 v6, 0x1
-
-    goto :goto_0
-
-    :cond_2
     const/4 v6, 0x0
 
     goto :goto_0
@@ -4083,7 +4304,7 @@
 .end method
 
 .method private writeCertificateDigests(Ljava/io/ByteArrayOutputStream;Ljava/lang/String;I)V
-    .locals 12
+    .locals 10
 
     const-string/jumbo v8, "TimaService"
 
@@ -4196,38 +4417,6 @@
     goto :goto_0
 
     :cond_4
-    const-string/jumbo v8, "TimaService"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "TimaService.writeCertificateDigests() signature "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    new-instance v10, Ljava/lang/String;
-
-    aget-object v11, v6, v3
-
-    invoke-virtual {v11}, Landroid/content/pm/Signature;->toByteArray()[B
-
-    move-result-object v11
-
-    invoke-direct {v10, v11}, Ljava/lang/String;-><init>([B)V
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     aget-object v8, v6, v3
 
     invoke-virtual {v8}, Landroid/content/pm/Signature;->toByteArray()[B
@@ -5647,17 +5836,35 @@
 
     invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    iget-object v7, p0, Lcom/android/server/TimaService;->mContext:Landroid/content/Context;
+
+    if-nez v7, :cond_0
+
+    const-string/jumbo v7, "TimaService"
+
+    const-string/jumbo v8, "Context is null"
+
+    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+
+    monitor-exit p0
+
+    return-object v10
+
+    :cond_0
+    :try_start_1
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v7
 
-    if-eq v7, p2, :cond_0
+    if-eq v7, p2, :cond_2
 
     const-string/jumbo v7, "attestation"
 
     invoke-static {v7}, Lcom/android/server/TimaService;->checkCallerPermissionFor(Ljava/lang/String;)I
 
-    :goto_0
+    :cond_1
     const-string/jumbo v7, "TimaService"
 
     const-string/jumbo v8, "TimaService.attestation()"
@@ -5680,15 +5887,15 @@
 
     const/4 v5, -0x1
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_3
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     move-result-wide v2
 
-    :try_start_1
+    :try_start_2
     invoke-direct {p0, p2}, Lcom/android/server/TimaService;->getCollectorBlob(I)[B
 
     move-result-object v0
@@ -5704,44 +5911,39 @@
     iget v5, p0, Lcom/android/server/TimaService;->mODEEnabled:I
 
     invoke-static {p1, v0, v4, v5}, Lcom/android/server/TimaService;->timaAttestation([B[B[BI)[B
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     move-result-object v7
 
-    :try_start_2
+    :try_start_3
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     monitor-exit p0
 
     return-object v7
 
-    :cond_0
-    :try_start_3
-    const-string/jumbo v7, "TimaService"
+    :cond_2
+    :try_start_4
+    invoke-direct {p0, p2}, Lcom/android/server/TimaService;->checkAttestationAccessPermission(I)Z
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    const-string/jumbo v8, "OneSDK Attestation Call"
+    move-result v7
 
-    invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v7
+    if-nez v7, :cond_1
 
     monitor-exit p0
 
-    throw v7
+    return-object v10
 
     :catch_0
     move-exception v1
 
-    :try_start_4
+    :try_start_5
     const-string/jumbo v7, "TimaService"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -5767,27 +5969,37 @@
     move-result-object v8
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
-
-    :try_start_5
-    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
+
+    :try_start_6
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
     monitor-exit p0
 
     return-object v10
 
-    :catchall_1
+    :catchall_0
     move-exception v7
 
-    :try_start_6
+    :try_start_7
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     throw v7
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
-    :cond_1
+    :catchall_1
+    move-exception v7
+
+    monitor-exit p0
+
+    throw v7
+
+    :cond_3
+    :try_start_8
     const-string/jumbo v7, "TimaService"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -5809,8 +6021,8 @@
     move-result-object v8
 
     invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_1
 
     monitor-exit p0
 
@@ -5818,248 +6030,185 @@
 .end method
 
 .method public declared-synchronized ccmRegisterForDefaultCertificate(ILjava/lang/String;Ljava/lang/String;Z)I
-    .locals 10
+    .locals 7
 
     monitor-enter p0
 
     :try_start_0
-    const-string/jumbo v1, "TimaService"
+    const-string/jumbo v2, "TimaService"
 
-    const-string/jumbo v2, "TIMA3: in ccmRegisterForDefaultCertificate"
+    const-string/jumbo v3, "TIMA3: in ccmRegisterForDefaultCertificate"
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v1, "1"
+    const-string/jumbo v2, "1"
 
-    const-string/jumbo v2, "ro.config.tima"
+    const-string/jumbo v3, "ro.config.tima"
 
-    const-string/jumbo v3, "0"
+    const-string/jumbo v4, "0"
 
-    invoke-static {v2, v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3, v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v1
 
-    if-eqz v9, :cond_3
+    if-eqz v1, :cond_2
 
     invoke-virtual {p0}, Lcom/android/server/TimaService;->getTimaVersion()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, "3.0"
+    const-string/jumbo v3, "3.0"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_3
+    if-eqz v2, :cond_2
 
     invoke-static {}, Lcom/android/server/ServiceKeeper;->isTableActive()Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_0
+    if-nez v2, :cond_0
 
     invoke-static {}, Lcom/android/server/ServiceKeeper;->authorizeLoadProcedure()Z
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/TimaService;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/server/TimaService;->mContext:Landroid/content/Context;
 
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
+    move-result v3
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v4
+
+    const-string/jumbo v5, "tima"
+
+    const-string/jumbo v6, "ccmRegisterForDefaultCertificate"
+
+    invoke-static {v2, v3, v4, v5, v6}, Lcom/android/server/ServiceKeeper;->isAuthorized(Landroid/content/Context;IILjava/lang/String;Ljava/lang/String;)I
+
     move-result v2
+
+    if-eqz v2, :cond_1
+
+    new-instance v0, Ljava/lang/SecurityException;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Security Exception Occurred while pid["
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "] with uid["
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v3
 
-    const-string/jumbo v4, "tima"
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v5, "ccmRegisterForDefaultCertificate"
+    move-result-object v2
 
-    invoke-static {v1, v2, v3, v4, v5}, Lcom/android/server/ServiceKeeper;->isAuthorized(Landroid/content/Context;IILjava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v3, "] trying to access methodName ["
 
-    move-result v1
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-eqz v1, :cond_1
+    move-result-object v2
 
-    new-instance v8, Ljava/lang/SecurityException;
+    const-string/jumbo v3, "ccmRegisterForDefaultCertificate"
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v2
 
-    const-string/jumbo v2, "Security Exception Occurred while pid["
+    const-string/jumbo v3, "] in ["
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+    const-string/jumbo v3, "tima"
 
-    move-result v2
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    move-result-object v1
+    const-string/jumbo v3, "] service"
 
-    const-string/jumbo v2, "] with uid["
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    move-result-object v1
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+    move-result-object v2
 
-    move-result v2
+    invoke-direct {v0, v2}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "] trying to access methodName ["
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "ccmRegisterForDefaultCertificate"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "] in ["
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "tima"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "] service"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v8, v1}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
-
-    throw v8
+    throw v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :catchall_0
-    move-exception v1
+    move-exception v2
 
     monitor-exit p0
 
-    throw v1
+    throw v2
 
     :cond_1
     :try_start_1
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result p1
 
-    const/4 v0, 0x0
+    invoke-static {p1}, Landroid/os/UserHandle;->getUserId(I)I
 
-    :try_start_2
-    sget-object v1, Lcom/samsung/android/knox/EnterpriseDeviceManager;->KNOX_CCM_POLICY_SERVICE:Ljava/lang/String;
+    move-result v2
 
-    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    const/4 v3, 0x0
 
-    move-result-object v1
+    invoke-static {v3, v2}, Lcom/android/server/TimaService;->ccm_register_for_default_cert(II)J
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    invoke-static {v1}, Lcom/samsung/android/knox/keystore/IClientCertificateManager$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/knox/keystore/IClientCertificateManager;
+    move-result-wide v2
 
-    move-result-object v0
-
-    if-eqz v0, :cond_2
-
-    const/4 v1, 0x0
-
-    move v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move v5, p4
-
-    invoke-interface/range {v0 .. v5}, Lcom/samsung/android/knox/keystore/IClientCertificateManager;->registerForDefaultCertificate(Lcom/samsung/android/knox/ContextInfo;ILjava/lang/String;Ljava/lang/String;Z)I
-    :try_end_2
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    move-result v1
+    long-to-int v2, v2
 
     monitor-exit p0
 
-    return v1
+    return v2
 
     :cond_2
-    :try_start_3
-    const-string/jumbo v1, "TimaService"
-
-    const-string/jumbo v2, "CCM Service is null"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_3
-    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    :cond_3
-    :goto_0
-    const/4 v1, -0x1
+    const/4 v2, -0x1
 
     monitor-exit p0
 
-    return v1
-
-    :catch_0
-    move-exception v7
-
-    :try_start_4
-    const-string/jumbo v1, "TimaService"
-
-    const-string/jumbo v2, "Cannot connect to CCM Service"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
-
-    goto :goto_0
-
-    :catch_1
-    move-exception v6
-
-    const-string/jumbo v1, "TimaService"
-
-    const-string/jumbo v2, "Cannot connect to CCM Service"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {v6}, Landroid/os/RemoteException;->printStackTrace()V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    goto :goto_0
+    return v2
 .end method
 
 .method public declared-synchronized checkEvent(II)Ljava/lang/String;
@@ -6768,7 +6917,7 @@
 
     invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v21, "/system/bin/tima_dump_log -s 20 -d 40 -o "
+    const-string/jumbo v21, "chmod 640 "
 
     invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -6791,38 +6940,6 @@
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_5
 
     :goto_6
-    :try_start_6
-    invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
-
-    move-result-object v19
-
-    new-instance v20, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v21, "chmod 640 "
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v20
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/Runtime;->exec(Ljava/lang/String;)Ljava/lang/Process;
-    :try_end_6
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_6
-
-    :goto_7
     sget-boolean v19, Lcom/android/server/TimaService;->iBootCompleted:Z
 
     if-nez v19, :cond_e
@@ -6836,37 +6953,6 @@
     return-void
 
     :catch_5
-    move-exception v8
-
-    const-string/jumbo v19, "TimaService"
-
-    new-instance v20, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v21, "Failed to execute: /system/bin/tima_dump_log -s 20 -d 40 -o "
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v20
-
-    invoke-static/range {v19 .. v20}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_6
-
-    :catch_6
     move-exception v8
 
     const-string/jumbo v19, "TimaService"
@@ -6895,7 +6981,7 @@
 
     invoke-static/range {v19 .. v20}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_7
+    goto :goto_6
 
     :cond_e
     const-string/jumbo v19, "com.samsung.android.securitylogagent"
@@ -6978,7 +7064,7 @@
 
     invoke-virtual {v0, v3, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 
-    :goto_8
+    :goto_7
     return-void
 
     :cond_f
@@ -7010,7 +7096,7 @@
 
     invoke-virtual {v0, v3, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 
-    goto :goto_8
+    goto :goto_7
 .end method
 
 .method public declared-synchronized dumpLog()[B
@@ -7542,15 +7628,16 @@
 
     sget-boolean v0, Lcom/android/server/TimaService;->iBootCompleted:Z
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
+
+    return v3
 
     :cond_1
     const/4 v0, 0x0
 
     return v0
-
-    :cond_2
-    return v3
 .end method
 
 .method public declared-synchronized keystoreInit()I

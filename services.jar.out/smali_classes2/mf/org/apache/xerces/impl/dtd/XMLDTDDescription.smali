@@ -104,200 +104,202 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .locals 8
 
-    const/4 v2, 0x0
+    const/4 v7, 0x0
 
-    instance-of v0, p1, Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
+    instance-of v5, p1, Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
 
-    if-eqz v0, :cond_3
+    if-eqz v5, :cond_3
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->getGrammarType()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v6
+
+    move-object v5, p1
+
+    check-cast v5, Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
+
+    invoke-interface {v5}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;->getGrammarType()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v6, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4
 
     move-object v0, p1
 
-    check-cast v0, Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
+    check-cast v0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;
 
-    invoke-interface {v0}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;->getGrammarType()Ljava/lang/String;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fRootName:Ljava/lang/String;
 
-    move-result-object v0
+    if-nez v5, :cond_5
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fPossibleRoots:Ljava/util/ArrayList;
 
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    check-cast p1, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fRootName:Ljava/lang/String;
-
-    if-nez v0, :cond_5
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fPossibleRoots:Ljava/util/ArrayList;
-
-    if-nez v0, :cond_8
+    if-nez v5, :cond_8
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fExpandedSystemId:Ljava/lang/String;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fExpandedSystemId:Ljava/lang/String;
 
-    if-nez v0, :cond_c
+    if-nez v5, :cond_c
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fExpandedSystemId:Ljava/lang/String;
+    iget-object v5, v0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fExpandedSystemId:Ljava/lang/String;
 
-    if-nez v0, :cond_d
+    if-nez v5, :cond_d
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fPublicId:Ljava/lang/String;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fPublicId:Ljava/lang/String;
 
-    if-nez v0, :cond_e
+    if-nez v5, :cond_e
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fPublicId:Ljava/lang/String;
+    iget-object v5, v0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fPublicId:Ljava/lang/String;
 
-    if-nez v0, :cond_f
+    if-nez v5, :cond_f
 
     :cond_2
-    const/4 v0, 0x1
+    const/4 v5, 0x1
 
-    return v0
+    return v5
 
     :cond_3
-    return v2
+    return v7
 
     :cond_4
-    return v2
+    return v7
 
     :cond_5
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fRootName:Ljava/lang/String;
+    iget-object v5, v0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fRootName:Ljava/lang/String;
 
-    if-nez v0, :cond_7
+    if-nez v5, :cond_7
 
     :cond_6
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fPossibleRoots:Ljava/util/ArrayList;
+    iget-object v5, v0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fPossibleRoots:Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_0
+    if-eqz v5, :cond_0
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fPossibleRoots:Ljava/util/ArrayList;
+    iget-object v5, v0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fPossibleRoots:Ljava/util/ArrayList;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fRootName:Ljava/lang/String;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fRootName:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v5
 
-    if-nez v0, :cond_0
+    if-nez v5, :cond_0
 
-    return v2
+    return v7
 
     :cond_7
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fRootName:Ljava/lang/String;
+    iget-object v5, v0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fRootName:Ljava/lang/String;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fRootName:Ljava/lang/String;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fRootName:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v5
 
-    if-nez v0, :cond_6
+    if-nez v5, :cond_6
 
-    return v2
+    return v7
 
     :cond_8
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fRootName:Ljava/lang/String;
+    iget-object v5, v0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fRootName:Ljava/lang/String;
 
-    if-nez v0, :cond_9
+    if-nez v5, :cond_9
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fPossibleRoots:Ljava/util/ArrayList;
+    iget-object v5, v0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fPossibleRoots:Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_a
+    if-eqz v5, :cond_a
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fPossibleRoots:Ljava/util/ArrayList;
+    const/4 v1, 0x0
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fPossibleRoots:Ljava/util/ArrayList;
 
-    move-result v3
+    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
-    move v1, v2
+    move-result v4
 
-    move v0, v2
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v1, v3, :cond_b
+    if-ge v2, v4, :cond_b
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fPossibleRoots:Ljava/util/ArrayList;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fPossibleRoots:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v5, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v3
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v3, Ljava/lang/String;
 
-    iget-object v4, p1, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fPossibleRoots:Ljava/util/ArrayList;
+    iget-object v5, v0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fPossibleRoots:Ljava/util/ArrayList;
 
-    invoke-virtual {v4, v0}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v3}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_b
+    if-nez v1, :cond_b
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_9
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fPossibleRoots:Ljava/util/ArrayList;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fPossibleRoots:Ljava/util/ArrayList;
 
-    iget-object v1, p1, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fRootName:Ljava/lang/String;
+    iget-object v6, v0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fRootName:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v5
 
-    if-nez v0, :cond_0
+    if-nez v5, :cond_0
 
-    return v2
+    return v7
 
     :cond_a
-    return v2
+    return v7
 
     :cond_b
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    return v2
+    return v7
 
     :cond_c
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fExpandedSystemId:Ljava/lang/String;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fExpandedSystemId:Ljava/lang/String;
 
-    iget-object v1, p1, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fExpandedSystemId:Ljava/lang/String;
+    iget-object v6, v0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fExpandedSystemId:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v5
 
-    if-nez v0, :cond_1
+    if-nez v5, :cond_1
 
-    return v2
+    return v7
 
     :cond_d
-    return v2
+    return v7
 
     :cond_e
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fPublicId:Ljava/lang/String;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fPublicId:Ljava/lang/String;
 
-    iget-object v1, p1, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fPublicId:Ljava/lang/String;
+    iget-object v6, v0, Lmf/org/apache/xerces/impl/dtd/XMLDTDDescription;->fPublicId:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v5
 
-    if-nez v0, :cond_2
+    if-nez v5, :cond_2
 
-    return v2
+    return v7
 
     :cond_f
-    return v2
+    return v7
 .end method
 
 .method public getGrammarType()Ljava/lang/String;

@@ -26,9 +26,9 @@
 
     const/4 v2, 0x1
 
-    const-string/jumbo v0, "accesskey"
+    const-string/jumbo v1, "accesskey"
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/html/dom/HTMLLegendElementImpl;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Lmf/org/apache/html/dom/HTMLLegendElementImpl;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 

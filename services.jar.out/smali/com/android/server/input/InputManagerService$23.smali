@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/input/InputManagerService;->registerPressureCalibrationSettingObserver()V
+    value = Lcom/android/server/input/InputManagerService;->registerTalkBackSettingObserver()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/server/input/InputManagerService$23;->this$0:Lcom/android/server/input/InputManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/input/InputManagerService;->updatePressureCalibrationSettings()V
+    invoke-virtual {v0}, Lcom/android/server/input/InputManagerService;->updateAccessibilityEnabledFromSettings()V
 
     return-void
 .end method

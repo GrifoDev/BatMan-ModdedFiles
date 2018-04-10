@@ -58,30 +58,30 @@
 .end method
 
 .method public getDOMImplementationList(Ljava/lang/String;)Lmf/org/w3c/dom/DOMImplementationList;
-    .locals 4
+    .locals 5
 
-    const/4 v0, 0x0
+    new-instance v2, Ljava/util/ArrayList;
 
-    new-instance v1, Ljava/util/ArrayList;
-
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
     invoke-super {p0, p1}, Lmf/org/apache/xerces/dom/DOMImplementationSourceImpl;->getDOMImplementationList(Ljava/lang/String;)Lmf/org/w3c/dom/DOMImplementationList;
 
-    move-result-object v2
-
-    :goto_0
-    invoke-interface {v2}, Lmf/org/w3c/dom/DOMImplementationList;->getLength()I
-
-    move-result v3
-
-    if-ge v0, v3, :cond_0
-
-    invoke-interface {v2, v0}, Lmf/org/w3c/dom/DOMImplementationList;->item(I)Lmf/org/w3c/dom/DOMImplementation;
-
     move-result-object v3
 
-    invoke-virtual {v1, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-interface {v3}, Lmf/org/w3c/dom/DOMImplementationList;->getLength()I
+
+    move-result v4
+
+    if-ge v0, v4, :cond_0
+
+    invoke-interface {v3, v0}, Lmf/org/w3c/dom/DOMImplementationList;->item(I)Lmf/org/w3c/dom/DOMImplementation;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     add-int/lit8 v0, v0, 0x1
 
@@ -90,39 +90,39 @@
     :cond_0
     invoke-static {}, Lmf/org/apache/xerces/dom/PSVIDOMImplementationImpl;->getDOMImplementation()Lmf/org/w3c/dom/DOMImplementation;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {p0, v0, p1}, Lmf/org/apache/xerces/dom/DOMXSImplementationSourceImpl;->testImpl(Lmf/org/w3c/dom/DOMImplementation;Ljava/lang/String;)Z
+    invoke-virtual {p0, v1, p1}, Lmf/org/apache/xerces/dom/DOMXSImplementationSourceImpl;->testImpl(Lmf/org/w3c/dom/DOMImplementation;Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v4
 
-    if-nez v2, :cond_1
+    if-nez v4, :cond_1
 
     :goto_1
     invoke-static {}, Lmf/org/apache/xerces/impl/xs/XSImplementationImpl;->getDOMImplementation()Lmf/org/w3c/dom/DOMImplementation;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {p0, v0, p1}, Lmf/org/apache/xerces/dom/DOMXSImplementationSourceImpl;->testImpl(Lmf/org/w3c/dom/DOMImplementation;Ljava/lang/String;)Z
+    invoke-virtual {p0, v1, p1}, Lmf/org/apache/xerces/dom/DOMXSImplementationSourceImpl;->testImpl(Lmf/org/w3c/dom/DOMImplementation;Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v4
 
-    if-nez v2, :cond_2
+    if-nez v4, :cond_2
 
     :goto_2
-    new-instance v0, Lmf/org/apache/xerces/dom/DOMImplementationListImpl;
+    new-instance v4, Lmf/org/apache/xerces/dom/DOMImplementationListImpl;
 
-    invoke-direct {v0, v1}, Lmf/org/apache/xerces/dom/DOMImplementationListImpl;-><init>(Ljava/util/ArrayList;)V
+    invoke-direct {v4, v2}, Lmf/org/apache/xerces/dom/DOMImplementationListImpl;-><init>(Ljava/util/ArrayList;)V
 
-    return-object v0
+    return-object v4
 
     :cond_1
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
     :cond_2
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_2
 .end method

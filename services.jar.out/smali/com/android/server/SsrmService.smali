@@ -14,60 +14,14 @@
 
 .field public static GMS_BUNDLING:Z = false
 
-.field public static SSRM_FILENAME:Ljava/lang/String; = ""
+.field public static final SSRM_FILENAME:Ljava/lang/String; = "ssrm_dream2l_xx"
 
 .field public static final SUPPORT_WEARABLE_HMT:Z = true
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
-
-    sget-boolean v2, Landroid/os/Build;->renovateDreamDevice:Z
-
-    if-nez v2, :cond_0
-
-    sget-boolean v2, Landroid/os/Build;->renovateDream2Device:Z
-
-    if-nez v2, :cond_1
-
-    sget-boolean v2, Landroid/os/Build;->renovateHeroDevice:Z
-
-    if-nez v2, :cond_2
-
-    sget-boolean v2, Landroid/os/Build;->renovateHero2Device:Z
-
-    if-nez v2, :cond_3
-
-    sget-boolean v2, Landroid/os/Build;->renovateGreatDevice:Z
-
-    if-nez v2, :cond_4
-
-    :cond_0
-    const-string/jumbo v2, "ssrm_dreaml_xx"
-
-    goto :goto_0
-
-    :cond_1
-    const-string/jumbo v2, "ssrm_dream2_xx"
-
-    goto :goto_0
-
-    :cond_2
-    const-string/jumbo v2, "ssrm_herol_xx"
-
-    goto :goto_0
-
-    :cond_3
-    const-string/jumbo v2, "ssrm_hero2_xx"
-
-    goto :goto_0
-
-    :cond_4
-    const-string/jumbo v2, "ssrm_greatl_xx"
-
-    :goto_0
-    sput-object v2, Lcom/android/server/SsrmService;->SSRM_FILENAME:Ljava/lang/String;
+    .locals 2
 
     invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
 

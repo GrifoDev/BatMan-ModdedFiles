@@ -72,35 +72,35 @@
 .end method
 
 .method private attachReaderToCatalog(Lmf/org/apache/xml/resolver/Catalog;)V
-    .locals 4
+    .locals 5
 
-    new-instance v0, Lmf/org/apache/xerces/jaxp/SAXParserFactoryImpl;
+    new-instance v1, Lmf/org/apache/xerces/jaxp/SAXParserFactoryImpl;
 
-    invoke-direct {v0}, Lmf/org/apache/xerces/jaxp/SAXParserFactoryImpl;-><init>()V
+    invoke-direct {v1}, Lmf/org/apache/xerces/jaxp/SAXParserFactoryImpl;-><init>()V
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    invoke-virtual {v0, v1}, Lmf/javax/xml/parsers/SAXParserFactory;->setNamespaceAware(Z)V
+    invoke-virtual {v1, v2}, Lmf/javax/xml/parsers/SAXParserFactory;->setNamespaceAware(Z)V
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, v1}, Lmf/javax/xml/parsers/SAXParserFactory;->setValidating(Z)V
+    invoke-virtual {v1, v2}, Lmf/javax/xml/parsers/SAXParserFactory;->setValidating(Z)V
 
-    new-instance v1, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;
+    new-instance v0, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;
 
-    invoke-direct {v1, v0}, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;-><init>(Lmf/javax/xml/parsers/SAXParserFactory;)V
+    invoke-direct {v0, v1}, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;-><init>(Lmf/javax/xml/parsers/SAXParserFactory;)V
 
-    const-string/jumbo v0, "urn:oasis:names:tc:entity:xmlns:xml:catalog"
+    const-string/jumbo v2, "urn:oasis:names:tc:entity:xmlns:xml:catalog"
 
-    const-string/jumbo v2, "catalog"
+    const-string/jumbo v3, "catalog"
 
-    const-string/jumbo v3, "org.apache.xml.resolver.readers.OASISXMLCatalogReader"
+    const-string/jumbo v4, "org.apache.xml.resolver.readers.OASISXMLCatalogReader"
 
-    invoke-virtual {v1, v0, v2, v3}, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->setCatalogParser(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v2, v3, v4}, Lmf/org/apache/xml/resolver/readers/SAXCatalogReader;->setCatalogParser(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v0, "application/xml"
+    const-string/jumbo v2, "application/xml"
 
-    invoke-virtual {p1, v0, v1}, Lmf/org/apache/xml/resolver/Catalog;->addReader(Ljava/lang/String;Lmf/org/apache/xml/resolver/readers/CatalogReader;)V
+    invoke-virtual {p1, v2, v0}, Lmf/org/apache/xml/resolver/Catalog;->addReader(Ljava/lang/String;Lmf/org/apache/xml/resolver/readers/CatalogReader;)V
 
     return-void
 .end method
@@ -178,60 +178,60 @@
 .end method
 
 .method private parseCatalogs()V
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
-    const/4 v2, 0x0
+    iget-object v2, p0, Lmf/org/apache/xerces/util/XMLCatalogResolver;->fCatalogsList:[Ljava/lang/String;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/util/XMLCatalogResolver;->fCatalogsList:[Ljava/lang/String;
+    if-nez v2, :cond_1
 
-    if-nez v1, :cond_1
-
-    iput-object v2, p0, Lmf/org/apache/xerces/util/XMLCatalogResolver;->fCatalog:Lmf/org/apache/xml/resolver/Catalog;
+    iput-object v3, p0, Lmf/org/apache/xerces/util/XMLCatalogResolver;->fCatalog:Lmf/org/apache/xml/resolver/Catalog;
 
     :cond_0
     return-void
 
     :cond_1
-    new-instance v1, Lmf/org/apache/xml/resolver/Catalog;
+    new-instance v2, Lmf/org/apache/xml/resolver/Catalog;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/util/XMLCatalogResolver;->fResolverCatalogManager:Lmf/org/apache/xml/resolver/CatalogManager;
+    iget-object v3, p0, Lmf/org/apache/xerces/util/XMLCatalogResolver;->fResolverCatalogManager:Lmf/org/apache/xml/resolver/CatalogManager;
 
-    invoke-direct {v1, v2}, Lmf/org/apache/xml/resolver/Catalog;-><init>(Lmf/org/apache/xml/resolver/CatalogManager;)V
+    invoke-direct {v2, v3}, Lmf/org/apache/xml/resolver/Catalog;-><init>(Lmf/org/apache/xml/resolver/CatalogManager;)V
 
-    iput-object v1, p0, Lmf/org/apache/xerces/util/XMLCatalogResolver;->fCatalog:Lmf/org/apache/xml/resolver/Catalog;
+    iput-object v2, p0, Lmf/org/apache/xerces/util/XMLCatalogResolver;->fCatalog:Lmf/org/apache/xml/resolver/Catalog;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/util/XMLCatalogResolver;->fCatalog:Lmf/org/apache/xml/resolver/Catalog;
+    iget-object v2, p0, Lmf/org/apache/xerces/util/XMLCatalogResolver;->fCatalog:Lmf/org/apache/xml/resolver/Catalog;
 
-    invoke-direct {p0, v1}, Lmf/org/apache/xerces/util/XMLCatalogResolver;->attachReaderToCatalog(Lmf/org/apache/xml/resolver/Catalog;)V
+    invoke-direct {p0, v2}, Lmf/org/apache/xerces/util/XMLCatalogResolver;->attachReaderToCatalog(Lmf/org/apache/xml/resolver/Catalog;)V
+
+    const/4 v1, 0x0
 
     :goto_0
-    iget-object v1, p0, Lmf/org/apache/xerces/util/XMLCatalogResolver;->fCatalogsList:[Ljava/lang/String;
+    iget-object v2, p0, Lmf/org/apache/xerces/util/XMLCatalogResolver;->fCatalogsList:[Ljava/lang/String;
 
-    array-length v1, v1
+    array-length v2, v2
 
-    if-ge v0, v1, :cond_0
+    if-ge v1, v2, :cond_0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/util/XMLCatalogResolver;->fCatalogsList:[Ljava/lang/String;
+    iget-object v2, p0, Lmf/org/apache/xerces/util/XMLCatalogResolver;->fCatalogsList:[Ljava/lang/String;
 
-    aget-object v1, v1, v0
+    aget-object v0, v2, v1
 
-    if-nez v1, :cond_3
+    if-nez v0, :cond_3
 
     :cond_2
     :goto_1
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_3
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v2
 
@@ -239,7 +239,7 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/util/XMLCatalogResolver;->fCatalog:Lmf/org/apache/xml/resolver/Catalog;
 
-    invoke-virtual {v2, v1}, Lmf/org/apache/xml/resolver/Catalog;->parseCatalog(Ljava/lang/String;)V
+    invoke-virtual {v2, v0}, Lmf/org/apache/xml/resolver/Catalog;->parseCatalog(Ljava/lang/String;)V
 
     goto :goto_1
 .end method
@@ -377,7 +377,7 @@
 .end method
 
 .method public resolveEntity(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;,
@@ -385,19 +385,19 @@
         }
     .end annotation
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
+
+    const/4 v0, 0x0
 
     if-nez p1, :cond_1
 
     :cond_0
     if-nez p2, :cond_2
 
-    move-object v0, v1
-
     :goto_0
     if-nez v0, :cond_3
 
-    return-object v1
+    return-object v2
 
     :cond_1
     if-eqz p2, :cond_0
@@ -426,7 +426,7 @@
 .end method
 
 .method public resolveEntity(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;
-    .locals 3
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;,
@@ -434,13 +434,15 @@
         }
     .end annotation
 
-    const/4 v1, 0x0
+    const/4 v4, 0x0
+
+    const/4 v0, 0x0
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/util/XMLCatalogResolver;->getUseLiteralSystemId()Z
 
-    move-result v0
+    move-result v3
 
-    if-eqz v0, :cond_2
+    if-eqz v3, :cond_2
 
     :cond_0
     :goto_0
@@ -449,26 +451,24 @@
     :cond_1
     if-nez p4, :cond_4
 
-    move-object v0, v1
-
     :goto_1
     if-nez v0, :cond_5
 
-    return-object v1
+    return-object v4
 
     :cond_2
     if-eqz p3, :cond_0
 
     :try_start_0
-    new-instance v0, Lmf/org/apache/xerces/util/URI;
-
     new-instance v2, Lmf/org/apache/xerces/util/URI;
 
-    invoke-direct {v2, p3}, Lmf/org/apache/xerces/util/URI;-><init>(Ljava/lang/String;)V
+    new-instance v3, Lmf/org/apache/xerces/util/URI;
 
-    invoke-direct {v0, v2, p4}, Lmf/org/apache/xerces/util/URI;-><init>(Lmf/org/apache/xerces/util/URI;Ljava/lang/String;)V
+    invoke-direct {v3, p3}, Lmf/org/apache/xerces/util/URI;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/URI;->toString()Ljava/lang/String;
+    invoke-direct {v2, v3, p4}, Lmf/org/apache/xerces/util/URI;-><init>(Lmf/org/apache/xerces/util/URI;Ljava/lang/String;)V
+
+    invoke-virtual {v2}, Lmf/org/apache/xerces/util/URI;->toString()Ljava/lang/String;
     :try_end_0
     .catch Lmf/org/apache/xerces/util/URI$MalformedURIException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -502,13 +502,13 @@
     return-object v1
 
     :catch_0
-    move-exception v0
+    move-exception v3
 
     goto :goto_0
 .end method
 
 .method public resolveIdentifier(Lmf/org/apache/xerces/xni/XMLResourceIdentifier;)Ljava/lang/String;
-    .locals 3
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -516,74 +516,68 @@
         }
     .end annotation
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     invoke-interface {p1}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getNamespace()Ljava/lang/String;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     :goto_0
-    if-eqz v1, :cond_1
-
-    move-object v0, v1
-
-    :goto_1
-    return-object v0
+    if-eqz v2, :cond_2
 
     :cond_0
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/util/XMLCatalogResolver;->resolveURI(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    goto :goto_0
+    :goto_1
+    return-object v2
 
     :cond_1
-    invoke-interface {p1}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getPublicId()Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/util/XMLCatalogResolver;->resolveURI(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
+    goto :goto_0
+
+    :cond_2
+    invoke-interface {p1}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getPublicId()Ljava/lang/String;
+
+    move-result-object v1
+
     invoke-virtual {p0}, Lmf/org/apache/xerces/util/XMLCatalogResolver;->getUseLiteralSystemId()Z
 
-    move-result v0
+    move-result v4
 
-    if-nez v0, :cond_3
+    if-nez v4, :cond_4
 
     invoke-interface {p1}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getExpandedSystemId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
     :goto_2
-    if-nez v2, :cond_4
+    if-nez v1, :cond_5
 
-    :cond_2
-    if-nez v0, :cond_5
+    :cond_3
+    if-eqz v3, :cond_0
 
-    move-object v0, v1
+    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/util/XMLCatalogResolver;->resolveSystem(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
 
     goto :goto_1
 
-    :cond_3
+    :cond_4
     invoke-interface {p1}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getLiteralSystemId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
     goto :goto_2
 
-    :cond_4
-    if-eqz v0, :cond_2
-
-    invoke-virtual {p0, v2, v0}, Lmf/org/apache/xerces/util/XMLCatalogResolver;->resolvePublic(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_1
-
     :cond_5
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/util/XMLCatalogResolver;->resolveSystem(Ljava/lang/String;)Ljava/lang/String;
+    if-eqz v3, :cond_3
 
-    move-result-object v0
+    invoke-virtual {p0, v1, v3}, Lmf/org/apache/xerces/util/XMLCatalogResolver;->resolvePublic(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
 
     goto :goto_1
 .end method
@@ -652,17 +646,15 @@
 .method public resolveResource(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lmf/org/w3c/dom/ls/LSInput;
     .locals 4
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
+
+    const/4 v0, 0x0
 
     if-nez p2, :cond_2
-
-    move-object v0, v1
 
     :goto_0
     :try_start_0
     invoke-virtual {p0}, Lmf/org/apache/xerces/util/XMLCatalogResolver;->getUseLiteralSystemId()Z
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result v2
 
@@ -676,13 +668,12 @@
     :goto_2
     if-nez v0, :cond_7
 
-    return-object v1
+    return-object v3
 
     :cond_2
-    :try_start_1
     invoke-virtual {p0, p2}, Lmf/org/apache/xerces/util/XMLCatalogResolver;->resolveURI(Ljava/lang/String;)Ljava/lang/String;
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
 
@@ -691,19 +682,19 @@
     :cond_3
     if-eqz p5, :cond_0
 
-    :try_start_2
+    :try_start_1
+    new-instance v1, Lmf/org/apache/xerces/util/URI;
+
     new-instance v2, Lmf/org/apache/xerces/util/URI;
 
-    new-instance v3, Lmf/org/apache/xerces/util/URI;
+    invoke-direct {v2, p5}, Lmf/org/apache/xerces/util/URI;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v3, p5}, Lmf/org/apache/xerces/util/URI;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2, p4}, Lmf/org/apache/xerces/util/URI;-><init>(Lmf/org/apache/xerces/util/URI;Ljava/lang/String;)V
 
-    invoke-direct {v2, v3, p4}, Lmf/org/apache/xerces/util/URI;-><init>(Lmf/org/apache/xerces/util/URI;Ljava/lang/String;)V
-
-    invoke-virtual {v2}, Lmf/org/apache/xerces/util/URI;->toString()Ljava/lang/String;
-    :try_end_2
-    .catch Lmf/org/apache/xerces/util/URI$MalformedURIException; {:try_start_2 .. :try_end_2} :catch_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+    invoke-virtual {v1}, Lmf/org/apache/xerces/util/URI;->toString()Ljava/lang/String;
+    :try_end_1
+    .catch Lmf/org/apache/xerces/util/URI$MalformedURIException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
     move-result-object p4
 
@@ -715,7 +706,7 @@
     :cond_5
     if-eqz p4, :cond_1
 
-    :try_start_3
+    :try_start_2
     invoke-virtual {p0, p4}, Lmf/org/apache/xerces/util/XMLCatalogResolver;->resolveSystem(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -726,33 +717,26 @@
     if-eqz p4, :cond_5
 
     invoke-virtual {p0, p3, p4}, Lmf/org/apache/xerces/util/XMLCatalogResolver;->resolvePublic(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
     move-result-object v0
 
     goto :goto_2
 
     :cond_7
-    new-instance v1, Lmf/org/apache/xerces/dom/DOMInputImpl;
+    new-instance v2, Lmf/org/apache/xerces/dom/DOMInputImpl;
 
-    invoke-direct {v1, p3, v0, p5}, Lmf/org/apache/xerces/dom/DOMInputImpl;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v2, p3, v0, p5}, Lmf/org/apache/xerces/dom/DOMInputImpl;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    return-object v1
+    return-object v2
 
     :catch_0
-    move-exception v0
-
-    move-object v0, v1
-
-    goto :goto_2
-
-    :catch_1
     move-exception v2
 
     goto :goto_2
 
-    :catch_2
+    :catch_1
     move-exception v2
 
     goto :goto_1

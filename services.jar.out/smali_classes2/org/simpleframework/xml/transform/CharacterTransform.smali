@@ -30,24 +30,24 @@
 
 # virtual methods
 .method public read(Ljava/lang/String;)Ljava/lang/Character;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v1, :cond_0
 
-    invoke-virtual {p1, v3}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
@@ -60,13 +60,13 @@
     :cond_0
     new-instance v0, Lorg/simpleframework/xml/transform/InvalidFormatException;
 
-    const-string/jumbo v1, "Cannot convert \'%s\' to a character"
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    aput-object p1, v1, v2
 
-    aput-object p1, v2, v3
+    const-string/jumbo v2, "Cannot convert \'%s\' to a character"
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/transform/InvalidFormatException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v0, v2, v1}, Lorg/simpleframework/xml/transform/InvalidFormatException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
     throw v0
 .end method

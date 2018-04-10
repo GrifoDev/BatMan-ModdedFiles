@@ -50,7 +50,7 @@
 
     const-string/jumbo v2, "InputMethodManagerService"
 
-    const-string/jumbo v3, "Failed to return the previous IME becuase the stored info is null"
+    const-string/jumbo v3, "KnoxDesktopModeReceiver : Failed to return the previous IME becuase the stored info is null"
 
     invoke-static {v2, v3}, Lcom/samsung/android/util/SemLog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -71,7 +71,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "Failed to return the previous IME becuase the stored ime is uninstalled pre imi id = "
+    const-string/jumbo v4, "KnoxDesktopModeReceiver : Failed to return the previous IME becuase the stored ime is uninstalled pre imi id = "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -100,7 +100,7 @@
 
     iget-object v4, v4, Lcom/android/server/InputMethodManagerService;->mContentResolver:Landroid/content/ContentResolver;
 
-    invoke-static {v2, v3, v4}, Lcom/android/server/InputMethodManagerService;->-wrap5(Lcom/android/server/InputMethodManagerService;Landroid/content/Context;Landroid/content/ContentResolver;)Ljava/lang/String;
+    invoke-static {v2, v3, v4}, Lcom/android/server/InputMethodManagerService;->-wrap4(Lcom/android/server/InputMethodManagerService;Landroid/content/Context;Landroid/content/ContentResolver;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -110,13 +110,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_2
-    :goto_0
-    return-void
+    if-eqz v2, :cond_2
 
-    :cond_3
     const-string/jumbo v2, "InputMethodManagerService"
 
     const-string/jumbo v3, "Restore the Previous Used IME because KnoxDesktop Disconnected"
@@ -149,7 +146,8 @@
 
     invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
-    goto :goto_0
+    :cond_2
+    return-void
 .end method
 
 
@@ -193,7 +191,7 @@
 
     iget-object v4, v4, Lcom/android/server/InputMethodManagerService;->mContentResolver:Landroid/content/ContentResolver;
 
-    invoke-static {v2, v3, v4}, Lcom/android/server/InputMethodManagerService;->-wrap5(Lcom/android/server/InputMethodManagerService;Landroid/content/Context;Landroid/content/ContentResolver;)Ljava/lang/String;
+    invoke-static {v2, v3, v4}, Lcom/android/server/InputMethodManagerService;->-wrap4(Lcom/android/server/InputMethodManagerService;Landroid/content/Context;Landroid/content/ContentResolver;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -211,7 +209,7 @@
 
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$KnoxDesktopModeReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    invoke-static {v2}, Lcom/android/server/InputMethodManagerService;->-wrap9(Lcom/android/server/InputMethodManagerService;)V
+    invoke-static {v2}, Lcom/android/server/InputMethodManagerService;->-wrap8(Lcom/android/server/InputMethodManagerService;)V
 
     :cond_0
     :goto_0

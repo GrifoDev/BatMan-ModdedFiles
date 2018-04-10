@@ -170,6 +170,96 @@
     return-object v2
 .end method
 
+.method public rcaEvent(ILjava/lang/String;)V
+    .locals 5
+
+    const/4 v4, 0x1
+
+    const-string/jumbo v1, "WFDUibcManager"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "RCA Event Start "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz p1, :cond_0
+
+    if-eq p1, v4, :cond_0
+
+    const-string/jumbo v1, "WFDUibcManager"
+
+    const-string/jumbo v2, "Unknown RCA Event"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    new-instance v0, Landroid/content/Intent;
+
+    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+
+    if-ne p1, v4, :cond_2
+
+    const-string/jumbo v1, "com.samsung.android.bixby.intent.action.START_BIXBY_WITH_AUDIO_SRC"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+
+    :cond_1
+    :goto_0
+    new-instance v1, Landroid/content/ComponentName;
+
+    const-string/jumbo v2, "com.samsung.android.bixby.agent"
+
+    const-string/jumbo v3, "com.samsung.android.bixby.external.HeadsetReceiveService"
+
+    invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+
+    const-string/jumbo v1, "com.samsung.android.bixby.agent"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v1, "AudioSrcFile"
+
+    invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    iget-object v1, p0, Lcom/android/server/display/WFDUibcManager$EventQueue;->this$0:Lcom/android/server/display/WFDUibcManager;
+
+    invoke-static {v1}, Lcom/android/server/display/WFDUibcManager;->-get1(Lcom/android/server/display/WFDUibcManager;)Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+
+    return-void
+
+    :cond_2
+    if-nez p1, :cond_1
+
+    const-string/jumbo v1, "com.samsung.android.bixby.intent.action.STOP_BIXBY_WITH_AUDIO_SRC"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+
+    goto :goto_0
+.end method
+
 .method public rotate(II)V
     .locals 6
 

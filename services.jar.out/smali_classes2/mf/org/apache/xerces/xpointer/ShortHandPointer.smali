@@ -55,66 +55,62 @@
         }
     .end annotation
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     if-nez p2, :cond_2
 
-    move-object v2, v0
-
     :cond_0
-    if-nez v2, :cond_3
+    if-nez v1, :cond_3
 
     :cond_1
-    return v1
+    return v3
 
     :cond_2
-    move-object v2, v0
-
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_0
     invoke-interface {p2}, Lmf/org/apache/xerces/xni/XMLAttributes;->getLength()I
 
-    move-result v3
+    move-result v2
 
-    if-ge v0, v3, :cond_0
+    if-ge v0, v2, :cond_0
 
     invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/xpointer/ShortHandPointer;->getSchemaDeterminedID(Lmf/org/apache/xerces/xni/XMLAttributes;I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
     invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/xpointer/ShortHandPointer;->getChildrenSchemaDeterminedID(Lmf/org/apache/xerces/xni/XMLAttributes;I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
     invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/xpointer/ShortHandPointer;->getDTDDeterminedID(Lmf/org/apache/xerces/xni/XMLAttributes;I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_3
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/ShortHandPointer;->fShortHandPointer:Ljava/lang/String;
+    iget-object v2, p0, Lmf/org/apache/xerces/xpointer/ShortHandPointer;->fShortHandPointer:Ljava/lang/String;
 
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_1
+    if-eqz v2, :cond_1
 
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    return v0
+    return v2
 .end method
 
 
@@ -165,22 +161,22 @@
 .end method
 
 .method public getSchemaDeterminedID(Lmf/org/apache/xerces/xni/XMLAttributes;I)Ljava/lang/String;
-    .locals 3
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
     invoke-interface {p1, p2}, Lmf/org/apache/xerces/xni/XMLAttributes;->getAugmentations(I)Lmf/org/apache/xerces/xni/Augmentations;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string/jumbo v1, "ATTRIBUTE_PSVI"
+    const-string/jumbo v3, "ATTRIBUTE_PSVI"
 
-    invoke-interface {v0, v1}, Lmf/org/apache/xerces/xni/Augmentations;->getItem(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-interface {v1, v3}, Lmf/org/apache/xerces/xni/Augmentations;->getItem(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -189,36 +185,36 @@
     if-nez v0, :cond_1
 
     :cond_0
-    return-object v2
+    return-object v4
 
     :cond_1
     invoke-interface {v0}, Lmf/org/apache/xerces/xs/AttributePSVI;->getMemberTypeDefinition()Lmf/org/apache/xerces/xs/XSSimpleTypeDefinition;
 
-    move-result-object v1
+    move-result-object v2
 
-    if-nez v1, :cond_2
+    if-nez v2, :cond_2
 
     :goto_0
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    check-cast v1, Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+    check-cast v2, Lmf/org/apache/xerces/impl/dv/XSSimpleType;
 
-    invoke-interface {v1}, Lmf/org/apache/xerces/impl/dv/XSSimpleType;->isIDType()Z
+    invoke-interface {v2}, Lmf/org/apache/xerces/impl/dv/XSSimpleType;->isIDType()Z
 
-    move-result v1
+    move-result v3
 
-    if-eqz v1, :cond_0
+    if-eqz v3, :cond_0
 
     invoke-interface {v0}, Lmf/org/apache/xerces/xs/AttributePSVI;->getSchemaNormalizedValue()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    return-object v0
+    return-object v3
 
     :cond_2
     invoke-interface {v0}, Lmf/org/apache/xerces/xs/AttributePSVI;->getTypeDefinition()Lmf/org/apache/xerces/xs/XSTypeDefinition;
 
-    move-result-object v1
+    move-result-object v2
 
     goto :goto_0
 .end method

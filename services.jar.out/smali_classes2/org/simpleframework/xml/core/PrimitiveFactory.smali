@@ -40,7 +40,7 @@
 .end method
 
 .method public getInstance(Lorg/simpleframework/xml/stream/InputNode;)Lorg/simpleframework/xml/core/Instance;
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -49,30 +49,30 @@
 
     invoke-virtual {p0, p1}, Lorg/simpleframework/xml/core/PrimitiveFactory;->getOverride(Lorg/simpleframework/xml/stream/InputNode;)Lorg/simpleframework/xml/strategy/Value;
 
-    move-result-object v0
+    move-result-object v1
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/core/PrimitiveFactory;->getType()Ljava/lang/Class;
 
-    move-result-object v1
-
-    if-eqz v0, :cond_0
-
-    new-instance v1, Lorg/simpleframework/xml/core/ObjectInstance;
-
-    iget-object v2, p0, Lorg/simpleframework/xml/core/PrimitiveFactory;->context:Lorg/simpleframework/xml/core/Context;
-
-    invoke-direct {v1, v2, v0}, Lorg/simpleframework/xml/core/ObjectInstance;-><init>(Lorg/simpleframework/xml/core/Context;Lorg/simpleframework/xml/strategy/Value;)V
-
-    return-object v1
-
-    :cond_0
-    iget-object v0, p0, Lorg/simpleframework/xml/core/PrimitiveFactory;->context:Lorg/simpleframework/xml/core/Context;
-
-    invoke-interface {v0, v1}, Lorg/simpleframework/xml/core/Context;->getInstance(Ljava/lang/Class;)Lorg/simpleframework/xml/core/Instance;
-
     move-result-object v0
 
-    return-object v0
+    if-eqz v1, :cond_0
+
+    new-instance v2, Lorg/simpleframework/xml/core/ObjectInstance;
+
+    iget-object v3, p0, Lorg/simpleframework/xml/core/PrimitiveFactory;->context:Lorg/simpleframework/xml/core/Context;
+
+    invoke-direct {v2, v3, v1}, Lorg/simpleframework/xml/core/ObjectInstance;-><init>(Lorg/simpleframework/xml/core/Context;Lorg/simpleframework/xml/strategy/Value;)V
+
+    return-object v2
+
+    :cond_0
+    iget-object v2, p0, Lorg/simpleframework/xml/core/PrimitiveFactory;->context:Lorg/simpleframework/xml/core/Context;
+
+    invoke-interface {v2, v0}, Lorg/simpleframework/xml/core/Context;->getInstance(Ljava/lang/Class;)Lorg/simpleframework/xml/core/Instance;
+
+    move-result-object v2
+
+    return-object v2
 .end method
 
 .method public getText(Ljava/lang/Object;)Ljava/lang/String;
@@ -97,16 +97,16 @@
 
     invoke-virtual {v1, p1, v0}, Lorg/simpleframework/xml/core/Support;->write(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
     iget-object v1, p0, Lorg/simpleframework/xml/core/PrimitiveFactory;->support:Lorg/simpleframework/xml/core/Support;
 
     invoke-virtual {v1, p1, v0}, Lorg/simpleframework/xml/core/Support;->write(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method

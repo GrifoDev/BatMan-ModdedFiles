@@ -801,7 +801,7 @@
 .end method
 
 .method public getDateFormat(Lcom/samsung/android/knox/ContextInfo;)Ljava/lang/String;
-    .locals 3
+    .locals 5
 
     const/4 v1, 0x0
 
@@ -821,9 +821,17 @@
 
     move-result-object v0
 
-    iget-object v2, v0, Llibcore/icu/LocaleData;->shortDateFormat4:Ljava/lang/String;
+    iget-object v2, v0, Llibcore/icu/LocaleData;->shortDateFormat:Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
+    const-string/jumbo v3, "\\byy\\b"
+
+    const-string/jumbo v4, "y"
+
+    invoke-virtual {v2, v3, v4}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
 
     move-result-object v1
 
@@ -1341,8 +1349,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    xor-int/lit8 v2, v2, 0x1
 
+    if-eqz v2, :cond_1
+
+    :cond_0
+    return v6
+
+    :cond_1
     const-wide/16 v2, 0x3e8
 
     div-long v2, p2, v2
@@ -1351,7 +1365,7 @@
 
     cmp-long v2, v2, v4
 
-    if-gez v2, :cond_1
+    if-gez v2, :cond_2
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -1365,10 +1379,7 @@
 
     return v2
 
-    :cond_0
-    return v6
-
-    :cond_1
+    :cond_2
     return v6
 .end method
 
@@ -1659,9 +1670,11 @@
 
     move-result v5
 
-    const/16 v8, 0x64
+    invoke-static {v5}, Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;->isValidKnoxId(I)Z
 
-    if-lt v5, v8, :cond_0
+    move-result v8
+
+    if-eqz v8, :cond_0
 
     return v10
 
@@ -1696,7 +1709,14 @@
 
     move-result v8
 
-    if-eqz v8, :cond_5
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_3
+
+    const/4 v3, 0x0
+
+    :goto_0
+    return v3
 
     :cond_3
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
@@ -1755,23 +1775,17 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_4
-    :goto_0
+    :goto_1
     invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    :goto_1
-    return v3
-
-    :cond_5
-    const/4 v3, 0x0
-
-    goto :goto_1
+    goto :goto_0
 
     :catch_0
     move-exception v1
 
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method public setTimeZone(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
@@ -1800,14 +1814,26 @@
 
     move-result v7
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_1
 
     invoke-virtual {p0, p1}, Lcom/android/server/enterprise/datetime/DateTimePolicy;->isDateTimeChangeEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
 
     move-result v7
 
+    xor-int/lit8 v7, v7, 0x1
+
     if-eqz v7, :cond_2
 
+    :cond_1
+    const-string/jumbo v7, "DateTimePolicyService"
+
+    const-string/jumbo v8, "setTimeZone() has failed : Not allowed by admin."
+
+    invoke-static {v7, v8}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    return v3
+
+    :cond_2
     invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
     move-result v6
@@ -1831,7 +1857,7 @@
 
     const/4 v3, 0x1
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_3
 
     new-instance v2, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
 
@@ -1862,20 +1888,11 @@
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    :cond_1
+    :cond_3
     :goto_0
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     :goto_1
-    return v3
-
-    :cond_2
-    const-string/jumbo v7, "DateTimePolicyService"
-
-    const-string/jumbo v8, "setTimeZone() has failed : Not allowed by admin."
-
-    invoke-static {v7, v8}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
     return v3
 
     :catch_0

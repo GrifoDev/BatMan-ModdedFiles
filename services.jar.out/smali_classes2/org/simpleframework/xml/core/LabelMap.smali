@@ -76,55 +76,55 @@
 
 # virtual methods
 .method public getKeys()[Ljava/lang/String;
-    .locals 4
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    new-instance v1, Ljava/util/HashSet;
+    new-instance v2, Ljava/util/HashSet;
 
-    invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
+    invoke-direct {v2}, Ljava/util/HashSet;-><init>()V
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/core/LabelMap;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v0
 
     :cond_0
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result v5
 
-    if-nez v0, :cond_1
+    if-nez v5, :cond_1
 
-    invoke-direct {p0, v1}, Lorg/simpleframework/xml/core/LabelMap;->getArray(Ljava/util/Set;)[Ljava/lang/String;
+    invoke-direct {p0, v2}, Lorg/simpleframework/xml/core/LabelMap;->getArray(Ljava/util/Set;)[Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v5
 
-    return-object v0
+    return-object v5
 
     :cond_1
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lorg/simpleframework/xml/core/Label;
+    check-cast v1, Lorg/simpleframework/xml/core/Label;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/core/Label;->getPath()Ljava/lang/String;
+    invoke-interface {v1}, Lorg/simpleframework/xml/core/Label;->getPath()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-interface {v1}, Lorg/simpleframework/xml/core/Label;->getName()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/core/Label;->getName()Ljava/lang/String;
+    invoke-interface {v2, v4}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    move-result-object v0
-
-    invoke-interface {v1, v3}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    invoke-interface {v1, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {v2, v3}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 .end method
@@ -142,95 +142,95 @@
 .end method
 
 .method public getLabels()Lorg/simpleframework/xml/core/LabelMap;
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    new-instance v1, Lorg/simpleframework/xml/core/LabelMap;
+    new-instance v2, Lorg/simpleframework/xml/core/LabelMap;
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/LabelMap;->policy:Lorg/simpleframework/xml/core/Policy;
+    iget-object v4, p0, Lorg/simpleframework/xml/core/LabelMap;->policy:Lorg/simpleframework/xml/core/Policy;
 
-    invoke-direct {v1, v0}, Lorg/simpleframework/xml/core/LabelMap;-><init>(Lorg/simpleframework/xml/core/Policy;)V
+    invoke-direct {v2, v4}, Lorg/simpleframework/xml/core/LabelMap;-><init>(Lorg/simpleframework/xml/core/Policy;)V
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/core/LabelMap;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v0
 
     :cond_0
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result v4
 
-    if-nez v0, :cond_1
+    if-nez v4, :cond_1
 
-    return-object v1
+    return-object v2
 
     :cond_1
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lorg/simpleframework/xml/core/Label;
+    check-cast v1, Lorg/simpleframework/xml/core/Label;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/core/Label;->getPath()Ljava/lang/String;
+    invoke-interface {v1}, Lorg/simpleframework/xml/core/Label;->getPath()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v1, v3, v0}, Lorg/simpleframework/xml/core/LabelMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v1}, Lorg/simpleframework/xml/core/LabelMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 .end method
 
 .method public getPaths()[Ljava/lang/String;
-    .locals 3
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    new-instance v1, Ljava/util/HashSet;
+    new-instance v2, Ljava/util/HashSet;
 
-    invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
+    invoke-direct {v2}, Ljava/util/HashSet;-><init>()V
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/core/LabelMap;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v0
 
     :cond_0
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result v4
 
-    if-nez v0, :cond_1
+    if-nez v4, :cond_1
 
-    invoke-direct {p0, v1}, Lorg/simpleframework/xml/core/LabelMap;->getArray(Ljava/util/Set;)[Ljava/lang/String;
+    invoke-direct {p0, v2}, Lorg/simpleframework/xml/core/LabelMap;->getArray(Ljava/util/Set;)[Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v4
 
-    return-object v0
+    return-object v4
 
     :cond_1
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lorg/simpleframework/xml/core/Label;
+    check-cast v1, Lorg/simpleframework/xml/core/Label;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/core/Label;->getPath()Ljava/lang/String;
+    invoke-interface {v1}, Lorg/simpleframework/xml/core/Label;->getPath()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-interface {v1, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {v2, v3}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 .end method

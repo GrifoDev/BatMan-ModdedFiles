@@ -59,40 +59,42 @@
 .end method
 
 .method private populate(Lorg/simpleframework/xml/stream/InputNode;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    check-cast p2, Ljava/util/Map;
+    move-object v2, p2
+
+    check-cast v2, Ljava/util/Map;
 
     :goto_0
     invoke-interface {p1}, Lorg/simpleframework/xml/stream/InputNode;->getNext()Lorg/simpleframework/xml/stream/InputNode;
 
+    move-result-object v3
+
+    if-eqz v3, :cond_0
+
+    iget-object v4, p0, Lorg/simpleframework/xml/core/CompositeMap;->key:Lorg/simpleframework/xml/core/Converter;
+
+    invoke-interface {v4, v3}, Lorg/simpleframework/xml/core/Converter;->read(Lorg/simpleframework/xml/stream/InputNode;)Ljava/lang/Object;
+
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    iget-object v4, p0, Lorg/simpleframework/xml/core/CompositeMap;->value:Lorg/simpleframework/xml/core/Converter;
 
-    iget-object v1, p0, Lorg/simpleframework/xml/core/CompositeMap;->key:Lorg/simpleframework/xml/core/Converter;
-
-    invoke-interface {v1, v0}, Lorg/simpleframework/xml/core/Converter;->read(Lorg/simpleframework/xml/stream/InputNode;)Ljava/lang/Object;
+    invoke-interface {v4, v3}, Lorg/simpleframework/xml/core/Converter;->read(Lorg/simpleframework/xml/stream/InputNode;)Ljava/lang/Object;
 
     move-result-object v1
 
-    iget-object v2, p0, Lorg/simpleframework/xml/core/CompositeMap;->value:Lorg/simpleframework/xml/core/Converter;
-
-    invoke-interface {v2, v0}, Lorg/simpleframework/xml/core/Converter;->read(Lorg/simpleframework/xml/stream/InputNode;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    invoke-interface {p2, v1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
     :cond_0
-    return-object p2
+    return-object v2
 .end method
 
 .method private validate(Lorg/simpleframework/xml/stream/InputNode;Ljava/lang/Class;)Z
@@ -124,16 +126,16 @@
 
     invoke-interface {v1, v0}, Lorg/simpleframework/xml/core/Converter;->validate(Lorg/simpleframework/xml/stream/InputNode;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     return v2
 
     :cond_1
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    return v0
+    return v1
 
     :cond_2
     return v2
@@ -142,37 +144,37 @@
 
 # virtual methods
 .method public read(Lorg/simpleframework/xml/stream/InputNode;)Ljava/lang/Object;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/CompositeMap;->factory:Lorg/simpleframework/xml/core/MapFactory;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/CompositeMap;->factory:Lorg/simpleframework/xml/core/MapFactory;
 
-    invoke-virtual {v0, p1}, Lorg/simpleframework/xml/core/MapFactory;->getInstance(Lorg/simpleframework/xml/stream/InputNode;)Lorg/simpleframework/xml/core/Instance;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Lorg/simpleframework/xml/core/Instance;->getInstance()Ljava/lang/Object;
+    invoke-virtual {v2, p1}, Lorg/simpleframework/xml/core/MapFactory;->getInstance(Lorg/simpleframework/xml/stream/InputNode;)Lorg/simpleframework/xml/core/Instance;
 
     move-result-object v1
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/core/Instance;->isReference()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    return-object v1
-
-    :cond_0
-    invoke-direct {p0, p1, v1}, Lorg/simpleframework/xml/core/CompositeMap;->populate(Lorg/simpleframework/xml/stream/InputNode;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1}, Lorg/simpleframework/xml/core/Instance;->getInstance()Ljava/lang/Object;
 
     move-result-object v0
 
+    invoke-interface {v1}, Lorg/simpleframework/xml/core/Instance;->isReference()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
     return-object v0
+
+    :cond_0
+    invoke-direct {p0, p1, v0}, Lorg/simpleframework/xml/core/CompositeMap;->populate(Lorg/simpleframework/xml/stream/InputNode;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    return-object v2
 .end method
 
 .method public read(Lorg/simpleframework/xml/stream/InputNode;Ljava/lang/Object;)Ljava/lang/Object;
@@ -183,9 +185,9 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/CompositeMap;->factory:Lorg/simpleframework/xml/core/MapFactory;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/CompositeMap;->factory:Lorg/simpleframework/xml/core/MapFactory;
 
-    invoke-virtual {v0, p1}, Lorg/simpleframework/xml/core/MapFactory;->getInstance(Lorg/simpleframework/xml/stream/InputNode;)Lorg/simpleframework/xml/core/Instance;
+    invoke-virtual {v1, p1}, Lorg/simpleframework/xml/core/MapFactory;->getInstance(Lorg/simpleframework/xml/stream/InputNode;)Lorg/simpleframework/xml/core/Instance;
 
     move-result-object v0
 
@@ -204,82 +206,86 @@
     :cond_0
     invoke-interface {v0}, Lorg/simpleframework/xml/core/Instance;->getInstance()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_1
     invoke-direct {p0, p1, p2}, Lorg/simpleframework/xml/core/CompositeMap;->populate(Lorg/simpleframework/xml/stream/InputNode;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public validate(Lorg/simpleframework/xml/stream/InputNode;)Z
-    .locals 2
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/CompositeMap;->factory:Lorg/simpleframework/xml/core/MapFactory;
+    iget-object v3, p0, Lorg/simpleframework/xml/core/CompositeMap;->factory:Lorg/simpleframework/xml/core/MapFactory;
 
-    invoke-virtual {v0, p1}, Lorg/simpleframework/xml/core/MapFactory;->getInstance(Lorg/simpleframework/xml/stream/InputNode;)Lorg/simpleframework/xml/core/Instance;
+    invoke-virtual {v3, p1}, Lorg/simpleframework/xml/core/MapFactory;->getInstance(Lorg/simpleframework/xml/stream/InputNode;)Lorg/simpleframework/xml/core/Instance;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/core/Instance;->isReference()Z
+    invoke-interface {v2}, Lorg/simpleframework/xml/core/Instance;->isReference()Z
 
-    move-result v1
+    move-result v3
 
-    if-eqz v1, :cond_0
+    if-eqz v3, :cond_0
 
-    const/4 v0, 0x1
+    const/4 v3, 0x1
 
-    return v0
+    return v3
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    invoke-interface {v0, v1}, Lorg/simpleframework/xml/core/Instance;->setInstance(Ljava/lang/Object;)Ljava/lang/Object;
-
-    invoke-interface {v0}, Lorg/simpleframework/xml/core/Instance;->getType()Ljava/lang/Class;
+    invoke-interface {v2, v3}, Lorg/simpleframework/xml/core/Instance;->setInstance(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-direct {p0, p1, v0}, Lorg/simpleframework/xml/core/CompositeMap;->validate(Lorg/simpleframework/xml/stream/InputNode;Ljava/lang/Class;)Z
+    invoke-interface {v2}, Lorg/simpleframework/xml/core/Instance;->getType()Ljava/lang/Class;
 
-    move-result v0
+    move-result-object v1
 
-    return v0
+    invoke-direct {p0, p1, v1}, Lorg/simpleframework/xml/core/CompositeMap;->validate(Lorg/simpleframework/xml/stream/InputNode;Ljava/lang/Class;)Z
+
+    move-result v3
+
+    return v3
 .end method
 
 .method public write(Lorg/simpleframework/xml/stream/OutputNode;Ljava/lang/Object;)V
-    .locals 5
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    check-cast p2, Ljava/util/Map;
+    move-object v3, p2
 
-    invoke-interface {p2}, Ljava/util/Map;->keySet()Ljava/util/Set;
+    check-cast v3, Ljava/util/Map;
 
-    move-result-object v0
+    invoke-interface {v3}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    move-result-object v7
+
+    invoke-interface {v7}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v7
 
-    if-nez v1, :cond_0
+    if-nez v7, :cond_0
 
     return-void
 
@@ -288,33 +294,33 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lorg/simpleframework/xml/core/CompositeMap;->entry:Lorg/simpleframework/xml/core/Entry;
+    iget-object v7, p0, Lorg/simpleframework/xml/core/CompositeMap;->entry:Lorg/simpleframework/xml/core/Entry;
 
-    invoke-virtual {v2}, Lorg/simpleframework/xml/core/Entry;->getEntry()Ljava/lang/String;
+    invoke-virtual {v7}, Lorg/simpleframework/xml/core/Entry;->getEntry()Ljava/lang/String;
+
+    move-result-object v6
+
+    iget-object v7, p0, Lorg/simpleframework/xml/core/CompositeMap;->style:Lorg/simpleframework/xml/stream/Style;
+
+    invoke-interface {v7, v6}, Lorg/simpleframework/xml/stream/Style;->getElement(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-interface {p1, v4}, Lorg/simpleframework/xml/stream/OutputNode;->getChild(Ljava/lang/String;)Lorg/simpleframework/xml/stream/OutputNode;
+
+    move-result-object v5
+
+    invoke-interface {v3, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
-    iget-object v3, p0, Lorg/simpleframework/xml/core/CompositeMap;->style:Lorg/simpleframework/xml/stream/Style;
+    iget-object v7, p0, Lorg/simpleframework/xml/core/CompositeMap;->key:Lorg/simpleframework/xml/core/Converter;
 
-    invoke-interface {v3, v2}, Lorg/simpleframework/xml/stream/Style;->getElement(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v7, v5, v1}, Lorg/simpleframework/xml/core/Converter;->write(Lorg/simpleframework/xml/stream/OutputNode;Ljava/lang/Object;)V
 
-    move-result-object v2
+    iget-object v7, p0, Lorg/simpleframework/xml/core/CompositeMap;->value:Lorg/simpleframework/xml/core/Converter;
 
-    invoke-interface {p1, v2}, Lorg/simpleframework/xml/stream/OutputNode;->getChild(Ljava/lang/String;)Lorg/simpleframework/xml/stream/OutputNode;
-
-    move-result-object v2
-
-    invoke-interface {p2, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lorg/simpleframework/xml/core/CompositeMap;->key:Lorg/simpleframework/xml/core/Converter;
-
-    invoke-interface {v4, v2, v1}, Lorg/simpleframework/xml/core/Converter;->write(Lorg/simpleframework/xml/stream/OutputNode;Ljava/lang/Object;)V
-
-    iget-object v1, p0, Lorg/simpleframework/xml/core/CompositeMap;->value:Lorg/simpleframework/xml/core/Converter;
-
-    invoke-interface {v1, v2, v3}, Lorg/simpleframework/xml/core/Converter;->write(Lorg/simpleframework/xml/stream/OutputNode;Ljava/lang/Object;)V
+    invoke-interface {v7, v5, v2}, Lorg/simpleframework/xml/core/Converter;->write(Lorg/simpleframework/xml/stream/OutputNode;Ljava/lang/Object;)V
 
     goto :goto_0
 .end method

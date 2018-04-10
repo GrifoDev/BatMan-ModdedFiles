@@ -33,13 +33,13 @@
 .end method
 
 .method private addContentSpecNodes(II)I
-    .locals 3
+    .locals 4
 
     if-eq p1, p2, :cond_0
 
-    add-int v0, p1, p2
+    add-int v1, p1, p2
 
-    ushr-int/lit8 v0, v0, 0x1
+    ushr-int/lit8 v0, v1, 0x1
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fOpStack:[S
 
@@ -51,190 +51,190 @@
 
     move-result v2
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v3, v0, 0x1
 
-    invoke-direct {p0, v0, p2}, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->addContentSpecNodes(II)I
+    invoke-direct {p0, v3, p2}, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->addContentSpecNodes(II)I
 
-    move-result v0
+    move-result v3
 
-    invoke-virtual {p0, v1, v2, v0}, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->addContentSpecNode(SII)I
+    invoke-virtual {p0, v1, v2, v3}, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->addContentSpecNode(SII)I
 
-    move-result v0
+    move-result v1
 
-    return v0
-
-    :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStack:[[I
-
-    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
-
-    aget-object v0, v0, v1
-
-    aget v0, v0, p1
-
-    return v0
-.end method
-
-.method private addToCurrentGroup(I)V
-    .locals 6
-
-    const/4 v5, 0x0
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStack:[[I
-
-    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
-
-    aget-object v0, v0, v1
-
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStackSizes:[I
-
-    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
-
-    aget v3, v1, v2
-
-    add-int/lit8 v4, v3, 0x1
-
-    aput v4, v1, v2
-
-    if-eqz v0, :cond_0
-
-    array-length v1, v0
-
-    if-eq v3, v1, :cond_1
-
-    :goto_0
-    aput p1, v0, v3
-
-    return-void
+    return v1
 
     :cond_0
-    const/16 v0, 0x8
-
-    new-array v0, v0, [I
-
     iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStack:[[I
 
     iget v2, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
 
-    aput-object v0, v1, v2
+    aget-object v1, v1, v2
+
+    aget v1, v1, p1
+
+    return v1
+.end method
+
+.method private addToCurrentGroup(I)V
+    .locals 7
+
+    const/4 v6, 0x0
+
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStack:[[I
+
+    iget v4, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
+
+    aget-object v0, v3, v4
+
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStackSizes:[I
+
+    iget v4, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
+
+    aget v1, v3, v4
+
+    add-int/lit8 v5, v1, 0x1
+
+    aput v5, v3, v4
+
+    if-eqz v0, :cond_0
+
+    array-length v3, v0
+
+    if-eq v1, v3, :cond_1
+
+    :goto_0
+    aput p1, v0, v1
+
+    return-void
+
+    :cond_0
+    const/16 v3, 0x8
+
+    new-array v0, v3, [I
+
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStack:[[I
+
+    iget v4, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
+
+    aput-object v0, v3, v4
 
     goto :goto_0
 
     :cond_1
-    array-length v1, v0
+    array-length v3, v0
 
-    mul-int/lit8 v1, v1, 0x2
+    mul-int/lit8 v3, v3, 0x2
 
-    new-array v1, v1, [I
+    new-array v2, v3, [I
 
-    array-length v2, v0
+    array-length v3, v0
 
-    invoke-static {v0, v5, v1, v5, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v0, v6, v2, v6, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStack:[[I
+    move-object v0, v2
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStack:[[I
 
-    aput-object v1, v0, v2
+    iget v4, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
 
-    move-object v0, v1
+    aput-object v2, v3, v4
 
     goto :goto_0
 .end method
 
 .method private initializeContentModelStacks()V
-    .locals 4
+    .locals 7
 
-    const/16 v1, 0x8
+    const/16 v4, 0x8
 
-    const/4 v3, 0x0
+    const/4 v6, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fOpStack:[S
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fOpStack:[S
 
-    if-eqz v0, :cond_0
+    if-eqz v3, :cond_0
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fOpStack:[S
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fOpStack:[S
 
-    array-length v1, v1
+    array-length v4, v4
 
-    if-eq v0, v1, :cond_1
+    if-eq v3, v4, :cond_1
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fOpStack:[S
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fOpStack:[S
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
 
-    const/4 v2, -0x1
+    const/4 v5, -0x1
 
-    aput-short v2, v0, v1
+    aput-short v5, v3, v4
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStackSizes:[I
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStackSizes:[I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
 
-    aput v3, v0, v1
+    aput v6, v3, v4
 
     return-void
 
     :cond_0
-    new-array v0, v1, [S
+    new-array v3, v4, [S
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fOpStack:[S
+    iput-object v3, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fOpStack:[S
 
-    new-array v0, v1, [[I
+    new-array v3, v4, [[I
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStack:[[I
+    iput-object v3, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStack:[[I
 
-    new-array v0, v1, [I
+    new-array v3, v4, [I
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStackSizes:[I
+    iput-object v3, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStackSizes:[I
 
     goto :goto_0
 
     :cond_1
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
 
-    mul-int/lit8 v0, v0, 0x2
+    mul-int/lit8 v3, v3, 0x2
 
-    new-array v0, v0, [S
+    new-array v2, v3, [S
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fOpStack:[S
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fOpStack:[S
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
 
-    invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v3, v6, v2, v6, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fOpStack:[S
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fOpStack:[S
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
 
-    mul-int/lit8 v0, v0, 0x2
+    mul-int/lit8 v3, v3, 0x2
 
-    new-array v0, v0, [[I
+    new-array v0, v3, [[I
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStack:[[I
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStack:[[I
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
 
-    invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v3, v6, v0, v6, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStack:[[I
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
 
-    mul-int/lit8 v0, v0, 0x2
+    mul-int/lit8 v3, v3, 0x2
 
-    new-array v0, v0, [I
+    new-array v1, v3, [I
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStackSizes:[I
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStackSizes:[I
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
 
-    invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v3, v6, v1, v6, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStackSizes:[I
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStackSizes:[I
 
     goto :goto_0
 .end method
@@ -242,15 +242,15 @@
 
 # virtual methods
 .method protected final addContentSpecToElement(Lmf/org/apache/xerces/impl/dtd/XMLElementDecl;)V
-    .locals 2
+    .locals 3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStackSizes:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStackSizes:[I
 
-    aget v0, v0, v1
+    aget v1, v1, v2
 
-    if-gtz v0, :cond_0
+    if-gtz v1, :cond_0
 
     const/4 v0, -0x1
 
@@ -262,11 +262,11 @@
     return-void
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStack:[[I
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStack:[[I
 
-    aget-object v0, v0, v1
+    aget-object v1, v1, v2
 
-    aget v0, v0, v1
+    aget v0, v1, v2
 
     goto :goto_0
 .end method
@@ -310,44 +310,44 @@
 .end method
 
 .method public final endGroup(Lmf/org/apache/xerces/xni/Augmentations;)V
-    .locals 3
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
 
+    const/4 v4, 0x0
+
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStackSizes:[I
+
+    iget v3, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
+
+    aget v1, v2, v3
+
+    if-gtz v1, :cond_0
+
     const/4 v2, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStackSizes:[I
-
-    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
-
-    aget v0, v0, v1
-
-    if-gtz v0, :cond_0
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->addUniqueLeafNode(Ljava/lang/String;)I
+    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->addUniqueLeafNode(Ljava/lang/String;)I
 
     move-result v0
 
     :goto_0
-    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v2, v2, -0x1
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
+    iput v2, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
 
     invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->addToCurrentGroup(I)V
 
     return-void
 
     :cond_0
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 v2, v1, -0x1
 
-    invoke-direct {p0, v2, v0}, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->addContentSpecNodes(II)I
+    invoke-direct {p0, v4, v2}, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->addContentSpecNodes(II)I
 
     move-result v0
 
@@ -368,22 +368,22 @@
 
     const/4 v4, -0x1
 
-    iget-boolean v0, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fMixed:Z
+    iget-boolean v1, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fMixed:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStackSizes:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fGroupIndexStackSizes:[I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dtd/BalancedDTDGrammar;->fDepth:I
 
-    aget v0, v0, v1
+    aget v1, v1, v2
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 v0, v1, -0x1
 
     if-eq p1, v5, :cond_2
 

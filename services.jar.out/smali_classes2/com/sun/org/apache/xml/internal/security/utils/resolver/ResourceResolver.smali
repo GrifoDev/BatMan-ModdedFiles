@@ -1,6 +1,5 @@
 .class public Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;
 .super Ljava/lang/Object;
-.source "Unknown"
 
 
 # static fields
@@ -124,16 +123,16 @@
 .end method
 
 .method static synthetic class$(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 2
+    .locals 3
 
     :try_start_0
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :catch_0
     move-exception v0
@@ -142,65 +141,65 @@
 
     invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-direct {v1, v0}, Ljava/lang/NoClassDefFoundError;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/NoClassDefFoundError;-><init>(Ljava/lang/String;)V
 
     throw v1
 .end method
 
 .method public static final getInstance(Lorg/w3c/dom/Attr;Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;
-    .locals 8
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverException;
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v8, 0x0
 
-    sget-object v0, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->_resolverVector:Ljava/util/List;
+    sget-object v4, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->_resolverVector:Ljava/util/List;
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-interface {v4}, Ljava/util/List;->size()I
 
-    move-result v3
+    move-result v0
 
-    move v1, v2
+    const/4 v1, 0x0
 
     :goto_0
-    if-lt v1, v3, :cond_0
+    if-lt v1, v0, :cond_0
 
-    const/4 v0, 0x2
+    const/4 v4, 0x2
 
-    new-array v1, v0, [Ljava/lang/Object;
+    new-array v2, v4, [Ljava/lang/Object;
 
     if-nez p0, :cond_4
 
-    const-string/jumbo v0, "null"
+    const-string/jumbo v4, "null"
 
     :goto_1
-    aput-object v0, v1, v2
+    aput-object v4, v2, v8
 
-    const/4 v0, 0x1
+    const/4 v4, 0x1
 
-    aput-object p1, v1, v0
+    aput-object p1, v2, v4
 
-    new-instance v0, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverException;
+    new-instance v4, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverException;
 
-    const-string/jumbo v2, "utils.resolver.noClass"
+    const-string/jumbo v5, "utils.resolver.noClass"
 
-    invoke-direct {v0, v2, v1, p0, p1}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverException;-><init>(Ljava/lang/String;[Ljava/lang/Object;Lorg/w3c/dom/Attr;Ljava/lang/String;)V
+    invoke-direct {v4, v5, v2, p0, p1}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverException;-><init>(Ljava/lang/String;[Ljava/lang/Object;Lorg/w3c/dom/Attr;Ljava/lang/String;)V
 
-    throw v0
+    throw v4
 
     :cond_0
-    sget-object v0, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->_resolverVector:Ljava/util/List;
+    sget-object v4, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->_resolverVector:Ljava/util/List;
 
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v4, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v3
 
-    check-cast v0, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;
+    check-cast v3, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;
 
     sget-object v4, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->log:Ljava/util/logging/Logger;
 
@@ -213,12 +212,10 @@
     if-nez v4, :cond_2
 
     :goto_2
-    if-nez v0, :cond_3
+    if-nez v3, :cond_3
 
     :cond_1
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
@@ -237,7 +234,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v7
 
@@ -258,18 +255,18 @@
     goto :goto_2
 
     :cond_3
-    invoke-direct {v0, p0, p1}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->canResolve(Lorg/w3c/dom/Attr;Ljava/lang/String;)Z
+    invoke-direct {v3, p0, p1}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->canResolve(Lorg/w3c/dom/Attr;Ljava/lang/String;)Z
 
     move-result v4
 
     if-eqz v4, :cond_1
 
-    return-object v0
+    return-object v3
 
     :cond_4
     invoke-interface {p0}, Lorg/w3c/dom/Node;->getNodeValue()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v4
 
     goto :goto_1
 .end method
@@ -282,144 +279,142 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    sget-object v4, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->log:Ljava/util/logging/Logger;
 
-    sget-object v1, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->log:Ljava/util/logging/Logger;
+    sget-object v5, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
 
-    sget-object v2, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
+    invoke-virtual {v4, v5}, Ljava/util/logging/Logger;->isLoggable(Ljava/util/logging/Level;)Z
 
-    invoke-virtual {v1, v2}, Ljava/util/logging/Logger;->isLoggable(Ljava/util/logging/Level;)Z
+    move-result v4
 
-    move-result v1
-
-    if-nez v1, :cond_1
+    if-nez v4, :cond_1
 
     :goto_0
-    sget-object v1, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->log:Ljava/util/logging/Logger;
+    sget-object v4, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->log:Ljava/util/logging/Logger;
 
-    sget-object v2, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
+    sget-object v5, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
 
-    invoke-virtual {v1, v2}, Ljava/util/logging/Logger;->isLoggable(Ljava/util/logging/Level;)Z
+    invoke-virtual {v4, v5}, Ljava/util/logging/Logger;->isLoggable(Ljava/util/logging/Level;)Z
 
-    move-result v1
+    move-result v4
 
-    if-nez v1, :cond_2
+    if-nez v4, :cond_2
 
     :goto_1
+    const/4 v0, 0x0
+
     if-nez p2, :cond_3
 
     :cond_0
     invoke-static {p0, p1}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->getInstance(Lorg/w3c/dom/Attr;Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;
 
-    move-result-object v0
+    move-result-object v4
 
-    return-object v0
+    return-object v4
 
     :cond_1
-    sget-object v1, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->log:Ljava/util/logging/Logger;
+    sget-object v4, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->log:Ljava/util/logging/Logger;
 
-    sget-object v2, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
+    sget-object v5, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
 
-    new-instance v3, Ljava/lang/StringBuffer;
+    new-instance v6, Ljava/lang/StringBuffer;
 
-    invoke-direct {v3}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuffer;-><init>()V
 
-    const-string/jumbo v4, "I was asked to create a ResourceResolver and got "
+    const-string/jumbo v7, "I was asked to create a ResourceResolver and got "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v3
+    move-result-object v6
 
     invoke-interface {p2}, Ljava/util/List;->size()I
 
-    move-result v4
+    move-result v7
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v1, v2, v3}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
+    invoke-virtual {v4, v5, v6}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_2
-    sget-object v1, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->log:Ljava/util/logging/Logger;
+    sget-object v4, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->log:Ljava/util/logging/Logger;
 
-    sget-object v2, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
+    sget-object v5, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
 
-    new-instance v3, Ljava/lang/StringBuffer;
+    new-instance v6, Ljava/lang/StringBuffer;
 
-    invoke-direct {v3}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuffer;-><init>()V
 
-    const-string/jumbo v4, " extra resolvers to my existing "
+    const-string/jumbo v7, " extra resolvers to my existing "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v3
+    move-result-object v6
 
-    sget-object v4, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->_resolverVector:Ljava/util/List;
+    sget-object v7, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->_resolverVector:Ljava/util/List;
 
-    invoke-interface {v4}, Ljava/util/List;->size()I
+    invoke-interface {v7}, Ljava/util/List;->size()I
 
-    move-result v4
+    move-result v7
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    move-result-object v3
+    move-result-object v6
 
-    const-string/jumbo v4, " system-wide resolvers"
+    const-string/jumbo v7, " system-wide resolvers"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v1, v2, v3}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
+    invoke-virtual {v4, v5, v6}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
 
     goto :goto_1
 
     :cond_3
     invoke-interface {p2}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result v0
 
-    if-lez v2, :cond_0
+    if-lez v0, :cond_0
 
-    move v1, v0
+    const/4 v1, 0x0
 
     :goto_2
-    if-ge v1, v2, :cond_0
+    if-ge v1, v0, :cond_0
 
     invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;
+    check-cast v2, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;
 
-    if-nez v0, :cond_5
+    if-nez v2, :cond_5
 
     :cond_4
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_2
 
     :cond_5
-    iget-object v3, v0, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->_resolverSpi:Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;
+    iget-object v4, v2, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->_resolverSpi:Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;
 
-    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v4}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v3
 
@@ -434,13 +429,13 @@
     if-nez v4, :cond_6
 
     :goto_3
-    invoke-direct {v0, p0, p1}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->canResolve(Lorg/w3c/dom/Attr;Ljava/lang/String;)Z
+    invoke-direct {v2, p0, p1}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->canResolve(Lorg/w3c/dom/Attr;Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_4
+    if-eqz v4, :cond_4
 
-    return-object v0
+    return-object v2
 
     :cond_6
     sget-object v4, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->log:Ljava/util/logging/Logger;
@@ -459,13 +454,13 @@
 
     invoke-virtual {v6, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v4, v5, v3}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
+    invoke-virtual {v4, v5, v6}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
 
     goto :goto_3
 .end method
@@ -497,92 +492,116 @@
 .end method
 
 .method public static register(Ljava/lang/String;)V
-    .locals 4
+    .locals 7
+
+    const/4 v0, 0x0
 
     :try_start_0
-    new-instance v0, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;
+    new-instance v1, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;
 
-    invoke-direct {v0, p0}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;-><init>(Ljava/lang/String;)V
-
-    sget-object v1, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->_resolverVector:Ljava/util/List;
-
-    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-direct {v1, p0}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;-><init>(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/NoClassDefFoundError; {:try_start_0 .. :try_end_0} :catch_1
+
+    :try_start_1
+    sget-object v3, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->_resolverVector:Ljava/util/List;
+
+    invoke-interface {v3, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_3
+    .catch Ljava/lang/NoClassDefFoundError; {:try_start_1 .. :try_end_1} :catch_2
+
+    move-object v0, v1
 
     :goto_0
     return-void
 
     :catch_0
-    move-exception v0
+    move-exception v2
 
-    sget-object v0, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->log:Ljava/util/logging/Logger;
+    :goto_1
+    sget-object v3, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->log:Ljava/util/logging/Logger;
 
-    sget-object v1, Ljava/util/logging/Level;->WARNING:Ljava/util/logging/Level;
+    sget-object v4, Ljava/util/logging/Level;->WARNING:Ljava/util/logging/Level;
 
-    new-instance v2, Ljava/lang/StringBuffer;
+    new-instance v5, Ljava/lang/StringBuffer;
 
-    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuffer;-><init>()V
 
-    const-string/jumbo v3, "Error loading resolver "
+    const-string/jumbo v6, "Error loading resolver "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v2
+    move-result-object v5
 
-    invoke-virtual {v2, p0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v5, p0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v2
+    move-result-object v5
 
-    const-string/jumbo v3, " disabling it"
+    const-string/jumbo v6, " disabling it"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v2
+    move-result-object v5
 
-    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v5
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
+    invoke-virtual {v3, v4, v5}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
 
     goto :goto_0
 
     :catch_1
-    move-exception v0
+    move-exception v2
 
-    sget-object v0, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->log:Ljava/util/logging/Logger;
+    :goto_2
+    sget-object v3, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->log:Ljava/util/logging/Logger;
 
-    sget-object v1, Ljava/util/logging/Level;->WARNING:Ljava/util/logging/Level;
+    sget-object v4, Ljava/util/logging/Level;->WARNING:Ljava/util/logging/Level;
 
-    new-instance v2, Ljava/lang/StringBuffer;
+    new-instance v5, Ljava/lang/StringBuffer;
 
-    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuffer;-><init>()V
 
-    const-string/jumbo v3, "Error loading resolver "
+    const-string/jumbo v6, "Error loading resolver "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v2
+    move-result-object v5
 
-    invoke-virtual {v2, p0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v5, p0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v2
+    move-result-object v5
 
-    const-string/jumbo v3, " disabling it"
+    const-string/jumbo v6, " disabling it"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v2
+    move-result-object v5
 
-    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v5
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
+    invoke-virtual {v3, v4, v5}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
 
     goto :goto_0
+
+    :catch_2
+    move-exception v2
+
+    move-object v0, v1
+
+    goto :goto_2
+
+    :catch_3
+    move-exception v2
+
+    move-object v0, v1
+
+    goto :goto_1
 .end method
 
 .method public static registerAtStart(Ljava/lang/String;)V
@@ -598,7 +617,7 @@
 .end method
 
 .method public static resolveStatic(Lorg/w3c/dom/Attr;Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverException;
@@ -611,9 +630,9 @@
 
     invoke-virtual {v0, p0, p1}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver;->resolve(Lorg/w3c/dom/Attr;Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 

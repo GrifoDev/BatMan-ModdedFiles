@@ -75,57 +75,57 @@
 .end method
 
 .method private nodeListGetLength()I
-    .locals 4
+    .locals 5
 
-    const/4 v3, -0x1
+    const/4 v3, 0x0
 
-    const/4 v1, 0x0
+    const/4 v4, -0x1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    iget v0, v0, Lmf/org/apache/xerces/dom/NodeListCache;->fLength:I
+    iget v2, v2, Lmf/org/apache/xerces/dom/NodeListCache;->fLength:I
 
-    if-eq v0, v3, :cond_4
+    if-eq v2, v4, :cond_4
 
     :goto_1
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    iget v0, v0, Lmf/org/apache/xerces/dom/NodeListCache;->fLength:I
+    iget v2, v2, Lmf/org/apache/xerces/dom/NodeListCache;->fLength:I
 
-    return v0
+    return v2
 
     :cond_0
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/ParentNode;->needsSyncChildren()Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_1
+    if-nez v2, :cond_1
 
     :goto_2
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    if-eqz v0, :cond_2
+    if-eqz v2, :cond_2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/ParentNode;->lastChild()Lmf/org/apache/xerces/dom/ChildNode;
 
+    move-result-object v3
+
+    if-eq v2, v3, :cond_3
+
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
+
+    invoke-virtual {v2, p0}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->getNodeListCache(Lmf/org/apache/xerces/dom/ParentNode;)Lmf/org/apache/xerces/dom/NodeListCache;
+
     move-result-object v2
 
-    if-eq v0, v2, :cond_3
-
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
-
-    invoke-virtual {v0, p0}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->getNodeListCache(Lmf/org/apache/xerces/dom/ParentNode;)Lmf/org/apache/xerces/dom/NodeListCache;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iput-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
     goto :goto_0
 
@@ -135,53 +135,55 @@
     goto :goto_2
 
     :cond_2
-    return v1
+    return v3
 
     :cond_3
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    return v0
+    return v2
 
     :cond_4
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    iget v0, v0, Lmf/org/apache/xerces/dom/NodeListCache;->fChildIndex:I
+    iget v2, v2, Lmf/org/apache/xerces/dom/NodeListCache;->fChildIndex:I
 
-    if-ne v0, v3, :cond_6
+    if-ne v2, v4, :cond_6
 
     :cond_5
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v1, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+
+    const/4 v0, 0x0
 
     :goto_3
-    if-eqz v0, :cond_7
+    if-eqz v1, :cond_7
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    iget-object v0, v0, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v1, v1, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
     goto :goto_3
 
     :cond_6
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/dom/NodeListCache;->fChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v2, v2, Lmf/org/apache/xerces/dom/NodeListCache;->fChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    if-eqz v0, :cond_5
+    if-eqz v2, :cond_5
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    iget v1, v0, Lmf/org/apache/xerces/dom/NodeListCache;->fChildIndex:I
+    iget v0, v2, Lmf/org/apache/xerces/dom/NodeListCache;->fChildIndex:I
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/dom/NodeListCache;->fChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v1, v2, Lmf/org/apache/xerces/dom/NodeListCache;->fChild:Lmf/org/apache/xerces/dom/ChildNode;
 
     goto :goto_3
 
     :cond_7
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    iput v1, v0, Lmf/org/apache/xerces/dom/NodeListCache;->fLength:I
+    iput v0, v2, Lmf/org/apache/xerces/dom/NodeListCache;->fLength:I
 
     goto :goto_1
 .end method
@@ -189,61 +191,49 @@
 .method private nodeListItem(I)Lmf/org/w3c/dom/Node;
     .locals 7
 
-    const/4 v5, -0x1
+    const/4 v6, -0x1
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    const/4 v0, 0x0
+    iget-object v4, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
-
-    if-eqz v2, :cond_2
+    if-eqz v4, :cond_2
 
     :goto_0
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v4, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    iget v4, v2, Lmf/org/apache/xerces/dom/NodeListCache;->fChildIndex:I
+    iget v1, v4, Lmf/org/apache/xerces/dom/NodeListCache;->fChildIndex:I
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v4, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    iget-object v3, v2, Lmf/org/apache/xerces/dom/NodeListCache;->fChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v2, v4, Lmf/org/apache/xerces/dom/NodeListCache;->fChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    if-ne v4, v5, :cond_6
+    if-ne v1, v6, :cond_6
 
     :cond_0
     if-ltz p1, :cond_9
 
-    iget-object v3, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    move-object v6, v3
-
-    move v3, v1
-
-    move-object v1, v6
+    const/4 v1, 0x0
 
     :goto_1
-    if-lt v3, p1, :cond_a
-
-    move v6, v2
-
-    move-object v2, v1
-
-    move v1, v6
+    if-lt v1, p1, :cond_a
 
     :cond_1
     :goto_2
-    if-eqz v1, :cond_b
+    if-eqz v0, :cond_b
 
     :goto_3
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    iput v3, v0, Lmf/org/apache/xerces/dom/NodeListCache;->fChildIndex:I
+    iput v1, v3, Lmf/org/apache/xerces/dom/NodeListCache;->fChildIndex:I
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    iput-object v2, v0, Lmf/org/apache/xerces/dom/NodeListCache;->fChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v2, v3, Lmf/org/apache/xerces/dom/NodeListCache;->fChild:Lmf/org/apache/xerces/dom/ChildNode;
 
     :goto_4
     return-object v2
@@ -251,26 +241,26 @@
     :cond_2
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/ParentNode;->needsSyncChildren()Z
 
-    move-result v2
+    move-result v4
 
-    if-nez v2, :cond_3
+    if-nez v4, :cond_3
 
     :goto_5
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v4, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/ParentNode;->lastChild()Lmf/org/apache/xerces/dom/ChildNode;
 
-    move-result-object v3
+    move-result-object v5
 
-    if-eq v2, v3, :cond_4
+    if-eq v4, v5, :cond_4
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
+    iget-object v4, p0, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
 
-    invoke-virtual {v2, p0}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->getNodeListCache(Lmf/org/apache/xerces/dom/ParentNode;)Lmf/org/apache/xerces/dom/NodeListCache;
+    invoke-virtual {v4, p0}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->getNodeListCache(Lmf/org/apache/xerces/dom/ParentNode;)Lmf/org/apache/xerces/dom/NodeListCache;
 
-    move-result-object v2
+    move-result-object v4
 
-    iput-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iput-object v4, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
     goto :goto_0
 
@@ -283,111 +273,89 @@
     if-eqz p1, :cond_5
 
     :goto_6
-    return-object v0
+    return-object v3
 
     :cond_5
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
     goto :goto_6
 
     :cond_6
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
-    if-lt v4, p1, :cond_7
+    const/4 v0, 0x0
 
-    if-gt v4, p1, :cond_8
+    if-lt v1, p1, :cond_8
 
-    move-object v2, v3
-
-    move v3, v4
-
-    goto :goto_2
-
-    :cond_7
-    move-object v2, v3
-
-    move v3, v4
+    if-le v1, p1, :cond_1
 
     :goto_7
-    if-ge v3, p1, :cond_1
+    if-le v1, p1, :cond_1
 
     if-eqz v2, :cond_1
 
-    add-int/lit8 v3, v3, 0x1
-
-    iget-object v2, v2, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
-
-    goto :goto_7
-
-    :cond_8
-    move-object v2, v3
-
-    move v3, v4
-
-    :goto_8
-    if-le v3, p1, :cond_1
-
-    if-eqz v2, :cond_1
-
-    add-int/lit8 v3, v3, -0x1
+    add-int/lit8 v1, v1, -0x1
 
     invoke-virtual {v2}, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling()Lmf/org/apache/xerces/dom/ChildNode;
 
     move-result-object v2
 
-    goto :goto_8
+    goto :goto_7
+
+    :cond_7
+    if-eqz v2, :cond_1
+
+    add-int/lit8 v1, v1, 0x1
+
+    iget-object v2, v2, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
+
+    :cond_8
+    if-lt v1, p1, :cond_7
+
+    goto :goto_2
 
     :cond_9
-    return-object v0
+    return-object v3
 
     :cond_a
-    if-eqz v1, :cond_e
+    if-eqz v2, :cond_1
 
-    iget-object v1, v1, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v2, v2, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
     :cond_b
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v4, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    if-ne v2, v1, :cond_d
+    if-ne v2, v4, :cond_d
 
     :cond_c
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v4, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    iput v5, v1, Lmf/org/apache/xerces/dom/NodeListCache;->fChildIndex:I
+    iput v6, v4, Lmf/org/apache/xerces/dom/NodeListCache;->fChildIndex:I
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v4, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    iput-object v0, v1, Lmf/org/apache/xerces/dom/NodeListCache;->fChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v3, v4, Lmf/org/apache/xerces/dom/NodeListCache;->fChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v4, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->freeNodeListCache(Lmf/org/apache/xerces/dom/NodeListCache;)V
+    invoke-virtual {v3, v4}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->freeNodeListCache(Lmf/org/apache/xerces/dom/NodeListCache;)V
 
     goto :goto_4
 
     :cond_d
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/ParentNode;->lastChild()Lmf/org/apache/xerces/dom/ChildNode;
 
-    move-result-object v1
+    move-result-object v4
 
-    if-eq v2, v1, :cond_c
+    if-eq v2, v4, :cond_c
 
     goto :goto_3
-
-    :cond_e
-    move v6, v2
-
-    move-object v2, v1
-
-    move v1, v6
-
-    goto :goto_2
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
@@ -436,23 +404,23 @@
 
 # virtual methods
 .method checkNormalizationAfterInsert(Lmf/org/apache/xerces/dom/ChildNode;)V
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x3
+    const/4 v4, 0x3
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     invoke-virtual {p1}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeType()S
 
-    move-result v0
+    move-result v2
 
-    if-eq v0, v3, :cond_1
+    if-eq v2, v4, :cond_1
 
     invoke-virtual {p1}, Lmf/org/apache/xerces/dom/ChildNode;->isNormalized()Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_4
+    if-eqz v2, :cond_4
 
     :cond_0
     :goto_0
@@ -461,45 +429,45 @@
     :cond_1
     invoke-virtual {p1}, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling()Lmf/org/apache/xerces/dom/ChildNode;
 
-    move-result-object v0
+    move-result-object v1
 
-    iget-object v1, p1, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v0, p1, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
-    if-nez v0, :cond_3
+    if-nez v1, :cond_3
 
     :cond_2
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeType()S
+    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeType()S
 
-    move-result v0
+    move-result v2
 
-    if-ne v0, v3, :cond_0
+    if-ne v2, v4, :cond_0
 
     :goto_1
-    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/dom/ParentNode;->isNormalized(Z)V
+    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/dom/ParentNode;->isNormalized(Z)V
 
     goto :goto_0
 
     :cond_3
-    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeType()S
+    invoke-virtual {v1}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeType()S
 
-    move-result v0
+    move-result v2
 
-    if-ne v0, v3, :cond_2
+    if-ne v2, v4, :cond_2
 
     goto :goto_1
 
     :cond_4
-    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/dom/ParentNode;->isNormalized(Z)V
+    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/dom/ParentNode;->isNormalized(Z)V
 
     goto :goto_0
 .end method
 
 .method checkNormalizationAfterRemove(Lmf/org/apache/xerces/dom/ChildNode;)V
-    .locals 2
+    .locals 3
 
-    const/4 v1, 0x3
+    const/4 v2, 0x3
 
     if-nez p1, :cond_1
 
@@ -510,9 +478,9 @@
     :cond_1
     invoke-virtual {p1}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeType()S
 
-    move-result v0
+    move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v2, :cond_0
 
     iget-object v0, p1, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
@@ -520,47 +488,47 @@
 
     invoke-virtual {v0}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeType()S
 
-    move-result v0
+    move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v2, :cond_0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/ParentNode;->isNormalized(Z)V
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/ParentNode;->isNormalized(Z)V
 
     goto :goto_0
 .end method
 
 .method public cloneNode(Z)Lmf/org/w3c/dom/Node;
-    .locals 3
+    .locals 4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/ParentNode;->needsSyncChildren()Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_1
+    if-nez v2, :cond_1
 
     :goto_0
     invoke-super {p0, p1}, Lmf/org/apache/xerces/dom/ChildNode;->cloneNode(Z)Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/org/apache/xerces/dom/ParentNode;
+    check-cast v1, Lmf/org/apache/xerces/dom/ParentNode;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
 
-    iput-object v1, v0, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
+    iput-object v2, v1, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
 
-    iput-object v2, v0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v3, v1, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iput-object v2, v0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iput-object v3, v1, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
     if-nez p1, :cond_2
 
     :cond_0
-    return-object v0
+    return-object v1
 
     :cond_1
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/ParentNode;->synchronizeChildren()V
@@ -568,20 +536,20 @@
     goto :goto_0
 
     :cond_2
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
     :goto_1
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     const/4 v2, 0x1
 
-    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/dom/ChildNode;->cloneNode(Z)Lmf/org/w3c/dom/Node;
+    invoke-virtual {v0, v2}, Lmf/org/apache/xerces/dom/ChildNode;->cloneNode(Z)Lmf/org/w3c/dom/Node;
 
     move-result-object v2
 
-    invoke-virtual {v0, v2}, Lmf/org/apache/xerces/dom/ParentNode;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/dom/ParentNode;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
-    iget-object v1, v1, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
     goto :goto_1
 .end method
@@ -687,7 +655,7 @@
 .end method
 
 .method public getTextContent()Ljava/lang/String;
-    .locals 2
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/w3c/dom/DOMException;
@@ -696,20 +664,20 @@
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/ParentNode;->getFirstChild()Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
-
-    if-nez v0, :cond_0
-
-    const-string/jumbo v0, ""
-
-    return-object v0
-
-    :cond_0
-    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
-
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-nez v1, :cond_0
+
+    const-string/jumbo v3, ""
+
+    return-object v3
+
+    :cond_0
+    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_1
 
     new-instance v0, Ljava/lang/StringBuffer;
 
@@ -719,28 +687,28 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    return-object v0
+    return-object v3
 
     :cond_1
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/ParentNode;->hasTextContent(Lmf/org/w3c/dom/Node;)Z
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/ParentNode;->hasTextContent(Lmf/org/w3c/dom/Node;)Z
 
-    move-result v1
+    move-result v3
 
-    if-nez v1, :cond_2
+    if-nez v3, :cond_2
 
-    const-string/jumbo v0, ""
+    const-string/jumbo v3, ""
 
     :goto_0
-    return-object v0
+    return-object v3
 
     :cond_2
-    check-cast v0, Lmf/org/apache/xerces/dom/NodeImpl;
+    check-cast v1, Lmf/org/apache/xerces/dom/NodeImpl;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/NodeImpl;->getTextContent()Ljava/lang/String;
+    invoke-virtual {v1}, Lmf/org/apache/xerces/dom/NodeImpl;->getTextContent()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
     goto :goto_0
 .end method
@@ -755,30 +723,30 @@
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/ParentNode;->getFirstChild()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v0
 
     :goto_0
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/ParentNode;->hasTextContent(Lmf/org/w3c/dom/Node;)Z
+    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/ParentNode;->hasTextContent(Lmf/org/w3c/dom/Node;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     :goto_1
-    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v0
 
     goto :goto_0
 
     :cond_0
-    move-object v0, v1
+    move-object v1, v0
 
-    check-cast v0, Lmf/org/apache/xerces/dom/NodeImpl;
+    check-cast v1, Lmf/org/apache/xerces/dom/NodeImpl;
 
-    invoke-virtual {v0, p1}, Lmf/org/apache/xerces/dom/NodeImpl;->getTextContent(Ljava/lang/StringBuffer;)V
+    invoke-virtual {v1, p1}, Lmf/org/apache/xerces/dom/NodeImpl;->getTextContent(Ljava/lang/StringBuffer;)V
 
     goto :goto_1
 
@@ -884,315 +852,335 @@
 .end method
 
 .method internalInsertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;Z)Lmf/org/w3c/dom/Node;
-    .locals 8
+    .locals 14
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/w3c/dom/DOMException;
         }
     .end annotation
 
-    const/4 v7, 0x3
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
 
-    const/4 v6, -0x1
-
-    const/4 v3, 0x1
-
-    const/4 v2, 0x0
-
-    const/4 v5, 0x0
-
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
-
-    iget-boolean v0, v0, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->errorChecking:Z
+    iget-boolean v2, v10, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->errorChecking:Z
 
     invoke-interface {p1}, Lmf/org/w3c/dom/Node;->getNodeType()S
 
-    move-result v1
+    move-result v10
 
-    const/16 v4, 0xb
+    const/16 v11, 0xb
 
-    if-eq v1, v4, :cond_2
+    if-eq v10, v11, :cond_2
 
-    if-eq p1, p2, :cond_7
+    move-object/from16 v0, p2
+
+    if-eq p1, v0, :cond_7
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/ParentNode;->needsSyncChildren()Z
 
-    move-result v1
+    move-result v10
 
-    if-nez v1, :cond_8
+    if-nez v10, :cond_8
 
     :goto_0
-    if-nez v0, :cond_9
+    if-nez v2, :cond_9
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
 
-    invoke-virtual {v0, p0, p3}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->insertingNode(Lmf/org/apache/xerces/dom/NodeImpl;Z)V
+    move/from16 v0, p3
 
-    move-object v0, p1
+    invoke-virtual {v10, p0, v0}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->insertingNode(Lmf/org/apache/xerces/dom/NodeImpl;Z)V
 
-    check-cast v0, Lmf/org/apache/xerces/dom/ChildNode;
+    move-object v5, p1
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/ChildNode;->parentNode()Lmf/org/apache/xerces/dom/NodeImpl;
+    check-cast v5, Lmf/org/apache/xerces/dom/ChildNode;
 
-    move-result-object v1
+    invoke-virtual {v5}, Lmf/org/apache/xerces/dom/ChildNode;->parentNode()Lmf/org/apache/xerces/dom/NodeImpl;
 
-    if-nez v1, :cond_13
+    move-result-object v6
+
+    if-nez v6, :cond_13
 
     :goto_1
-    move-object v1, p2
+    move-object/from16 v8, p2
 
-    check-cast v1, Lmf/org/apache/xerces/dom/ChildNode;
+    check-cast v8, Lmf/org/apache/xerces/dom/ChildNode;
 
-    iput-object p0, v0, Lmf/org/apache/xerces/dom/ChildNode;->ownerNode:Lmf/org/apache/xerces/dom/NodeImpl;
+    iput-object p0, v5, Lmf/org/apache/xerces/dom/ChildNode;->ownerNode:Lmf/org/apache/xerces/dom/NodeImpl;
 
-    invoke-virtual {v0, v3}, Lmf/org/apache/xerces/dom/ChildNode;->isOwned(Z)V
+    const/4 v10, 0x1
 
-    iget-object v4, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    invoke-virtual {v5, v10}, Lmf/org/apache/xerces/dom/ChildNode;->isOwned(Z)V
 
-    if-eqz v4, :cond_14
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    if-eqz v1, :cond_15
+    if-eqz v10, :cond_14
 
-    iget-object v4, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    if-eqz v8, :cond_15
 
-    if-eq p2, v4, :cond_16
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iget-object v2, v1, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    move-object/from16 v0, p2
 
-    iput-object v1, v0, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    if-eq v0, v10, :cond_16
 
-    iput-object v0, v2, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v7, v8, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iput-object v0, v1, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v8, v5, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iput-object v2, v0, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v5, v7, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
+
+    iput-object v5, v8, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
+
+    iput-object v7, v5, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
     :goto_2
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/ParentNode;->changed()V
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    if-nez v2, :cond_17
+    if-nez v10, :cond_17
 
     :cond_1
     :goto_3
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
 
-    invoke-virtual {v1, p0, v0, p3}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->insertedNode(Lmf/org/apache/xerces/dom/NodeImpl;Lmf/org/apache/xerces/dom/NodeImpl;Z)V
+    move/from16 v0, p3
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/ParentNode;->checkNormalizationAfterInsert(Lmf/org/apache/xerces/dom/ChildNode;)V
+    invoke-virtual {v10, p0, v5, v0}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->insertedNode(Lmf/org/apache/xerces/dom/NodeImpl;Lmf/org/apache/xerces/dom/NodeImpl;Z)V
+
+    invoke-virtual {p0, v5}, Lmf/org/apache/xerces/dom/ParentNode;->checkNormalizationAfterInsert(Lmf/org/apache/xerces/dom/ChildNode;)V
 
     return-object p1
 
     :cond_2
-    if-nez v0, :cond_4
+    if-nez v2, :cond_4
 
     :cond_3
     :goto_4
     invoke-interface {p1}, Lmf/org/w3c/dom/Node;->hasChildNodes()Z
 
-    move-result v0
+    move-result v10
 
-    if-eqz v0, :cond_6
+    if-eqz v10, :cond_6
 
     invoke-interface {p1}, Lmf/org/w3c/dom/Node;->getFirstChild()Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v10
 
-    invoke-virtual {p0, v0, p2}, Lmf/org/apache/xerces/dom/ParentNode;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    move-object/from16 v0, p2
+
+    invoke-virtual {p0, v10, v0}, Lmf/org/apache/xerces/dom/ParentNode;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
     goto :goto_4
 
     :cond_4
     invoke-interface {p1}, Lmf/org/w3c/dom/Node;->getFirstChild()Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v3
 
     :goto_5
-    if-eqz v0, :cond_3
+    if-eqz v3, :cond_3
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
 
-    invoke-virtual {v1, p0, v0}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->isKidOK(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Z
+    invoke-virtual {v10, p0, v3}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->isKidOK(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Z
 
-    move-result v1
+    move-result v10
 
-    if-eqz v1, :cond_5
+    if-eqz v10, :cond_5
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+    invoke-interface {v3}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v3
 
     goto :goto_5
 
     :cond_5
-    new-instance v0, Lmf/org/w3c/dom/DOMException;
+    new-instance v10, Lmf/org/w3c/dom/DOMException;
 
-    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v11, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v2, "HIERARCHY_REQUEST_ERR"
+    const-string/jumbo v12, "HIERARCHY_REQUEST_ERR"
 
-    invoke-static {v1, v2, v5}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    const/4 v13, 0x0
 
-    move-result-object v1
+    invoke-static {v11, v12, v13}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-direct {v0, v7, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    move-result-object v11
 
-    throw v0
+    const/4 v12, 0x3
+
+    invoke-direct {v10, v12, v11}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+
+    throw v10
 
     :cond_6
     return-object p1
 
     :cond_7
-    invoke-interface {p2}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+    invoke-interface/range {p2 .. p2}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object p2
 
     invoke-virtual {p0, p1}, Lmf/org/apache/xerces/dom/ParentNode;->removeChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
-    invoke-virtual {p0, p1, v0}, Lmf/org/apache/xerces/dom/ParentNode;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-virtual/range {p0 .. p2}, Lmf/org/apache/xerces/dom/ParentNode;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
     return-object p1
 
     :cond_8
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/ParentNode;->synchronizeChildren()V
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_9
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/ParentNode;->isReadOnly()Z
 
-    move-result v0
+    move-result v10
 
-    if-nez v0, :cond_d
+    if-nez v10, :cond_d
 
     invoke-interface {p1}, Lmf/org/w3c/dom/Node;->getOwnerDocument()Lmf/org/w3c/dom/Document;
 
-    move-result-object v0
+    move-result-object v10
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
+    iget-object v11, p0, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
 
-    if-ne v0, v1, :cond_e
+    if-ne v10, v11, :cond_e
 
     :cond_a
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
 
-    invoke-virtual {v0, p0, p1}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->isKidOK(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Z
+    invoke-virtual {v10, p0, p1}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->isKidOK(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Z
 
-    move-result v0
+    move-result v10
 
-    if-eqz v0, :cond_f
+    if-eqz v10, :cond_f
 
     if-nez p2, :cond_10
 
     :cond_b
+    const/4 v9, 0x1
+
     move-object v1, p0
 
-    move v0, v3
-
     :goto_6
-    if-nez v0, :cond_11
+    if-nez v9, :cond_11
 
     :cond_c
-    if-nez v0, :cond_0
+    if-nez v9, :cond_0
 
-    new-instance v0, Lmf/org/w3c/dom/DOMException;
+    new-instance v10, Lmf/org/w3c/dom/DOMException;
 
-    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v11, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v2, "HIERARCHY_REQUEST_ERR"
+    const-string/jumbo v12, "HIERARCHY_REQUEST_ERR"
 
-    invoke-static {v1, v2, v5}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    const/4 v13, 0x0
 
-    move-result-object v1
+    invoke-static {v11, v12, v13}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-direct {v0, v7, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    move-result-object v11
 
-    throw v0
+    const/4 v12, 0x3
+
+    invoke-direct {v10, v12, v11}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+
+    throw v10
 
     :cond_d
-    new-instance v0, Lmf/org/w3c/dom/DOMException;
+    new-instance v10, Lmf/org/w3c/dom/DOMException;
 
-    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v11, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v2, "NO_MODIFICATION_ALLOWED_ERR"
+    const-string/jumbo v12, "NO_MODIFICATION_ALLOWED_ERR"
 
-    invoke-static {v1, v2, v5}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    const/4 v13, 0x0
 
-    move-result-object v1
+    invoke-static {v11, v12, v13}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    const/4 v2, 0x7
+    move-result-object v11
 
-    invoke-direct {v0, v2, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    const/4 v12, 0x7
 
-    throw v0
+    invoke-direct {v10, v12, v11}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+
+    throw v10
 
     :cond_e
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
 
-    if-eq p1, v0, :cond_a
+    if-eq p1, v10, :cond_a
 
-    new-instance v0, Lmf/org/w3c/dom/DOMException;
+    new-instance v10, Lmf/org/w3c/dom/DOMException;
 
-    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v11, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v2, "WRONG_DOCUMENT_ERR"
+    const-string/jumbo v12, "WRONG_DOCUMENT_ERR"
 
-    invoke-static {v1, v2, v5}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    const/4 v13, 0x0
 
-    move-result-object v1
+    invoke-static {v11, v12, v13}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    const/4 v2, 0x4
+    move-result-object v11
 
-    invoke-direct {v0, v2, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    const/4 v12, 0x4
 
-    throw v0
+    invoke-direct {v10, v12, v11}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+
+    throw v10
 
     :cond_f
-    new-instance v0, Lmf/org/w3c/dom/DOMException;
+    new-instance v10, Lmf/org/w3c/dom/DOMException;
 
-    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v11, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v2, "HIERARCHY_REQUEST_ERR"
+    const-string/jumbo v12, "HIERARCHY_REQUEST_ERR"
 
-    invoke-static {v1, v2, v5}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    const/4 v13, 0x0
 
-    move-result-object v1
+    invoke-static {v11, v12, v13}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-direct {v0, v7, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    move-result-object v11
 
-    throw v0
+    const/4 v12, 0x3
+
+    invoke-direct {v10, v12, v11}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+
+    throw v10
 
     :cond_10
-    invoke-interface {p2}, Lmf/org/w3c/dom/Node;->getParentNode()Lmf/org/w3c/dom/Node;
+    invoke-interface/range {p2 .. p2}, Lmf/org/w3c/dom/Node;->getParentNode()Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v10
 
-    if-eq v0, p0, :cond_b
+    if-eq v10, p0, :cond_b
 
-    new-instance v0, Lmf/org/w3c/dom/DOMException;
+    new-instance v10, Lmf/org/w3c/dom/DOMException;
 
-    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v11, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v2, "NOT_FOUND_ERR"
+    const-string/jumbo v12, "NOT_FOUND_ERR"
 
-    invoke-static {v1, v2, v5}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    const/4 v13, 0x0
 
-    move-result-object v1
+    invoke-static {v11, v12, v13}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    const/16 v2, 0x8
+    move-result-object v11
 
-    invoke-direct {v0, v2, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    const/16 v12, 0x8
 
-    throw v0
+    invoke-direct {v10, v12, v11}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+
+    throw v10
 
     :cond_11
     if-eqz v1, :cond_c
 
     if-ne p1, v1, :cond_12
 
-    move v0, v2
+    const/4 v9, 0x0
 
     :goto_7
     invoke-virtual {v1}, Lmf/org/apache/xerces/dom/NodeImpl;->parentNode()Lmf/org/apache/xerces/dom/NodeImpl;
@@ -1202,311 +1190,325 @@
     goto :goto_6
 
     :cond_12
-    move v0, v3
+    const/4 v9, 0x1
 
     goto :goto_7
 
     :cond_13
-    invoke-interface {v1, v0}, Lmf/org/w3c/dom/Node;->removeChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-interface {v6, v5}, Lmf/org/w3c/dom/Node;->removeChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
     goto/16 :goto_1
 
     :cond_14
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v5, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    invoke-virtual {v0, v3}, Lmf/org/apache/xerces/dom/ChildNode;->isFirstChild(Z)V
+    const/4 v10, 0x1
 
-    iput-object v0, v0, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    invoke-virtual {v5, v10}, Lmf/org/apache/xerces/dom/ChildNode;->isFirstChild(Z)V
+
+    iput-object v5, v5, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
     goto/16 :goto_2
 
     :cond_15
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iget-object v2, v2, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v4, v10, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iput-object v0, v2, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v5, v4, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iput-object v2, v0, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v4, v5, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iput-object v0, v2, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v5, v10, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
     goto/16 :goto_2
 
     :cond_16
-    iget-object v4, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    invoke-virtual {v4, v2}, Lmf/org/apache/xerces/dom/ChildNode;->isFirstChild(Z)V
+    const/4 v11, 0x0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    invoke-virtual {v10, v11}, Lmf/org/apache/xerces/dom/ChildNode;->isFirstChild(Z)V
 
-    iput-object v2, v0, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v10, v5, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iget-object v2, v2, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iput-object v2, v0, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v10, v10, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v10, v5, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iput-object v0, v2, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v5, v10, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
-    invoke-virtual {v0, v3}, Lmf/org/apache/xerces/dom/ChildNode;->isFirstChild(Z)V
+    iput-object v5, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+
+    const/4 v10, 0x1
+
+    invoke-virtual {v5, v10}, Lmf/org/apache/xerces/dom/ChildNode;->isFirstChild(Z)V
 
     goto/16 :goto_2
 
     :cond_17
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    iget v2, v2, Lmf/org/apache/xerces/dom/NodeListCache;->fLength:I
+    iget v10, v10, Lmf/org/apache/xerces/dom/NodeListCache;->fLength:I
 
-    if-ne v2, v6, :cond_18
+    const/4 v11, -0x1
+
+    if-ne v10, v11, :cond_18
 
     :goto_8
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    iget v2, v2, Lmf/org/apache/xerces/dom/NodeListCache;->fChildIndex:I
+    iget v10, v10, Lmf/org/apache/xerces/dom/NodeListCache;->fChildIndex:I
 
-    if-eq v2, v6, :cond_1
+    const/4 v11, -0x1
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    if-eq v10, v11, :cond_1
 
-    iget-object v2, v2, Lmf/org/apache/xerces/dom/NodeListCache;->fChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    if-eq v2, v1, :cond_19
+    iget-object v10, v10, Lmf/org/apache/xerces/dom/NodeListCache;->fChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    if-eq v10, v8, :cond_19
 
-    iput v6, v1, Lmf/org/apache/xerces/dom/NodeListCache;->fChildIndex:I
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+
+    const/4 v11, -0x1
+
+    iput v11, v10, Lmf/org/apache/xerces/dom/NodeListCache;->fChildIndex:I
 
     goto/16 :goto_3
 
     :cond_18
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    iget v3, v2, Lmf/org/apache/xerces/dom/NodeListCache;->fLength:I
+    iget v11, v10, Lmf/org/apache/xerces/dom/NodeListCache;->fLength:I
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v11, v11, 0x1
 
-    iput v3, v2, Lmf/org/apache/xerces/dom/NodeListCache;->fLength:I
+    iput v11, v10, Lmf/org/apache/xerces/dom/NodeListCache;->fLength:I
 
     goto :goto_8
 
     :cond_19
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    iput-object v0, v1, Lmf/org/apache/xerces/dom/NodeListCache;->fChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v5, v10, Lmf/org/apache/xerces/dom/NodeListCache;->fChild:Lmf/org/apache/xerces/dom/ChildNode;
 
     goto/16 :goto_3
 .end method
 
 .method internalRemoveChild(Lmf/org/w3c/dom/Node;Z)Lmf/org/w3c/dom/Node;
-    .locals 6
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/w3c/dom/DOMException;
         }
     .end annotation
 
-    const/4 v5, -0x1
+    const/4 v9, -0x1
 
-    const/4 v4, 0x0
+    const/4 v7, 0x0
 
-    const/4 v3, 0x0
+    const/4 v8, 0x0
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument()Lmf/org/apache/xerces/dom/CoreDocumentImpl;
 
-    move-result-object v0
+    move-result-object v3
 
-    iget-boolean v1, v0, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->errorChecking:Z
+    iget-boolean v5, v3, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->errorChecking:Z
 
-    if-nez v1, :cond_3
+    if-nez v5, :cond_3
 
     :cond_0
-    check-cast p1, Lmf/org/apache/xerces/dom/ChildNode;
+    move-object v1, p1
 
-    invoke-virtual {v0, p0, p1, p2}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->removingNode(Lmf/org/apache/xerces/dom/NodeImpl;Lmf/org/apache/xerces/dom/NodeImpl;Z)V
+    check-cast v1, Lmf/org/apache/xerces/dom/ChildNode;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    invoke-virtual {v3, p0, v1, p2}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->removingNode(Lmf/org/apache/xerces/dom/NodeImpl;Lmf/org/apache/xerces/dom/NodeImpl;Z)V
 
-    if-nez v1, :cond_5
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+
+    if-nez v5, :cond_5
 
     :cond_1
     :goto_0
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    if-eq p1, v1, :cond_8
+    if-eq v1, v5, :cond_8
 
-    iget-object v1, p1, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v4, v1, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iget-object v2, p1, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v0, v1, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iput-object v2, v1, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v0, v4, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
-    if-eqz v2, :cond_9
+    if-eqz v0, :cond_9
 
-    iput-object v1, v2, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v4, v0, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
     :cond_2
     :goto_1
-    invoke-virtual {p1}, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling()Lmf/org/apache/xerces/dom/ChildNode;
+    invoke-virtual {v1}, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling()Lmf/org/apache/xerces/dom/ChildNode;
 
-    move-result-object v1
+    move-result-object v2
 
-    iput-object v0, p1, Lmf/org/apache/xerces/dom/ChildNode;->ownerNode:Lmf/org/apache/xerces/dom/NodeImpl;
+    iput-object v3, v1, Lmf/org/apache/xerces/dom/ChildNode;->ownerNode:Lmf/org/apache/xerces/dom/NodeImpl;
 
-    invoke-virtual {p1, v4}, Lmf/org/apache/xerces/dom/ChildNode;->isOwned(Z)V
+    invoke-virtual {v1, v7}, Lmf/org/apache/xerces/dom/ChildNode;->isOwned(Z)V
 
-    iput-object v3, p1, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v8, v1, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iput-object v3, p1, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v8, v1, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/ParentNode;->changed()V
 
-    invoke-virtual {v0, p0, p2}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->removedNode(Lmf/org/apache/xerces/dom/NodeImpl;Z)V
+    invoke-virtual {v3, p0, p2}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->removedNode(Lmf/org/apache/xerces/dom/NodeImpl;Z)V
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/ParentNode;->checkNormalizationAfterRemove(Lmf/org/apache/xerces/dom/ChildNode;)V
+    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/dom/ParentNode;->checkNormalizationAfterRemove(Lmf/org/apache/xerces/dom/ChildNode;)V
 
-    return-object p1
+    return-object v1
 
     :cond_3
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/ParentNode;->isReadOnly()Z
 
-    move-result v1
+    move-result v5
 
-    if-nez v1, :cond_4
+    if-nez v5, :cond_4
 
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Lmf/org/w3c/dom/Node;->getParentNode()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v5
 
-    if-eq v1, p0, :cond_0
+    if-eq v5, p0, :cond_0
 
-    new-instance v0, Lmf/org/w3c/dom/DOMException;
+    new-instance v5, Lmf/org/w3c/dom/DOMException;
 
-    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v6, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v2, "NOT_FOUND_ERR"
+    const-string/jumbo v7, "NOT_FOUND_ERR"
 
-    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v6, v7, v8}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v6
 
-    const/16 v2, 0x8
+    const/16 v7, 0x8
 
-    invoke-direct {v0, v2, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    invoke-direct {v5, v7, v6}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
 
-    throw v0
+    throw v5
 
     :cond_4
-    new-instance v0, Lmf/org/w3c/dom/DOMException;
+    new-instance v5, Lmf/org/w3c/dom/DOMException;
 
-    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v6, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v2, "NO_MODIFICATION_ALLOWED_ERR"
+    const-string/jumbo v7, "NO_MODIFICATION_ALLOWED_ERR"
 
-    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v6, v7, v8}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v6
 
-    const/4 v2, 0x7
+    const/4 v7, 0x7
 
-    invoke-direct {v0, v2, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    invoke-direct {v5, v7, v6}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
 
-    throw v0
+    throw v5
 
     :cond_5
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    iget v1, v1, Lmf/org/apache/xerces/dom/NodeListCache;->fLength:I
+    iget v5, v5, Lmf/org/apache/xerces/dom/NodeListCache;->fLength:I
 
-    if-ne v1, v5, :cond_6
+    if-ne v5, v9, :cond_6
 
     :goto_2
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    iget v1, v1, Lmf/org/apache/xerces/dom/NodeListCache;->fChildIndex:I
+    iget v5, v5, Lmf/org/apache/xerces/dom/NodeListCache;->fChildIndex:I
 
-    if-eq v1, v5, :cond_1
+    if-eq v5, v9, :cond_1
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    iget-object v1, v1, Lmf/org/apache/xerces/dom/NodeListCache;->fChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v5, v5, Lmf/org/apache/xerces/dom/NodeListCache;->fChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    if-eq v1, p1, :cond_7
+    if-eq v5, v1, :cond_7
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    iput v5, v1, Lmf/org/apache/xerces/dom/NodeListCache;->fChildIndex:I
+    iput v9, v5, Lmf/org/apache/xerces/dom/NodeListCache;->fChildIndex:I
 
     goto :goto_0
 
     :cond_6
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    iget v2, v1, Lmf/org/apache/xerces/dom/NodeListCache;->fLength:I
+    iget v6, v5, Lmf/org/apache/xerces/dom/NodeListCache;->fLength:I
 
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 v6, v6, -0x1
 
-    iput v2, v1, Lmf/org/apache/xerces/dom/NodeListCache;->fLength:I
+    iput v6, v5, Lmf/org/apache/xerces/dom/NodeListCache;->fLength:I
 
     goto :goto_2
 
     :cond_7
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    iget v2, v1, Lmf/org/apache/xerces/dom/NodeListCache;->fChildIndex:I
+    iget v6, v5, Lmf/org/apache/xerces/dom/NodeListCache;->fChildIndex:I
 
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 v6, v6, -0x1
 
-    iput v2, v1, Lmf/org/apache/xerces/dom/NodeListCache;->fChildIndex:I
+    iput v6, v5, Lmf/org/apache/xerces/dom/NodeListCache;->fChildIndex:I
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/ParentNode;->fNodeListCache:Lmf/org/apache/xerces/dom/NodeListCache;
 
-    invoke-virtual {p1}, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling()Lmf/org/apache/xerces/dom/ChildNode;
+    invoke-virtual {v1}, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling()Lmf/org/apache/xerces/dom/ChildNode;
 
-    move-result-object v2
+    move-result-object v6
 
-    iput-object v2, v1, Lmf/org/apache/xerces/dom/NodeListCache;->fChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v6, v5, Lmf/org/apache/xerces/dom/NodeListCache;->fChild:Lmf/org/apache/xerces/dom/ChildNode;
 
     goto/16 :goto_0
 
     :cond_8
-    invoke-virtual {p1, v4}, Lmf/org/apache/xerces/dom/ChildNode;->isFirstChild(Z)V
+    invoke-virtual {v1, v7}, Lmf/org/apache/xerces/dom/ChildNode;->isFirstChild(Z)V
 
-    iget-object v1, p1, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v5, v1, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iput-object v1, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v5, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    if-eqz v1, :cond_2
+    if-eqz v5, :cond_2
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    const/4 v2, 0x1
+    const/4 v6, 0x1
 
-    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/dom/ChildNode;->isFirstChild(Z)V
+    invoke-virtual {v5, v6}, Lmf/org/apache/xerces/dom/ChildNode;->isFirstChild(Z)V
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iget-object v2, p1, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v6, v1, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iput-object v2, v1, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v6, v5, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
     goto/16 :goto_1
 
     :cond_9
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    iput-object v1, v2, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v4, v5, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
     goto/16 :goto_1
 .end method
@@ -1518,47 +1520,47 @@
 
     invoke-super {p0, p1}, Lmf/org/apache/xerces/dom/ChildNode;->isEqualNode(Lmf/org/w3c/dom/Node;)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_1
+    if-eqz v2, :cond_1
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/ParentNode;->getFirstChild()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v0
 
     invoke-interface {p1}, Lmf/org/w3c/dom/Node;->getFirstChild()Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v1
 
     :goto_0
-    if-nez v1, :cond_2
+    if-nez v0, :cond_2
 
     :cond_0
-    if-ne v1, v0, :cond_4
+    if-ne v0, v1, :cond_4
 
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    return v0
+    return v2
 
     :cond_1
     return v3
 
     :cond_2
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    invoke-interface {v1, v0}, Lmf/org/w3c/dom/Node;->isEqualNode(Lmf/org/w3c/dom/Node;)Z
+    invoke-interface {v0, v1}, Lmf/org/w3c/dom/Node;->isEqualNode(Lmf/org/w3c/dom/Node;)Z
 
     move-result v2
 
     if-eqz v2, :cond_3
 
-    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
-
-    move-result-object v1
-
     invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
     move-result-object v0
+
+    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+
+    move-result-object v1
 
     goto :goto_0
 
@@ -1618,19 +1620,19 @@
 .end method
 
 .method public normalize()V
-    .locals 1
+    .locals 2
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/ParentNode;->isNormalized()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/ParentNode;->needsSyncChildren()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     :goto_0
     iget-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
@@ -1653,9 +1655,9 @@
     goto :goto_0
 
     :cond_2
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/ParentNode;->isNormalized(Z)V
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/ParentNode;->isNormalized(Z)V
 
     return-void
 .end method
@@ -1717,13 +1719,13 @@
 .end method
 
 .method protected setOwnerDocument(Lmf/org/apache/xerces/dom/CoreDocumentImpl;)V
-    .locals 1
+    .locals 2
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/ParentNode;->needsSyncChildren()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     :goto_0
     invoke-super {p0, p1}, Lmf/org/apache/xerces/dom/ChildNode;->setOwnerDocument(Lmf/org/apache/xerces/dom/CoreDocumentImpl;)V
@@ -1763,9 +1765,9 @@
     :cond_1
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/ParentNode;->needsSyncChildren()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_2
+    if-nez v1, :cond_2
 
     :goto_0
     iget-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
@@ -1800,7 +1802,7 @@
 .end method
 
 .method public setTextContent(Ljava/lang/String;)V
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/w3c/dom/DOMException;
@@ -1828,19 +1830,19 @@
     :cond_2
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/ParentNode;->ownerDocument()Lmf/org/apache/xerces/dom/CoreDocumentImpl;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, p1}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->createTextNode(Ljava/lang/String;)Lmf/org/w3c/dom/Text;
+    invoke-virtual {v1, p1}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->createTextNode(Ljava/lang/String;)Lmf/org/w3c/dom/Text;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/ParentNode;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/ParentNode;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
     goto :goto_1
 .end method

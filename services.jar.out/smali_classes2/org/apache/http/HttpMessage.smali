@@ -3,11 +3,6 @@
 .source "HttpMessage.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract addHeader(Ljava/lang/String;Ljava/lang/String;)V
 .end method
@@ -31,6 +26,8 @@
 .end method
 
 .method public abstract getParams()Lorg/apache/http/params/HttpParams;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract getProtocolVersion()Lorg/apache/http/ProtocolVersion;
@@ -58,4 +55,6 @@
 .end method
 
 .method public abstract setParams(Lorg/apache/http/params/HttpParams;)V
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method

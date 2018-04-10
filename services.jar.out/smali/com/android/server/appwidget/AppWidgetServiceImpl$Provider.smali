@@ -25,6 +25,8 @@
 
 .field maskedByQuietProfile:Z
 
+.field maskedBySuperLocked:Z
+
 .field maskedBySuspendedPackage:Z
 
 .field tag:I
@@ -186,6 +188,10 @@
 
     iget-boolean v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->maskedBySuspendedPackage:Z
 
+    if-nez v0, :cond_0
+
+    iget-boolean v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->maskedBySuperLocked:Z
+
     :goto_0
     return v0
 
@@ -221,6 +227,26 @@
     iget-boolean v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->maskedByQuietProfile:Z
 
     iput-boolean p1, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->maskedByQuietProfile:Z
+
+    if-eq p1, v0, :cond_0
+
+    const/4 v1, 0x1
+
+    :goto_0
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
+.method public setMaskedBySuperProfileLocked(Z)Z
+    .locals 2
+
+    iget-boolean v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->maskedBySuperLocked:Z
+
+    iput-boolean p1, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->maskedBySuperLocked:Z
 
     if-eq p1, v0, :cond_0
 

@@ -60,7 +60,7 @@
 
     iget-object v0, v0, Lcom/android/server/power/PowerManagerService$BinderService;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->-get40(Lcom/android/server/power/PowerManagerService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->-get38(Lcom/android/server/power/PowerManagerService;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -93,23 +93,25 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v0, v2}, Lcom/android/server/power/PowerManagerService$BinderService;->-set1(Lcom/android/server/power/PowerManagerService$BinderService;Lcom/android/server/power/PowerManagerService$BinderService$ClearViewLock;)Lcom/android/server/power/PowerManagerService$BinderService$ClearViewLock;
+    invoke-static {v0, v2}, Lcom/android/server/power/PowerManagerService$BinderService;->-set0(Lcom/android/server/power/PowerManagerService$BinderService;Lcom/android/server/power/PowerManagerService$BinderService$ClearViewLock;)Lcom/android/server/power/PowerManagerService$BinderService$ClearViewLock;
 
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$BinderService$ClearViewLock;->this$1:Lcom/android/server/power/PowerManagerService$BinderService;
 
     iget-object v0, v0, Lcom/android/server/power/PowerManagerService$BinderService;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    iget v2, v0, Lcom/android/server/power/PowerManagerService;->mDirty:I
+    invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->-get17(Lcom/android/server/power/PowerManagerService;)I
+
+    move-result v2
 
     or-int/lit8 v2, v2, 0x20
 
-    iput v2, v0, Lcom/android/server/power/PowerManagerService;->mDirty:I
+    invoke-static {v0, v2}, Lcom/android/server/power/PowerManagerService;->-set10(Lcom/android/server/power/PowerManagerService;I)I
 
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$BinderService$ClearViewLock;->this$1:Lcom/android/server/power/PowerManagerService$BinderService;
 
     iget-object v0, v0, Lcom/android/server/power/PowerManagerService$BinderService;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/power/PowerManagerService;->updatePowerStateLocked()V
+    invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->-wrap66(Lcom/android/server/power/PowerManagerService;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

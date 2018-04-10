@@ -106,38 +106,38 @@
 .end method
 
 .method public getFeature(Ljava/lang/String;)Z
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    const-string/jumbo v0, "http://apache.org/xml/features/"
+    const-string/jumbo v1, "http://apache.org/xml/features/"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     :cond_0
-    return v2
+    return v3
 
     :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v0
-
-    const-string/jumbo v1, "http://apache.org/xml/features/"
-
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
-
     move-result v1
 
-    sub-int/2addr v0, v1
+    const-string/jumbo v2, "http://apache.org/xml/features/"
+
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    sub-int v0, v1, v2
 
     const-string/jumbo v1, "continue-after-fatal-error"
 
@@ -147,17 +147,17 @@
 
     if-ne v0, v1, :cond_0
 
-    const-string/jumbo v0, "continue-after-fatal-error"
+    const-string/jumbo v1, "continue-after-fatal-error"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-boolean v0, p0, Lmf/org/apache/xerces/impl/XMLErrorReporter;->fContinueAfterFatalError:Z
+    iget-boolean v1, p0, Lmf/org/apache/xerces/impl/XMLErrorReporter;->fContinueAfterFatalError:Z
 
-    return v0
+    return v1
 .end method
 
 .method public getFeatureDefault(Ljava/lang/String;)Ljava/lang/Boolean;
@@ -189,14 +189,14 @@
     :cond_0
     sget-object v1, Lmf/org/apache/xerces/impl/XMLErrorReporter;->FEATURE_DEFAULTS:[Ljava/lang/Boolean;
 
-    aget-object v0, v1, v0
+    aget-object v1, v1, v0
 
-    return-object v0
+    return-object v1
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public getLocale()Ljava/util/Locale;
@@ -250,14 +250,14 @@
     :cond_0
     sget-object v1, Lmf/org/apache/xerces/impl/XMLErrorReporter;->PROPERTY_DEFAULTS:[Ljava/lang/Object;
 
-    aget-object v0, v1, v0
+    aget-object v1, v1, v0
 
-    return-object v0
+    return-object v1
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public getRecognizedFeatures()[Ljava/lang/String;
@@ -420,53 +420,49 @@
 .end method
 
 .method public reportError(Lmf/org/apache/xerces/xni/XMLLocator;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;SLjava/lang/Exception;)Ljava/lang/String;
-    .locals 4
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     invoke-virtual {p0, p2}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->getMessageFormatter(Ljava/lang/String;)Lmf/org/apache/xerces/util/MessageFormatter;
 
-    move-result-object v0
+    move-result-object v4
 
-    if-nez v0, :cond_2
+    if-nez v4, :cond_2
 
-    new-instance v2, Ljava/lang/StringBuffer;
+    new-instance v6, Ljava/lang/StringBuffer;
 
-    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuffer;-><init>()V
 
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, p2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    const/16 v0, 0x23
+    const/16 v7, 0x23
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v2, p3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, p3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     if-nez p4, :cond_3
-
-    move v0, v1
 
     :goto_0
     if-gtz v0, :cond_4
 
     :cond_0
-    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
-
-    move-object v2, v0
+    move-result-object v3
 
     :goto_1
     if-nez p6, :cond_6
 
-    new-instance v0, Lmf/org/apache/xerces/xni/parser/XMLParseException;
+    new-instance v5, Lmf/org/apache/xerces/xni/parser/XMLParseException;
 
-    invoke-direct {v0, p1, v2}, Lmf/org/apache/xerces/xni/parser/XMLParseException;-><init>(Lmf/org/apache/xerces/xni/XMLLocator;Ljava/lang/String;)V
+    invoke-direct {v5, p1, v3}, Lmf/org/apache/xerces/xni/parser/XMLParseException;-><init>(Lmf/org/apache/xerces/xni/XMLLocator;Ljava/lang/String;)V
 
     :goto_2
     iget-object v1, p0, Lmf/org/apache/xerces/impl/XMLErrorReporter;->fErrorHandler:Lmf/org/apache/xerces/xni/parser/XMLErrorHandler;
@@ -478,16 +474,14 @@
 
     :cond_1
     :goto_4
-    return-object v2
+    return-object v3
 
     :cond_2
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/XMLErrorReporter;->fLocale:Ljava/util/Locale;
+    iget-object v7, p0, Lmf/org/apache/xerces/impl/XMLErrorReporter;->fLocale:Ljava/util/Locale;
 
-    invoke-interface {v0, v1, p3, p4}, Lmf/org/apache/xerces/util/MessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-interface {v4, v7, p3, p4}, Lmf/org/apache/xerces/util/MessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
-
-    move-object v2, v0
+    move-result-object v3
 
     goto :goto_1
 
@@ -497,44 +491,46 @@
     goto :goto_0
 
     :cond_4
-    const/16 v3, 0x3f
+    const/16 v7, 0x3f
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+
+    const/4 v2, 0x0
 
     :goto_5
-    if-ge v1, v0, :cond_0
+    if-ge v2, v0, :cond_0
 
-    aget-object v3, p4, v1
+    aget-object v7, p4, v2
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
-    add-int/lit8 v3, v0, -0x1
+    add-int/lit8 v7, v0, -0x1
 
-    if-lt v1, v3, :cond_5
+    if-lt v2, v7, :cond_5
 
     :goto_6
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_5
 
     :cond_5
-    const/16 v3, 0x26
+    const/16 v7, 0x26
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto :goto_6
 
     :cond_6
-    new-instance v0, Lmf/org/apache/xerces/xni/parser/XMLParseException;
+    new-instance v5, Lmf/org/apache/xerces/xni/parser/XMLParseException;
 
-    invoke-direct {v0, p1, v2, p6}, Lmf/org/apache/xerces/xni/parser/XMLParseException;-><init>(Lmf/org/apache/xerces/xni/XMLLocator;Ljava/lang/String;Ljava/lang/Exception;)V
+    invoke-direct {v5, p1, v3, p6}, Lmf/org/apache/xerces/xni/parser/XMLParseException;-><init>(Lmf/org/apache/xerces/xni/XMLLocator;Ljava/lang/String;Ljava/lang/Exception;)V
 
     goto :goto_2
 
     :cond_7
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/XMLErrorReporter;->fDefaultErrorHandler:Lmf/org/apache/xerces/xni/parser/XMLErrorHandler;
+    iget-object v7, p0, Lmf/org/apache/xerces/impl/XMLErrorReporter;->fDefaultErrorHandler:Lmf/org/apache/xerces/xni/parser/XMLErrorHandler;
 
-    if-eqz v1, :cond_8
+    if-eqz v7, :cond_8
 
     :goto_7
     iget-object v1, p0, Lmf/org/apache/xerces/impl/XMLErrorReporter;->fDefaultErrorHandler:Lmf/org/apache/xerces/xni/parser/XMLErrorHandler;
@@ -542,32 +538,32 @@
     goto :goto_3
 
     :cond_8
-    new-instance v1, Lmf/org/apache/xerces/util/DefaultErrorHandler;
+    new-instance v7, Lmf/org/apache/xerces/util/DefaultErrorHandler;
 
-    invoke-direct {v1}, Lmf/org/apache/xerces/util/DefaultErrorHandler;-><init>()V
+    invoke-direct {v7}, Lmf/org/apache/xerces/util/DefaultErrorHandler;-><init>()V
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/XMLErrorReporter;->fDefaultErrorHandler:Lmf/org/apache/xerces/xni/parser/XMLErrorHandler;
+    iput-object v7, p0, Lmf/org/apache/xerces/impl/XMLErrorReporter;->fDefaultErrorHandler:Lmf/org/apache/xerces/xni/parser/XMLErrorHandler;
 
     goto :goto_7
 
     :pswitch_0
-    invoke-interface {v1, p2, p3, v0}, Lmf/org/apache/xerces/xni/parser/XMLErrorHandler;->warning(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xni/parser/XMLParseException;)V
+    invoke-interface {v1, p2, p3, v5}, Lmf/org/apache/xerces/xni/parser/XMLErrorHandler;->warning(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xni/parser/XMLParseException;)V
 
     goto :goto_4
 
     :pswitch_1
-    invoke-interface {v1, p2, p3, v0}, Lmf/org/apache/xerces/xni/parser/XMLErrorHandler;->error(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xni/parser/XMLParseException;)V
+    invoke-interface {v1, p2, p3, v5}, Lmf/org/apache/xerces/xni/parser/XMLErrorHandler;->error(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xni/parser/XMLParseException;)V
 
     goto :goto_4
 
     :pswitch_2
-    invoke-interface {v1, p2, p3, v0}, Lmf/org/apache/xerces/xni/parser/XMLErrorHandler;->fatalError(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xni/parser/XMLParseException;)V
+    invoke-interface {v1, p2, p3, v5}, Lmf/org/apache/xerces/xni/parser/XMLErrorHandler;->fatalError(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xni/parser/XMLParseException;)V
 
-    iget-boolean v1, p0, Lmf/org/apache/xerces/impl/XMLErrorReporter;->fContinueAfterFatalError:Z
+    iget-boolean v7, p0, Lmf/org/apache/xerces/impl/XMLErrorReporter;->fContinueAfterFatalError:Z
 
-    if-nez v1, :cond_1
+    if-nez v7, :cond_1
 
-    throw v0
+    throw v5
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -578,7 +574,7 @@
 .end method
 
 .method public reset(Lmf/org/apache/xerces/xni/parser/XMLComponentManager;)V
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
@@ -586,35 +582,35 @@
     .end annotation
 
     :try_start_0
-    const-string/jumbo v0, "http://apache.org/xml/features/continue-after-fatal-error"
+    const-string/jumbo v1, "http://apache.org/xml/features/continue-after-fatal-error"
 
-    invoke-interface {p1, v0}, Lmf/org/apache/xerces/xni/parser/XMLComponentManager;->getFeature(Ljava/lang/String;)Z
+    invoke-interface {p1, v1}, Lmf/org/apache/xerces/xni/parser/XMLComponentManager;->getFeature(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    iput-boolean v0, p0, Lmf/org/apache/xerces/impl/XMLErrorReporter;->fContinueAfterFatalError:Z
+    iput-boolean v1, p0, Lmf/org/apache/xerces/impl/XMLErrorReporter;->fContinueAfterFatalError:Z
     :try_end_0
     .catch Lmf/org/apache/xerces/xni/XNIException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/error-handler"
+    const-string/jumbo v1, "http://apache.org/xml/properties/internal/error-handler"
 
-    invoke-interface {p1, v0}, Lmf/org/apache/xerces/xni/parser/XMLComponentManager;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-interface {p1, v1}, Lmf/org/apache/xerces/xni/parser/XMLComponentManager;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/org/apache/xerces/xni/parser/XMLErrorHandler;
+    check-cast v1, Lmf/org/apache/xerces/xni/parser/XMLErrorHandler;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/XMLErrorReporter;->fErrorHandler:Lmf/org/apache/xerces/xni/parser/XMLErrorHandler;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/XMLErrorReporter;->fErrorHandler:Lmf/org/apache/xerces/xni/parser/XMLErrorHandler;
 
     return-void
 
     :catch_0
     move-exception v0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    iput-boolean v0, p0, Lmf/org/apache/xerces/impl/XMLErrorReporter;->fContinueAfterFatalError:Z
+    iput-boolean v1, p0, Lmf/org/apache/xerces/impl/XMLErrorReporter;->fContinueAfterFatalError:Z
 
     goto :goto_0
 .end method
@@ -628,20 +624,20 @@
 .end method
 
 .method public setFeature(Ljava/lang/String;Z)V
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
         }
     .end annotation
 
-    const-string/jumbo v0, "http://apache.org/xml/features/"
+    const-string/jumbo v1, "http://apache.org/xml/features/"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     :cond_0
     :goto_0
@@ -650,15 +646,15 @@
     :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v0
-
-    const-string/jumbo v1, "http://apache.org/xml/features/"
-
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
-
     move-result v1
 
-    sub-int/2addr v0, v1
+    const-string/jumbo v2, "http://apache.org/xml/features/"
+
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    sub-int v0, v1, v2
 
     const-string/jumbo v1, "continue-after-fatal-error"
 
@@ -668,13 +664,13 @@
 
     if-ne v0, v1, :cond_0
 
-    const-string/jumbo v0, "continue-after-fatal-error"
+    const-string/jumbo v1, "continue-after-fatal-error"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     iput-boolean p2, p0, Lmf/org/apache/xerces/impl/XMLErrorReporter;->fContinueAfterFatalError:Z
 
@@ -690,20 +686,20 @@
 .end method
 
 .method public setProperty(Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
         }
     .end annotation
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/"
+    const-string/jumbo v1, "http://apache.org/xml/properties/"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     :cond_0
     :goto_0
@@ -712,15 +708,15 @@
     :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v0
-
-    const-string/jumbo v1, "http://apache.org/xml/properties/"
-
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
-
     move-result v1
 
-    sub-int/2addr v0, v1
+    const-string/jumbo v2, "http://apache.org/xml/properties/"
+
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    sub-int v0, v1, v2
 
     const-string/jumbo v1, "internal/error-handler"
 
@@ -730,13 +726,13 @@
 
     if-ne v0, v1, :cond_0
 
-    const-string/jumbo v0, "internal/error-handler"
+    const-string/jumbo v1, "internal/error-handler"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     check-cast p2, Lmf/org/apache/xerces/xni/parser/XMLErrorHandler;
 

@@ -83,7 +83,7 @@
 
 # virtual methods
 .method public scan(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -96,19 +96,19 @@
 
     invoke-virtual {p0, p1}, Lorg/simpleframework/xml/convert/ScannerBuilder$Entry;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
     :cond_0
     :goto_0
     invoke-virtual {p0, p1}, Lorg/simpleframework/xml/convert/ScannerBuilder$Entry;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Ljava/lang/annotation/Annotation;
+    check-cast v1, Ljava/lang/annotation/Annotation;
 
-    return-object v0
+    return-object v1
 
     :cond_1
     invoke-direct {p0, p1}, Lorg/simpleframework/xml/convert/ScannerBuilder$Entry;->find(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;

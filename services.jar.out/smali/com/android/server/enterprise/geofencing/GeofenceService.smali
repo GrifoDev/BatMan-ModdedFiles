@@ -398,122 +398,122 @@
 .end method
 
 .method private checkDeviceInsideCircleSpherical(Landroid/location/Location;Lcom/samsung/android/knox/location/CircularGeofence;)Z
-    .locals 28
+    .locals 30
+
+    const-wide v2, 0x40b8e30000000000L    # 6371.0
 
     invoke-virtual/range {p1 .. p1}, Landroid/location/Location;->getLatitude()D
 
-    move-result-wide v16
+    move-result-wide v18
 
     invoke-virtual/range {p1 .. p1}, Landroid/location/Location;->getLongitude()D
 
-    move-result-wide v18
+    move-result-wide v20
 
     move-object/from16 v0, p2
 
     iget-object v0, v0, Lcom/samsung/android/knox/location/CircularGeofence;->center:Lcom/samsung/android/knox/location/LatLongPoint;
 
-    move-object/from16 v22, v0
+    move-object/from16 v24, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v24
 
-    iget-wide v2, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
+    iget-wide v4, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
     move-object/from16 v0, p2
 
     iget-object v0, v0, Lcom/samsung/android/knox/location/CircularGeofence;->center:Lcom/samsung/android/knox/location/LatLongPoint;
 
-    move-object/from16 v22, v0
+    move-object/from16 v24, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v24
 
-    iget-wide v4, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
-
-    invoke-static/range {v16 .. v17}, Ljava/lang/Math;->toRadians(D)D
-
-    move-result-wide v10
+    iget-wide v6, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
     invoke-static/range {v18 .. v19}, Ljava/lang/Math;->toRadians(D)D
 
-    move-result-wide v14
+    move-result-wide v12
 
-    invoke-static {v2, v3}, Ljava/lang/Math;->toRadians(D)D
+    invoke-static/range {v20 .. v21}, Ljava/lang/Math;->toRadians(D)D
 
-    move-result-wide v8
+    move-result-wide v16
 
     invoke-static {v4, v5}, Ljava/lang/Math;->toRadians(D)D
 
-    move-result-wide v12
+    move-result-wide v10
+
+    invoke-static {v6, v7}, Ljava/lang/Math;->toRadians(D)D
+
+    move-result-wide v14
 
     move-object/from16 v0, p2
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/CircularGeofence;->radius:D
 
-    move-wide/from16 v22, v0
+    move-wide/from16 v24, v0
 
-    const-wide v24, 0x409925604189374cL    # 1609.344
+    const-wide v26, 0x409925604189374cL    # 1609.344
 
-    mul-double v20, v24, v22
-
-    invoke-static {v8, v9}, Ljava/lang/Math;->sin(D)D
-
-    move-result-wide v22
+    mul-double v22, v26, v24
 
     invoke-static {v10, v11}, Ljava/lang/Math;->sin(D)D
 
     move-result-wide v24
 
-    mul-double v22, v22, v24
+    invoke-static {v12, v13}, Ljava/lang/Math;->sin(D)D
 
-    invoke-static {v8, v9}, Ljava/lang/Math;->cos(D)D
+    move-result-wide v26
 
-    move-result-wide v24
+    mul-double v24, v24, v26
 
     invoke-static {v10, v11}, Ljava/lang/Math;->cos(D)D
 
     move-result-wide v26
 
+    invoke-static {v12, v13}, Ljava/lang/Math;->cos(D)D
+
+    move-result-wide v28
+
+    mul-double v26, v26, v28
+
+    sub-double v28, v16, v14
+
+    invoke-static/range {v28 .. v29}, Ljava/lang/Math;->cos(D)D
+
+    move-result-wide v28
+
+    mul-double v26, v26, v28
+
+    add-double v24, v24, v26
+
+    invoke-static/range {v24 .. v25}, Ljava/lang/Math;->acos(D)D
+
+    move-result-wide v24
+
+    const-wide v26, 0x40b8e30000000000L    # 6371.0
+
     mul-double v24, v24, v26
 
-    sub-double v26, v14, v12
+    const-wide v26, 0x408f400000000000L    # 1000.0
 
-    invoke-static/range {v26 .. v27}, Ljava/lang/Math;->cos(D)D
+    mul-double v8, v24, v26
 
-    move-result-wide v26
+    cmpg-double v24, v8, v22
 
-    mul-double v24, v24, v26
+    if-gtz v24, :cond_0
 
-    add-double v22, v22, v24
+    const/16 v24, 0x1
 
-    invoke-static/range {v22 .. v23}, Ljava/lang/Math;->acos(D)D
-
-    move-result-wide v22
-
-    const-wide v24, 0x40b8e30000000000L    # 6371.0
-
-    mul-double v22, v22, v24
-
-    const-wide v24, 0x408f400000000000L    # 1000.0
-
-    mul-double v6, v22, v24
-
-    cmpg-double v22, v6, v20
-
-    if-gtz v22, :cond_0
-
-    const/16 v22, 0x1
-
-    return v22
+    return v24
 
     :cond_0
-    const/16 v22, 0x0
+    const/16 v24, 0x0
 
-    return v22
+    return v24
 .end method
 
 .method private checkDeviceInsideLinear(Landroid/location/Location;Lcom/samsung/android/knox/location/LinearGeofence;)Z
-    .locals 9
-
-    const/4 v8, 0x0
+    .locals 8
 
     const/4 v7, 0x1
 
@@ -537,7 +537,7 @@
 
     if-ne v0, v7, :cond_0
 
-    move v6, v7
+    const/4 v6, 0x1
 
     :goto_0
     if-eqz v6, :cond_1
@@ -545,16 +545,18 @@
     return v7
 
     :cond_0
-    move v6, v8
+    const/4 v6, 0x0
 
     goto :goto_0
 
     :cond_1
-    return v8
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method private declared-synchronized checkDeviceInsideOrOutsideGeo(Landroid/location/Location;Z)Ljava/util/List;
-    .locals 5
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -567,30 +569,35 @@
         }
     .end annotation
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
     monitor-enter p0
 
+    const/4 v2, 0x0
+
     :try_start_0
-    iget-object v3, p0, Lcom/android/server/enterprise/geofencing/GeofenceService;->mActiveGeofenceList:Ljava/util/HashMap;
+    iget-object v4, p0, Lcom/android/server/enterprise/geofencing/GeofenceService;->mActiveGeofenceList:Ljava/util/HashMap;
 
-    invoke-virtual {v3}, Ljava/util/HashMap;->isEmpty()Z
+    invoke-virtual {v4}, Ljava/util/HashMap;->isEmpty()Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_4
+    if-nez v4, :cond_4
 
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance v3, Ljava/util/ArrayList;
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    iget-object v3, p0, Lcom/android/server/enterprise/geofencing/GeofenceService;->mActiveGeofenceList:Ljava/util/HashMap;
+    :try_start_1
+    iget-object v4, p0, Lcom/android/server/enterprise/geofencing/GeofenceService;->mActiveGeofenceList:Ljava/util/HashMap;
 
-    invoke-virtual {v3}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
+    invoke-virtual {v4}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-interface {v3}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {v4}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -598,9 +605,9 @@
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -608,65 +615,71 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    iget-object v3, p0, Lcom/android/server/enterprise/geofencing/GeofenceService;->mActiveGeofenceList:Ljava/util/HashMap;
+    iget-object v4, p0, Lcom/android/server/enterprise/geofencing/GeofenceService;->mActiveGeofenceList:Ljava/util/HashMap;
 
-    invoke-virtual {v3, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Lcom/samsung/android/knox/location/Geofence;
+    check-cast v4, Lcom/samsung/android/knox/location/Geofence;
 
-    invoke-direct {p0, p1, v3}, Lcom/android/server/enterprise/geofencing/GeofenceService;->checkGeofenceInsideOrOutside(Landroid/location/Location;Lcom/samsung/android/knox/location/Geofence;)Z
+    invoke-direct {p0, p1, v4}, Lcom/android/server/enterprise/geofencing/GeofenceService;->checkGeofenceInsideOrOutside(Landroid/location/Location;Lcom/samsung/android/knox/location/Geofence;)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_0
+    if-eqz v4, :cond_0
 
-    invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-interface {v3, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
     :catchall_0
-    move-exception v3
+    move-exception v4
 
+    move-object v2, v3
+
+    :goto_1
     monitor-exit p0
 
-    throw v3
+    throw v4
 
     :cond_1
     if-eqz p2, :cond_2
 
-    :try_start_1
-    invoke-direct {p0, v2}, Lcom/android/server/enterprise/geofencing/GeofenceService;->sendIntenttoAdmins(Ljava/util/List;)V
+    :try_start_2
+    invoke-direct {p0, v3}, Lcom/android/server/enterprise/geofencing/GeofenceService;->sendIntenttoAdmins(Ljava/util/List;)V
 
     :cond_2
-    invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    invoke-interface {v3}, Ljava/util/List;->isEmpty()Z
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_3
+    if-eqz v4, :cond_3
 
-    move-object v2, v4
+    move-object v3, v5
 
     :cond_3
     monitor-exit p0
 
-    return-object v2
+    return-object v3
 
     :cond_4
     monitor-exit p0
 
-    return-object v4
+    return-object v5
+
+    :catchall_1
+    move-exception v4
+
+    goto :goto_1
 .end method
 
 .method private checkDeviceInsidePolygon(Landroid/location/Location;Lcom/samsung/android/knox/location/PolygonalGeofence;)Z
-    .locals 11
-
-    const/4 v10, 0x0
+    .locals 10
 
     const/4 v9, 0x1
 
@@ -690,7 +703,7 @@
 
     if-ne v0, v9, :cond_0
 
-    move v8, v9
+    const/4 v8, 0x1
 
     :goto_0
     if-eqz v8, :cond_1
@@ -698,7 +711,7 @@
     return v9
 
     :cond_0
-    move v8, v10
+    const/4 v8, 0x0
 
     goto :goto_0
 
@@ -721,7 +734,7 @@
 
     if-ne v0, v9, :cond_2
 
-    move v8, v9
+    const/4 v8, 0x1
 
     :goto_1
     if-eqz v8, :cond_3
@@ -729,12 +742,14 @@
     return v9
 
     :cond_2
-    move v8, v10
+    const/4 v8, 0x0
 
     goto :goto_1
 
     :cond_3
-    return v10
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method private checkDeviceInsidePolygonRayCasting(Ljava/util/List;DD)I
@@ -1224,7 +1239,7 @@
 .end method
 
 .method private createGracePoints(Ljava/util/List;D)Ljava/util/List;
-    .locals 42
+    .locals 46
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1243,40 +1258,44 @@
 
     invoke-direct {v14}, Ljava/util/ArrayList;-><init>()V
 
-    new-instance v25, Ljava/util/ArrayList;
+    new-instance v29, Ljava/util/ArrayList;
 
-    invoke-direct/range {v25 .. v25}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct/range {v29 .. v29}, Ljava/util/ArrayList;-><init>()V
 
     new-instance v17, Ljava/util/ArrayList;
 
     invoke-direct/range {v17 .. v17}, Ljava/util/ArrayList;-><init>()V
 
-    const-wide/16 v28, 0x0
+    const-wide/16 v32, 0x0
 
     const-wide/16 v8, 0x0
 
-    const-wide v36, 0x3ee2cc82c7677f8dL    # 8.964E-6
+    const-wide v18, 0x3f747ae147ae147bL    # 0.005
 
-    mul-double p2, p2, v36
+    const-wide v20, 0x3f747ae147ae147bL    # 0.005
+
+    const-wide v40, 0x3ee2cc82c7677f8dL    # 8.964E-6
+
+    mul-double p2, p2, v40
 
     const/4 v15, 0x0
 
     :goto_0
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->size()I
 
-    move-result v36
+    move-result v40
 
-    move/from16 v0, v36
+    move/from16 v0, v40
 
     if-ge v15, v0, :cond_a
 
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->size()I
 
-    move-result v36
+    move-result v40
 
-    add-int/lit8 v36, v36, -0x1
+    add-int/lit8 v40, v40, -0x1
 
-    move/from16 v0, v36
+    move/from16 v0, v40
 
     if-ne v15, v0, :cond_4
 
@@ -1288,11 +1307,11 @@
 
     check-cast v6, Lcom/samsung/android/knox/location/LatLongPoint;
 
-    const/16 v36, 0x0
+    const/16 v40, 0x0
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v36
+    move/from16 v1, v40
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -1303,39 +1322,39 @@
     :goto_1
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v36, v0
+    move-wide/from16 v40, v0
 
     iget-wide v0, v6, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v38, v0
+    move-wide/from16 v42, v0
 
-    sub-double v36, v36, v38
+    sub-double v40, v40, v42
 
-    const-wide/16 v38, 0x0
+    const-wide/16 v42, 0x0
 
-    cmpl-double v36, v36, v38
+    cmpl-double v40, v40, v42
 
-    if-nez v36, :cond_0
-
-    iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
-
-    move-wide/from16 v36, v0
-
-    const-wide/16 v38, 0x0
-
-    cmpl-double v36, v36, v38
-
-    if-ltz v36, :cond_5
+    if-nez v40, :cond_0
 
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v36, v0
+    move-wide/from16 v40, v0
 
-    const-wide v38, 0x3f747ae147ae147bL    # 0.005
+    const-wide/16 v42, 0x0
 
-    sub-double v36, v36, v38
+    cmpl-double v40, v40, v42
 
-    move-wide/from16 v0, v36
+    if-ltz v40, :cond_5
+
+    iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
+
+    move-wide/from16 v40, v0
+
+    const-wide v42, 0x3f747ae147ae147bL    # 0.005
+
+    sub-double v40, v40, v42
+
+    move-wide/from16 v0, v40
 
     iput-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
@@ -1343,39 +1362,39 @@
     :goto_2
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v36, v0
+    move-wide/from16 v40, v0
 
     iget-wide v0, v6, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v38, v0
+    move-wide/from16 v42, v0
 
-    sub-double v36, v36, v38
+    sub-double v40, v40, v42
 
-    const-wide/16 v38, 0x0
+    const-wide/16 v42, 0x0
 
-    cmpl-double v36, v36, v38
+    cmpl-double v40, v40, v42
 
-    if-nez v36, :cond_1
-
-    iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
-
-    move-wide/from16 v36, v0
-
-    const-wide/16 v38, 0x0
-
-    cmpl-double v36, v36, v38
-
-    if-ltz v36, :cond_6
+    if-nez v40, :cond_1
 
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v36, v0
+    move-wide/from16 v40, v0
 
-    const-wide v38, 0x3f747ae147ae147bL    # 0.005
+    const-wide/16 v42, 0x0
 
-    sub-double v36, v36, v38
+    cmpl-double v40, v40, v42
 
-    move-wide/from16 v0, v36
+    if-ltz v40, :cond_6
+
+    iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
+
+    move-wide/from16 v40, v0
+
+    const-wide v42, 0x3f747ae147ae147bL    # 0.005
+
+    sub-double v40, v40, v42
+
+    move-wide/from16 v0, v40
 
     iput-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
@@ -1383,158 +1402,158 @@
     :goto_3
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v36, v0
+    move-wide/from16 v40, v0
 
     iget-wide v0, v6, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v38, v0
+    move-wide/from16 v42, v0
 
-    sub-double v36, v36, v38
+    sub-double v40, v40, v42
 
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v38, v0
+    move-wide/from16 v42, v0
 
     iget-wide v0, v6, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v40, v0
+    move-wide/from16 v44, v0
 
-    sub-double v38, v38, v40
+    sub-double v42, v42, v44
 
-    div-double v26, v36, v38
+    div-double v30, v40, v42
 
-    invoke-static/range {v26 .. v27}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+    invoke-static/range {v30 .. v31}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    move-result-object v36
+    move-result-object v40
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v29
 
-    move-object/from16 v1, v36
+    move-object/from16 v1, v40
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    new-instance v22, Lcom/samsung/android/knox/location/LatLongPoint;
+    new-instance v26, Lcom/samsung/android/knox/location/LatLongPoint;
 
     iget-wide v0, v6, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v36, v0
+    move-wide/from16 v40, v0
 
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v38, v0
+    move-wide/from16 v42, v0
 
-    add-double v36, v36, v38
+    add-double v40, v40, v42
 
-    const-wide/high16 v38, 0x4000000000000000L    # 2.0
+    const-wide/high16 v42, 0x4000000000000000L    # 2.0
 
-    div-double v36, v36, v38
+    div-double v40, v40, v42
 
     iget-wide v0, v6, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v38, v0
+    move-wide/from16 v42, v0
 
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v40, v0
+    move-wide/from16 v44, v0
 
-    add-double v38, v38, v40
+    add-double v42, v42, v44
 
-    const-wide/high16 v40, 0x4000000000000000L    # 2.0
+    const-wide/high16 v44, 0x4000000000000000L    # 2.0
 
-    div-double v38, v38, v40
+    div-double v42, v42, v44
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v26
 
-    move-wide/from16 v1, v36
+    move-wide/from16 v1, v40
 
-    move-wide/from16 v3, v38
+    move-wide/from16 v3, v42
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/samsung/android/knox/location/LatLongPoint;-><init>(DD)V
 
-    const-wide/high16 v36, 0x3ff0000000000000L    # 1.0
+    const-wide/high16 v40, 0x3ff0000000000000L    # 1.0
 
-    div-double v36, v36, v26
+    div-double v40, v40, v30
 
-    move-wide/from16 v0, v36
+    move-wide/from16 v0, v40
 
     neg-double v0, v0
 
-    move-wide/from16 v28, v0
+    move-wide/from16 v32, v0
 
-    mul-double v36, v28, v28
+    mul-double v40, v32, v32
 
-    const-wide/high16 v38, 0x3ff0000000000000L    # 1.0
+    const-wide/high16 v42, 0x3ff0000000000000L    # 1.0
 
-    add-double v36, v36, v38
+    add-double v40, v40, v42
 
-    invoke-static/range {v36 .. v37}, Ljava/lang/Math;->sqrt(D)D
+    invoke-static/range {v40 .. v41}, Ljava/lang/Math;->sqrt(D)D
 
-    move-result-wide v36
+    move-result-wide v40
 
-    div-double v8, p2, v36
+    div-double v8, p2, v40
 
-    const-wide/16 v36, 0x0
+    const-wide/16 v40, 0x0
 
-    cmpl-double v36, v26, v36
+    cmpl-double v40, v30, v40
 
-    if-lez v36, :cond_7
+    if-lez v40, :cond_7
 
     iget-wide v0, v6, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v36, v0
+    move-wide/from16 v40, v0
 
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v38, v0
+    move-wide/from16 v42, v0
 
-    cmpg-double v36, v36, v38
+    cmpg-double v40, v40, v42
 
-    if-gez v36, :cond_7
+    if-gez v40, :cond_7
 
     :cond_2
-    move-object/from16 v0, v22
+    move-object/from16 v0, v26
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v36, v0
+    move-wide/from16 v40, v0
 
-    mul-double v38, v28, v8
+    mul-double v42, v32, v8
 
-    add-double v32, v36, v38
+    add-double v36, v40, v42
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v26
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v36, v0
+    move-wide/from16 v40, v0
 
-    sub-double v36, v32, v36
+    sub-double v40, v36, v40
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v26
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v38, v0
+    move-wide/from16 v42, v0
 
-    mul-double v38, v38, v28
+    mul-double v42, v42, v32
 
-    add-double v36, v36, v38
+    add-double v40, v40, v42
 
-    div-double v30, v36, v28
+    div-double v34, v40, v32
 
-    new-instance v36, Lcom/samsung/android/knox/location/LatLongPoint;
+    new-instance v40, Lcom/samsung/android/knox/location/LatLongPoint;
 
-    move-object/from16 v0, v36
+    move-object/from16 v0, v40
 
-    move-wide/from16 v1, v30
+    move-wide/from16 v1, v34
 
-    move-wide/from16 v3, v32
+    move-wide/from16 v3, v36
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/samsung/android/knox/location/LatLongPoint;-><init>(DD)V
 
     move-object/from16 v0, v17
 
-    move-object/from16 v1, v36
+    move-object/from16 v1, v40
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -1553,11 +1572,11 @@
 
     check-cast v6, Lcom/samsung/android/knox/location/LatLongPoint;
 
-    add-int/lit8 v36, v15, 0x1
+    add-int/lit8 v40, v15, 0x1
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v36
+    move/from16 v1, v40
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -1570,13 +1589,13 @@
     :cond_5
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v36, v0
+    move-wide/from16 v40, v0
 
-    const-wide v38, 0x3f747ae147ae147bL    # 0.005
+    const-wide v42, 0x3f747ae147ae147bL    # 0.005
 
-    add-double v36, v36, v38
+    add-double v40, v40, v42
 
-    move-wide/from16 v0, v36
+    move-wide/from16 v0, v40
 
     iput-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
@@ -1585,271 +1604,271 @@
     :cond_6
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v36, v0
+    move-wide/from16 v40, v0
 
-    const-wide v38, 0x3f747ae147ae147bL    # 0.005
+    const-wide v42, 0x3f747ae147ae147bL    # 0.005
 
-    add-double v36, v36, v38
+    add-double v40, v40, v42
 
-    move-wide/from16 v0, v36
+    move-wide/from16 v0, v40
 
     iput-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
     goto/16 :goto_3
 
     :cond_7
-    const-wide/16 v36, 0x0
+    const-wide/16 v40, 0x0
 
-    cmpg-double v36, v26, v36
+    cmpg-double v40, v30, v40
 
-    if-gez v36, :cond_8
+    if-gez v40, :cond_8
 
     iget-wide v0, v6, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v36, v0
+    move-wide/from16 v40, v0
 
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v38, v0
+    move-wide/from16 v42, v0
 
-    cmpl-double v36, v36, v38
+    cmpl-double v40, v40, v42
 
-    if-gtz v36, :cond_2
+    if-gtz v40, :cond_2
 
     :cond_8
-    const-wide/16 v36, 0x0
+    const-wide/16 v40, 0x0
 
-    cmpl-double v36, v26, v36
+    cmpl-double v40, v30, v40
 
-    if-lez v36, :cond_9
+    if-lez v40, :cond_9
 
     iget-wide v0, v6, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v36, v0
+    move-wide/from16 v40, v0
 
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v38, v0
+    move-wide/from16 v42, v0
 
-    cmpl-double v36, v36, v38
+    cmpl-double v40, v40, v42
 
-    if-lez v36, :cond_9
+    if-lez v40, :cond_9
 
     :goto_5
-    move-object/from16 v0, v22
+    move-object/from16 v0, v26
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v36, v0
+    move-wide/from16 v40, v0
 
-    mul-double v38, v28, v8
+    mul-double v42, v32, v8
 
-    sub-double v32, v36, v38
+    sub-double v36, v40, v42
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v26
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v36, v0
+    move-wide/from16 v40, v0
 
-    sub-double v36, v32, v36
+    sub-double v40, v36, v40
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v26
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v38, v0
+    move-wide/from16 v42, v0
 
-    mul-double v38, v38, v28
+    mul-double v42, v42, v32
 
-    add-double v36, v36, v38
+    add-double v40, v40, v42
 
-    div-double v30, v36, v28
+    div-double v34, v40, v32
 
-    new-instance v36, Lcom/samsung/android/knox/location/LatLongPoint;
+    new-instance v40, Lcom/samsung/android/knox/location/LatLongPoint;
 
-    move-object/from16 v0, v36
+    move-object/from16 v0, v40
 
-    move-wide/from16 v1, v30
+    move-wide/from16 v1, v34
 
-    move-wide/from16 v3, v32
+    move-wide/from16 v3, v36
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/samsung/android/knox/location/LatLongPoint;-><init>(DD)V
 
     move-object/from16 v0, v17
 
-    move-object/from16 v1, v36
+    move-object/from16 v1, v40
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto/16 :goto_4
 
     :cond_9
-    const-wide/16 v36, 0x0
+    const-wide/16 v40, 0x0
 
-    cmpg-double v36, v26, v36
+    cmpg-double v40, v30, v40
 
-    if-gez v36, :cond_3
+    if-gez v40, :cond_3
 
     iget-wide v0, v6, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v36, v0
+    move-wide/from16 v40, v0
 
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v38, v0
+    move-wide/from16 v42, v0
 
-    cmpg-double v36, v36, v38
+    cmpg-double v40, v40, v42
 
-    if-gez v36, :cond_3
+    if-gez v40, :cond_3
 
     goto :goto_5
 
     :cond_a
-    const/16 v34, 0x0
+    const/16 v38, 0x0
 
     invoke-interface/range {v17 .. v17}, Ljava/util/List;->size()I
 
-    move-result v36
+    move-result v40
 
-    add-int/lit8 v35, v36, -0x1
+    add-int/lit8 v39, v40, -0x1
 
     const/4 v15, 0x0
 
-    invoke-interface/range {v25 .. v25}, Ljava/util/List;->size()I
+    invoke-interface/range {v29 .. v29}, Ljava/util/List;->size()I
 
-    move-result v36
+    move-result v40
 
-    add-int/lit8 v16, v36, -0x1
+    add-int/lit8 v16, v40, -0x1
 
     :goto_6
-    invoke-interface/range {v25 .. v25}, Ljava/util/List;->size()I
+    invoke-interface/range {v29 .. v29}, Ljava/util/List;->size()I
 
-    move-result v36
+    move-result v40
 
-    add-int/lit8 v36, v36, -0x1
+    add-int/lit8 v40, v40, -0x1
 
-    move/from16 v0, v36
+    move/from16 v0, v40
 
     if-ge v15, v0, :cond_b
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v29
 
     invoke-interface {v0, v15}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v36
+    move-result-object v40
 
-    check-cast v36, Ljava/lang/Double;
+    check-cast v40, Ljava/lang/Double;
 
-    invoke-virtual/range {v36 .. v36}, Ljava/lang/Double;->doubleValue()D
+    invoke-virtual/range {v40 .. v40}, Ljava/lang/Double;->doubleValue()D
 
-    move-result-wide v18
+    move-result-wide v22
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v29
 
     move/from16 v1, v16
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v36
+    move-result-object v40
 
-    check-cast v36, Ljava/lang/Double;
+    check-cast v40, Ljava/lang/Double;
 
-    invoke-virtual/range {v36 .. v36}, Ljava/lang/Double;->doubleValue()D
+    invoke-virtual/range {v40 .. v40}, Ljava/lang/Double;->doubleValue()D
 
-    move-result-wide v20
-
-    move-object/from16 v0, v17
-
-    move/from16 v1, v34
-
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v23
-
-    check-cast v23, Lcom/samsung/android/knox/location/LatLongPoint;
+    move-result-wide v24
 
     move-object/from16 v0, v17
 
-    move/from16 v1, v35
+    move/from16 v1, v38
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v24
+    move-result-object v27
 
-    check-cast v24, Lcom/samsung/android/knox/location/LatLongPoint;
+    check-cast v27, Lcom/samsung/android/knox/location/LatLongPoint;
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v17
 
-    iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
+    move/from16 v1, v39
 
-    move-wide/from16 v36, v0
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-object/from16 v0, v24
+    move-result-object v28
 
-    iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
+    check-cast v28, Lcom/samsung/android/knox/location/LatLongPoint;
 
-    move-wide/from16 v38, v0
-
-    mul-double v38, v38, v20
-
-    sub-double v36, v36, v38
-
-    move-object/from16 v0, v23
+    move-object/from16 v0, v28
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
-
-    move-wide/from16 v38, v0
-
-    move-object/from16 v0, v23
-
-    iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
     move-wide/from16 v40, v0
 
-    mul-double v40, v40, v18
-
-    sub-double v38, v38, v40
-
-    sub-double v36, v36, v38
-
-    sub-double v38, v18, v20
-
-    div-double v10, v36, v38
-
-    mul-double v36, v18, v10
-
-    move-object/from16 v0, v23
-
-    iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
-
-    move-wide/from16 v38, v0
-
-    move-object/from16 v0, v23
+    move-object/from16 v0, v28
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v40, v0
+    move-wide/from16 v42, v0
 
-    mul-double v40, v40, v18
+    mul-double v42, v42, v24
 
-    sub-double v38, v38, v40
+    sub-double v40, v40, v42
 
-    add-double v12, v36, v38
+    move-object/from16 v0, v27
 
-    new-instance v36, Lcom/samsung/android/knox/location/LatLongPoint;
+    iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-object/from16 v0, v36
+    move-wide/from16 v42, v0
+
+    move-object/from16 v0, v27
+
+    iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
+
+    move-wide/from16 v44, v0
+
+    mul-double v44, v44, v22
+
+    sub-double v42, v42, v44
+
+    sub-double v40, v40, v42
+
+    sub-double v42, v22, v24
+
+    div-double v10, v40, v42
+
+    mul-double v40, v22, v10
+
+    move-object/from16 v0, v27
+
+    iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
+
+    move-wide/from16 v42, v0
+
+    move-object/from16 v0, v27
+
+    iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
+
+    move-wide/from16 v44, v0
+
+    mul-double v44, v44, v22
+
+    sub-double v42, v42, v44
+
+    add-double v12, v40, v42
+
+    new-instance v40, Lcom/samsung/android/knox/location/LatLongPoint;
+
+    move-object/from16 v0, v40
 
     invoke-direct {v0, v10, v11, v12, v13}, Lcom/samsung/android/knox/location/LatLongPoint;-><init>(DD)V
 
-    move-object/from16 v0, v36
+    move-object/from16 v0, v40
 
     invoke-interface {v14, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    move/from16 v35, v34
+    move/from16 v39, v38
 
-    add-int/lit8 v34, v34, 0x1
+    add-int/lit8 v38, v38, 0x1
 
     move/from16 v16, v15
 
@@ -3346,16 +3365,24 @@
     const-string/jumbo v8, "passive"
 
     invoke-virtual {v5, v8}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_0
+
+    iget-object v8, p0, Lcom/android/server/enterprise/geofencing/GeofenceService;->mLocationManager:Landroid/location/LocationManager;
+
+    invoke-virtual {v8, v5}, Landroid/location/LocationManager;->getLastKnownLocation(Ljava/lang/String;)Landroid/location/Location;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v4
 
     :cond_0
     :goto_0
-    if-nez v4, :cond_2
+    if-nez v4, :cond_1
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/geofencing/GeofenceService;->deviceLocationUnavailableMessage(I)V
 
@@ -3363,18 +3390,6 @@
     invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     return-object v0
-
-    :cond_1
-    :try_start_1
-    iget-object v8, p0, Lcom/android/server/enterprise/geofencing/GeofenceService;->mLocationManager:Landroid/location/LocationManager;
-
-    invoke-virtual {v8, v5}, Landroid/location/LocationManager;->getLastKnownLocation(Ljava/lang/String;)Landroid/location/Location;
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-
-    move-result-object v4
-
-    goto :goto_0
 
     :catch_0
     move-exception v2
@@ -3391,7 +3406,7 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_1
     invoke-direct {p0, v4, v10}, Lcom/android/server/enterprise/geofencing/GeofenceService;->checkDeviceInsideOrOutsideGeo(Landroid/location/Location;Z)Ljava/util/List;
 
     move-result-object v3
@@ -3919,7 +3934,7 @@
 
     move-object/from16 v2, v20
 
-    invoke-virtual {v0, v6, v1, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
+    invoke-virtual {v0, v7, v1, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
 
     goto/16 :goto_0
 
@@ -5092,7 +5107,7 @@
 .end method
 
 .method public createPolygonalPoints2(Ljava/util/List;D)Ljava/util/List;
-    .locals 56
+    .locals 60
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -5115,62 +5130,66 @@
 
     invoke-direct {v12}, Ljava/util/ArrayList;-><init>()V
 
-    new-instance v38, Ljava/util/ArrayList;
+    new-instance v42, Ljava/util/ArrayList;
 
-    invoke-direct/range {v38 .. v38}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct/range {v42 .. v42}, Ljava/util/ArrayList;-><init>()V
 
     new-instance v23, Ljava/util/ArrayList;
 
     invoke-direct/range {v23 .. v23}, Ljava/util/ArrayList;-><init>()V
 
-    new-instance v24, Ljava/util/ArrayList;
+    new-instance v26, Ljava/util/ArrayList;
 
-    invoke-direct/range {v24 .. v24}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct/range {v26 .. v26}, Ljava/util/ArrayList;-><init>()V
 
-    const-wide/16 v36, 0x0
+    const-wide/16 v40, 0x0
 
     const-wide/16 v8, 0x0
 
-    const/16 v39, 0x0
+    const-wide v24, 0x3f747ae147ae147bL    # 0.005
+
+    const-wide v28, 0x3f747ae147ae147bL    # 0.005
+
+    const/16 v43, 0x0
 
     const/4 v10, 0x0
 
     const/4 v11, 0x0
 
-    const-wide v50, 0x3ee2cc82c7677f8dL    # 8.964E-6
+    const-wide v54, 0x3ee2cc82c7677f8dL    # 8.964E-6
 
-    mul-double p2, p2, v50
+    mul-double p2, p2, v54
 
     const/16 v22, 0x0
 
     :goto_0
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->size()I
 
-    move-result v49
+    move-result v53
 
     move/from16 v0, v22
 
-    move/from16 v1, v49
+    move/from16 v1, v53
 
     if-ge v0, v1, :cond_14
 
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->size()I
 
-    move-result v49
+    move-result v53
 
-    add-int/lit8 v49, v49, -0x1
+    add-int/lit8 v53, v53, -0x1
 
     move/from16 v0, v22
 
-    move/from16 v1, v49
+    move/from16 v1, v53
 
     if-ne v0, v1, :cond_7
 
-    add-int/lit8 v49, v22, -0x1
+    add-int/lit8 v53, v22, -0x1
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v49
+    move/from16 v1, v53
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -5191,39 +5210,39 @@
     :goto_1
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
     iget-wide v0, v6, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v52, v0
+    move-wide/from16 v56, v0
 
-    sub-double v50, v50, v52
+    sub-double v54, v54, v56
 
-    const-wide/16 v52, 0x0
+    const-wide/16 v56, 0x0
 
-    cmpl-double v49, v50, v52
+    cmpl-double v53, v54, v56
 
-    if-nez v49, :cond_0
-
-    iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
-
-    move-wide/from16 v50, v0
-
-    const-wide/16 v52, 0x0
-
-    cmpl-double v49, v50, v52
-
-    if-ltz v49, :cond_8
+    if-nez v53, :cond_0
 
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
-    const-wide v52, 0x3f747ae147ae147bL    # 0.005
+    const-wide/16 v56, 0x0
 
-    sub-double v50, v50, v52
+    cmpl-double v53, v54, v56
 
-    move-wide/from16 v0, v50
+    if-ltz v53, :cond_8
+
+    iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
+
+    move-wide/from16 v54, v0
+
+    const-wide v56, 0x3f747ae147ae147bL    # 0.005
+
+    sub-double v54, v54, v56
+
+    move-wide/from16 v0, v54
 
     iput-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
@@ -5231,39 +5250,39 @@
     :goto_2
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
     iget-wide v0, v6, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v52, v0
+    move-wide/from16 v56, v0
 
-    sub-double v50, v50, v52
+    sub-double v54, v54, v56
 
-    const-wide/16 v52, 0x0
+    const-wide/16 v56, 0x0
 
-    cmpl-double v49, v50, v52
+    cmpl-double v53, v54, v56
 
-    if-nez v49, :cond_1
-
-    iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
-
-    move-wide/from16 v50, v0
-
-    const-wide/16 v52, 0x0
-
-    cmpl-double v49, v50, v52
-
-    if-ltz v49, :cond_9
+    if-nez v53, :cond_1
 
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
-    const-wide v52, 0x3f747ae147ae147bL    # 0.005
+    const-wide/16 v56, 0x0
 
-    sub-double v50, v50, v52
+    cmpl-double v53, v54, v56
 
-    move-wide/from16 v0, v50
+    if-ltz v53, :cond_9
+
+    iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
+
+    move-wide/from16 v54, v0
+
+    const-wide v56, 0x3f747ae147ae147bL    # 0.005
+
+    sub-double v54, v54, v56
+
+    move-wide/from16 v0, v54
 
     iput-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
@@ -5271,332 +5290,332 @@
     :goto_3
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
     iget-wide v0, v6, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v52, v0
+    move-wide/from16 v56, v0
 
-    sub-double v50, v50, v52
+    sub-double v54, v54, v56
 
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v52, v0
+    move-wide/from16 v56, v0
 
     iget-wide v0, v6, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v54, v0
+    move-wide/from16 v58, v0
 
-    sub-double v52, v52, v54
+    sub-double v56, v56, v58
 
-    div-double v34, v50, v52
+    div-double v38, v54, v56
 
-    invoke-static/range {v34 .. v35}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+    invoke-static/range {v38 .. v39}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    move-result-object v49
+    move-result-object v53
 
-    move-object/from16 v0, v38
+    move-object/from16 v0, v42
 
-    move-object/from16 v1, v49
+    move-object/from16 v1, v53
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    new-instance v25, Lcom/samsung/android/knox/location/LatLongPoint;
+    new-instance v27, Lcom/samsung/android/knox/location/LatLongPoint;
 
     iget-wide v0, v6, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v52, v0
+    move-wide/from16 v56, v0
 
-    add-double v50, v50, v52
+    add-double v54, v54, v56
 
-    const-wide/high16 v52, 0x4000000000000000L    # 2.0
+    const-wide/high16 v56, 0x4000000000000000L    # 2.0
 
-    div-double v50, v50, v52
+    div-double v54, v54, v56
 
     iget-wide v0, v6, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v52, v0
+    move-wide/from16 v56, v0
 
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v54, v0
+    move-wide/from16 v58, v0
 
-    add-double v52, v52, v54
+    add-double v56, v56, v58
 
-    const-wide/high16 v54, 0x4000000000000000L    # 2.0
+    const-wide/high16 v58, 0x4000000000000000L    # 2.0
 
-    div-double v52, v52, v54
+    div-double v56, v56, v58
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v27
 
-    move-wide/from16 v1, v50
+    move-wide/from16 v1, v54
 
-    move-wide/from16 v3, v52
+    move-wide/from16 v3, v56
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/samsung/android/knox/location/LatLongPoint;-><init>(DD)V
 
-    const-wide/high16 v50, 0x3ff0000000000000L    # 1.0
+    const-wide/high16 v54, 0x3ff0000000000000L    # 1.0
 
-    div-double v50, v50, v34
+    div-double v54, v54, v38
 
-    move-wide/from16 v0, v50
+    move-wide/from16 v0, v54
 
     neg-double v0, v0
 
-    move-wide/from16 v36, v0
+    move-wide/from16 v40, v0
 
-    mul-double v50, v36, v36
+    mul-double v54, v40, v40
 
-    const-wide/high16 v52, 0x3ff0000000000000L    # 1.0
+    const-wide/high16 v56, 0x3ff0000000000000L    # 1.0
 
-    add-double v50, v50, v52
+    add-double v54, v54, v56
 
-    invoke-static/range {v50 .. v51}, Ljava/lang/Math;->sqrt(D)D
+    invoke-static/range {v54 .. v55}, Ljava/lang/Math;->sqrt(D)D
 
-    move-result-wide v50
+    move-result-wide v54
 
-    div-double v8, p2, v50
+    div-double v8, p2, v54
 
-    const-wide/16 v50, 0x0
+    const-wide/16 v54, 0x0
 
-    cmpl-double v49, v34, v50
+    cmpl-double v53, v38, v54
 
-    if-lez v49, :cond_a
+    if-lez v53, :cond_a
 
     iget-wide v0, v6, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v52, v0
+    move-wide/from16 v56, v0
 
-    cmpg-double v49, v50, v52
+    cmpg-double v53, v54, v56
 
-    if-gez v49, :cond_a
+    if-gez v53, :cond_a
 
     :cond_2
-    move-object/from16 v0, v25
+    move-object/from16 v0, v27
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
-    mul-double v52, v36, v8
+    mul-double v56, v40, v8
 
-    add-double v44, v50, v52
+    add-double v48, v54, v56
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v27
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
-    sub-double v50, v44, v50
+    sub-double v54, v48, v54
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v27
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v52, v0
+    move-wide/from16 v56, v0
 
-    mul-double v52, v52, v36
+    mul-double v56, v56, v40
 
-    add-double v50, v50, v52
+    add-double v54, v54, v56
 
-    div-double v40, v50, v36
+    div-double v44, v54, v40
 
-    new-instance v49, Lcom/samsung/android/knox/location/LatLongPoint;
+    new-instance v53, Lcom/samsung/android/knox/location/LatLongPoint;
 
-    move-object/from16 v0, v49
+    move-object/from16 v0, v53
 
-    move-wide/from16 v1, v40
+    move-wide/from16 v1, v44
 
-    move-wide/from16 v3, v44
+    move-wide/from16 v3, v48
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/samsung/android/knox/location/LatLongPoint;-><init>(DD)V
 
     move-object/from16 v0, v23
 
-    move-object/from16 v1, v49
+    move-object/from16 v1, v53
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v27
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
-    mul-double v52, v36, v8
+    mul-double v56, v40, v8
 
-    sub-double v46, v50, v52
+    sub-double v50, v54, v56
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v27
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
-    sub-double v50, v46, v50
+    sub-double v54, v50, v54
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v27
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v52, v0
+    move-wide/from16 v56, v0
 
-    mul-double v52, v52, v36
+    mul-double v56, v56, v40
 
-    add-double v50, v50, v52
+    add-double v54, v54, v56
 
-    div-double v42, v50, v36
+    div-double v46, v54, v40
 
-    new-instance v49, Lcom/samsung/android/knox/location/LatLongPoint;
+    new-instance v53, Lcom/samsung/android/knox/location/LatLongPoint;
 
-    move-object/from16 v0, v49
+    move-object/from16 v0, v53
 
-    move-wide/from16 v1, v42
+    move-wide/from16 v1, v46
 
-    move-wide/from16 v3, v46
+    move-wide/from16 v3, v50
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/samsung/android/knox/location/LatLongPoint;-><init>(DD)V
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v26
 
-    move-object/from16 v1, v49
+    move-object/from16 v1, v53
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     if-nez v22, :cond_3
 
-    move-object/from16 v39, v6
+    move-object/from16 v43, v6
 
     :cond_3
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->size()I
 
-    move-result v49
+    move-result v53
 
-    add-int/lit8 v49, v49, -0x1
+    add-int/lit8 v53, v53, -0x1
 
     move/from16 v0, v22
 
-    move/from16 v1, v49
+    move/from16 v1, v53
 
     if-ne v0, v1, :cond_4
 
-    move-object/from16 v39, v7
+    move-object/from16 v43, v7
 
     :cond_4
     if-eqz v22, :cond_5
 
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->size()I
 
-    move-result v49
+    move-result v53
 
-    add-int/lit8 v49, v49, -0x1
+    add-int/lit8 v53, v53, -0x1
 
     move/from16 v0, v22
 
-    move/from16 v1, v49
+    move/from16 v1, v53
 
     if-ne v0, v1, :cond_6
 
     :cond_5
-    move-object/from16 v0, v39
+    move-object/from16 v0, v43
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
-    mul-double v52, v36, v8
+    mul-double v56, v40, v8
 
-    add-double v44, v50, v52
+    add-double v48, v54, v56
 
-    move-object/from16 v0, v39
+    move-object/from16 v0, v43
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
-    sub-double v50, v44, v50
+    sub-double v54, v48, v54
 
-    move-object/from16 v0, v39
+    move-object/from16 v0, v43
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v52, v0
+    move-wide/from16 v56, v0
 
-    mul-double v52, v52, v36
+    mul-double v56, v56, v40
 
-    add-double v50, v50, v52
+    add-double v54, v54, v56
 
-    div-double v40, v50, v36
+    div-double v44, v54, v40
 
     if-nez v22, :cond_f
 
-    new-instance v49, Lcom/samsung/android/knox/location/LatLongPoint;
+    new-instance v53, Lcom/samsung/android/knox/location/LatLongPoint;
 
-    move-object/from16 v0, v49
+    move-object/from16 v0, v53
 
-    move-wide/from16 v1, v40
+    move-wide/from16 v1, v44
 
-    move-wide/from16 v3, v44
+    move-wide/from16 v3, v48
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/samsung/android/knox/location/LatLongPoint;-><init>(DD)V
 
-    move-object/from16 v0, v49
+    move-object/from16 v0, v53
 
     invoke-interface {v13, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :goto_4
-    move-object/from16 v0, v39
+    move-object/from16 v0, v43
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
-    mul-double v52, v36, v8
+    mul-double v56, v40, v8
 
-    sub-double v46, v50, v52
+    sub-double v50, v54, v56
 
-    move-object/from16 v0, v39
+    move-object/from16 v0, v43
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
-    sub-double v50, v46, v50
+    sub-double v54, v50, v54
 
-    move-object/from16 v0, v39
+    move-object/from16 v0, v43
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v52, v0
+    move-wide/from16 v56, v0
 
-    mul-double v52, v52, v36
+    mul-double v56, v56, v40
 
-    add-double v50, v50, v52
+    add-double v54, v54, v56
 
-    div-double v42, v50, v36
+    div-double v46, v54, v40
 
     if-nez v22, :cond_10
 
-    new-instance v49, Lcom/samsung/android/knox/location/LatLongPoint;
+    new-instance v53, Lcom/samsung/android/knox/location/LatLongPoint;
 
-    move-object/from16 v0, v49
+    move-object/from16 v0, v53
 
-    move-wide/from16 v1, v42
+    move-wide/from16 v1, v46
 
-    move-wide/from16 v3, v46
+    move-wide/from16 v3, v50
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/samsung/android/knox/location/LatLongPoint;-><init>(DD)V
 
-    move-object/from16 v0, v49
+    move-object/from16 v0, v53
 
     invoke-interface {v12, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -5617,11 +5636,11 @@
 
     check-cast v6, Lcom/samsung/android/knox/location/LatLongPoint;
 
-    add-int/lit8 v49, v22, 0x1
+    add-int/lit8 v53, v22, 0x1
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v49
+    move/from16 v1, v53
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -5634,13 +5653,13 @@
     :cond_8
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
-    const-wide v52, 0x3f747ae147ae147bL    # 0.005
+    const-wide v56, 0x3f747ae147ae147bL    # 0.005
 
-    add-double v50, v50, v52
+    add-double v54, v54, v56
 
-    move-wide/from16 v0, v50
+    move-wide/from16 v0, v54
 
     iput-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
@@ -5649,274 +5668,274 @@
     :cond_9
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
-    const-wide v52, 0x3f747ae147ae147bL    # 0.005
+    const-wide v56, 0x3f747ae147ae147bL    # 0.005
 
-    add-double v50, v50, v52
+    add-double v54, v54, v56
 
-    move-wide/from16 v0, v50
+    move-wide/from16 v0, v54
 
     iput-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
     goto/16 :goto_3
 
     :cond_a
-    const-wide/16 v50, 0x0
+    const-wide/16 v54, 0x0
 
-    cmpg-double v49, v34, v50
+    cmpg-double v53, v38, v54
 
-    if-gez v49, :cond_b
+    if-gez v53, :cond_b
 
     iget-wide v0, v6, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v52, v0
+    move-wide/from16 v56, v0
 
-    cmpl-double v49, v50, v52
+    cmpl-double v53, v54, v56
 
-    if-gtz v49, :cond_2
+    if-gtz v53, :cond_2
 
     :cond_b
-    const-wide/16 v50, 0x0
+    const-wide/16 v54, 0x0
 
-    cmpl-double v49, v34, v50
+    cmpl-double v53, v38, v54
 
-    if-lez v49, :cond_11
+    if-lez v53, :cond_11
 
     iget-wide v0, v6, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v52, v0
+    move-wide/from16 v56, v0
 
-    cmpl-double v49, v50, v52
+    cmpl-double v53, v54, v56
 
-    if-lez v49, :cond_11
+    if-lez v53, :cond_11
 
     :goto_6
-    move-object/from16 v0, v25
+    move-object/from16 v0, v27
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
-    mul-double v52, v36, v8
+    mul-double v56, v40, v8
 
-    sub-double v44, v50, v52
+    sub-double v48, v54, v56
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v27
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
-    sub-double v50, v44, v50
+    sub-double v54, v48, v54
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v27
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v52, v0
+    move-wide/from16 v56, v0
 
-    mul-double v52, v52, v36
+    mul-double v56, v56, v40
 
-    add-double v50, v50, v52
+    add-double v54, v54, v56
 
-    div-double v40, v50, v36
+    div-double v44, v54, v40
 
-    new-instance v49, Lcom/samsung/android/knox/location/LatLongPoint;
+    new-instance v53, Lcom/samsung/android/knox/location/LatLongPoint;
 
-    move-object/from16 v0, v49
+    move-object/from16 v0, v53
 
-    move-wide/from16 v1, v40
+    move-wide/from16 v1, v44
 
-    move-wide/from16 v3, v44
+    move-wide/from16 v3, v48
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/samsung/android/knox/location/LatLongPoint;-><init>(DD)V
 
     move-object/from16 v0, v23
 
-    move-object/from16 v1, v49
+    move-object/from16 v1, v53
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v27
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
-    mul-double v52, v36, v8
+    mul-double v56, v40, v8
 
-    add-double v46, v50, v52
+    add-double v50, v54, v56
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v27
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
-    sub-double v50, v46, v50
+    sub-double v54, v50, v54
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v27
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v52, v0
+    move-wide/from16 v56, v0
 
-    mul-double v52, v52, v36
+    mul-double v56, v56, v40
 
-    add-double v50, v50, v52
+    add-double v54, v54, v56
 
-    div-double v42, v50, v36
+    div-double v46, v54, v40
 
-    new-instance v49, Lcom/samsung/android/knox/location/LatLongPoint;
+    new-instance v53, Lcom/samsung/android/knox/location/LatLongPoint;
 
-    move-object/from16 v0, v49
+    move-object/from16 v0, v53
 
-    move-wide/from16 v1, v42
+    move-wide/from16 v1, v46
 
-    move-wide/from16 v3, v46
+    move-wide/from16 v3, v50
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/samsung/android/knox/location/LatLongPoint;-><init>(DD)V
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v26
 
-    move-object/from16 v1, v49
+    move-object/from16 v1, v53
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     if-nez v22, :cond_c
 
-    move-object/from16 v39, v6
+    move-object/from16 v43, v6
 
     :cond_c
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->size()I
 
-    move-result v49
+    move-result v53
 
-    add-int/lit8 v49, v49, -0x1
+    add-int/lit8 v53, v53, -0x1
 
     move/from16 v0, v22
 
-    move/from16 v1, v49
+    move/from16 v1, v53
 
     if-ne v0, v1, :cond_d
 
-    move-object/from16 v39, v7
+    move-object/from16 v43, v7
 
     :cond_d
     if-eqz v22, :cond_e
 
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->size()I
 
-    move-result v49
+    move-result v53
 
-    add-int/lit8 v49, v49, -0x1
+    add-int/lit8 v53, v53, -0x1
 
     move/from16 v0, v22
 
-    move/from16 v1, v49
+    move/from16 v1, v53
 
     if-ne v0, v1, :cond_6
 
     :cond_e
-    move-object/from16 v0, v39
+    move-object/from16 v0, v43
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
-    mul-double v52, v36, v8
+    mul-double v56, v40, v8
 
-    sub-double v44, v50, v52
+    sub-double v48, v54, v56
 
-    move-object/from16 v0, v39
+    move-object/from16 v0, v43
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
-    sub-double v50, v44, v50
+    sub-double v54, v48, v54
 
-    move-object/from16 v0, v39
+    move-object/from16 v0, v43
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v52, v0
+    move-wide/from16 v56, v0
 
-    mul-double v52, v52, v36
+    mul-double v56, v56, v40
 
-    add-double v50, v50, v52
+    add-double v54, v54, v56
 
-    div-double v40, v50, v36
+    div-double v44, v54, v40
 
     if-nez v22, :cond_12
 
-    new-instance v49, Lcom/samsung/android/knox/location/LatLongPoint;
+    new-instance v53, Lcom/samsung/android/knox/location/LatLongPoint;
 
-    move-object/from16 v0, v49
+    move-object/from16 v0, v53
 
-    move-wide/from16 v1, v40
+    move-wide/from16 v1, v44
 
-    move-wide/from16 v3, v44
+    move-wide/from16 v3, v48
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/samsung/android/knox/location/LatLongPoint;-><init>(DD)V
 
-    move-object/from16 v0, v49
+    move-object/from16 v0, v53
 
     invoke-interface {v13, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :goto_7
-    move-object/from16 v0, v39
+    move-object/from16 v0, v43
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
-    mul-double v52, v36, v8
+    mul-double v56, v40, v8
 
-    add-double v46, v50, v52
+    add-double v50, v54, v56
 
-    move-object/from16 v0, v39
+    move-object/from16 v0, v43
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
-    sub-double v50, v46, v50
+    sub-double v54, v50, v54
 
-    move-object/from16 v0, v39
+    move-object/from16 v0, v43
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v52, v0
+    move-wide/from16 v56, v0
 
-    mul-double v52, v52, v36
+    mul-double v56, v56, v40
 
-    add-double v50, v50, v52
+    add-double v54, v54, v56
 
-    div-double v42, v50, v36
+    div-double v46, v54, v40
 
     if-nez v22, :cond_13
 
-    new-instance v49, Lcom/samsung/android/knox/location/LatLongPoint;
+    new-instance v53, Lcom/samsung/android/knox/location/LatLongPoint;
 
-    move-object/from16 v0, v49
+    move-object/from16 v0, v53
 
-    move-wide/from16 v1, v42
+    move-wide/from16 v1, v46
 
-    move-wide/from16 v3, v46
+    move-wide/from16 v3, v50
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/samsung/android/knox/location/LatLongPoint;-><init>(DD)V
 
-    move-object/from16 v0, v49
+    move-object/from16 v0, v53
 
     invoke-interface {v12, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -5925,9 +5944,9 @@
     :cond_f
     new-instance v10, Lcom/samsung/android/knox/location/LatLongPoint;
 
-    move-wide/from16 v0, v40
+    move-wide/from16 v0, v44
 
-    move-wide/from16 v2, v44
+    move-wide/from16 v2, v48
 
     invoke-direct {v10, v0, v1, v2, v3}, Lcom/samsung/android/knox/location/LatLongPoint;-><init>(DD)V
 
@@ -5936,41 +5955,41 @@
     :cond_10
     new-instance v11, Lcom/samsung/android/knox/location/LatLongPoint;
 
-    move-wide/from16 v0, v42
+    move-wide/from16 v0, v46
 
-    move-wide/from16 v2, v46
+    move-wide/from16 v2, v50
 
     invoke-direct {v11, v0, v1, v2, v3}, Lcom/samsung/android/knox/location/LatLongPoint;-><init>(DD)V
 
     goto/16 :goto_5
 
     :cond_11
-    const-wide/16 v50, 0x0
+    const-wide/16 v54, 0x0
 
-    cmpg-double v49, v34, v50
+    cmpg-double v53, v38, v54
 
-    if-gez v49, :cond_6
+    if-gez v53, :cond_6
 
     iget-wide v0, v6, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v50, v0
+    move-wide/from16 v54, v0
 
     iget-wide v0, v7, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-wide/from16 v52, v0
+    move-wide/from16 v56, v0
 
-    cmpg-double v49, v50, v52
+    cmpg-double v53, v54, v56
 
-    if-gez v49, :cond_6
+    if-gez v53, :cond_6
 
     goto/16 :goto_6
 
     :cond_12
     new-instance v10, Lcom/samsung/android/knox/location/LatLongPoint;
 
-    move-wide/from16 v0, v40
+    move-wide/from16 v0, v44
 
-    move-wide/from16 v2, v44
+    move-wide/from16 v2, v48
 
     invoke-direct {v10, v0, v1, v2, v3}, Lcom/samsung/android/knox/location/LatLongPoint;-><init>(DD)V
 
@@ -5979,237 +5998,237 @@
     :cond_13
     new-instance v11, Lcom/samsung/android/knox/location/LatLongPoint;
 
-    move-wide/from16 v0, v42
+    move-wide/from16 v0, v46
 
-    move-wide/from16 v2, v46
+    move-wide/from16 v2, v50
 
     invoke-direct {v11, v0, v1, v2, v3}, Lcom/samsung/android/knox/location/LatLongPoint;-><init>(DD)V
 
     goto/16 :goto_5
 
     :cond_14
-    const/16 v48, 0x0
+    const/16 v52, 0x0
 
     const/16 v22, 0x0
 
     :goto_8
-    invoke-interface/range {v38 .. v38}, Ljava/util/List;->size()I
+    invoke-interface/range {v42 .. v42}, Ljava/util/List;->size()I
 
-    move-result v49
+    move-result v53
 
-    add-int/lit8 v49, v49, -0x2
+    add-int/lit8 v53, v53, -0x2
 
     move/from16 v0, v22
 
-    move/from16 v1, v49
+    move/from16 v1, v53
 
     if-ge v0, v1, :cond_15
 
-    move-object/from16 v0, v38
+    move-object/from16 v0, v42
 
     move/from16 v1, v22
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v49
+    move-result-object v53
 
-    check-cast v49, Ljava/lang/Double;
+    check-cast v53, Ljava/lang/Double;
 
-    invoke-virtual/range {v49 .. v49}, Ljava/lang/Double;->doubleValue()D
+    invoke-virtual/range {v53 .. v53}, Ljava/lang/Double;->doubleValue()D
 
-    move-result-wide v26
+    move-result-wide v30
 
-    add-int/lit8 v49, v22, 0x1
+    add-int/lit8 v53, v22, 0x1
 
-    move-object/from16 v0, v38
+    move-object/from16 v0, v42
 
-    move/from16 v1, v49
+    move/from16 v1, v53
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v49
+    move-result-object v53
 
-    check-cast v49, Ljava/lang/Double;
+    check-cast v53, Ljava/lang/Double;
 
-    invoke-virtual/range {v49 .. v49}, Ljava/lang/Double;->doubleValue()D
+    invoke-virtual/range {v53 .. v53}, Ljava/lang/Double;->doubleValue()D
 
-    move-result-wide v28
+    move-result-wide v32
 
     move-object/from16 v0, v23
 
-    move/from16 v1, v48
+    move/from16 v1, v52
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v30
+    move-result-object v34
 
-    check-cast v30, Lcom/samsung/android/knox/location/LatLongPoint;
+    check-cast v34, Lcom/samsung/android/knox/location/LatLongPoint;
 
-    add-int/lit8 v49, v48, 0x1
+    add-int/lit8 v53, v52, 0x1
 
     move-object/from16 v0, v23
 
-    move/from16 v1, v49
+    move/from16 v1, v53
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v31
+    move-result-object v35
 
-    check-cast v31, Lcom/samsung/android/knox/location/LatLongPoint;
+    check-cast v35, Lcom/samsung/android/knox/location/LatLongPoint;
 
-    move-object/from16 v0, v31
-
-    iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
-
-    move-wide/from16 v50, v0
-
-    move-object/from16 v0, v31
-
-    iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
-
-    move-wide/from16 v52, v0
-
-    mul-double v52, v52, v28
-
-    sub-double v50, v50, v52
-
-    move-object/from16 v0, v30
+    move-object/from16 v0, v35
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
-
-    move-wide/from16 v52, v0
-
-    move-object/from16 v0, v30
-
-    iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
     move-wide/from16 v54, v0
 
-    mul-double v54, v54, v26
-
-    sub-double v52, v52, v54
-
-    sub-double v50, v50, v52
-
-    sub-double v52, v26, v28
-
-    div-double v14, v50, v52
-
-    mul-double v50, v26, v14
-
-    move-object/from16 v0, v30
-
-    iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
-
-    move-wide/from16 v52, v0
-
-    move-object/from16 v0, v30
+    move-object/from16 v0, v35
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v54, v0
+    move-wide/from16 v56, v0
 
-    mul-double v54, v54, v26
+    mul-double v56, v56, v32
 
-    sub-double v52, v52, v54
+    sub-double v54, v54, v56
 
-    add-double v18, v50, v52
+    move-object/from16 v0, v34
 
-    new-instance v49, Lcom/samsung/android/knox/location/LatLongPoint;
+    iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-object/from16 v0, v49
+    move-wide/from16 v56, v0
+
+    move-object/from16 v0, v34
+
+    iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
+
+    move-wide/from16 v58, v0
+
+    mul-double v58, v58, v30
+
+    sub-double v56, v56, v58
+
+    sub-double v54, v54, v56
+
+    sub-double v56, v30, v32
+
+    div-double v14, v54, v56
+
+    mul-double v54, v30, v14
+
+    move-object/from16 v0, v34
+
+    iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
+
+    move-wide/from16 v56, v0
+
+    move-object/from16 v0, v34
+
+    iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
+
+    move-wide/from16 v58, v0
+
+    mul-double v58, v58, v30
+
+    sub-double v56, v56, v58
+
+    add-double v18, v54, v56
+
+    new-instance v53, Lcom/samsung/android/knox/location/LatLongPoint;
+
+    move-object/from16 v0, v53
 
     move-wide/from16 v1, v18
 
     invoke-direct {v0, v14, v15, v1, v2}, Lcom/samsung/android/knox/location/LatLongPoint;-><init>(DD)V
 
-    move-object/from16 v0, v49
+    move-object/from16 v0, v53
 
     invoke-interface {v13, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v26
 
-    move/from16 v1, v48
-
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v32
-
-    check-cast v32, Lcom/samsung/android/knox/location/LatLongPoint;
-
-    add-int/lit8 v49, v48, 0x1
-
-    move-object/from16 v0, v24
-
-    move/from16 v1, v49
+    move/from16 v1, v52
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v33
+    move-result-object v36
 
-    check-cast v33, Lcom/samsung/android/knox/location/LatLongPoint;
+    check-cast v36, Lcom/samsung/android/knox/location/LatLongPoint;
 
-    move-object/from16 v0, v32
+    add-int/lit8 v53, v52, 0x1
 
-    iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
+    move-object/from16 v0, v26
 
-    move-wide/from16 v50, v0
+    move/from16 v1, v53
 
-    move-object/from16 v0, v33
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
+    move-result-object v37
 
-    move-wide/from16 v52, v0
+    check-cast v37, Lcom/samsung/android/knox/location/LatLongPoint;
 
-    mul-double v52, v52, v28
-
-    sub-double v50, v50, v52
-
-    move-object/from16 v0, v32
+    move-object/from16 v0, v36
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
-
-    move-wide/from16 v52, v0
-
-    move-object/from16 v0, v32
-
-    iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
     move-wide/from16 v54, v0
 
-    mul-double v54, v54, v26
-
-    sub-double v52, v52, v54
-
-    sub-double v50, v50, v52
-
-    sub-double v52, v26, v28
-
-    div-double v16, v50, v52
-
-    mul-double v50, v26, v16
-
-    move-object/from16 v0, v32
-
-    iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
-
-    move-wide/from16 v52, v0
-
-    move-object/from16 v0, v32
+    move-object/from16 v0, v37
 
     iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    move-wide/from16 v54, v0
+    move-wide/from16 v56, v0
 
-    mul-double v54, v54, v26
+    mul-double v56, v56, v32
 
-    sub-double v52, v52, v54
+    sub-double v54, v54, v56
 
-    add-double v20, v50, v52
+    move-object/from16 v0, v36
 
-    new-instance v49, Lcom/samsung/android/knox/location/LatLongPoint;
+    iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
 
-    move-object/from16 v0, v49
+    move-wide/from16 v56, v0
+
+    move-object/from16 v0, v36
+
+    iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
+
+    move-wide/from16 v58, v0
+
+    mul-double v58, v58, v30
+
+    sub-double v56, v56, v58
+
+    sub-double v54, v54, v56
+
+    sub-double v56, v30, v32
+
+    div-double v16, v54, v56
+
+    mul-double v54, v30, v16
+
+    move-object/from16 v0, v36
+
+    iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
+
+    move-wide/from16 v56, v0
+
+    move-object/from16 v0, v36
+
+    iget-wide v0, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
+
+    move-wide/from16 v58, v0
+
+    mul-double v58, v58, v30
+
+    sub-double v56, v56, v58
+
+    add-double v20, v54, v56
+
+    new-instance v53, Lcom/samsung/android/knox/location/LatLongPoint;
+
+    move-object/from16 v0, v53
 
     move-wide/from16 v1, v16
 
@@ -6217,11 +6236,11 @@
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/samsung/android/knox/location/LatLongPoint;-><init>(DD)V
 
-    move-object/from16 v0, v49
+    move-object/from16 v0, v53
 
     invoke-interface {v12, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    add-int/lit8 v48, v48, 0x1
+    add-int/lit8 v52, v52, 0x1
 
     add-int/lit8 v22, v22, 0x1
 
@@ -6234,9 +6253,9 @@
 
     invoke-interface {v12}, Ljava/util/List;->size()I
 
-    move-result v49
+    move-result v53
 
-    add-int/lit8 v22, v49, -0x1
+    add-int/lit8 v22, v53, -0x1
 
     :goto_9
     if-ltz v22, :cond_16
@@ -6245,11 +6264,11 @@
 
     invoke-interface {v12, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v49
+    move-result-object v53
 
-    check-cast v49, Lcom/samsung/android/knox/location/LatLongPoint;
+    check-cast v53, Lcom/samsung/android/knox/location/LatLongPoint;
 
-    move-object/from16 v0, v49
+    move-object/from16 v0, v53
 
     invoke-interface {v13, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -6283,47 +6302,16 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     invoke-direct {p0, v0}, Lcom/android/server/enterprise/geofencing/GeofenceService;->isAdminHasGeofence(I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    xor-int/lit8 v3, v3, 0x1
 
-    :cond_0
-    if-eqz v2, :cond_1
+    if-eqz v3, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/server/enterprise/geofencing/GeofenceService;->getHandler()Landroid/os/Handler;
-
-    move-result-object v3
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    const/4 v5, 0x1
-
-    invoke-virtual {v3, v5, v4}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v1
-
-    invoke-virtual {p0}, Lcom/android/server/enterprise/geofencing/GeofenceService;->getHandler()Landroid/os/Handler;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    :cond_1
-    :goto_0
-    monitor-exit p0
-
-    return v2
-
-    :cond_2
-    :try_start_1
     iget-object v3, p0, Lcom/android/server/enterprise/geofencing/GeofenceService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     const-string/jumbo v4, "GEOFENCINGSETTINGS"
@@ -6349,6 +6337,38 @@
     move-result-object v3
 
     invoke-virtual {v3, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    :goto_0
+    monitor-exit p0
+
+    return v2
+
+    :cond_1
+    if-eqz v2, :cond_0
+
+    :try_start_1
+    invoke-virtual {p0}, Lcom/android/server/enterprise/geofencing/GeofenceService;->getHandler()Landroid/os/Handler;
+
+    move-result-object v3
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    const/4 v5, 0x1
+
+    invoke-virtual {v3, v5, v4}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Lcom/android/server/enterprise/geofencing/GeofenceService;->getHandler()Landroid/os/Handler;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -6363,79 +6383,81 @@
 .end method
 
 .method public findDistance(Lcom/samsung/android/knox/location/LatLongPoint;Lcom/samsung/android/knox/location/LatLongPoint;)D
-    .locals 18
+    .locals 20
+
+    const-wide v2, 0x40aeed880a82edb3L    # 3958.765705195919
 
     move-object/from16 v0, p1
 
-    iget-wide v12, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
+    iget-wide v14, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
 
-    invoke-static {v12, v13}, Ljava/lang/Math;->toRadians(D)D
-
-    move-result-wide v6
-
-    move-object/from16 v0, p1
-
-    iget-wide v12, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
-
-    invoke-static {v12, v13}, Ljava/lang/Math;->toRadians(D)D
-
-    move-result-wide v10
-
-    move-object/from16 v0, p2
-
-    iget-wide v12, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
-
-    invoke-static {v12, v13}, Ljava/lang/Math;->toRadians(D)D
-
-    move-result-wide v4
-
-    move-object/from16 v0, p2
-
-    iget-wide v12, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
-
-    invoke-static {v12, v13}, Ljava/lang/Math;->toRadians(D)D
+    invoke-static {v14, v15}, Ljava/lang/Math;->toRadians(D)D
 
     move-result-wide v8
 
-    invoke-static {v4, v5}, Ljava/lang/Math;->sin(D)D
+    move-object/from16 v0, p1
+
+    iget-wide v14, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
+
+    invoke-static {v14, v15}, Ljava/lang/Math;->toRadians(D)D
 
     move-result-wide v12
+
+    move-object/from16 v0, p2
+
+    iget-wide v14, v0, Lcom/samsung/android/knox/location/LatLongPoint;->latitude:D
+
+    invoke-static {v14, v15}, Ljava/lang/Math;->toRadians(D)D
+
+    move-result-wide v6
+
+    move-object/from16 v0, p2
+
+    iget-wide v14, v0, Lcom/samsung/android/knox/location/LatLongPoint;->longitude:D
+
+    invoke-static {v14, v15}, Ljava/lang/Math;->toRadians(D)D
+
+    move-result-wide v10
 
     invoke-static {v6, v7}, Ljava/lang/Math;->sin(D)D
 
     move-result-wide v14
 
-    mul-double/2addr v12, v14
+    invoke-static {v8, v9}, Ljava/lang/Math;->sin(D)D
 
-    invoke-static {v4, v5}, Ljava/lang/Math;->cos(D)D
+    move-result-wide v16
 
-    move-result-wide v14
+    mul-double v14, v14, v16
 
     invoke-static {v6, v7}, Ljava/lang/Math;->cos(D)D
 
     move-result-wide v16
 
-    mul-double v14, v14, v16
+    invoke-static {v8, v9}, Ljava/lang/Math;->cos(D)D
 
-    sub-double v16, v10, v8
+    move-result-wide v18
 
-    invoke-static/range {v16 .. v17}, Ljava/lang/Math;->cos(D)D
+    mul-double v16, v16, v18
 
-    move-result-wide v16
+    sub-double v18, v12, v10
 
-    mul-double v14, v14, v16
+    invoke-static/range {v18 .. v19}, Ljava/lang/Math;->cos(D)D
 
-    add-double/2addr v12, v14
+    move-result-wide v18
 
-    invoke-static {v12, v13}, Ljava/lang/Math;->acos(D)D
+    mul-double v16, v16, v18
 
-    move-result-wide v12
+    add-double v14, v14, v16
 
-    const-wide v14, 0x40aeed880a82edb3L    # 3958.765705195919
+    invoke-static {v14, v15}, Ljava/lang/Math;->acos(D)D
 
-    mul-double v2, v12, v14
+    move-result-wide v14
 
-    return-wide v2
+    const-wide v16, 0x40aeed880a82edb3L    # 3958.765705195919
+
+    mul-double v4, v14, v16
+
+    return-wide v4
 .end method
 
 .method public getGeofences(Lcom/samsung/android/knox/ContextInfo;)Ljava/util/List;

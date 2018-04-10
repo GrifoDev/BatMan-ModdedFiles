@@ -286,11 +286,15 @@
     const/4 v2, 0x1
 
     :goto_0
+    const/4 v2, 0x1
+
     sget-boolean v3, Lcom/android/server/AlarmManagerServiceExt$Sales;->VZW:Z
+
+    xor-int/lit8 v3, v3, 0x1
 
     if-eqz v3, :cond_1
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
     :goto_1
     const-string/jumbo v4, "dev.ssrm.appsync3p"
@@ -343,7 +347,7 @@
     goto :goto_0
 
     :cond_1
-    const/4 v1, 0x1
+    const/4 v1, 0x0
 
     goto :goto_1
 

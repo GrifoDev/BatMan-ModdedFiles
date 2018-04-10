@@ -44,9 +44,9 @@
 .method protected synchronizeData()V
     .locals 2
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DeferredProcessingInstructionImpl;->needsSyncData(Z)V
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/DeferredProcessingInstructionImpl;->needsSyncData(Z)V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DeferredProcessingInstructionImpl;->ownerDocument()Lmf/org/apache/xerces/dom/CoreDocumentImpl;
 
@@ -66,9 +66,9 @@
 
     invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeValueString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DeferredProcessingInstructionImpl;->data:Ljava/lang/String;
+    iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredProcessingInstructionImpl;->data:Ljava/lang/String;
 
     return-void
 .end method

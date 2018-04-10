@@ -1,5 +1,5 @@
 .class Lcom/android/server/pm/PersonaManagerService$5;
-.super Landroid/database/ContentObserver;
+.super Landroid/content/BroadcastReceiver;
 .source "PersonaManagerService.java"
 
 
@@ -19,246 +19,246 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PersonaManagerService;Landroid/os/Handler;)V
+.method constructor <init>(Lcom/android/server/pm/PersonaManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/PersonaManagerService$5;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
-    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onChange(ZLandroid/net/Uri;I)V
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 9
 
-    const/4 v8, -0x1
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    const/4 v7, 0x0
+    move-result-object v0
 
-    const-string/jumbo v4, "PersonaManagerService"
+    const-string/jumbo v6, "android.intent.extra.user_handle"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    const/4 v7, -0x1
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {p2, v6, v7}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    const-string/jumbo v6, "onChange "
+    move-result v5
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "PersonaManagerService"
 
-    move-result-object v5
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v5
+    const-string/jumbo v8, "UserReceiver.onReceive() {action:"
 
-    const-string/jumbo v6, " / "
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v7
 
-    move-result-object v5
+    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v7
 
-    move-result-object v5
+    const-string/jumbo v8, " userHandle:"
 
-    const-string/jumbo v6, " / "
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v7
 
-    move-result-object v5
+    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v7
 
-    move-result-object v5
+    const-string/jumbo v8, "}"
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string/jumbo v4, "hide_secure_folder_flag"
+    move-result-object v7
 
-    invoke-static {v4}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v4
+    iget-object v6, p0, Lcom/android/server/pm/PersonaManagerService$5;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
-    invoke-virtual {p2, v4}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+    invoke-static {v6}, Lcom/android/server/pm/PersonaManagerService;->-get1(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/Context;
 
-    move-result v4
+    move-result-object v6
 
-    if-eqz v4, :cond_1
+    const-class v7, Landroid/os/UserManager;
 
-    if-nez p3, :cond_1
-
-    const/4 v0, 0x0
-
-    iget-object v4, p0, Lcom/android/server/pm/PersonaManagerService$5;->this$0:Lcom/android/server/pm/PersonaManagerService;
-
-    invoke-static {v4}, Lcom/android/server/pm/PersonaManagerService;->-get4(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/Context;
+    invoke-virtual {v6, v7}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v4
 
-    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    check-cast v4, Landroid/os/UserManager;
 
-    move-result-object v4
+    const-string/jumbo v6, "android.intent.action.MANAGED_PROFILE_ADDED"
 
-    const-string/jumbo v5, "hide_secure_folder_flag"
+    invoke-virtual {v6, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-static {v4, v5, v7, v7}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+    move-result v6
 
-    move-result v0
+    if-eqz v6, :cond_1
 
-    iget-object v4, p0, Lcom/android/server/pm/PersonaManagerService$5;->this$0:Lcom/android/server/pm/PersonaManagerService;
+    const-string/jumbo v6, "android.intent.extra.USER"
 
-    invoke-static {v4}, Lcom/android/server/pm/PersonaManagerService;->-get25(Lcom/android/server/pm/PersonaManagerService;)I
+    invoke-virtual {p2, v6}, Landroid/content/Intent;->getExtra(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result v4
+    move-result-object v2
 
-    if-eq v4, v8, :cond_0
+    check-cast v2, Landroid/os/UserHandle;
 
-    iget-object v4, p0, Lcom/android/server/pm/PersonaManagerService$5;->this$0:Lcom/android/server/pm/PersonaManagerService;
+    invoke-virtual {v2}, Landroid/os/UserHandle;->getIdentifier()I
 
-    invoke-static {v4, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap62(Lcom/android/server/pm/PersonaManagerService;I)V
+    move-result v6
+
+    invoke-static {v6}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    invoke-virtual {v2}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v6
+
+    const/16 v7, 0x12
+
+    invoke-static {p1, v6, v7}, Lcom/samsung/android/knox/SemPersonaManager;->sendContainerEvent(Landroid/content/Context;II)V
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    const-string/jumbo v4, "secure_folder_name"
+    const-string/jumbo v6, "android.intent.action.MANAGED_PROFILE_REMOVED"
 
-    invoke-static {v4}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-virtual {v6, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v4
+    move-result v6
 
-    invoke-virtual {p2, v4}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+    if-eqz v6, :cond_2
 
-    move-result v4
+    iget-object v6, p0, Lcom/android/server/pm/PersonaManagerService$5;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
-    if-eqz v4, :cond_2
+    invoke-static {v6}, Lcom/android/server/pm/PersonaManagerService;->-get13(Lcom/android/server/pm/PersonaManagerService;)Landroid/os/UserManager;
 
-    if-nez p3, :cond_2
+    move-result-object v6
 
-    iget-object v4, p0, Lcom/android/server/pm/PersonaManagerService$5;->this$0:Lcom/android/server/pm/PersonaManagerService;
-
-    invoke-static {v4}, Lcom/android/server/pm/PersonaManagerService;->-get4(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/Context;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "secure_folder_name"
-
-    invoke-static {v4, v5, v7}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
+    invoke-virtual {v6, v5}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
 
     move-result-object v3
 
-    iget-object v4, p0, Lcom/android/server/pm/PersonaManagerService$5;->this$0:Lcom/android/server/pm/PersonaManagerService;
+    new-instance v1, Landroid/os/Bundle;
 
-    invoke-static {v4}, Lcom/android/server/pm/PersonaManagerService;->-get25(Lcom/android/server/pm/PersonaManagerService;)I
+    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
-    move-result v4
+    sget-object v6, Landroid/os/ContainerStateReceiver;->EXTRA_USER_INFO:Ljava/lang/String;
 
-    if-eq v4, v8, :cond_0
+    invoke-virtual {v1, v6, v3}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    iget-object v4, p0, Lcom/android/server/pm/PersonaManagerService$5;->this$0:Lcom/android/server/pm/PersonaManagerService;
+    const/16 v6, 0xa
 
-    invoke-static {v4, v3}, Lcom/android/server/pm/PersonaManagerService;->-wrap22(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
+    invoke-static {p1, v5, v6, v1}, Lcom/samsung/android/knox/SemPersonaManager;->sendContainerEvent(Landroid/content/Context;IILandroid/os/Bundle;)V
 
-    const-string/jumbo v4, "rcp"
+    iget-object v6, p0, Lcom/android/server/pm/PersonaManagerService$5;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
-    invoke-static {v4}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {v6}, Lcom/android/server/pm/PersonaManagerService;->-get3(Lcom/android/server/pm/PersonaManagerService;)Landroid/util/SparseBooleanArray;
 
-    move-result-object v1
+    move-result-object v7
 
-    check-cast v1, Lcom/android/server/RCPManagerService;
+    monitor-enter v7
 
-    if-eqz v1, :cond_0
+    :try_start_0
+    iget-object v6, p0, Lcom/android/server/pm/PersonaManagerService$5;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
-    const-string/jumbo v4, "true"
+    invoke-static {v6}, Lcom/android/server/pm/PersonaManagerService;->-get3(Lcom/android/server/pm/PersonaManagerService;)Landroid/util/SparseBooleanArray;
 
-    iget-object v5, p0, Lcom/android/server/pm/PersonaManagerService$5;->this$0:Lcom/android/server/pm/PersonaManagerService;
+    move-result-object v6
 
-    invoke-static {v5}, Lcom/android/server/pm/PersonaManagerService;->-get25(Lcom/android/server/pm/PersonaManagerService;)I
+    invoke-virtual {v6, v5}, Landroid/util/SparseBooleanArray;->delete(I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v5
-
-    const-string/jumbo v6, "Calendar"
-
-    const-string/jumbo v7, "knox-export-data"
-
-    invoke-virtual {v1, v5, v6, v7}, Lcom/android/server/RCPManagerService;->getPolicy(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    iget-object v4, p0, Lcom/android/server/pm/PersonaManagerService$5;->this$0:Lcom/android/server/pm/PersonaManagerService;
-
-    invoke-static {v4, v3}, Lcom/android/server/pm/PersonaManagerService;->-wrap67(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
+    :goto_1
+    monitor-exit v7
 
     goto :goto_0
 
+    :catchall_0
+    move-exception v6
+
+    monitor-exit v7
+
+    throw v6
+
     :cond_2
-    const-string/jumbo v4, "secure_folder_image_name"
+    const-string/jumbo v6, "android.intent.action.USER_UNLOCKED"
 
-    invoke-static {v4}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-virtual {v6, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v4
+    move-result v6
 
-    invoke-virtual {p2, v4}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+    if-eqz v6, :cond_3
 
-    move-result v4
+    iget-object v6, p0, Lcom/android/server/pm/PersonaManagerService$5;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
-    if-eqz v4, :cond_0
+    invoke-static {v6}, Lcom/android/server/pm/PersonaManagerService;->-get1(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/Context;
 
-    if-nez p3, :cond_0
+    move-result-object v6
 
-    iget-object v4, p0, Lcom/android/server/pm/PersonaManagerService$5;->this$0:Lcom/android/server/pm/PersonaManagerService;
+    const/4 v7, 0x5
 
-    invoke-static {v4}, Lcom/android/server/pm/PersonaManagerService;->-get4(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/Context;
+    invoke-static {v6, v5, v7}, Lcom/samsung/android/knox/SemPersonaManager;->sendContainerEvent(Landroid/content/Context;II)V
 
-    move-result-object v4
+    iget-object v6, p0, Lcom/android/server/pm/PersonaManagerService$5;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
-    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-static {v6}, Lcom/android/server/pm/PersonaManagerService;->-get3(Lcom/android/server/pm/PersonaManagerService;)Landroid/util/SparseBooleanArray;
 
-    move-result-object v4
+    move-result-object v7
 
-    const-string/jumbo v5, "secure_folder_image_name"
+    monitor-enter v7
 
-    invoke-static {v4, v5, v7}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
+    :try_start_1
+    iget-object v6, p0, Lcom/android/server/pm/PersonaManagerService$5;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
-    move-result-object v2
+    invoke-static {v6}, Lcom/android/server/pm/PersonaManagerService;->-get3(Lcom/android/server/pm/PersonaManagerService;)Landroid/util/SparseBooleanArray;
 
-    iget-object v4, p0, Lcom/android/server/pm/PersonaManagerService$5;->this$0:Lcom/android/server/pm/PersonaManagerService;
+    move-result-object v6
 
-    invoke-static {v4}, Lcom/android/server/pm/PersonaManagerService;->-get25(Lcom/android/server/pm/PersonaManagerService;)I
+    const/4 v8, 0x0
 
-    move-result v4
+    invoke-virtual {v6, v5, v8}, Landroid/util/SparseBooleanArray;->put(IZ)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    if-eq v4, v8, :cond_0
+    goto :goto_1
 
-    if-eqz v2, :cond_0
+    :catchall_1
+    move-exception v6
 
-    invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
+    monitor-exit v7
 
-    move-result v4
+    throw v6
 
-    if-nez v4, :cond_0
+    :cond_3
+    const-string/jumbo v6, "android.intent.action.USER_STOPPED"
 
-    iget-object v4, p0, Lcom/android/server/pm/PersonaManagerService$5;->this$0:Lcom/android/server/pm/PersonaManagerService;
+    invoke-virtual {v6, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-static {v4, v2}, Lcom/android/server/pm/PersonaManagerService;->-wrap21(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
+    move-result v6
 
-    goto/16 :goto_0
+    if-eqz v6, :cond_0
+
+    const/4 v6, 0x2
+
+    invoke-static {p1, v5, v6}, Lcom/samsung/android/knox/SemPersonaManager;->sendContainerEvent(Landroid/content/Context;II)V
+
+    goto :goto_0
 .end method

@@ -127,29 +127,34 @@
 
     if-nez v6, :cond_1
 
-    invoke-virtual {v0, p1}, Landroid/app/admin/DevicePolicyManager;->isProfileOwnerApp(Ljava/lang/String;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_2
-
-    :cond_1
-    return-void
-
-    :cond_2
     invoke-virtual {v5, p1, v4}, Lcom/android/server/vr/VrManagerInternal;->isCurrentVrListener(Ljava/lang/String;I)Z
 
     move-result v6
 
-    if-nez v6, :cond_1
+    xor-int/lit8 v6, v6, 0x1
+
+    if-eqz v6, :cond_1
+
+    iget-object v6, p0, Lcom/android/server/HardwarePropertiesManagerService;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v7, "android.permission.DEVICE_POWER"
+
+    invoke-virtual {v6, v7}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+
+    move-result v6
+
+    if-eqz v6, :cond_1
 
     new-instance v6, Ljava/lang/SecurityException;
 
-    const-string/jumbo v7, "The caller is not a device or profile owner or bound VrListenerService."
+    const-string/jumbo v7, "The caller is not a device owner, bound VrListenerService, or holding the DEVICE_POWER permission."
 
     invoke-direct {v6, v7}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
 
     throw v6
+
+    :cond_1
+    return-void
 .end method
 
 .method private static declared-synchronized getService(Landroid/content/Context;)Landroid/os/ICustomFrequencyManager;

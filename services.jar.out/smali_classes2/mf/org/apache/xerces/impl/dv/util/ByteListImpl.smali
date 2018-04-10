@@ -26,35 +26,35 @@
 
 # virtual methods
 .method public contains(B)Z
-    .locals 3
+    .locals 2
 
-    const/4 v1, 0x0
-
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_0
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/util/ByteListImpl;->data:[B
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/util/ByteListImpl;->data:[B
 
-    array-length v2, v2
+    array-length v1, v1
 
-    if-ge v0, v2, :cond_1
+    if-ge v0, v1, :cond_1
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/util/ByteListImpl;->data:[B
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/util/ByteListImpl;->data:[B
 
-    aget-byte v2, v2, v0
+    aget-byte v1, v1, v0
 
-    if-eq v2, p1, :cond_0
+    if-eq v1, p1, :cond_0
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    return v0
+    return v1
 
     :cond_1
+    const/4 v1, 0x0
+
     return v1
 .end method
 
@@ -164,11 +164,11 @@
 
     const/4 v3, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/util/ByteListImpl;->data:[B
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/util/ByteListImpl;->data:[B
 
-    array-length v0, v0
+    array-length v1, v1
 
-    new-array v0, v0, [B
+    new-array v0, v1, [B
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/util/ByteListImpl;->data:[B
 

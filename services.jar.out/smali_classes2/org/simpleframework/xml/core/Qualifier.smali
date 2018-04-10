@@ -30,9 +30,9 @@
 .method private namespace(Lorg/simpleframework/xml/core/Contact;)V
     .locals 2
 
-    const-class v0, Lorg/simpleframework/xml/Namespace;
+    const-class v1, Lorg/simpleframework/xml/Namespace;
 
-    invoke-interface {p1, v0}, Lorg/simpleframework/xml/core/Contact;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+    invoke-interface {p1, v1}, Lorg/simpleframework/xml/core/Contact;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
 
     move-result-object v0
 
@@ -66,40 +66,40 @@
 .end method
 
 .method private scope(Lorg/simpleframework/xml/core/Contact;)V
-    .locals 5
+    .locals 6
 
-    const-class v0, Lorg/simpleframework/xml/NamespaceList;
+    const-class v5, Lorg/simpleframework/xml/NamespaceList;
 
-    invoke-interface {p1, v0}, Lorg/simpleframework/xml/core/Contact;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+    invoke-interface {p1, v5}, Lorg/simpleframework/xml/core/Contact;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
 
-    move-result-object v0
+    move-result-object v4
 
-    check-cast v0, Lorg/simpleframework/xml/NamespaceList;
+    check-cast v4, Lorg/simpleframework/xml/NamespaceList;
 
-    if-nez v0, :cond_1
+    if-nez v4, :cond_1
 
     :cond_0
     return-void
 
     :cond_1
-    invoke-interface {v0}, Lorg/simpleframework/xml/NamespaceList;->value()[Lorg/simpleframework/xml/Namespace;
+    invoke-interface {v4}, Lorg/simpleframework/xml/NamespaceList;->value()[Lorg/simpleframework/xml/Namespace;
 
-    move-result-object v1
+    move-result-object v0
 
-    array-length v2, v1
+    array-length v2, v0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v0, v2, :cond_0
+    if-ge v1, v2, :cond_0
 
-    aget-object v3, v1, v0
+    aget-object v3, v0, v1
 
-    iget-object v4, p0, Lorg/simpleframework/xml/core/Qualifier;->decorator:Lorg/simpleframework/xml/core/NamespaceDecorator;
+    iget-object v5, p0, Lorg/simpleframework/xml/core/Qualifier;->decorator:Lorg/simpleframework/xml/core/NamespaceDecorator;
 
-    invoke-virtual {v4, v3}, Lorg/simpleframework/xml/core/NamespaceDecorator;->add(Lorg/simpleframework/xml/Namespace;)V
+    invoke-virtual {v5, v3}, Lorg/simpleframework/xml/core/NamespaceDecorator;->add(Lorg/simpleframework/xml/Namespace;)V
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 .end method

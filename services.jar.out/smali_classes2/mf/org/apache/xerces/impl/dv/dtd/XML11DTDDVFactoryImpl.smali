@@ -11,21 +11,21 @@
 .method static constructor <clinit>()V
     .locals 4
 
-    new-instance v0, Ljava/util/Hashtable;
+    new-instance v1, Ljava/util/Hashtable;
 
-    invoke-direct {v0}, Ljava/util/Hashtable;-><init>()V
+    invoke-direct {v1}, Ljava/util/Hashtable;-><init>()V
 
-    sput-object v0, Lmf/org/apache/xerces/impl/dv/dtd/XML11DTDDVFactoryImpl;->fXML11BuiltInTypes:Ljava/util/Hashtable;
+    sput-object v1, Lmf/org/apache/xerces/impl/dv/dtd/XML11DTDDVFactoryImpl;->fXML11BuiltInTypes:Ljava/util/Hashtable;
 
-    sget-object v0, Lmf/org/apache/xerces/impl/dv/dtd/XML11DTDDVFactoryImpl;->fXML11BuiltInTypes:Ljava/util/Hashtable;
-
-    const-string/jumbo v1, "XML11ID"
+    sget-object v1, Lmf/org/apache/xerces/impl/dv/dtd/XML11DTDDVFactoryImpl;->fXML11BuiltInTypes:Ljava/util/Hashtable;
 
     new-instance v2, Lmf/org/apache/xerces/impl/dv/dtd/XML11IDDatatypeValidator;
 
     invoke-direct {v2}, Lmf/org/apache/xerces/impl/dv/dtd/XML11IDDatatypeValidator;-><init>()V
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string/jumbo v3, "XML11ID"
+
+    invoke-virtual {v1, v3, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     new-instance v0, Lmf/org/apache/xerces/impl/dv/dtd/XML11IDREFDatatypeValidator;
 
@@ -39,13 +39,13 @@
 
     sget-object v1, Lmf/org/apache/xerces/impl/dv/dtd/XML11DTDDVFactoryImpl;->fXML11BuiltInTypes:Ljava/util/Hashtable;
 
-    const-string/jumbo v2, "XML11IDREFS"
+    new-instance v2, Lmf/org/apache/xerces/impl/dv/dtd/ListDatatypeValidator;
 
-    new-instance v3, Lmf/org/apache/xerces/impl/dv/dtd/ListDatatypeValidator;
+    invoke-direct {v2, v0}, Lmf/org/apache/xerces/impl/dv/dtd/ListDatatypeValidator;-><init>(Lmf/org/apache/xerces/impl/dv/DatatypeValidator;)V
 
-    invoke-direct {v3, v0}, Lmf/org/apache/xerces/impl/dv/dtd/ListDatatypeValidator;-><init>(Lmf/org/apache/xerces/impl/dv/DatatypeValidator;)V
+    const-string/jumbo v3, "XML11IDREFS"
 
-    invoke-virtual {v1, v2, v3}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v3, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     new-instance v0, Lmf/org/apache/xerces/impl/dv/dtd/XML11NMTOKENDatatypeValidator;
 
@@ -59,13 +59,13 @@
 
     sget-object v1, Lmf/org/apache/xerces/impl/dv/dtd/XML11DTDDVFactoryImpl;->fXML11BuiltInTypes:Ljava/util/Hashtable;
 
-    const-string/jumbo v2, "XML11NMTOKENS"
+    new-instance v2, Lmf/org/apache/xerces/impl/dv/dtd/ListDatatypeValidator;
 
-    new-instance v3, Lmf/org/apache/xerces/impl/dv/dtd/ListDatatypeValidator;
+    invoke-direct {v2, v0}, Lmf/org/apache/xerces/impl/dv/dtd/ListDatatypeValidator;-><init>(Lmf/org/apache/xerces/impl/dv/DatatypeValidator;)V
 
-    invoke-direct {v3, v0}, Lmf/org/apache/xerces/impl/dv/dtd/ListDatatypeValidator;-><init>(Lmf/org/apache/xerces/impl/dv/DatatypeValidator;)V
+    const-string/jumbo v3, "XML11NMTOKENS"
 
-    invoke-virtual {v1, v2, v3}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v3, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
 .end method
@@ -114,51 +114,51 @@
 .end method
 
 .method public getBuiltInTypes()Ljava/util/Hashtable;
-    .locals 4
+    .locals 6
 
-    sget-object v0, Lmf/org/apache/xerces/impl/dv/dtd/XML11DTDDVFactoryImpl;->fBuiltInTypes:Ljava/util/Hashtable;
+    sget-object v5, Lmf/org/apache/xerces/impl/dv/dtd/XML11DTDDVFactoryImpl;->fBuiltInTypes:Ljava/util/Hashtable;
 
-    invoke-virtual {v0}, Ljava/util/Hashtable;->clone()Ljava/lang/Object;
+    invoke-virtual {v5}, Ljava/util/Hashtable;->clone()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v4
 
-    check-cast v0, Ljava/util/Hashtable;
+    check-cast v4, Ljava/util/Hashtable;
 
-    sget-object v1, Lmf/org/apache/xerces/impl/dv/dtd/XML11DTDDVFactoryImpl;->fXML11BuiltInTypes:Ljava/util/Hashtable;
+    sget-object v5, Lmf/org/apache/xerces/impl/dv/dtd/XML11DTDDVFactoryImpl;->fXML11BuiltInTypes:Ljava/util/Hashtable;
 
-    invoke-virtual {v1}, Ljava/util/Hashtable;->entrySet()Ljava/util/Set;
+    invoke-virtual {v5}, Ljava/util/Hashtable;->entrySet()Ljava/util/Set;
+
+    move-result-object v5
+
+    invoke-interface {v5}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v2, Ljava/util/Map$Entry;
 
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/util/Map$Entry;
-
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v3
 
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v0, v3, v1}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v3, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
     :cond_0
-    return-object v0
+    return-object v4
 .end method

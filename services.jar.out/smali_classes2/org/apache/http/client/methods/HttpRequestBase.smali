@@ -1,156 +1,207 @@
 .class public abstract Lorg/apache/http/client/methods/HttpRequestBase;
-.super Lorg/apache/http/message/AbstractHttpMessage;
+.super Lorg/apache/http/client/methods/AbstractExecutionAwareRequest;
 .source "HttpRequestBase.java"
 
 # interfaces
 .implements Lorg/apache/http/client/methods/HttpUriRequest;
-.implements Lorg/apache/http/client/methods/AbortableHttpRequest;
+.implements Lorg/apache/http/client/methods/Configurable;
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
+# instance fields
+.field private config:Lorg/apache/http/client/config/RequestConfig;
+
+.field private uri:Ljava/net/URI;
+
+.field private version:Lorg/apache/http/ProtocolVersion;
 
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .locals 0
 
-    invoke-direct {p0}, Lorg/apache/http/message/AbstractHttpMessage;-><init>()V
+    invoke-direct {p0}, Lorg/apache/http/client/methods/AbstractExecutionAwareRequest;-><init>()V
 
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 
 # virtual methods
-.method public abort()V
-    .locals 2
+.method public getConfig()Lorg/apache/http/client/config/RequestConfig;
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/client/methods/HttpRequestBase;->config:Lorg/apache/http/client/config/RequestConfig;
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
-.method public clone()Ljava/lang/Object;
-    .locals 2
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/CloneNotSupportedException;
-        }
-    .end annotation
-
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-object v0
 .end method
 
 .method public abstract getMethod()Ljava/lang/String;
 .end method
 
 .method public getProtocolVersion()Lorg/apache/http/ProtocolVersion;
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/client/methods/HttpRequestBase;->version:Lorg/apache/http/ProtocolVersion;
 
-    const-string/jumbo v1, "Stub!"
+    if-nez v0, :cond_0
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0}, Lorg/apache/http/client/methods/HttpRequestBase;->getParams()Lorg/apache/http/params/HttpParams;
 
-    throw v0
+    move-result-object v0
+
+    invoke-static {v0}, Lorg/apache/http/params/HttpProtocolParams;->getVersion(Lorg/apache/http/params/HttpParams;)Lorg/apache/http/ProtocolVersion;
+
+    move-result-object v0
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    iget-object v0, p0, Lorg/apache/http/client/methods/HttpRequestBase;->version:Lorg/apache/http/ProtocolVersion;
+
+    goto :goto_0
 .end method
 
 .method public getRequestLine()Lorg/apache/http/RequestLine;
-    .locals 2
+    .locals 5
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    invoke-virtual {p0}, Lorg/apache/http/client/methods/HttpRequestBase;->getMethod()Ljava/lang/String;
 
-    const-string/jumbo v1, "Stub!"
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0}, Lorg/apache/http/client/methods/HttpRequestBase;->getProtocolVersion()Lorg/apache/http/ProtocolVersion;
 
-    throw v0
+    move-result-object v3
+
+    invoke-virtual {p0}, Lorg/apache/http/client/methods/HttpRequestBase;->getURI()Ljava/net/URI;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    if-nez v1, :cond_1
+
+    :goto_0
+    if-nez v2, :cond_2
+
+    :cond_0
+    const-string/jumbo v2, "/"
+
+    :goto_1
+    new-instance v4, Lorg/apache/http/message/BasicRequestLine;
+
+    invoke-direct {v4, v0, v2, v3}, Lorg/apache/http/message/BasicRequestLine;-><init>(Ljava/lang/String;Ljava/lang/String;Lorg/apache/http/ProtocolVersion;)V
+
+    return-object v4
+
+    :cond_1
+    invoke-virtual {v1}, Ljava/net/URI;->toASCIIString()Ljava/lang/String;
+
+    move-result-object v2
+
+    goto :goto_0
+
+    :cond_2
+    invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    goto :goto_1
 .end method
 
 .method public getURI()Ljava/net/URI;
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/client/methods/HttpRequestBase;->uri:Ljava/net/URI;
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-object v0
 .end method
 
-.method public isAborted()Z
-    .locals 2
+.method public releaseConnection()V
+    .locals 0
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    invoke-virtual {p0}, Lorg/apache/http/client/methods/HttpRequestBase;->reset()V
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
-.method public setConnectionRequest(Lorg/apache/http/conn/ClientConnectionRequest;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
+.method public setConfig(Lorg/apache/http/client/config/RequestConfig;)V
+    .locals 0
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iput-object p1, p0, Lorg/apache/http/client/methods/HttpRequestBase;->config:Lorg/apache/http/client/config/RequestConfig;
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
-.method public setReleaseTrigger(Lorg/apache/http/conn/ConnectionReleaseTrigger;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
+.method public setProtocolVersion(Lorg/apache/http/ProtocolVersion;)V
+    .locals 0
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iput-object p1, p0, Lorg/apache/http/client/methods/HttpRequestBase;->version:Lorg/apache/http/ProtocolVersion;
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 .method public setURI(Ljava/net/URI;)V
+    .locals 0
+
+    iput-object p1, p0, Lorg/apache/http/client/methods/HttpRequestBase;->uri:Ljava/net/URI;
+
+    return-void
+.end method
+
+.method public started()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public toString()Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "Stub!"
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0}, Lorg/apache/http/client/methods/HttpRequestBase;->getMethod()Ljava/lang/String;
 
-    throw v0
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lorg/apache/http/client/methods/HttpRequestBase;->getURI()Ljava/net/URI;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lorg/apache/http/client/methods/HttpRequestBase;->getProtocolVersion()Lorg/apache/http/ProtocolVersion;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method

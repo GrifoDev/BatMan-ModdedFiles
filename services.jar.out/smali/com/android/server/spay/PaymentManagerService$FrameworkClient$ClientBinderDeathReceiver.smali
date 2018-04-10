@@ -43,54 +43,89 @@
 .end method
 
 .method private deleteClient()V
-    .locals 7
+    .locals 9
 
-    const-string/jumbo v4, "PaymentManagerService"
+    const-string/jumbo v6, "PaymentManagerService"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "Error: Client stopped. Clearing Databstructures for "
+    const-string/jumbo v8, "Error: Client stopped. Clearing Databstructures for "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
+
+    iget-object v8, p0, Lcom/android/server/spay/PaymentManagerService$FrameworkClient$ClientBinderDeathReceiver;->this$1:Lcom/android/server/spay/PaymentManagerService$FrameworkClient;
+
+    iget-object v8, v8, Lcom/android/server/spay/PaymentManagerService$FrameworkClient;->mPackageName:Ljava/lang/String;
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v4, 0x0
+
+    const-class v7, Lcom/android/server/spay/PaymentManagerService;
+
+    monitor-enter v7
+
+    :try_start_0
+    iget-object v6, p0, Lcom/android/server/spay/PaymentManagerService$FrameworkClient$ClientBinderDeathReceiver;->this$1:Lcom/android/server/spay/PaymentManagerService$FrameworkClient;
+
+    iget-object v6, v6, Lcom/android/server/spay/PaymentManagerService$FrameworkClient;->mCommnInfo:Landroid/spay/PaymentTZServiceCommnInfo;
+
+    if-eqz v6, :cond_0
+
+    new-instance v5, Ljava/util/HashMap;
 
     iget-object v6, p0, Lcom/android/server/spay/PaymentManagerService$FrameworkClient$ClientBinderDeathReceiver;->this$1:Lcom/android/server/spay/PaymentManagerService$FrameworkClient;
 
-    iget-object v6, v6, Lcom/android/server/spay/PaymentManagerService$FrameworkClient;->mPackageName:Ljava/lang/String;
+    iget-object v6, v6, Lcom/android/server/spay/PaymentManagerService$FrameworkClient;->mCommnInfo:Landroid/spay/PaymentTZServiceCommnInfo;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v6, v6, Landroid/spay/PaymentTZServiceCommnInfo;->mTAs:Ljava/util/Map;
 
-    move-result-object v5
+    invoke-direct {v5, v6}, Ljava/util/HashMap;-><init>(Ljava/util/Map;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    :try_start_1
+    iget-object v6, p0, Lcom/android/server/spay/PaymentManagerService$FrameworkClient$ClientBinderDeathReceiver;->this$1:Lcom/android/server/spay/PaymentManagerService$FrameworkClient;
 
-    move-result-object v5
+    const/4 v8, 0x0
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    iput-object v8, v6, Lcom/android/server/spay/PaymentManagerService$FrameworkClient;->mCommnInfo:Landroid/spay/PaymentTZServiceCommnInfo;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    iget-object v4, p0, Lcom/android/server/spay/PaymentManagerService$FrameworkClient$ClientBinderDeathReceiver;->this$1:Lcom/android/server/spay/PaymentManagerService$FrameworkClient;
+    move-object v4, v5
 
-    iget-object v4, v4, Lcom/android/server/spay/PaymentManagerService$FrameworkClient;->mCommnInfo:Landroid/spay/PaymentTZServiceCommnInfo;
+    :goto_0
+    monitor-exit v7
 
-    iget-object v4, v4, Landroid/spay/PaymentTZServiceCommnInfo;->mTAs:Ljava/util/Map;
+    if-eqz v4, :cond_1
 
     invoke-interface {v4}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    :goto_0
+    :goto_1
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v6
 
-    if-eqz v4, :cond_0
+    if-eqz v6, :cond_1
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -98,48 +133,69 @@
 
     check-cast v2, Ljava/lang/Integer;
 
-    iget-object v4, p0, Lcom/android/server/spay/PaymentManagerService$FrameworkClient$ClientBinderDeathReceiver;->this$1:Lcom/android/server/spay/PaymentManagerService$FrameworkClient;
-
-    iget-object v4, v4, Lcom/android/server/spay/PaymentManagerService$FrameworkClient;->mCommnInfo:Landroid/spay/PaymentTZServiceCommnInfo;
-
-    iget-object v4, v4, Landroid/spay/PaymentTZServiceCommnInfo;->mTAs:Ljava/util/Map;
-
     invoke-interface {v4, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/server/spay/TAController;
 
-    :try_start_0
+    :try_start_2
     invoke-virtual {v0}, Lcom/android/server/spay/TAController;->unloadTA()V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
 
-    goto :goto_0
+    goto :goto_1
 
     :catch_0
     move-exception v1
 
     invoke-virtual {v1}, Landroid/os/RemoteException;->printStackTrace()V
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_0
-    iget-object v4, p0, Lcom/android/server/spay/PaymentManagerService$FrameworkClient$ClientBinderDeathReceiver;->this$1:Lcom/android/server/spay/PaymentManagerService$FrameworkClient;
+    :try_start_3
+    const-string/jumbo v6, "PaymentManagerService"
 
-    iget-object v4, v4, Lcom/android/server/spay/PaymentManagerService$FrameworkClient;->this$0:Lcom/android/server/spay/PaymentManagerService;
+    const-string/jumbo v8, "deleteClient: commonInfo is null"
 
-    invoke-static {v4}, Lcom/android/server/spay/PaymentManagerService;->-get0(Lcom/android/server/spay/PaymentManagerService;)Ljava/util/Map;
+    invoke-static {v6, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    move-result-object v4
+    goto :goto_0
 
-    iget-object v5, p0, Lcom/android/server/spay/PaymentManagerService$FrameworkClient$ClientBinderDeathReceiver;->this$1:Lcom/android/server/spay/PaymentManagerService$FrameworkClient;
+    :catchall_0
+    move-exception v6
 
-    iget-object v5, v5, Lcom/android/server/spay/PaymentManagerService$FrameworkClient;->mPackageName:Ljava/lang/String;
+    :goto_2
+    monitor-exit v7
 
-    invoke-interface {v4, v5}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    throw v6
+
+    :cond_1
+    iget-object v6, p0, Lcom/android/server/spay/PaymentManagerService$FrameworkClient$ClientBinderDeathReceiver;->this$1:Lcom/android/server/spay/PaymentManagerService$FrameworkClient;
+
+    iget-object v6, v6, Lcom/android/server/spay/PaymentManagerService$FrameworkClient;->this$0:Lcom/android/server/spay/PaymentManagerService;
+
+    invoke-static {v6}, Lcom/android/server/spay/PaymentManagerService;->-get0(Lcom/android/server/spay/PaymentManagerService;)Ljava/util/Map;
+
+    move-result-object v6
+
+    iget-object v7, p0, Lcom/android/server/spay/PaymentManagerService$FrameworkClient$ClientBinderDeathReceiver;->this$1:Lcom/android/server/spay/PaymentManagerService$FrameworkClient;
+
+    iget-object v7, v7, Lcom/android/server/spay/PaymentManagerService$FrameworkClient;->mPackageName:Ljava/lang/String;
+
+    invoke-interface {v6, v7}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
+
+    :catchall_1
+    move-exception v6
+
+    move-object v4, v5
+
+    goto :goto_2
 .end method
 
 

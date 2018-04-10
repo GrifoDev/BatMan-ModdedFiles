@@ -111,47 +111,49 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .locals 4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     if-nez p1, :cond_1
 
     :cond_0
-    return v2
+    return v3
 
     :cond_1
-    instance-of v0, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;
+    instance-of v1, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    check-cast p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;
+    move-object v0, p1
 
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    check-cast v0, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;
 
-    iget-short v1, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+    iget-short v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
 
-    if-eq v0, v1, :cond_3
+    iget-short v2, v0, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->type:S
+
+    if-eq v1, v2, :cond_3
 
     :cond_2
-    return v2
+    return v3
 
     :cond_3
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    iget-object v1, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
+    iget-object v2, v0, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->value:Ljava/lang/Object;
 
-    if-ne v0, v1, :cond_2
+    if-ne v1, v2, :cond_2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    iget-object v1, p1, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
+    iget-object v2, v0, Lmf/org/apache/xerces/impl/dtd/XMLContentSpec;->otherValue:Ljava/lang/Object;
 
-    if-ne v0, v1, :cond_2
+    if-ne v1, v2, :cond_2
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    return v0
+    return v1
 .end method
 
 .method public hashCode()I

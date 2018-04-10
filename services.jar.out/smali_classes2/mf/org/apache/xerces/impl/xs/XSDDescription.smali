@@ -50,48 +50,50 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .locals 3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    instance-of v0, p1, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;
+    instance-of v1, p1, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    check-cast p1, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;
+    move-object v0, p1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XSDDescription;->fNamespace:Ljava/lang/String;
+    check-cast v0, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;
 
-    if-nez v0, :cond_1
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XSDDescription;->fNamespace:Ljava/lang/String;
 
-    invoke-interface {p1}, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;->getTargetNamespace()Ljava/lang/String;
+    if-nez v1, :cond_1
 
-    move-result-object v0
-
-    if-eqz v0, :cond_2
-
-    return v1
-
-    :cond_0
-    return v1
-
-    :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XSDDescription;->fNamespace:Ljava/lang/String;
-
-    invoke-interface {p1}, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;->getTargetNamespace()Ljava/lang/String;
+    invoke-interface {v0}, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;->getTargetNamespace()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-eqz v1, :cond_2
 
-    move-result v0
+    return v2
 
-    return v0
+    :cond_0
+    return v2
+
+    :cond_1
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XSDDescription;->fNamespace:Ljava/lang/String;
+
+    invoke-interface {v0}, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;->getTargetNamespace()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    return v1
 
     :cond_2
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    return v0
+    return v1
 .end method
 
 .method public fromInstance()Z

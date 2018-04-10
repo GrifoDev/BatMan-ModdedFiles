@@ -180,7 +180,7 @@
 
     const/4 v4, 0x1
 
-    invoke-static {v2, v4}, Lcom/android/server/backup/BackupManagerService;->-set2(Lcom/android/server/backup/BackupManagerService;Z)Z
+    invoke-static {v2, v4}, Lcom/android/server/backup/BackupManagerService;->-set3(Lcom/android/server/backup/BackupManagerService;Z)Z
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 

@@ -218,33 +218,33 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fEntrySet:Ljava/util/Set;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fEntrySet:Ljava/util/Set;
 
-    if-eqz v0, :cond_0
+    if-eqz v4, :cond_0
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fEntrySet:Ljava/util/Set;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fEntrySet:Ljava/util/Set;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return-object v0
+    return-object v4
 
     :cond_0
     :try_start_1
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->getLength()I
 
-    move-result v1
+    move-result v2
 
-    new-array v2, v1, [Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl$XSNamedMapEntry;
+    new-array v0, v2, [Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl$XSNamedMapEntry;
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     :goto_1
-    if-ge v0, v1, :cond_1
+    if-ge v1, v2, :cond_1
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->item(I)Lmf/org/apache/xerces/xs/XSObject;
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->item(I)Lmf/org/apache/xerces/xs/XSObject;
 
     move-result-object v3
 
@@ -264,78 +264,78 @@
 
     invoke-direct {v4, v5, v3}, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl$XSNamedMapEntry;-><init>(Lmf/javax/xml/namespace/QName;Lmf/org/apache/xerces/xs/XSObject;)V
 
-    aput-object v4, v2, v0
+    aput-object v4, v0, v1
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
     :cond_1
-    new-instance v0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl$1;
+    new-instance v4, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl$1;
 
-    invoke-direct {v0, p0, v1, v2}, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl$1;-><init>(Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;I[Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl$XSNamedMapEntry;)V
+    invoke-direct {v4, p0, v2, v0}, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl$1;-><init>(Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;I[Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl$XSNamedMapEntry;)V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fEntrySet:Ljava/util/Set;
+    iput-object v4, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fEntrySet:Ljava/util/Set;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
     :catchall_0
-    move-exception v0
+    move-exception v4
 
     monitor-exit p0
 
-    throw v0
+    throw v4
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .locals 4
 
-    const/4 v1, 0x0
+    instance-of v3, p1, Lmf/javax/xml/namespace/QName;
 
-    instance-of v0, p1, Lmf/javax/xml/namespace/QName;
+    if-nez v3, :cond_0
 
-    if-nez v0, :cond_0
+    const/4 v3, 0x0
 
-    return-object v1
+    return-object v3
 
     :cond_0
-    check-cast p1, Lmf/javax/xml/namespace/QName;
+    move-object v1, p1
 
-    invoke-virtual {p1}, Lmf/javax/xml/namespace/QName;->getNamespaceURI()Ljava/lang/String;
+    check-cast v1, Lmf/javax/xml/namespace/QName;
 
-    move-result-object v0
+    invoke-virtual {v1}, Lmf/javax/xml/namespace/QName;->getNamespaceURI()Ljava/lang/String;
 
-    const-string/jumbo v2, ""
+    move-result-object v2
 
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v3, ""
 
-    move-result v2
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-nez v2, :cond_1
+    move-result v3
+
+    if-nez v3, :cond_1
 
     :goto_0
-    invoke-virtual {p1}, Lmf/javax/xml/namespace/QName;->getLocalPart()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->itemByName(Ljava/lang/String;Ljava/lang/String;)Lmf/org/apache/xerces/xs/XSObject;
+    invoke-virtual {v1}, Lmf/javax/xml/namespace/QName;->getLocalPart()Ljava/lang/String;
 
     move-result-object v0
 
-    return-object v0
+    invoke-virtual {p0, v2, v0}, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->itemByName(Ljava/lang/String;Ljava/lang/String;)Lmf/org/apache/xerces/xs/XSObject;
+
+    move-result-object v3
+
+    return-object v3
 
     :cond_1
-    move-object v0, v1
+    const/4 v2, 0x0
 
     goto :goto_0
 .end method
 
 .method public declared-synchronized getLength()I
     .locals 3
-
-    const/4 v0, 0x0
 
     monitor-enter p0
 
@@ -347,19 +347,21 @@
     if-eq v1, v2, :cond_1
 
     :cond_0
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fLength:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fLength:I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return v0
+    return v1
 
     :cond_1
     const/4 v1, 0x0
 
     :try_start_1
     iput v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fLength:I
+
+    const/4 v0, 0x0
 
     :goto_0
     iget v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fNSNum:I
@@ -387,11 +389,11 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
     monitor-exit p0
 
-    throw v0
+    throw v1
 .end method
 
 .method public declared-synchronized item(I)Lmf/org/apache/xerces/xs/XSObject;
@@ -399,16 +401,14 @@
 
     const/4 v4, 0x0
 
-    const/4 v0, 0x0
-
     monitor-enter p0
 
     :try_start_0
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fArray:[Lmf/org/apache/xerces/xs/XSObject;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fArray:[Lmf/org/apache/xerces/xs/XSObject;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v1, :cond_2
+    if-eqz v2, :cond_2
 
     :cond_0
     if-gez p1, :cond_3
@@ -422,13 +422,15 @@
     :try_start_1
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->getLength()I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fLength:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fLength:I
 
-    new-array v1, v1, [Lmf/org/apache/xerces/xs/XSObject;
+    new-array v2, v2, [Lmf/org/apache/xerces/xs/XSObject;
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fArray:[Lmf/org/apache/xerces/xs/XSObject;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fArray:[Lmf/org/apache/xerces/xs/XSObject;
 
-    move v1, v0
+    const/4 v1, 0x0
+
+    const/4 v0, 0x0
 
     :goto_0
     iget v2, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fNSNum:I
@@ -452,105 +454,105 @@
     goto :goto_0
 
     :cond_3
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fLength:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fLength:I
 
-    if-ge p1, v0, :cond_1
+    if-ge p1, v2, :cond_1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fArray:[Lmf/org/apache/xerces/xs/XSObject;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fArray:[Lmf/org/apache/xerces/xs/XSObject;
 
-    aget-object v0, v0, p1
+    aget-object v2, v2, p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     monitor-exit p0
 
-    return-object v0
+    return-object v2
 
     :catchall_0
-    move-exception v0
+    move-exception v2
 
     monitor-exit p0
 
-    throw v0
+    throw v2
 .end method
 
 .method public itemByName(Ljava/lang/String;Ljava/lang/String;)Lmf/org/apache/xerces/xs/XSObject;
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     const/4 v0, 0x0
 
-    move v1, v0
-
     :goto_0
-    iget v2, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fNSNum:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fNSNum:I
 
-    if-ge v1, v2, :cond_4
+    if-ge v0, v3, :cond_4
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fNamespaces:[Ljava/lang/String;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fNamespaces:[Ljava/lang/String;
 
-    aget-object v2, v2, v1
+    aget-object v3, v3, v0
 
-    invoke-static {p1, v2}, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->isEqual(Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static {p1, v3}, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->isEqual(Ljava/lang/String;Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_0
+    if-nez v3, :cond_0
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fMaps:[Lmf/org/apache/xerces/util/SymbolHash;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fMaps:[Lmf/org/apache/xerces/util/SymbolHash;
 
-    if-nez v2, :cond_1
+    if-nez v3, :cond_1
+
+    const/4 v1, 0x0
 
     :goto_1
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fLength:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fLength:I
 
-    if-ge v0, v1, :cond_3
+    if-ge v1, v3, :cond_3
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fArray:[Lmf/org/apache/xerces/xs/XSObject;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fArray:[Lmf/org/apache/xerces/xs/XSObject;
 
-    aget-object v1, v1, v0
+    aget-object v2, v3, v1
 
-    invoke-interface {v1}, Lmf/org/apache/xerces/xs/XSObject;->getName()Ljava/lang/String;
+    invoke-interface {v2}, Lmf/org/apache/xerces/xs/XSObject;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_2
+    if-nez v3, :cond_2
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fMaps:[Lmf/org/apache/xerces/util/SymbolHash;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->fMaps:[Lmf/org/apache/xerces/util/SymbolHash;
 
-    aget-object v0, v0, v1
+    aget-object v3, v3, v0
 
-    invoke-virtual {v0, p2}, Lmf/org/apache/xerces/util/SymbolHash;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, p2}, Lmf/org/apache/xerces/util/SymbolHash;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v3
 
-    check-cast v0, Lmf/org/apache/xerces/xs/XSObject;
+    check-cast v3, Lmf/org/apache/xerces/xs/XSObject;
 
-    return-object v0
+    return-object v3
 
     :cond_2
-    return-object v1
+    return-object v2
 
     :cond_3
-    return-object v3
+    return-object v4
 
     :cond_4
-    return-object v3
+    return-object v4
 .end method
 
 .method public size()I

@@ -48,57 +48,59 @@
 .end method
 
 .method public static sourceToInputSource(Lmf/javax/xml/transform/Source;)Lorg/xml/sax/InputSource;
-    .locals 2
+    .locals 3
 
-    instance-of v0, p0, Lmf/javax/xml/transform/sax/SAXSource;
+    instance-of v2, p0, Lmf/javax/xml/transform/sax/SAXSource;
 
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
-    instance-of v0, p0, Lmf/javax/xml/transform/stream/StreamSource;
+    instance-of v2, p0, Lmf/javax/xml/transform/stream/StreamSource;
 
-    if-nez v0, :cond_1
+    if-nez v2, :cond_1
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    return-object v0
+    return-object v2
 
     :cond_0
     check-cast p0, Lmf/javax/xml/transform/sax/SAXSource;
 
     invoke-virtual {p0}, Lmf/javax/xml/transform/sax/SAXSource;->getInputSource()Lorg/xml/sax/InputSource;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 
     :cond_1
-    check-cast p0, Lmf/javax/xml/transform/stream/StreamSource;
+    move-object v1, p0
+
+    check-cast v1, Lmf/javax/xml/transform/stream/StreamSource;
 
     new-instance v0, Lorg/xml/sax/InputSource;
 
-    invoke-virtual {p0}, Lmf/javax/xml/transform/stream/StreamSource;->getSystemId()Ljava/lang/String;
+    invoke-virtual {v1}, Lmf/javax/xml/transform/stream/StreamSource;->getSystemId()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-direct {v0, v1}, Lorg/xml/sax/InputSource;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v2}, Lorg/xml/sax/InputSource;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p0}, Lmf/javax/xml/transform/stream/StreamSource;->getInputStream()Ljava/io/InputStream;
+    invoke-virtual {v1}, Lmf/javax/xml/transform/stream/StreamSource;->getInputStream()Ljava/io/InputStream;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Lorg/xml/sax/InputSource;->setByteStream(Ljava/io/InputStream;)V
+    invoke-virtual {v0, v2}, Lorg/xml/sax/InputSource;->setByteStream(Ljava/io/InputStream;)V
 
-    invoke-virtual {p0}, Lmf/javax/xml/transform/stream/StreamSource;->getReader()Ljava/io/Reader;
+    invoke-virtual {v1}, Lmf/javax/xml/transform/stream/StreamSource;->getReader()Ljava/io/Reader;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Lorg/xml/sax/InputSource;->setCharacterStream(Ljava/io/Reader;)V
+    invoke-virtual {v0, v2}, Lorg/xml/sax/InputSource;->setCharacterStream(Ljava/io/Reader;)V
 
-    invoke-virtual {p0}, Lmf/javax/xml/transform/stream/StreamSource;->getPublicId()Ljava/lang/String;
+    invoke-virtual {v1}, Lmf/javax/xml/transform/stream/StreamSource;->getPublicId()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Lorg/xml/sax/InputSource;->setPublicId(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Lorg/xml/sax/InputSource;->setPublicId(Ljava/lang/String;)V
 
     return-object v0
 .end method

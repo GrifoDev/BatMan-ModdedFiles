@@ -44,166 +44,152 @@
 .end method
 
 .method protected synchronizeChildren()V
-    .locals 9
+    .locals 10
 
-    const/4 v8, 0x0
+    const/4 v9, 0x0
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->ownerDocument()Lmf/org/apache/xerces/dom/CoreDocumentImpl;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->getMutationEvents()Z
+    invoke-virtual {v6}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->getMutationEvents()Z
+
+    move-result v3
+
+    invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->ownerDocument()Lmf/org/apache/xerces/dom/CoreDocumentImpl;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v9}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->setMutationEvents(Z)V
+
+    invoke-virtual {p0, v9}, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->needsSyncChildren(Z)V
+
+    iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
+
+    check-cast v4, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;
+
+    new-instance v6, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
+
+    invoke-direct {v6, p0}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;-><init>(Lmf/org/apache/xerces/dom/NodeImpl;)V
+
+    iput-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->entities:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
+
+    new-instance v6, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
+
+    invoke-direct {v6, p0}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;-><init>(Lmf/org/apache/xerces/dom/NodeImpl;)V
+
+    iput-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->notations:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
+
+    new-instance v6, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
+
+    invoke-direct {v6, p0}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;-><init>(Lmf/org/apache/xerces/dom/NodeImpl;)V
+
+    iput-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->elements:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
+
+    const/4 v1, 0x0
+
+    iget v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->fNodeIndex:I
+
+    invoke-virtual {v4, v6}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getLastChild(I)I
+
+    move-result v0
+
+    :goto_0
+    const/4 v6, -0x1
+
+    if-eq v0, v6, :cond_1
+
+    invoke-virtual {v4, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeObject(I)Lmf/org/apache/xerces/dom/DeferredNode;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Lmf/org/apache/xerces/dom/DeferredNode;->getNodeType()S
 
     move-result v5
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->ownerDocument()Lmf/org/apache/xerces/dom/CoreDocumentImpl;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v8}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->setMutationEvents(Z)V
-
-    invoke-virtual {p0, v8}, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->needsSyncChildren(Z)V
-
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
-
-    check-cast v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;
-
-    new-instance v1, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
-
-    invoke-direct {v1, p0}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;-><init>(Lmf/org/apache/xerces/dom/NodeImpl;)V
-
-    iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->entities:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
-
-    new-instance v1, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
-
-    invoke-direct {v1, p0}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;-><init>(Lmf/org/apache/xerces/dom/NodeImpl;)V
-
-    iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->notations:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
-
-    new-instance v1, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
-
-    invoke-direct {v1, p0}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;-><init>(Lmf/org/apache/xerces/dom/NodeImpl;)V
-
-    iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->elements:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
-
-    const/4 v3, 0x0
-
-    iget v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->fNodeIndex:I
-
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getLastChild(I)I
-
-    move-result v1
-
-    move v4, v1
-
-    :goto_0
-    const/4 v1, -0x1
-
-    if-eq v4, v1, :cond_1
-
-    invoke-virtual {v0, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeObject(I)Lmf/org/apache/xerces/dom/DeferredNode;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Lmf/org/apache/xerces/dom/DeferredNode;->getNodeType()S
-
-    move-result v1
-
-    sparse-switch v1, :sswitch_data_0
+    sparse-switch v5, :sswitch_data_0
 
     :cond_0
-    sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v6, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v7, "DeferredDocumentTypeImpl#synchronizeInfo: node.getNodeType() = "
+    const-string/jumbo v8, "DeferredDocumentTypeImpl#synchronizeInfo: node.getNodeType() = "
 
-    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v7, v8}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-interface {v2}, Lmf/org/apache/xerces/dom/DeferredNode;->getNodeType()S
 
-    move-result v7
+    move-result v8
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    const-string/jumbo v7, ", class = "
+    const-string/jumbo v8, ", class = "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
     invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object v8
 
-    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v8
 
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v7
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v7
 
-    invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
-
-    move-object v1, v3
+    invoke-virtual {v6, v7}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     :goto_1
-    invoke-virtual {v0, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getPrevSibling(I)I
+    invoke-virtual {v4, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getPrevSibling(I)I
 
-    move-result v2
-
-    move v4, v2
-
-    move-object v3, v1
+    move-result v0
 
     goto :goto_0
 
     :sswitch_0
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->entities:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->entities:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
 
-    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->setNamedItem(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
-
-    move-object v1, v3
+    invoke-virtual {v6, v2}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->setNamedItem(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
     goto :goto_1
 
     :sswitch_1
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->notations:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->notations:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
 
-    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->setNamedItem(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
-
-    move-object v1, v3
+    invoke-virtual {v6, v2}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->setNamedItem(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
     goto :goto_1
 
     :sswitch_2
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->elements:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->elements:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
 
-    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->setNamedItem(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
-
-    move-object v1, v3
+    invoke-virtual {v6, v2}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->setNamedItem(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
     goto :goto_1
 
     :sswitch_3
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->getOwnerDocument()Lmf/org/w3c/dom/Document;
 
-    move-result-object v1
+    move-result-object v6
 
-    check-cast v1, Lmf/org/apache/xerces/dom/DocumentImpl;
+    check-cast v6, Lmf/org/apache/xerces/dom/DocumentImpl;
 
-    iget-boolean v1, v1, Lmf/org/apache/xerces/dom/DocumentImpl;->allowGrammarAccess:Z
+    iget-boolean v6, v6, Lmf/org/apache/xerces/dom/DocumentImpl;->allowGrammarAccess:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v6, :cond_0
 
-    invoke-virtual {p0, v2, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-virtual {p0, v2, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
     move-object v1, v2
 
@@ -212,15 +198,17 @@
     :cond_1
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->ownerDocument()Lmf/org/apache/xerces/dom/CoreDocumentImpl;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {v0, v5}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->setMutationEvents(Z)V
+    invoke-virtual {v6, v3}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->setMutationEvents(Z)V
 
-    const/4 v0, 0x1
+    const/4 v6, 0x1
 
-    invoke-virtual {p0, v0, v8}, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->setReadOnly(ZZ)V
+    invoke-virtual {p0, v6, v9}, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->setReadOnly(ZZ)V
 
     return-void
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -232,51 +220,51 @@
 .end method
 
 .method protected synchronizeData()V
-    .locals 2
+    .locals 3
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->needsSyncData(Z)V
+    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->needsSyncData(Z)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
+    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
 
-    check-cast v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;
+    check-cast v1, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;
 
-    iget v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->fNodeIndex:I
+    iget v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->fNodeIndex:I
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeName(I)Ljava/lang/String;
+    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeName(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->name:Ljava/lang/String;
+    iput-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->name:Ljava/lang/String;
 
-    iget v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->fNodeIndex:I
+    iget v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->fNodeIndex:I
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeValue(I)Ljava/lang/String;
+    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeValue(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->publicID:Ljava/lang/String;
+    iput-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->publicID:Ljava/lang/String;
 
-    iget v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->fNodeIndex:I
+    iget v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->fNodeIndex:I
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeURI(I)Ljava/lang/String;
+    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeURI(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->systemID:Ljava/lang/String;
+    iput-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->systemID:Ljava/lang/String;
 
-    iget v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->fNodeIndex:I
+    iget v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->fNodeIndex:I
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeExtra(I)I
+    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeExtra(I)I
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeValue(I)Ljava/lang/String;
+    invoke-virtual {v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeValue(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->internalSubset:Ljava/lang/String;
+    iput-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;->internalSubset:Ljava/lang/String;
 
     return-void
 .end method

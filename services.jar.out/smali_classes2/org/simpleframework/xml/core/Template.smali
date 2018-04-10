@@ -73,17 +73,17 @@
 
     invoke-virtual {p0, v0}, Lorg/simpleframework/xml/core/Template;->ensureCapacity(I)V
 
-    const/4 v0, 0x0
-
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v0
 
-    iget-object v2, p0, Lorg/simpleframework/xml/core/Template;->buf:[C
+    iget-object v1, p0, Lorg/simpleframework/xml/core/Template;->buf:[C
 
-    iget v3, p0, Lorg/simpleframework/xml/core/Template;->count:I
+    iget v2, p0, Lorg/simpleframework/xml/core/Template;->count:I
 
-    invoke-virtual {p1, v0, v1, v2, v3}, Ljava/lang/String;->getChars(II[CI)V
+    const/4 v3, 0x0
+
+    invoke-virtual {p1, v3, v0, v1, v2}, Ljava/lang/String;->getChars(II[CI)V
 
     iget v0, p0, Lorg/simpleframework/xml/core/Template;->count:I
 
@@ -127,11 +127,11 @@
 
     iget-object v0, p1, Lorg/simpleframework/xml/core/Template;->buf:[C
 
-    const/4 v1, 0x0
+    iget v1, p1, Lorg/simpleframework/xml/core/Template;->count:I
 
-    iget v2, p1, Lorg/simpleframework/xml/core/Template;->count:I
+    const/4 v2, 0x0
 
-    invoke-virtual {p0, v0, v1, v2}, Lorg/simpleframework/xml/core/Template;->append([CII)V
+    invoke-virtual {p0, v0, v2, v1}, Lorg/simpleframework/xml/core/Template;->append([CII)V
 
     return-void
 .end method
@@ -185,39 +185,39 @@
 .end method
 
 .method protected ensureCapacity(I)V
-    .locals 4
+    .locals 6
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/Template;->buf:[C
+    iget-object v3, p0, Lorg/simpleframework/xml/core/Template;->buf:[C
 
-    array-length v0, v0
+    array-length v3, v3
 
-    if-lt v0, p1, :cond_0
+    if-lt v3, p1, :cond_0
 
     :goto_0
     return-void
 
     :cond_0
-    iget-object v0, p0, Lorg/simpleframework/xml/core/Template;->buf:[C
+    iget-object v3, p0, Lorg/simpleframework/xml/core/Template;->buf:[C
 
-    array-length v0, v0
+    array-length v3, v3
 
-    mul-int/lit8 v0, v0, 0x2
+    mul-int/lit8 v1, v3, 0x2
 
-    invoke-static {p1, v0}, Ljava/lang/Math;->max(II)I
+    invoke-static {p1, v1}, Ljava/lang/Math;->max(II)I
 
     move-result v0
 
-    new-array v0, v0, [C
+    new-array v2, v0, [C
 
-    iget-object v1, p0, Lorg/simpleframework/xml/core/Template;->buf:[C
+    iget-object v3, p0, Lorg/simpleframework/xml/core/Template;->buf:[C
 
-    iget v2, p0, Lorg/simpleframework/xml/core/Template;->count:I
+    iget v4, p0, Lorg/simpleframework/xml/core/Template;->count:I
 
-    invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v3, v5, v2, v5, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    iput-object v0, p0, Lorg/simpleframework/xml/core/Template;->buf:[C
+    iput-object v2, p0, Lorg/simpleframework/xml/core/Template;->buf:[C
 
     goto :goto_0
 .end method
@@ -237,11 +237,11 @@
 
     iget-object v1, p0, Lorg/simpleframework/xml/core/Template;->buf:[C
 
-    const/4 v2, 0x0
+    iget v2, p0, Lorg/simpleframework/xml/core/Template;->count:I
 
-    iget v3, p0, Lorg/simpleframework/xml/core/Template;->count:I
+    const/4 v3, 0x0
 
-    invoke-direct {v0, v1, v2, v3}, Ljava/lang/String;-><init>([CII)V
+    invoke-direct {v0, v1, v3, v2}, Ljava/lang/String;-><init>([CII)V
 
     return-object v0
 .end method

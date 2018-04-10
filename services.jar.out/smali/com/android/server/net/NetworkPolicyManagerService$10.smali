@@ -32,84 +32,37 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 5
+    .locals 2
 
-    const/4 v3, -0x1
+    iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$10;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/android/server/net/NetworkPolicyManagerService;->maybeRefreshTrustedTime()V
 
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$10;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    const-string/jumbo v2, "android.intent.extra.user_handle"
+    iget-object v1, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPoliciesSecondLock:Ljava/lang/Object;
 
-    invoke-virtual {p2, v2, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v1
-
-    if-ne v1, v3, :cond_0
-
-    return-void
-
-    :cond_0
-    const-string/jumbo v2, "android.intent.action.USER_REMOVED"
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_3
-
-    :goto_0
-    iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService$10;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
-
-    iget-object v3, v2, Lcom/android/server/net/NetworkPolicyManagerService;->mRulesLock:Ljava/lang/Object;
-
-    monitor-enter v3
+    monitor-enter v1
 
     :try_start_0
-    iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService$10;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
+    iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$10;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    const/4 v4, 0x1
+    invoke-virtual {v0}, Lcom/android/server/net/NetworkPolicyManagerService;->updateNetworkEnabledNL()V
 
-    invoke-virtual {v2, v1, v4}, Lcom/android/server/net/NetworkPolicyManagerService;->removeUserStateLocked(IZ)Z
+    iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$10;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    const-string/jumbo v2, "android.intent.action.USER_ADDED"
-
-    if-ne v0, v2, :cond_1
-
-    iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService$10;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
-
-    invoke-static {v2, v1}, Lcom/android/server/net/NetworkPolicyManagerService;->-wrap1(Lcom/android/server/net/NetworkPolicyManagerService;I)Z
-
-    :cond_1
-    iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService$10;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
-
-    const/4 v4, 0x1
-
-    invoke-static {v2, v4}, Lcom/android/server/net/NetworkPolicyManagerService;->-wrap22(Lcom/android/server/net/NetworkPolicyManagerService;Z)V
+    invoke-virtual {v0}, Lcom/android/server/net/NetworkPolicyManagerService;->updateNotificationsNL()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v3
+    monitor-exit v1
 
-    :cond_2
     return-void
 
-    :cond_3
-    const-string/jumbo v2, "android.intent.action.USER_ADDED"
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    goto :goto_0
-
     :catchall_0
-    move-exception v2
+    move-exception v0
 
-    monitor-exit v3
+    monitor-exit v1
 
-    throw v2
+    throw v0
 .end method

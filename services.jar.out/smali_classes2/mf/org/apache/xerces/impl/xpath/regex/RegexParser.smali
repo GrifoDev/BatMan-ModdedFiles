@@ -153,80 +153,84 @@
 
     invoke-static {p1}, Lmf/org/apache/xerces/impl/xpath/regex/CaseInsensitiveMap;->get(I)[I
 
-    move-result-object v1
+    move-result-object v0
 
     invoke-virtual {p0, p1, p1}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
 
-    if-nez v1, :cond_1
+    if-nez v0, :cond_1
 
     :cond_0
     return-void
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    array-length v2, v1
+    array-length v2, v0
 
-    if-ge v0, v2, :cond_0
+    if-ge v1, v2, :cond_0
 
-    aget v2, v1, v0
+    aget v2, v0, v1
 
-    aget v3, v1, v0
+    aget v3, v0, v1
 
     invoke-virtual {p0, v2, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
 
-    add-int/lit8 v0, v0, 0x2
+    add-int/lit8 v1, v1, 0x2
 
     goto :goto_0
 .end method
 
 .method protected static final addCaseInsensitiveCharRange(Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;II)V
-    .locals 5
+    .locals 7
 
     if-le p1, p2, :cond_1
 
+    move v3, p2
+
+    move v4, p1
+
     :goto_0
-    invoke-virtual {p0, p2, p1}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
+    invoke-virtual {p0, v3, v4}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
+
+    move v1, v3
 
     :goto_1
-    if-gt p2, p1, :cond_3
+    if-gt v1, v4, :cond_3
 
-    invoke-static {p2}, Lmf/org/apache/xerces/impl/xpath/regex/CaseInsensitiveMap;->get(I)[I
+    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/CaseInsensitiveMap;->get(I)[I
 
-    move-result-object v1
+    move-result-object v0
 
-    if-nez v1, :cond_2
+    if-nez v0, :cond_2
 
     :cond_0
-    add-int/lit8 p2, p2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
     :cond_1
+    move v3, p1
+
     move v4, p2
-
-    move p2, p1
-
-    move p1, v4
 
     goto :goto_0
 
     :cond_2
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
     :goto_2
-    array-length v2, v1
+    array-length v5, v0
 
-    if-ge v0, v2, :cond_0
+    if-ge v2, v5, :cond_0
 
-    aget v2, v1, v0
+    aget v5, v0, v2
 
-    aget v3, v1, v0
+    aget v6, v0, v2
 
-    invoke-virtual {p0, v2, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
+    invoke-virtual {p0, v5, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
 
-    add-int/lit8 v0, v0, 0x2
+    add-int/lit8 v2, v2, 0x2
 
     goto :goto_2
 
@@ -325,47 +329,42 @@
 .end method
 
 .method decodeEscaped()I
-    .locals 4
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
         }
     .end annotation
 
-    const v3, 0x10ffff
-
-    const/16 v2, 0xa
-
-    const/4 v0, 0x0
+    const v5, 0x10ffff
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v1
+    move-result v3
 
-    if-ne v1, v2, :cond_1
+    const/16 v4, 0xa
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    if-ne v3, v4, :cond_0
 
-    sparse-switch v1, :sswitch_data_0
+    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    move v0, v1
+    sparse-switch v0, :sswitch_data_0
 
-    :cond_0
     :goto_0
     return v0
 
-    :cond_1
-    const-string/jumbo v0, "parser.next.1"
+    :cond_0
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v3, v3, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v4, "parser.next.1"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
+    throw v3
 
     :sswitch_0
     const/16 v0, 0x1b
@@ -378,7 +377,7 @@
     goto :goto_0
 
     :sswitch_2
-    move v0, v2
+    const/16 v0, 0xa
 
     goto :goto_0
 
@@ -397,313 +396,334 @@
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v1
+    move-result v3
 
-    if-nez v1, :cond_3
+    if-nez v3, :cond_2
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    const/16 v2, 0x7b
+    const/16 v4, 0x7b
 
-    if-eq v1, v2, :cond_4
+    if-eq v3, v4, :cond_3
+
+    const/4 v2, 0x0
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v0
+    move-result v3
 
-    if-eqz v0, :cond_9
+    if-eqz v3, :cond_9
+
+    :cond_1
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    add-int/lit8 v3, v3, -0x1
+
+    const-string/jumbo v4, "parser.descape.1"
+
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+
+    move-result-object v3
+
+    throw v3
 
     :cond_2
-    const-string/jumbo v0, "parser.descape.1"
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v3, v3, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v4, "parser.descape.1"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
+    throw v3
 
     :cond_3
-    const-string/jumbo v0, "parser.descape.1"
+    const/4 v2, 0x0
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    const/4 v1, 0x0
 
-    add-int/lit8 v1, v1, -0x1
-
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
-
-    move-result-object v0
-
-    throw v0
-
-    :cond_4
     :goto_1
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v1
+    move-result v3
 
-    if-nez v1, :cond_5
+    if-nez v3, :cond_4
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
+    invoke-static {v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
 
-    move-result v1
+    move-result v2
 
-    if-ltz v1, :cond_7
+    if-ltz v2, :cond_6
 
-    mul-int/lit8 v2, v0, 0x10
+    mul-int/lit8 v3, v1, 0x10
 
-    if-gt v0, v2, :cond_6
+    if-gt v1, v3, :cond_5
 
-    mul-int/lit8 v0, v0, 0x10
+    mul-int/lit8 v3, v1, 0x10
 
-    add-int/2addr v0, v1
+    add-int v1, v3, v2
 
     goto :goto_1
 
+    :cond_4
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    add-int/lit8 v3, v3, -0x1
+
+    const-string/jumbo v4, "parser.descape.1"
+
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+
+    move-result-object v3
+
+    throw v3
+
     :cond_5
-    const-string/jumbo v0, "parser.descape.1"
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v3, v3, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v4, "parser.descape.2"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
+    throw v3
 
     :cond_6
-    const-string/jumbo v0, "parser.descape.2"
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    const/16 v4, 0x7d
 
-    add-int/lit8 v1, v1, -0x1
+    if-ne v3, v4, :cond_7
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    if-gt v1, v5, :cond_8
 
-    move-result-object v0
+    move v0, v1
 
-    throw v0
+    goto/16 :goto_0
 
     :cond_7
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    const/16 v2, 0x7d
+    add-int/lit8 v3, v3, -0x1
 
-    if-ne v1, v2, :cond_8
+    const-string/jumbo v4, "parser.descape.3"
 
-    if-le v0, v3, :cond_0
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    const-string/jumbo v0, "parser.descape.4"
+    move-result-object v3
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    add-int/lit8 v1, v1, -0x1
-
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
-
-    move-result-object v0
-
-    throw v0
+    throw v3
 
     :cond_8
-    const-string/jumbo v0, "parser.descape.3"
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v3, v3, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v4, "parser.descape.4"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
+    throw v3
 
     :cond_9
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
+    invoke-static {v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
 
-    move-result v0
+    move-result v2
 
-    if-ltz v0, :cond_2
+    if-ltz v2, :cond_1
+
+    move v1, v2
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v1
+    move-result v3
 
-    if-eqz v1, :cond_b
+    if-eqz v3, :cond_b
 
     :cond_a
-    const-string/jumbo v0, "parser.descape.1"
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v3, v3, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v4, "parser.descape.1"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
+    throw v3
 
     :cond_b
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
+    invoke-static {v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
 
-    move-result v1
+    move-result v2
 
-    if-ltz v1, :cond_a
+    if-ltz v2, :cond_a
 
-    mul-int/lit8 v0, v0, 0x10
+    mul-int/lit8 v3, v1, 0x10
 
-    add-int/2addr v0, v1
+    add-int v1, v3, v2
+
+    move v0, v1
 
     goto/16 :goto_0
 
     :sswitch_6
+    const/4 v2, 0x0
+
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v0
+    move-result v3
 
-    if-eqz v0, :cond_d
+    if-eqz v3, :cond_d
 
     :cond_c
-    const-string/jumbo v0, "parser.descape.1"
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v3, v3, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v4, "parser.descape.1"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
+    throw v3
 
     :cond_d
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
+    invoke-static {v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
 
-    move-result v0
+    move-result v2
 
-    if-ltz v0, :cond_c
+    if-ltz v2, :cond_c
+
+    move v1, v2
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v1
+    move-result v3
 
-    if-eqz v1, :cond_f
+    if-eqz v3, :cond_f
 
     :cond_e
-    const-string/jumbo v0, "parser.descape.1"
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v3, v3, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v4, "parser.descape.1"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
+    throw v3
 
     :cond_f
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
+    invoke-static {v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
 
-    move-result v1
+    move-result v2
 
-    if-ltz v1, :cond_e
+    if-ltz v2, :cond_e
 
-    mul-int/lit8 v0, v0, 0x10
+    mul-int/lit8 v3, v1, 0x10
 
-    add-int/2addr v0, v1
+    add-int v1, v3, v2
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v1
+    move-result v3
 
-    if-eqz v1, :cond_11
+    if-eqz v3, :cond_11
 
     :cond_10
-    const-string/jumbo v0, "parser.descape.1"
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v3, v3, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v4, "parser.descape.1"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
+    throw v3
 
     :cond_11
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
+    invoke-static {v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
 
-    move-result v1
+    move-result v2
 
-    if-ltz v1, :cond_10
+    if-ltz v2, :cond_10
 
-    mul-int/lit8 v0, v0, 0x10
+    mul-int/lit8 v3, v1, 0x10
 
-    add-int/2addr v0, v1
+    add-int v1, v3, v2
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v1
+    move-result v3
 
-    if-eqz v1, :cond_13
+    if-eqz v3, :cond_13
 
     :cond_12
-    const-string/jumbo v0, "parser.descape.1"
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v3, v3, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v4, "parser.descape.1"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
+    throw v3
 
     :cond_13
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
+    invoke-static {v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
 
-    move-result v1
+    move-result v2
 
-    if-ltz v1, :cond_12
+    if-ltz v2, :cond_12
 
-    mul-int/lit8 v0, v0, 0x10
+    mul-int/lit8 v3, v1, 0x10
 
-    add-int/2addr v0, v1
+    add-int v1, v3, v2
+
+    move v0, v1
 
     goto/16 :goto_0
 
@@ -712,228 +732,235 @@
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v0
+    move-result v3
 
-    if-eqz v0, :cond_15
+    if-eqz v3, :cond_15
 
     :cond_14
-    const-string/jumbo v0, "parser.descape.1"
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v3, v3, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v4, "parser.descape.1"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
+    throw v3
 
     :cond_15
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
+    invoke-static {v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
 
-    move-result v0
+    move-result v2
 
-    if-ltz v0, :cond_14
+    if-ltz v2, :cond_14
+
+    move v1, v2
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v1
+    move-result v3
 
-    if-eqz v1, :cond_17
+    if-eqz v3, :cond_17
 
     :cond_16
-    const-string/jumbo v0, "parser.descape.1"
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v3, v3, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v4, "parser.descape.1"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
+    throw v3
 
     :cond_17
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
+    invoke-static {v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
 
-    move-result v1
+    move-result v2
 
-    if-ltz v1, :cond_16
+    if-ltz v2, :cond_16
 
-    mul-int/lit8 v0, v0, 0x10
+    mul-int/lit8 v3, v1, 0x10
 
-    add-int/2addr v0, v1
+    add-int v1, v3, v2
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v1
+    move-result v3
 
-    if-eqz v1, :cond_19
+    if-eqz v3, :cond_19
 
     :cond_18
-    const-string/jumbo v0, "parser.descape.1"
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v3, v3, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v4, "parser.descape.1"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
+    throw v3
 
     :cond_19
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
+    invoke-static {v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
 
-    move-result v1
+    move-result v2
 
-    if-ltz v1, :cond_18
+    if-ltz v2, :cond_18
 
-    mul-int/lit8 v0, v0, 0x10
+    mul-int/lit8 v3, v1, 0x10
 
-    add-int/2addr v0, v1
+    add-int v1, v3, v2
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v1
+    move-result v3
 
-    if-eqz v1, :cond_1b
+    if-eqz v3, :cond_1b
 
     :cond_1a
-    const-string/jumbo v0, "parser.descape.1"
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v3, v3, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v4, "parser.descape.1"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
+    throw v3
 
     :cond_1b
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
+    invoke-static {v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
 
-    move-result v1
+    move-result v2
 
-    if-ltz v1, :cond_1a
+    if-ltz v2, :cond_1a
 
-    mul-int/lit8 v0, v0, 0x10
+    mul-int/lit8 v3, v1, 0x10
 
-    add-int/2addr v0, v1
+    add-int v1, v3, v2
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v1
+    move-result v3
 
-    if-eqz v1, :cond_1d
+    if-eqz v3, :cond_1d
 
     :cond_1c
-    const-string/jumbo v0, "parser.descape.1"
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v3, v3, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v4, "parser.descape.1"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
+    throw v3
 
     :cond_1d
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
+    invoke-static {v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
 
-    move-result v1
+    move-result v2
 
-    if-ltz v1, :cond_1c
+    if-ltz v2, :cond_1c
 
-    mul-int/lit8 v0, v0, 0x10
+    mul-int/lit8 v3, v1, 0x10
 
-    add-int/2addr v0, v1
+    add-int v1, v3, v2
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v1
+    move-result v3
 
-    if-eqz v1, :cond_1f
+    if-eqz v3, :cond_1f
 
     :cond_1e
-    const-string/jumbo v0, "parser.descape.1"
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v3, v3, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v4, "parser.descape.1"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
+    throw v3
 
     :cond_1f
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
+    invoke-static {v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hexChar(I)I
 
-    move-result v1
+    move-result v2
 
-    if-ltz v1, :cond_1e
+    if-ltz v2, :cond_1e
 
-    mul-int/lit8 v0, v0, 0x10
+    mul-int/lit8 v3, v1, 0x10
 
-    add-int/2addr v0, v1
+    add-int v1, v3, v2
 
-    if-le v0, v3, :cond_0
+    if-gt v1, v5, :cond_20
 
-    const-string/jumbo v0, "parser.descappe.4"
+    move v0, v1
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    goto/16 :goto_0
 
-    add-int/lit8 v1, v1, -0x1
+    :cond_20
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    add-int/lit8 v3, v3, -0x1
 
-    move-result-object v0
+    const-string/jumbo v4, "parser.descappe.4"
 
-    throw v0
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+
+    move-result-object v3
+
+    throw v3
 
     :sswitch_8
-    const-string/jumbo v0, "parser.descape.5"
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v3, v3, -0x2
 
-    add-int/lit8 v1, v1, -0x2
+    const-string/jumbo v4, "parser.descape.5"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
+    throw v3
 
     nop
 
@@ -970,48 +997,48 @@
 .end method
 
 .method getTokenForShorthand(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
-    .locals 3
+    .locals 4
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    const/16 v0, 0x20
+    const/16 v1, 0x20
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     sparse-switch p1, :sswitch_data_0
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "Internal Error: shorthands: \\u"
+    const-string/jumbo v3, "Internal Error: shorthands: \\u"
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    const/16 v2, 0x10
+    const/16 v3, 0x10
 
-    invoke-static {p1, v2}, Ljava/lang/Integer;->toString(II)Ljava/lang/String;
+    invoke-static {p1, v3}, Ljava/lang/Integer;->toString(II)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    throw v1
 
     :sswitch_0
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     sget-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_0to9:Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
@@ -1019,113 +1046,118 @@
     return-object v0
 
     :cond_0
-    const-string/jumbo v0, "Nd"
+    const-string/jumbo v1, "Nd"
 
-    invoke-static {v0, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+    invoke-static {v1, v3}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
     move-result-object v0
 
     goto :goto_0
 
     :sswitch_1
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     sget-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_not_0to9:Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
+    :goto_1
     goto :goto_0
 
     :cond_1
-    const-string/jumbo v0, "Nd"
+    const-string/jumbo v1, "Nd"
 
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+    invoke-static {v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1
 
     :sswitch_2
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_2
+    if-nez v1, :cond_2
 
     sget-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_wordchars:Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
+    :goto_2
     goto :goto_0
 
     :cond_2
-    const-string/jumbo v0, "IsWord"
+    const-string/jumbo v1, "IsWord"
 
-    invoke-static {v0, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+    invoke-static {v1, v3}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_2
 
     :sswitch_3
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_3
+    if-nez v1, :cond_3
 
     sget-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_not_wordchars:Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
+    :goto_3
     goto :goto_0
 
     :cond_3
-    const-string/jumbo v0, "IsWord"
+    const-string/jumbo v1, "IsWord"
 
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+    invoke-static {v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_3
 
     :sswitch_4
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_4
+    if-nez v1, :cond_4
 
     sget-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_spaces:Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
+    :goto_4
     goto :goto_0
 
     :cond_4
-    const-string/jumbo v0, "IsSpace"
+    const-string/jumbo v1, "IsSpace"
 
-    invoke-static {v0, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+    invoke-static {v1, v3}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_4
 
     :sswitch_5
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_5
+    if-nez v1, :cond_5
 
     sget-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_not_spaces:Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
+    :goto_5
     goto :goto_0
 
     :cond_5
-    const-string/jumbo v0, "IsSpace"
+    const-string/jumbo v1, "IsSpace"
 
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+    invoke-static {v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_5
 
     nop
 
@@ -1160,189 +1192,196 @@
 .end method
 
 .method final next()V
-    .locals 8
+    .locals 9
 
-    const/16 v7, 0x29
+    const/16 v8, 0x29
 
-    const/16 v1, 0xa
+    const/4 v7, 0x1
 
-    const/4 v6, 0x1
-
-    const/16 v5, 0x200
-
-    const/4 v0, 0x0
-
-    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
-
-    if-ge v2, v3, :cond_1
-
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+    const/16 v6, 0x200
 
     iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    add-int/lit8 v4, v3, 0x1
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
 
-    iput v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    if-ge v3, v4, :cond_1
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->charAt(I)C
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
 
-    move-result v2
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iput v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    add-int/lit8 v5, v4, 0x1
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->context:I
+    iput v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    if-eq v3, v6, :cond_2
-
-    sparse-switch v2, :sswitch_data_0
-
-    :cond_0
-    :goto_0
-    iput v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->nexttoken:I
-
-    return-void
-
-    :cond_1
-    const/4 v0, -0x1
-
-    iput v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
-
-    iput v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->nexttoken:I
-
-    return-void
-
-    :cond_2
-    sparse-switch v2, :sswitch_data_1
-
-    :cond_3
-    invoke-static {v2}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->isHighSurrogate(I)Z
-
-    move-result v1
-
-    if-nez v1, :cond_6
-
-    :cond_4
-    :goto_1
-    iput v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->nexttoken:I
-
-    return-void
-
-    :sswitch_0
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
-
-    if-ge v0, v2, :cond_5
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
-
-    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    add-int/lit8 v3, v2, 0x1
-
-    iput v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v3, v4}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
     iput v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    move v0, v1
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->context:I
 
-    goto :goto_1
+    if-eq v3, v7, :cond_2
+
+    sparse-switch v0, :sswitch_data_0
+
+    const/4 v2, 0x0
+
+    :cond_0
+    :goto_0
+    iput v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->nexttoken:I
+
+    return-void
+
+    :cond_1
+    const/4 v3, -0x1
+
+    iput v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+
+    iput v7, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->nexttoken:I
+
+    return-void
+
+    :cond_2
+    sparse-switch v0, :sswitch_data_1
+
+    :cond_3
+    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->isHighSurrogate(I)Z
+
+    move-result v3
+
+    if-nez v3, :cond_8
+
+    :cond_4
+    :goto_1
+    const/4 v2, 0x0
+
+    :goto_2
+    iput v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->nexttoken:I
+
+    return-void
+
+    :sswitch_0
+    const/16 v2, 0xa
+
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
+
+    if-ge v3, v4, :cond_5
+
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    add-int/lit8 v5, v4, 0x1
+
+    iput v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->charAt(I)C
+
+    move-result v3
+
+    iput v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+
+    goto :goto_2
 
     :cond_5
-    const-string/jumbo v0, "parser.next.1"
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v3, v3, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v4, "parser.next.1"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
+    throw v3
 
     :sswitch_1
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
-
-    if-ge v1, v2, :cond_4
-
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
-
-    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->charAt(I)C
-
-    move-result v1
-
-    const/16 v2, 0x5b
-
-    if-ne v1, v2, :cond_4
-
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    add-int/lit8 v0, v0, 0x1
-
-    iput v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    const/16 v0, 0x18
-
-    goto :goto_1
-
-    :sswitch_2
-    invoke-virtual {p0, v5}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
-
-    move-result v1
-
-    if-nez v1, :cond_3
-
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
-
-    if-ge v1, v3, :cond_3
-
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
-
     iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    invoke-virtual {v1, v3}, Ljava/lang/String;->charAt(I)C
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
 
-    move-result v1
-
-    const/16 v3, 0x3a
-
-    if-ne v1, v3, :cond_3
-
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    add-int/lit8 v0, v0, 0x1
-
-    iput v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    const/16 v0, 0x14
-
-    goto :goto_1
+    if-lt v3, v4, :cond_7
 
     :cond_6
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    const/4 v2, 0x0
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
+    goto :goto_2
 
-    if-ge v1, v3, :cond_4
+    :cond_7
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->charAt(I)C
+
+    move-result v3
+
+    const/16 v4, 0x5b
+
+    if-ne v3, v4, :cond_6
 
     iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    invoke-virtual {v1, v3}, Ljava/lang/String;->charAt(I)C
+    add-int/lit8 v3, v3, 0x1
+
+    iput v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    const/16 v2, 0x18
+
+    goto :goto_2
+
+    :sswitch_2
+    invoke-virtual {p0, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
+
+    move-result v3
+
+    if-nez v3, :cond_3
+
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
+
+    if-ge v3, v4, :cond_3
+
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->charAt(I)C
+
+    move-result v3
+
+    const/16 v4, 0x3a
+
+    if-ne v3, v4, :cond_3
+
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    add-int/lit8 v3, v3, 0x1
+
+    iput v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    const/16 v2, 0x14
+
+    goto :goto_2
+
+    :cond_8
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
+
+    if-ge v3, v4, :cond_4
+
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->charAt(I)C
 
     move-result v1
 
@@ -1352,365 +1391,373 @@
 
     if-eqz v3, :cond_4
 
-    invoke-static {v2, v1}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->composeFromSurrogates(II)I
+    invoke-static {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->composeFromSurrogates(II)I
 
-    move-result v1
+    move-result v3
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iput v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v3, v3, 0x1
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iput v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
     goto/16 :goto_1
 
     :sswitch_3
-    const/4 v0, 0x2
+    const/4 v2, 0x2
 
     goto/16 :goto_0
 
     :sswitch_4
-    const/4 v0, 0x3
+    const/4 v2, 0x3
 
     goto/16 :goto_0
 
     :sswitch_5
-    const/4 v0, 0x4
+    const/4 v2, 0x4
 
     goto/16 :goto_0
 
     :sswitch_6
-    const/4 v0, 0x5
+    const/4 v2, 0x5
 
     goto/16 :goto_0
 
     :sswitch_7
-    const/4 v0, 0x7
+    const/4 v2, 0x7
 
     goto/16 :goto_0
 
     :sswitch_8
-    const/16 v0, 0x8
+    const/16 v2, 0x8
 
     goto/16 :goto_0
 
     :sswitch_9
-    const/16 v0, 0x9
+    const/16 v2, 0x9
 
     goto/16 :goto_0
 
     :sswitch_a
-    invoke-virtual {p0, v5}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
+    invoke-virtual {p0, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
 
-    move-result v1
+    move-result v3
 
-    if-nez v1, :cond_0
+    if-nez v3, :cond_9
 
-    const/16 v0, 0xb
+    const/16 v2, 0xb
+
+    goto/16 :goto_0
+
+    :cond_9
+    const/4 v2, 0x0
 
     goto/16 :goto_0
 
     :sswitch_b
-    invoke-virtual {p0, v5}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
+    invoke-virtual {p0, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
 
-    move-result v1
+    move-result v3
 
-    if-nez v1, :cond_0
+    if-nez v3, :cond_a
 
-    const/16 v0, 0xc
+    const/16 v2, 0xc
+
+    goto/16 :goto_0
+
+    :cond_a
+    const/4 v2, 0x0
 
     goto/16 :goto_0
 
     :sswitch_c
-    const/4 v0, 0x6
+    const/4 v2, 0x6
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
 
-    if-ge v1, v2, :cond_0
+    if-ge v3, v4, :cond_0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v3, v4}, Ljava/lang/String;->charAt(I)C
 
-    move-result v1
+    move-result v3
 
-    const/16 v2, 0x3f
+    const/16 v4, 0x3f
 
-    if-ne v1, v2, :cond_0
+    if-ne v3, v4, :cond_0
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v3, v3, 0x1
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iput v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
 
-    if-ge v0, v1, :cond_8
+    if-ge v3, v4, :cond_c
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    add-int/lit8 v2, v1, 0x1
+    add-int/lit8 v5, v4, 0x1
 
-    iput v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iput v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v3, v4}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
     sparse-switch v0, :sswitch_data_2
 
-    const/16 v1, 0x2d
+    const/16 v3, 0x2d
 
-    if-ne v0, v1, :cond_f
-
-    :cond_7
-    :goto_2
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    add-int/lit8 v0, v0, -0x1
-
-    iput v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    const/16 v0, 0x16
-
-    goto/16 :goto_0
-
-    :cond_8
-    const-string/jumbo v0, "parser.next.2"
-
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    add-int/lit8 v1, v1, -0x1
-
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
-
-    move-result-object v0
-
-    throw v0
-
-    :sswitch_d
-    const/16 v0, 0xd
-
-    goto/16 :goto_0
-
-    :sswitch_e
-    const/16 v0, 0xe
-
-    goto/16 :goto_0
-
-    :sswitch_f
-    const/16 v0, 0xf
-
-    goto/16 :goto_0
-
-    :sswitch_10
-    const/16 v0, 0x13
-
-    goto/16 :goto_0
-
-    :sswitch_11
-    const/16 v0, 0x12
-
-    goto/16 :goto_0
-
-    :sswitch_12
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
-
-    if-ge v0, v1, :cond_9
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
-
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    add-int/lit8 v2, v1, 0x1
-
-    iput v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C
-
-    move-result v0
-
-    const/16 v1, 0x3d
-
-    if-eq v0, v1, :cond_a
-
-    const/16 v1, 0x21
-
-    if-eq v0, v1, :cond_b
-
-    const-string/jumbo v0, "parser.next.3"
-
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    add-int/lit8 v1, v1, -0x3
-
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
-
-    move-result-object v0
-
-    throw v0
-
-    :cond_9
-    const-string/jumbo v0, "parser.next.2"
-
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    add-int/lit8 v1, v1, -0x3
-
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
-
-    move-result-object v0
-
-    throw v0
-
-    :cond_a
-    const/16 v0, 0x10
-
-    goto/16 :goto_0
+    if-ne v0, v3, :cond_13
 
     :cond_b
-    const/16 v0, 0x11
+    :goto_3
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    add-int/lit8 v3, v3, -0x1
+
+    iput v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    const/16 v2, 0x16
 
     goto/16 :goto_0
 
     :cond_c
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v3, v3, -0x1
 
-    add-int/lit8 v2, v1, 0x1
+    const-string/jumbo v4, "parser.next.2"
 
-    iput v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C
+    move-result-object v3
 
-    move-result v0
+    throw v3
 
-    if-eq v0, v7, :cond_d
-
-    :sswitch_13
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
-
-    if-lt v1, v2, :cond_c
-
-    :cond_d
-    if-ne v0, v7, :cond_e
-
-    const/16 v0, 0x15
+    :sswitch_d
+    const/16 v2, 0xd
 
     goto/16 :goto_0
 
+    :sswitch_e
+    const/16 v2, 0xe
+
+    goto/16 :goto_0
+
+    :sswitch_f
+    const/16 v2, 0xf
+
+    goto/16 :goto_0
+
+    :sswitch_10
+    const/16 v2, 0x13
+
+    goto/16 :goto_0
+
+    :sswitch_11
+    const/16 v2, 0x12
+
+    goto/16 :goto_0
+
+    :sswitch_12
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
+
+    if-ge v3, v4, :cond_d
+
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    add-int/lit8 v5, v4, 0x1
+
+    iput v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->charAt(I)C
+
+    move-result v0
+
+    const/16 v3, 0x3d
+
+    if-eq v0, v3, :cond_e
+
+    const/16 v3, 0x21
+
+    if-eq v0, v3, :cond_f
+
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    add-int/lit8 v3, v3, -0x3
+
+    const-string/jumbo v4, "parser.next.3"
+
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+
+    move-result-object v3
+
+    throw v3
+
+    :cond_d
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    add-int/lit8 v3, v3, -0x3
+
+    const-string/jumbo v4, "parser.next.2"
+
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+
+    move-result-object v3
+
+    throw v3
+
     :cond_e
-    const-string/jumbo v0, "parser.next.4"
+    const/16 v2, 0x10
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    add-int/lit8 v1, v1, -0x1
-
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
-
-    move-result-object v0
-
-    throw v0
+    goto/16 :goto_0
 
     :cond_f
-    const/16 v1, 0x61
+    const/16 v2, 0x11
 
-    if-le v1, v0, :cond_11
+    goto/16 :goto_0
 
     :cond_10
-    const/16 v1, 0x41
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
 
-    if-le v1, v0, :cond_12
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    :goto_3
-    const/16 v1, 0x28
+    add-int/lit8 v5, v4, 0x1
 
-    if-eq v0, v1, :cond_13
+    iput v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    const-string/jumbo v0, "parser.next.2"
+    invoke-virtual {v3, v4}, Ljava/lang/String;->charAt(I)C
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    move-result v0
 
-    add-int/lit8 v1, v1, -0x2
+    if-eq v0, v8, :cond_11
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    :sswitch_13
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    move-result-object v0
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
 
-    throw v0
+    if-lt v3, v4, :cond_10
 
     :cond_11
-    const/16 v1, 0x7a
+    if-ne v0, v8, :cond_12
 
-    if-gt v0, v1, :cond_10
+    const/16 v2, 0x15
 
-    goto/16 :goto_2
+    goto/16 :goto_0
 
     :cond_12
-    const/16 v1, 0x5a
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    if-le v0, v1, :cond_7
+    add-int/lit8 v3, v3, -0x1
 
-    goto :goto_3
+    const-string/jumbo v4, "parser.next.4"
+
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+
+    move-result-object v3
+
+    throw v3
 
     :cond_13
-    const/16 v0, 0x17
+    const/16 v3, 0x61
+
+    if-le v3, v0, :cond_15
+
+    :cond_14
+    const/16 v3, 0x41
+
+    if-le v3, v0, :cond_16
+
+    :goto_4
+    const/16 v3, 0x28
+
+    if-eq v0, v3, :cond_17
+
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    add-int/lit8 v3, v3, -0x2
+
+    const-string/jumbo v4, "parser.next.2"
+
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+
+    move-result-object v3
+
+    throw v3
+
+    :cond_15
+    const/16 v3, 0x7a
+
+    if-gt v0, v3, :cond_14
+
+    goto/16 :goto_3
+
+    :cond_16
+    const/16 v3, 0x5a
+
+    if-le v0, v3, :cond_b
+
+    goto :goto_4
+
+    :cond_17
+    const/16 v2, 0x17
 
     goto/16 :goto_0
 
     :sswitch_14
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    const/16 v2, 0xa
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    if-ge v0, v2, :cond_14
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+    if-ge v3, v4, :cond_18
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
 
-    add-int/lit8 v3, v2, 0x1
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iput v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v5, v4, 0x1
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->charAt(I)C
+    iput v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    move-result v0
+    invoke-virtual {v3, v4}, Ljava/lang/String;->charAt(I)C
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    move-result v3
 
-    move v0, v1
+    iput v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
     goto/16 :goto_0
 
-    :cond_14
-    const-string/jumbo v0, "parser.next.1"
+    :cond_18
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v3, v3, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v4, "parser.next.1"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
-
-    nop
+    throw v3
 
     :sswitch_data_0
     .sparse-switch
@@ -1754,51 +1801,49 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
-
     monitor-enter p0
 
     :try_start_0
     iput p2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->options:I
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iput v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->setContext(I)V
+    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->setContext(I)V
 
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parennumber:I
+    iput v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parennumber:I
 
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parenOpened:I
+    iput v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parenOpened:I
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    iput-boolean v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hasBackReferences:Z
+    iput-boolean v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hasBackReferences:Z
 
     iput-object p1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
 
-    const/16 v1, 0x10
+    const/16 v3, 0x10
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
+    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
 
-    move-result v1
+    move-result v3
 
-    if-nez v1, :cond_0
+    if-nez v3, :cond_0
 
     :goto_0
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v3
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
+    iput v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
@@ -1806,17 +1851,17 @@
 
     move-result-object v2
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
 
-    if-ne v1, v3, :cond_1
+    if-ne v3, v4, :cond_1
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->references:Ljava/util/Vector;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->references:Ljava/util/Vector;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v1, :cond_2
+    if-nez v3, :cond_2
 
     :goto_1
     monitor-exit p0
@@ -1825,84 +1870,82 @@
 
     :cond_0
     :try_start_1
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
 
-    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->stripExtendedComment(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->stripExtendedComment(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+    iput-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
     :catchall_0
-    move-exception v0
+    move-exception v3
 
     monitor-exit p0
 
-    throw v0
+    throw v3
 
     :cond_1
     :try_start_2
-    const-string/jumbo v0, "parser.parse.1"
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    const-string/jumbo v4, "parser.parse.1"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
+    throw v3
 
     :cond_2
-    move v1, v0
+    const/4 v0, 0x0
 
     :goto_2
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->references:Ljava/util/Vector;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->references:Ljava/util/Vector;
 
-    invoke-virtual {v0}, Ljava/util/Vector;->size()I
+    invoke-virtual {v3}, Ljava/util/Vector;->size()I
 
-    move-result v0
+    move-result v3
 
-    if-ge v1, v0, :cond_4
+    if-ge v0, v3, :cond_4
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->references:Ljava/util/Vector;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->references:Ljava/util/Vector;
 
-    invoke-virtual {v0, v1}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v3, v0}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser$ReferencePosition;
+    check-cast v1, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser$ReferencePosition;
 
     iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parennumber:I
 
-    iget v4, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser$ReferencePosition;->refNumber:I
+    iget v4, v1, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser$ReferencePosition;->refNumber:I
 
     if-le v3, v4, :cond_3
 
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_2
 
     :cond_3
-    const-string/jumbo v1, "parser.parse.2"
+    iget v3, v1, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser$ReferencePosition;->position:I
 
-    iget v0, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser$ReferencePosition;->position:I
+    const-string/jumbo v4, "parser.parse.2"
 
-    invoke-virtual {p0, v1, v0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v4, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
+    throw v3
 
     :cond_4
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->references:Ljava/util/Vector;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->references:Ljava/util/Vector;
 
-    invoke-virtual {v0}, Ljava/util/Vector;->removeAllElements()V
+    invoke-virtual {v3}, Ljava/util/Vector;->removeAllElements()V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -1910,105 +1953,107 @@
 .end method
 
 .method parseAtom()Lmf/org/apache/xerces/impl/xpath/regex/Token;
-    .locals 5
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
         }
     .end annotation
 
-    const/4 v4, 0x1
+    const/4 v9, 0x1
 
-    const/4 v3, 0x0
+    const/4 v8, 0x0
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
     move-result v0
 
+    const/4 v5, 0x0
+
     packed-switch v0, :pswitch_data_0
 
     :pswitch_0
-    const-string/jumbo v0, "parser.atom.4"
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v6, v6, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v7, "parser.atom.4"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v7, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v6
 
-    throw v0
+    throw v6
 
     :pswitch_1
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processParen()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :pswitch_2
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processParen2()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :pswitch_3
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processCondition()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :pswitch_4
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processModifiers()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :pswitch_5
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processIndependent()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :pswitch_6
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_dot:Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    sget-object v5, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_dot:Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
     :cond_0
     :goto_0
-    return-object v0
+    return-object v5
 
     :pswitch_7
-    invoke-virtual {p0, v4}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parseCharacterClass(Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+    invoke-virtual {p0, v9}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parseCharacterClass(Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :pswitch_8
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parseSetOperations()Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :pswitch_9
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    packed-switch v0, :pswitch_data_1
+    packed-switch v6, :pswitch_data_1
 
     :pswitch_a
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createChar(I)Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;
+    invoke-static {v6}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createChar(I)Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;
 
-    move-result-object v0
+    move-result-object v5
 
     :cond_1
     :goto_1
@@ -2017,206 +2062,208 @@
     goto :goto_0
 
     :pswitch_b
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->getTokenForShorthand(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-virtual {p0, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->getTokenForShorthand(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v5
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
-    return-object v0
+    return-object v5
 
     :pswitch_c
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->decodeEscaped()I
 
-    move-result v0
+    move-result v1
 
-    const/high16 v1, 0x10000
+    const/high16 v6, 0x10000
 
-    if-lt v0, v1, :cond_2
+    if-lt v1, v6, :cond_2
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->decomposeToSurrogates(I)Ljava/lang/String;
+    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->decomposeToSurrogates(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createString(Ljava/lang/String;)Lmf/org/apache/xerces/impl/xpath/regex/Token$StringToken;
+    invoke-static {v6}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createString(Ljava/lang/String;)Lmf/org/apache/xerces/impl/xpath/regex/Token$StringToken;
 
-    move-result-object v0
+    move-result-object v5
 
     goto :goto_1
 
     :cond_2
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createChar(I)Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;
+    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createChar(I)Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;
 
-    move-result-object v0
+    move-result-object v5
 
     goto :goto_1
 
     :pswitch_d
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processBacksolidus_c()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :pswitch_e
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processBacksolidus_C()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :pswitch_f
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processBacksolidus_i()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :pswitch_10
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processBacksolidus_I()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :pswitch_11
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processBacksolidus_g()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :pswitch_12
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processBacksolidus_X()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :pswitch_13
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processBackreference()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :pswitch_14
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processBacksolidus_pP(I)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+    invoke-virtual {p0, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processBacksolidus_pP(I)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    move-result-object v0
+    move-result-object v5
 
-    if-nez v0, :cond_1
+    if-nez v5, :cond_1
 
-    const-string/jumbo v0, "parser.atom.5"
+    const-string/jumbo v6, "parser.atom.5"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v6, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v6
 
-    throw v0
+    throw v6
 
     :pswitch_15
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    const/16 v1, 0x5d
+    const/16 v7, 0x5d
 
-    if-ne v0, v1, :cond_4
+    if-ne v6, v7, :cond_4
 
     :cond_3
-    const-string/jumbo v0, "parser.atom.4"
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v6, v6, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v7, "parser.atom.4"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v7, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v6
 
-    throw v0
+    throw v6
 
     :cond_4
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    const/16 v1, 0x7b
+    const/16 v7, 0x7b
 
-    if-eq v0, v1, :cond_3
+    if-eq v6, v7, :cond_3
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    const/16 v1, 0x7d
+    const/16 v7, 0x7d
 
-    if-eq v0, v1, :cond_3
+    if-eq v6, v7, :cond_3
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createChar(I)Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;
+    invoke-static {v6}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createChar(I)Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;
 
-    move-result-object v0
-
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
-
-    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
-
-    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->isHighSurrogate(I)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
-
-    move-result v2
-
-    if-nez v2, :cond_0
+    move-result-object v5
 
     iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    invoke-static {v2}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->isLowSurrogate(I)Z
+    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
-    move-result v2
+    invoke-static {v2}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->isHighSurrogate(I)Z
 
-    if-eqz v2, :cond_0
+    move-result v6
 
-    const/4 v0, 0x2
+    if-eqz v6, :cond_0
 
-    new-array v0, v0, [C
+    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    int-to-char v1, v1
+    move-result v6
 
-    int-to-char v1, v1
+    if-nez v6, :cond_0
 
-    aput-char v1, v0, v3
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    invoke-static {v6}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->isLowSurrogate(I)Z
 
-    int-to-char v1, v1
+    move-result v6
 
-    int-to-char v1, v1
+    if-eqz v6, :cond_0
 
-    aput-char v1, v0, v4
+    const/4 v6, 0x2
 
-    new-instance v1, Ljava/lang/String;
+    new-array v4, v6, [C
 
-    invoke-direct {v1, v0}, Ljava/lang/String;-><init>([C)V
+    int-to-char v6, v2
 
-    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createString(Ljava/lang/String;)Lmf/org/apache/xerces/impl/xpath/regex/Token$StringToken;
+    int-to-char v6, v6
 
-    move-result-object v0
+    aput-char v6, v4, v8
 
-    invoke-static {v0, v3}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createParen(Lmf/org/apache/xerces/impl/xpath/regex/Token;I)Lmf/org/apache/xerces/impl/xpath/regex/Token$ParenToken;
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    move-result-object v0
+    int-to-char v6, v6
+
+    int-to-char v6, v6
+
+    aput-char v6, v4, v9
+
+    new-instance v6, Ljava/lang/String;
+
+    invoke-direct {v6, v4}, Ljava/lang/String;-><init>([C)V
+
+    invoke-static {v6}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createString(Ljava/lang/String;)Lmf/org/apache/xerces/impl/xpath/regex/Token$StringToken;
+
+    move-result-object v6
+
+    invoke-static {v6, v8}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createParen(Lmf/org/apache/xerces/impl/xpath/regex/Token;I)Lmf/org/apache/xerces/impl/xpath/regex/Token$ParenToken;
+
+    move-result-object v5
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
     goto/16 :goto_0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -2324,591 +2371,888 @@
 .end method
 
 .method protected parseCharacterClass(Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
-    .locals 14
+    .locals 21
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
         }
     .end annotation
 
-    const/4 v13, 0x2
+    const/16 v18, 0x1
 
-    const v12, 0xffff
+    move-object/from16 v0, p0
 
-    const/16 v11, 0x5d
+    move/from16 v1, v18
 
-    const/4 v3, 0x1
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->setContext(I)V
 
-    const/4 v4, 0x0
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
-    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->setContext(I)V
+    const/4 v9, 0x0
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
+    const/4 v3, 0x0
 
-    const/4 v1, 0x0
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
+    move-result v18
 
-    move-result v0
-
-    if-eqz v0, :cond_4
+    if-eqz v18, :cond_4
 
     :cond_0
     invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createRange()Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    move-result-object v0
-
-    move v2, v4
+    move-result-object v15
 
     :goto_0
-    move v5, v3
+    const/4 v6, 0x1
 
     :goto_1
-    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v7
+    move-result v17
 
-    if-eq v7, v3, :cond_7
+    const/16 v18, 0x1
 
-    if-eqz v7, :cond_6
+    move/from16 v0, v17
+
+    move/from16 v1, v18
+
+    if-eq v0, v1, :cond_7
+
+    if-eqz v17, :cond_6
 
     :cond_1
-    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    move-object/from16 v0, p0
 
-    const/16 v8, 0xa
+    iget v4, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    if-eq v7, v8, :cond_9
+    const/4 v5, 0x0
 
-    const/16 v8, 0x14
+    const/16 v18, 0xa
 
-    if-eq v7, v8, :cond_c
+    move/from16 v0, v17
 
-    const/16 v8, 0x18
+    move/from16 v1, v18
 
-    if-eq v7, v8, :cond_12
+    if-eq v0, v1, :cond_9
+
+    const/16 v18, 0x14
+
+    move/from16 v0, v17
+
+    move/from16 v1, v18
+
+    if-eq v0, v1, :cond_b
+
+    const/16 v18, 0x18
+
+    move/from16 v0, v17
+
+    move/from16 v1, v18
+
+    if-eq v0, v1, :cond_11
 
     :cond_2
-    move v5, v4
-
     :goto_2
-    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
-    if-eqz v5, :cond_17
+    if-eqz v5, :cond_16
 
     :goto_3
-    const/16 v5, 0x400
+    const/16 v18, 0x400
 
-    invoke-virtual {p0, v5}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
+    move-object/from16 v0, p0
 
-    move-result v5
+    move/from16 v1, v18
 
-    if-nez v5, :cond_27
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
+
+    move-result v18
+
+    if-nez v18, :cond_26
 
     :cond_3
     :goto_4
-    move v5, v4
+    const/4 v6, 0x0
 
     goto :goto_1
 
     :cond_4
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    move-object/from16 v0, p0
 
-    const/16 v2, 0x5e
+    iget v0, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    if-ne v0, v2, :cond_0
+    move/from16 v18, v0
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
+    const/16 v19, 0x5e
+
+    move/from16 v0, v18
+
+    move/from16 v1, v19
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v9, 0x1
+
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
     if-nez p1, :cond_5
 
     invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createRange()Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    move-result-object v1
+    move-result-object v3
 
-    const v0, 0x10ffff
+    const/16 v18, 0x0
 
-    invoke-virtual {v1, v4, v0}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
+    const v19, 0x10ffff
+
+    move/from16 v0, v18
+
+    move/from16 v1, v19
+
+    invoke-virtual {v3, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
 
     invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createRange()Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    move-result-object v0
-
-    move v2, v3
+    move-result-object v15
 
     goto :goto_0
 
     :cond_5
     invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createNRange()Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    move-result-object v0
-
-    move v2, v3
+    move-result-object v15
 
     goto :goto_0
 
     :cond_6
-    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    move-object/from16 v0, p0
 
-    if-ne v6, v11, :cond_1
+    iget v0, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    if-nez v5, :cond_1
+    move/from16 v18, v0
+
+    const/16 v19, 0x5d
+
+    move/from16 v0, v18
+
+    move/from16 v1, v19
+
+    if-ne v0, v1, :cond_1
+
+    if-nez v6, :cond_1
 
     :cond_7
     :goto_5
-    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v5
+    move-result v18
 
-    if-eq v5, v3, :cond_28
+    const/16 v19, 0x1
 
-    if-eqz p1, :cond_29
+    move/from16 v0, v18
+
+    move/from16 v1, v19
+
+    if-eq v0, v1, :cond_27
+
+    if-eqz p1, :cond_28
 
     :cond_8
     :goto_6
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->sortRanges()V
+    invoke-virtual {v15}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->sortRanges()V
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->compactRanges()V
+    invoke-virtual {v15}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->compactRanges()V
 
-    invoke-virtual {p0, v4}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->setContext(I)V
+    const/16 v18, 0x0
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
+    move-object/from16 v0, p0
 
-    return-object v0
+    move/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->setContext(I)V
+
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
+
+    return-object v15
 
     :cond_9
-    sparse-switch v6, :sswitch_data_0
+    sparse-switch v4, :sswitch_data_0
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->decodeEscaped()I
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->decodeEscaped()I
 
-    move-result v5
-
-    move v6, v5
-
-    move v5, v4
+    move-result v4
 
     goto :goto_2
 
     :sswitch_0
-    invoke-virtual {p0, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->getTokenForShorthand(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    move-object/from16 v0, p0
 
-    move-result-object v5
+    invoke-virtual {v0, v4}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->getTokenForShorthand(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    invoke-virtual {v0, v5}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+    move-result-object v18
 
-    move v5, v3
+    move-object/from16 v0, v18
 
-    goto :goto_2
+    invoke-virtual {v15, v0}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
 
-    :sswitch_1
-    invoke-virtual {p0, v0, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processCIinCharacterClass(Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;I)I
-
-    move-result v5
-
-    if-ltz v5, :cond_a
-
-    move v6, v5
-
-    move v5, v4
-
-    goto :goto_2
-
-    :cond_a
-    move v6, v5
-
-    move v5, v3
-
-    goto :goto_2
-
-    :sswitch_2
-    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    invoke-virtual {p0, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processBacksolidus_pP(I)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
-
-    move-result-object v8
-
-    if-eqz v8, :cond_b
-
-    invoke-virtual {v0, v8}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
-
-    move v5, v3
-
-    goto :goto_2
-
-    :cond_b
-    const-string/jumbo v0, "parser.atom.5"
-
-    invoke-virtual {p0, v0, v5}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
-
-    move-result-object v0
-
-    throw v0
-
-    :cond_c
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
-
-    const/16 v8, 0x3a
-
-    iget v9, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    invoke-virtual {v5, v8, v9}, Ljava/lang/String;->indexOf(II)I
-
-    move-result v8
-
-    if-ltz v8, :cond_e
-
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
-
-    iget v9, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    invoke-virtual {v5, v9}, Ljava/lang/String;->charAt(I)C
-
-    move-result v5
-
-    const/16 v9, 0x5e
-
-    if-eq v5, v9, :cond_f
-
-    move v5, v3
-
-    :goto_7
-    iget-object v9, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
-
-    iget v10, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    invoke-virtual {v9, v10, v8}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v9
-
-    const/16 v10, 0x200
-
-    invoke-virtual {p0, v10}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
-
-    move-result v10
-
-    invoke-static {v9, v5, v10}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;ZZ)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
-
-    move-result-object v5
-
-    if-eqz v5, :cond_10
-
-    invoke-virtual {v0, v5}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
-
-    add-int/lit8 v5, v8, 0x1
-
-    iget v9, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
-
-    if-lt v5, v9, :cond_11
-
-    :cond_d
-    const-string/jumbo v0, "parser.cc.1"
-
-    invoke-virtual {p0, v0, v8}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
-
-    move-result-object v0
-
-    throw v0
-
-    :cond_e
-    const-string/jumbo v0, "parser.cc.1"
-
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
-
-    move-result-object v0
-
-    throw v0
-
-    :cond_f
-    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    add-int/lit8 v5, v5, 0x1
-
-    iput v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    move v5, v4
-
-    goto :goto_7
-
-    :cond_10
-    const-string/jumbo v0, "parser.cc.3"
-
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
-
-    move-result-object v0
-
-    throw v0
-
-    :cond_11
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
-
-    add-int/lit8 v9, v8, 0x1
-
-    invoke-virtual {v5, v9}, Ljava/lang/String;->charAt(I)C
-
-    move-result v5
-
-    if-ne v5, v11, :cond_d
-
-    add-int/lit8 v5, v8, 0x2
-
-    iput v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    move v5, v3
+    const/4 v5, 0x1
 
     goto/16 :goto_2
 
-    :cond_12
-    if-nez v5, :cond_2
+    :sswitch_1
+    move-object/from16 v0, p0
 
-    if-nez v2, :cond_14
+    invoke-virtual {v0, v15, v4}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processCIinCharacterClass(Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;I)I
+
+    move-result v4
+
+    if-gez v4, :cond_2
+
+    const/4 v5, 0x1
+
+    goto/16 :goto_2
+
+    :sswitch_2
+    move-object/from16 v0, p0
+
+    iget v11, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v4}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processBacksolidus_pP(I)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+
+    move-result-object v16
+
+    if-eqz v16, :cond_a
+
+    invoke-virtual/range {v15 .. v16}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+
+    const/4 v5, 0x1
+
+    goto/16 :goto_2
+
+    :cond_a
+    const-string/jumbo v18, "parser.atom.5"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v0, v1, v11}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+
+    move-result-object v18
+
+    throw v18
+
+    :cond_b
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    move/from16 v19, v0
+
+    const/16 v20, 0x3a
+
+    move-object/from16 v0, v18
+
+    move/from16 v1, v20
+
+    move/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->indexOf(II)I
+
+    move-result v8
+
+    if-ltz v8, :cond_d
+
+    const/4 v10, 0x1
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    move/from16 v19, v0
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/String;->charAt(I)C
+
+    move-result v18
+
+    const/16 v19, 0x5e
+
+    move/from16 v0, v18
+
+    move/from16 v1, v19
+
+    if-eq v0, v1, :cond_e
+
+    :goto_7
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    move/from16 v19, v0
+
+    move-object/from16 v0, v18
+
+    move/from16 v1, v19
+
+    invoke-virtual {v0, v1, v8}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v7
+
+    const/16 v18, 0x200
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
+
+    move-result v18
+
+    move/from16 v0, v18
+
+    invoke-static {v7, v10, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;ZZ)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+
+    move-result-object v12
+
+    if-eqz v12, :cond_f
+
+    invoke-virtual {v15, v12}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+
+    const/4 v5, 0x1
+
+    add-int/lit8 v18, v8, 0x1
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
+
+    move/from16 v19, v0
+
+    move/from16 v0, v18
+
+    move/from16 v1, v19
+
+    if-lt v0, v1, :cond_10
+
+    :cond_c
+    const-string/jumbo v18, "parser.cc.1"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v0, v1, v8}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+
+    move-result-object v18
+
+    throw v18
+
+    :cond_d
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    move/from16 v18, v0
+
+    const-string/jumbo v19, "parser.cc.1"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v19
+
+    move/from16 v2, v18
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+
+    move-result-object v18
+
+    throw v18
+
+    :cond_e
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    move/from16 v18, v0
+
+    add-int/lit8 v18, v18, 0x1
+
+    move/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    const/4 v10, 0x0
+
+    goto :goto_7
+
+    :cond_f
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    move/from16 v18, v0
+
+    const-string/jumbo v19, "parser.cc.3"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v19
+
+    move/from16 v2, v18
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+
+    move-result-object v18
+
+    throw v18
+
+    :cond_10
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+
+    move-object/from16 v18, v0
+
+    add-int/lit8 v19, v8, 0x1
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/String;->charAt(I)C
+
+    move-result v18
+
+    const/16 v19, 0x5d
+
+    move/from16 v0, v18
+
+    move/from16 v1, v19
+
+    if-ne v0, v1, :cond_c
+
+    add-int/lit8 v18, v8, 0x2
+
+    move/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    goto/16 :goto_2
+
+    :cond_11
+    if-nez v6, :cond_2
+
+    if-nez v9, :cond_13
 
     :goto_8
-    invoke-virtual {p0, v4}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parseCharacterClass(Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+    const/16 v18, 0x0
 
-    move-result-object v5
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->subtractRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+    move/from16 v1, v18
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parseCharacterClass(Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    move-result v5
+    move-result-object v13
 
-    if-eqz v5, :cond_16
+    invoke-virtual {v15, v13}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->subtractRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
+
+    move-result v18
+
+    if-eqz v18, :cond_15
+
+    :cond_12
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    move/from16 v18, v0
+
+    const-string/jumbo v19, "parser.cc.5"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v19
+
+    move/from16 v2, v18
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+
+    move-result-object v18
+
+    throw v18
 
     :cond_13
-    const-string/jumbo v0, "parser.cc.5"
+    const/4 v9, 0x0
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    if-nez p1, :cond_14
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {v3, v15}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->subtractRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
 
-    move-result-object v0
+    move-object v15, v3
 
-    throw v0
+    goto :goto_8
 
     :cond_14
-    if-nez p1, :cond_15
+    invoke-static {v15}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->complementRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    invoke-virtual {v1, v0}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->subtractRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+    move-result-object v15
 
-    move-object v0, v1
-
-    move v2, v4
+    check-cast v15, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
     goto :goto_8
 
     :cond_15
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->complementRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    move-object/from16 v0, p0
 
-    move-result-object v0
+    iget v0, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    check-cast v0, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+    move/from16 v18, v0
 
-    move v2, v4
+    const/16 v19, 0x5d
 
-    goto :goto_8
+    move/from16 v0, v18
 
-    :cond_16
-    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    move/from16 v1, v19
 
-    if-ne v5, v11, :cond_13
+    if-ne v0, v1, :cond_12
 
     goto/16 :goto_5
 
+    :cond_16
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
+
+    move-result v18
+
+    if-eqz v18, :cond_19
+
     :cond_17
-    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
+    const/16 v18, 0x2
 
-    move-result v5
+    move-object/from16 v0, p0
 
-    if-eqz v5, :cond_1a
+    move/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
+
+    move-result v18
+
+    if-nez v18, :cond_1c
 
     :cond_18
-    invoke-virtual {p0, v13}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
-
-    move-result v5
-
-    if-nez v5, :cond_1d
-
-    :cond_19
-    invoke-virtual {v0, v6, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
+    invoke-virtual {v15, v4, v4}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
 
     goto/16 :goto_3
 
+    :cond_19
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+
+    move/from16 v18, v0
+
+    const/16 v19, 0x2d
+
+    move/from16 v0, v18
+
+    move/from16 v1, v19
+
+    if-ne v0, v1, :cond_17
+
+    const/16 v18, 0x18
+
+    move/from16 v0, v17
+
+    move/from16 v1, v18
+
+    if-eq v0, v1, :cond_1d
+
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
+
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
+
+    move-result v17
+
+    const/16 v18, 0x1
+
+    move/from16 v0, v17
+
+    move/from16 v1, v18
+
+    if-eq v0, v1, :cond_1e
+
+    if-eqz v17, :cond_1f
+
     :cond_1a
-    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    move-object/from16 v0, p0
 
-    const/16 v8, 0x2d
+    iget v14, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    if-ne v5, v8, :cond_18
+    const/16 v18, 0xa
 
-    const/16 v5, 0x18
+    move/from16 v0, v17
 
-    if-eq v7, v5, :cond_1e
+    move/from16 v1, v18
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
-
-    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
-
-    move-result v7
-
-    if-eq v7, v3, :cond_1f
-
-    if-eqz v7, :cond_20
-
-    :cond_1b
-    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
-
-    const/16 v8, 0xa
-
-    if-eq v7, v8, :cond_23
+    if-eq v0, v1, :cond_22
 
     :goto_9
-    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
-    if-gt v6, v5, :cond_24
+    if-gt v4, v14, :cond_23
 
-    invoke-virtual {p0, v13}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
+    const/16 v18, 0x2
 
-    move-result v7
+    move-object/from16 v0, p0
 
-    if-nez v7, :cond_25
+    move/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
+
+    move-result v18
+
+    if-nez v18, :cond_24
+
+    :cond_1b
+    invoke-virtual {v15, v4, v14}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
+
+    goto/16 :goto_3
 
     :cond_1c
-    invoke-virtual {v0, v6, v5}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
+    const v18, 0xffff
+
+    move/from16 v0, v18
+
+    if-gt v4, v0, :cond_18
+
+    invoke-static {v15, v4}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->addCaseInsensitiveChar(Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;I)V
 
     goto/16 :goto_3
 
     :cond_1d
-    if-gt v6, v12, :cond_19
+    move-object/from16 v0, p0
 
-    invoke-static {v0, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->addCaseInsensitiveChar(Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;I)V
+    iget v0, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    goto/16 :goto_3
+    move/from16 v18, v0
+
+    add-int/lit8 v18, v18, -0x1
+
+    const-string/jumbo v19, "parser.cc.8"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v19
+
+    move/from16 v2, v18
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+
+    move-result-object v18
+
+    throw v18
 
     :cond_1e
-    const-string/jumbo v0, "parser.cc.8"
+    move-object/from16 v0, p0
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v0, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    add-int/lit8 v1, v1, -0x1
+    move/from16 v18, v0
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    const-string/jumbo v19, "parser.cc.2"
 
-    move-result-object v0
+    move-object/from16 v0, p0
 
-    throw v0
+    move-object/from16 v1, v19
+
+    move/from16 v2, v18
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+
+    move-result-object v18
+
+    throw v18
 
     :cond_1f
-    const-string/jumbo v0, "parser.cc.2"
+    move-object/from16 v0, p0
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v0, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    move/from16 v18, v0
 
-    move-result-object v0
+    const/16 v19, 0x5d
 
-    throw v0
+    move/from16 v0, v18
+
+    move/from16 v1, v19
+
+    if-ne v0, v1, :cond_1a
+
+    const/16 v18, 0x2
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
+
+    move-result v18
+
+    if-nez v18, :cond_21
 
     :cond_20
-    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
-
-    if-ne v5, v11, :cond_1b
-
-    invoke-virtual {p0, v13}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
-
-    move-result v5
-
-    if-nez v5, :cond_22
-
-    :cond_21
-    invoke-virtual {v0, v6, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
+    invoke-virtual {v15, v4, v4}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
 
     :goto_a
-    const/16 v5, 0x2d
+    const/16 v18, 0x2d
 
-    const/16 v6, 0x2d
+    const/16 v19, 0x2d
 
-    invoke-virtual {v0, v5, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
+    move/from16 v0, v18
+
+    move/from16 v1, v19
+
+    invoke-virtual {v15, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
 
     goto/16 :goto_3
 
-    :cond_22
-    if-gt v6, v12, :cond_21
+    :cond_21
+    const v18, 0xffff
 
-    invoke-static {v0, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->addCaseInsensitiveChar(Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;I)V
+    move/from16 v0, v18
+
+    if-gt v4, v0, :cond_20
+
+    invoke-static {v15, v4}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->addCaseInsensitiveChar(Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;I)V
 
     goto :goto_a
 
+    :cond_22
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->decodeEscaped()I
+
+    move-result v14
+
+    goto/16 :goto_9
+
     :cond_23
-    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->decodeEscaped()I
+    move-object/from16 v0, p0
 
-    move-result v5
+    iget v0, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    goto :goto_9
+    move/from16 v18, v0
+
+    add-int/lit8 v18, v18, -0x1
+
+    const-string/jumbo v19, "parser.ope.3"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v19
+
+    move/from16 v2, v18
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+
+    move-result-object v18
+
+    throw v18
 
     :cond_24
-    const-string/jumbo v0, "parser.ope.3"
+    const v18, 0xffff
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    move/from16 v0, v18
 
-    add-int/lit8 v1, v1, -0x1
-
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
-
-    move-result-object v0
-
-    throw v0
-
-    :cond_25
-    if-gt v6, v12, :cond_26
+    if-gt v4, v0, :cond_25
 
     :goto_b
-    invoke-static {v0, v6, v5}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->addCaseInsensitiveCharRange(Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;II)V
+    invoke-static {v15, v4, v14}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->addCaseInsensitiveCharRange(Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;II)V
 
     goto/16 :goto_3
 
-    :cond_26
-    if-gt v5, v12, :cond_1c
+    :cond_25
+    const v18, 0xffff
+
+    move/from16 v0, v18
+
+    if-gt v14, v0, :cond_1b
 
     goto :goto_b
 
-    :cond_27
-    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
+    :cond_26
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v5
+    move-result v18
 
-    if-nez v5, :cond_3
+    if-nez v18, :cond_3
 
-    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    move-object/from16 v0, p0
 
-    const/16 v6, 0x2c
+    iget v0, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    if-ne v5, v6, :cond_3
+    move/from16 v18, v0
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
+    const/16 v19, 0x2c
+
+    move/from16 v0, v18
+
+    move/from16 v1, v19
+
+    if-ne v0, v1, :cond_3
+
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
     goto/16 :goto_4
 
+    :cond_27
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    move/from16 v18, v0
+
+    const-string/jumbo v19, "parser.cc.2"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v19
+
+    move/from16 v2, v18
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+
+    move-result-object v18
+
+    throw v18
+
     :cond_28
-    const-string/jumbo v0, "parser.cc.2"
+    if-eqz v9, :cond_8
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    invoke-virtual {v3, v15}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->subtractRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
-
-    move-result-object v0
-
-    throw v0
-
-    :cond_29
-    if-eqz v2, :cond_8
-
-    invoke-virtual {v1, v0}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->subtractRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
-
-    move-object v0, v1
+    move-object v15, v3
 
     goto/16 :goto_6
 
@@ -2930,18 +3274,16 @@
 .end method
 
 .method parseFactor()Lmf/org/apache/xerces/impl/xpath/regex/Token;
-    .locals 9
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
         }
     .end annotation
 
-    const/4 v5, -0x1
+    const/16 v9, 0x39
 
-    const/16 v7, 0x39
-
-    const/16 v6, 0x30
+    const/16 v8, 0x30
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
@@ -2953,7 +3295,7 @@
     :pswitch_0
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parseAtom()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v4
+    move-result-object v5
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
@@ -2961,431 +3303,396 @@
 
     packed-switch v0, :pswitch_data_1
 
-    :pswitch_1
-    move-object v1, v4
-
+    :cond_0
     :goto_1
-    return-object v1
+    :pswitch_1
+    return-object v5
 
     :pswitch_2
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processCaret()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :pswitch_3
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processDollar()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :pswitch_4
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processLookahead()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :pswitch_5
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processNegativelookahead()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :pswitch_6
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processLookbehind()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :pswitch_7
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processNegativelookbehind()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :pswitch_8
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
     invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createEmpty()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :pswitch_9
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v6, :sswitch_data_0
 
     goto :goto_0
 
     :sswitch_0
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processBacksolidus_lt()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :sswitch_1
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processBacksolidus_A()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :sswitch_2
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processBacksolidus_Z()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :sswitch_3
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processBacksolidus_z()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :sswitch_4
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processBacksolidus_b()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :sswitch_5
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processBacksolidus_B()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :sswitch_6
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processBacksolidus_gt()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :pswitch_a
-    invoke-virtual {p0, v4}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processStar(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-virtual {p0, v5}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processStar(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :pswitch_b
-    invoke-virtual {p0, v4}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processPlus(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-virtual {p0, v5}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processPlus(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :pswitch_c
-    invoke-virtual {p0, v4}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processQuestion(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-virtual {p0, v5}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->processQuestion(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :pswitch_d
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    const/16 v1, 0x7b
+    const/16 v7, 0x7b
 
-    if-eq v0, v1, :cond_1
+    if-ne v6, v7, :cond_0
 
-    :cond_0
-    move-object v1, v4
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    goto :goto_1
+    iget v7, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
+
+    if-ge v6, v7, :cond_0
+
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    const/4 v2, 0x0
+
+    const/4 v1, -0x1
+
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+
+    add-int/lit8 v4, v3, 0x1
+
+    invoke-virtual {v6, v3}, Ljava/lang/String;->charAt(I)C
+
+    move-result v0
+
+    if-ge v0, v8, :cond_2
 
     :cond_1
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
+    const-string/jumbo v7, "parser.quantifier.1"
 
-    if-ge v0, v1, :cond_0
+    invoke-virtual {p0, v7, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    move-result-object v6
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
-
-    add-int/lit8 v1, v0, 0x1
-
-    invoke-virtual {v2, v0}, Ljava/lang/String;->charAt(I)C
-
-    move-result v2
-
-    if-ge v2, v6, :cond_3
+    throw v6
 
     :cond_2
-    const-string/jumbo v0, "parser.quantifier.1"
+    if-gt v0, v9, :cond_1
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v2, v0, -0x30
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
-
-    move-result-object v0
-
-    throw v0
-
-    :cond_3
-    if-gt v2, v7, :cond_2
-
-    add-int/lit8 v0, v2, -0x30
+    move v3, v4
 
     :goto_2
-    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
 
-    if-lt v1, v3, :cond_7
+    if-lt v3, v6, :cond_6
 
-    move v8, v1
-
+    :goto_3
     move v1, v2
 
-    move v2, v8
+    const/16 v6, 0x2c
 
-    :cond_4
-    :goto_3
-    const/16 v3, 0x2c
+    if-eq v0, v6, :cond_8
 
-    if-eq v1, v3, :cond_8
-
-    move v3, v2
-
-    move v2, v0
-
+    :cond_3
     :goto_4
-    const/16 v5, 0x7d
+    const/16 v6, 0x7d
 
-    if-ne v1, v5, :cond_10
+    if-ne v0, v6, :cond_f
 
     invoke-virtual {p0, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->checkQuestion(I)Z
 
-    move-result v1
+    move-result v6
 
-    if-nez v1, :cond_11
+    if-nez v6, :cond_10
 
-    invoke-static {v4}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createClosure(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token$ClosureToken;
+    invoke-static {v5}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createClosure(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token$ClosureToken;
 
-    move-result-object v1
+    move-result-object v5
 
     iput v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
     :goto_5
-    invoke-virtual {v1, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setMin(I)V
+    invoke-virtual {v5, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setMin(I)V
 
-    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setMax(I)V
+    invoke-virtual {v5, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setMax(I)V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
     goto/16 :goto_1
 
-    :cond_5
-    if-gt v1, v7, :cond_4
+    :cond_4
+    if-gt v0, v9, :cond_7
 
-    mul-int/lit8 v0, v0, 0xa
+    mul-int/lit8 v6, v2, 0xa
 
-    add-int/2addr v0, v1
+    add-int/2addr v6, v0
 
-    add-int/lit8 v0, v0, -0x30
+    add-int/lit8 v2, v6, -0x30
 
-    if-ltz v0, :cond_6
+    if-ltz v2, :cond_5
 
-    move v8, v2
-
-    move v2, v1
-
-    move v1, v8
+    move v3, v4
 
     goto :goto_2
 
+    :cond_5
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    const-string/jumbo v7, "parser.quantifier.5"
+
+    invoke-virtual {p0, v7, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+
+    move-result-object v6
+
+    throw v6
+
     :cond_6
-    const-string/jumbo v0, "parser.quantifier.5"
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v4, v3, 0x1
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {v6, v3}, Ljava/lang/String;->charAt(I)C
 
-    move-result-object v0
+    move-result v0
 
-    throw v0
+    if-ge v0, v8, :cond_4
+
+    move v3, v4
+
+    goto :goto_3
 
     :cond_7
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
-
-    add-int/lit8 v2, v1, 0x1
-
-    invoke-virtual {v3, v1}, Ljava/lang/String;->charAt(I)C
-
-    move-result v1
-
-    if-ge v1, v6, :cond_5
+    move v3, v4
 
     goto :goto_3
 
     :cond_8
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
 
-    if-ge v2, v1, :cond_a
+    if-ge v3, v6, :cond_a
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
 
-    add-int/lit8 v3, v2, 0x1
+    add-int/lit8 v4, v3, 0x1
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v6, v3}, Ljava/lang/String;->charAt(I)C
 
-    move-result v2
+    move-result v0
 
-    if-ge v2, v6, :cond_b
+    if-ge v0, v8, :cond_b
 
     :cond_9
-    move v1, v2
+    const/4 v1, -0x1
 
-    move v2, v5
+    move v3, v4
 
     goto :goto_4
 
     :cond_a
-    const-string/jumbo v0, "parser.quantifier.3"
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    const-string/jumbo v7, "parser.quantifier.3"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v7, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v6
 
-    throw v0
+    throw v6
 
     :cond_b
-    if-gt v2, v7, :cond_9
+    if-gt v0, v9, :cond_9
 
-    add-int/lit8 v1, v2, -0x30
+    add-int/lit8 v1, v0, -0x30
 
-    move v8, v3
-
-    move v3, v2
-
-    move v2, v8
+    move v3, v4
 
     :goto_6
-    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
 
-    if-lt v2, v5, :cond_e
+    if-lt v3, v6, :cond_e
 
     :goto_7
-    if-gt v0, v1, :cond_f
+    if-le v2, v1, :cond_3
 
-    move v8, v1
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    move v1, v3
+    const-string/jumbo v7, "parser.quantifier.4"
 
-    move v3, v2
+    invoke-virtual {p0, v7, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move v2, v8
+    move-result-object v6
 
-    goto :goto_4
+    throw v6
 
     :cond_c
-    if-gt v2, v7, :cond_12
+    if-gt v0, v9, :cond_11
 
-    mul-int/lit8 v1, v1, 0xa
+    mul-int/lit8 v6, v1, 0xa
 
-    add-int/2addr v1, v2
+    add-int/2addr v6, v0
 
-    add-int/lit8 v1, v1, -0x30
+    add-int/lit8 v1, v6, -0x30
 
     if-ltz v1, :cond_d
 
-    move v8, v3
-
-    move v3, v2
-
-    move v2, v8
+    move v3, v4
 
     goto :goto_6
 
     :cond_d
-    const-string/jumbo v0, "parser.quantifier.5"
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    const-string/jumbo v7, "parser.quantifier.5"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v7, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v6
 
-    throw v0
+    throw v6
 
     :cond_e
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
 
-    add-int/lit8 v3, v2, 0x1
+    add-int/lit8 v4, v3, 0x1
 
-    invoke-virtual {v5, v2}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v6, v3}, Ljava/lang/String;->charAt(I)C
 
-    move-result v2
+    move-result v0
 
-    if-ge v2, v6, :cond_c
+    if-ge v0, v8, :cond_c
 
-    move v8, v3
-
-    move v3, v2
-
-    move v2, v8
+    move v3, v4
 
     goto :goto_7
 
     :cond_f
-    const-string/jumbo v0, "parser.quantifier.4"
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    const-string/jumbo v7, "parser.quantifier.2"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v7, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v6
 
-    throw v0
+    throw v6
 
     :cond_10
-    const-string/jumbo v0, "parser.quantifier.2"
+    invoke-static {v5}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createNGClosure(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token$ClosureToken;
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    move-result-object v5
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    add-int/lit8 v6, v3, 0x1
 
-    move-result-object v0
-
-    throw v0
-
-    :cond_11
-    invoke-static {v4}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createNGClosure(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token$ClosureToken;
-
-    move-result-object v1
-
-    add-int/lit8 v3, v3, 0x1
-
-    iput v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iput v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
     goto/16 :goto_5
 
-    :cond_12
-    move v8, v3
-
-    move v3, v2
-
-    move v2, v8
+    :cond_11
+    move v3, v4
 
     goto :goto_7
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0xa
@@ -3433,11 +3740,11 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
-
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parseTerm()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
     move-result-object v1
+
+    const/4 v0, 0x0
 
     :goto_0
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
@@ -3477,55 +3784,55 @@
 .end method
 
 .method protected parseSetOperations()Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
-    .locals 9
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
         }
     .end annotation
 
-    const/16 v8, 0x2d
+    const/16 v9, 0x2d
 
-    const/16 v7, 0x26
+    const/16 v8, 0x26
 
-    const/4 v6, 0x4
+    const/4 v7, 0x4
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
-    invoke-virtual {p0, v5}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parseCharacterClass(Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+    invoke-virtual {p0, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parseCharacterClass(Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    move-result-object v0
+    move-result-object v2
 
     :goto_0
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v1
+    move-result v3
 
-    const/4 v2, 0x7
+    const/4 v4, 0x7
 
-    if-eq v1, v2, :cond_8
+    if-eq v3, v4, :cond_8
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    if-eqz v1, :cond_1
+    if-eqz v3, :cond_1
 
     :cond_0
-    if-eq v1, v6, :cond_2
+    if-eq v3, v7, :cond_2
 
-    const-string/jumbo v0, "parser.ope.2"
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v4, v4, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v5, "parser.ope.2"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v5, v4}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v4
 
-    throw v0
+    throw v4
 
     :cond_1
-    if-ne v2, v8, :cond_3
+    if-ne v0, v9, :cond_3
 
     :cond_2
     :goto_1
@@ -3533,262 +3840,262 @@
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v3
+    move-result v4
 
-    const/16 v4, 0x9
+    const/16 v5, 0x9
 
-    if-ne v3, v4, :cond_4
+    if-ne v4, v5, :cond_4
 
-    invoke-virtual {p0, v5}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parseCharacterClass(Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+    invoke-virtual {p0, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parseCharacterClass(Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    move-result-object v3
+    move-result-object v1
 
-    if-eq v1, v6, :cond_5
+    if-eq v3, v7, :cond_5
 
-    if-eq v2, v8, :cond_6
+    if-eq v0, v9, :cond_6
 
-    if-eq v2, v7, :cond_7
+    if-eq v0, v8, :cond_7
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v4, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v1, "ASSERT"
+    const-string/jumbo v5, "ASSERT"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v5}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v4
 
     :cond_3
-    if-ne v2, v7, :cond_0
+    if-ne v0, v8, :cond_0
 
     goto :goto_1
 
     :cond_4
-    const-string/jumbo v0, "parser.ope.1"
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v4, v4, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v5, "parser.ope.1"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v5, v4}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v4
 
-    throw v0
+    throw v4
 
     :cond_5
-    invoke-virtual {v0, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+    invoke-virtual {v2, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
 
     goto :goto_0
 
     :cond_6
-    invoke-virtual {v0, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->subtractRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+    invoke-virtual {v2, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->subtractRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
 
     goto :goto_0
 
     :cond_7
-    invoke-virtual {v0, v3}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->intersectRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+    invoke-virtual {v2, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->intersectRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
 
     goto :goto_0
 
     :cond_8
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
-    return-object v0
+    return-object v2
 .end method
 
 .method parseTerm()Lmf/org/apache/xerces/impl/xpath/regex/Token;
-    .locals 6
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 v6, 0x7
 
-    const/4 v5, 0x7
+    const/4 v5, 0x2
 
-    const/4 v4, 0x2
-
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v1
+    move-result v0
 
-    if-ne v1, v4, :cond_1
+    if-ne v0, v5, :cond_1
 
     :cond_0
     invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createEmpty()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v3
 
-    return-object v0
+    return-object v3
 
     :cond_1
-    if-eq v1, v5, :cond_0
+    if-eq v0, v6, :cond_0
 
-    if-eq v1, v3, :cond_0
+    if-eq v0, v4, :cond_0
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parseFactor()Lmf/org/apache/xerces/impl/xpath/regex/Token;
-
-    move-result-object v1
-
-    :goto_0
-    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
-
-    move-result v2
-
-    if-ne v2, v4, :cond_5
-
-    :cond_2
-    :goto_1
-    return-object v1
-
-    :cond_3
-    if-eq v2, v3, :cond_2
-
-    if-eqz v0, :cond_4
-
-    :goto_2
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parseFactor()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
     move-result-object v2
 
-    invoke-virtual {v0, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addChild(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+    const/4 v1, 0x0
+
+    :goto_0
+    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
+
+    move-result v0
+
+    if-ne v0, v5, :cond_5
+
+    :cond_2
+    :goto_1
+    return-object v2
+
+    :cond_3
+    if-eq v0, v4, :cond_2
+
+    if-eqz v1, :cond_4
+
+    :goto_2
+    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parseFactor()Lmf/org/apache/xerces/impl/xpath/regex/Token;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addChild(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
 
     goto :goto_0
 
     :cond_4
     invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createConcat()Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addChild(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addChild(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
 
-    move-object v1, v0
+    move-object v2, v1
 
     goto :goto_2
 
     :cond_5
-    if-ne v2, v5, :cond_3
+    if-ne v0, v6, :cond_3
 
     goto :goto_1
 .end method
 
 .method processBackreference()Lmf/org/apache/xerces/impl/xpath/regex/Token;
-    .locals 5
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
         }
     .end annotation
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    add-int/lit8 v0, v0, -0x30
+    add-int/lit8 v2, v4, -0x30
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parennumber:I
+    move v1, v2
 
-    if-le v1, v0, :cond_1
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parennumber:I
 
-    move v1, v0
+    if-le v4, v2, :cond_1
 
     :goto_0
-    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
+    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
 
-    if-ge v2, v3, :cond_0
+    if-ge v4, v5, :cond_0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v4, v5}, Ljava/lang/String;->charAt(I)C
 
-    move-result v2
+    move-result v0
 
-    const/16 v3, 0x30
+    const/16 v4, 0x30
 
-    if-le v3, v2, :cond_2
+    if-le v4, v0, :cond_2
 
     :cond_0
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createBackReference(I)Lmf/org/apache/xerces/impl/xpath/regex/Token$StringToken;
+    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createBackReference(I)Lmf/org/apache/xerces/impl/xpath/regex/Token$StringToken;
 
-    move-result-object v1
+    move-result-object v3
 
-    const/4 v2, 0x1
+    const/4 v4, 0x1
 
-    iput-boolean v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hasBackReferences:Z
+    iput-boolean v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hasBackReferences:Z
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->references:Ljava/util/Vector;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->references:Ljava/util/Vector;
 
-    if-eqz v2, :cond_3
+    if-eqz v4, :cond_3
 
     :goto_1
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->references:Ljava/util/Vector;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->references:Ljava/util/Vector;
 
-    new-instance v3, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser$ReferencePosition;
+    new-instance v5, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser$ReferencePosition;
 
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    add-int/lit8 v6, v6, -0x2
+
+    invoke-direct {v5, v1, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser$ReferencePosition;-><init>(II)V
+
+    invoke-virtual {v4, v5}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+
+    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
+
+    return-object v3
+
+    :cond_1
     iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
     add-int/lit8 v4, v4, -0x2
 
-    invoke-direct {v3, v0, v4}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser$ReferencePosition;-><init>(II)V
+    const-string/jumbo v5, "parser.parse.2"
 
-    invoke-virtual {v2, v3}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+    invoke-virtual {p0, v5, v4}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
+    move-result-object v4
 
-    return-object v1
-
-    :cond_1
-    const-string/jumbo v0, "parser.parse.2"
-
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    add-int/lit8 v1, v1, -0x2
-
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
-
-    move-result-object v0
-
-    throw v0
+    throw v4
 
     :cond_2
-    const/16 v3, 0x39
+    const/16 v4, 0x39
 
-    if-gt v2, v3, :cond_0
+    if-gt v0, v4, :cond_0
 
-    mul-int/lit8 v1, v1, 0xa
+    mul-int/lit8 v4, v2, 0xa
 
-    add-int/lit8 v3, v2, -0x30
+    add-int/lit8 v5, v0, -0x30
 
-    add-int/2addr v1, v3
+    add-int v2, v4, v5
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parennumber:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parennumber:I
 
-    if-ge v1, v3, :cond_0
+    if-ge v2, v4, :cond_0
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v4, v4, 0x1
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iput v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iput v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    move v1, v2
 
-    move v0, v1
+    iput v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
     goto :goto_0
 
     :cond_3
-    new-instance v2, Ljava/util/Vector;
+    new-instance v4, Ljava/util/Vector;
 
-    invoke-direct {v2}, Ljava/util/Vector;-><init>()V
+    invoke-direct {v4}, Ljava/util/Vector;-><init>()V
 
-    iput-object v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->references:Ljava/util/Vector;
+    iput-object v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->references:Ljava/util/Vector;
 
     goto :goto_1
 .end method
@@ -3831,11 +4138,11 @@
         }
     .end annotation
 
-    const-string/jumbo v0, "parser.process.1"
+    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    const-string/jumbo v1, "parser.process.1"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v1, v0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
     move-result-object v0
 
@@ -3850,11 +4157,11 @@
         }
     .end annotation
 
-    const-string/jumbo v0, "parser.process.1"
+    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    const-string/jumbo v1, "parser.process.1"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v1, v0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
     move-result-object v0
 
@@ -3909,42 +4216,42 @@
 .end method
 
 .method processBacksolidus_c()Lmf/org/apache/xerces/impl/xpath/regex/Token;
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
         }
     .end annotation
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
 
-    if-lt v0, v1, :cond_1
+    if-lt v1, v2, :cond_1
 
     :cond_0
-    const-string/jumbo v0, "parser.atom.1"
-
     iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
     add-int/lit8 v1, v1, -0x1
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    const-string/jumbo v2, "parser.atom.1"
 
-    move-result-object v0
+    invoke-virtual {p0, v2, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    throw v0
+    move-result-object v1
+
+    throw v1
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    add-int/lit8 v2, v1, 0x1
+    add-int/lit8 v3, v2, 0x1
 
-    iput v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iput v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v1, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
@@ -3958,13 +4265,13 @@
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
-    add-int/lit8 v0, v0, -0x40
+    add-int/lit8 v1, v0, -0x40
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createChar(I)Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;
+    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createChar(I)Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method processBacksolidus_g()Lmf/org/apache/xerces/impl/xpath/regex/Token;
@@ -4000,16 +4307,16 @@
 .end method
 
 .method processBacksolidus_i()Lmf/org/apache/xerces/impl/xpath/regex/Token;
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
         }
     .end annotation
 
-    const/16 v0, 0x69
+    const/16 v1, 0x69
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createChar(I)Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;
+    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createChar(I)Lmf/org/apache/xerces/impl/xpath/regex/Token$CharToken;
 
     move-result-object v0
 
@@ -4034,97 +4341,97 @@
 .end method
 
 .method protected processBacksolidus_pP(I)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
-    .locals 4
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v1
+    move-result v4
 
-    if-eqz v1, :cond_1
+    if-eqz v4, :cond_1
 
     :cond_0
-    const-string/jumbo v0, "parser.atom.2"
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v4, v4, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v5, "parser.atom.2"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v5, v4}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v4
 
-    throw v0
+    throw v4
 
     :cond_1
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->chardata:I
 
-    const/16 v2, 0x7b
+    const/16 v5, 0x7b
 
-    if-ne v1, v2, :cond_0
+    if-ne v4, v5, :cond_0
 
-    const/16 v1, 0x70
+    const/16 v4, 0x70
 
-    if-eq p1, v1, :cond_2
+    if-eq p1, v4, :cond_2
 
     :goto_0
     iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
 
-    const/16 v3, 0x7d
+    const/16 v5, 0x7d
 
-    invoke-virtual {v2, v3, v1}, Ljava/lang/String;->indexOf(II)I
+    invoke-virtual {v4, v5, v1}, Ljava/lang/String;->indexOf(II)I
 
-    move-result v2
+    move-result v0
 
-    if-ltz v2, :cond_3
+    if-ltz v0, :cond_3
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
 
-    invoke-virtual {v3, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v4, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v4, v0, 0x1
 
-    iput v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iput v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    const/16 v2, 0x200
+    const/16 v4, 0x200
 
-    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
+    invoke-virtual {p0, v4}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->isSet(I)Z
 
-    move-result v2
+    move-result v4
 
-    invoke-static {v1, v0, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;ZZ)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+    invoke-static {v2, v3, v4}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;ZZ)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    move-result-object v0
+    move-result-object v4
 
-    return-object v0
+    return-object v4
 
     :cond_2
-    const/4 v0, 0x1
+    const/4 v3, 0x1
 
     goto :goto_0
 
     :cond_3
-    const-string/jumbo v0, "parser.atom.3"
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    const-string/jumbo v5, "parser.atom.3"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v5, v4}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v4
 
-    throw v0
+    throw v4
 .end method
 
 .method processBacksolidus_z()Lmf/org/apache/xerces/impl/xpath/regex/Token;
@@ -4168,159 +4475,157 @@
 .end method
 
 .method processCondition()Lmf/org/apache/xerces/impl/xpath/regex/Token;
-    .locals 9
+    .locals 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
         }
     .end annotation
 
-    const/16 v5, 0x39
+    const/16 v8, 0x39
 
-    const/4 v8, 0x7
+    const/4 v11, 0x7
 
-    const/4 v7, 0x2
+    const/4 v10, 0x2
 
-    const/4 v6, 0x1
+    const/4 v9, 0x1
 
-    const/4 v2, 0x0
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v6, v6, 0x1
 
-    add-int/lit8 v0, v0, 0x1
+    iget v7, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
+    if-ge v6, v7, :cond_1
 
-    if-ge v0, v1, :cond_1
+    const/4 v4, -0x1
 
-    const/4 v1, -0x1
+    const/4 v1, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v7, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v6, v7}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
-    const/16 v3, 0x31
+    const/16 v6, 0x31
 
-    if-le v3, v0, :cond_2
+    if-le v6, v0, :cond_2
 
     :cond_0
-    const/16 v3, 0x3f
+    const/16 v6, 0x3f
 
-    if-eq v0, v3, :cond_9
+    if-eq v0, v6, :cond_9
 
     :goto_0
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parseFactor()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v1
 
-    iget v3, v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
+    iget v6, v1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
 
-    sparse-switch v3, :sswitch_data_0
+    sparse-switch v6, :sswitch_data_0
 
-    const-string/jumbo v0, "parser.factor.5"
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    const-string/jumbo v7, "parser.factor.5"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v7, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v6
 
-    throw v0
+    throw v6
 
     :cond_1
-    const-string/jumbo v0, "parser.factor.4"
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    const-string/jumbo v7, "parser.factor.4"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v7, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v6
 
-    throw v0
+    throw v6
 
     :cond_2
-    if-gt v0, v5, :cond_0
+    if-gt v0, v8, :cond_0
 
-    add-int/lit8 v0, v0, -0x30
+    add-int/lit8 v4, v0, -0x30
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parennumber:I
+    move v2, v4
 
-    if-le v1, v0, :cond_5
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parennumber:I
 
-    move v1, v0
+    if-le v6, v4, :cond_5
 
     :goto_1
-    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v6, v6, 0x1
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
+    iget v7, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
 
-    if-ge v3, v4, :cond_3
+    if-ge v6, v7, :cond_3
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v7, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v7, v7, 0x1
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->charAt(I)C
-
-    move-result v3
-
-    const/16 v4, 0x30
-
-    if-le v4, v3, :cond_6
-
-    :cond_3
-    iput-boolean v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hasBackReferences:Z
-
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->references:Ljava/util/Vector;
-
-    if-eqz v3, :cond_7
-
-    :goto_2
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->references:Ljava/util/Vector;
-
-    new-instance v4, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser$ReferencePosition;
-
-    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    invoke-direct {v4, v0, v5}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser$ReferencePosition;-><init>(II)V
-
-    invoke-virtual {v3, v4}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
-
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    add-int/lit8 v0, v0, 0x1
-
-    iput v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
-
-    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v6, v7}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
-    const/16 v3, 0x29
+    const/16 v6, 0x30
 
-    if-ne v0, v3, :cond_8
+    if-le v6, v0, :cond_6
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    :cond_3
+    iput-boolean v9, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->hasBackReferences:Z
 
-    add-int/lit8 v0, v0, 0x1
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->references:Ljava/util/Vector;
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    if-eqz v6, :cond_7
 
-    move-object v0, v2
+    :goto_2
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->references:Ljava/util/Vector;
+
+    new-instance v7, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser$ReferencePosition;
+
+    iget v8, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    invoke-direct {v7, v2, v8}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser$ReferencePosition;-><init>(II)V
+
+    invoke-virtual {v6, v7}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    add-int/lit8 v6, v6, 0x1
+
+    iput v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+
+    iget v7, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->charAt(I)C
+
+    move-result v6
+
+    const/16 v7, 0x29
+
+    if-ne v6, v7, :cond_8
+
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+
+    add-int/lit8 v6, v6, 0x1
+
+    iput v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
     :cond_4
     :sswitch_0
@@ -4328,153 +4633,153 @@
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parseRegex()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v3
+    move-result-object v5
 
-    iget v4, v3, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
+    const/4 v3, 0x0
 
-    if-eq v4, v7, :cond_a
+    iget v6, v5, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
+
+    if-eq v6, v10, :cond_a
 
     :goto_3
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v4
+    move-result v6
 
-    if-ne v4, v8, :cond_c
+    if-ne v6, v11, :cond_c
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
-    invoke-static {v1, v0, v3, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createCondition(ILmf/org/apache/xerces/impl/xpath/regex/Token;Lmf/org/apache/xerces/impl/xpath/regex/Token;Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token$ConditionToken;
+    invoke-static {v4, v1, v5, v3}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createCondition(ILmf/org/apache/xerces/impl/xpath/regex/Token;Lmf/org/apache/xerces/impl/xpath/regex/Token;Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token$ConditionToken;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 
     :cond_5
-    const-string/jumbo v0, "parser.parse.2"
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    const-string/jumbo v7, "parser.parse.2"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v7, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v6
 
-    throw v0
+    throw v6
 
     :cond_6
-    if-gt v3, v5, :cond_3
+    if-gt v0, v8, :cond_3
 
-    mul-int/lit8 v1, v1, 0xa
+    mul-int/lit8 v6, v4, 0xa
 
-    add-int/lit8 v3, v3, -0x30
+    add-int/lit8 v7, v0, -0x30
 
-    add-int/2addr v1, v3
+    add-int v4, v6, v7
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parennumber:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parennumber:I
 
-    if-ge v1, v3, :cond_3
+    if-ge v4, v6, :cond_3
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    move v2, v4
 
-    add-int/lit8 v0, v0, 0x1
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v6, v6, 0x1
 
-    move v0, v1
+    iput v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
     goto :goto_1
 
     :cond_7
-    new-instance v3, Ljava/util/Vector;
+    new-instance v6, Ljava/util/Vector;
 
-    invoke-direct {v3}, Ljava/util/Vector;-><init>()V
+    invoke-direct {v6}, Ljava/util/Vector;-><init>()V
 
-    iput-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->references:Ljava/util/Vector;
+    iput-object v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->references:Ljava/util/Vector;
 
     goto :goto_2
 
     :cond_8
-    const-string/jumbo v0, "parser.factor.1"
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    const-string/jumbo v7, "parser.factor.1"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v7, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v6
 
-    throw v0
+    throw v6
 
     :cond_9
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 v6, v6, -0x1
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iput v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
     goto/16 :goto_0
 
     :sswitch_1
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v3
+    move-result v6
 
-    if-eq v3, v8, :cond_4
+    if-eq v6, v11, :cond_4
 
-    const-string/jumbo v0, "parser.factor.1"
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v6, v6, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v7, "parser.factor.1"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v7, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v6
 
-    throw v0
+    throw v6
 
     :cond_a
-    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->size()I
+    invoke-virtual {v5}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->size()I
 
-    move-result v2
+    move-result v6
 
-    if-ne v2, v7, :cond_b
+    if-ne v6, v10, :cond_b
 
-    invoke-virtual {v3, v6}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
-
-    move-result-object v2
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v3, v4}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-virtual {v5, v9}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
     move-result-object v3
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v5, v6}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+
+    move-result-object v5
 
     goto :goto_3
 
     :cond_b
-    const-string/jumbo v0, "parser.factor.6"
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    const-string/jumbo v7, "parser.factor.6"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v7, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v6
 
-    throw v0
+    throw v6
 
     :cond_c
-    const-string/jumbo v0, "parser.factor.1"
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v6, v6, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v7, "parser.factor.1"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v7, v6}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v6
 
-    throw v0
-
-    nop
+    throw v6
 
     :sswitch_data_0
     .sparse-switch
@@ -4511,13 +4816,13 @@
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
-    const/16 v0, 0x18
-
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parseRegex()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createLook(ILmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token$ParenToken;
+    const/16 v2, 0x18
+
+    invoke-static {v2, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createLook(ILmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token$ParenToken;
 
     move-result-object v0
 
@@ -4534,17 +4839,17 @@
     return-object v0
 
     :cond_0
-    const-string/jumbo v0, "parser.factor.1"
-
     iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
     add-int/lit8 v1, v1, -0x1
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    const-string/jumbo v2, "parser.factor.1"
 
-    move-result-object v0
+    invoke-virtual {p0, v2, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    throw v0
+    move-result-object v1
+
+    throw v1
 .end method
 
 .method processLookahead()Lmf/org/apache/xerces/impl/xpath/regex/Token;
@@ -4557,13 +4862,13 @@
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
-    const/16 v0, 0x14
-
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parseRegex()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createLook(ILmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token$ParenToken;
+    const/16 v2, 0x14
+
+    invoke-static {v2, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createLook(ILmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token$ParenToken;
 
     move-result-object v0
 
@@ -4580,17 +4885,17 @@
     return-object v0
 
     :cond_0
-    const-string/jumbo v0, "parser.factor.1"
-
     iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
     add-int/lit8 v1, v1, -0x1
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    const-string/jumbo v2, "parser.factor.1"
 
-    move-result-object v0
+    invoke-virtual {p0, v2, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    throw v0
+    move-result-object v1
+
+    throw v1
 .end method
 
 .method processLookbehind()Lmf/org/apache/xerces/impl/xpath/regex/Token;
@@ -4603,13 +4908,13 @@
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
-    const/16 v0, 0x16
-
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parseRegex()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createLook(ILmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token$ParenToken;
+    const/16 v2, 0x16
+
+    invoke-static {v2, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createLook(ILmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token$ParenToken;
 
     move-result-object v0
 
@@ -4626,223 +4931,223 @@
     return-object v0
 
     :cond_0
-    const-string/jumbo v0, "parser.factor.1"
-
     iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
     add-int/lit8 v1, v1, -0x1
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    const-string/jumbo v2, "parser.factor.1"
 
-    move-result-object v0
+    invoke-virtual {p0, v2, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    throw v0
+    move-result-object v1
+
+    throw v1
 .end method
 
 .method processModifiers()Lmf/org/apache/xerces/impl/xpath/regex/Token;
-    .locals 5
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
         }
     .end annotation
 
+    const/4 v0, 0x0
+
     const/4 v2, 0x0
 
-    const/4 v0, -0x1
-
-    move v1, v2
+    const/4 v1, -0x1
 
     :goto_0
-    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
 
-    if-ge v3, v4, :cond_0
+    if-ge v5, v6, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v5, v6}, Ljava/lang/String;->charAt(I)C
 
-    move-result v0
+    move-result v1
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->getOptionValue(I)I
+    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->getOptionValue(I)I
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_0
+    if-eqz v4, :cond_0
 
-    or-int/2addr v1, v3
+    or-int/2addr v0, v4
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v5, v5, 0x1
 
-    iput v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iput v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
     goto :goto_0
 
     :cond_0
-    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
 
-    if-ge v3, v4, :cond_2
+    if-ge v5, v6, :cond_2
 
-    const/16 v3, 0x2d
+    const/16 v5, 0x2d
 
-    if-eq v0, v3, :cond_3
+    if-eq v1, v5, :cond_3
 
     :cond_1
-    const/16 v3, 0x3a
+    const/16 v5, 0x3a
 
-    if-eq v0, v3, :cond_5
+    if-eq v1, v5, :cond_5
 
-    const/16 v3, 0x29
+    const/16 v5, 0x29
 
-    if-eq v0, v3, :cond_7
+    if-eq v1, v5, :cond_7
 
-    const-string/jumbo v0, "parser.factor.3"
+    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    const-string/jumbo v6, "parser.factor.3"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v6, v5}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v5
 
-    throw v0
+    throw v5
 
     :cond_2
-    const-string/jumbo v0, "parser.factor.2"
+    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v5, v5, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v6, "parser.factor.2"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v6, v5}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v5
 
-    throw v0
+    throw v5
 
     :cond_3
-    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v5, v5, 0x1
 
-    iput v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iput v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
     :goto_1
-    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
 
-    if-ge v3, v4, :cond_4
+    if-ge v5, v6, :cond_4
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regex:Ljava/lang/String;
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v5, v6}, Ljava/lang/String;->charAt(I)C
 
-    move-result v0
+    move-result v1
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->getOptionValue(I)I
+    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->getOptionValue(I)I
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_4
+    if-eqz v4, :cond_4
 
-    or-int/2addr v2, v3
+    or-int/2addr v2, v4
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v5, v5, 0x1
 
-    iput v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iput v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
     goto :goto_1
 
     :cond_4
-    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->regexlen:I
 
-    if-lt v3, v4, :cond_1
+    if-lt v5, v6, :cond_1
 
-    const-string/jumbo v0, "parser.factor.2"
+    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v5, v5, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v6, "parser.factor.2"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v6, v5}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v5
 
-    throw v0
+    throw v5
 
     :cond_5
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v5, v5, 0x1
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iput v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parseRegex()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createModifierGroup(Lmf/org/apache/xerces/impl/xpath/regex/Token;II)Lmf/org/apache/xerces/impl/xpath/regex/Token$ModifierToken;
+    invoke-static {v5, v0, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createModifierGroup(Lmf/org/apache/xerces/impl/xpath/regex/Token;II)Lmf/org/apache/xerces/impl/xpath/regex/Token$ModifierToken;
 
-    move-result-object v0
+    move-result-object v3
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v1
+    move-result v5
 
-    const/4 v2, 0x7
+    const/4 v6, 0x7
 
-    if-ne v1, v2, :cond_6
+    if-ne v5, v6, :cond_6
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
     :goto_2
-    return-object v0
+    return-object v3
 
     :cond_6
-    const-string/jumbo v0, "parser.factor.1"
+    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v5, v5, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v6, "parser.factor.1"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v6, v5}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v5
 
-    throw v0
+    throw v5
 
     :cond_7
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v5, v5, 0x1
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    iput v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parseRegex()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createModifierGroup(Lmf/org/apache/xerces/impl/xpath/regex/Token;II)Lmf/org/apache/xerces/impl/xpath/regex/Token$ModifierToken;
+    invoke-static {v5, v0, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createModifierGroup(Lmf/org/apache/xerces/impl/xpath/regex/Token;II)Lmf/org/apache/xerces/impl/xpath/regex/Token$ModifierToken;
 
-    move-result-object v0
+    move-result-object v3
 
     goto :goto_2
 .end method
@@ -4857,13 +5162,13 @@
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
-    const/16 v0, 0x15
-
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parseRegex()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createLook(ILmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token$ParenToken;
+    const/16 v2, 0x15
+
+    invoke-static {v2, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createLook(ILmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token$ParenToken;
 
     move-result-object v0
 
@@ -4880,17 +5185,17 @@
     return-object v0
 
     :cond_0
-    const-string/jumbo v0, "parser.factor.1"
-
     iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
     add-int/lit8 v1, v1, -0x1
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    const-string/jumbo v2, "parser.factor.1"
 
-    move-result-object v0
+    invoke-virtual {p0, v2, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    throw v0
+    move-result-object v1
+
+    throw v1
 .end method
 
 .method processNegativelookbehind()Lmf/org/apache/xerces/impl/xpath/regex/Token;
@@ -4903,13 +5208,13 @@
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
-    const/16 v0, 0x17
-
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parseRegex()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createLook(ILmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token$ParenToken;
+    const/16 v2, 0x17
+
+    invoke-static {v2, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createLook(ILmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token$ParenToken;
 
     move-result-object v0
 
@@ -4926,21 +5231,21 @@
     return-object v0
 
     :cond_0
-    const-string/jumbo v0, "parser.factor.1"
-
     iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
     add-int/lit8 v1, v1, -0x1
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    const-string/jumbo v2, "parser.factor.1"
 
-    move-result-object v0
+    invoke-virtual {p0, v2, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    throw v0
+    move-result-object v1
+
+    throw v1
 .end method
 
 .method processParen()Lmf/org/apache/xerces/impl/xpath/regex/Token;
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
@@ -4951,48 +5256,48 @@
 
     iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parenOpened:I
 
-    add-int/lit8 v1, v0, 0x1
+    add-int/lit8 v2, v0, 0x1
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parenOpened:I
+    iput v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parenOpened:I
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parseRegex()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
+    move-result-object v2
+
+    invoke-static {v2, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createParen(Lmf/org/apache/xerces/impl/xpath/regex/Token;I)Lmf/org/apache/xerces/impl/xpath/regex/Token$ParenToken;
+
     move-result-object v1
-
-    invoke-static {v1, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createParen(Lmf/org/apache/xerces/impl/xpath/regex/Token;I)Lmf/org/apache/xerces/impl/xpath/regex/Token$ParenToken;
-
-    move-result-object v0
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->read()I
 
-    move-result v1
+    move-result v2
 
-    const/4 v2, 0x7
+    const/4 v3, 0x7
 
-    if-ne v1, v2, :cond_0
+    if-ne v2, v3, :cond_0
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parennumber:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parennumber:I
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parennumber:I
+    iput v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parennumber:I
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->next()V
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    const-string/jumbo v0, "parser.factor.1"
+    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
+    add-int/lit8 v2, v2, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v3, "parser.factor.1"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    invoke-virtual {p0, v3, v2}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    move-result-object v0
+    move-result-object v2
 
-    throw v0
+    throw v2
 .end method
 
 .method processParen2()Lmf/org/apache/xerces/impl/xpath/regex/Token;
@@ -5007,11 +5312,11 @@
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->parseRegex()Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createParen(Lmf/org/apache/xerces/impl/xpath/regex/Token;I)Lmf/org/apache/xerces/impl/xpath/regex/Token$ParenToken;
+    invoke-static {v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createParen(Lmf/org/apache/xerces/impl/xpath/regex/Token;I)Lmf/org/apache/xerces/impl/xpath/regex/Token$ParenToken;
 
     move-result-object v0
 
@@ -5028,17 +5333,17 @@
     return-object v0
 
     :cond_0
-    const-string/jumbo v0, "parser.factor.1"
-
     iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->offset:I
 
     add-int/lit8 v1, v1, -0x1
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
+    const-string/jumbo v2, "parser.factor.1"
 
-    move-result-object v0
+    invoke-virtual {p0, v2, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->ex(Ljava/lang/String;I)Lmf/org/apache/xerces/impl/xpath/regex/ParseException;
 
-    throw v0
+    move-result-object v1
+
+    throw v1
 .end method
 
 .method processPlus(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
@@ -5186,25 +5491,25 @@
     if-nez p1, :cond_0
 
     :try_start_0
-    const-string/jumbo v0, "mf.org.apache.xerces.impl.xpath.regex.message"
+    const-string/jumbo v1, "mf.org.apache.xerces.impl.xpath.regex.message"
 
-    invoke-static {v0}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;)Ljava/util/ResourceBundle;
+    invoke-static {v1}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;)Ljava/util/ResourceBundle;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->resources:Ljava/util/ResourceBundle;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->resources:Ljava/util/ResourceBundle;
 
     :goto_0
     return-void
 
     :cond_0
-    const-string/jumbo v0, "mf.org.apache.xerces.impl.xpath.regex.message"
+    const-string/jumbo v1, "mf.org.apache.xerces.impl.xpath.regex.message"
 
-    invoke-static {v0, p1}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;
+    invoke-static {v1, p1}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->resources:Ljava/util/ResourceBundle;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegexParser;->resources:Ljava/util/ResourceBundle;
     :try_end_0
     .catch Ljava/util/MissingResourceException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -5223,17 +5528,17 @@
 
     invoke-virtual {v0}, Ljava/util/MissingResourceException;->getMessage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v1
 .end method

@@ -52,75 +52,74 @@
 .end method
 
 .method public getGrammars()[Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
-    .locals 6
+    .locals 8
 
-    const/4 v1, 0x0
+    const/4 v5, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->fGrammarRegistry:Ljava/util/Hashtable;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->fGrammarRegistry:Ljava/util/Hashtable;
 
-    invoke-virtual {v0}, Ljava/util/Hashtable;->size()I
+    invoke-virtual {v6}, Ljava/util/Hashtable;->size()I
 
-    move-result v2
+    move-result v6
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->fNoNSGrammar:Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
+    iget-object v7, p0, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->fNoNSGrammar:Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
 
-    if-eqz v0, :cond_0
+    if-eqz v7, :cond_0
 
-    const/4 v0, 0x1
+    const/4 v5, 0x1
+
+    :cond_0
+    add-int v0, v6, v5
+
+    new-array v1, v0, [Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
+
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->fGrammarRegistry:Ljava/util/Hashtable;
+
+    invoke-virtual {v5}, Ljava/util/Hashtable;->elements()Ljava/util/Enumeration;
+
+    move-result-object v4
+
+    const/4 v2, 0x0
+
+    move v3, v2
 
     :goto_0
-    add-int v3, v2, v0
+    invoke-interface {v4}, Ljava/util/Enumeration;->hasMoreElements()Z
 
-    new-array v4, v3, [Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
+    move-result v5
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->fGrammarRegistry:Ljava/util/Hashtable;
+    if-eqz v5, :cond_1
 
-    invoke-virtual {v0}, Ljava/util/Hashtable;->elements()Ljava/util/Enumeration;
+    add-int/lit8 v2, v3, 0x1
+
+    invoke-interface {v4}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
 
     move-result-object v5
 
-    :goto_1
-    invoke-interface {v5}, Ljava/util/Enumeration;->hasMoreElements()Z
+    check-cast v5, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
 
-    move-result v0
+    aput-object v5, v1, v3
 
-    if-eqz v0, :cond_1
-
-    add-int/lit8 v2, v1, 0x1
-
-    invoke-interface {v5}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
-
-    aput-object v0, v4, v1
-
-    move v1, v2
-
-    goto :goto_1
-
-    :cond_0
-    move v0, v1
+    move v3, v2
 
     goto :goto_0
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->fNoNSGrammar:Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->fNoNSGrammar:Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
 
-    if-nez v0, :cond_2
+    if-nez v5, :cond_2
 
-    :goto_2
-    return-object v4
+    :goto_1
+    return-object v1
 
     :cond_2
-    add-int/lit8 v0, v3, -0x1
+    add-int/lit8 v5, v0, -0x1
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->fNoNSGrammar:Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->fNoNSGrammar:Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
 
-    aput-object v1, v4, v0
+    aput-object v6, v1, v5
 
-    goto :goto_2
+    goto :goto_1
 .end method
 
 .method public putGrammar(Lmf/org/apache/xerces/impl/xs/SchemaGrammar;)V
@@ -150,19 +149,19 @@
 .end method
 
 .method public putGrammar(Lmf/org/apache/xerces/impl/xs/SchemaGrammar;Z)Z
-    .locals 8
+    .locals 11
 
-    const/4 v7, 0x1
+    const/4 v10, 0x1
 
-    const/4 v3, 0x0
+    const/4 v9, 0x0
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fTargetNamespace:Ljava/lang/String;
+    iget-object v8, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fTargetNamespace:Ljava/lang/String;
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->getGrammar(Ljava/lang/String;)Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
+    invoke-virtual {p0, v8}, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->getGrammar(Ljava/lang/String;)Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
 
-    move-result-object v0
+    move-result-object v5
 
-    if-nez v0, :cond_1
+    if-nez v5, :cond_1
 
     if-eqz p2, :cond_3
 
@@ -174,153 +173,141 @@
 
     invoke-virtual {v0}, Ljava/util/Vector;->clone()Ljava/lang/Object;
 
-    move-result-object v0
-
-    check-cast v0, Ljava/util/Vector;
-
-    move v2, v3
-
-    :goto_0
-    invoke-virtual {v0}, Ljava/util/Vector;->size()I
-
-    move-result v1
-
-    if-ge v2, v1, :cond_8
-
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
-
     move-result-object v1
 
-    check-cast v1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
+    check-cast v1, Ljava/util/Vector;
 
-    iget-object v4, v1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fTargetNamespace:Ljava/lang/String;
+    const/4 v3, 0x0
 
-    invoke-virtual {p0, v4}, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->getGrammar(Ljava/lang/String;)Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
+    :goto_0
+    invoke-virtual {v1}, Ljava/util/Vector;->size()I
 
-    move-result-object v4
+    move-result v8
 
-    if-eqz v4, :cond_5
+    if-ge v3, v8, :cond_8
 
-    if-ne v4, v1, :cond_7
+    invoke-virtual {v1, v3}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
+
+    iget-object v8, v6, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fTargetNamespace:Ljava/lang/String;
+
+    invoke-virtual {p0, v8}, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->getGrammar(Ljava/lang/String;)Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_5
+
+    if-ne v7, v6, :cond_7
 
     :cond_0
-    add-int/lit8 v1, v2, 0x1
-
-    move v2, v1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     :cond_1
-    if-eq v0, p1, :cond_2
+    if-eq v5, p1, :cond_2
 
-    return v3
+    return v9
 
     :cond_2
-    return v7
+    return v10
 
     :cond_3
     invoke-virtual {p0, p1}, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->putGrammar(Lmf/org/apache/xerces/impl/xs/SchemaGrammar;)V
 
-    return v7
+    return v10
 
     :cond_4
     invoke-virtual {p0, p1}, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->putGrammar(Lmf/org/apache/xerces/impl/xs/SchemaGrammar;)V
 
-    return v7
+    return v10
 
     :cond_5
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->getImportedGrammars()Ljava/util/Vector;
+    invoke-virtual {v6}, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->getImportedGrammars()Ljava/util/Vector;
 
-    move-result-object v5
+    move-result-object v2
 
-    if-eqz v5, :cond_0
+    if-eqz v2, :cond_0
 
-    invoke-virtual {v5}, Ljava/util/Vector;->size()I
+    invoke-virtual {v2}, Ljava/util/Vector;->size()I
 
-    move-result v1
+    move-result v8
 
-    add-int/lit8 v1, v1, -0x1
-
-    move v4, v1
+    add-int/lit8 v4, v8, -0x1
 
     :goto_1
     if-ltz v4, :cond_0
 
-    invoke-virtual {v5, v4}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v2, v4}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v7
 
-    check-cast v1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
+    check-cast v7, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
 
-    invoke-virtual {v0, v1}, Ljava/util/Vector;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v7}, Ljava/util/Vector;->contains(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_6
+    if-eqz v8, :cond_6
 
     :goto_2
-    add-int/lit8 v1, v4, -0x1
-
-    move v4, v1
+    add-int/lit8 v4, v4, -0x1
 
     goto :goto_1
 
     :cond_6
-    invoke-virtual {v0, v1}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+    invoke-virtual {v1, v7}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
 
     goto :goto_2
 
     :cond_7
-    return v3
+    return v9
 
     :cond_8
     invoke-virtual {p0, p1}, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->putGrammar(Lmf/org/apache/xerces/impl/xs/SchemaGrammar;)V
 
-    invoke-virtual {v0}, Ljava/util/Vector;->size()I
+    invoke-virtual {v1}, Ljava/util/Vector;->size()I
 
-    move-result v1
+    move-result v8
 
-    add-int/lit8 v1, v1, -0x1
-
-    move v2, v1
+    add-int/lit8 v3, v8, -0x1
 
     :goto_3
-    if-ltz v2, :cond_9
+    if-ltz v3, :cond_9
 
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v1, v3}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v8
 
-    check-cast v1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
+    check-cast v8, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->putGrammar(Lmf/org/apache/xerces/impl/xs/SchemaGrammar;)V
+    invoke-virtual {p0, v8}, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->putGrammar(Lmf/org/apache/xerces/impl/xs/SchemaGrammar;)V
 
-    add-int/lit8 v1, v2, -0x1
-
-    move v2, v1
+    add-int/lit8 v3, v3, -0x1
 
     goto :goto_3
 
     :cond_9
-    return v7
+    return v10
 .end method
 
 .method public putGrammar(Lmf/org/apache/xerces/impl/xs/SchemaGrammar;ZZ)Z
-    .locals 7
+    .locals 10
 
-    const/4 v6, 0x1
-
-    const/4 v1, 0x0
+    const/4 v9, 0x1
 
     if-eqz p3, :cond_1
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fTargetNamespace:Ljava/lang/String;
+    iget-object v8, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fTargetNamespace:Ljava/lang/String;
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->getGrammar(Ljava/lang/String;)Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
+    invoke-virtual {p0, v8}, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->getGrammar(Ljava/lang/String;)Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
 
-    move-result-object v0
+    move-result-object v5
 
-    if-eqz v0, :cond_2
+    if-eqz v5, :cond_2
 
     :goto_0
     if-eqz p2, :cond_3
@@ -333,48 +320,46 @@
 
     invoke-virtual {v0}, Ljava/util/Vector;->clone()Ljava/lang/Object;
 
-    move-result-object v0
-
-    check-cast v0, Ljava/util/Vector;
-
-    move v2, v1
-
-    :goto_1
-    invoke-virtual {v0}, Ljava/util/Vector;->size()I
-
-    move-result v1
-
-    if-ge v2, v1, :cond_7
-
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
-
     move-result-object v1
 
-    check-cast v1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
+    check-cast v1, Ljava/util/Vector;
 
-    iget-object v3, v1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fTargetNamespace:Ljava/lang/String;
+    const/4 v3, 0x0
 
-    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->getGrammar(Ljava/lang/String;)Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
+    :goto_1
+    invoke-virtual {v1}, Ljava/util/Vector;->size()I
 
-    move-result-object v3
+    move-result v8
 
-    if-eqz v3, :cond_5
+    if-ge v3, v8, :cond_7
 
-    invoke-virtual {v0, v1}, Ljava/util/Vector;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v3}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
+
+    iget-object v8, v6, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fTargetNamespace:Ljava/lang/String;
+
+    invoke-virtual {p0, v8}, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->getGrammar(Ljava/lang/String;)Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_5
+
+    invoke-virtual {v1, v6}, Ljava/util/Vector;->remove(Ljava/lang/Object;)Z
 
     :cond_0
-    add-int/lit8 v1, v2, 0x1
-
-    move v2, v1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
     :cond_1
     invoke-virtual {p0, p1, p2}, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->putGrammar(Lmf/org/apache/xerces/impl/xs/SchemaGrammar;Z)Z
 
-    move-result v0
+    move-result v8
 
-    return v0
+    return v8
 
     :cond_2
     invoke-virtual {p0, p1}, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->putGrammar(Lmf/org/apache/xerces/impl/xs/SchemaGrammar;)V
@@ -382,81 +367,73 @@
     goto :goto_0
 
     :cond_3
-    return v6
+    return v9
 
     :cond_4
-    return v6
+    return v9
 
     :cond_5
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->getImportedGrammars()Ljava/util/Vector;
+    invoke-virtual {v6}, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->getImportedGrammars()Ljava/util/Vector;
 
-    move-result-object v4
+    move-result-object v2
 
-    if-eqz v4, :cond_0
+    if-eqz v2, :cond_0
 
-    invoke-virtual {v4}, Ljava/util/Vector;->size()I
+    invoke-virtual {v2}, Ljava/util/Vector;->size()I
 
-    move-result v1
+    move-result v8
 
-    add-int/lit8 v1, v1, -0x1
-
-    move v3, v1
+    add-int/lit8 v4, v8, -0x1
 
     :goto_2
-    if-ltz v3, :cond_0
+    if-ltz v4, :cond_0
 
-    invoke-virtual {v4, v3}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v2, v4}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v7
 
-    check-cast v1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
+    check-cast v7, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
 
-    invoke-virtual {v0, v1}, Ljava/util/Vector;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v7}, Ljava/util/Vector;->contains(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v8
 
-    if-eqz v5, :cond_6
+    if-eqz v8, :cond_6
 
     :goto_3
-    add-int/lit8 v1, v3, -0x1
-
-    move v3, v1
+    add-int/lit8 v4, v4, -0x1
 
     goto :goto_2
 
     :cond_6
-    invoke-virtual {v0, v1}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+    invoke-virtual {v1, v7}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
 
     goto :goto_3
 
     :cond_7
-    invoke-virtual {v0}, Ljava/util/Vector;->size()I
+    invoke-virtual {v1}, Ljava/util/Vector;->size()I
 
-    move-result v1
+    move-result v8
 
-    add-int/lit8 v1, v1, -0x1
-
-    move v2, v1
+    add-int/lit8 v3, v8, -0x1
 
     :goto_4
-    if-ltz v2, :cond_8
+    if-ltz v3, :cond_8
 
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v1, v3}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v8
 
-    check-cast v1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
+    check-cast v8, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->putGrammar(Lmf/org/apache/xerces/impl/xs/SchemaGrammar;)V
+    invoke-virtual {p0, v8}, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->putGrammar(Lmf/org/apache/xerces/impl/xs/SchemaGrammar;)V
 
-    add-int/lit8 v1, v2, -0x1
-
-    move v2, v1
+    add-int/lit8 v3, v3, -0x1
 
     goto :goto_4
 
     :cond_8
-    return v6
+    return v9
 .end method
 
 .method public reset()V

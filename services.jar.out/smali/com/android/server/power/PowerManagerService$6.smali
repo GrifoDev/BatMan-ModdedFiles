@@ -1,5 +1,5 @@
 .class Lcom/android/server/power/PowerManagerService$6;
-.super Landroid/content/BroadcastReceiver;
+.super Lcom/samsung/android/cover/CoverManager$CoverStateListener;
 .source "PowerManagerService.java"
 
 
@@ -24,75 +24,155 @@
 
     iput-object p1, p0, Lcom/android/server/power/PowerManagerService$6;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Lcom/samsung/android/cover/CoverManager$CoverStateListener;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 6
+.method public onCoverAttachStateChanged(Z)V
+    .locals 7
 
-    iget-object v2, p0, Lcom/android/server/power/PowerManagerService$6;->this$0:Lcom/android/server/power/PowerManagerService;
+    iget-object v4, p0, Lcom/android/server/power/PowerManagerService$6;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v2}, Lcom/android/server/power/PowerManagerService;->-get40(Lcom/android/server/power/PowerManagerService;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    monitor-enter v3
-
-    :try_start_0
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v2, "ResponseAxT9Info"
-
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    :try_start_1
-    iget-object v2, p0, Lcom/android/server/power/PowerManagerService$6;->this$0:Lcom/android/server/power/PowerManagerService;
-
-    const-string/jumbo v4, "AxT9IME.isVisibleWindow"
-
-    const/4 v5, 0x0
-
-    invoke-virtual {p2, v4, v5}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-static {v4}, Lcom/android/server/power/PowerManagerService;->-get24(Lcom/android/server/power/PowerManagerService;)Z
 
     move-result v4
 
-    iput-boolean v4, v2, Lcom/android/server/power/PowerManagerService;->mIsSipVisible:Z
-    :try_end_1
-    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    if-eqz v4, :cond_1
+
+    if-eqz p1, :cond_2
+
+    :try_start_0
+    iget-object v4, p0, Lcom/android/server/power/PowerManagerService$6;->this$0:Lcom/android/server/power/PowerManagerService;
+
+    invoke-static {v4}, Lcom/android/server/power/PowerManagerService;->-get11(Lcom/android/server/power/PowerManagerService;)Lcom/samsung/android/cover/CoverManager;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/samsung/android/cover/CoverManager;->getCoverState()Lcom/samsung/android/cover/CoverState;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v4, p0, Lcom/android/server/power/PowerManagerService$6;->this$0:Lcom/android/server/power/PowerManagerService;
+
+    invoke-virtual {v1}, Lcom/samsung/android/cover/CoverState;->getType()I
+
+    move-result v5
+
+    invoke-static {v4, v5}, Lcom/android/server/power/PowerManagerService;->-set8(Lcom/android/server/power/PowerManagerService;I)I
 
     :cond_0
     :goto_0
-    monitor-exit v3
+    const-string/jumbo v4, "PowerManagerService"
 
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "onCoverAttachStateChanged: attach: "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "  mCoverType: "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-object v6, p0, Lcom/android/server/power/PowerManagerService$6;->this$0:Lcom/android/server/power/PowerManagerService;
+
+    invoke-static {v6}, Lcom/android/server/power/PowerManagerService;->-get12(Lcom/android/server/power/PowerManagerService;)I
+
+    move-result v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_1
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v2
+
+    iget-object v4, p0, Lcom/android/server/power/PowerManagerService$6;->this$0:Lcom/android/server/power/PowerManagerService;
+
+    invoke-static {v4, v2, v3}, Lcom/android/server/power/PowerManagerService;->-set36(Lcom/android/server/power/PowerManagerService;J)J
+
+    iget-object v4, p0, Lcom/android/server/power/PowerManagerService$6;->this$0:Lcom/android/server/power/PowerManagerService;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "onCoverAttachStateChanged = "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-object v6, p0, Lcom/android/server/power/PowerManagerService$6;->this$0:Lcom/android/server/power/PowerManagerService;
+
+    invoke-static {v6}, Lcom/android/server/power/PowerManagerService;->-get12(Lcom/android/server/power/PowerManagerService;)I
+
+    move-result v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Lcom/android/server/power/PowerManagerService;->-set39(Lcom/android/server/power/PowerManagerService;Ljava/lang/String;)Ljava/lang/String;
+
+    :cond_1
     return-void
 
-    :catch_0
-    move-exception v1
+    :cond_2
+    :try_start_1
+    iget-object v4, p0, Lcom/android/server/power/PowerManagerService$6;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    :try_start_2
-    invoke-virtual {v1}, Ljava/lang/RuntimeException;->printStackTrace()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    const/4 v5, 0x2
+
+    invoke-static {v4, v5}, Lcom/android/server/power/PowerManagerService;->-set8(Lcom/android/server/power/PowerManagerService;I)I
+    :try_end_1
+    .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_0
 
     goto :goto_0
 
-    :catchall_0
-    move-exception v2
+    :catch_0
+    move-exception v0
 
-    monitor-exit v3
+    const-string/jumbo v4, "PowerManagerService"
 
-    throw v2
+    const-string/jumbo v5, "onCoverAttachStateChanged: mCoverManager returns NULL."
+
+    invoke-static {v4, v5}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+.end method
+
+.method public onCoverSwitchStateChanged(Z)V
+    .locals 0
+
+    return-void
 .end method

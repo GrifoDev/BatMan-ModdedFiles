@@ -115,11 +115,11 @@
 
     new-instance v0, Lmf/org/w3c/dom/DOMException;
 
-    const-string/jumbo v1, "Method not supported"
+    const/16 v1, 0x9
 
-    const/16 v2, 0x9
+    const-string/jumbo v2, "Method not supported"
 
-    invoke-direct {v0, v2, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
 
     throw v0
 .end method
@@ -134,11 +134,11 @@
 
     new-instance v0, Lmf/org/w3c/dom/DOMException;
 
-    const-string/jumbo v1, "Method not supported"
+    const/16 v1, 0x9
 
-    const/16 v2, 0x9
+    const-string/jumbo v2, "Method not supported"
 
-    invoke-direct {v0, v2, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
 
     throw v0
 .end method
@@ -153,11 +153,11 @@
 
     new-instance v0, Lmf/org/w3c/dom/DOMException;
 
-    const-string/jumbo v1, "Method not supported"
+    const/16 v1, 0x9
 
-    const/16 v2, 0x9
+    const-string/jumbo v2, "Method not supported"
 
-    invoke-direct {v0, v2, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
 
     throw v0
 .end method
@@ -172,11 +172,11 @@
 
     new-instance v0, Lmf/org/w3c/dom/DOMException;
 
-    const-string/jumbo v1, "Method not supported"
+    const/16 v1, 0x9
 
-    const/16 v2, 0x9
+    const-string/jumbo v2, "Method not supported"
 
-    invoke-direct {v0, v2, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
 
     throw v0
 .end method
@@ -191,11 +191,11 @@
 
     new-instance v0, Lmf/org/w3c/dom/DOMException;
 
-    const-string/jumbo v1, "Method not supported"
+    const/16 v1, 0x9
 
-    const/16 v2, 0x9
+    const-string/jumbo v2, "Method not supported"
 
-    invoke-direct {v0, v2, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
 
     throw v0
 .end method
@@ -210,11 +210,11 @@
 
     new-instance v0, Lmf/org/w3c/dom/DOMException;
 
-    const-string/jumbo v1, "Method not supported"
+    const/16 v1, 0x9
 
-    const/16 v2, 0x9
+    const-string/jumbo v2, "Method not supported"
 
-    invoke-direct {v0, v2, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
 
     throw v0
 .end method
@@ -229,11 +229,11 @@
 
     new-instance v0, Lmf/org/w3c/dom/DOMException;
 
-    const-string/jumbo v1, "Method not supported"
+    const/16 v1, 0x9
 
-    const/16 v2, 0x9
+    const-string/jumbo v2, "Method not supported"
 
-    invoke-direct {v0, v2, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
 
     throw v0
 .end method
@@ -248,11 +248,11 @@
 
     new-instance v0, Lmf/org/w3c/dom/DOMException;
 
-    const-string/jumbo v1, "Method not supported"
+    const/16 v1, 0x9
 
-    const/16 v2, 0x9
+    const-string/jumbo v2, "Method not supported"
 
-    invoke-direct {v0, v2, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
 
     throw v0
 .end method
@@ -267,11 +267,11 @@
 
     new-instance v0, Lmf/org/w3c/dom/DOMException;
 
-    const-string/jumbo v1, "Method not supported"
+    const/16 v1, 0x9
 
-    const/16 v2, 0x9
+    const-string/jumbo v2, "Method not supported"
 
-    invoke-direct {v0, v2, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
 
     throw v0
 .end method
@@ -286,11 +286,11 @@
 
     new-instance v0, Lmf/org/w3c/dom/DOMException;
 
-    const-string/jumbo v1, "Method not supported"
+    const/16 v1, 0x9
 
-    const/16 v2, 0x9
+    const-string/jumbo v2, "Method not supported"
 
-    invoke-direct {v0, v2, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
 
     throw v0
 .end method

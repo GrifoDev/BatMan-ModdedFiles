@@ -1,11 +1,14 @@
 .class Lcom/android/server/pm/PackageManagerService$17;
-.super Landroid/content/IIntentReceiver$Stub;
+.super Ljava/lang/Object;
 .source "PackageManagerService.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/pm/PackageManagerService;->deletePackageX(Ljava/lang/String;II)I
+    value = Lcom/android/server/pm/PackageManagerService;->resetUserChangesToRuntimePermissionsAndFlagsLPw(Lcom/android/server/pm/PackageSetting;I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,76 +20,40 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/pm/PackageManagerService;
 
-.field final synthetic val$info:Lcom/android/server/pm/PackageManagerService$PackageRemovedInfo;
+.field final synthetic val$appId:I
+
+.field final synthetic val$userId:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PackageManagerService;Lcom/android/server/pm/PackageManagerService$PackageRemovedInfo;)V
+.method constructor <init>(Lcom/android/server/pm/PackageManagerService;II)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$17;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    iput-object p2, p0, Lcom/android/server/pm/PackageManagerService$17;->val$info:Lcom/android/server/pm/PackageManagerService$PackageRemovedInfo;
+    iput p2, p0, Lcom/android/server/pm/PackageManagerService$17;->val$appId:I
 
-    invoke-direct {p0}, Landroid/content/IIntentReceiver$Stub;-><init>()V
+    iput p3, p0, Lcom/android/server/pm/PackageManagerService$17;->val$userId:I
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public performReceive(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZI)V
-    .locals 3
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    const-string/jumbo v0, "PackageManager"
-
-    const-string/jumbo v1, "Finish package remove notify"
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$17;->val$info:Lcom/android/server/pm/PackageManagerService$PackageRemovedInfo;
-
-    iget-object v0, v0, Lcom/android/server/pm/PackageManagerService$PackageRemovedInfo;->args:Lcom/android/server/pm/PackageManagerService$InstallArgs;
-
-    if-eqz v0, :cond_0
-
-    invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Runtime;->gc()V
+.method public run()V
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$17;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    iget-object v1, v0, Lcom/android/server/pm/PackageManagerService;->mInstallLock:Ljava/lang/Object;
+    iget v1, p0, Lcom/android/server/pm/PackageManagerService$17;->val$appId:I
 
-    monitor-enter v1
+    iget v2, p0, Lcom/android/server/pm/PackageManagerService$17;->val$userId:I
 
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$17;->val$info:Lcom/android/server/pm/PackageManagerService$PackageRemovedInfo;
+    const-string/jumbo v3, "permissions revoked"
 
-    iget-object v0, v0, Lcom/android/server/pm/PackageManagerService$PackageRemovedInfo;->args:Lcom/android/server/pm/PackageManagerService$InstallArgs;
+    invoke-static {v0, v1, v2, v3}, Lcom/android/server/pm/PackageManagerService;->-wrap44(Lcom/android/server/pm/PackageManagerService;IILjava/lang/String;)V
 
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v2}, Lcom/android/server/pm/PackageManagerService$InstallArgs;->doPostDeleteLI(Z)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit v1
-
-    :cond_0
     return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-
-    throw v0
 .end method

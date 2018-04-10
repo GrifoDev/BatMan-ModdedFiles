@@ -39,7 +39,7 @@
 
     const-string/jumbo v0, "PowerManagerService"
 
-    const-string/jumbo v1, "mForceUnblankDisplayRunnable"
+    const-string/jumbo v1, "mForceBlankDisplayRunnable"
 
     invoke-static {v0, v1}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -49,7 +49,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/hardware/display/DisplayManagerInternal;->unblankAllDisplaysFromPowerManager()V
+    invoke-virtual {v0}, Landroid/hardware/display/DisplayManagerInternal;->blankAllDisplaysFromPowerManager()V
 
     return-void
 .end method

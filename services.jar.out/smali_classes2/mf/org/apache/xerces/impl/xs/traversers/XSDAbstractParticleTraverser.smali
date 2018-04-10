@@ -31,328 +31,372 @@
 .end method
 
 .method private traverseSeqChoice(Lmf/org/w3c/dom/Element;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;Lmf/org/apache/xerces/impl/xs/SchemaGrammar;IZLmf/org/apache/xerces/xs/XSObject;)Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
-    .locals 12
+    .locals 27
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fAttrChecker:Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x0
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fAttrChecker:Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;
 
-    invoke-virtual {v0, p1, v1, p2}, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->checkAttributes(Lmf/org/w3c/dom/Element;ZLmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)[Ljava/lang/Object;
+    const/4 v5, 0x0
 
-    move-result-object v3
+    move-object/from16 v0, p1
 
-    invoke-static {p1}, Lmf/org/apache/xerces/util/DOMUtil;->getFirstChildElement(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
+    move-object/from16 v1, p2
+
+    invoke-virtual {v4, v0, v5, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->checkAttributes(Lmf/org/w3c/dom/Element;ZLmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)[Ljava/lang/Object;
+
+    move-result-object v7
+
+    invoke-static/range {p1 .. p1}, Lmf/org/apache/xerces/util/DOMUtil;->getFirstChildElement(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
+
+    move-result-object v21
+
+    const/16 v18, 0x0
+
+    if-nez v21, :cond_2
+
+    :cond_0
+    invoke-static/range {p1 .. p1}, Lmf/org/apache/xerces/util/DOMUtil;->getSyntheticAnnotation(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
 
     move-result-object v6
 
-    const/4 v0, 0x0
+    if-nez v6, :cond_3
 
-    if-nez v6, :cond_2
-
-    :cond_0
-    invoke-static {p1}, Lmf/org/apache/xerces/util/DOMUtil;->getSyntheticAnnotation(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
-
-    move-result-object v2
-
-    if-nez v2, :cond_3
-
-    move-object v10, v0
-
-    move-object v0, v6
+    move-object/from16 v9, v21
 
     :goto_0
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fPArray:Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;
+    const/16 v22, 0x0
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;->pushContext()V
+    move-object/from16 v0, p0
 
-    move-object v5, v0
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fPArray:Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;
+
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;->pushContext()V
 
     :goto_1
-    if-eqz v5, :cond_b
+    if-eqz v9, :cond_b
 
-    const/4 v1, 0x0
+    const/4 v12, 0x0
 
-    invoke-static {v5}, Lmf/org/apache/xerces/util/DOMUtil;->getLocalName(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
+    invoke-static {v9}, Lmf/org/apache/xerces/util/DOMUtil;->getLocalName(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v22
 
-    sget-object v2, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_ELEMENT:Ljava/lang/String;
+    sget-object v4, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_ELEMENT:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v0, v22
 
-    move-result v2
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-nez v2, :cond_4
+    move-result v4
 
-    sget-object v2, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_GROUP:Ljava/lang/String;
+    if-nez v4, :cond_4
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    sget-object v4, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_GROUP:Ljava/lang/String;
 
-    move-result v2
+    move-object/from16 v0, v22
 
-    if-nez v2, :cond_5
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    sget-object v2, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_CHOICE:Ljava/lang/String;
+    move-result v4
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-nez v4, :cond_5
 
-    move-result v2
+    sget-object v4, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_CHOICE:Ljava/lang/String;
 
-    if-nez v2, :cond_6
+    move-object/from16 v0, v22
 
-    sget-object v2, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_SEQUENCE:Ljava/lang/String;
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v4
 
-    move-result v2
+    if-nez v4, :cond_6
 
-    if-nez v2, :cond_7
+    sget-object v4, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_SEQUENCE:Ljava/lang/String;
 
-    sget-object v2, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_ANY:Ljava/lang/String;
+    move-object/from16 v0, v22
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v4
 
-    if-nez v0, :cond_8
+    if-nez v4, :cond_7
+
+    sget-object v4, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_ANY:Ljava/lang/String;
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_8
 
     if-nez p5, :cond_9
 
-    const/4 v0, 0x3
+    const/4 v4, 0x3
 
-    new-array v0, v0, [Ljava/lang/Object;
+    new-array v0, v4, [Ljava/lang/Object;
 
-    const/4 v2, 0x0
+    move-object/from16 v20, v0
 
     const-string/jumbo v4, "sequence"
 
-    aput-object v4, v0, v2
+    const/4 v5, 0x0
 
-    const/4 v2, 0x1
+    aput-object v4, v20, v5
 
     const-string/jumbo v4, "(annotation?, (element | group | choice | sequence | any)*)"
 
-    aput-object v4, v0, v2
+    const/4 v5, 0x1
 
-    const/4 v2, 0x2
+    aput-object v4, v20, v5
 
-    invoke-static {v5}, Lmf/org/apache/xerces/util/DOMUtil;->getLocalName(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
+    invoke-static {v9}, Lmf/org/apache/xerces/util/DOMUtil;->getLocalName(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
 
     move-result-object v4
 
-    aput-object v4, v0, v2
+    const/4 v5, 0x2
+
+    aput-object v4, v20, v5
 
     :goto_2
-    const-string/jumbo v2, "s4s-elt-must-match.1"
+    const-string/jumbo v4, "s4s-elt-must-match.1"
 
-    invoke-virtual {p0, v2, v0, v5}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
+    move-object/from16 v0, p0
 
-    move-object v0, v1
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v4, v1, v9}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
 
     :cond_1
     :goto_3
-    if-nez v0, :cond_a
+    if-nez v12, :cond_a
 
     :goto_4
-    invoke-static {v5}, Lmf/org/apache/xerces/util/DOMUtil;->getNextSiblingElement(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
+    invoke-static {v9}, Lmf/org/apache/xerces/util/DOMUtil;->getNextSiblingElement(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
 
-    move-result-object v5
+    move-result-object v9
 
     goto :goto_1
 
     :cond_2
-    invoke-static {v6}, Lmf/org/apache/xerces/util/DOMUtil;->getLocalName(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
+    invoke-static/range {v21 .. v21}, Lmf/org/apache/xerces/util/DOMUtil;->getLocalName(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v4
 
-    sget-object v2, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_ANNOTATION:Ljava/lang/String;
+    sget-object v5, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_ANNOTATION:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v4
 
-    if-eqz v1, :cond_0
+    if-eqz v4, :cond_0
 
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v6, v3, v0, p2}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->traverseAnnotationDecl(Lmf/org/w3c/dom/Element;[Ljava/lang/Object;ZLmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
-
-    move-result-object v0
-
-    invoke-static {v6}, Lmf/org/apache/xerces/util/DOMUtil;->getNextSiblingElement(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
-
-    move-result-object v1
-
-    move-object v10, v0
-
-    move-object v0, v1
-
-    goto :goto_0
-
-    :cond_3
     const/4 v4, 0x0
 
-    move-object v0, p0
+    move-object/from16 v0, p0
 
-    move-object v1, p1
+    move-object/from16 v1, v21
 
-    move-object v5, p2
+    move-object/from16 v2, p2
 
-    invoke-virtual/range {v0 .. v5}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->traverseSyntheticAnnotation(Lmf/org/w3c/dom/Element;Ljava/lang/String;[Ljava/lang/Object;ZLmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
+    invoke-virtual {v0, v1, v7, v4, v2}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->traverseAnnotationDecl(Lmf/org/w3c/dom/Element;[Ljava/lang/Object;ZLmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
-    move-result-object v0
+    move-result-object v18
 
-    move-object v10, v0
+    invoke-static/range {v21 .. v21}, Lmf/org/apache/xerces/util/DOMUtil;->getNextSiblingElement(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
 
-    move-object v0, v6
+    move-result-object v9
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    :cond_4
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fSchemaHandler:Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;
-
-    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->fElementTraverser:Lmf/org/apache/xerces/impl/xs/traversers/XSDElementTraverser;
-
+    :cond_3
     const/4 v8, 0x0
 
-    move-object v6, p2
+    move-object/from16 v4, p0
 
-    move-object v7, p3
+    move-object/from16 v5, p1
 
-    move-object/from16 v9, p6
+    move-object/from16 v9, p2
 
-    invoke-virtual/range {v4 .. v9}, Lmf/org/apache/xerces/impl/xs/traversers/XSDElementTraverser;->traverseLocal(Lmf/org/w3c/dom/Element;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;Lmf/org/apache/xerces/impl/xs/SchemaGrammar;ILmf/org/apache/xerces/xs/XSObject;)Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    invoke-virtual/range {v4 .. v9}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->traverseSyntheticAnnotation(Lmf/org/w3c/dom/Element;Ljava/lang/String;[Ljava/lang/Object;ZLmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
-    move-result-object v0
+    move-result-object v18
+
+    move-object/from16 v9, v21
+
+    goto/16 :goto_0
+
+    :cond_4
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fSchemaHandler:Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;
+
+    iget-object v8, v4, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->fElementTraverser:Lmf/org/apache/xerces/impl/xs/traversers/XSDElementTraverser;
+
+    const/4 v12, 0x0
+
+    move-object/from16 v10, p2
+
+    move-object/from16 v11, p3
+
+    move-object/from16 v13, p6
+
+    invoke-virtual/range {v8 .. v13}, Lmf/org/apache/xerces/impl/xs/traversers/XSDElementTraverser;->traverseLocal(Lmf/org/w3c/dom/Element;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;Lmf/org/apache/xerces/impl/xs/SchemaGrammar;ILmf/org/apache/xerces/xs/XSObject;)Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+
+    move-result-object v12
 
     goto :goto_3
 
     :cond_5
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fSchemaHandler:Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;
+    move-object/from16 v0, p0
 
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->fGroupTraverser:Lmf/org/apache/xerces/impl/xs/traversers/XSDGroupTraverser;
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fSchemaHandler:Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;
 
-    invoke-virtual {v0, v5, p2, p3}, Lmf/org/apache/xerces/impl/xs/traversers/XSDGroupTraverser;->traverseLocal(Lmf/org/w3c/dom/Element;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;Lmf/org/apache/xerces/impl/xs/SchemaGrammar;)Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    iget-object v4, v4, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->fGroupTraverser:Lmf/org/apache/xerces/impl/xs/traversers/XSDGroupTraverser;
 
-    move-result-object v0
+    move-object/from16 v0, p2
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->hasAllContent(Lmf/org/apache/xerces/impl/xs/XSParticleDecl;)Z
+    move-object/from16 v1, p3
 
-    move-result v1
+    invoke-virtual {v4, v9, v0, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDGroupTraverser;->traverseLocal(Lmf/org/w3c/dom/Element;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;Lmf/org/apache/xerces/impl/xs/SchemaGrammar;)Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
-    if-eqz v1, :cond_1
+    move-result-object v12
 
-    const/4 v0, 0x0
+    move-object/from16 v0, p0
 
-    const-string/jumbo v1, "cos-all-limited.1.2"
+    invoke-virtual {v0, v12}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->hasAllContent(Lmf/org/apache/xerces/impl/xs/XSParticleDecl;)Z
 
-    const/4 v2, 0x0
+    move-result v4
 
-    invoke-virtual {p0, v1, v2, v5}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
+    if-eqz v4, :cond_1
+
+    const/4 v12, 0x0
+
+    const-string/jumbo v4, "cos-all-limited.1.2"
+
+    const/4 v5, 0x0
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v4, v5, v9}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
 
     goto :goto_3
 
     :cond_6
-    const/4 v8, 0x0
+    const/4 v12, 0x0
 
-    move-object v4, p0
+    move-object/from16 v8, p0
 
-    move-object v6, p2
+    move-object/from16 v10, p2
 
-    move-object v7, p3
+    move-object/from16 v11, p3
 
-    move-object/from16 v9, p6
+    move-object/from16 v13, p6
 
-    invoke-virtual/range {v4 .. v9}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->traverseChoice(Lmf/org/w3c/dom/Element;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;Lmf/org/apache/xerces/impl/xs/SchemaGrammar;ILmf/org/apache/xerces/xs/XSObject;)Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    invoke-virtual/range {v8 .. v13}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->traverseChoice(Lmf/org/w3c/dom/Element;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;Lmf/org/apache/xerces/impl/xs/SchemaGrammar;ILmf/org/apache/xerces/xs/XSObject;)Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
-    move-result-object v0
+    move-result-object v12
 
     goto :goto_3
 
     :cond_7
-    const/4 v8, 0x0
+    const/4 v12, 0x0
 
-    move-object v4, p0
+    move-object/from16 v8, p0
 
-    move-object v6, p2
+    move-object/from16 v10, p2
 
-    move-object v7, p3
+    move-object/from16 v11, p3
 
-    move-object/from16 v9, p6
+    move-object/from16 v13, p6
 
-    invoke-virtual/range {v4 .. v9}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->traverseSequence(Lmf/org/w3c/dom/Element;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;Lmf/org/apache/xerces/impl/xs/SchemaGrammar;ILmf/org/apache/xerces/xs/XSObject;)Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    invoke-virtual/range {v8 .. v13}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->traverseSequence(Lmf/org/w3c/dom/Element;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;Lmf/org/apache/xerces/impl/xs/SchemaGrammar;ILmf/org/apache/xerces/xs/XSObject;)Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
-    move-result-object v0
+    move-result-object v12
 
-    goto :goto_3
+    goto/16 :goto_3
 
     :cond_8
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fSchemaHandler:Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;
+    move-object/from16 v0, p0
 
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->fWildCardTraverser:Lmf/org/apache/xerces/impl/xs/traversers/XSDWildcardTraverser;
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fSchemaHandler:Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;
 
-    invoke-virtual {v0, v5, p2, p3}, Lmf/org/apache/xerces/impl/xs/traversers/XSDWildcardTraverser;->traverseAny(Lmf/org/w3c/dom/Element;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;Lmf/org/apache/xerces/impl/xs/SchemaGrammar;)Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    iget-object v4, v4, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->fWildCardTraverser:Lmf/org/apache/xerces/impl/xs/traversers/XSDWildcardTraverser;
 
-    move-result-object v0
+    move-object/from16 v0, p2
 
-    goto :goto_3
+    move-object/from16 v1, p3
+
+    invoke-virtual {v4, v9, v0, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDWildcardTraverser;->traverseAny(Lmf/org/w3c/dom/Element;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;Lmf/org/apache/xerces/impl/xs/SchemaGrammar;)Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+
+    move-result-object v12
+
+    goto/16 :goto_3
 
     :cond_9
-    const/4 v0, 0x3
+    const/4 v4, 0x3
 
-    new-array v0, v0, [Ljava/lang/Object;
+    new-array v0, v4, [Ljava/lang/Object;
 
-    const/4 v2, 0x0
+    move-object/from16 v20, v0
 
     const-string/jumbo v4, "choice"
 
-    aput-object v4, v0, v2
+    const/4 v5, 0x0
 
-    const/4 v2, 0x1
+    aput-object v4, v20, v5
 
     const-string/jumbo v4, "(annotation?, (element | group | choice | sequence | any)*)"
 
-    aput-object v4, v0, v2
+    const/4 v5, 0x1
 
-    const/4 v2, 0x2
+    aput-object v4, v20, v5
 
-    invoke-static {v5}, Lmf/org/apache/xerces/util/DOMUtil;->getLocalName(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
+    invoke-static {v9}, Lmf/org/apache/xerces/util/DOMUtil;->getLocalName(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
 
     move-result-object v4
 
-    aput-object v4, v0, v2
+    const/4 v5, 0x2
+
+    aput-object v4, v20, v5
 
     goto/16 :goto_2
 
     :cond_a
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fPArray:Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v1, v0}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;->addParticle(Lmf/org/apache/xerces/impl/xs/XSParticleDecl;)V
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fPArray:Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;
+
+    invoke-virtual {v4, v12}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;->addParticle(Lmf/org/apache/xerces/impl/xs/XSParticleDecl;)V
 
     goto/16 :goto_4
 
     :cond_b
-    sget v0, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_MINOCCURS:I
+    const/4 v12, 0x0
 
-    aget-object v0, v3, v0
+    sget v4, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_MINOCCURS:I
 
-    check-cast v0, Lmf/org/apache/xerces/impl/xs/util/XInt;
+    aget-object v26, v7, v4
 
-    sget v1, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_MAXOCCURS:I
+    check-cast v26, Lmf/org/apache/xerces/impl/xs/util/XInt;
 
-    aget-object v1, v3, v1
+    sget v4, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_MAXOCCURS:I
 
-    check-cast v1, Lmf/org/apache/xerces/impl/xs/util/XInt;
+    aget-object v25, v7, v4
 
-    sget v2, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_FROMDEFAULT:I
+    check-cast v25, Lmf/org/apache/xerces/impl/xs/util/XInt;
 
-    aget-object v2, v3, v2
+    sget v4, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_FROMDEFAULT:I
 
-    check-cast v2, Ljava/lang/Long;
+    aget-object v23, v7, v4
 
-    new-instance v7, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;
+    check-cast v23, Ljava/lang/Long;
 
-    invoke-direct {v7}, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;-><init>()V
+    new-instance v24, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;
+
+    invoke-direct/range {v24 .. v24}, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;-><init>()V
 
     if-nez p5, :cond_c
 
@@ -361,83 +405,105 @@
     :goto_5
     int-to-short v4, v4
 
-    iput-short v4, v7, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fCompositor:S
+    move-object/from16 v0, v24
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fPArray:Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;
+    iput-short v4, v0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fCompositor:S
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fPArray:Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;
 
     invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;->getParticleCount()I
 
     move-result v4
 
-    iput v4, v7, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticleCount:I
+    move-object/from16 v0, v24
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fPArray:Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;
+    iput v4, v0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticleCount:I
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fPArray:Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;
 
     invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;->popContext()[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
     move-result-object v4
 
-    iput-object v4, v7, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticles:[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    move-object/from16 v0, v24
 
-    if-nez v10, :cond_d
+    iput-object v4, v0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticles:[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
-    sget-object v5, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->EMPTY_LIST:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+    if-nez v18, :cond_d
+
+    sget-object v19, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->EMPTY_LIST:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
     :goto_6
-    iput-object v5, v7, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fAnnotations:Lmf/org/apache/xerces/xs/XSObjectList;
+    move-object/from16 v0, v19
 
-    new-instance v6, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    move-object/from16 v1, v24
 
-    invoke-direct {v6}, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;-><init>()V
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fAnnotations:Lmf/org/apache/xerces/xs/XSObjectList;
+
+    new-instance v12, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+
+    invoke-direct {v12}, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;-><init>()V
 
     const/4 v4, 0x3
 
-    iput-short v4, v6, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fType:S
+    iput-short v4, v12, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fType:S
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xs/util/XInt;->intValue()I
+    invoke-virtual/range {v26 .. v26}, Lmf/org/apache/xerces/impl/xs/util/XInt;->intValue()I
 
-    move-result v0
+    move-result v4
 
-    iput v0, v6, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fMinOccurs:I
+    iput v4, v12, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fMinOccurs:I
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/xs/util/XInt;->intValue()I
+    invoke-virtual/range {v25 .. v25}, Lmf/org/apache/xerces/impl/xs/util/XInt;->intValue()I
 
-    move-result v0
+    move-result v4
 
-    iput v0, v6, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fMaxOccurs:I
+    iput v4, v12, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fMaxOccurs:I
 
-    iput-object v7, v6, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fValue:Lmf/org/apache/xerces/xs/XSTerm;
+    move-object/from16 v0, v24
 
-    iput-object v5, v6, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fAnnotations:Lmf/org/apache/xerces/xs/XSObjectList;
+    iput-object v0, v12, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fValue:Lmf/org/apache/xerces/xs/XSTerm;
+
+    move-object/from16 v0, v19
+
+    iput-object v0, v12, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fAnnotations:Lmf/org/apache/xerces/xs/XSObjectList;
 
     if-nez p5, :cond_e
 
-    sget-object v7, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_SEQUENCE:Ljava/lang/String;
+    sget-object v13, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_SEQUENCE:Ljava/lang/String;
 
     :goto_7
-    invoke-interface {p1}, Lmf/org/w3c/dom/Element;->getParentNode()Lmf/org/w3c/dom/Node;
+    invoke-interface/range {p1 .. p1}, Lmf/org/w3c/dom/Element;->getParentNode()Lmf/org/w3c/dom/Node;
 
-    move-result-object v8
+    move-result-object v14
 
-    check-cast v8, Lmf/org/w3c/dom/Element;
+    check-cast v14, Lmf/org/w3c/dom/Element;
 
-    invoke-virtual {v2}, Ljava/lang/Long;->longValue()J
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide v10
+    move-result-wide v16
 
-    move-object v5, p0
+    move-object/from16 v11, p0
 
-    move/from16 v9, p4
+    move/from16 v15, p4
 
-    invoke-virtual/range {v5 .. v11}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->checkOccurrences(Lmf/org/apache/xerces/impl/xs/XSParticleDecl;Ljava/lang/String;Lmf/org/w3c/dom/Element;IJ)Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    invoke-virtual/range {v11 .. v17}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->checkOccurrences(Lmf/org/apache/xerces/impl/xs/XSParticleDecl;Ljava/lang/String;Lmf/org/w3c/dom/Element;IJ)Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
-    move-result-object v0
+    move-result-object v12
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fAttrChecker:Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v1, v3, p2}, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->returnAttrArray([Ljava/lang/Object;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)V
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fAttrChecker:Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;
 
-    return-object v0
+    move-object/from16 v0, p2
+
+    invoke-virtual {v4, v7, v0}, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->returnAttrArray([Ljava/lang/Object;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)V
+
+    return-object v12
 
     :cond_c
     const/16 v4, 0x65
@@ -445,20 +511,22 @@
     goto :goto_5
 
     :cond_d
-    new-instance v5, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+    new-instance v19, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
-    invoke-direct {v5}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;-><init>()V
+    invoke-direct/range {v19 .. v19}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;-><init>()V
 
-    move-object v4, v5
+    move-object/from16 v4, v19
 
     check-cast v4, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
-    invoke-virtual {v4, v10}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->addXSObject(Lmf/org/apache/xerces/xs/XSObject;)V
+    move-object/from16 v0, v18
+
+    invoke-virtual {v4, v0}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->addXSObject(Lmf/org/apache/xerces/xs/XSObject;)V
 
     goto :goto_6
 
     :cond_e
-    sget-object v7, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_CHOICE:Ljava/lang/String;
+    sget-object v13, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_CHOICE:Ljava/lang/String;
 
     goto :goto_7
 .end method
@@ -501,281 +569,325 @@
 .end method
 
 .method traverseAll(Lmf/org/w3c/dom/Element;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;Lmf/org/apache/xerces/impl/xs/SchemaGrammar;ILmf/org/apache/xerces/xs/XSObject;)Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
-    .locals 12
+    .locals 27
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fAttrChecker:Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x0
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fAttrChecker:Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;
 
-    invoke-virtual {v0, p1, v1, p2}, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->checkAttributes(Lmf/org/w3c/dom/Element;ZLmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)[Ljava/lang/Object;
+    const/4 v5, 0x0
 
-    move-result-object v3
+    move-object/from16 v0, p1
 
-    invoke-static {p1}, Lmf/org/apache/xerces/util/DOMUtil;->getFirstChildElement(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
+    move-object/from16 v1, p2
+
+    invoke-virtual {v4, v0, v5, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->checkAttributes(Lmf/org/w3c/dom/Element;ZLmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)[Ljava/lang/Object;
+
+    move-result-object v7
+
+    invoke-static/range {p1 .. p1}, Lmf/org/apache/xerces/util/DOMUtil;->getFirstChildElement(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
+
+    move-result-object v21
+
+    const/16 v18, 0x0
+
+    if-nez v21, :cond_1
+
+    :cond_0
+    invoke-static/range {p1 .. p1}, Lmf/org/apache/xerces/util/DOMUtil;->getSyntheticAnnotation(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
 
     move-result-object v6
 
-    const/4 v0, 0x0
+    if-nez v6, :cond_2
 
-    if-nez v6, :cond_1
-
-    :cond_0
-    invoke-static {p1}, Lmf/org/apache/xerces/util/DOMUtil;->getSyntheticAnnotation(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
-
-    move-result-object v2
-
-    if-nez v2, :cond_2
-
-    move-object v10, v0
-
-    move-object v0, v6
+    move-object/from16 v9, v21
 
     :goto_0
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fPArray:Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;
+    const/16 v22, 0x0
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;->pushContext()V
+    move-object/from16 v0, p0
 
-    move-object v5, v0
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fPArray:Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;
+
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;->pushContext()V
 
     :goto_1
-    if-eqz v5, :cond_5
+    if-eqz v9, :cond_5
 
-    const/4 v0, 0x0
+    const/4 v12, 0x0
 
-    invoke-static {v5}, Lmf/org/apache/xerces/util/DOMUtil;->getLocalName(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
+    invoke-static {v9}, Lmf/org/apache/xerces/util/DOMUtil;->getLocalName(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v22
 
-    sget-object v2, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_ELEMENT:Ljava/lang/String;
+    sget-object v4, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_ELEMENT:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v0, v22
 
-    move-result v1
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-nez v1, :cond_3
+    move-result v4
 
-    const/4 v1, 0x3
+    if-nez v4, :cond_3
 
-    new-array v1, v1, [Ljava/lang/Object;
+    const/4 v4, 0x3
 
-    const/4 v2, 0x0
+    new-array v0, v4, [Ljava/lang/Object;
+
+    move-object/from16 v20, v0
 
     const-string/jumbo v4, "all"
 
-    aput-object v4, v1, v2
+    const/4 v5, 0x0
 
-    const/4 v2, 0x1
+    aput-object v4, v20, v5
 
     const-string/jumbo v4, "(annotation?, element*)"
 
-    aput-object v4, v1, v2
+    const/4 v5, 0x1
 
-    const/4 v2, 0x2
+    aput-object v4, v20, v5
 
-    invoke-static {v5}, Lmf/org/apache/xerces/util/DOMUtil;->getLocalName(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
+    invoke-static {v9}, Lmf/org/apache/xerces/util/DOMUtil;->getLocalName(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
 
     move-result-object v4
 
-    aput-object v4, v1, v2
+    const/4 v5, 0x2
 
-    const-string/jumbo v2, "s4s-elt-must-match.1"
+    aput-object v4, v20, v5
 
-    invoke-virtual {p0, v2, v1, v5}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
+    const-string/jumbo v4, "s4s-elt-must-match.1"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v4, v1, v9}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
 
     :goto_2
-    if-nez v0, :cond_4
+    if-nez v12, :cond_4
 
     :goto_3
-    invoke-static {v5}, Lmf/org/apache/xerces/util/DOMUtil;->getNextSiblingElement(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
+    invoke-static {v9}, Lmf/org/apache/xerces/util/DOMUtil;->getNextSiblingElement(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
 
-    move-result-object v5
+    move-result-object v9
 
     goto :goto_1
 
     :cond_1
-    invoke-static {v6}, Lmf/org/apache/xerces/util/DOMUtil;->getLocalName(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
+    invoke-static/range {v21 .. v21}, Lmf/org/apache/xerces/util/DOMUtil;->getLocalName(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v4
 
-    sget-object v2, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_ANNOTATION:Ljava/lang/String;
+    sget-object v5, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_ANNOTATION:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v4
 
-    if-eqz v1, :cond_0
+    if-eqz v4, :cond_0
 
-    const/4 v0, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {p0, v6, v3, v0, p2}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->traverseAnnotationDecl(Lmf/org/w3c/dom/Element;[Ljava/lang/Object;ZLmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
+    move-object/from16 v0, p0
 
-    move-result-object v0
+    move-object/from16 v1, v21
 
-    invoke-static {v6}, Lmf/org/apache/xerces/util/DOMUtil;->getNextSiblingElement(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
+    move-object/from16 v2, p2
 
-    move-result-object v1
+    invoke-virtual {v0, v1, v7, v4, v2}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->traverseAnnotationDecl(Lmf/org/w3c/dom/Element;[Ljava/lang/Object;ZLmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
-    move-object v10, v0
+    move-result-object v18
 
-    move-object v0, v1
+    invoke-static/range {v21 .. v21}, Lmf/org/apache/xerces/util/DOMUtil;->getNextSiblingElement(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
+
+    move-result-object v9
 
     goto :goto_0
 
     :cond_2
-    const/4 v4, 0x0
+    const/4 v8, 0x0
 
-    move-object v0, p0
+    move-object/from16 v4, p0
 
-    move-object v1, p1
+    move-object/from16 v5, p1
 
-    move-object v5, p2
+    move-object/from16 v9, p2
 
-    invoke-virtual/range {v0 .. v5}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->traverseSyntheticAnnotation(Lmf/org/w3c/dom/Element;Ljava/lang/String;[Ljava/lang/Object;ZLmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
+    invoke-virtual/range {v4 .. v9}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->traverseSyntheticAnnotation(Lmf/org/w3c/dom/Element;Ljava/lang/String;[Ljava/lang/Object;ZLmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
-    move-result-object v0
+    move-result-object v18
 
-    move-object v10, v0
-
-    move-object v0, v6
+    move-object/from16 v9, v21
 
     goto :goto_0
 
     :cond_3
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fSchemaHandler:Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;
+    move-object/from16 v0, p0
 
-    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->fElementTraverser:Lmf/org/apache/xerces/impl/xs/traversers/XSDElementTraverser;
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fSchemaHandler:Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;
 
-    const/4 v8, 0x1
+    iget-object v8, v4, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->fElementTraverser:Lmf/org/apache/xerces/impl/xs/traversers/XSDElementTraverser;
 
-    move-object v6, p2
+    const/4 v12, 0x1
 
-    move-object v7, p3
+    move-object/from16 v10, p2
 
-    move-object/from16 v9, p5
+    move-object/from16 v11, p3
 
-    invoke-virtual/range {v4 .. v9}, Lmf/org/apache/xerces/impl/xs/traversers/XSDElementTraverser;->traverseLocal(Lmf/org/w3c/dom/Element;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;Lmf/org/apache/xerces/impl/xs/SchemaGrammar;ILmf/org/apache/xerces/xs/XSObject;)Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    move-object/from16 v13, p5
 
-    move-result-object v0
+    invoke-virtual/range {v8 .. v13}, Lmf/org/apache/xerces/impl/xs/traversers/XSDElementTraverser;->traverseLocal(Lmf/org/w3c/dom/Element;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;Lmf/org/apache/xerces/impl/xs/SchemaGrammar;ILmf/org/apache/xerces/xs/XSObject;)Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+
+    move-result-object v12
 
     goto :goto_2
 
     :cond_4
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fPArray:Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v1, v0}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;->addParticle(Lmf/org/apache/xerces/impl/xs/XSParticleDecl;)V
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fPArray:Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;
+
+    invoke-virtual {v4, v12}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;->addParticle(Lmf/org/apache/xerces/impl/xs/XSParticleDecl;)V
 
     goto :goto_3
 
     :cond_5
-    sget v0, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_MINOCCURS:I
+    const/4 v12, 0x0
 
-    aget-object v0, v3, v0
+    sget v4, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_MINOCCURS:I
 
-    check-cast v0, Lmf/org/apache/xerces/impl/xs/util/XInt;
+    aget-object v26, v7, v4
 
-    sget v1, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_MAXOCCURS:I
+    check-cast v26, Lmf/org/apache/xerces/impl/xs/util/XInt;
 
-    aget-object v1, v3, v1
+    sget v4, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_MAXOCCURS:I
 
-    check-cast v1, Lmf/org/apache/xerces/impl/xs/util/XInt;
+    aget-object v25, v7, v4
 
-    sget v2, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_FROMDEFAULT:I
+    check-cast v25, Lmf/org/apache/xerces/impl/xs/util/XInt;
 
-    aget-object v2, v3, v2
+    sget v4, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_FROMDEFAULT:I
 
-    check-cast v2, Ljava/lang/Long;
+    aget-object v23, v7, v4
 
-    new-instance v7, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;
+    check-cast v23, Ljava/lang/Long;
 
-    invoke-direct {v7}, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;-><init>()V
+    new-instance v24, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;
+
+    invoke-direct/range {v24 .. v24}, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;-><init>()V
 
     const/16 v4, 0x67
 
-    iput-short v4, v7, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fCompositor:S
+    move-object/from16 v0, v24
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fPArray:Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;
+    iput-short v4, v0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fCompositor:S
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fPArray:Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;
 
     invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;->getParticleCount()I
 
     move-result v4
 
-    iput v4, v7, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticleCount:I
+    move-object/from16 v0, v24
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fPArray:Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;
+    iput v4, v0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticleCount:I
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fPArray:Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;
 
     invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray;->popContext()[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
     move-result-object v4
 
-    iput-object v4, v7, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticles:[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    move-object/from16 v0, v24
 
-    if-nez v10, :cond_6
+    iput-object v4, v0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticles:[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
-    sget-object v5, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->EMPTY_LIST:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+    if-nez v18, :cond_6
+
+    sget-object v19, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->EMPTY_LIST:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
     :goto_4
-    iput-object v5, v7, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fAnnotations:Lmf/org/apache/xerces/xs/XSObjectList;
+    move-object/from16 v0, v19
 
-    new-instance v6, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    move-object/from16 v1, v24
 
-    invoke-direct {v6}, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;-><init>()V
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fAnnotations:Lmf/org/apache/xerces/xs/XSObjectList;
+
+    new-instance v12, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+
+    invoke-direct {v12}, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;-><init>()V
 
     const/4 v4, 0x3
 
-    iput-short v4, v6, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fType:S
+    iput-short v4, v12, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fType:S
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xs/util/XInt;->intValue()I
+    invoke-virtual/range {v26 .. v26}, Lmf/org/apache/xerces/impl/xs/util/XInt;->intValue()I
 
-    move-result v0
+    move-result v4
 
-    iput v0, v6, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fMinOccurs:I
+    iput v4, v12, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fMinOccurs:I
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/xs/util/XInt;->intValue()I
+    invoke-virtual/range {v25 .. v25}, Lmf/org/apache/xerces/impl/xs/util/XInt;->intValue()I
 
-    move-result v0
+    move-result v4
 
-    iput v0, v6, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fMaxOccurs:I
+    iput v4, v12, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fMaxOccurs:I
 
-    iput-object v7, v6, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fValue:Lmf/org/apache/xerces/xs/XSTerm;
+    move-object/from16 v0, v24
 
-    iput-object v5, v6, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fAnnotations:Lmf/org/apache/xerces/xs/XSObjectList;
+    iput-object v0, v12, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fValue:Lmf/org/apache/xerces/xs/XSTerm;
 
-    sget-object v7, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_ALL:Ljava/lang/String;
+    move-object/from16 v0, v19
 
-    invoke-interface {p1}, Lmf/org/w3c/dom/Element;->getParentNode()Lmf/org/w3c/dom/Node;
+    iput-object v0, v12, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fAnnotations:Lmf/org/apache/xerces/xs/XSObjectList;
 
-    move-result-object v8
+    sget-object v13, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_ALL:Ljava/lang/String;
 
-    check-cast v8, Lmf/org/w3c/dom/Element;
+    invoke-interface/range {p1 .. p1}, Lmf/org/w3c/dom/Element;->getParentNode()Lmf/org/w3c/dom/Node;
 
-    invoke-virtual {v2}, Ljava/lang/Long;->longValue()J
+    move-result-object v14
 
-    move-result-wide v10
+    check-cast v14, Lmf/org/w3c/dom/Element;
 
-    move-object v5, p0
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/Long;->longValue()J
 
-    move/from16 v9, p4
+    move-result-wide v16
 
-    invoke-virtual/range {v5 .. v11}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->checkOccurrences(Lmf/org/apache/xerces/impl/xs/XSParticleDecl;Ljava/lang/String;Lmf/org/w3c/dom/Element;IJ)Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    move-object/from16 v11, p0
 
-    move-result-object v0
+    move/from16 v15, p4
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fAttrChecker:Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;
+    invoke-virtual/range {v11 .. v17}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->checkOccurrences(Lmf/org/apache/xerces/impl/xs/XSParticleDecl;Ljava/lang/String;Lmf/org/w3c/dom/Element;IJ)Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
-    invoke-virtual {v1, v3, p2}, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->returnAttrArray([Ljava/lang/Object;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)V
+    move-result-object v12
 
-    return-object v0
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAbstractParticleTraverser;->fAttrChecker:Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v4, v7, v0}, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->returnAttrArray([Ljava/lang/Object;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)V
+
+    return-object v12
 
     :cond_6
-    new-instance v5, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+    new-instance v19, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
-    invoke-direct {v5}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;-><init>()V
+    invoke-direct/range {v19 .. v19}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;-><init>()V
 
-    move-object v4, v5
+    move-object/from16 v4, v19
 
     check-cast v4, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
-    invoke-virtual {v4, v10}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->addXSObject(Lmf/org/apache/xerces/xs/XSObject;)V
+    move-object/from16 v0, v18
+
+    invoke-virtual {v4, v0}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->addXSObject(Lmf/org/apache/xerces/xs/XSObject;)V
 
     goto :goto_4
 .end method

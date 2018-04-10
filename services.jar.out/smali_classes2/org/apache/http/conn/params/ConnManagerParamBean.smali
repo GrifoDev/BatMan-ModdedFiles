@@ -10,21 +10,11 @@
 
 # direct methods
 .method public constructor <init>(Lorg/apache/http/params/HttpParams;)V
-    .locals 2
+    .locals 0
 
-    const/4 v0, 0x0
+    invoke-direct {p0, p1}, Lorg/apache/http/params/HttpAbstractParamBean;-><init>(Lorg/apache/http/params/HttpParams;)V
 
-    check-cast v0, Lorg/apache/http/params/HttpParams;
-
-    invoke-direct {p0, v0}, Lorg/apache/http/params/HttpAbstractParamBean;-><init>(Lorg/apache/http/params/HttpParams;)V
-
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 
@@ -32,35 +22,35 @@
 .method public setConnectionsPerRoute(Lorg/apache/http/conn/params/ConnPerRouteBean;)V
     .locals 2
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/conn/params/ConnManagerParamBean;->params:Lorg/apache/http/params/HttpParams;
 
-    const-string/jumbo v1, "Stub!"
+    const-string/jumbo v1, "http.conn-manager.max-per-route"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-interface {v0, v1, p1}, Lorg/apache/http/params/HttpParams;->setParameter(Ljava/lang/String;Ljava/lang/Object;)Lorg/apache/http/params/HttpParams;
 
-    throw v0
+    return-void
 .end method
 
 .method public setMaxTotalConnections(I)V
     .locals 2
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/conn/params/ConnManagerParamBean;->params:Lorg/apache/http/params/HttpParams;
 
-    const-string/jumbo v1, "Stub!"
+    const-string/jumbo v1, "http.conn-manager.max-total"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-interface {v0, v1, p1}, Lorg/apache/http/params/HttpParams;->setIntParameter(Ljava/lang/String;I)Lorg/apache/http/params/HttpParams;
 
-    throw v0
+    return-void
 .end method
 
 .method public setTimeout(J)V
-    .locals 2
+    .locals 3
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/conn/params/ConnManagerParamBean;->params:Lorg/apache/http/params/HttpParams;
 
-    const-string/jumbo v1, "Stub!"
+    const-string/jumbo v1, "http.conn-manager.timeout"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-interface {v0, v1, p1, p2}, Lorg/apache/http/params/HttpParams;->setLongParameter(Ljava/lang/String;J)Lorg/apache/http/params/HttpParams;
 
-    throw v0
+    return-void
 .end method

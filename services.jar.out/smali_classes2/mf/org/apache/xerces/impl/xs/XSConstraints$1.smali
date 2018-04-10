@@ -29,21 +29,23 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 7
+    .locals 10
 
-    const/4 v3, 0x1
+    const/4 v9, 0x0
 
-    const/4 v2, 0x0
+    move-object v7, p1
 
-    check-cast p1, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    check-cast v7, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
-    check-cast p2, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    move-object v8, p2
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fValue:Lmf/org/apache/xerces/xs/XSTerm;
+    check-cast v8, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+
+    iget-object v0, v7, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fValue:Lmf/org/apache/xerces/xs/XSTerm;
 
     check-cast v0, Lmf/org/apache/xerces/impl/xs/XSElementDecl;
 
-    iget-object v1, p2, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fValue:Lmf/org/apache/xerces/xs/XSTerm;
+    iget-object v1, v8, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fValue:Lmf/org/apache/xerces/xs/XSTerm;
 
     check-cast v1, Lmf/org/apache/xerces/impl/xs/XSElementDecl;
 
@@ -57,54 +59,52 @@
 
     invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xs/XSElementDecl;->getName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v2
 
     invoke-virtual {v1}, Lmf/org/apache/xerces/impl/xs/XSElementDecl;->getName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
     if-eq v4, v5, :cond_1
 
-    move v0, v2
-
     :goto_0
-    if-eqz v0, :cond_2
+    const/4 v6, 0x0
 
-    move v0, v2
+    if-eqz v9, :cond_2
 
     :goto_1
-    if-nez v0, :cond_0
+    if-nez v6, :cond_0
 
-    invoke-virtual {v6, v1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
+    invoke-virtual {v2, v3}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
-    move-result v0
+    move-result v6
 
     :cond_0
-    return v0
+    return v6
 
     :cond_1
-    move v0, v3
+    const/4 v9, 0x1
 
     goto :goto_0
 
     :cond_2
     if-nez v4, :cond_3
 
-    const/4 v0, -0x1
+    const/4 v6, -0x1
 
     goto :goto_1
 
     :cond_3
     if-nez v5, :cond_4
 
-    move v0, v3
+    const/4 v6, 0x1
 
     goto :goto_1
 
     :cond_4
     invoke-virtual {v4, v5}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
-    move-result v0
+    move-result v6
 
     goto :goto_1
 .end method

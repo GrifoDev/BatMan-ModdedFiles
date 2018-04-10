@@ -228,7 +228,7 @@
 
     iget-object v2, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService$3;->this$0:Lcom/android/server/enterprise/keystore/TimaKeystoreService;
 
-    invoke-static {v2}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-wrap5(Lcom/android/server/enterprise/keystore/TimaKeystoreService;)V
+    invoke-static {v2}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-wrap6(Lcom/android/server/enterprise/keystore/TimaKeystoreService;)V
 
     iget-object v2, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService$3;->this$0:Lcom/android/server/enterprise/keystore/TimaKeystoreService;
 
@@ -269,7 +269,7 @@
 
     iget-object v2, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService$3;->this$0:Lcom/android/server/enterprise/keystore/TimaKeystoreService;
 
-    invoke-static {v2}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-wrap5(Lcom/android/server/enterprise/keystore/TimaKeystoreService;)V
+    invoke-static {v2}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-wrap6(Lcom/android/server/enterprise/keystore/TimaKeystoreService;)V
 
     iget-object v2, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService$3;->this$0:Lcom/android/server/enterprise/keystore/TimaKeystoreService;
 

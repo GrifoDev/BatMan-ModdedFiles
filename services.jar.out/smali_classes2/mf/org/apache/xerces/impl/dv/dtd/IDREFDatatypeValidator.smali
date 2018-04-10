@@ -18,16 +18,16 @@
 
 # virtual methods
 .method public validate(Ljava/lang/String;Lmf/org/apache/xerces/impl/dv/ValidationContext;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
         }
     .end annotation
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     invoke-interface {p2}, Lmf/org/apache/xerces/impl/dv/ValidationContext;->useNamespaces()Z
 
@@ -55,26 +55,26 @@
 
     new-instance v0, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
 
-    const-string/jumbo v1, "IDREFInvalidWithNamespaces"
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    aput-object p1, v1, v2
 
-    aput-object p1, v2, v3
+    const-string/jumbo v2, "IDREFInvalidWithNamespaces"
 
-    invoke-direct {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v0, v2, v1}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
     throw v0
 
     :cond_2
     new-instance v0, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
 
-    const-string/jumbo v1, "IDREFInvalid"
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    aput-object p1, v1, v2
 
-    aput-object p1, v2, v3
+    const-string/jumbo v2, "IDREFInvalid"
 
-    invoke-direct {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v0, v2, v1}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
     throw v0
 .end method

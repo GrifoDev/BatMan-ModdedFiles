@@ -95,7 +95,7 @@
 .end method
 
 .method private checkTimaError(II)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/server/pm/TimaException;
@@ -107,32 +107,18 @@
     return-void
 
     :pswitch_0
-    const/16 v1, 0x64
+    const/16 v0, 0x64
 
-    if-lt p1, v1, :cond_0
+    if-lt p1, v0, :cond_0
 
-    const/16 v1, 0xc8
-
-    if-gt p1, v1, :cond_0
-
-    const-string/jumbo v1, "persona"
-
-    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/server/pm/PersonaManagerService;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0, p1}, Lcom/android/server/pm/PersonaManagerService;->setTimaCompromisedState(I)V
+    const/16 v0, 0xc8
 
     :cond_0
-    new-instance v1, Lcom/android/server/pm/TimaException;
+    new-instance v0, Lcom/android/server/pm/TimaException;
 
-    invoke-direct {v1}, Lcom/android/server/pm/TimaException;-><init>()V
+    invoke-direct {v0}, Lcom/android/server/pm/TimaException;-><init>()V
 
-    throw v1
+    throw v0
 
     :pswitch_data_0
     .packed-switch 0x1000c
@@ -988,8 +974,6 @@
 .method public getTimaStatus()I
     .locals 10
 
-    const/4 v5, -0x1
-
     const/4 v4, -0x1
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
@@ -1003,15 +987,15 @@
 
     move-result-object v3
 
-    iget-object v8, p0, Lcom/android/server/pm/TimaHelper;->mVersion:Ljava/lang/String;
+    iget-object v5, p0, Lcom/android/server/pm/TimaHelper;->mVersion:Ljava/lang/String;
 
-    const-string/jumbo v9, "3.0"
+    const-string/jumbo v8, "3.0"
 
-    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v8
 
-    if-eqz v9, :cond_1
+    if-eqz v8, :cond_1
 
     if-eqz v3, :cond_2
 
@@ -1066,13 +1050,13 @@
 
     :cond_1
     :try_start_1
-    const-string/jumbo v9, "FIPS3.0"
+    const-string/jumbo v8, "FIPS3.0"
 
-    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v5
 
-    if-eqz v8, :cond_4
+    if-eqz v5, :cond_4
 
     if-eqz v3, :cond_3
 
@@ -1082,18 +1066,17 @@
 
     move-result v4
 
-    :goto_2
     goto :goto_0
 
     :cond_2
-    move v4, v5
+    const/4 v4, -0x1
 
     goto :goto_0
 
     :cond_3
-    move v4, v5
+    const/4 v4, -0x1
 
-    goto :goto_2
+    goto :goto_0
 
     :cond_4
     const-string/jumbo v5, "TimaHelper"
@@ -1189,6 +1172,23 @@
 
     move-result v0
 
+    return v0
+.end method
+
+.method public isTimaAvailable()Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0}, Lcom/android/server/pm/TimaHelper;->getTimaStatus()I
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
     return v0
 .end method
 

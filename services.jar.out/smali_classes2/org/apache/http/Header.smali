@@ -3,11 +3,6 @@
 .source "Header.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract getElements()[Lorg/apache/http/HeaderElement;
     .annotation system Ldalvik/annotation/Throws;

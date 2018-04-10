@@ -152,7 +152,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_5
 
     iget-object v7, p0, Lcom/android/server/enterprise/restriction/RestrictionPolicy$4;->this$0:Lcom/android/server/enterprise/restriction/RestrictionPolicy;
 
@@ -160,7 +160,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_4
 
     iget-object v7, p0, Lcom/android/server/enterprise/restriction/RestrictionPolicy$4;->this$0:Lcom/android/server/enterprise/restriction/RestrictionPolicy;
 
@@ -168,9 +168,32 @@
 
     move-result v7
 
-    if-eqz v7, :cond_6
+    xor-int/lit8 v7, v7, 0x1
+
+    if-eqz v7, :cond_5
 
     :cond_4
+    :try_start_2
+    iget-object v6, p0, Lcom/android/server/enterprise/restriction/RestrictionPolicy$4;->this$0:Lcom/android/server/enterprise/restriction/RestrictionPolicy;
+
+    invoke-virtual {v6}, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->applyBackgroundDataRestriction()V
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
+
+    goto :goto_1
+
+    :catch_2
+    move-exception v4
+
+    const-string/jumbo v6, "RestrictionPolicy"
+
+    const-string/jumbo v7, "Network Policy update failed"
+
+    invoke-static {v6, v7}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    :cond_5
     const-string/jumbo v7, "android.intent.action.USER_SWITCHED"
 
     invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -239,11 +262,11 @@
 
     move-result v9
 
-    if-eqz v9, :cond_5
+    if-eqz v9, :cond_6
 
     const/4 v6, 0x1
 
-    :cond_5
+    :cond_6
     invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v6
@@ -255,27 +278,6 @@
     const-string/jumbo v8, "/data/system/enterprise.conf"
 
     invoke-static {v7, v6, v8}, Lcom/android/server/enterprise/utils/Utils;->writePropertyValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
-
-    goto/16 :goto_1
-
-    :cond_6
-    :try_start_2
-    iget-object v6, p0, Lcom/android/server/enterprise/restriction/RestrictionPolicy$4;->this$0:Lcom/android/server/enterprise/restriction/RestrictionPolicy;
-
-    invoke-virtual {v6}, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->applyBackgroundDataRestriction()V
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
-
-    goto/16 :goto_1
-
-    :catch_2
-    move-exception v4
-
-    const-string/jumbo v6, "RestrictionPolicy"
-
-    const-string/jumbo v7, "Network Policy update failed"
-
-    invoke-static {v6, v7}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_1
 

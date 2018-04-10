@@ -11,9 +11,9 @@
 # static fields
 .field public static final ALLOW_CIRCULAR_REDIRECTS:Ljava/lang/String; = "http.protocol.allow-circular-redirects"
 
-.field public static final CONNECTION_MANAGER_FACTORY:Ljava/lang/String; = "http.connection-manager.factory-object"
-
 .field public static final CONNECTION_MANAGER_FACTORY_CLASS_NAME:Ljava/lang/String; = "http.connection-manager.factory-class-name"
+
+.field public static final CONN_MANAGER_TIMEOUT:Ljava/lang/String; = "http.conn-manager.timeout"
 
 .field public static final COOKIE_POLICY:Ljava/lang/String; = "http.protocol.cookie-policy"
 

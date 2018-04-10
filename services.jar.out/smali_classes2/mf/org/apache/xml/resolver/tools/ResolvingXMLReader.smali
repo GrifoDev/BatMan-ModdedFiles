@@ -25,32 +25,32 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .locals 4
 
     invoke-direct {p0}, Lmf/org/apache/xml/resolver/tools/ResolvingXMLFilter;-><init>()V
 
     invoke-static {}, Lmf/javax/xml/parsers/SAXParserFactory;->newInstance()Lmf/javax/xml/parsers/SAXParserFactory;
 
-    move-result-object v0
+    move-result-object v2
 
-    sget-boolean v1, Lmf/org/apache/xml/resolver/tools/ResolvingXMLReader;->namespaceAware:Z
+    sget-boolean v3, Lmf/org/apache/xml/resolver/tools/ResolvingXMLReader;->namespaceAware:Z
 
-    invoke-virtual {v0, v1}, Lmf/javax/xml/parsers/SAXParserFactory;->setNamespaceAware(Z)V
+    invoke-virtual {v2, v3}, Lmf/javax/xml/parsers/SAXParserFactory;->setNamespaceAware(Z)V
 
-    sget-boolean v1, Lmf/org/apache/xml/resolver/tools/ResolvingXMLReader;->validating:Z
+    sget-boolean v3, Lmf/org/apache/xml/resolver/tools/ResolvingXMLReader;->validating:Z
 
-    invoke-virtual {v0, v1}, Lmf/javax/xml/parsers/SAXParserFactory;->setValidating(Z)V
+    invoke-virtual {v2, v3}, Lmf/javax/xml/parsers/SAXParserFactory;->setValidating(Z)V
 
     :try_start_0
-    invoke-virtual {v0}, Lmf/javax/xml/parsers/SAXParserFactory;->newSAXParser()Lmf/javax/xml/parsers/SAXParser;
+    invoke-virtual {v2}, Lmf/javax/xml/parsers/SAXParserFactory;->newSAXParser()Lmf/javax/xml/parsers/SAXParser;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Lmf/javax/xml/parsers/SAXParser;->getXMLReader()Lorg/xml/sax/XMLReader;
+    invoke-virtual {v1}, Lmf/javax/xml/parsers/SAXParser;->getXMLReader()Lorg/xml/sax/XMLReader;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xml/resolver/tools/ResolvingXMLReader;->setParent(Lorg/xml/sax/XMLReader;)V
+    invoke-virtual {p0, v3}, Lmf/org/apache/xml/resolver/tools/ResolvingXMLReader;->setParent(Lorg/xml/sax/XMLReader;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -66,32 +66,32 @@
 .end method
 
 .method public constructor <init>(Lmf/org/apache/xml/resolver/CatalogManager;)V
-    .locals 2
+    .locals 4
 
     invoke-direct {p0, p1}, Lmf/org/apache/xml/resolver/tools/ResolvingXMLFilter;-><init>(Lmf/org/apache/xml/resolver/CatalogManager;)V
 
     invoke-static {}, Lmf/javax/xml/parsers/SAXParserFactory;->newInstance()Lmf/javax/xml/parsers/SAXParserFactory;
 
-    move-result-object v0
+    move-result-object v2
 
-    sget-boolean v1, Lmf/org/apache/xml/resolver/tools/ResolvingXMLReader;->namespaceAware:Z
+    sget-boolean v3, Lmf/org/apache/xml/resolver/tools/ResolvingXMLReader;->namespaceAware:Z
 
-    invoke-virtual {v0, v1}, Lmf/javax/xml/parsers/SAXParserFactory;->setNamespaceAware(Z)V
+    invoke-virtual {v2, v3}, Lmf/javax/xml/parsers/SAXParserFactory;->setNamespaceAware(Z)V
 
-    sget-boolean v1, Lmf/org/apache/xml/resolver/tools/ResolvingXMLReader;->validating:Z
+    sget-boolean v3, Lmf/org/apache/xml/resolver/tools/ResolvingXMLReader;->validating:Z
 
-    invoke-virtual {v0, v1}, Lmf/javax/xml/parsers/SAXParserFactory;->setValidating(Z)V
+    invoke-virtual {v2, v3}, Lmf/javax/xml/parsers/SAXParserFactory;->setValidating(Z)V
 
     :try_start_0
-    invoke-virtual {v0}, Lmf/javax/xml/parsers/SAXParserFactory;->newSAXParser()Lmf/javax/xml/parsers/SAXParser;
+    invoke-virtual {v2}, Lmf/javax/xml/parsers/SAXParserFactory;->newSAXParser()Lmf/javax/xml/parsers/SAXParser;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Lmf/javax/xml/parsers/SAXParser;->getXMLReader()Lorg/xml/sax/XMLReader;
+    invoke-virtual {v1}, Lmf/javax/xml/parsers/SAXParser;->getXMLReader()Lorg/xml/sax/XMLReader;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xml/resolver/tools/ResolvingXMLReader;->setParent(Lorg/xml/sax/XMLReader;)V
+    invoke-virtual {p0, v3}, Lmf/org/apache/xml/resolver/tools/ResolvingXMLReader;->setParent(Lorg/xml/sax/XMLReader;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 

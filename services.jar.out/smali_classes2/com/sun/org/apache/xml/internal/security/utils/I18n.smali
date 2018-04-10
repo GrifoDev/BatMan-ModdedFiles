@@ -1,6 +1,5 @@
 .class public Lcom/sun/org/apache/xml/internal/security/utils/I18n;
 .super Ljava/lang/Object;
-.source "Unknown"
 
 
 # static fields
@@ -45,12 +44,12 @@
 .end method
 
 .method public static getExceptionMessage(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .locals 3
 
     :try_start_0
-    sget-object v0, Lcom/sun/org/apache/xml/internal/security/utils/I18n;->resourceBundle:Ljava/util/ResourceBundle;
+    sget-object v1, Lcom/sun/org/apache/xml/internal/security/utils/I18n;->resourceBundle:Ljava/util/ResourceBundle;
 
-    invoke-virtual {v0, p0}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, p0}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -63,77 +62,174 @@
 
     invoke-static {}, Lcom/sun/org/apache/xml/internal/security/Init;->isInitialized()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    const-string/jumbo v0, "You must initialize the xml-security library correctly before you use it. Call the static method \"com.sun.org.apache.xml.internal.security.Init.init();\" to do that before you use any functionality from that library."
+    const-string/jumbo v1, "You must initialize the xml-security library correctly before you use it. Call the static method \"com.sun.org.apache.xml.internal.security.Init.init();\" to do that before you use any functionality from that library."
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    new-instance v0, Ljava/lang/StringBuffer;
+    new-instance v1, Ljava/lang/StringBuffer;
 
-    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
 
-    const-string/jumbo v1, "No message with ID \""
+    const-string/jumbo v2, "No message with ID \""
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string/jumbo v1, "\" found in resource bundle \""
+    const-string/jumbo v2, "\" found in resource bundle \""
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string/jumbo v1, "com/sun/org/apache/xml/internal/security/resource/xmlsecurity"
+    const-string/jumbo v2, "com/sun/org/apache/xml/internal/security/resource/xmlsecurity"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string/jumbo v1, "\""
+    const-string/jumbo v2, "\""
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public static getExceptionMessage(Ljava/lang/String;Ljava/lang/Exception;)Ljava/lang/String;
-    .locals 3
+    .locals 4
 
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
     :try_start_0
-    new-array v0, v0, [Ljava/lang/Object;
-
-    const/4 v1, 0x0
+    new-array v0, v2, [Ljava/lang/Object;
 
     invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v2
 
-    aput-object v2, v0, v1
+    const/4 v3, 0x0
 
+    aput-object v2, v0, v3
+
+    sget-object v2, Lcom/sun/org/apache/xml/internal/security/utils/I18n;->resourceBundle:Ljava/util/ResourceBundle;
+
+    invoke-virtual {v2, p0}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2, v0}, Ljava/text/MessageFormat;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-static {}, Lcom/sun/org/apache/xml/internal/security/Init;->isInitialized()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string/jumbo v2, "You must initialize the xml-security library correctly before you use it. Call the static method \"com.sun.org.apache.xml.internal.security.Init.init();\" to do that before you use any functionality from that library."
+
+    return-object v2
+
+    :cond_0
+    new-instance v2, Ljava/lang/StringBuffer;
+
+    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
+
+    const-string/jumbo v3, "No message with ID \""
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "\" found in resource bundle \""
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "com/sun/org/apache/xml/internal/security/resource/xmlsecurity"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "\". Original Exception was a "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v2
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " and message "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v2
+
+    invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    return-object v2
+.end method
+
+.method public static getExceptionMessage(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    .locals 3
+
+    :try_start_0
     sget-object v1, Lcom/sun/org/apache/xml/internal/security/utils/I18n;->resourceBundle:Ljava/util/ResourceBundle;
 
     invoke-virtual {v1, p0}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-static {v1, v0}, Ljava/text/MessageFormat;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, p1}, Ljava/text/MessageFormat;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -146,149 +242,52 @@
 
     invoke-static {}, Lcom/sun/org/apache/xml/internal/security/Init;->isInitialized()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    const-string/jumbo v0, "You must initialize the xml-security library correctly before you use it. Call the static method \"com.sun.org.apache.xml.internal.security.Init.init();\" to do that before you use any functionality from that library."
+    const-string/jumbo v1, "You must initialize the xml-security library correctly before you use it. Call the static method \"com.sun.org.apache.xml.internal.security.Init.init();\" to do that before you use any functionality from that library."
 
-    return-object v0
-
-    :cond_0
-    new-instance v0, Ljava/lang/StringBuffer;
-
-    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
-
-    const-string/jumbo v1, "No message with ID \""
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "\" found in resource bundle \""
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "com/sun/org/apache/xml/internal/security/resource/xmlsecurity"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "\". Original Exception was a "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    move-result-object v0
-
-    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    move-result-object v0
-
-    const-string/jumbo v1, " and message "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    move-result-object v0
-
-    invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static getExceptionMessage(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-    .locals 2
-
-    :try_start_0
-    sget-object v0, Lcom/sun/org/apache/xml/internal/security/utils/I18n;->resourceBundle:Ljava/util/ResourceBundle;
-
-    invoke-virtual {v0, p0}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0, p1}, Ljava/text/MessageFormat;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v0
-
-    return-object v0
-
-    :catch_0
-    move-exception v0
-
-    invoke-static {}, Lcom/sun/org/apache/xml/internal/security/Init;->isInitialized()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const-string/jumbo v0, "You must initialize the xml-security library correctly before you use it. Call the static method \"com.sun.org.apache.xml.internal.security.Init.init();\" to do that before you use any functionality from that library."
-
-    return-object v0
+    return-object v1
 
     :cond_0
-    new-instance v0, Ljava/lang/StringBuffer;
+    new-instance v1, Ljava/lang/StringBuffer;
 
-    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
 
-    const-string/jumbo v1, "No message with ID \""
+    const-string/jumbo v2, "No message with ID \""
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string/jumbo v1, "\" found in resource bundle \""
+    const-string/jumbo v2, "\" found in resource bundle \""
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string/jumbo v1, "com/sun/org/apache/xml/internal/security/resource/xmlsecurity"
+    const-string/jumbo v2, "com/sun/org/apache/xml/internal/security/resource/xmlsecurity"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string/jumbo v1, "\""
+    const-string/jumbo v2, "\""
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public static init(Ljava/lang/String;Ljava/lang/String;)V
@@ -344,7 +343,7 @@
 .end method
 
 .method public static initLocale(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 4
+    .locals 3
 
     sget-boolean v0, Lcom/sun/org/apache/xml/internal/security/utils/I18n;->alreadyInitialized:Z
 
@@ -363,17 +362,17 @@
     sput-object v0, Lcom/sun/org/apache/xml/internal/security/utils/I18n;->_languageCode:Ljava/lang/String;
 
     :goto_0
-    const-string/jumbo v0, "com/sun/org/apache/xml/internal/security/resource/xmlsecurity"
+    new-instance v0, Ljava/util/Locale;
 
-    new-instance v1, Ljava/util/Locale;
+    sget-object v1, Lcom/sun/org/apache/xml/internal/security/utils/I18n;->_languageCode:Ljava/lang/String;
 
-    sget-object v2, Lcom/sun/org/apache/xml/internal/security/utils/I18n;->_languageCode:Ljava/lang/String;
+    sget-object v2, Lcom/sun/org/apache/xml/internal/security/utils/I18n;->_countryCode:Ljava/lang/String;
 
-    sget-object v3, Lcom/sun/org/apache/xml/internal/security/utils/I18n;->_countryCode:Ljava/lang/String;
+    invoke-direct {v0, v1, v2}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-direct {v1, v2, v3}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    const-string/jumbo v1, "com/sun/org/apache/xml/internal/security/resource/xmlsecurity"
 
-    invoke-static {v0, v1}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;
+    invoke-static {v1, v0}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;
 
     move-result-object v0
 

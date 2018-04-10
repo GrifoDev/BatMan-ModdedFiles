@@ -72,61 +72,61 @@
 
     new-instance v0, Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;
 
-    const-string/jumbo v1, "UTF-16"
+    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
-    sget-object v2, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    const-string/jumbo v2, "UTF-16"
 
-    invoke-direct {v0, v1, v2, v3}, Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;-><init>(Ljava/lang/String;Ljava/lang/Boolean;Z)V
+    invoke-direct {v0, v2, v1, v3}, Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;-><init>(Ljava/lang/String;Ljava/lang/Boolean;Z)V
 
     sput-object v0, Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;->UTF_16_BIG_ENDIAN:Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;
 
     new-instance v0, Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;
 
-    const-string/jumbo v1, "UTF-16"
+    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
-    sget-object v2, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    const-string/jumbo v2, "UTF-16"
 
-    invoke-direct {v0, v1, v2, v5}, Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;-><init>(Ljava/lang/String;Ljava/lang/Boolean;Z)V
+    invoke-direct {v0, v2, v1, v5}, Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;-><init>(Ljava/lang/String;Ljava/lang/Boolean;Z)V
 
     sput-object v0, Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;->UTF_16_BIG_ENDIAN_WITH_BOM:Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;
 
     new-instance v0, Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;
 
-    const-string/jumbo v1, "UTF-16"
+    sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
-    sget-object v2, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    const-string/jumbo v2, "UTF-16"
 
-    invoke-direct {v0, v1, v2, v3}, Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;-><init>(Ljava/lang/String;Ljava/lang/Boolean;Z)V
+    invoke-direct {v0, v2, v1, v3}, Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;-><init>(Ljava/lang/String;Ljava/lang/Boolean;Z)V
 
     sput-object v0, Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;->UTF_16_LITTLE_ENDIAN:Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;
 
     new-instance v0, Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;
 
-    const-string/jumbo v1, "UTF-16"
+    sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
-    sget-object v2, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    const-string/jumbo v2, "UTF-16"
 
-    invoke-direct {v0, v1, v2, v5}, Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;-><init>(Ljava/lang/String;Ljava/lang/Boolean;Z)V
+    invoke-direct {v0, v2, v1, v5}, Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;-><init>(Ljava/lang/String;Ljava/lang/Boolean;Z)V
 
     sput-object v0, Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;->UTF_16_LITTLE_ENDIAN_WITH_BOM:Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;
 
     new-instance v0, Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;
 
-    const-string/jumbo v1, "ISO-10646-UCS-4"
+    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
-    sget-object v2, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    const-string/jumbo v2, "ISO-10646-UCS-4"
 
-    invoke-direct {v0, v1, v2, v3}, Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;-><init>(Ljava/lang/String;Ljava/lang/Boolean;Z)V
+    invoke-direct {v0, v2, v1, v3}, Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;-><init>(Ljava/lang/String;Ljava/lang/Boolean;Z)V
 
     sput-object v0, Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;->UCS_4_BIG_ENDIAN:Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;
 
     new-instance v0, Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;
 
-    const-string/jumbo v1, "ISO-10646-UCS-4"
+    sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
-    sget-object v2, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    const-string/jumbo v2, "ISO-10646-UCS-4"
 
-    invoke-direct {v0, v1, v2, v3}, Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;-><init>(Ljava/lang/String;Ljava/lang/Boolean;Z)V
+    invoke-direct {v0, v2, v1, v3}, Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;-><init>(Ljava/lang/String;Ljava/lang/Boolean;Z)V
 
     sput-object v0, Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;->UCS_4_LITTLE_ENDIAN:Lmf/org/apache/xerces/impl/XMLEntityManager$EncodingInfo;
 

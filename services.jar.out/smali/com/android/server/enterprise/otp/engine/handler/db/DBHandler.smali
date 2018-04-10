@@ -2097,6 +2097,36 @@
     monitor-enter p0
 
     :try_start_0
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, " Peeyush getVendorOtpTokenList().= pkgName"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const-string/jumbo v9, "containerId"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v8}, Lcom/android/server/enterprise/otp/engine/common/Print;->i(Ljava/lang/String;)V
+
     new-instance v7, Ljava/util/ArrayList;
 
     invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
@@ -2223,6 +2253,29 @@
     throw v8
 
     :cond_1
+    :try_start_3
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, " Peeyush getVendorOtpTokenList().= tokenList"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v8}, Lcom/android/server/enterprise/otp/engine/common/Print;->i(Ljava/lang/String;)V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
     monitor-exit p0
 
     return-object v7
@@ -2914,7 +2967,9 @@
 
     move-result v9
 
-    if-nez v9, :cond_7
+    xor-int/lit8 v9, v9, 0x1
+
+    if-eqz v9, :cond_7
 
     const-string/jumbo v9, "DBHandler:isGenerateOtpInputValid Challenge should be HEX in format"
 
@@ -3207,9 +3262,6 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
-
-    :cond_0
     new-instance v0, Lcom/android/server/enterprise/otp/engine/handler/db/PolicyData;
 
     invoke-direct {v0}, Lcom/android/server/enterprise/otp/engine/handler/db/PolicyData;-><init>()V

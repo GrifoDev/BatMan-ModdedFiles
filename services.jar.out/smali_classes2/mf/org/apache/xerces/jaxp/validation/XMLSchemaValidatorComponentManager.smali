@@ -84,301 +84,301 @@
 
 # direct methods
 .method public constructor <init>(Lmf/org/apache/xerces/jaxp/validation/XSGrammarPoolContainer;)V
-    .locals 6
+    .locals 8
 
-    const/4 v5, 0x1
+    const/4 v7, 0x1
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
     invoke-direct {p0}, Lmf/org/apache/xerces/util/ParserConfigurationSettings;-><init>()V
 
-    iput-boolean v5, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fConfigUpdated:Z
+    iput-boolean v7, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fConfigUpdated:Z
 
-    new-instance v0, Ljava/util/HashMap;
+    new-instance v2, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
+    iput-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
 
-    new-instance v0, Ljava/util/HashMap;
+    new-instance v2, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitFeatures:Ljava/util/HashMap;
+    iput-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitFeatures:Ljava/util/HashMap;
 
-    new-instance v0, Ljava/util/HashMap;
+    new-instance v2, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitProperties:Ljava/util/HashMap;
+    iput-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitProperties:Ljava/util/HashMap;
 
-    iput-object v3, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fErrorHandler:Lorg/xml/sax/ErrorHandler;
+    iput-object v5, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fErrorHandler:Lorg/xml/sax/ErrorHandler;
 
-    iput-object v3, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fResourceResolver:Lmf/org/w3c/dom/ls/LSResourceResolver;
+    iput-object v5, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fResourceResolver:Lmf/org/w3c/dom/ls/LSResourceResolver;
 
-    iput-object v3, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fLocale:Ljava/util/Locale;
+    iput-object v5, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fLocale:Ljava/util/Locale;
 
-    new-instance v0, Lmf/org/apache/xerces/impl/XMLEntityManager;
+    new-instance v2, Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    invoke-direct {v0}, Lmf/org/apache/xerces/impl/XMLEntityManager;-><init>()V
+    invoke-direct {v2}, Lmf/org/apache/xerces/impl/XMLEntityManager;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iput-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/entity-manager"
+    iget-object v3, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    const-string/jumbo v4, "http://apache.org/xml/properties/internal/entity-manager"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v4, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v0, Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    new-instance v2, Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    invoke-direct {v0}, Lmf/org/apache/xerces/impl/XMLErrorReporter;-><init>()V
+    invoke-direct {v2}, Lmf/org/apache/xerces/impl/XMLErrorReporter;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iput-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/error-reporter"
+    iget-object v3, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    const-string/jumbo v4, "http://apache.org/xml/properties/internal/error-reporter"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v4, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v0, Lmf/org/apache/xerces/util/NamespaceSupport;
+    new-instance v2, Lmf/org/apache/xerces/util/NamespaceSupport;
 
-    invoke-direct {v0}, Lmf/org/apache/xerces/util/NamespaceSupport;-><init>()V
+    invoke-direct {v2}, Lmf/org/apache/xerces/util/NamespaceSupport;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
+    iput-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/namespace-context"
+    iget-object v3, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
+    const-string/jumbo v4, "http://apache.org/xml/properties/internal/namespace-context"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v4, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
+    new-instance v2, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
 
-    invoke-direct {v0}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;-><init>()V
+    invoke-direct {v2}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
+    iput-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/validator/schema"
+    iget-object v3, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
+    const-string/jumbo v4, "http://apache.org/xml/properties/internal/validator/schema"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v4, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v0, Lmf/org/apache/xerces/impl/validation/ValidationManager;
+    new-instance v2, Lmf/org/apache/xerces/impl/validation/ValidationManager;
 
-    invoke-direct {v0}, Lmf/org/apache/xerces/impl/validation/ValidationManager;-><init>()V
+    invoke-direct {v2}, Lmf/org/apache/xerces/impl/validation/ValidationManager;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fValidationManager:Lmf/org/apache/xerces/impl/validation/ValidationManager;
+    iput-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fValidationManager:Lmf/org/apache/xerces/impl/validation/ValidationManager;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/validation-manager"
+    iget-object v3, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fValidationManager:Lmf/org/apache/xerces/impl/validation/ValidationManager;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fValidationManager:Lmf/org/apache/xerces/impl/validation/ValidationManager;
+    const-string/jumbo v4, "http://apache.org/xml/properties/internal/validation-manager"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v4, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/entity-resolver"
+    const-string/jumbo v3, "http://apache.org/xml/properties/internal/entity-resolver"
 
-    invoke-virtual {v0, v1, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/error-handler"
+    const-string/jumbo v3, "http://apache.org/xml/properties/internal/error-handler"
 
-    invoke-virtual {v0, v1, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/security-manager"
+    const-string/jumbo v3, "http://apache.org/xml/properties/security-manager"
 
-    invoke-virtual {v0, v1, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/symbol-table"
+    new-instance v3, Lmf/org/apache/xerces/util/SymbolTable;
 
-    new-instance v2, Lmf/org/apache/xerces/util/SymbolTable;
+    invoke-direct {v3}, Lmf/org/apache/xerces/util/SymbolTable;-><init>()V
 
-    invoke-direct {v2}, Lmf/org/apache/xerces/util/SymbolTable;-><init>()V
+    const-string/jumbo v4, "http://apache.org/xml/properties/internal/symbol-table"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v4, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
-
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/grammar-pool"
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
 
     invoke-interface {p1}, Lmf/org/apache/xerces/jaxp/validation/XSGrammarPoolContainer;->getGrammarPool()Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string/jumbo v4, "http://apache.org/xml/properties/internal/grammar-pool"
+
+    invoke-virtual {v2, v4, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-interface {p1}, Lmf/org/apache/xerces/jaxp/validation/XSGrammarPoolContainer;->isFullyComposed()Z
 
-    move-result v0
+    move-result v2
 
-    iput-boolean v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fUseGrammarPoolOnly:Z
+    iput-boolean v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fUseGrammarPoolOnly:Z
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v1, "http://www.w3.org/TR/xml-schema-1"
+    new-instance v3, Lmf/org/apache/xerces/impl/xs/XSMessageFormatter;
 
-    new-instance v2, Lmf/org/apache/xerces/impl/xs/XSMessageFormatter;
+    invoke-direct {v3}, Lmf/org/apache/xerces/impl/xs/XSMessageFormatter;-><init>()V
 
-    invoke-direct {v2}, Lmf/org/apache/xerces/impl/xs/XSMessageFormatter;-><init>()V
+    const-string/jumbo v4, "http://www.w3.org/TR/xml-schema-1"
 
-    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->putMessageFormatter(Ljava/lang/String;Lmf/org/apache/xerces/util/MessageFormatter;)V
+    invoke-virtual {v2, v4, v3}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->putMessageFormatter(Ljava/lang/String;Lmf/org/apache/xerces/util/MessageFormatter;)V
 
-    const/4 v0, 0x4
+    const/4 v2, 0x4
 
-    new-array v0, v0, [Ljava/lang/String;
+    new-array v0, v2, [Ljava/lang/String;
 
-    const-string/jumbo v1, "http://apache.org/xml/features/disallow-doctype-decl"
+    const-string/jumbo v2, "http://apache.org/xml/features/disallow-doctype-decl"
 
-    aput-object v1, v0, v4
+    aput-object v2, v0, v6
 
-    const-string/jumbo v1, "http://apache.org/xml/features/validation/schema/normalized-value"
+    const-string/jumbo v2, "http://apache.org/xml/features/validation/schema/normalized-value"
 
-    aput-object v1, v0, v5
+    aput-object v2, v0, v7
 
-    const/4 v1, 0x2
+    const/4 v2, 0x2
 
-    const-string/jumbo v2, "http://apache.org/xml/features/validation/schema/element-default"
+    const-string/jumbo v3, "http://apache.org/xml/features/validation/schema/element-default"
 
-    aput-object v2, v0, v1
+    aput-object v3, v0, v2
 
-    const/4 v1, 0x3
+    const/4 v2, 0x3
 
-    const-string/jumbo v2, "http://apache.org/xml/features/validation/schema/augment-psvi"
+    const-string/jumbo v3, "http://apache.org/xml/features/validation/schema/augment-psvi"
 
-    aput-object v2, v0, v1
+    aput-object v3, v0, v2
 
     invoke-virtual {p0, v0}, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->addRecognizedFeatures([Ljava/lang/String;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fFeatures:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fFeatures:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/features/disallow-doctype-decl"
+    sget-object v3, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
-    sget-object v2, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    const-string/jumbo v4, "http://apache.org/xml/features/disallow-doctype-decl"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v4, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fFeatures:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fFeatures:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/features/validation/schema/normalized-value"
+    sget-object v3, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
-    sget-object v2, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    const-string/jumbo v4, "http://apache.org/xml/features/validation/schema/normalized-value"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v4, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fFeatures:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fFeatures:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/features/validation/schema/element-default"
+    sget-object v3, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
-    sget-object v2, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    const-string/jumbo v4, "http://apache.org/xml/features/validation/schema/element-default"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v4, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fFeatures:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fFeatures:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/features/validation/schema/augment-psvi"
+    sget-object v3, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+
+    const-string/jumbo v4, "http://apache.org/xml/features/validation/schema/augment-psvi"
+
+    invoke-virtual {v2, v4, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
+
+    invoke-virtual {p0, v2, p1}, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->addRecognizedParamsAndSetDefaults(Lmf/org/apache/xerces/xni/parser/XMLComponent;Lmf/org/apache/xerces/jaxp/validation/XSGrammarPoolContainer;)V
+
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+
+    invoke-virtual {p0, v2, p1}, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->addRecognizedParamsAndSetDefaults(Lmf/org/apache/xerces/xni/parser/XMLComponent;Lmf/org/apache/xerces/jaxp/validation/XSGrammarPoolContainer;)V
+
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
+
+    invoke-virtual {p0, v2, p1}, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->addRecognizedParamsAndSetDefaults(Lmf/org/apache/xerces/xni/parser/XMLComponent;Lmf/org/apache/xerces/jaxp/validation/XSGrammarPoolContainer;)V
+
+    const-string/jumbo v2, "http://javax.xml.XMLConstants/feature/secure-processing"
+
+    invoke-interface {p1, v2}, Lmf/org/apache/xerces/jaxp/validation/XSGrammarPoolContainer;->getFeature(Ljava/lang/String;)Ljava/lang/Boolean;
+
+    move-result-object v1
 
     sget-object v2, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v1}, Ljava/lang/Boolean;->equals(Ljava/lang/Object;)Z
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    move-result v2
 
-    invoke-virtual {p0, v0, p1}, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->addRecognizedParamsAndSetDefaults(Lmf/org/apache/xerces/xni/parser/XMLComponent;Lmf/org/apache/xerces/jaxp/validation/XSGrammarPoolContainer;)V
+    if-nez v2, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
-
-    invoke-virtual {p0, v0, p1}, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->addRecognizedParamsAndSetDefaults(Lmf/org/apache/xerces/xni/parser/XMLComponent;Lmf/org/apache/xerces/jaxp/validation/XSGrammarPoolContainer;)V
-
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
-
-    invoke-virtual {p0, v0, p1}, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->addRecognizedParamsAndSetDefaults(Lmf/org/apache/xerces/xni/parser/XMLComponent;Lmf/org/apache/xerces/jaxp/validation/XSGrammarPoolContainer;)V
-
-    const-string/jumbo v0, "http://javax.xml.XMLConstants/feature/secure-processing"
-
-    invoke-interface {p1, v0}, Lmf/org/apache/xerces/jaxp/validation/XSGrammarPoolContainer;->getFeature(Ljava/lang/String;)Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
-
-    invoke-virtual {v1, v0}, Ljava/lang/Boolean;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iput-object v3, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitSecurityManager:Lmf/org/apache/xerces/util/SecurityManager;
+    iput-object v5, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitSecurityManager:Lmf/org/apache/xerces/util/SecurityManager;
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/security-manager"
+    iget-object v3, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitSecurityManager:Lmf/org/apache/xerces/util/SecurityManager;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitSecurityManager:Lmf/org/apache/xerces/util/SecurityManager;
+    const-string/jumbo v4, "http://apache.org/xml/properties/security-manager"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v4, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fFeatures:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fFeatures:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/features/validation/schema/ignore-xsi-type-until-elemdecl"
+    sget-object v3, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
-    sget-object v2, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    const-string/jumbo v4, "http://apache.org/xml/features/validation/schema/ignore-xsi-type-until-elemdecl"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v4, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fFeatures:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fFeatures:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/features/validation/id-idref-checking"
+    sget-object v3, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
-    sget-object v2, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    const-string/jumbo v4, "http://apache.org/xml/features/validation/id-idref-checking"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v4, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fFeatures:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fFeatures:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/features/validation/identity-constraint-checking"
+    sget-object v3, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
-    sget-object v2, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    const-string/jumbo v4, "http://apache.org/xml/features/validation/identity-constraint-checking"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v4, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fFeatures:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fFeatures:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/features/validation/unparsed-entity-checking"
+    sget-object v3, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
-    sget-object v2, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    const-string/jumbo v4, "http://apache.org/xml/features/validation/unparsed-entity-checking"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v4, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
 
     :cond_0
-    new-instance v0, Lmf/org/apache/xerces/util/SecurityManager;
+    new-instance v2, Lmf/org/apache/xerces/util/SecurityManager;
 
-    invoke-direct {v0}, Lmf/org/apache/xerces/util/SecurityManager;-><init>()V
+    invoke-direct {v2}, Lmf/org/apache/xerces/util/SecurityManager;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitSecurityManager:Lmf/org/apache/xerces/util/SecurityManager;
+    iput-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitSecurityManager:Lmf/org/apache/xerces/util/SecurityManager;
 
     goto :goto_0
 .end method
@@ -386,59 +386,59 @@
 .method private setFeatureDefaults(Lmf/org/apache/xerces/xni/parser/XMLComponent;[Ljava/lang/String;Lmf/org/apache/xerces/jaxp/validation/XSGrammarPoolContainer;)V
     .locals 4
 
-    const/4 v0, 0x0
-
-    if-nez p2, :cond_2
+    if-nez p2, :cond_1
 
     :cond_0
     return-void
 
+    :cond_1
+    const/4 v1, 0x0
+
     :goto_0
-    aget-object v2, p2, v0
+    array-length v3, p2
 
-    invoke-interface {p3, v2}, Lmf/org/apache/xerces/jaxp/validation/XSGrammarPoolContainer;->getFeature(Ljava/lang/String;)Ljava/lang/Boolean;
+    if-ge v1, v3, :cond_0
 
-    move-result-object v1
+    aget-object v0, p2, v1
 
-    if-eqz v1, :cond_3
+    invoke-interface {p3, v0}, Lmf/org/apache/xerces/jaxp/validation/XSGrammarPoolContainer;->getFeature(Ljava/lang/String;)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_3
 
     :goto_1
-    if-nez v1, :cond_4
-
-    :cond_1
-    :goto_2
-    add-int/lit8 v0, v0, 0x1
+    if-nez v2, :cond_4
 
     :cond_2
-    array-length v1, p2
-
-    if-ge v0, v1, :cond_0
+    :goto_2
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_3
-    invoke-interface {p1, v2}, Lmf/org/apache/xerces/xni/parser/XMLComponent;->getFeatureDefault(Ljava/lang/String;)Ljava/lang/Boolean;
+    invoke-interface {p1, v0}, Lmf/org/apache/xerces/xni/parser/XMLComponent;->getFeatureDefault(Ljava/lang/String;)Ljava/lang/Boolean;
 
-    move-result-object v1
+    move-result-object v2
 
     goto :goto_1
 
     :cond_4
     iget-object v3, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fFeatures:Ljava/util/HashMap;
 
-    invoke-virtual {v3, v2}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v0}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_2
 
     iget-object v3, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fFeatures:Ljava/util/HashMap;
 
-    invoke-virtual {v3, v2, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, v0, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
-    iput-boolean v1, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fConfigUpdated:Z
+    iput-boolean v3, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fConfigUpdated:Z
 
     goto :goto_2
 .end method
@@ -446,14 +446,19 @@
 .method private setPropertyDefaults(Lmf/org/apache/xerces/xni/parser/XMLComponent;[Ljava/lang/String;)V
     .locals 4
 
-    const/4 v0, 0x0
-
-    if-nez p2, :cond_2
+    if-nez p2, :cond_1
 
     :cond_0
     return-void
 
+    :cond_1
+    const/4 v0, 0x0
+
     :goto_0
+    array-length v3, p2
+
+    if-ge v0, v3, :cond_0
+
     aget-object v1, p2, v0
 
     invoke-interface {p1, v1}, Lmf/org/apache/xerces/xni/parser/XMLComponent;->getPropertyDefault(Ljava/lang/String;)Ljava/lang/Object;
@@ -462,14 +467,9 @@
 
     if-nez v2, :cond_3
 
-    :cond_1
+    :cond_2
     :goto_1
     add-int/lit8 v0, v0, 0x1
-
-    :cond_2
-    array-length v1, p2
-
-    if-ge v0, v1, :cond_0
 
     goto :goto_0
 
@@ -480,15 +480,15 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_2
 
     iget-object v3, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fProperties:Ljava/util/HashMap;
 
     invoke-virtual {v3, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
-    iput-boolean v1, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fConfigUpdated:Z
+    iput-boolean v3, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fConfigUpdated:Z
 
     goto :goto_1
 .end method
@@ -621,57 +621,57 @@
 .end method
 
 .method public getProperty(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
         }
     .end annotation
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/locale"
+    const-string/jumbo v1, "http://apache.org/xml/properties/locale"
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
 
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     if-nez v0, :cond_1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
 
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_2
+    if-nez v1, :cond_2
 
     invoke-super {p0, p1}, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->getLocale()Ljava/util/Locale;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_1
     return-object v0
 
     :cond_2
-    return-object v1
+    return-object v2
 .end method
 
 .method getResourceResolver()Lmf/org/w3c/dom/ls/LSResourceResolver;
@@ -718,81 +718,81 @@
 .end method
 
 .method restoreInitialState()V
-    .locals 4
+    .locals 9
 
-    const/4 v3, 0x0
+    const/4 v8, 0x0
 
-    const/4 v0, 0x1
+    const/4 v5, 0x1
 
-    iput-boolean v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fConfigUpdated:Z
+    iput-boolean v5, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fConfigUpdated:Z
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
+    iget-object v5, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/entity-resolver"
+    const-string/jumbo v6, "http://apache.org/xml/properties/internal/entity-resolver"
 
-    invoke-virtual {v0, v1, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, v6, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
+    iget-object v5, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/error-handler"
+    const-string/jumbo v6, "http://apache.org/xml/properties/internal/error-handler"
 
-    invoke-virtual {v0, v1, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, v6, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
+    iget-object v5, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/security-manager"
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitSecurityManager:Lmf/org/apache/xerces/util/SecurityManager;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitSecurityManager:Lmf/org/apache/xerces/util/SecurityManager;
+    const-string/jumbo v7, "http://apache.org/xml/properties/security-manager"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, v7, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->setLocale(Ljava/util/Locale;)V
+    invoke-virtual {p0, v8}, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->setLocale(Ljava/util/Locale;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
+    iget-object v5, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fComponents:Ljava/util/HashMap;
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/locale"
+    const-string/jumbo v6, "http://apache.org/xml/properties/locale"
 
-    invoke-virtual {v0, v1, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, v6, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitFeatures:Ljava/util/HashMap;
+    iget-object v5, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitFeatures:Ljava/util/HashMap;
 
-    invoke-virtual {v0}, Ljava/util/HashMap;->isEmpty()Z
+    invoke-virtual {v5}, Ljava/util/HashMap;->isEmpty()Z
 
-    move-result v0
+    move-result v5
 
-    if-eqz v0, :cond_0
+    if-eqz v5, :cond_0
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitProperties:Ljava/util/HashMap;
+    iget-object v5, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitProperties:Ljava/util/HashMap;
 
-    invoke-virtual {v0}, Ljava/util/HashMap;->isEmpty()Z
+    invoke-virtual {v5}, Ljava/util/HashMap;->isEmpty()Z
 
-    move-result v0
+    move-result v5
 
-    if-eqz v0, :cond_2
+    if-eqz v5, :cond_2
 
     :goto_1
     return-void
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitFeatures:Ljava/util/HashMap;
+    iget-object v5, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitFeatures:Ljava/util/HashMap;
 
-    invoke-virtual {v0}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
+    invoke-virtual {v5}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {v5}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v1
 
     :goto_2
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result v5
 
-    if-eqz v0, :cond_1
+    if-eqz v5, :cond_1
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -800,50 +800,50 @@
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Ljava/lang/String;
+    check-cast v2, Ljava/lang/String;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v5
 
-    check-cast v0, Ljava/lang/Boolean;
+    check-cast v5, Ljava/lang/Boolean;
 
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual {v5}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v0
+    move-result v4
 
-    invoke-super {p0, v1, v0}, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->setFeature(Ljava/lang/String;Z)V
+    invoke-super {p0, v2, v4}, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->setFeature(Ljava/lang/String;Z)V
 
     goto :goto_2
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitFeatures:Ljava/util/HashMap;
+    iget-object v5, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitFeatures:Ljava/util/HashMap;
 
-    invoke-virtual {v0}, Ljava/util/HashMap;->clear()V
+    invoke-virtual {v5}, Ljava/util/HashMap;->clear()V
 
     goto :goto_0
 
     :cond_2
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitProperties:Ljava/util/HashMap;
+    iget-object v5, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitProperties:Ljava/util/HashMap;
 
-    invoke-virtual {v0}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
+    invoke-virtual {v5}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {v5}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v1
 
     :goto_3
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result v5
 
-    if-eqz v0, :cond_3
+    if-eqz v5, :cond_3
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -851,22 +851,22 @@
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Ljava/lang/String;
+    check-cast v2, Ljava/lang/String;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-super {p0, v1, v0}, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-super {p0, v2, v3}, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
     goto :goto_3
 
     :cond_3
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitProperties:Ljava/util/HashMap;
+    iget-object v5, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitProperties:Ljava/util/HashMap;
 
-    invoke-virtual {v0}, Ljava/util/HashMap;->clear()V
+    invoke-virtual {v5}, Ljava/util/HashMap;->clear()V
 
     goto :goto_1
 .end method
@@ -902,64 +902,64 @@
 .end method
 
 .method public setFeature(Ljava/lang/String;Z)V
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
         }
     .end annotation
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    const-string/jumbo v0, "http://apache.org/xml/features/internal/parser-settings"
+    const-string/jumbo v1, "http://apache.org/xml/features/internal/parser-settings"
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     if-eqz p2, :cond_2
 
     :goto_0
-    const-string/jumbo v0, "http://apache.org/xml/features/internal/validation/schema/use-grammar-pool-only"
+    const-string/jumbo v1, "http://apache.org/xml/features/internal/validation/schema/use-grammar-pool-only"
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_5
+    if-nez v1, :cond_5
 
     :cond_0
-    const-string/jumbo v0, "http://javax.xml.XMLConstants/feature/secure-processing"
+    const-string/jumbo v1, "http://javax.xml.XMLConstants/feature/secure-processing"
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_6
+    if-nez v1, :cond_6
 
-    iput-boolean v1, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fConfigUpdated:Z
+    iput-boolean v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fConfigUpdated:Z
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fEntityManager:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    invoke-virtual {v0, p1, p2}, Lmf/org/apache/xerces/impl/XMLEntityManager;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {v1, p1, p2}, Lmf/org/apache/xerces/impl/XMLEntityManager;->setFeature(Ljava/lang/String;Z)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    invoke-virtual {v0, p1, p2}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {v1, p1, p2}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->setFeature(Ljava/lang/String;Z)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
 
-    invoke-virtual {v0, p1, p2}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {v1, p1, p2}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->setFeature(Ljava/lang/String;Z)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitFeatures:Ljava/util/HashMap;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitFeatures:Ljava/util/HashMap;
 
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_8
+    if-eqz v1, :cond_8
 
     :goto_1
     invoke-super {p0, p1, p2}, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->setFeature(Ljava/lang/String;Z)V
@@ -967,66 +967,66 @@
     return-void
 
     :cond_1
-    new-instance v0, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
+    new-instance v1, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
 
-    invoke-direct {v0, v1, p1}, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;-><init>(SLjava/lang/String;)V
+    invoke-direct {v1, v2, p1}, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;-><init>(SLjava/lang/String;)V
 
-    throw v0
+    throw v1
 
     :cond_2
-    const-string/jumbo v0, "http://xml.org/sax/features/validation"
+    const-string/jumbo v1, "http://xml.org/sax/features/validation"
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_4
+    if-eqz v1, :cond_4
 
     :cond_3
-    new-instance v0, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
+    new-instance v1, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
 
-    invoke-direct {v0, v1, p1}, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;-><init>(SLjava/lang/String;)V
+    invoke-direct {v1, v2, p1}, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;-><init>(SLjava/lang/String;)V
 
-    throw v0
+    throw v1
 
     :cond_4
-    const-string/jumbo v0, "http://apache.org/xml/features/validation/schema"
+    const-string/jumbo v1, "http://apache.org/xml/features/validation/schema"
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_3
+    if-nez v1, :cond_3
 
     goto :goto_0
 
     :cond_5
-    iget-boolean v0, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fUseGrammarPoolOnly:Z
+    iget-boolean v1, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fUseGrammarPoolOnly:Z
 
-    if-eq p2, v0, :cond_0
+    if-eq p2, v1, :cond_0
 
-    new-instance v0, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
+    new-instance v1, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
 
-    invoke-direct {v0, v1, p1}, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;-><init>(SLjava/lang/String;)V
+    invoke-direct {v1, v2, p1}, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;-><init>(SLjava/lang/String;)V
 
-    throw v0
+    throw v1
 
     :cond_6
-    const-string/jumbo v1, "http://apache.org/xml/properties/security-manager"
+    const-string/jumbo v2, "http://apache.org/xml/properties/security-manager"
 
     if-nez p2, :cond_7
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     :goto_2
-    invoke-virtual {p0, v1, v0}, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v2, v1}, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
     return-void
 
     :cond_7
-    new-instance v0, Lmf/org/apache/xerces/util/SecurityManager;
+    new-instance v1, Lmf/org/apache/xerces/util/SecurityManager;
 
-    invoke-direct {v0}, Lmf/org/apache/xerces/util/SecurityManager;-><init>()V
+    invoke-direct {v1}, Lmf/org/apache/xerces/util/SecurityManager;-><init>()V
 
     goto :goto_2
 
@@ -1035,19 +1035,19 @@
 
     move-result v0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitFeatures:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fInitFeatures:Ljava/util/HashMap;
 
     if-nez v0, :cond_9
 
-    sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     :goto_3
-    invoke-virtual {v1, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_1
 
     :cond_9
-    sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     goto :goto_3
 .end method
@@ -1235,13 +1235,13 @@
 
     iput-object p1, p0, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->fResourceResolver:Lmf/org/w3c/dom/ls/LSResourceResolver;
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/entity-resolver"
+    new-instance v0, Lmf/org/apache/xerces/util/DOMEntityResolverWrapper;
 
-    new-instance v1, Lmf/org/apache/xerces/util/DOMEntityResolverWrapper;
+    invoke-direct {v0, p1}, Lmf/org/apache/xerces/util/DOMEntityResolverWrapper;-><init>(Lmf/org/w3c/dom/ls/LSResourceResolver;)V
 
-    invoke-direct {v1, p1}, Lmf/org/apache/xerces/util/DOMEntityResolverWrapper;-><init>(Lmf/org/w3c/dom/ls/LSResourceResolver;)V
+    const-string/jumbo v1, "http://apache.org/xml/properties/internal/entity-resolver"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v1, v0}, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
     return-void
 .end method

@@ -119,7 +119,7 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/android/server/notification/ZenModeHelper;->-wrap6(Lcom/android/server/notification/ZenModeHelper;I)V
+    invoke-static {v0, v1}, Lcom/android/server/notification/ZenModeHelper;->-wrap5(Lcom/android/server/notification/ZenModeHelper;I)V
 
     :cond_1
     return-void

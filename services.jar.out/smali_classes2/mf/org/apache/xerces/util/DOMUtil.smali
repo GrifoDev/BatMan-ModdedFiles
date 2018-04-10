@@ -21,267 +21,256 @@
 .end method
 
 .method public static copyInto(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)V
-    .locals 12
+    .locals 18
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/w3c/dom/DOMException;
         }
     .end annotation
 
-    const/4 v5, 0x0
-
-    invoke-interface {p1}, Lmf/org/w3c/dom/Node;->getOwnerDocument()Lmf/org/w3c/dom/Document;
-
-    move-result-object v6
-
-    instance-of v7, v6, Lmf/org/apache/xerces/dom/DocumentImpl;
-
-    move-object v2, p0
-
-    move-object v3, p0
-
-    :goto_0
-    if-eqz v2, :cond_5
-
-    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->getNodeType()S
-
-    move-result v0
-
-    packed-switch v0, :pswitch_data_0
-
-    :pswitch_0
-    new-instance v1, Ljava/lang/IllegalArgumentException;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    const-string/jumbo v4, "can\'t copy node type, "
-
-    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v3, " ("
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->getNodeName()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const/16 v2, 0x29
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    :pswitch_1
-    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->getNodeValue()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-interface {v6, v0}, Lmf/org/w3c/dom/Document;->createCDATASection(Ljava/lang/String;)Lmf/org/w3c/dom/CDATASection;
-
-    move-result-object v0
-
-    :goto_1
-    invoke-interface {p1, v0}, Lmf/org/w3c/dom/Node;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
-
-    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->hasChildNodes()Z
-
-    move-result v1
-
-    if-nez v1, :cond_3
-
-    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
-
-    move-result-object v0
-
-    move-object v2, v3
-
-    :goto_2
-    if-eqz v0, :cond_4
-
-    move-object v3, v2
-
-    move-object v2, v0
-
-    goto :goto_0
-
-    :pswitch_2
-    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->getNodeValue()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-interface {v6, v0}, Lmf/org/w3c/dom/Document;->createComment(Ljava/lang/String;)Lmf/org/w3c/dom/Comment;
-
-    move-result-object v0
-
-    goto :goto_1
-
-    :pswitch_3
-    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->getNodeName()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-interface {v6, v0}, Lmf/org/w3c/dom/Document;->createElement(Ljava/lang/String;)Lmf/org/w3c/dom/Element;
-
-    move-result-object v1
-
-    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->getAttributes()Lmf/org/w3c/dom/NamedNodeMap;
+    invoke-interface/range {p1 .. p1}, Lmf/org/w3c/dom/Node;->getOwnerDocument()Lmf/org/w3c/dom/Document;
 
     move-result-object v8
 
-    invoke-interface {v8}, Lmf/org/w3c/dom/NamedNodeMap;->getLength()I
+    instance-of v6, v8, Lmf/org/apache/xerces/dom/DocumentImpl;
 
-    move-result v9
+    move-object/from16 v13, p0
 
-    move v4, v5
+    move-object/from16 v11, p0
 
-    :goto_3
-    if-ge v4, v9, :cond_2
+    move-object/from16 v12, p0
 
-    invoke-interface {v8, v4}, Lmf/org/w3c/dom/NamedNodeMap;->item(I)Lmf/org/w3c/dom/Node;
+    :cond_0
+    :goto_0
+    if-eqz v12, :cond_5
 
-    move-result-object v0
+    const/4 v10, 0x0
 
-    check-cast v0, Lmf/org/w3c/dom/Attr;
+    invoke-interface {v12}, Lmf/org/w3c/dom/Node;->getNodeType()S
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getNodeName()Ljava/lang/String;
+    move-result v14
+
+    packed-switch v14, :pswitch_data_0
+
+    :pswitch_0
+    new-instance v15, Ljava/lang/IllegalArgumentException;
+
+    new-instance v16, Ljava/lang/StringBuilder;
+
+    const-string/jumbo v17, "can\'t copy node type, "
+
+    invoke-direct/range {v16 .. v17}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    const-string/jumbo v17, " ("
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    invoke-interface {v12}, Lmf/org/w3c/dom/Node;->getNodeName()Ljava/lang/String;
+
+    move-result-object v17
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    const/16 v17, 0x29
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v16
+
+    invoke-direct/range {v15 .. v16}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v15
+
+    :pswitch_1
+    invoke-interface {v12}, Lmf/org/w3c/dom/Node;->getNodeValue()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-interface {v8, v15}, Lmf/org/w3c/dom/Document;->createCDATASection(Ljava/lang/String;)Lmf/org/w3c/dom/CDATASection;
 
     move-result-object v10
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getNodeValue()Ljava/lang/String;
+    :cond_1
+    :goto_1
+    move-object/from16 v0, p1
+
+    invoke-interface {v0, v10}, Lmf/org/w3c/dom/Node;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+
+    invoke-interface {v12}, Lmf/org/w3c/dom/Node;->hasChildNodes()Z
+
+    move-result v15
+
+    if-nez v15, :cond_4
+
+    invoke-interface {v12}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+
+    move-result-object v12
+
+    :goto_2
+    if-nez v12, :cond_0
+
+    move-object/from16 v0, p0
+
+    if-eq v11, v0, :cond_0
+
+    invoke-interface {v11}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+
+    move-result-object v12
+
+    invoke-interface {v11}, Lmf/org/w3c/dom/Node;->getParentNode()Lmf/org/w3c/dom/Node;
 
     move-result-object v11
 
-    invoke-interface {v1, v10, v11}, Lmf/org/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
-
-    if-nez v7, :cond_1
-
-    :cond_0
-    :goto_4
-    add-int/lit8 v0, v4, 0x1
-
-    move v4, v0
-
-    goto :goto_3
-
-    :cond_1
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getSpecified()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    invoke-interface {v1, v10}, Lmf/org/w3c/dom/Element;->getAttributeNode(Ljava/lang/String;)Lmf/org/w3c/dom/Attr;
-
-    move-result-object v0
-
-    check-cast v0, Lmf/org/apache/xerces/dom/AttrImpl;
-
-    invoke-virtual {v0, v5}, Lmf/org/apache/xerces/dom/AttrImpl;->setSpecified(Z)V
-
-    goto :goto_4
-
-    :cond_2
-    move-object v0, v1
-
-    goto :goto_1
-
-    :pswitch_4
-    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->getNodeName()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-interface {v6, v0}, Lmf/org/w3c/dom/Document;->createEntityReference(Ljava/lang/String;)Lmf/org/w3c/dom/EntityReference;
-
-    move-result-object v0
-
-    goto :goto_1
-
-    :pswitch_5
-    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->getNodeName()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->getNodeValue()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-interface {v6, v0, v1}, Lmf/org/w3c/dom/Document;->createProcessingInstruction(Ljava/lang/String;Ljava/lang/String;)Lmf/org/w3c/dom/ProcessingInstruction;
-
-    move-result-object v0
-
-    goto :goto_1
-
-    :pswitch_6
-    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->getNodeValue()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-interface {v6, v0}, Lmf/org/w3c/dom/Document;->createTextNode(Ljava/lang/String;)Lmf/org/w3c/dom/Text;
-
-    move-result-object v0
-
-    goto :goto_1
-
-    :cond_3
-    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->getFirstChild()Lmf/org/w3c/dom/Node;
-
-    move-result-object v1
-
-    move-object v3, v2
-
-    move-object p1, v0
-
-    move-object v2, v1
-
-    goto/16 :goto_0
-
-    :cond_4
-    if-eq v2, p0, :cond_6
-
-    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
-
-    move-result-object v0
-
-    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->getParentNode()Lmf/org/w3c/dom/Node;
-
-    move-result-object v2
-
-    invoke-interface {p1}, Lmf/org/w3c/dom/Node;->getParentNode()Lmf/org/w3c/dom/Node;
+    invoke-interface/range {p1 .. p1}, Lmf/org/w3c/dom/Node;->getParentNode()Lmf/org/w3c/dom/Node;
 
     move-result-object p1
 
     goto :goto_2
 
-    :cond_5
-    return-void
+    :pswitch_2
+    invoke-interface {v12}, Lmf/org/w3c/dom/Node;->getNodeValue()Ljava/lang/String;
 
-    :cond_6
-    move-object v3, v2
+    move-result-object v15
 
-    move-object v2, v0
+    invoke-interface {v8, v15}, Lmf/org/w3c/dom/Document;->createComment(Ljava/lang/String;)Lmf/org/w3c/dom/Comment;
+
+    move-result-object v10
+
+    goto :goto_1
+
+    :pswitch_3
+    invoke-interface {v12}, Lmf/org/w3c/dom/Node;->getNodeName()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-interface {v8, v15}, Lmf/org/w3c/dom/Document;->createElement(Ljava/lang/String;)Lmf/org/w3c/dom/Element;
+
+    move-result-object v7
+
+    move-object v10, v7
+
+    invoke-interface {v12}, Lmf/org/w3c/dom/Node;->getAttributes()Lmf/org/w3c/dom/NamedNodeMap;
+
+    move-result-object v5
+
+    invoke-interface {v5}, Lmf/org/w3c/dom/NamedNodeMap;->getLength()I
+
+    move-result v2
+
+    const/4 v9, 0x0
+
+    :goto_3
+    if-ge v9, v2, :cond_1
+
+    invoke-interface {v5, v9}, Lmf/org/w3c/dom/NamedNodeMap;->item(I)Lmf/org/w3c/dom/Node;
+
+    move-result-object v1
+
+    check-cast v1, Lmf/org/w3c/dom/Attr;
+
+    invoke-interface {v1}, Lmf/org/w3c/dom/Attr;->getNodeName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-interface {v1}, Lmf/org/w3c/dom/Attr;->getNodeValue()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-interface {v7, v3, v4}, Lmf/org/w3c/dom/Element;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
+
+    if-nez v6, :cond_3
+
+    :cond_2
+    :goto_4
+    add-int/lit8 v9, v9, 0x1
+
+    goto :goto_3
+
+    :cond_3
+    invoke-interface {v1}, Lmf/org/w3c/dom/Attr;->getSpecified()Z
+
+    move-result v15
+
+    if-nez v15, :cond_2
+
+    invoke-interface {v7, v3}, Lmf/org/w3c/dom/Element;->getAttributeNode(Ljava/lang/String;)Lmf/org/w3c/dom/Attr;
+
+    move-result-object v15
+
+    check-cast v15, Lmf/org/apache/xerces/dom/AttrImpl;
+
+    const/16 v16, 0x0
+
+    invoke-virtual/range {v15 .. v16}, Lmf/org/apache/xerces/dom/AttrImpl;->setSpecified(Z)V
+
+    goto :goto_4
+
+    :pswitch_4
+    invoke-interface {v12}, Lmf/org/w3c/dom/Node;->getNodeName()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-interface {v8, v15}, Lmf/org/w3c/dom/Document;->createEntityReference(Ljava/lang/String;)Lmf/org/w3c/dom/EntityReference;
+
+    move-result-object v10
+
+    goto :goto_1
+
+    :pswitch_5
+    invoke-interface {v12}, Lmf/org/w3c/dom/Node;->getNodeName()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-interface {v12}, Lmf/org/w3c/dom/Node;->getNodeValue()Ljava/lang/String;
+
+    move-result-object v16
+
+    move-object/from16 v0, v16
+
+    invoke-interface {v8, v15, v0}, Lmf/org/w3c/dom/Document;->createProcessingInstruction(Ljava/lang/String;Ljava/lang/String;)Lmf/org/w3c/dom/ProcessingInstruction;
+
+    move-result-object v10
+
+    goto :goto_1
+
+    :pswitch_6
+    invoke-interface {v12}, Lmf/org/w3c/dom/Node;->getNodeValue()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-interface {v8, v15}, Lmf/org/w3c/dom/Document;->createTextNode(Ljava/lang/String;)Lmf/org/w3c/dom/Text;
+
+    move-result-object v10
+
+    goto/16 :goto_1
+
+    :cond_4
+    move-object v11, v12
+
+    invoke-interface {v12}, Lmf/org/w3c/dom/Node;->getFirstChild()Lmf/org/w3c/dom/Node;
+
+    move-result-object v12
+
+    move-object/from16 p1, v10
 
     goto/16 :goto_0
 
-    nop
+    :cond_5
+    return-void
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -299,39 +288,39 @@
 .method public static createDOMException(SLjava/lang/Throwable;)Lmf/org/w3c/dom/DOMException;
     .locals 4
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    new-instance v1, Lmf/org/w3c/dom/DOMException;
+    new-instance v0, Lmf/org/w3c/dom/DOMException;
 
     if-nez p1, :cond_1
 
     :goto_0
-    invoke-direct {v1, p0, v0}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    invoke-direct {v0, p0, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
 
     if-nez p1, :cond_2
 
     :cond_0
     :goto_1
-    return-object v1
+    return-object v0
 
     :cond_1
     invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     goto :goto_0
 
     :cond_2
     invoke-static {}, Lmf/org/apache/xerces/util/DOMUtil$ThrowableMethods;->access$0()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     :try_start_0
     invoke-static {}, Lmf/org/apache/xerces/util/DOMUtil$ThrowableMethods;->access$1()Ljava/lang/reflect/Method;
 
-    move-result-object v0
+    move-result-object v1
 
     const/4 v2, 0x1
 
@@ -341,14 +330,14 @@
 
     aput-object p1, v2, v3
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v0, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_1
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
     goto :goto_1
 .end method
@@ -356,39 +345,39 @@
 .method public static createLSException(SLjava/lang/Throwable;)Lmf/org/w3c/dom/ls/LSException;
     .locals 4
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    new-instance v1, Lmf/org/w3c/dom/ls/LSException;
+    new-instance v0, Lmf/org/w3c/dom/ls/LSException;
 
     if-nez p1, :cond_1
 
     :goto_0
-    invoke-direct {v1, p0, v0}, Lmf/org/w3c/dom/ls/LSException;-><init>(SLjava/lang/String;)V
+    invoke-direct {v0, p0, v1}, Lmf/org/w3c/dom/ls/LSException;-><init>(SLjava/lang/String;)V
 
     if-nez p1, :cond_2
 
     :cond_0
     :goto_1
-    return-object v1
+    return-object v0
 
     :cond_1
     invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     goto :goto_0
 
     :cond_2
     invoke-static {}, Lmf/org/apache/xerces/util/DOMUtil$ThrowableMethods;->access$0()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     :try_start_0
     invoke-static {}, Lmf/org/apache/xerces/util/DOMUtil$ThrowableMethods;->access$1()Ljava/lang/reflect/Method;
 
-    move-result-object v0
+    move-result-object v1
 
     const/4 v2, 0x1
 
@@ -398,14 +387,14 @@
 
     aput-object p1, v2, v3
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v0, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_1
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
     goto :goto_1
 .end method
@@ -476,47 +465,43 @@
 
     invoke-interface {p0}, Lmf/org/w3c/dom/Element;->getAttributes()Lmf/org/w3c/dom/NamedNodeMap;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v2}, Lmf/org/w3c/dom/NamedNodeMap;->getLength()I
+    invoke-interface {v1}, Lmf/org/w3c/dom/NamedNodeMap;->getLength()I
 
-    move-result v0
+    move-result v3
 
-    new-array v3, v0, [Lmf/org/w3c/dom/Attr;
+    new-array v0, v3, [Lmf/org/w3c/dom/Attr;
 
-    const/4 v0, 0x0
-
-    move v1, v0
+    const/4 v2, 0x0
 
     :goto_0
-    invoke-interface {v2}, Lmf/org/w3c/dom/NamedNodeMap;->getLength()I
+    invoke-interface {v1}, Lmf/org/w3c/dom/NamedNodeMap;->getLength()I
 
-    move-result v0
+    move-result v3
 
-    if-ge v1, v0, :cond_0
+    if-ge v2, v3, :cond_0
 
-    invoke-interface {v2, v1}, Lmf/org/w3c/dom/NamedNodeMap;->item(I)Lmf/org/w3c/dom/Node;
+    invoke-interface {v1, v2}, Lmf/org/w3c/dom/NamedNodeMap;->item(I)Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v3
 
-    check-cast v0, Lmf/org/w3c/dom/Attr;
+    check-cast v3, Lmf/org/w3c/dom/Attr;
 
-    aput-object v0, v3, v1
+    aput-object v3, v0, v2
 
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_0
-    return-object v3
+    return-object v0
 .end method
 
 .method public static getChildText(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
     .locals 4
 
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
     if-eqz p0, :cond_0
 
@@ -551,32 +536,32 @@
     goto :goto_0
 
     :cond_0
-    return-object v0
+    return-object v3
 
     :cond_1
     invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNodeValue()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_1
 
     :cond_2
     invoke-static {v0}, Lmf/org/apache/xerces/util/DOMUtil;->getChildText(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_1
 
     :cond_3
     invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    return-object v0
+    return-object v3
 .end method
 
 .method public static getDocument(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Document;
@@ -671,38 +656,38 @@
 .end method
 
 .method public static getFirstChildElement(Lmf/org/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lmf/org/w3c/dom/Element;
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     invoke-interface {p0}, Lmf/org/w3c/dom/Node;->getFirstChild()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v0
 
     :goto_0
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
-    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNodeType()S
+    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNodeType()S
 
-    move-result v0
+    move-result v2
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    if-eq v0, v2, :cond_1
+    if-eq v2, v3, :cond_1
 
     :cond_0
-    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v0
 
     goto :goto_0
 
     :cond_1
-    move-object v0, v1
+    move-object v1, v0
 
-    check-cast v0, Lmf/org/w3c/dom/Element;
+    check-cast v1, Lmf/org/w3c/dom/Element;
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Element;->getNodeName()Ljava/lang/String;
+    invoke-interface {v1}, Lmf/org/w3c/dom/Element;->getNodeName()Ljava/lang/String;
 
     move-result-object v2
 
@@ -712,7 +697,7 @@
 
     if-eqz v2, :cond_0
 
-    invoke-interface {v0, p2}, Lmf/org/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v1, p2}, Lmf/org/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -722,18 +707,16 @@
 
     if-eqz v2, :cond_0
 
-    return-object v0
+    return-object v1
 
     :cond_2
-    return-object v3
+    return-object v4
 .end method
 
 .method public static getFirstChildElement(Lmf/org/w3c/dom/Node;[Ljava/lang/String;)Lmf/org/w3c/dom/Element;
-    .locals 6
+    .locals 5
 
-    const/4 v5, 0x0
-
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
     invoke-interface {p0}, Lmf/org/w3c/dom/Node;->getFirstChild()Lmf/org/w3c/dom/Node;
 
@@ -744,11 +727,11 @@
 
     invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNodeType()S
 
-    move-result v1
+    move-result v2
 
     const/4 v3, 0x1
 
-    if-eq v1, v3, :cond_1
+    if-eq v2, v3, :cond_1
 
     :cond_0
     invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
@@ -758,24 +741,24 @@
     goto :goto_0
 
     :cond_1
-    move v1, v2
+    const/4 v1, 0x0
 
     :goto_1
-    array-length v3, p1
+    array-length v2, p1
 
-    if-ge v1, v3, :cond_0
+    if-ge v1, v2, :cond_0
 
     invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNodeName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    aget-object v4, p1, v1
+    aget-object v3, p1, v1
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_2
+    if-nez v2, :cond_2
 
     add-int/lit8 v1, v1, 0x1
 
@@ -787,13 +770,13 @@
     return-object v0
 
     :cond_3
-    return-object v5
+    return-object v4
 .end method
 
 .method public static getFirstChildElementNS(Lmf/org/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;)Lmf/org/w3c/dom/Element;
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     invoke-interface {p0}, Lmf/org/w3c/dom/Node;->getFirstChild()Lmf/org/w3c/dom/Node;
 
@@ -804,11 +787,11 @@
 
     invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNodeType()S
 
-    move-result v1
+    move-result v2
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    if-eq v1, v2, :cond_1
+    if-eq v2, v3, :cond_1
 
     :cond_0
     invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
@@ -826,36 +809,36 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
     invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getLocalName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
     check-cast v0, Lmf/org/w3c/dom/Element;
 
     return-object v0
 
     :cond_2
-    return-object v3
+    return-object v4
 .end method
 
 .method public static getFirstChildElementNS(Lmf/org/w3c/dom/Node;[[Ljava/lang/String;)Lmf/org/w3c/dom/Element;
-    .locals 7
+    .locals 8
 
-    const/4 v6, 0x1
+    const/4 v7, 0x1
+
+    const/4 v6, 0x0
 
     const/4 v5, 0x0
-
-    const/4 v2, 0x0
 
     invoke-interface {p0}, Lmf/org/w3c/dom/Node;->getFirstChild()Lmf/org/w3c/dom/Node;
 
@@ -866,9 +849,9 @@
 
     invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNodeType()S
 
-    move-result v1
+    move-result v3
 
-    if-eq v1, v6, :cond_1
+    if-eq v3, v7, :cond_1
 
     :cond_0
     invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
@@ -878,7 +861,7 @@
     goto :goto_0
 
     :cond_1
-    move v1, v2
+    const/4 v1, 0x0
 
     :goto_1
     array-length v3, p1
@@ -887,9 +870,9 @@
 
     invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNamespaceURI()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    if-nez v3, :cond_3
+    if-nez v2, :cond_3
 
     :cond_2
     add-int/lit8 v1, v1, 0x1
@@ -897,11 +880,11 @@
     goto :goto_1
 
     :cond_3
-    aget-object v4, p1, v1
+    aget-object v3, p1, v1
 
-    aget-object v4, v4, v2
+    aget-object v3, v3, v5
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
@@ -913,7 +896,7 @@
 
     aget-object v4, p1, v1
 
-    aget-object v4, v4, v6
+    aget-object v4, v4, v7
 
     invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -926,7 +909,7 @@
     return-object v0
 
     :cond_4
-    return-object v5
+    return-object v6
 .end method
 
 .method public static getFirstVisibleChildElement(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
@@ -1095,38 +1078,38 @@
 .end method
 
 .method public static getLastChildElement(Lmf/org/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lmf/org/w3c/dom/Element;
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     invoke-interface {p0}, Lmf/org/w3c/dom/Node;->getLastChild()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v0
 
     :goto_0
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
-    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNodeType()S
+    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNodeType()S
 
-    move-result v0
+    move-result v2
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    if-eq v0, v2, :cond_1
+    if-eq v2, v3, :cond_1
 
     :cond_0
-    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getPreviousSibling()Lmf/org/w3c/dom/Node;
+    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getPreviousSibling()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v0
 
     goto :goto_0
 
     :cond_1
-    move-object v0, v1
+    move-object v1, v0
 
-    check-cast v0, Lmf/org/w3c/dom/Element;
+    check-cast v1, Lmf/org/w3c/dom/Element;
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Element;->getNodeName()Ljava/lang/String;
+    invoke-interface {v1}, Lmf/org/w3c/dom/Element;->getNodeName()Ljava/lang/String;
 
     move-result-object v2
 
@@ -1136,7 +1119,7 @@
 
     if-eqz v2, :cond_0
 
-    invoke-interface {v0, p2}, Lmf/org/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v1, p2}, Lmf/org/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -1146,18 +1129,16 @@
 
     if-eqz v2, :cond_0
 
-    return-object v0
+    return-object v1
 
     :cond_2
-    return-object v3
+    return-object v4
 .end method
 
 .method public static getLastChildElement(Lmf/org/w3c/dom/Node;[Ljava/lang/String;)Lmf/org/w3c/dom/Element;
-    .locals 6
+    .locals 5
 
-    const/4 v5, 0x0
-
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
     invoke-interface {p0}, Lmf/org/w3c/dom/Node;->getLastChild()Lmf/org/w3c/dom/Node;
 
@@ -1168,11 +1149,11 @@
 
     invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNodeType()S
 
-    move-result v1
+    move-result v2
 
     const/4 v3, 0x1
 
-    if-eq v1, v3, :cond_1
+    if-eq v2, v3, :cond_1
 
     :cond_0
     invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getPreviousSibling()Lmf/org/w3c/dom/Node;
@@ -1182,24 +1163,24 @@
     goto :goto_0
 
     :cond_1
-    move v1, v2
+    const/4 v1, 0x0
 
     :goto_1
-    array-length v3, p1
+    array-length v2, p1
 
-    if-ge v1, v3, :cond_0
+    if-ge v1, v2, :cond_0
 
     invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNodeName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    aget-object v4, p1, v1
+    aget-object v3, p1, v1
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_2
+    if-nez v2, :cond_2
 
     add-int/lit8 v1, v1, 0x1
 
@@ -1211,13 +1192,13 @@
     return-object v0
 
     :cond_3
-    return-object v5
+    return-object v4
 .end method
 
 .method public static getLastChildElementNS(Lmf/org/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;)Lmf/org/w3c/dom/Element;
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     invoke-interface {p0}, Lmf/org/w3c/dom/Node;->getLastChild()Lmf/org/w3c/dom/Node;
 
@@ -1228,11 +1209,11 @@
 
     invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNodeType()S
 
-    move-result v1
+    move-result v2
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    if-eq v1, v2, :cond_1
+    if-eq v2, v3, :cond_1
 
     :cond_0
     invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getPreviousSibling()Lmf/org/w3c/dom/Node;
@@ -1250,36 +1231,36 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
     invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getLocalName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
     check-cast v0, Lmf/org/w3c/dom/Element;
 
     return-object v0
 
     :cond_2
-    return-object v3
+    return-object v4
 .end method
 
 .method public static getLastChildElementNS(Lmf/org/w3c/dom/Node;[[Ljava/lang/String;)Lmf/org/w3c/dom/Element;
-    .locals 7
+    .locals 8
 
-    const/4 v6, 0x1
+    const/4 v7, 0x1
+
+    const/4 v6, 0x0
 
     const/4 v5, 0x0
-
-    const/4 v2, 0x0
 
     invoke-interface {p0}, Lmf/org/w3c/dom/Node;->getLastChild()Lmf/org/w3c/dom/Node;
 
@@ -1290,9 +1271,9 @@
 
     invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNodeType()S
 
-    move-result v1
+    move-result v3
 
-    if-eq v1, v6, :cond_1
+    if-eq v3, v7, :cond_1
 
     :cond_0
     invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getPreviousSibling()Lmf/org/w3c/dom/Node;
@@ -1302,7 +1283,7 @@
     goto :goto_0
 
     :cond_1
-    move v1, v2
+    const/4 v1, 0x0
 
     :goto_1
     array-length v3, p1
@@ -1311,9 +1292,9 @@
 
     invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNamespaceURI()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    if-nez v3, :cond_3
+    if-nez v2, :cond_3
 
     :cond_2
     add-int/lit8 v1, v1, 0x1
@@ -1321,11 +1302,11 @@
     goto :goto_1
 
     :cond_3
-    aget-object v4, p1, v1
+    aget-object v3, p1, v1
 
-    aget-object v4, v4, v2
+    aget-object v3, v3, v5
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
@@ -1337,7 +1318,7 @@
 
     aget-object v4, p1, v1
 
-    aget-object v4, v4, v6
+    aget-object v4, v4, v7
 
     invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1350,7 +1331,7 @@
     return-object v0
 
     :cond_4
-    return-object v5
+    return-object v6
 .end method
 
 .method public static getLastVisibleChildElement(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
@@ -1556,9 +1537,9 @@
 .end method
 
 .method public static getNextSiblingElement(Lmf/org/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lmf/org/w3c/dom/Element;
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     invoke-interface {p0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
@@ -1569,11 +1550,11 @@
 
     invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNodeType()S
 
-    move-result v0
+    move-result v2
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    if-eq v0, v2, :cond_1
+    if-eq v2, v3, :cond_1
 
     :cond_0
     invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
@@ -1610,75 +1591,73 @@
     return-object v0
 
     :cond_2
-    return-object v3
+    return-object v4
 .end method
 
 .method public static getNextSiblingElement(Lmf/org/w3c/dom/Node;[Ljava/lang/String;)Lmf/org/w3c/dom/Element;
-    .locals 6
+    .locals 5
 
-    const/4 v5, 0x0
-
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
     invoke-interface {p0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v1
 
     :goto_0
-    if-eqz v0, :cond_3
+    if-eqz v1, :cond_3
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNodeType()S
+    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNodeType()S
 
-    move-result v1
+    move-result v2
 
     const/4 v3, 0x1
 
-    if-eq v1, v3, :cond_1
+    if-eq v2, v3, :cond_1
 
     :cond_0
-    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v1
 
     goto :goto_0
 
     :cond_1
-    move v1, v2
+    const/4 v0, 0x0
 
     :goto_1
-    array-length v3, p1
+    array-length v2, p1
 
-    if-ge v1, v3, :cond_0
+    if-ge v0, v2, :cond_0
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNodeName()Ljava/lang/String;
+    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNodeName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    aget-object v4, p1, v1
+    aget-object v3, p1, v0
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_2
+    if-nez v2, :cond_2
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
     :cond_2
-    check-cast v0, Lmf/org/w3c/dom/Element;
+    check-cast v1, Lmf/org/w3c/dom/Element;
 
-    return-object v0
+    return-object v1
 
     :cond_3
-    return-object v5
+    return-object v4
 .end method
 
 .method public static getNextSiblingElementNS(Lmf/org/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;)Lmf/org/w3c/dom/Element;
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     invoke-interface {p0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
@@ -1689,11 +1668,11 @@
 
     invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNodeType()S
 
-    move-result v1
+    move-result v2
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    if-eq v1, v2, :cond_1
+    if-eq v2, v3, :cond_1
 
     :cond_0
     invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
@@ -1711,94 +1690,94 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
     invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getLocalName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
     check-cast v0, Lmf/org/w3c/dom/Element;
 
     return-object v0
 
     :cond_2
-    return-object v3
+    return-object v4
 .end method
 
 .method public static getNextSiblingElementNS(Lmf/org/w3c/dom/Node;[[Ljava/lang/String;)Lmf/org/w3c/dom/Element;
-    .locals 7
+    .locals 8
 
-    const/4 v6, 0x1
+    const/4 v7, 0x1
+
+    const/4 v6, 0x0
 
     const/4 v5, 0x0
 
-    const/4 v2, 0x0
-
     invoke-interface {p0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v1
 
     :goto_0
-    if-eqz v0, :cond_4
+    if-eqz v1, :cond_4
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNodeType()S
+    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNodeType()S
 
-    move-result v1
+    move-result v3
 
-    if-eq v1, v6, :cond_1
+    if-eq v3, v7, :cond_1
 
     :cond_0
-    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v1
 
     goto :goto_0
 
     :cond_1
-    move v1, v2
+    const/4 v0, 0x0
 
     :goto_1
     array-length v3, p1
 
-    if-ge v1, v3, :cond_0
+    if-ge v0, v3, :cond_0
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNamespaceURI()Ljava/lang/String;
+    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNamespaceURI()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    if-nez v3, :cond_3
+    if-nez v2, :cond_3
 
     :cond_2
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
     :cond_3
-    aget-object v4, p1, v1
+    aget-object v3, p1, v0
 
-    aget-object v4, v4, v2
+    aget-object v3, v3, v5
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
     if-eqz v3, :cond_2
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getLocalName()Ljava/lang/String;
+    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getLocalName()Ljava/lang/String;
 
     move-result-object v3
 
-    aget-object v4, p1, v1
+    aget-object v4, p1, v0
 
-    aget-object v4, v4, v6
+    aget-object v4, v4, v7
 
     invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1806,12 +1785,12 @@
 
     if-eqz v3, :cond_2
 
-    check-cast v0, Lmf/org/w3c/dom/Element;
+    check-cast v1, Lmf/org/w3c/dom/Element;
 
-    return-object v0
+    return-object v1
 
     :cond_4
-    return-object v5
+    return-object v6
 .end method
 
 .method public static getNextVisibleSiblingElement(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
@@ -1909,9 +1888,9 @@
 
     if-nez v1, :cond_0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 
     :cond_0
     check-cast v0, Lmf/org/w3c/dom/Element;

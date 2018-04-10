@@ -103,59 +103,79 @@
 .end method
 
 .method protected checkSignature(Ljava/lang/String;I)Z
-    .locals 6
+    .locals 7
+
+    const v6, 0x186a0
 
     const/4 v3, 0x0
 
     invoke-static {}, Lcom/android/server/EngineeringModeService;->-get0()Landroid/content/Context;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v5}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v2
 
-    const/16 v4, 0x40
+    const/4 v1, 0x0
+
+    if-le p2, v6, :cond_1
+
+    const v5, 0x186a0
 
     :try_start_0
-    invoke-virtual {v2, p1, v4}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    div-int v4, p2, v5
+
+    const/16 v5, 0x40
+
+    invoke-virtual {v2, p1, v5, v4}, Landroid/content/pm/PackageManager;->getPackageInfoAsUser(Ljava/lang/String;II)Landroid/content/pm/PackageInfo;
 
     move-result-object v1
 
-    iget-object v4, v1, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    :goto_0
+    iget-object v5, v1, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    iget v4, v4, Landroid/content/pm/ApplicationInfo;->uid:I
+    iget v5, v5, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    if-ne v4, p2, :cond_0
+    if-ne v5, p2, :cond_0
 
-    const-string/jumbo v4, "android"
+    const-string/jumbo v5, "android"
 
-    invoke-virtual {v2, v4, p1}, Landroid/content/pm/PackageManager;->checkSignatures(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-virtual {v2, v5, p1}, Landroid/content/pm/PackageManager;->checkSignatures(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v4
+    move-result v5
 
-    if-nez v4, :cond_0
+    if-nez v5, :cond_0
 
     const/4 v3, 0x1
 
     :cond_0
-    :goto_0
+    :goto_1
     return v3
+
+    :cond_1
+    const/16 v5, 0x40
+
+    invoke-virtual {v2, p1, v5}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    goto :goto_0
 
     :catch_0
     move-exception v0
 
-    const-string/jumbo v4, "EngineeringModeService"
+    const-string/jumbo v5, "EngineeringModeService"
 
-    const-string/jumbo v5, "CheckSigature Exception occured"
+    const-string/jumbo v6, "CheckSigature Exception occured"
 
-    invoke-static {v4, v5}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method protected compareModes(Ljava/lang/Integer;)Z
@@ -187,13 +207,17 @@
 .end method
 
 .method protected compareUid(I)Z
-    .locals 1
+    .locals 2
+
+    const v0, 0x186a0
+
+    rem-int v0, p1, v0
 
     invoke-virtual {p0}, Lcom/android/server/EngineeringModeService$EMClient;->getUid()I
 
-    move-result v0
+    move-result v1
 
-    if-ne p1, v0, :cond_0
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 

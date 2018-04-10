@@ -1,6 +1,5 @@
 .class public Lcom/sun/org/apache/xml/internal/security/utils/UnsyncBufferedOutputStream;
 .super Ljava/io/OutputStream;
-.source "Unknown"
 
 
 # static fields
@@ -144,11 +143,11 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    array-length v0, p1
 
-    array-length v1, p1
+    const/4 v1, 0x0
 
-    invoke-virtual {p0, p1, v0, v1}, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncBufferedOutputStream;->write([BII)V
+    invoke-virtual {p0, p1, v1, v0}, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncBufferedOutputStream;->write([BII)V
 
     return-void
 .end method
@@ -161,13 +160,13 @@
         }
     .end annotation
 
-    const/16 v1, 0x2000
+    const/16 v2, 0x2000
 
-    iget v0, p0, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncBufferedOutputStream;->pointer:I
+    iget v1, p0, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncBufferedOutputStream;->pointer:I
 
-    add-int/2addr v0, p3
+    add-int v0, v1, p3
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v2, :cond_0
 
     :goto_0
     iget-object v1, p0, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncBufferedOutputStream;->buf:[B
@@ -183,16 +182,16 @@
     :cond_0
     invoke-direct {p0}, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncBufferedOutputStream;->flushBuffer()V
 
-    if-gt p3, v1, :cond_1
+    if-gt p3, v2, :cond_1
 
     move v0, p3
 
     goto :goto_0
 
     :cond_1
-    iget-object v0, p0, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncBufferedOutputStream;->out:Ljava/io/OutputStream;
+    iget-object v1, p0, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncBufferedOutputStream;->out:Ljava/io/OutputStream;
 
-    invoke-virtual {v0, p1, p2, p3}, Ljava/io/OutputStream;->write([BII)V
+    invoke-virtual {v1, p1, p2, p3}, Ljava/io/OutputStream;->write([BII)V
 
     return-void
 .end method

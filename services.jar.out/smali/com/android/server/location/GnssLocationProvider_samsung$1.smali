@@ -3,12 +3,12 @@
 .source "GnssLocationProvider_samsung.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/att/iqi/lib/IQIManager$MetricQueryCallback;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/location/GnssLocationProvider_samsung;->checkUDPSuplInit()V
+    value = Lcom/android/server/location/GnssLocationProvider_samsung;->initializeMinorSession()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -18,8 +18,6 @@
 
 
 # instance fields
-.field socket:Ljava/net/DatagramSocket;
-
 .field final synthetic this$0:Lcom/android/server/location/GnssLocationProvider_samsung;
 
 
@@ -36,110 +34,98 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 6
+.method public onMetricQueried(Lcom/att/iqi/lib/Metric$ID;Ljava/nio/ByteBuffer;)V
+    .locals 5
+
+    const/4 v4, 0x1
+
+    iget-object v1, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->this$0:Lcom/android/server/location/GnssLocationProvider_samsung;
+
+    invoke-static {v1}, Lcom/android/server/location/GnssLocationProvider_samsung;->-get3(Lcom/android/server/location/GnssLocationProvider_samsung;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->this$0:Lcom/android/server/location/GnssLocationProvider_samsung;
+
+    invoke-static {v1}, Lcom/android/server/location/GnssLocationProvider_samsung;->-get4(Lcom/android/server/location/GnssLocationProvider_samsung;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->this$0:Lcom/android/server/location/GnssLocationProvider_samsung;
+
+    invoke-static {v1, v4}, Lcom/android/server/location/GnssLocationProvider_samsung;->-set0(Lcom/android/server/location/GnssLocationProvider_samsung;Z)Z
+
+    const-string/jumbo v1, "GnssLocationProvider_ex"
+
+    const-string/jumbo v2, "Minor session starts."
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->this$0:Lcom/android/server/location/GnssLocationProvider_samsung;
+
+    invoke-static {v1}, Lcom/android/server/location/GnssLocationProvider_samsung;->-wrap0(Lcom/android/server/location/GnssLocationProvider_samsung;)Z
+
+    iget-object v1, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->this$0:Lcom/android/server/location/GnssLocationProvider_samsung;
+
+    invoke-static {v1}, Lcom/android/server/location/GnssLocationProvider_samsung;->-get2(Lcom/android/server/location/GnssLocationProvider_samsung;)Landroid/os/Handler;
+
+    move-result-object v1
+
+    const/16 v2, 0x15
+
+    const/4 v3, 0x0
+
+    invoke-static {v1, v2, v4, v3}, Landroid/os/Message;->obtain(Landroid/os/Handler;III)Landroid/os/Message;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->this$0:Lcom/android/server/location/GnssLocationProvider_samsung;
+
+    invoke-static {v1}, Lcom/android/server/location/GnssLocationProvider_samsung;->-get2(Lcom/android/server/location/GnssLocationProvider_samsung;)Landroid/os/Handler;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     :cond_0
     :goto_0
-    iget-object v4, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->this$0:Lcom/android/server/location/GnssLocationProvider_samsung;
-
-    invoke-static {v4}, Lcom/android/server/location/GnssLocationProvider_samsung;->-get0(Lcom/android/server/location/GnssLocationProvider_samsung;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    const/16 v4, 0x5dc
-
-    :try_start_0
-    new-array v0, v4, [B
-
-    new-instance v3, Ljava/net/DatagramPacket;
-
-    array-length v4, v0
-
-    invoke-direct {v3, v0, v4}, Ljava/net/DatagramPacket;-><init>([BI)V
-
-    new-instance v4, Ljava/net/DatagramSocket;
-
-    const/16 v5, 0x1c6b
-
-    invoke-direct {v4, v5}, Ljava/net/DatagramSocket;-><init>(I)V
-
-    iput-object v4, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->socket:Ljava/net/DatagramSocket;
-
-    iget-object v4, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->socket:Ljava/net/DatagramSocket;
-
-    const v5, 0xea60
-
-    invoke-virtual {v4, v5}, Ljava/net/DatagramSocket;->setSoTimeout(I)V
-
-    iget-object v4, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->socket:Ljava/net/DatagramSocket;
-
-    invoke-virtual {v4, v3}, Ljava/net/DatagramSocket;->receive(Ljava/net/DatagramPacket;)V
-
-    const-string/jumbo v4, "GnssLocationProvider_ex"
-
-    const-string/jumbo v5, "received data through 7275 UDP port"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {v3}, Ljava/net/DatagramPacket;->getLength()I
-
-    move-result v4
-
-    if-lez v4, :cond_1
-
-    new-instance v2, Landroid/content/Intent;
-
-    const-string/jumbo v4, "android.intent.action.AGPS_UDP_RECEIVED"
-
-    invoke-direct {v2, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v4, "packet_data"
-
-    invoke-virtual {v3}, Ljava/net/DatagramPacket;->getData()[B
-
-    move-result-object v5
-
-    invoke-virtual {v2, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[B)Landroid/content/Intent;
-
-    const-string/jumbo v4, "packet_length"
-
-    invoke-virtual {v3}, Ljava/net/DatagramPacket;->getLength()I
-
-    move-result v5
-
-    invoke-virtual {v2, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    iget-object v4, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->this$0:Lcom/android/server/location/GnssLocationProvider_samsung;
-
-    iget-object v4, v4, Lcom/android/server/location/GnssLocationProvider_samsung;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4, v2}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    return-void
 
     :cond_1
-    iget-object v4, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->socket:Ljava/net/DatagramSocket;
+    iget-object v1, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->this$0:Lcom/android/server/location/GnssLocationProvider_samsung;
 
-    invoke-virtual {v4}, Ljava/net/DatagramSocket;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-static {v1}, Lcom/android/server/location/GnssLocationProvider_samsung;->-get0(Lcom/android/server/location/GnssLocationProvider_samsung;)Z
 
-    goto :goto_0
+    move-result v1
 
-    :catch_0
-    move-exception v1
+    if-eqz v1, :cond_0
 
-    iget-object v4, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->socket:Ljava/net/DatagramSocket;
+    const-string/jumbo v1, "GnssLocationProvider_ex"
 
-    if-eqz v4, :cond_0
+    const-string/jumbo v2, "Minor session is running. Ignore redundant request."
 
-    iget-object v4, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->socket:Ljava/net/DatagramSocket;
-
-    invoke-virtual {v4}, Ljava/net/DatagramSocket;->close()V
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :cond_2
-    return-void
+    iget-object v1, p0, Lcom/android/server/location/GnssLocationProvider_samsung$1;->this$0:Lcom/android/server/location/GnssLocationProvider_samsung;
+
+    invoke-static {v1}, Lcom/android/server/location/GnssLocationProvider_samsung;->-get0(Lcom/android/server/location/GnssLocationProvider_samsung;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const-string/jumbo v1, "GnssLocationProvider_ex"
+
+    const-string/jumbo v2, "Minor session has not been enabled."
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method

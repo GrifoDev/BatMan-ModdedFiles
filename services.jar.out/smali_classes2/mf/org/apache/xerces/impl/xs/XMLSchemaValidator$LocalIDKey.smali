@@ -44,38 +44,40 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .locals 4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    instance-of v0, p1, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$LocalIDKey;
+    instance-of v1, p1, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$LocalIDKey;
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    return v2
+    return v3
 
     :cond_0
-    check-cast p1, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$LocalIDKey;
+    move-object v0, p1
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$LocalIDKey;->fId:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
+    check-cast v0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$LocalIDKey;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$LocalIDKey;->fId:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
+    iget-object v1, v0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$LocalIDKey;->fId:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
 
-    if-eq v0, v1, :cond_2
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$LocalIDKey;->fId:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
+
+    if-eq v1, v2, :cond_2
 
     :cond_1
-    return v2
+    return v3
 
     :cond_2
-    iget v0, p1, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$LocalIDKey;->fDepth:I
+    iget v1, v0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$LocalIDKey;->fDepth:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$LocalIDKey;->fDepth:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$LocalIDKey;->fDepth:I
 
-    if-ne v0, v1, :cond_1
+    if-ne v1, v2, :cond_1
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    return v0
+    return v1
 .end method
 
 .method public hashCode()I

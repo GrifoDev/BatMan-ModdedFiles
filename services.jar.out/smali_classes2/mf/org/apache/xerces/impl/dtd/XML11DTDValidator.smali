@@ -19,65 +19,65 @@
 
 # virtual methods
 .method protected init()V
-    .locals 2
+    .locals 3
 
-    iget-boolean v0, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fValidation:Z
+    iget-boolean v1, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fValidation:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
     :cond_0
     invoke-super {p0}, Lmf/org/apache/xerces/impl/dtd/XMLDTDValidator;->init()V
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fDatatypeValidatorFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fDatatypeValidatorFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
 
-    const-string/jumbo v1, "XML11ID"
+    const-string/jumbo v2, "XML11ID"
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/dv/DTDDVFactory;->getBuiltInDV(Ljava/lang/String;)Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
+    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/impl/dv/DTDDVFactory;->getBuiltInDV(Ljava/lang/String;)Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fValID:Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fValID:Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fDatatypeValidatorFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fDatatypeValidatorFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
 
-    const-string/jumbo v1, "XML11IDREF"
+    const-string/jumbo v2, "XML11IDREF"
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/dv/DTDDVFactory;->getBuiltInDV(Ljava/lang/String;)Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
+    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/impl/dv/DTDDVFactory;->getBuiltInDV(Ljava/lang/String;)Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fValIDRef:Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fValIDRef:Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fDatatypeValidatorFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fDatatypeValidatorFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
 
-    const-string/jumbo v1, "XML11IDREFS"
+    const-string/jumbo v2, "XML11IDREFS"
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/dv/DTDDVFactory;->getBuiltInDV(Ljava/lang/String;)Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
+    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/impl/dv/DTDDVFactory;->getBuiltInDV(Ljava/lang/String;)Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fValIDRefs:Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fValIDRefs:Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fDatatypeValidatorFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fDatatypeValidatorFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
 
-    const-string/jumbo v1, "XML11NMTOKEN"
+    const-string/jumbo v2, "XML11NMTOKEN"
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/dv/DTDDVFactory;->getBuiltInDV(Ljava/lang/String;)Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
+    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/impl/dv/DTDDVFactory;->getBuiltInDV(Ljava/lang/String;)Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fValNMTOKEN:Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fValNMTOKEN:Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fDatatypeValidatorFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fDatatypeValidatorFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
 
-    const-string/jumbo v1, "XML11NMTOKENS"
+    const-string/jumbo v2, "XML11NMTOKENS"
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/dv/DTDDVFactory;->getBuiltInDV(Ljava/lang/String;)Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
+    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/impl/dv/DTDDVFactory;->getBuiltInDV(Ljava/lang/String;)Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fValNMTOKENS:Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fValNMTOKENS:Lmf/org/apache/xerces/impl/dv/DatatypeValidator;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -85,9 +85,9 @@
     return-void
 
     :cond_1
-    iget-boolean v0, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fDynamicValidation:Z
+    iget-boolean v1, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fDynamicValidation:Z
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     goto :goto_0
 
@@ -102,11 +102,13 @@
 .end method
 
 .method public reset(Lmf/org/apache/xerces/xni/parser/XMLComponentManager;)V
-    .locals 1
+    .locals 2
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/validator/dtd"
+    const/4 v0, 0x0
 
-    invoke-interface {p1, v0}, Lmf/org/apache/xerces/xni/parser/XMLComponentManager;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
+    const-string/jumbo v1, "http://apache.org/xml/properties/internal/validator/dtd"
+
+    invoke-interface {p1, v1}, Lmf/org/apache/xerces/xni/parser/XMLComponentManager;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -125,9 +127,9 @@
 
     invoke-virtual {v0}, Lmf/org/apache/xerces/impl/dtd/XMLDTDValidator;->getGrammarBucket()Lmf/org/apache/xerces/impl/dtd/DTDGrammarBucket;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fGrammarBucket:Lmf/org/apache/xerces/impl/dtd/DTDGrammarBucket;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/dtd/XML11DTDValidator;->fGrammarBucket:Lmf/org/apache/xerces/impl/dtd/DTDGrammarBucket;
 
     goto :goto_0
 .end method

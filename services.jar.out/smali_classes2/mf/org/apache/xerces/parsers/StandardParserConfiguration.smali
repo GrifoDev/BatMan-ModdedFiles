@@ -81,173 +81,173 @@
 .end method
 
 .method public constructor <init>(Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;Lmf/org/apache/xerces/xni/parser/XMLComponentManager;)V
-    .locals 8
+    .locals 9
 
-    const/4 v7, 0x4
+    const/4 v8, 0x4
 
-    const/4 v6, 0x3
+    const/4 v7, 0x3
 
-    const/4 v5, 0x2
+    const/4 v6, 0x2
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     invoke-direct {p0, p1, p2, p3}, Lmf/org/apache/xerces/parsers/DTDConfiguration;-><init>(Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;Lmf/org/apache/xerces/xni/parser/XMLComponentManager;)V
 
-    const/16 v0, 0xe
+    const/16 v2, 0xe
 
-    new-array v0, v0, [Ljava/lang/String;
+    new-array v0, v2, [Ljava/lang/String;
 
-    const-string/jumbo v1, "http://apache.org/xml/features/validation/schema/normalized-value"
+    const-string/jumbo v2, "http://apache.org/xml/features/validation/schema/normalized-value"
 
-    aput-object v1, v0, v3
+    aput-object v2, v0, v4
 
-    const-string/jumbo v1, "http://apache.org/xml/features/validation/schema/element-default"
+    const-string/jumbo v2, "http://apache.org/xml/features/validation/schema/element-default"
 
-    aput-object v1, v0, v4
+    aput-object v2, v0, v5
 
-    const-string/jumbo v1, "http://apache.org/xml/features/validation/schema/augment-psvi"
+    const-string/jumbo v2, "http://apache.org/xml/features/validation/schema/augment-psvi"
 
-    aput-object v1, v0, v5
+    aput-object v2, v0, v6
 
-    const-string/jumbo v1, "http://apache.org/xml/features/generate-synthetic-annotations"
+    const-string/jumbo v2, "http://apache.org/xml/features/generate-synthetic-annotations"
 
-    aput-object v1, v0, v6
+    aput-object v2, v0, v7
 
-    const-string/jumbo v1, "http://apache.org/xml/features/validate-annotations"
+    const-string/jumbo v2, "http://apache.org/xml/features/validate-annotations"
 
-    aput-object v1, v0, v7
+    aput-object v2, v0, v8
 
-    const/4 v1, 0x5
+    const/4 v2, 0x5
 
-    const-string/jumbo v2, "http://apache.org/xml/features/honour-all-schemaLocations"
+    const-string/jumbo v3, "http://apache.org/xml/features/honour-all-schemaLocations"
 
-    aput-object v2, v0, v1
+    aput-object v3, v0, v2
 
-    const/4 v1, 0x6
+    const/4 v2, 0x6
 
-    const-string/jumbo v2, "http://apache.org/xml/features/namespace-growth"
+    const-string/jumbo v3, "http://apache.org/xml/features/namespace-growth"
 
-    aput-object v2, v0, v1
+    aput-object v3, v0, v2
 
-    const/4 v1, 0x7
+    const/4 v2, 0x7
 
-    const-string/jumbo v2, "http://apache.org/xml/features/internal/tolerate-duplicates"
+    const-string/jumbo v3, "http://apache.org/xml/features/internal/tolerate-duplicates"
 
-    aput-object v2, v0, v1
+    aput-object v3, v0, v2
 
-    const/16 v1, 0x8
+    const/16 v2, 0x8
 
-    const-string/jumbo v2, "http://apache.org/xml/features/validation/schema"
+    const-string/jumbo v3, "http://apache.org/xml/features/validation/schema"
 
-    aput-object v2, v0, v1
+    aput-object v3, v0, v2
 
-    const/16 v1, 0x9
+    const/16 v2, 0x9
 
-    const-string/jumbo v2, "http://apache.org/xml/features/validation/schema-full-checking"
+    const-string/jumbo v3, "http://apache.org/xml/features/validation/schema-full-checking"
 
-    aput-object v2, v0, v1
+    aput-object v3, v0, v2
 
-    const/16 v1, 0xa
+    const/16 v2, 0xa
 
-    const-string/jumbo v2, "http://apache.org/xml/features/validation/schema/ignore-xsi-type-until-elemdecl"
+    const-string/jumbo v3, "http://apache.org/xml/features/validation/schema/ignore-xsi-type-until-elemdecl"
 
-    aput-object v2, v0, v1
+    aput-object v3, v0, v2
 
-    const/16 v1, 0xb
+    const/16 v2, 0xb
 
-    const-string/jumbo v2, "http://apache.org/xml/features/validation/id-idref-checking"
+    const-string/jumbo v3, "http://apache.org/xml/features/validation/id-idref-checking"
 
-    aput-object v2, v0, v1
+    aput-object v3, v0, v2
 
-    const/16 v1, 0xc
+    const/16 v2, 0xc
 
-    const-string/jumbo v2, "http://apache.org/xml/features/validation/identity-constraint-checking"
+    const-string/jumbo v3, "http://apache.org/xml/features/validation/identity-constraint-checking"
 
-    aput-object v2, v0, v1
+    aput-object v3, v0, v2
 
-    const/16 v1, 0xd
+    const/16 v2, 0xd
 
-    const-string/jumbo v2, "http://apache.org/xml/features/validation/unparsed-entity-checking"
+    const-string/jumbo v3, "http://apache.org/xml/features/validation/unparsed-entity-checking"
 
-    aput-object v2, v0, v1
+    aput-object v3, v0, v2
 
     invoke-virtual {p0, v0}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->addRecognizedFeatures([Ljava/lang/String;)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/validation/schema/element-default"
+    const-string/jumbo v2, "http://apache.org/xml/features/validation/schema/element-default"
 
-    invoke-virtual {p0, v0, v4}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v2, v5}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/validation/schema/normalized-value"
+    const-string/jumbo v2, "http://apache.org/xml/features/validation/schema/normalized-value"
 
-    invoke-virtual {p0, v0, v4}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v2, v5}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/validation/schema/augment-psvi"
+    const-string/jumbo v2, "http://apache.org/xml/features/validation/schema/augment-psvi"
 
-    invoke-virtual {p0, v0, v4}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v2, v5}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/generate-synthetic-annotations"
+    const-string/jumbo v2, "http://apache.org/xml/features/generate-synthetic-annotations"
 
-    invoke-virtual {p0, v0, v3}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v2, v4}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/validate-annotations"
+    const-string/jumbo v2, "http://apache.org/xml/features/validate-annotations"
 
-    invoke-virtual {p0, v0, v3}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v2, v4}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/honour-all-schemaLocations"
+    const-string/jumbo v2, "http://apache.org/xml/features/honour-all-schemaLocations"
 
-    invoke-virtual {p0, v0, v3}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v2, v4}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/namespace-growth"
+    const-string/jumbo v2, "http://apache.org/xml/features/namespace-growth"
 
-    invoke-virtual {p0, v0, v3}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v2, v4}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/internal/tolerate-duplicates"
+    const-string/jumbo v2, "http://apache.org/xml/features/internal/tolerate-duplicates"
 
-    invoke-virtual {p0, v0, v3}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v2, v4}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/validation/schema/ignore-xsi-type-until-elemdecl"
+    const-string/jumbo v2, "http://apache.org/xml/features/validation/schema/ignore-xsi-type-until-elemdecl"
 
-    invoke-virtual {p0, v0, v3}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v2, v4}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/validation/id-idref-checking"
+    const-string/jumbo v2, "http://apache.org/xml/features/validation/id-idref-checking"
 
-    invoke-virtual {p0, v0, v4}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v2, v5}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/validation/identity-constraint-checking"
+    const-string/jumbo v2, "http://apache.org/xml/features/validation/identity-constraint-checking"
 
-    invoke-virtual {p0, v0, v4}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v2, v5}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/validation/unparsed-entity-checking"
+    const-string/jumbo v2, "http://apache.org/xml/features/validation/unparsed-entity-checking"
 
-    invoke-virtual {p0, v0, v4}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v2, v5}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->setFeature(Ljava/lang/String;Z)V
 
-    const/4 v0, 0x5
+    const/4 v2, 0x5
 
-    new-array v0, v0, [Ljava/lang/String;
+    new-array v1, v2, [Ljava/lang/String;
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/schema/external-schemaLocation"
+    const-string/jumbo v2, "http://apache.org/xml/properties/schema/external-schemaLocation"
 
-    aput-object v1, v0, v3
+    aput-object v2, v1, v4
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/schema/external-noNamespaceSchemaLocation"
+    const-string/jumbo v2, "http://apache.org/xml/properties/schema/external-noNamespaceSchemaLocation"
 
-    aput-object v1, v0, v4
+    aput-object v2, v1, v5
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/validation/schema/root-type-definition"
+    const-string/jumbo v2, "http://apache.org/xml/properties/validation/schema/root-type-definition"
 
-    aput-object v1, v0, v5
+    aput-object v2, v1, v6
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/validation/schema/root-element-declaration"
+    const-string/jumbo v2, "http://apache.org/xml/properties/validation/schema/root-element-declaration"
 
-    aput-object v1, v0, v6
+    aput-object v2, v1, v7
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/validation/schema/dv-factory"
+    const-string/jumbo v2, "http://apache.org/xml/properties/internal/validation/schema/dv-factory"
 
-    aput-object v1, v0, v7
+    aput-object v2, v1, v8
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->addRecognizedProperties([Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->addRecognizedProperties([Ljava/lang/String;)V
 
     return-void
 .end method
@@ -255,20 +255,20 @@
 
 # virtual methods
 .method protected checkFeature(Ljava/lang/String;)V
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
         }
     .end annotation
 
-    const-string/jumbo v0, "http://apache.org/xml/features/"
+    const-string/jumbo v1, "http://apache.org/xml/features/"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     :cond_0
     invoke-super {p0, p1}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->checkFeature(Ljava/lang/String;)V
@@ -278,15 +278,15 @@
     :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v0
-
-    const-string/jumbo v1, "http://apache.org/xml/features/"
-
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
-
     move-result v1
 
-    sub-int/2addr v0, v1
+    const-string/jumbo v2, "http://apache.org/xml/features/"
+
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    sub-int v0, v1, v2
 
     const-string/jumbo v1, "validation/schema"
 
@@ -323,13 +323,13 @@
 
     if-ne v0, v1, :cond_0
 
-    const-string/jumbo v0, "validation/schema/element-default"
+    const-string/jumbo v1, "validation/schema/element-default"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     return-void
 
@@ -368,29 +368,29 @@
 .end method
 
 .method protected checkProperty(Ljava/lang/String;)V
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
         }
     .end annotation
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/"
+    const-string/jumbo v1, "http://apache.org/xml/properties/"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_2
+    if-nez v1, :cond_2
 
     :cond_0
-    const-string/jumbo v0, "http://java.sun.com/xml/jaxp/properties/"
+    const-string/jumbo v1, "http://java.sun.com/xml/jaxp/properties/"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_5
+    if-nez v1, :cond_5
 
     :cond_1
     invoke-super {p0, p1}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->checkProperty(Ljava/lang/String;)V
@@ -400,15 +400,15 @@
     :cond_2
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v0
-
-    const-string/jumbo v1, "http://apache.org/xml/properties/"
-
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
-
     move-result v1
 
-    sub-int/2addr v0, v1
+    const-string/jumbo v2, "http://apache.org/xml/properties/"
+
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    sub-int v0, v1, v2
 
     const-string/jumbo v1, "schema/external-schemaLocation"
 
@@ -427,13 +427,13 @@
 
     if-ne v0, v1, :cond_0
 
-    const-string/jumbo v0, "schema/external-noNamespaceSchemaLocation"
+    const-string/jumbo v1, "schema/external-noNamespaceSchemaLocation"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     return-void
 
@@ -451,15 +451,15 @@
     :cond_5
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v0
-
-    const-string/jumbo v1, "http://java.sun.com/xml/jaxp/properties/"
-
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
-
     move-result v1
 
-    sub-int/2addr v0, v1
+    const-string/jumbo v2, "http://java.sun.com/xml/jaxp/properties/"
+
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    sub-int v0, v1, v2
 
     const-string/jumbo v1, "schemaSource"
 
@@ -469,92 +469,92 @@
 
     if-ne v0, v1, :cond_1
 
-    const-string/jumbo v0, "schemaSource"
+    const-string/jumbo v1, "schemaSource"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
     return-void
 .end method
 
 .method protected configurePipeline()V
-    .locals 3
+    .locals 4
 
     invoke-super {p0}, Lmf/org/apache/xerces/parsers/DTDConfiguration;->configurePipeline()V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/validation/schema"
+    const-string/jumbo v1, "http://apache.org/xml/features/validation/schema"
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->getFeature(Ljava/lang/String;)Z
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->getFeature(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     :goto_0
     return-void
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
+    iget-object v1, p0, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
 
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
     :cond_1
     :goto_1
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
-
-    iput-object v0, p0, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->fLastComponent:Lmf/org/apache/xerces/xni/parser/XMLDocumentSource;
-
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->fNamespaceBinder:Lmf/org/apache/xerces/impl/XMLNamespaceBinder;
-
     iget-object v1, p0, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->setDocumentHandler(Lmf/org/apache/xerces/xni/XMLDocumentHandler;)V
-
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
-
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->fDocumentHandler:Lmf/org/apache/xerces/xni/XMLDocumentHandler;
-
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->setDocumentHandler(Lmf/org/apache/xerces/xni/XMLDocumentHandler;)V
-
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
+    iput-object v1, p0, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->fLastComponent:Lmf/org/apache/xerces/xni/parser/XMLDocumentSource;
 
     iget-object v1, p0, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->fNamespaceBinder:Lmf/org/apache/xerces/impl/XMLNamespaceBinder;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->setDocumentSource(Lmf/org/apache/xerces/xni/parser/XMLDocumentSource;)V
+    iget-object v2, p0, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
+
+    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/impl/XMLNamespaceBinder;->setDocumentHandler(Lmf/org/apache/xerces/xni/XMLDocumentHandler;)V
+
+    iget-object v1, p0, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
+
+    iget-object v2, p0, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->fDocumentHandler:Lmf/org/apache/xerces/xni/XMLDocumentHandler;
+
+    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->setDocumentHandler(Lmf/org/apache/xerces/xni/XMLDocumentHandler;)V
+
+    iget-object v1, p0, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
+
+    iget-object v2, p0, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->fNamespaceBinder:Lmf/org/apache/xerces/impl/XMLNamespaceBinder;
+
+    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->setDocumentSource(Lmf/org/apache/xerces/xni/parser/XMLDocumentSource;)V
 
     goto :goto_0
 
     :cond_2
-    new-instance v0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
+    new-instance v1, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
 
-    invoke-direct {v0}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;-><init>()V
+    invoke-direct {v1}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
+    iput-object v1, p0, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->fProperties:Ljava/util/HashMap;
-
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/validator/schema"
+    iget-object v1, p0, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->fProperties:Ljava/util/HashMap;
 
     iget-object v2, p0, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string/jumbo v3, "http://apache.org/xml/properties/internal/validator/schema"
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
+    invoke-virtual {v1, v3, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->addComponent(Lmf/org/apache/xerces/xni/parser/XMLComponent;)V
+    iget-object v1, p0, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->addComponent(Lmf/org/apache/xerces/xni/parser/XMLComponent;)V
 
-    const-string/jumbo v1, "http://www.w3.org/TR/xml-schema-1"
+    iget-object v1, p0, Lmf/org/apache/xerces/parsers/StandardParserConfiguration;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->getMessageFormatter(Ljava/lang/String;)Lmf/org/apache/xerces/util/MessageFormatter;
+    const-string/jumbo v2, "http://www.w3.org/TR/xml-schema-1"
 
-    move-result-object v0
+    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->getMessageFormatter(Ljava/lang/String;)Lmf/org/apache/xerces/util/MessageFormatter;
 
-    if-nez v0, :cond_1
+    move-result-object v1
+
+    if-nez v1, :cond_1
 
     new-instance v0, Lmf/org/apache/xerces/impl/xs/XSMessageFormatter;
 

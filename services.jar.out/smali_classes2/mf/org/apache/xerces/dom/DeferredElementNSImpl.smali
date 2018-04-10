@@ -58,166 +58,158 @@
 .end method
 
 .method protected final synchronizeData()V
-    .locals 10
+    .locals 11
 
-    const/16 v9, 0x3a
+    const/16 v10, 0x3a
 
-    const/4 v8, -0x1
+    const/4 v9, -0x1
 
-    const/4 v2, 0x0
+    const/4 v7, 0x0
 
-    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->needsSyncData(Z)V
+    invoke-virtual {p0, v7}, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->needsSyncData(Z)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
 
-    check-cast v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;
+    check-cast v5, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;
 
-    iget-boolean v4, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->mutationEvents:Z
+    iget-boolean v4, v5, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->mutationEvents:Z
 
-    iput-boolean v2, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->mutationEvents:Z
+    iput-boolean v7, v5, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->mutationEvents:Z
 
-    iget v1, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->fNodeIndex:I
+    iget v7, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->fNodeIndex:I
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeName(I)Ljava/lang/String;
+    invoke-virtual {v5, v7}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeName(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v7
 
-    iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->name:Ljava/lang/String;
+    iput-object v7, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->name:Ljava/lang/String;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->name:Ljava/lang/String;
+    iget-object v7, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->name:Ljava/lang/String;
 
-    invoke-virtual {v1, v9}, Ljava/lang/String;->indexOf(I)I
+    invoke-virtual {v7, v10}, Ljava/lang/String;->indexOf(I)I
 
-    move-result v1
+    move-result v3
 
-    if-ltz v1, :cond_1
+    if-ltz v3, :cond_1
 
-    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->name:Ljava/lang/String;
+    iget-object v7, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->name:Ljava/lang/String;
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v8, v3, 0x1
 
-    invoke-virtual {v3, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {v7, v8}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v7
 
-    iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->localName:Ljava/lang/String;
+    iput-object v7, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->localName:Ljava/lang/String;
 
     :goto_0
-    iget v1, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->fNodeIndex:I
+    iget v7, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->fNodeIndex:I
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeURI(I)Ljava/lang/String;
+    invoke-virtual {v5, v7}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeURI(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v7
 
-    iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->namespaceURI:Ljava/lang/String;
+    iput-object v7, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->namespaceURI:Ljava/lang/String;
 
-    iget v1, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->fNodeIndex:I
+    iget v7, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->fNodeIndex:I
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getTypeInfo(I)Ljava/lang/Object;
+    invoke-virtual {v5, v7}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getTypeInfo(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v7
 
-    check-cast v1, Lmf/org/apache/xerces/xs/XSTypeDefinition;
+    check-cast v7, Lmf/org/apache/xerces/xs/XSTypeDefinition;
 
-    iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->type:Lmf/org/apache/xerces/xs/XSTypeDefinition;
+    iput-object v7, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->type:Lmf/org/apache/xerces/xs/XSTypeDefinition;
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->setupDefaultAttributes()V
 
-    iget v1, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->fNodeIndex:I
+    iget v7, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->fNodeIndex:I
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeExtra(I)I
+    invoke-virtual {v5, v7}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeExtra(I)I
 
     move-result v1
 
-    if-ne v1, v8, :cond_2
+    if-ne v1, v9, :cond_2
 
     :cond_0
-    iput-boolean v4, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->mutationEvents:Z
+    iput-boolean v4, v5, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->mutationEvents:Z
 
     return-void
 
     :cond_1
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->name:Ljava/lang/String;
+    iget-object v7, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->name:Ljava/lang/String;
 
-    iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->localName:Ljava/lang/String;
+    iput-object v7, p0, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->localName:Ljava/lang/String;
 
     goto :goto_0
 
     :cond_2
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;->getAttributes()Lmf/org/w3c/dom/NamedNodeMap;
 
-    move-result-object v5
+    move-result-object v2
 
-    move v3, v1
+    const/4 v6, 0x0
 
     :goto_1
-    invoke-virtual {v0, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeObject(I)Lmf/org/apache/xerces/dom/DeferredNode;
+    invoke-virtual {v5, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeObject(I)Lmf/org/apache/xerces/dom/DeferredNode;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lmf/org/apache/xerces/dom/AttrImpl;
+    check-cast v0, Lmf/org/apache/xerces/dom/AttrImpl;
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/dom/AttrImpl;->getSpecified()Z
+    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/AttrImpl;->getSpecified()Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_4
+    if-eqz v7, :cond_4
 
     :cond_3
     :goto_2
-    invoke-interface {v5, v1}, Lmf/org/w3c/dom/NamedNodeMap;->setNamedItem(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
-
-    move v1, v2
+    invoke-interface {v2, v0}, Lmf/org/w3c/dom/NamedNodeMap;->setNamedItem(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
     :goto_3
-    invoke-virtual {v0, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getPrevSibling(I)I
+    invoke-virtual {v5, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getPrevSibling(I)I
 
-    move-result v2
+    move-result v1
 
-    if-eq v2, v8, :cond_0
-
-    move v3, v2
-
-    move v2, v1
+    if-eq v1, v9, :cond_0
 
     goto :goto_1
 
     :cond_4
-    if-eqz v2, :cond_6
+    if-eqz v6, :cond_6
 
     :cond_5
-    const/4 v2, 0x1
+    const/4 v6, 0x1
 
-    invoke-interface {v5, v1}, Lmf/org/w3c/dom/NamedNodeMap;->setNamedItemNS(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
-
-    move v1, v2
+    invoke-interface {v2, v0}, Lmf/org/w3c/dom/NamedNodeMap;->setNamedItemNS(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
     goto :goto_3
 
     :cond_6
-    invoke-virtual {v1}, Lmf/org/apache/xerces/dom/AttrImpl;->getNamespaceURI()Ljava/lang/String;
+    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/AttrImpl;->getNamespaceURI()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    if-eqz v6, :cond_3
+    if-eqz v7, :cond_3
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/dom/AttrImpl;->getNamespaceURI()Ljava/lang/String;
+    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/AttrImpl;->getNamespaceURI()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    sget-object v7, Lmf/org/apache/xerces/xni/NamespaceContext;->XMLNS_URI:Ljava/lang/String;
+    sget-object v8, Lmf/org/apache/xerces/xni/NamespaceContext;->XMLNS_URI:Ljava/lang/String;
 
-    if-eq v6, v7, :cond_3
+    if-eq v7, v8, :cond_3
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/dom/AttrImpl;->getName()Ljava/lang/String;
+    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/AttrImpl;->getName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, v9}, Ljava/lang/String;->indexOf(I)I
+    invoke-virtual {v7, v10}, Ljava/lang/String;->indexOf(I)I
 
-    move-result v6
+    move-result v7
 
-    if-ltz v6, :cond_5
+    if-ltz v7, :cond_5
 
     goto :goto_2
 .end method

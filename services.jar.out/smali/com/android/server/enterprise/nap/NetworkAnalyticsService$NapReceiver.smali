@@ -32,249 +32,393 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 10
-
-    const/4 v9, 0x0
+    .locals 13
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    sget-boolean v6, Lcom/android/server/enterprise/nap/NetworkAnalyticsService;->DBG:Z
+    sget-boolean v9, Lcom/android/server/enterprise/nap/NetworkAnalyticsService;->DBG:Z
 
-    if-eqz v6, :cond_0
+    if-eqz v9, :cond_0
 
-    const-string/jumbo v6, "NetworkAnalytics:Service"
+    const-string/jumbo v9, "NetworkAnalytics:Service"
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "Nap Receiver : "
+    const-string/jumbo v11, "Nap Receiver : "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v10
 
-    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v10
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v10
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     invoke-virtual {p0}, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$NapReceiver;->isInitialStickyBroadcast()Z
 
-    move-result v6
+    move-result v9
 
-    if-nez v6, :cond_1
+    if-nez v9, :cond_1
 
-    new-instance v2, Landroid/os/Bundle;
+    new-instance v3, Landroid/os/Bundle;
 
-    invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
+    invoke-direct {v3}, Landroid/os/Bundle;-><init>()V
 
-    const-string/jumbo v6, "android.intent.action.BOOT_COMPLETED"
+    const-string/jumbo v9, "android.intent.action.BOOT_COMPLETED"
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v0, v9}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v6
+    move-result v9
 
-    if-eqz v6, :cond_2
+    if-eqz v9, :cond_2
 
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget-object v6, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$NapReceiver;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsService;
+    iget-object v9, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$NapReceiver;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsService;
 
-    const/4 v7, 0x3
+    const/4 v10, 0x3
 
-    invoke-static {v6, v7, v9, v9, v2}, Lcom/android/server/enterprise/nap/NetworkAnalyticsService;->-wrap11(Lcom/android/server/enterprise/nap/NetworkAnalyticsService;IIILjava/lang/Object;)V
+    const/4 v11, 0x0
+
+    const/4 v12, 0x0
+
+    invoke-static {v9, v10, v11, v12, v3}, Lcom/android/server/enterprise/nap/NetworkAnalyticsService;->-wrap10(Lcom/android/server/enterprise/nap/NetworkAnalyticsService;IIILjava/lang/Object;)V
 
     :cond_1
     :goto_0
     return-void
 
     :cond_2
-    const-string/jumbo v6, "android.intent.action.PACKAGE_REMOVED"
+    const-string/jumbo v9, "android.intent.action.PACKAGE_REMOVED"
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v0, v9}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v6
+    move-result v9
 
-    if-nez v6, :cond_3
+    if-eqz v9, :cond_7
 
-    const-string/jumbo v6, "android.intent.action.PACKAGE_ADDED"
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_7
-
-    :cond_3
     invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
+
+    move-result-object v8
+
+    if-eqz v8, :cond_5
+
+    invoke-virtual {v8}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
 
     move-result-object v5
 
-    if-eqz v5, :cond_5
-
-    invoke-virtual {v5}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
-
-    move-result-object v4
-
     :goto_1
-    sget-boolean v6, Lcom/android/server/enterprise/nap/NetworkAnalyticsService;->DBG:Z
+    invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
-    if-eqz v6, :cond_4
+    move-result-object v3
 
-    const-string/jumbo v6, "NetworkAnalytics:Service"
+    const-string/jumbo v9, "android.intent.extra.UID"
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    const/16 v10, -0x2710
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "ACTION PACKAGE ADDED/REMOVED packageName : "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_4
-    iget-object v6, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$NapReceiver;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsService;
-
-    invoke-static {v6}, Lcom/android/server/enterprise/nap/NetworkAnalyticsService;->-get0(Lcom/android/server/enterprise/nap/NetworkAnalyticsService;)Lcom/android/server/enterprise/nap/NetworkAnalyticsConfigStore;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v4}, Lcom/android/server/enterprise/nap/NetworkAnalyticsConfigStore;->isActivatedPackage(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v4, :cond_1
-
-    if-eqz v1, :cond_1
-
-    new-instance v3, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$AsyncHandlerObject;
-
-    iget-object v6, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$NapReceiver;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsService;
-
-    invoke-direct {v3, v6}, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$AsyncHandlerObject;-><init>(Lcom/android/server/enterprise/nap/NetworkAnalyticsService;)V
-
-    iput-object v4, v3, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$AsyncHandlerObject;->packageName:Ljava/lang/String;
-
-    iget-object v7, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$NapReceiver;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsService;
-
-    const-string/jumbo v6, "android.intent.action.PACKAGE_REMOVED"
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v3, v9, v10}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
     move-result v6
 
-    if-eqz v6, :cond_6
+    sget-boolean v9, Lcom/android/server/enterprise/nap/NetworkAnalyticsService;->DBG:Z
 
-    const/4 v6, 0x6
+    if-eqz v9, :cond_3
 
-    :goto_2
-    invoke-static {v7, v6, v9, v9, v3}, Lcom/android/server/enterprise/nap/NetworkAnalyticsService;->-wrap11(Lcom/android/server/enterprise/nap/NetworkAnalyticsService;IIILjava/lang/Object;)V
+    const-string/jumbo v9, "NetworkAnalytics:Service"
 
-    goto :goto_0
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "ACTION PACKAGE REMOVED packageName : "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, " uid : "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_3
+    const/16 v9, -0x2710
+
+    if-eq v6, v9, :cond_4
+
+    invoke-static {v6, v5}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;->updateHashCache(ILjava/lang/String;)V
+
+    :cond_4
+    iget-object v9, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$NapReceiver;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsService;
+
+    invoke-static {v9}, Lcom/android/server/enterprise/nap/NetworkAnalyticsService;->-get0(Lcom/android/server/enterprise/nap/NetworkAnalyticsService;)Lcom/android/server/enterprise/nap/NetworkAnalyticsConfigStore;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v5}, Lcom/android/server/enterprise/nap/NetworkAnalyticsConfigStore;->isActivatedPackage(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v5, :cond_1
+
+    if-eqz v2, :cond_1
+
+    const-string/jumbo v9, "android.intent.extra.REPLACING"
+
+    const/4 v10, 0x0
+
+    invoke-virtual {p2, v9, v10}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_6
+
+    const-string/jumbo v9, "NetworkAnalytics:Service"
+
+    const-string/jumbo v10, "The package removal intent has been called before upgrade"
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
 
     :cond_5
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
     goto :goto_1
 
     :cond_6
-    const/4 v6, 0x7
+    new-instance v4, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$AsyncHandlerObject;
 
-    goto :goto_2
+    iget-object v9, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$NapReceiver;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsService;
 
-    :cond_7
-    const-string/jumbo v6, "android.intent.action.USER_REMOVED"
+    invoke-direct {v4, v9}, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$AsyncHandlerObject;-><init>(Lcom/android/server/enterprise/nap/NetworkAnalyticsService;)V
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    iput-object v5, v4, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$AsyncHandlerObject;->packageName:Ljava/lang/String;
 
-    move-result v6
+    iget-object v9, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$NapReceiver;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsService;
 
-    if-eqz v6, :cond_8
+    const/4 v10, 0x6
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+    const/4 v11, 0x0
 
-    move-result-object v2
+    const/4 v12, 0x0
 
-    iget-object v6, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$NapReceiver;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsService;
-
-    const/16 v7, 0xb
-
-    invoke-static {v6, v7, v9, v9, v2}, Lcom/android/server/enterprise/nap/NetworkAnalyticsService;->-wrap11(Lcom/android/server/enterprise/nap/NetworkAnalyticsService;IIILjava/lang/Object;)V
-
-    goto :goto_0
-
-    :cond_8
-    const-string/jumbo v6, "com.samsung.intent.action.EMERGENCY_STATE_CHANGED"
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_a
-
-    sget-boolean v6, Lcom/android/server/enterprise/nap/NetworkAnalyticsService;->DBG:Z
-
-    if-eqz v6, :cond_9
-
-    const-string/jumbo v6, "NetworkAnalytics:Service"
-
-    const-string/jumbo v7, "EMERGENCY_STATE_CHANGED received"
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_9
-    invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
-
-    move-result-object v2
-
-    iget-object v6, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$NapReceiver;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsService;
-
-    const/16 v7, 0xc
-
-    invoke-static {v6, v7, v9, v9, v2}, Lcom/android/server/enterprise/nap/NetworkAnalyticsService;->-wrap11(Lcom/android/server/enterprise/nap/NetworkAnalyticsService;IIILjava/lang/Object;)V
+    invoke-static {v9, v10, v11, v12, v4}, Lcom/android/server/enterprise/nap/NetworkAnalyticsService;->-wrap10(Lcom/android/server/enterprise/nap/NetworkAnalyticsService;IIILjava/lang/Object;)V
 
     goto/16 :goto_0
 
+    :cond_7
+    const-string/jumbo v9, "android.intent.action.PACKAGE_ADDED"
+
+    invoke-virtual {v0, v9}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_a
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
+
+    move-result-object v8
+
+    if-eqz v8, :cond_9
+
+    invoke-virtual {v8}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
+
+    move-result-object v5
+
+    :goto_2
+    sget-boolean v9, Lcom/android/server/enterprise/nap/NetworkAnalyticsService;->DBG:Z
+
+    if-eqz v9, :cond_8
+
+    const-string/jumbo v9, "NetworkAnalytics:Service"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "ACTION PACKAGE ADDED packageName : "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_8
+    iget-object v9, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$NapReceiver;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsService;
+
+    invoke-static {v9}, Lcom/android/server/enterprise/nap/NetworkAnalyticsService;->-get0(Lcom/android/server/enterprise/nap/NetworkAnalyticsService;)Lcom/android/server/enterprise/nap/NetworkAnalyticsConfigStore;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v5}, Lcom/android/server/enterprise/nap/NetworkAnalyticsConfigStore;->isActivatedPackage(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v5, :cond_1
+
+    if-eqz v2, :cond_1
+
+    new-instance v4, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$AsyncHandlerObject;
+
+    iget-object v9, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$NapReceiver;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsService;
+
+    invoke-direct {v4, v9}, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$AsyncHandlerObject;-><init>(Lcom/android/server/enterprise/nap/NetworkAnalyticsService;)V
+
+    iput-object v5, v4, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$AsyncHandlerObject;->packageName:Ljava/lang/String;
+
+    iget-object v9, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$NapReceiver;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsService;
+
+    const/4 v10, 0x7
+
+    const/4 v11, 0x0
+
+    const/4 v12, 0x0
+
+    invoke-static {v9, v10, v11, v12, v4}, Lcom/android/server/enterprise/nap/NetworkAnalyticsService;->-wrap10(Lcom/android/server/enterprise/nap/NetworkAnalyticsService;IIILjava/lang/Object;)V
+
+    goto/16 :goto_0
+
+    :cond_9
+    const/4 v5, 0x0
+
+    goto :goto_2
+
     :cond_a
-    const-string/jumbo v6, "android.intent.action.USER_PRESENT"
+    const-string/jumbo v9, "android.intent.action.USER_REMOVED"
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v9
 
-    if-eqz v6, :cond_1
+    if-eqz v9, :cond_c
 
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget-object v6, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$NapReceiver;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsService;
+    const-string/jumbo v9, "android.intent.extra.user_handle"
 
-    const/16 v7, 0xd
+    const/16 v10, -0x2710
 
-    invoke-static {v6, v7, v9, v9, v2}, Lcom/android/server/enterprise/nap/NetworkAnalyticsService;->-wrap11(Lcom/android/server/enterprise/nap/NetworkAnalyticsService;IIILjava/lang/Object;)V
+    invoke-virtual {v3, v9, v10}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+
+    move-result v7
+
+    const/16 v9, -0x2710
+
+    if-eq v7, v9, :cond_b
+
+    invoke-static {v7}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;->updateHashCacheForUser(I)V
+
+    :cond_b
+    iget-object v9, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$NapReceiver;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsService;
+
+    const/16 v10, 0xb
+
+    const/4 v11, 0x0
+
+    const/4 v12, 0x0
+
+    invoke-static {v9, v10, v11, v12, v3}, Lcom/android/server/enterprise/nap/NetworkAnalyticsService;->-wrap10(Lcom/android/server/enterprise/nap/NetworkAnalyticsService;IIILjava/lang/Object;)V
+
+    goto/16 :goto_0
+
+    :cond_c
+    const-string/jumbo v9, "com.samsung.intent.action.EMERGENCY_STATE_CHANGED"
+
+    invoke-virtual {v0, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_e
+
+    sget-boolean v9, Lcom/android/server/enterprise/nap/NetworkAnalyticsService;->DBG:Z
+
+    if-eqz v9, :cond_d
+
+    const-string/jumbo v9, "NetworkAnalytics:Service"
+
+    const-string/jumbo v10, "EMERGENCY_STATE_CHANGED received"
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_d
+    invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+
+    move-result-object v3
+
+    iget-object v9, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$NapReceiver;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsService;
+
+    const/16 v10, 0xc
+
+    const/4 v11, 0x0
+
+    const/4 v12, 0x0
+
+    invoke-static {v9, v10, v11, v12, v3}, Lcom/android/server/enterprise/nap/NetworkAnalyticsService;->-wrap10(Lcom/android/server/enterprise/nap/NetworkAnalyticsService;IIILjava/lang/Object;)V
+
+    goto/16 :goto_0
+
+    :cond_e
+    const-string/jumbo v9, "android.intent.action.USER_PRESENT"
+
+    invoke-virtual {v0, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_1
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+
+    move-result-object v3
+
+    iget-object v9, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsService$NapReceiver;->this$0:Lcom/android/server/enterprise/nap/NetworkAnalyticsService;
+
+    const/16 v10, 0xd
+
+    const/4 v11, 0x0
+
+    const/4 v12, 0x0
+
+    invoke-static {v9, v10, v11, v12, v3}, Lcom/android/server/enterprise/nap/NetworkAnalyticsService;->-wrap10(Lcom/android/server/enterprise/nap/NetworkAnalyticsService;IIILjava/lang/Object;)V
 
     goto/16 :goto_0
 .end method

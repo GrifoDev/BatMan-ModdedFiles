@@ -68,24 +68,6 @@
     return-void
 
     :pswitch_0
-    iget-object v0, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService$InternalHandler;->this$0:Lcom/android/server/enterprise/keystore/TimaKeystoreService;
-
-    const/4 v1, 0x1
-
-    invoke-static {v0, v1}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-wrap4(Lcom/android/server/enterprise/keystore/TimaKeystoreService;I)I
-
-    goto :goto_0
-
-    :pswitch_1
-    iget-object v0, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService$InternalHandler;->this$0:Lcom/android/server/enterprise/keystore/TimaKeystoreService;
-
-    const/4 v1, 0x2
-
-    invoke-static {v0, v1}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-wrap4(Lcom/android/server/enterprise/keystore/TimaKeystoreService;I)I
-
-    goto :goto_0
-
-    :pswitch_2
     invoke-static {}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-get1()Ljava/lang/String;
 
     move-result-object v0
@@ -98,7 +80,7 @@
 
     const/4 v1, 0x3
 
-    invoke-static {v0, v1}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-wrap4(Lcom/android/server/enterprise/keystore/TimaKeystoreService;I)I
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-wrap5(Lcom/android/server/enterprise/keystore/TimaKeystoreService;I)I
 
     invoke-static {}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-get1()Ljava/lang/String;
 
@@ -111,9 +93,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x1
+    .packed-switch 0x3
         :pswitch_0
-        :pswitch_1
-        :pswitch_2
     .end packed-switch
 .end method

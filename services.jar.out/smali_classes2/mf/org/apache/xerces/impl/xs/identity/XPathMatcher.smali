@@ -49,25 +49,25 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Lmf/org/apache/xerces/xni/QName;
+    new-instance v1, Lmf/org/apache/xerces/xni/QName;
 
-    invoke-direct {v0}, Lmf/org/apache/xerces/xni/QName;-><init>()V
+    invoke-direct {v1}, Lmf/org/apache/xerces/xni/QName;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fQName:Lmf/org/apache/xerces/xni/QName;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fQName:Lmf/org/apache/xerces/xni/QName;
 
     invoke-virtual {p1}, Lmf/org/apache/xerces/impl/xpath/XPath;->getLocationPaths()[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
 
-    array-length v0, v0
+    array-length v1, v1
 
-    new-array v0, v0, [Lmf/org/apache/xerces/util/IntStack;
+    new-array v1, v1, [Lmf/org/apache/xerces/util/IntStack;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fStepIndexes:[Lmf/org/apache/xerces/util/IntStack;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fStepIndexes:[Lmf/org/apache/xerces/util/IntStack;
 
     const/4 v0, 0x0
 
@@ -91,29 +91,29 @@
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
 
-    array-length v0, v0
+    array-length v1, v1
 
-    new-array v0, v0, [I
+    new-array v1, v1, [I
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
 
-    array-length v0, v0
+    array-length v1, v1
 
-    new-array v0, v0, [I
+    new-array v1, v1, [I
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fNoMatchDepth:[I
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fNoMatchDepth:[I
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
 
-    array-length v0, v0
+    array-length v1, v1
 
-    new-array v0, v0, [I
+    new-array v1, v1, [I
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
 
     return-void
 .end method
@@ -162,47 +162,47 @@
 .end method
 
 .method private normalize(Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .locals 5
 
-    new-instance v1, Ljava/lang/StringBuffer;
+    new-instance v3, Ljava/lang/StringBuffer;
 
-    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuffer;-><init>()V
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v0, v2, :cond_0
+    if-ge v1, v2, :cond_0
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
 
-    move-result v3
+    move-result v0
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v0, :pswitch_data_0
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     :goto_1
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :pswitch_0
-    const-string/jumbo v3, "\\n"
+    const-string/jumbo v4, "\\n"
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_1
 
     :cond_0
-    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v4
 
-    return-object v0
+    return-object v4
 
     nop
 
@@ -215,11 +215,11 @@
 
 # virtual methods
 .method public endElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xs/XSTypeDefinition;ZLjava/lang/Object;SLmf/org/apache/xerces/xs/ShortList;)V
-    .locals 8
+    .locals 9
 
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
-    move v6, v7
+    const/4 v6, 0x0
 
     :goto_0
     iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
@@ -246,19 +246,17 @@
 
     if-gtz v0, :cond_2
 
-    move v0, v7
+    const/4 v7, 0x0
 
     :goto_1
-    if-lt v0, v6, :cond_3
+    if-lt v7, v6, :cond_3
 
     :cond_0
-    if-ge v0, v6, :cond_4
+    if-ge v7, v6, :cond_4
 
     :cond_1
     :goto_2
-    add-int/lit8 v0, v6, 0x1
-
-    move v6, v0
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
 
@@ -274,30 +272,30 @@
     goto :goto_2
 
     :cond_3
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
+    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
 
-    aget v1, v1, v0
+    aget v0, v0, v7
 
-    and-int/lit8 v1, v1, 0x1
+    and-int/lit8 v0, v0, 0x1
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    if-eq v1, v2, :cond_0
+    if-eq v0, v1, :cond_0
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v7, v7, 0x1
 
     goto :goto_1
 
     :cond_4
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
+    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
 
-    aget v1, v1, v0
+    aget v0, v0, v7
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
+    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
 
-    aget v0, v1, v0
+    aget v0, v0, v7
 
     and-int/lit8 v0, v0, 0x3
 
@@ -321,14 +319,14 @@
 
     iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
 
-    aput v7, v0, v6
+    aput v8, v0, v6
 
     goto :goto_2
 
     :cond_5
     iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
 
-    aput v7, v0, v6
+    aput v8, v0, v6
 
     goto :goto_2
 
@@ -347,24 +345,24 @@
 
     const/4 v4, 0x1
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_0
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
 
-    array-length v2, v2
+    array-length v1, v1
 
-    if-ge v0, v2, :cond_4
+    if-ge v0, v1, :cond_4
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
 
-    aget v2, v2, v0
+    aget v1, v1, v0
 
-    and-int/lit8 v2, v2, 0x1
+    and-int/lit8 v1, v1, 0x1
 
-    if-eq v2, v4, :cond_1
+    if-eq v1, v4, :cond_1
 
     :cond_0
     :goto_1
@@ -373,40 +371,40 @@
     goto :goto_0
 
     :cond_1
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
 
-    aget v2, v2, v0
+    aget v1, v1, v0
 
-    and-int/lit8 v2, v2, 0xd
+    and-int/lit8 v1, v1, 0xd
 
-    const/16 v3, 0xd
+    const/16 v2, 0xd
 
-    if-eq v2, v3, :cond_0
+    if-eq v1, v2, :cond_0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fNoMatchDepth:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fNoMatchDepth:[I
 
-    aget v2, v2, v0
+    aget v1, v1, v0
 
-    if-nez v2, :cond_3
+    if-nez v1, :cond_3
 
     :cond_2
     return v4
 
     :cond_3
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
 
-    aget v2, v2, v0
+    aget v1, v1, v0
 
-    and-int/lit8 v2, v2, 0x5
+    and-int/lit8 v1, v1, 0x5
 
-    const/4 v3, 0x5
+    const/4 v2, 0x5
 
-    if-eq v2, v3, :cond_2
+    if-eq v1, v2, :cond_2
 
     goto :goto_1
 
     :cond_4
-    return v1
+    return v3
 .end method
 
 .method protected matched(Ljava/lang/Object;SLmf/org/apache/xerces/xs/ShortList;Z)V
@@ -418,38 +416,38 @@
 .method public startDocumentFragment()V
     .locals 3
 
+    const/4 v2, 0x0
+
     const/4 v1, 0x0
+
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatchedString:Ljava/lang/Object;
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatchedString:Ljava/lang/Object;
-
-    move v0, v1
-
     :goto_0
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
 
-    array-length v2, v2
+    array-length v1, v1
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v1, :cond_0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fStepIndexes:[Lmf/org/apache/xerces/util/IntStack;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fStepIndexes:[Lmf/org/apache/xerces/util/IntStack;
 
-    aget-object v2, v2, v0
+    aget-object v1, v1, v0
 
-    invoke-virtual {v2}, Lmf/org/apache/xerces/util/IntStack;->clear()V
+    invoke-virtual {v1}, Lmf/org/apache/xerces/util/IntStack;->clear()V
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
 
-    aput v1, v2, v0
+    aput v2, v1, v0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fNoMatchDepth:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fNoMatchDepth:[I
 
-    aput v1, v2, v0
+    aput v2, v1, v0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
 
-    aput v1, v2, v0
+    aput v2, v1, v0
 
     add-int/lit8 v0, v0, 0x1
 
@@ -460,479 +458,595 @@
 .end method
 
 .method public startElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;)V
-    .locals 11
+    .locals 16
 
-    const/4 v10, 0x5
-
-    const/4 v9, 0x3
-
-    const/4 v2, 0x1
-
-    const/4 v1, 0x0
-
-    move v3, v1
+    const/4 v5, 0x0
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
+    move-object/from16 v0, p0
 
-    array-length v0, v0
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
 
-    if-ge v3, v0, :cond_18
+    array-length v12, v12
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    if-ge v5, v12, :cond_18
 
-    aget v4, v0, v3
+    move-object/from16 v0, p0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fStepIndexes:[Lmf/org/apache/xerces/util/IntStack;
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
 
-    aget-object v0, v0, v3
+    aget v9, v12, v5
 
-    invoke-virtual {v0, v4}, Lmf/org/apache/xerces/util/IntStack;->push(I)V
+    move-object/from16 v0, p0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fStepIndexes:[Lmf/org/apache/xerces/util/IntStack;
 
-    aget v0, v0, v3
+    aget-object v12, v12, v5
 
-    and-int/lit8 v0, v0, 0x5
+    invoke-virtual {v12, v9}, Lmf/org/apache/xerces/util/IntStack;->push(I)V
 
-    if-ne v0, v2, :cond_2
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
+
+    aget v12, v12, v5
+
+    and-int/lit8 v12, v12, 0x5
+
+    const/4 v13, 0x1
+
+    if-ne v12, v13, :cond_2
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fNoMatchDepth:[I
+    move-object/from16 v0, p0
 
-    aget v4, v0, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fNoMatchDepth:[I
 
-    add-int/lit8 v4, v4, 0x1
+    aget v13, v12, v5
 
-    aput v4, v0, v3
+    add-int/lit8 v13, v13, 0x1
+
+    aput v13, v12, v5
 
     :cond_1
     :goto_1
-    add-int/lit8 v0, v3, 0x1
-
-    move v3, v0
+    add-int/lit8 v5, v5, 0x1
 
     goto :goto_0
 
     :cond_2
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fNoMatchDepth:[I
+    move-object/from16 v0, p0
 
-    aget v0, v0, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fNoMatchDepth:[I
 
-    if-gtz v0, :cond_0
+    aget v12, v12, v5
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
+    if-gtz v12, :cond_0
 
-    aget v0, v0, v3
+    move-object/from16 v0, p0
 
-    and-int/lit8 v0, v0, 0x5
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
 
-    if-eq v0, v10, :cond_7
+    aget v12, v12, v5
+
+    and-int/lit8 v12, v12, 0x5
+
+    const/4 v13, 0x5
+
+    if-eq v12, v13, :cond_7
 
     :goto_2
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
+    move-object/from16 v0, p0
 
-    aget-object v0, v0, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
 
-    iget-object v5, v0, Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;->steps:[Lmf/org/apache/xerces/impl/xpath/XPath$Step;
+    aget-object v12, v12, v5
+
+    iget-object v11, v12, Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;->steps:[Lmf/org/apache/xerces/impl/xpath/XPath$Step;
 
     :goto_3
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    move-object/from16 v0, p0
 
-    aget v0, v0, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
 
-    array-length v6, v5
+    aget v12, v12, v5
 
-    if-lt v0, v6, :cond_8
+    array-length v13, v11
+
+    if-lt v12, v13, :cond_8
 
     :cond_3
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    move-object/from16 v0, p0
 
-    aget v0, v0, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
 
-    array-length v6, v5
+    aget v12, v12, v5
 
-    if-eq v0, v6, :cond_9
+    array-length v13, v11
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    if-eq v12, v13, :cond_9
 
-    aget v6, v0, v3
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+
+    aget v4, v12, v5
 
     :goto_4
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    move-object/from16 v0, p0
 
-    aget v0, v0, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
 
-    array-length v7, v5
+    aget v12, v12, v5
 
-    if-lt v0, v7, :cond_a
+    array-length v13, v11
+
+    if-lt v12, v13, :cond_a
 
     :cond_4
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    move-object/from16 v0, p0
 
-    aget v0, v0, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
 
-    if-gt v0, v6, :cond_b
+    aget v12, v12, v5
 
-    move v0, v1
+    if-gt v12, v4, :cond_b
+
+    const/4 v8, 0x0
 
     :goto_5
-    iget-object v7, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    move-object/from16 v0, p0
 
-    aget v7, v7, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
 
-    array-length v8, v5
+    aget v12, v12, v5
 
-    if-eq v7, v8, :cond_c
+    array-length v13, v11
 
-    iget-object v7, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    if-eq v12, v13, :cond_c
 
-    aget v7, v7, v3
+    move-object/from16 v0, p0
 
-    if-ne v7, v4, :cond_d
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+
+    aget v12, v12, v5
+
+    if-ne v12, v9, :cond_d
 
     :cond_5
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    move-object/from16 v0, p0
 
-    aget v4, v4, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
 
-    aget-object v4, v5, v4
+    aget v12, v12, v5
 
-    iget-object v4, v4, Lmf/org/apache/xerces/impl/xpath/XPath$Step;->axis:Lmf/org/apache/xerces/impl/xpath/XPath$Axis;
+    aget-object v12, v11, v12
 
-    iget-short v4, v4, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;->type:S
+    iget-object v12, v12, Lmf/org/apache/xerces/impl/xpath/XPath$Step;->axis:Lmf/org/apache/xerces/impl/xpath/XPath$Axis;
 
-    if-eq v4, v2, :cond_e
+    iget-short v12, v12, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;->type:S
+
+    const/4 v13, 0x1
+
+    if-eq v12, v13, :cond_e
 
     :goto_6
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    move-object/from16 v0, p0
 
-    aget v4, v4, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
 
-    array-length v7, v5
+    aget v12, v12, v5
 
-    if-eq v4, v7, :cond_11
+    array-length v13, v11
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    if-eq v12, v13, :cond_11
 
-    aget v0, v0, v3
+    move-object/from16 v0, p0
 
-    array-length v4, v5
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
 
-    if-ge v0, v4, :cond_1
+    aget v12, v12, v5
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    array-length v13, v11
 
-    aget v0, v0, v3
+    if-ge v12, v13, :cond_1
 
-    aget-object v0, v5, v0
+    move-object/from16 v0, p0
 
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/xpath/XPath$Step;->axis:Lmf/org/apache/xerces/impl/xpath/XPath$Axis;
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
 
-    iget-short v0, v0, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;->type:S
+    aget v12, v12, v5
 
-    const/4 v4, 0x2
+    aget-object v12, v11, v12
 
-    if-ne v0, v4, :cond_1
+    iget-object v12, v12, Lmf/org/apache/xerces/impl/xpath/XPath$Step;->axis:Lmf/org/apache/xerces/impl/xpath/XPath$Axis;
 
-    invoke-interface {p2}, Lmf/org/apache/xerces/xni/XMLAttributes;->getLength()I
+    iget-short v12, v12, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;->type:S
 
-    move-result v4
+    const/4 v13, 0x2
 
-    if-gtz v4, :cond_13
+    if-ne v12, v13, :cond_1
+
+    invoke-interface/range {p2 .. p2}, Lmf/org/apache/xerces/xni/XMLAttributes;->getLength()I
+
+    move-result v2
+
+    if-gtz v2, :cond_13
 
     :cond_6
     :goto_7
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
+    move-object/from16 v0, p0
 
-    aget v0, v0, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
 
-    and-int/lit8 v0, v0, 0x1
+    aget v12, v12, v5
 
-    if-eq v0, v2, :cond_1
+    and-int/lit8 v12, v12, 0x1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    const/4 v13, 0x1
 
-    aget v0, v0, v3
+    if-eq v12, v13, :cond_1
 
-    if-gt v0, v6, :cond_17
+    move-object/from16 v0, p0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fNoMatchDepth:[I
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
 
-    aget v4, v0, v3
+    aget v12, v12, v5
 
-    add-int/lit8 v4, v4, 0x1
+    if-gt v12, v4, :cond_17
 
-    aput v4, v0, v3
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fNoMatchDepth:[I
+
+    aget v13, v12, v5
+
+    add-int/lit8 v13, v13, 0x1
+
+    aput v13, v12, v5
 
     goto/16 :goto_1
 
     :cond_7
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
+    move-object/from16 v0, p0
 
-    const/16 v5, 0xd
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
 
-    aput v5, v0, v3
+    const/16 v13, 0xd
 
-    goto :goto_2
+    aput v13, v12, v5
+
+    goto/16 :goto_2
 
     :cond_8
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    move-object/from16 v0, p0
 
-    aget v0, v0, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
 
-    aget-object v0, v5, v0
+    aget v12, v12, v5
 
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/xpath/XPath$Step;->axis:Lmf/org/apache/xerces/impl/xpath/XPath$Axis;
+    aget-object v12, v11, v12
 
-    iget-short v0, v0, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;->type:S
+    iget-object v12, v12, Lmf/org/apache/xerces/impl/xpath/XPath$Step;->axis:Lmf/org/apache/xerces/impl/xpath/XPath$Axis;
 
-    if-ne v0, v9, :cond_3
+    iget-short v12, v12, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;->type:S
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    const/4 v13, 0x3
 
-    aget v6, v0, v3
+    if-ne v12, v13, :cond_3
 
-    add-int/lit8 v6, v6, 0x1
+    move-object/from16 v0, p0
 
-    aput v6, v0, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+
+    aget v13, v12, v5
+
+    add-int/lit8 v13, v13, 0x1
+
+    aput v13, v12, v5
 
     goto/16 :goto_3
 
     :cond_9
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
+    move-object/from16 v0, p0
 
-    aput v2, v0, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
+
+    const/4 v13, 0x1
+
+    aput v13, v12, v5
 
     goto/16 :goto_1
 
     :cond_a
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    move-object/from16 v0, p0
 
-    aget v0, v0, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
 
-    aget-object v0, v5, v0
+    aget v12, v12, v5
 
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/xpath/XPath$Step;->axis:Lmf/org/apache/xerces/impl/xpath/XPath$Axis;
+    aget-object v12, v11, v12
 
-    iget-short v0, v0, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;->type:S
+    iget-object v12, v12, Lmf/org/apache/xerces/impl/xpath/XPath$Step;->axis:Lmf/org/apache/xerces/impl/xpath/XPath$Axis;
 
-    const/4 v7, 0x4
+    iget-short v12, v12, Lmf/org/apache/xerces/impl/xpath/XPath$Axis;->type:S
 
-    if-ne v0, v7, :cond_4
+    const/4 v13, 0x4
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    if-ne v12, v13, :cond_4
 
-    aget v7, v0, v3
+    move-object/from16 v0, p0
 
-    add-int/lit8 v7, v7, 0x1
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
 
-    aput v7, v0, v3
+    aget v13, v12, v5
+
+    add-int/lit8 v13, v13, 0x1
+
+    aput v13, v12, v5
 
     goto/16 :goto_4
 
     :cond_b
-    move v0, v2
+    const/4 v8, 0x1
 
     goto/16 :goto_5
 
     :cond_c
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fNoMatchDepth:[I
+    move-object/from16 v0, p0
 
-    aget v4, v0, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fNoMatchDepth:[I
 
-    add-int/lit8 v4, v4, 0x1
+    aget v13, v12, v5
 
-    aput v4, v0, v3
+    add-int/lit8 v13, v13, 0x1
+
+    aput v13, v12, v5
 
     goto/16 :goto_1
 
     :cond_d
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    move-object/from16 v0, p0
 
-    aget v4, v4, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
 
-    if-gt v4, v6, :cond_5
+    aget v12, v12, v5
+
+    if-gt v12, v4, :cond_5
 
     goto/16 :goto_6
 
     :cond_e
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    move-object/from16 v0, p0
 
-    aget v4, v4, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
 
-    aget-object v4, v5, v4
+    aget v12, v12, v5
 
-    iget-object v4, v4, Lmf/org/apache/xerces/impl/xpath/XPath$Step;->nodeTest:Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;
+    aget-object v10, v11, v12
 
-    invoke-static {v4, p1}, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->matches(Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;Lmf/org/apache/xerces/xni/QName;)Z
+    iget-object v7, v10, Lmf/org/apache/xerces/impl/xpath/XPath$Step;->nodeTest:Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;
 
-    move-result v4
+    move-object/from16 v0, p1
 
-    if-eqz v4, :cond_f
+    invoke-static {v7, v0}, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->matches(Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;Lmf/org/apache/xerces/xni/QName;)Z
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    move-result v12
 
-    aget v7, v4, v3
+    if-eqz v12, :cond_f
 
-    add-int/lit8 v7, v7, 0x1
+    move-object/from16 v0, p0
 
-    aput v7, v4, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+
+    aget v13, v12, v5
+
+    add-int/lit8 v13, v13, 0x1
+
+    aput v13, v12, v5
 
     goto/16 :goto_6
 
     :cond_f
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    move-object/from16 v0, p0
 
-    aget v0, v0, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
 
-    if-gt v0, v6, :cond_10
+    aget v12, v12, v5
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fNoMatchDepth:[I
+    if-gt v12, v4, :cond_10
 
-    aget v4, v0, v3
+    move-object/from16 v0, p0
 
-    add-int/lit8 v4, v4, 0x1
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fNoMatchDepth:[I
 
-    aput v4, v0, v3
+    aget v13, v12, v5
+
+    add-int/lit8 v13, v13, 0x1
+
+    aput v13, v12, v5
 
     goto/16 :goto_1
 
     :cond_10
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    move-object/from16 v0, p0
 
-    aput v6, v0, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+
+    aput v4, v12, v5
 
     goto/16 :goto_1
 
     :cond_11
-    if-nez v0, :cond_12
+    if-nez v8, :cond_12
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
+    move-object/from16 v0, p0
 
-    aput v2, v0, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
+
+    const/4 v13, 0x1
+
+    aput v13, v12, v5
 
     goto/16 :goto_1
 
     :cond_12
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    move-object/from16 v0, p0
 
-    aput v6, v0, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
+    aput v4, v12, v5
 
-    aput v10, v0, v3
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
+
+    const/4 v13, 0x5
+
+    aput v13, v12, v5
 
     goto/16 :goto_1
 
     :cond_13
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    move-object/from16 v0, p0
 
-    aget v0, v0, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
 
-    aget-object v0, v5, v0
+    aget v12, v12, v5
 
-    iget-object v7, v0, Lmf/org/apache/xerces/impl/xpath/XPath$Step;->nodeTest:Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;
+    aget-object v12, v11, v12
 
-    move v0, v1
+    iget-object v7, v12, Lmf/org/apache/xerces/impl/xpath/XPath$Step;->nodeTest:Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;
+
+    const/4 v1, 0x0
 
     :goto_8
-    if-ge v0, v4, :cond_6
+    if-ge v1, v2, :cond_6
 
-    iget-object v8, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fQName:Lmf/org/apache/xerces/xni/QName;
+    move-object/from16 v0, p0
 
-    invoke-interface {p2, v0, v8}, Lmf/org/apache/xerces/xni/XMLAttributes;->getName(ILmf/org/apache/xerces/xni/QName;)V
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v8, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fQName:Lmf/org/apache/xerces/xni/QName;
+    move-object/from16 v0, p2
 
-    invoke-static {v7, v8}, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->matches(Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;Lmf/org/apache/xerces/xni/QName;)Z
+    invoke-interface {v0, v1, v12}, Lmf/org/apache/xerces/xni/XMLAttributes;->getName(ILmf/org/apache/xerces/xni/QName;)V
 
-    move-result v8
+    move-object/from16 v0, p0
 
-    if-nez v8, :cond_14
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fQName:Lmf/org/apache/xerces/xni/QName;
 
-    add-int/lit8 v0, v0, 0x1
+    invoke-static {v7, v12}, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->matches(Lmf/org/apache/xerces/impl/xpath/XPath$NodeTest;Lmf/org/apache/xerces/xni/QName;)Z
+
+    move-result v12
+
+    if-nez v12, :cond_14
+
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_8
 
     :cond_14
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    move-object/from16 v0, p0
 
-    aget v7, v4, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
 
-    add-int/lit8 v7, v7, 0x1
+    aget v13, v12, v5
 
-    aput v7, v4, v3
+    add-int/lit8 v13, v13, 0x1
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    aput v13, v12, v5
 
-    aget v4, v4, v3
+    move-object/from16 v0, p0
 
-    array-length v5, v5
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
 
-    if-ne v4, v5, :cond_6
+    aget v12, v12, v5
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
+    array-length v13, v11
 
-    aput v9, v4, v3
+    if-ne v12, v13, :cond_6
 
-    move v4, v1
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
+
+    const/4 v13, 0x3
+
+    aput v13, v12, v5
+
+    const/4 v6, 0x0
 
     :goto_9
-    if-lt v4, v3, :cond_16
+    if-lt v6, v5, :cond_16
 
     :cond_15
-    if-ne v4, v3, :cond_6
+    if-ne v6, v5, :cond_6
 
-    invoke-interface {p2, v0}, Lmf/org/apache/xerces/xni/XMLAttributes;->getAugmentations(I)Lmf/org/apache/xerces/xni/Augmentations;
+    move-object/from16 v0, p2
 
-    move-result-object v0
+    invoke-interface {v0, v1}, Lmf/org/apache/xerces/xni/XMLAttributes;->getAugmentations(I)Lmf/org/apache/xerces/xni/Augmentations;
 
-    const-string/jumbo v4, "ATTRIBUTE_PSVI"
+    move-result-object v12
 
-    invoke-interface {v0, v4}, Lmf/org/apache/xerces/xni/Augmentations;->getItem(Ljava/lang/String;)Ljava/lang/Object;
+    const-string/jumbo v13, "ATTRIBUTE_PSVI"
 
-    move-result-object v0
+    invoke-interface {v12, v13}, Lmf/org/apache/xerces/xni/Augmentations;->getItem(Ljava/lang/String;)Ljava/lang/Object;
 
-    check-cast v0, Lmf/org/apache/xerces/xs/AttributePSVI;
+    move-result-object v3
 
-    invoke-interface {v0}, Lmf/org/apache/xerces/xs/AttributePSVI;->getActualNormalizedValue()Ljava/lang/Object;
+    check-cast v3, Lmf/org/apache/xerces/xs/AttributePSVI;
 
-    move-result-object v4
+    invoke-interface {v3}, Lmf/org/apache/xerces/xs/AttributePSVI;->getActualNormalizedValue()Ljava/lang/Object;
 
-    iput-object v4, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatchedString:Ljava/lang/Object;
+    move-result-object v12
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatchedString:Ljava/lang/Object;
+    move-object/from16 v0, p0
 
-    invoke-interface {v0}, Lmf/org/apache/xerces/xs/AttributePSVI;->getActualNormalizedValueType()S
+    iput-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatchedString:Ljava/lang/Object;
 
-    move-result v5
+    move-object/from16 v0, p0
 
-    invoke-interface {v0}, Lmf/org/apache/xerces/xs/AttributePSVI;->getItemValueTypes()Lmf/org/apache/xerces/xs/ShortList;
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatchedString:Ljava/lang/Object;
 
-    move-result-object v0
+    invoke-interface {v3}, Lmf/org/apache/xerces/xs/AttributePSVI;->getActualNormalizedValueType()S
 
-    invoke-virtual {p0, v4, v5, v0, v1}, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->matched(Ljava/lang/Object;SLmf/org/apache/xerces/xs/ShortList;Z)V
+    move-result v13
+
+    invoke-interface {v3}, Lmf/org/apache/xerces/xs/AttributePSVI;->getItemValueTypes()Lmf/org/apache/xerces/xs/ShortList;
+
+    move-result-object v14
+
+    const/4 v15, 0x0
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v12, v13, v14, v15}, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->matched(Ljava/lang/Object;SLmf/org/apache/xerces/xs/ShortList;Z)V
 
     goto/16 :goto_7
 
     :cond_16
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
+    move-object/from16 v0, p0
 
-    aget v5, v5, v4
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fMatched:[I
 
-    and-int/lit8 v5, v5, 0x1
+    aget v12, v12, v6
 
-    if-eq v5, v2, :cond_15
+    and-int/lit8 v12, v12, 0x1
 
-    add-int/lit8 v4, v4, 0x1
+    const/4 v13, 0x1
+
+    if-eq v12, v13, :cond_15
+
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_9
 
     :cond_17
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    move-object/from16 v0, p0
 
-    aput v6, v0, v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+
+    aput v4, v12, v5
 
     goto/16 :goto_1
 
@@ -941,139 +1055,135 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 7
+    .locals 9
 
-    const/16 v6, 0x5e
+    const/16 v8, 0x5e
 
-    const/4 v1, 0x0
+    new-instance v5, Ljava/lang/StringBuffer;
 
-    new-instance v3, Ljava/lang/StringBuffer;
-
-    invoke-direct {v3}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuffer;-><init>()V
 
     invoke-super {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    const/16 v2, 0x2e
+    const/16 v6, 0x2e
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->lastIndexOf(I)I
+    invoke-virtual {v3, v6}, Ljava/lang/String;->lastIndexOf(I)I
 
-    move-result v2
+    move-result v1
 
-    const/4 v4, -0x1
+    const/4 v6, -0x1
 
-    if-ne v2, v4, :cond_0
+    if-ne v1, v6, :cond_0
 
     :goto_0
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move v2, v1
+    const/4 v0, 0x0
 
     :goto_1
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
 
-    array-length v0, v0
+    array-length v6, v6
 
-    if-ge v2, v0, :cond_5
+    if-ge v0, v6, :cond_5
 
-    const/16 v0, 0x5b
+    const/16 v6, 0x5b
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fLocationPaths:[Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;
 
-    aget-object v0, v0, v2
+    aget-object v6, v6, v0
 
-    iget-object v4, v0, Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;->steps:[Lmf/org/apache/xerces/impl/xpath/XPath$Step;
+    iget-object v4, v6, Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;->steps:[Lmf/org/apache/xerces/impl/xpath/XPath$Step;
 
-    move v0, v1
+    const/4 v2, 0x0
 
     :goto_2
-    array-length v5, v4
+    array-length v6, v4
 
-    if-ge v0, v5, :cond_3
+    if-ge v2, v6, :cond_3
 
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
 
-    aget v5, v5, v2
+    aget v6, v6, v0
 
-    if-eq v0, v5, :cond_1
+    if-eq v2, v6, :cond_1
 
     :goto_3
-    aget-object v5, v4, v0
+    aget-object v6, v4, v2
 
-    invoke-virtual {v5}, Lmf/org/apache/xerces/impl/xpath/XPath$Step;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Lmf/org/apache/xerces/impl/xpath/XPath$Step;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    array-length v5, v4
+    array-length v6, v4
 
-    add-int/lit8 v5, v5, -0x1
+    add-int/lit8 v6, v6, -0x1
 
-    if-lt v0, v5, :cond_2
+    if-lt v2, v6, :cond_2
 
     :goto_4
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_2
 
     :cond_0
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v6, v1, 0x1
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {v3, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v3, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v5, v8}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto :goto_3
 
     :cond_2
-    const/16 v5, 0x2f
+    const/16 v6, 0x2f
 
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto :goto_4
 
     :cond_3
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->fCurrentStep:[I
 
-    aget v0, v0, v2
+    aget v6, v6, v0
 
-    array-length v4, v4
+    array-length v7, v4
 
-    if-eq v0, v4, :cond_4
+    if-eq v6, v7, :cond_4
 
     :goto_5
-    const/16 v0, 0x5d
+    const/16 v6, 0x5d
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    const/16 v0, 0x2c
+    const/16 v6, 0x2c
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    add-int/lit8 v0, v2, 0x1
-
-    move v2, v0
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
     :cond_4
-    invoke-virtual {v3, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v5, v8}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto :goto_5
 
     :cond_5
-    invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v6
 
-    return-object v0
+    return-object v6
 .end method

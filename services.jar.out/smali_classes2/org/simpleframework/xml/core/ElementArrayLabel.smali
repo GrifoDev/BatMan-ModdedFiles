@@ -166,14 +166,12 @@
 
     invoke-direct {p0, p1, v1}, Lorg/simpleframework/xml/core/ElementArrayLabel;->getConverter(Lorg/simpleframework/xml/core/Context;Ljava/lang/String;)Lorg/simpleframework/xml/core/Converter;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 
     :cond_0
-    new-instance v1, Lorg/simpleframework/xml/core/InstantiationException;
-
-    const-string/jumbo v2, "Type is not an array %s for %s"
+    new-instance v2, Lorg/simpleframework/xml/core/InstantiationException;
 
     const/4 v3, 0x2
 
@@ -187,9 +185,11 @@
 
     aput-object v0, v3, v4
 
-    invoke-direct {v1, v2, v3}, Lorg/simpleframework/xml/core/InstantiationException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v4, "Type is not an array %s for %s"
 
-    throw v1
+    invoke-direct {v2, v4, v3}, Lorg/simpleframework/xml/core/InstantiationException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v2
 .end method
 
 .method public getDecorator()Lorg/simpleframework/xml/core/Decorator;
@@ -206,11 +206,11 @@
 .end method
 
 .method public getDependent()Lorg/simpleframework/xml/strategy/Type;
-    .locals 2
+    .locals 3
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/ElementArrayLabel;->type:Ljava/lang/Class;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/ElementArrayLabel;->type:Ljava/lang/Class;
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
+    invoke-virtual {v1}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
 
     move-result-object v0
 
@@ -223,17 +223,17 @@
     return-object v1
 
     :cond_0
-    new-instance v0, Lorg/simpleframework/xml/core/ClassType;
+    new-instance v1, Lorg/simpleframework/xml/core/ClassType;
 
-    iget-object v1, p0, Lorg/simpleframework/xml/core/ElementArrayLabel;->type:Ljava/lang/Class;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ElementArrayLabel;->type:Ljava/lang/Class;
 
-    invoke-direct {v0, v1}, Lorg/simpleframework/xml/core/ClassType;-><init>(Ljava/lang/Class;)V
+    invoke-direct {v1, v2}, Lorg/simpleframework/xml/core/ClassType;-><init>(Ljava/lang/Class;)V
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public getEmpty(Lorg/simpleframework/xml/core/Context;)Ljava/lang/Object;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -242,32 +242,32 @@
 
     new-instance v0, Lorg/simpleframework/xml/core/ClassType;
 
-    iget-object v1, p0, Lorg/simpleframework/xml/core/ElementArrayLabel;->type:Ljava/lang/Class;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ElementArrayLabel;->type:Ljava/lang/Class;
 
-    invoke-direct {v0, v1}, Lorg/simpleframework/xml/core/ClassType;-><init>(Ljava/lang/Class;)V
+    invoke-direct {v0, v2}, Lorg/simpleframework/xml/core/ClassType;-><init>(Ljava/lang/Class;)V
 
     new-instance v1, Lorg/simpleframework/xml/core/ArrayFactory;
 
     invoke-direct {v1, p1, v0}, Lorg/simpleframework/xml/core/ArrayFactory;-><init>(Lorg/simpleframework/xml/core/Context;Lorg/simpleframework/xml/strategy/Type;)V
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/ElementArrayLabel;->label:Lorg/simpleframework/xml/ElementArray;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ElementArrayLabel;->label:Lorg/simpleframework/xml/ElementArray;
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/ElementArray;->empty()Z
+    invoke-interface {v2}, Lorg/simpleframework/xml/ElementArray;->empty()Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    return-object v0
+    return-object v2
 
     :cond_0
     invoke-virtual {v1}, Lorg/simpleframework/xml/core/Factory;->getInstance()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 .end method
 
 .method public getEntry()Ljava/lang/String;
@@ -278,9 +278,9 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/ElementArrayLabel;->format:Lorg/simpleframework/xml/stream/Format;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/ElementArrayLabel;->format:Lorg/simpleframework/xml/stream/Format;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/stream/Format;->getStyle()Lorg/simpleframework/xml/stream/Style;
+    invoke-virtual {v1}, Lorg/simpleframework/xml/stream/Format;->getStyle()Lorg/simpleframework/xml/stream/Style;
 
     move-result-object v0
 
@@ -299,9 +299,9 @@
 
     invoke-interface {v0, v1}, Lorg/simpleframework/xml/stream/Style;->getElement(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
     iget-object v1, p0, Lorg/simpleframework/xml/core/ElementArrayLabel;->detail:Lorg/simpleframework/xml/core/Introspector;
@@ -345,30 +345,30 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/ElementArrayLabel;->format:Lorg/simpleframework/xml/stream/Format;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ElementArrayLabel;->format:Lorg/simpleframework/xml/stream/Format;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/stream/Format;->getStyle()Lorg/simpleframework/xml/stream/Style;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lorg/simpleframework/xml/core/ElementArrayLabel;->detail:Lorg/simpleframework/xml/core/Introspector;
-
-    invoke-virtual {v1}, Lorg/simpleframework/xml/core/Introspector;->getName()Ljava/lang/String;
+    invoke-virtual {v2}, Lorg/simpleframework/xml/stream/Format;->getStyle()Lorg/simpleframework/xml/stream/Style;
 
     move-result-object v1
 
-    invoke-interface {v0, v1}, Lorg/simpleframework/xml/stream/Style;->getElement(Ljava/lang/String;)Ljava/lang/String;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ElementArrayLabel;->detail:Lorg/simpleframework/xml/core/Introspector;
+
+    invoke-virtual {v2}, Lorg/simpleframework/xml/core/Introspector;->getName()Ljava/lang/String;
 
     move-result-object v0
 
-    return-object v0
+    invoke-interface {v1, v0}, Lorg/simpleframework/xml/stream/Style;->getElement(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    return-object v2
 .end method
 
 .method public getOverride()Ljava/lang/String;
@@ -380,7 +380,7 @@
 .end method
 
 .method public getPath()Ljava/lang/String;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -389,17 +389,17 @@
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/core/ElementArrayLabel;->getExpression()Lorg/simpleframework/xml/core/Expression;
 
-    move-result-object v0
+    move-result-object v1
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/core/ElementArrayLabel;->getName()Ljava/lang/String;
 
-    move-result-object v1
-
-    invoke-interface {v0, v1}, Lorg/simpleframework/xml/core/Expression;->getElement(Ljava/lang/String;)Ljava/lang/String;
-
     move-result-object v0
 
-    return-object v0
+    invoke-interface {v1, v0}, Lorg/simpleframework/xml/core/Expression;->getElement(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    return-object v2
 .end method
 
 .method public getType()Ljava/lang/Class;

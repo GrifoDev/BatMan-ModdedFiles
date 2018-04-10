@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public final createHTMLDocument(Ljava/lang/String;)Lmf/org/w3c/dom/html/HTMLDocument;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/w3c/dom/DOMException;
@@ -60,11 +60,11 @@
     return-object v0
 
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance v1, Ljava/lang/NullPointerException;
 
-    const-string/jumbo v1, "HTM014 Argument \'title\' is null."
+    const-string/jumbo v2, "HTM014 Argument \'title\' is null."
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v1
 .end method

@@ -173,52 +173,52 @@
 .end method
 
 .method private addToken(I)V
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->fTokens:[I
+    iget-object v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->fTokens:[I
 
-    iget v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->fTokenCount:I
+    iget v3, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->fTokenCount:I
 
-    aput p1, v0, v1
+    aput p1, v2, v3
     :try_end_0
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
-    iget v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->fTokenCount:I
+    iget v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->fTokenCount:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    iput v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->fTokenCount:I
+    iput v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->fTokenCount:I
 
     return-void
 
     :catch_0
     move-exception v0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->fTokens:[I
-
-    iget v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->fTokenCount:I
-
-    shl-int/lit8 v1, v1, 0x1
-
-    new-array v1, v1, [I
-
-    iput-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->fTokens:[I
-
     iget-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->fTokens:[I
 
     iget v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->fTokenCount:I
 
-    invoke-static {v0, v3, v1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    shl-int/lit8 v2, v2, 0x1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->fTokens:[I
+    new-array v2, v2, [I
 
-    iget v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->fTokenCount:I
+    iput-object v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->fTokens:[I
 
-    aput p1, v0, v1
+    iget-object v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->fTokens:[I
+
+    iget v3, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->fTokenCount:I
+
+    invoke-static {v1, v4, v2, v4, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+
+    iget-object v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->fTokens:[I
+
+    iget v3, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->fTokenCount:I
+
+    aput p1, v2, v3
 
     goto :goto_0
 .end method
@@ -226,9 +226,9 @@
 .method private addToken(Ljava/lang/String;)V
     .locals 2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->fTokenNames:Ljava/util/HashMap;
+    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->fTokenNames:Ljava/util/HashMap;
 
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -239,9 +239,9 @@
     :goto_0
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    move-result v0
+    move-result v1
 
-    invoke-direct {p0, v0}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->addToken(I)V
+    invoke-direct {p0, v1}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->addToken(I)V
 
     return-void
 
@@ -377,9 +377,9 @@
 
     invoke-direct {p0}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->nextToken()I
 
-    move-result v0
+    move-result v1
 
-    invoke-direct {p0, v0}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->getTokenString(I)Ljava/lang/String;
+    invoke-direct {p0, v1}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->getTokenString(I)Ljava/lang/String;
 
     move-result-object v0
 

@@ -57,29 +57,29 @@
 .end method
 
 .method private lookup(Ljava/lang/Class;)Lorg/simpleframework/xml/transform/Transform;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    iget-object v0, p0, Lorg/simpleframework/xml/transform/Transformer;->error:Lorg/simpleframework/xml/util/Cache;
+    iget-object v1, p0, Lorg/simpleframework/xml/transform/Transformer;->error:Lorg/simpleframework/xml/util/Cache;
 
-    invoke-interface {v0, p1}, Lorg/simpleframework/xml/util/Cache;->contains(Ljava/lang/Object;)Z
+    invoke-interface {v1, p1}, Lorg/simpleframework/xml/util/Cache;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    return-object v1
+    return-object v2
 
     :cond_0
-    iget-object v0, p0, Lorg/simpleframework/xml/transform/Transformer;->cache:Lorg/simpleframework/xml/util/Cache;
+    iget-object v1, p0, Lorg/simpleframework/xml/transform/Transformer;->cache:Lorg/simpleframework/xml/util/Cache;
 
-    invoke-interface {v0, p1}, Lorg/simpleframework/xml/util/Cache;->fetch(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, p1}, Lorg/simpleframework/xml/util/Cache;->fetch(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -89,9 +89,9 @@
 
     invoke-direct {p0, p1}, Lorg/simpleframework/xml/transform/Transformer;->match(Ljava/lang/Class;)Lorg/simpleframework/xml/transform/Transform;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_1
     return-object v0
@@ -105,9 +105,9 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/transform/Transformer;->matcher:Lorg/simpleframework/xml/transform/Matcher;
+    iget-object v1, p0, Lorg/simpleframework/xml/transform/Transformer;->matcher:Lorg/simpleframework/xml/transform/Matcher;
 
-    invoke-interface {v0, p1}, Lorg/simpleframework/xml/transform/Matcher;->match(Ljava/lang/Class;)Lorg/simpleframework/xml/transform/Transform;
+    invoke-interface {v1, p1}, Lorg/simpleframework/xml/transform/Matcher;->match(Ljava/lang/Class;)Lorg/simpleframework/xml/transform/Transform;
 
     move-result-object v0
 
@@ -146,14 +146,12 @@
 
     invoke-interface {v0, p1}, Lorg/simpleframework/xml/transform/Transform;->read(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    new-instance v0, Lorg/simpleframework/xml/transform/TransformException;
-
-    const-string/jumbo v1, "Transform of %s not supported"
+    new-instance v1, Lorg/simpleframework/xml/transform/TransformException;
 
     const/4 v2, 0x1
 
@@ -163,9 +161,11 @@
 
     aput-object p2, v2, v3
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/transform/TransformException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v3, "Transform of %s not supported"
 
-    throw v0
+    invoke-direct {v1, v3, v2}, Lorg/simpleframework/xml/transform/TransformException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v1
 .end method
 
 .method public valid(Ljava/lang/Class;)Z
@@ -209,14 +209,12 @@
 
     invoke-interface {v0, p1}, Lorg/simpleframework/xml/transform/Transform;->write(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    new-instance v0, Lorg/simpleframework/xml/transform/TransformException;
-
-    const-string/jumbo v1, "Transform of %s not supported"
+    new-instance v1, Lorg/simpleframework/xml/transform/TransformException;
 
     const/4 v2, 0x1
 
@@ -226,7 +224,9 @@
 
     aput-object p2, v2, v3
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/transform/TransformException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v3, "Transform of %s not supported"
 
-    throw v0
+    invoke-direct {v1, v3, v2}, Lorg/simpleframework/xml/transform/TransformException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v1
 .end method

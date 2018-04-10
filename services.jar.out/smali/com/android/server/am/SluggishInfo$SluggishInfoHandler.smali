@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x1a
     name = "SluggishInfoHandler"
 .end annotation
 
@@ -26,20 +26,16 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Lcom/android/server/am/SluggishInfo;
-
 
 # direct methods
-.method public constructor <init>(Lcom/android/server/am/SluggishInfo;Landroid/os/Looper;Lcom/android/server/am/SluggishInfo;)V
+.method constructor <init>(Landroid/os/Looper;Lcom/android/server/am/SluggishInfo;)V
     .locals 2
-
-    iput-object p1, p0, Lcom/android/server/am/SluggishInfo$SluggishInfoHandler;->this$0:Lcom/android/server/am/SluggishInfo;
 
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
-    invoke-direct {p0, p2, v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;Z)V
+    invoke-direct {p0, p1, v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;Z)V
 
     invoke-static {}, Lcom/android/server/am/SluggishInfo;->-get0()Z
 
@@ -47,7 +43,9 @@
 
     if-eqz v0, :cond_0
 
-    const-string/jumbo v0, "SluggishInfo"
+    invoke-static {}, Lcom/android/server/am/SluggishInfo;->-get1()Ljava/lang/String;
+
+    move-result-object v0
 
     const-string/jumbo v1, "SluggishInfoHandler()"
 
@@ -56,7 +54,7 @@
     :cond_0
     new-instance v0, Ljava/lang/ref/WeakReference;
 
-    invoke-direct {v0, p3}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+    invoke-direct {v0, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Lcom/android/server/am/SluggishInfo$SluggishInfoHandler;->slgInfo:Ljava/lang/ref/WeakReference;
 
@@ -75,7 +73,7 @@
     return-void
 
     :cond_0
-    invoke-static {}, Lcom/android/server/am/SluggishInfo;->-get1()Lcom/android/server/am/SluggishInfo;
+    invoke-static {}, Lcom/android/server/am/SluggishInfo;->-get2()Lcom/android/server/am/SluggishInfo;
 
     move-result-object v1
 
@@ -83,16 +81,20 @@
 
     iget-object v1, p0, Lcom/android/server/am/SluggishInfo$SluggishInfoHandler;->slgInfo:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object v1
-
     if-nez v1, :cond_2
 
     :cond_1
     return-void
 
     :cond_2
+    iget-object v1, p0, Lcom/android/server/am/SluggishInfo$SluggishInfoHandler;->slgInfo:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
     if-eqz p1, :cond_3
 
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -107,7 +109,9 @@
 
     instance-of v1, v1, Ljava/lang/String;
 
-    if-eqz v1, :cond_3
+    xor-int/lit8 v1, v1, 0x1
+
+    if-nez v1, :cond_3
 
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
@@ -119,7 +123,9 @@
 
     if-eqz v1, :cond_5
 
-    const-string/jumbo v1, "SluggishInfo"
+    invoke-static {}, Lcom/android/server/am/SluggishInfo;->-get1()Ljava/lang/String;
+
+    move-result-object v1
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -137,7 +143,7 @@
 
     move-result-object v2
 
-    const-string/jumbo v3, " log : "
+    const-string/jumbo v3, " componentName : "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -162,12 +168,26 @@
     return-void
 
     :pswitch_0
-    invoke-static {v0}, Lcom/android/server/am/SluggishInfo;->-wrap0(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/android/server/am/SluggishInfo;->-wrap4(Ljava/lang/String;)V
 
     goto :goto_0
+
+    :pswitch_1
+    invoke-static {v0}, Lcom/android/server/am/SluggishInfo;->-wrap3(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :pswitch_2
+    invoke-static {v0}, Lcom/android/server/am/SluggishInfo;->-wrap2(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method

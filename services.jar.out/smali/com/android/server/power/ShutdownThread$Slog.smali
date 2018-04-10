@@ -245,7 +245,7 @@
 
     move-result v1
 
-    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get6()Lcom/android/server/power/ShutdownDialog;
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get7()Lcom/android/server/power/ShutdownDialog;
 
     move-result-object v3
 
@@ -367,7 +367,7 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get6()Lcom/android/server/power/ShutdownDialog;
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get7()Lcom/android/server/power/ShutdownDialog;
 
     move-result-object v3
 
@@ -741,7 +741,7 @@
 
     const-string/jumbo v0, "recovery"
 
-    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get12()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get14()Ljava/lang/String;
 
     move-result-object v1
 
@@ -753,7 +753,7 @@
 
     const-string/jumbo v0, "recovery-update"
 
-    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get12()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get14()Ljava/lang/String;
 
     move-result-object v1
 

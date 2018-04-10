@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/display/AutomaticBrightnessController;-><init>(Lcom/android/server/display/AutomaticBrightnessController$Callbacks;Landroid/os/Looper;Landroid/hardware/SensorManager;Landroid/util/Spline;IIIFIJJZIFLandroid/hardware/scontext/SContextManager;ZLcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;Landroid/content/Context;)V
+    value = Lcom/android/server/display/AutomaticBrightnessController;->updateAutobrightnessImmediately()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -37,39 +37,55 @@
 .method public run()V
     .locals 5
 
-    const/4 v4, 0x0
+    iget-object v0, p0, Lcom/android/server/display/AutomaticBrightnessController$7;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    new-instance v0, Landroid/content/IntentFilter;
+    const/4 v1, 0x0
 
-    invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
+    invoke-static {v0, v1}, Lcom/android/server/display/AutomaticBrightnessController;->-set4(Lcom/android/server/display/AutomaticBrightnessController;Z)Z
 
-    new-instance v0, Landroid/content/IntentFilter;
+    iget-object v0, p0, Lcom/android/server/display/AutomaticBrightnessController$7;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
+    invoke-static {v0}, Lcom/android/server/display/AutomaticBrightnessController;->-get11(Lcom/android/server/display/AutomaticBrightnessController;)Z
 
-    const-string/jumbo v1, "android.intent.action.ACTION_SHUTDOWN"
+    move-result v0
 
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/display/AutomaticBrightnessController$7;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
+
+    invoke-static {v0}, Lcom/android/server/display/AutomaticBrightnessController;->-wrap1(Lcom/android/server/display/AutomaticBrightnessController;)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/display/AutomaticBrightnessController$7;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
+
+    invoke-static {v0}, Lcom/android/server/display/AutomaticBrightnessController;->-get23(Lcom/android/server/display/AutomaticBrightnessController;)Landroid/hardware/SensorManager;
+
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/server/display/AutomaticBrightnessController$7;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    invoke-static {v1}, Lcom/android/server/display/AutomaticBrightnessController;->-get5(Lcom/android/server/display/AutomaticBrightnessController;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/server/display/AutomaticBrightnessController;->-get14(Lcom/android/server/display/AutomaticBrightnessController;)Landroid/hardware/SensorEventListener;
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/server/display/AutomaticBrightnessController$ShutdownReceiver;
+    iget-object v2, p0, Lcom/android/server/display/AutomaticBrightnessController$7;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
+
+    invoke-static {v2}, Lcom/android/server/display/AutomaticBrightnessController;->-get12(Lcom/android/server/display/AutomaticBrightnessController;)Landroid/hardware/Sensor;
+
+    move-result-object v2
 
     iget-object v3, p0, Lcom/android/server/display/AutomaticBrightnessController$7;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    invoke-direct {v2, v3, v4}, Lcom/android/server/display/AutomaticBrightnessController$ShutdownReceiver;-><init>(Lcom/android/server/display/AutomaticBrightnessController;Lcom/android/server/display/AutomaticBrightnessController$ShutdownReceiver;)V
-
-    iget-object v3, p0, Lcom/android/server/display/AutomaticBrightnessController$7;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
-
-    invoke-static {v3}, Lcom/android/server/display/AutomaticBrightnessController;->-get7(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/AutomaticBrightnessController$AutomaticBrightnessHandler;
+    invoke-static {v3}, Lcom/android/server/display/AutomaticBrightnessController;->-get9(Lcom/android/server/display/AutomaticBrightnessController;)Landroid/os/Handler;
 
     move-result-object v3
 
-    invoke-virtual {v1, v2, v0, v4, v3}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+    const v4, 0xc350
 
-    return-void
+    invoke-virtual {v0, v1, v2, v4, v3}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;ILandroid/os/Handler;)Z
+
+    goto :goto_0
 .end method

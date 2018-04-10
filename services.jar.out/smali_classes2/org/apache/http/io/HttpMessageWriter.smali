@@ -4,12 +4,24 @@
 
 
 # annotations
-.annotation runtime Ljava/lang/Deprecated;
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<T::",
+        "Lorg/apache/http/HttpMessage;",
+        ">",
+        "Ljava/lang/Object;"
+    }
 .end annotation
 
 
 # virtual methods
 .method public abstract write(Lorg/apache/http/HttpMessage;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TT;)V"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,

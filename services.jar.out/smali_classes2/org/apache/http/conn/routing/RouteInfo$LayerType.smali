@@ -41,29 +41,29 @@
 
     new-instance v0, Lorg/apache/http/conn/routing/RouteInfo$LayerType;
 
-    const-string/jumbo v1, "LAYERED"
+    const-string/jumbo v1, "PLAIN"
 
     invoke-direct {v0, v1, v2}, Lorg/apache/http/conn/routing/RouteInfo$LayerType;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lorg/apache/http/conn/routing/RouteInfo$LayerType;->LAYERED:Lorg/apache/http/conn/routing/RouteInfo$LayerType;
+    sput-object v0, Lorg/apache/http/conn/routing/RouteInfo$LayerType;->PLAIN:Lorg/apache/http/conn/routing/RouteInfo$LayerType;
 
     new-instance v0, Lorg/apache/http/conn/routing/RouteInfo$LayerType;
 
-    const-string/jumbo v1, "PLAIN"
+    const-string/jumbo v1, "LAYERED"
 
     invoke-direct {v0, v1, v3}, Lorg/apache/http/conn/routing/RouteInfo$LayerType;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lorg/apache/http/conn/routing/RouteInfo$LayerType;->PLAIN:Lorg/apache/http/conn/routing/RouteInfo$LayerType;
+    sput-object v0, Lorg/apache/http/conn/routing/RouteInfo$LayerType;->LAYERED:Lorg/apache/http/conn/routing/RouteInfo$LayerType;
 
     const/4 v0, 0x2
 
     new-array v0, v0, [Lorg/apache/http/conn/routing/RouteInfo$LayerType;
 
-    sget-object v1, Lorg/apache/http/conn/routing/RouteInfo$LayerType;->LAYERED:Lorg/apache/http/conn/routing/RouteInfo$LayerType;
+    sget-object v1, Lorg/apache/http/conn/routing/RouteInfo$LayerType;->PLAIN:Lorg/apache/http/conn/routing/RouteInfo$LayerType;
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lorg/apache/http/conn/routing/RouteInfo$LayerType;->PLAIN:Lorg/apache/http/conn/routing/RouteInfo$LayerType;
+    sget-object v1, Lorg/apache/http/conn/routing/RouteInfo$LayerType;->LAYERED:Lorg/apache/http/conn/routing/RouteInfo$LayerType;
 
     aput-object v1, v0, v3
 

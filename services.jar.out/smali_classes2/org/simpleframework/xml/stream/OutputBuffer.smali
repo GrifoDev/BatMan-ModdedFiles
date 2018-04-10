@@ -59,11 +59,11 @@
 
     iget-object v0, p0, Lorg/simpleframework/xml/stream/OutputBuffer;->text:Ljava/lang/StringBuilder;
 
-    const/4 v1, 0x0
+    array-length v1, p1
 
-    array-length v2, p1
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, p1, v1, v2}, Ljava/lang/StringBuilder;->append([CII)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1, v2, v1}, Ljava/lang/StringBuilder;->append([CII)Ljava/lang/StringBuilder;
 
     return-void
 .end method

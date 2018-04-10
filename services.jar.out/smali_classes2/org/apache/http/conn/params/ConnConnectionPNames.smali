@@ -10,3 +10,6 @@
 
 # static fields
 .field public static final MAX_STATUS_LINE_GARBAGE:Ljava/lang/String; = "http.connection.max-status-line-garbage"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field

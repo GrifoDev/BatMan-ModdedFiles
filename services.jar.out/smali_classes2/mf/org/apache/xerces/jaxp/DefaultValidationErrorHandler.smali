@@ -37,82 +37,82 @@
 
 # virtual methods
 .method public error(Lorg/xml/sax/SAXParseException;)V
-    .locals 3
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;
         }
     .end annotation
 
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/DefaultValidationErrorHandler;->errorCount:I
+    iget v2, p0, Lmf/org/apache/xerces/jaxp/DefaultValidationErrorHandler;->errorCount:I
 
-    sget v1, Lmf/org/apache/xerces/jaxp/DefaultValidationErrorHandler;->ERROR_COUNT_LIMIT:I
+    sget v3, Lmf/org/apache/xerces/jaxp/DefaultValidationErrorHandler;->ERROR_COUNT_LIMIT:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v2, v3, :cond_0
 
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/DefaultValidationErrorHandler;->errorCount:I
+    iget v2, p0, Lmf/org/apache/xerces/jaxp/DefaultValidationErrorHandler;->errorCount:I
 
-    if-eqz v0, :cond_1
+    if-eqz v2, :cond_1
 
     :goto_0
     invoke-virtual {p1}, Lorg/xml/sax/SAXParseException;->getSystemId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
     :goto_1
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "Error: URI="
+    const-string/jumbo v3, "Error: URI="
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-string/jumbo v1, " Line="
+    const-string/jumbo v3, " Line="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v2
 
     invoke-virtual {p1}, Lorg/xml/sax/SAXParseException;->getLineNumber()I
 
-    move-result v1
+    move-result v3
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-string/jumbo v1, ": "
+    const-string/jumbo v3, ": "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v2
 
     invoke-virtual {p1}, Lorg/xml/sax/SAXParseException;->getMessage()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    sget-object v2, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
-    move-result-object v0
+    invoke-virtual {v2, v0}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    sget-object v1, Ljava/lang/System;->err:Ljava/io/PrintStream;
+    iget v2, p0, Lmf/org/apache/xerces/jaxp/DefaultValidationErrorHandler;->errorCount:I
 
-    invoke-virtual {v1, v0}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    add-int/lit8 v2, v2, 0x1
 
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/DefaultValidationErrorHandler;->errorCount:I
-
-    add-int/lit8 v0, v0, 0x1
-
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/DefaultValidationErrorHandler;->errorCount:I
+    iput v2, p0, Lmf/org/apache/xerces/jaxp/DefaultValidationErrorHandler;->errorCount:I
 
     return-void
 
@@ -120,54 +120,54 @@
     return-void
 
     :cond_1
-    sget-object v0, Ljava/lang/System;->err:Ljava/io/PrintStream;
+    sget-object v2, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
-    const-string/jumbo v1, "Warning: validation was turned on but an org.xml.sax.ErrorHandler was not"
+    const-string/jumbo v3, "Warning: validation was turned on but an org.xml.sax.ErrorHandler was not"
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v2, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    sget-object v0, Ljava/lang/System;->err:Ljava/io/PrintStream;
+    sget-object v2, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
-    const-string/jumbo v1, "set, which is probably not what is desired.  Parser will use a default"
+    const-string/jumbo v3, "set, which is probably not what is desired.  Parser will use a default"
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v2, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    sget-object v0, Ljava/lang/System;->err:Ljava/io/PrintStream;
+    sget-object v2, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "ErrorHandler to print the first "
+    const-string/jumbo v4, "ErrorHandler to print the first "
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    sget v2, Lmf/org/apache/xerces/jaxp/DefaultValidationErrorHandler;->ERROR_COUNT_LIMIT:I
+    sget v4, Lmf/org/apache/xerces/jaxp/DefaultValidationErrorHandler;->ERROR_COUNT_LIMIT:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v3
 
-    const-string/jumbo v2, " errors.  Please call"
+    const-string/jumbo v4, " errors.  Please call"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v2, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    sget-object v0, Ljava/lang/System;->err:Ljava/io/PrintStream;
+    sget-object v2, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
-    const-string/jumbo v1, "the \'setErrorHandler\' method to fix this."
+    const-string/jumbo v3, "the \'setErrorHandler\' method to fix this."
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v2, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_2
-    const-string/jumbo v0, "null"
+    const-string/jumbo v1, "null"
 
     goto :goto_1
 .end method

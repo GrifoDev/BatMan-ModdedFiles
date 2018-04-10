@@ -52,180 +52,172 @@
 
 # virtual methods
 .method public mergeContext()[Ljava/lang/String;
-    .locals 6
+    .locals 7
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    const/4 v0, 0x0
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->this$0:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->this$0:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
+    iget-boolean v4, v4, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->fAugPSVI:Z
 
-    iget-boolean v1, v1, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->fAugPSVI:Z
+    if-eqz v4, :cond_0
 
-    if-eqz v1, :cond_0
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContext:[I
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContext:[I
+    iget v5, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContextCount:I
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContextCount:I
+    add-int/lit8 v5, v5, -0x1
 
-    add-int/lit8 v2, v2, -0x1
+    iput v5, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContextCount:I
 
-    iput v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContextCount:I
+    aget v0, v4, v5
 
-    aget v2, v1, v2
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fErrors:Ljava/util/Vector;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fErrors:Ljava/util/Vector;
+    invoke-virtual {v4}, Ljava/util/Vector;->size()I
 
-    invoke-virtual {v1}, Ljava/util/Vector;->size()I
+    move-result v4
 
-    move-result v1
-
-    sub-int v3, v1, v2
+    sub-int v3, v4, v0
 
     if-eqz v3, :cond_1
 
-    new-array v4, v3, [Ljava/lang/String;
+    new-array v1, v3, [Ljava/lang/String;
 
-    move v1, v0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v1, v3, :cond_2
+    if-ge v2, v3, :cond_2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fErrors:Ljava/util/Vector;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fErrors:Ljava/util/Vector;
 
-    add-int v5, v2, v1
+    add-int v5, v0, v2
 
-    invoke-virtual {v0, v5}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v4, v5}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v4
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v4, Ljava/lang/String;
 
-    aput-object v0, v4, v1
+    aput-object v4, v1, v2
 
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_0
-    return-object v4
+    return-object v6
 
     :cond_1
-    return-object v4
+    return-object v6
 
     :cond_2
-    return-object v4
+    return-object v1
 .end method
 
 .method public popContext()[Ljava/lang/String;
-    .locals 6
+    .locals 7
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    const/4 v0, 0x0
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->this$0:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->this$0:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
+    iget-boolean v4, v4, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->fAugPSVI:Z
 
-    iget-boolean v1, v1, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->fAugPSVI:Z
+    if-eqz v4, :cond_0
 
-    if-eqz v1, :cond_0
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContext:[I
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContext:[I
+    iget v5, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContextCount:I
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContextCount:I
+    add-int/lit8 v5, v5, -0x1
 
-    add-int/lit8 v2, v2, -0x1
+    iput v5, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContextCount:I
 
-    iput v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContextCount:I
+    aget v0, v4, v5
 
-    aget v2, v1, v2
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fErrors:Ljava/util/Vector;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fErrors:Ljava/util/Vector;
+    invoke-virtual {v4}, Ljava/util/Vector;->size()I
 
-    invoke-virtual {v1}, Ljava/util/Vector;->size()I
+    move-result v4
 
-    move-result v1
-
-    sub-int v3, v1, v2
+    sub-int v3, v4, v0
 
     if-eqz v3, :cond_1
 
-    new-array v4, v3, [Ljava/lang/String;
+    new-array v1, v3, [Ljava/lang/String;
 
-    move v1, v0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v1, v3, :cond_2
+    if-ge v2, v3, :cond_2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fErrors:Ljava/util/Vector;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fErrors:Ljava/util/Vector;
 
-    add-int v5, v2, v1
+    add-int v5, v0, v2
 
-    invoke-virtual {v0, v5}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v4, v5}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v4
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v4, Ljava/lang/String;
 
-    aput-object v0, v4, v1
+    aput-object v4, v1, v2
 
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_0
-    return-object v4
+    return-object v6
 
     :cond_1
-    return-object v4
+    return-object v6
 
     :cond_2
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fErrors:Ljava/util/Vector;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fErrors:Ljava/util/Vector;
 
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->setSize(I)V
+    invoke-virtual {v4, v0}, Ljava/util/Vector;->setSize(I)V
 
-    return-object v4
+    return-object v1
 .end method
 
 .method public pushContext()V
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->this$0:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->this$0:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
 
-    iget-boolean v0, v0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->fAugPSVI:Z
+    iget-boolean v2, v2, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->fAugPSVI:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContextCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContextCount:I
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContext:[I
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContext:[I
 
-    array-length v1, v1
+    array-length v3, v3
 
-    if-eq v0, v1, :cond_1
+    if-eq v2, v3, :cond_1
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContext:[I
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContext:[I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContextCount:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContextCount:I
 
-    add-int/lit8 v2, v1, 0x1
+    add-int/lit8 v4, v3, 0x1
 
-    iput v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContextCount:I
+    iput v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContextCount:I
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fErrors:Ljava/util/Vector;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fErrors:Ljava/util/Vector;
 
-    invoke-virtual {v2}, Ljava/util/Vector;->size()I
+    invoke-virtual {v4}, Ljava/util/Vector;->size()I
 
-    move-result v2
+    move-result v4
 
-    aput v2, v0, v1
+    aput v4, v2, v3
 
     return-void
 
@@ -233,17 +225,17 @@
     return-void
 
     :cond_1
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContextCount:I
-
-    add-int/lit8 v0, v0, 0x8
-
-    new-array v0, v0, [I
-
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContext:[I
-
     iget v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContextCount:I
 
-    invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    add-int/lit8 v1, v2, 0x8
+
+    new-array v0, v1, [I
+
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContext:[I
+
+    iget v3, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContextCount:I
+
+    invoke-static {v2, v4, v0, v4, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fContext:[I
 
@@ -258,9 +250,9 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    invoke-virtual {v0, p1, p2, p3, p4}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    invoke-virtual {v1, p1, p2, p3, p4}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
 
     move-result-object v0
 
@@ -286,7 +278,7 @@
 .end method
 
 .method public reportError(Lmf/org/apache/xerces/xni/XMLLocator;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)V
-    .locals 6
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
@@ -307,25 +299,25 @@
 
     invoke-virtual/range {v0 .. v5}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Lmf/org/apache/xerces/xni/XMLLocator;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v6
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->this$0:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
+    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->this$0:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
 
-    iget-boolean v1, v1, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->fAugPSVI:Z
+    iget-boolean v0, v0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->fAugPSVI:Z
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     :goto_0
     return-void
 
     :cond_0
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fErrors:Ljava/util/Vector;
+    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fErrors:Ljava/util/Vector;
 
-    invoke-virtual {v1, p3}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+    invoke-virtual {v0, p3}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fErrors:Ljava/util/Vector;
+    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XSIErrorReporter;->fErrors:Ljava/util/Vector;
 
-    invoke-virtual {v1, v0}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+    invoke-virtual {v0, v6}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
 
     goto :goto_0
 .end method

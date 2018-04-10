@@ -3,12 +3,12 @@
 .source "WifiDisplayController.java"
 
 # interfaces
-.implements Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/display/WifiDisplayController;->updateWfdEnableState()V
+    value = Lcom/android/server/display/WifiDisplayController;->sendEventToSemDeviceStatusListener(II)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,12 +20,20 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/display/WifiDisplayController;
 
+.field final synthetic val$event:I
+
+.field final synthetic val$param:I
+
 
 # direct methods
-.method constructor <init>(Lcom/android/server/display/WifiDisplayController;)V
+.method constructor <init>(Lcom/android/server/display/WifiDisplayController;II)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/display/WifiDisplayController$14;->this$0:Lcom/android/server/display/WifiDisplayController;
+
+    iput p2, p0, Lcom/android/server/display/WifiDisplayController$14;->val$event:I
+
+    iput p3, p0, Lcom/android/server/display/WifiDisplayController$14;->val$param:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -34,48 +42,57 @@
 
 
 # virtual methods
-.method public onFailure(I)V
-    .locals 3
+.method public run()V
+    .locals 6
 
-    const-string/jumbo v0, "WifiDisplayController"
+    const-string/jumbo v2, "WifiDisplayController"
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    const-string/jumbo v3, "sendEventToSemDeviceStatusListener"
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v2, "Failed to set WFD info with reason "
+    new-instance v0, Landroid/os/Bundle;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+
+    iget v2, p0, Lcom/android/server/display/WifiDisplayController$14;->val$event:I
+
+    const/4 v3, 0x4
+
+    if-ne v2, v3, :cond_0
+
+    const-string/jumbo v2, "status"
+
+    iget v3, p0, Lcom/android/server/display/WifiDisplayController$14;->val$param:I
+
+    invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+
+    :cond_0
+    iget-object v2, p0, Lcom/android/server/display/WifiDisplayController$14;->this$0:Lcom/android/server/display/WifiDisplayController;
+
+    invoke-static {v2}, Lcom/android/server/display/WifiDisplayController;->-get15(Lcom/android/server/display/WifiDisplayController;)Landroid/os/Handler;
+
+    move-result-object v2
+
+    iget v3, p0, Lcom/android/server/display/WifiDisplayController$14;->val$event:I
+
+    const/16 v4, 0x14
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v2, v4, v3, v5}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
 
     move-result-object v1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
 
-    move-result-object v1
+    iget-object v2, p0, Lcom/android/server/display/WifiDisplayController$14;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    const-string/jumbo v2, "."
+    invoke-static {v2}, Lcom/android/server/display/WifiDisplayController;->-get15(Lcom/android/server/display/WifiDisplayController;)Landroid/os/Handler;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-.end method
-
-.method public onSuccess()V
-    .locals 2
-
-    const-string/jumbo v0, "WifiDisplayController"
-
-    const-string/jumbo v1, "Successfully set WFD info."
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v2, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     return-void
 .end method

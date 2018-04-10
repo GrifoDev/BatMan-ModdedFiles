@@ -30,6 +30,8 @@
 
 .field final callerApp:Lcom/android/server/am/ProcessRecord;
 
+.field final callerInstantApp:Z
+
 .field final callerPackage:Ljava/lang/String;
 
 .field final callingPid:I
@@ -104,11 +106,22 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/BroadcastQueue;Landroid/content/Intent;Lcom/android/server/am/ProcessRecord;Ljava/lang/String;IILjava/lang/String;[Ljava/lang/String;ILandroid/app/BroadcastOptions;Ljava/util/List;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;ZZZI)V
-    .locals 2
+.method constructor <init>(Lcom/android/server/am/BroadcastQueue;Landroid/content/Intent;Lcom/android/server/am/ProcessRecord;Ljava/lang/String;IIZLjava/lang/String;[Ljava/lang/String;ILandroid/app/BroadcastOptions;Ljava/util/List;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;ZZZI)V
+    .locals 4
 
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
 
+    if-nez p2, :cond_0
+
+    new-instance v1, Ljava/lang/NullPointerException;
+
+    const-string/jumbo v2, "Can\'t construct with a null intent"
+
+    invoke-direct {v1, v2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_0
     iput-object p1, p0, Lcom/android/server/am/BroadcastRecord;->queue:Lcom/android/server/am/BroadcastQueue;
 
     iput-object p2, p0, Lcom/android/server/am/BroadcastRecord;->intent:Landroid/content/Intent;
@@ -127,52 +140,69 @@
 
     iput p6, p0, Lcom/android/server/am/BroadcastRecord;->callingUid:I
 
-    iput-object p7, p0, Lcom/android/server/am/BroadcastRecord;->resolvedType:Ljava/lang/String;
+    iput-boolean p7, p0, Lcom/android/server/am/BroadcastRecord;->callerInstantApp:Z
 
-    iput-object p8, p0, Lcom/android/server/am/BroadcastRecord;->requiredPermissions:[Ljava/lang/String;
+    iput-object p8, p0, Lcom/android/server/am/BroadcastRecord;->resolvedType:Ljava/lang/String;
 
-    iput p9, p0, Lcom/android/server/am/BroadcastRecord;->appOp:I
+    iput-object p9, p0, Lcom/android/server/am/BroadcastRecord;->requiredPermissions:[Ljava/lang/String;
 
-    iput-object p10, p0, Lcom/android/server/am/BroadcastRecord;->options:Landroid/app/BroadcastOptions;
+    const/4 v1, -0x1
 
-    iput-object p11, p0, Lcom/android/server/am/BroadcastRecord;->receivers:Ljava/util/List;
+    if-lt p10, v1, :cond_1
 
-    if-eqz p11, :cond_0
+    const/16 v1, 0x47
 
-    invoke-interface {p11}, Ljava/util/List;->size()I
+    if-ge p10, v1, :cond_1
+
+    iput p10, p0, Lcom/android/server/am/BroadcastRecord;->appOp:I
+
+    :goto_0
+    iput-object p11, p0, Lcom/android/server/am/BroadcastRecord;->options:Landroid/app/BroadcastOptions;
+
+    move-object/from16 v0, p12
+
+    iput-object v0, p0, Lcom/android/server/am/BroadcastRecord;->receivers:Ljava/util/List;
+
+    if-eqz p12, :cond_2
+
+    invoke-interface/range {p12 .. p12}, Ljava/util/List;->size()I
 
     move-result v1
 
-    :goto_0
+    :goto_1
     new-array v1, v1, [I
 
     iput-object v1, p0, Lcom/android/server/am/BroadcastRecord;->delivery:[I
 
-    iput-object p12, p0, Lcom/android/server/am/BroadcastRecord;->resultTo:Landroid/content/IIntentReceiver;
+    move-object/from16 v0, p13
 
-    iput p13, p0, Lcom/android/server/am/BroadcastRecord;->resultCode:I
+    iput-object v0, p0, Lcom/android/server/am/BroadcastRecord;->resultTo:Landroid/content/IIntentReceiver;
 
-    move-object/from16 v0, p14
+    move/from16 v0, p14
 
-    iput-object v0, p0, Lcom/android/server/am/BroadcastRecord;->resultData:Ljava/lang/String;
+    iput v0, p0, Lcom/android/server/am/BroadcastRecord;->resultCode:I
 
     move-object/from16 v0, p15
 
+    iput-object v0, p0, Lcom/android/server/am/BroadcastRecord;->resultData:Ljava/lang/String;
+
+    move-object/from16 v0, p16
+
     iput-object v0, p0, Lcom/android/server/am/BroadcastRecord;->resultExtras:Landroid/os/Bundle;
-
-    move/from16 v0, p16
-
-    iput-boolean v0, p0, Lcom/android/server/am/BroadcastRecord;->ordered:Z
 
     move/from16 v0, p17
 
-    iput-boolean v0, p0, Lcom/android/server/am/BroadcastRecord;->sticky:Z
+    iput-boolean v0, p0, Lcom/android/server/am/BroadcastRecord;->ordered:Z
 
     move/from16 v0, p18
 
-    iput-boolean v0, p0, Lcom/android/server/am/BroadcastRecord;->initialSticky:Z
+    iput-boolean v0, p0, Lcom/android/server/am/BroadcastRecord;->sticky:Z
 
     move/from16 v0, p19
+
+    iput-boolean v0, p0, Lcom/android/server/am/BroadcastRecord;->initialSticky:Z
+
+    move/from16 v0, p20
 
     iput v0, p0, Lcom/android/server/am/BroadcastRecord;->userId:I
 
@@ -184,50 +214,91 @@
 
     iput v1, p0, Lcom/android/server/am/BroadcastRecord;->state:I
 
-    if-eqz p11, :cond_1
+    if-eqz p12, :cond_3
 
-    invoke-interface {p11}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    :goto_1
-    new-array v1, v1, [J
-
-    iput-object v1, p0, Lcom/android/server/am/BroadcastRecord;->receiversDispatchTime:[J
-
-    if-eqz p11, :cond_2
-
-    invoke-interface {p11}, Ljava/util/List;->size()I
+    invoke-interface/range {p12 .. p12}, Ljava/util/List;->size()I
 
     move-result v1
 
     :goto_2
     new-array v1, v1, [J
 
+    iput-object v1, p0, Lcom/android/server/am/BroadcastRecord;->receiversDispatchTime:[J
+
+    if-eqz p12, :cond_4
+
+    invoke-interface/range {p12 .. p12}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    :goto_3
+    new-array v1, v1, [J
+
     iput-object v1, p0, Lcom/android/server/am/BroadcastRecord;->receiversFinishTime:[J
 
     return-void
 
-    :cond_0
-    const/4 v1, 0x0
+    :cond_1
+    const-string/jumbo v1, "BroadcastRecord"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Construct BroadcastRecord with bad appOp #"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/server/am/BroadcastRecord;->intent:Landroid/content/Intent;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, -0x1
+
+    iput v1, p0, Lcom/android/server/am/BroadcastRecord;->appOp:I
 
     goto :goto_0
-
-    :cond_1
-    const/4 v1, 0x0
-
-    goto :goto_1
 
     :cond_2
     const/4 v1, 0x0
 
+    goto :goto_1
+
+    :cond_3
+    const/4 v1, 0x0
+
     goto :goto_2
+
+    :cond_4
+    const/4 v1, 0x0
+
+    goto :goto_3
 .end method
 
 
 # virtual methods
 .method cleanupDisabledPackageReceiversLocked(Ljava/lang/String;Ljava/util/Set;IZ)Z
-    .locals 11
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -239,48 +310,46 @@
         }
     .end annotation
 
-    const/4 v5, 0x1
-
     const/4 v6, 0x0
 
-    const/4 v7, -0x1
+    const/4 v5, -0x1
 
-    if-eq p3, v7, :cond_1
+    if-eq p3, v5, :cond_1
 
-    iget v7, p0, Lcom/android/server/am/BroadcastRecord;->userId:I
+    iget v5, p0, Lcom/android/server/am/BroadcastRecord;->userId:I
 
-    if-eq v7, p3, :cond_1
+    if-eq v5, p3, :cond_1
 
     :cond_0
     return v6
 
     :cond_1
-    iget-object v7, p0, Lcom/android/server/am/BroadcastRecord;->receivers:Ljava/util/List;
+    iget-object v5, p0, Lcom/android/server/am/BroadcastRecord;->receivers:Ljava/util/List;
 
-    if-eqz v7, :cond_0
+    if-eqz v5, :cond_0
 
     const/4 v0, 0x0
 
-    iget-object v7, p0, Lcom/android/server/am/BroadcastRecord;->receivers:Ljava/util/List;
+    iget-object v5, p0, Lcom/android/server/am/BroadcastRecord;->receivers:Ljava/util/List;
 
-    invoke-interface {v7}, Ljava/util/List;->size()I
+    invoke-interface {v5}, Ljava/util/List;->size()I
 
-    move-result v7
+    move-result v5
 
-    add-int/lit8 v1, v7, -0x1
+    add-int/lit8 v1, v5, -0x1
 
     :goto_0
     if-ltz v1, :cond_8
 
-    iget-object v7, p0, Lcom/android/server/am/BroadcastRecord;->receivers:Ljava/util/List;
+    iget-object v5, p0, Lcom/android/server/am/BroadcastRecord;->receivers:Ljava/util/List;
 
-    invoke-interface {v7, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v5, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
-    instance-of v7, v3, Landroid/content/pm/ResolveInfo;
+    instance-of v5, v3, Landroid/content/pm/ResolveInfo;
 
-    if-nez v7, :cond_3
+    if-nez v5, :cond_3
 
     :cond_2
     :goto_1
@@ -295,21 +364,21 @@
 
     if-eqz p1, :cond_4
 
-    iget-object v7, v2, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v5, v2, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    iget-object v7, v7, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget-object v5, v5, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    invoke-virtual {v7, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v5
 
-    if-eqz v7, :cond_6
+    if-eqz v5, :cond_6
 
     if-eqz p2, :cond_5
 
-    iget-object v7, v2, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v5, v2, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
 
-    invoke-interface {p2, v7}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    invoke-interface {p2, v5}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
     move-result v4
 
@@ -318,87 +387,89 @@
 
     if-nez p4, :cond_7
 
+    const/4 v5, 0x1
+
     return v5
 
     :cond_4
-    move v4, v5
+    const/4 v4, 0x1
 
     goto :goto_2
 
     :cond_5
-    move v4, v5
+    const/4 v4, 0x1
 
     goto :goto_2
 
     :cond_6
-    move v4, v6
+    const/4 v4, 0x0
 
     goto :goto_2
 
     :cond_7
     const/4 v0, 0x1
 
-    iget-object v7, p0, Lcom/android/server/am/BroadcastRecord;->receivers:Ljava/util/List;
+    iget-object v5, p0, Lcom/android/server/am/BroadcastRecord;->receivers:Ljava/util/List;
 
-    invoke-interface {v7, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    invoke-interface {v5, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    iget-object v5, p0, Lcom/android/server/am/BroadcastRecord;->delivery:[I
+
+    add-int/lit8 v6, v1, 0x1
 
     iget-object v7, p0, Lcom/android/server/am/BroadcastRecord;->delivery:[I
 
-    add-int/lit8 v8, v1, 0x1
+    iget-object v8, p0, Lcom/android/server/am/BroadcastRecord;->delivery:[I
 
-    iget-object v9, p0, Lcom/android/server/am/BroadcastRecord;->delivery:[I
+    array-length v8, v8
 
-    iget-object v10, p0, Lcom/android/server/am/BroadcastRecord;->delivery:[I
+    add-int/lit8 v8, v8, -0x1
 
-    array-length v10, v10
+    sub-int/2addr v8, v1
 
-    add-int/lit8 v10, v10, -0x1
+    invoke-static {v5, v6, v7, v1, v8}, Ljava/lang/System;->arraycopy([II[III)V
 
-    sub-int/2addr v10, v1
+    iget-object v5, p0, Lcom/android/server/am/BroadcastRecord;->receiversDispatchTime:[J
 
-    invoke-static {v7, v8, v9, v1, v10}, Ljava/lang/System;->arraycopy([II[III)V
+    add-int/lit8 v6, v1, 0x1
 
     iget-object v7, p0, Lcom/android/server/am/BroadcastRecord;->receiversDispatchTime:[J
 
-    add-int/lit8 v8, v1, 0x1
+    iget-object v8, p0, Lcom/android/server/am/BroadcastRecord;->receiversDispatchTime:[J
 
-    iget-object v9, p0, Lcom/android/server/am/BroadcastRecord;->receiversDispatchTime:[J
+    array-length v8, v8
 
-    iget-object v10, p0, Lcom/android/server/am/BroadcastRecord;->receiversDispatchTime:[J
+    add-int/lit8 v8, v8, -0x1
 
-    array-length v10, v10
+    sub-int/2addr v8, v1
 
-    add-int/lit8 v10, v10, -0x1
+    invoke-static {v5, v6, v7, v1, v8}, Ljava/lang/System;->arraycopy([JI[JII)V
 
-    sub-int/2addr v10, v1
+    iget-object v5, p0, Lcom/android/server/am/BroadcastRecord;->receiversFinishTime:[J
 
-    invoke-static {v7, v8, v9, v1, v10}, Ljava/lang/System;->arraycopy([JI[JII)V
+    add-int/lit8 v6, v1, 0x1
 
     iget-object v7, p0, Lcom/android/server/am/BroadcastRecord;->receiversFinishTime:[J
 
-    add-int/lit8 v8, v1, 0x1
+    iget-object v8, p0, Lcom/android/server/am/BroadcastRecord;->receiversFinishTime:[J
 
-    iget-object v9, p0, Lcom/android/server/am/BroadcastRecord;->receiversFinishTime:[J
+    array-length v8, v8
 
-    iget-object v10, p0, Lcom/android/server/am/BroadcastRecord;->receiversFinishTime:[J
+    add-int/lit8 v8, v8, -0x1
 
-    array-length v10, v10
+    sub-int/2addr v8, v1
 
-    add-int/lit8 v10, v10, -0x1
+    invoke-static {v5, v6, v7, v1, v8}, Ljava/lang/System;->arraycopy([JI[JII)V
 
-    sub-int/2addr v10, v1
+    iget v5, p0, Lcom/android/server/am/BroadcastRecord;->nextReceiver:I
 
-    invoke-static {v7, v8, v9, v1, v10}, Ljava/lang/System;->arraycopy([JI[JII)V
+    if-ge v1, v5, :cond_2
 
-    iget v7, p0, Lcom/android/server/am/BroadcastRecord;->nextReceiver:I
+    iget v5, p0, Lcom/android/server/am/BroadcastRecord;->nextReceiver:I
 
-    if-ge v1, v7, :cond_2
+    add-int/lit8 v5, v5, -0x1
 
-    iget v7, p0, Lcom/android/server/am/BroadcastRecord;->nextReceiver:I
-
-    add-int/lit8 v7, v7, -0x1
-
-    iput v7, p0, Lcom/android/server/am/BroadcastRecord;->nextReceiver:I
+    iput v5, p0, Lcom/android/server/am/BroadcastRecord;->nextReceiver:I
 
     goto :goto_1
 
@@ -1544,6 +1615,12 @@
     invoke-virtual {v1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

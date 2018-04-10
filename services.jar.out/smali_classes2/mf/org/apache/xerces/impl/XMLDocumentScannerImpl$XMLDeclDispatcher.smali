@@ -35,21 +35,13 @@
 
 # virtual methods
 .method public dispatch(Z)Z
-    .locals 8
+    .locals 14
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x2
-
-    const/4 v7, 0x1
-
-    const/4 v6, 0x0
 
     iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl$XMLDeclDispatcher;->this$0:Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl;
 
@@ -89,7 +81,9 @@
 
     iput-boolean v1, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->mayReadChunks:Z
 
-    return v7
+    const/4 v0, 0x1
+
+    return v0
 
     :cond_0
     iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl$XMLDeclDispatcher;->this$0:Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl;
@@ -145,9 +139,13 @@
 
     move-result-object v3
 
+    const/4 v4, 0x2
+
     invoke-virtual/range {v0 .. v5}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;SLjava/lang/Exception;)Ljava/lang/String;
 
-    return v6
+    const/4 v0, 0x0
+
+    return v0
 
     :cond_1
     :try_start_1
@@ -215,19 +213,25 @@
     goto :goto_1
 
     :catch_1
-    move-exception v5
+    move-exception v11
 
     iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl$XMLDeclDispatcher;->this$0:Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v6, v0, Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v1, "http://www.w3.org/TR/1998/REC-xml-19980210"
+    const-string/jumbo v7, "http://www.w3.org/TR/1998/REC-xml-19980210"
 
-    const-string/jumbo v2, "CharConversionFailure"
+    const-string/jumbo v8, "CharConversionFailure"
 
-    invoke-virtual/range {v0 .. v5}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;SLjava/lang/Exception;)Ljava/lang/String;
+    const/4 v9, 0x0
 
-    return v6
+    const/4 v10, 0x2
+
+    invoke-virtual/range {v6 .. v11}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;SLjava/lang/Exception;)Ljava/lang/String;
+
+    const/4 v0, 0x0
+
+    return v0
 
     :cond_2
     :try_start_2
@@ -285,27 +289,27 @@
 
     iget v2, v2, Lmf/org/apache/xerces/util/XMLStringBuffer;->offset:I
 
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl$XMLDeclDispatcher;->this$0:Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl$XMLDeclDispatcher;->this$0:Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl;
 
-    invoke-static {v5}, Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl;->access$0(Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl;)Lmf/org/apache/xerces/util/XMLStringBuffer;
+    invoke-static {v3}, Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl;->access$0(Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl;)Lmf/org/apache/xerces/util/XMLStringBuffer;
 
-    move-result-object v5
+    move-result-object v3
 
-    iget v5, v5, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
+    iget v3, v3, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
 
-    invoke-virtual {v0, v1, v2, v5}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol([CII)Ljava/lang/String;
+    invoke-virtual {v0, v1, v2, v3}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol([CII)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v13
+
+    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl$XMLDeclDispatcher;->this$0:Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl;
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl$XMLDeclDispatcher;->this$0:Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl$XMLDeclDispatcher;->this$0:Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl;
+    invoke-static {v1}, Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl;->access$1(Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl;)Lmf/org/apache/xerces/xni/XMLString;
 
-    invoke-static {v2}, Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl;->access$1(Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl;)Lmf/org/apache/xerces/xni/XMLString;
+    move-result-object v1
 
-    move-result-object v2
-
-    invoke-virtual {v1, v0, v2}, Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl;->scanPIData(Ljava/lang/String;Lmf/org/apache/xerces/xni/XMLString;)V
+    invoke-virtual {v0, v13, v1}, Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl;->scanPIData(Ljava/lang/String;Lmf/org/apache/xerces/xni/XMLString;)V
     :try_end_2
     .catch Lmf/org/apache/xerces/impl/io/MalformedByteSequenceException; {:try_start_2 .. :try_end_2} :catch_0
     .catch Ljava/io/CharConversionException; {:try_start_2 .. :try_end_2} :catch_1
@@ -314,13 +318,17 @@
     goto/16 :goto_0
 
     :catch_2
-    move-exception v0
+    move-exception v12
 
     iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl$XMLDeclDispatcher;->this$0:Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl;
 
     const-string/jumbo v1, "PrematureEOF"
 
-    invoke-virtual {v0, v1, v3}, Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl;->reportFatalError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/4 v2, 0x0
 
-    return v6
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/XMLDocumentScannerImpl;->reportFatalError(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    const/4 v0, 0x0
+
+    return v0
 .end method

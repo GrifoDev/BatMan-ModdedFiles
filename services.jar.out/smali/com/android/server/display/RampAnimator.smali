@@ -46,6 +46,8 @@
 
 .field private mDecreasing:Z
 
+.field private mDynamicAmountForAutoBrightness:I
+
 .field private mDynamicAmountForManualBrightness:F
 
 .field private mFirstTime:Z
@@ -98,6 +100,14 @@
 .method static synthetic -get10(Lcom/android/server/display/RampAnimator;)I
     .locals 1
 
+    iget v0, p0, Lcom/android/server/display/RampAnimator;->mRate:I
+
+    return v0
+.end method
+
+.method static synthetic -get11(Lcom/android/server/display/RampAnimator;)I
+    .locals 1
+
     iget v0, p0, Lcom/android/server/display/RampAnimator;->mTargetValue:I
 
     return v0
@@ -119,7 +129,15 @@
     return v0
 .end method
 
-.method static synthetic -get4(Lcom/android/server/display/RampAnimator;)F
+.method static synthetic -get4(Lcom/android/server/display/RampAnimator;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/display/RampAnimator;->mDynamicAmountForAutoBrightness:I
+
+    return v0
+.end method
+
+.method static synthetic -get5(Lcom/android/server/display/RampAnimator;)F
     .locals 1
 
     iget v0, p0, Lcom/android/server/display/RampAnimator;->mDynamicAmountForManualBrightness:F
@@ -127,7 +145,7 @@
     return v0
 .end method
 
-.method static synthetic -get5(Lcom/android/server/display/RampAnimator;)J
+.method static synthetic -get6(Lcom/android/server/display/RampAnimator;)J
     .locals 2
 
     iget-wide v0, p0, Lcom/android/server/display/RampAnimator;->mLastFrameTimeNanos:J
@@ -135,7 +153,7 @@
     return-wide v0
 .end method
 
-.method static synthetic -get6(Lcom/android/server/display/RampAnimator;)Lcom/android/server/display/RampAnimator$Listener;
+.method static synthetic -get7(Lcom/android/server/display/RampAnimator;)Lcom/android/server/display/RampAnimator$Listener;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/display/RampAnimator;->mListener:Lcom/android/server/display/RampAnimator$Listener;
@@ -143,7 +161,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get7(Lcom/android/server/display/RampAnimator;)Ljava/lang/Object;
+.method static synthetic -get8(Lcom/android/server/display/RampAnimator;)Ljava/lang/Object;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/display/RampAnimator;->mObject:Ljava/lang/Object;
@@ -151,20 +169,12 @@
     return-object v0
 .end method
 
-.method static synthetic -get8(Lcom/android/server/display/RampAnimator;)Landroid/util/IntProperty;
+.method static synthetic -get9(Lcom/android/server/display/RampAnimator;)Landroid/util/IntProperty;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/display/RampAnimator;->mProperty:Landroid/util/IntProperty;
 
     return-object v0
-.end method
-
-.method static synthetic -get9(Lcom/android/server/display/RampAnimator;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/display/RampAnimator;->mRate:I
-
-    return v0
 .end method
 
 .method static synthetic -set0(Lcom/android/server/display/RampAnimator;F)F
@@ -222,6 +232,10 @@
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/server/display/RampAnimator;->mFirstTime:Z
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/android/server/display/RampAnimator;->mDynamicAmountForAutoBrightness:I
 
     new-instance v0, Lcom/android/server/display/RampAnimator$1;
 
@@ -494,6 +508,36 @@
     iput-boolean v0, p0, Lcom/android/server/display/RampAnimator;->mFirstTime:Z
 
     return-void
+.end method
+
+.method public setDynamicAutoBrightnessSteps(I)V
+    .locals 2
+
+    if-lez p1, :cond_0
+
+    int-to-float v0, p1
+
+    const v1, 0x43cc0001    # 408.00003f
+
+    div-float v0, v1, v0
+
+    const/high16 v1, 0x447a0000    # 1000.0f
+
+    mul-float/2addr v0, v1
+
+    invoke-static {v0}, Ljava/lang/Math;->round(F)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/server/display/RampAnimator;->mDynamicAmountForAutoBrightness:I
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iput p1, p0, Lcom/android/server/display/RampAnimator;->mDynamicAmountForAutoBrightness:I
+
+    goto :goto_0
 .end method
 
 .method public setListener(Lcom/android/server/display/RampAnimator$Listener;)V

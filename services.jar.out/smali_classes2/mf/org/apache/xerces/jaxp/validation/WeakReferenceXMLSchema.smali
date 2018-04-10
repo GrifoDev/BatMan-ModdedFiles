@@ -32,9 +32,9 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/WeakReferenceXMLSchema;->fGrammarPool:Ljava/lang/ref/WeakReference;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/WeakReferenceXMLSchema;->fGrammarPool:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -66,11 +66,11 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
     monitor-exit p0
 
-    throw v0
+    throw v1
 .end method
 
 .method public isFullyComposed()Z

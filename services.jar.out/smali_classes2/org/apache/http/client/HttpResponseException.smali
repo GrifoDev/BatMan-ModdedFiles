@@ -3,36 +3,31 @@
 .source "HttpResponseException.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
+# static fields
+.field private static final serialVersionUID:J = -0x63bc080fd5942acdL
+
+
+# instance fields
+.field private final statusCode:I
 
 
 # direct methods
 .method public constructor <init>(ILjava/lang/String;)V
-    .locals 2
+    .locals 0
 
-    invoke-direct {p0}, Lorg/apache/http/client/ClientProtocolException;-><init>()V
+    invoke-direct {p0, p2}, Lorg/apache/http/client/ClientProtocolException;-><init>(Ljava/lang/String;)V
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iput p1, p0, Lorg/apache/http/client/HttpResponseException;->statusCode:I
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 
 # virtual methods
 .method public getStatusCode()I
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget v0, p0, Lorg/apache/http/client/HttpResponseException;->statusCode:I
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return v0
 .end method

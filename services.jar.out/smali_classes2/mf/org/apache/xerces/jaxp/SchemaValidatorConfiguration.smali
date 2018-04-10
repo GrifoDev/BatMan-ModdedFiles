@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(Lmf/org/apache/xerces/xni/parser/XMLComponentManager;Lmf/org/apache/xerces/jaxp/validation/XSGrammarPoolContainer;Lmf/org/apache/xerces/impl/validation/ValidationManager;)V
-    .locals 3
+    .locals 4
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,42 +42,42 @@
 
     invoke-interface {p2}, Lmf/org/apache/xerces/jaxp/validation/XSGrammarPoolContainer;->getGrammarPool()Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lmf/org/apache/xerces/jaxp/SchemaValidatorConfiguration;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
+    iput-object v2, p0, Lmf/org/apache/xerces/jaxp/SchemaValidatorConfiguration;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
 
     invoke-interface {p2}, Lmf/org/apache/xerces/jaxp/validation/XSGrammarPoolContainer;->isFullyComposed()Z
 
-    move-result v0
+    move-result v2
 
-    iput-boolean v0, p0, Lmf/org/apache/xerces/jaxp/SchemaValidatorConfiguration;->fUseGrammarPoolOnly:Z
+    iput-boolean v2, p0, Lmf/org/apache/xerces/jaxp/SchemaValidatorConfiguration;->fUseGrammarPoolOnly:Z
 
     iput-object p3, p0, Lmf/org/apache/xerces/jaxp/SchemaValidatorConfiguration;->fValidationManager:Lmf/org/apache/xerces/impl/validation/ValidationManager;
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/SchemaValidatorConfiguration;->fParentComponentManager:Lmf/org/apache/xerces/xni/parser/XMLComponentManager;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/SchemaValidatorConfiguration;->fParentComponentManager:Lmf/org/apache/xerces/xni/parser/XMLComponentManager;
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/error-reporter"
+    const-string/jumbo v3, "http://apache.org/xml/properties/internal/error-reporter"
 
-    invoke-interface {v0, v1}, Lmf/org/apache/xerces/xni/parser/XMLComponentManager;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-interface {v2, v3}, Lmf/org/apache/xerces/xni/parser/XMLComponentManager;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    check-cast v1, Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     :goto_0
     return-void
 
     :cond_0
-    const-string/jumbo v1, "http://www.w3.org/TR/xml-schema-1"
-
     new-instance v2, Lmf/org/apache/xerces/impl/xs/XSMessageFormatter;
 
     invoke-direct {v2}, Lmf/org/apache/xerces/impl/xs/XSMessageFormatter;-><init>()V
 
-    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->putMessageFormatter(Ljava/lang/String;Lmf/org/apache/xerces/util/MessageFormatter;)V
+    const-string/jumbo v3, "http://www.w3.org/TR/xml-schema-1"
+
+    invoke-virtual {v1, v3, v2}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->putMessageFormatter(Ljava/lang/String;Lmf/org/apache/xerces/util/MessageFormatter;)V
     :try_end_0
     .catch Lmf/org/apache/xerces/xni/parser/XMLConfigurationException; {:try_start_0 .. :try_end_0} :catch_0
 

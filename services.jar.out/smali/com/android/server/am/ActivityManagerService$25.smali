@@ -238,7 +238,7 @@
 
     aput-object v11, v10, v12
 
-    const-string/jumbo v11, "time"
+    const-string/jumbo v11, "threadtime"
 
     const/4 v12, 0x6
 

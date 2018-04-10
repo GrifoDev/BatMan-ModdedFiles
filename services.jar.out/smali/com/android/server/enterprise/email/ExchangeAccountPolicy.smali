@@ -343,7 +343,7 @@
 .method private adminSatisfiesForceSMIMECertificateRules(IJZI)Z
     .locals 14
 
-    if-eqz p4, :cond_4
+    if-eqz p4, :cond_3
 
     const/4 v7, 0x1
 
@@ -410,7 +410,31 @@
 
     move-result v12
 
-    if-eqz v12, :cond_3
+    xor-int/lit8 v12, v12, 0x1
+
+    if-eqz v12, :cond_0
+
+    const/4 v12, 0x0
+
+    invoke-interface {v11, v12}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/content/ContentValues;
+
+    const-string/jumbo v12, "adminUid"
+
+    invoke-virtual {v2, v12}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/Integer;->intValue()I
+
+    move-result v3
+
+    if-eq v3, p1, :cond_0
+
+    const/4 v7, 0x0
 
     :cond_0
     :goto_1
@@ -441,31 +465,6 @@
     goto :goto_0
 
     :cond_3
-    const/4 v12, 0x0
-
-    invoke-interface {v11, v12}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/content/ContentValues;
-
-    const-string/jumbo v12, "adminUid"
-
-    invoke-virtual {v2, v12}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/Integer;->intValue()I
-
-    move-result v3
-
-    if-eq v3, p1, :cond_0
-
-    const/4 v7, 0x0
-
-    goto :goto_1
-
-    :cond_4
     const/4 v7, 0x0
 
     const/4 v12, 0x3
@@ -524,7 +523,9 @@
 
     move-result v12
 
-    if-nez v12, :cond_0
+    xor-int/lit8 v12, v12, 0x1
+
+    if-eqz v12, :cond_0
 
     const/4 v12, 0x0
 
@@ -568,56 +569,56 @@
 
     move/from16 v0, p5
 
-    if-ne v0, v12, :cond_6
+    if-ne v0, v12, :cond_5
 
     const/4 v12, 0x1
 
-    if-eq v6, v12, :cond_5
+    if-eq v6, v12, :cond_4
 
     const/4 v12, 0x1
 
     if-ne v4, v12, :cond_0
 
-    :cond_5
+    :cond_4
     const/4 v7, 0x1
 
     goto/16 :goto_1
 
-    :cond_6
+    :cond_5
     const/4 v12, 0x2
 
     move/from16 v0, p5
 
-    if-ne v0, v12, :cond_8
+    if-ne v0, v12, :cond_7
 
     const/4 v12, 0x1
 
-    if-eq v5, v12, :cond_7
+    if-eq v5, v12, :cond_6
 
     const/4 v12, 0x1
 
     if-ne v4, v12, :cond_0
 
-    :cond_7
+    :cond_6
     const/4 v7, 0x1
 
     goto/16 :goto_1
 
-    :cond_8
+    :cond_7
     const/4 v12, 0x1
 
-    if-ne v5, v12, :cond_9
+    if-ne v5, v12, :cond_8
 
     const/4 v12, 0x1
 
-    if-ne v6, v12, :cond_9
+    if-ne v6, v12, :cond_8
 
     :goto_2
     const/4 v7, 0x1
 
     goto/16 :goto_1
 
-    :cond_9
+    :cond_8
     const/4 v12, 0x1
 
     if-ne v4, v12, :cond_0
@@ -862,45 +863,41 @@
 .end method
 
 .method private fillInExchangeAccountData(ILcom/android/server/enterprise/email/AccountMetaData;I)Lcom/samsung/android/knox/accounts/Account;
-    .locals 10
+    .locals 8
 
-    const/4 v6, 0x1
+    const-string/jumbo v3, "ExchangeAccountPolicy"
 
-    const/4 v3, 0x0
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v7, "ExchangeAccountPolicy"
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    const-string/jumbo v7, "fillInExchangeAccountData() : accId = "
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v9, "fillInExchangeAccountData() : accId = "
+    move-result-object v6
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v7, p2, Lcom/android/server/enterprise/email/AccountMetaData;->mId:I
 
-    move-result-object v8
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    iget v9, p2, Lcom/android/server/enterprise/email/AccountMetaData;->mId:I
+    move-result-object v6
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string/jumbo v7, " , userID =  "
 
-    move-result-object v8
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v9, " , userID =  "
+    move-result-object v6
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v6
 
-    invoke-virtual {v8, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v6
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -911,51 +908,50 @@
     invoke-direct {v0}, Lcom/samsung/android/knox/accounts/Account;-><init>()V
 
     :try_start_0
-    iget v7, p2, Lcom/android/server/enterprise/email/AccountMetaData;->mId:I
+    iget v3, p2, Lcom/android/server/enterprise/email/AccountMetaData;->mId:I
 
-    iput v7, v0, Lcom/samsung/android/knox/accounts/Account;->id:I
+    iput v3, v0, Lcom/samsung/android/knox/accounts/Account;->id:I
 
-    iget-object v7, p2, Lcom/android/server/enterprise/email/AccountMetaData;->mDisplayName:Ljava/lang/String;
+    iget-object v3, p2, Lcom/android/server/enterprise/email/AccountMetaData;->mDisplayName:Ljava/lang/String;
 
-    iput-object v7, v0, Lcom/samsung/android/knox/accounts/Account;->displayName:Ljava/lang/String;
+    iput-object v3, v0, Lcom/samsung/android/knox/accounts/Account;->displayName:Ljava/lang/String;
 
-    iget-object v7, p2, Lcom/android/server/enterprise/email/AccountMetaData;->mEmailAddress:Ljava/lang/String;
+    iget-object v3, p2, Lcom/android/server/enterprise/email/AccountMetaData;->mEmailAddress:Ljava/lang/String;
 
-    iput-object v7, v0, Lcom/samsung/android/knox/accounts/Account;->emailAddress:Ljava/lang/String;
+    iput-object v3, v0, Lcom/samsung/android/knox/accounts/Account;->emailAddress:Ljava/lang/String;
 
-    const-string/jumbo v7, "0"
+    const-string/jumbo v3, "0"
 
-    iput-object v7, v0, Lcom/samsung/android/knox/accounts/Account;->syncKey:Ljava/lang/String;
+    iput-object v3, v0, Lcom/samsung/android/knox/accounts/Account;->syncKey:Ljava/lang/String;
 
-    iget v7, p2, Lcom/android/server/enterprise/email/AccountMetaData;->mSyncLookback:I
+    iget v3, p2, Lcom/android/server/enterprise/email/AccountMetaData;->mSyncLookback:I
 
-    iput v7, v0, Lcom/samsung/android/knox/accounts/Account;->syncLookback:I
+    iput v3, v0, Lcom/samsung/android/knox/accounts/Account;->syncLookback:I
 
-    iget v7, p2, Lcom/android/server/enterprise/email/AccountMetaData;->mSyncInterval:I
+    iget v3, p2, Lcom/android/server/enterprise/email/AccountMetaData;->mSyncInterval:I
 
-    iput v7, v0, Lcom/samsung/android/knox/accounts/Account;->syncInterval:I
+    iput v3, v0, Lcom/samsung/android/knox/accounts/Account;->syncInterval:I
 
-    const-wide/16 v8, -0x1
+    const-wide/16 v6, -0x1
 
-    iput-wide v8, v0, Lcom/samsung/android/knox/accounts/Account;->hostAuthKeyRecv:J
+    iput-wide v6, v0, Lcom/samsung/android/knox/accounts/Account;->hostAuthKeyRecv:J
 
-    const-wide/16 v8, -0x1
+    const-wide/16 v6, -0x1
 
-    iput-wide v8, v0, Lcom/samsung/android/knox/accounts/Account;->hostAuthKeySend:J
+    iput-wide v6, v0, Lcom/samsung/android/knox/accounts/Account;->hostAuthKeySend:J
 
-    iget v7, p2, Lcom/android/server/enterprise/email/AccountMetaData;->mFlags:I
+    iget v3, p2, Lcom/android/server/enterprise/email/AccountMetaData;->mFlags:I
 
-    iput v7, v0, Lcom/samsung/android/knox/accounts/Account;->flags:I
+    iput v3, v0, Lcom/samsung/android/knox/accounts/Account;->flags:I
 
-    iget-boolean v7, p2, Lcom/android/server/enterprise/email/AccountMetaData;->mEmailNotificationVibrateAlways:Z
+    iget-boolean v3, p2, Lcom/android/server/enterprise/email/AccountMetaData;->mEmailNotificationVibrateAlways:Z
 
-    iput-boolean v7, v0, Lcom/samsung/android/knox/accounts/Account;->emailNotificationVibrateAlways:Z
+    iput-boolean v3, v0, Lcom/samsung/android/knox/accounts/Account;->emailNotificationVibrateAlways:Z
 
-    iget-boolean v7, p2, Lcom/android/server/enterprise/email/AccountMetaData;->mEmailNotificationVibrateAlways:Z
+    iget-boolean v3, p2, Lcom/android/server/enterprise/email/AccountMetaData;->mEmailNotificationVibrateAlways:Z
 
-    if-eqz v7, :cond_0
+    xor-int/lit8 v3, v3, 0x1
 
-    :goto_0
     iput-boolean v3, v0, Lcom/samsung/android/knox/accounts/Account;->emailNotificationVibrateWhenSilent:Z
 
     iget-boolean v3, p2, Lcom/android/server/enterprise/email/AccountMetaData;->mIsDefault:Z
@@ -1124,7 +1120,7 @@
 
     iget-object v3, p2, Lcom/android/server/enterprise/email/AccountMetaData;->mEasDomain:Ljava/lang/String;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_0
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -1152,7 +1148,7 @@
 
     move-result-object v3
 
-    :goto_1
+    :goto_0
     iput-object v3, v6, Lcom/samsung/android/knox/accounts/HostAuth;->login:Ljava/lang/String;
 
     iget-object v3, v0, Lcom/samsung/android/knox/accounts/Account;->hostAuthRecv:Lcom/samsung/android/knox/accounts/HostAuth;
@@ -1231,7 +1227,7 @@
 
     iget-object v3, p2, Lcom/android/server/enterprise/email/AccountMetaData;->mEasDomain:Ljava/lang/String;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -1259,7 +1255,7 @@
 
     move-result-object v3
 
-    :goto_2
+    :goto_1
     iput-object v3, v6, Lcom/samsung/android/knox/accounts/HostAuth;->login:Ljava/lang/String;
 
     iget-object v3, v0, Lcom/samsung/android/knox/accounts/Account;->hostAuthSend:Lcom/samsung/android/knox/accounts/HostAuth;
@@ -1285,27 +1281,22 @@
 
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    :goto_3
+    :goto_2
     return-object v0
 
     :cond_0
-    move v3, v6
+    :try_start_1
+    iget-object v3, p2, Lcom/android/server/enterprise/email/AccountMetaData;->mInComingServerLogin:Ljava/lang/String;
 
     goto/16 :goto_0
 
     :cond_1
-    :try_start_1
-    iget-object v3, p2, Lcom/android/server/enterprise/email/AccountMetaData;->mInComingServerLogin:Ljava/lang/String;
-
-    goto/16 :goto_1
-
-    :cond_2
     iget-object v3, p2, Lcom/android/server/enterprise/email/AccountMetaData;->mInComingServerLogin:Ljava/lang/String;
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_2
+    goto :goto_1
 
     :catch_0
     move-exception v2
@@ -1321,7 +1312,7 @@
 
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    goto :goto_3
+    goto :goto_2
 
     :catchall_0
     move-exception v3
@@ -1847,11 +1838,8 @@
 
     move-result v9
 
-    if-eqz v9, :cond_3
+    xor-int/lit8 v6, v9, 0x1
 
-    const/4 v6, 0x0
-
-    :goto_0
     invoke-interface {v7}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v5
@@ -1861,7 +1849,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_5
+    if-eqz v9, :cond_4
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1883,11 +1871,11 @@
 
     move-result-object v10
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_3
 
     const-string/jumbo v9, "1"
 
-    :goto_1
+    :goto_0
     invoke-virtual {v10, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v9
@@ -1903,33 +1891,20 @@
     return v6
 
     :cond_3
-    const/4 v6, 0x1
+    const-string/jumbo v9, "0"
 
     goto :goto_0
 
     :cond_4
-    const-string/jumbo v9, "0"
-
-    goto :goto_1
-
-    :cond_5
     const-string/jumbo v9, "ExchangeAccountPolicy"
 
     const-string/jumbo v10, "getPolicyState: no restrictData. "
 
     invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v6, :cond_6
+    xor-int/lit8 v9, v6, 0x1
 
-    const/4 v9, 0x0
-
-    :goto_2
     return v9
-
-    :cond_6
-    const/4 v9, 0x1
-
-    goto :goto_2
 .end method
 
 .method private getPolicyStateasInteger(IJLjava/lang/String;IZ)I
@@ -4699,7 +4674,9 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    xor-int/lit8 v4, v4, 0x1
+
+    if-nez v4, :cond_0
 
     if-nez p14, :cond_1
 
@@ -4735,24 +4712,10 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    xor-int/lit8 v4, v4, 0x1
 
-    :cond_2
-    if-eqz p12, :cond_4
+    if-eqz v4, :cond_2
 
-    if-eqz p13, :cond_4
-
-    const-string/jumbo v4, "ExchangeAccountPolicy"
-
-    const-string/jumbo v5, "addNewAccount() EX : Error :: Invalid input parameters. \'emailNotificationVibrateAlways\' and \'emailNotificationVibrateWhenSilent\' only one will be true at a time"
-
-    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-wide/16 v4, -0x1
-
-    return-wide v4
-
-    :cond_3
     const-string/jumbo v4, "ExchangeAccountPolicy"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -4779,7 +4742,22 @@
 
     return-wide v4
 
-    :cond_4
+    :cond_2
+    if-eqz p12, :cond_3
+
+    if-eqz p13, :cond_3
+
+    const-string/jumbo v4, "ExchangeAccountPolicy"
+
+    const-string/jumbo v5, "addNewAccount() EX : Error :: Invalid input parameters. \'emailNotificationVibrateAlways\' and \'emailNotificationVibrateWhenSilent\' only one will be true at a time"
+
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-wide/16 v4, -0x1
+
+    return-wide v4
+
+    :cond_3
     const-string/jumbo v8, "eas"
 
     move-object/from16 v0, p0
@@ -4804,7 +4782,7 @@
 
     cmp-long v4, v4, v6
 
-    if-lez v4, :cond_5
+    if-lez v4, :cond_4
 
     const-string/jumbo v4, "ExchangeAccountPolicy"
 
@@ -4816,7 +4794,7 @@
 
     return-wide v4
 
-    :cond_5
+    :cond_4
     const-wide/16 v12, 0x0
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
@@ -4934,7 +4912,7 @@
 
     const-string/jumbo v5, "use_ssl"
 
-    if-eqz p15, :cond_6
+    if-eqz p15, :cond_5
 
     const/4 v4, 0x1
 
@@ -4945,7 +4923,7 @@
 
     const-string/jumbo v5, "use_tsl"
 
-    if-eqz p16, :cond_7
+    if-eqz p16, :cond_6
 
     const/4 v4, 0x1
 
@@ -4956,7 +4934,7 @@
 
     const-string/jumbo v5, "trust_all"
 
-    if-eqz p17, :cond_8
+    if-eqz p17, :cond_7
 
     const/4 v4, 0x1
 
@@ -5199,7 +5177,7 @@
 
     const-string/jumbo v5, "com.samsung.android.knox.intent.extra.USE_SSL_INTERNAL"
 
-    if-eqz p15, :cond_9
+    if-eqz p15, :cond_8
 
     const/4 v4, 0x1
 
@@ -5210,7 +5188,7 @@
 
     const-string/jumbo v5, "com.samsung.android.knox.intent.extra.USE_TLS_INTERNAL"
 
-    if-eqz p16, :cond_a
+    if-eqz p16, :cond_9
 
     const/4 v4, 0x1
 
@@ -5221,7 +5199,7 @@
 
     const-string/jumbo v5, "com.samsung.android.knox.intent.extra.TRUST_ALL_INTERNAL"
 
-    if-eqz p17, :cond_b
+    if-eqz p17, :cond_a
 
     const/4 v4, 0x1
 
@@ -5490,32 +5468,32 @@
 
     return-wide v12
 
-    :cond_6
+    :cond_5
     const/4 v4, 0x0
 
     goto/16 :goto_0
 
-    :cond_7
+    :cond_6
     const/4 v4, 0x0
 
     goto/16 :goto_1
 
-    :cond_8
+    :cond_7
     const/4 v4, 0x0
 
     goto/16 :goto_2
 
-    :cond_9
+    :cond_8
     const/4 v4, 0x0
 
     goto/16 :goto_3
 
-    :cond_a
+    :cond_9
     const/4 v4, 0x0
 
     goto/16 :goto_4
 
-    :cond_b
+    :cond_a
     const/4 v4, 0x0
 
     goto/16 :goto_5
@@ -5672,20 +5650,19 @@
 
     iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/ExchangeAccount;->emailNotificationVibrateAlways:Z
 
-    if-eqz v4, :cond_2
+    xor-int/lit8 v19, v4, 0x1
 
-    const/16 v19, 0x0
-
-    :goto_0
     if-eqz v17, :cond_1
 
     invoke-static/range {v17 .. v17}, Lcom/android/server/enterprise/email/SettingsUtils;->isValidEmailAddress(Ljava/lang/String;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    xor-int/lit8 v4, v4, 0x1
 
-    if-nez v7, :cond_3
+    if-nez v4, :cond_1
+
+    if-nez v7, :cond_2
 
     :cond_1
     const-string/jumbo v4, "ExchangeAccountPolicy"
@@ -5699,11 +5676,6 @@
     return-wide v8
 
     :cond_2
-    const/16 v19, 0x1
-
-    goto :goto_0
-
-    :cond_3
     if-eqz v31, :cond_1
 
     if-eqz v6, :cond_1
@@ -5718,7 +5690,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_3
 
     const-string/jumbo v4, "com.samsung.android.focus"
 
@@ -5726,24 +5698,10 @@
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    xor-int/lit8 v4, v4, 0x1
 
-    :cond_4
-    if-eqz v18, :cond_6
+    if-eqz v4, :cond_3
 
-    if-eqz v19, :cond_6
-
-    const-string/jumbo v4, "ExchangeAccountPolicy"
-
-    const-string/jumbo v8, "addNewAccount_new : Error :: Invalid input parameters. \'emailNotificationVibrateAlways\' and \'emailNotificationVibrateWhenSilent\' only one will be true at a time"
-
-    invoke-static {v4, v8}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-wide/16 v8, -0x1
-
-    return-wide v8
-
-    :cond_5
     const-string/jumbo v4, "ExchangeAccountPolicy"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -5770,7 +5728,22 @@
 
     return-wide v8
 
-    :cond_6
+    :cond_3
+    if-eqz v18, :cond_4
+
+    if-eqz v19, :cond_4
+
+    const-string/jumbo v4, "ExchangeAccountPolicy"
+
+    const-string/jumbo v8, "addNewAccount_new : Error :: Invalid input parameters. \'emailNotificationVibrateAlways\' and \'emailNotificationVibrateWhenSilent\' only one will be true at a time"
+
+    invoke-static {v4, v8}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-wide/16 v8, -0x1
+
+    return-wide v8
+
+    :cond_4
     const-string/jumbo v8, "eas"
 
     move-object/from16 v0, p0
@@ -5789,7 +5762,7 @@
 
     cmp-long v4, v8, v40
 
-    if-lez v4, :cond_7
+    if-lez v4, :cond_5
 
     const-string/jumbo v4, "ExchangeAccountPolicy"
 
@@ -5801,7 +5774,7 @@
 
     return-wide v8
 
-    :cond_7
+    :cond_5
     const-wide/16 v12, 0x0
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
@@ -5837,13 +5810,13 @@
 
     iget-object v4, v0, Lcom/samsung/android/knox/accounts/ExchangeAccount;->smimeCertificatePath:Ljava/lang/String;
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_7
 
     move-object/from16 v0, p2
 
     iget-object v4, v0, Lcom/samsung/android/knox/accounts/ExchangeAccount;->smimeCertificatePassword:Ljava/lang/String;
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_7
 
     const-string/jumbo v4, "ExchangeAccountPolicy"
 
@@ -5857,7 +5830,7 @@
 
     move/from16 v25, v0
 
-    const-string/jumbo v4, "19"
+    const-string/jumbo v4, "21"
 
     invoke-static {v4}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
@@ -5867,7 +5840,7 @@
 
     move/from16 v0, v24
 
-    if-lt v0, v4, :cond_8
+    if-lt v0, v4, :cond_6
 
     move-object/from16 v0, p2
 
@@ -5875,7 +5848,7 @@
 
     const/4 v8, 0x1
 
-    if-lt v4, v8, :cond_8
+    if-lt v4, v8, :cond_6
 
     move-object/from16 v0, p2
 
@@ -5883,7 +5856,7 @@
 
     const/4 v8, 0x3
 
-    if-gt v4, v8, :cond_8
+    if-gt v4, v8, :cond_6
 
     move-object/from16 v0, p2
 
@@ -5891,7 +5864,7 @@
 
     move/from16 v25, v0
 
-    :cond_8
+    :cond_6
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -5938,7 +5911,7 @@
 
     invoke-static {v14, v0}, Lcom/android/server/enterprise/email/AccountsReceiver;->pushSMIMECertificate(Ljava/lang/String;Lcom/android/server/enterprise/email/AccountSMIMECertificate;)Z
 
-    :cond_9
+    :cond_7
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
@@ -6027,11 +6000,11 @@
 
     iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/ExchangeAccount;->useSSL:Z
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_8
 
     const/4 v4, 0x1
 
-    :goto_1
+    :goto_0
     move-object/from16 v0, v22
 
     invoke-virtual {v0, v8, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
@@ -6042,11 +6015,11 @@
 
     iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/ExchangeAccount;->useTLS:Z
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_9
 
     const/4 v4, 0x1
 
-    :goto_2
+    :goto_1
     move-object/from16 v0, v22
 
     invoke-virtual {v0, v8, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
@@ -6057,11 +6030,11 @@
 
     iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/ExchangeAccount;->acceptAllCertificates:Z
 
-    if-eqz v4, :cond_c
+    if-eqz v4, :cond_a
 
     const/4 v4, 0x1
 
-    :goto_3
+    :goto_2
     move-object/from16 v0, v22
 
     invoke-virtual {v0, v8, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
@@ -6216,20 +6189,17 @@
 
     invoke-virtual {v0, v4, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    const-string/jumbo v8, "vibrate_when_silent"
+    const-string/jumbo v4, "vibrate_when_silent"
 
     move-object/from16 v0, p2
 
-    iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/ExchangeAccount;->emailNotificationVibrateAlways:Z
+    iget-boolean v8, v0, Lcom/samsung/android/knox/accounts/ExchangeAccount;->emailNotificationVibrateAlways:Z
 
-    if-eqz v4, :cond_d
+    xor-int/lit8 v8, v8, 0x1
 
-    const/4 v4, 0x0
-
-    :goto_4
     move-object/from16 v0, v22
 
-    invoke-virtual {v0, v8, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v0, v4, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     const-string/jumbo v4, "vibrate"
 
@@ -6335,11 +6305,11 @@
 
     iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/ExchangeAccount;->useSSL:Z
 
-    if-eqz v4, :cond_e
+    if-eqz v4, :cond_b
 
     const/4 v4, 0x1
 
-    :goto_5
+    :goto_3
     move-object/from16 v0, v30
 
     invoke-virtual {v0, v8, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
@@ -6350,11 +6320,11 @@
 
     iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/ExchangeAccount;->useTLS:Z
 
-    if-eqz v4, :cond_f
+    if-eqz v4, :cond_c
 
     const/4 v4, 0x1
 
-    :goto_6
+    :goto_4
     move-object/from16 v0, v30
 
     invoke-virtual {v0, v8, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
@@ -6365,11 +6335,11 @@
 
     iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/ExchangeAccount;->acceptAllCertificates:Z
 
-    if-eqz v4, :cond_10
+    if-eqz v4, :cond_d
 
     const/4 v4, 0x1
 
-    :goto_7
+    :goto_5
     move-object/from16 v0, v30
 
     invoke-virtual {v0, v8, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
@@ -6524,20 +6494,17 @@
 
     invoke-virtual {v0, v4, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    const-string/jumbo v8, "com.samsung.android.knox.intent.extra.VIBRATE_WHEN_SILENT_INTERNAL"
+    const-string/jumbo v4, "com.samsung.android.knox.intent.extra.VIBRATE_WHEN_SILENT_INTERNAL"
 
     move-object/from16 v0, p2
 
-    iget-boolean v4, v0, Lcom/samsung/android/knox/accounts/ExchangeAccount;->emailNotificationVibrateAlways:Z
+    iget-boolean v8, v0, Lcom/samsung/android/knox/accounts/ExchangeAccount;->emailNotificationVibrateAlways:Z
 
-    if-eqz v4, :cond_11
+    xor-int/lit8 v8, v8, 0x1
 
-    const/4 v4, 0x0
-
-    :goto_8
     move-object/from16 v0, v30
 
-    invoke-virtual {v0, v8, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v0, v4, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     const-string/jumbo v4, "com.samsung.android.knox.intent.extra.EXTRA_VIBRATE_INTERNAL"
 
@@ -6593,7 +6560,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_13
+    if-nez v4, :cond_f
 
     move-object/from16 v0, p2
 
@@ -6611,7 +6578,7 @@
 
     move-result-object v11
 
-    if-nez v11, :cond_12
+    if-nez v11, :cond_e
 
     const-string/jumbo v4, "ExchangeAccountPolicy"
 
@@ -6654,47 +6621,37 @@
 
     return-wide v8
 
-    :cond_a
+    :cond_8
+    const/4 v4, 0x0
+
+    goto/16 :goto_0
+
+    :cond_9
     const/4 v4, 0x0
 
     goto/16 :goto_1
 
-    :cond_b
+    :cond_a
     const/4 v4, 0x0
 
     goto/16 :goto_2
 
-    :cond_c
+    :cond_b
     const/4 v4, 0x0
 
     goto/16 :goto_3
 
-    :cond_d
-    const/4 v4, 0x1
+    :cond_c
+    const/4 v4, 0x0
 
     goto/16 :goto_4
 
-    :cond_e
+    :cond_d
     const/4 v4, 0x0
 
     goto/16 :goto_5
 
-    :cond_f
-    const/4 v4, 0x0
-
-    goto/16 :goto_6
-
-    :cond_10
-    const/4 v4, 0x0
-
-    goto/16 :goto_7
-
-    :cond_11
-    const/4 v4, 0x1
-
-    goto/16 :goto_8
-
-    :cond_12
+    :cond_e
     :try_start_1
     const-string/jumbo v4, "certificate_alias"
 
@@ -6730,7 +6687,7 @@
 
     invoke-static {v4, v8}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_13
+    :cond_f
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->mContext:Landroid/content/Context;
@@ -6814,7 +6771,7 @@
 
     invoke-static/range {v36 .. v37}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    :goto_9
+    :goto_6
     return-wide v12
 
     :catch_0
@@ -6849,7 +6806,7 @@
 
     invoke-static/range {v36 .. v37}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    goto :goto_9
+    goto :goto_6
 
     :catchall_0
     move-exception v4
@@ -7264,7 +7221,7 @@
     :goto_0
     if-eqz v4, :cond_1
 
-    if-nez v5, :cond_4
+    if-nez v5, :cond_5
 
     :cond_1
     const-string/jumbo v16, "ExchangeAccountPolicy"
@@ -7318,13 +7275,9 @@
 
     move/from16 v16, v0
 
-    if-eqz v16, :cond_3
+    xor-int/lit8 v16, v16, 0x1
 
-    iget-object v4, v6, Lcom/android/server/enterprise/email/AccountMetaData;->mEmailAddress:Ljava/lang/String;
-
-    iget-object v5, v6, Lcom/android/server/enterprise/email/AccountMetaData;->mInComingServerAddress:Ljava/lang/String;
-
-    goto :goto_0
+    if-eqz v16, :cond_4
 
     :cond_3
     const-string/jumbo v16, "ExchangeAccountPolicy"
@@ -7356,6 +7309,13 @@
     return v12
 
     :cond_4
+    iget-object v4, v6, Lcom/android/server/enterprise/email/AccountMetaData;->mEmailAddress:Ljava/lang/String;
+
+    iget-object v5, v6, Lcom/android/server/enterprise/email/AccountMetaData;->mInComingServerAddress:Ljava/lang/String;
+
+    goto :goto_0
+
+    :cond_5
     const/16 v16, 0x1
 
     const/16 v17, 0x0
@@ -7370,7 +7330,7 @@
 
     move-result v16
 
-    if-nez v16, :cond_5
+    if-nez v16, :cond_6
 
     const-string/jumbo v16, "ExchangeAccountPolicy"
 
@@ -7400,7 +7360,7 @@
 
     return v12
 
-    :cond_5
+    :cond_6
     invoke-static/range {p1 .. p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
     move-result v13
@@ -7627,25 +7587,6 @@
 .method public getAccountCertificatePassword(Lcom/samsung/android/knox/ContextInfo;J)Ljava/lang/String;
     .locals 10
 
-    iget-object v4, p0, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->mContext:Landroid/content/Context;
-
-    invoke-static {v4, p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->isManagedProfileUser(Landroid/content/Context;Lcom/samsung/android/knox/ContextInfo;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    const-string/jumbo v4, "ExchangeAccountPolicy"
-
-    const-string/jumbo v5, " getAccountCertificatePassword calls from Profile return default value"
-
-    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    const/4 v4, 0x0
-
-    return-object v4
-
-    :cond_0
     invoke-direct {p0}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->getEDM()Lcom/samsung/android/knox/EnterpriseDeviceManager;
 
     move-result-object v4
@@ -7824,25 +7765,6 @@
 .method public getAccountEmailPassword(Lcom/samsung/android/knox/ContextInfo;J)Ljava/lang/String;
     .locals 12
 
-    iget-object v6, p0, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->mContext:Landroid/content/Context;
-
-    invoke-static {v6, p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->isManagedProfileUser(Landroid/content/Context;Lcom/samsung/android/knox/ContextInfo;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_0
-
-    const-string/jumbo v6, "ExchangeAccountPolicy"
-
-    const-string/jumbo v7, " getAccountEmailPassword calls from Profile return default value"
-
-    invoke-static {v6, v7}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    const/4 v6, 0x0
-
-    return-object v6
-
-    :cond_0
     invoke-direct {p0}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->getEDM()Lcom/samsung/android/knox/EnterpriseDeviceManager;
 
     move-result-object v6
@@ -7916,7 +7838,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_0
 
     invoke-static {v0}, Lcom/android/server/enterprise/email/SettingsUtils;->getSecurityPasswordFocus(Ljava/lang/String;)Ljava/lang/String;
     :try_end_0
@@ -7933,7 +7855,7 @@
 
     return-object v4
 
-    :cond_1
+    :cond_0
     :try_start_1
     invoke-static {v0}, Lcom/android/server/enterprise/email/SettingsUtils;->getSecurityPassword(Ljava/lang/String;)Ljava/lang/String;
     :try_end_1
@@ -8228,7 +8150,7 @@
 .end method
 
 .method public getDeviceId(Lcom/samsung/android/knox/ContextInfo;)Ljava/lang/String;
-    .locals 19
+    .locals 18
 
     invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->enforceExchangeAccountPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
@@ -8236,7 +8158,7 @@
 
     invoke-static/range {p1 .. p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
-    move-result v18
+    move-result v15
 
     const-string/jumbo v2, "ExchangeAccountPolicy"
 
@@ -8250,9 +8172,7 @@
 
     move-result-object v4
 
-    move/from16 v0, v18
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
@@ -8262,13 +8182,11 @@
 
     invoke-static {v2, v4}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-static/range {v18 .. v18}, Lcom/android/server/enterprise/email/SettingsUtils;->getEmailPackageName(I)Ljava/lang/String;
+    invoke-static {v15}, Lcom/android/server/enterprise/email/SettingsUtils;->getEmailPackageName(I)Ljava/lang/String;
 
     move-result-object v10
 
-    move/from16 v0, v18
-
-    invoke-static {v10, v0}, Lcom/android/server/enterprise/email/SettingsUtils;->isPackageInstalled(Ljava/lang/String;I)Z
+    invoke-static {v10, v15}, Lcom/android/server/enterprise/email/SettingsUtils;->isPackageInstalled(Ljava/lang/String;I)Z
 
     move-result v2
 
@@ -8350,7 +8268,7 @@
     :cond_1
     sget-object v2, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->mDeviceId:Ljava/util/HashMap;
 
-    invoke-static/range {v18 .. v18}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
@@ -8362,7 +8280,7 @@
 
     sget-object v2, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->mDeviceId:Ljava/util/HashMap;
 
-    invoke-static/range {v18 .. v18}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
@@ -8375,11 +8293,11 @@
     return-object v2
 
     :cond_2
-    new-instance v15, Ljava/lang/Object;
+    new-instance v14, Ljava/lang/Object;
 
-    invoke-direct {v15}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v14}, Ljava/lang/Object;-><init>()V
 
-    monitor-enter v15
+    monitor-enter v14
 
     :try_start_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
@@ -8393,26 +8311,15 @@
 
     move-object/from16 v0, p0
 
-    invoke-direct {v3, v0, v15}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy$2;-><init>(Lcom/android/server/enterprise/email/ExchangeAccountPolicy;Ljava/lang/Object;)V
-
-    const/4 v8, 0x0
-
-    const/4 v14, 0x0
-
-    invoke-static {}, Lcom/android/server/enterprise/email/SettingsUtils;->isSupportNewEmail()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_5
+    invoke-direct {v3, v0, v14}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy$2;-><init>(Lcom/android/server/enterprise/email/ExchangeAccountPolicy;Ljava/lang/Object;)V
 
     const-string/jumbo v8, "com.samsung.android.knox.intent.action.GET_EMAIL_DEVICEID_REQUEST_INTERNAL"
 
-    const-string/jumbo v14, "com.samsung.android.knox.intent.action.GET_EMAIL_DEVICEID_RESULT_INTERNAL"
+    const-string/jumbo v13, "com.samsung.android.knox.intent.action.GET_EMAIL_DEVICEID_RESULT_INTERNAL"
 
-    :goto_0
     new-instance v5, Landroid/content/IntentFilter;
 
-    invoke-direct {v5, v14}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5, v13}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
     const-string/jumbo v2, "edm.intent.action.internal.GET_DEVICEID_RESULT"
 
@@ -8434,25 +8341,11 @@
 
     invoke-direct {v12, v8}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    new-instance v13, Landroid/content/Intent;
+    invoke-static {v15}, Lcom/android/server/enterprise/email/SettingsUtils;->getEmailPackageName(I)Ljava/lang/String;
 
-    const-string/jumbo v2, "com.samsung.android.email.GET_DEVICEID"
+    move-result-object v2
 
-    invoke-direct {v13, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->mContext:Landroid/content/Context;
-
-    new-instance v4, Landroid/os/UserHandle;
-
-    move/from16 v0, v18
-
-    invoke-direct {v4, v0}, Landroid/os/UserHandle;-><init>(I)V
-
-    const-string/jumbo v6, "android.permission.sec.MDM_EMAIL"
-
-    invoke-virtual {v2, v13, v4, v6}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
+    invoke-virtual {v12, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
     move-object/from16 v0, p0
 
@@ -8460,19 +8353,40 @@
 
     new-instance v4, Landroid/os/UserHandle;
 
-    move/from16 v0, v18
-
-    invoke-direct {v4, v0}, Landroid/os/UserHandle;-><init>(I)V
+    invoke-direct {v4, v15}, Landroid/os/UserHandle;-><init>(I)V
 
     const-string/jumbo v6, "com.samsung.android.knox.permission.KNOX_EMAIL"
 
     invoke-virtual {v2, v12, v4, v6}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
 
-    const-string/jumbo v2, "ExchangeAccountPolicy"
+    const-string/jumbo v4, "ExchangeAccountPolicy"
 
-    const-string/jumbo v4, "getDeviceId() : sendBroadcast "
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-static {v2, v4}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "getDeviceId() : sendBroadcast "
+
+    invoke-virtual {v2, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    if-eqz v15, :cond_5
+
+    invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    :goto_0
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v4, v2}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_2
@@ -8480,7 +8394,7 @@
     :try_start_2
     sget-object v2, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->mDeviceId:Ljava/util/HashMap;
 
-    invoke-static/range {v18 .. v18}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
@@ -8498,7 +8412,7 @@
 
     const-wide/16 v6, 0x1388
 
-    invoke-virtual {v15, v6, v7}, Ljava/lang/Object;->wait(J)V
+    invoke-virtual {v14, v6, v7}, Ljava/lang/Object;->wait(J)V
     :try_end_2
     .catch Ljava/lang/InterruptedException; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
@@ -8524,11 +8438,11 @@
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     :goto_2
-    monitor-exit v15
+    monitor-exit v14
 
     sget-object v2, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->mDeviceId:Ljava/util/HashMap;
 
-    invoke-static/range {v18 .. v18}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
@@ -8542,14 +8456,12 @@
 
     :cond_5
     :try_start_5
-    const-string/jumbo v8, "com.android.email.GET_DEVICEID"
-
-    const-string/jumbo v14, "android.intent.action.enterprise.GET_DEVICEID"
+    const-string/jumbo v2, ""
     :try_end_5
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_1
     .catchall {:try_start_5 .. :try_end_5} :catchall_2
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :catch_0
     move-exception v9
@@ -8599,7 +8511,7 @@
     :catchall_0
     move-exception v2
 
-    monitor-exit v15
+    monitor-exit v14
 
     throw v2
 
@@ -10040,25 +9952,6 @@
 .method public setAccountEmailPassword(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)J
     .locals 11
 
-    iget-object v6, p0, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->mContext:Landroid/content/Context;
-
-    invoke-static {v6, p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->isManagedProfileUser(Landroid/content/Context;Lcom/samsung/android/knox/ContextInfo;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_0
-
-    const-string/jumbo v6, "ExchangeAccountPolicy"
-
-    const-string/jumbo v7, " setAccountEmailPassword calls from Profile return default value"
-
-    invoke-static {v6, v7}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-wide/16 v6, -0x1
-
-    return-wide v6
-
-    :cond_0
     invoke-direct {p0}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->getEDM()Lcom/samsung/android/knox/EnterpriseDeviceManager;
 
     move-result-object v6
@@ -10101,13 +9994,13 @@
 
     move-result-wide v0
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_0
 
     const-wide/16 v6, -0x1
 
     return-wide v6
 
-    :cond_1
+    :cond_0
     :try_start_0
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -12918,7 +12811,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_6
 
     move-object/from16 v0, p0
 
@@ -13025,40 +12918,13 @@
 
     iget-boolean v5, v4, Landroid/sec/enterprise/email/EnterpriseExchangeAccount;->mAllowHTMLEmail:Z
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_5
 
-    if-eqz v16, :cond_4
+    xor-int/lit8 v5, v16, 0x1
 
-    :cond_3
-    :goto_0
-    const-string/jumbo v5, "ExchangeAccountPolicy"
+    if-eqz v5, :cond_5
 
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "setMaxEmailBodyTruncationSize()  = "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    move/from16 v0, v19
-
-    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v5, v8}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    return v19
-
-    :cond_4
-    if-eqz v18, :cond_3
+    if-eqz v18, :cond_5
 
     const/16 v17, 0x0
 
@@ -13072,7 +12938,7 @@
 
     move/from16 v0, v18
 
-    if-le v5, v0, :cond_5
+    if-le v5, v0, :cond_3
 
     iget-object v5, v4, Landroid/sec/enterprise/email/EnterpriseExchangeAccount;->mProtocolVersion:Ljava/lang/String;
 
@@ -13124,7 +12990,7 @@
 
     const/16 v17, 0x1
 
-    :cond_5
+    :cond_3
     iget-object v5, v4, Landroid/sec/enterprise/email/EnterpriseExchangeAccount;->mProtocolVersion:Ljava/lang/String;
 
     iget v8, v4, Landroid/sec/enterprise/email/EnterpriseExchangeAccount;->mEmailRoamingBodyTruncationSize:I
@@ -13135,7 +13001,7 @@
 
     move/from16 v0, v18
 
-    if-le v5, v0, :cond_6
+    if-le v5, v0, :cond_4
 
     iget-object v5, v4, Landroid/sec/enterprise/email/EnterpriseExchangeAccount;->mProtocolVersion:Ljava/lang/String;
 
@@ -13187,8 +13053,8 @@
 
     const/16 v17, 0x1
 
-    :cond_6
-    if-eqz v17, :cond_3
+    :cond_4
+    if-eqz v17, :cond_5
 
     move-object/from16 v0, p0
 
@@ -13204,9 +13070,34 @@
 
     invoke-static {v5, v8}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto/16 :goto_0
+    :cond_5
+    const-string/jumbo v5, "ExchangeAccountPolicy"
 
-    :cond_7
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "setMaxEmailBodyTruncationSize()  = "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    move/from16 v0, v19
+
+    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v5, v8}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    return v19
+
+    :cond_6
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->mContext:Landroid/content/Context;
@@ -13219,7 +13110,7 @@
 
     move-result-object v15
 
-    if-nez v15, :cond_8
+    if-nez v15, :cond_7
 
     const-string/jumbo v5, "ExchangeAccountPolicy"
 
@@ -13247,8 +13138,8 @@
 
     return v19
 
-    :cond_8
-    if-gez p2, :cond_9
+    :cond_7
+    if-gez p2, :cond_8
 
     const-string/jumbo v5, "ExchangeAccountPolicy"
 
@@ -13258,7 +13149,7 @@
 
     return v19
 
-    :cond_9
+    :cond_8
     const-string/jumbo v11, "MaxEmailBodyTruncationSize"
 
     move-object/from16 v5, p0
@@ -13271,7 +13162,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_a
+    if-nez v5, :cond_9
 
     const-string/jumbo v5, "ExchangeAccountPolicy"
 
@@ -13281,7 +13172,7 @@
 
     return v19
 
-    :cond_a
+    :cond_9
     const/16 v19, 0x1
 
     move-object/from16 v0, p0
@@ -13306,21 +13197,13 @@
 
     iget-boolean v5, v15, Lcom/android/server/enterprise/email/AccountMetaData;->mAllowHTMLEmail:Z
 
-    if-nez v5, :cond_b
+    if-nez v5, :cond_d
 
-    if-eqz v16, :cond_c
+    xor-int/lit8 v5, v16, 0x1
 
-    :cond_b
-    const-string/jumbo v5, "ExchangeAccountPolicy"
+    if-eqz v5, :cond_d
 
-    const-string/jumbo v8, "setMaxEmailBodyTruncationSize_old() : success."
-
-    invoke-static {v5, v8}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    return v19
-
-    :cond_c
-    if-eqz v18, :cond_b
+    if-eqz v18, :cond_d
 
     const/16 v17, 0x0
 
@@ -13334,7 +13217,7 @@
 
     move/from16 v0, v18
 
-    if-le v5, v0, :cond_d
+    if-le v5, v0, :cond_a
 
     iget-object v5, v15, Lcom/android/server/enterprise/email/AccountMetaData;->mProtocolVersion:Ljava/lang/String;
 
@@ -13386,7 +13269,7 @@
 
     const/16 v17, 0x1
 
-    :cond_d
+    :cond_a
     iget-object v5, v15, Lcom/android/server/enterprise/email/AccountMetaData;->mProtocolVersion:Ljava/lang/String;
 
     iget v8, v15, Lcom/android/server/enterprise/email/AccountMetaData;->mEmailRoamingBodyTruncationSize:I
@@ -13397,7 +13280,7 @@
 
     move/from16 v0, v18
 
-    if-le v5, v0, :cond_e
+    if-le v5, v0, :cond_b
 
     iget-object v5, v15, Lcom/android/server/enterprise/email/AccountMetaData;->mProtocolVersion:Ljava/lang/String;
 
@@ -13449,8 +13332,8 @@
 
     const/16 v17, 0x1
 
-    :cond_e
-    if-eqz v17, :cond_b
+    :cond_b
+    if-eqz v17, :cond_d
 
     const/4 v14, 0x0
 
@@ -13470,12 +13353,12 @@
 
     cmp-long v5, v10, v8
 
-    if-eqz v5, :cond_f
+    if-eqz v5, :cond_c
 
     const/16 v19, 0x1
 
-    :goto_1
-    if-nez v19, :cond_b
+    :goto_0
+    if-nez v19, :cond_d
 
     const-string/jumbo v5, "ExchangeAccountPolicy"
 
@@ -13485,10 +13368,19 @@
 
     return v19
 
-    :cond_f
+    :cond_c
     const/16 v19, 0x0
 
-    goto :goto_1
+    goto :goto_0
+
+    :cond_d
+    const-string/jumbo v5, "ExchangeAccountPolicy"
+
+    const-string/jumbo v8, "setMaxEmailBodyTruncationSize_old() : success."
+
+    invoke-static {v5, v8}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    return v19
 .end method
 
 .method public setMaxEmailHTMLBodyTruncationSize(Lcom/samsung/android/knox/ContextInfo;IJ)Z

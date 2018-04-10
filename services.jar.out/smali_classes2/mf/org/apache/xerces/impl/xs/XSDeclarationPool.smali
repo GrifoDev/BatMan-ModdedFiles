@@ -560,13 +560,13 @@
 .method public final getAttributeDecl()Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
     .locals 4
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fAttrDeclIndex:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fAttrDeclIndex:I
 
-    shr-int/lit8 v0, v0, 0x8
+    shr-int/lit8 v0, v2, 0x8
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fAttrDeclIndex:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fAttrDeclIndex:I
 
-    and-int/lit16 v1, v1, 0xff
+    and-int/lit16 v1, v2, 0xff
 
     invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->ensureAttrDeclCapacity(I)Z
 
@@ -595,11 +595,11 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fAttrDecl:[[Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
 
-    aget-object v0, v2, v0
+    aget-object v2, v2, v0
 
-    aget-object v0, v0, v1
+    aget-object v2, v2, v1
 
-    return-object v0
+    return-object v2
 
     :cond_0
     iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fAttrDecl:[[Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
@@ -618,13 +618,13 @@
 .method public final getAttributeUse()Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;
     .locals 4
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fAttributeUseIndex:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fAttributeUseIndex:I
 
-    shr-int/lit8 v0, v0, 0x8
+    shr-int/lit8 v0, v2, 0x8
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fAttributeUseIndex:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fAttributeUseIndex:I
 
-    and-int/lit16 v1, v1, 0xff
+    and-int/lit16 v1, v2, 0xff
 
     invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->ensureAttributeUseCapacity(I)Z
 
@@ -653,11 +653,11 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fAttributeUse:[[Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;
 
-    aget-object v0, v2, v0
+    aget-object v2, v2, v0
 
-    aget-object v0, v0, v1
+    aget-object v2, v2, v1
 
-    return-object v0
+    return-object v2
 
     :cond_0
     iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fAttributeUse:[[Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;
@@ -676,13 +676,13 @@
 .method public final getComplexTypeDecl()Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
     .locals 4
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fCTDeclIndex:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fCTDeclIndex:I
 
-    shr-int/lit8 v0, v0, 0x8
+    shr-int/lit8 v0, v2, 0x8
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fCTDeclIndex:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fCTDeclIndex:I
 
-    and-int/lit16 v1, v1, 0xff
+    and-int/lit16 v1, v2, 0xff
 
     invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->ensureCTDeclCapacity(I)Z
 
@@ -711,11 +711,11 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fCTDecl:[[Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
 
-    aget-object v0, v2, v0
+    aget-object v2, v2, v0
 
-    aget-object v0, v0, v1
+    aget-object v2, v2, v1
 
-    return-object v0
+    return-object v2
 
     :cond_0
     iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fCTDecl:[[Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
@@ -734,13 +734,13 @@
 .method public final getElementDecl()Lmf/org/apache/xerces/impl/xs/XSElementDecl;
     .locals 4
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fElementDeclIndex:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fElementDeclIndex:I
 
-    shr-int/lit8 v0, v0, 0x8
+    shr-int/lit8 v0, v2, 0x8
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fElementDeclIndex:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fElementDeclIndex:I
 
-    and-int/lit16 v1, v1, 0xff
+    and-int/lit16 v1, v2, 0xff
 
     invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->ensureElementDeclCapacity(I)Z
 
@@ -769,11 +769,11 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fElementDecl:[[Lmf/org/apache/xerces/impl/xs/XSElementDecl;
 
-    aget-object v0, v2, v0
+    aget-object v2, v2, v0
 
-    aget-object v0, v0, v1
+    aget-object v2, v2, v1
 
-    return-object v0
+    return-object v2
 
     :cond_0
     iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fElementDecl:[[Lmf/org/apache/xerces/impl/xs/XSElementDecl;
@@ -792,13 +792,13 @@
 .method public final getModelGroup()Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;
     .locals 4
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fModelGroupIndex:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fModelGroupIndex:I
 
-    shr-int/lit8 v0, v0, 0x8
+    shr-int/lit8 v0, v2, 0x8
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fModelGroupIndex:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fModelGroupIndex:I
 
-    and-int/lit16 v1, v1, 0xff
+    and-int/lit16 v1, v2, 0xff
 
     invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->ensureModelGroupCapacity(I)Z
 
@@ -827,11 +827,11 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fModelGroup:[[Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;
 
-    aget-object v0, v2, v0
+    aget-object v2, v2, v0
 
-    aget-object v0, v0, v1
+    aget-object v2, v2, v1
 
-    return-object v0
+    return-object v2
 
     :cond_0
     iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fModelGroup:[[Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;
@@ -850,13 +850,13 @@
 .method public final getParticleDecl()Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
     .locals 4
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fParticleDeclIndex:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fParticleDeclIndex:I
 
-    shr-int/lit8 v0, v0, 0x8
+    shr-int/lit8 v0, v2, 0x8
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fParticleDeclIndex:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fParticleDeclIndex:I
 
-    and-int/lit16 v1, v1, 0xff
+    and-int/lit16 v1, v2, 0xff
 
     invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->ensureParticleDeclCapacity(I)Z
 
@@ -885,11 +885,11 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fParticleDecl:[[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
-    aget-object v0, v2, v0
+    aget-object v2, v2, v0
 
-    aget-object v0, v0, v1
+    aget-object v2, v2, v1
 
-    return-object v0
+    return-object v2
 
     :cond_0
     iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fParticleDecl:[[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
@@ -908,13 +908,13 @@
 .method public final getSimpleTypeDecl()Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
     .locals 4
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fSTDeclIndex:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fSTDeclIndex:I
 
-    shr-int/lit8 v0, v0, 0x8
+    shr-int/lit8 v0, v2, 0x8
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fSTDeclIndex:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fSTDeclIndex:I
 
-    and-int/lit16 v1, v1, 0xff
+    and-int/lit16 v1, v2, 0xff
 
     invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->ensureSTDeclCapacity(I)Z
 
@@ -943,11 +943,11 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fSTDecl:[[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    aget-object v0, v2, v0
+    aget-object v2, v2, v0
 
-    aget-object v0, v0, v1
+    aget-object v2, v2, v1
 
-    return-object v0
+    return-object v2
 
     :cond_0
     iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->fSTDecl:[[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;

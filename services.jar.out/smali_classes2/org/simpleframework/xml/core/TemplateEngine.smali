@@ -45,41 +45,41 @@
 .end method
 
 .method private name()V
-    .locals 3
+    .locals 4
 
     :goto_0
-    iget v0, p0, Lorg/simpleframework/xml/core/TemplateEngine;->off:I
+    iget v1, p0, Lorg/simpleframework/xml/core/TemplateEngine;->off:I
 
-    iget-object v1, p0, Lorg/simpleframework/xml/core/TemplateEngine;->source:Lorg/simpleframework/xml/core/Template;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/TemplateEngine;->source:Lorg/simpleframework/xml/core/Template;
 
-    iget v1, v1, Lorg/simpleframework/xml/core/Template;->count:I
+    iget v2, v2, Lorg/simpleframework/xml/core/Template;->count:I
 
-    if-lt v0, v1, :cond_0
+    if-lt v1, v2, :cond_0
 
     :goto_1
-    iget-object v0, p0, Lorg/simpleframework/xml/core/TemplateEngine;->name:Lorg/simpleframework/xml/core/Template;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/TemplateEngine;->name:Lorg/simpleframework/xml/core/Template;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/Template;->length()I
+    invoke-virtual {v1}, Lorg/simpleframework/xml/core/Template;->length()I
 
-    move-result v0
+    move-result v1
 
-    if-gtz v0, :cond_2
+    if-gtz v1, :cond_2
 
     :goto_2
     return-void
 
     :cond_0
-    iget-object v0, p0, Lorg/simpleframework/xml/core/TemplateEngine;->source:Lorg/simpleframework/xml/core/Template;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/TemplateEngine;->source:Lorg/simpleframework/xml/core/Template;
 
-    iget-object v0, v0, Lorg/simpleframework/xml/core/Template;->buf:[C
+    iget-object v1, v1, Lorg/simpleframework/xml/core/Template;->buf:[C
 
-    iget v1, p0, Lorg/simpleframework/xml/core/TemplateEngine;->off:I
+    iget v2, p0, Lorg/simpleframework/xml/core/TemplateEngine;->off:I
 
-    add-int/lit8 v2, v1, 0x1
+    add-int/lit8 v3, v2, 0x1
 
-    iput v2, p0, Lorg/simpleframework/xml/core/TemplateEngine;->off:I
+    iput v3, p0, Lorg/simpleframework/xml/core/TemplateEngine;->off:I
 
-    aget-char v0, v0, v1
+    aget-char v0, v1, v2
 
     const/16 v1, 0x7d
 
@@ -97,17 +97,17 @@
     goto :goto_1
 
     :cond_2
-    iget-object v0, p0, Lorg/simpleframework/xml/core/TemplateEngine;->text:Lorg/simpleframework/xml/core/Template;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/TemplateEngine;->text:Lorg/simpleframework/xml/core/Template;
 
-    const-string/jumbo v1, "${"
+    const-string/jumbo v2, "${"
 
-    invoke-virtual {v0, v1}, Lorg/simpleframework/xml/core/Template;->append(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lorg/simpleframework/xml/core/Template;->append(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/TemplateEngine;->text:Lorg/simpleframework/xml/core/Template;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/TemplateEngine;->text:Lorg/simpleframework/xml/core/Template;
 
-    iget-object v1, p0, Lorg/simpleframework/xml/core/TemplateEngine;->name:Lorg/simpleframework/xml/core/Template;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/TemplateEngine;->name:Lorg/simpleframework/xml/core/Template;
 
-    invoke-virtual {v0, v1}, Lorg/simpleframework/xml/core/Template;->append(Lorg/simpleframework/xml/core/Template;)V
+    invoke-virtual {v1, v2}, Lorg/simpleframework/xml/core/Template;->append(Lorg/simpleframework/xml/core/Template;)V
 
     goto :goto_2
 .end method
@@ -116,28 +116,28 @@
     .locals 4
 
     :goto_0
-    iget v0, p0, Lorg/simpleframework/xml/core/TemplateEngine;->off:I
+    iget v1, p0, Lorg/simpleframework/xml/core/TemplateEngine;->off:I
 
-    iget-object v1, p0, Lorg/simpleframework/xml/core/TemplateEngine;->source:Lorg/simpleframework/xml/core/Template;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/TemplateEngine;->source:Lorg/simpleframework/xml/core/Template;
 
-    iget v1, v1, Lorg/simpleframework/xml/core/Template;->count:I
+    iget v2, v2, Lorg/simpleframework/xml/core/Template;->count:I
 
-    if-lt v0, v1, :cond_0
+    if-lt v1, v2, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lorg/simpleframework/xml/core/TemplateEngine;->source:Lorg/simpleframework/xml/core/Template;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/TemplateEngine;->source:Lorg/simpleframework/xml/core/Template;
 
-    iget-object v0, v0, Lorg/simpleframework/xml/core/Template;->buf:[C
+    iget-object v1, v1, Lorg/simpleframework/xml/core/Template;->buf:[C
 
-    iget v1, p0, Lorg/simpleframework/xml/core/TemplateEngine;->off:I
+    iget v2, p0, Lorg/simpleframework/xml/core/TemplateEngine;->off:I
 
-    add-int/lit8 v2, v1, 0x1
+    add-int/lit8 v3, v2, 0x1
 
-    iput v2, p0, Lorg/simpleframework/xml/core/TemplateEngine;->off:I
+    iput v3, p0, Lorg/simpleframework/xml/core/TemplateEngine;->off:I
 
-    aget-char v0, v0, v1
+    aget-char v0, v1, v2
 
     const/16 v1, 0x24
 
@@ -217,11 +217,11 @@
 .end method
 
 .method private replace(Ljava/lang/String;)V
-    .locals 2
+    .locals 3
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/TemplateEngine;->filter:Lorg/simpleframework/xml/filter/Filter;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/TemplateEngine;->filter:Lorg/simpleframework/xml/filter/Filter;
 
-    invoke-interface {v0, p1}, Lorg/simpleframework/xml/filter/Filter;->replace(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v1, p1}, Lorg/simpleframework/xml/filter/Filter;->replace(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -235,21 +235,21 @@
     return-void
 
     :cond_0
-    iget-object v0, p0, Lorg/simpleframework/xml/core/TemplateEngine;->text:Lorg/simpleframework/xml/core/Template;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/TemplateEngine;->text:Lorg/simpleframework/xml/core/Template;
 
-    const-string/jumbo v1, "${"
+    const-string/jumbo v2, "${"
 
-    invoke-virtual {v0, v1}, Lorg/simpleframework/xml/core/Template;->append(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lorg/simpleframework/xml/core/Template;->append(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/TemplateEngine;->text:Lorg/simpleframework/xml/core/Template;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/TemplateEngine;->text:Lorg/simpleframework/xml/core/Template;
 
-    invoke-virtual {v0, p1}, Lorg/simpleframework/xml/core/Template;->append(Ljava/lang/String;)V
+    invoke-virtual {v1, p1}, Lorg/simpleframework/xml/core/Template;->append(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/TemplateEngine;->text:Lorg/simpleframework/xml/core/Template;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/TemplateEngine;->text:Lorg/simpleframework/xml/core/Template;
 
-    const-string/jumbo v1, "}"
+    const-string/jumbo v2, "}"
 
-    invoke-virtual {v0, v1}, Lorg/simpleframework/xml/core/Template;->append(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lorg/simpleframework/xml/core/Template;->append(Ljava/lang/String;)V
 
     goto :goto_0
 .end method
@@ -291,26 +291,26 @@
 .end method
 
 .method public process(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .locals 3
 
-    const/16 v0, 0x24
+    const/16 v2, 0x24
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->indexOf(I)I
+    invoke-virtual {p1, v2}, Ljava/lang/String;->indexOf(I)I
 
-    move-result v0
+    move-result v2
 
-    if-ltz v0, :cond_0
+    if-ltz v2, :cond_0
 
     :try_start_0
-    iget-object v0, p0, Lorg/simpleframework/xml/core/TemplateEngine;->source:Lorg/simpleframework/xml/core/Template;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/TemplateEngine;->source:Lorg/simpleframework/xml/core/Template;
 
-    invoke-virtual {v0, p1}, Lorg/simpleframework/xml/core/Template;->append(Ljava/lang/String;)V
+    invoke-virtual {v2, p1}, Lorg/simpleframework/xml/core/Template;->append(Ljava/lang/String;)V
 
     invoke-direct {p0}, Lorg/simpleframework/xml/core/TemplateEngine;->parse()V
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/TemplateEngine;->text:Lorg/simpleframework/xml/core/Template;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/TemplateEngine;->text:Lorg/simpleframework/xml/core/Template;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/Template;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Lorg/simpleframework/xml/core/Template;->toString()Ljava/lang/String;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -324,9 +324,9 @@
     return-object p1
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/core/TemplateEngine;->clear()V
 
-    throw v0
+    throw v1
 .end method

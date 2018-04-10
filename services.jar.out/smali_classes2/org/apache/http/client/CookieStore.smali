@@ -3,11 +3,6 @@
 .source "CookieStore.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract addCookie(Lorg/apache/http/cookie/Cookie;)V
 .end method

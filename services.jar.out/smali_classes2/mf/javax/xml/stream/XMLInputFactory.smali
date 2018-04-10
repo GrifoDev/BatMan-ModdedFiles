@@ -56,25 +56,25 @@
 .end method
 
 .method public static newFactory(Ljava/lang/String;Ljava/lang/ClassLoader;)Lmf/javax/xml/stream/XMLInputFactory;
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/javax/xml/stream/FactoryConfigurationError;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     :try_start_0
-    invoke-static {p0, p1, v0}, Lmf/javax/xml/stream/FactoryFinder;->find(Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p0, p1, v1}, Lmf/javax/xml/stream/FactoryFinder;->find(Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/javax/xml/stream/XMLInputFactory;
+    check-cast v1, Lmf/javax/xml/stream/XMLInputFactory;
     :try_end_0
     .catch Lmf/javax/xml/stream/FactoryFinder$ConfigurationError; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object v1
 
     :catch_0
     move-exception v0
@@ -87,9 +87,9 @@
 
     invoke-virtual {v0}, Lmf/javax/xml/stream/FactoryFinder$ConfigurationError;->getMessage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-direct {v1, v2, v0}, Lmf/javax/xml/stream/FactoryConfigurationError;-><init>(Ljava/lang/Exception;Ljava/lang/String;)V
+    invoke-direct {v1, v2, v3}, Lmf/javax/xml/stream/FactoryConfigurationError;-><init>(Ljava/lang/Exception;Ljava/lang/String;)V
 
     throw v1
 .end method
@@ -116,25 +116,25 @@
 .end method
 
 .method public static newInstance(Ljava/lang/String;Ljava/lang/ClassLoader;)Lmf/javax/xml/stream/XMLInputFactory;
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/javax/xml/stream/FactoryConfigurationError;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     :try_start_0
-    invoke-static {p0, p1, v0}, Lmf/javax/xml/stream/FactoryFinder;->find(Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p0, p1, v1}, Lmf/javax/xml/stream/FactoryFinder;->find(Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/javax/xml/stream/XMLInputFactory;
+    check-cast v1, Lmf/javax/xml/stream/XMLInputFactory;
     :try_end_0
     .catch Lmf/javax/xml/stream/FactoryFinder$ConfigurationError; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object v1
 
     :catch_0
     move-exception v0
@@ -147,9 +147,9 @@
 
     invoke-virtual {v0}, Lmf/javax/xml/stream/FactoryFinder$ConfigurationError;->getMessage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-direct {v1, v2, v0}, Lmf/javax/xml/stream/FactoryConfigurationError;-><init>(Ljava/lang/Exception;Ljava/lang/String;)V
+    invoke-direct {v1, v2, v3}, Lmf/javax/xml/stream/FactoryConfigurationError;-><init>(Ljava/lang/Exception;Ljava/lang/String;)V
 
     throw v1
 .end method

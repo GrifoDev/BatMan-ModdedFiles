@@ -40,9 +40,7 @@
 .end method
 
 .method private convertToPrimitiveKind(Lmf/org/apache/xerces/xs/ShortList;)Lmf/org/apache/xerces/xs/ShortList;
-    .locals 5
-
-    const/4 v1, 0x0
+    .locals 7
 
     if-nez p1, :cond_1
 
@@ -52,72 +50,74 @@
     :cond_1
     invoke-interface {p1}, Lmf/org/apache/xerces/xs/ShortList;->getLength()I
 
-    move-result v2
-
-    move v0, v1
-
-    :goto_0
-    if-ge v0, v2, :cond_2
-
-    invoke-interface {p1, v0}, Lmf/org/apache/xerces/xs/ShortList;->item(I)S
-
     move-result v3
 
-    invoke-direct {p0, v3}, Lmf/org/apache/xerces/impl/xs/identity/Field$Matcher;->convertToPrimitiveKind(S)S
+    const/4 v1, 0x0
 
-    move-result v4
-
-    if-ne v3, v4, :cond_2
-
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_2
-    if-eq v0, v2, :cond_0
-
-    new-array v3, v2, [S
-
-    :goto_1
-    if-ge v1, v0, :cond_4
+    :goto_0
+    if-ge v1, v3, :cond_2
 
     invoke-interface {p1, v1}, Lmf/org/apache/xerces/xs/ShortList;->item(I)S
 
     move-result v4
 
-    int-to-short v4, v4
+    invoke-direct {p0, v4}, Lmf/org/apache/xerces/impl/xs/identity/Field$Matcher;->convertToPrimitiveKind(S)S
 
-    aput-short v4, v3, v1
+    move-result v5
+
+    if-ne v4, v5, :cond_2
 
     add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    if-eq v1, v3, :cond_0
+
+    new-array v0, v3, [S
+
+    const/4 v2, 0x0
+
+    :goto_1
+    if-ge v2, v1, :cond_4
+
+    invoke-interface {p1, v2}, Lmf/org/apache/xerces/xs/ShortList;->item(I)S
+
+    move-result v5
+
+    int-to-short v5, v5
+
+    aput-short v5, v0, v2
+
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
     :cond_3
-    invoke-interface {p1, v0}, Lmf/org/apache/xerces/xs/ShortList;->item(I)S
+    invoke-interface {p1, v1}, Lmf/org/apache/xerces/xs/ShortList;->item(I)S
 
-    move-result v1
+    move-result v5
 
-    invoke-direct {p0, v1}, Lmf/org/apache/xerces/impl/xs/identity/Field$Matcher;->convertToPrimitiveKind(S)S
+    invoke-direct {p0, v5}, Lmf/org/apache/xerces/impl/xs/identity/Field$Matcher;->convertToPrimitiveKind(S)S
 
-    move-result v1
+    move-result v5
 
-    int-to-short v1, v1
+    int-to-short v5, v5
 
-    aput-short v1, v3, v0
+    aput-short v5, v0, v1
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     :cond_4
-    if-lt v0, v2, :cond_3
+    if-lt v1, v3, :cond_3
 
-    new-instance v0, Lmf/org/apache/xerces/impl/xs/util/ShortListImpl;
+    new-instance v5, Lmf/org/apache/xerces/impl/xs/util/ShortListImpl;
 
-    array-length v1, v3
+    array-length v6, v0
 
-    invoke-direct {v0, v3, v1}, Lmf/org/apache/xerces/impl/xs/util/ShortListImpl;-><init>([SI)V
+    invoke-direct {v5, v0, v6}, Lmf/org/apache/xerces/impl/xs/util/ShortListImpl;-><init>([SI)V
 
-    return-object v0
+    return-object v5
 .end method
 
 .method private convertToPrimitiveKind(S)S
@@ -163,11 +163,11 @@
     :cond_0
     iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/Field$Matcher;->fStore:Lmf/org/apache/xerces/impl/xs/identity/ValueStore;
 
-    const-string/jumbo v1, "cvc-id.3"
+    const/4 v1, 0x2
 
-    const/4 v2, 0x2
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "cvc-id.3"
 
     const/4 v3, 0x0
 
@@ -179,7 +179,7 @@
 
     move-result-object v4
 
-    aput-object v4, v2, v3
+    aput-object v4, v1, v3
 
     iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/identity/Field$Matcher;->this$0:Lmf/org/apache/xerces/impl/xs/identity/Field;
 
@@ -189,9 +189,9 @@
 
     move-result-object v3
 
-    aput-object v3, v2, v5
+    aput-object v3, v1, v5
 
-    invoke-interface {v0, v1, v2}, Lmf/org/apache/xerces/impl/xs/identity/ValueStore;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-interface {v0, v2, v1}, Lmf/org/apache/xerces/impl/xs/identity/ValueStore;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     :cond_1
     :goto_0
@@ -224,11 +224,11 @@
 .end method
 
 .method protected matched(Ljava/lang/Object;SLmf/org/apache/xerces/xs/ShortList;Z)V
-    .locals 7
+    .locals 8
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
     invoke-super {p0, p1, p2, p3, p4}, Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;->matched(Ljava/lang/Object;SLmf/org/apache/xerces/xs/ShortList;Z)V
 
@@ -254,7 +254,7 @@
 
     invoke-interface/range {v0 .. v5}, Lmf/org/apache/xerces/impl/xs/identity/ValueStore;->addValue(Lmf/org/apache/xerces/impl/xs/identity/Field;ZLjava/lang/Object;SLmf/org/apache/xerces/xs/ShortList;)V
 
-    iput-boolean v6, p0, Lmf/org/apache/xerces/impl/xs/identity/Field$Matcher;->fMayMatch:Z
+    iput-boolean v7, p0, Lmf/org/apache/xerces/impl/xs/identity/Field$Matcher;->fMayMatch:Z
 
     return-void
 
@@ -267,37 +267,37 @@
 
     move-result v0
 
-    if-ne v0, v4, :cond_0
+    if-ne v0, v3, :cond_0
 
-    const-string/jumbo v0, "KeyMatchesNillable"
+    const-string/jumbo v6, "KeyMatchesNillable"
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/Field$Matcher;->fStore:Lmf/org/apache/xerces/impl/xs/identity/ValueStore;
+    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/Field$Matcher;->fStore:Lmf/org/apache/xerces/impl/xs/identity/ValueStore;
 
-    const/4 v2, 0x2
+    const/4 v1, 0x2
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/Object;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/identity/Field$Matcher;->this$0:Lmf/org/apache/xerces/impl/xs/identity/Field;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/identity/Field$Matcher;->this$0:Lmf/org/apache/xerces/impl/xs/identity/Field;
 
-    iget-object v3, v3, Lmf/org/apache/xerces/impl/xs/identity/Field;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
+    iget-object v2, v2, Lmf/org/apache/xerces/impl/xs/identity/Field;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
 
-    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getElementName()Ljava/lang/String;
+    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getElementName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    aput-object v3, v2, v6
+    aput-object v2, v1, v7
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/identity/Field$Matcher;->this$0:Lmf/org/apache/xerces/impl/xs/identity/Field;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/identity/Field$Matcher;->this$0:Lmf/org/apache/xerces/impl/xs/identity/Field;
 
-    iget-object v3, v3, Lmf/org/apache/xerces/impl/xs/identity/Field;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
+    iget-object v2, v2, Lmf/org/apache/xerces/impl/xs/identity/Field;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
 
-    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getIdentityConstraintName()Ljava/lang/String;
+    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getIdentityConstraintName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    aput-object v3, v2, v4
+    aput-object v2, v1, v3
 
-    invoke-interface {v1, v0, v2}, Lmf/org/apache/xerces/impl/xs/identity/ValueStore;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-interface {v0, v6, v1}, Lmf/org/apache/xerces/impl/xs/identity/ValueStore;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_0
 .end method

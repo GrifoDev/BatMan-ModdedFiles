@@ -28,39 +28,39 @@
 
 # virtual methods
 .method capitalize(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .locals 4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     invoke-virtual {p1}, Ljava/lang/String;->toCharArray()[C
 
-    move-result-object v1
+    move-result-object v0
 
-    array-length v0, v1
+    array-length v2, v0
 
-    if-gtz v0, :cond_0
+    if-gtz v2, :cond_0
 
     return-object p1
 
     :cond_0
-    aget-char v0, v1, v2
+    aget-char v2, v0, v3
 
-    invoke-static {v0}, Ljava/lang/Character;->toUpperCase(C)C
+    invoke-static {v2}, Ljava/lang/Character;->toUpperCase(C)C
 
-    move-result v0
+    move-result v2
 
-    int-to-char v0, v0
+    int-to-char v2, v2
 
-    aput-char v0, v1, v2
+    aput-char v2, v0, v3
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
     :goto_0
-    array-length v2, v1
+    array-length v2, v0
 
-    if-ge v0, v2, :cond_1
+    if-ge v1, v2, :cond_1
 
-    aget-char v2, v1, v0
+    aget-char v2, v0, v1
 
     invoke-static {v2}, Ljava/lang/Character;->toLowerCase(C)C
 
@@ -68,18 +68,18 @@
 
     int-to-char v2, v2
 
-    aput-char v2, v1, v0
+    aput-char v2, v0, v1
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_1
-    invoke-static {v1}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
+    invoke-static {v0}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 .end method
 
 .method public getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -198,65 +198,65 @@
 .end method
 
 .method getCapitalized(Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     invoke-virtual {p0, p1}, Lmf/org/apache/html/dom/HTMLElementImpl;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    if-nez v0, :cond_1
+    if-nez v2, :cond_1
 
     :cond_0
-    return-object v0
+    return-object v2
 
     :cond_1
-    invoke-virtual {v0}, Ljava/lang/String;->toCharArray()[C
+    invoke-virtual {v2}, Ljava/lang/String;->toCharArray()[C
 
-    move-result-object v1
+    move-result-object v0
 
-    array-length v2, v1
+    array-length v3, v0
 
-    if-lez v2, :cond_0
+    if-lez v3, :cond_0
 
-    aget-char v0, v1, v3
+    aget-char v3, v0, v4
 
-    invoke-static {v0}, Ljava/lang/Character;->toUpperCase(C)C
+    invoke-static {v3}, Ljava/lang/Character;->toUpperCase(C)C
 
-    move-result v0
+    move-result v3
 
-    int-to-char v0, v0
+    int-to-char v3, v3
 
-    aput-char v0, v1, v3
+    aput-char v3, v0, v4
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
     :goto_0
-    array-length v2, v1
+    array-length v3, v0
 
-    if-ge v0, v2, :cond_2
+    if-ge v1, v3, :cond_2
 
-    aget-char v2, v1, v0
+    aget-char v3, v0, v1
 
-    invoke-static {v2}, Ljava/lang/Character;->toLowerCase(C)C
+    invoke-static {v3}, Ljava/lang/Character;->toLowerCase(C)C
 
-    move-result v2
+    move-result v3
 
-    int-to-char v2, v2
+    int-to-char v3, v3
 
-    aput-char v2, v1, v0
+    aput-char v3, v0, v1
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_2
-    invoke-static {v1}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
+    invoke-static {v0}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    return-object v0
+    return-object v3
 .end method
 
 .method public getClassName()Ljava/lang/String;
@@ -381,23 +381,23 @@
 .end method
 
 .method getInteger(Ljava/lang/String;)I
-    .locals 1
+    .locals 2
 
     :try_start_0
     invoke-static {p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 
     :catch_0
     move-exception v0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return v0
+    return v1
 .end method
 
 .method public getLang()Ljava/lang/String;

@@ -13,9 +13,6 @@
     }
 .end annotation
 
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
 
 # virtual methods
 .method public abstract handleResponse(Lorg/apache/http/HttpResponse;)Ljava/lang/Object;

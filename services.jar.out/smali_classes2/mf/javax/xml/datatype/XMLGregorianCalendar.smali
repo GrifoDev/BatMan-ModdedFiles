@@ -76,7 +76,7 @@
 .end method
 
 .method public getMillisecond()I
-    .locals 2
+    .locals 3
 
     invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getFractionalSecond()Ljava/math/BigDecimal;
 
@@ -86,24 +86,24 @@
 
     invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getFractionalSecond()Ljava/math/BigDecimal;
 
-    move-result-object v0
+    move-result-object v1
 
-    const/4 v1, 0x3
+    const/4 v2, 0x3
 
-    invoke-virtual {v0, v1}, Ljava/math/BigDecimal;->movePointRight(I)Ljava/math/BigDecimal;
+    invoke-virtual {v1, v2}, Ljava/math/BigDecimal;->movePointRight(I)Ljava/math/BigDecimal;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Ljava/math/BigDecimal;->intValue()I
+    invoke-virtual {v1}, Ljava/math/BigDecimal;->intValue()I
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 
     :cond_0
-    const/high16 v0, -0x80000000
+    const/high16 v1, -0x80000000
 
-    return v0
+    return v1
 .end method
 
 .method public abstract getMinute()I
@@ -128,67 +128,67 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
-
-    const/4 v1, 0x0
+    .locals 4
 
     invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getTimezone()I
 
-    move-result v0
+    move-result v1
 
     const/high16 v2, -0x80000000
 
-    if-eq v0, v2, :cond_0
+    if-eq v1, v2, :cond_0
 
     :goto_0
-    if-nez v0, :cond_1
+    move-object v0, p0
+
+    if-nez v1, :cond_1
 
     :goto_1
-    invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getYear()I
+    invoke-virtual {v0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getYear()I
 
-    move-result v0
+    move-result v2
 
-    invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getMonth()I
+    invoke-virtual {v0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getMonth()I
 
-    move-result v1
+    move-result v3
 
-    add-int/2addr v0, v1
+    add-int/2addr v2, v3
 
-    invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getDay()I
+    invoke-virtual {v0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getDay()I
 
-    move-result v1
+    move-result v3
 
-    add-int/2addr v0, v1
+    add-int/2addr v2, v3
 
-    invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getHour()I
+    invoke-virtual {v0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getHour()I
 
-    move-result v1
+    move-result v3
 
-    add-int/2addr v0, v1
+    add-int/2addr v2, v3
 
-    invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getMinute()I
+    invoke-virtual {v0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getMinute()I
 
-    move-result v1
+    move-result v3
 
-    add-int/2addr v0, v1
+    add-int/2addr v2, v3
 
-    invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getSecond()I
+    invoke-virtual {v0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getSecond()I
 
-    move-result v1
+    move-result v3
 
-    add-int/2addr v0, v1
+    add-int/2addr v2, v3
 
-    return v0
+    return v2
 
     :cond_0
-    move v0, v1
+    const/4 v1, 0x0
 
     goto :goto_0
 
     :cond_1
     invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->normalize()Lmf/javax/xml/datatype/XMLGregorianCalendar;
 
-    move-result-object p0
+    move-result-object v0
 
     goto :goto_1
 .end method

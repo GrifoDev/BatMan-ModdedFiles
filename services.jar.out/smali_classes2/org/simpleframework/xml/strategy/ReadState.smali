@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public find(Ljava/lang/Object;)Lorg/simpleframework/xml/strategy/ReadGraph;
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -90,9 +90,9 @@
 
     invoke-direct {p0, p1}, Lorg/simpleframework/xml/strategy/ReadState;->create(Ljava/lang/Object;)Lorg/simpleframework/xml/strategy/ReadGraph;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
     return-object v0

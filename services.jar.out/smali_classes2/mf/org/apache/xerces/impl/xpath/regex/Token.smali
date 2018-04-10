@@ -396,53 +396,53 @@
 
     aput-object v1, v0, v7
 
-    const/4 v1, 0x1
+    const-string/jumbo v1, "Lu"
 
-    const-string/jumbo v2, "Lu"
+    const/4 v2, 0x1
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x2
+    const-string/jumbo v1, "Ll"
 
-    const-string/jumbo v2, "Ll"
+    const/4 v2, 0x2
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x3
+    const-string/jumbo v1, "Lt"
 
-    const-string/jumbo v2, "Lt"
+    const/4 v2, 0x3
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x4
+    const-string/jumbo v1, "Lm"
 
-    const-string/jumbo v2, "Lm"
+    const/4 v2, 0x4
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x5
+    const-string/jumbo v1, "Lo"
 
-    const-string/jumbo v2, "Lo"
+    const/4 v2, 0x5
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x6
+    const-string/jumbo v1, "Mn"
 
-    const-string/jumbo v2, "Mn"
+    const/4 v2, 0x6
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x7
+    const-string/jumbo v1, "Me"
 
-    const-string/jumbo v2, "Me"
+    const/4 v2, 0x7
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/16 v1, 0x8
+    const-string/jumbo v1, "Mc"
 
-    const-string/jumbo v2, "Mc"
+    const/16 v2, 0x8
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     const-string/jumbo v1, "Nd"
 
@@ -452,11 +452,11 @@
 
     aput-object v1, v0, v4
 
-    const/16 v1, 0xb
+    const-string/jumbo v1, "No"
 
-    const-string/jumbo v2, "No"
+    const/16 v2, 0xb
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     const-string/jumbo v1, "Zs"
 
@@ -466,35 +466,35 @@
 
     aput-object v1, v0, v6
 
-    const/16 v1, 0xe
+    const-string/jumbo v1, "Zp"
 
-    const-string/jumbo v2, "Zp"
+    const/16 v2, 0xe
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/16 v1, 0xf
+    const-string/jumbo v1, "Cc"
 
-    const-string/jumbo v2, "Cc"
+    const/16 v2, 0xf
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/16 v1, 0x10
+    const-string/jumbo v1, "Cf"
 
-    const-string/jumbo v2, "Cf"
+    const/16 v2, 0x10
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/16 v1, 0x12
+    const-string/jumbo v1, "Co"
 
-    const-string/jumbo v2, "Co"
+    const/16 v2, 0x12
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/16 v1, 0x13
+    const-string/jumbo v1, "Cs"
 
-    const-string/jumbo v2, "Cs"
+    const/16 v2, 0x13
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     const/16 v1, 0x14
 
@@ -502,53 +502,53 @@
 
     aput-object v2, v0, v1
 
-    const/16 v1, 0x15
+    const-string/jumbo v1, "Ps"
 
-    const-string/jumbo v2, "Ps"
+    const/16 v2, 0x15
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/16 v1, 0x16
+    const-string/jumbo v1, "Pe"
 
-    const-string/jumbo v2, "Pe"
+    const/16 v2, 0x16
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/16 v1, 0x17
+    const-string/jumbo v1, "Pc"
 
-    const-string/jumbo v2, "Pc"
+    const/16 v2, 0x17
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/16 v1, 0x18
+    const-string/jumbo v1, "Po"
 
-    const-string/jumbo v2, "Po"
+    const/16 v2, 0x18
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/16 v1, 0x19
+    const-string/jumbo v1, "Sm"
 
-    const-string/jumbo v2, "Sm"
+    const/16 v2, 0x19
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/16 v1, 0x1a
+    const-string/jumbo v1, "Sc"
 
-    const-string/jumbo v2, "Sc"
+    const/16 v2, 0x1a
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/16 v1, 0x1b
+    const-string/jumbo v1, "Sk"
 
-    const-string/jumbo v2, "Sk"
+    const/16 v2, 0x1b
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/16 v1, 0x1c
+    const-string/jumbo v1, "So"
 
-    const-string/jumbo v2, "So"
+    const/16 v2, 0x1c
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     const/16 v1, 0x1d
 
@@ -556,11 +556,11 @@
 
     aput-object v2, v0, v1
 
-    const/16 v1, 0x1e
+    const-string/jumbo v1, "Pf"
 
-    const-string/jumbo v2, "Pf"
+    const/16 v2, 0x1e
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     const/16 v1, 0x1f
 
@@ -568,41 +568,41 @@
 
     aput-object v2, v0, v1
 
-    const/16 v1, 0x20
+    const-string/jumbo v1, "M"
 
-    const-string/jumbo v2, "M"
+    const/16 v2, 0x20
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/16 v1, 0x21
+    const-string/jumbo v1, "N"
 
-    const-string/jumbo v2, "N"
+    const/16 v2, 0x21
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/16 v1, 0x22
+    const-string/jumbo v1, "Z"
 
-    const-string/jumbo v2, "Z"
+    const/16 v2, 0x22
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/16 v1, 0x23
+    const-string/jumbo v1, "C"
 
-    const-string/jumbo v2, "C"
+    const/16 v2, 0x23
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/16 v1, 0x24
+    const-string/jumbo v1, "P"
 
-    const-string/jumbo v2, "P"
+    const/16 v2, 0x24
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/16 v1, 0x25
+    const-string/jumbo v1, "S"
 
-    const-string/jumbo v2, "S"
+    const/16 v2, 0x25
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     sput-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categoryNames:[Ljava/lang/String;
 
@@ -1168,11 +1168,11 @@
 
     aput v1, v0, v7
 
-    const/4 v1, 0x1
+    const v1, 0x1032f
 
-    const v2, 0x1032f
+    const/4 v2, 0x1
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
     const/4 v1, 0x2
 
@@ -1180,11 +1180,11 @@
 
     aput v2, v0, v1
 
-    const/4 v1, 0x3
+    const v1, 0x1034f
 
-    const v2, 0x1034f
+    const/4 v2, 0x3
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
     const/4 v1, 0x4
 
@@ -1192,11 +1192,11 @@
 
     aput v2, v0, v1
 
-    const/4 v1, 0x5
+    const v1, 0x1044f
 
-    const v2, 0x1044f
+    const/4 v2, 0x5
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
     const/4 v1, 0x6
 
@@ -1204,11 +1204,11 @@
 
     aput v2, v0, v1
 
-    const/4 v1, 0x7
+    const v1, 0x1d0ff
 
-    const v2, 0x1d0ff
+    const/4 v2, 0x7
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
     const/16 v1, 0x8
 
@@ -1224,11 +1224,11 @@
 
     aput v1, v0, v4
 
-    const/16 v1, 0xb
+    const v1, 0x1d7ff
 
-    const v2, 0x1d7ff
+    const/16 v2, 0xb
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
     const/high16 v1, 0x20000
 
@@ -1244,11 +1244,11 @@
 
     aput v2, v0, v1
 
-    const/16 v1, 0xf
+    const v1, 0x2fa1f
 
-    const v2, 0x2fa1f
+    const/16 v2, 0xf
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
     const/16 v1, 0x10
 
@@ -1256,11 +1256,11 @@
 
     aput v2, v0, v1
 
-    const/16 v1, 0x11
+    const v1, 0xe007f
 
-    const v2, 0xe007f
+    const/16 v2, 0x11
 
-    aput v2, v0, v1
+    aput v1, v0, v2
 
     sput-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->nonBMPBlockRanges:[I
 
@@ -1328,11 +1328,11 @@
 
     new-instance v0, Lmf/org/apache/xerces/impl/xpath/regex/Token$StringToken;
 
-    const/16 v1, 0xc
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const/16 v2, 0xc
 
-    invoke-direct {v0, v1, v2, p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token$StringToken;-><init>(ILjava/lang/String;I)V
+    invoke-direct {v0, v2, v1, p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token$StringToken;-><init>(ILjava/lang/String;I)V
 
     return-object v0
 .end method
@@ -1578,1240 +1578,1526 @@
 .method static declared-synchronized getCombiningCharacterSequence()Lmf/org/apache/xerces/impl/xpath/regex/Token;
     .locals 4
 
-    const-class v1, Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    const-class v2, Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    monitor-enter v1
+    monitor-enter v2
 
     :try_start_0
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_ccs:Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    sget-object v1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_ccs:Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    const-string/jumbo v0, "M"
+    const-string/jumbo v1, "M"
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    invoke-static {v0, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+    invoke-static {v1, v3}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createClosure(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token$ClosureToken;
 
     move-result-object v0
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createClosure(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token$ClosureToken;
-
-    move-result-object v0
-
-    const-string/jumbo v2, "M"
+    const-string/jumbo v1, "M"
 
     const/4 v3, 0x0
 
-    invoke-static {v2, v3}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+    invoke-static {v1, v3}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v2, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createConcat(Lmf/org/apache/xerces/impl/xpath/regex/Token;Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token$ConcatToken;
+    invoke-static {v1, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createConcat(Lmf/org/apache/xerces/impl/xpath/regex/Token;Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token$ConcatToken;
 
     move-result-object v0
 
     sput-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_ccs:Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_ccs:Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    sget-object v1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_ccs:Lmf/org/apache/xerces/impl/xpath/regex/Token;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v1
+    monitor-exit v2
 
-    return-object v0
+    return-object v1
 
     :cond_0
     :try_start_1
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_ccs:Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    sget-object v1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_ccs:Lmf/org/apache/xerces/impl/xpath/regex/Token;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    monitor-exit v1
+    monitor-exit v2
 
-    return-object v0
+    return-object v1
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v2
 
-    throw v0
+    throw v1
 .end method
 
 .method static declared-synchronized getGraphemePattern()Lmf/org/apache/xerces/impl/xpath/regex/Token;
-    .locals 7
+    .locals 9
 
-    const-class v1, Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    const-class v7, Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    monitor-enter v1
+    monitor-enter v7
 
     :try_start_0
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_grapheme:Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    sget-object v6, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_grapheme:Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    if-nez v0, :cond_0
-
-    invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createRange()Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
-
-    move-result-object v2
-
-    const-string/jumbo v0, "ASSIGNED"
-
-    const/4 v3, 0x1
-
-    invoke-static {v0, v3}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
-
-    move-result-object v0
-
-    invoke-virtual {v2, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
-
-    const-string/jumbo v0, "M"
-
-    const/4 v3, 0x1
-
-    invoke-static {v0, v3}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
-
-    move-result-object v0
-
-    invoke-virtual {v2, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->subtractRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
-
-    const-string/jumbo v0, "C"
-
-    const/4 v3, 0x1
-
-    invoke-static {v0, v3}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
-
-    move-result-object v0
-
-    invoke-virtual {v2, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->subtractRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+    if-nez v6, :cond_0
 
     invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createRange()Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    move-result-object v3
+    move-result-object v0
 
-    const/4 v0, 0x0
+    const-string/jumbo v6, "ASSIGNED"
+
+    const/4 v8, 0x1
+
+    invoke-static {v6, v8}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+
+    move-result-object v6
+
+    invoke-virtual {v0, v6}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+
+    const-string/jumbo v6, "M"
+
+    const/4 v8, 0x1
+
+    invoke-static {v6, v8}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+
+    move-result-object v6
+
+    invoke-virtual {v0, v6}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->subtractRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+
+    const-string/jumbo v6, "C"
+
+    const/4 v8, 0x1
+
+    invoke-static {v6, v8}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+
+    move-result-object v6
+
+    invoke-virtual {v0, v6}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->subtractRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+
+    invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createRange()Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+
+    move-result-object v5
+
+    const/4 v3, 0x0
 
     :goto_0
-    const-string/jumbo v4, "\u094d\u09cd\u0a4d\u0acd\u0b4d\u0bcd\u0c4d\u0ccd\u0d4d\u0e3a\u0f84"
+    const-string/jumbo v6, "\u094d\u09cd\u0a4d\u0acd\u0b4d\u0bcd\u0c4d\u0ccd\u0d4d\u0e3a\u0f84"
 
-    invoke-virtual {v4}, Ljava/lang/String;->length()I
+    invoke-virtual {v6}, Ljava/lang/String;->length()I
 
-    move-result v4
+    move-result v6
 
-    if-ge v0, v4, :cond_1
+    if-ge v3, v6, :cond_1
 
-    invoke-virtual {v3, v0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
+    invoke-virtual {v5, v3, v3}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     :cond_0
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_grapheme:Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    sget-object v6, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_grapheme:Lmf/org/apache/xerces/impl/xpath/regex/Token;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v1
+    monitor-exit v7
 
-    return-object v0
+    return-object v6
 
     :cond_1
     :try_start_1
     invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createRange()Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string/jumbo v4, "M"
+    const-string/jumbo v6, "M"
 
-    const/4 v5, 0x1
+    const/4 v8, 0x1
 
-    invoke-static {v4, v5}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+    invoke-static {v6, v8}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-virtual {v0, v4}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+    invoke-virtual {v1, v6}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
 
-    const/16 v4, 0x1160
+    const/16 v6, 0x1160
 
-    const/16 v5, 0x11ff
+    const/16 v8, 0x11ff
 
-    invoke-virtual {v0, v4, v5}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
+    invoke-virtual {v1, v6, v8}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
 
-    const v4, 0xff9e
+    const v6, 0xff9e
 
-    const v5, 0xff9f
+    const v8, 0xff9f
 
-    invoke-virtual {v0, v4, v5}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
+    invoke-virtual {v1, v6, v8}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
 
     invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createUnion()Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;
 
     move-result-object v4
 
-    invoke-virtual {v4, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addChild(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+    invoke-virtual {v4, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addChild(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
 
-    sget-object v2, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_empty:Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    sget-object v6, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_empty:Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    invoke-virtual {v4, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addChild(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+    invoke-virtual {v4, v6}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addChild(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
 
     invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createUnion()Lmf/org/apache/xerces/impl/xpath/regex/Token$UnionToken;
 
     move-result-object v2
 
-    const-string/jumbo v5, "L"
+    const-string/jumbo v6, "L"
 
-    const/4 v6, 0x1
+    const/4 v8, 0x1
 
-    invoke-static {v5, v6}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+    invoke-static {v6, v8}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-static {v3, v5}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createConcat(Lmf/org/apache/xerces/impl/xpath/regex/Token;Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token$ConcatToken;
+    invoke-static {v5, v6}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createConcat(Lmf/org/apache/xerces/impl/xpath/regex/Token;Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token$ConcatToken;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addChild(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+    invoke-virtual {v2, v6}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addChild(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
 
-    invoke-virtual {v2, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addChild(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+    invoke-virtual {v2, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addChild(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
 
     invoke-static {v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createClosure(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token$ClosureToken;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-static {v4, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createConcat(Lmf/org/apache/xerces/impl/xpath/regex/Token;Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token$ConcatToken;
+    invoke-static {v4, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createConcat(Lmf/org/apache/xerces/impl/xpath/regex/Token;Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token$ConcatToken;
 
-    move-result-object v0
+    move-result-object v2
 
-    sput-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_grapheme:Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    sput-object v2, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_grapheme:Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_grapheme:Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    sget-object v6, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_grapheme:Lmf/org/apache/xerces/impl/xpath/regex/Token;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    monitor-exit v1
+    monitor-exit v7
 
-    return-object v0
+    return-object v6
 
     :catchall_0
-    move-exception v0
+    move-exception v6
 
-    monitor-exit v1
+    monitor-exit v7
 
-    throw v0
+    throw v6
 .end method
 
 .method protected static getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
-    .locals 10
+    .locals 26
 
-    const/high16 v7, 0x10000
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
 
-    const/16 v3, 0x20
+    invoke-virtual/range {v23 .. v23}, Ljava/util/Hashtable;->size()I
 
-    const/4 v1, 0x0
+    move-result v23
 
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
-
-    invoke-virtual {v0}, Ljava/util/Hashtable;->size()I
-
-    move-result v0
-
-    if-eqz v0, :cond_0
+    if-eqz v23, :cond_0
 
     :goto_0
     if-nez p1, :cond_13
 
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p0}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v0, v23
 
-    move-result-object v0
+    move-object/from16 v1, p0
 
-    check-cast v0, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+    invoke-virtual {v0, v1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v23
+
+    check-cast v23, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+
+    move-object/from16 v21, v23
 
     :goto_1
-    return-object v0
+    return-object v21
 
     :cond_0
-    sget-object v4, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
+    sget-object v3, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
 
-    monitor-enter v4
+    monitor-enter v3
 
     :try_start_0
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categoryNames:[Ljava/lang/String;
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categoryNames:[Ljava/lang/String;
+
+    move-object/from16 v0, v23
 
     array-length v0, v0
 
-    new-array v5, v0, [Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    move/from16 v23, v0
 
-    move v0, v1
+    move/from16 v0, v23
+
+    new-array v0, v0, [Lmf/org/apache/xerces/impl/xpath/regex/Token;
+
+    move-object/from16 v18, v0
+
+    const/4 v7, 0x0
 
     :goto_2
-    array-length v2, v5
+    move-object/from16 v0, v18
 
-    if-ge v0, v2, :cond_1
+    array-length v0, v0
+
+    move/from16 v23, v0
+
+    move/from16 v0, v23
+
+    if-ge v7, v0, :cond_1
 
     invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createRange()Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    move-result-object v2
+    move-result-object v23
 
-    aput-object v2, v5, v0
+    aput-object v23, v18, v7
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v7, v7, 0x1
 
     goto :goto_2
 
     :cond_1
-    move v0, v1
+    const/4 v7, 0x0
 
     :goto_3
-    if-ge v0, v7, :cond_8
+    const/high16 v23, 0x10000
 
-    int-to-char v2, v0
+    move/from16 v0, v23
 
-    invoke-static {v2}, Ljava/lang/Character;->getType(C)I
+    if-ge v7, v0, :cond_8
 
-    move-result v2
+    int-to-char v0, v7
 
-    const/16 v6, 0x15
+    move/from16 v23, v0
 
-    if-ne v2, v6, :cond_5
+    invoke-static/range {v23 .. v23}, Ljava/lang/Character;->getType(C)I
+
+    move-result v22
+
+    const/16 v23, 0x15
+
+    move/from16 v0, v22
+
+    move/from16 v1, v23
+
+    if-ne v0, v1, :cond_5
 
     :cond_2
-    const/16 v6, 0xab
+    const/16 v23, 0xab
 
-    if-ne v0, v6, :cond_6
+    move/from16 v0, v23
+
+    if-ne v7, v0, :cond_6
 
     :cond_3
-    const/16 v2, 0x1d
+    const/16 v22, 0x1d
 
     :goto_4
-    const/16 v6, 0xbb
+    const/16 v23, 0xbb
 
-    if-ne v0, v6, :cond_7
+    move/from16 v0, v23
+
+    if-ne v7, v0, :cond_7
 
     :cond_4
-    const/16 v2, 0x1e
+    const/16 v22, 0x1e
 
     :goto_5
-    aget-object v6, v5, v2
+    aget-object v23, v18, v22
 
-    invoke-virtual {v6, v0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
+    move-object/from16 v0, v23
 
-    packed-switch v2, :pswitch_data_0
+    invoke-virtual {v0, v7, v7}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
+
+    packed-switch v22, :pswitch_data_0
 
     :pswitch_0
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v23, Ljava/lang/RuntimeException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v24, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v3, "mf.org.apache.xerces.utils.regex.Token#getRange(): Unknown Unicode category: "
+    const-string/jumbo v25, "mf.org.apache.xerces.utils.regex.Token#getRange(): Unknown Unicode category: "
 
-    invoke-direct {v1, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v24 .. v25}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v24
 
-    move-result-object v1
+    move/from16 v1, v22
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v24
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v0
+    move-result-object v24
+
+    invoke-direct/range {v23 .. v24}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v23
 
     :catchall_0
-    move-exception v0
+    move-exception v23
 
-    monitor-exit v4
+    monitor-exit v3
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v23
 
     :cond_5
-    const/16 v6, 0x16
+    const/16 v23, 0x16
 
-    if-eq v2, v6, :cond_2
+    move/from16 v0, v22
+
+    move/from16 v1, v23
+
+    if-eq v0, v1, :cond_2
 
     goto :goto_5
 
     :cond_6
-    const/16 v6, 0x2018
+    const/16 v23, 0x2018
 
-    if-eq v0, v6, :cond_3
+    move/from16 v0, v23
 
-    const/16 v6, 0x201b
+    if-eq v7, v0, :cond_3
 
-    if-eq v0, v6, :cond_3
+    const/16 v23, 0x201b
 
-    const/16 v6, 0x201c
+    move/from16 v0, v23
 
-    if-eq v0, v6, :cond_3
+    if-eq v7, v0, :cond_3
 
-    const/16 v6, 0x201f
+    const/16 v23, 0x201c
 
-    if-eq v0, v6, :cond_3
+    move/from16 v0, v23
 
-    const/16 v6, 0x2039
+    if-eq v7, v0, :cond_3
 
-    if-eq v0, v6, :cond_3
+    const/16 v23, 0x201f
+
+    move/from16 v0, v23
+
+    if-eq v7, v0, :cond_3
+
+    const/16 v23, 0x2039
+
+    move/from16 v0, v23
+
+    if-eq v7, v0, :cond_3
 
     goto :goto_4
 
     :cond_7
-    const/16 v6, 0x2019
+    const/16 v23, 0x2019
 
-    if-eq v0, v6, :cond_4
+    move/from16 v0, v23
 
-    const/16 v6, 0x201d
+    if-eq v7, v0, :cond_4
 
-    if-eq v0, v6, :cond_4
+    const/16 v23, 0x201d
 
-    const/16 v6, 0x203a
+    move/from16 v0, v23
 
-    if-eq v0, v6, :cond_4
+    if-eq v7, v0, :cond_4
+
+    const/16 v23, 0x203a
+
+    move/from16 v0, v23
+
+    if-eq v7, v0, :cond_4
 
     goto :goto_5
 
     :pswitch_1
-    const/16 v2, 0x1f
+    const/16 v22, 0x1f
 
     :goto_6
     :try_start_1
-    aget-object v2, v5, v2
+    aget-object v23, v18, v22
 
-    invoke-virtual {v2, v0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
+    move-object/from16 v0, v23
 
-    add-int/lit8 v0, v0, 0x1
+    invoke-virtual {v0, v7, v7}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
 
-    goto :goto_3
+    add-int/lit8 v7, v7, 0x1
+
+    goto/16 :goto_3
 
     :pswitch_2
-    move v2, v3
+    const/16 v22, 0x20
 
     goto :goto_6
 
     :pswitch_3
-    const/16 v2, 0x21
+    const/16 v22, 0x21
 
     goto :goto_6
 
     :pswitch_4
-    const/16 v2, 0x22
+    const/16 v22, 0x22
 
     goto :goto_6
 
     :pswitch_5
-    const/16 v2, 0x23
+    const/16 v22, 0x23
 
     goto :goto_6
 
     :pswitch_6
-    const/16 v2, 0x24
+    const/16 v22, 0x24
 
     goto :goto_6
 
     :pswitch_7
-    const/16 v2, 0x25
+    const/16 v22, 0x25
 
     goto :goto_6
 
     :cond_8
-    const/4 v0, 0x0
+    const/16 v23, 0x0
 
-    aget-object v0, v5, v0
+    aget-object v23, v18, v23
 
-    const/high16 v2, 0x10000
+    const/high16 v24, 0x10000
 
-    const v6, 0x10ffff
+    const v25, 0x10ffff
 
-    invoke-virtual {v0, v2, v6}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
+    invoke-virtual/range {v23 .. v25}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
 
-    move v0, v1
+    const/4 v7, 0x0
 
     :goto_7
-    array-length v2, v5
+    move-object/from16 v0, v18
 
-    if-ge v0, v2, :cond_b
+    array-length v0, v0
 
-    sget-object v2, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categoryNames:[Ljava/lang/String;
+    move/from16 v23, v0
 
-    aget-object v2, v2, v0
+    move/from16 v0, v23
 
-    if-nez v2, :cond_9
+    if-ge v7, v0, :cond_b
+
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categoryNames:[Ljava/lang/String;
+
+    aget-object v23, v23, v7
+
+    if-nez v23, :cond_9
 
     :goto_8
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v7, v7, 0x1
 
     goto :goto_7
 
     :cond_9
-    if-eqz v0, :cond_a
+    if-eqz v7, :cond_a
 
     :goto_9
-    sget-object v2, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
 
-    sget-object v6, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categoryNames:[Ljava/lang/String;
+    sget-object v24, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categoryNames:[Ljava/lang/String;
 
-    aget-object v6, v6, v0
+    aget-object v24, v24, v7
 
-    aget-object v7, v5, v0
+    aget-object v25, v18, v7
 
-    invoke-virtual {v2, v6, v7}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual/range {v23 .. v25}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v2, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
 
-    sget-object v6, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categoryNames:[Ljava/lang/String;
+    sget-object v24, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categoryNames:[Ljava/lang/String;
 
-    aget-object v6, v6, v0
+    aget-object v24, v24, v7
 
-    aget-object v7, v5, v0
+    aget-object v25, v18, v7
 
-    invoke-static {v7}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->complementRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-static/range {v25 .. v25}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->complementRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v7
+    move-result-object v25
 
-    invoke-virtual {v2, v6, v7}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual/range {v23 .. v25}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_8
 
     :cond_a
-    aget-object v2, v5, v0
+    aget-object v23, v18, v7
 
-    const/high16 v6, 0x10000
+    const/high16 v24, 0x10000
 
-    const v7, 0x10ffff
+    const v25, 0x10ffff
 
-    invoke-virtual {v2, v6, v7}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
+    invoke-virtual/range {v23 .. v25}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
 
     goto :goto_9
 
     :cond_b
-    new-instance v6, Ljava/lang/StringBuffer;
+    new-instance v5, Ljava/lang/StringBuffer;
 
-    const/16 v0, 0x32
+    const/16 v23, 0x32
 
-    invoke-direct {v6, v0}, Ljava/lang/StringBuffer;-><init>(I)V
+    move/from16 v0, v23
 
-    move v0, v1
+    invoke-direct {v5, v0}, Ljava/lang/StringBuffer;-><init>(I)V
+
+    const/4 v7, 0x0
 
     :goto_a
-    sget-object v2, Lmf/org/apache/xerces/impl/xpath/regex/Token;->blockNames:[Ljava/lang/String;
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->blockNames:[Ljava/lang/String;
 
-    array-length v2, v2
+    move-object/from16 v0, v23
 
-    if-ge v0, v2, :cond_12
+    array-length v0, v0
+
+    move/from16 v23, v0
+
+    move/from16 v0, v23
+
+    if-ge v7, v0, :cond_12
 
     invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createRange()Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    move-result-object v2
+    move-result-object v17
 
-    const/16 v7, 0x54
+    const/16 v23, 0x54
 
-    if-lt v0, v7, :cond_d
+    move/from16 v0, v23
 
-    add-int/lit8 v7, v0, -0x54
+    if-lt v7, v0, :cond_d
 
-    mul-int/lit8 v7, v7, 0x2
+    add-int/lit8 v23, v7, -0x54
 
-    sget-object v8, Lmf/org/apache/xerces/impl/xpath/regex/Token;->nonBMPBlockRanges:[I
+    mul-int/lit8 v15, v23, 0x2
 
-    aget v8, v8, v7
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->nonBMPBlockRanges:[I
 
-    sget-object v9, Lmf/org/apache/xerces/impl/xpath/regex/Token;->nonBMPBlockRanges:[I
+    aget v23, v23, v15
 
-    add-int/lit8 v7, v7, 0x1
+    sget-object v24, Lmf/org/apache/xerces/impl/xpath/regex/Token;->nonBMPBlockRanges:[I
 
-    aget v7, v9, v7
+    add-int/lit8 v25, v15, 0x1
 
-    invoke-virtual {v2, v8, v7}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
+    aget v24, v24, v25
+
+    move-object/from16 v0, v17
+
+    move/from16 v1, v23
+
+    move/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
 
     :goto_b
-    sget-object v7, Lmf/org/apache/xerces/impl/xpath/regex/Token;->blockNames:[Ljava/lang/String;
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->blockNames:[Ljava/lang/String;
 
-    aget-object v7, v7, v0
+    aget-object v16, v23, v7
 
-    const-string/jumbo v8, "Specials"
+    const-string/jumbo v23, "Specials"
 
-    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v0, v16
 
-    move-result v8
+    move-object/from16 v1, v23
 
-    if-nez v8, :cond_e
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v23
+
+    if-nez v23, :cond_e
 
     :goto_c
-    const-string/jumbo v8, "Private Use"
+    const-string/jumbo v23, "Private Use"
 
-    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v0, v16
 
-    move-result v8
+    move-object/from16 v1, v23
 
-    if-nez v8, :cond_f
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v23
+
+    if-nez v23, :cond_f
 
     :goto_d
-    sget-object v8, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
 
-    invoke-virtual {v8, v7, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v0, v23
 
-    sget-object v8, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
+    move-object/from16 v1, v16
 
-    invoke-static {v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->complementRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    move-object/from16 v2, v17
 
-    move-result-object v2
+    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v8, v7, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
 
-    const/4 v2, 0x0
+    invoke-static/range {v17 .. v17}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->complementRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuffer;->setLength(I)V
+    move-result-object v24
 
-    const-string/jumbo v2, "Is"
+    move-object/from16 v0, v23
 
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-object/from16 v1, v16
 
-    const/16 v2, 0x20
+    move-object/from16 v2, v24
 
-    invoke-virtual {v7, v2}, Ljava/lang/String;->indexOf(I)I
+    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result v2
+    const/16 v23, 0x0
 
-    if-gez v2, :cond_10
+    move/from16 v0, v23
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuffer;->setLength(I)V
+
+    const-string/jumbo v23, "Is"
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    const/16 v23, 0x20
+
+    move-object/from16 v0, v16
+
+    move/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->indexOf(I)I
+
+    move-result v23
+
+    if-gez v23, :cond_10
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     :cond_c
-    invoke-virtual {v6}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v23
 
-    const/4 v8, 0x1
+    const/16 v24, 0x1
 
-    invoke-static {v2, v7, v8}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+    move-object/from16 v0, v23
 
-    add-int/lit8 v0, v0, 0x1
+    move-object/from16 v1, v16
 
-    goto :goto_a
+    move/from16 v2, v24
 
-    :cond_d
-    mul-int/lit8 v7, v0, 0x2
-
-    const-string/jumbo v8, "\u0000\u007f\u0080\u00ff\u0100\u017f\u0180\u024f\u0250\u02af\u02b0\u02ff\u0300\u036f\u0370\u03ff\u0400\u04ff\u0530\u058f\u0590\u05ff\u0600\u06ff\u0700\u074f\u0780\u07bf\u0900\u097f\u0980\u09ff\u0a00\u0a7f\u0a80\u0aff\u0b00\u0b7f\u0b80\u0bff\u0c00\u0c7f\u0c80\u0cff\u0d00\u0d7f\u0d80\u0dff\u0e00\u0e7f\u0e80\u0eff\u0f00\u0fff\u1000\u109f\u10a0\u10ff\u1100\u11ff\u1200\u137f\u13a0\u13ff\u1400\u167f\u1680\u169f\u16a0\u16ff\u1780\u17ff\u1800\u18af\u1e00\u1eff\u1f00\u1fff\u2000\u206f\u2070\u209f\u20a0\u20cf\u20d0\u20ff\u2100\u214f\u2150\u218f\u2190\u21ff\u2200\u22ff\u2300\u23ff\u2400\u243f\u2440\u245f\u2460\u24ff\u2500\u257f\u2580\u259f\u25a0\u25ff\u2600\u26ff\u2700\u27bf\u2800\u28ff\u2e80\u2eff\u2f00\u2fdf\u2ff0\u2fff\u3000\u303f\u3040\u309f\u30a0\u30ff\u3100\u312f\u3130\u318f\u3190\u319f\u31a0\u31bf\u3200\u32ff\u3300\u33ff\u3400\u4db5\u4e00\u9fff\ua000\ua48f\ua490\ua4cf\uac00\ud7a3\ue000\uf8ff\uf900\ufaff\ufb00\ufb4f\ufb50\ufdff\ufe20\ufe2f\ufe30\ufe4f\ufe50\ufe6f\ufe70\ufefe\ufeff\ufeff\uff00\uffef"
-
-    invoke-virtual {v8, v7}, Ljava/lang/String;->charAt(I)C
-
-    move-result v8
-
-    const-string/jumbo v9, "\u0000\u007f\u0080\u00ff\u0100\u017f\u0180\u024f\u0250\u02af\u02b0\u02ff\u0300\u036f\u0370\u03ff\u0400\u04ff\u0530\u058f\u0590\u05ff\u0600\u06ff\u0700\u074f\u0780\u07bf\u0900\u097f\u0980\u09ff\u0a00\u0a7f\u0a80\u0aff\u0b00\u0b7f\u0b80\u0bff\u0c00\u0c7f\u0c80\u0cff\u0d00\u0d7f\u0d80\u0dff\u0e00\u0e7f\u0e80\u0eff\u0f00\u0fff\u1000\u109f\u10a0\u10ff\u1100\u11ff\u1200\u137f\u13a0\u13ff\u1400\u167f\u1680\u169f\u16a0\u16ff\u1780\u17ff\u1800\u18af\u1e00\u1eff\u1f00\u1fff\u2000\u206f\u2070\u209f\u20a0\u20cf\u20d0\u20ff\u2100\u214f\u2150\u218f\u2190\u21ff\u2200\u22ff\u2300\u23ff\u2400\u243f\u2440\u245f\u2460\u24ff\u2500\u257f\u2580\u259f\u25a0\u25ff\u2600\u26ff\u2700\u27bf\u2800\u28ff\u2e80\u2eff\u2f00\u2fdf\u2ff0\u2fff\u3000\u303f\u3040\u309f\u30a0\u30ff\u3100\u312f\u3130\u318f\u3190\u319f\u31a0\u31bf\u3200\u32ff\u3300\u33ff\u3400\u4db5\u4e00\u9fff\ua000\ua48f\ua490\ua4cf\uac00\ud7a3\ue000\uf8ff\uf900\ufaff\ufb00\ufb4f\ufb50\ufdff\ufe20\ufe2f\ufe30\ufe4f\ufe50\ufe6f\ufe70\ufefe\ufeff\ufeff\uff00\uffef"
+    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
 
     add-int/lit8 v7, v7, 0x1
 
-    invoke-virtual {v9, v7}, Ljava/lang/String;->charAt(I)C
+    goto/16 :goto_a
 
-    move-result v7
+    :cond_d
+    mul-int/lit8 v15, v7, 0x2
 
-    invoke-virtual {v2, v8, v7}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
+    const-string/jumbo v23, "\u0000\u007f\u0080\u00ff\u0100\u017f\u0180\u024f\u0250\u02af\u02b0\u02ff\u0300\u036f\u0370\u03ff\u0400\u04ff\u0530\u058f\u0590\u05ff\u0600\u06ff\u0700\u074f\u0780\u07bf\u0900\u097f\u0980\u09ff\u0a00\u0a7f\u0a80\u0aff\u0b00\u0b7f\u0b80\u0bff\u0c00\u0c7f\u0c80\u0cff\u0d00\u0d7f\u0d80\u0dff\u0e00\u0e7f\u0e80\u0eff\u0f00\u0fff\u1000\u109f\u10a0\u10ff\u1100\u11ff\u1200\u137f\u13a0\u13ff\u1400\u167f\u1680\u169f\u16a0\u16ff\u1780\u17ff\u1800\u18af\u1e00\u1eff\u1f00\u1fff\u2000\u206f\u2070\u209f\u20a0\u20cf\u20d0\u20ff\u2100\u214f\u2150\u218f\u2190\u21ff\u2200\u22ff\u2300\u23ff\u2400\u243f\u2440\u245f\u2460\u24ff\u2500\u257f\u2580\u259f\u25a0\u25ff\u2600\u26ff\u2700\u27bf\u2800\u28ff\u2e80\u2eff\u2f00\u2fdf\u2ff0\u2fff\u3000\u303f\u3040\u309f\u30a0\u30ff\u3100\u312f\u3130\u318f\u3190\u319f\u31a0\u31bf\u3200\u32ff\u3300\u33ff\u3400\u4db5\u4e00\u9fff\ua000\ua48f\ua490\ua4cf\uac00\ud7a3\ue000\uf8ff\uf900\ufaff\ufb00\ufb4f\ufb50\ufdff\ufe20\ufe2f\ufe30\ufe4f\ufe50\ufe6f\ufe70\ufefe\ufeff\ufeff\uff00\uffef"
 
-    goto :goto_b
+    move-object/from16 v0, v23
+
+    invoke-virtual {v0, v15}, Ljava/lang/String;->charAt(I)C
+
+    move-result v20
+
+    add-int/lit8 v23, v15, 0x1
+
+    const-string/jumbo v24, "\u0000\u007f\u0080\u00ff\u0100\u017f\u0180\u024f\u0250\u02af\u02b0\u02ff\u0300\u036f\u0370\u03ff\u0400\u04ff\u0530\u058f\u0590\u05ff\u0600\u06ff\u0700\u074f\u0780\u07bf\u0900\u097f\u0980\u09ff\u0a00\u0a7f\u0a80\u0aff\u0b00\u0b7f\u0b80\u0bff\u0c00\u0c7f\u0c80\u0cff\u0d00\u0d7f\u0d80\u0dff\u0e00\u0e7f\u0e80\u0eff\u0f00\u0fff\u1000\u109f\u10a0\u10ff\u1100\u11ff\u1200\u137f\u13a0\u13ff\u1400\u167f\u1680\u169f\u16a0\u16ff\u1780\u17ff\u1800\u18af\u1e00\u1eff\u1f00\u1fff\u2000\u206f\u2070\u209f\u20a0\u20cf\u20d0\u20ff\u2100\u214f\u2150\u218f\u2190\u21ff\u2200\u22ff\u2300\u23ff\u2400\u243f\u2440\u245f\u2460\u24ff\u2500\u257f\u2580\u259f\u25a0\u25ff\u2600\u26ff\u2700\u27bf\u2800\u28ff\u2e80\u2eff\u2f00\u2fdf\u2ff0\u2fff\u3000\u303f\u3040\u309f\u30a0\u30ff\u3100\u312f\u3130\u318f\u3190\u319f\u31a0\u31bf\u3200\u32ff\u3300\u33ff\u3400\u4db5\u4e00\u9fff\ua000\ua48f\ua490\ua4cf\uac00\ud7a3\ue000\uf8ff\uf900\ufaff\ufb00\ufb4f\ufb50\ufdff\ufe20\ufe2f\ufe30\ufe4f\ufe50\ufe6f\ufe70\ufefe\ufeff\ufeff\uff00\uffef"
+
+    move-object/from16 v0, v24
+
+    move/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C
+
+    move-result v19
+
+    move-object/from16 v0, v17
+
+    move/from16 v1, v20
+
+    move/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
+
+    goto/16 :goto_b
 
     :cond_e
-    const v8, 0xfff0
+    const v23, 0xfff0
 
-    const v9, 0xfffd
+    const v24, 0xfffd
 
-    invoke-virtual {v2, v8, v9}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
+    move-object/from16 v0, v17
 
-    goto :goto_c
+    move/from16 v1, v23
+
+    move/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
+
+    goto/16 :goto_c
 
     :cond_f
-    const/high16 v8, 0xf0000
+    const/high16 v23, 0xf0000
 
-    const v9, 0xffffd
+    const v24, 0xffffd
 
-    invoke-virtual {v2, v8, v9}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
+    move-object/from16 v0, v17
 
-    const/high16 v8, 0x100000
+    move/from16 v1, v23
 
-    const v9, 0x10fffd
+    move/from16 v2, v24
 
-    invoke-virtual {v2, v8, v9}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
 
-    goto :goto_d
+    const/high16 v23, 0x100000
+
+    const v24, 0x10fffd
+
+    move-object/from16 v0, v17
+
+    move/from16 v1, v23
+
+    move/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
+
+    goto/16 :goto_d
 
     :cond_10
-    move v2, v1
+    const/4 v6, 0x0
 
     :goto_e
-    invoke-virtual {v7}, Ljava/lang/String;->length()I
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/String;->length()I
 
-    move-result v8
+    move-result v23
 
-    if-ge v2, v8, :cond_c
+    move/from16 v0, v23
 
-    invoke-virtual {v7, v2}, Ljava/lang/String;->charAt(I)C
+    if-ge v6, v0, :cond_c
 
-    move-result v8
+    move-object/from16 v0, v16
 
-    if-ne v8, v3, :cond_11
+    invoke-virtual {v0, v6}, Ljava/lang/String;->charAt(I)C
+
+    move-result v23
+
+    const/16 v24, 0x20
+
+    move/from16 v0, v23
+
+    move/from16 v1, v24
+
+    if-ne v0, v1, :cond_11
 
     :goto_f
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_e
 
     :cond_11
-    invoke-virtual {v7, v2}, Ljava/lang/String;->charAt(I)C
+    move-object/from16 v0, v16
 
-    move-result v8
+    invoke-virtual {v0, v6}, Ljava/lang/String;->charAt(I)C
 
-    invoke-virtual {v6, v8}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    move-result v23
+
+    move/from16 v0, v23
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto :goto_f
 
     :cond_12
-    const-string/jumbo v0, "ASSIGNED"
+    const-string/jumbo v23, "ASSIGNED"
 
-    const-string/jumbo v1, "Cn"
+    const-string/jumbo v24, "Cn"
 
-    const/4 v2, 0x0
+    const/16 v25, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static/range {v23 .. v25}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "UNASSIGNED"
+    const-string/jumbo v23, "UNASSIGNED"
 
-    const-string/jumbo v1, "Cn"
+    const-string/jumbo v24, "Cn"
 
-    const/4 v2, 0x1
+    const/16 v25, 0x1
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createRange()Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    const v2, 0x10ffff
-
-    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
-
-    sget-object v1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
-
-    const-string/jumbo v2, "ALL"
-
-    invoke-virtual {v1, v2, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
-
-    const-string/jumbo v2, "ALL"
-
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->complementRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v2, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    const-string/jumbo v0, "ASSIGNED"
-
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
-
-    const-string/jumbo v0, "UNASSIGNED"
-
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
-
-    const-string/jumbo v0, "ALL"
-
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    invoke-static/range {v23 .. v25}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
 
     invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createRange()Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    move-result-object v0
+    move-result-object v4
 
-    const/4 v1, 0x1
+    const/16 v23, 0x0
 
-    aget-object v1, v5, v1
+    const v24, 0x10ffff
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+    move/from16 v0, v23
 
-    const/4 v1, 0x2
+    move/from16 v1, v24
 
-    aget-object v1, v5, v1
+    invoke-virtual {v4, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
 
-    const/4 v1, 0x5
+    const-string/jumbo v24, "ALL"
 
-    aget-object v1, v5, v1
+    move-object/from16 v0, v23
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+    move-object/from16 v1, v24
 
-    sget-object v1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
+    invoke-virtual {v0, v1, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v2, "IsAlpha"
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
 
-    invoke-virtual {v1, v2, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v4}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->complementRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    sget-object v1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
+    move-result-object v24
 
-    const-string/jumbo v2, "IsAlpha"
+    const-string/jumbo v25, "ALL"
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->complementRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    move-object/from16 v0, v23
 
-    move-result-object v3
+    move-object/from16 v1, v25
 
-    invoke-virtual {v1, v2, v3}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v2, v24
 
-    const-string/jumbo v1, "IsAlpha"
+    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    const-string/jumbo v23, "ASSIGNED"
 
-    invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createRange()Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
 
-    move-result-object v1
+    const-string/jumbo v23, "UNASSIGNED"
 
-    invoke-virtual {v1, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
 
-    const/16 v0, 0x9
+    const-string/jumbo v23, "ALL"
 
-    aget-object v0, v5, v0
-
-    invoke-virtual {v1, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
-
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
-
-    const-string/jumbo v2, "IsAlnum"
-
-    invoke-virtual {v0, v2, v1}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
-
-    const-string/jumbo v2, "IsAlnum"
-
-    invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->complementRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v2, v3}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    const-string/jumbo v0, "IsAlnum"
-
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
 
     invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createRange()Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    move-result-object v0
+    move-result-object v9
 
-    sget-object v2, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_spaces:Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    const/16 v23, 0x1
 
-    invoke-virtual {v0, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+    aget-object v23, v18, v23
 
-    const/16 v2, 0x22
+    move-object/from16 v0, v23
 
-    aget-object v2, v5, v2
+    invoke-virtual {v9, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
 
-    invoke-virtual {v0, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+    const/16 v23, 0x2
 
-    sget-object v2, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
+    aget-object v23, v18, v23
 
-    const-string/jumbo v3, "IsSpace"
+    move-object/from16 v0, v23
 
-    invoke-virtual {v2, v3, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v9, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
 
-    sget-object v2, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
+    const/16 v23, 0x5
 
-    const-string/jumbo v3, "IsSpace"
+    aget-object v23, v18, v23
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->complementRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    move-object/from16 v0, v23
 
-    move-result-object v0
+    invoke-virtual {v9, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
 
-    invoke-virtual {v2, v3, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
 
-    const-string/jumbo v0, "IsSpace"
+    const-string/jumbo v24, "IsAlpha"
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    move-object/from16 v0, v23
 
-    invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createRange()Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+    move-object/from16 v1, v24
 
-    move-result-object v0
+    invoke-virtual {v0, v1, v9}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
 
-    const/16 v1, 0x5f
+    invoke-static {v9}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->complementRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    const/16 v2, 0x5f
+    move-result-object v24
 
-    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
+    const-string/jumbo v25, "IsAlpha"
 
-    sget-object v1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
+    move-object/from16 v0, v23
 
-    const-string/jumbo v2, "IsWord"
+    move-object/from16 v1, v25
 
-    invoke-virtual {v1, v2, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v2, v24
 
-    sget-object v1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
+    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v2, "IsWord"
+    const-string/jumbo v23, "IsAlpha"
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->complementRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v2, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    const-string/jumbo v0, "IsWord"
-
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
 
     invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createRange()Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    move-result-object v0
+    move-result-object v8
 
-    const/4 v1, 0x0
+    invoke-virtual {v8, v9}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
 
-    const/16 v2, 0x7f
+    const/16 v23, 0x9
 
-    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
+    aget-object v23, v18, v23
 
-    sget-object v1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
+    move-object/from16 v0, v23
 
-    const-string/jumbo v2, "IsASCII"
+    invoke-virtual {v8, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
 
-    invoke-virtual {v1, v2, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
 
-    sget-object v1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
+    const-string/jumbo v24, "IsAlnum"
 
-    const-string/jumbo v2, "IsASCII"
+    move-object/from16 v0, v23
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->complementRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    move-object/from16 v1, v24
 
-    move-result-object v0
+    invoke-virtual {v0, v1, v8}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v1, v2, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
 
-    const-string/jumbo v0, "IsASCII"
+    invoke-static {v8}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->complementRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    move-result-object v24
 
-    invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createRange()Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+    const-string/jumbo v25, "IsAlnum"
 
-    move-result-object v0
+    move-object/from16 v0, v23
 
-    const/16 v1, 0x23
+    move-object/from16 v1, v25
 
-    aget-object v1, v5, v1
+    move-object/from16 v2, v24
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const/16 v1, 0x20
+    const-string/jumbo v23, "IsAlnum"
 
-    const/16 v2, 0x20
-
-    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
-
-    sget-object v1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
-
-    const-string/jumbo v2, "IsGraph"
-
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->complementRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
-
-    move-result-object v3
-
-    invoke-virtual {v1, v2, v3}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
-
-    const-string/jumbo v2, "IsGraph"
-
-    invoke-virtual {v1, v2, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    const-string/jumbo v0, "IsGraph"
-
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
 
     invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createRange()Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    move-result-object v0
+    move-result-object v12
 
-    const/16 v1, 0x30
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->token_spaces:Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    const/16 v2, 0x39
+    move-object/from16 v0, v23
 
-    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
+    invoke-virtual {v12, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
 
-    const/16 v1, 0x41
+    const/16 v23, 0x22
 
-    const/16 v2, 0x46
+    aget-object v23, v18, v23
 
-    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
+    move-object/from16 v0, v23
 
-    const/16 v1, 0x61
+    invoke-virtual {v12, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
 
-    const/16 v2, 0x66
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
+    const-string/jumbo v24, "IsSpace"
 
-    sget-object v1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
+    move-object/from16 v0, v23
 
-    const-string/jumbo v2, "IsXDigit"
+    move-object/from16 v1, v24
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->complementRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-virtual {v0, v1, v12}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
 
-    invoke-virtual {v1, v2, v3}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v12}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->complementRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    sget-object v1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
+    move-result-object v24
 
-    const-string/jumbo v2, "IsXDigit"
+    const-string/jumbo v25, "IsSpace"
 
-    invoke-virtual {v1, v2, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v0, v23
 
-    const-string/jumbo v0, "IsXDigit"
+    move-object/from16 v1, v25
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    move-object/from16 v2, v24
 
-    const-string/jumbo v0, "IsDigit"
+    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v1, "Nd"
+    const-string/jumbo v23, "IsSpace"
 
-    const/4 v2, 0x1
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createRange()Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    const-string/jumbo v0, "IsUpper"
+    move-result-object v13
 
-    const-string/jumbo v1, "Lu"
+    invoke-virtual {v13, v8}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
 
-    const/4 v2, 0x1
+    const/16 v23, 0x5f
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+    const/16 v24, 0x5f
 
-    const-string/jumbo v0, "IsLower"
+    move/from16 v0, v23
 
-    const-string/jumbo v1, "Ll"
+    move/from16 v1, v24
 
-    const/4 v2, 0x1
+    invoke-virtual {v13, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
 
-    const-string/jumbo v0, "IsCntrl"
+    const-string/jumbo v24, "IsWord"
 
-    const-string/jumbo v1, "C"
+    move-object/from16 v0, v23
 
-    const/4 v2, 0x1
+    move-object/from16 v1, v24
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-virtual {v0, v1, v13}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v0, "IsPrint"
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
 
-    const-string/jumbo v1, "C"
+    invoke-static {v13}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->complementRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    const/4 v2, 0x0
+    move-result-object v24
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+    const-string/jumbo v25, "IsWord"
 
-    const-string/jumbo v0, "IsPunct"
+    move-object/from16 v0, v23
 
-    const-string/jumbo v1, "P"
+    move-object/from16 v1, v25
 
-    const/4 v2, 0x1
+    move-object/from16 v2, v24
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v0, "IsDigit"
+    const-string/jumbo v23, "IsWord"
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
 
-    const-string/jumbo v0, "IsUpper"
+    invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createRange()Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    move-result-object v10
 
-    const-string/jumbo v0, "IsLower"
+    const/16 v23, 0x0
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    const/16 v24, 0x7f
 
-    const-string/jumbo v0, "IsCntrl"
+    move/from16 v0, v23
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    move/from16 v1, v24
 
-    const-string/jumbo v0, "IsPrint"
+    invoke-virtual {v10, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
 
-    const-string/jumbo v0, "IsPunct"
+    const-string/jumbo v24, "IsASCII"
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    move-object/from16 v0, v23
 
-    const-string/jumbo v0, "alpha"
+    move-object/from16 v1, v24
 
-    const-string/jumbo v1, "IsAlpha"
+    invoke-virtual {v0, v1, v10}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const/4 v2, 0x1
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v10}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->complementRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    const-string/jumbo v0, "alnum"
+    move-result-object v24
 
-    const-string/jumbo v1, "IsAlnum"
+    const-string/jumbo v25, "IsASCII"
 
-    const/4 v2, 0x1
+    move-object/from16 v0, v23
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+    move-object/from16 v1, v25
 
-    const-string/jumbo v0, "ascii"
+    move-object/from16 v2, v24
 
-    const-string/jumbo v1, "IsASCII"
+    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const/4 v2, 0x1
+    const-string/jumbo v23, "IsASCII"
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
 
-    const-string/jumbo v0, "cntrl"
+    invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createRange()Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    const-string/jumbo v1, "IsCntrl"
+    move-result-object v11
 
-    const/4 v2, 0x1
+    const/16 v23, 0x23
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+    aget-object v23, v18, v23
 
-    const-string/jumbo v0, "digit"
+    move-object/from16 v0, v23
 
-    const-string/jumbo v1, "IsDigit"
+    invoke-virtual {v11, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
 
-    const/4 v2, 0x1
+    const/16 v23, 0x20
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+    const/16 v24, 0x20
 
-    const-string/jumbo v0, "graph"
+    move/from16 v0, v23
 
-    const-string/jumbo v1, "IsGraph"
+    move/from16 v1, v24
 
-    const/4 v2, 0x1
+    invoke-virtual {v11, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
 
-    const-string/jumbo v0, "lower"
+    invoke-static {v11}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->complementRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    const-string/jumbo v1, "IsLower"
+    move-result-object v24
 
-    const/4 v2, 0x1
+    const-string/jumbo v25, "IsGraph"
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+    move-object/from16 v0, v23
 
-    const-string/jumbo v0, "print"
+    move-object/from16 v1, v25
 
-    const-string/jumbo v1, "IsPrint"
+    move-object/from16 v2, v24
 
-    const/4 v2, 0x1
+    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
 
-    const-string/jumbo v0, "punct"
+    const-string/jumbo v24, "IsGraph"
 
-    const-string/jumbo v1, "IsPunct"
+    move-object/from16 v0, v23
 
-    const/4 v2, 0x1
+    move-object/from16 v1, v24
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-virtual {v0, v1, v11}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v0, "space"
+    const-string/jumbo v23, "IsGraph"
 
-    const-string/jumbo v1, "IsSpace"
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
 
-    const/4 v2, 0x1
+    invoke-static {}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->createRange()Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+    move-result-object v14
 
-    const-string/jumbo v0, "upper"
+    const/16 v23, 0x30
 
-    const-string/jumbo v1, "IsUpper"
+    const/16 v24, 0x39
 
-    const/4 v2, 0x1
+    move/from16 v0, v23
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+    move/from16 v1, v24
 
-    const-string/jumbo v0, "word"
+    invoke-virtual {v14, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
 
-    const-string/jumbo v1, "IsWord"
+    const/16 v23, 0x41
 
-    const/4 v2, 0x1
+    const/16 v24, 0x46
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+    move/from16 v0, v23
 
-    const-string/jumbo v0, "xdigit"
+    move/from16 v1, v24
 
-    const-string/jumbo v1, "IsXDigit"
+    invoke-virtual {v14, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
 
-    const/4 v2, 0x1
+    const/16 v23, 0x61
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+    const/16 v24, 0x66
 
-    const-string/jumbo v0, "alpha"
+    move/from16 v0, v23
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    move/from16 v1, v24
 
-    const-string/jumbo v0, "alnum"
+    invoke-virtual {v14, v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->addRange(II)V
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
 
-    const-string/jumbo v0, "ascii"
+    invoke-static {v14}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->complementRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    move-result-object v24
 
-    const-string/jumbo v0, "cntrl"
+    const-string/jumbo v25, "IsXDigit"
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    move-object/from16 v0, v23
 
-    const-string/jumbo v0, "digit"
+    move-object/from16 v1, v25
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    move-object/from16 v2, v24
 
-    const-string/jumbo v0, "graph"
+    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
 
-    const-string/jumbo v0, "lower"
+    const-string/jumbo v24, "IsXDigit"
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    move-object/from16 v0, v23
 
-    const-string/jumbo v0, "print"
+    move-object/from16 v1, v24
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v14}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v0, "punct"
+    const-string/jumbo v23, "IsXDigit"
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
 
-    const-string/jumbo v0, "space"
+    const-string/jumbo v23, "IsDigit"
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    const-string/jumbo v24, "Nd"
 
-    const-string/jumbo v0, "upper"
+    const/16 v25, 0x1
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    invoke-static/range {v23 .. v25}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "word"
+    const-string/jumbo v23, "IsUpper"
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    const-string/jumbo v24, "Lu"
 
-    const-string/jumbo v0, "xdigit"
+    const/16 v25, 0x1
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+    invoke-static/range {v23 .. v25}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    monitor-exit v4
+    const-string/jumbo v23, "IsLower"
+
+    const-string/jumbo v24, "Ll"
+
+    const/16 v25, 0x1
+
+    invoke-static/range {v23 .. v25}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    const-string/jumbo v23, "IsCntrl"
+
+    const-string/jumbo v24, "C"
+
+    const/16 v25, 0x1
+
+    invoke-static/range {v23 .. v25}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    const-string/jumbo v23, "IsPrint"
+
+    const-string/jumbo v24, "C"
+
+    const/16 v25, 0x0
+
+    invoke-static/range {v23 .. v25}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    const-string/jumbo v23, "IsPunct"
+
+    const-string/jumbo v24, "P"
+
+    const/16 v25, 0x1
+
+    invoke-static/range {v23 .. v25}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    const-string/jumbo v23, "IsDigit"
+
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+
+    const-string/jumbo v23, "IsUpper"
+
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+
+    const-string/jumbo v23, "IsLower"
+
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+
+    const-string/jumbo v23, "IsCntrl"
+
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+
+    const-string/jumbo v23, "IsPrint"
+
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+
+    const-string/jumbo v23, "IsPunct"
+
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+
+    const-string/jumbo v23, "alpha"
+
+    const-string/jumbo v24, "IsAlpha"
+
+    const/16 v25, 0x1
+
+    invoke-static/range {v23 .. v25}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    const-string/jumbo v23, "alnum"
+
+    const-string/jumbo v24, "IsAlnum"
+
+    const/16 v25, 0x1
+
+    invoke-static/range {v23 .. v25}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    const-string/jumbo v23, "ascii"
+
+    const-string/jumbo v24, "IsASCII"
+
+    const/16 v25, 0x1
+
+    invoke-static/range {v23 .. v25}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    const-string/jumbo v23, "cntrl"
+
+    const-string/jumbo v24, "IsCntrl"
+
+    const/16 v25, 0x1
+
+    invoke-static/range {v23 .. v25}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    const-string/jumbo v23, "digit"
+
+    const-string/jumbo v24, "IsDigit"
+
+    const/16 v25, 0x1
+
+    invoke-static/range {v23 .. v25}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    const-string/jumbo v23, "graph"
+
+    const-string/jumbo v24, "IsGraph"
+
+    const/16 v25, 0x1
+
+    invoke-static/range {v23 .. v25}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    const-string/jumbo v23, "lower"
+
+    const-string/jumbo v24, "IsLower"
+
+    const/16 v25, 0x1
+
+    invoke-static/range {v23 .. v25}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    const-string/jumbo v23, "print"
+
+    const-string/jumbo v24, "IsPrint"
+
+    const/16 v25, 0x1
+
+    invoke-static/range {v23 .. v25}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    const-string/jumbo v23, "punct"
+
+    const-string/jumbo v24, "IsPunct"
+
+    const/16 v25, 0x1
+
+    invoke-static/range {v23 .. v25}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    const-string/jumbo v23, "space"
+
+    const-string/jumbo v24, "IsSpace"
+
+    const/16 v25, 0x1
+
+    invoke-static/range {v23 .. v25}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    const-string/jumbo v23, "upper"
+
+    const-string/jumbo v24, "IsUpper"
+
+    const/16 v25, 0x1
+
+    invoke-static/range {v23 .. v25}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    const-string/jumbo v23, "word"
+
+    const-string/jumbo v24, "IsWord"
+
+    const/16 v25, 0x1
+
+    invoke-static/range {v23 .. v25}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    const-string/jumbo v23, "xdigit"
+
+    const-string/jumbo v24, "IsXDigit"
+
+    const/16 v25, 0x1
+
+    invoke-static/range {v23 .. v25}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    const-string/jumbo v23, "alpha"
+
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+
+    const-string/jumbo v23, "alnum"
+
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+
+    const-string/jumbo v23, "ascii"
+
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+
+    const-string/jumbo v23, "cntrl"
+
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+
+    const-string/jumbo v23, "digit"
+
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+
+    const-string/jumbo v23, "graph"
+
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+
+    const-string/jumbo v23, "lower"
+
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+
+    const-string/jumbo v23, "print"
+
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+
+    const-string/jumbo v23, "punct"
+
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+
+    const-string/jumbo v23, "space"
+
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+
+    const-string/jumbo v23, "upper"
+
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+
+    const-string/jumbo v23, "word"
+
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+
+    const-string/jumbo v23, "xdigit"
+
+    invoke-static/range {v23 .. v23}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->registerNonXS(Ljava/lang/String;)V
+
+    monitor-exit v3
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto/16 :goto_0
 
     :cond_13
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
+    sget-object v23, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p0}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v0, v23
 
-    move-result-object v0
+    move-object/from16 v1, p0
 
-    check-cast v0, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+    invoke-virtual {v0, v1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v23
+
+    check-cast v23, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
+
+    move-object/from16 v21, v23
 
     goto/16 :goto_1
 
@@ -2852,9 +3138,7 @@
 .end method
 
 .method protected static getRange(Ljava/lang/String;ZZ)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
-    .locals 3
-
-    const/4 v1, 0x0
+    .locals 2
 
     invoke-static {p0, p1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getRange(Ljava/lang/String;Z)Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;
 
@@ -2871,11 +3155,11 @@
 
     invoke-static {p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->isRegisterNonXS(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
-    move-object v0, v1
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
@@ -2919,95 +3203,95 @@
 .end method
 
 .method private final isShorterThan(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Z
-    .locals 4
+    .locals 5
 
-    const/16 v3, 0xa
+    const/16 v4, 0xa
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     if-eqz p1, :cond_0
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
-
-    if-eq v0, v3, :cond_1
-
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    const-string/jumbo v2, "Internal Error: Illegal type: "
-
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
     iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    if-eq v2, v4, :cond_1
 
-    move-result-object v1
+    new-instance v2, Ljava/lang/RuntimeException;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    const-string/jumbo v4, "Internal Error: Illegal type: "
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-direct {v2, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v2
 
     :cond_0
-    return v2
+    return v3
 
     :cond_1
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    iget v1, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
-
-    if-eq v1, v3, :cond_2
-
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    const-string/jumbo v2, "Internal Error: Illegal type: "
-
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
     iget v2, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    if-eq v2, v4, :cond_2
 
-    move-result-object v1
+    new-instance v2, Ljava/lang/RuntimeException;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    const-string/jumbo v4, "Internal Error: Illegal type: "
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    iget v4, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-direct {v2, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v2
 
     :cond_2
     invoke-virtual {p1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
 
     move-result v1
 
     if-lt v0, v1, :cond_3
 
-    return v2
+    return v3
 
     :cond_3
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    return v0
+    return v2
 .end method
 
 .method protected static registerNonXS(Ljava/lang/String;)V
@@ -3037,17 +3321,17 @@
 .method private static setAlias(Ljava/lang/String;Ljava/lang/String;Z)V
     .locals 3
 
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
+    sget-object v2, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    sget-object v1, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
+    sget-object v2, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
 
-    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -3059,9 +3343,9 @@
 
     invoke-virtual {v2, p0, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
+    sget-object v2, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p0, v1}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p0, v1}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :goto_0
     return-void
@@ -3071,9 +3355,9 @@
 
     invoke-virtual {v2, p0, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
+    sget-object v2, Lmf/org/apache/xerces/impl/xpath/regex/Token;->categories2:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p0, v1}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p0, v1}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 .end method
@@ -3105,186 +3389,204 @@
 .end method
 
 .method final analyzeFirstCharacter(Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;I)I
-    .locals 7
+    .locals 12
 
-    const/high16 v4, 0x10000
+    iget v9, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
 
-    const/4 v6, 0x2
-
-    const/4 v2, 0x1
-
-    const/4 v1, 0x0
-
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
-
-    packed-switch v0, :pswitch_data_0
+    packed-switch v9, :pswitch_data_0
 
     :pswitch_0
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v9, Ljava/lang/RuntimeException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "Token#analyzeHeadCharacter(): Invalid Type: "
+    const-string/jumbo v11, "Token#analyzeHeadCharacter(): Invalid Type: "
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v10, v11}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
+    iget v11, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v10
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v10
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v9, v10}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v9
 
     :pswitch_1
-    move v0, v1
+    const/4 v5, 0x0
+
+    const/4 v4, 0x0
 
     :goto_0
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->size()I
 
-    move-result v2
+    move-result v9
 
-    if-ge v0, v2, :cond_0
+    if-ge v4, v9, :cond_0
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-virtual {p0, v4}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v1
+    move-result-object v9
 
-    invoke-virtual {v1, p1, p2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->analyzeFirstCharacter(Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;I)I
+    invoke-virtual {v9, p1, p2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->analyzeFirstCharacter(Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;I)I
 
-    move-result v1
+    move-result v5
 
-    if-nez v1, :cond_0
+    if-nez v5, :cond_0
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
     :cond_0
-    return v1
+    return v5
 
     :pswitch_2
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->size()I
 
-    move-result v0
+    move-result v9
 
-    if-eqz v0, :cond_1
+    if-eqz v9, :cond_1
 
-    move v3, v1
+    const/4 v6, 0x0
 
-    move v0, v1
+    const/4 v3, 0x0
 
-    move v4, v1
+    const/4 v4, 0x0
 
     :goto_1
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->size()I
 
-    move-result v5
+    move-result v9
 
-    if-ge v3, v5, :cond_10
+    if-ge v4, v9, :cond_3
 
-    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-virtual {p0, v4}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v4
+    move-result-object v9
 
-    invoke-virtual {v4, p1, p2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->analyzeFirstCharacter(Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;I)I
+    invoke-virtual {v9, p1, p2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->analyzeFirstCharacter(Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;I)I
 
-    move-result v4
+    move-result v6
 
-    if-eq v4, v6, :cond_2
+    const/4 v9, 0x2
 
-    if-eqz v4, :cond_4
+    if-eq v6, v9, :cond_3
+
+    if-eqz v6, :cond_2
 
     :goto_2
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_1
 
     :cond_1
-    return v1
+    const/4 v9, 0x0
+
+    return v9
 
     :cond_2
-    move v2, v4
-
-    :goto_3
-    if-nez v0, :cond_3
-
-    move v1, v2
-
-    :cond_3
-    return v1
-
-    :cond_4
-    move v0, v2
+    const/4 v3, 0x1
 
     goto :goto_2
 
+    :cond_3
+    if-nez v3, :cond_4
+
+    :goto_3
+    return v6
+
+    :cond_4
+    const/4 v6, 0x0
+
+    goto :goto_3
+
     :pswitch_3
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    const/4 v9, 0x0
 
-    move-result-object v0
+    invoke-virtual {p0, v9}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    invoke-virtual {v0, p1, p2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->analyzeFirstCharacter(Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;I)I
+    move-result-object v9
 
-    move-result v0
+    invoke-virtual {v9, p1, p2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->analyzeFirstCharacter(Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;I)I
+
+    move-result v7
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->size()I
 
-    move-result v3
+    move-result v9
 
-    if-eq v3, v2, :cond_6
+    const/4 v10, 0x1
 
-    if-eq v0, v6, :cond_7
+    if-eq v9, v10, :cond_6
 
-    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    const/4 v9, 0x2
 
-    move-result-object v3
+    if-eq v7, v9, :cond_7
 
-    invoke-virtual {v3, p1, p2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->analyzeFirstCharacter(Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;I)I
+    const/4 v9, 0x1
 
-    move-result v3
+    invoke-virtual {p0, v9}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    if-eq v3, v6, :cond_8
+    move-result-object v9
 
-    if-nez v0, :cond_9
+    invoke-virtual {v9, p1, p2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->analyzeFirstCharacter(Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;I)I
+
+    move-result v8
+
+    const/4 v9, 0x2
+
+    if-eq v8, v9, :cond_8
+
+    if-nez v7, :cond_9
 
     :cond_5
-    move v2, v1
+    const/4 v9, 0x0
 
     :goto_4
-    return v2
+    return v9
 
     :cond_6
-    return v1
+    const/4 v9, 0x0
+
+    return v9
 
     :cond_7
-    return v0
+    return v7
 
     :cond_8
-    return v3
+    return v8
 
     :cond_9
-    if-eqz v3, :cond_5
+    if-eqz v8, :cond_5
+
+    const/4 v9, 0x1
 
     goto :goto_4
 
     :pswitch_4
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    const/4 v9, 0x0
 
-    move-result-object v0
+    invoke-virtual {p0, v9}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    invoke-virtual {v0, p1, p2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->analyzeFirstCharacter(Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;I)I
+    move-result-object v9
 
-    return v1
+    invoke-virtual {v9, p1, p2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->analyzeFirstCharacter(Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;I)I
+
+    const/4 v9, 0x0
+
+    return v9
 
     :pswitch_5
-    return v1
+    const/4 v9, 0x0
+
+    return v9
 
     :pswitch_6
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChar()I
@@ -3293,30 +3595,36 @@
 
     invoke-virtual {p1, v0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
 
-    if-lt v0, v4, :cond_b
+    const/high16 v9, 0x10000
+
+    if-lt v0, v9, :cond_b
 
     :cond_a
     :goto_5
-    return v2
+    const/4 v9, 0x1
+
+    return v9
 
     :cond_b
-    invoke-static {p2, v6}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->isSet(II)Z
+    const/4 v9, 0x2
 
-    move-result v1
+    invoke-static {p2, v9}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->isSet(II)Z
 
-    if-eqz v1, :cond_a
+    move-result v9
 
-    int-to-char v0, v0
+    if-eqz v9, :cond_a
 
-    invoke-static {v0}, Ljava/lang/Character;->toUpperCase(C)C
+    int-to-char v9, v0
+
+    invoke-static {v9}, Ljava/lang/Character;->toUpperCase(C)C
 
     move-result v0
 
     invoke-virtual {p1, v0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
 
-    int-to-char v0, v0
+    int-to-char v9, v0
 
-    invoke-static {v0}, Ljava/lang/Character;->toLowerCase(C)C
+    invoke-static {v9}, Ljava/lang/Character;->toLowerCase(C)C
 
     move-result v0
 
@@ -3325,161 +3633,186 @@
     goto :goto_5
 
     :pswitch_7
-    return v6
+    const/4 v9, 0x2
+
+    return v9
 
     :pswitch_8
     invoke-virtual {p1, p0}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
 
-    return v2
+    const/4 v9, 0x1
+
+    return v9
 
     :pswitch_9
     invoke-static {p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->complementRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v9
 
-    invoke-virtual {p1, v0}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
+    invoke-virtual {p1, v9}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->mergeRanges(Lmf/org/apache/xerces/impl/xpath/regex/Token;)V
 
-    return v2
+    const/4 v9, 0x1
+
+    return v9
 
     :pswitch_a
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    const/4 v9, 0x0
 
-    move-result-object v0
+    invoke-virtual {p0, v9}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    invoke-virtual {v0, p1, p2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->analyzeFirstCharacter(Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;I)I
+    move-result-object v9
 
-    move-result v0
+    invoke-virtual {v9, p1, p2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->analyzeFirstCharacter(Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;I)I
 
-    return v0
+    move-result v9
+
+    return v9
 
     :pswitch_b
-    move-object v0, p0
+    move-object v9, p0
 
-    check-cast v0, Lmf/org/apache/xerces/impl/xpath/regex/Token$ModifierToken;
+    check-cast v9, Lmf/org/apache/xerces/impl/xpath/regex/Token$ModifierToken;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token$ModifierToken;->getOptions()I
+    invoke-virtual {v9}, Lmf/org/apache/xerces/impl/xpath/regex/Token$ModifierToken;->getOptions()I
 
-    move-result v0
+    move-result v9
 
-    or-int v2, p2, v0
+    or-int/2addr p2, v9
 
-    move-object v0, p0
+    move-object v9, p0
 
-    check-cast v0, Lmf/org/apache/xerces/impl/xpath/regex/Token$ModifierToken;
+    check-cast v9, Lmf/org/apache/xerces/impl/xpath/regex/Token$ModifierToken;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token$ModifierToken;->getOptionsMask()I
+    invoke-virtual {v9}, Lmf/org/apache/xerces/impl/xpath/regex/Token$ModifierToken;->getOptionsMask()I
 
-    move-result v0
+    move-result v9
 
-    xor-int/lit8 v0, v0, -0x1
+    xor-int/lit8 v9, v9, -0x1
 
-    and-int/2addr v0, v2
+    and-int/2addr p2, v9
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    const/4 v9, 0x0
 
-    move-result-object v1
+    invoke-virtual {p0, v9}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    invoke-virtual {v1, p1, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->analyzeFirstCharacter(Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;I)I
+    move-result-object v9
 
-    move-result v0
+    invoke-virtual {v9, p1, p2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->analyzeFirstCharacter(Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;I)I
 
-    return v0
+    move-result v9
+
+    return v9
 
     :pswitch_c
-    const v0, 0x10ffff
+    const/4 v9, 0x0
 
-    invoke-virtual {p1, v1, v0}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
+    const v10, 0x10ffff
 
-    return v6
+    invoke-virtual {p1, v9, v10}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
+
+    const/4 v9, 0x2
+
+    return v9
 
     :pswitch_d
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v9
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C
+    const/4 v10, 0x0
 
-    move-result v0
+    invoke-virtual {v9, v10}, Ljava/lang/String;->charAt(I)C
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->isHighSurrogate(I)Z
+    move-result v2
 
-    move-result v1
+    invoke-static {v2}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->isHighSurrogate(I)Z
 
-    if-nez v1, :cond_e
+    move-result v9
+
+    if-nez v9, :cond_e
 
     :cond_c
     :goto_6
-    invoke-virtual {p1, v0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
+    invoke-virtual {p1, v2, v2}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
 
-    if-lt v0, v4, :cond_f
+    const/high16 v9, 0x10000
+
+    if-lt v2, v9, :cond_f
 
     :cond_d
     :goto_7
-    return v2
+    const/4 v9, 0x1
+
+    return v9
 
     :cond_e
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v9
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {v9}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v9
 
-    if-lt v1, v6, :cond_c
+    const/4 v10, 0x2
+
+    if-lt v9, v10, :cond_c
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v9
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->charAt(I)C
+    const/4 v10, 0x1
+
+    invoke-virtual {v9, v10}, Ljava/lang/String;->charAt(I)C
 
     move-result v1
 
     invoke-static {v1}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->isLowSurrogate(I)Z
 
-    move-result v3
+    move-result v9
 
-    if-eqz v3, :cond_c
+    if-eqz v9, :cond_c
 
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->composeFromSurrogates(II)I
+    invoke-static {v2, v1}, Lmf/org/apache/xerces/impl/xpath/regex/REUtil;->composeFromSurrogates(II)I
 
-    move-result v0
+    move-result v2
 
     goto :goto_6
 
     :cond_f
-    invoke-static {p2, v6}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->isSet(II)Z
+    const/4 v9, 0x2
 
-    move-result v1
+    invoke-static {p2, v9}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->isSet(II)Z
 
-    if-eqz v1, :cond_d
+    move-result v9
 
-    int-to-char v0, v0
+    if-eqz v9, :cond_d
 
-    invoke-static {v0}, Ljava/lang/Character;->toUpperCase(C)C
+    int-to-char v9, v2
 
-    move-result v0
+    invoke-static {v9}, Ljava/lang/Character;->toUpperCase(C)C
 
-    invoke-virtual {p1, v0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
+    move-result v2
 
-    int-to-char v0, v0
+    invoke-virtual {p1, v2, v2}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
 
-    invoke-static {v0}, Ljava/lang/Character;->toLowerCase(C)C
+    int-to-char v9, v2
 
-    move-result v0
+    invoke-static {v9}, Ljava/lang/Character;->toLowerCase(C)C
 
-    invoke-virtual {p1, v0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
+    move-result v2
+
+    invoke-virtual {p1, v2, v2}, Lmf/org/apache/xerces/impl/xpath/regex/RangeToken;->addRange(II)V
 
     goto :goto_7
 
     :pswitch_e
-    return v1
+    const/4 v9, 0x0
 
-    :cond_10
-    move v2, v4
+    return v9
 
-    goto/16 :goto_3
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -3526,77 +3859,75 @@
 .end method
 
 .method final findFixedString(Lmf/org/apache/xerces/impl/xpath/regex/Token$FixedStringContainer;I)V
-    .locals 5
+    .locals 6
 
-    const/4 v0, 0x0
+    const/4 v5, 0x0
+
+    const/4 v4, 0x0
+
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
+
+    packed-switch v3, :pswitch_data_0
+
+    :pswitch_0
+    new-instance v3, Ljava/lang/RuntimeException;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    const-string/jumbo v5, "Token#findFixedString(): Invalid Type: "
+
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+
+    :pswitch_1
+    const/4 v2, 0x0
 
     const/4 v1, 0x0
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
-
-    packed-switch v2, :pswitch_data_0
-
-    :pswitch_0
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    const-string/jumbo v2, "Token#findFixedString(): Invalid Type: "
-
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :pswitch_1
-    move v2, v1
-
-    move v4, v1
-
-    move-object v1, v0
-
-    move v0, v4
+    const/4 v0, 0x0
 
     :goto_0
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->size()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_2
+    if-ge v0, v3, :cond_2
 
-    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
     move-result-object v3
 
     invoke-virtual {v3, p1, p2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->findFixedString(Lmf/org/apache/xerces/impl/xpath/regex/Token$FixedStringContainer;I)V
 
-    if-nez v1, :cond_1
+    if-nez v2, :cond_1
 
     :cond_0
-    iget-object v1, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token$FixedStringContainer;->token:Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token$FixedStringContainer;->token:Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    iget v0, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token$FixedStringContainer;->options:I
+    iget v1, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token$FixedStringContainer;->options:I
 
     :goto_1
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_1
     iget-object v3, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token$FixedStringContainer;->token:Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    invoke-direct {v1, v3}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->isShorterThan(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Z
+    invoke-direct {v2, v3}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->isShorterThan(Lmf/org/apache/xerces/impl/xpath/regex/Token;)Z
 
     move-result v3
 
@@ -3605,19 +3936,19 @@
     goto :goto_1
 
     :cond_2
-    iput-object v1, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token$FixedStringContainer;->token:Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    iput-object v2, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token$FixedStringContainer;->token:Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    iput v0, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token$FixedStringContainer;->options:I
+    iput v1, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token$FixedStringContainer;->options:I
 
     return-void
 
     :pswitch_2
-    iput-object v0, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token$FixedStringContainer;->token:Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    iput-object v5, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token$FixedStringContainer;->token:Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
     return-void
 
     :pswitch_3
-    iput-object v0, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token$FixedStringContainer;->token:Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    iput-object v5, p1, Lmf/org/apache/xerces/impl/xpath/regex/Token$FixedStringContainer;->token:Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
     return-void
 
@@ -3629,42 +3960,42 @@
     return-void
 
     :pswitch_5
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-virtual {p0, v4}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {v0, p1, p2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->findFixedString(Lmf/org/apache/xerces/impl/xpath/regex/Token$FixedStringContainer;I)V
+    invoke-virtual {v3, p1, p2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->findFixedString(Lmf/org/apache/xerces/impl/xpath/regex/Token$FixedStringContainer;I)V
 
     return-void
 
     :pswitch_6
-    move-object v0, p0
+    move-object v3, p0
 
-    check-cast v0, Lmf/org/apache/xerces/impl/xpath/regex/Token$ModifierToken;
+    check-cast v3, Lmf/org/apache/xerces/impl/xpath/regex/Token$ModifierToken;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token$ModifierToken;->getOptions()I
+    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/xpath/regex/Token$ModifierToken;->getOptions()I
 
-    move-result v0
+    move-result v3
 
-    or-int v2, p2, v0
+    or-int/2addr p2, v3
 
-    move-object v0, p0
+    move-object v3, p0
 
-    check-cast v0, Lmf/org/apache/xerces/impl/xpath/regex/Token$ModifierToken;
+    check-cast v3, Lmf/org/apache/xerces/impl/xpath/regex/Token$ModifierToken;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token$ModifierToken;->getOptionsMask()I
+    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/xpath/regex/Token$ModifierToken;->getOptionsMask()I
 
-    move-result v0
+    move-result v3
 
-    xor-int/lit8 v0, v0, -0x1
+    xor-int/lit8 v3, v3, -0x1
 
-    and-int/2addr v0, v2
+    and-int/2addr p2, v3
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-virtual {p0, v4}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1, p1, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->findFixedString(Lmf/org/apache/xerces/impl/xpath/regex/Token$FixedStringContainer;I)V
+    invoke-virtual {v3, p1, p2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->findFixedString(Lmf/org/apache/xerces/impl/xpath/regex/Token$FixedStringContainer;I)V
 
     return-void
 
@@ -3727,200 +4058,200 @@
 .end method
 
 .method final getMaxLength()I
-    .locals 4
+    .locals 8
 
-    const/4 v1, 0x1
+    const/4 v7, -0x1
 
-    const/4 v2, -0x1
+    const/4 v6, 0x0
 
-    const/4 v0, 0x0
+    iget v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
-
-    packed-switch v3, :pswitch_data_0
+    packed-switch v5, :pswitch_data_0
 
     :pswitch_0
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v5, Ljava/lang/RuntimeException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "Token#getMaxLength(): Invalid Type: "
+    const-string/jumbo v7, "Token#getMaxLength(): Invalid Type: "
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
+    iget v7, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v6
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v6
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5, v6}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v5
 
     :pswitch_1
-    move v1, v0
+    const/4 v4, 0x0
+
+    const/4 v1, 0x0
 
     :goto_0
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->size()I
 
-    move-result v3
+    move-result v5
 
-    if-ge v0, v3, :cond_1
+    if-ge v1, v5, :cond_1
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getMaxLength()I
+    invoke-virtual {v5}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getMaxLength()I
 
-    move-result v3
+    move-result v0
 
-    if-ltz v3, :cond_0
+    if-ltz v0, :cond_0
 
-    add-int/2addr v1, v3
+    add-int/2addr v4, v0
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_0
-    return v2
+    return v7
 
     :cond_1
-    return v1
+    return v4
 
     :pswitch_2
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->size()I
 
+    move-result v5
+
+    if-eqz v5, :cond_3
+
+    invoke-virtual {p0, v6}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getMaxLength()I
+
     move-result v3
 
-    if-eqz v3, :cond_3
-
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getMaxLength()I
-
-    move-result v0
-
-    move v3, v1
+    const/4 v1, 0x1
 
     :goto_1
-    if-gez v0, :cond_4
+    if-gez v3, :cond_4
 
     :cond_2
     :goto_2
-    return v0
+    return v3
 
     :cond_3
-    return v0
+    return v6
 
     :cond_4
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->size()I
 
-    move-result v1
+    move-result v5
 
-    if-ge v3, v1, :cond_2
+    if-ge v1, v5, :cond_2
 
-    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v1
+    move-result-object v5
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getMaxLength()I
+    invoke-virtual {v5}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getMaxLength()I
 
-    move-result v1
+    move-result v2
 
-    if-ltz v1, :cond_5
+    if-ltz v2, :cond_5
 
-    if-gt v1, v0, :cond_6
+    if-gt v2, v3, :cond_6
 
     :goto_3
-    add-int/lit8 v1, v3, 0x1
-
-    move v3, v1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
     :cond_5
-    move v0, v2
+    const/4 v3, -0x1
 
     goto :goto_2
 
     :cond_6
-    move v0, v1
+    move v3, v2
 
     goto :goto_3
 
     :pswitch_3
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getMax()I
 
-    move-result v1
+    move-result v5
 
-    if-gez v1, :cond_7
+    if-gez v5, :cond_7
 
-    return v2
+    return v7
 
     :cond_7
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getMax()I
 
-    move-result v1
+    move-result v5
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-virtual {p0, v6}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getMaxLength()I
+    invoke-virtual {v6}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getMaxLength()I
 
-    move-result v0
+    move-result v6
 
-    mul-int/2addr v0, v1
+    mul-int/2addr v5, v6
 
-    return v0
+    return v5
 
     :pswitch_4
-    return v0
+    return v6
 
     :pswitch_5
-    return v1
+    const/4 v5, 0x1
+
+    return v5
 
     :pswitch_6
-    const/4 v0, 0x2
+    const/4 v5, 0x2
 
-    return v0
+    return v5
 
     :pswitch_7
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-virtual {p0, v6}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getMaxLength()I
+    invoke-virtual {v5}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getMaxLength()I
 
-    move-result v0
+    move-result v5
 
-    return v0
+    return v5
 
     :pswitch_8
-    return v2
+    return v7
 
     :pswitch_9
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v5
 
-    return v0
+    return v5
 
     :pswitch_a
-    return v0
+    return v6
 
     nop
 
@@ -3965,177 +4296,177 @@
 .end method
 
 .method final getMinLength()I
-    .locals 3
+    .locals 7
 
-    const/4 v1, 0x1
+    const/4 v5, 0x0
 
-    const/4 v0, 0x0
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
-
-    packed-switch v2, :pswitch_data_0
+    packed-switch v4, :pswitch_data_0
 
     :pswitch_0
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v4, Ljava/lang/RuntimeException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "Token#getMinLength(): Invalid Type: "
+    const-string/jumbo v6, "Token#getMinLength(): Invalid Type: "
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
+    iget v6, p0, Lmf/org/apache/xerces/impl/xpath/regex/Token;->type:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v5
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v5
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v5}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v4
 
     :pswitch_1
-    move v1, v0
+    const/4 v3, 0x0
+
+    const/4 v0, 0x0
 
     :goto_0
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->size()I
 
-    move-result v2
+    move-result v4
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v4, :cond_0
 
     invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getMinLength()I
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getMinLength()I
 
-    move-result v2
+    move-result v4
 
-    add-int/2addr v1, v2
+    add-int/2addr v3, v4
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    return v1
+    return v3
 
     :pswitch_2
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->size()I
 
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    invoke-virtual {p0, v5}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getMinLength()I
+
     move-result v2
 
-    if-eqz v2, :cond_1
-
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getMinLength()I
-
-    move-result v0
-
-    move v2, v1
+    const/4 v0, 0x1
 
     :goto_1
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->size()I
 
+    move-result v4
+
+    if-ge v0, v4, :cond_3
+
+    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getMinLength()I
+
     move-result v1
 
-    if-ge v2, v1, :cond_3
-
-    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getMinLength()I
-
-    move-result v1
-
-    if-lt v1, v0, :cond_2
+    if-lt v1, v2, :cond_2
 
     :goto_2
-    add-int/lit8 v1, v2, 0x1
-
-    move v2, v1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
     :cond_1
-    return v0
+    return v5
 
     :cond_2
-    move v0, v1
+    move v2, v1
 
     goto :goto_2
 
     :cond_3
-    return v0
+    return v2
 
     :pswitch_3
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getMin()I
 
-    move-result v1
+    move-result v4
 
-    if-gez v1, :cond_4
+    if-gez v4, :cond_4
 
-    return v0
+    return v5
 
     :cond_4
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getMin()I
 
-    move-result v1
+    move-result v4
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-virtual {p0, v5}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getMinLength()I
+    invoke-virtual {v5}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getMinLength()I
 
-    move-result v0
+    move-result v5
 
-    mul-int/2addr v0, v1
+    mul-int/2addr v4, v5
 
-    return v0
+    return v4
 
     :pswitch_4
-    return v0
+    return v5
 
     :pswitch_5
-    return v1
+    const/4 v4, 0x1
+
+    return v4
 
     :pswitch_6
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
+    invoke-virtual {p0, v5}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getChild(I)Lmf/org/apache/xerces/impl/xpath/regex/Token;
 
-    move-result-object v0
+    move-result-object v4
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getMinLength()I
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getMinLength()I
 
-    move-result v0
+    move-result v4
 
-    return v0
+    return v4
 
     :pswitch_7
-    return v0
+    return v5
 
     :pswitch_8
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/regex/Token;->getString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v4
 
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    invoke-virtual {v4}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v4
 
-    return v0
+    return v4
 
     :pswitch_9
-    return v0
+    return v5
 
     nop
 

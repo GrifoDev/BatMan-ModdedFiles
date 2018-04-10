@@ -58,23 +58,23 @@
 .end method
 
 .method public getAttrGrp()Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;
-    .locals 2
+    .locals 3
 
-    new-instance v0, Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
+    new-instance v1, Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
 
-    invoke-direct {v0}, Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;-><init>()V
+    invoke-direct {v1}, Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;-><init>()V
 
-    const/4 v1, 0x3
+    const/4 v2, 0x3
 
-    iput-short v1, v0, Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;->fProcessContents:S
+    iput-short v2, v1, Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;->fProcessContents:S
 
-    new-instance v1, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;
+    new-instance v0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;
 
-    invoke-direct {v1}, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;-><init>()V
+    invoke-direct {v0}, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;-><init>()V
 
-    iput-object v0, v1, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeWC:Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
+    iput-object v1, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeWC:Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public getAttributeUses()Lmf/org/apache/xerces/xs/XSObjectList;
@@ -108,59 +108,59 @@
 .end method
 
 .method public getParticle()Lmf/org/apache/xerces/xs/XSParticle;
-    .locals 6
+    .locals 8
 
-    const/4 v5, 0x3
+    const/4 v7, 0x3
 
-    const/4 v4, 0x1
+    const/4 v6, 0x1
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
-    new-instance v0, Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
+    new-instance v3, Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
 
-    invoke-direct {v0}, Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;-><init>()V
+    invoke-direct {v3}, Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;-><init>()V
 
-    iput-short v5, v0, Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;->fProcessContents:S
+    iput-short v7, v3, Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;->fProcessContents:S
 
-    new-instance v1, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    new-instance v2, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
-    invoke-direct {v1}, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;-><init>()V
+    invoke-direct {v2}, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;-><init>()V
 
-    iput v3, v1, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fMinOccurs:I
+    iput v5, v2, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fMinOccurs:I
 
-    const/4 v2, -0x1
+    const/4 v4, -0x1
 
-    iput v2, v1, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fMaxOccurs:I
+    iput v4, v2, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fMaxOccurs:I
 
-    const/4 v2, 0x2
+    const/4 v4, 0x2
 
-    iput-short v2, v1, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fType:S
+    iput-short v4, v2, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fType:S
 
-    iput-object v0, v1, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fValue:Lmf/org/apache/xerces/xs/XSTerm;
+    iput-object v3, v2, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fValue:Lmf/org/apache/xerces/xs/XSTerm;
 
     new-instance v0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;
 
     invoke-direct {v0}, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;-><init>()V
 
-    const/16 v2, 0x66
+    const/16 v4, 0x66
 
-    iput-short v2, v0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fCompositor:S
+    iput-short v4, v0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fCompositor:S
 
-    iput v4, v0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticleCount:I
+    iput v6, v0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticleCount:I
 
-    new-array v2, v4, [Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    new-array v4, v6, [Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
-    iput-object v2, v0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticles:[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    iput-object v4, v0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticles:[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
-    iget-object v2, v0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticles:[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticles:[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
-    aput-object v1, v2, v3
+    aput-object v2, v4, v5
 
     new-instance v1, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
     invoke-direct {v1}, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;-><init>()V
 
-    iput-short v5, v1, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fType:S
+    iput-short v7, v1, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fType:S
 
     iput-object v0, v1, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->fValue:Lmf/org/apache/xerces/xs/XSTerm;
 

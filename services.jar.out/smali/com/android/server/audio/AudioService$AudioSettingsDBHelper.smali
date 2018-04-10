@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0xa
     name = "AudioSettingsDBHelper"
 .end annotation
 
@@ -46,15 +46,9 @@
 .field private static final _VALUE:Ljava/lang/String; = "_value"
 
 
-# instance fields
-.field final synthetic this$0:Lcom/android/server/audio/AudioService;
-
-
 # direct methods
-.method public constructor <init>(Lcom/android/server/audio/AudioService;Landroid/content/Context;)V
+.method public constructor <init>(Landroid/content/Context;)V
     .locals 3
-
-    iput-object p1, p0, Lcom/android/server/audio/AudioService$AudioSettingsDBHelper;->this$0:Lcom/android/server/audio/AudioService;
 
     const-string/jumbo v0, "audioservice_sec.db"
 
@@ -62,12 +56,12 @@
 
     const/4 v2, 0x2
 
-    invoke-direct {p0, p2, v0, v1, v2}, Landroid/database/sqlite/SQLiteOpenHelper;-><init>(Landroid/content/Context;Ljava/lang/String;Landroid/database/sqlite/SQLiteDatabase$CursorFactory;I)V
+    invoke-direct {p0, p1, v0, v1, v2}, Landroid/database/sqlite/SQLiteOpenHelper;-><init>(Landroid/content/Context;Ljava/lang/String;Landroid/database/sqlite/SQLiteDatabase$CursorFactory;I)V
 
     return-void
 .end method
 
-.method private getInt(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;I)I
+.method private getInt(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;II)I
     .locals 11
 
     invoke-virtual {p0}, Lcom/android/server/audio/AudioService$AudioSettingsDBHelper;->getReadableDatabase()Landroid/database/sqlite/SQLiteDatabase;
@@ -76,7 +70,7 @@
 
     const/4 v8, 0x0
 
-    const/4 v10, -0x1
+    move/from16 v10, p5
 
     const/4 v4, 0x0
 
@@ -230,217 +224,230 @@
 .method public getAppVolume(I)I
     .locals 6
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "_uid=\'"
+    const-string/jumbo v1, "_uid=\'"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "\'"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "\'"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
     const-string/jumbo v1, "app_volume"
 
-    const/4 v2, 0x2
+    const/4 v0, 0x2
 
-    new-array v2, v2, [Ljava/lang/String;
+    new-array v2, v0, [Ljava/lang/String;
 
-    const-string/jumbo v3, "_uid"
+    const-string/jumbo v0, "_uid"
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    aput-object v3, v2, v4
+    aput-object v0, v2, v5
 
-    const-string/jumbo v3, "_index"
+    const-string/jumbo v0, "_index"
 
-    aput-object v3, v2, v5
+    aput-object v0, v2, v4
 
-    invoke-direct {p0, v1, v2, v0, v5}, Lcom/android/server/audio/AudioService$AudioSettingsDBHelper;->getInt(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;I)I
+    const/4 v5, -0x1
 
-    move-result v1
+    move-object v0, p0
 
-    return v1
+    invoke-direct/range {v0 .. v5}, Lcom/android/server/audio/AudioService$AudioSettingsDBHelper;->getInt(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;II)I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public getBTVolumeIndex(Ljava/lang/String;)I
     .locals 6
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "_addr=\'"
+    const-string/jumbo v1, "_addr=\'"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "\'"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "\'"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
 
     const-string/jumbo v1, "device_addr"
 
-    const/4 v2, 0x2
+    const/4 v0, 0x2
 
-    new-array v2, v2, [Ljava/lang/String;
+    new-array v2, v0, [Ljava/lang/String;
 
-    const-string/jumbo v3, "_addr"
+    const-string/jumbo v0, "_addr"
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    aput-object v3, v2, v4
+    aput-object v0, v2, v5
 
-    const-string/jumbo v3, "_index"
+    const-string/jumbo v0, "_index"
 
-    aput-object v3, v2, v5
+    aput-object v0, v2, v4
 
-    invoke-direct {p0, v1, v2, v0, v5}, Lcom/android/server/audio/AudioService$AudioSettingsDBHelper;->getInt(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;I)I
+    const/4 v5, -0x1
 
-    move-result v1
+    move-object v0, p0
 
-    return v1
-.end method
-
-.method public getBooleanValue(Ljava/lang/String;)Z
-    .locals 7
-
-    const/4 v3, 0x1
-
-    const/4 v2, 0x0
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "_key=\'"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "\'"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string/jumbo v4, "audio_settings"
-
-    const/4 v5, 0x2
-
-    new-array v5, v5, [Ljava/lang/String;
-
-    const-string/jumbo v6, "_key"
-
-    aput-object v6, v5, v2
-
-    const-string/jumbo v6, "_value"
-
-    aput-object v6, v5, v3
-
-    invoke-direct {p0, v4, v5, v1, v3}, Lcom/android/server/audio/AudioService$AudioSettingsDBHelper;->getInt(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;I)I
+    invoke-direct/range {v0 .. v5}, Lcom/android/server/audio/AudioService$AudioSettingsDBHelper;->getInt(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;II)I
 
     move-result v0
 
-    if-gtz v0, :cond_0
-
-    :goto_0
-    return v2
-
-    :cond_0
-    move v2, v3
-
-    goto :goto_0
+    return v0
 .end method
 
-.method public getIntValue(Ljava/lang/String;)I
-    .locals 6
+.method public getBooleanValue(Ljava/lang/String;)Z
+    .locals 8
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    const/4 v7, 0x0
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "_key=\'"
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v1, "_key=\'"
 
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "\'"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "\'"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
     const-string/jumbo v1, "audio_settings"
 
-    const/4 v2, 0x2
+    const/4 v0, 0x2
 
-    new-array v2, v2, [Ljava/lang/String;
+    new-array v2, v0, [Ljava/lang/String;
 
-    const-string/jumbo v3, "_key"
+    const-string/jumbo v0, "_key"
 
-    const/4 v4, 0x0
+    aput-object v0, v2, v7
 
-    aput-object v3, v2, v4
+    const-string/jumbo v0, "_value"
 
-    const-string/jumbo v3, "_value"
+    aput-object v0, v2, v4
 
-    aput-object v3, v2, v5
+    const/4 v5, -0x1
 
-    invoke-direct {p0, v1, v2, v0, v5}, Lcom/android/server/audio/AudioService$AudioSettingsDBHelper;->getInt(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;I)I
+    move-object v0, p0
 
-    move-result v1
+    invoke-direct/range {v0 .. v5}, Lcom/android/server/audio/AudioService$AudioSettingsDBHelper;->getInt(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;II)I
 
-    return v1
+    move-result v6
+
+    if-gtz v6, :cond_0
+
+    move v4, v7
+
+    :cond_0
+    return v4
+.end method
+
+.method public getIntValue(Ljava/lang/String;I)I
+    .locals 6
+
+    const/4 v4, 0x1
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "_key=\'"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "\'"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string/jumbo v1, "audio_settings"
+
+    const/4 v0, 0x2
+
+    new-array v2, v0, [Ljava/lang/String;
+
+    const-string/jumbo v0, "_key"
+
+    const/4 v5, 0x0
+
+    aput-object v0, v2, v5
+
+    const-string/jumbo v0, "_value"
+
+    aput-object v0, v2, v4
+
+    move-object v0, p0
+
+    move v5, p2
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/server/audio/AudioService$AudioSettingsDBHelper;->getInt(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;II)I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public getPackageList()Ljava/util/Hashtable;

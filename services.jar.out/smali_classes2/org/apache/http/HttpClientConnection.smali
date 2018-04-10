@@ -6,11 +6,6 @@
 .implements Lorg/apache/http/HttpConnection;
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract flush()V
     .annotation system Ldalvik/annotation/Throws;

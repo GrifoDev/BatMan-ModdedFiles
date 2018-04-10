@@ -1172,13 +1172,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_14
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_13
-    :goto_4
-    return-void
+    if-eqz v2, :cond_13
 
-    :cond_14
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mUnassociatedKeyboardLayouts:Ljava/util/List;
@@ -1195,7 +1192,8 @@
 
     iput-object v2, v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
 
-    goto :goto_4
+    :cond_13
+    return-void
 .end method
 
 .method public removeKeyboardLayout(Ljava/lang/String;)Z

@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/power/PowerManagerService;->dumpDebugLog()V
+    value = Lcom/android/server/power/PowerManagerService;->sendDisplayonTimeIntent(I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,12 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/power/PowerManagerService;
 
+.field final synthetic val$month:I
+
 
 # direct methods
-.method constructor <init>(Lcom/android/server/power/PowerManagerService;)V
+.method constructor <init>(Lcom/android/server/power/PowerManagerService;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/power/PowerManagerService$16;->this$0:Lcom/android/server/power/PowerManagerService;
+
+    iput p2, p0, Lcom/android/server/power/PowerManagerService$16;->val$month:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -35,181 +39,58 @@
 
 # virtual methods
 .method public run()V
-    .locals 10
+    .locals 3
 
-    const/4 v4, 0x0
+    const-string/jumbo v1, "PowerManagerService"
 
-    :try_start_0
-    new-instance v0, Ljava/io/File;
+    const-string/jumbo v2, "Sending ACTION_DISPLAY_ON_TIME"
 
-    const-string/jumbo v7, "/data/log"
+    invoke-static {v1, v2}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-direct {v0, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    new-instance v0, Landroid/content/Intent;
 
-    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+    const-string/jumbo v1, "com.sec.android.app.server.power.DISPLAY_ON_TIME"
 
-    move-result v7
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    if-nez v7, :cond_0
+    const-string/jumbo v1, "display_on_time"
 
-    invoke-virtual {v0}, Ljava/io/File;->mkdir()Z
+    iget v2, p0, Lcom/android/server/power/PowerManagerService$16;->val$month:I
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$16;->this$0:Lcom/android/server/power/PowerManagerService;
+
+    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-get10(Lcom/android/server/power/PowerManagerService;)Landroid/content/Context;
+
+    move-result-object v1
+
+    sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    iget v1, p0, Lcom/android/server/power/PowerManagerService$16;->val$month:I
+
+    const/4 v2, 0x4
+
+    if-ne v1, v2, :cond_0
+
+    const-string/jumbo v1, "PowerManagerService"
+
+    const-string/jumbo v2, "Sending ACTION_DISPLAY_ON_TIME all months"
+
+    invoke-static {v1, v2}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$16;->this$0:Lcom/android/server/power/PowerManagerService;
+
+    const/4 v2, 0x1
+
+    invoke-static {v1, v2}, Lcom/android/server/power/PowerManagerService;->-set31(Lcom/android/server/power/PowerManagerService;Z)Z
+
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$16;->this$0:Lcom/android/server/power/PowerManagerService;
+
+    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-wrap71(Lcom/android/server/power/PowerManagerService;)V
 
     :cond_0
-    const/4 v7, 0x3
-
-    new-array v6, v7, [Ljava/lang/String;
-
-    const-string/jumbo v7, "/system/bin/sh"
-
-    const/4 v8, 0x0
-
-    aput-object v7, v6, v8
-
-    const-string/jumbo v7, "-c"
-
-    const/4 v8, 0x1
-
-    aput-object v7, v6, v8
-
-    const-string/jumbo v7, "logcat -v threadtime -d -b events -b system -b main > /data/log/dumpState_LastAutoPowerOff.log"
-
-    const/4 v8, 0x2
-
-    aput-object v7, v6, v8
-
-    invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v6}, Ljava/lang/Runtime;->exec([Ljava/lang/String;)Ljava/lang/Process;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/Process;->waitFor()I
-
-    const/4 v7, 0x3
-
-    new-array v5, v7, [Ljava/lang/String;
-
-    const-string/jumbo v7, "/system/bin/sh"
-
-    const/4 v8, 0x0
-
-    aput-object v7, v5, v8
-
-    const-string/jumbo v7, "-c"
-
-    const/4 v8, 0x1
-
-    aput-object v7, v5, v8
-
-    const-string/jumbo v7, "dumpsys power >> /data/log/dumpState_LastAutoPowerOff.log"
-
-    const/4 v8, 0x2
-
-    aput-object v7, v5, v8
-
-    invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v5}, Ljava/lang/Runtime;->exec([Ljava/lang/String;)Ljava/lang/Process;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/Process;->waitFor()I
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    const-string/jumbo v7, "PowerManagerService"
-
-    const-string/jumbo v8, "dumpDebugLog -"
-
-    invoke-static {v7, v8}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     return-void
-
-    :catch_0
-    move-exception v2
-
-    const-string/jumbo v7, "PowerManagerService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "dumpDebugLog : "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Lcom/android/server/power/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :catch_1
-    move-exception v3
-
-    const-string/jumbo v7, "PowerManagerService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "dumpDebugLog : "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Lcom/android/server/power/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :catch_2
-    move-exception v1
-
-    const-string/jumbo v7, "PowerManagerService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "dumpDebugLog : "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Lcom/android/server/power/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
 .end method

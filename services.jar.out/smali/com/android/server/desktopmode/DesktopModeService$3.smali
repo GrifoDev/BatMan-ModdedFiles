@@ -1,9 +1,6 @@
 .class Lcom/android/server/desktopmode/DesktopModeService$3;
-.super Ljava/lang/Object;
+.super Lcom/android/server/desktopmode/SettingsHelper$OnSettingChangedListener;
 .source "DesktopModeService.java"
-
-# interfaces
-.implements Landroid/hardware/input/InputManager$InputDeviceListener;
 
 
 # annotations
@@ -22,74 +19,36 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/desktopmode/DesktopModeService;)V
+.method constructor <init>(Lcom/android/server/desktopmode/DesktopModeService;Ljava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/desktopmode/DesktopModeService$3;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, p2}, Lcom/android/server/desktopmode/SettingsHelper$OnSettingChangedListener;-><init>(Ljava/lang/String;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onInputDeviceAdded(I)V
-    .locals 3
+.method onSettingChanged(Ljava/lang/String;I)V
+    .locals 2
 
     iget-object v1, p0, Lcom/android/server/desktopmode/DesktopModeService$3;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
 
-    invoke-static {v1}, Lcom/android/server/desktopmode/DesktopModeService;->-get20(Lcom/android/server/desktopmode/DesktopModeService;)Z
+    if-nez p1, :cond_0
+
+    const/4 v0, -0x1
+
+    :goto_0
+    invoke-static {v1, v0}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap29(Lcom/android/server/desktopmode/DesktopModeService;I)V
+
+    return-void
+
+    :cond_0
+    invoke-static {p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v0
 
-    iget-object v1, p0, Lcom/android/server/desktopmode/DesktopModeService$3;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
-
-    invoke-static {v1}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap4(Lcom/android/server/desktopmode/DesktopModeService;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/desktopmode/DesktopModeService$3;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
-
-    const/4 v2, 0x0
-
-    invoke-static {v1, v2}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap17(Lcom/android/server/desktopmode/DesktopModeService;I)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public onInputDeviceChanged(I)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onInputDeviceRemoved(I)V
-    .locals 3
-
-    iget-object v1, p0, Lcom/android/server/desktopmode/DesktopModeService$3;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
-
-    invoke-static {v1}, Lcom/android/server/desktopmode/DesktopModeService;->-get20(Lcom/android/server/desktopmode/DesktopModeService;)Z
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/android/server/desktopmode/DesktopModeService$3;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
-
-    invoke-static {v1}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap4(Lcom/android/server/desktopmode/DesktopModeService;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/desktopmode/DesktopModeService$3;->this$0:Lcom/android/server/desktopmode/DesktopModeService;
-
-    const/4 v2, 0x1
-
-    invoke-static {v1, v2}, Lcom/android/server/desktopmode/DesktopModeService;->-wrap17(Lcom/android/server/desktopmode/DesktopModeService;I)V
-
-    :cond_0
-    return-void
+    goto :goto_0
 .end method

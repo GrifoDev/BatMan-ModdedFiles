@@ -95,11 +95,11 @@
 
     if-eqz v1, :cond_0
 
-    iget-object v0, p0, Lmf/javax/xml/parsers/FactoryConfigurationError;->exception:Ljava/lang/Exception;
+    iget-object v1, p0, Lmf/javax/xml/parsers/FactoryConfigurationError;->exception:Ljava/lang/Exception;
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method

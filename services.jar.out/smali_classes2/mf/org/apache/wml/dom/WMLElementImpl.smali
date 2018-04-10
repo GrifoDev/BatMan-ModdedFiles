@@ -22,52 +22,56 @@
 
 # virtual methods
 .method getAttribute(Ljava/lang/String;I)I
-    .locals 1
+    .locals 3
 
-    const-string/jumbo v0, "emptyok"
+    move v0, p2
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/wml/dom/WMLElementImpl;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
+    const-string/jumbo v2, "emptyok"
 
-    move-result-object v0
+    invoke-virtual {p0, v2}, Lmf/org/apache/wml/dom/WMLElementImpl;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    move-result-object v1
+
+    if-nez v1, :cond_0
 
     :goto_0
-    return p2
+    return v0
 
     :cond_0
-    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result p2
+    move-result v0
 
     goto :goto_0
 .end method
 
 .method getAttribute(Ljava/lang/String;Z)Z
-    .locals 2
+    .locals 3
 
-    const-string/jumbo v0, "emptyok"
+    move v0, p2
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/wml/dom/WMLElementImpl;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
+    const-string/jumbo v2, "emptyok"
 
-    move-result-object v0
+    invoke-virtual {p0, v2}, Lmf/org/apache/wml/dom/WMLElementImpl;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
-    if-nez v0, :cond_1
+    move-result-object v1
+
+    if-nez v1, :cond_1
 
     :cond_0
     :goto_0
-    return p2
+    return v0
 
     :cond_1
-    const-string/jumbo v1, "true"
+    const-string/jumbo v2, "true"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
-    const/4 p2, 0x1
+    const/4 v0, 0x1
 
     goto :goto_0
 .end method

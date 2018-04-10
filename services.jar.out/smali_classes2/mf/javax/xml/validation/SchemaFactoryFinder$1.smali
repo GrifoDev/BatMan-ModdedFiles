@@ -36,9 +36,9 @@
 .method protected value()Ljava/lang/Object;
     .locals 3
 
-    const-class v0, Lmf/javax/xml/validation/SchemaFactoryFinder;
+    const-class v1, Lmf/javax/xml/validation/SchemaFactoryFinder;
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    invoke-virtual {v1}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v0
 
@@ -52,7 +52,7 @@
 
     invoke-virtual {v1, v0, v2}, Lmf/javax/xml/validation/SecuritySupport;->getResourceAsURL(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/net/URL;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method

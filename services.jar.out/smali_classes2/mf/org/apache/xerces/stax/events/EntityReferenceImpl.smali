@@ -78,18 +78,18 @@
         }
     .end annotation
 
-    const/16 v0, 0x26
+    const/16 v1, 0x26
 
     :try_start_0
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(I)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(I)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/stax/events/EntityReferenceImpl;->fName:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xerces/stax/events/EntityReferenceImpl;->fName:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    const/16 v0, 0x3b
+    const/16 v1, 0x3b
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(I)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(I)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 

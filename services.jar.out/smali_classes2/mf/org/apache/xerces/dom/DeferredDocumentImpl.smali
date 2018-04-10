@@ -71,11 +71,11 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    const/16 v0, 0x801
+    const/16 v1, 0x801
 
-    new-array v0, v0, [I
+    new-array v1, v1, [I
 
-    sput-object v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->INIT_ARRAY:[I
+    sput-object v1, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->INIT_ARRAY:[I
 
     const/4 v0, 0x0
 
@@ -153,14 +153,14 @@
 .end method
 
 .method protected static binarySearch([IIII)I
-    .locals 2
+    .locals 3
 
     :goto_0
     if-gt p1, p2, :cond_4
 
-    add-int v0, p1, p2
+    add-int v2, p1, p2
 
-    ushr-int/lit8 v0, v0, 0x1
+    ushr-int/lit8 v0, v2, 0x1
 
     aget v1, p0, v0
 
@@ -173,11 +173,11 @@
     goto :goto_0
 
     :cond_0
-    add-int/lit8 v1, v0, -0x1
+    add-int/lit8 v2, v0, -0x1
 
-    aget v1, p0, v1
+    aget v2, p0, v2
 
-    if-ne v1, p3, :cond_2
+    if-ne v2, p3, :cond_2
 
     add-int/lit8 v0, v0, -0x1
 
@@ -193,9 +193,9 @@
     goto :goto_0
 
     :cond_4
-    const/4 v0, -0x1
+    const/4 v2, -0x1
 
-    return v0
+    return v2
 .end method
 
 .method private final clearChunkIndex([[III)I
@@ -207,9 +207,9 @@
 
     const/4 v1, -0x1
 
-    aget-object v0, p1, p2
+    aget-object v2, p1, p2
 
-    if-nez v0, :cond_1
+    if-nez v2, :cond_1
 
     move v0, v1
 
@@ -221,9 +221,9 @@
     return v0
 
     :cond_1
-    aget-object v0, p1, p2
+    aget-object v2, p1, p2
 
-    aget v0, v0, p3
+    aget v0, v2, p3
 
     goto :goto_0
 
@@ -252,15 +252,15 @@
 .end method
 
 .method private final clearChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
-    .locals 4
+    .locals 5
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    aget-object v0, p1, p2
+    aget-object v2, p1, p2
 
-    if-nez v0, :cond_1
+    if-nez v2, :cond_1
 
-    move-object v1, v2
+    move-object v1, v3
 
     :goto_0
     if-nez v1, :cond_2
@@ -270,40 +270,40 @@
     return-object v1
 
     :cond_1
-    aget-object v0, p1, p2
+    aget-object v2, p1, p2
 
-    aget-object v0, v0, p3
+    aget-object v2, v2, p3
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v2, Ljava/lang/String;
 
-    move-object v1, v0
+    move-object v1, v2
 
     goto :goto_0
 
     :cond_2
-    aget-object v0, p1, p2
+    aget-object v2, p1, p2
 
-    aput-object v2, v0, p3
+    aput-object v3, v2, p3
 
-    aget-object v0, p1, p2
+    aget-object v2, p1, p2
 
-    const/16 v3, 0x800
+    const/16 v4, 0x800
 
-    aget-object v0, v0, v3
+    aget-object v0, v2, v4
 
     check-cast v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$RefCount;
 
-    iget v3, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$RefCount;->fCount:I
+    iget v2, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$RefCount;->fCount:I
 
-    add-int/lit8 v3, v3, -0x1
+    add-int/lit8 v2, v2, -0x1
 
-    iput v3, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$RefCount;->fCount:I
+    iput v2, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$RefCount;->fCount:I
 
-    iget v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$RefCount;->fCount:I
+    iget v2, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$RefCount;->fCount:I
 
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
-    aput-object v2, p1, p2
+    aput-object v3, p1, p2
 
     goto :goto_1
 .end method
@@ -341,13 +341,13 @@
 
     aget-object v0, p1, p2
 
-    const/16 v1, 0x800
+    new-instance v1, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$RefCount;
 
-    new-instance v2, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$RefCount;
+    invoke-direct {v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$RefCount;-><init>()V
 
-    invoke-direct {v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$RefCount;-><init>()V
+    const/16 v2, 0x800
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     return-void
 .end method
@@ -395,15 +395,15 @@
 .end method
 
 .method private final getNodeValue(II)Ljava/lang/String;
-    .locals 2
+    .locals 3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    aget-object v0, v0, p1
+    aget-object v1, v1, p1
 
-    aget-object v0, v0, p2
+    aget-object v0, v1, p2
 
     if-eqz v0, :cond_0
 
@@ -413,12 +413,12 @@
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    return-object v1
+    return-object v2
 
     :cond_1
     check-cast v0, Ljava/lang/String;
@@ -482,9 +482,9 @@
     :cond_0
     invoke-direct {p0, p1, p3, p4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkIndex([[III)I
 
-    move-result v0
+    move-result v2
 
-    return v0
+    return v2
 
     :cond_1
     invoke-direct {p0, p1, p3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createChunk([[II)V
@@ -508,52 +508,48 @@
 
     if-eqz p2, :cond_0
 
-    aget-object v0, p1, p3
+    aget-object v1, p1, p3
 
-    if-eqz v0, :cond_1
-
-    move-object v2, v0
+    if-eqz v1, :cond_1
 
     :goto_0
-    aget-object v0, v2, p4
+    aget-object v2, v1, p4
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v2, Ljava/lang/String;
 
-    if-eqz v0, :cond_2
+    if-eqz v2, :cond_2
 
     :goto_1
-    aput-object p2, v2, p4
+    aput-object p2, v1, p4
 
-    return-object v0
+    return-object v2
 
     :cond_0
     invoke-direct {p0, p1, p3, p4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    return-object v0
+    return-object v3
 
     :cond_1
     invoke-direct {p0, p1, p3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createChunk([[Ljava/lang/Object;I)V
 
-    aget-object v0, p1, p3
-
-    move-object v2, v0
+    aget-object v1, p1, p3
 
     goto :goto_0
 
     :cond_2
-    const/16 v1, 0x800
+    const/16 v3, 0x800
 
-    aget-object v1, v2, v1
+    aget-object v0, v1, v3
 
-    check-cast v1, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$RefCount;
+    check-cast v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$RefCount;
 
-    iget v3, v1, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$RefCount;->fCount:I
+    iget v3, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$RefCount;->fCount:I
 
     add-int/lit8 v3, v3, 0x1
 
-    iput v3, v1, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$RefCount;->fCount:I
+    iput v3, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$RefCount;->fCount:I
 
     goto :goto_1
 .end method
@@ -563,151 +559,157 @@
 .method public appendChild(II)V
     .locals 6
 
-    shr-int/lit8 v0, p1, 0xb
+    shr-int/lit8 v3, p1, 0xb
 
-    and-int/lit16 v1, p1, 0x7ff
+    and-int/lit16 v4, p1, 0x7ff
 
-    shr-int/lit8 v2, p2, 0xb
+    shr-int/lit8 v0, p2, 0xb
 
-    and-int/lit16 v3, p2, 0x7ff
+    and-int/lit16 v1, p2, 0x7ff
 
-    iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeParent:[[I
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeParent:[[I
 
-    invoke-direct {p0, v4, p1, v2, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    invoke-direct {p0, v5, p1, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
 
-    iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeLastChild:[[I
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeLastChild:[[I
 
-    invoke-direct {p0, v4, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+    invoke-direct {p0, v5, v3, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
 
-    move-result v4
+    move-result v2
 
     iget-object v5, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
 
-    invoke-direct {p0, v5, v4, v2, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    invoke-direct {p0, v5, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeLastChild:[[I
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeLastChild:[[I
 
-    invoke-direct {p0, v2, p2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    invoke-direct {p0, v5, p2, v3, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
 
     return-void
 .end method
 
 .method public cloneNode(IZ)I
-    .locals 10
+    .locals 12
 
-    const/4 v2, -0x1
+    shr-int/lit8 v6, p1, 0xb
 
-    const/4 v9, 0x0
+    and-int/lit16 v7, p1, 0x7ff
 
-    shr-int/lit8 v0, p1, 0xb
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
 
-    and-int/lit16 v1, p1, 0x7ff
+    aget-object v10, v10, v6
 
-    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
+    aget v8, v10, v7
 
-    aget-object v3, v3, v0
+    int-to-short v10, v8
 
-    aget v3, v3, v1
+    invoke-virtual {p0, v10}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
 
-    int-to-short v4, v3
+    move-result v3
 
-    invoke-virtual {p0, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
+    shr-int/lit8 v0, v3, 0xb
 
-    move-result v4
+    and-int/lit16 v2, v3, 0x7ff
 
-    shr-int/lit8 v5, v4, 0xb
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
 
-    and-int/lit16 v6, v4, 0x7ff
+    iget-object v11, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
 
-    iget-object v7, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
+    aget-object v11, v11, v6
 
-    iget-object v8, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
+    aget-object v11, v11, v7
 
-    aget-object v8, v8, v0
+    invoke-direct {p0, v10, v11, v0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
-    aget-object v8, v8, v1
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v7, v8, v5, v6}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    iget-object v11, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    iget-object v7, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+    aget-object v11, v11, v6
 
-    iget-object v8, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+    aget-object v11, v11, v7
 
-    aget-object v8, v8, v0
+    invoke-direct {p0, v10, v11, v0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
-    aget-object v8, v8, v1
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeURI:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v7, v8, v5, v6}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    iget-object v11, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeURI:[[Ljava/lang/Object;
 
-    iget-object v7, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeURI:[[Ljava/lang/Object;
+    aget-object v11, v11, v6
 
-    iget-object v8, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeURI:[[Ljava/lang/Object;
+    aget-object v11, v11, v7
 
-    aget-object v8, v8, v0
+    invoke-direct {p0, v10, v11, v0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
-    aget-object v8, v8, v1
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
 
-    invoke-direct {p0, v7, v8, v5, v6}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    aget-object v10, v10, v6
 
-    iget-object v7, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
+    aget v5, v10, v7
 
-    aget-object v0, v7, v0
+    const/4 v10, -0x1
 
-    aget v0, v0, v1
-
-    if-ne v0, v2, :cond_1
+    if-ne v5, v10, :cond_1
 
     :goto_0
     if-nez p2, :cond_4
 
     :cond_0
-    return v4
+    return v3
 
     :cond_1
-    const/4 v1, 0x2
+    const/4 v10, 0x2
 
-    if-ne v3, v1, :cond_3
+    if-ne v8, v10, :cond_3
 
     :cond_2
     :goto_1
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
 
-    invoke-direct {p0, v1, v0, v5, v6}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    invoke-direct {p0, v10, v5, v0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
 
     goto :goto_0
 
     :cond_3
-    const/4 v1, 0x3
+    const/4 v10, 0x3
 
-    if-eq v3, v1, :cond_2
+    if-eq v8, v10, :cond_2
 
-    invoke-virtual {p0, v0, v9}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->cloneNode(IZ)I
+    const/4 v10, 0x0
 
-    move-result v0
+    invoke-virtual {p0, v5, v10}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->cloneNode(IZ)I
+
+    move-result v5
 
     goto :goto_1
 
     :cond_4
-    invoke-virtual {p0, p1, v9}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getLastChild(IZ)I
+    const/4 v9, -0x1
 
-    move-result v0
+    const/4 v10, 0x0
 
-    move v1, v2
+    invoke-virtual {p0, p1, v10}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getLastChild(IZ)I
+
+    move-result v1
 
     :goto_2
-    if-eq v0, v2, :cond_0
+    const/4 v10, -0x1
 
-    invoke-virtual {p0, v0, p2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->cloneNode(IZ)I
+    if-eq v1, v10, :cond_0
 
-    move-result v3
+    invoke-virtual {p0, v1, p2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->cloneNode(IZ)I
 
-    invoke-virtual {p0, v4, v3, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->insertBefore(III)I
+    move-result v4
 
-    invoke-virtual {p0, v0, v9}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getRealPrevSibling(IZ)I
+    invoke-virtual {p0, v3, v4, v9}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->insertBefore(III)I
 
-    move-result v0
+    move v9, v4
 
-    move v1, v3
+    const/4 v10, 0x0
+
+    invoke-virtual {p0, v1, v10}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getRealPrevSibling(IZ)I
+
+    move-result v1
 
     goto :goto_2
 .end method
@@ -715,41 +717,41 @@
 .method public createDeferredAttribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)I
     .locals 5
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    const/4 v1, 0x2
+    const/4 v4, 0x2
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
+    invoke-virtual {p0, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
 
-    move-result v1
+    move-result v3
 
-    shr-int/lit8 v2, v1, 0xb
+    shr-int/lit8 v0, v3, 0xb
 
-    and-int/lit16 v3, v1, 0x7ff
+    and-int/lit16 v2, v3, 0x7ff
 
     iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v4, p1, v2, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v4, p1, v0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
     iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeURI:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v4, p2, v2, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v4, p2, v0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
     iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v4, p3, v2, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v4, p3, v0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
     if-nez p4, :cond_0
 
     :goto_0
     iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
 
-    invoke-direct {p0, v4, v0, v2, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    invoke-direct {p0, v4, v1, v0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
 
-    return v1
+    return v3
 
     :cond_0
-    const/16 v0, 0x20
+    const/16 v1, 0x20
 
     goto :goto_0
 .end method
@@ -769,49 +771,49 @@
 .method public createDeferredCDATASection(Ljava/lang/String;)I
     .locals 4
 
-    const/4 v0, 0x4
+    const/4 v3, 0x4
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
+    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
 
-    move-result v0
+    move-result v2
 
-    shr-int/lit8 v1, v0, 0xb
+    shr-int/lit8 v0, v2, 0xb
 
-    and-int/lit16 v2, v0, 0x7ff
+    and-int/lit16 v1, v2, 0x7ff
 
     iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v3, p1, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v3, p1, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
-    return v0
+    return v2
 .end method
 
 .method public createDeferredComment(Ljava/lang/String;)I
     .locals 4
 
-    const/16 v0, 0x8
+    const/16 v3, 0x8
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
+    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
 
-    move-result v0
+    move-result v2
 
-    shr-int/lit8 v1, v0, 0xb
+    shr-int/lit8 v0, v2, 0xb
 
-    and-int/lit16 v2, v0, 0x7ff
+    and-int/lit16 v1, v2, 0x7ff
 
     iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v3, p1, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v3, p1, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
-    return v0
+    return v2
 .end method
 
 .method public createDeferredDocument()I
-    .locals 1
+    .locals 2
 
-    const/16 v0, 0x9
+    const/16 v1, 0x9
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
 
     move-result v0
 
@@ -821,29 +823,29 @@
 .method public createDeferredDocumentType(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
     .locals 4
 
-    const/16 v0, 0xa
+    const/16 v3, 0xa
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
+    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
 
-    move-result v0
+    move-result v2
 
-    shr-int/lit8 v1, v0, 0xb
+    shr-int/lit8 v0, v2, 0xb
 
-    and-int/lit16 v2, v0, 0x7ff
+    and-int/lit16 v1, v2, 0x7ff
 
     iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v3, p1, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v3, p1, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
     iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v3, p2, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v3, p2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
     iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeURI:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v3, p3, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v3, p3, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
-    return v0
+    return v2
 .end method
 
 .method public createDeferredElement(Ljava/lang/String;)I
@@ -861,281 +863,291 @@
 .method public createDeferredElement(Ljava/lang/String;Ljava/lang/String;)I
     .locals 4
 
-    const/4 v0, 0x1
+    const/4 v3, 0x1
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
+    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
 
-    move-result v0
+    move-result v2
 
-    shr-int/lit8 v1, v0, 0xb
+    shr-int/lit8 v0, v2, 0xb
 
-    and-int/lit16 v2, v0, 0x7ff
+    and-int/lit16 v1, v2, 0x7ff
 
     iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v3, p2, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v3, p2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
     iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeURI:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v3, p1, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v3, p1, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
-    return v0
+    return v2
 .end method
 
 .method public createDeferredElement(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)I
     .locals 4
 
-    const/4 v0, 0x1
+    const/4 v3, 0x1
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
+    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
 
-    move-result v0
+    move-result v2
 
-    shr-int/lit8 v1, v0, 0xb
+    shr-int/lit8 v0, v2, 0xb
 
-    and-int/lit16 v2, v0, 0x7ff
+    and-int/lit16 v1, v2, 0x7ff
 
     iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v3, p2, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v3, p2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
     iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeURI:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v3, p1, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v3, p1, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
     iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v3, p3, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v3, p3, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
-    return v0
+    return v2
 .end method
 
 .method public createDeferredElementDefinition(Ljava/lang/String;)I
     .locals 4
 
-    const/16 v0, 0x15
+    const/16 v3, 0x15
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
+    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
 
-    move-result v0
+    move-result v2
 
-    shr-int/lit8 v1, v0, 0xb
+    shr-int/lit8 v0, v2, 0xb
 
-    and-int/lit16 v2, v0, 0x7ff
+    and-int/lit16 v1, v2, 0x7ff
 
     iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v3, p1, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v3, p1, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
-    return v0
+    return v2
 .end method
 
 .method public createDeferredEntity(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-    .locals 9
+    .locals 12
 
-    const/4 v8, 0x0
+    const/4 v10, 0x6
 
-    const/4 v7, 0x6
+    invoke-virtual {p0, v10}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
 
-    invoke-virtual {p0, v7}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
+    move-result v9
 
-    move-result v0
+    shr-int/lit8 v1, v9, 0xb
 
-    shr-int/lit8 v1, v0, 0xb
+    and-int/lit16 v8, v9, 0x7ff
 
-    and-int/lit16 v2, v0, 0x7ff
+    const/4 v10, 0x6
 
-    invoke-virtual {p0, v7}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
+    invoke-virtual {p0, v10}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
 
-    move-result v3
+    move-result v6
 
-    shr-int/lit8 v4, v3, 0xb
+    shr-int/lit8 v2, v6, 0xb
 
-    and-int/lit16 v5, v3, 0x7ff
+    and-int/lit16 v4, v6, 0x7ff
 
-    iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v6, p1, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v10, p1, v1, v8}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
-    iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v6, p2, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v10, p2, v1, v8}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
-    iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeURI:[[Ljava/lang/Object;
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeURI:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v6, p3, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v10, p3, v1, v8}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
-    iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
 
-    invoke-direct {p0, v6, v3, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    invoke-direct {p0, v10, v6, v1, v8}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v1, p4, v4, v5}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    move-object/from16 v0, p4
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+    invoke-direct {p0, v10, v0, v2, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
-    invoke-direct {p0, v1, v8, v4, v5}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeURI:[[Ljava/lang/Object;
+    const/4 v11, 0x0
 
-    invoke-direct {p0, v1, v8, v4, v5}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v10, v11, v2, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
-    invoke-virtual {p0, v7}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeURI:[[Ljava/lang/Object;
 
-    move-result v1
+    const/4 v11, 0x0
 
-    shr-int/lit8 v2, v1, 0xb
+    invoke-direct {p0, v10, v11, v2, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
-    and-int/lit16 v3, v1, 0x7ff
+    const/4 v10, 0x6
 
-    iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
+    invoke-virtual {p0, v10}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
 
-    invoke-direct {p0, v6, v1, v4, v5}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    move-result v7
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
+    shr-int/lit8 v3, v7, 0xb
 
-    invoke-direct {p0, v1, p5, v2, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    and-int/lit16 v5, v7, 0x7ff
 
-    return v0
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
+
+    invoke-direct {p0, v10, v7, v2, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+
+    iget-object v10, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
+
+    move-object/from16 v0, p5
+
+    invoke-direct {p0, v10, v0, v3, v5}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+
+    return v9
 .end method
 
 .method public createDeferredEntityReference(Ljava/lang/String;Ljava/lang/String;)I
     .locals 4
 
-    const/4 v0, 0x5
+    const/4 v3, 0x5
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
+    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
 
-    move-result v0
+    move-result v2
 
-    shr-int/lit8 v1, v0, 0xb
+    shr-int/lit8 v0, v2, 0xb
 
-    and-int/lit16 v2, v0, 0x7ff
+    and-int/lit16 v1, v2, 0x7ff
 
     iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v3, p1, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v3, p1, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
     iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v3, p2, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v3, p2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
-    return v0
+    return v2
 .end method
 
 .method public createDeferredNotation(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
     .locals 7
 
-    const/16 v3, 0xc
+    const/16 v6, 0xc
 
-    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
+    invoke-virtual {p0, v6}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
 
-    move-result v0
+    move-result v5
 
-    shr-int/lit8 v1, v0, 0xb
+    shr-int/lit8 v0, v5, 0xb
 
-    and-int/lit16 v2, v0, 0x7ff
+    and-int/lit16 v4, v5, 0x7ff
 
-    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
+    invoke-virtual {p0, v6}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
 
     move-result v3
 
-    shr-int/lit8 v4, v3, 0xb
+    shr-int/lit8 v1, v3, 0xb
 
-    and-int/lit16 v5, v3, 0x7ff
+    and-int/lit16 v2, v3, 0x7ff
 
     iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v6, p1, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v6, p1, v0, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
     iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v6, p2, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v6, p2, v0, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
     iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeURI:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v6, p3, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v6, p3, v0, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
     iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
 
-    invoke-direct {p0, v6, v3, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    invoke-direct {p0, v6, v3, v0, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v1, p4, v4, v5}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v6, p4, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
-    return v0
+    return v5
 .end method
 
 .method public createDeferredProcessingInstruction(Ljava/lang/String;Ljava/lang/String;)I
     .locals 4
 
-    const/4 v0, 0x7
+    const/4 v3, 0x7
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
+    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
 
-    move-result v0
+    move-result v2
 
-    shr-int/lit8 v1, v0, 0xb
+    shr-int/lit8 v0, v2, 0xb
 
-    and-int/lit16 v2, v0, 0x7ff
+    and-int/lit16 v1, v2, 0x7ff
 
     iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v3, p1, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v3, p1, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
     iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v3, p2, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v3, p2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
-    return v0
+    return v2
 .end method
 
 .method public createDeferredTextNode(Ljava/lang/String;Z)I
     .locals 5
 
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
-    const/4 v1, 0x3
+    const/4 v4, 0x3
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
+    invoke-virtual {p0, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
 
-    move-result v1
+    move-result v2
 
-    shr-int/lit8 v2, v1, 0xb
+    shr-int/lit8 v0, v2, 0xb
 
-    and-int/lit16 v3, v1, 0x7ff
+    and-int/lit16 v1, v2, 0x7ff
 
     iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v4, p1, v2, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v4, p1, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
     iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
 
     if-nez p2, :cond_0
 
     :goto_0
-    invoke-direct {p0, v4, v0, v2, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    invoke-direct {p0, v4, v3, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
 
-    return v1
+    return v2
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 v3, 0x1
 
     goto :goto_0
 .end method
 
 .method protected createNode(S)I
-    .locals 3
+    .locals 4
 
-    iget v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeCount:I
+    iget v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeCount:I
 
-    shr-int/lit8 v0, v0, 0xb
+    shr-int/lit8 v0, v2, 0xb
 
-    iget v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeCount:I
+    iget v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeCount:I
 
-    and-int/lit16 v1, v1, 0x7ff
+    and-int/lit16 v1, v2, 0x7ff
 
     invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->ensureCapacity(I)V
 
@@ -1143,172 +1155,172 @@
 
     invoke-direct {p0, v2, p1, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
 
-    iget v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeCount:I
+    iget v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeCount:I
 
-    add-int/lit8 v1, v0, 0x1
+    add-int/lit8 v3, v2, 0x1
 
-    iput v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeCount:I
+    iput v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeCount:I
 
-    return v0
+    return v2
 .end method
 
 .method protected ensureCapacity(I)V
-    .locals 4
+    .locals 6
 
-    const/16 v1, 0x20
+    const/16 v5, 0x20
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
 
-    if-eqz v0, :cond_0
+    if-eqz v3, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
 
-    array-length v0, v0
+    array-length v3, v3
 
-    if-le v0, p1, :cond_1
+    if-le v3, p1, :cond_1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
 
-    aget-object v0, v0, p1
+    aget-object v3, v3, p1
 
-    if-nez v0, :cond_2
+    if-nez v3, :cond_2
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
 
-    invoke-direct {p0, v0, p1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createChunk([[II)V
+    invoke-direct {p0, v3, p1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createChunk([[II)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v0, p1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createChunk([[Ljava/lang/Object;I)V
+    invoke-direct {p0, v3, p1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createChunk([[Ljava/lang/Object;I)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v0, p1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createChunk([[Ljava/lang/Object;I)V
+    invoke-direct {p0, v3, p1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createChunk([[Ljava/lang/Object;I)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeParent:[[I
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeParent:[[I
 
-    invoke-direct {p0, v0, p1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createChunk([[II)V
+    invoke-direct {p0, v3, p1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createChunk([[II)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeLastChild:[[I
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeLastChild:[[I
 
-    invoke-direct {p0, v0, p1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createChunk([[II)V
+    invoke-direct {p0, v3, p1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createChunk([[II)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
 
-    invoke-direct {p0, v0, p1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createChunk([[II)V
+    invoke-direct {p0, v3, p1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createChunk([[II)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeURI:[[Ljava/lang/Object;
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeURI:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v0, p1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createChunk([[Ljava/lang/Object;I)V
+    invoke-direct {p0, v3, p1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createChunk([[Ljava/lang/Object;I)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
 
-    invoke-direct {p0, v0, p1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createChunk([[II)V
+    invoke-direct {p0, v3, p1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createChunk([[II)V
 
     return-void
 
     :cond_0
-    new-array v0, v1, [[I
+    new-array v3, v5, [[I
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
+    iput-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
 
-    new-array v0, v1, [[Ljava/lang/Object;
+    new-array v3, v5, [[Ljava/lang/Object;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
+    iput-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
 
-    new-array v0, v1, [[Ljava/lang/Object;
+    new-array v3, v5, [[Ljava/lang/Object;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+    iput-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    new-array v0, v1, [[I
+    new-array v3, v5, [[I
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeParent:[[I
+    iput-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeParent:[[I
 
-    new-array v0, v1, [[I
+    new-array v3, v5, [[I
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeLastChild:[[I
+    iput-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeLastChild:[[I
 
-    new-array v0, v1, [[I
+    new-array v3, v5, [[I
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
+    iput-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
 
-    new-array v0, v1, [[Ljava/lang/Object;
+    new-array v3, v5, [[Ljava/lang/Object;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeURI:[[Ljava/lang/Object;
+    iput-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeURI:[[Ljava/lang/Object;
 
-    new-array v0, v1, [[I
+    new-array v3, v5, [[I
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
+    iput-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
 
     goto :goto_0
 
     :cond_1
-    mul-int/lit8 v0, p1, 0x2
+    mul-int/lit8 v2, p1, 0x2
 
-    new-array v1, v0, [[I
+    new-array v0, v2, [[I
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
 
-    invoke-static {v2, v3, v1, v3, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v3, v4, v0, v4, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
+    iput-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
 
-    new-array v1, v0, [[Ljava/lang/Object;
+    new-array v1, v2, [[Ljava/lang/Object;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
 
-    invoke-static {v2, v3, v1, v3, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v3, v4, v1, v4, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
 
-    new-array v1, v0, [[Ljava/lang/Object;
+    new-array v1, v2, [[Ljava/lang/Object;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    invoke-static {v2, v3, v1, v3, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v3, v4, v1, v4, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    new-array v1, v0, [[I
+    new-array v0, v2, [[I
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeParent:[[I
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeParent:[[I
 
-    invoke-static {v2, v3, v1, v3, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v3, v4, v0, v4, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeParent:[[I
+    iput-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeParent:[[I
 
-    new-array v1, v0, [[I
+    new-array v0, v2, [[I
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeLastChild:[[I
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeLastChild:[[I
 
-    invoke-static {v2, v3, v1, v3, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v3, v4, v0, v4, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeLastChild:[[I
+    iput-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeLastChild:[[I
 
-    new-array v1, v0, [[I
+    new-array v0, v2, [[I
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
 
-    invoke-static {v2, v3, v1, v3, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v3, v4, v0, v4, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
+    iput-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
 
-    new-array v1, v0, [[Ljava/lang/Object;
+    new-array v1, v2, [[Ljava/lang/Object;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeURI:[[Ljava/lang/Object;
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeURI:[[Ljava/lang/Object;
 
-    invoke-static {v2, v3, v1, v3, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v3, v4, v1, v4, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeURI:[[Ljava/lang/Object;
 
-    new-array v0, v0, [[I
+    new-array v0, v2, [[I
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
 
-    invoke-static {v1, v3, v0, v3, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v3, v4, v0, v4, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     iput-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
 
@@ -1319,93 +1331,93 @@
 .end method
 
 .method public getAttribute(ILjava/lang/String;)Ljava/lang/String;
-    .locals 5
+    .locals 8
 
-    const/4 v4, -0x1
+    const/4 v7, -0x1
 
-    const/4 v3, 0x0
+    const/4 v6, 0x0
 
-    if-ne p1, v4, :cond_1
+    if-ne p1, v7, :cond_1
 
     :cond_0
-    return-object v3
+    return-object v6
 
     :cond_1
     if-eqz p2, :cond_0
 
-    shr-int/lit8 v0, p1, 0xb
+    shr-int/lit8 v3, p1, 0xb
 
-    and-int/lit16 v1, p1, 0x7ff
+    and-int/lit16 v4, p1, 0x7ff
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
 
-    invoke-direct {p0, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+    invoke-direct {p0, v5, v3, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
 
-    move-result v0
+    move-result v2
 
     :goto_0
-    if-eq v0, v4, :cond_3
+    if-eq v2, v7, :cond_3
 
-    shr-int/lit8 v1, v0, 0xb
+    shr-int/lit8 v0, v2, 0xb
 
-    and-int/lit16 v0, v0, 0x7ff
+    and-int/lit16 v1, v2, 0x7ff
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v2, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v5, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v5
 
-    if-eq v2, p2, :cond_2
+    if-eq v5, p2, :cond_2
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
 
-    invoke-direct {p0, v2, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+    invoke-direct {p0, v5, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
 
-    move-result v0
+    move-result v2
 
     goto :goto_0
 
     :cond_2
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v2, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v5, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v5
 
-    return-object v0
+    return-object v5
 
     :cond_3
-    return-object v3
+    return-object v6
 .end method
 
 .method public getDeferredEntityBaseURI(I)Ljava/lang/String;
-    .locals 2
+    .locals 3
+
+    const/4 v2, 0x0
+
+    const/4 v1, -0x1
+
+    if-ne p1, v1, :cond_0
 
     const/4 v1, 0x0
 
-    const/4 v0, -0x1
-
-    if-ne p1, v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return-object v0
+    return-object v1
 
     :cond_0
-    invoke-virtual {p0, p1, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeExtra(IZ)I
+    invoke-virtual {p0, p1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeExtra(IZ)I
 
     move-result v0
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeExtra(IZ)I
+    invoke-virtual {p0, v0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeExtra(IZ)I
 
     move-result v0
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeName(IZ)Ljava/lang/String;
+    invoke-virtual {p0, v0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeName(IZ)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public getImplementation()Lmf/org/w3c/dom/DOMImplementation;
@@ -1433,9 +1445,9 @@
 .method public getLastChild(IZ)I
     .locals 3
 
-    const/4 v0, -0x1
+    const/4 v2, -0x1
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v2, :cond_0
 
     shr-int/lit8 v0, p1, 0xb
 
@@ -1447,20 +1459,20 @@
 
     invoke-direct {p0, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
 
-    move-result v0
+    move-result v2
 
     :goto_0
-    return v0
+    return v2
 
     :cond_0
-    return v0
+    return v2
 
     :cond_1
     iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeLastChild:[[I
 
     invoke-direct {p0, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkIndex([[III)I
 
-    move-result v0
+    move-result v2
 
     goto :goto_0
 .end method
@@ -1488,9 +1500,9 @@
 .method public getNodeExtra(IZ)I
     .locals 3
 
-    const/4 v0, -0x1
+    const/4 v2, -0x1
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v2, :cond_0
 
     shr-int/lit8 v0, p1, 0xb
 
@@ -1502,20 +1514,20 @@
 
     invoke-direct {p0, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
 
-    move-result v0
+    move-result v2
 
     :goto_0
-    return v0
+    return v2
 
     :cond_0
-    return v0
+    return v2
 
     :cond_1
     iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
 
     invoke-direct {p0, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkIndex([[III)I
 
-    move-result v0
+    move-result v2
 
     goto :goto_0
 .end method
@@ -1543,9 +1555,9 @@
 .method public getNodeName(IZ)Ljava/lang/String;
     .locals 3
 
-    const/4 v0, -0x1
+    const/4 v2, -0x1
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v2, :cond_0
 
     shr-int/lit8 v0, p1, 0xb
 
@@ -1557,274 +1569,274 @@
 
     invoke-direct {p0, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
     :goto_0
-    return-object v0
+    return-object v2
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    return-object v0
+    return-object v2
 
     :cond_1
     iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
 
     invoke-direct {p0, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
     goto :goto_0
 .end method
 
 .method public getNodeObject(I)Lmf/org/apache/xerces/dom/DeferredNode;
-    .locals 7
+    .locals 11
 
-    const/4 v6, 0x0
+    const/4 v10, -0x1
 
-    const/4 v3, -0x1
+    const/4 v9, 0x0
 
-    const/4 v5, 0x0
+    const/4 v8, 0x0
 
-    if-eq p1, v3, :cond_1
+    if-eq p1, v10, :cond_1
 
     shr-int/lit8 v0, p1, 0xb
 
-    and-int/lit16 v1, p1, 0x7ff
+    and-int/lit16 v2, p1, 0x7ff
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
 
-    invoke-direct {p0, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+    invoke-direct {p0, v6, v0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
 
-    move-result v2
+    move-result v5
 
-    const/4 v4, 0x3
+    const/4 v6, 0x3
 
-    if-ne v2, v4, :cond_2
+    if-ne v5, v6, :cond_2
 
     :cond_0
     :goto_0
-    packed-switch v2, :pswitch_data_0
+    const/4 v4, 0x0
+
+    packed-switch v5, :pswitch_data_0
 
     :pswitch_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v6, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v3, "type: "
+    const-string/jumbo v8, "type: "
 
-    invoke-direct {v1, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v7, v8}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v7
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v7
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v6, v7}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v6
 
     :cond_1
-    return-object v5
+    return-object v8
 
     :cond_2
-    const/4 v4, 0x4
+    const/4 v6, 0x4
 
-    if-eq v2, v4, :cond_0
+    if-eq v5, v6, :cond_0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
 
-    invoke-direct {p0, v4, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkIndex([[III)I
+    invoke-direct {p0, v6, v0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkIndex([[III)I
 
     goto :goto_0
 
     :pswitch_1
-    iget-boolean v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNamespacesEnabled:Z
+    iget-boolean v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNamespacesEnabled:Z
 
-    if-nez v0, :cond_4
+    if-nez v6, :cond_4
 
-    new-instance v1, Lmf/org/apache/xerces/dom/DeferredAttrImpl;
+    new-instance v4, Lmf/org/apache/xerces/dom/DeferredAttrImpl;
 
-    invoke-direct {v1, p0, p1}, Lmf/org/apache/xerces/dom/DeferredAttrImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
+    invoke-direct {v4, p0, p1}, Lmf/org/apache/xerces/dom/DeferredAttrImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
 
     :cond_3
     :goto_1
-    if-nez v1, :cond_9
+    if-nez v4, :cond_9
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v6, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {v6}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw v0
+    throw v6
 
     :cond_4
-    new-instance v1, Lmf/org/apache/xerces/dom/DeferredAttrNSImpl;
+    new-instance v4, Lmf/org/apache/xerces/dom/DeferredAttrNSImpl;
 
-    invoke-direct {v1, p0, p1}, Lmf/org/apache/xerces/dom/DeferredAttrNSImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
+    invoke-direct {v4, p0, p1}, Lmf/org/apache/xerces/dom/DeferredAttrNSImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
 
     goto :goto_1
 
     :pswitch_2
-    new-instance v1, Lmf/org/apache/xerces/dom/DeferredCDATASectionImpl;
+    new-instance v4, Lmf/org/apache/xerces/dom/DeferredCDATASectionImpl;
 
-    invoke-direct {v1, p0, p1}, Lmf/org/apache/xerces/dom/DeferredCDATASectionImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
+    invoke-direct {v4, p0, p1}, Lmf/org/apache/xerces/dom/DeferredCDATASectionImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
 
     goto :goto_1
 
     :pswitch_3
-    new-instance v1, Lmf/org/apache/xerces/dom/DeferredCommentImpl;
+    new-instance v4, Lmf/org/apache/xerces/dom/DeferredCommentImpl;
 
-    invoke-direct {v1, p0, p1}, Lmf/org/apache/xerces/dom/DeferredCommentImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
+    invoke-direct {v4, p0, p1}, Lmf/org/apache/xerces/dom/DeferredCommentImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
 
     goto :goto_1
 
     :pswitch_4
-    move-object v1, p0
+    move-object v4, p0
 
     goto :goto_1
 
     :pswitch_5
-    new-instance v1, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;
+    new-instance v4, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;
 
-    invoke-direct {v1, p0, p1}, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
+    invoke-direct {v4, p0, p1}, Lmf/org/apache/xerces/dom/DeferredDocumentTypeImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
 
-    move-object v0, v1
+    move-object v6, v4
 
-    check-cast v0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;
+    check-cast v6, Lmf/org/apache/xerces/dom/DocumentTypeImpl;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->docType:Lmf/org/apache/xerces/dom/DocumentTypeImpl;
+    iput-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->docType:Lmf/org/apache/xerces/dom/DocumentTypeImpl;
 
     goto :goto_1
 
     :pswitch_6
-    iget-boolean v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNamespacesEnabled:Z
+    iget-boolean v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNamespacesEnabled:Z
 
-    if-nez v0, :cond_6
+    if-nez v6, :cond_6
 
-    new-instance v1, Lmf/org/apache/xerces/dom/DeferredElementImpl;
+    new-instance v4, Lmf/org/apache/xerces/dom/DeferredElementImpl;
 
-    invoke-direct {v1, p0, p1}, Lmf/org/apache/xerces/dom/DeferredElementImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
+    invoke-direct {v4, p0, p1}, Lmf/org/apache/xerces/dom/DeferredElementImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
 
     :goto_2
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdElement:[I
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdElement:[I
 
-    if-eqz v0, :cond_3
+    if-eqz v6, :cond_3
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdElement:[I
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdElement:[I
 
-    iget v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdCount:I
+    iget v7, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdCount:I
 
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 v7, v7, -0x1
 
-    invoke-static {v0, v6, v2, p1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->binarySearch([IIII)I
+    invoke-static {v6, v9, v7, p1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->binarySearch([IIII)I
 
-    move-result v0
-
-    move v2, v0
+    move-result v1
 
     :goto_3
-    if-eq v2, v3, :cond_3
+    if-eq v1, v10, :cond_3
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdName:[Ljava/lang/String;
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdName:[Ljava/lang/String;
 
-    aget-object v4, v0, v2
+    aget-object v3, v6, v1
 
-    if-nez v4, :cond_7
+    if-nez v3, :cond_7
 
     :goto_4
-    add-int/lit8 v0, v2, 0x1
+    add-int/lit8 v6, v1, 0x1
 
-    iget v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdCount:I
+    iget v7, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdCount:I
 
-    if-lt v0, v4, :cond_8
+    if-lt v6, v7, :cond_8
 
     :cond_5
-    move v2, v3
+    const/4 v1, -0x1
 
     goto :goto_3
 
     :cond_6
-    new-instance v1, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;
+    new-instance v4, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;
 
-    invoke-direct {v1, p0, p1}, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
+    invoke-direct {v4, p0, p1}, Lmf/org/apache/xerces/dom/DeferredElementNSImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
 
     goto :goto_2
 
     :cond_7
-    move-object v0, v1
+    move-object v6, v4
 
-    check-cast v0, Lmf/org/w3c/dom/Element;
+    check-cast v6, Lmf/org/w3c/dom/Element;
 
-    invoke-direct {p0, v4, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->putIdentifier0(Ljava/lang/String;Lmf/org/w3c/dom/Element;)V
+    invoke-direct {p0, v3, v6}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->putIdentifier0(Ljava/lang/String;Lmf/org/w3c/dom/Element;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdName:[Ljava/lang/String;
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdName:[Ljava/lang/String;
 
-    aput-object v5, v0, v2
+    aput-object v8, v6, v1
 
     goto :goto_4
 
     :cond_8
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdElement:[I
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdElement:[I
 
-    add-int/lit8 v4, v2, 0x1
+    add-int/lit8 v7, v1, 0x1
 
-    aget v0, v0, v4
+    aget v6, v6, v7
 
-    if-ne v0, p1, :cond_5
+    if-ne v6, p1, :cond_5
 
-    add-int/lit8 v0, v2, 0x1
-
-    move v2, v0
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_3
 
     :pswitch_7
-    new-instance v1, Lmf/org/apache/xerces/dom/DeferredEntityImpl;
+    new-instance v4, Lmf/org/apache/xerces/dom/DeferredEntityImpl;
 
-    invoke-direct {v1, p0, p1}, Lmf/org/apache/xerces/dom/DeferredEntityImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
+    invoke-direct {v4, p0, p1}, Lmf/org/apache/xerces/dom/DeferredEntityImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
 
     goto :goto_1
 
     :pswitch_8
-    new-instance v1, Lmf/org/apache/xerces/dom/DeferredEntityReferenceImpl;
+    new-instance v4, Lmf/org/apache/xerces/dom/DeferredEntityReferenceImpl;
 
-    invoke-direct {v1, p0, p1}, Lmf/org/apache/xerces/dom/DeferredEntityReferenceImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
+    invoke-direct {v4, p0, p1}, Lmf/org/apache/xerces/dom/DeferredEntityReferenceImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
 
     goto :goto_1
 
     :pswitch_9
-    new-instance v1, Lmf/org/apache/xerces/dom/DeferredNotationImpl;
+    new-instance v4, Lmf/org/apache/xerces/dom/DeferredNotationImpl;
 
-    invoke-direct {v1, p0, p1}, Lmf/org/apache/xerces/dom/DeferredNotationImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
+    invoke-direct {v4, p0, p1}, Lmf/org/apache/xerces/dom/DeferredNotationImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
 
     goto :goto_1
 
     :pswitch_a
-    new-instance v1, Lmf/org/apache/xerces/dom/DeferredProcessingInstructionImpl;
+    new-instance v4, Lmf/org/apache/xerces/dom/DeferredProcessingInstructionImpl;
 
-    invoke-direct {v1, p0, p1}, Lmf/org/apache/xerces/dom/DeferredProcessingInstructionImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
+    invoke-direct {v4, p0, p1}, Lmf/org/apache/xerces/dom/DeferredProcessingInstructionImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
 
     goto/16 :goto_1
 
     :pswitch_b
-    new-instance v1, Lmf/org/apache/xerces/dom/DeferredTextImpl;
+    new-instance v4, Lmf/org/apache/xerces/dom/DeferredTextImpl;
 
-    invoke-direct {v1, p0, p1}, Lmf/org/apache/xerces/dom/DeferredTextImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
+    invoke-direct {v4, p0, p1}, Lmf/org/apache/xerces/dom/DeferredTextImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
 
     goto/16 :goto_1
 
     :pswitch_c
-    new-instance v1, Lmf/org/apache/xerces/dom/DeferredElementDefinitionImpl;
+    new-instance v4, Lmf/org/apache/xerces/dom/DeferredElementDefinitionImpl;
 
-    invoke-direct {v1, p0, p1}, Lmf/org/apache/xerces/dom/DeferredElementDefinitionImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
+    invoke-direct {v4, p0, p1}, Lmf/org/apache/xerces/dom/DeferredElementDefinitionImpl;-><init>(Lmf/org/apache/xerces/dom/DeferredDocumentImpl;I)V
 
     goto/16 :goto_1
 
     :cond_9
-    return-object v1
+    return-object v4
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -1867,9 +1879,9 @@
 .method public getNodeType(IZ)S
     .locals 3
 
-    const/4 v0, -0x1
+    const/4 v2, -0x1
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v2, :cond_0
 
     shr-int/lit8 v0, p1, 0xb
 
@@ -1881,24 +1893,24 @@
 
     invoke-direct {p0, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
 
-    move-result v0
+    move-result v2
 
-    int-to-short v0, v0
+    int-to-short v2, v2
 
     :goto_0
-    return v0
+    return v2
 
     :cond_0
-    return v0
+    return v2
 
     :cond_1
     iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
 
     invoke-direct {p0, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkIndex([[III)I
 
-    move-result v0
+    move-result v2
 
-    int-to-short v0, v0
+    int-to-short v2, v2
 
     goto :goto_0
 .end method
@@ -1918,9 +1930,9 @@
 .method public getNodeURI(IZ)Ljava/lang/String;
     .locals 3
 
-    const/4 v0, -0x1
+    const/4 v2, -0x1
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v2, :cond_0
 
     shr-int/lit8 v0, p1, 0xb
 
@@ -1932,22 +1944,22 @@
 
     invoke-direct {p0, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
     :goto_0
-    return-object v0
+    return-object v2
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    return-object v0
+    return-object v2
 
     :cond_1
     iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeURI:[[Ljava/lang/Object;
 
     invoke-direct {p0, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
     goto :goto_0
 .end method
@@ -1967,9 +1979,9 @@
 .method public getNodeValue(IZ)Ljava/lang/String;
     .locals 3
 
-    const/4 v0, -0x1
+    const/4 v2, -0x1
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v2, :cond_0
 
     shr-int/lit8 v0, p1, 0xb
 
@@ -1981,22 +1993,22 @@
 
     invoke-direct {p0, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
     :goto_0
-    return-object v0
+    return-object v2
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    return-object v0
+    return-object v2
 
     :cond_1
     iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
     invoke-direct {p0, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
     goto :goto_0
 .end method
@@ -2014,246 +2026,234 @@
 .end method
 
 .method public getNodeValueString(IZ)Ljava/lang/String;
-    .locals 7
+    .locals 13
 
-    const/4 v3, 0x0
+    const/4 v12, 0x0
 
-    const/4 v6, 0x3
+    const/4 v11, 0x3
 
-    const/4 v5, -0x1
+    const/4 v9, -0x1
 
-    const/4 v4, 0x0
+    const/4 v10, 0x0
 
-    if-eq p1, v5, :cond_1
+    if-eq p1, v9, :cond_1
 
     shr-int/lit8 v1, p1, 0xb
 
-    and-int/lit16 v2, p1, 0x7ff
+    and-int/lit16 v4, p1, 0x7ff
 
     if-nez p2, :cond_2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v0, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v8, v1, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v7
 
     :goto_0
-    if-eqz v0, :cond_3
+    if-eqz v7, :cond_3
 
-    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
 
-    invoke-direct {p0, v3, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+    invoke-direct {p0, v8, v1, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
 
-    move-result v1
+    move-result v6
 
-    if-eq v1, v6, :cond_4
+    if-eq v6, v11, :cond_4
 
-    const/4 v2, 0x4
+    const/4 v8, 0x4
 
-    if-eq v1, v2, :cond_8
+    if-eq v6, v8, :cond_8
 
     :cond_0
-    return-object v0
+    return-object v7
 
     :cond_1
-    return-object v3
+    return-object v12
 
     :cond_2
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v0, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v8, v1, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v7
 
     goto :goto_0
 
     :cond_3
-    return-object v3
+    return-object v12
 
     :cond_4
     invoke-virtual {p0, p1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getRealPrevSibling(I)I
 
-    move-result v1
+    move-result v5
 
-    if-eq v1, v5, :cond_0
+    if-eq v5, v9, :cond_0
 
-    invoke-virtual {p0, v1, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeType(IZ)S
+    invoke-virtual {p0, v5, v10}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeType(IZ)S
+
+    move-result v8
+
+    if-ne v8, v11, :cond_0
+
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fStrChunks:Ljava/util/ArrayList;
+
+    invoke-virtual {v8, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_5
+    shr-int/lit8 v1, v5, 0xb
+
+    and-int/lit16 v4, v5, 0x7ff
+
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+
+    invoke-direct {p0, v8, v1, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
+
+    move-result-object v7
+
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fStrChunks:Ljava/util/ArrayList;
+
+    invoke-virtual {v8, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
+
+    invoke-direct {p0, v8, v1, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+
+    move-result v5
+
+    if-eq v5, v9, :cond_6
+
+    invoke-virtual {p0, v5, v10}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeType(IZ)S
+
+    move-result v8
+
+    if-eq v8, v11, :cond_5
+
+    :cond_6
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fStrChunks:Ljava/util/ArrayList;
+
+    invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    if-ne v2, v6, :cond_0
-
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fStrChunks:Ljava/util/ArrayList;
-
-    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    move v0, v1
-
-    :cond_5
-    shr-int/lit8 v1, v0, 0xb
-
-    and-int/lit16 v0, v0, 0x7ff
-
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
-
-    invoke-direct {p0, v2, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fStrChunks:Ljava/util/ArrayList;
-
-    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
-
-    invoke-direct {p0, v2, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
-
-    move-result v0
-
-    if-eq v0, v5, :cond_6
-
-    invoke-virtual {p0, v0, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeType(IZ)S
-
-    move-result v1
-
-    if-eq v1, v6, :cond_5
-
-    :cond_6
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fStrChunks:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v0
-
-    add-int/lit8 v0, v0, -0x1
-
-    move v1, v0
+    add-int/lit8 v3, v2, -0x1
 
     :goto_1
-    if-ltz v1, :cond_7
+    if-ltz v3, :cond_7
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fBufferStr:Ljava/lang/StringBuffer;
+    iget-object v9, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fBufferStr:Ljava/lang/StringBuffer;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fStrChunks:Ljava/util/ArrayList;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fStrChunks:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v8, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v8
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v8, Ljava/lang/String;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v9, v8}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    add-int/lit8 v0, v1, -0x1
-
-    move v1, v0
+    add-int/lit8 v3, v3, -0x1
 
     goto :goto_1
 
     :cond_7
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fBufferStr:Ljava/lang/StringBuffer;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fBufferStr:Ljava/lang/StringBuffer;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v7
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fStrChunks:Ljava/util/ArrayList;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fStrChunks:Ljava/util/ArrayList;
 
-    invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
+    invoke-virtual {v8}, Ljava/util/ArrayList;->clear()V
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fBufferStr:Ljava/lang/StringBuffer;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fBufferStr:Ljava/lang/StringBuffer;
 
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuffer;->setLength(I)V
+    invoke-virtual {v8, v10}, Ljava/lang/StringBuffer;->setLength(I)V
 
-    return-object v0
+    return-object v7
 
     :cond_8
-    invoke-virtual {p0, p1, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getLastChild(IZ)I
+    invoke-virtual {p0, p1, v10}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getLastChild(IZ)I
 
-    move-result v1
+    move-result v0
 
-    if-eq v1, v5, :cond_0
+    if-eq v0, v9, :cond_0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fBufferStr:Ljava/lang/StringBuffer;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fBufferStr:Ljava/lang/StringBuffer;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    move v0, v1
+    invoke-virtual {v8, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     :goto_2
-    if-eq v0, v5, :cond_9
+    if-eq v0, v9, :cond_9
 
     shr-int/lit8 v1, v0, 0xb
 
-    and-int/lit16 v0, v0, 0x7ff
+    and-int/lit16 v4, v0, 0x7ff
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v2, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v8, v1, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v7
 
-    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fStrChunks:Ljava/util/ArrayList;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fStrChunks:Ljava/util/ArrayList;
 
-    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
 
-    invoke-direct {p0, v2, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+    invoke-direct {p0, v8, v1, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
 
     move-result v0
 
     goto :goto_2
 
     :cond_9
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fStrChunks:Ljava/util/ArrayList;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fStrChunks:Ljava/util/ArrayList;
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
 
-    move-result v0
+    move-result v8
 
-    add-int/lit8 v0, v0, -0x1
-
-    move v1, v0
+    add-int/lit8 v3, v8, -0x1
 
     :goto_3
-    if-ltz v1, :cond_a
+    if-ltz v3, :cond_a
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fBufferStr:Ljava/lang/StringBuffer;
+    iget-object v9, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fBufferStr:Ljava/lang/StringBuffer;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fStrChunks:Ljava/util/ArrayList;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fStrChunks:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v8, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v8
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v8, Ljava/lang/String;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v9, v8}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    add-int/lit8 v0, v1, -0x1
-
-    move v1, v0
+    add-int/lit8 v3, v3, -0x1
 
     goto :goto_3
 
     :cond_a
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fBufferStr:Ljava/lang/StringBuffer;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fBufferStr:Ljava/lang/StringBuffer;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v7
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fStrChunks:Ljava/util/ArrayList;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fStrChunks:Ljava/util/ArrayList;
 
-    invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
+    invoke-virtual {v8}, Ljava/util/ArrayList;->clear()V
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fBufferStr:Ljava/lang/StringBuffer;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fBufferStr:Ljava/lang/StringBuffer;
 
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuffer;->setLength(I)V
+    invoke-virtual {v8, v10}, Ljava/lang/StringBuffer;->setLength(I)V
 
-    return-object v0
+    return-object v7
 .end method
 
 .method public getParentNode(I)I
@@ -2271,9 +2271,9 @@
 .method public getParentNode(IZ)I
     .locals 3
 
-    const/4 v0, -0x1
+    const/4 v2, -0x1
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v2, :cond_0
 
     shr-int/lit8 v0, p1, 0xb
 
@@ -2285,20 +2285,20 @@
 
     invoke-direct {p0, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
 
-    move-result v0
+    move-result v2
 
     :goto_0
-    return v0
+    return v2
 
     :cond_0
-    return v0
+    return v2
 
     :cond_1
     iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeParent:[[I
 
     invoke-direct {p0, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkIndex([[III)I
 
-    move-result v0
+    move-result v2
 
     goto :goto_0
 .end method
@@ -2322,59 +2322,53 @@
 
     const/4 v4, -0x1
 
-    if-eq p1, v4, :cond_0
+    if-eq p1, v4, :cond_1
 
-    shr-int/lit8 v1, p1, 0xb
+    shr-int/lit8 v0, p1, 0xb
 
-    and-int/lit16 v0, p1, 0x7ff
-
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
-
-    invoke-direct {p0, v2, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
-
-    move-result v2
-
-    if-eq v2, v5, :cond_1
-
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
-
-    invoke-direct {p0, v2, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
-
-    move-result v0
-
-    :goto_0
-    return v0
-
-    :cond_0
-    return v4
-
-    :cond_1
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
-
-    invoke-direct {p0, v2, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
-
-    move-result v2
-
-    if-eq v2, v4, :cond_2
-
-    shr-int/lit8 v1, v2, 0xb
-
-    and-int/lit16 v0, v2, 0x7ff
+    and-int/lit16 v1, p1, 0x7ff
 
     iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
 
-    invoke-direct {p0, v3, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+    invoke-direct {p0, v3, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
 
-    move-result v3
+    move-result v2
 
-    if-eq v3, v5, :cond_1
+    if-eq v2, v5, :cond_2
 
-    move v0, v2
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
 
-    goto :goto_0
+    invoke-direct {p0, v3, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+
+    move-result p1
+
+    :cond_0
+    return p1
+
+    :cond_1
+    return v4
 
     :cond_2
-    move v0, v2
+    :goto_0
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
+
+    invoke-direct {p0, v3, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+
+    move-result p1
+
+    if-eq p1, v4, :cond_0
+
+    shr-int/lit8 v0, p1, 0xb
+
+    and-int/lit16 v1, p1, 0x7ff
+
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
+
+    invoke-direct {p0, v3, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+
+    move-result v2
+
+    if-ne v2, v5, :cond_0
 
     goto :goto_0
 .end method
@@ -2394,9 +2388,9 @@
 .method public getRealPrevSibling(IZ)I
     .locals 3
 
-    const/4 v0, -0x1
+    const/4 v2, -0x1
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v2, :cond_0
 
     shr-int/lit8 v0, p1, 0xb
 
@@ -2408,96 +2402,94 @@
 
     invoke-direct {p0, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
 
-    move-result v0
+    move-result v2
 
     :goto_0
-    return v0
+    return v2
 
     :cond_0
-    return v0
+    return v2
 
     :cond_1
     iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
 
     invoke-direct {p0, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkIndex([[III)I
 
-    move-result v0
+    move-result v2
 
     goto :goto_0
 .end method
 
 .method public getTypeInfo(I)Ljava/lang/Object;
-    .locals 5
+    .locals 7
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    const/4 v0, -0x1
+    const/4 v5, -0x1
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v5, :cond_1
 
-    shr-int/lit8 v3, p1, 0xb
+    shr-int/lit8 v1, p1, 0xb
 
-    and-int/lit16 v4, p1, 0x7ff
+    and-int/lit16 v2, p1, 0x7ff
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    aget-object v0, v0, v3
+    aget-object v5, v5, v1
 
-    if-nez v0, :cond_2
+    if-nez v5, :cond_2
 
-    move-object v1, v2
+    move-object v3, v4
 
     :goto_0
-    if-nez v1, :cond_3
+    if-nez v3, :cond_3
 
     :cond_0
     :goto_1
-    return-object v1
+    return-object v3
 
     :cond_1
-    return-object v2
+    return-object v4
 
     :cond_2
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    aget-object v0, v0, v3
+    aget-object v5, v5, v1
 
-    aget-object v0, v0, v4
-
-    move-object v1, v0
+    aget-object v3, v5, v2
 
     goto :goto_0
 
     :cond_3
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    aget-object v0, v0, v3
+    aget-object v5, v5, v1
 
-    aput-object v2, v0, v4
+    aput-object v4, v5, v2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    aget-object v0, v0, v3
+    aget-object v5, v5, v1
 
-    const/16 v4, 0x800
+    const/16 v6, 0x800
 
-    aget-object v0, v0, v4
+    aget-object v0, v5, v6
 
     check-cast v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$RefCount;
 
-    iget v4, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$RefCount;->fCount:I
+    iget v5, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$RefCount;->fCount:I
 
-    add-int/lit8 v4, v4, -0x1
+    add-int/lit8 v5, v5, -0x1
 
-    iput v4, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$RefCount;->fCount:I
+    iput v5, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$RefCount;->fCount:I
 
-    iget v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$RefCount;->fCount:I
+    iget v5, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$RefCount;->fCount:I
 
-    if-nez v0, :cond_0
+    if-nez v5, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    aput-object v2, v0, v3
+    aput-object v4, v5, v1
 
     goto :goto_1
 .end method
@@ -2505,31 +2497,31 @@
 .method public insertBefore(III)I
     .locals 6
 
-    const/4 v0, -0x1
+    const/4 v5, -0x1
 
-    if-eq p3, v0, :cond_0
+    if-eq p3, v5, :cond_0
 
     shr-int/lit8 v0, p2, 0xb
 
     and-int/lit16 v1, p2, 0x7ff
 
-    shr-int/lit8 v2, p3, 0xb
+    shr-int/lit8 v3, p3, 0xb
 
-    and-int/lit16 v3, p3, 0x7ff
-
-    iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
-
-    invoke-direct {p0, v4, v2, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
-
-    move-result v4
+    and-int/lit16 v4, p3, 0x7ff
 
     iget-object v5, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
 
-    invoke-direct {p0, v5, p2, v2, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    invoke-direct {p0, v5, v3, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
+    move-result v2
 
-    invoke-direct {p0, v2, v4, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
+
+    invoke-direct {p0, v5, p2, v3, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
+
+    invoke-direct {p0, v5, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
 
     return p2
 
@@ -2540,34 +2532,40 @@
 .end method
 
 .method public lookupElementDefinition(Ljava/lang/String;)I
-    .locals 6
+    .locals 8
+
+    const/4 v7, 0x0
+
+    const/4 v6, -0x1
+
+    iget v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeCount:I
+
+    const/4 v5, 0x1
+
+    if-gt v4, v5, :cond_1
+
+    :cond_0
+    return v6
+
+    :cond_1
+    const/4 v0, -0x1
+
+    const/4 v2, 0x0
 
     const/4 v3, 0x0
 
-    const/4 v1, -0x1
+    iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeLastChild:[[I
 
-    iget v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeCount:I
+    invoke-direct {p0, v4, v7, v7}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
 
-    const/4 v2, 0x1
-
-    if-gt v0, v2, :cond_1
-
-    :cond_0
-    return v1
-
-    :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeLastChild:[[I
-
-    invoke-direct {p0, v0, v3, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
-
-    move-result v0
+    move-result v1
 
     :goto_0
-    if-eq v0, v1, :cond_2
+    if-eq v1, v6, :cond_3
 
-    shr-int/lit8 v2, v0, 0xb
+    shr-int/lit8 v2, v1, 0xb
 
-    and-int/lit16 v3, v0, 0x7ff
+    and-int/lit16 v3, v1, 0x7ff
 
     iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
 
@@ -2577,13 +2575,13 @@
 
     const/16 v5, 0xa
 
-    if-eq v4, v5, :cond_3
+    if-eq v4, v5, :cond_2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
+    iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
 
-    invoke-direct {p0, v0, v2, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+    invoke-direct {p0, v4, v2, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
 
-    move-result v0
+    move-result v1
 
     goto :goto_0
 
@@ -2591,24 +2589,24 @@
     move v0, v1
 
     :cond_3
-    if-eq v0, v1, :cond_5
-
-    shr-int/lit8 v2, v0, 0xb
-
-    and-int/lit16 v0, v0, 0x7ff
-
-    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeLastChild:[[I
-
-    invoke-direct {p0, v3, v2, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
-
-    move-result v0
-
-    :goto_1
-    if-eq v0, v1, :cond_0
+    if-eq v0, v6, :cond_5
 
     shr-int/lit8 v2, v0, 0xb
 
     and-int/lit16 v3, v0, 0x7ff
+
+    iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeLastChild:[[I
+
+    invoke-direct {p0, v4, v2, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+
+    move-result v1
+
+    :goto_1
+    if-eq v1, v6, :cond_0
+
+    shr-int/lit8 v2, v1, 0xb
+
+    and-int/lit16 v3, v1, 0x7ff
 
     iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
 
@@ -2621,16 +2619,16 @@
     if-eq v4, v5, :cond_6
 
     :cond_4
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
+    iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
 
-    invoke-direct {p0, v0, v2, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+    invoke-direct {p0, v4, v2, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
 
-    move-result v0
+    move-result v1
 
     goto :goto_1
 
     :cond_5
-    return v1
+    return v6
 
     :cond_6
     iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
@@ -2641,7 +2639,7 @@
 
     if-ne v4, p1, :cond_4
 
-    return v0
+    return v1
 .end method
 
 .method public print()V
@@ -2651,81 +2649,81 @@
 .end method
 
 .method public putIdentifier(Ljava/lang/String;I)V
-    .locals 4
+    .locals 5
 
-    const/16 v1, 0x40
+    const/16 v3, 0x40
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdName:[Ljava/lang/String;
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdName:[Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
     :goto_0
-    iget v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdCount:I
+    iget v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdCount:I
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdName:[Ljava/lang/String;
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdName:[Ljava/lang/String;
 
-    array-length v1, v1
+    array-length v3, v3
 
-    if-eq v0, v1, :cond_1
+    if-eq v2, v3, :cond_1
 
     :goto_1
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdName:[Ljava/lang/String;
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdName:[Ljava/lang/String;
 
-    iget v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdCount:I
+    iget v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdCount:I
 
-    aput-object p1, v0, v1
+    aput-object p1, v2, v3
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdElement:[I
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdElement:[I
 
-    iget v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdCount:I
+    iget v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdCount:I
 
-    aput p2, v0, v1
+    aput p2, v2, v3
 
-    iget v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdCount:I
+    iget v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdCount:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    iput v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdCount:I
+    iput v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdCount:I
 
     return-void
 
     :cond_0
-    new-array v0, v1, [Ljava/lang/String;
+    new-array v2, v3, [Ljava/lang/String;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdName:[Ljava/lang/String;
+    iput-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdName:[Ljava/lang/String;
 
-    new-array v0, v1, [I
+    new-array v2, v3, [I
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdElement:[I
+    iput-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdElement:[I
 
     goto :goto_0
 
     :cond_1
-    iget v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdCount:I
-
-    mul-int/lit8 v0, v0, 0x2
-
-    new-array v0, v0, [Ljava/lang/String;
-
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdName:[Ljava/lang/String;
-
     iget v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdCount:I
 
-    invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    mul-int/lit8 v2, v2, 0x2
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdName:[Ljava/lang/String;
+    new-array v1, v2, [Ljava/lang/String;
 
-    array-length v0, v0
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdName:[Ljava/lang/String;
 
-    new-array v0, v0, [I
+    iget v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdCount:I
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdElement:[I
+    invoke-static {v2, v4, v1, v4, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    iget v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdCount:I
+    iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdName:[Ljava/lang/String;
 
-    invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    array-length v2, v1
+
+    new-array v0, v2, [I
+
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdElement:[I
+
+    iget v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdCount:I
+
+    invoke-static {v2, v4, v0, v4, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     iput-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdElement:[I
 
@@ -2747,161 +2745,353 @@
 .end method
 
 .method public setAttributeNode(II)I
-    .locals 12
+    .locals 22
 
-    const/4 v2, -0x1
+    shr-int/lit8 v11, p1, 0xb
 
-    shr-int/lit8 v5, p1, 0xb
+    move/from16 v0, p1
 
-    and-int/lit16 v6, p1, 0x7ff
+    and-int/lit16 v12, v0, 0x7ff
 
-    shr-int/lit8 v7, p2, 0xb
+    shr-int/lit8 v5, p2, 0xb
 
-    and-int/lit16 v8, p2, 0x7ff
+    move/from16 v0, p2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
+    and-int/lit16 v6, v0, 0x7ff
 
-    invoke-direct {p0, v0, v7, v8}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v21
+
+    invoke-direct {v0, v1, v5, v6}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
 
     move-result-object v9
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
+    move-object/from16 v0, p0
 
-    invoke-direct {p0, v0, v5, v6}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
 
-    move-result v4
+    move-object/from16 v21, v0
 
-    move v0, v2
+    move-object/from16 v0, p0
 
-    move v1, v2
+    move-object/from16 v1, v21
 
-    move v3, v2
+    invoke-direct {v0, v1, v11, v12}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+
+    move-result v16
+
+    const/4 v13, -0x1
+
+    const/4 v14, -0x1
+
+    const/4 v15, -0x1
 
     :goto_0
-    if-eq v4, v2, :cond_0
+    const/16 v21, -0x1
 
-    shr-int/lit8 v1, v4, 0xb
+    move/from16 v0, v16
 
-    and-int/lit16 v0, v4, 0x7ff
+    move/from16 v1, v21
 
-    iget-object v10, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
+    if-eq v0, v1, :cond_0
 
-    invoke-direct {p0, v10, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
+    shr-int/lit8 v14, v16, 0xb
 
-    move-result-object v10
+    move/from16 v0, v16
 
-    invoke-virtual {v10, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    and-int/lit16 v15, v0, 0x7ff
 
-    move-result v10
+    move-object/from16 v0, p0
 
-    if-nez v10, :cond_0
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
+    move-object/from16 v21, v0
 
-    invoke-direct {p0, v3, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+    move-object/from16 v0, p0
 
-    move-result v3
+    move-object/from16 v1, v21
 
-    move v11, v4
+    invoke-direct {v0, v1, v14, v15}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
 
-    move v4, v3
+    move-result-object v17
 
-    move v3, v11
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v21
+
+    if-nez v21, :cond_0
+
+    move/from16 v13, v16
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v21
+
+    invoke-direct {v0, v1, v14, v15}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+
+    move-result v16
 
     goto :goto_0
 
     :cond_0
-    if-ne v4, v2, :cond_1
+    const/16 v21, -0x1
+
+    move/from16 v0, v16
+
+    move/from16 v1, v21
+
+    if-ne v0, v1, :cond_1
 
     :goto_1
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
+    move-object/from16 v0, p0
 
-    invoke-direct {p0, v0, v5, v6}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
 
-    move-result v0
+    move-object/from16 v21, v0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
+    move-object/from16 v0, p0
 
-    invoke-direct {p0, v1, p2, v5, v6}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    move-object/from16 v1, v21
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
+    invoke-direct {v0, v1, v11, v12}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
 
-    invoke-direct {p0, v1, v0, v7, v8}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    move-result v20
 
-    return v4
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v21
+
+    move/from16 v2, p2
+
+    invoke-direct {v0, v1, v2, v11, v12}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v21
+
+    move/from16 v2, v20
+
+    invoke-direct {v0, v1, v2, v5, v6}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+
+    return v16
 
     :cond_1
-    iget-object v9, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
+    move-object/from16 v0, p0
 
-    invoke-direct {p0, v9, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
 
-    move-result v9
+    move-object/from16 v21, v0
 
-    if-eq v3, v2, :cond_2
+    move-object/from16 v0, p0
 
-    shr-int/lit8 v2, v3, 0xb
+    move-object/from16 v1, v21
 
-    and-int/lit16 v3, v3, 0x7ff
+    invoke-direct {v0, v1, v14, v15}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
 
-    iget-object v10, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
+    move-result v20
 
-    invoke-direct {p0, v10, v9, v2, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    const/16 v21, -0x1
+
+    move/from16 v0, v21
+
+    if-eq v13, v0, :cond_2
+
+    shr-int/lit8 v18, v13, 0xb
+
+    and-int/lit16 v0, v13, 0x7ff
+
+    move/from16 v19, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v21
+
+    move/from16 v2, v20
+
+    move/from16 v3, v18
+
+    move/from16 v4, v19
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
 
     :goto_2
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
+    move-object/from16 v0, p0
 
-    invoke-direct {p0, v2, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkIndex([[III)I
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
+    move-object/from16 v21, v0
 
-    invoke-direct {p0, v2, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+    move-object/from16 v1, v21
 
-    invoke-direct {p0, v2, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {v0, v1, v14, v15}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkIndex([[III)I
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeParent:[[I
+    move-object/from16 v0, p0
 
-    invoke-direct {p0, v2, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkIndex([[III)I
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeName:[[Ljava/lang/Object;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
+    move-object/from16 v21, v0
 
-    invoke-direct {p0, v2, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkIndex([[III)I
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeLastChild:[[I
+    move-object/from16 v1, v21
 
-    invoke-direct {p0, v2, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkIndex([[III)I
+    invoke-direct {v0, v1, v14, v15}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
 
-    move-result v0
+    move-object/from16 v0, p0
 
-    shr-int/lit8 v1, v0, 0xb
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    and-int/lit16 v0, v0, 0x7ff
+    move-object/from16 v21, v0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
+    move-object/from16 v0, p0
 
-    invoke-direct {p0, v2, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkIndex([[III)I
+    move-object/from16 v1, v21
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+    invoke-direct {v0, v1, v14, v15}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
 
-    invoke-direct {p0, v2, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeParent:[[I
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeParent:[[I
 
-    invoke-direct {p0, v2, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkIndex([[III)I
+    move-object/from16 v21, v0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeLastChild:[[I
+    move-object/from16 v0, p0
 
-    invoke-direct {p0, v2, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkIndex([[III)I
+    move-object/from16 v1, v21
 
-    goto :goto_1
+    invoke-direct {v0, v1, v14, v15}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkIndex([[III)I
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v21
+
+    invoke-direct {v0, v1, v14, v15}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkIndex([[III)I
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeLastChild:[[I
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v21
+
+    invoke-direct {v0, v1, v14, v15}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkIndex([[III)I
+
+    move-result v10
+
+    shr-int/lit8 v7, v10, 0xb
+
+    and-int/lit16 v8, v10, 0x7ff
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeType:[[I
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v21
+
+    invoke-direct {v0, v1, v7, v8}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkIndex([[III)I
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v21
+
+    invoke-direct {v0, v1, v7, v8}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeParent:[[I
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v21
+
+    invoke-direct {v0, v1, v7, v8}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkIndex([[III)I
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeLastChild:[[I
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v21
+
+    invoke-direct {v0, v1, v7, v8}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->clearChunkIndex([[III)I
+
+    goto/16 :goto_1
 
     :cond_2
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
+    move-object/from16 v0, p0
 
-    invoke-direct {p0, v2, v9, v5, v6}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
 
-    goto :goto_2
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v21
+
+    move/from16 v2, v20
+
+    invoke-direct {v0, v1, v2, v11, v12}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+
+    goto/16 :goto_2
 .end method
 
 .method public setDeferredAttribute(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)I
@@ -2909,80 +3099,126 @@
 
     invoke-virtual {p0, p2, p3, p4, p5}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createDeferredAttribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)I
 
-    move-result v0
+    move-result v2
 
-    shr-int/lit8 v1, v0, 0xb
+    shr-int/lit8 v0, v2, 0xb
 
-    and-int/lit16 v2, v0, 0x7ff
+    and-int/lit16 v1, v2, 0x7ff
 
-    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeParent:[[I
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeParent:[[I
 
-    invoke-direct {p0, v3, p1, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    invoke-direct {p0, v6, p1, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
 
     shr-int/lit8 v3, p1, 0xb
 
     and-int/lit16 v4, p1, 0x7ff
 
-    iget-object v5, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
 
-    invoke-direct {p0, v5, v3, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+    invoke-direct {p0, v6, v3, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
 
     move-result v5
 
     if-nez v5, :cond_0
 
     :goto_0
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
 
-    invoke-direct {p0, v1, v0, v3, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    invoke-direct {p0, v6, v2, v3, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
 
-    return v0
+    return v2
 
     :cond_0
     iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
 
-    invoke-direct {p0, v6, v5, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    invoke-direct {p0, v6, v5, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
 
     goto :goto_0
 .end method
 
 .method public setDeferredAttribute(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZLjava/lang/Object;)I
-    .locals 7
+    .locals 17
 
-    invoke-virtual {p0, p2, p3, p4, p5}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createDeferredAttribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)I
+    move-object/from16 v0, p0
 
-    move-result v0
+    move-object/from16 v1, p2
 
-    shr-int/lit8 v1, v0, 0xb
+    move-object/from16 v2, p3
 
-    and-int/lit16 v2, v0, 0x7ff
+    move-object/from16 v3, p4
 
-    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeParent:[[I
+    move/from16 v4, p5
 
-    invoke-direct {p0, v3, p1, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    invoke-virtual {v0, v1, v2, v3, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createDeferredAttribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)I
 
-    shr-int/lit8 v3, p1, 0xb
+    move-result v7
 
-    and-int/lit16 v4, p1, 0x7ff
+    shr-int/lit8 v5, v7, 0xb
 
-    iget-object v5, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
+    and-int/lit16 v6, v7, 0x7ff
 
-    invoke-direct {p0, v5, v3, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+    move-object/from16 v0, p0
 
-    move-result v5
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeParent:[[I
 
-    if-nez v5, :cond_0
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v16
+
+    move/from16 v2, p1
+
+    invoke-direct {v0, v1, v2, v5, v6}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+
+    shr-int/lit8 v10, p1, 0xb
+
+    move/from16 v0, p1
+
+    and-int/lit16 v11, v0, 0x7ff
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
+
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v16
+
+    invoke-direct {v0, v1, v10, v11}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+
+    move-result v14
+
+    if-nez v14, :cond_0
 
     :goto_0
-    iget-object v5, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
+    move-object/from16 v0, p0
 
-    invoke-direct {p0, v5, v0, v3, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
 
-    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
+    move-object/from16 v16, v0
 
-    invoke-direct {p0, v3, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+    move-object/from16 v0, p0
 
-    move-result v3
+    move-object/from16 v1, v16
+
+    invoke-direct {v0, v1, v7, v10, v11}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
+
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v16
+
+    invoke-direct {v0, v1, v5, v6}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+
+    move-result v12
 
     if-nez p6, :cond_1
 
@@ -2990,66 +3226,116 @@
     if-nez p7, :cond_2
 
     :goto_2
-    return v0
+    return v7
 
     :cond_0
-    iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
+    move-object/from16 v0, p0
 
-    invoke-direct {p0, v6, v5, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodePrevSib:[[I
+
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v16
+
+    invoke-direct {v0, v1, v14, v5, v6}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
 
     goto :goto_0
 
     :cond_1
-    or-int/lit16 v3, v3, 0x200
+    or-int/lit16 v12, v12, 0x200
 
-    iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
+    move-object/from16 v0, p0
 
-    invoke-direct {p0, v4, v3, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
 
-    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+    move-object/from16 v16, v0
 
-    invoke-direct {p0, v3, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    move-result-object v3
+    move-object/from16 v1, v16
 
-    invoke-virtual {p0, v3, p1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->putIdentifier(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v12, v5, v6}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v16
+
+    invoke-direct {v0, v1, v5, v6}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
+
+    move-result-object v15
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, p1
+
+    invoke-virtual {v0, v15, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->putIdentifier(Ljava/lang/String;I)V
 
     goto :goto_1
 
     :cond_2
-    const/16 v3, 0x14
+    const/16 v16, 0x14
 
-    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
+    move-object/from16 v0, p0
 
-    move-result v3
+    move/from16 v1, v16
 
-    shr-int/lit8 v4, v3, 0xb
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
 
-    and-int/lit16 v5, v3, 0x7ff
+    move-result v13
 
-    iget-object v6, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeLastChild:[[I
+    shr-int/lit8 v8, v13, 0xb
 
-    invoke-direct {p0, v6, v3, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    and-int/lit16 v9, v13, 0x7ff
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+    move-object/from16 v0, p0
 
-    invoke-direct {p0, v1, p7, v4, v5}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeLastChild:[[I
+
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v16
+
+    invoke-direct {v0, v1, v13, v5, v6}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v16
+
+    move-object/from16 v2, p7
+
+    invoke-direct {v0, v1, v2, v8, v9}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
     goto :goto_2
 .end method
 
 .method public setEntityInfo(ILjava/lang/String;Ljava/lang/String;)V
-    .locals 3
+    .locals 4
 
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {p0, p1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeExtra(IZ)I
+    invoke-virtual {p0, p1, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeExtra(IZ)I
 
     move-result v0
 
-    const/4 v1, -0x1
+    const/4 v3, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v3, :cond_0
 
     :goto_0
     return-void
@@ -3057,15 +3343,15 @@
     :cond_0
     shr-int/lit8 v1, v0, 0xb
 
-    and-int/lit16 v0, v0, 0x7ff
+    and-int/lit16 v2, v0, 0x7ff
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v2, p2, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v3, p2, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeURI:[[Ljava/lang/Object;
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeURI:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v2, p3, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v3, p3, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
     goto :goto_0
 .end method
@@ -3075,73 +3361,73 @@
 
     shr-int/lit8 v0, p1, 0xb
 
-    and-int/lit16 v1, p1, 0x7ff
-
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
-
-    invoke-direct {p0, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
-
-    move-result v2
-
-    or-int/lit16 v2, v2, 0x200
+    and-int/lit16 v2, p1, 0x7ff
 
     iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
 
-    invoke-direct {p0, v3, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    invoke-direct {p0, v3, v0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+
+    move-result v1
+
+    or-int/lit16 v1, v1, 0x200
+
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
+
+    invoke-direct {p0, v3, v1, v0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
 
     return-void
 .end method
 
 .method public setIdAttributeNode(II)V
-    .locals 4
+    .locals 5
 
     shr-int/lit8 v0, p2, 0xb
 
-    and-int/lit16 v1, p2, 0x7ff
+    and-int/lit16 v2, p2, 0x7ff
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
+    iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
 
-    invoke-direct {p0, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+    invoke-direct {p0, v4, v0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
 
-    move-result v2
+    move-result v1
 
-    or-int/lit16 v2, v2, 0x200
+    or-int/lit16 v1, v1, 0x200
 
-    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
+    iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
 
-    invoke-direct {p0, v3, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    invoke-direct {p0, v4, v1, v0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+    iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v4, v0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkValue([[Ljava/lang/Object;II)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {p0, v0, p1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->putIdentifier(Ljava/lang/String;I)V
+    invoke-virtual {p0, v3, p1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->putIdentifier(Ljava/lang/String;I)V
 
     return-void
 .end method
 
 .method public setInputEncoding(ILjava/lang/String;)V
-    .locals 3
+    .locals 5
 
-    const/4 v1, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {p0, p1, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeExtra(IZ)I
+    invoke-virtual {p0, p1, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeExtra(IZ)I
 
-    move-result v0
+    move-result v3
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeExtra(IZ)I
+    invoke-virtual {p0, v3, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeExtra(IZ)I
 
-    move-result v0
+    move-result v2
 
-    shr-int/lit8 v1, v0, 0xb
+    shr-int/lit8 v0, v2, 0xb
 
-    and-int/lit16 v0, v0, 0x7ff
+    and-int/lit16 v1, v2, 0x7ff
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+    iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v2, p2, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v4, p2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
     return-void
 .end method
@@ -3151,25 +3437,25 @@
 
     shr-int/lit8 v0, p1, 0xb
 
-    and-int/lit16 v1, p1, 0x7ff
+    and-int/lit16 v4, p1, 0x7ff
 
-    const/16 v2, 0xa
+    const/16 v5, 0xa
 
-    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
+    invoke-virtual {p0, v5}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->createNode(S)I
 
-    move-result v2
+    move-result v3
 
-    shr-int/lit8 v3, v2, 0xb
+    shr-int/lit8 v1, v3, 0xb
 
-    and-int/lit16 v4, v2, 0x7ff
+    and-int/lit16 v2, v3, 0x7ff
 
     iget-object v5, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeExtra:[[I
 
-    invoke-direct {p0, v5, v2, v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
+    invoke-direct {p0, v5, v3, v0, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkIndex([[IIII)I
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
+    iget-object v5, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeValue:[[Ljava/lang/Object;
 
-    invoke-direct {p0, v0, p2, v3, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
+    invoke-direct {p0, v5, p2, v1, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setChunkValue([[Ljava/lang/Object;Ljava/lang/Object;II)Ljava/lang/String;
 
     return-void
 .end method
@@ -3197,81 +3483,73 @@
 .end method
 
 .method protected synchronizeChildren()V
-    .locals 7
+    .locals 9
 
-    const/4 v6, 0x1
+    const/4 v8, 0x1
 
-    const/4 v1, 0x0
-
-    const/4 v2, 0x0
+    const/4 v7, 0x0
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->needsSyncData()Z
 
-    move-result v0
+    move-result v6
 
-    if-nez v0, :cond_1
+    if-nez v6, :cond_1
 
     :cond_0
-    iget-boolean v5, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->mutationEvents:Z
+    iget-boolean v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->mutationEvents:Z
 
-    iput-boolean v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->mutationEvents:Z
+    iput-boolean v7, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->mutationEvents:Z
 
-    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->needsSyncChildren(Z)V
+    invoke-virtual {p0, v7}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->needsSyncChildren(Z)V
 
-    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeType(I)S
+    invoke-virtual {p0, v7}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeType(I)S
 
-    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getLastChild(I)I
+    const/4 v0, 0x0
 
-    move-result v0
+    const/4 v2, 0x0
 
-    move v3, v0
+    invoke-virtual {p0, v7}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getLastChild(I)I
 
-    move-object v4, v1
+    move-result v1
 
     :goto_0
-    const/4 v0, -0x1
+    const/4 v6, -0x1
 
-    if-eq v3, v0, :cond_5
+    if-eq v1, v6, :cond_5
 
-    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeObject(I)Lmf/org/apache/xerces/dom/DeferredNode;
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeObject(I)Lmf/org/apache/xerces/dom/DeferredNode;
 
-    move-result-object v0
+    move-result-object v3
 
-    check-cast v0, Lmf/org/apache/xerces/dom/ChildNode;
+    check-cast v3, Lmf/org/apache/xerces/dom/ChildNode;
 
-    if-eqz v1, :cond_2
+    if-eqz v2, :cond_2
 
-    iput-object v0, v4, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
-
-    move-object v2, v1
+    iput-object v3, v0, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
     :goto_1
-    iput-object p0, v0, Lmf/org/apache/xerces/dom/ChildNode;->ownerNode:Lmf/org/apache/xerces/dom/NodeImpl;
+    iput-object p0, v3, Lmf/org/apache/xerces/dom/ChildNode;->ownerNode:Lmf/org/apache/xerces/dom/NodeImpl;
 
-    invoke-virtual {v0, v6}, Lmf/org/apache/xerces/dom/ChildNode;->isOwned(Z)V
+    invoke-virtual {v3, v8}, Lmf/org/apache/xerces/dom/ChildNode;->isOwned(Z)V
 
-    iput-object v4, v0, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v0, v3, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeType()S
+    move-object v0, v3
 
-    move-result v1
+    invoke-virtual {v3}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeType()S
 
-    if-eq v1, v6, :cond_3
+    move-result v5
 
-    const/16 v4, 0xa
+    if-eq v5, v8, :cond_3
 
-    if-eq v1, v4, :cond_4
+    const/16 v6, 0xa
+
+    if-eq v5, v6, :cond_4
 
     :goto_2
-    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getPrevSibling(I)I
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getPrevSibling(I)I
 
     move-result v1
-
-    move v3, v1
-
-    move-object v4, v0
-
-    move-object v1, v2
 
     goto :goto_0
 
@@ -3280,63 +3558,153 @@
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->needsSyncChildren()Z
 
-    move-result v0
+    move-result v6
 
-    if-nez v0, :cond_0
+    if-nez v6, :cond_0
 
     return-void
 
     :cond_2
-    move-object v2, v0
+    move-object v2, v3
 
     goto :goto_1
 
     :cond_3
-    move-object v1, v0
+    check-cast v3, Lmf/org/apache/xerces/dom/ElementImpl;
 
-    check-cast v1, Lmf/org/apache/xerces/dom/ElementImpl;
-
-    iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->docElement:Lmf/org/apache/xerces/dom/ElementImpl;
+    iput-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->docElement:Lmf/org/apache/xerces/dom/ElementImpl;
 
     goto :goto_2
 
     :cond_4
-    move-object v1, v0
+    check-cast v3, Lmf/org/apache/xerces/dom/DocumentTypeImpl;
 
-    check-cast v1, Lmf/org/apache/xerces/dom/DocumentTypeImpl;
-
-    iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->docType:Lmf/org/apache/xerces/dom/DocumentTypeImpl;
+    iput-object v3, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->docType:Lmf/org/apache/xerces/dom/DocumentTypeImpl;
 
     goto :goto_2
 
     :cond_5
-    if-nez v4, :cond_6
+    if-nez v0, :cond_6
 
     :goto_3
-    iput-boolean v5, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->mutationEvents:Z
+    iput-boolean v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->mutationEvents:Z
 
     return-void
 
     :cond_6
-    iput-object v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    invoke-virtual {v4, v6}, Lmf/org/apache/xerces/dom/ChildNode;->isFirstChild(Z)V
+    invoke-virtual {v0, v8}, Lmf/org/apache/xerces/dom/ChildNode;->isFirstChild(Z)V
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->lastChild(Lmf/org/apache/xerces/dom/ChildNode;)V
+    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->lastChild(Lmf/org/apache/xerces/dom/ChildNode;)V
 
     goto :goto_3
 .end method
 
 .method protected final synchronizeChildren(Lmf/org/apache/xerces/dom/AttrImpl;I)V
-    .locals 8
+    .locals 10
 
-    const/4 v7, -0x1
+    const/4 v9, -0x1
+
+    const/4 v8, 0x1
+
+    const/4 v7, 0x0
+
+    invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getMutationEvents()Z
+
+    move-result v5
+
+    invoke-virtual {p0, v7}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setMutationEvents(Z)V
+
+    invoke-virtual {p1, v7}, Lmf/org/apache/xerces/dom/AttrImpl;->needsSyncChildren(Z)V
+
+    invoke-virtual {p0, p2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getLastChild(I)I
+
+    move-result v2
+
+    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getPrevSibling(I)I
+
+    move-result v6
+
+    if-eq v6, v9, :cond_0
+
+    const/4 v0, 0x0
+
+    const/4 v3, 0x0
+
+    move v1, v2
+
+    :goto_0
+    if-eq v1, v9, :cond_2
+
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeObject(I)Lmf/org/apache/xerces/dom/DeferredNode;
+
+    move-result-object v4
+
+    check-cast v4, Lmf/org/apache/xerces/dom/ChildNode;
+
+    if-eqz v3, :cond_1
+
+    iput-object v4, v0, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
+
+    :goto_1
+    iput-object p1, v4, Lmf/org/apache/xerces/dom/ChildNode;->ownerNode:Lmf/org/apache/xerces/dom/NodeImpl;
+
+    invoke-virtual {v4, v8}, Lmf/org/apache/xerces/dom/ChildNode;->isOwned(Z)V
+
+    iput-object v0, v4, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
+
+    move-object v0, v4
+
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getPrevSibling(I)I
+
+    move-result v1
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0, p2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeValueString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    iput-object v7, p1, Lmf/org/apache/xerces/dom/AttrImpl;->value:Ljava/lang/Object;
+
+    invoke-virtual {p1, v8}, Lmf/org/apache/xerces/dom/AttrImpl;->hasStringValue(Z)V
+
+    :goto_2
+    invoke-virtual {p0, v5}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setMutationEvents(Z)V
+
+    return-void
+
+    :cond_1
+    move-object v3, v4
+
+    goto :goto_1
+
+    :cond_2
+    if-nez v3, :cond_3
+
+    :goto_3
+    invoke-virtual {p1, v7}, Lmf/org/apache/xerces/dom/AttrImpl;->hasStringValue(Z)V
+
+    goto :goto_2
+
+    :cond_3
+    iput-object v0, p1, Lmf/org/apache/xerces/dom/AttrImpl;->value:Ljava/lang/Object;
+
+    invoke-virtual {v0, v8}, Lmf/org/apache/xerces/dom/ChildNode;->isFirstChild(Z)V
+
+    invoke-virtual {p1, v3}, Lmf/org/apache/xerces/dom/AttrImpl;->lastChild(Lmf/org/apache/xerces/dom/ChildNode;)V
+
+    goto :goto_3
+.end method
+
+.method protected final synchronizeChildren(Lmf/org/apache/xerces/dom/ParentNode;I)V
+    .locals 7
 
     const/4 v6, 0x1
 
     const/4 v5, 0x0
-
-    const/4 v1, 0x0
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getMutationEvents()Z
 
@@ -3344,149 +3712,53 @@
 
     invoke-virtual {p0, v5}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setMutationEvents(Z)V
 
-    invoke-virtual {p1, v5}, Lmf/org/apache/xerces/dom/AttrImpl;->needsSyncChildren(Z)V
-
-    invoke-virtual {p0, p2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getLastChild(I)I
-
-    move-result v0
-
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getPrevSibling(I)I
-
-    move-result v2
-
-    if-eq v2, v7, :cond_0
-
-    move v2, v0
-
-    move-object v3, v1
-
-    :goto_0
-    if-eq v2, v7, :cond_2
-
-    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeObject(I)Lmf/org/apache/xerces/dom/DeferredNode;
-
-    move-result-object v0
-
-    check-cast v0, Lmf/org/apache/xerces/dom/ChildNode;
-
-    if-eqz v1, :cond_1
-
-    iput-object v0, v3, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
-
-    :goto_1
-    iput-object p1, v0, Lmf/org/apache/xerces/dom/ChildNode;->ownerNode:Lmf/org/apache/xerces/dom/NodeImpl;
-
-    invoke-virtual {v0, v6}, Lmf/org/apache/xerces/dom/ChildNode;->isOwned(Z)V
-
-    iput-object v3, v0, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
-
-    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getPrevSibling(I)I
-
-    move-result v2
-
-    move-object v3, v0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p0, p2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeValueString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p1, Lmf/org/apache/xerces/dom/AttrImpl;->value:Ljava/lang/Object;
-
-    invoke-virtual {p1, v6}, Lmf/org/apache/xerces/dom/AttrImpl;->hasStringValue(Z)V
-
-    :goto_2
-    invoke-virtual {p0, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setMutationEvents(Z)V
-
-    return-void
-
-    :cond_1
-    move-object v1, v0
-
-    goto :goto_1
-
-    :cond_2
-    if-nez v1, :cond_3
-
-    :goto_3
-    invoke-virtual {p1, v5}, Lmf/org/apache/xerces/dom/AttrImpl;->hasStringValue(Z)V
-
-    goto :goto_2
-
-    :cond_3
-    iput-object v3, p1, Lmf/org/apache/xerces/dom/AttrImpl;->value:Ljava/lang/Object;
-
-    invoke-virtual {v3, v6}, Lmf/org/apache/xerces/dom/ChildNode;->isFirstChild(Z)V
-
-    invoke-virtual {p1, v1}, Lmf/org/apache/xerces/dom/AttrImpl;->lastChild(Lmf/org/apache/xerces/dom/ChildNode;)V
-
-    goto :goto_3
-.end method
-
-.method protected final synchronizeChildren(Lmf/org/apache/xerces/dom/ParentNode;I)V
-    .locals 6
-
-    const/4 v5, 0x1
+    invoke-virtual {p1, v5}, Lmf/org/apache/xerces/dom/ParentNode;->needsSyncChildren(Z)V
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
-
-    invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getMutationEvents()Z
-
-    move-result v4
-
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setMutationEvents(Z)V
-
-    invoke-virtual {p1, v0}, Lmf/org/apache/xerces/dom/ParentNode;->needsSyncChildren(Z)V
+    const/4 v2, 0x0
 
     invoke-virtual {p0, p2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getLastChild(I)I
 
-    move-result v0
-
-    move v2, v0
-
-    move-object v3, v1
+    move-result v1
 
     :goto_0
-    const/4 v0, -0x1
+    const/4 v5, -0x1
 
-    if-eq v2, v0, :cond_1
+    if-eq v1, v5, :cond_1
 
-    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeObject(I)Lmf/org/apache/xerces/dom/DeferredNode;
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeObject(I)Lmf/org/apache/xerces/dom/DeferredNode;
 
-    move-result-object v0
+    move-result-object v3
 
-    check-cast v0, Lmf/org/apache/xerces/dom/ChildNode;
+    check-cast v3, Lmf/org/apache/xerces/dom/ChildNode;
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    iput-object v0, v3, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v3, v0, Lmf/org/apache/xerces/dom/ChildNode;->previousSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
     :goto_1
-    iput-object p1, v0, Lmf/org/apache/xerces/dom/ChildNode;->ownerNode:Lmf/org/apache/xerces/dom/NodeImpl;
+    iput-object p1, v3, Lmf/org/apache/xerces/dom/ChildNode;->ownerNode:Lmf/org/apache/xerces/dom/NodeImpl;
 
-    invoke-virtual {v0, v5}, Lmf/org/apache/xerces/dom/ChildNode;->isOwned(Z)V
+    invoke-virtual {v3, v6}, Lmf/org/apache/xerces/dom/ChildNode;->isOwned(Z)V
 
-    iput-object v3, v0, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v0, v3, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
-    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getPrevSibling(I)I
+    move-object v0, v3
 
-    move-result v2
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getPrevSibling(I)I
 
-    move-object v3, v0
+    move-result v1
 
     goto :goto_0
 
     :cond_0
-    move-object v1, v0
+    move-object v2, v3
 
     goto :goto_1
 
     :cond_1
-    if-nez v1, :cond_2
+    if-nez v2, :cond_2
 
     :goto_2
     invoke-virtual {p0, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setMutationEvents(Z)V
@@ -3494,178 +3766,167 @@
     return-void
 
     :cond_2
-    iput-object v3, p1, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iput-object v0, p1, Lmf/org/apache/xerces/dom/ParentNode;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
-    invoke-virtual {v3, v5}, Lmf/org/apache/xerces/dom/ChildNode;->isFirstChild(Z)V
+    invoke-virtual {v0, v6}, Lmf/org/apache/xerces/dom/ChildNode;->isFirstChild(Z)V
 
-    invoke-virtual {p1, v1}, Lmf/org/apache/xerces/dom/ParentNode;->lastChild(Lmf/org/apache/xerces/dom/ChildNode;)V
+    invoke-virtual {p1, v2}, Lmf/org/apache/xerces/dom/ParentNode;->lastChild(Lmf/org/apache/xerces/dom/ChildNode;)V
 
     goto :goto_2
 .end method
 
 .method protected synchronizeData()V
-    .locals 10
+    .locals 15
 
-    const/4 v4, 0x0
+    const/4 v12, 0x0
 
-    const/4 v9, 0x0
+    const/4 v14, 0x0
 
-    invoke-virtual {p0, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->needsSyncData(Z)V
+    invoke-virtual {p0, v12}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->needsSyncData(Z)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdElement:[I
+    iget-object v12, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdElement:[I
 
-    if-nez v0, :cond_1
+    if-nez v12, :cond_1
 
     :cond_0
     return-void
 
     :cond_1
-    new-instance v6, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$IntVector;
+    new-instance v8, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$IntVector;
 
-    invoke-direct {v6}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$IntVector;-><init>()V
+    invoke-direct {v8}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$IntVector;-><init>()V
+
+    const/4 v3, 0x0
 
     :goto_0
-    iget v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdCount:I
+    iget v12, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdCount:I
 
-    if-ge v4, v0, :cond_0
+    if-ge v3, v12, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdElement:[I
+    iget-object v12, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdElement:[I
 
-    aget v3, v0, v4
+    aget v2, v12, v3
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdName:[Ljava/lang/String;
+    iget-object v12, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdName:[Ljava/lang/String;
 
-    aget-object v7, v0, v4
+    aget-object v4, v12, v3
 
-    if-eqz v7, :cond_4
+    if-eqz v4, :cond_8
 
-    invoke-virtual {v6}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$IntVector;->removeAllElements()V
+    invoke-virtual {v8}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$IntVector;->removeAllElements()V
 
-    move v0, v3
+    move v5, v2
 
     :cond_2
-    invoke-virtual {v6, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$IntVector;->addElement(I)V
+    invoke-virtual {v8, v5}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$IntVector;->addElement(I)V
 
-    shr-int/lit8 v1, v0, 0xb
+    shr-int/lit8 v9, v5, 0xb
 
-    and-int/lit16 v0, v0, 0x7ff
+    and-int/lit16 v10, v5, 0x7ff
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeParent:[[I
+    iget-object v12, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fNodeParent:[[I
 
-    invoke-direct {p0, v2, v1, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
+    invoke-direct {p0, v12, v9, v10}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getChunkIndex([[III)I
 
-    move-result v0
+    move-result v5
 
-    const/4 v1, -0x1
+    const/4 v12, -0x1
 
-    if-ne v0, v1, :cond_2
+    if-ne v5, v12, :cond_2
 
-    invoke-virtual {v6}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$IntVector;->size()I
+    move-object v11, p0
 
-    move-result v0
+    invoke-virtual {v8}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$IntVector;->size()I
 
-    add-int/lit8 v0, v0, -0x2
+    move-result v12
 
-    move v5, v0
-
-    move-object v2, p0
+    add-int/lit8 v6, v12, -0x2
 
     :goto_1
-    if-ltz v5, :cond_7
+    if-ltz v6, :cond_6
 
-    invoke-virtual {v6, v5}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$IntVector;->elementAt(I)I
+    invoke-virtual {v8, v6}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$IntVector;->elementAt(I)I
 
-    move-result v8
+    move-result v5
 
-    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->getLastChild()Lmf/org/w3c/dom/Node;
+    invoke-interface {v11}, Lmf/org/w3c/dom/Node;->getLastChild()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v0
 
     :goto_2
-    if-eqz v1, :cond_9
+    if-eqz v0, :cond_5
 
-    instance-of v0, v1, Lmf/org/apache/xerces/dom/DeferredNode;
+    instance-of v12, v0, Lmf/org/apache/xerces/dom/DeferredNode;
 
-    if-nez v0, :cond_6
+    if-nez v12, :cond_4
 
     :cond_3
-    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getPreviousSibling()Lmf/org/w3c/dom/Node;
+    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getPreviousSibling()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v0
 
     goto :goto_2
 
     :cond_4
-    move v1, v4
+    move-object v12, v0
+
+    check-cast v12, Lmf/org/apache/xerces/dom/DeferredNode;
+
+    invoke-interface {v12}, Lmf/org/apache/xerces/dom/DeferredNode;->getNodeIndex()I
+
+    move-result v7
+
+    if-ne v7, v5, :cond_3
+
+    move-object v11, v0
 
     :cond_5
-    add-int/lit8 v4, v1, 0x1
-
-    goto :goto_0
-
-    :cond_6
-    move-object v0, v1
-
-    check-cast v0, Lmf/org/apache/xerces/dom/DeferredNode;
-
-    invoke-interface {v0}, Lmf/org/apache/xerces/dom/DeferredNode;->getNodeIndex()I
-
-    move-result v0
-
-    if-ne v0, v8, :cond_3
-
-    :goto_3
-    add-int/lit8 v0, v5, -0x1
-
-    move v5, v0
-
-    move-object v2, v1
+    add-int/lit8 v6, v6, -0x1
 
     goto :goto_1
 
+    :cond_6
+    move-object v1, v11
+
+    check-cast v1, Lmf/org/w3c/dom/Element;
+
+    invoke-direct {p0, v4, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->putIdentifier0(Ljava/lang/String;Lmf/org/w3c/dom/Element;)V
+
+    iget-object v12, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdName:[Ljava/lang/String;
+
+    aput-object v14, v12, v3
+
     :cond_7
-    move-object v0, v2
+    :goto_3
+    add-int/lit8 v12, v3, 0x1
 
-    check-cast v0, Lmf/org/w3c/dom/Element;
+    iget v13, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdCount:I
 
-    invoke-direct {p0, v7, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->putIdentifier0(Ljava/lang/String;Lmf/org/w3c/dom/Element;)V
-
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdName:[Ljava/lang/String;
-
-    aput-object v9, v1, v4
-
-    move v1, v4
+    if-lt v12, v13, :cond_9
 
     :cond_8
-    :goto_4
-    add-int/lit8 v2, v1, 0x1
+    add-int/lit8 v3, v3, 0x1
 
-    iget v4, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdCount:I
-
-    if-ge v2, v4, :cond_5
-
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdElement:[I
-
-    add-int/lit8 v4, v1, 0x1
-
-    aget v2, v2, v4
-
-    if-ne v2, v3, :cond_5
-
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdName:[Ljava/lang/String;
-
-    add-int/lit8 v1, v1, 0x1
-
-    aget-object v2, v2, v1
-
-    if-eqz v2, :cond_8
-
-    invoke-direct {p0, v2, v0}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->putIdentifier0(Ljava/lang/String;Lmf/org/w3c/dom/Element;)V
-
-    goto :goto_4
+    goto :goto_0
 
     :cond_9
-    move-object v1, v2
+    iget-object v12, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdElement:[I
+
+    add-int/lit8 v13, v3, 0x1
+
+    aget v12, v12, v13
+
+    if-ne v12, v2, :cond_8
+
+    iget-object v12, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->fIdName:[Ljava/lang/String;
+
+    add-int/lit8 v3, v3, 0x1
+
+    aget-object v4, v12, v3
+
+    if-eqz v4, :cond_7
+
+    invoke-direct {p0, v4, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->putIdentifier0(Ljava/lang/String;Lmf/org/w3c/dom/Element;)V
 
     goto :goto_3
 .end method

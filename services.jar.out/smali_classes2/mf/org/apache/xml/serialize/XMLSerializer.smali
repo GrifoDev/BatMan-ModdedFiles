@@ -152,97 +152,103 @@
 .end method
 
 .method private extractNamespaces(Lorg/xml/sax/Attributes;)Lorg/xml/sax/Attributes;
-    .locals 6
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 v4, 0x0
 
-    const/4 v5, 0x5
+    const/4 v6, 0x5
 
     if-eqz p1, :cond_1
 
     invoke-interface {p1}, Lorg/xml/sax/Attributes;->getLength()I
 
-    move-result v0
+    move-result v2
 
-    new-instance v1, Lorg/xml/sax/helpers/AttributesImpl;
+    new-instance v0, Lorg/xml/sax/helpers/AttributesImpl;
 
-    invoke-direct {v1, p1}, Lorg/xml/sax/helpers/AttributesImpl;-><init>(Lorg/xml/sax/Attributes;)V
+    invoke-direct {v0, p1}, Lorg/xml/sax/helpers/AttributesImpl;-><init>(Lorg/xml/sax/Attributes;)V
 
-    :cond_0
+    add-int/lit8 v1, v2, -0x1
+
     :goto_0
-    add-int/lit8 v0, v0, -0x1
+    if-ltz v1, :cond_4
 
-    if-ltz v0, :cond_3
-
-    invoke-virtual {v1, v0}, Lorg/xml/sax/helpers/AttributesImpl;->getQName(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "xmlns"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
-
-    move-result v3
-
-    if-eq v3, v5, :cond_2
-
-    invoke-virtual {v2, v5}, Ljava/lang/String;->charAt(I)C
-
-    move-result v3
-
-    const/16 v4, 0x3a
-
-    if-ne v3, v4, :cond_0
-
-    const/4 v3, 0x6
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-interface {p1, v0}, Lorg/xml/sax/Attributes;->getValue(I)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Lorg/xml/sax/helpers/AttributesImpl;->getQName(I)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {p0, v2, v3}, Lmf/org/apache/xml/serialize/XMLSerializer;->startPrefixMapping(Ljava/lang/String;Ljava/lang/String;)V
+    const-string/jumbo v4, "xmlns"
 
-    invoke-virtual {v1, v0}, Lorg/xml/sax/helpers/AttributesImpl;->removeAttribute(I)V
+    invoke-virtual {v3, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_2
+
+    :cond_0
+    :goto_1
+    add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
     :cond_1
-    return-object v0
+    return-object v4
 
     :cond_2
-    const-string/jumbo v2, ""
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
 
-    invoke-interface {p1, v0}, Lorg/xml/sax/Attributes;->getValue(I)Ljava/lang/String;
+    move-result v4
 
-    move-result-object v3
+    if-eq v4, v6, :cond_3
 
-    invoke-virtual {p0, v2, v3}, Lmf/org/apache/xml/serialize/XMLSerializer;->startPrefixMapping(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v3, v6}, Ljava/lang/String;->charAt(I)C
 
-    invoke-virtual {v1, v0}, Lorg/xml/sax/helpers/AttributesImpl;->removeAttribute(I)V
+    move-result v4
 
-    goto :goto_0
+    const/16 v5, 0x3a
+
+    if-ne v4, v5, :cond_0
+
+    const/4 v4, 0x6
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-interface {p1, v1}, Lorg/xml/sax/Attributes;->getValue(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {p0, v4, v5}, Lmf/org/apache/xml/serialize/XMLSerializer;->startPrefixMapping(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1}, Lorg/xml/sax/helpers/AttributesImpl;->removeAttribute(I)V
+
+    goto :goto_1
 
     :cond_3
-    return-object v1
+    invoke-interface {p1, v1}, Lorg/xml/sax/Attributes;->getValue(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    const-string/jumbo v5, ""
+
+    invoke-virtual {p0, v5, v4}, Lmf/org/apache/xml/serialize/XMLSerializer;->startPrefixMapping(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1}, Lorg/xml/sax/helpers/AttributesImpl;->removeAttribute(I)V
+
+    goto :goto_1
+
+    :cond_4
+    return-object v0
 .end method
 
 .method private printAttribute(Ljava/lang/String;Ljava/lang/String;ZLmf/org/w3c/dom/Attr;)V
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -252,69 +258,69 @@
     if-eqz p3, :cond_2
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fDOMFilter:Lmf/org/w3c/dom/ls/LSSerializerFilter;
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fDOMFilter:Lmf/org/w3c/dom/ls/LSSerializerFilter;
 
-    if-nez v0, :cond_3
+    if-nez v1, :cond_3
 
     :cond_1
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/serialize/Printer;->printSpace()V
+    invoke-virtual {v1}, Lmf/org/apache/xml/serialize/Printer;->printSpace()V
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v0, p1}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    invoke-virtual {v1, p1}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    const-string/jumbo v1, "=\""
+    const-string/jumbo v2, "=\""
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
     invoke-virtual {p0, p2}, Lmf/org/apache/xml/serialize/XMLSerializer;->printEscaped(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    const/16 v1, 0x22
+    const/16 v2, 0x22
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
+    invoke-virtual {v1, v2}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
 
     :goto_1
-    const-string/jumbo v0, "xml:space"
+    const-string/jumbo v1, "xml:space"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_4
+    if-nez v1, :cond_4
 
     :goto_2
     return-void
 
     :cond_2
-    iget-short v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->features:S
+    iget-short v1, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->features:S
 
-    and-int/lit8 v0, v0, 0x40
+    and-int/lit8 v1, v1, 0x40
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     goto :goto_1
 
     :cond_3
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fDOMFilter:Lmf/org/w3c/dom/ls/LSSerializerFilter;
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fDOMFilter:Lmf/org/w3c/dom/ls/LSSerializerFilter;
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/ls/LSSerializerFilter;->getWhatToShow()I
+    invoke-interface {v1}, Lmf/org/w3c/dom/ls/LSSerializerFilter;->getWhatToShow()I
 
-    move-result v0
+    move-result v1
 
-    and-int/lit8 v0, v0, 0x2
+    and-int/lit8 v1, v1, 0x2
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fDOMFilter:Lmf/org/w3c/dom/ls/LSSerializerFilter;
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fDOMFilter:Lmf/org/w3c/dom/ls/LSSerializerFilter;
 
-    invoke-interface {v0, p4}, Lmf/org/w3c/dom/ls/LSSerializerFilter;->acceptNode(Lmf/org/w3c/dom/Node;)S
+    invoke-interface {v1, p4}, Lmf/org/w3c/dom/ls/LSSerializerFilter;->acceptNode(Lmf/org/w3c/dom/Node;)S
 
     move-result v0
 
@@ -326,28 +332,28 @@
     return-void
 
     :cond_4
-    const-string/jumbo v0, "preserve"
+    const-string/jumbo v1, "preserve"
 
-    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_5
+    if-nez v1, :cond_5
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/serialize/OutputFormat;->getPreserveSpace()Z
+    invoke-virtual {v1}, Lmf/org/apache/xml/serialize/OutputFormat;->getPreserveSpace()Z
 
-    move-result v0
+    move-result v1
 
-    iput-boolean v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fPreserveSpace:Z
+    iput-boolean v1, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fPreserveSpace:Z
 
     goto :goto_2
 
     :cond_5
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    iput-boolean v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fPreserveSpace:Z
+    iput-boolean v1, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fPreserveSpace:Z
 
     goto :goto_2
 
@@ -429,11 +435,9 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
+    iget-boolean v6, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNamespaces:Z
 
-    iget-boolean v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNamespaces:Z
-
-    if-nez v0, :cond_1
+    if-nez v6, :cond_1
 
     :cond_0
     return-void
@@ -441,146 +445,144 @@
     :cond_1
     invoke-interface {p1}, Lmf/org/w3c/dom/Node;->getFirstChild()Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
-
-    move-object v3, v0
+    move-result-object v2
 
     :goto_0
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
-    invoke-interface {v3}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
     move-result-object v4
 
-    invoke-interface {v3}, Lmf/org/w3c/dom/Node;->getPrefix()Ljava/lang/String;
+    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->getPrefix()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v5
 
-    if-nez v0, :cond_5
+    if-nez v5, :cond_5
 
     :cond_2
-    sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v5, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
     :goto_1
-    iget-object v1, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+    iget-object v6, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
 
-    invoke-virtual {v1, v0}, Lmf/org/apache/xerces/util/NamespaceSupport;->getURI(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v6, v5}, Lmf/org/apache/xerces/util/NamespaceSupport;->getURI(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v6
 
-    if-eqz v1, :cond_6
+    if-eqz v6, :cond_6
 
     :cond_3
     :goto_2
-    invoke-interface {v3}, Lmf/org/w3c/dom/Node;->getNodeType()S
+    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->getNodeType()S
 
-    move-result v0
+    move-result v6
 
-    const/4 v1, 0x1
+    const/4 v7, 0x1
 
-    if-eq v0, v1, :cond_7
+    if-eq v6, v7, :cond_7
 
     :cond_4
-    invoke-interface {v3}, Lmf/org/w3c/dom/Node;->hasChildNodes()Z
+    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->hasChildNodes()Z
 
-    move-result v0
+    move-result v6
 
-    if-nez v0, :cond_c
+    if-nez v6, :cond_c
 
     :goto_3
-    move-object v3, v4
+    move-object v2, v4
 
     goto :goto_0
 
     :cond_5
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v6
 
-    if-eqz v1, :cond_2
+    if-eqz v6, :cond_2
 
-    iget-object v1, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    iget-object v6, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    invoke-virtual {v1, v0}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v6, v5}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v5
 
     goto :goto_1
 
     :cond_6
-    if-eqz v0, :cond_3
+    if-eqz v5, :cond_3
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v5, "The replacement text of the entity node \'"
+    const-string/jumbo v7, "The replacement text of the entity node \'"
 
-    invoke-direct {v1, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-interface {p1}, Lmf/org/w3c/dom/Node;->getNodeName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v6
 
-    const-string/jumbo v5, "\' contains an element node \'"
+    const-string/jumbo v7, "\' contains an element node \'"
 
-    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v6
 
-    invoke-interface {v3}, Lmf/org/w3c/dom/Node;->getNodeName()Ljava/lang/String;
+    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->getNodeName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v6
 
-    const-string/jumbo v5, "\' with an undeclared prefix \'"
+    const-string/jumbo v7, "\' with an undeclared prefix \'"
 
-    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v6
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v6
 
-    const-string/jumbo v1, "\'."
+    const-string/jumbo v7, "\'."
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xml/serialize/XMLSerializer;->fatalError(Ljava/lang/String;)V
+    invoke-virtual {p0, v6}, Lmf/org/apache/xml/serialize/XMLSerializer;->fatalError(Ljava/lang/String;)V
 
     goto :goto_2
 
     :cond_7
-    invoke-interface {v3}, Lmf/org/w3c/dom/Node;->getAttributes()Lmf/org/w3c/dom/NamedNodeMap;
+    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->getAttributes()Lmf/org/w3c/dom/NamedNodeMap;
 
-    move-result-object v5
+    move-result-object v1
 
-    move v1, v2
+    const/4 v3, 0x0
 
     :goto_4
-    invoke-interface {v5}, Lmf/org/w3c/dom/NamedNodeMap;->getLength()I
+    invoke-interface {v1}, Lmf/org/w3c/dom/NamedNodeMap;->getLength()I
 
-    move-result v0
+    move-result v6
 
-    if-ge v1, v0, :cond_4
+    if-ge v3, v6, :cond_4
 
-    invoke-interface {v5, v1}, Lmf/org/w3c/dom/NamedNodeMap;->item(I)Lmf/org/w3c/dom/Node;
+    invoke-interface {v1, v3}, Lmf/org/w3c/dom/NamedNodeMap;->item(I)Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getPrefix()Ljava/lang/String;
+    invoke-interface {v6}, Lmf/org/w3c/dom/Node;->getPrefix()Ljava/lang/String;
 
     move-result-object v0
 
@@ -600,9 +602,7 @@
 
     :cond_9
     :goto_6
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_4
 
@@ -644,7 +644,7 @@
 
     move-result-object v6
 
-    invoke-interface {v3}, Lmf/org/w3c/dom/Node;->getNodeName()Ljava/lang/String;
+    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->getNodeName()Ljava/lang/String;
 
     move-result-object v7
 
@@ -658,7 +658,7 @@
 
     move-result-object v6
 
-    invoke-interface {v5, v1}, Lmf/org/w3c/dom/NamedNodeMap;->item(I)Lmf/org/w3c/dom/Node;
+    invoke-interface {v1, v3}, Lmf/org/w3c/dom/NamedNodeMap;->item(I)Lmf/org/w3c/dom/Node;
 
     move-result-object v7
 
@@ -678,24 +678,24 @@
 
     invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v6
 
-    const-string/jumbo v6, "\'."
+    const-string/jumbo v7, "\'."
 
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xml/serialize/XMLSerializer;->fatalError(Ljava/lang/String;)V
+    invoke-virtual {p0, v6}, Lmf/org/apache/xml/serialize/XMLSerializer;->fatalError(Ljava/lang/String;)V
 
     goto :goto_6
 
     :cond_c
-    invoke-virtual {p0, v3}, Lmf/org/apache/xml/serialize/XMLSerializer;->checkUnboundNamespacePrefixedNode(Lmf/org/w3c/dom/Node;)V
+    invoke-virtual {p0, v2}, Lmf/org/apache/xml/serialize/XMLSerializer;->checkUnboundNamespacePrefixedNode(Lmf/org/w3c/dom/Node;)V
 
     goto/16 :goto_3
 .end method
@@ -750,9 +750,9 @@
 
     const/4 v3, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/serialize/Printer;->unindent()V
+    invoke-virtual {v1}, Lmf/org/apache/xml/serialize/Printer;->unindent()V
 
     invoke-virtual {p0}, Lmf/org/apache/xml/serialize/XMLSerializer;->getElementState()Lmf/org/apache/xml/serialize/ElementState;
 
@@ -781,15 +781,15 @@
 
     iget-object v1, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    iget-object v0, v0, Lmf/org/apache/xml/serialize/ElementState;->rawName:Ljava/lang/String;
+    iget-object v2, v0, Lmf/org/apache/xml/serialize/ElementState;->rawName:Ljava/lang/String;
 
-    invoke-virtual {v1, v0}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    const/16 v1, 0x3e
+    const/16 v2, 0x3e
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
+    invoke-virtual {v1, v2}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
 
     :goto_2
     invoke-virtual {p0}, Lmf/org/apache/xml/serialize/XMLSerializer;->leaveElementState()Lmf/org/apache/xml/serialize/ElementState;
@@ -806,19 +806,19 @@
 
     invoke-virtual {p0}, Lmf/org/apache/xml/serialize/XMLSerializer;->isDocumentState()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_6
+    if-nez v1, :cond_6
 
     :goto_3
     return-void
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    const-string/jumbo v1, "/>"
+    const-string/jumbo v2, "/>"
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
     goto :goto_2
 
@@ -855,9 +855,9 @@
     goto :goto_1
 
     :cond_6
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/serialize/Printer;->flush()V
+    invoke-virtual {v1}, Lmf/org/apache/xml/serialize/Printer;->flush()V
 
     goto :goto_3
 .end method
@@ -916,53 +916,53 @@
         }
     .end annotation
 
-    const/4 v1, 0x0
+    const/4 v5, 0x0
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    move v0, v1
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v0, v2, :cond_9
+    if-ge v1, v2, :cond_9
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
+
+    move-result v0
+
+    invoke-static {v0}, Lmf/org/apache/xerces/util/XMLChar;->isValid(I)Z
 
     move-result v3
 
-    invoke-static {v3}, Lmf/org/apache/xerces/util/XMLChar;->isValid(I)Z
+    if-eqz v3, :cond_1
 
-    move-result v4
+    const/16 v3, 0xa
 
-    if-eqz v4, :cond_1
-
-    const/16 v4, 0xa
-
-    if-ne v3, v4, :cond_3
+    if-ne v0, v3, :cond_3
 
     :cond_0
-    invoke-virtual {p0, v3}, Lmf/org/apache/xml/serialize/XMLSerializer;->printHex(I)V
+    invoke-virtual {p0, v0}, Lmf/org/apache/xml/serialize/XMLSerializer;->printHex(I)V
 
     :goto_1
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_1
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    if-lt v0, v2, :cond_2
+    if-lt v1, v2, :cond_2
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v5, "The character \'"
+    const-string/jumbo v4, "The character \'"
 
-    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    int-to-char v3, v3
+    int-to-char v4, v0
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
@@ -981,41 +981,41 @@
     goto :goto_1
 
     :cond_2
-    invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
 
-    move-result v4
+    move-result v3
 
-    invoke-virtual {p0, v3, v4, v1}, Lmf/org/apache/xml/serialize/XMLSerializer;->surrogates(IIZ)V
+    invoke-virtual {p0, v0, v3, v5}, Lmf/org/apache/xml/serialize/XMLSerializer;->surrogates(IIZ)V
 
     goto :goto_1
 
     :cond_3
-    const/16 v4, 0xd
+    const/16 v3, 0xd
 
-    if-eq v3, v4, :cond_0
+    if-eq v0, v3, :cond_0
 
-    const/16 v4, 0x9
+    const/16 v3, 0x9
 
-    if-eq v3, v4, :cond_0
+    if-eq v0, v3, :cond_0
 
-    const/16 v4, 0x3c
+    const/16 v3, 0x3c
 
-    if-eq v3, v4, :cond_5
+    if-eq v0, v3, :cond_5
 
-    const/16 v4, 0x26
+    const/16 v3, 0x26
 
-    if-eq v3, v4, :cond_6
+    if-eq v0, v3, :cond_6
 
-    const/16 v4, 0x22
+    const/16 v3, 0x22
 
-    if-eq v3, v4, :cond_7
+    if-eq v0, v3, :cond_7
 
-    const/16 v4, 0x20
+    const/16 v3, 0x20
 
-    if-ge v3, v4, :cond_8
+    if-ge v0, v3, :cond_8
 
     :cond_4
-    invoke-virtual {p0, v3}, Lmf/org/apache/xml/serialize/XMLSerializer;->printHex(I)V
+    invoke-virtual {p0, v0}, Lmf/org/apache/xml/serialize/XMLSerializer;->printHex(I)V
 
     goto :goto_1
 
@@ -1047,21 +1047,21 @@
     goto :goto_1
 
     :cond_8
-    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_encodingInfo:Lmf/org/apache/xml/serialize/EncodingInfo;
+    iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_encodingInfo:Lmf/org/apache/xml/serialize/EncodingInfo;
 
-    int-to-char v5, v3
+    int-to-char v4, v0
 
-    invoke-virtual {v4, v5}, Lmf/org/apache/xml/serialize/EncodingInfo;->isPrintable(C)Z
+    invoke-virtual {v3, v4}, Lmf/org/apache/xml/serialize/EncodingInfo;->isPrintable(C)Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_4
+    if-eqz v3, :cond_4
 
-    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    int-to-char v3, v3
+    int-to-char v4, v0
 
-    invoke-virtual {v4, v3}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
+    invoke-virtual {v3, v4}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
 
     goto :goto_1
 
@@ -1079,22 +1079,22 @@
 
     const/4 v5, 0x1
 
-    const/4 v0, 0x0
-
     invoke-virtual {p1}, Ljava/lang/String;->length()I
-
-    move-result v1
-
-    if-nez p2, :cond_1
-
-    :goto_0
-    if-ge v0, v1, :cond_7
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
 
     move-result v2
 
-    invoke-static {v2}, Lmf/org/apache/xerces/util/XMLChar;->isValid(I)Z
+    if-nez p2, :cond_0
+
+    const/4 v1, 0x0
+
+    :goto_0
+    if-ge v1, v2, :cond_7
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
+
+    move-result v0
+
+    invoke-static {v0}, Lmf/org/apache/xerces/util/XMLChar;->isValid(I)Z
 
     move-result v3
 
@@ -1102,46 +1102,42 @@
 
     if-nez p3, :cond_6
 
-    invoke-virtual {p0, v2}, Lmf/org/apache/xml/serialize/XMLSerializer;->printXMLChar(I)V
+    invoke-virtual {p0, v0}, Lmf/org/apache/xml/serialize/XMLSerializer;->printXMLChar(I)V
 
     :goto_1
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
-
-    move-result v3
-
-    invoke-virtual {p0, v2, v3, v5}, Lmf/org/apache/xml/serialize/XMLSerializer;->surrogates(IIZ)V
+    const/4 v1, 0x0
 
     :goto_2
-    add-int/lit8 v0, v0, 0x1
+    if-ge v1, v2, :cond_7
 
-    :cond_1
-    if-ge v0, v1, :cond_7
+    invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
+    move-result v0
 
-    move-result v2
-
-    invoke-static {v2}, Lmf/org/apache/xerces/util/XMLChar;->isValid(I)Z
+    invoke-static {v0}, Lmf/org/apache/xerces/util/XMLChar;->isValid(I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1
 
     if-nez p3, :cond_3
 
-    invoke-virtual {p0, v2}, Lmf/org/apache/xml/serialize/XMLSerializer;->printXMLChar(I)V
+    invoke-virtual {p0, v0}, Lmf/org/apache/xml/serialize/XMLSerializer;->printXMLChar(I)V
+
+    :goto_3
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_2
 
-    :cond_2
-    add-int/lit8 v0, v0, 0x1
+    :cond_1
+    add-int/lit8 v1, v1, 0x1
 
-    if-lt v0, v1, :cond_0
+    if-lt v1, v2, :cond_2
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -1149,35 +1145,44 @@
 
     invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string/jumbo v3, "\' is an invalid XML character"
+    const-string/jumbo v4, "\' is an invalid XML character"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {p0, v2}, Lmf/org/apache/xml/serialize/XMLSerializer;->fatalError(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lmf/org/apache/xml/serialize/XMLSerializer;->fatalError(Ljava/lang/String;)V
 
-    goto :goto_2
+    goto :goto_3
+
+    :cond_2
+    invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
+
+    move-result v3
+
+    invoke-virtual {p0, v0, v3, v5}, Lmf/org/apache/xml/serialize/XMLSerializer;->surrogates(IIZ)V
+
+    goto :goto_3
 
     :cond_3
     iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v3, v2}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
+    invoke-virtual {v3, v0}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
 
-    goto :goto_2
+    goto :goto_3
 
     :cond_4
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    if-lt v0, v1, :cond_5
+    if-lt v1, v2, :cond_5
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -1185,37 +1190,37 @@
 
     invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string/jumbo v3, "\' is an invalid XML character"
+    const-string/jumbo v4, "\' is an invalid XML character"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {p0, v2}, Lmf/org/apache/xml/serialize/XMLSerializer;->fatalError(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lmf/org/apache/xml/serialize/XMLSerializer;->fatalError(Ljava/lang/String;)V
 
     goto :goto_1
 
     :cond_5
-    invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v3
 
-    invoke-virtual {p0, v2, v3, v5}, Lmf/org/apache/xml/serialize/XMLSerializer;->surrogates(IIZ)V
+    invoke-virtual {p0, v0, v3, v5}, Lmf/org/apache/xml/serialize/XMLSerializer;->surrogates(IIZ)V
 
     goto :goto_1
 
     :cond_6
     iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v3, v2}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
+    invoke-virtual {v3, v0}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
 
     goto :goto_1
 
@@ -1224,170 +1229,188 @@
 .end method
 
 .method protected printText([CIIZZ)V
-    .locals 5
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    if-nez p4, :cond_1
+    if-nez p4, :cond_0
+
+    move v2, p2
 
     :goto_0
-    add-int/lit8 v0, p3, -0x1
+    add-int/lit8 v1, p3, -0x1
 
-    if-lez p3, :cond_7
+    if-lez p3, :cond_8
 
-    add-int/lit8 v1, p2, 0x1
+    add-int/lit8 p2, v2, 0x1
 
-    aget-char v2, p1, p2
+    aget-char v0, p1, v2
 
-    invoke-static {v2}, Lmf/org/apache/xerces/util/XMLChar;->isValid(I)Z
+    invoke-static {v0}, Lmf/org/apache/xerces/util/XMLChar;->isValid(I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_5
 
-    if-nez p5, :cond_6
+    if-nez p5, :cond_7
 
-    invoke-virtual {p0, v2}, Lmf/org/apache/xml/serialize/XMLSerializer;->printXMLChar(I)V
+    invoke-virtual {p0, v0}, Lmf/org/apache/xml/serialize/XMLSerializer;->printXMLChar(I)V
 
-    move p3, v0
+    move p3, v1
 
-    move p2, v1
+    move v2, p2
 
     goto :goto_0
 
     :cond_0
-    add-int/lit8 p2, v1, 0x1
+    move v2, p2
 
-    aget-char v0, p1, v1
-
-    invoke-virtual {p0, v2, v0, v4}, Lmf/org/apache/xml/serialize/XMLSerializer;->surrogates(IIZ)V
-
-    :cond_1
     :goto_1
-    add-int/lit8 v0, p3, -0x1
+    add-int/lit8 v1, p3, -0x1
 
-    if-lez p3, :cond_7
+    if-lez p3, :cond_4
 
-    add-int/lit8 v1, p2, 0x1
+    add-int/lit8 p2, v2, 0x1
 
-    aget-char v2, p1, p2
+    aget-char v0, p1, v2
 
-    invoke-static {v2}, Lmf/org/apache/xerces/util/XMLChar;->isValid(I)Z
+    invoke-static {v0}, Lmf/org/apache/xerces/util/XMLChar;->isValid(I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1
 
     if-nez p5, :cond_3
 
-    invoke-virtual {p0, v2}, Lmf/org/apache/xml/serialize/XMLSerializer;->printXMLChar(I)V
+    invoke-virtual {p0, v0}, Lmf/org/apache/xml/serialize/XMLSerializer;->printXMLChar(I)V
 
-    move p3, v0
+    move p3, v1
 
-    move p2, v1
+    move v2, p2
+
+    goto :goto_1
+
+    :cond_1
+    add-int/lit8 p3, v1, -0x1
+
+    if-gtz v1, :cond_2
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    const-string/jumbo v4, "The character \'"
+
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "\' is an invalid XML character"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p0, v3}, Lmf/org/apache/xml/serialize/XMLSerializer;->fatalError(Ljava/lang/String;)V
+
+    move v2, p2
 
     goto :goto_1
 
     :cond_2
-    add-int/lit8 p3, v0, -0x1
+    add-int/lit8 v2, p2, 0x1
 
-    if-gtz v0, :cond_0
+    aget-char v3, p1, p2
 
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    const-string/jumbo v3, "The character \'"
-
-    invoke-direct {v0, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v2, "\' is an invalid XML character"
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lmf/org/apache/xml/serialize/XMLSerializer;->fatalError(Ljava/lang/String;)V
-
-    move p2, v1
+    invoke-virtual {p0, v0, v3, v5}, Lmf/org/apache/xml/serialize/XMLSerializer;->surrogates(IIZ)V
 
     goto :goto_1
 
     :cond_3
     iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v3, v2}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
+    invoke-virtual {v3, v0}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
 
-    move p3, v0
+    move p3, v1
 
-    move p2, v1
+    move v2, p2
 
     goto :goto_1
 
     :cond_4
-    add-int/lit8 p3, v0, -0x1
+    move p3, v1
 
-    if-gtz v0, :cond_5
+    move p2, v2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    :goto_2
+    return-void
 
-    const-string/jumbo v3, "The character \'"
+    :cond_5
+    add-int/lit8 p3, v1, -0x1
 
-    invoke-direct {v0, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    if-gtz v1, :cond_6
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    const-string/jumbo v4, "The character \'"
 
-    const-string/jumbo v2, "\' is an invalid XML character"
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v4, "\' is an invalid XML character"
 
-    move-result-object v0
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xml/serialize/XMLSerializer;->fatalError(Ljava/lang/String;)V
+    move-result-object v3
 
-    move p2, v1
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p0, v3}, Lmf/org/apache/xml/serialize/XMLSerializer;->fatalError(Ljava/lang/String;)V
+
+    move v2, p2
 
     goto :goto_0
 
-    :cond_5
-    add-int/lit8 p2, v1, 0x1
-
-    aget-char v0, p1, v1
-
-    invoke-virtual {p0, v2, v0, v4}, Lmf/org/apache/xml/serialize/XMLSerializer;->surrogates(IIZ)V
-
-    goto/16 :goto_0
-
     :cond_6
-    iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    add-int/lit8 v2, p2, 0x1
 
-    invoke-virtual {v3, v2}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
+    aget-char v3, p1, p2
 
-    move p3, v0
-
-    move p2, v1
+    invoke-virtual {p0, v0, v3, v5}, Lmf/org/apache/xml/serialize/XMLSerializer;->surrogates(IIZ)V
 
     goto/16 :goto_0
 
     :cond_7
-    return-void
+    iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+
+    invoke-virtual {v3, v0}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
+
+    move p3, v1
+
+    move v2, p2
+
+    goto/16 :goto_0
+
+    :cond_8
+    move p3, v1
+
+    move p2, v2
+
+    goto :goto_2
 .end method
 
 .method protected printXMLChar(I)V
@@ -1519,1255 +1542,1891 @@
 .end method
 
 .method protected serializeElement(Lmf/org/w3c/dom/Element;)V
-    .locals 14
+    .locals 29
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    iget-boolean v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNamespaces:Z
+    move-object/from16 v0, p0
 
-    if-nez v0, :cond_2
+    iget-boolean v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNamespaces:Z
+
+    move/from16 v24, v0
+
+    if-nez v24, :cond_2
 
     :goto_0
-    invoke-interface {p1}, Lmf/org/w3c/dom/Element;->getTagName()Ljava/lang/String;
+    invoke-interface/range {p1 .. p1}, Lmf/org/w3c/dom/Element;->getTagName()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v21
 
-    invoke-virtual {p0}, Lmf/org/apache/xml/serialize/XMLSerializer;->getElementState()Lmf/org/apache/xml/serialize/ElementState;
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xml/serialize/XMLSerializer;->getElementState()Lmf/org/apache/xml/serialize/ElementState;
 
-    move-result-object v9
+    move-result-object v20
 
-    invoke-virtual {p0}, Lmf/org/apache/xml/serialize/XMLSerializer;->isDocumentState()Z
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xml/serialize/XMLSerializer;->isDocumentState()Z
 
-    move-result v0
+    move-result v24
 
-    if-nez v0, :cond_3
+    if-nez v24, :cond_3
 
-    iget-boolean v0, v9, Lmf/org/apache/xml/serialize/ElementState;->empty:Z
+    move-object/from16 v0, v20
 
-    if-nez v0, :cond_4
+    iget-boolean v0, v0, Lmf/org/apache/xml/serialize/ElementState;->empty:Z
+
+    move/from16 v24, v0
+
+    if-nez v24, :cond_4
 
     :goto_1
-    iget-boolean v0, v9, Lmf/org/apache/xml/serialize/ElementState;->inCData:Z
+    move-object/from16 v0, v20
 
-    if-nez v0, :cond_5
+    iget-boolean v0, v0, Lmf/org/apache/xml/serialize/ElementState;->inCData:Z
+
+    move/from16 v24, v0
+
+    if-nez v24, :cond_5
 
     :goto_2
-    iget-boolean v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_indenting:Z
+    move-object/from16 v0, p0
 
-    if-nez v0, :cond_6
+    iget-boolean v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_indenting:Z
+
+    move/from16 v24, v0
+
+    if-nez v24, :cond_6
 
     :cond_0
     :goto_3
-    iget-boolean v0, v9, Lmf/org/apache/xml/serialize/ElementState;->preserveSpace:Z
+    move-object/from16 v0, v20
 
-    iput-boolean v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fPreserveSpace:Z
+    iget-boolean v0, v0, Lmf/org/apache/xml/serialize/ElementState;->preserveSpace:Z
 
-    const/4 v1, 0x0
+    move/from16 v24, v0
 
-    const/4 v0, 0x0
+    move/from16 v0, v24
 
-    invoke-interface {p1}, Lmf/org/w3c/dom/Element;->hasAttributes()Z
+    move-object/from16 v1, p0
 
-    move-result v2
+    iput-boolean v0, v1, Lmf/org/apache/xml/serialize/XMLSerializer;->fPreserveSpace:Z
 
-    if-nez v2, :cond_9
+    const/4 v14, 0x0
 
-    move v2, v1
+    const/4 v6, 0x0
 
-    move-object v1, v0
+    invoke-interface/range {p1 .. p1}, Lmf/org/w3c/dom/Element;->hasAttributes()Z
+
+    move-result v24
+
+    if-nez v24, :cond_9
 
     :goto_4
-    iget-boolean v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNamespaces:Z
+    move-object/from16 v0, p0
 
-    if-eqz v0, :cond_a
+    iget-boolean v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNamespaces:Z
 
-    const/4 v0, 0x0
+    move/from16 v24, v0
 
-    move v5, v0
+    if-eqz v24, :cond_a
+
+    const/4 v13, 0x0
 
     :goto_5
-    if-ge v5, v2, :cond_12
+    if-ge v13, v14, :cond_12
 
-    invoke-interface {v1, v5}, Lmf/org/w3c/dom/NamedNodeMap;->item(I)Lmf/org/w3c/dom/Node;
+    invoke-interface {v6, v13}, Lmf/org/w3c/dom/NamedNodeMap;->item(I)Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v5
 
-    check-cast v0, Lmf/org/w3c/dom/Attr;
+    check-cast v5, Lmf/org/w3c/dom/Attr;
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getNamespaceURI()Ljava/lang/String;
+    invoke-interface {v5}, Lmf/org/w3c/dom/Attr;->getNamespaceURI()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v22
 
-    if-nez v3, :cond_c
+    if-nez v22, :cond_c
 
     :cond_1
     :goto_6
-    add-int/lit8 v0, v5, 0x1
-
-    move v5, v0
+    add-int/lit8 v13, v13, 0x1
 
     goto :goto_5
 
     :cond_2
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fLocalNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/NamespaceSupport;->reset()V
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fLocalNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+    move-object/from16 v24, v0
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/NamespaceSupport;->pushContext()V
+    invoke-virtual/range {v24 .. v24}, Lmf/org/apache/xerces/util/NamespaceSupport;->reset()V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+
+    move-object/from16 v24, v0
+
+    invoke-virtual/range {v24 .. v24}, Lmf/org/apache/xerces/util/NamespaceSupport;->pushContext()V
 
     goto :goto_0
 
     :cond_3
-    iget-boolean v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_started:Z
+    move-object/from16 v0, p0
 
-    if-nez v0, :cond_0
+    iget-boolean v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_started:Z
 
-    invoke-virtual {p0, v8}, Lmf/org/apache/xml/serialize/XMLSerializer;->startDocument(Ljava/lang/String;)V
+    move/from16 v24, v0
+
+    if-nez v24, :cond_0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v21
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xml/serialize/XMLSerializer;->startDocument(Ljava/lang/String;)V
 
     goto :goto_3
 
     :cond_4
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    move-object/from16 v0, p0
 
-    const/16 v1, 0x3e
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
+    move-object/from16 v24, v0
+
+    const/16 v25, 0x3e
+
+    invoke-virtual/range {v24 .. v25}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
 
     goto :goto_1
 
     :cond_5
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v1, "]]>"
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    move-object/from16 v24, v0
 
-    const/4 v0, 0x0
+    const-string/jumbo v25, "]]>"
 
-    iput-boolean v0, v9, Lmf/org/apache/xml/serialize/ElementState;->inCData:Z
+    invoke-virtual/range {v24 .. v25}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+
+    const/16 v24, 0x0
+
+    move/from16 v0, v24
+
+    move-object/from16 v1, v20
+
+    iput-boolean v0, v1, Lmf/org/apache/xml/serialize/ElementState;->inCData:Z
 
     goto :goto_2
 
     :cond_6
-    iget-boolean v0, v9, Lmf/org/apache/xml/serialize/ElementState;->preserveSpace:Z
+    move-object/from16 v0, v20
 
-    if-nez v0, :cond_0
+    iget-boolean v0, v0, Lmf/org/apache/xml/serialize/ElementState;->preserveSpace:Z
 
-    iget-boolean v0, v9, Lmf/org/apache/xml/serialize/ElementState;->empty:Z
+    move/from16 v24, v0
 
-    if-eqz v0, :cond_8
+    if-nez v24, :cond_0
+
+    move-object/from16 v0, v20
+
+    iget-boolean v0, v0, Lmf/org/apache/xml/serialize/ElementState;->empty:Z
+
+    move/from16 v24, v0
+
+    if-eqz v24, :cond_8
 
     :cond_7
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/serialize/Printer;->breakLine()V
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    goto :goto_3
+    move-object/from16 v24, v0
+
+    invoke-virtual/range {v24 .. v24}, Lmf/org/apache/xml/serialize/Printer;->breakLine()V
+
+    goto/16 :goto_3
 
     :cond_8
-    iget-boolean v0, v9, Lmf/org/apache/xml/serialize/ElementState;->afterElement:Z
+    move-object/from16 v0, v20
 
-    if-nez v0, :cond_7
+    iget-boolean v0, v0, Lmf/org/apache/xml/serialize/ElementState;->afterElement:Z
 
-    iget-boolean v0, v9, Lmf/org/apache/xml/serialize/ElementState;->afterComment:Z
+    move/from16 v24, v0
 
-    if-nez v0, :cond_7
+    if-nez v24, :cond_7
 
-    goto :goto_3
+    move-object/from16 v0, v20
+
+    iget-boolean v0, v0, Lmf/org/apache/xml/serialize/ElementState;->afterComment:Z
+
+    move/from16 v24, v0
+
+    if-nez v24, :cond_7
+
+    goto/16 :goto_3
 
     :cond_9
-    invoke-interface {p1}, Lmf/org/w3c/dom/Element;->getAttributes()Lmf/org/w3c/dom/NamedNodeMap;
+    invoke-interface/range {p1 .. p1}, Lmf/org/w3c/dom/Element;->getAttributes()Lmf/org/w3c/dom/NamedNodeMap;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/NamedNodeMap;->getLength()I
+    invoke-interface {v6}, Lmf/org/w3c/dom/NamedNodeMap;->getLength()I
 
-    move-result v1
+    move-result v14
 
-    move v2, v1
-
-    move-object v1, v0
-
-    goto :goto_4
+    goto/16 :goto_4
 
     :cond_a
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    move-object/from16 v0, p0
 
-    const/16 v3, 0x3c
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v0, v3}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
+    move-object/from16 v24, v0
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    const/16 v25, 0x3c
 
-    invoke-virtual {v0, v8}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    invoke-virtual/range {v24 .. v25}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/serialize/Printer;->indent()V
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    const/4 v0, 0x0
+    move-object/from16 v24, v0
 
-    move v4, v0
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v21
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+
+    move-object/from16 v24, v0
+
+    invoke-virtual/range {v24 .. v24}, Lmf/org/apache/xml/serialize/Printer;->indent()V
+
+    const/4 v13, 0x0
 
     :goto_7
-    if-ge v4, v2, :cond_35
+    if-ge v13, v14, :cond_35
 
-    invoke-interface {v1, v4}, Lmf/org/w3c/dom/NamedNodeMap;->item(I)Lmf/org/w3c/dom/Node;
-
-    move-result-object v0
-
-    check-cast v0, Lmf/org/w3c/dom/Attr;
-
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getName()Ljava/lang/String;
+    invoke-interface {v6, v13}, Lmf/org/w3c/dom/NamedNodeMap;->item(I)Lmf/org/w3c/dom/Node;
 
     move-result-object v5
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getValue()Ljava/lang/String;
+    check-cast v5, Lmf/org/w3c/dom/Attr;
 
-    move-result-object v3
+    invoke-interface {v5}, Lmf/org/w3c/dom/Attr;->getName()Ljava/lang/String;
 
-    if-eqz v3, :cond_b
+    move-result-object v18
+
+    invoke-interface {v5}, Lmf/org/w3c/dom/Attr;->getValue()Ljava/lang/String;
+
+    move-result-object v23
+
+    if-eqz v23, :cond_b
 
     :goto_8
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getSpecified()Z
+    invoke-interface {v5}, Lmf/org/w3c/dom/Attr;->getSpecified()Z
 
-    move-result v6
+    move-result v24
 
-    invoke-direct {p0, v5, v3, v6, v0}, Lmf/org/apache/xml/serialize/XMLSerializer;->printAttribute(Ljava/lang/String;Ljava/lang/String;ZLmf/org/w3c/dom/Attr;)V
+    move-object/from16 v0, p0
 
-    add-int/lit8 v0, v4, 0x1
+    move-object/from16 v1, v18
 
-    move v4, v0
+    move-object/from16 v2, v23
+
+    move/from16 v3, v24
+
+    invoke-direct {v0, v1, v2, v3, v5}, Lmf/org/apache/xml/serialize/XMLSerializer;->printAttribute(Ljava/lang/String;Ljava/lang/String;ZLmf/org/w3c/dom/Attr;)V
+
+    add-int/lit8 v13, v13, 0x1
 
     goto :goto_7
 
     :cond_b
-    const-string/jumbo v3, ""
+    const-string/jumbo v23, ""
 
     goto :goto_8
 
     :cond_c
-    sget-object v4, Lmf/org/apache/xerces/xni/NamespaceContext;->XMLNS_URI:Ljava/lang/String;
+    sget-object v24, Lmf/org/apache/xerces/xni/NamespaceContext;->XMLNS_URI:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v0, v22
 
-    move-result v3
+    move-object/from16 v1, v24
 
-    if-eqz v3, :cond_1
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getNodeValue()Ljava/lang/String;
+    move-result v24
 
-    move-result-object v3
+    if-eqz v24, :cond_1
 
-    if-eqz v3, :cond_e
+    invoke-interface {v5}, Lmf/org/w3c/dom/Attr;->getNodeValue()Ljava/lang/String;
+
+    move-result-object v23
+
+    if-eqz v23, :cond_e
 
     :goto_9
-    sget-object v4, Lmf/org/apache/xerces/xni/NamespaceContext;->XMLNS_URI:Ljava/lang/String;
+    sget-object v24, Lmf/org/apache/xerces/xni/NamespaceContext;->XMLNS_URI:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v24
 
-    if-nez v4, :cond_f
+    if-nez v24, :cond_f
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getPrefix()Ljava/lang/String;
+    invoke-interface {v5}, Lmf/org/w3c/dom/Attr;->getPrefix()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v19
 
-    if-nez v4, :cond_10
+    if-nez v19, :cond_10
 
     :cond_d
-    sget-object v4, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v19, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
     :goto_a
-    iget-object v6, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    move-object/from16 v0, p0
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getLocalName()Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    move-result-object v0
+    move-object/from16 v24, v0
 
-    invoke-virtual {v6, v0}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v5}, Lmf/org/w3c/dom/Attr;->getLocalName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v25
 
-    sget-object v6, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
+    invoke-virtual/range {v24 .. v25}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
 
-    if-eq v4, v6, :cond_11
+    move-result-object v16
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    sget-object v24, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
 
-    invoke-virtual {v0, v3}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v0, v19
 
-    move-result-object v0
+    move-object/from16 v1, v24
 
-    iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+    if-eq v0, v1, :cond_11
 
-    sget-object v4, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v3, v4, v0}, Lmf/org/apache/xerces/util/NamespaceSupport;->declarePrefix(Ljava/lang/String;Ljava/lang/String;)Z
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+
+    move-object/from16 v24, v0
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v23
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+
+    move-object/from16 v24, v0
+
+    sget-object v25, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v25
+
+    move-object/from16 v2, v23
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/util/NamespaceSupport;->declarePrefix(Ljava/lang/String;Ljava/lang/String;)Z
 
     goto/16 :goto_6
 
     :cond_e
-    sget-object v3, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v23, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
     goto :goto_9
 
     :cond_f
-    iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fDOMErrorHandler:Lmf/org/w3c/dom/DOMErrorHandler;
+    move-object/from16 v0, p0
 
-    if-eqz v3, :cond_1
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fDOMErrorHandler:Lmf/org/w3c/dom/DOMErrorHandler;
 
-    const-string/jumbo v3, "http://www.w3.org/TR/1998/REC-xml-19980210"
+    move-object/from16 v24, v0
 
-    const-string/jumbo v4, "CantBindXMLNS"
+    if-eqz v24, :cond_1
 
-    const/4 v6, 0x0
+    const-string/jumbo v24, "CantBindXMLNS"
 
-    invoke-static {v3, v4, v6}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    const-string/jumbo v25, "http://www.w3.org/TR/1998/REC-xml-19980210"
 
-    move-result-object v3
+    const/16 v26, 0x0
 
-    const/4 v4, 0x2
+    move-object/from16 v0, v25
 
-    const/4 v6, 0x0
+    move-object/from16 v1, v24
 
-    invoke-virtual {p0, v3, v4, v6, v0}, Lmf/org/apache/xml/serialize/XMLSerializer;->modifyDOMError(Ljava/lang/String;SLjava/lang/String;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/DOMError;
+    move-object/from16 v2, v26
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fDOMErrorHandler:Lmf/org/w3c/dom/DOMErrorHandler;
+    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fDOMError:Lmf/org/apache/xerces/dom/DOMErrorImpl;
+    move-result-object v17
 
-    invoke-interface {v0, v3}, Lmf/org/w3c/dom/DOMErrorHandler;->handleError(Lmf/org/w3c/dom/DOMError;)Z
+    const/16 v24, 0x2
 
-    move-result v0
+    const/16 v25, 0x0
 
-    if-nez v0, :cond_1
+    move-object/from16 v0, p0
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    move-object/from16 v1, v17
 
-    const-string/jumbo v1, "http://apache.org/xml/serializer"
+    move/from16 v2, v24
 
-    const-string/jumbo v2, "SerializationStopped"
+    move-object/from16 v3, v25
 
-    const/4 v3, 0x0
+    invoke-virtual {v0, v1, v2, v3, v5}, Lmf/org/apache/xml/serialize/XMLSerializer;->modifyDOMError(Ljava/lang/String;SLjava/lang/String;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/DOMError;
 
-    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    move-result-object v1
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fDOMErrorHandler:Lmf/org/w3c/dom/DOMErrorHandler;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    move-object/from16 v24, v0
 
-    throw v0
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fDOMError:Lmf/org/apache/xerces/dom/DOMErrorImpl;
+
+    move-object/from16 v25, v0
+
+    invoke-interface/range {v24 .. v25}, Lmf/org/w3c/dom/DOMErrorHandler;->handleError(Lmf/org/w3c/dom/DOMError;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_1
+
+    new-instance v24, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v25, "http://apache.org/xml/serializer"
+
+    const-string/jumbo v26, "SerializationStopped"
+
+    const/16 v27, 0x0
+
+    invoke-static/range {v25 .. v27}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v25
+
+    invoke-direct/range {v24 .. v25}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v24
 
     :cond_10
-    invoke-virtual {v4}, Ljava/lang/String;->length()I
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/String;->length()I
 
-    move-result v6
+    move-result v24
 
-    if-eqz v6, :cond_d
+    if-eqz v24, :cond_d
 
-    iget-object v6, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v6, v4}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    move-result-object v4
+    move-object/from16 v24, v0
 
-    goto :goto_a
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v19
+
+    goto/16 :goto_a
 
     :cond_11
-    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v4, v3}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    move-result-object v3
+    move-object/from16 v24, v0
 
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
+    move-object/from16 v0, v24
 
-    move-result v4
+    move-object/from16 v1, v23
 
-    if-eqz v4, :cond_1
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
 
-    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+    move-result-object v23
 
-    invoke-virtual {v4, v0, v3}, Lmf/org/apache/xerces/util/NamespaceSupport;->declarePrefix(Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/String;->length()I
+
+    move-result v24
+
+    if-eqz v24, :cond_1
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+
+    move-object/from16 v24, v0
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v16
+
+    move-object/from16 v2, v23
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/util/NamespaceSupport;->declarePrefix(Ljava/lang/String;Ljava/lang/String;)Z
 
     goto/16 :goto_6
 
     :cond_12
-    invoke-interface {p1}, Lmf/org/w3c/dom/Element;->getNamespaceURI()Ljava/lang/String;
+    invoke-interface/range {p1 .. p1}, Lmf/org/w3c/dom/Element;->getNamespaceURI()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v22
 
-    invoke-interface {p1}, Lmf/org/w3c/dom/Element;->getPrefix()Ljava/lang/String;
+    invoke-interface/range {p1 .. p1}, Lmf/org/w3c/dom/Element;->getPrefix()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v19
 
-    if-nez v3, :cond_17
+    if-nez v22, :cond_17
 
     :cond_13
-    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    move-object/from16 v0, p0
 
-    const/16 v5, 0x3c
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v4, v5}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
+    move-object/from16 v24, v0
 
-    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    const/16 v25, 0x3c
 
-    invoke-virtual {v4, v8}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    invoke-virtual/range {v24 .. v25}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
 
-    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v4}, Lmf/org/apache/xml/serialize/Printer;->indent()V
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+
+    move-object/from16 v24, v0
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v21
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+
+    move-object/from16 v24, v0
+
+    invoke-virtual/range {v24 .. v24}, Lmf/org/apache/xml/serialize/Printer;->indent()V
 
     :goto_b
-    if-nez v3, :cond_18
+    if-nez v22, :cond_18
 
-    invoke-interface {p1}, Lmf/org/w3c/dom/Element;->getLocalName()Ljava/lang/String;
+    invoke-interface/range {p1 .. p1}, Lmf/org/w3c/dom/Element;->getLocalName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v24
 
-    if-eqz v0, :cond_1c
+    if-eqz v24, :cond_1c
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+    move-object/from16 v0, p0
 
-    sget-object v3, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
 
-    invoke-virtual {v0, v3}, Lmf/org/apache/xerces/util/NamespaceSupport;->getURI(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v24, v0
 
-    move-result-object v0
+    sget-object v25, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    if-nez v0, :cond_1d
+    invoke-virtual/range {v24 .. v25}, Lmf/org/apache/xerces/util/NamespaceSupport;->getURI(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v22
+
+    if-nez v22, :cond_1d
 
     :cond_14
     :goto_c
-    const/4 v0, 0x0
-
-    move v5, v0
+    const/4 v13, 0x0
 
     :goto_d
-    if-ge v5, v2, :cond_35
+    if-ge v13, v14, :cond_35
 
-    invoke-interface {v1, v5}, Lmf/org/w3c/dom/NamedNodeMap;->item(I)Lmf/org/w3c/dom/Node;
+    invoke-interface {v6, v13}, Lmf/org/w3c/dom/NamedNodeMap;->item(I)Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v5
 
-    check-cast v0, Lmf/org/w3c/dom/Attr;
+    check-cast v5, Lmf/org/w3c/dom/Attr;
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getValue()Ljava/lang/String;
+    invoke-interface {v5}, Lmf/org/w3c/dom/Attr;->getValue()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v23
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getNodeName()Ljava/lang/String;
+    invoke-interface {v5}, Lmf/org/w3c/dom/Attr;->getNodeName()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v18
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getNamespaceURI()Ljava/lang/String;
+    invoke-interface {v5}, Lmf/org/w3c/dom/Attr;->getNamespaceURI()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v22
 
-    if-nez v3, :cond_1f
+    if-nez v22, :cond_1f
 
     :cond_15
-    move-object v7, v3
-
     :goto_e
-    if-eqz v6, :cond_20
+    if-eqz v23, :cond_20
 
     :goto_f
-    if-nez v7, :cond_21
+    if-nez v22, :cond_21
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getLocalName()Ljava/lang/String;
+    invoke-interface {v5}, Lmf/org/w3c/dom/Attr;->getLocalName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v24
 
-    if-eqz v3, :cond_32
+    if-eqz v24, :cond_32
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getSpecified()Z
+    invoke-interface {v5}, Lmf/org/w3c/dom/Attr;->getSpecified()Z
 
-    move-result v3
+    move-result v24
 
-    invoke-direct {p0, v4, v6, v3, v0}, Lmf/org/apache/xml/serialize/XMLSerializer;->printAttribute(Ljava/lang/String;Ljava/lang/String;ZLmf/org/w3c/dom/Attr;)V
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v18
+
+    move-object/from16 v2, v23
+
+    move/from16 v3, v24
+
+    invoke-direct {v0, v1, v2, v3, v5}, Lmf/org/apache/xml/serialize/XMLSerializer;->printAttribute(Ljava/lang/String;Ljava/lang/String;ZLmf/org/w3c/dom/Attr;)V
 
     :cond_16
     :goto_10
-    add-int/lit8 v0, v5, 0x1
-
-    move v5, v0
+    add-int/lit8 v13, v13, 0x1
 
     goto :goto_d
 
     :cond_17
-    if-eqz v0, :cond_13
+    if-eqz v19, :cond_13
 
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/String;->length()I
 
-    move-result v4
+    move-result v24
 
-    if-nez v4, :cond_13
+    if-nez v24, :cond_13
 
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/String;->length()I
 
-    move-result v4
+    move-result v24
 
-    if-eqz v4, :cond_13
+    if-eqz v24, :cond_13
 
-    const/4 v0, 0x0
+    const/16 v19, 0x0
 
-    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    move-object/from16 v0, p0
 
-    const/16 v5, 0x3c
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v4, v5}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
+    move-object/from16 v24, v0
 
-    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    const/16 v25, 0x3c
 
-    invoke-interface {p1}, Lmf/org/w3c/dom/Element;->getLocalName()Ljava/lang/String;
+    invoke-virtual/range {v24 .. v25}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
 
-    move-result-object v5
+    move-object/from16 v0, p0
 
-    invoke-virtual {v4, v5}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    move-object/from16 v24, v0
 
-    invoke-virtual {v4}, Lmf/org/apache/xml/serialize/Printer;->indent()V
+    invoke-interface/range {p1 .. p1}, Lmf/org/w3c/dom/Element;->getLocalName()Ljava/lang/String;
+
+    move-result-object v25
+
+    invoke-virtual/range {v24 .. v25}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+
+    move-object/from16 v24, v0
+
+    invoke-virtual/range {v24 .. v24}, Lmf/org/apache/xml/serialize/Printer;->indent()V
 
     goto :goto_b
 
     :cond_18
-    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v4, v3}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    move-result-object v3
+    move-object/from16 v24, v0
 
-    if-nez v0, :cond_1a
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v22
+
+    if-nez v19, :cond_1a
 
     :cond_19
-    sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v19, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
     :goto_11
-    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v4, v0}, Lmf/org/apache/xerces/util/NamespaceSupport;->getURI(Ljava/lang/String;)Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
 
-    move-result-object v4
+    move-object/from16 v24, v0
 
-    if-eq v4, v3, :cond_14
+    move-object/from16 v0, v24
 
-    iget-boolean v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNamespacePrefixes:Z
+    move-object/from16 v1, v19
 
-    if-nez v4, :cond_1b
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/NamespaceSupport;->getURI(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v22
+
+    if-eq v0, v1, :cond_14
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNamespacePrefixes:Z
+
+    move/from16 v24, v0
+
+    if-nez v24, :cond_1b
 
     :goto_12
-    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fLocalNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v4, v0, v3}, Lmf/org/apache/xerces/util/NamespaceSupport;->declarePrefix(Ljava/lang/String;Ljava/lang/String;)Z
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fLocalNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
 
-    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+    move-object/from16 v24, v0
 
-    invoke-virtual {v4, v0, v3}, Lmf/org/apache/xerces/util/NamespaceSupport;->declarePrefix(Ljava/lang/String;Ljava/lang/String;)Z
+    move-object/from16 v0, v24
 
-    goto :goto_c
+    move-object/from16 v1, v19
+
+    move-object/from16 v2, v22
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/util/NamespaceSupport;->declarePrefix(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+
+    move-object/from16 v24, v0
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v19
+
+    move-object/from16 v2, v22
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/util/NamespaceSupport;->declarePrefix(Ljava/lang/String;Ljava/lang/String;)Z
+
+    goto/16 :goto_c
 
     :cond_1a
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/String;->length()I
 
-    move-result v4
+    move-result v24
 
-    if-eqz v4, :cond_19
+    if-eqz v24, :cond_19
 
-    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v4, v0}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    move-result-object v0
+    move-object/from16 v24, v0
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v19
 
     goto :goto_11
 
     :cond_1b
-    invoke-direct {p0, v0, v3}, Lmf/org/apache/xml/serialize/XMLSerializer;->printNamespaceAttr(Ljava/lang/String;Ljava/lang/String;)V
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v19
+
+    move-object/from16 v2, v22
+
+    invoke-direct {v0, v1, v2}, Lmf/org/apache/xml/serialize/XMLSerializer;->printNamespaceAttr(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_12
 
     :cond_1c
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fDOMErrorHandler:Lmf/org/w3c/dom/DOMErrorHandler;
+    move-object/from16 v0, p0
 
-    if-eqz v0, :cond_14
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fDOMErrorHandler:Lmf/org/w3c/dom/DOMErrorHandler;
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    move-object/from16 v24, v0
 
-    const-string/jumbo v3, "NullLocalElementName"
+    if-eqz v24, :cond_14
 
-    const/4 v4, 0x1
+    const-string/jumbo v24, "NullLocalElementName"
 
-    new-array v4, v4, [Ljava/lang/Object;
+    const-string/jumbo v25, "http://www.w3.org/dom/DOMTR"
 
-    const/4 v5, 0x0
+    const/16 v26, 0x1
 
-    invoke-interface {p1}, Lmf/org/w3c/dom/Element;->getNodeName()Ljava/lang/String;
+    move/from16 v0, v26
 
-    move-result-object v6
+    new-array v0, v0, [Ljava/lang/Object;
 
-    aput-object v6, v4, v5
+    move-object/from16 v26, v0
 
-    invoke-static {v0, v3, v4}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-interface/range {p1 .. p1}, Lmf/org/w3c/dom/Element;->getNodeName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v27
 
-    const/4 v3, 0x2
+    const/16 v28, 0x0
 
-    const/4 v4, 0x0
+    aput-object v27, v26, v28
 
-    invoke-virtual {p0, v0, v3, v4, p1}, Lmf/org/apache/xml/serialize/XMLSerializer;->modifyDOMError(Ljava/lang/String;SLjava/lang/String;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/DOMError;
+    move-object/from16 v0, v25
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fDOMErrorHandler:Lmf/org/w3c/dom/DOMErrorHandler;
+    move-object/from16 v1, v24
 
-    iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fDOMError:Lmf/org/apache/xerces/dom/DOMErrorImpl;
+    move-object/from16 v2, v26
 
-    invoke-interface {v0, v3}, Lmf/org/w3c/dom/DOMErrorHandler;->handleError(Lmf/org/w3c/dom/DOMError;)Z
+    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result v0
+    move-result-object v17
 
-    if-nez v0, :cond_14
+    const/16 v24, 0x2
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const/16 v25, 0x0
 
-    const-string/jumbo v1, "http://apache.org/xml/serializer"
+    move-object/from16 v0, p0
 
-    const-string/jumbo v2, "SerializationStopped"
+    move-object/from16 v1, v17
 
-    const/4 v3, 0x0
+    move/from16 v2, v24
 
-    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-object/from16 v3, v25
 
-    move-result-object v1
+    move-object/from16 v4, p1
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2, v3, v4}, Lmf/org/apache/xml/serialize/XMLSerializer;->modifyDOMError(Ljava/lang/String;SLjava/lang/String;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/DOMError;
 
-    throw v0
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fDOMErrorHandler:Lmf/org/w3c/dom/DOMErrorHandler;
+
+    move-object/from16 v24, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fDOMError:Lmf/org/apache/xerces/dom/DOMErrorImpl;
+
+    move-object/from16 v25, v0
+
+    invoke-interface/range {v24 .. v25}, Lmf/org/w3c/dom/DOMErrorHandler;->handleError(Lmf/org/w3c/dom/DOMError;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_14
+
+    new-instance v24, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v25, "http://apache.org/xml/serializer"
+
+    const-string/jumbo v26, "SerializationStopped"
+
+    const/16 v27, 0x0
+
+    invoke-static/range {v25 .. v27}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v25
+
+    invoke-direct/range {v24 .. v25}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v24
 
     :cond_1d
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v24
 
-    if-lez v0, :cond_14
+    if-lez v24, :cond_14
 
-    iget-boolean v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNamespacePrefixes:Z
+    move-object/from16 v0, p0
 
-    if-nez v0, :cond_1e
+    iget-boolean v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNamespacePrefixes:Z
+
+    move/from16 v24, v0
+
+    if-nez v24, :cond_1e
 
     :goto_13
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fLocalNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+    move-object/from16 v0, p0
 
-    sget-object v3, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fLocalNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
 
-    sget-object v4, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    move-object/from16 v24, v0
 
-    invoke-virtual {v0, v3, v4}, Lmf/org/apache/xerces/util/NamespaceSupport;->declarePrefix(Ljava/lang/String;Ljava/lang/String;)Z
+    sget-object v25, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+    sget-object v26, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    sget-object v3, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    invoke-virtual/range {v24 .. v26}, Lmf/org/apache/xerces/util/NamespaceSupport;->declarePrefix(Ljava/lang/String;Ljava/lang/String;)Z
 
-    sget-object v4, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v3, v4}, Lmf/org/apache/xerces/util/NamespaceSupport;->declarePrefix(Ljava/lang/String;Ljava/lang/String;)Z
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+
+    move-object/from16 v24, v0
+
+    sget-object v25, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+
+    sget-object v26, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+
+    invoke-virtual/range {v24 .. v26}, Lmf/org/apache/xerces/util/NamespaceSupport;->declarePrefix(Ljava/lang/String;Ljava/lang/String;)Z
 
     goto/16 :goto_c
 
     :cond_1e
-    sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v24, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    sget-object v3, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v25, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    invoke-direct {p0, v0, v3}, Lmf/org/apache/xml/serialize/XMLSerializer;->printNamespaceAttr(Ljava/lang/String;Ljava/lang/String;)V
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v24
+
+    move-object/from16 v2, v25
+
+    invoke-direct {v0, v1, v2}, Lmf/org/apache/xml/serialize/XMLSerializer;->printNamespaceAttr(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_13
 
     :cond_1f
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/String;->length()I
 
-    move-result v7
+    move-result v24
 
-    if-nez v7, :cond_15
+    if-nez v24, :cond_15
 
-    const/4 v3, 0x0
+    const/16 v22, 0x0
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getLocalName()Ljava/lang/String;
+    invoke-interface {v5}, Lmf/org/w3c/dom/Attr;->getLocalName()Ljava/lang/String;
 
-    move-result-object v4
-
-    move-object v7, v3
+    move-result-object v18
 
     goto/16 :goto_e
 
     :cond_20
-    sget-object v6, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v23, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
     goto/16 :goto_f
 
     :cond_21
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getPrefix()Ljava/lang/String;
+    invoke-interface {v5}, Lmf/org/w3c/dom/Attr;->getPrefix()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v19
 
-    if-eqz v3, :cond_26
+    if-eqz v19, :cond_26
 
-    iget-object v10, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v10, v3}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    move-result-object v3
+    move-object/from16 v24, v0
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v19
 
     :goto_14
-    iget-object v10, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    move-object/from16 v0, p0
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getLocalName()Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    move-result-object v11
+    move-object/from16 v24, v0
 
-    invoke-virtual {v10, v11}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v5}, Lmf/org/w3c/dom/Attr;->getLocalName()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v25
 
-    if-nez v7, :cond_27
+    invoke-virtual/range {v24 .. v25}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v16
+
+    if-nez v22, :cond_27
 
     :cond_22
-    iget-object v11, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v11, v7}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    move-result-object v7
+    move-object/from16 v24, v0
 
-    iget-object v11, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+    move-object/from16 v0, v24
 
-    invoke-virtual {v11, v3}, Lmf/org/apache/xerces/util/NamespaceSupport;->getURI(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v1, v22
 
-    move-result-object v11
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
 
-    sget-object v12, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    move-result-object v22
 
-    if-ne v3, v12, :cond_2c
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+
+    move-object/from16 v24, v0
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/NamespaceSupport;->getURI(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v12
+
+    sget-object v24, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v24
+
+    if-ne v0, v1, :cond_2c
 
     :cond_23
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getNodeName()Ljava/lang/String;
+    invoke-interface {v5}, Lmf/org/w3c/dom/Attr;->getNodeName()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v18
 
-    iget-object v11, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v11, v7}, Lmf/org/apache/xerces/util/NamespaceSupport;->getPrefix(Ljava/lang/String;)Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+
+    move-object/from16 v24, v0
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/NamespaceSupport;->getPrefix(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v11
 
     if-nez v11, :cond_2d
 
     :cond_24
-    sget-object v11, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v24, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    if-ne v3, v11, :cond_2e
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v24
+
+    if-ne v0, v1, :cond_2e
 
     :cond_25
-    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    const/4 v9, 0x1
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v3, "NS"
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    invoke-direct {v11, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    move-object/from16 v24, v0
 
-    const/4 v12, 0x1
+    new-instance v25, Ljava/lang/StringBuilder;
 
-    const/4 v3, 0x2
+    const-string/jumbo v26, "NS"
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-direct/range {v25 .. v26}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    move-result-object v11
+    const/16 v26, 0x1
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const/4 v9, 0x2
 
-    move-result-object v11
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v11}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v25
 
-    move-result-object v4
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v25
+
+    invoke-virtual/range {v24 .. v25}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v19
+
+    move v10, v9
 
     :goto_15
-    iget-object v11, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fLocalNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v11, v4}, Lmf/org/apache/xerces/util/NamespaceSupport;->getURI(Ljava/lang/String;)Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fLocalNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
 
-    move-result-object v11
+    move-object/from16 v24, v0
 
-    if-eqz v11, :cond_2f
+    move-object/from16 v0, v24
 
-    iget-object v11, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    move-object/from16 v1, v19
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/NamespaceSupport;->getURI(Ljava/lang/String;)Ljava/lang/String;
 
-    const-string/jumbo v4, "NS"
+    move-result-object v24
 
-    invoke-direct {v12, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    if-eqz v24, :cond_2f
 
-    add-int/lit8 v4, v3, 0x1
+    move-object/from16 v0, p0
 
-    invoke-virtual {v12, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    move-result-object v3
+    move-object/from16 v24, v0
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    new-instance v25, Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    const-string/jumbo v26, "NS"
 
-    invoke-virtual {v11, v3}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    invoke-direct/range {v25 .. v26}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    move-result-object v3
+    add-int/lit8 v9, v10, 0x1
 
-    move v13, v4
+    move-object/from16 v0, v25
 
-    move-object v4, v3
+    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move v3, v13
+    move-result-object v25
+
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v25
+
+    invoke-virtual/range {v24 .. v25}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v19
+
+    move v10, v9
 
     goto :goto_15
 
     :cond_26
-    sget-object v3, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v19, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    goto :goto_14
+    goto/16 :goto_14
 
     :cond_27
-    sget-object v11, Lmf/org/apache/xerces/xni/NamespaceContext;->XMLNS_URI:Ljava/lang/String;
+    sget-object v24, Lmf/org/apache/xerces/xni/NamespaceContext;->XMLNS_URI:Ljava/lang/String;
 
-    invoke-virtual {v7, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v0, v22
 
-    move-result v11
+    move-object/from16 v1, v24
 
-    if-eqz v11, :cond_22
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getPrefix()Ljava/lang/String;
+    move-result v24
 
-    move-result-object v3
+    if-eqz v24, :cond_22
 
-    if-nez v3, :cond_29
+    invoke-interface {v5}, Lmf/org/w3c/dom/Attr;->getPrefix()Ljava/lang/String;
+
+    move-result-object v19
+
+    if-nez v19, :cond_29
 
     :cond_28
-    sget-object v3, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v19, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
     :goto_16
-    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    move-object/from16 v0, p0
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getLocalName()Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    move-result-object v0
+    move-object/from16 v24, v0
 
-    invoke-virtual {v4, v0}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v5}, Lmf/org/w3c/dom/Attr;->getLocalName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v25
 
-    sget-object v4, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
+    invoke-virtual/range {v24 .. v25}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
 
-    if-eq v3, v4, :cond_2a
+    move-result-object v16
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+    sget-object v24, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
 
-    sget-object v3, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    move-object/from16 v0, v19
 
-    invoke-virtual {v0, v3}, Lmf/org/apache/xerces/util/NamespaceSupport;->getURI(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v1, v24
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fLocalNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+    if-eq v0, v1, :cond_2a
 
-    sget-object v3, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v3}, Lmf/org/apache/xerces/util/NamespaceSupport;->getURI(Ljava/lang/String;)Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
 
-    move-result-object v0
+    move-object/from16 v24, v0
 
-    iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    sget-object v25, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    invoke-virtual {v3, v6}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual/range {v24 .. v25}, Lmf/org/apache/xerces/util/NamespaceSupport;->getURI(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v22
 
-    if-nez v0, :cond_16
+    move-object/from16 v0, p0
 
-    iget-boolean v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNamespacePrefixes:Z
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fLocalNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
 
-    if-eqz v0, :cond_16
+    move-object/from16 v24, v0
 
-    sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v25, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    invoke-direct {p0, v0, v3}, Lmf/org/apache/xml/serialize/XMLSerializer;->printNamespaceAttr(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual/range {v24 .. v25}, Lmf/org/apache/xerces/util/NamespaceSupport;->getURI(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v15
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+
+    move-object/from16 v24, v0
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v23
+
+    if-nez v15, :cond_16
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNamespacePrefixes:Z
+
+    move/from16 v24, v0
+
+    if-eqz v24, :cond_16
+
+    sget-object v24, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v24
+
+    move-object/from16 v2, v23
+
+    invoke-direct {v0, v1, v2}, Lmf/org/apache/xml/serialize/XMLSerializer;->printNamespaceAttr(Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_10
 
     :cond_29
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/String;->length()I
 
-    move-result v4
+    move-result v24
 
-    if-eqz v4, :cond_28
+    if-eqz v24, :cond_28
 
-    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v4, v3}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    move-result-object v3
+    move-object/from16 v24, v0
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v19
 
     goto :goto_16
 
     :cond_2a
-    iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fLocalNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v3, v0}, Lmf/org/apache/xerces/util/NamespaceSupport;->getURI(Ljava/lang/String;)Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fLocalNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
 
-    move-result-object v3
+    move-object/from16 v24, v0
 
-    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    move-object/from16 v0, v24
 
-    invoke-virtual {v4, v6}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v1, v16
 
-    move-result-object v4
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/NamespaceSupport;->getURI(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v4}, Ljava/lang/String;->length()I
+    move-result-object v15
 
-    move-result v6
+    move-object/from16 v0, p0
 
-    if-eqz v6, :cond_16
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    if-nez v3, :cond_16
+    move-object/from16 v24, v0
 
-    iget-boolean v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNamespacePrefixes:Z
+    move-object/from16 v0, v24
 
-    if-nez v3, :cond_2b
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v23
+
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/String;->length()I
+
+    move-result v24
+
+    if-eqz v24, :cond_16
+
+    if-nez v15, :cond_16
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNamespacePrefixes:Z
+
+    move/from16 v24, v0
+
+    if-nez v24, :cond_2b
 
     :goto_17
-    iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fLocalNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v3, v0, v4}, Lmf/org/apache/xerces/util/NamespaceSupport;->declarePrefix(Ljava/lang/String;Ljava/lang/String;)Z
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fLocalNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+
+    move-object/from16 v24, v0
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v16
+
+    move-object/from16 v2, v23
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/util/NamespaceSupport;->declarePrefix(Ljava/lang/String;Ljava/lang/String;)Z
 
     goto/16 :goto_10
 
     :cond_2b
-    invoke-direct {p0, v0, v4}, Lmf/org/apache/xml/serialize/XMLSerializer;->printNamespaceAttr(Ljava/lang/String;Ljava/lang/String;)V
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v16
+
+    move-object/from16 v2, v23
+
+    invoke-direct {v0, v1, v2}, Lmf/org/apache/xml/serialize/XMLSerializer;->printNamespaceAttr(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_17
 
     :cond_2c
-    if-ne v11, v7, :cond_23
+    move-object/from16 v0, v22
 
-    move-object v3, v6
+    if-ne v12, v0, :cond_23
 
     :goto_18
-    if-eqz v3, :cond_31
+    if-eqz v23, :cond_31
+
+    move-object/from16 v24, v23
 
     :goto_19
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getSpecified()Z
+    invoke-interface {v5}, Lmf/org/w3c/dom/Attr;->getSpecified()Z
 
-    move-result v6
+    move-result v25
 
-    invoke-direct {p0, v4, v3, v6, v0}, Lmf/org/apache/xml/serialize/XMLSerializer;->printAttribute(Ljava/lang/String;Ljava/lang/String;ZLmf/org/w3c/dom/Attr;)V
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v18
+
+    move-object/from16 v2, v24
+
+    move/from16 v3, v25
+
+    invoke-direct {v0, v1, v2, v3, v5}, Lmf/org/apache/xml/serialize/XMLSerializer;->printAttribute(Ljava/lang/String;Ljava/lang/String;ZLmf/org/w3c/dom/Attr;)V
 
     goto/16 :goto_10
 
     :cond_2d
-    sget-object v12, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v24, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    if-eq v11, v12, :cond_24
+    move-object/from16 v0, v24
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    if-eq v11, v0, :cond_24
+
+    move-object/from16 v19, v11
+
+    new-instance v24, Ljava/lang/StringBuilder;
 
     invoke-static {v11}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v25
 
-    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v24 .. v25}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v4, ":"
+    const-string/jumbo v25, ":"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v24
 
-    invoke-virtual {v3, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v24
 
-    move-result-object v3
+    move-object/from16 v1, v16
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v24
 
-    move-object v3, v6
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v18
 
     goto :goto_18
 
     :cond_2e
-    iget-object v11, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fLocalNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v11, v3}, Lmf/org/apache/xerces/util/NamespaceSupport;->getURI(Ljava/lang/String;)Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fLocalNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
 
-    move-result-object v11
+    move-object/from16 v24, v0
 
-    if-nez v11, :cond_25
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/NamespaceSupport;->getURI(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v24
+
+    if-nez v24, :cond_25
 
     :goto_1a
-    iget-boolean v10, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNamespacePrefixes:Z
+    move-object/from16 v0, p0
 
-    if-nez v10, :cond_30
+    iget-boolean v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNamespacePrefixes:Z
+
+    move/from16 v24, v0
+
+    if-nez v24, :cond_30
 
     :goto_1b
-    iget-object v10, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v10, v6}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    move-result-object v6
+    move-object/from16 v24, v0
 
-    iget-object v10, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fLocalNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+    move-object/from16 v0, v24
 
-    invoke-virtual {v10, v3, v6}, Lmf/org/apache/xerces/util/NamespaceSupport;->declarePrefix(Ljava/lang/String;Ljava/lang/String;)Z
+    move-object/from16 v1, v23
 
-    iget-object v10, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v10, v3, v7}, Lmf/org/apache/xerces/util/NamespaceSupport;->declarePrefix(Ljava/lang/String;Ljava/lang/String;)Z
+    move-result-object v23
 
-    move-object v3, v6
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fLocalNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+
+    move-object/from16 v24, v0
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v19
+
+    move-object/from16 v2, v23
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/util/NamespaceSupport;->declarePrefix(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+
+    move-object/from16 v24, v0
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v19
+
+    move-object/from16 v2, v22
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/util/NamespaceSupport;->declarePrefix(Ljava/lang/String;Ljava/lang/String;)Z
 
     goto :goto_18
 
     :cond_2f
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v24, Ljava/lang/StringBuilder;
 
-    invoke-static {v4}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static/range {v19 .. v19}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v25
 
-    invoke-direct {v3, v11}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v24 .. v25}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v11, ":"
+    const-string/jumbo v25, ":"
 
-    invoke-virtual {v3, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v24
 
-    invoke-virtual {v3, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v24
 
-    move-result-object v3
+    move-object/from16 v1, v16
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v24
 
-    move-object v13, v4
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-object v4, v3
-
-    move-object v3, v13
+    move-result-object v18
 
     goto :goto_1a
 
     :cond_30
-    invoke-direct {p0, v3, v7}, Lmf/org/apache/xml/serialize/XMLSerializer;->printNamespaceAttr(Ljava/lang/String;Ljava/lang/String;)V
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v19
+
+    move-object/from16 v2, v22
+
+    invoke-direct {v0, v1, v2}, Lmf/org/apache/xml/serialize/XMLSerializer;->printNamespaceAttr(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_1b
 
     :cond_31
-    sget-object v3, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v24, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    goto :goto_19
+    goto/16 :goto_19
 
     :cond_32
-    iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fDOMErrorHandler:Lmf/org/w3c/dom/DOMErrorHandler;
+    move-object/from16 v0, p0
 
-    if-nez v3, :cond_34
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fDOMErrorHandler:Lmf/org/w3c/dom/DOMErrorHandler;
+
+    move-object/from16 v24, v0
+
+    if-nez v24, :cond_34
 
     :cond_33
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getSpecified()Z
+    invoke-interface {v5}, Lmf/org/w3c/dom/Attr;->getSpecified()Z
 
-    move-result v3
+    move-result v24
 
-    invoke-direct {p0, v4, v6, v3, v0}, Lmf/org/apache/xml/serialize/XMLSerializer;->printAttribute(Ljava/lang/String;Ljava/lang/String;ZLmf/org/w3c/dom/Attr;)V
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v18
+
+    move-object/from16 v2, v23
+
+    move/from16 v3, v24
+
+    invoke-direct {v0, v1, v2, v3, v5}, Lmf/org/apache/xml/serialize/XMLSerializer;->printAttribute(Ljava/lang/String;Ljava/lang/String;ZLmf/org/w3c/dom/Attr;)V
 
     goto/16 :goto_10
 
     :cond_34
-    const-string/jumbo v3, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v24, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v7, "NullLocalAttrName"
+    const/16 v25, 0x1
 
-    const/4 v10, 0x1
+    move/from16 v0, v25
 
-    new-array v10, v10, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v11, 0x0
+    move-object/from16 v25, v0
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getNodeName()Ljava/lang/String;
+    invoke-interface {v5}, Lmf/org/w3c/dom/Attr;->getNodeName()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v26
 
-    aput-object v12, v10, v11
+    const/16 v27, 0x0
 
-    invoke-static {v3, v7, v10}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    aput-object v26, v25, v27
 
-    move-result-object v3
+    const-string/jumbo v26, "NullLocalAttrName"
 
-    const/4 v7, 0x2
+    move-object/from16 v0, v24
 
-    const/4 v10, 0x0
+    move-object/from16 v1, v26
 
-    invoke-virtual {p0, v3, v7, v10, v0}, Lmf/org/apache/xml/serialize/XMLSerializer;->modifyDOMError(Ljava/lang/String;SLjava/lang/String;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/DOMError;
+    move-object/from16 v2, v25
 
-    iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fDOMErrorHandler:Lmf/org/w3c/dom/DOMErrorHandler;
+    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    iget-object v7, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fDOMError:Lmf/org/apache/xerces/dom/DOMErrorImpl;
+    move-result-object v17
 
-    invoke-interface {v3, v7}, Lmf/org/w3c/dom/DOMErrorHandler;->handleError(Lmf/org/w3c/dom/DOMError;)Z
+    const/16 v24, 0x2
 
-    move-result v3
+    const/16 v25, 0x0
 
-    if-nez v3, :cond_33
+    move-object/from16 v0, p0
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    move-object/from16 v1, v17
 
-    const-string/jumbo v1, "http://apache.org/xml/serializer"
+    move/from16 v2, v24
 
-    const-string/jumbo v2, "SerializationStopped"
+    move-object/from16 v3, v25
 
-    const/4 v3, 0x0
+    invoke-virtual {v0, v1, v2, v3, v5}, Lmf/org/apache/xml/serialize/XMLSerializer;->modifyDOMError(Ljava/lang/String;SLjava/lang/String;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/DOMError;
 
-    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    move-result-object v1
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fDOMErrorHandler:Lmf/org/w3c/dom/DOMErrorHandler;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    move-object/from16 v24, v0
 
-    throw v0
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fDOMError:Lmf/org/apache/xerces/dom/DOMErrorImpl;
+
+    move-object/from16 v25, v0
+
+    invoke-interface/range {v24 .. v25}, Lmf/org/w3c/dom/DOMErrorHandler;->handleError(Lmf/org/w3c/dom/DOMError;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_33
+
+    new-instance v24, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v25, "http://apache.org/xml/serializer"
+
+    const-string/jumbo v26, "SerializationStopped"
+
+    const/16 v27, 0x0
+
+    invoke-static/range {v25 .. v27}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v25
+
+    invoke-direct/range {v24 .. v25}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v24
 
     :cond_35
-    invoke-interface {p1}, Lmf/org/w3c/dom/Element;->hasChildNodes()Z
+    invoke-interface/range {p1 .. p1}, Lmf/org/w3c/dom/Element;->hasChildNodes()Z
 
-    move-result v0
+    move-result v24
 
-    if-nez v0, :cond_36
+    if-nez v24, :cond_36
 
-    iget-boolean v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNamespaces:Z
+    move-object/from16 v0, p0
 
-    if-nez v0, :cond_39
+    iget-boolean v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNamespaces:Z
+
+    move/from16 v24, v0
+
+    if-nez v24, :cond_39
 
     :goto_1c
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/serialize/Printer;->unindent()V
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    move-object/from16 v24, v0
 
-    const-string/jumbo v1, "/>"
+    invoke-virtual/range {v24 .. v24}, Lmf/org/apache/xml/serialize/Printer;->unindent()V
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    move-object/from16 v0, p0
 
-    const/4 v0, 0x1
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    iput-boolean v0, v9, Lmf/org/apache/xml/serialize/ElementState;->afterElement:Z
+    move-object/from16 v24, v0
 
-    const/4 v0, 0x0
+    const-string/jumbo v25, "/>"
 
-    iput-boolean v0, v9, Lmf/org/apache/xml/serialize/ElementState;->afterComment:Z
+    invoke-virtual/range {v24 .. v25}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
-    const/4 v0, 0x0
+    const/16 v24, 0x1
 
-    iput-boolean v0, v9, Lmf/org/apache/xml/serialize/ElementState;->empty:Z
+    move/from16 v0, v24
 
-    invoke-virtual {p0}, Lmf/org/apache/xml/serialize/XMLSerializer;->isDocumentState()Z
+    move-object/from16 v1, v20
 
-    move-result v0
+    iput-boolean v0, v1, Lmf/org/apache/xml/serialize/ElementState;->afterElement:Z
 
-    if-nez v0, :cond_3a
+    const/16 v24, 0x0
+
+    move/from16 v0, v24
+
+    move-object/from16 v1, v20
+
+    iput-boolean v0, v1, Lmf/org/apache/xml/serialize/ElementState;->afterComment:Z
+
+    const/16 v24, 0x0
+
+    move/from16 v0, v24
+
+    move-object/from16 v1, v20
+
+    iput-boolean v0, v1, Lmf/org/apache/xml/serialize/ElementState;->empty:Z
+
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xml/serialize/XMLSerializer;->isDocumentState()Z
+
+    move-result v24
+
+    if-nez v24, :cond_3a
 
     :goto_1d
     return-void
 
     :cond_36
-    iget-boolean v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fPreserveSpace:Z
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x0
+    iget-boolean v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fPreserveSpace:Z
 
-    const/4 v2, 0x0
+    move/from16 v24, v0
 
-    invoke-virtual {p0, v1, v2, v8, v0}, Lmf/org/apache/xml/serialize/XMLSerializer;->enterElementState(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Lmf/org/apache/xml/serialize/ElementState;
+    const/16 v25, 0x0
 
-    move-result-object v0
+    const/16 v26, 0x0
 
-    iget-object v1, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v1, v8}, Lmf/org/apache/xml/serialize/OutputFormat;->isCDataElement(Ljava/lang/String;)Z
+    move-object/from16 v1, v25
 
-    move-result v1
+    move-object/from16 v2, v26
 
-    iput-boolean v1, v0, Lmf/org/apache/xml/serialize/ElementState;->doCData:Z
+    move-object/from16 v3, v21
 
-    iget-object v1, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
+    move/from16 v4, v24
 
-    invoke-virtual {v1, v8}, Lmf/org/apache/xml/serialize/OutputFormat;->isNonEscapingElement(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1, v2, v3, v4}, Lmf/org/apache/xml/serialize/XMLSerializer;->enterElementState(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Lmf/org/apache/xml/serialize/ElementState;
 
-    move-result v1
+    move-result-object v20
 
-    iput-boolean v1, v0, Lmf/org/apache/xml/serialize/ElementState;->unescaped:Z
+    move-object/from16 v0, p0
 
-    invoke-interface {p1}, Lmf/org/w3c/dom/Element;->getFirstChild()Lmf/org/w3c/dom/Node;
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
 
-    move-result-object v0
+    move-object/from16 v24, v0
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v21
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xml/serialize/OutputFormat;->isCDataElement(Ljava/lang/String;)Z
+
+    move-result v24
+
+    move/from16 v0, v24
+
+    move-object/from16 v1, v20
+
+    iput-boolean v0, v1, Lmf/org/apache/xml/serialize/ElementState;->doCData:Z
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
+
+    move-object/from16 v24, v0
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v21
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xml/serialize/OutputFormat;->isNonEscapingElement(Ljava/lang/String;)Z
+
+    move-result v24
+
+    move/from16 v0, v24
+
+    move-object/from16 v1, v20
+
+    iput-boolean v0, v1, Lmf/org/apache/xml/serialize/ElementState;->unescaped:Z
+
+    invoke-interface/range {p1 .. p1}, Lmf/org/w3c/dom/Element;->getFirstChild()Lmf/org/w3c/dom/Node;
+
+    move-result-object v7
 
     :goto_1e
-    if-eqz v0, :cond_37
+    if-eqz v7, :cond_37
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xml/serialize/XMLSerializer;->serializeNode(Lmf/org/w3c/dom/Node;)V
+    move-object/from16 v0, p0
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+    invoke-virtual {v0, v7}, Lmf/org/apache/xml/serialize/XMLSerializer;->serializeNode(Lmf/org/w3c/dom/Node;)V
 
-    move-result-object v0
+    invoke-interface {v7}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+
+    move-result-object v7
 
     goto :goto_1e
 
     :cond_37
-    iget-boolean v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNamespaces:Z
+    move-object/from16 v0, p0
 
-    if-nez v0, :cond_38
+    iget-boolean v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNamespaces:Z
+
+    move/from16 v24, v0
+
+    if-nez v24, :cond_38
 
     :goto_1f
-    const/4 v0, 0x0
+    const/16 v24, 0x0
 
-    const/4 v1, 0x0
+    const/16 v25, 0x0
 
-    invoke-virtual {p0, v0, v1, v8}, Lmf/org/apache/xml/serialize/XMLSerializer;->endElementIO(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v24
+
+    move-object/from16 v2, v25
+
+    move-object/from16 v3, v21
+
+    invoke-virtual {v0, v1, v2, v3}, Lmf/org/apache/xml/serialize/XMLSerializer;->endElementIO(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_1d
 
     :cond_38
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/NamespaceSupport;->popContext()V
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+
+    move-object/from16 v24, v0
+
+    invoke-virtual/range {v24 .. v24}, Lmf/org/apache/xerces/util/NamespaceSupport;->popContext()V
 
     goto :goto_1f
 
     :cond_39
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/NamespaceSupport;->popContext()V
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->fNSBinder:Lmf/org/apache/xerces/util/NamespaceSupport;
 
-    goto :goto_1c
+    move-object/from16 v24, v0
+
+    invoke-virtual/range {v24 .. v24}, Lmf/org/apache/xerces/util/NamespaceSupport;->popContext()V
+
+    goto/16 :goto_1c
 
     :cond_3a
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/serialize/Printer;->flush()V
+    iget-object v0, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    goto :goto_1d
+    move-object/from16 v24, v0
+
+    invoke-virtual/range {v24 .. v24}, Lmf/org/apache/xml/serialize/Printer;->flush()V
+
+    goto/16 :goto_1d
 .end method
 
 .method public setNamespaces(Z)V
@@ -2833,1149 +3492,1215 @@
         }
     .end annotation
 
-    const/16 v6, 0x22
+    const/16 v5, 0x22
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    const/4 v0, 0x0
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    iget-object v1, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
-
-    invoke-virtual {v1}, Lmf/org/apache/xml/serialize/Printer;->leaveDTD()Ljava/lang/String;
+    invoke-virtual {v4}, Lmf/org/apache/xml/serialize/Printer;->leaveDTD()Ljava/lang/String;
 
     move-result-object v1
 
-    iget-boolean v2, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_started:Z
+    iget-boolean v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_started:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v4, :cond_1
 
     :cond_0
     :goto_0
-    iput-boolean v5, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_started:Z
+    iput-boolean v6, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_started:Z
 
     invoke-virtual {p0}, Lmf/org/apache/xml/serialize/XMLSerializer;->serializePreRoot()V
 
     return-void
 
     :cond_1
-    iget-object v2, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
 
-    invoke-virtual {v2}, Lmf/org/apache/xml/serialize/OutputFormat;->getOmitXMLDeclaration()Z
+    invoke-virtual {v4}, Lmf/org/apache/xml/serialize/OutputFormat;->getOmitXMLDeclaration()Z
 
-    move-result v2
+    move-result v4
 
-    if-eqz v2, :cond_2
+    if-eqz v4, :cond_2
 
     :goto_1
-    iget-object v2, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
 
-    invoke-virtual {v2}, Lmf/org/apache/xml/serialize/OutputFormat;->getOmitDocumentType()Z
+    invoke-virtual {v4}, Lmf/org/apache/xml/serialize/OutputFormat;->getOmitDocumentType()Z
 
-    move-result v2
+    move-result v4
 
-    if-nez v2, :cond_0
+    if-nez v4, :cond_0
 
-    iget-object v2, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_docTypeSystemId:Ljava/lang/String;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_docTypeSystemId:Ljava/lang/String;
 
-    if-nez v2, :cond_7
+    if-nez v4, :cond_7
 
     if-eqz v1, :cond_0
 
     invoke-virtual {v1}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v4
 
-    if-lez v0, :cond_0
+    if-lez v4, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    const-string/jumbo v2, "<!DOCTYPE "
+    const-string/jumbo v5, "<!DOCTYPE "
 
-    invoke-virtual {v0, v2}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    invoke-virtual {v4, v5}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v0, p1}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    invoke-virtual {v4, p1}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    const-string/jumbo v2, " ["
+    const-string/jumbo v5, " ["
 
-    invoke-virtual {v0, v2}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    invoke-virtual {v4, v5}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
-    invoke-virtual {p0, v1, v5, v5}, Lmf/org/apache/xml/serialize/XMLSerializer;->printText(Ljava/lang/String;ZZ)V
+    invoke-virtual {p0, v1, v6, v6}, Lmf/org/apache/xml/serialize/XMLSerializer;->printText(Ljava/lang/String;ZZ)V
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    const-string/jumbo v1, "]>"
+    const-string/jumbo v5, "]>"
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    invoke-virtual {v4, v5}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/serialize/Printer;->breakLine()V
+    invoke-virtual {v4}, Lmf/org/apache/xml/serialize/Printer;->breakLine()V
 
     goto :goto_0
 
     :cond_2
-    new-instance v2, Ljava/lang/StringBuffer;
+    new-instance v0, Ljava/lang/StringBuffer;
 
-    const-string/jumbo v3, "<?xml version=\""
+    const-string/jumbo v4, "<?xml version=\""
 
-    invoke-direct {v2, v3}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v4}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
-    iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
 
-    invoke-virtual {v3}, Lmf/org/apache/xml/serialize/OutputFormat;->getVersion()Ljava/lang/String;
+    invoke-virtual {v4}, Lmf/org/apache/xml/serialize/OutputFormat;->getVersion()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    if-nez v3, :cond_4
+    if-nez v4, :cond_4
 
-    const-string/jumbo v3, "1.0"
+    const-string/jumbo v4, "1.0"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     :goto_2
-    invoke-virtual {v2, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
 
-    invoke-virtual {v3}, Lmf/org/apache/xml/serialize/OutputFormat;->getEncoding()Ljava/lang/String;
+    invoke-virtual {v4}, Lmf/org/apache/xml/serialize/OutputFormat;->getEncoding()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    if-nez v3, :cond_5
+    if-nez v2, :cond_5
 
     :goto_3
-    iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
 
-    invoke-virtual {v3}, Lmf/org/apache/xml/serialize/OutputFormat;->getStandalone()Z
+    invoke-virtual {v4}, Lmf/org/apache/xml/serialize/OutputFormat;->getStandalone()Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_6
+    if-nez v4, :cond_6
 
     :cond_3
     :goto_4
-    const-string/jumbo v3, "?>"
+    const-string/jumbo v4, "?>"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v3, v2}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/StringBuffer;)V
+    invoke-virtual {v4, v0}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/StringBuffer;)V
 
-    iget-object v2, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v2}, Lmf/org/apache/xml/serialize/Printer;->breakLine()V
+    invoke-virtual {v4}, Lmf/org/apache/xml/serialize/Printer;->breakLine()V
 
     goto :goto_1
 
     :cond_4
-    iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
 
-    invoke-virtual {v3}, Lmf/org/apache/xml/serialize/OutputFormat;->getVersion()Ljava/lang/String;
+    invoke-virtual {v4}, Lmf/org/apache/xml/serialize/OutputFormat;->getVersion()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_2
 
     :cond_5
     const-string/jumbo v4, " encoding=\""
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v2, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto :goto_3
 
     :cond_6
-    iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_docTypeSystemId:Ljava/lang/String;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_docTypeSystemId:Ljava/lang/String;
 
-    if-nez v3, :cond_3
+    if-nez v4, :cond_3
 
-    iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_docTypePublicId:Ljava/lang/String;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_docTypePublicId:Ljava/lang/String;
 
-    if-nez v3, :cond_3
+    if-nez v4, :cond_3
 
-    const-string/jumbo v3, " standalone=\"yes\""
+    const-string/jumbo v4, " standalone=\"yes\""
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_4
 
     :cond_7
-    iget-object v2, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    const-string/jumbo v3, "<!DOCTYPE "
+    const-string/jumbo v5, "<!DOCTYPE "
 
-    invoke-virtual {v2, v3}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    invoke-virtual {v4, v5}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
-    iget-object v2, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v2, p1}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    invoke-virtual {v4, p1}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
-    iget-object v2, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_docTypePublicId:Ljava/lang/String;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_docTypePublicId:Ljava/lang/String;
 
-    if-nez v2, :cond_9
+    if-nez v4, :cond_9
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    const-string/jumbo v2, " SYSTEM "
+    const-string/jumbo v5, " SYSTEM "
 
-    invoke-virtual {v0, v2}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    invoke-virtual {v4, v5}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_docTypeSystemId:Ljava/lang/String;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_docTypeSystemId:Ljava/lang/String;
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xml/serialize/XMLSerializer;->printDoctypeURL(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lmf/org/apache/xml/serialize/XMLSerializer;->printDoctypeURL(Ljava/lang/String;)V
 
     :goto_5
     if-nez v1, :cond_c
 
     :cond_8
     :goto_6
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    const-string/jumbo v1, ">"
+    const-string/jumbo v5, ">"
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    invoke-virtual {v4, v5}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/serialize/Printer;->breakLine()V
+    invoke-virtual {v4}, Lmf/org/apache/xml/serialize/Printer;->breakLine()V
 
     goto/16 :goto_0
 
     :cond_9
-    iget-object v2, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    const-string/jumbo v3, " PUBLIC "
+    const-string/jumbo v5, " PUBLIC "
 
-    invoke-virtual {v2, v3}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    invoke-virtual {v4, v5}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
-    iget-object v2, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_docTypePublicId:Ljava/lang/String;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_docTypePublicId:Ljava/lang/String;
 
-    invoke-virtual {p0, v2}, Lmf/org/apache/xml/serialize/XMLSerializer;->printDoctypeURL(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lmf/org/apache/xml/serialize/XMLSerializer;->printDoctypeURL(Ljava/lang/String;)V
 
-    iget-boolean v2, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_indenting:Z
+    iget-boolean v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_indenting:Z
 
-    if-nez v2, :cond_b
+    if-nez v4, :cond_b
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    const-string/jumbo v2, " "
+    const-string/jumbo v5, " "
 
-    invoke-virtual {v0, v2}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    invoke-virtual {v4, v5}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
     :cond_a
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_docTypeSystemId:Ljava/lang/String;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_docTypeSystemId:Ljava/lang/String;
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xml/serialize/XMLSerializer;->printDoctypeURL(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lmf/org/apache/xml/serialize/XMLSerializer;->printDoctypeURL(Ljava/lang/String;)V
 
     goto :goto_5
 
     :cond_b
-    iget-object v2, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v2}, Lmf/org/apache/xml/serialize/Printer;->breakLine()V
+    invoke-virtual {v4}, Lmf/org/apache/xml/serialize/Printer;->breakLine()V
+
+    const/4 v3, 0x0
 
     :goto_7
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v2
+    move-result v4
 
-    add-int/lit8 v2, v2, 0x12
+    add-int/lit8 v4, v4, 0x12
 
-    if-ge v0, v2, :cond_a
+    if-ge v3, v4, :cond_a
 
-    iget-object v2, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    const-string/jumbo v3, " "
+    const-string/jumbo v5, " "
 
-    invoke-virtual {v2, v3}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    invoke-virtual {v4, v5}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_7
 
     :cond_c
     invoke-virtual {v1}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v4
 
-    if-lez v0, :cond_8
+    if-lez v4, :cond_8
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    const-string/jumbo v2, " ["
+    const-string/jumbo v5, " ["
 
-    invoke-virtual {v0, v2}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    invoke-virtual {v4, v5}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
-    invoke-virtual {p0, v1, v5, v5}, Lmf/org/apache/xml/serialize/XMLSerializer;->printText(Ljava/lang/String;ZZ)V
+    invoke-virtual {p0, v1, v6, v6}, Lmf/org/apache/xml/serialize/XMLSerializer;->printText(Ljava/lang/String;ZZ)V
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    const/16 v1, 0x5d
+    const/16 v5, 0x5d
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
+    invoke-virtual {v4, v5}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
 
     goto :goto_6
 .end method
 
 .method public startElement(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V
-    .locals 8
+    .locals 18
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;
         }
     .end annotation
 
-    const/4 v1, 0x0
-
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    move-object/from16 v0, p0
 
-    if-eqz v0, :cond_5
+    iget-object v15, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {p0}, Lmf/org/apache/xml/serialize/XMLSerializer;->getElementState()Lmf/org/apache/xml/serialize/ElementState;
+    if-eqz v15, :cond_6
 
-    move-result-object v2
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xml/serialize/XMLSerializer;->getElementState()Lmf/org/apache/xml/serialize/ElementState;
 
-    invoke-virtual {p0}, Lmf/org/apache/xml/serialize/XMLSerializer;->isDocumentState()Z
+    move-result-object v13
 
-    move-result v0
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xml/serialize/XMLSerializer;->isDocumentState()Z
 
-    if-nez v0, :cond_6
+    move-result v15
 
-    iget-boolean v0, v2, Lmf/org/apache/xml/serialize/ElementState;->empty:Z
+    if-nez v15, :cond_7
 
-    if-nez v0, :cond_9
+    iget-boolean v15, v13, Lmf/org/apache/xml/serialize/ElementState;->empty:Z
+
+    if-nez v15, :cond_a
 
     :goto_0
-    iget-boolean v0, v2, Lmf/org/apache/xml/serialize/ElementState;->inCData:Z
+    iget-boolean v15, v13, Lmf/org/apache/xml/serialize/ElementState;->inCData:Z
 
-    if-nez v0, :cond_a
+    if-nez v15, :cond_b
 
     :goto_1
-    iget-boolean v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_indenting:Z
+    move-object/from16 v0, p0
 
-    if-nez v0, :cond_b
+    iget-boolean v15, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_indenting:Z
+
+    if-nez v15, :cond_c
 
     :cond_0
     :goto_2
-    iget-boolean v0, v2, Lmf/org/apache/xml/serialize/ElementState;->preserveSpace:Z
+    iget-boolean v12, v13, Lmf/org/apache/xml/serialize/ElementState;->preserveSpace:Z
 
-    invoke-direct {p0, p4}, Lmf/org/apache/xml/serialize/XMLSerializer;->extractNamespaces(Lorg/xml/sax/Attributes;)Lorg/xml/sax/Attributes;
+    move-object/from16 v0, p0
 
-    move-result-object v5
+    move-object/from16 v1, p4
 
-    if-nez p3, :cond_e
+    invoke-direct {v0, v1}, Lmf/org/apache/xml/serialize/XMLSerializer;->extractNamespaces(Lorg/xml/sax/Attributes;)Lorg/xml/sax/Attributes;
+
+    move-result-object p4
+
+    if-nez p3, :cond_f
 
     :cond_1
-    if-eqz p2, :cond_f
+    if-eqz p2, :cond_10
 
-    if-nez p1, :cond_10
+    if-nez p1, :cond_11
 
     :cond_2
-    move-object v2, p2
+    move-object/from16 p3, p2
 
     :goto_3
-    iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    move-object/from16 v0, p0
 
-    const/16 v4, 0x3c
+    iget-object v15, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v3, v4}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
+    const/16 v16, 0x3c
 
-    iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    invoke-virtual/range {v15 .. v16}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
 
-    invoke-virtual {v3, v2}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    move-object/from16 v0, p0
 
-    iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v15, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v3}, Lmf/org/apache/xml/serialize/Printer;->indent()V
+    move-object/from16 v0, p3
 
-    if-nez v5, :cond_15
+    invoke-virtual {v15, v0}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
-    move v3, v0
+    move-object/from16 v0, p0
 
-    :goto_4
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_prefixes:Ljava/util/Hashtable;
+    iget-object v15, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    if-nez v0, :cond_20
+    invoke-virtual {v15}, Lmf/org/apache/xml/serialize/Printer;->indent()V
+
+    if-nez p4, :cond_14
 
     :cond_3
-    invoke-virtual {p0, p1, p2, v2, v3}, Lmf/org/apache/xml/serialize/XMLSerializer;->enterElementState(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Lmf/org/apache/xml/serialize/ElementState;
+    move-object/from16 v0, p0
 
-    move-result-object v1
+    iget-object v15, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_prefixes:Ljava/util/Hashtable;
 
-    if-nez p2, :cond_22
+    if-nez v15, :cond_1c
 
     :cond_4
-    move-object v0, v2
+    move-object/from16 v0, p0
 
-    :goto_5
-    iget-object v2, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
+    move-object/from16 v1, p1
 
-    invoke-virtual {v2, v0}, Lmf/org/apache/xml/serialize/OutputFormat;->isCDataElement(Ljava/lang/String;)Z
+    move-object/from16 v2, p2
 
-    move-result v2
+    move-object/from16 v3, p3
 
-    iput-boolean v2, v1, Lmf/org/apache/xml/serialize/ElementState;->doCData:Z
+    invoke-virtual {v0, v1, v2, v3, v12}, Lmf/org/apache/xml/serialize/XMLSerializer;->enterElementState(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Lmf/org/apache/xml/serialize/ElementState;
 
-    iget-object v2, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
+    move-result-object v13
 
-    invoke-virtual {v2, v0}, Lmf/org/apache/xml/serialize/OutputFormat;->isNonEscapingElement(Ljava/lang/String;)Z
+    if-nez p2, :cond_1e
 
-    move-result v0
+    :cond_5
+    move-object/from16 v10, p3
 
-    iput-boolean v0, v1, Lmf/org/apache/xml/serialize/ElementState;->unescaped:Z
+    :goto_4
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
+
+    invoke-virtual {v15, v10}, Lmf/org/apache/xml/serialize/OutputFormat;->isCDataElement(Ljava/lang/String;)Z
+
+    move-result v15
+
+    iput-boolean v15, v13, Lmf/org/apache/xml/serialize/ElementState;->doCData:Z
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
+
+    invoke-virtual {v15, v10}, Lmf/org/apache/xml/serialize/OutputFormat;->isNonEscapingElement(Ljava/lang/String;)Z
+
+    move-result v15
+
+    iput-boolean v15, v13, Lmf/org/apache/xml/serialize/ElementState;->unescaped:Z
 
     return-void
 
-    :cond_5
-    const-string/jumbo v0, "http://apache.org/xml/serializer"
+    :cond_6
+    const-string/jumbo v15, "http://apache.org/xml/serializer"
 
-    const-string/jumbo v1, "NoWriterSupplied"
+    const-string/jumbo v16, "NoWriterSupplied"
 
-    const/4 v2, 0x0
+    const/16 v17, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static/range {v15 .. v17}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v9
 
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance v15, Ljava/lang/IllegalStateException;
 
-    invoke-direct {v1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v15, v9}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v15
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     :catch_0
-    move-exception v0
+    move-exception v7
 
-    new-instance v1, Lorg/xml/sax/SAXException;
+    new-instance v15, Lorg/xml/sax/SAXException;
 
-    invoke-direct {v1, v0}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/Exception;)V
+    invoke-direct {v15, v7}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/Exception;)V
 
-    throw v1
-
-    :cond_6
-    :try_start_1
-    iget-boolean v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_started:Z
-
-    if-nez v0, :cond_0
-
-    if-nez p2, :cond_8
+    throw v15
 
     :cond_7
-    move-object v0, p3
+    :try_start_1
+    move-object/from16 v0, p0
 
-    :goto_6
-    invoke-virtual {p0, v0}, Lmf/org/apache/xml/serialize/XMLSerializer;->startDocument(Ljava/lang/String;)V
+    iget-boolean v15, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_started:Z
+
+    if-nez v15, :cond_0
+
+    if-nez p2, :cond_9
+
+    :cond_8
+    move-object/from16 v15, p3
+
+    :goto_5
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v15}, Lmf/org/apache/xml/serialize/XMLSerializer;->startDocument(Ljava/lang/String;)V
 
     goto :goto_2
 
-    :cond_8
-    invoke-virtual {p2}, Ljava/lang/String;->length()I
-
-    move-result v0
-
-    if-eqz v0, :cond_7
-
-    move-object v0, p2
-
-    goto :goto_6
-
     :cond_9
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    invoke-virtual/range {p2 .. p2}, Ljava/lang/String;->length()I
 
-    const/16 v3, 0x3e
+    move-result v15
 
-    invoke-virtual {v0, v3}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
+    if-eqz v15, :cond_8
 
-    goto :goto_0
+    move-object/from16 v15, p2
+
+    goto :goto_5
 
     :cond_a
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v3, "]]>"
+    iget-object v15, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v0, v3}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    const/16 v16, 0x3e
 
-    const/4 v0, 0x0
+    invoke-virtual/range {v15 .. v16}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
 
-    iput-boolean v0, v2, Lmf/org/apache/xml/serialize/ElementState;->inCData:Z
-
-    goto :goto_1
+    goto/16 :goto_0
 
     :cond_b
-    iget-boolean v0, v2, Lmf/org/apache/xml/serialize/ElementState;->preserveSpace:Z
+    move-object/from16 v0, p0
 
-    if-nez v0, :cond_0
+    iget-object v15, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    iget-boolean v0, v2, Lmf/org/apache/xml/serialize/ElementState;->empty:Z
+    const-string/jumbo v16, "]]>"
 
-    if-eqz v0, :cond_d
+    invoke-virtual/range {v15 .. v16}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+
+    const/4 v15, 0x0
+
+    iput-boolean v15, v13, Lmf/org/apache/xml/serialize/ElementState;->inCData:Z
+
+    goto/16 :goto_1
 
     :cond_c
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-boolean v15, v13, Lmf/org/apache/xml/serialize/ElementState;->preserveSpace:Z
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/serialize/Printer;->breakLine()V
+    if-nez v15, :cond_0
 
-    goto/16 :goto_2
+    iget-boolean v15, v13, Lmf/org/apache/xml/serialize/ElementState;->empty:Z
+
+    if-eqz v15, :cond_e
 
     :cond_d
-    iget-boolean v0, v2, Lmf/org/apache/xml/serialize/ElementState;->afterElement:Z
+    move-object/from16 v0, p0
 
-    if-nez v0, :cond_c
+    iget-object v15, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    iget-boolean v0, v2, Lmf/org/apache/xml/serialize/ElementState;->afterComment:Z
-
-    if-nez v0, :cond_c
+    invoke-virtual {v15}, Lmf/org/apache/xml/serialize/Printer;->breakLine()V
 
     goto/16 :goto_2
 
     :cond_e
-    invoke-virtual {p3}, Ljava/lang/String;->length()I
+    iget-boolean v15, v13, Lmf/org/apache/xml/serialize/ElementState;->afterElement:Z
 
-    move-result v2
+    if-nez v15, :cond_d
 
-    if-eqz v2, :cond_1
+    iget-boolean v15, v13, Lmf/org/apache/xml/serialize/ElementState;->afterComment:Z
 
-    move-object v2, p3
+    if-nez v15, :cond_d
 
-    goto/16 :goto_3
+    goto/16 :goto_2
 
     :cond_f
-    const-string/jumbo v0, "http://apache.org/xml/serializer"
+    invoke-virtual/range {p3 .. p3}, Ljava/lang/String;->length()I
 
-    const-string/jumbo v1, "NoName"
+    move-result v15
 
-    const/4 v2, 0x0
-
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    new-instance v1, Lorg/xml/sax/SAXException;
-
-    invoke-direct {v1, v0}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    :cond_10
-    const-string/jumbo v2, ""
-
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_2
-
-    invoke-virtual {p0, p1}, Lmf/org/apache/xml/serialize/XMLSerializer;->getPrefix(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    if-nez v2, :cond_12
-
-    :cond_11
-    move-object v2, p2
+    if-eqz v15, :cond_1
 
     goto/16 :goto_3
 
+    :cond_10
+    const-string/jumbo v15, "http://apache.org/xml/serializer"
+
+    const-string/jumbo v16, "NoName"
+
+    const/16 v17, 0x0
+
+    invoke-static/range {v15 .. v17}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v9
+
+    new-instance v15, Lorg/xml/sax/SAXException;
+
+    invoke-direct {v15, v9}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/String;)V
+
+    throw v15
+
+    :cond_11
+    const-string/jumbo v15, ""
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v15
+
+    if-nez v15, :cond_2
+
+    invoke-virtual/range {p0 .. p1}, Lmf/org/apache/xml/serialize/XMLSerializer;->getPrefix(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    if-nez v11, :cond_13
+
     :cond_12
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
-
-    move-result v3
-
-    if-lez v3, :cond_11
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-direct {v3, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v2, ":"
-
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
+    move-object/from16 p3, p2
 
     goto/16 :goto_3
 
     :cond_13
-    iget-object v3, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    invoke-virtual {v11}, Ljava/lang/String;->length()I
 
-    invoke-virtual {v3}, Lmf/org/apache/xml/serialize/Printer;->printSpace()V
+    move-result v15
 
-    invoke-interface {v5, v1}, Lorg/xml/sax/Attributes;->getQName(I)Ljava/lang/String;
+    if-lez v15, :cond_12
 
-    move-result-object v3
+    new-instance v15, Ljava/lang/StringBuilder;
 
-    if-nez v3, :cond_16
+    invoke-static {v11}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v16
+
+    invoke-direct/range {v15 .. v16}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v16, ":"
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p3
+
+    goto/16 :goto_3
 
     :cond_14
-    move-object v4, v3
+    const/4 v8, 0x0
 
-    :goto_7
-    invoke-interface {v5, v1}, Lorg/xml/sax/Attributes;->getValue(I)Ljava/lang/String;
+    :goto_6
+    invoke-interface/range {p4 .. p4}, Lorg/xml/sax/Attributes;->getLength()I
 
-    move-result-object v3
+    move-result v15
 
-    if-eqz v3, :cond_1d
+    if-ge v8, v15, :cond_3
 
-    :goto_8
-    iget-object v6, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v6, v4}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    iget-object v15, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    iget-object v6, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    invoke-virtual {v15}, Lmf/org/apache/xml/serialize/Printer;->printSpace()V
 
-    const-string/jumbo v7, "=\""
+    move-object/from16 v0, p4
 
-    invoke-virtual {v6, v7}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getQName(I)Ljava/lang/String;
 
-    invoke-virtual {p0, v3}, Lmf/org/apache/xml/serialize/XMLSerializer;->printEscaped(Ljava/lang/String;)V
+    move-result-object v10
 
-    iget-object v6, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
-
-    const/16 v7, 0x22
-
-    invoke-virtual {v6, v7}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
-
-    const-string/jumbo v6, "xml:space"
-
-    invoke-virtual {v4, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_1e
-
-    :goto_9
-    add-int/lit8 v1, v1, 0x1
+    if-nez v10, :cond_16
 
     :cond_15
-    invoke-interface {v5}, Lorg/xml/sax/Attributes;->getLength()I
+    :goto_7
+    move-object/from16 v0, p4
 
-    move-result v3
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(I)Ljava/lang/String;
 
-    if-lt v1, v3, :cond_13
+    move-result-object v14
 
-    move v3, v0
+    if-eqz v14, :cond_19
 
-    goto/16 :goto_4
+    :goto_8
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+
+    invoke-virtual {v15, v10}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+
+    const-string/jumbo v16, "=\""
+
+    invoke-virtual/range {v15 .. v16}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v14}, Lmf/org/apache/xml/serialize/XMLSerializer;->printEscaped(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+
+    const/16 v16, 0x22
+
+    invoke-virtual/range {v15 .. v16}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
+
+    const-string/jumbo v15, "xml:space"
+
+    invoke-virtual {v10, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v15
+
+    if-nez v15, :cond_1a
+
+    :goto_9
+    add-int/lit8 v8, v8, 0x1
+
+    goto :goto_6
 
     :cond_16
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
+    invoke-virtual {v10}, Ljava/lang/String;->length()I
 
-    move-result v4
+    move-result v15
 
-    if-nez v4, :cond_14
+    if-nez v15, :cond_15
 
-    invoke-interface {v5, v1}, Lorg/xml/sax/Attributes;->getLocalName(I)Ljava/lang/String;
+    move-object/from16 v0, p4
 
-    move-result-object v3
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getLocalName(I)Ljava/lang/String;
 
-    invoke-interface {v5, v1}, Lorg/xml/sax/Attributes;->getURI(I)Ljava/lang/String;
+    move-result-object v10
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getURI(I)Ljava/lang/String;
 
     move-result-object v4
 
-    if-nez v4, :cond_18
+    if-eqz v4, :cond_15
+
+    invoke-virtual {v4}, Ljava/lang/String;->length()I
+
+    move-result v15
+
+    if-eqz v15, :cond_15
+
+    if-nez p1, :cond_18
 
     :cond_17
-    move-object v4, v3
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v4}, Lmf/org/apache/xml/serialize/XMLSerializer;->getPrefix(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    if-eqz v11, :cond_15
+
+    invoke-virtual {v11}, Ljava/lang/String;->length()I
+
+    move-result v15
+
+    if-lez v15, :cond_15
+
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-static {v11}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v16
+
+    invoke-direct/range {v15 .. v16}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v16, ":"
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
 
     goto :goto_7
 
     :cond_18
-    invoke-virtual {v4}, Ljava/lang/String;->length()I
+    invoke-virtual/range {p1 .. p1}, Ljava/lang/String;->length()I
 
-    move-result v6
+    move-result v15
 
-    if-eqz v6, :cond_17
+    if-eqz v15, :cond_17
 
-    if-nez p1, :cond_1b
+    move-object/from16 v0, p1
+
+    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v15
+
+    if-eqz v15, :cond_17
+
+    goto/16 :goto_7
 
     :cond_19
-    invoke-virtual {p0, v4}, Lmf/org/apache/xml/serialize/XMLSerializer;->getPrefix(Ljava/lang/String;)Ljava/lang/String;
+    const-string/jumbo v14, ""
 
-    move-result-object v4
-
-    if-nez v4, :cond_1c
+    goto/16 :goto_8
 
     :cond_1a
-    move-object v4, v3
+    const-string/jumbo v15, "preserve"
 
-    goto :goto_7
+    invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v15
+
+    if-nez v15, :cond_1b
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
+
+    invoke-virtual {v15}, Lmf/org/apache/xml/serialize/OutputFormat;->getPreserveSpace()Z
+
+    move-result v12
+
+    goto :goto_9
 
     :cond_1b
-    invoke-virtual {p1}, Ljava/lang/String;->length()I
+    const/4 v12, 0x1
 
-    move-result v6
-
-    if-eqz v6, :cond_19
-
-    invoke-virtual {v4, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_19
-
-    move-object v4, v3
-
-    goto :goto_7
+    goto :goto_9
 
     :cond_1c
-    invoke-virtual {v4}, Ljava/lang/String;->length()I
+    move-object/from16 v0, p0
 
-    move-result v6
+    iget-object v15, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_prefixes:Ljava/util/Hashtable;
 
-    if-lez v6, :cond_1a
+    invoke-virtual {v15}, Ljava/util/Hashtable;->entrySet()Ljava/util/Set;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    move-result-object v15
 
-    invoke-static {v4}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-interface {v15}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v4
-
-    invoke-direct {v6, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v4, ":"
-
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    move-object v4, v3
-
-    goto :goto_7
-
-    :cond_1d
-    const-string/jumbo v3, ""
-
-    goto :goto_8
-
-    :cond_1e
-    const-string/jumbo v0, "preserve"
-
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1f
-
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
-
-    invoke-virtual {v0}, Lmf/org/apache/xml/serialize/OutputFormat;->getPreserveSpace()Z
-
-    move-result v0
-
-    goto :goto_9
-
-    :cond_1f
-    const/4 v0, 0x1
-
-    goto :goto_9
-
-    :cond_20
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_prefixes:Ljava/util/Hashtable;
-
-    invoke-virtual {v0}, Ljava/util/Hashtable;->entrySet()Ljava/util/Set;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v4
+    move-result-object v5
 
     :goto_a
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result v15
 
-    if-eqz v0, :cond_3
+    if-eqz v15, :cond_4
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/serialize/Printer;->printSpace()V
+    iget-object v15, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {v15}, Lmf/org/apache/xml/serialize/Printer;->printSpace()V
 
-    move-result-object v0
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    check-cast v0, Ljava/util/Map$Entry;
+    move-result-object v6
 
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    check-cast v6, Ljava/util/Map$Entry;
 
-    move-result-object v1
+    invoke-interface {v6}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    check-cast v1, Ljava/lang/String;
+    move-result-object v14
 
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    check-cast v14, Ljava/lang/String;
 
-    move-result-object v0
+    invoke-interface {v6}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/String;
+    move-result-object v10
 
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    check-cast v10, Ljava/lang/String;
 
-    move-result v5
+    invoke-virtual {v10}, Ljava/lang/String;->length()I
 
-    if-eqz v5, :cond_21
+    move-result v15
 
-    iget-object v5, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    if-eqz v15, :cond_1d
 
-    const-string/jumbo v6, "xmlns:"
+    move-object/from16 v0, p0
 
-    invoke-virtual {v5, v6}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    iget-object v15, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    iget-object v5, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    const-string/jumbo v16, "xmlns:"
 
-    invoke-virtual {v5, v0}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    invoke-virtual/range {v15 .. v16}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v5, "=\""
+    iget-object v15, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v0, v5}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    invoke-virtual {v15, v10}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xml/serialize/XMLSerializer;->printEscaped(Ljava/lang/String;)V
+    move-object/from16 v0, p0
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v15, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    const/16 v1, 0x22
+    const-string/jumbo v16, "=\""
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
+    invoke-virtual/range {v15 .. v16}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
-    goto :goto_a
+    move-object/from16 v0, p0
 
-    :cond_21
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    invoke-virtual {v0, v14}, Lmf/org/apache/xml/serialize/XMLSerializer;->printEscaped(Ljava/lang/String;)V
 
-    const-string/jumbo v5, "xmlns=\""
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    iget-object v15, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xml/serialize/XMLSerializer;->printEscaped(Ljava/lang/String;)V
+    const/16 v16, 0x22
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
-
-    const/16 v1, 0x22
-
-    invoke-virtual {v0, v1}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
+    invoke-virtual/range {v15 .. v16}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
 
     goto :goto_a
 
-    :cond_22
-    invoke-virtual {p2}, Ljava/lang/String;->length()I
+    :cond_1d
+    move-object/from16 v0, p0
 
-    move-result v0
+    iget-object v15, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    if-eqz v0, :cond_4
+    const-string/jumbo v16, "xmlns=\""
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    invoke-virtual/range {v15 .. v16}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
-    invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    move-result-object v2
+    invoke-virtual {v0, v14}, Lmf/org/apache/xml/serialize/XMLSerializer;->printEscaped(Ljava/lang/String;)V
 
-    invoke-direct {v0, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    move-object/from16 v0, p0
 
-    const-string/jumbo v2, "^"
+    iget-object v15, v0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/16 v16, 0x22
 
-    move-result-object v0
+    invoke-virtual/range {v15 .. v16}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
 
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    goto :goto_a
 
-    move-result-object v0
+    :cond_1e
+    invoke-virtual/range {p2 .. p2}, Ljava/lang/String;->length()I
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result v15
+
+    if-eqz v15, :cond_5
+
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-static/range {p1 .. p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v16
+
+    invoke-direct/range {v15 .. v16}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v16, "^"
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    move-result-object v0
+    move-result-object v10
 
-    goto/16 :goto_5
+    goto/16 :goto_4
 .end method
 
 .method public startElement(Ljava/lang/String;Lorg/xml/sax/AttributeList;)V
-    .locals 6
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;
         }
     .end annotation
 
-    const/4 v1, 0x0
-
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v7, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    if-eqz v0, :cond_2
+    if-eqz v7, :cond_2
 
     invoke-virtual {p0}, Lmf/org/apache/xml/serialize/XMLSerializer;->getElementState()Lmf/org/apache/xml/serialize/ElementState;
 
-    move-result-object v0
+    move-result-object v5
 
     invoke-virtual {p0}, Lmf/org/apache/xml/serialize/XMLSerializer;->isDocumentState()Z
 
-    move-result v2
+    move-result v7
 
-    if-nez v2, :cond_3
+    if-nez v7, :cond_3
 
-    iget-boolean v2, v0, Lmf/org/apache/xml/serialize/ElementState;->empty:Z
+    iget-boolean v7, v5, Lmf/org/apache/xml/serialize/ElementState;->empty:Z
 
-    if-nez v2, :cond_4
+    if-nez v7, :cond_4
 
     :goto_0
-    iget-boolean v2, v0, Lmf/org/apache/xml/serialize/ElementState;->inCData:Z
+    iget-boolean v7, v5, Lmf/org/apache/xml/serialize/ElementState;->inCData:Z
 
-    if-nez v2, :cond_5
+    if-nez v7, :cond_5
 
     :goto_1
-    iget-boolean v2, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_indenting:Z
+    iget-boolean v7, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_indenting:Z
 
-    if-nez v2, :cond_6
+    if-nez v7, :cond_6
 
     :cond_0
     :goto_2
-    iget-boolean v0, v0, Lmf/org/apache/xml/serialize/ElementState;->preserveSpace:Z
+    iget-boolean v4, v5, Lmf/org/apache/xml/serialize/ElementState;->preserveSpace:Z
 
-    iget-object v2, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v7, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    const/16 v3, 0x3c
+    const/16 v8, 0x3c
 
-    invoke-virtual {v2, v3}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
+    invoke-virtual {v7, v8}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
 
-    iget-object v2, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v7, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v2, p1}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    invoke-virtual {v7, p1}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
-    iget-object v2, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v7, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v2}, Lmf/org/apache/xml/serialize/Printer;->indent()V
+    invoke-virtual {v7}, Lmf/org/apache/xml/serialize/Printer;->indent()V
 
     if-nez p2, :cond_9
 
     :cond_1
-    const/4 v1, 0x0
+    const/4 v7, 0x0
 
-    const/4 v2, 0x0
+    const/4 v8, 0x0
 
-    invoke-virtual {p0, v1, v2, p1, v0}, Lmf/org/apache/xml/serialize/XMLSerializer;->enterElementState(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Lmf/org/apache/xml/serialize/ElementState;
+    invoke-virtual {p0, v7, v8, p1, v4}, Lmf/org/apache/xml/serialize/XMLSerializer;->enterElementState(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Lmf/org/apache/xml/serialize/ElementState;
 
-    move-result-object v0
+    move-result-object v5
 
-    iget-object v1, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
+    iget-object v7, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
 
-    invoke-virtual {v1, p1}, Lmf/org/apache/xml/serialize/OutputFormat;->isCDataElement(Ljava/lang/String;)Z
+    invoke-virtual {v7, p1}, Lmf/org/apache/xml/serialize/OutputFormat;->isCDataElement(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v7
 
-    iput-boolean v1, v0, Lmf/org/apache/xml/serialize/ElementState;->doCData:Z
+    iput-boolean v7, v5, Lmf/org/apache/xml/serialize/ElementState;->doCData:Z
 
-    iget-object v1, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
+    iget-object v7, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
 
-    invoke-virtual {v1, p1}, Lmf/org/apache/xml/serialize/OutputFormat;->isNonEscapingElement(Ljava/lang/String;)Z
+    invoke-virtual {v7, p1}, Lmf/org/apache/xml/serialize/OutputFormat;->isNonEscapingElement(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v7
 
-    iput-boolean v1, v0, Lmf/org/apache/xml/serialize/ElementState;->unescaped:Z
+    iput-boolean v7, v5, Lmf/org/apache/xml/serialize/ElementState;->unescaped:Z
 
     return-void
 
     :cond_2
-    const-string/jumbo v0, "http://apache.org/xml/serializer"
+    const-string/jumbo v7, "http://apache.org/xml/serializer"
 
-    const-string/jumbo v1, "NoWriterSupplied"
+    const-string/jumbo v8, "NoWriterSupplied"
 
-    const/4 v2, 0x0
+    const/4 v9, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v7, v8, v9}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance v7, Ljava/lang/IllegalStateException;
 
-    invoke-direct {v1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v7, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v7
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     :catch_0
     move-exception v0
 
-    new-instance v1, Lorg/xml/sax/SAXException;
+    new-instance v7, Lorg/xml/sax/SAXException;
 
-    invoke-direct {v1, v0}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/Exception;)V
+    invoke-direct {v7, v0}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/Exception;)V
 
-    throw v1
+    throw v7
 
     :cond_3
     :try_start_1
-    iget-boolean v2, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_started:Z
+    iget-boolean v7, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_started:Z
 
-    if-nez v2, :cond_0
+    if-nez v7, :cond_0
 
     invoke-virtual {p0, p1}, Lmf/org/apache/xml/serialize/XMLSerializer;->startDocument(Ljava/lang/String;)V
 
     goto :goto_2
 
     :cond_4
-    iget-object v2, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v7, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    const/16 v3, 0x3e
+    const/16 v8, 0x3e
 
-    invoke-virtual {v2, v3}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
+    invoke-virtual {v7, v8}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
 
     goto :goto_0
 
     :cond_5
-    iget-object v2, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v7, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    const-string/jumbo v3, "]]>"
+    const-string/jumbo v8, "]]>"
 
-    invoke-virtual {v2, v3}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    invoke-virtual {v7, v8}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
-    const/4 v2, 0x0
+    const/4 v7, 0x0
 
-    iput-boolean v2, v0, Lmf/org/apache/xml/serialize/ElementState;->inCData:Z
+    iput-boolean v7, v5, Lmf/org/apache/xml/serialize/ElementState;->inCData:Z
 
     goto :goto_1
 
     :cond_6
-    iget-boolean v2, v0, Lmf/org/apache/xml/serialize/ElementState;->preserveSpace:Z
+    iget-boolean v7, v5, Lmf/org/apache/xml/serialize/ElementState;->preserveSpace:Z
 
-    if-nez v2, :cond_0
+    if-nez v7, :cond_0
 
-    iget-boolean v2, v0, Lmf/org/apache/xml/serialize/ElementState;->empty:Z
+    iget-boolean v7, v5, Lmf/org/apache/xml/serialize/ElementState;->empty:Z
 
-    if-eqz v2, :cond_8
+    if-eqz v7, :cond_8
 
     :cond_7
-    iget-object v2, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v7, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v2}, Lmf/org/apache/xml/serialize/Printer;->breakLine()V
+    invoke-virtual {v7}, Lmf/org/apache/xml/serialize/Printer;->breakLine()V
 
     goto :goto_2
 
     :cond_8
-    iget-boolean v2, v0, Lmf/org/apache/xml/serialize/ElementState;->afterElement:Z
+    iget-boolean v7, v5, Lmf/org/apache/xml/serialize/ElementState;->afterElement:Z
 
-    if-nez v2, :cond_7
+    if-nez v7, :cond_7
 
-    iget-boolean v2, v0, Lmf/org/apache/xml/serialize/ElementState;->afterComment:Z
+    iget-boolean v7, v5, Lmf/org/apache/xml/serialize/ElementState;->afterComment:Z
 
-    if-nez v2, :cond_7
+    if-nez v7, :cond_7
 
     goto :goto_2
 
-    :goto_3
-    iget-object v2, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    :cond_9
+    const/4 v1, 0x0
 
-    invoke-virtual {v2}, Lmf/org/apache/xml/serialize/Printer;->printSpace()V
+    :goto_3
+    invoke-interface {p2}, Lorg/xml/sax/AttributeList;->getLength()I
+
+    move-result v7
+
+    if-ge v1, v7, :cond_1
+
+    iget-object v7, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+
+    invoke-virtual {v7}, Lmf/org/apache/xml/serialize/Printer;->printSpace()V
 
     invoke-interface {p2, v1}, Lorg/xml/sax/AttributeList;->getName(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
     invoke-interface {p2, v1}, Lorg/xml/sax/AttributeList;->getValue(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v6
 
-    if-nez v3, :cond_a
+    if-nez v6, :cond_a
 
     :goto_4
-    const-string/jumbo v4, "xml:space"
+    const-string/jumbo v7, "xml:space"
 
-    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v7
 
-    if-nez v2, :cond_b
+    if-nez v7, :cond_b
 
     :goto_5
     add-int/lit8 v1, v1, 0x1
 
-    :cond_9
-    invoke-interface {p2}, Lorg/xml/sax/AttributeList;->getLength()I
-
-    move-result v2
-
-    if-ge v1, v2, :cond_1
-
     goto :goto_3
 
     :cond_a
-    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v7, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    invoke-virtual {v4, v2}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    invoke-virtual {v7, v3}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
-    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v7, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    const-string/jumbo v5, "=\""
+    const-string/jumbo v8, "=\""
 
-    invoke-virtual {v4, v5}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
+    invoke-virtual {v7, v8}, Lmf/org/apache/xml/serialize/Printer;->printText(Ljava/lang/String;)V
 
-    invoke-virtual {p0, v3}, Lmf/org/apache/xml/serialize/XMLSerializer;->printEscaped(Ljava/lang/String;)V
+    invoke-virtual {p0, v6}, Lmf/org/apache/xml/serialize/XMLSerializer;->printEscaped(Ljava/lang/String;)V
 
-    iget-object v4, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
+    iget-object v7, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_printer:Lmf/org/apache/xml/serialize/Printer;
 
-    const/16 v5, 0x22
+    const/16 v8, 0x22
 
-    invoke-virtual {v4, v5}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
+    invoke-virtual {v7, v8}, Lmf/org/apache/xml/serialize/Printer;->printText(C)V
 
     goto :goto_4
 
     :cond_b
-    const-string/jumbo v0, "preserve"
+    const-string/jumbo v7, "preserve"
 
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v7
 
-    if-nez v0, :cond_c
+    if-nez v7, :cond_c
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
+    iget-object v7, p0, Lmf/org/apache/xml/serialize/XMLSerializer;->_format:Lmf/org/apache/xml/serialize/OutputFormat;
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/serialize/OutputFormat;->getPreserveSpace()Z
+    invoke-virtual {v7}, Lmf/org/apache/xml/serialize/OutputFormat;->getPreserveSpace()Z
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    move-result v0
+    move-result v4
 
     goto :goto_5
 
     :cond_c
-    const/4 v0, 0x1
+    const/4 v4, 0x1
 
     goto :goto_5
 .end method

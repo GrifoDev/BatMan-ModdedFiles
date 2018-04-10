@@ -40,46 +40,46 @@
 
 # virtual methods
 .method public getModels()Lorg/simpleframework/xml/core/ModelMap;
-    .locals 6
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     new-instance v2, Lorg/simpleframework/xml/core/ModelMap;
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/ModelMap;->detail:Lorg/simpleframework/xml/core/Detail;
+    iget-object v4, p0, Lorg/simpleframework/xml/core/ModelMap;->detail:Lorg/simpleframework/xml/core/Detail;
 
-    invoke-direct {v2, v0}, Lorg/simpleframework/xml/core/ModelMap;-><init>(Lorg/simpleframework/xml/core/Detail;)V
+    invoke-direct {v2, v4}, Lorg/simpleframework/xml/core/ModelMap;-><init>(Lorg/simpleframework/xml/core/Detail;)V
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/core/ModelMap;->keySet()Ljava/util/Set;
 
+    move-result-object v4
+
+    invoke-interface {v4}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
     move-result-object v0
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v3
-
     :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result v4
 
-    if-nez v0, :cond_0
+    if-nez v4, :cond_0
 
     return-object v2
 
     :cond_0
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v3
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v3, Ljava/lang/String;
 
-    invoke-virtual {p0, v0}, Lorg/simpleframework/xml/core/ModelMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v3}, Lorg/simpleframework/xml/core/ModelMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -88,13 +88,13 @@
     if-nez v1, :cond_1
 
     :goto_1
-    invoke-virtual {v2, v0}, Lorg/simpleframework/xml/core/ModelMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Lorg/simpleframework/xml/core/ModelMap;->containsKey(Ljava/lang/Object;)Z
 
     move-result v4
 
     if-nez v4, :cond_2
 
-    invoke-virtual {v2, v0, v1}, Lorg/simpleframework/xml/core/ModelMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v1}, Lorg/simpleframework/xml/core/ModelMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
@@ -106,25 +106,25 @@
     goto :goto_1
 
     :cond_2
-    new-instance v1, Lorg/simpleframework/xml/core/PathException;
+    new-instance v4, Lorg/simpleframework/xml/core/PathException;
 
-    const-string/jumbo v2, "Path with name \'%s\' is a duplicate in %s "
+    const/4 v5, 0x2
 
-    const/4 v3, 0x2
+    new-array v5, v5, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    aput-object v3, v5, v6
 
-    aput-object v0, v3, v5
+    iget-object v6, p0, Lorg/simpleframework/xml/core/ModelMap;->detail:Lorg/simpleframework/xml/core/Detail;
 
-    const/4 v0, 0x1
+    const/4 v7, 0x1
 
-    iget-object v4, p0, Lorg/simpleframework/xml/core/ModelMap;->detail:Lorg/simpleframework/xml/core/Detail;
+    aput-object v6, v5, v7
 
-    aput-object v4, v3, v0
+    const-string/jumbo v6, "Path with name \'%s\' is a duplicate in %s "
 
-    invoke-direct {v1, v2, v3}, Lorg/simpleframework/xml/core/PathException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v4, v6, v5}, Lorg/simpleframework/xml/core/PathException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    throw v1
+    throw v4
 .end method
 
 .method public iterator()Ljava/util/Iterator;
@@ -168,9 +168,9 @@
     :cond_0
     invoke-virtual {v0, p2}, Lorg/simpleframework/xml/core/ModelList;->lookup(I)Lorg/simpleframework/xml/core/Model;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public register(Ljava/lang/String;Lorg/simpleframework/xml/core/Model;)V

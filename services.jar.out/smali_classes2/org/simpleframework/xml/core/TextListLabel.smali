@@ -64,7 +64,7 @@
         }
     .end annotation
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/core/TextListLabel;->getContact()Lorg/simpleframework/xml/core/Contact;
 
@@ -89,21 +89,21 @@
     :cond_0
     new-instance v1, Lorg/simpleframework/xml/core/TextException;
 
-    const-string/jumbo v2, "Cannot use %s to represent %s"
+    const/4 v2, 0x2
 
-    const/4 v3, 0x2
+    new-array v2, v2, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    aput-object v0, v2, v3
 
-    aput-object v0, v3, v4
+    iget-object v3, p0, Lorg/simpleframework/xml/core/TextListLabel;->label:Lorg/simpleframework/xml/core/Label;
 
-    const/4 v0, 0x1
+    const/4 v4, 0x1
 
-    iget-object v4, p0, Lorg/simpleframework/xml/core/TextListLabel;->label:Lorg/simpleframework/xml/core/Label;
+    aput-object v3, v2, v4
 
-    aput-object v4, v3, v0
+    const-string/jumbo v3, "Cannot use %s to represent %s"
 
-    invoke-direct {v1, v2, v3}, Lorg/simpleframework/xml/core/TextException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v1, v3, v2}, Lorg/simpleframework/xml/core/TextException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
     throw v1
 .end method
@@ -362,27 +362,27 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .locals 3
 
-    const-string/jumbo v0, "%s %s"
+    const/4 v0, 0x2
 
-    const/4 v1, 0x2
+    new-array v0, v0, [Ljava/lang/Object;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/TextListLabel;->text:Lorg/simpleframework/xml/Text;
 
     const/4 v2, 0x0
 
-    iget-object v3, p0, Lorg/simpleframework/xml/core/TextListLabel;->text:Lorg/simpleframework/xml/Text;
+    aput-object v1, v0, v2
 
-    aput-object v3, v1, v2
+    iget-object v1, p0, Lorg/simpleframework/xml/core/TextListLabel;->label:Lorg/simpleframework/xml/core/Label;
 
     const/4 v2, 0x1
 
-    iget-object v3, p0, Lorg/simpleframework/xml/core/TextListLabel;->label:Lorg/simpleframework/xml/core/Label;
+    aput-object v1, v0, v2
 
-    aput-object v3, v1, v2
+    const-string/jumbo v1, "%s %s"
 
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 

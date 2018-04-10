@@ -3,11 +3,6 @@
 .source "ContentLengthStrategy.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # static fields
 .field public static final CHUNKED:I = -0x2
 

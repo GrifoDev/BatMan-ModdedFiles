@@ -57,6 +57,80 @@
     return-void
 .end method
 
+.method private blockDnsFlow(Lorg/json/JSONObject;II)I
+    .locals 7
+
+    const/4 v3, 0x1
+
+    :try_start_0
+    const-string/jumbo v5, "dport"
+
+    const/4 v6, 0x0
+
+    invoke-virtual {p1, v5, v6}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string/jumbo v5, "53"
+
+    invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    const-string/jumbo v5, "dnsuid"
+
+    const/4 v6, 0x0
+
+    invoke-virtual {p1, v5, v6}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    if-nez p3, :cond_0
+
+    if-nez p2, :cond_0
+
+    if-eqz v1, :cond_0
+
+    const/4 v3, 0x3
+
+    :goto_0
+    return v3
+
+    :cond_0
+    if-eq v1, p2, :cond_1
+
+    const/4 v3, 0x2
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v3, 0x0
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v3, 0x1
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v4
+
+    goto :goto_0
+.end method
+
 
 # virtual methods
 .method public getIdentifier()Ljava/lang/String;
@@ -113,912 +187,1100 @@
 .end method
 
 .method public processData(Ljava/lang/String;)Ljava/lang/String;
-    .locals 16
+    .locals 25
 
-    const/4 v10, 0x0
+    const/16 v19, 0x0
 
     :try_start_0
-    new-instance v8, Lorg/json/JSONObject;
+    new-instance v17, Lorg/json/JSONObject;
 
-    move-object/from16 v0, p1
+    move-object/from16 v0, v17
 
-    invoke-direct {v8, v0}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+    move-object/from16 v1, p1
 
-    if-nez v8, :cond_1
+    invoke-direct {v0, v1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
-    sget-boolean v13, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->DBG:Z
+    if-nez v17, :cond_1
 
-    if-eqz v13, :cond_0
+    sget-boolean v23, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->DBG:Z
 
-    const-string/jumbo v13, "NetworkAnalytics:DataDeliveryHelper"
+    if-eqz v23, :cond_0
 
-    const-string/jumbo v14, "Json data/format obtained from Kernel is null."
+    const-string/jumbo v23, "NetworkAnalytics:DataDeliveryHelper"
 
-    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v24, "Json data/format obtained from Kernel is null."
+
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    return-object v10
+    return-object v19
 
     :cond_1
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->profile:Lcom/android/server/enterprise/nap/NetworkAnalyticsConfigStore$NAPConfigProfile;
+    iget-object v0, v0, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->profile:Lcom/android/server/enterprise/nap/NetworkAnalyticsConfigStore$NAPConfigProfile;
 
-    invoke-virtual {v13}, Lcom/android/server/enterprise/nap/NetworkAnalyticsConfigStore$NAPConfigProfile;->getFlags()I
+    move-object/from16 v23, v0
 
-    move-result v2
+    invoke-virtual/range {v23 .. v23}, Lcom/android/server/enterprise/nap/NetworkAnalyticsConfigStore$NAPConfigProfile;->getFlags()I
 
-    new-instance v9, Lorg/json/JSONObject;
+    move-result v6
 
-    invoke-direct {v9}, Lorg/json/JSONObject;-><init>()V
+    new-instance v18, Lorg/json/JSONObject;
 
-    const/4 v4, 0x0
+    invoke-direct/range {v18 .. v18}, Lorg/json/JSONObject;-><init>()V
 
-    const/4 v11, 0x0
+    const/4 v9, 0x0
 
-    const/4 v7, 0x0
+    const-string/jumbo v23, "uid"
 
-    const-string/jumbo v13, "uid"
+    const/16 v24, 0x0
 
-    const/4 v14, 0x0
+    move-object/from16 v0, v17
 
-    invoke-virtual {v8, v13, v14}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     :try_end_0
     .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_3
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_4
 
-    move-result-object v4
+    move-result-object v9
 
-    if-eqz v4, :cond_3
+    if-eqz v9, :cond_4
 
     :try_start_1
-    invoke-static {v4}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v9}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v13
+    move-result v23
 
-    invoke-static {v13}, Landroid/os/UserHandle;->getUserId(I)I
+    invoke-static/range {v23 .. v23}, Landroid/os/UserHandle;->getUserId(I)I
 
-    move-result v12
+    move-result v22
+
+    invoke-static {v9}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v21
+
+    if-nez v21, :cond_3
 
     move-object/from16 v0, p0
 
-    iget v13, v0, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->operationUserId:I
+    iget v0, v0, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->operationUserId:I
 
-    if-eq v12, v13, :cond_3
+    move/from16 v23, v0
 
-    sget-boolean v13, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->DBG:Z
+    move-object/from16 v0, p0
 
-    if-eqz v13, :cond_2
+    move-object/from16 v1, v17
 
-    const-string/jumbo v13, "NetworkAnalytics:DataDeliveryHelper"
+    move/from16 v2, v23
 
-    const-string/jumbo v14, "processData: UserId mismatch. Returning null"
+    move/from16 v3, v22
 
-    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->blockDnsFlow(Lorg/json/JSONObject;II)I
+
+    move-result v7
+
+    if-lez v7, :cond_4
+
+    const/16 v23, 0x3
+
+    move/from16 v0, v23
+
+    if-ne v7, v0, :cond_2
+
+    const/16 v23, 0x0
+
+    return-object v23
+
+    :cond_2
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->operationUserId:I
+
+    move/from16 v23, v0
+
+    move/from16 v0, v22
+
+    move/from16 v1, v23
+
+    if-eq v0, v1, :cond_4
+
+    const/16 v23, 0x0
+
+    return-object v23
+
+    :cond_3
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->operationUserId:I
+
+    move/from16 v23, v0
     :try_end_1
     .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Lorg/json/JSONException; {:try_start_1 .. :try_end_1} :catch_2
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_3
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_4
 
-    :cond_2
-    const/4 v13, 0x0
+    move/from16 v0, v22
 
-    return-object v13
+    move/from16 v1, v23
+
+    if-eq v0, v1, :cond_4
+
+    const/16 v23, 0x0
+
+    return-object v23
 
     :catch_0
-    move-exception v5
+    move-exception v10
 
-    const/4 v13, 0x0
+    const/16 v23, 0x0
 
-    return-object v13
-
-    :cond_3
-    const v13, 0x8000
-
-    and-int/2addr v13, v2
-
-    if-eqz v13, :cond_5
-
-    :try_start_2
-    sget-boolean v13, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->DBG:Z
-
-    if-eqz v13, :cond_4
-
-    const-string/jumbo v13, "NetworkAnalytics:DataDeliveryHelper"
-
-    new-instance v14, Ljava/lang/StringBuilder;
-
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v15, "UID = "
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    return-object v23
 
     :cond_4
-    const-string/jumbo v13, "uid"
+    const v23, 0x8000
 
-    invoke-virtual {v9, v13, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    and-int v23, v23, v6
 
-    move-object v11, v4
+    if-nez v23, :cond_5
+
+    if-nez v6, :cond_6
 
     :cond_5
-    and-int/lit16 v13, v2, 0x100
+    :try_start_2
+    const-string/jumbo v23, "uid"
 
-    if-eqz v13, :cond_7
+    move-object/from16 v0, v18
 
-    const-string/jumbo v13, "pid"
+    move-object/from16 v1, v23
 
-    const/4 v14, 0x0
-
-    invoke-virtual {v8, v13, v14}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    sget-boolean v13, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->DBG:Z
-
-    if-eqz v13, :cond_6
-
-    const-string/jumbo v13, "NetworkAnalytics:DataDeliveryHelper"
-
-    new-instance v14, Ljava/lang/StringBuilder;
-
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v15, "PID = "
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0, v1, v9}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     :cond_6
-    const-string/jumbo v13, "pid"
+    and-int/lit16 v0, v6, 0x100
 
-    invoke-virtual {v9, v13, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    move/from16 v23, v0
 
-    move-object v7, v4
+    if-nez v23, :cond_7
+
+    if-nez v6, :cond_8
 
     :cond_7
-    and-int/lit16 v13, v2, 0x2000
+    const-string/jumbo v23, "pid"
 
-    if-eqz v13, :cond_9
+    const/16 v24, 0x0
 
-    const-string/jumbo v13, "src"
+    move-object/from16 v0, v17
 
-    const/4 v14, 0x0
+    move-object/from16 v1, v23
 
-    invoke-virtual {v8, v13, v14}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v2, v24
 
-    move-result-object v4
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    sget-boolean v13, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->DBG:Z
+    move-result-object v9
 
-    if-eqz v13, :cond_8
+    const-string/jumbo v23, "pid"
 
-    const-string/jumbo v13, "NetworkAnalytics:DataDeliveryHelper"
+    move-object/from16 v0, v18
 
-    new-instance v14, Ljava/lang/StringBuilder;
+    move-object/from16 v1, v23
 
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v15, "SOURCE_IP = "
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0, v1, v9}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     :cond_8
-    const-string/jumbo v13, "src"
+    and-int/lit16 v0, v6, 0x1000
 
-    invoke-virtual {v9, v13, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    move/from16 v23, v0
+
+    if-nez v23, :cond_9
+
+    if-nez v6, :cond_a
 
     :cond_9
-    and-int/lit8 v13, v2, 0x8
+    const-string/jumbo v23, "puid"
 
-    if-eqz v13, :cond_b
+    const/16 v24, 0x0
 
-    const-string/jumbo v13, "dst"
+    move-object/from16 v0, v17
 
-    const/4 v14, 0x0
+    move-object/from16 v1, v23
 
-    invoke-virtual {v8, v13, v14}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v2, v24
 
-    move-result-object v4
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    sget-boolean v13, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->DBG:Z
+    move-result-object v9
 
-    if-eqz v13, :cond_a
+    const-string/jumbo v23, "puid"
 
-    const-string/jumbo v13, "NetworkAnalytics:DataDeliveryHelper"
+    move-object/from16 v0, v18
 
-    new-instance v14, Ljava/lang/StringBuilder;
+    move-object/from16 v1, v23
 
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v15, "DESTINATION_IP = "
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0, v1, v9}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     :cond_a
-    const-string/jumbo v13, "dst"
+    and-int/lit16 v0, v6, 0x2000
 
-    invoke-virtual {v9, v13, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    move/from16 v23, v0
+
+    if-nez v23, :cond_b
+
+    if-nez v6, :cond_c
 
     :cond_b
-    and-int/lit16 v13, v2, 0x4000
+    const-string/jumbo v23, "src"
 
-    if-eqz v13, :cond_d
+    const/16 v24, 0x0
 
-    const-string/jumbo v13, "sport"
+    move-object/from16 v0, v17
 
-    const/4 v14, 0x0
+    move-object/from16 v1, v23
 
-    invoke-virtual {v8, v13, v14}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v2, v24
 
-    move-result-object v4
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    sget-boolean v13, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->DBG:Z
+    move-result-object v9
 
-    if-eqz v13, :cond_c
+    const-string/jumbo v23, "src"
 
-    const-string/jumbo v13, "NetworkAnalytics:DataDeliveryHelper"
+    move-object/from16 v0, v18
 
-    new-instance v14, Ljava/lang/StringBuilder;
+    move-object/from16 v1, v23
 
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v15, "SOURCE_PORT = "
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0, v1, v9}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     :cond_c
-    const-string/jumbo v13, "sport"
+    and-int/lit8 v23, v6, 0x8
 
-    invoke-virtual {v9, v13, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    if-nez v23, :cond_d
+
+    if-nez v6, :cond_e
 
     :cond_d
-    and-int/lit8 v13, v2, 0x10
+    const-string/jumbo v23, "dst"
 
-    if-eqz v13, :cond_f
+    const/16 v24, 0x0
 
-    const-string/jumbo v13, "dport"
+    move-object/from16 v0, v17
 
-    const/4 v14, 0x0
+    move-object/from16 v1, v23
 
-    invoke-virtual {v8, v13, v14}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v2, v24
 
-    move-result-object v4
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    sget-boolean v13, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->DBG:Z
+    move-result-object v9
 
-    if-eqz v13, :cond_e
+    const-string/jumbo v23, "dst"
 
-    const-string/jumbo v13, "NetworkAnalytics:DataDeliveryHelper"
+    move-object/from16 v0, v18
 
-    new-instance v14, Ljava/lang/StringBuilder;
+    move-object/from16 v1, v23
 
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v15, "DESTINATION_PORT = "
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0, v1, v9}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     :cond_e
-    const-string/jumbo v13, "dport"
+    and-int/lit16 v0, v6, 0x4000
 
-    invoke-virtual {v9, v13, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    move/from16 v23, v0
+
+    if-nez v23, :cond_f
+
+    if-nez v6, :cond_10
 
     :cond_f
-    and-int/lit16 v13, v2, 0x800
+    const-string/jumbo v23, "sport"
 
-    if-eqz v13, :cond_11
+    const/16 v24, 0x0
 
-    const-string/jumbo v13, "protocol"
+    move-object/from16 v0, v17
 
-    const/4 v14, 0x0
+    move-object/from16 v1, v23
 
-    invoke-virtual {v8, v13, v14}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v2, v24
 
-    move-result-object v4
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    sget-boolean v13, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->DBG:Z
+    move-result-object v9
 
-    if-eqz v13, :cond_10
+    const-string/jumbo v23, "sport"
 
-    const-string/jumbo v13, "NetworkAnalytics:DataDeliveryHelper"
+    move-object/from16 v0, v18
 
-    new-instance v14, Ljava/lang/StringBuilder;
+    move-object/from16 v1, v23
 
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v15, "PROTOCOL = "
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0, v1, v9}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     :cond_10
-    const-string/jumbo v13, "protocol"
+    and-int/lit8 v23, v6, 0x10
 
-    invoke-virtual {v9, v13, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-    :try_end_2
-    .catch Lorg/json/JSONException; {:try_start_2 .. :try_end_2} :catch_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_3
+    if-nez v23, :cond_11
+
+    if-nez v6, :cond_12
 
     :cond_11
-    if-eqz v11, :cond_12
+    const-string/jumbo v23, "dport"
 
-    if-eqz v7, :cond_12
+    const/16 v24, 0x0
 
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v9
+
+    const-string/jumbo v23, "dport"
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1, v9}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    :cond_12
+    and-int/lit16 v0, v6, 0x800
+
+    move/from16 v23, v0
+
+    if-nez v23, :cond_13
+
+    if-nez v6, :cond_14
+
+    :cond_13
+    const-string/jumbo v23, "protocol"
+
+    const/16 v24, 0x0
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v9
+
+    const-string/jumbo v23, "protocol"
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1, v9}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    :cond_14
+    and-int/lit16 v0, v6, 0x400
+
+    move/from16 v23, v0
+
+    if-nez v23, :cond_15
+
+    if-nez v6, :cond_16
+
+    :cond_15
+    const-string/jumbo v23, "procname"
+
+    const/16 v24, 0x0
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v9
+
+    const-string/jumbo v23, "procname"
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1, v9}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    :try_end_2
+    .catch Lorg/json/JSONException; {:try_start_2 .. :try_end_2} :catch_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_4
+
+    :cond_16
+    and-int/lit16 v0, v6, 0x200
+
+    move/from16 v23, v0
+
+    if-nez v23, :cond_17
+
+    if-nez v6, :cond_19
+
+    :cond_17
     :try_start_3
-    const-string/jumbo v13, "0"
+    const-string/jumbo v23, "uid"
 
-    invoke-virtual {v11, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const/16 v24, 0x0
 
-    move-result v13
+    move-object/from16 v0, v17
 
-    if-eqz v13, :cond_23
+    move-object/from16 v1, v23
 
-    const-string/jumbo v13, "prochash"
+    move-object/from16 v2, v24
 
-    const/4 v14, 0x0
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v9, v13, v14}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    move-result-object v20
 
-    sget-boolean v13, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->DBG:Z
+    const-string/jumbo v23, "procname"
 
-    if-eqz v13, :cond_12
+    const/16 v24, 0x0
 
-    const-string/jumbo v13, "NetworkAnalytics:DataDeliveryHelper"
+    move-object/from16 v0, v17
 
-    const-string/jumbo v14, "PROCESS_HASH is null"
+    move-object/from16 v1, v23
 
-    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v15
+
+    const-string/jumbo v23, "pid"
+
+    const/16 v24, 0x0
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v13
+
+    if-eqz v20, :cond_19
+
+    if-eqz v15, :cond_19
+
+    const-string/jumbo v23, "0"
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v23
+
+    if-nez v23, :cond_18
+
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v23
+
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v23
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v13, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v23
+
+    if-eqz v23, :cond_2d
+
+    :cond_18
+    const-string/jumbo v23, "prochash"
+
+    const/16 v24, 0x0
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
     :try_end_3
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
     .catch Lorg/json/JSONException; {:try_start_3 .. :try_end_3} :catch_2
 
-    :cond_12
-    :goto_0
-    const/4 v11, 0x0
-
-    const/4 v7, 0x0
-
-    :goto_1
-    and-int/lit16 v13, v2, 0x1000
-
-    if-eqz v13, :cond_14
-
-    :try_start_4
-    const-string/jumbo v13, "puid"
-
-    const/4 v14, 0x0
-
-    invoke-virtual {v8, v13, v14}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    sget-boolean v13, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->DBG:Z
-
-    if-eqz v13, :cond_13
-
-    const-string/jumbo v13, "NetworkAnalytics:DataDeliveryHelper"
-
-    new-instance v14, Ljava/lang/StringBuilder;
-
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v15, "PUID = "
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_13
-    const-string/jumbo v13, "puid"
-
-    invoke-virtual {v9, v13, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    :cond_14
-    and-int/lit8 v13, v2, 0x2
-
-    if-eqz v13, :cond_16
-
-    const-string/jumbo v13, "bsent"
-
-    const/4 v14, 0x0
-
-    invoke-virtual {v8, v13, v14}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    sget-boolean v13, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->DBG:Z
-
-    if-eqz v13, :cond_15
-
-    const-string/jumbo v13, "NetworkAnalytics:DataDeliveryHelper"
-
-    new-instance v14, Ljava/lang/StringBuilder;
-
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v15, "BYTES_SENT = "
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_15
-    const-string/jumbo v13, "bsent"
-
-    invoke-virtual {v9, v13, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    :cond_16
-    and-int/lit8 v13, v2, 0x40
-
-    if-eqz v13, :cond_18
-
-    const-string/jumbo v13, "start"
-
-    const/4 v14, 0x0
-
-    invoke-virtual {v8, v13, v14}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    sget-boolean v13, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->DBG:Z
-
-    if-eqz v13, :cond_17
-
-    const-string/jumbo v13, "NetworkAnalytics:DataDeliveryHelper"
-
-    new-instance v14, Ljava/lang/StringBuilder;
-
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v15, "OPEN_TIME = "
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_17
-    const-string/jumbo v13, "start"
-
-    invoke-virtual {v9, v13, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    :cond_18
-    and-int/lit8 v13, v2, 0x4
-
-    if-eqz v13, :cond_1a
-
-    const-string/jumbo v13, "end"
-
-    const/4 v14, 0x0
-
-    invoke-virtual {v8, v13, v14}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    sget-boolean v13, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->DBG:Z
-
-    if-eqz v13, :cond_19
-
-    const-string/jumbo v13, "NetworkAnalytics:DataDeliveryHelper"
-
-    new-instance v14, Ljava/lang/StringBuilder;
-
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v15, "CLOSE_TIME = "
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     :cond_19
-    const-string/jumbo v13, "end"
+    :goto_0
+    and-int/lit16 v0, v6, 0x80
 
-    invoke-virtual {v9, v13, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    move/from16 v23, v0
+
+    if-nez v23, :cond_1a
+
+    if-nez v6, :cond_1b
 
     :cond_1a
-    and-int/lit8 v13, v2, 0x1
+    :try_start_4
+    const-string/jumbo v23, "parentprocname"
 
-    if-eqz v13, :cond_1c
+    const/16 v24, 0x0
 
-    const-string/jumbo v13, "brecv"
+    move-object/from16 v0, v17
 
-    const/4 v14, 0x0
+    move-object/from16 v1, v23
 
-    invoke-virtual {v8, v13, v14}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v2, v24
 
-    move-result-object v4
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    sget-boolean v13, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->DBG:Z
+    move-result-object v9
 
-    if-eqz v13, :cond_1b
+    const-string/jumbo v23, "parentprocname"
 
-    const-string/jumbo v13, "NetworkAnalytics:DataDeliveryHelper"
+    move-object/from16 v0, v18
 
-    new-instance v14, Ljava/lang/StringBuilder;
+    move-object/from16 v1, v23
 
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v15, "BYTES_RECEIVED = "
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1b
-    const-string/jumbo v13, "brecv"
-
-    invoke-virtual {v9, v13, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    :cond_1c
-    and-int/lit8 v13, v2, 0x20
-
-    if-eqz v13, :cond_1e
-
-    const-string/jumbo v13, "hostname"
-
-    const/4 v14, 0x0
-
-    invoke-virtual {v8, v13, v14}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    sget-boolean v13, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->DBG:Z
-
-    if-eqz v13, :cond_1d
-
-    const-string/jumbo v13, "NetworkAnalytics:DataDeliveryHelper"
-
-    new-instance v14, Ljava/lang/StringBuilder;
-
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v15, "HOSTNAME = "
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1d
-    const-string/jumbo v13, "hostname"
-
-    invoke-virtual {v9, v13, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    :cond_1e
-    and-int/lit16 v13, v2, 0x400
-
-    if-eqz v13, :cond_20
-
-    const-string/jumbo v13, "procname"
-
-    const/4 v14, 0x0
-
-    invoke-virtual {v8, v13, v14}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    sget-boolean v13, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->DBG:Z
-
-    if-eqz v13, :cond_1f
-
-    const-string/jumbo v13, "NetworkAnalytics:DataDeliveryHelper"
-
-    new-instance v14, Ljava/lang/StringBuilder;
-
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v15, "PROCESS_NAME = "
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1f
-    const-string/jumbo v13, "procname"
-
-    invoke-virtual {v9, v13, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    :cond_20
-    and-int/lit16 v13, v2, 0x80
-
-    if-eqz v13, :cond_22
-
-    const-string/jumbo v13, "parentprocname"
-
-    const/4 v14, 0x0
-
-    invoke-virtual {v8, v13, v14}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    sget-boolean v13, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->DBG:Z
-
-    if-eqz v13, :cond_21
-
-    const-string/jumbo v13, "NetworkAnalytics:DataDeliveryHelper"
-
-    new-instance v14, Ljava/lang/StringBuilder;
-
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v15, "PARENT_PROCESS_NAME = "
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_21
-    const-string/jumbo v13, "parentprocname"
-
-    invoke-virtual {v9, v13, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    :cond_22
-    invoke-virtual {v9}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1, v9}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
     :try_end_4
     .catch Lorg/json/JSONException; {:try_start_4 .. :try_end_4} :catch_2
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_3
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_4
 
-    move-result-object v10
+    :cond_1b
+    const/high16 v23, 0x40000
 
-    :goto_2
-    return-object v10
+    and-int v23, v23, v6
+
+    if-nez v23, :cond_1c
+
+    if-nez v6, :cond_1e
+
+    :cond_1c
+    :try_start_5
+    const-string/jumbo v23, "puid"
+
+    const/16 v24, 0x0
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v16
+
+    const-string/jumbo v23, "parentprocname"
+
+    const/16 v24, 0x0
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v12
+
+    const-string/jumbo v23, "ppid"
+
+    const/16 v24, 0x0
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v14
+
+    if-eqz v16, :cond_1e
+
+    if-eqz v12, :cond_1e
+
+    const-string/jumbo v23, "0"
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v23
+
+    if-nez v23, :cond_1d
+
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v23
+
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v23
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v14, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v23
+
+    if-eqz v23, :cond_2e
+
+    :cond_1d
+    const-string/jumbo v23, "parentprochash"
+
+    const/16 v24, 0x0
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_3
+    .catch Lorg/json/JSONException; {:try_start_5 .. :try_end_5} :catch_2
+
+    :cond_1e
+    :goto_1
+    and-int/lit8 v23, v6, 0x2
+
+    if-nez v23, :cond_1f
+
+    if-nez v6, :cond_20
+
+    :cond_1f
+    :try_start_6
+    const-string/jumbo v23, "bsent"
+
+    const/16 v24, 0x0
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v9
+
+    const-string/jumbo v23, "bsent"
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1, v9}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    :cond_20
+    and-int/lit8 v23, v6, 0x40
+
+    if-nez v23, :cond_21
+
+    if-nez v6, :cond_22
+
+    :cond_21
+    const-string/jumbo v23, "start"
+
+    const/16 v24, 0x0
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v9
+
+    const-string/jumbo v23, "start"
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1, v9}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    :cond_22
+    and-int/lit8 v23, v6, 0x4
+
+    if-nez v23, :cond_23
+
+    if-nez v6, :cond_24
 
     :cond_23
-    and-int/lit16 v13, v2, 0x200
+    const-string/jumbo v23, "end"
 
-    if-eqz v13, :cond_12
+    const/16 v24, 0x0
 
-    :try_start_5
-    invoke-static {v11}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    move-object/from16 v0, v17
 
-    move-result v13
+    move-object/from16 v1, v23
 
-    invoke-static {v7}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    move-object/from16 v2, v24
 
-    move-result v14
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v13, v14}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;->getPackageHash(II)Ljava/lang/String;
+    move-result-object v9
 
-    move-result-object v6
+    const-string/jumbo v23, "end"
 
-    sget-boolean v13, Lcom/android/server/enterprise/nap/DataDeliveryHelper;->DBG:Z
+    move-object/from16 v0, v18
 
-    if-eqz v13, :cond_24
+    move-object/from16 v1, v23
 
-    const-string/jumbo v13, "NetworkAnalytics:DataDeliveryHelper"
-
-    new-instance v14, Ljava/lang/StringBuilder;
-
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v15, "PROCESS_HASH = "
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0, v1, v9}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     :cond_24
-    const-string/jumbo v13, "prochash"
+    and-int/lit8 v23, v6, 0x1
 
-    invoke-virtual {v9, v13, v6}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-    :try_end_5
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_1
-    .catch Lorg/json/JSONException; {:try_start_5 .. :try_end_5} :catch_2
+    if-nez v23, :cond_25
+
+    if-nez v6, :cond_26
+
+    :cond_25
+    const-string/jumbo v23, "brecv"
+
+    const/16 v24, 0x0
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v9
+
+    const-string/jumbo v23, "brecv"
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1, v9}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    :cond_26
+    and-int/lit8 v23, v6, 0x20
+
+    if-nez v23, :cond_27
+
+    if-nez v6, :cond_28
+
+    :cond_27
+    const-string/jumbo v23, "hostname"
+
+    const/16 v24, 0x0
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v9
+
+    const-string/jumbo v23, "hostname"
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1, v9}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    :try_end_6
+    .catch Lorg/json/JSONException; {:try_start_6 .. :try_end_6} :catch_2
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_4
+
+    :cond_28
+    const/high16 v23, 0x10000
+
+    and-int v23, v23, v6
+
+    if-nez v23, :cond_29
+
+    if-nez v6, :cond_2a
+
+    :cond_29
+    :try_start_7
+    const-string/jumbo v23, "dport"
+
+    const/16 v24, 0x0
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_2a
+
+    const-string/jumbo v23, "53"
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v23
+
+    if-eqz v23, :cond_2f
+
+    const-string/jumbo v23, "dnsuid"
+
+    const/16 v24, 0x0
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v9
+
+    const-string/jumbo v23, "dnsuid"
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1, v9}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    :try_end_7
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_5
+    .catch Lorg/json/JSONException; {:try_start_7 .. :try_end_7} :catch_2
+
+    :cond_2a
+    :goto_2
+    const/high16 v23, 0x20000
+
+    and-int v23, v23, v6
+
+    if-nez v23, :cond_2b
+
+    if-nez v6, :cond_2c
+
+    :cond_2b
+    :try_start_8
+    const-string/jumbo v23, "ppid"
+
+    const/16 v24, 0x0
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v9
+
+    const-string/jumbo v23, "ppid"
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1, v9}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    :cond_2c
+    invoke-virtual/range {v18 .. v18}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+    :try_end_8
+    .catch Lorg/json/JSONException; {:try_start_8 .. :try_end_8} :catch_2
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_4
+
+    move-result-object v19
+
+    :goto_3
+    return-object v19
+
+    :cond_2d
+    :try_start_9
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v23
+
+    move/from16 v0, v23
+
+    invoke-static {v0, v15}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;->getPackageHash(ILjava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    const-string/jumbo v23, "prochash"
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1, v11}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    :try_end_9
+    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_1
+    .catch Lorg/json/JSONException; {:try_start_9 .. :try_end_9} :catch_2
 
     goto/16 :goto_0
 
     :catch_1
-    move-exception v1
+    move-exception v5
 
-    :try_start_6
-    const-string/jumbo v13, "prochash"
+    :try_start_a
+    const-string/jumbo v23, "prochash"
 
-    const/4 v14, 0x0
+    const/16 v24, 0x0
 
-    invoke-virtual {v9, v13, v14}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-    :try_end_6
-    .catch Lorg/json/JSONException; {:try_start_6 .. :try_end_6} :catch_2
-    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_3
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    :try_end_a
+    .catch Lorg/json/JSONException; {:try_start_a .. :try_end_a} :catch_2
+    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_a} :catch_4
+
+    goto/16 :goto_0
+
+    :catch_2
+    move-exception v8
+
+    const-string/jumbo v23, "NetworkAnalytics:DataDeliveryHelper"
+
+    const-string/jumbo v24, "processData: JSONException"
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v24
+
+    invoke-static {v0, v1, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/16 v19, 0x0
+
+    goto :goto_3
+
+    :cond_2e
+    :try_start_b
+    invoke-static/range {v16 .. v16}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v23
+
+    move/from16 v0, v23
+
+    invoke-static {v0, v12}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;->getPackageHash(ILjava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    const-string/jumbo v23, "parentprochash"
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1, v11}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    :try_end_b
+    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_b} :catch_3
+    .catch Lorg/json/JSONException; {:try_start_b .. :try_end_b} :catch_2
 
     goto/16 :goto_1
 
-    :catch_2
-    move-exception v3
-
-    const-string/jumbo v13, "NetworkAnalytics:DataDeliveryHelper"
-
-    const-string/jumbo v14, "processData: JSONException"
-
-    invoke-static {v13, v14, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    const/4 v10, 0x0
-
-    goto :goto_2
-
     :catch_3
-    move-exception v1
+    move-exception v5
 
-    const-string/jumbo v13, "NetworkAnalytics:DataDeliveryHelper"
+    :try_start_c
+    const-string/jumbo v23, "parentprochash"
 
-    const-string/jumbo v14, "processData: Exception"
+    const/16 v24, 0x0
 
-    invoke-static {v13, v14, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    move-object/from16 v0, v18
 
-    const/4 v10, 0x0
+    move-object/from16 v1, v23
 
-    goto :goto_2
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    :try_end_c
+    .catch Lorg/json/JSONException; {:try_start_c .. :try_end_c} :catch_2
+    .catch Ljava/lang/Exception; {:try_start_c .. :try_end_c} :catch_4
+
+    goto/16 :goto_1
+
+    :catch_4
+    move-exception v5
+
+    const-string/jumbo v23, "NetworkAnalytics:DataDeliveryHelper"
+
+    const-string/jumbo v24, "processData: Exception"
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v24
+
+    invoke-static {v0, v1, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/16 v19, 0x0
+
+    goto :goto_3
+
+    :cond_2f
+    :try_start_d
+    const-string/jumbo v23, "dnsuid"
+
+    const/16 v24, 0x0
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    :try_end_d
+    .catch Ljava/lang/Exception; {:try_start_d .. :try_end_d} :catch_5
+    .catch Lorg/json/JSONException; {:try_start_d .. :try_end_d} :catch_2
+
+    goto/16 :goto_2
+
+    :catch_5
+    move-exception v5
+
+    :try_start_e
+    const-string/jumbo v23, "dnsuid"
+
+    const/16 v24, 0x0
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    :try_end_e
+    .catch Lorg/json/JSONException; {:try_start_e .. :try_end_e} :catch_2
+    .catch Ljava/lang/Exception; {:try_start_e .. :try_end_e} :catch_4
+
+    goto/16 :goto_2
 .end method
 
 .method public setServiceConnection(Lcom/android/server/enterprise/nap/NetworkAnalyticsService$NetworkAnalyticsServiceConnection;)V

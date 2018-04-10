@@ -76,33 +76,33 @@
 .end method
 
 .method public characters(Lmf/org/apache/xerces/xni/XMLString;Lmf/org/apache/xerces/xni/Augmentations;)V
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
 
-    iget-boolean v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fIgnoreChars:Z
+    iget-boolean v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fIgnoreChars:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     :goto_0
     return-void
 
     :cond_0
     :try_start_0
-    iget-boolean v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fInCDATA:Z
+    iget-boolean v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fInCDATA:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
 
     invoke-virtual {p1}, Lmf/org/apache/xerces/xni/XMLString;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-interface {v0, v1}, Lmf/javax/xml/stream/XMLStreamWriter;->writeCData(Ljava/lang/String;)V
+    invoke-interface {v1, v2}, Lmf/javax/xml/stream/XMLStreamWriter;->writeCData(Ljava/lang/String;)V
     :try_end_0
     .catch Lmf/javax/xml/stream/XMLStreamException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -119,15 +119,15 @@
 
     :cond_1
     :try_start_1
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
 
-    iget-object v1, p1, Lmf/org/apache/xerces/xni/XMLString;->ch:[C
+    iget-object v2, p1, Lmf/org/apache/xerces/xni/XMLString;->ch:[C
 
-    iget v2, p1, Lmf/org/apache/xerces/xni/XMLString;->offset:I
+    iget v3, p1, Lmf/org/apache/xerces/xni/XMLString;->offset:I
 
-    iget v3, p1, Lmf/org/apache/xerces/xni/XMLString;->length:I
+    iget v4, p1, Lmf/org/apache/xerces/xni/XMLString;->length:I
 
-    invoke-interface {v0, v1, v2, v3}, Lmf/javax/xml/stream/XMLStreamWriter;->writeCharacters([CII)V
+    invoke-interface {v1, v2, v3, v4}, Lmf/javax/xml/stream/XMLStreamWriter;->writeCharacters([CII)V
     :try_end_1
     .catch Lmf/javax/xml/stream/XMLStreamException; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -301,9 +301,9 @@
     .end annotation
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
 
-    invoke-interface {v0}, Lmf/javax/xml/stream/XMLStreamWriter;->writeEndElement()V
+    invoke-interface {v1}, Lmf/javax/xml/stream/XMLStreamWriter;->writeEndElement()V
     :try_end_0
     .catch Lmf/javax/xml/stream/XMLStreamException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -415,13 +415,13 @@
     if-nez v0, :cond_1
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
 
     invoke-interface {p1}, Lmf/javax/xml/stream/XMLStreamReader;->getPITarget()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-interface {v0, v1}, Lmf/javax/xml/stream/XMLStreamWriter;->writeProcessingInstruction(Ljava/lang/String;)V
+    invoke-interface {v1, v2}, Lmf/javax/xml/stream/XMLStreamWriter;->writeProcessingInstruction(Ljava/lang/String;)V
 
     :goto_0
     return-void
@@ -459,13 +459,13 @@
     if-nez v0, :cond_1
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
 
     invoke-interface {p1}, Lmf/javax/xml/stream/events/ProcessingInstruction;->getTarget()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-interface {v0, v1}, Lmf/javax/xml/stream/XMLStreamWriter;->writeProcessingInstruction(Ljava/lang/String;)V
+    invoke-interface {v1, v2}, Lmf/javax/xml/stream/XMLStreamWriter;->writeProcessingInstruction(Ljava/lang/String;)V
 
     :goto_0
     return-void
@@ -557,25 +557,25 @@
 
     invoke-interface {p1}, Lmf/javax/xml/stream/XMLStreamReader;->getVersion()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     invoke-interface {p1}, Lmf/javax/xml/stream/XMLStreamReader;->getCharacterEncodingScheme()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
     iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    const-string/jumbo v1, "UTF-8"
+    const-string/jumbo v0, "UTF-8"
 
     :cond_0
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
-    const-string/jumbo v0, "1.0"
+    const-string/jumbo v1, "1.0"
 
     :cond_1
-    invoke-interface {v2, v1, v0}, Lmf/javax/xml/stream/XMLStreamWriter;->writeStartDocument(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-interface {v2, v0, v1}, Lmf/javax/xml/stream/XMLStreamWriter;->writeStartDocument(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -590,25 +590,25 @@
 
     invoke-interface {p1}, Lmf/javax/xml/stream/events/StartDocument;->getVersion()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     invoke-interface {p1}, Lmf/javax/xml/stream/events/StartDocument;->getCharacterEncodingScheme()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
     iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    const-string/jumbo v1, "UTF-8"
+    const-string/jumbo v0, "UTF-8"
 
     :cond_0
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
-    const-string/jumbo v0, "1.0"
+    const-string/jumbo v1, "1.0"
 
     :cond_1
-    invoke-interface {v2, v1, v0}, Lmf/javax/xml/stream/XMLStreamWriter;->writeStartDocument(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-interface {v2, v0, v1}, Lmf/javax/xml/stream/XMLStreamWriter;->writeStartDocument(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -625,63 +625,61 @@
 .end method
 
 .method public startElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;)V
-    .locals 7
+    .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
 
-    const/4 v1, 0x0
-
     :try_start_0
-    iget-object v0, p1, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    iget-object v6, p1, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
 
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    invoke-virtual {v6}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v6
 
-    if-gtz v0, :cond_1
+    if-gtz v6, :cond_1
 
-    iget-object v0, p1, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    iget-object v6, p1, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
 
-    if-nez v0, :cond_3
+    if-nez v6, :cond_3
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
 
-    iget-object v2, p1, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
+    iget-object v7, p1, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
 
-    invoke-interface {v0, v2}, Lmf/javax/xml/stream/XMLStreamWriter;->writeStartElement(Ljava/lang/String;)V
+    invoke-interface {v6, v7}, Lmf/javax/xml/stream/XMLStreamWriter;->writeStartElement(Ljava/lang/String;)V
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fNamespaceContext:Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fNamespaceContext:Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->getDeclaredPrefixCount()I
+    invoke-virtual {v6}, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->getDeclaredPrefixCount()I
 
-    move-result v3
+    move-result v4
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fNamespaceContext:Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fNamespaceContext:Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->getNamespaceContext()Lmf/javax/xml/namespace/NamespaceContext;
-
-    move-result-object v4
-
-    move v0, v1
-
-    :goto_1
-    if-ge v0, v3, :cond_6
-
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fNamespaceContext:Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;
-
-    invoke-virtual {v2, v0}, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->getDeclaredPrefixAt(I)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-interface {v4, v5}, Lmf/javax/xml/namespace/NamespaceContext;->getNamespaceURI(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v6}, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->getNamespaceContext()Lmf/javax/xml/namespace/NamespaceContext;
 
     move-result-object v2
 
-    invoke-virtual {v5}, Ljava/lang/String;->length()I
+    const/4 v1, 0x0
+
+    :goto_1
+    if-ge v1, v4, :cond_6
+
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fNamespaceContext:Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;
+
+    invoke-virtual {v6, v1}, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->getDeclaredPrefixAt(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-interface {v2, v3}, Lmf/javax/xml/namespace/NamespaceContext;->getNamespaceURI(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
 
     move-result v6
 
@@ -689,33 +687,33 @@
 
     iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
 
-    if-nez v2, :cond_0
+    if-nez v5, :cond_0
 
-    const-string/jumbo v2, ""
+    const-string/jumbo v5, ""
 
     :cond_0
-    invoke-interface {v6, v5, v2}, Lmf/javax/xml/stream/XMLStreamWriter;->writeNamespace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-interface {v6, v3, v5}, Lmf/javax/xml/stream/XMLStreamWriter;->writeNamespace(Ljava/lang/String;Ljava/lang/String;)V
 
     :goto_2
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
     :cond_1
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
+    iget-object v7, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
 
-    iget-object v3, p1, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    iget-object v8, p1, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
 
-    iget-object v4, p1, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
+    iget-object v9, p1, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    iget-object v6, p1, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
 
-    if-nez v0, :cond_2
+    if-nez v6, :cond_2
 
-    const-string/jumbo v0, ""
+    const-string/jumbo v6, ""
 
     :goto_3
-    invoke-interface {v2, v3, v4, v0}, Lmf/javax/xml/stream/XMLStreamWriter;->writeStartElement(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-interface {v7, v8, v9, v6}, Lmf/javax/xml/stream/XMLStreamWriter;->writeStartElement(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     :try_end_0
     .catch Lmf/javax/xml/stream/XMLStreamException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -724,139 +722,139 @@
     :catch_0
     move-exception v0
 
-    new-instance v1, Lmf/org/apache/xerces/xni/XNIException;
+    new-instance v6, Lmf/org/apache/xerces/xni/XNIException;
 
-    invoke-direct {v1, v0}, Lmf/org/apache/xerces/xni/XNIException;-><init>(Ljava/lang/Exception;)V
+    invoke-direct {v6, v0}, Lmf/org/apache/xerces/xni/XNIException;-><init>(Ljava/lang/Exception;)V
 
-    throw v1
+    throw v6
 
     :cond_2
     :try_start_1
-    iget-object v0, p1, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    iget-object v6, p1, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
 
     goto :goto_3
 
     :cond_3
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
 
-    iget-object v2, p1, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    iget-object v7, p1, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
 
-    iget-object v3, p1, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
+    iget-object v8, p1, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
 
-    invoke-interface {v0, v2, v3}, Lmf/javax/xml/stream/XMLStreamWriter;->writeStartElement(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-interface {v6, v7, v8}, Lmf/javax/xml/stream/XMLStreamWriter;->writeStartElement(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_4
-    iget-object v5, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
 
-    if-nez v2, :cond_5
+    if-nez v5, :cond_5
 
-    const-string/jumbo v2, ""
+    const-string/jumbo v5, ""
 
     :cond_5
-    invoke-interface {v5, v2}, Lmf/javax/xml/stream/XMLStreamWriter;->writeDefaultNamespace(Ljava/lang/String;)V
+    invoke-interface {v6, v5}, Lmf/javax/xml/stream/XMLStreamWriter;->writeDefaultNamespace(Ljava/lang/String;)V
 
     goto :goto_2
 
     :cond_6
     invoke-interface {p2}, Lmf/org/apache/xerces/xni/XMLAttributes;->getLength()I
 
-    move-result v2
+    move-result v4
 
-    move v0, v1
+    const/4 v1, 0x0
 
     :goto_4
-    if-ge v0, v2, :cond_a
+    if-ge v1, v4, :cond_a
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fAttrName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fAttrName:Lmf/org/apache/xerces/xni/QName;
 
-    invoke-interface {p2, v0, v1}, Lmf/org/apache/xerces/xni/XMLAttributes;->getName(ILmf/org/apache/xerces/xni/QName;)V
+    invoke-interface {p2, v1, v6}, Lmf/org/apache/xerces/xni/XMLAttributes;->getName(ILmf/org/apache/xerces/xni/QName;)V
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fAttrName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fAttrName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v1, v1, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    iget-object v6, v6, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {v6}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v6
 
-    if-gtz v1, :cond_7
+    if-gtz v6, :cond_7
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fAttrName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fAttrName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v1, v1, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    iget-object v6, v6, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
 
-    if-nez v1, :cond_9
+    if-nez v6, :cond_9
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fAttrName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v7, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fAttrName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
+    iget-object v7, v7, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
 
-    invoke-interface {p2, v0}, Lmf/org/apache/xerces/xni/XMLAttributes;->getValue(I)Ljava/lang/String;
+    invoke-interface {p2, v1}, Lmf/org/apache/xerces/xni/XMLAttributes;->getValue(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v8
 
-    invoke-interface {v1, v3, v4}, Lmf/javax/xml/stream/XMLStreamWriter;->writeAttribute(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-interface {v6, v7, v8}, Lmf/javax/xml/stream/XMLStreamWriter;->writeAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
     :goto_5
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_4
 
     :cond_7
-    iget-object v3, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
+    iget-object v7, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fAttrName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fAttrName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v4, v1, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    iget-object v8, v6, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fAttrName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fAttrName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v1, v1, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    iget-object v6, v6, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
 
-    if-nez v1, :cond_8
+    if-nez v6, :cond_8
 
-    const-string/jumbo v1, ""
+    const-string/jumbo v6, ""
 
     :goto_6
-    iget-object v5, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fAttrName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v9, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fAttrName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v5, v5, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
+    iget-object v9, v9, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
 
-    invoke-interface {p2, v0}, Lmf/org/apache/xerces/xni/XMLAttributes;->getValue(I)Ljava/lang/String;
+    invoke-interface {p2, v1}, Lmf/org/apache/xerces/xni/XMLAttributes;->getValue(I)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v10
 
-    invoke-interface {v3, v4, v1, v5, v6}, Lmf/javax/xml/stream/XMLStreamWriter;->writeAttribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-interface {v7, v8, v6, v9, v10}, Lmf/javax/xml/stream/XMLStreamWriter;->writeAttribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_5
 
     :cond_8
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fAttrName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fAttrName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v1, v1, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    iget-object v6, v6, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
 
     goto :goto_6
 
     :cond_9
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fStreamWriter:Lmf/javax/xml/stream/XMLStreamWriter;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fAttrName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v7, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fAttrName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    iget-object v7, v7, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
 
-    iget-object v4, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fAttrName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v8, p0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->fAttrName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v4, v4, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
+    iget-object v8, v8, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
 
-    invoke-interface {p2, v0}, Lmf/org/apache/xerces/xni/XMLAttributes;->getValue(I)Ljava/lang/String;
+    invoke-interface {p2, v1}, Lmf/org/apache/xerces/xni/XMLAttributes;->getValue(I)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v9
 
-    invoke-interface {v1, v3, v4, v5}, Lmf/javax/xml/stream/XMLStreamWriter;->writeAttribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-interface {v6, v7, v8, v9}, Lmf/javax/xml/stream/XMLStreamWriter;->writeAttribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     :try_end_1
     .catch Lmf/javax/xml/stream/XMLStreamException; {:try_start_1 .. :try_end_1} :catch_0
 

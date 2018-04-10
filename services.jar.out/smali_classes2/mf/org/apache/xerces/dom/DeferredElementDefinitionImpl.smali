@@ -44,59 +44,59 @@
 .end method
 
 .method protected synchronizeChildren()V
-    .locals 5
+    .locals 6
 
-    const/4 v1, 0x0
+    const/4 v5, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredElementDefinitionImpl;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
+    iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredElementDefinitionImpl;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->getMutationEvents()Z
+    invoke-virtual {v4}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->getMutationEvents()Z
 
     move-result v2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredElementDefinitionImpl;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
+    iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredElementDefinitionImpl;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->setMutationEvents(Z)V
+    invoke-virtual {v4, v5}, Lmf/org/apache/xerces/dom/CoreDocumentImpl;->setMutationEvents(Z)V
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/DeferredElementDefinitionImpl;->needsSyncChildren(Z)V
+    invoke-virtual {p0, v5}, Lmf/org/apache/xerces/dom/DeferredElementDefinitionImpl;->needsSyncChildren(Z)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredElementDefinitionImpl;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DeferredElementDefinitionImpl;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
 
-    check-cast v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;
+    check-cast v3, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;
 
-    new-instance v1, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
+    new-instance v4, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
 
-    invoke-direct {v1, v0}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;-><init>(Lmf/org/apache/xerces/dom/NodeImpl;)V
+    invoke-direct {v4, v3}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;-><init>(Lmf/org/apache/xerces/dom/NodeImpl;)V
 
-    iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredElementDefinitionImpl;->attributes:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
+    iput-object v4, p0, Lmf/org/apache/xerces/dom/DeferredElementDefinitionImpl;->attributes:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
 
-    iget v1, p0, Lmf/org/apache/xerces/dom/DeferredElementDefinitionImpl;->fNodeIndex:I
+    iget v4, p0, Lmf/org/apache/xerces/dom/DeferredElementDefinitionImpl;->fNodeIndex:I
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getLastChild(I)I
+    invoke-virtual {v3, v4}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getLastChild(I)I
 
     move-result v1
 
     :goto_0
-    const/4 v3, -0x1
+    const/4 v4, -0x1
 
-    if-eq v1, v3, :cond_0
+    if-eq v1, v4, :cond_0
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeObject(I)Lmf/org/apache/xerces/dom/DeferredNode;
+    invoke-virtual {v3, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeObject(I)Lmf/org/apache/xerces/dom/DeferredNode;
 
-    move-result-object v3
+    move-result-object v0
 
     iget-object v4, p0, Lmf/org/apache/xerces/dom/DeferredElementDefinitionImpl;->attributes:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
 
-    invoke-virtual {v4, v3}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->setNamedItem(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-virtual {v4, v0}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->setNamedItem(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getPrevSibling(I)I
+    invoke-virtual {v3, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getPrevSibling(I)I
 
     move-result v1
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v0, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setMutationEvents(Z)V
+    invoke-virtual {v3, v2}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->setMutationEvents(Z)V
 
     return-void
 .end method
@@ -104,9 +104,9 @@
 .method protected synchronizeData()V
     .locals 2
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DeferredElementDefinitionImpl;->needsSyncData(Z)V
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/DeferredElementDefinitionImpl;->needsSyncData(Z)V
 
     iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredElementDefinitionImpl;->ownerDocument:Lmf/org/apache/xerces/dom/CoreDocumentImpl;
 
@@ -116,9 +116,9 @@
 
     invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeName(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DeferredElementDefinitionImpl;->name:Ljava/lang/String;
+    iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredElementDefinitionImpl;->name:Ljava/lang/String;
 
     return-void
 .end method

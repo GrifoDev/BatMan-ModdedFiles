@@ -40,653 +40,935 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 21
+    .locals 25
 
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v4
 
-    const-string/jumbo v16, "android.intent.action.SCREEN_OFF"
+    const-string/jumbo v20, "android.intent.action.SCREEN_OFF"
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v20
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v16
+    move-result v20
 
-    if-eqz v16, :cond_1
+    if-eqz v20, :cond_0
 
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    new-instance v13, Landroid/content/Intent;
 
-    move-result-object v16
+    const-string/jumbo v20, "com.samsung.settings.action.directaccess.CLOSE_DIALOG"
 
-    const-string/jumbo v17, "finger_magnifier"
+    move-object/from16 v0, v20
 
-    const/16 v18, 0x0
+    invoke-direct {v13, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-static/range {v16 .. v18}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    const/high16 v20, 0x4000000
 
-    move-result v16
+    move/from16 v0, v20
 
-    const/16 v17, 0x1
+    invoke-virtual {v13, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    move/from16 v0, v16
+    const-string/jumbo v20, "com.samsung.android.SettingsReceiver"
 
-    move/from16 v1, v17
+    move-object/from16 v0, v20
 
-    if-ne v0, v1, :cond_0
+    invoke-virtual {v13, v0}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    const/16 v16, 0x1
-
-    invoke-static/range {v16 .. v16}, Lcom/android/server/accessibility/AccessibilityManagerService;->-set3(Z)Z
-
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v16
-
-    const-string/jumbo v17, "finger_magnifier"
-
-    const/16 v18, 0x0
-
-    invoke-static/range {v16 .. v18}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    :goto_0
-    new-instance v9, Landroid/content/Intent;
-
-    const-string/jumbo v16, "com.samsung.settings.action.directaccess.CLOSE_DIALOG"
-
-    move-object/from16 v0, v16
-
-    invoke-direct {v9, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const/high16 v16, 0x4000000
-
-    move/from16 v0, v16
-
-    invoke-virtual {v9, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
-
-    sget-object v16, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+    sget-object v20, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v16
+    move-object/from16 v1, v20
 
-    invoke-virtual {v0, v9, v1}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+    invoke-virtual {v0, v13, v1}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
     return-void
 
     :cond_0
-    const/16 v16, 0x0
+    const-string/jumbo v20, "android.intent.action.BOOT_COMPLETED"
 
-    invoke-static/range {v16 .. v16}, Lcom/android/server/accessibility/AccessibilityManagerService;->-set3(Z)Z
-
-    goto :goto_0
-
-    :cond_1
-    const-string/jumbo v16, "android.intent.action.BOOT_COMPLETED"
-
-    move-object/from16 v0, v16
+    move-object/from16 v0, v20
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v16
+    move-result v20
 
-    if-eqz v16, :cond_5
+    if-eqz v20, :cond_a
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
-    move-result v16
+    move-result v20
 
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
-    move-result v17
+    move-result v21
 
-    move/from16 v0, v16
+    move/from16 v0, v20
 
-    move/from16 v1, v17
+    move/from16 v1, v21
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_1
 
     return-void
 
+    :cond_1
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v20
+
+    const-string/jumbo v21, "color_blind"
+
+    const/16 v22, 0x0
+
+    invoke-static/range {v20 .. v22}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v9
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v20
+
+    const-string/jumbo v21, "color_lens_switch"
+
+    const/16 v22, 0x0
+
+    invoke-static/range {v20 .. v22}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v10
+
+    const/16 v20, 0x1
+
+    move/from16 v0, v20
+
+    if-ne v9, v0, :cond_7
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v20
+
+    const-string/jumbo v21, "color_adjustment_type"
+
+    const/16 v22, -0x1
+
+    invoke-static/range {v20 .. v22}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v5
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v20
+
+    const-string/jumbo v21, "color_blind_test"
+
+    const/16 v22, 0x0
+
+    invoke-static/range {v20 .. v22}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v18
+
+    const/16 v20, 0x4
+
+    move/from16 v0, v20
+
+    if-eq v5, v0, :cond_2
+
+    const/16 v20, -0x1
+
+    move/from16 v0, v20
+
+    if-ne v5, v0, :cond_6
+
     :cond_2
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    const/16 v20, 0x1
 
-    move-result-object v16
+    move/from16 v0, v18
 
-    const-string/jumbo v17, "color_blind_test"
+    move/from16 v1, v20
 
-    const/16 v18, 0x0
-
-    invoke-static/range {v16 .. v18}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v14
+    if-ne v0, v1, :cond_6
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v16
+    move-result-object v20
 
-    const-string/jumbo v17, "color_blind"
+    const-string/jumbo v21, "color_blind_cvdseverity"
 
-    const/16 v18, 0x0
+    const/16 v22, 0x0
 
-    invoke-static/range {v16 .. v18}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static/range {v20 .. v22}, Landroid/provider/Settings$Secure;->getFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)F
 
-    move-result v7
-
-    const/16 v16, 0x1
-
-    move/from16 v0, v16
-
-    if-ne v14, v0, :cond_3
-
-    const/16 v16, 0x1
-
-    move/from16 v0, v16
-
-    if-ne v7, v0, :cond_3
+    move-result v12
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v16
+    move-result-object v20
 
-    const-string/jumbo v17, "color_blind_cvdseverity"
+    const-string/jumbo v21, "color_blind_user_parameter"
 
-    const/16 v18, 0x0
+    const/16 v22, 0x0
 
-    invoke-static/range {v16 .. v18}, Landroid/provider/Settings$Secure;->getFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)F
+    invoke-static/range {v20 .. v22}, Landroid/provider/Settings$Secure;->getFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)F
 
-    move-result v8
+    move-result v19
 
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v16
-
-    const-string/jumbo v17, "color_blind_user_parameter"
-
-    const/16 v18, 0x0
-
-    invoke-static/range {v16 .. v18}, Landroid/provider/Settings$Secure;->getFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)F
-
-    move-result v15
-
-    const-string/jumbo v16, "power"
+    const-string/jumbo v20, "power"
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v16
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v13
-
-    check-cast v13, Landroid/os/PowerManager;
-
-    const v16, 0x3f19999a    # 0.6f
-
-    cmpg-float v16, v8, v16
-
-    if-gez v16, :cond_4
-
-    const/16 v16, 0x1
-
-    :goto_1
-    const-string/jumbo v17, "power"
-
-    invoke-static/range {v17 .. v17}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
     move-result-object v17
 
-    move/from16 v0, v16
+    check-cast v17, Landroid/os/PowerManager;
 
-    move-object/from16 v1, v17
+    const v20, 0x3f19999a    # 0.6f
 
-    invoke-virtual {v13, v0, v1}, Landroid/os/PowerManager;->setColorWeaknessMode(ZLandroid/os/IBinder;)V
+    cmpg-float v20, v12, v20
+
+    if-gez v20, :cond_5
+
+    const/16 v20, 0x1
+
+    :goto_0
+    const-string/jumbo v21, "power"
+
+    invoke-static/range {v21 .. v21}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v21
+
+    move-object/from16 v0, v17
+
+    move/from16 v1, v20
+
+    move-object/from16 v2, v21
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/PowerManager;->setColorWeaknessMode(ZLandroid/os/IBinder;)V
 
     :try_start_0
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$DirectAccessBrocastReceiver;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    move-object/from16 v16, v0
+    move-object/from16 v20, v0
 
-    const/16 v17, 0x1
+    const/16 v21, 0x1
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v20
 
-    move/from16 v1, v17
+    move/from16 v1, v21
 
-    invoke-virtual {v0, v1, v15}, Lcom/android/server/accessibility/AccessibilityManagerService;->semSetColorBlind(ZF)Z
+    move/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityManagerService;->semSetColorBlind(ZF)Z
     :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_3
 
     :cond_3
+    :goto_1
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$DirectAccessBrocastReceiver;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
+
+    move-object/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get8(Lcom/android/server/accessibility/AccessibilityManagerService;)Landroid/content/Context;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v20
+
+    const-string/jumbo v21, "flash_notification"
+
+    const/16 v22, 0x0
+
+    const/16 v23, -0x2
+
+    invoke-static/range {v20 .. v23}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+
+    move-result v20
+
+    if-eqz v20, :cond_8
+
+    const/4 v11, 0x1
+
     :goto_2
-    return-void
+    if-eqz v11, :cond_9
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$DirectAccessBrocastReceiver;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
+
+    move-object/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Lcom/android/server/accessibility/AccessibilityManagerService;->-wrap22(Lcom/android/server/accessibility/AccessibilityManagerService;)V
 
     :cond_4
-    const/16 v16, 0x0
-
-    goto :goto_1
-
-    :cond_5
-    const-string/jumbo v16, "android.intent.action.SCREEN_ON"
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v16
-
-    if-eqz v16, :cond_7
-
-    invoke-static {}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get6()Z
-
-    move-result v16
-
-    if-eqz v16, :cond_6
-
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v16
-
-    const-string/jumbo v17, "finger_magnifier"
-
-    const/16 v18, 0x1
-
-    invoke-static/range {v16 .. v18}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    :try_start_1
-    invoke-static {}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get12()Landroid/hardware/display/IDisplayManager;
-
-    move-result-object v16
-
-    const/16 v17, 0x1
-
-    invoke-interface/range {v16 .. v17}, Landroid/hardware/display/IDisplayManager;->enableOverlayMagnifier(Z)V
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
-
-    :cond_6
     :goto_3
     return-void
 
+    :cond_5
+    const/16 v20, 0x0
+
+    goto :goto_0
+
+    :cond_6
+    :try_start_1
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$DirectAccessBrocastReceiver;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x1
+
+    const/16 v22, 0x0
+
+    invoke-virtual/range {v20 .. v22}, Lcom/android/server/accessibility/AccessibilityManagerService;->semSetColorBlind(ZF)Z
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto :goto_1
+
     :catch_0
-    move-exception v5
+    move-exception v8
 
-    invoke-virtual {v5}, Landroid/os/RemoteException;->printStackTrace()V
-
-    goto :goto_3
+    goto :goto_1
 
     :cond_7
-    const-string/jumbo v16, "android.intent.action.USER_SWITCHED"
+    const/16 v20, 0x1
 
-    move-object/from16 v0, v16
+    move/from16 v0, v20
 
-    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v16
-
-    if-eqz v16, :cond_6
+    if-ne v10, v0, :cond_3
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v16
+    move-result-object v20
 
-    const-string/jumbo v17, "finger_magnifier"
+    const-string/jumbo v21, "color_lens_type"
 
-    const/16 v18, 0x0
+    const/16 v22, 0x0
 
-    invoke-static/range {v16 .. v18}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v16
-
-    const-string/jumbo v17, "color_blind_test"
-
-    const/16 v18, 0x0
-
-    invoke-static/range {v16 .. v18}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v14
-
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v16
-
-    const-string/jumbo v17, "color_blind"
-
-    const/16 v18, 0x0
-
-    invoke-static/range {v16 .. v18}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static/range {v20 .. v22}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v7
 
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$DirectAccessBrocastReceiver;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
-
-    move-object/from16 v16, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$DirectAccessBrocastReceiver;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get9(Lcom/android/server/accessibility/AccessibilityManagerService;)Landroid/content/Context;
-
-    move-result-object v17
-
-    invoke-virtual/range {v17 .. v17}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v17
-
-    const-string/jumbo v18, "color_blind_cvdtype"
-
-    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
-
-    move-result v19
-
-    const/16 v20, 0x3
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v18
-
-    move/from16 v2, v20
-
-    move/from16 v3, v19
-
-    invoke-static {v0, v1, v2, v3}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
-
-    move-result v17
-
-    move/from16 v0, v17
-
-    move-object/from16 v1, v16
-
-    iput v0, v1, Lcom/android/server/accessibility/AccessibilityManagerService;->mCVDType:I
-
-    const/16 v16, 0x1
-
-    move/from16 v0, v16
-
-    if-ne v14, v0, :cond_9
-
-    const/16 v16, 0x1
-
-    move/from16 v0, v16
-
-    if-ne v7, v0, :cond_9
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$DirectAccessBrocastReceiver;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
-
-    move-object/from16 v16, v0
-
-    move-object/from16 v0, v16
-
-    iget v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService;->mCVDType:I
-
-    move/from16 v16, v0
-
-    const/16 v17, 0x3
-
-    move/from16 v0, v16
-
-    move/from16 v1, v17
-
-    if-eq v0, v1, :cond_9
-
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v16
+    move-result-object v20
 
-    const-string/jumbo v17, "color_blind_cvdseverity"
+    const-string/jumbo v21, "color_lens_opacity"
 
-    const/16 v18, 0x0
+    const/16 v22, 0x0
 
-    invoke-static/range {v16 .. v18}, Landroid/provider/Settings$Secure;->getFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)F
+    invoke-static/range {v20 .. v22}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v8
+    move-result v6
 
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v16
-
-    const-string/jumbo v17, "color_blind_user_parameter"
-
-    const/16 v18, 0x0
-
-    invoke-static/range {v16 .. v18}, Landroid/provider/Settings$Secure;->getFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)F
-
-    move-result v15
-
-    const-string/jumbo v16, "power"
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v13
-
-    check-cast v13, Landroid/os/PowerManager;
-
-    const v16, 0x3f19999a    # 0.6f
-
-    cmpg-float v16, v8, v16
-
-    if-gez v16, :cond_8
-
-    const/16 v16, 0x1
-
-    :goto_4
-    const-string/jumbo v17, "power"
-
-    invoke-static/range {v17 .. v17}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v17
-
-    move/from16 v0, v16
-
-    move-object/from16 v1, v17
-
-    invoke-virtual {v13, v0, v1}, Landroid/os/PowerManager;->setColorWeaknessMode(ZLandroid/os/IBinder;)V
-
-    :try_start_2
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$DirectAccessBrocastReceiver;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    move-object/from16 v16, v0
+    move-object/from16 v20, v0
 
-    const/16 v17, 0x1
+    move-object/from16 v0, v20
 
-    move-object/from16 v0, v16
+    invoke-virtual {v0, v7, v6}, Lcom/android/server/accessibility/AccessibilityManagerService;->semEnableMdnieColorFilter(II)Z
 
-    move/from16 v1, v17
-
-    invoke-virtual {v0, v1, v15}, Lcom/android/server/accessibility/AccessibilityManagerService;->semSetColorBlind(ZF)Z
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
-
-    goto/16 :goto_3
-
-    :catch_1
-    move-exception v6
-
-    goto/16 :goto_3
+    goto :goto_1
 
     :cond_8
-    const/16 v16, 0x0
+    const/4 v11, 0x0
 
-    goto :goto_4
+    goto :goto_2
 
     :cond_9
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$DirectAccessBrocastReceiver;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    move-object/from16 v16, v0
+    move-object/from16 v20, v0
 
-    invoke-static/range {v16 .. v16}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get9(Lcom/android/server/accessibility/AccessibilityManagerService;)Landroid/content/Context;
+    invoke-static/range {v20 .. v20}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get7(Lcom/android/server/accessibility/AccessibilityManagerService;)Landroid/hardware/camera2/CameraManager;
 
-    move-result-object v16
+    move-result-object v20
 
-    invoke-virtual/range {v16 .. v16}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    if-eqz v20, :cond_4
 
-    move-result-object v16
+    move-object/from16 v0, p0
 
-    const-string/jumbo v17, "high_contrast"
+    iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$DirectAccessBrocastReceiver;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    const/16 v18, 0x0
+    move-object/from16 v20, v0
 
-    const/16 v19, -0x2
+    invoke-static/range {v20 .. v20}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get7(Lcom/android/server/accessibility/AccessibilityManagerService;)Landroid/hardware/camera2/CameraManager;
 
-    invoke-static/range {v16 .. v19}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+    move-result-object v20
 
-    move-result v16
+    move-object/from16 v0, p0
 
-    const/16 v17, 0x1
+    iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$DirectAccessBrocastReceiver;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    move/from16 v0, v16
+    move-object/from16 v21, v0
 
-    move/from16 v1, v17
+    invoke-static/range {v21 .. v21}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get27(Lcom/android/server/accessibility/AccessibilityManagerService;)Landroid/hardware/camera2/CameraManager$TorchCallback;
 
-    if-ne v0, v1, :cond_a
+    move-result-object v21
 
-    const/4 v12, 0x1
+    invoke-virtual/range {v20 .. v21}, Landroid/hardware/camera2/CameraManager;->unregisterTorchCallback(Landroid/hardware/camera2/CameraManager$TorchCallback;)V
 
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$DirectAccessBrocastReceiver;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x0
+
+    invoke-static/range {v20 .. v21}, Lcom/android/server/accessibility/AccessibilityManagerService;->-set4(Lcom/android/server/accessibility/AccessibilityManagerService;Landroid/hardware/camera2/CameraManager;)Landroid/hardware/camera2/CameraManager;
+
+    goto :goto_3
+
+    :cond_a
+    const-string/jumbo v20, "android.intent.action.SCREEN_ON"
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v20
+
+    if-eqz v20, :cond_c
+
+    :cond_b
+    :goto_4
+    return-void
+
+    :cond_c
+    const-string/jumbo v20, "android.intent.action.USER_SWITCHED"
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v20
+
+    if-eqz v20, :cond_b
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v20
+
+    const-string/jumbo v21, "finger_magnifier"
+
+    const/16 v22, 0x0
+
+    invoke-static/range {v20 .. v22}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v20
+
+    const-string/jumbo v21, "color_blind"
+
+    const/16 v22, 0x0
+
+    invoke-static/range {v20 .. v22}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v9
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v20
+
+    const-string/jumbo v21, "color_lens_switch"
+
+    const/16 v22, 0x0
+
+    invoke-static/range {v20 .. v22}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v10
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$DirectAccessBrocastReceiver;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$DirectAccessBrocastReceiver;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
+
+    move-object/from16 v21, v0
+
+    invoke-static/range {v21 .. v21}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get8(Lcom/android/server/accessibility/AccessibilityManagerService;)Landroid/content/Context;
+
+    move-result-object v21
+
+    invoke-virtual/range {v21 .. v21}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v21
+
+    const-string/jumbo v22, "color_blind_cvdtype"
+
+    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+
+    move-result v23
+
+    const/16 v24, 0x3
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v22
+
+    move/from16 v2, v24
+
+    move/from16 v3, v23
+
+    invoke-static {v0, v1, v2, v3}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+
+    move-result v21
+
+    move/from16 v0, v21
+
+    move-object/from16 v1, v20
+
+    iput v0, v1, Lcom/android/server/accessibility/AccessibilityManagerService;->mCVDType:I
+
+    const/16 v20, 0x1
+
+    move/from16 v0, v20
+
+    if-ne v9, v0, :cond_f
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v20
+
+    const-string/jumbo v21, "color_blind_test"
+
+    const/16 v22, 0x0
+
+    invoke-static/range {v20 .. v22}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v18
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v20
+
+    const-string/jumbo v21, "color_adjustment_type"
+
+    const/16 v22, -0x1
+
+    invoke-static/range {v20 .. v22}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v5
+
+    sparse-switch v5, :sswitch_data_0
+
+    :try_start_2
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$DirectAccessBrocastReceiver;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x1
+
+    const/16 v22, 0x0
+
+    invoke-virtual/range {v20 .. v22}, Lcom/android/server/accessibility/AccessibilityManagerService;->semSetColorBlind(ZF)Z
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
+
+    :cond_d
     :goto_5
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$DirectAccessBrocastReceiver;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    move-object/from16 v16, v0
+    move-object/from16 v20, v0
 
-    invoke-static/range {v16 .. v16}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get9(Lcom/android/server/accessibility/AccessibilityManagerService;)Landroid/content/Context;
+    invoke-static/range {v20 .. v20}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get12(Lcom/android/server/accessibility/AccessibilityManagerService;)Lcom/android/server/accessibility/GestureWakeup;
 
-    move-result-object v16
+    move-result-object v20
 
-    invoke-virtual/range {v16 .. v16}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    move-object/from16 v0, v20
 
-    move-result-object v16
+    move-object/from16 v1, p1
 
-    const-string/jumbo v17, "greyscale_mode"
+    invoke-virtual {v0, v1}, Lcom/android/server/accessibility/GestureWakeup;->checkSettingCondition(Landroid/content/Context;)Z
 
-    const/16 v18, 0x0
+    move-result v20
 
-    const/16 v19, -0x2
+    if-eqz v20, :cond_b
 
-    invoke-static/range {v16 .. v19}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
-
-    move-result v16
-
-    const/16 v17, 0x1
-
-    move/from16 v0, v16
-
-    move/from16 v1, v17
-
-    if-ne v0, v1, :cond_b
-
-    const/4 v10, 0x1
-
-    :goto_6
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$DirectAccessBrocastReceiver;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    move-object/from16 v16, v0
+    move-object/from16 v20, v0
 
-    invoke-static/range {v16 .. v16}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get9(Lcom/android/server/accessibility/AccessibilityManagerService;)Landroid/content/Context;
+    invoke-static/range {v20 .. v20}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get12(Lcom/android/server/accessibility/AccessibilityManagerService;)Lcom/android/server/accessibility/GestureWakeup;
 
-    move-result-object v16
+    move-result-object v20
 
-    const-string/jumbo v17, "mDNIe"
+    invoke-virtual/range {v20 .. v20}, Lcom/android/server/accessibility/GestureWakeup;->StopGestureWakeup()Z
 
-    invoke-virtual/range {v16 .. v17}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    move-object/from16 v0, p0
 
-    move-result-object v11
+    iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$DirectAccessBrocastReceiver;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    check-cast v11, Lcom/samsung/android/hardware/display/SemMdnieManager;
+    move-object/from16 v20, v0
 
-    if-eqz v12, :cond_c
+    invoke-static/range {v20 .. v20}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get12(Lcom/android/server/accessibility/AccessibilityManagerService;)Lcom/android/server/accessibility/GestureWakeup;
 
-    if-eqz v10, :cond_c
+    move-result-object v20
 
-    const/16 v16, 0x5
+    invoke-virtual/range {v20 .. v20}, Lcom/android/server/accessibility/GestureWakeup;->StartGestureWakeup()Z
 
-    const/16 v17, 0x1
+    goto/16 :goto_4
 
-    move/from16 v0, v16
+    :sswitch_0
+    const/16 v20, 0x1
 
-    move/from16 v1, v17
+    move/from16 v0, v18
 
-    invoke-virtual {v11, v0, v1}, Lcom/samsung/android/hardware/display/SemMdnieManager;->setmDNIeAccessibilityMode(IZ)Z
+    move/from16 v1, v20
 
-    goto/16 :goto_3
+    if-ne v0, v1, :cond_d
 
-    :cond_a
-    const/4 v12, 0x0
+    move-object/from16 v0, p0
 
-    goto :goto_5
+    iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$DirectAccessBrocastReceiver;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    :cond_b
-    const/4 v10, 0x0
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService;->mCVDType:I
+
+    move/from16 v20, v0
+
+    const/16 v21, 0x3
+
+    move/from16 v0, v20
+
+    move/from16 v1, v21
+
+    if-eq v0, v1, :cond_d
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v20
+
+    const-string/jumbo v21, "color_blind_cvdseverity"
+
+    const/16 v22, 0x0
+
+    invoke-static/range {v20 .. v22}, Landroid/provider/Settings$Secure;->getFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)F
+
+    move-result v12
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v20
+
+    const-string/jumbo v21, "color_blind_user_parameter"
+
+    const/16 v22, 0x0
+
+    invoke-static/range {v20 .. v22}, Landroid/provider/Settings$Secure;->getFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)F
+
+    move-result v19
+
+    const-string/jumbo v20, "power"
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v17
+
+    check-cast v17, Landroid/os/PowerManager;
+
+    const v20, 0x3f19999a    # 0.6f
+
+    cmpg-float v20, v12, v20
+
+    if-gez v20, :cond_e
+
+    const/16 v20, 0x1
+
+    :goto_6
+    const-string/jumbo v21, "power"
+
+    invoke-static/range {v21 .. v21}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v21
+
+    move-object/from16 v0, v17
+
+    move/from16 v1, v20
+
+    move-object/from16 v2, v21
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/PowerManager;->setColorWeaknessMode(ZLandroid/os/IBinder;)V
+
+    :try_start_3
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$DirectAccessBrocastReceiver;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x1
+
+    move-object/from16 v0, v20
+
+    move/from16 v1, v21
+
+    move/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityManagerService;->semSetColorBlind(ZF)Z
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
+
+    goto/16 :goto_5
+
+    :catch_1
+    move-exception v8
+
+    goto/16 :goto_5
+
+    :cond_e
+    const/16 v20, 0x0
 
     goto :goto_6
 
-    :cond_c
-    if-eqz v10, :cond_d
+    :cond_f
+    const/16 v20, 0x1
 
-    const/16 v16, 0x4
+    move/from16 v0, v20
 
-    const/16 v17, 0x1
+    if-ne v10, v0, :cond_10
 
-    move/from16 v0, v16
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move/from16 v1, v17
+    move-result-object v20
 
-    invoke-virtual {v11, v0, v1}, Lcom/samsung/android/hardware/display/SemMdnieManager;->setmDNIeAccessibilityMode(IZ)Z
+    const-string/jumbo v21, "color_lens_type"
 
-    goto/16 :goto_3
+    const/16 v22, 0x0
 
-    :cond_d
-    if-eqz v12, :cond_e
+    invoke-static/range {v20 .. v22}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v7
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v20
+
+    const-string/jumbo v21, "color_lens_opacity"
+
+    const/16 v22, 0x0
+
+    invoke-static/range {v20 .. v22}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v6
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$DirectAccessBrocastReceiver;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v0, v7, v6}, Lcom/android/server/accessibility/AccessibilityManagerService;->semEnableMdnieColorFilter(II)Z
+
+    goto/16 :goto_5
+
+    :cond_10
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$DirectAccessBrocastReceiver;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
+
+    move-object/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get8(Lcom/android/server/accessibility/AccessibilityManagerService;)Landroid/content/Context;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v20
+
+    const-string/jumbo v21, "high_contrast"
+
+    const/16 v22, 0x0
+
+    const/16 v23, -0x2
+
+    invoke-static/range {v20 .. v23}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+
+    move-result v20
+
+    const/16 v21, 0x1
+
+    move/from16 v0, v20
+
+    move/from16 v1, v21
+
+    if-ne v0, v1, :cond_11
 
     const/16 v16, 0x1
 
-    const/16 v17, 0x1
+    :goto_7
+    move-object/from16 v0, p0
 
-    move/from16 v0, v16
+    iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$DirectAccessBrocastReceiver;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    move/from16 v1, v17
+    move-object/from16 v20, v0
 
-    invoke-virtual {v11, v0, v1}, Lcom/samsung/android/hardware/display/SemMdnieManager;->setmDNIeAccessibilityMode(IZ)Z
+    invoke-static/range {v20 .. v20}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get8(Lcom/android/server/accessibility/AccessibilityManagerService;)Landroid/content/Context;
 
-    goto/16 :goto_3
+    move-result-object v20
 
-    :cond_e
-    const/16 v16, 0x1
+    invoke-virtual/range {v20 .. v20}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    const/16 v17, 0x0
+    move-result-object v20
 
-    move/from16 v0, v16
+    const-string/jumbo v21, "greyscale_mode"
 
-    move/from16 v1, v17
+    const/16 v22, 0x0
 
-    invoke-virtual {v11, v0, v1}, Lcom/samsung/android/hardware/display/SemMdnieManager;->setmDNIeAccessibilityMode(IZ)Z
+    const/16 v23, -0x2
 
-    goto/16 :goto_3
+    invoke-static/range {v20 .. v23}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+
+    move-result v20
+
+    const/16 v21, 0x1
+
+    move/from16 v0, v20
+
+    move/from16 v1, v21
+
+    if-ne v0, v1, :cond_12
+
+    const/4 v14, 0x1
+
+    :goto_8
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$DirectAccessBrocastReceiver;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
+
+    move-object/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get8(Lcom/android/server/accessibility/AccessibilityManagerService;)Landroid/content/Context;
+
+    move-result-object v20
+
+    const-string/jumbo v21, "mDNIe"
+
+    invoke-virtual/range {v20 .. v21}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v15
+
+    check-cast v15, Lcom/samsung/android/hardware/display/SemMdnieManager;
+
+    if-eqz v16, :cond_13
+
+    if-eqz v14, :cond_13
+
+    const/16 v20, 0x5
+
+    const/16 v21, 0x1
+
+    move/from16 v0, v20
+
+    move/from16 v1, v21
+
+    invoke-virtual {v15, v0, v1}, Lcom/samsung/android/hardware/display/SemMdnieManager;->setmDNIeAccessibilityMode(IZ)Z
+
+    goto/16 :goto_5
+
+    :cond_11
+    const/16 v16, 0x0
+
+    goto :goto_7
+
+    :cond_12
+    const/4 v14, 0x0
+
+    goto :goto_8
+
+    :cond_13
+    if-eqz v14, :cond_14
+
+    const/16 v20, 0x4
+
+    const/16 v21, 0x1
+
+    move/from16 v0, v20
+
+    move/from16 v1, v21
+
+    invoke-virtual {v15, v0, v1}, Lcom/samsung/android/hardware/display/SemMdnieManager;->setmDNIeAccessibilityMode(IZ)Z
+
+    goto/16 :goto_5
+
+    :cond_14
+    if-eqz v16, :cond_15
+
+    const/16 v20, 0x1
+
+    const/16 v21, 0x1
+
+    move/from16 v0, v20
+
+    move/from16 v1, v21
+
+    invoke-virtual {v15, v0, v1}, Lcom/samsung/android/hardware/display/SemMdnieManager;->setmDNIeAccessibilityMode(IZ)Z
+
+    goto/16 :goto_5
+
+    :cond_15
+    const/16 v20, 0x1
+
+    const/16 v21, 0x0
+
+    move/from16 v0, v20
+
+    move/from16 v1, v21
+
+    invoke-virtual {v15, v0, v1}, Lcom/samsung/android/hardware/display/SemMdnieManager;->setmDNIeAccessibilityMode(IZ)Z
+
+    goto/16 :goto_5
 
     :catch_2
-    move-exception v6
+    move-exception v8
 
-    goto/16 :goto_2
+    goto/16 :goto_5
+
+    :catch_3
+    move-exception v8
+
+    goto/16 :goto_1
+
+    :sswitch_data_0
+    .sparse-switch
+        -0x1 -> :sswitch_0
+        0x4 -> :sswitch_0
+    .end sparse-switch
 .end method

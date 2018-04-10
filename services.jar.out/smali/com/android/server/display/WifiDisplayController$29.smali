@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/display/WifiDisplayController;->handleConnectionFailure(Z)V
+    value = Lcom/android/server/display/WifiDisplayController;->handleSendStatusChangeBroadcast(II)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,20 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/display/WifiDisplayController;
 
-.field final synthetic val$oldDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
+.field final synthetic val$playerType:I
+
+.field final synthetic val$status:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/display/WifiDisplayController;Landroid/net/wifi/p2p/WifiP2pDevice;)V
+.method constructor <init>(Lcom/android/server/display/WifiDisplayController;II)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/display/WifiDisplayController$29;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    iput-object p2, p0, Lcom/android/server/display/WifiDisplayController$29;->val$oldDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
+    iput p2, p0, Lcom/android/server/display/WifiDisplayController$29;->val$status:I
+
+    iput p3, p0, Lcom/android/server/display/WifiDisplayController$29;->val$playerType:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,68 +43,77 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 4
 
-    iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$29;->this$0:Lcom/android/server/display/WifiDisplayController;
+    new-instance v0, Landroid/content/Intent;
 
-    invoke-static {v0}, Lcom/android/server/display/WifiDisplayController;->-get9(Lcom/android/server/display/WifiDisplayController;)Landroid/net/wifi/p2p/WifiP2pDevice;
+    const-string/jumbo v1, "com.samsung.intent.action.DLNA_STATUS_CHANGED"
 
-    move-result-object v0
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/android/server/display/WifiDisplayController$29;->val$oldDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
+    const-string/jumbo v1, "status"
 
-    if-ne v0, v1, :cond_0
+    iget v2, p0, Lcom/android/server/display/WifiDisplayController$29;->val$status:I
 
-    iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$29;->this$0:Lcom/android/server/display/WifiDisplayController;
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    invoke-static {v0}, Lcom/android/server/display/WifiDisplayController;->-get6(Lcom/android/server/display/WifiDisplayController;)I
+    const-string/jumbo v1, "state"
 
-    move-result v0
+    iget v2, p0, Lcom/android/server/display/WifiDisplayController$29;->val$status:I
 
-    if-lez v0, :cond_0
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$29;->this$0:Lcom/android/server/display/WifiDisplayController;
+    const-string/jumbo v1, "player_type"
 
-    invoke-static {v0}, Lcom/android/server/display/WifiDisplayController;->-get6(Lcom/android/server/display/WifiDisplayController;)I
+    iget v2, p0, Lcom/android/server/display/WifiDisplayController$29;->val$playerType:I
 
-    move-result v1
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    add-int/lit8 v1, v1, -0x1
+    const-string/jumbo v1, "WifiDisplayController"
 
-    invoke-static {v0, v1}, Lcom/android/server/display/WifiDisplayController;->-set4(Lcom/android/server/display/WifiDisplayController;I)I
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v0, "WifiDisplayController"
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    const-string/jumbo v3, "handleSendStatusChangeBroadcast::SEM_ACTION_DLNA_STATUS_CHANGED state : "
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "Retrying Wifi display connection.  Retries left: "
+    move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v3, p0, Lcom/android/server/display/WifiDisplayController$29;->val$status:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, ", playerType : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget v3, p0, Lcom/android/server/display/WifiDisplayController$29;->val$playerType:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/android/server/display/WifiDisplayController$29;->this$0:Lcom/android/server/display/WifiDisplayController;
+
+    invoke-static {v1}, Lcom/android/server/display/WifiDisplayController;->-get7(Lcom/android/server/display/WifiDisplayController;)Landroid/content/Context;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/server/display/WifiDisplayController$29;->this$0:Lcom/android/server/display/WifiDisplayController;
+    sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
-    invoke-static {v2}, Lcom/android/server/display/WifiDisplayController;->-get6(Lcom/android/server/display/WifiDisplayController;)I
+    invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
-    move-result v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$29;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    invoke-static {v0}, Lcom/android/server/display/WifiDisplayController;->-wrap21(Lcom/android/server/display/WifiDisplayController;)V
-
-    :cond_0
     return-void
 .end method

@@ -6,11 +6,6 @@
 .implements Lorg/apache/http/HttpConnection;
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract getLocalAddress()Ljava/net/InetAddress;
 .end method

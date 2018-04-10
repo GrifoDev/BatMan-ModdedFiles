@@ -69,11 +69,8 @@
 
     sget-boolean v0, Lcom/android/server/input/BackgroundKeyCountService;->SHIP_BUILD:Z
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     sput-boolean v0, Lcom/android/server/input/BackgroundKeyCountService;->DEBUG:Z
 
     new-instance v0, Landroid/content/ComponentName;
@@ -107,11 +104,6 @@
     sput-object v0, Lcom/android/server/input/BackgroundKeyCountService;->jobInfo:Landroid/app/job/JobInfo;
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method public constructor <init>()V

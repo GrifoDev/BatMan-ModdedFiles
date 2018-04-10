@@ -81,145 +81,145 @@
 
 # virtual methods
 .method public append(C)V
-    .locals 4
-
-    const/4 v3, 0x0
-
-    iget v0, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
-
-    add-int/lit8 v0, v0, 0x1
-
-    iget-object v1, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
-
-    array-length v1, v1
-
-    if-gt v0, v1, :cond_0
-
-    :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
-
-    iget v1, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
-
-    int-to-char v2, p1
-
-    aput-char v2, v0, v1
-
-    iget v0, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
-
-    add-int/lit8 v0, v0, 0x1
-
-    iput v0, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
-
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
-
-    array-length v0, v0
-
-    mul-int/lit8 v0, v0, 0x2
-
-    iget-object v1, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
-
-    array-length v1, v1
-
-    add-int/lit8 v1, v1, 0x20
-
-    if-lt v0, v1, :cond_1
-
-    :goto_1
-    new-array v0, v0, [C
-
-    iget-object v1, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
-
-    iget v2, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
-
-    invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    iput-object v0, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
-
-    goto :goto_0
-
-    :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
-
-    array-length v0, v0
-
-    add-int/lit8 v0, v0, 0x20
-
-    goto :goto_1
-.end method
-
-.method public append(Ljava/lang/String;)V
     .locals 5
 
     const/4 v4, 0x0
 
-    invoke-virtual {p1}, Ljava/lang/String;->length()I
+    iget v2, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
 
-    move-result v1
+    add-int/lit8 v2, v2, 0x1
 
-    iget v0, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
+    iget-object v3, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
 
-    add-int/2addr v0, v1
+    array-length v3, v3
 
-    iget-object v2, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
-
-    array-length v2, v2
-
-    if-gt v0, v2, :cond_0
+    if-gt v2, v3, :cond_0
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
+    iget-object v2, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
+
+    iget v3, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
+
+    int-to-char v4, p1
+
+    aput-char v4, v2, v3
 
     iget v2, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
 
-    invoke-virtual {p1, v4, v1, v0, v2}, Ljava/lang/String;->getChars(II[CI)V
+    add-int/lit8 v2, v2, 0x1
 
-    iget v0, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
-
-    add-int/2addr v0, v1
-
-    iput v0, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
+    iput v2, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
+    iget-object v2, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
 
-    array-length v0, v0
+    array-length v2, v2
 
-    mul-int/lit8 v0, v0, 0x2
+    mul-int/lit8 v0, v2, 0x2
 
-    iget v2, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
+    iget-object v2, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
 
-    add-int/2addr v2, v1
+    array-length v2, v2
 
     add-int/lit8 v2, v2, 0x20
 
     if-lt v0, v2, :cond_1
 
     :goto_1
-    new-array v0, v0, [C
+    new-array v1, v0, [C
 
     iget-object v2, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
 
     iget v3, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
 
-    invoke-static {v2, v4, v0, v4, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v2, v4, v1, v4, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
+    iput-object v1, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
 
     goto :goto_0
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
+    iget-object v2, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
 
-    array-length v0, v0
+    array-length v2, v2
 
-    add-int/2addr v0, v1
+    add-int/lit8 v0, v2, 0x20
 
-    add-int/lit8 v0, v0, 0x20
+    goto :goto_1
+.end method
+
+.method public append(Ljava/lang/String;)V
+    .locals 6
+
+    const/4 v5, 0x0
+
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
+
+    move-result v0
+
+    iget v3, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
+
+    add-int/2addr v3, v0
+
+    iget-object v4, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
+
+    array-length v4, v4
+
+    if-gt v3, v4, :cond_0
+
+    :goto_0
+    iget-object v3, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
+
+    iget v4, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
+
+    invoke-virtual {p1, v5, v0, v3, v4}, Ljava/lang/String;->getChars(II[CI)V
+
+    iget v3, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
+
+    add-int/2addr v3, v0
+
+    iput v3, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
+
+    return-void
+
+    :cond_0
+    iget-object v3, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
+
+    array-length v3, v3
+
+    mul-int/lit8 v1, v3, 0x2
+
+    iget v3, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
+
+    add-int/2addr v3, v0
+
+    add-int/lit8 v3, v3, 0x20
+
+    if-lt v1, v3, :cond_1
+
+    :goto_1
+    new-array v2, v1, [C
+
+    iget-object v3, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
+
+    iget v4, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
+
+    invoke-static {v3, v5, v2, v5, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+
+    iput-object v2, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v3, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
+
+    array-length v3, v3
+
+    add-int/2addr v3, v0
+
+    add-int/lit8 v1, v3, 0x20
 
     goto :goto_1
 .end method
@@ -243,41 +243,41 @@
 
     const/4 v3, 0x0
 
-    iget v0, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
+    iget v1, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
 
-    add-int/2addr v0, p3
+    add-int/2addr v1, p3
 
-    iget-object v1, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
+    iget-object v2, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
 
-    array-length v1, v1
+    array-length v2, v2
 
-    if-gt v0, v1, :cond_0
+    if-gt v1, v2, :cond_0
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
+    iget-object v1, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
+
+    iget v2, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
+
+    invoke-static {p1, p2, v1, v2, p3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     iget v1, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
 
-    invoke-static {p1, p2, v0, v1, p3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    add-int/2addr v1, p3
 
-    iget v0, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
-
-    add-int/2addr v0, p3
-
-    iput v0, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
+    iput v1, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
+    iget-object v1, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
 
-    array-length v0, v0
+    array-length v1, v1
 
-    add-int/2addr v0, p3
+    add-int/2addr v1, p3
 
-    add-int/lit8 v0, v0, 0x20
+    add-int/lit8 v1, v1, 0x20
 
-    new-array v0, v0, [C
+    new-array v0, v1, [C
 
     iget-object v1, p0, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
 

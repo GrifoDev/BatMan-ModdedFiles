@@ -65,13 +65,13 @@
 
     invoke-direct {v1, p2}, Landroid/os/Messenger;-><init>(Landroid/os/IBinder;)V
 
-    invoke-static {v0, v1}, Lcom/android/server/LocationManagerService;->-set1(Lcom/android/server/LocationManagerService;Landroid/os/Messenger;)Landroid/os/Messenger;
+    invoke-static {v0, v1}, Lcom/android/server/LocationManagerService;->-set5(Lcom/android/server/LocationManagerService;Landroid/os/Messenger;)Landroid/os/Messenger;
 
     iget-object v0, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/server/LocationManagerService;->-set0(Lcom/android/server/LocationManagerService;Z)Z
+    invoke-static {v0, v1}, Lcom/android/server/LocationManagerService;->-set1(Lcom/android/server/LocationManagerService;Z)Z
 
     return-void
 .end method
@@ -103,7 +103,7 @@
 
     iget-object v2, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
 
-    invoke-static {v2}, Lcom/android/server/LocationManagerService;->-get7(Lcom/android/server/LocationManagerService;)Ljava/util/HashMap;
+    invoke-static {v2}, Lcom/android/server/LocationManagerService;->-get19(Lcom/android/server/LocationManagerService;)Ljava/util/HashMap;
 
     move-result-object v2
 
@@ -156,21 +156,37 @@
 
     const/4 v3, 0x0
 
-    invoke-static {v2, v3}, Lcom/android/server/LocationManagerService;->-set0(Lcom/android/server/LocationManagerService;Z)Z
+    invoke-static {v2, v3}, Lcom/android/server/LocationManagerService;->-set1(Lcom/android/server/LocationManagerService;Z)Z
 
     iget-object v2, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
 
     const/4 v3, 0x0
 
-    invoke-static {v2, v3}, Lcom/android/server/LocationManagerService;->-set1(Lcom/android/server/LocationManagerService;Landroid/os/Messenger;)Landroid/os/Messenger;
+    invoke-static {v2, v3}, Lcom/android/server/LocationManagerService;->-set5(Lcom/android/server/LocationManagerService;Landroid/os/Messenger;)Landroid/os/Messenger;
 
     iget-object v2, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
 
-    invoke-static {v2}, Lcom/android/server/LocationManagerService;->-get3(Lcom/android/server/LocationManagerService;)Ljava/util/HashSet;
+    invoke-static {v2}, Lcom/android/server/LocationManagerService;->-get15(Lcom/android/server/LocationManagerService;)Ljava/util/HashSet;
 
     move-result-object v2
 
     invoke-virtual {v2}, Ljava/util/HashSet;->clear()V
+
+    iget-object v2, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
+
+    invoke-static {v2}, Lcom/android/server/LocationManagerService;->-get24(Lcom/android/server/LocationManagerService;)Ljava/util/HashSet;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/HashSet;->clear()V
+
+    iget-object v2, p0, Lcom/android/server/LocationManagerService$1;->this$0:Lcom/android/server/LocationManagerService;
+
+    invoke-static {v2}, Lcom/android/server/LocationManagerService;->-get4(Lcom/android/server/LocationManagerService;)Landroid/util/ArraySet;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/util/ArraySet;->clear()V
 
     return-void
 .end method

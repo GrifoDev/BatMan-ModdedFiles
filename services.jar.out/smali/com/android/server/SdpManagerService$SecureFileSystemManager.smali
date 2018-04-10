@@ -39,33 +39,21 @@
 # instance fields
 .field defaultApps:[Ljava/lang/String;
 
+.field private mContext:Landroid/content/Context;
+
 .field private mDB:Lcom/android/server/SdpManagerService$SecureFileSystemManager$SecureFileSystemDatabase;
 
-.field private mEPM:Lcom/sec/knox/container/util/EnterprisePartitionManager;
-
-.field private mKeyMgnt:Lcom/sec/knox/container/util/KeyManagementUtil;
+.field private mEPM:Lcom/android/server/EnterprisePartitionManager;
 
 .field private mStatus:I
 
 .field private mTimaHelper:Lcom/android/server/pm/TimaHelper;
 
-.field private sContext:Landroid/content/Context;
-
 .field final synthetic this$0:Lcom/android/server/SdpManagerService;
 
 
 # direct methods
-.method static synthetic -wrap0(Lcom/android/server/SdpManagerService$SecureFileSystemManager;ILjava/lang/String;)Z
-    .locals 1
-
-    invoke-direct {p0, p1, p2}, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->createPkgDir(ILjava/lang/String;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic -wrap1(Lcom/android/server/SdpManagerService$SecureFileSystemManager;)Z
+.method static synthetic -wrap0(Lcom/android/server/SdpManagerService$SecureFileSystemManager;)Z
     .locals 1
 
     invoke-direct {p0}, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->isActivated()Z
@@ -75,7 +63,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap2(Lcom/android/server/SdpManagerService$SecureFileSystemManager;)Z
+.method static synthetic -wrap1(Lcom/android/server/SdpManagerService$SecureFileSystemManager;)Z
     .locals 1
 
     invoke-direct {p0}, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->mount()Z
@@ -85,27 +73,17 @@
     return v0
 .end method
 
-.method static synthetic -wrap3(Lcom/android/server/SdpManagerService$SecureFileSystemManager;ILjava/lang/String;)Z
+.method static synthetic -wrap2(Lcom/android/server/SdpManagerService$SecureFileSystemManager;I)Z
     .locals 1
 
-    invoke-direct {p0, p1, p2}, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->removePkgDir(ILjava/lang/String;)Z
+    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->prepare(I)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method static synthetic -wrap4(Lcom/android/server/SdpManagerService$SecureFileSystemManager;I)Z
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->setBaseDataUserDir(I)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic -wrap5(Lcom/android/server/SdpManagerService$SecureFileSystemManager;)Z
+.method static synthetic -wrap3(Lcom/android/server/SdpManagerService$SecureFileSystemManager;)Z
     .locals 1
 
     invoke-direct {p0}, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->systemReady()Z
@@ -115,17 +93,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap6(Lcom/android/server/SdpManagerService$SecureFileSystemManager;I)Z
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->systemReady(I)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method private constructor <init>(Lcom/android/server/SdpManagerService;Landroid/content/Context;Lcom/android/server/pm/TimaHelper;Lcom/sec/knox/container/util/KeyManagementUtil;Lcom/sec/knox/container/util/EnterprisePartitionManager;)V
+.method private constructor <init>(Lcom/android/server/SdpManagerService;Landroid/content/Context;Lcom/android/server/pm/TimaHelper;Lcom/android/server/EnterprisePartitionManager;)V
     .locals 3
 
     const/4 v2, 0x0
@@ -138,9 +106,7 @@
 
     iput-object v1, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->mTimaHelper:Lcom/android/server/pm/TimaHelper;
 
-    iput-object v1, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->mKeyMgnt:Lcom/sec/knox/container/util/KeyManagementUtil;
-
-    iput-object v1, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->mEPM:Lcom/sec/knox/container/util/EnterprisePartitionManager;
+    iput-object v1, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->mEPM:Lcom/android/server/EnterprisePartitionManager;
 
     new-instance v0, Lcom/android/server/SdpManagerService$SecureFileSystemManager$SecureFileSystemDatabase;
 
@@ -160,21 +126,19 @@
 
     iput-object v0, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->defaultApps:[Ljava/lang/String;
 
-    iput-object p2, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->sContext:Landroid/content/Context;
+    iput-object p2, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->mContext:Landroid/content/Context;
 
     iput-object p3, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->mTimaHelper:Lcom/android/server/pm/TimaHelper;
 
-    iput-object p4, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->mKeyMgnt:Lcom/sec/knox/container/util/KeyManagementUtil;
-
-    iput-object p5, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->mEPM:Lcom/sec/knox/container/util/EnterprisePartitionManager;
+    iput-object p4, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->mEPM:Lcom/android/server/EnterprisePartitionManager;
 
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/SdpManagerService;Landroid/content/Context;Lcom/android/server/pm/TimaHelper;Lcom/sec/knox/container/util/KeyManagementUtil;Lcom/sec/knox/container/util/EnterprisePartitionManager;Lcom/android/server/SdpManagerService$SecureFileSystemManager;)V
+.method synthetic constructor <init>(Lcom/android/server/SdpManagerService;Landroid/content/Context;Lcom/android/server/pm/TimaHelper;Lcom/android/server/EnterprisePartitionManager;Lcom/android/server/SdpManagerService$SecureFileSystemManager;)V
     .locals 0
 
-    invoke-direct/range {p0 .. p5}, Lcom/android/server/SdpManagerService$SecureFileSystemManager;-><init>(Lcom/android/server/SdpManagerService;Landroid/content/Context;Lcom/android/server/pm/TimaHelper;Lcom/sec/knox/container/util/KeyManagementUtil;Lcom/sec/knox/container/util/EnterprisePartitionManager;)V
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/SdpManagerService$SecureFileSystemManager;-><init>(Lcom/android/server/SdpManagerService;Landroid/content/Context;Lcom/android/server/pm/TimaHelper;Lcom/android/server/EnterprisePartitionManager;)V
 
     return-void
 .end method
@@ -182,11 +146,9 @@
 .method private createPartition()Z
     .locals 5
 
-    iget-object v2, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->mKeyMgnt:Lcom/sec/knox/container/util/KeyManagementUtil;
+    const/16 v2, 0x20
 
-    const-string/jumbo v3, "test"
-
-    invoke-virtual {v2, v3}, Lcom/sec/knox/container/util/KeyManagementUtil;->generateEcryptfsKey(Ljava/lang/String;)[B
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->generateRandomBytes(I)[B
 
     move-result-object v0
 
@@ -227,23 +189,32 @@
 .end method
 
 .method private createPkgDir(ILjava/lang/String;)Z
-    .locals 4
+    .locals 5
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v2
 
-    iget-object v1, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->mEPM:Lcom/sec/knox/container/util/EnterprisePartitionManager;
+    const-string/jumbo v4, "package"
 
-    invoke-virtual {v1, p1, p2}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->createEncPkgDir(ILjava/lang/String;)Z
+    invoke-static {v4}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    move-result v0
+    move-result-object v0
 
+    check-cast v0, Lcom/android/server/pm/PackageManagerService;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0, p2, p1}, Lcom/android/server/pm/PackageManagerService;->createEncAppData(Ljava/lang/String;I)Z
+
+    move-result v1
+
+    :cond_0
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v0
+    return v1
 .end method
 
 .method private getTimaAlias()Ljava/lang/String;
@@ -254,22 +225,6 @@
     const-string/jumbo v1, "eCryptfsKeySecFS"
 
     invoke-direct {v0, v1}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
-
-    return-object v0
-.end method
-
-.method private getTimaService()Landroid/service/tima/ITimaService;
-    .locals 2
-
-    const-string/jumbo v1, "tima"
-
-    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v1
-
-    invoke-static {v1}, Landroid/service/tima/ITimaService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/service/tima/ITimaService;
-
-    move-result-object v0
 
     return-object v0
 .end method
@@ -307,6 +262,20 @@
     move-result v0
 
     return v0
+.end method
+
+.method static synthetic lambda$-com_android_server_SdpManagerService$SecureFileSystemManager_202192(ILcom/android/server/pm/PackageManagerService;)Ljava/lang/Boolean;
+    .locals 1
+
+    invoke-virtual {p1, p0}, Lcom/android/server/pm/PackageManagerService;->removeEncUserDir(I)Z
+
+    move-result v0
+
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method private mount()Z
@@ -380,11 +349,11 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v3, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->mEPM:Lcom/sec/knox/container/util/EnterprisePartitionManager;
+    iget-object v3, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->mEPM:Lcom/android/server/EnterprisePartitionManager;
 
     const/4 v4, 0x2
 
-    invoke-virtual {v3, v5, v0, v7, v4}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->mount(ILjava/lang/String;ZI)Z
+    invoke-virtual {v3, v5, v0, v7, v4}, Lcom/android/server/EnterprisePartitionManager;->mount(ILjava/lang/String;ZI)Z
 
     move-result v2
 
@@ -399,6 +368,180 @@
     iput v6, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->mStatus:I
 
     goto :goto_0
+.end method
+
+.method private prepare(I)Z
+    .locals 9
+
+    const/16 v8, 0x1f9
+
+    const/4 v5, 0x2
+
+    const/4 v7, 0x1
+
+    const/4 v6, 0x0
+
+    const/4 v4, -0x1
+
+    invoke-direct {p0}, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->isActivated()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string/jumbo v2, "Prepare - The object not initialized normally"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    return v6
+
+    :cond_0
+    iget-object v2, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->this$0:Lcom/android/server/SdpManagerService;
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService;->-wrap2(Lcom/android/server/SdpManagerService;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->this$0:Lcom/android/server/SdpManagerService;
+
+    invoke-static {v2, p1}, Lcom/android/server/SdpManagerService;->-wrap3(Lcom/android/server/SdpManagerService;I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    :cond_1
+    const-string/jumbo v2, "Prepare - The user doesn\'t require enc directory"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    return v7
+
+    :cond_2
+    invoke-static {p1}, Lcom/android/server/SdpManagerService$FileUtil;->getEncUserDir(I)Ljava/io/File;
+
+    move-result-object v0
+
+    :try_start_0
+    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    const-string/jumbo v2, "Enc user directory already exists"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    iget-object v2, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->this$0:Lcom/android/server/SdpManagerService;
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService;->-wrap13(Lcom/android/server/SdpManagerService;)Ljava/util/Optional;
+
+    move-result-object v2
+
+    new-instance v3, Lcom/android/server/-$Lambda$lhXyqUMYqEEsOESeK7W8eqkbJis$3;
+
+    invoke-direct {v3, p1}, Lcom/android/server/-$Lambda$lhXyqUMYqEEsOESeK7W8eqkbJis$3;-><init>(I)V
+
+    invoke-virtual {v2, v3}, Ljava/util/Optional;->map(Ljava/util/function/Function;)Ljava/util/Optional;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/server/SdpManagerService$SecureUtil;->isFailed(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    const-string/jumbo v2, "Failed to clean enc user directory"
+
+    invoke-static {v2}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    :cond_3
+    invoke-virtual {v0}, Ljava/io/File;->mkdir()Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    invoke-virtual {v0}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3, v8, v4, v4}, Landroid/os/FileUtils;->setPermissions(Ljava/lang/String;III)I
+
+    move-result v1
+
+    const-string/jumbo v3, "Prepare - Result of setting permission to %s [ rc : %d ]"
+
+    new-array v4, v5, [Ljava/lang/Object;
+
+    invoke-virtual {v0}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v5
+
+    aput-object v5, v4, v6
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    aput-object v5, v4, v7
+
+    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    return v2
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v0}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3, v8, v4, v4}, Landroid/os/FileUtils;->setPermissions(Ljava/lang/String;III)I
+
+    move-result v1
+
+    const-string/jumbo v3, "Prepare - Result of setting permission to %s [ rc : %d ]"
+
+    new-array v4, v5, [Ljava/lang/Object;
+
+    invoke-virtual {v0}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v5
+
+    aput-object v5, v4, v6
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    aput-object v5, v4, v7
+
+    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/sec/sdp/internal/SDPLog;->d(Ljava/lang/String;)V
+
+    throw v2
 .end method
 
 .method private removePartition()V
@@ -432,9 +575,9 @@
 
     move-result-wide v2
 
-    iget-object v1, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->mEPM:Lcom/sec/knox/container/util/EnterprisePartitionManager;
+    iget-object v1, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->mEPM:Lcom/android/server/EnterprisePartitionManager;
 
-    invoke-virtual {v1, p1, p2}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->removeEncPkgDir(ILjava/lang/String;)Z
+    invoke-virtual {v1, p1, p2}, Lcom/android/server/EnterprisePartitionManager;->removeEncPkgDir(ILjava/lang/String;)Z
 
     move-result v0
 
@@ -580,7 +723,7 @@
 .method private systemReady()Z
     .locals 4
 
-    iget-object v3, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->sContext:Landroid/content/Context;
+    iget-object v3, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->mContext:Landroid/content/Context;
 
     invoke-static {v3}, Landroid/os/UserManager;->get(Landroid/content/Context;)Landroid/os/UserManager;
 
@@ -620,26 +763,15 @@
 .end method
 
 .method private systemReady(I)Z
-    .locals 9
-
-    const/4 v8, 0x1
+    .locals 8
 
     const/4 v2, 0x0
 
-    invoke-static {p1}, Lcom/samsung/android/knox/sdp/SdpUtil;->isKnoxWorkspace(I)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    return v8
-
-    :cond_0
     invoke-direct {p0}, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->isActivated()Z
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_0
 
     const-string/jumbo v3, "SecureFileSystem"
 
@@ -649,12 +781,12 @@
 
     return v2
 
-    :cond_1
+    :cond_0
     invoke-direct {p0, p1}, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->setBaseDataUserDir(I)Z
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_1
 
     const-string/jumbo v3, "SecureFileSystem"
 
@@ -678,13 +810,13 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
+    :cond_1
     iget-object v3, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->defaultApps:[Ljava/lang/String;
 
     array-length v4, v3
 
     :goto_0
-    if-ge v2, v4, :cond_6
+    if-ge v2, v4, :cond_5
 
     aget-object v0, v3, v2
 
@@ -692,7 +824,7 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_3
 
     const-string/jumbo v5, "SecureFileSystem"
 
@@ -700,18 +832,18 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_3
+    :cond_2
     :goto_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    :cond_4
+    :cond_3
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
     move-result v5
 
-    if-nez v5, :cond_5
+    if-nez v5, :cond_4
 
     const-string/jumbo v5, "SecureFileSystem"
 
@@ -745,7 +877,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_2
 
     const-string/jumbo v5, "SecureFileSystem"
 
@@ -771,7 +903,7 @@
 
     goto :goto_1
 
-    :cond_5
+    :cond_4
     const-string/jumbo v5, "SecureFileSystem"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -802,8 +934,10 @@
 
     goto :goto_1
 
-    :cond_6
-    return v8
+    :cond_5
+    const/4 v2, 0x1
+
+    return v2
 .end method
 
 .method private unmount()V
@@ -815,13 +949,13 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->mEPM:Lcom/sec/knox/container/util/EnterprisePartitionManager;
+    iget-object v0, p0, Lcom/android/server/SdpManagerService$SecureFileSystemManager;->mEPM:Lcom/android/server/EnterprisePartitionManager;
 
     const/4 v1, 0x0
 
     const/4 v2, 0x2
 
-    invoke-virtual {v0, v1, v2}, Lcom/sec/knox/container/util/EnterprisePartitionManager;->unmount(II)Z
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/EnterprisePartitionManager;->unmount(II)Z
 
     return-void
 .end method

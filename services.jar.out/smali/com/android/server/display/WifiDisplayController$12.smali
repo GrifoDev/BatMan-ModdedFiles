@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/display/WifiDisplayController;->sendEventToSemDisplayVolumeKeyListener(Landroid/os/Bundle;I)V
+    value = Lcom/android/server/display/WifiDisplayController;->sendDeviceVolumeKeyEvent(I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/display/WifiDisplayController;
 
-.field final synthetic val$data:Landroid/os/Bundle;
-
-.field final synthetic val$event:I
+.field final synthetic val$keyEvent:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/display/WifiDisplayController;ILandroid/os/Bundle;)V
+.method constructor <init>(Lcom/android/server/display/WifiDisplayController;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/display/WifiDisplayController$12;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    iput p2, p0, Lcom/android/server/display/WifiDisplayController$12;->val$event:I
-
-    iput-object p3, p0, Lcom/android/server/display/WifiDisplayController$12;->val$data:Landroid/os/Bundle;
+    iput p2, p0, Lcom/android/server/display/WifiDisplayController$12;->val$keyEvent:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -45,33 +41,72 @@
 .method public run()V
     .locals 5
 
-    iget-object v1, p0, Lcom/android/server/display/WifiDisplayController$12;->this$0:Lcom/android/server/display/WifiDisplayController;
+    const/4 v1, 0x0
 
-    invoke-static {v1}, Lcom/android/server/display/WifiDisplayController;->-get15(Lcom/android/server/display/WifiDisplayController;)Landroid/os/Handler;
+    iget v2, p0, Lcom/android/server/display/WifiDisplayController$12;->val$keyEvent:I
 
-    move-result-object v1
+    const/4 v3, -0x1
 
-    iget v2, p0, Lcom/android/server/display/WifiDisplayController$12;->val$event:I
+    if-ne v2, v3, :cond_1
+
+    const/16 v1, 0xa
+
+    :cond_0
+    :goto_0
+    iget-object v2, p0, Lcom/android/server/display/WifiDisplayController$12;->this$0:Lcom/android/server/display/WifiDisplayController;
+
+    invoke-static {v2}, Lcom/android/server/display/WifiDisplayController;->-get15(Lcom/android/server/display/WifiDisplayController;)Landroid/os/Handler;
+
+    move-result-object v2
 
     const/16 v3, 0x17
 
     const/4 v4, 0x0
 
-    invoke-virtual {v1, v3, v2, v4}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
+    invoke-virtual {v2, v3, v1, v4}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/server/display/WifiDisplayController$12;->val$data:Landroid/os/Bundle;
+    iget-object v2, p0, Lcom/android/server/display/WifiDisplayController$12;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    invoke-virtual {v0, v1}, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
+    invoke-static {v2}, Lcom/android/server/display/WifiDisplayController;->-get15(Lcom/android/server/display/WifiDisplayController;)Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/android/server/display/WifiDisplayController$12;->this$0:Lcom/android/server/display/WifiDisplayController;
+    move-result-object v2
 
-    invoke-static {v1}, Lcom/android/server/display/WifiDisplayController;->-get15(Lcom/android/server/display/WifiDisplayController;)Landroid/os/Handler;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {v2, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     return-void
+
+    :cond_1
+    iget v2, p0, Lcom/android/server/display/WifiDisplayController$12;->val$keyEvent:I
+
+    const/4 v3, 0x1
+
+    if-ne v2, v3, :cond_2
+
+    const/16 v1, 0xb
+
+    goto :goto_0
+
+    :cond_2
+    iget v2, p0, Lcom/android/server/display/WifiDisplayController$12;->val$keyEvent:I
+
+    const/4 v3, 0x2
+
+    if-ne v2, v3, :cond_3
+
+    const/16 v1, 0xc
+
+    goto :goto_0
+
+    :cond_3
+    iget v2, p0, Lcom/android/server/display/WifiDisplayController$12;->val$keyEvent:I
+
+    const/4 v3, 0x3
+
+    if-ne v2, v3, :cond_0
+
+    const/16 v1, 0xd
+
+    goto :goto_0
 .end method

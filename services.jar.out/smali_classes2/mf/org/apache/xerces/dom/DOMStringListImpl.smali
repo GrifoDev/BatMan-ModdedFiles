@@ -86,7 +86,7 @@
 .end method
 
 .method public item(I)Ljava/lang/String;
-    .locals 1
+    .locals 2
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DOMStringListImpl;->getLength()I
 
@@ -95,20 +95,20 @@
     if-gez p1, :cond_1
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 
     :cond_1
     if-ge p1, v0, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DOMStringListImpl;->fStrings:Ljava/util/ArrayList;
+    iget-object v1, p0, Lmf/org/apache/xerces/dom/DOMStringListImpl;->fStrings:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
-    return-object v0
+    return-object v1
 .end method

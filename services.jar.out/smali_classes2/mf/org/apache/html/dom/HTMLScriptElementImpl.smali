@@ -84,47 +84,47 @@
 .method public getText()Ljava/lang/String;
     .locals 3
 
-    new-instance v2, Ljava/lang/StringBuffer;
+    new-instance v1, Ljava/lang/StringBuffer;
 
-    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
 
     invoke-virtual {p0}, Lmf/org/apache/html/dom/HTMLScriptElementImpl;->getFirstChild()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v0
 
     :goto_0
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    instance-of v0, v1, Lmf/org/w3c/dom/Text;
+    instance-of v2, v0, Lmf/org/w3c/dom/Text;
 
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
     :goto_1
-    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v0
 
     goto :goto_0
 
     :cond_0
-    move-object v0, v1
+    move-object v2, v0
 
-    check-cast v0, Lmf/org/w3c/dom/Text;
+    check-cast v2, Lmf/org/w3c/dom/Text;
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Text;->getData()Ljava/lang/String;
+    invoke-interface {v2}, Lmf/org/w3c/dom/Text;->getData()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_1
 
     :cond_1
-    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 .end method
 
 .method public getType()Ljava/lang/String;
@@ -190,7 +190,7 @@
 .end method
 
 .method public setText(Ljava/lang/String;)V
-    .locals 2
+    .locals 4
 
     invoke-virtual {p0}, Lmf/org/apache/html/dom/HTMLScriptElementImpl;->getFirstChild()Lmf/org/w3c/dom/Node;
 
@@ -212,17 +212,17 @@
     :cond_0
     invoke-virtual {p0}, Lmf/org/apache/html/dom/HTMLScriptElementImpl;->getOwnerDocument()Lmf/org/w3c/dom/Document;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-interface {v0, p1}, Lmf/org/w3c/dom/Document;->createTextNode(Ljava/lang/String;)Lmf/org/w3c/dom/Text;
+    invoke-interface {v2, p1}, Lmf/org/w3c/dom/Document;->createTextNode(Ljava/lang/String;)Lmf/org/w3c/dom/Text;
 
-    move-result-object v0
+    move-result-object v2
 
     invoke-virtual {p0}, Lmf/org/apache/html/dom/HTMLScriptElementImpl;->getFirstChild()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/html/dom/HTMLScriptElementImpl;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-virtual {p0, v2, v3}, Lmf/org/apache/html/dom/HTMLScriptElementImpl;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
     return-void
 .end method

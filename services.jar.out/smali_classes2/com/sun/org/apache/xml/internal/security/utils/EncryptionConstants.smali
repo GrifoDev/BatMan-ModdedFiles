@@ -1,6 +1,5 @@
 .class public Lcom/sun/org/apache/xml/internal/security/utils/EncryptionConstants;
 .super Ljava/lang/Object;
-.source "Unknown"
 
 
 # static fields

@@ -341,19 +341,16 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_1
 
     invoke-interface {v8}, Ljava/util/List;->isEmpty()Z
 
     move-result v11
 
+    xor-int/lit8 v11, v11, 0x1
+
     if-eqz v11, :cond_1
 
-    :cond_0
-    :goto_0
-    return-object v13
-
-    :cond_1
     const/4 v7, 0x0
 
     const/4 v5, 0x0
@@ -368,12 +365,12 @@
 
     move-result-object v6
 
-    :goto_1
+    :goto_0
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_4
+    if-eqz v11, :cond_3
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -381,7 +378,7 @@
 
     check-cast v1, Landroid/content/ContentValues;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_0
 
     const-string/jumbo v11, "date"
 
@@ -405,12 +402,12 @@
 
     move-result v10
 
-    :cond_2
+    :cond_0
     invoke-virtual {v9, v3}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
 
     move-result-object v11
 
-    if-nez v11, :cond_3
+    if-nez v11, :cond_2
 
     new-instance v7, Landroid/os/Bundle;
 
@@ -422,7 +419,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1
+    goto :goto_0
 
     :catch_0
     move-exception v4
@@ -439,9 +436,10 @@
 
     invoke-static {v11, v12, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
+    :cond_1
+    return-object v13
 
-    :cond_3
+    :cond_2
     :try_start_1
     invoke-virtual {v9, v3}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
 
@@ -451,9 +449,9 @@
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_4
+    :cond_3
     return-object v9
 .end method
 
@@ -483,104 +481,106 @@
 .end method
 
 .method private handleLicenseLogCleanNotification()V
-    .locals 22
+    .locals 24
 
-    const-string/jumbo v13, "LicenseLogService"
+    const-string/jumbo v15, "LicenseLogService"
 
-    const-string/jumbo v18, "handleLicenseLogCleanNotification()"
+    const-string/jumbo v20, "handleLicenseLogCleanNotification()"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
-    invoke-static {v13, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v15, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v7
 
-    const/16 v13, 0xb
+    const/16 v15, 0xb
 
-    const/16 v18, 0x0
+    const/16 v20, 0x0
 
-    move/from16 v0, v18
+    move/from16 v0, v20
 
-    invoke-virtual {v7, v13, v0}, Ljava/util/Calendar;->set(II)V
+    invoke-virtual {v7, v15, v0}, Ljava/util/Calendar;->set(II)V
 
-    const/16 v13, 0xc
+    const/16 v15, 0xc
 
-    const/16 v18, 0x0
+    const/16 v20, 0x0
 
-    move/from16 v0, v18
+    move/from16 v0, v20
 
-    invoke-virtual {v7, v13, v0}, Ljava/util/Calendar;->set(II)V
+    invoke-virtual {v7, v15, v0}, Ljava/util/Calendar;->set(II)V
 
-    const/16 v13, 0xd
+    const/16 v15, 0xd
 
-    const/16 v18, 0x0
+    const/16 v20, 0x0
 
-    move/from16 v0, v18
+    move/from16 v0, v20
 
-    invoke-virtual {v7, v13, v0}, Ljava/util/Calendar;->set(II)V
+    invoke-virtual {v7, v15, v0}, Ljava/util/Calendar;->set(II)V
 
-    const/16 v13, 0xe
+    const/16 v15, 0xe
 
-    const/16 v18, 0x0
+    const/16 v20, 0x0
 
-    move/from16 v0, v18
+    move/from16 v0, v20
 
-    invoke-virtual {v7, v13, v0}, Ljava/util/Calendar;->set(II)V
+    invoke-virtual {v7, v15, v0}, Ljava/util/Calendar;->set(II)V
 
     invoke-virtual {v7}, Ljava/util/Calendar;->getTimeInMillis()J
 
-    move-result-wide v10
+    move-result-wide v12
 
-    const-wide v18, 0x9a7ec800L
+    const-wide v10, 0x9a7ec800L
 
-    sub-long v14, v10, v18
+    const-wide v20, 0x9a7ec800L
+
+    sub-long v16, v12, v20
 
     :try_start_0
-    new-instance v12, Landroid/content/ContentValues;
+    new-instance v14, Landroid/content/ContentValues;
 
-    invoke-direct {v12}, Landroid/content/ContentValues;-><init>()V
+    invoke-direct {v14}, Landroid/content/ContentValues;-><init>()V
 
-    const-string/jumbo v13, "date<=?"
+    const-string/jumbo v15, "date<=?"
 
-    invoke-static {v14, v15}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static/range {v16 .. v17}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v18
+    move-result-object v20
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
-    invoke-virtual {v12, v13, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
+    invoke-virtual {v14, v15, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
-    sget-object v13, Lcom/android/server/enterprise/license/LicenseLogService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    sget-object v15, Lcom/android/server/enterprise/license/LicenseLogService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v18, "LICENSE_LOG"
+    const-string/jumbo v20, "LICENSE_LOG"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
-    invoke-virtual {v13, v0, v12}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->delete(Ljava/lang/String;Landroid/content/ContentValues;)I
+    invoke-virtual {v15, v0, v14}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->delete(Ljava/lang/String;Landroid/content/ContentValues;)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v16
+    move-result-wide v18
 
-    const-wide/32 v18, 0x5265c00
+    const-wide/32 v20, 0x5265c00
 
-    add-long v4, v10, v18
+    add-long v4, v12, v20
 
     :try_start_1
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/server/enterprise/license/LicenseLogService;->mContext:Landroid/content/Context;
+    iget-object v15, v0, Lcom/android/server/enterprise/license/LicenseLogService;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v18, "alarm"
+    const-string/jumbo v20, "alarm"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
-    invoke-virtual {v13, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v15, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v6
 
@@ -588,45 +588,45 @@
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/server/enterprise/license/LicenseLogService;->mContext:Landroid/content/Context;
+    iget-object v15, v0, Lcom/android/server/enterprise/license/LicenseLogService;->mContext:Landroid/content/Context;
 
-    new-instance v18, Landroid/content/Intent;
+    new-instance v20, Landroid/content/Intent;
 
-    const-string/jumbo v19, "com.samsung.android.knox.intent.action.LICENSE_LOG_DELETE_OLD_RECORDS_INTERNAL"
+    const-string/jumbo v21, "com.samsung.android.knox.intent.action.LICENSE_LOG_DELETE_OLD_RECORDS_INTERNAL"
 
-    invoke-direct/range {v18 .. v19}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v20 .. v21}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const/16 v19, 0x0
+    const/16 v21, 0x0
 
-    const/high16 v20, 0x48000000    # 131072.0f
+    const/high16 v22, 0x48000000    # 131072.0f
 
-    move/from16 v0, v19
+    move/from16 v0, v21
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v20
 
-    move/from16 v2, v20
+    move/from16 v2, v22
 
-    invoke-static {v13, v0, v1, v2}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+    invoke-static {v15, v0, v1, v2}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
     move-result-object v9
 
     invoke-virtual {v6, v9}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
 
-    const-wide/16 v18, 0x0
+    const-wide/16 v20, 0x0
 
-    cmp-long v13, v4, v18
+    cmp-long v15, v4, v20
 
-    if-eqz v13, :cond_0
+    if-eqz v15, :cond_0
 
-    const/4 v13, 0x1
+    const/4 v15, 0x1
 
-    invoke-virtual {v6, v13, v4, v5, v9}, Landroid/app/AlarmManager;->set(IJLandroid/app/PendingIntent;)V
+    invoke-virtual {v6, v15, v4, v5, v9}, Landroid/app/AlarmManager;->set(IJLandroid/app/PendingIntent;)V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     :cond_0
     :goto_0
-    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v18 .. v19}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     :goto_1
     return-void
@@ -634,21 +634,21 @@
     :catch_0
     move-exception v8
 
-    const-string/jumbo v13, "LicenseLogService"
+    const-string/jumbo v15, "LicenseLogService"
 
-    const-string/jumbo v18, "handleLicenseLogCleanNotification() failed"
+    const-string/jumbo v20, "handleLicenseLogCleanNotification() failed"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
-    invoke-static {v13, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v15, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v13, "LicenseLogService"
+    const-string/jumbo v15, "LicenseLogService"
 
-    const-string/jumbo v18, "handleLicenseLogCleanNotification() failed"
+    const-string/jumbo v20, "handleLicenseLogCleanNotification() failed"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
-    invoke-static {v13, v0, v8}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v15, v0, v8}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 
@@ -656,42 +656,42 @@
     move-exception v8
 
     :try_start_2
-    const-string/jumbo v13, "LicenseLogService"
+    const-string/jumbo v15, "LicenseLogService"
 
-    const-string/jumbo v18, "handleLicenseLogCleanNotification() failed"
+    const-string/jumbo v20, "handleLicenseLogCleanNotification() failed"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
-    invoke-static {v13, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v15, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v13, "LicenseLogService"
+    const-string/jumbo v15, "LicenseLogService"
 
-    const-string/jumbo v18, "handleLicenseLogCleanNotification() failed"
+    const-string/jumbo v20, "handleLicenseLogCleanNotification() failed"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
-    invoke-static {v13, v0, v8}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v15, v0, v8}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v16
+    move-result-wide v18
 
-    const-wide/32 v18, 0x5265c00
+    const-wide/32 v20, 0x5265c00
 
-    add-long v4, v10, v18
+    add-long v4, v12, v20
 
     :try_start_3
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/server/enterprise/license/LicenseLogService;->mContext:Landroid/content/Context;
+    iget-object v15, v0, Lcom/android/server/enterprise/license/LicenseLogService;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v18, "alarm"
+    const-string/jumbo v20, "alarm"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
-    invoke-virtual {v13, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v15, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v6
 
@@ -699,90 +699,90 @@
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/server/enterprise/license/LicenseLogService;->mContext:Landroid/content/Context;
+    iget-object v15, v0, Lcom/android/server/enterprise/license/LicenseLogService;->mContext:Landroid/content/Context;
 
-    new-instance v18, Landroid/content/Intent;
+    new-instance v20, Landroid/content/Intent;
 
-    const-string/jumbo v19, "com.samsung.android.knox.intent.action.LICENSE_LOG_DELETE_OLD_RECORDS_INTERNAL"
+    const-string/jumbo v21, "com.samsung.android.knox.intent.action.LICENSE_LOG_DELETE_OLD_RECORDS_INTERNAL"
 
-    invoke-direct/range {v18 .. v19}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v20 .. v21}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const/16 v19, 0x0
+    const/16 v21, 0x0
 
-    const/high16 v20, 0x48000000    # 131072.0f
+    const/high16 v22, 0x48000000    # 131072.0f
 
-    move/from16 v0, v19
+    move/from16 v0, v21
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v20
 
-    move/from16 v2, v20
+    move/from16 v2, v22
 
-    invoke-static {v13, v0, v1, v2}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+    invoke-static {v15, v0, v1, v2}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
     move-result-object v9
 
     invoke-virtual {v6, v9}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
 
-    const-wide/16 v18, 0x0
+    const-wide/16 v20, 0x0
 
-    cmp-long v13, v4, v18
+    cmp-long v15, v4, v20
 
-    if-eqz v13, :cond_1
+    if-eqz v15, :cond_1
 
-    const/4 v13, 0x1
+    const/4 v15, 0x1
 
-    invoke-virtual {v6, v13, v4, v5, v9}, Landroid/app/AlarmManager;->set(IJLandroid/app/PendingIntent;)V
+    invoke-virtual {v6, v15, v4, v5, v9}, Landroid/app/AlarmManager;->set(IJLandroid/app/PendingIntent;)V
     :try_end_3
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_2
 
     :cond_1
     :goto_2
-    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v18 .. v19}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     goto :goto_1
 
     :catch_2
     move-exception v8
 
-    const-string/jumbo v13, "LicenseLogService"
+    const-string/jumbo v15, "LicenseLogService"
 
-    const-string/jumbo v18, "handleLicenseLogCleanNotification() failed"
+    const-string/jumbo v20, "handleLicenseLogCleanNotification() failed"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
-    invoke-static {v13, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v15, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v13, "LicenseLogService"
+    const-string/jumbo v15, "LicenseLogService"
 
-    const-string/jumbo v18, "handleLicenseLogCleanNotification() failed"
+    const-string/jumbo v20, "handleLicenseLogCleanNotification() failed"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
-    invoke-static {v13, v0, v8}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v15, v0, v8}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_2
 
     :catchall_0
-    move-exception v13
+    move-exception v15
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v16
+    move-result-wide v18
 
-    const-wide/32 v18, 0x5265c00
+    const-wide/32 v20, 0x5265c00
 
-    add-long v4, v10, v18
+    add-long v4, v12, v20
 
     :try_start_4
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/license/LicenseLogService;->mContext:Landroid/content/Context;
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
-    const-string/jumbo v19, "alarm"
+    const-string/jumbo v21, "alarm"
 
-    invoke-virtual/range {v18 .. v19}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual/range {v20 .. v21}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v6
 
@@ -792,25 +792,25 @@
 
     iget-object v0, v0, Lcom/android/server/enterprise/license/LicenseLogService;->mContext:Landroid/content/Context;
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
-    new-instance v19, Landroid/content/Intent;
+    new-instance v21, Landroid/content/Intent;
 
-    const-string/jumbo v20, "com.samsung.android.knox.intent.action.LICENSE_LOG_DELETE_OLD_RECORDS_INTERNAL"
+    const-string/jumbo v22, "com.samsung.android.knox.intent.action.LICENSE_LOG_DELETE_OLD_RECORDS_INTERNAL"
 
-    invoke-direct/range {v19 .. v20}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v21 .. v22}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const/16 v20, 0x0
+    const/16 v22, 0x0
 
-    const/high16 v21, 0x48000000    # 131072.0f
+    const/high16 v23, 0x48000000    # 131072.0f
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
-    move/from16 v1, v20
+    move/from16 v1, v22
 
-    move-object/from16 v2, v19
+    move-object/from16 v2, v21
 
-    move/from16 v3, v21
+    move/from16 v3, v23
 
     invoke-static {v0, v1, v2, v3}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
@@ -818,15 +818,15 @@
 
     invoke-virtual {v6, v9}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
 
-    const-wide/16 v18, 0x0
+    const-wide/16 v20, 0x0
 
-    cmp-long v18, v4, v18
+    cmp-long v20, v4, v20
 
-    if-eqz v18, :cond_2
+    if-eqz v20, :cond_2
 
-    const/16 v18, 0x1
+    const/16 v20, 0x1
 
-    move/from16 v0, v18
+    move/from16 v0, v20
 
     invoke-virtual {v6, v0, v4, v5, v9}, Landroid/app/AlarmManager;->set(IJLandroid/app/PendingIntent;)V
     :try_end_4
@@ -834,26 +834,26 @@
 
     :cond_2
     :goto_3
-    invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v18 .. v19}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v13
+    throw v15
 
     :catch_3
     move-exception v8
 
-    const-string/jumbo v18, "LicenseLogService"
+    const-string/jumbo v20, "LicenseLogService"
 
-    const-string/jumbo v19, "handleLicenseLogCleanNotification() failed"
+    const-string/jumbo v21, "handleLicenseLogCleanNotification() failed"
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v20 .. v21}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v18, "LicenseLogService"
+    const-string/jumbo v20, "LicenseLogService"
 
-    const-string/jumbo v19, "handleLicenseLogCleanNotification() failed"
+    const-string/jumbo v21, "handleLicenseLogCleanNotification() failed"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v21
 
     invoke-static {v0, v1, v8}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 

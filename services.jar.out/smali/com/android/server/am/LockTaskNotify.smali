@@ -63,7 +63,7 @@
 
     move-result-object v0
 
-    const v1, 0x112006a
+    const v1, 0x1120096
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -75,35 +75,52 @@
 .end method
 
 .method private makeAllUserToastAndShow(Ljava/lang/String;)Landroid/widget/Toast;
-    .locals 4
+    .locals 5
 
-    new-instance v1, Landroid/view/ContextThemeWrapper;
+    const/4 v4, 0x0
 
-    iget-object v2, p0, Lcom/android/server/am/LockTaskNotify;->mContext:Landroid/content/Context;
-
-    const v3, 0x103012b
-
-    invoke-direct {v1, v2, v3}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
-
-    const/4 v2, 0x1
-
-    invoke-static {v1, p1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    invoke-static {}, Lcom/android/server/desktopmode/DesktopModeService$Lifecycle;->getService()Lcom/android/server/desktopmode/DesktopModeService;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/widget/Toast;->getWindowParams()Landroid/view/WindowManager$LayoutParams;
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/server/desktopmode/DesktopModeService;->isDesktopModeEnablingOrEnabled()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const-string/jumbo v2, "LockTaskNotify"
+
+    const-string/jumbo v3, "DEX mode is on skip the screen pinning toasts"
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-object v4
+
+    :cond_0
+    iget-object v2, p0, Lcom/android/server/am/LockTaskNotify;->mContext:Landroid/content/Context;
+
+    const/4 v3, 0x1
+
+    invoke-static {v2, p1, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
     move-result-object v1
 
-    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+    invoke-virtual {v1}, Landroid/widget/Toast;->getWindowParams()Landroid/view/WindowManager$LayoutParams;
 
-    or-int/lit8 v2, v2, 0x10
+    move-result-object v2
 
-    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+    iget v3, v2, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+    or-int/lit8 v3, v3, 0x10
 
-    return-object v0
+    iput v3, v2, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+
+    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
+
+    return-object v1
 .end method
 
 
@@ -119,7 +136,7 @@
 
     iget-object v1, p0, Lcom/android/server/am/LockTaskNotify;->mContext:Landroid/content/Context;
 
-    const v2, 0x10405d1
+    const v2, 0x10404a0
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -150,7 +167,7 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x10405d0
+    const v1, 0x1040941
 
     :goto_1
     invoke-virtual {v2, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -160,7 +177,7 @@
     goto :goto_0
 
     :cond_2
-    const v1, 0x10405ce
+    const v1, 0x1040942
 
     goto :goto_1
 
@@ -175,7 +192,7 @@
 
     if-eqz v1, :cond_4
 
-    const v1, 0x10405cf
+    const v1, 0x1040940
 
     :goto_2
     invoke-virtual {v2, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -185,7 +202,7 @@
     goto :goto_0
 
     :cond_4
-    const v1, 0x10405cd
+    const v1, 0x104093f
 
     goto :goto_2
 
@@ -211,11 +228,11 @@
 .method public show(Z)V
     .locals 2
 
-    const v0, 0x10405d3
+    const v0, 0x104049d
 
     if-eqz p1, :cond_0
 
-    const v0, 0x10405d2
+    const v0, 0x104049e
 
     :cond_0
     iget-object v1, p0, Lcom/android/server/am/LockTaskNotify;->mContext:Landroid/content/Context;

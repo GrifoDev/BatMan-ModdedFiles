@@ -103,9 +103,9 @@
 .end method
 
 .method public nodeCountCheck()V
-    .locals 7
+    .locals 6
 
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
     iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/models/CMNodeFactory;->fSecurityManager:Lmf/org/apache/xerces/util/SecurityManager;
 
@@ -128,27 +128,27 @@
 
     iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/models/CMNodeFactory;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v1, "http://www.w3.org/TR/xml-schema-1"
+    const/4 v1, 0x1
 
-    const-string/jumbo v2, "maxOccurLimit"
+    new-array v1, v1, [Ljava/lang/Object;
 
-    const/4 v3, 0x1
+    new-instance v2, Ljava/lang/Integer;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    iget v3, p0, Lmf/org/apache/xerces/impl/xs/models/CMNodeFactory;->maxNodeLimit:I
 
-    new-instance v4, Ljava/lang/Integer;
+    invoke-direct {v2, v3}, Ljava/lang/Integer;-><init>(I)V
 
-    iget v5, p0, Lmf/org/apache/xerces/impl/xs/models/CMNodeFactory;->maxNodeLimit:I
+    aput-object v2, v1, v5
 
-    invoke-direct {v4, v5}, Ljava/lang/Integer;-><init>(I)V
+    const-string/jumbo v2, "http://www.w3.org/TR/xml-schema-1"
 
-    aput-object v4, v3, v6
+    const-string/jumbo v3, "maxOccurLimit"
 
     const/4 v4, 0x2
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    invoke-virtual {v0, v2, v3, v1, v4}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
 
-    iput v6, p0, Lmf/org/apache/xerces/impl/xs/models/CMNodeFactory;->nodeCount:I
+    iput v5, p0, Lmf/org/apache/xerces/impl/xs/models/CMNodeFactory;->nodeCount:I
 
     goto :goto_0
 .end method
@@ -178,28 +178,28 @@
 .end method
 
 .method public reset(Lmf/org/apache/xerces/xni/parser/XMLComponentManager;)V
-    .locals 1
+    .locals 2
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/error-reporter"
+    const-string/jumbo v1, "http://apache.org/xml/properties/internal/error-reporter"
 
-    invoke-interface {p1, v0}, Lmf/org/apache/xerces/xni/parser/XMLComponentManager;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-interface {p1, v1}, Lmf/org/apache/xerces/xni/parser/XMLComponentManager;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    check-cast v1, Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/models/CMNodeFactory;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/xs/models/CMNodeFactory;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
     :try_start_0
-    const-string/jumbo v0, "http://apache.org/xml/properties/security-manager"
+    const-string/jumbo v1, "http://apache.org/xml/properties/security-manager"
 
-    invoke-interface {p1, v0}, Lmf/org/apache/xerces/xni/parser/XMLComponentManager;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-interface {p1, v1}, Lmf/org/apache/xerces/xni/parser/XMLComponentManager;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/org/apache/xerces/util/SecurityManager;
+    check-cast v1, Lmf/org/apache/xerces/util/SecurityManager;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/models/CMNodeFactory;->fSecurityManager:Lmf/org/apache/xerces/util/SecurityManager;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/xs/models/CMNodeFactory;->fSecurityManager:Lmf/org/apache/xerces/util/SecurityManager;
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xs/models/CMNodeFactory;->reset()V
     :try_end_0
@@ -211,9 +211,9 @@
     :catch_0
     move-exception v0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/models/CMNodeFactory;->fSecurityManager:Lmf/org/apache/xerces/util/SecurityManager;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/xs/models/CMNodeFactory;->fSecurityManager:Lmf/org/apache/xerces/util/SecurityManager;
 
     goto :goto_0
 .end method
@@ -229,22 +229,22 @@
 .end method
 
 .method public setProperty(Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/"
+    const-string/jumbo v2, "http://apache.org/xml/properties/"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_1
+    if-nez v2, :cond_1
 
     :cond_0
     return-void
@@ -252,15 +252,15 @@
     :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v1
-
-    const-string/jumbo v2, "http://apache.org/xml/properties/"
-
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
-
     move-result v2
 
-    sub-int/2addr v1, v2
+    const-string/jumbo v3, "http://apache.org/xml/properties/"
+
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    sub-int v0, v2, v3
 
     const-string/jumbo v2, "security-manager"
 
@@ -268,24 +268,24 @@
 
     move-result v2
 
-    if-eq v1, v2, :cond_3
+    if-eq v0, v2, :cond_3
 
     :cond_2
-    const-string/jumbo v0, "internal/error-reporter"
+    const-string/jumbo v1, "internal/error-reporter"
 
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v1
 
-    if-ne v1, v0, :cond_0
+    if-ne v0, v1, :cond_0
 
-    const-string/jumbo v0, "internal/error-reporter"
+    const-string/jumbo v1, "internal/error-reporter"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     check-cast p2, Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
@@ -306,23 +306,23 @@
 
     iput-object p2, p0, Lmf/org/apache/xerces/impl/xs/models/CMNodeFactory;->fSecurityManager:Lmf/org/apache/xerces/util/SecurityManager;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/models/CMNodeFactory;->fSecurityManager:Lmf/org/apache/xerces/util/SecurityManager;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/models/CMNodeFactory;->fSecurityManager:Lmf/org/apache/xerces/util/SecurityManager;
 
-    if-nez v1, :cond_4
+    if-nez v2, :cond_4
 
     :goto_0
-    iput v0, p0, Lmf/org/apache/xerces/impl/xs/models/CMNodeFactory;->maxNodeLimit:I
+    iput v1, p0, Lmf/org/apache/xerces/impl/xs/models/CMNodeFactory;->maxNodeLimit:I
 
     return-void
 
     :cond_4
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/models/CMNodeFactory;->fSecurityManager:Lmf/org/apache/xerces/util/SecurityManager;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/models/CMNodeFactory;->fSecurityManager:Lmf/org/apache/xerces/util/SecurityManager;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/SecurityManager;->getMaxOccurNodeLimit()I
+    invoke-virtual {v1}, Lmf/org/apache/xerces/util/SecurityManager;->getMaxOccurNodeLimit()I
 
-    move-result v0
+    move-result v1
 
-    mul-int/lit8 v0, v0, 0x1
+    mul-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 .end method

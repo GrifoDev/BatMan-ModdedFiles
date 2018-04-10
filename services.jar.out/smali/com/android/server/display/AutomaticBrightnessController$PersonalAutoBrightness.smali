@@ -593,182 +593,174 @@
 .end method
 
 .method private checkReversePointsByUsingAutoBrightnessTableValue(I)I
-    .locals 25
+    .locals 26
 
-    const/4 v8, 0x0
+    const/4 v9, 0x0
 
-    new-instance v20, Ljava/util/ArrayList;
+    new-instance v21, Ljava/util/ArrayList;
 
-    invoke-direct/range {v20 .. v20}, Ljava/util/ArrayList;-><init>()V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
-
-    move-object/from16 v21, v0
-
-    invoke-static/range {v21 .. v21}, Lcom/android/server/display/AutomaticBrightnessController;->-get6(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    iget-object v9, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevels:[I
+    invoke-direct/range {v21 .. v21}, Ljava/util/ArrayList;-><init>()V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    invoke-static/range {v21 .. v21}, Lcom/android/server/display/AutomaticBrightnessController;->-get6(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;
+    invoke-static/range {v22 .. v22}, Lcom/android/server/display/AutomaticBrightnessController;->-get7(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;
 
-    move-result-object v21
+    move-result-object v22
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
-    iget-object v10, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValues:[I
+    iget-object v10, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessLevels:[I
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
+
+    move-object/from16 v22, v0
+
+    invoke-static/range {v22 .. v22}, Lcom/android/server/display/AutomaticBrightnessController;->-get7(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;
+
+    move-result-object v22
+
+    move-object/from16 v0, v22
+
+    iget-object v11, v0, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->mBrightnessValues:[I
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    const/4 v11, 0x0
+    const/4 v12, 0x0
 
     :goto_0
-    array-length v0, v9
+    array-length v0, v10
 
-    move/from16 v21, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
-    if-ge v11, v0, :cond_0
+    if-ge v12, v0, :cond_0
 
-    aget v21, v9, v11
+    aget v22, v10, v12
 
-    const/16 v22, 0x2710
+    const/16 v23, 0x2710
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     if-lt v0, v1, :cond_1
 
     :cond_0
-    const/4 v11, 0x0
+    const/4 v12, 0x0
 
     :goto_1
-    invoke-virtual/range {v17 .. v17}, Ljava/util/ArrayList;->size()I
+    invoke-virtual/range {v18 .. v18}, Ljava/util/ArrayList;->size()I
 
-    move-result v21
+    move-result v22
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
-    if-ge v11, v0, :cond_3
+    if-ge v12, v0, :cond_3
 
-    move-object/from16 v0, v17
-
-    invoke-virtual {v0, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v21
-
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
-
-    move-object/from16 v0, v21
-
-    iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
-
-    move/from16 v21, v0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v20
-
-    move/from16 v2, v21
-
-    invoke-direct {v0, v1, v2}, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->getIndex(Ljava/util/ArrayList;F)I
-
-    move-result v12
-
-    invoke-virtual/range {v20 .. v20}, Ljava/util/ArrayList;->size()I
-
-    move-result v21
-
-    move/from16 v0, v21
-
-    if-ge v12, v0, :cond_2
-
-    move-object/from16 v0, v20
+    move-object/from16 v0, v18
 
     invoke-virtual {v0, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v21
+    move-result-object v22
 
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
 
     move/from16 v22, v0
 
-    move-object/from16 v0, v17
-
-    invoke-virtual {v0, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v21
-
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
-
-    move-object/from16 v0, v21
-
-    iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
-
-    move/from16 v21, v0
-
-    cmpl-float v21, v22, v21
-
-    if-nez v21, :cond_2
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v0, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v21
-
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
-
-    move-object/from16 v0, v20
+    move-object/from16 v0, p0
 
     move-object/from16 v1, v21
 
-    invoke-virtual {v0, v12, v1}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
+    move/from16 v2, v22
+
+    invoke-direct {v0, v1, v2}, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->getIndex(Ljava/util/ArrayList;F)I
+
+    move-result v13
+
+    invoke-virtual/range {v21 .. v21}, Ljava/util/ArrayList;->size()I
+
+    move-result v22
+
+    move/from16 v0, v22
+
+    if-ge v13, v0, :cond_2
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v0, v13}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v22
+
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+
+    move-object/from16 v0, v22
+
+    iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
+
+    move/from16 v23, v0
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v22
+
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+
+    move-object/from16 v0, v22
+
+    iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
+
+    move/from16 v22, v0
+
+    cmpl-float v22, v23, v22
+
+    if-nez v22, :cond_2
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v22
+
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v22
+
+    invoke-virtual {v0, v13, v1}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
     :goto_2
-    add-int/lit8 v11, v11, 0x1
+    add-int/lit8 v12, v12, 0x1
 
     goto :goto_1
 
     :cond_1
-    new-instance v19, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+    new-instance v20, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    aget v22, v9, v11
-
-    move/from16 v0, v22
-
-    int-to-float v0, v0
-
-    move/from16 v22, v0
-
-    aget v23, v9, v11
+    aget v23, v10, v12
 
     move/from16 v0, v23
 
@@ -776,52 +768,60 @@
 
     move/from16 v23, v0
 
+    aget v24, v10, v12
+
+    move/from16 v0, v24
+
+    int-to-float v0, v0
+
+    move/from16 v24, v0
+
     move-object/from16 v0, p0
 
-    move/from16 v1, v23
+    move/from16 v1, v24
 
     invoke-virtual {v0, v1}, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->getOffset(F)F
 
-    move-result v23
+    move-result v24
 
-    const/16 v24, 0x2
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v21
-
-    move/from16 v2, v22
-
-    move/from16 v3, v23
-
-    move/from16 v4, v24
-
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;-><init>(Lcom/android/server/display/AutomaticBrightnessController;FFI)V
+    const/16 v25, 0x2
 
     move-object/from16 v0, v20
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v22
+
+    move/from16 v2, v23
+
+    move/from16 v3, v24
+
+    move/from16 v4, v25
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;-><init>(Lcom/android/server/display/AutomaticBrightnessController;FFI)V
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    add-int/lit8 v11, v11, 0x1
+    add-int/lit8 v12, v12, 0x1
 
     goto/16 :goto_0
 
     :cond_2
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
-    invoke-virtual {v0, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v21
+    move-result-object v22
 
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v22
 
-    invoke-virtual {v0, v12, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+    invoke-virtual {v0, v13, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
 
     goto :goto_2
 
@@ -830,228 +830,238 @@
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    invoke-virtual/range {v21 .. v21}, Ljava/util/ArrayList;->size()I
+    invoke-virtual/range {v22 .. v22}, Ljava/util/ArrayList;->size()I
 
-    move-result v21
+    move-result v22
 
     move/from16 v0, p1
 
-    move/from16 v1, v21
+    move/from16 v1, v22
 
     if-lt v0, v1, :cond_4
 
-    const-string/jumbo v21, "AutomaticBrightnessController"
+    const-string/jumbo v22, "AutomaticBrightnessController"
 
-    new-instance v22, Ljava/lang/StringBuilder;
+    new-instance v23, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v23, "[PAB] Index ERROR : addedIndex = "
+    const-string/jumbo v24, "[PAB] Index ERROR : addedIndex = "
 
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v23
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
     move/from16 v1, p1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v23
 
-    const-string/jumbo v23, " size = "
+    const-string/jumbo v24, " size = "
 
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v23
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
-    move-object/from16 v23, v0
+    move-object/from16 v24, v0
 
-    invoke-virtual/range {v23 .. v23}, Ljava/util/ArrayList;->size()I
+    invoke-virtual/range {v24 .. v24}, Ljava/util/ArrayList;->size()I
 
-    move-result v23
+    move-result v24
 
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v23
 
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v23
 
-    invoke-static/range {v21 .. v22}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v22 .. v23}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v8
+    return v9
 
     :cond_4
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     move/from16 v1, p1
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v21
+    move-result-object v22
 
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOrgCd:F
 
-    move/from16 v22, v0
+    move/from16 v23, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     move/from16 v1, p1
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v21
+    move-result-object v22
 
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
 
-    move/from16 v21, v0
+    move/from16 v22, v0
 
-    add-float v7, v22, v21
+    add-float v7, v23, v22
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     move/from16 v1, p1
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v21
+    move-result-object v22
 
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     iget v6, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
 
+    move v8, v7
+
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     invoke-direct {v0, v1, v6}, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->getIndex(Ljava/util/ArrayList;F)I
 
-    move-result v21
+    move-result v22
 
-    add-int/lit8 v11, v21, -0x1
+    add-int/lit8 v12, v22, -0x1
 
     :goto_3
-    if-ltz v11, :cond_a
-
-    move-object/from16 v0, v20
-
-    invoke-virtual {v0, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v21
-
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+    if-ltz v12, :cond_f
 
     move-object/from16 v0, v21
 
-    iget v15, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOrgCd:F
+    invoke-virtual {v0, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-object/from16 v0, v20
+    move-result-object v22
 
-    invoke-virtual {v0, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
-    move-result-object v21
+    move-object/from16 v0, v22
 
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+    iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOrgCd:F
 
-    move-object/from16 v0, v21
-
-    iget v14, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
-
-    add-float v16, v15, v14
-
-    move-object/from16 v0, v20
-
-    invoke-virtual {v0, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v21
-
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+    move/from16 v16, v0
 
     move-object/from16 v0, v21
 
-    iget v13, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
+    invoke-virtual {v0, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    cmpl-float v21, v16, v7
+    move-result-object v22
 
-    if-ltz v21, :cond_6
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
-    const/16 v21, 0x0
+    move-object/from16 v0, v22
 
-    cmpl-float v21, v13, v21
+    iget v15, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
 
-    if-nez v21, :cond_7
+    add-float v17, v16, v15
 
-    const/16 v18, 0x0
+    move-object/from16 v0, v21
+
+    invoke-virtual {v0, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v22
+
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+
+    move-object/from16 v0, v22
+
+    iget v14, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
+
+    const/16 v22, 0x0
+
+    cmpg-float v22, v17, v22
+
+    if-gez v22, :cond_a
+
+    const/16 v22, 0x0
+
+    cmpl-float v22, v14, v22
+
+    if-nez v22, :cond_7
+
+    const/16 v19, 0x0
 
     :goto_4
-    new-instance v19, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+    new-instance v20, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    sub-float v22, v7, v15
+    move/from16 v0, v16
 
-    move-object/from16 v0, v19
+    neg-float v0, v0
 
-    move-object/from16 v1, v21
+    move/from16 v23, v0
 
-    move/from16 v2, v22
+    move-object/from16 v0, v20
 
-    move/from16 v3, v18
+    move-object/from16 v1, v22
 
-    invoke-direct {v0, v1, v13, v2, v3}, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;-><init>(Lcom/android/server/display/AutomaticBrightnessController;FFI)V
+    move/from16 v2, v23
+
+    move/from16 v3, v19
+
+    invoke-direct {v0, v1, v14, v2, v3}, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;-><init>(Lcom/android/server/display/AutomaticBrightnessController;FFI)V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v22
 
-    invoke-direct {v0, v1, v13}, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->getIndex(Ljava/util/ArrayList;F)I
+    invoke-direct {v0, v1, v14}, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->getIndex(Ljava/util/ArrayList;F)I
 
     move-result v5
 
@@ -1059,13 +1069,13 @@
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    invoke-virtual/range {v21 .. v21}, Ljava/util/ArrayList;->size()I
+    invoke-virtual/range {v22 .. v22}, Ljava/util/ArrayList;->size()I
 
-    move-result v21
+    move-result v22
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
     if-eq v5, v0, :cond_5
 
@@ -1073,55 +1083,58 @@
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v21
+    move-result-object v22
 
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
-    move-object/from16 v0, v21
-
-    iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
-
-    move/from16 v21, v0
-
-    move-object/from16 v0, v19
+    move-object/from16 v0, v22
 
     iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
 
     move/from16 v22, v0
 
-    cmpl-float v21, v21, v22
+    move-object/from16 v0, v20
 
-    if-lez v21, :cond_8
+    iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
+
+    move/from16 v23, v0
+
+    cmpl-float v22, v22, v23
+
+    if-lez v22, :cond_8
 
     :cond_5
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v5, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
 
     :goto_5
-    add-int/lit8 v8, v8, 0x1
+    add-int/lit8 v9, v9, 0x1
+
+    const/4 v8, 0x0
 
     :cond_6
-    add-int/lit8 v11, v11, -0x1
+    :goto_6
+    add-int/lit8 v12, v12, -0x1
 
     goto/16 :goto_3
 
     :cond_7
-    const/16 v18, 0x2
+    const/16 v19, 0x2
 
     goto :goto_4
 
@@ -1130,217 +1143,162 @@
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v21
+    move-result-object v22
 
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
-    move-object/from16 v0, v21
-
-    iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
-
-    move/from16 v21, v0
-
-    move-object/from16 v0, v19
+    move-object/from16 v0, v22
 
     iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
 
     move/from16 v22, v0
 
-    cmpl-float v21, v21, v22
+    move-object/from16 v0, v20
 
-    if-nez v21, :cond_9
+    iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
 
-    move-object/from16 v0, p0
+    move/from16 v23, v0
 
-    iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
+    cmpl-float v22, v22, v23
 
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v21
-
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
-
-    sub-float v22, v7, v15
-
-    move/from16 v0, v22
-
-    move-object/from16 v1, v21
-
-    iput v0, v1, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
-
-    const-string/jumbo v22, "AutomaticBrightnessController"
-
-    new-instance v21, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v23, "[PAB] 4-change : "
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v23
+    if-nez v22, :cond_9
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v21
-
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
-
-    invoke-virtual/range {v21 .. v21}, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->toString()Ljava/lang/String;
-
-    move-result-object v21
-
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, v21
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v21
+    move-object/from16 v22, v0
 
     move-object/from16 v0, v22
 
-    move-object/from16 v1, v21
+    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v22
+
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+
+    sub-float v23, v7, v16
+
+    move/from16 v0, v23
+
+    move-object/from16 v1, v22
+
+    iput v0, v1, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
+
+    const-string/jumbo v23, "AutomaticBrightnessController"
+
+    new-instance v22, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v24, "[PAB] 4-negative-change : "
+
+    move-object/from16 v0, v22
+
+    move-object/from16 v1, v24
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
+
+    move-object/from16 v22, v0
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v22
+
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->toString()Ljava/lang/String;
+
+    move-result-object v22
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v22
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v22
 
     invoke-static {v0, v1}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_5
 
     :cond_9
-    const-string/jumbo v21, "AutomaticBrightnessController"
+    const-string/jumbo v22, "AutomaticBrightnessController"
 
-    const-string/jumbo v22, "[PAB] 4-2ERROR."
+    const-string/jumbo v23, "[PAB] 4-2-negative-ERROR."
 
-    invoke-static/range {v21 .. v22}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v22 .. v23}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_5
 
     :cond_a
-    move-object/from16 v0, p0
+    cmpl-float v22, v17, v8
 
-    move-object/from16 v1, v20
+    if-ltz v22, :cond_6
 
-    invoke-direct {v0, v1, v6}, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->getIndex(Ljava/util/ArrayList;F)I
+    const/16 v22, 0x0
 
-    move-result v11
+    cmpl-float v22, v14, v22
 
-    :goto_6
-    invoke-virtual/range {v20 .. v20}, Ljava/util/ArrayList;->size()I
+    if-nez v22, :cond_c
 
-    move-result v21
-
-    move/from16 v0, v21
-
-    if-ge v11, v0, :cond_14
-
-    move-object/from16 v0, v20
-
-    invoke-virtual {v0, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v21
-
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
-
-    move-object/from16 v0, v21
-
-    iget v15, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOrgCd:F
-
-    move-object/from16 v0, v20
-
-    invoke-virtual {v0, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v21
-
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
-
-    move-object/from16 v0, v21
-
-    iget v14, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
-
-    add-float v16, v15, v14
-
-    move-object/from16 v0, v20
-
-    invoke-virtual {v0, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v21
-
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
-
-    move-object/from16 v0, v21
-
-    iget v13, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
-
-    cmpg-float v21, v16, v7
-
-    if-gez v21, :cond_f
-
-    const v21, 0x461c4000    # 10000.0f
-
-    cmpl-float v21, v13, v21
-
-    if-nez v21, :cond_c
-
-    const/16 v18, 0x0
+    const/16 v19, 0x0
 
     :goto_7
-    new-instance v19, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+    new-instance v20, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    sub-float v22, v7, v15
+    sub-float v23, v8, v16
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v22
 
-    move/from16 v2, v22
+    move/from16 v2, v23
 
-    move/from16 v3, v18
+    move/from16 v3, v19
 
-    invoke-direct {v0, v1, v13, v2, v3}, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;-><init>(Lcom/android/server/display/AutomaticBrightnessController;FFI)V
+    invoke-direct {v0, v1, v14, v2, v3}, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;-><init>(Lcom/android/server/display/AutomaticBrightnessController;FFI)V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v22
 
-    invoke-direct {v0, v1, v13}, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->getIndex(Ljava/util/ArrayList;F)I
+    invoke-direct {v0, v1, v14}, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->getIndex(Ljava/util/ArrayList;F)I
 
     move-result v5
 
@@ -1348,13 +1306,13 @@
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    invoke-virtual/range {v21 .. v21}, Ljava/util/ArrayList;->size()I
+    invoke-virtual/range {v22 .. v22}, Ljava/util/ArrayList;->size()I
 
-    move-result v21
+    move-result v22
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
     if-eq v5, v0, :cond_b
 
@@ -1362,55 +1320,52 @@
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v21
+    move-result-object v22
 
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
-    move-object/from16 v0, v21
-
-    iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
-
-    move/from16 v21, v0
-
-    move-object/from16 v0, v19
+    move-object/from16 v0, v22
 
     iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
 
     move/from16 v22, v0
 
-    cmpl-float v21, v21, v22
+    move-object/from16 v0, v20
 
-    if-lez v21, :cond_d
+    iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
+
+    move/from16 v23, v0
+
+    cmpl-float v22, v22, v23
+
+    if-lez v22, :cond_d
 
     :cond_b
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v5, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
 
     :goto_8
-    add-int/lit8 v8, v8, 0x1
-
-    :goto_9
-    add-int/lit8 v11, v11, 0x1
+    add-int/lit8 v9, v9, 0x1
 
     goto/16 :goto_6
 
     :cond_c
-    const/16 v18, 0x2
+    const/16 v19, 0x2
 
     goto :goto_7
 
@@ -1419,156 +1374,219 @@
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v21
+    move-result-object v22
 
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
-    move-object/from16 v0, v21
-
-    iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
-
-    move/from16 v21, v0
-
-    move-object/from16 v0, v19
+    move-object/from16 v0, v22
 
     iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
 
     move/from16 v22, v0
 
-    cmpl-float v21, v21, v22
+    move-object/from16 v0, v20
 
-    if-nez v21, :cond_e
+    iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
 
-    move-object/from16 v0, p0
+    move/from16 v23, v0
 
-    iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
+    cmpl-float v22, v22, v23
 
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v21
-
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
-
-    sub-float v22, v7, v15
-
-    move/from16 v0, v22
-
-    move-object/from16 v1, v21
-
-    iput v0, v1, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
-
-    const-string/jumbo v22, "AutomaticBrightnessController"
-
-    new-instance v21, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v23, "[PAB] 4-change : "
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v23
+    if-nez v22, :cond_e
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v21
-
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
-
-    invoke-virtual/range {v21 .. v21}, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->toString()Ljava/lang/String;
-
-    move-result-object v21
-
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, v21
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v21
+    move-object/from16 v22, v0
 
     move-object/from16 v0, v22
 
-    move-object/from16 v1, v21
+    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v22
+
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+
+    sub-float v23, v8, v16
+
+    move/from16 v0, v23
+
+    move-object/from16 v1, v22
+
+    iput v0, v1, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
+
+    const-string/jumbo v23, "AutomaticBrightnessController"
+
+    new-instance v22, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v24, "[PAB] 4-reverse-change : "
+
+    move-object/from16 v0, v22
+
+    move-object/from16 v1, v24
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
+
+    move-object/from16 v22, v0
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v22
+
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->toString()Ljava/lang/String;
+
+    move-result-object v22
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v22
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v22
 
     invoke-static {v0, v1}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_8
 
     :cond_e
-    const-string/jumbo v21, "AutomaticBrightnessController"
+    const-string/jumbo v22, "AutomaticBrightnessController"
 
-    const-string/jumbo v22, "[PAB] 4-2ERROR."
+    const-string/jumbo v23, "[PAB] 4-2-reverse-ERROR."
 
-    invoke-static/range {v21 .. v22}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v22 .. v23}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_8
 
     :cond_f
-    move/from16 v7, v16
+    move-object/from16 v0, p0
 
-    const v21, 0x461c4000    # 10000.0f
+    move-object/from16 v1, v21
 
-    cmpl-float v21, v13, v21
+    invoke-direct {v0, v1, v6}, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->getIndex(Ljava/util/ArrayList;F)I
 
-    if-nez v21, :cond_11
+    move-result v12
 
-    const/16 v18, 0x0
+    :goto_9
+    invoke-virtual/range {v21 .. v21}, Ljava/util/ArrayList;->size()I
+
+    move-result v22
+
+    move/from16 v0, v22
+
+    if-ge v12, v0, :cond_19
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v0, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v22
+
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+
+    move-object/from16 v0, v22
+
+    iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOrgCd:F
+
+    move/from16 v16, v0
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v0, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v22
+
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+
+    move-object/from16 v0, v22
+
+    iget v15, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
+
+    add-float v17, v16, v15
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v0, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v22
+
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+
+    move-object/from16 v0, v22
+
+    iget v14, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
+
+    cmpg-float v22, v17, v7
+
+    if-gez v22, :cond_14
+
+    const v22, 0x461c4000    # 10000.0f
+
+    cmpl-float v22, v14, v22
+
+    if-nez v22, :cond_11
+
+    const/16 v19, 0x0
 
     :goto_a
-    new-instance v19, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+    new-instance v20, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v19
+    sub-float v23, v7, v16
 
-    move-object/from16 v1, v21
+    move-object/from16 v0, v20
 
-    move/from16 v2, v18
+    move-object/from16 v1, v22
 
-    invoke-direct {v0, v1, v13, v14, v2}, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;-><init>(Lcom/android/server/display/AutomaticBrightnessController;FFI)V
+    move/from16 v2, v23
+
+    move/from16 v3, v19
+
+    invoke-direct {v0, v1, v14, v2, v3}, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;-><init>(Lcom/android/server/display/AutomaticBrightnessController;FFI)V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v22
 
-    invoke-direct {v0, v1, v13}, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->getIndex(Ljava/util/ArrayList;F)I
+    invoke-direct {v0, v1, v14}, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->getIndex(Ljava/util/ArrayList;F)I
 
     move-result v5
 
@@ -1576,13 +1594,13 @@
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    invoke-virtual/range {v21 .. v21}, Ljava/util/ArrayList;->size()I
+    invoke-virtual/range {v22 .. v22}, Ljava/util/ArrayList;->size()I
 
-    move-result v21
+    move-result v22
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
     if-eq v5, v0, :cond_10
 
@@ -1590,52 +1608,55 @@
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v21
+    move-result-object v22
 
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
-    move-object/from16 v0, v21
-
-    iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
-
-    move/from16 v21, v0
-
-    move-object/from16 v0, v19
+    move-object/from16 v0, v22
 
     iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
 
     move/from16 v22, v0
 
-    cmpl-float v21, v21, v22
+    move-object/from16 v0, v20
 
-    if-lez v21, :cond_12
+    iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
+
+    move/from16 v23, v0
+
+    cmpl-float v22, v22, v23
+
+    if-lez v22, :cond_12
 
     :cond_10
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v5, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
 
     :goto_b
-    add-int/lit8 v8, v8, 0x1
+    add-int/lit8 v9, v9, 0x1
+
+    :goto_c
+    add-int/lit8 v12, v12, 0x1
 
     goto/16 :goto_9
 
     :cond_11
-    const/16 v18, 0x2
+    const/16 v19, 0x2
 
     goto :goto_a
 
@@ -1644,115 +1665,340 @@
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v21
+    move-result-object v22
 
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
-    move-object/from16 v0, v21
-
-    iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
-
-    move/from16 v21, v0
-
-    move-object/from16 v0, v19
+    move-object/from16 v0, v22
 
     iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
 
     move/from16 v22, v0
 
-    cmpl-float v21, v21, v22
+    move-object/from16 v0, v20
 
-    if-nez v21, :cond_13
+    iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
 
-    move-object/from16 v0, p0
+    move/from16 v23, v0
 
-    iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
+    cmpl-float v22, v22, v23
 
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v21
-
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
-
-    move-object/from16 v0, v21
-
-    iput v14, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
-
-    const-string/jumbo v22, "AutomaticBrightnessController"
-
-    new-instance v21, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v23, "[PAB] 4-change : "
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v23
+    if-nez v22, :cond_13
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v21
-
-    check-cast v21, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
-
-    invoke-virtual/range {v21 .. v21}, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->toString()Ljava/lang/String;
-
-    move-result-object v21
-
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, v21
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v21
+    move-object/from16 v22, v0
 
     move-object/from16 v0, v22
 
-    move-object/from16 v1, v21
+    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v22
+
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+
+    sub-float v23, v7, v16
+
+    move/from16 v0, v23
+
+    move-object/from16 v1, v22
+
+    iput v0, v1, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
+
+    const-string/jumbo v23, "AutomaticBrightnessController"
+
+    new-instance v22, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v24, "[PAB] 4-change : "
+
+    move-object/from16 v0, v22
+
+    move-object/from16 v1, v24
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
+
+    move-object/from16 v22, v0
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v22
+
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->toString()Ljava/lang/String;
+
+    move-result-object v22
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v22
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v22
 
     invoke-static {v0, v1}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_b
 
     :cond_13
-    const-string/jumbo v21, "AutomaticBrightnessController"
+    const-string/jumbo v22, "AutomaticBrightnessController"
 
-    const-string/jumbo v22, "[PAB] 4-2ERROR."
+    const-string/jumbo v23, "[PAB] 4-2ERROR."
 
-    invoke-static/range {v21 .. v22}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v22 .. v23}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_b
 
     :cond_14
-    return v8
+    move/from16 v7, v17
+
+    const v22, 0x461c4000    # 10000.0f
+
+    cmpl-float v22, v14, v22
+
+    if-nez v22, :cond_16
+
+    const/16 v19, 0x0
+
+    :goto_d
+    new-instance v20, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
+
+    move-object/from16 v22, v0
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v22
+
+    move/from16 v2, v19
+
+    invoke-direct {v0, v1, v14, v15, v2}, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;-><init>(Lcom/android/server/display/AutomaticBrightnessController;FFI)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
+
+    move-object/from16 v22, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v22
+
+    invoke-direct {v0, v1, v14}, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->getIndex(Ljava/util/ArrayList;F)I
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
+
+    move-object/from16 v22, v0
+
+    invoke-virtual/range {v22 .. v22}, Ljava/util/ArrayList;->size()I
+
+    move-result v22
+
+    move/from16 v0, v22
+
+    if-eq v5, v0, :cond_15
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
+
+    move-object/from16 v22, v0
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v22
+
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+
+    move-object/from16 v0, v22
+
+    iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
+
+    move/from16 v22, v0
+
+    move-object/from16 v0, v20
+
+    iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
+
+    move/from16 v23, v0
+
+    cmpl-float v22, v22, v23
+
+    if-lez v22, :cond_17
+
+    :cond_15
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
+
+    move-object/from16 v22, v0
+
+    move-object/from16 v0, v22
+
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v5, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+
+    :goto_e
+    add-int/lit8 v9, v9, 0x1
+
+    goto/16 :goto_c
+
+    :cond_16
+    const/16 v19, 0x2
+
+    goto :goto_d
+
+    :cond_17
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
+
+    move-object/from16 v22, v0
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v22
+
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+
+    move-object/from16 v0, v22
+
+    iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
+
+    move/from16 v22, v0
+
+    move-object/from16 v0, v20
+
+    iget v0, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
+
+    move/from16 v23, v0
+
+    cmpl-float v22, v22, v23
+
+    if-nez v22, :cond_18
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
+
+    move-object/from16 v22, v0
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v22
+
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+
+    move-object/from16 v0, v22
+
+    iput v15, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
+
+    const-string/jumbo v23, "AutomaticBrightnessController"
+
+    new-instance v22, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v24, "[PAB] 4-change : "
+
+    move-object/from16 v0, v22
+
+    move-object/from16 v1, v24
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
+
+    move-object/from16 v22, v0
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v22
+
+    check-cast v22, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->toString()Ljava/lang/String;
+
+    move-result-object v22
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v22
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v22
+
+    invoke-static {v0, v1}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_e
+
+    :cond_18
+    const-string/jumbo v22, "AutomaticBrightnessController"
+
+    const-string/jumbo v23, "[PAB] 4-2ERROR."
+
+    invoke-static/range {v22 .. v23}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_e
+
+    :cond_19
+    return v9
 .end method
 
 .method private getIndex(Ljava/util/ArrayList;F)I
@@ -1771,7 +2017,7 @@
 
     iget-object v2, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    invoke-static {v2}, Lcom/android/server/display/AutomaticBrightnessController;->-get14(Lcom/android/server/display/AutomaticBrightnessController;)Ljava/lang/Object;
+    invoke-static {v2}, Lcom/android/server/display/AutomaticBrightnessController;->-get15(Lcom/android/server/display/AutomaticBrightnessController;)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -1894,7 +2140,7 @@
 
     iget-object v3, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    invoke-static {v3}, Lcom/android/server/display/AutomaticBrightnessController;->-get14(Lcom/android/server/display/AutomaticBrightnessController;)Ljava/lang/Object;
+    invoke-static {v3}, Lcom/android/server/display/AutomaticBrightnessController;->-get15(Lcom/android/server/display/AutomaticBrightnessController;)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -2009,7 +2255,7 @@
 
     iget-object v0, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    invoke-static {v0}, Lcom/android/server/display/AutomaticBrightnessController;->-get14(Lcom/android/server/display/AutomaticBrightnessController;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/display/AutomaticBrightnessController;->-get15(Lcom/android/server/display/AutomaticBrightnessController;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -3223,7 +3469,7 @@
     :goto_0
     iget-object v3, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    invoke-static {v3}, Lcom/android/server/display/AutomaticBrightnessController;->-get6(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;
+    invoke-static {v3}, Lcom/android/server/display/AutomaticBrightnessController;->-get7(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;
 
     move-result-object v3
 
@@ -3237,7 +3483,7 @@
 
     iget-object v3, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    invoke-static {v3}, Lcom/android/server/display/AutomaticBrightnessController;->-get14(Lcom/android/server/display/AutomaticBrightnessController;)Ljava/lang/Object;
+    invoke-static {v3}, Lcom/android/server/display/AutomaticBrightnessController;->-get15(Lcom/android/server/display/AutomaticBrightnessController;)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -3364,7 +3610,7 @@
 
     iget-object v6, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    invoke-static {v6}, Lcom/android/server/display/AutomaticBrightnessController;->-get14(Lcom/android/server/display/AutomaticBrightnessController;)Ljava/lang/Object;
+    invoke-static {v6}, Lcom/android/server/display/AutomaticBrightnessController;->-get15(Lcom/android/server/display/AutomaticBrightnessController;)Ljava/lang/Object;
 
     move-result-object v7
 
@@ -3673,7 +3919,7 @@
 
     iget-object v1, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    invoke-static {v1}, Lcom/android/server/display/AutomaticBrightnessController;->-get6(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;
+    invoke-static {v1}, Lcom/android/server/display/AutomaticBrightnessController;->-get7(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;
 
     move-result-object v1
 
@@ -3689,7 +3935,7 @@
 
     iget-object v1, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    invoke-static {v1}, Lcom/android/server/display/AutomaticBrightnessController;->-get6(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;
+    invoke-static {v1}, Lcom/android/server/display/AutomaticBrightnessController;->-get7(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;
 
     move-result-object v1
 
@@ -3705,7 +3951,7 @@
 
     iget-object v5, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    invoke-static {v5}, Lcom/android/server/display/AutomaticBrightnessController;->-get14(Lcom/android/server/display/AutomaticBrightnessController;)Ljava/lang/Object;
+    invoke-static {v5}, Lcom/android/server/display/AutomaticBrightnessController;->-get15(Lcom/android/server/display/AutomaticBrightnessController;)Ljava/lang/Object;
 
     move-result-object v6
 
@@ -3760,7 +4006,7 @@
 
     iget-object v5, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    invoke-static {v5}, Lcom/android/server/display/AutomaticBrightnessController;->-get6(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;
+    invoke-static {v5}, Lcom/android/server/display/AutomaticBrightnessController;->-get7(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;
 
     move-result-object v5
 
@@ -3778,9 +4024,6 @@
 
     cmpl-float v5, v4, v0
 
-    if-lez v5, :cond_1
-
-    :cond_1
     monitor-exit v6
 
     return v0
@@ -3798,7 +4041,7 @@
 
     iget-object v0, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    invoke-static {v0}, Lcom/android/server/display/AutomaticBrightnessController;->-get14(Lcom/android/server/display/AutomaticBrightnessController;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/display/AutomaticBrightnessController;->-get15(Lcom/android/server/display/AutomaticBrightnessController;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -3860,7 +4103,7 @@
 
     iget-object v0, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    invoke-static {v0}, Lcom/android/server/display/AutomaticBrightnessController;->-get14(Lcom/android/server/display/AutomaticBrightnessController;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/display/AutomaticBrightnessController;->-get15(Lcom/android/server/display/AutomaticBrightnessController;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -3871,7 +4114,7 @@
 
     iget-object v2, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    invoke-static {v2}, Lcom/android/server/display/AutomaticBrightnessController;->-get6(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;
+    invoke-static {v2}, Lcom/android/server/display/AutomaticBrightnessController;->-get7(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;
 
     move-result-object v2
 
@@ -3887,7 +4130,7 @@
 
     iget-object v2, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    invoke-static {v2}, Lcom/android/server/display/AutomaticBrightnessController;->-get6(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;
+    invoke-static {v2}, Lcom/android/server/display/AutomaticBrightnessController;->-get7(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;
 
     move-result-object v2
 

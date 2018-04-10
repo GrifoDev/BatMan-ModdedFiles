@@ -142,41 +142,41 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 3
+    .locals 4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    iget-object v0, p0, Lorg/simpleframework/xml/util/WeakCache;->list:Lorg/simpleframework/xml/util/WeakCache$SegmentList;
+    iget-object v2, p0, Lorg/simpleframework/xml/util/WeakCache;->list:Lorg/simpleframework/xml/util/WeakCache$SegmentList;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/util/WeakCache$SegmentList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :cond_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    const/4 v0, 0x1
-
-    return v0
-
-    :cond_1
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {v2}, Lorg/simpleframework/xml/util/WeakCache$SegmentList;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    check-cast v0, Lorg/simpleframework/xml/util/WeakCache$Segment;
+    :cond_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/util/WeakCache$Segment;->isEmpty()Z
+    move-result v2
 
-    move-result v0
+    if-nez v2, :cond_1
 
-    if-nez v0, :cond_0
+    const/4 v2, 0x1
 
     return v2
+
+    :cond_1
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lorg/simpleframework/xml/util/WeakCache$Segment;
+
+    invoke-virtual {v1}, Lorg/simpleframework/xml/util/WeakCache$Segment;->isEmpty()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    return v3
 .end method
 
 .method public take(Ljava/lang/Object;)Ljava/lang/Object;

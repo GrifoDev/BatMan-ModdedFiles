@@ -380,47 +380,71 @@
 .end method
 
 .method private constructor <init>(IIIIIIII)V
-    .locals 7
-
-    const/4 v6, 0x3
-
-    const/4 v5, 0x0
-
-    const/4 v1, 0x0
-
-    const/high16 v0, -0x80000000
+    .locals 6
 
     invoke-direct {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;-><init>()V
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_year:I
+    const/high16 v1, -0x80000000
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_month:I
+    iput v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_year:I
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_day:I
+    const/high16 v1, -0x80000000
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_hour:I
+    iput v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_month:I
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_minute:I
+    const/high16 v1, -0x80000000
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_second:I
+    iput v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_day:I
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_timezone:I
+    const/high16 v1, -0x80000000
+
+    iput v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_hour:I
+
+    const/high16 v1, -0x80000000
+
+    iput v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_minute:I
+
+    const/high16 v1, -0x80000000
+
+    iput v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_second:I
+
+    const/high16 v1, -0x80000000
+
+    iput v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_timezone:I
+
+    const/4 v1, 0x0
 
     iput-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->eon:Ljava/math/BigInteger;
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
+    const/high16 v1, -0x80000000
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->month:I
+    iput v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->day:I
+    const/high16 v1, -0x80000000
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->timezone:I
+    iput v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->month:I
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->hour:I
+    const/high16 v1, -0x80000000
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->minute:I
+    iput v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->day:I
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->second:I
+    const/high16 v1, -0x80000000
+
+    iput v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->timezone:I
+
+    const/high16 v1, -0x80000000
+
+    iput v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->hour:I
+
+    const/high16 v1, -0x80000000
+
+    iput v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->minute:I
+
+    const/high16 v1, -0x80000000
+
+    iput v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->second:I
+
+    const/4 v1, 0x0
 
     iput-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->fractionalSecond:Ljava/math/BigDecimal;
 
@@ -434,18 +458,20 @@
 
     invoke-virtual {p0, p8}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setTimezone(I)V
 
-    if-ne p7, v0, :cond_0
+    const/4 v0, 0x0
 
-    move-object v0, v1
+    const/high16 v1, -0x80000000
+
+    if-ne p7, v1, :cond_0
 
     :goto_0
     invoke-virtual {p0, v0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setFractionalSecond(Ljava/math/BigDecimal;)V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->isValid()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
     invoke-direct {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->save()V
 
@@ -454,14 +480,16 @@
     :cond_0
     int-to-long v2, p7
 
-    invoke-static {v2, v3, v6}, Ljava/math/BigDecimal;->valueOf(JI)Ljava/math/BigDecimal;
+    const/4 v1, 0x3
+
+    invoke-static {v2, v3, v1}, Ljava/math/BigDecimal;->valueOf(JI)Ljava/math/BigDecimal;
 
     move-result-object v0
 
     goto :goto_0
 
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "InvalidXGCValue-milli"
 
@@ -469,49 +497,53 @@
 
     new-array v3, v3, [Ljava/lang/Object;
 
+    const/4 v4, 0x0
+
+    new-instance v5, Ljava/lang/Integer;
+
+    invoke-direct {v5, p1}, Ljava/lang/Integer;-><init>(I)V
+
+    aput-object v5, v3, v4
+
     new-instance v4, Ljava/lang/Integer;
 
-    invoke-direct {v4, p1}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v4, p2}, Ljava/lang/Integer;-><init>(I)V
+
+    const/4 v5, 0x1
 
     aput-object v4, v3, v5
 
-    const/4 v4, 0x1
+    new-instance v4, Ljava/lang/Integer;
+
+    invoke-direct {v4, p3}, Ljava/lang/Integer;-><init>(I)V
+
+    const/4 v5, 0x2
+
+    aput-object v4, v3, v5
+
+    const/4 v4, 0x3
 
     new-instance v5, Ljava/lang/Integer;
 
-    invoke-direct {v5, p2}, Ljava/lang/Integer;-><init>(I)V
-
-    aput-object v5, v3, v4
-
-    const/4 v4, 0x2
-
-    new-instance v5, Ljava/lang/Integer;
-
-    invoke-direct {v5, p3}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v5, p4}, Ljava/lang/Integer;-><init>(I)V
 
     aput-object v5, v3, v4
 
     new-instance v4, Ljava/lang/Integer;
 
-    invoke-direct {v4, p4}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v4, p5}, Ljava/lang/Integer;-><init>(I)V
 
-    aput-object v4, v3, v6
+    const/4 v5, 0x4
 
-    const/4 v4, 0x4
+    aput-object v4, v3, v5
 
-    new-instance v5, Ljava/lang/Integer;
+    new-instance v4, Ljava/lang/Integer;
 
-    invoke-direct {v5, p5}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v4, p6}, Ljava/lang/Integer;-><init>(I)V
 
-    aput-object v5, v3, v4
+    const/4 v5, 0x5
 
-    const/4 v4, 0x5
-
-    new-instance v5, Ljava/lang/Integer;
-
-    invoke-direct {v5, p6}, Ljava/lang/Integer;-><init>(I)V
-
-    aput-object v5, v3, v4
+    aput-object v4, v3, v5
 
     const/4 v4, 0x6
 
@@ -521,191 +553,227 @@
 
     aput-object v5, v3, v4
 
-    const/4 v4, 0x7
+    new-instance v4, Ljava/lang/Integer;
 
-    new-instance v5, Ljava/lang/Integer;
+    invoke-direct {v4, p8}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-direct {v5, p8}, Ljava/lang/Integer;-><init>(I)V
+    const/4 v5, 0x7
 
-    aput-object v5, v3, v4
+    aput-object v4, v3, v5
 
-    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    const/4 v4, 0x0
 
-    move-result-object v1
+    invoke-static {v4, v2, v3}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object v2
 
-    throw v0
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
 .end method
 
 .method protected constructor <init>(Ljava/lang/String;)V
-    .locals 8
+    .locals 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
         }
     .end annotation
 
-    const/16 v7, 0x2d
-
-    const/4 v3, 0x1
-
-    const/4 v6, 0x0
-
-    const/4 v4, 0x0
-
-    const/high16 v0, -0x80000000
-
     invoke-direct {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;-><init>()V
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_year:I
+    const/high16 v9, -0x80000000
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_month:I
+    iput v9, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_year:I
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_day:I
+    const/high16 v9, -0x80000000
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_hour:I
+    iput v9, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_month:I
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_minute:I
+    const/high16 v9, -0x80000000
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_second:I
+    iput v9, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_day:I
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_timezone:I
+    const/high16 v9, -0x80000000
 
-    iput-object v6, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->eon:Ljava/math/BigInteger;
+    iput v9, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_hour:I
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
+    const/high16 v9, -0x80000000
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->month:I
+    iput v9, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_minute:I
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->day:I
+    const/high16 v9, -0x80000000
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->timezone:I
+    iput v9, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_second:I
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->hour:I
+    const/high16 v9, -0x80000000
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->minute:I
+    iput v9, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_timezone:I
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->second:I
+    const/4 v9, 0x0
 
-    iput-object v6, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->fractionalSecond:Ljava/math/BigDecimal;
+    iput-object v9, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->eon:Ljava/math/BigInteger;
+
+    const/high16 v9, -0x80000000
+
+    iput v9, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
+
+    const/high16 v9, -0x80000000
+
+    iput v9, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->month:I
+
+    const/high16 v9, -0x80000000
+
+    iput v9, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->day:I
+
+    const/high16 v9, -0x80000000
+
+    iput v9, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->timezone:I
+
+    const/high16 v9, -0x80000000
+
+    iput v9, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->hour:I
+
+    const/high16 v9, -0x80000000
+
+    iput v9, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->minute:I
+
+    const/high16 v9, -0x80000000
+
+    iput v9, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->second:I
+
+    const/4 v9, 0x0
+
+    iput-object v9, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->fractionalSecond:Ljava/math/BigDecimal;
+
+    const/4 v3, 0x0
+
+    move-object v5, p1
+
+    const/4 v0, -0x1
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v6
 
-    const/16 v1, 0x54
+    const/16 v9, 0x54
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->indexOf(I)I
+    invoke-virtual {p1, v9}, Ljava/lang/String;->indexOf(I)I
 
-    move-result v1
+    move-result v9
 
-    const/4 v2, -0x1
+    const/4 v10, -0x1
 
-    if-ne v1, v2, :cond_1
+    if-ne v9, v10, :cond_1
 
-    const/4 v1, 0x3
+    const/4 v9, 0x3
 
-    if-ge v0, v1, :cond_2
+    if-ge v6, v9, :cond_2
 
     :cond_0
-    const-string/jumbo v1, "--"
+    const-string/jumbo v9, "--"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v9}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v9
 
-    if-nez v1, :cond_3
+    if-nez v9, :cond_3
 
-    const/16 v1, 0x3a
+    const/4 v1, 0x0
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->indexOf(I)I
+    const/16 v9, 0x3a
 
-    move-result v1
+    invoke-virtual {p1, v9}, Ljava/lang/String;->indexOf(I)I
 
-    const/4 v2, -0x1
+    move-result v8
 
-    if-ne v1, v2, :cond_b
+    const/4 v9, -0x1
+
+    if-ne v8, v9, :cond_b
 
     :goto_0
-    move v2, v3
-
-    move v1, v4
+    const/4 v4, 0x1
 
     :goto_1
-    if-ge v2, v0, :cond_d
+    if-ge v4, v6, :cond_d
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p1, v4}, Ljava/lang/String;->charAt(I)C
 
-    move-result v5
+    move-result v9
 
-    if-eq v5, v7, :cond_c
+    const/16 v10, 0x2d
+
+    if-eq v9, v10, :cond_c
 
     :goto_2
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_1
 
     :cond_1
-    const-string/jumbo v0, "%Y-%M-%DT%h:%m:%s%z"
+    const-string/jumbo v3, "%Y-%M-%DT%h:%m:%s%z"
 
     :goto_3
-    new-instance v1, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl$Parser;
+    new-instance v7, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl$Parser;
 
-    invoke-direct {v1, p0, v0, p1, v6}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl$Parser;-><init>(Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl$Parser;)V
+    const/4 v9, 0x0
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl$Parser;->parse()V
+    invoke-direct {v7, p0, v3, p1, v9}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl$Parser;-><init>(Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl$Parser;)V
+
+    invoke-virtual {v7}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl$Parser;->parse()V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->isValid()Z
 
-    move-result v0
+    move-result v9
 
-    if-eqz v0, :cond_10
+    if-eqz v9, :cond_10
 
     invoke-direct {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->save()V
 
     return-void
 
     :cond_2
-    const/4 v1, 0x2
+    const/4 v9, 0x2
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p1, v9}, Ljava/lang/String;->charAt(I)C
 
-    move-result v1
+    move-result v9
 
-    const/16 v2, 0x3a
+    const/16 v10, 0x3a
 
-    if-ne v1, v2, :cond_0
+    if-ne v9, v10, :cond_0
 
-    const-string/jumbo v0, "%h:%m:%s%z"
+    const-string/jumbo v3, "%h:%m:%s%z"
 
     goto :goto_3
 
     :cond_3
-    const/4 v1, 0x3
+    const/4 v9, 0x3
 
-    if-ge v0, v1, :cond_6
+    if-ge v6, v9, :cond_6
 
     :cond_4
-    const/4 v1, 0x4
+    const/4 v9, 0x4
 
-    if-ne v0, v1, :cond_7
+    if-ne v6, v9, :cond_7
 
     :cond_5
-    const-string/jumbo v0, "--%M--%z"
+    const-string/jumbo v3, "--%M--%z"
 
-    new-instance v1, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl$Parser;
+    new-instance v7, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl$Parser;
 
-    invoke-direct {v1, p0, v0, p1, v6}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl$Parser;-><init>(Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl$Parser;)V
+    const/4 v9, 0x0
+
+    invoke-direct {v7, p0, v3, p1, v9}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl$Parser;-><init>(Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl$Parser;)V
 
     :try_start_0
-    invoke-virtual {v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl$Parser;->parse()V
+    invoke-virtual {v7}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl$Parser;->parse()V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->isValid()Z
 
-    move-result v0
+    move-result v9
 
-    if-eqz v0, :cond_a
+    if-eqz v9, :cond_a
 
     invoke-direct {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->save()V
     :try_end_0
@@ -714,97 +782,103 @@
     return-void
 
     :cond_6
-    const/4 v1, 0x2
+    const/4 v9, 0x2
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p1, v9}, Ljava/lang/String;->charAt(I)C
 
-    move-result v1
+    move-result v9
 
-    if-ne v1, v7, :cond_4
+    const/16 v10, 0x2d
 
-    const-string/jumbo v0, "---%D%z"
+    if-ne v9, v10, :cond_4
+
+    const-string/jumbo v3, "---%D%z"
 
     goto :goto_3
 
     :cond_7
-    const/4 v1, 0x6
+    const/4 v9, 0x6
 
-    if-ge v0, v1, :cond_9
+    if-ge v6, v9, :cond_9
 
     :cond_8
     :goto_4
-    const-string/jumbo v0, "--%M-%D%z"
+    const-string/jumbo v3, "--%M-%D%z"
 
     goto :goto_3
 
     :cond_9
-    const/4 v1, 0x4
+    const/4 v9, 0x4
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p1, v9}, Ljava/lang/String;->charAt(I)C
 
-    move-result v1
+    move-result v9
 
-    const/16 v2, 0x2b
+    const/16 v10, 0x2b
 
-    if-eq v1, v2, :cond_5
+    if-eq v9, v10, :cond_5
 
-    const/4 v1, 0x4
+    const/4 v9, 0x4
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p1, v9}, Ljava/lang/String;->charAt(I)C
 
-    move-result v1
+    move-result v9
 
-    if-ne v1, v7, :cond_8
+    const/16 v10, 0x2d
 
-    const/4 v1, 0x5
+    if-ne v9, v10, :cond_8
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
+    const/4 v9, 0x5
 
-    move-result v1
+    invoke-virtual {p1, v9}, Ljava/lang/String;->charAt(I)C
 
-    if-eq v1, v7, :cond_5
+    move-result v9
 
-    const/16 v1, 0xa
+    const/16 v10, 0x2d
 
-    if-eq v0, v1, :cond_5
+    if-eq v9, v10, :cond_5
+
+    const/16 v9, 0xa
+
+    if-eq v6, v9, :cond_5
 
     goto :goto_4
 
     :cond_a
     :try_start_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v9, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "InvalidXGCRepresentation"
+    const/4 v10, 0x1
 
-    const/4 v2, 0x1
+    new-array v10, v10, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const/4 v11, 0x0
 
-    const/4 v5, 0x0
+    aput-object p1, v10, v11
 
-    aput-object p1, v2, v5
+    const/4 v11, 0x0
 
-    const/4 v5, 0x0
+    const-string/jumbo v12, "InvalidXGCRepresentation"
 
-    invoke-static {v5, v1, v2}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v11, v12, v10}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v10
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v9, v10}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v9
     :try_end_1
     .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_0
 
     :catch_0
-    move-exception v0
+    move-exception v2
 
-    const-string/jumbo v0, "--%M%z"
+    const-string/jumbo v3, "--%M%z"
 
-    goto :goto_3
+    goto/16 :goto_3
 
     :cond_b
-    add-int/lit8 v0, v0, -0x6
+    add-int/lit8 v6, v6, -0x6
 
     goto/16 :goto_0
 
@@ -816,38 +890,46 @@
     :cond_d
     if-eqz v1, :cond_e
 
-    if-eq v1, v3, :cond_f
+    const/4 v9, 0x1
 
-    const-string/jumbo v0, "%Y-%M-%D%z"
+    if-eq v1, v9, :cond_f
+
+    const-string/jumbo v3, "%Y-%M-%D%z"
 
     goto/16 :goto_3
 
     :cond_e
-    const-string/jumbo v0, "%Y%z"
+    const-string/jumbo v3, "%Y%z"
 
     goto/16 :goto_3
 
     :cond_f
-    const-string/jumbo v0, "%Y-%M%z"
+    const-string/jumbo v3, "%Y-%M%z"
 
     goto/16 :goto_3
 
     :cond_10
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v9, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "InvalidXGCRepresentation"
+    const/4 v10, 0x1
 
-    new-array v2, v3, [Ljava/lang/Object;
+    new-array v10, v10, [Ljava/lang/Object;
 
-    aput-object p1, v2, v4
+    const/4 v11, 0x0
 
-    invoke-static {v6, v1, v2}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    aput-object p1, v10, v11
 
-    move-result-object v1
+    const/4 v11, 0x0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    const-string/jumbo v12, "InvalidXGCRepresentation"
 
-    throw v0
+    invoke-static {v11, v12, v10}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-direct {v9, v10}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v9
 .end method
 
 .method protected constructor <init>(Ljava/math/BigInteger;IIIIILjava/math/BigDecimal;I)V
@@ -924,21 +1006,21 @@
 
     aput-object p1, v2, v3
 
-    const/4 v3, 0x1
+    new-instance v3, Ljava/lang/Integer;
 
-    new-instance v4, Ljava/lang/Integer;
+    invoke-direct {v3, p2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-direct {v4, p2}, Ljava/lang/Integer;-><init>(I)V
+    const/4 v4, 0x1
 
-    aput-object v4, v2, v3
+    aput-object v3, v2, v4
 
-    const/4 v3, 0x2
+    new-instance v3, Ljava/lang/Integer;
 
-    new-instance v4, Ljava/lang/Integer;
+    invoke-direct {v3, p3}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-direct {v4, p3}, Ljava/lang/Integer;-><init>(I)V
+    const/4 v4, 0x2
 
-    aput-object v4, v2, v3
+    aput-object v3, v2, v4
 
     const/4 v3, 0x3
 
@@ -948,33 +1030,33 @@
 
     aput-object v4, v2, v3
 
-    const/4 v3, 0x4
+    new-instance v3, Ljava/lang/Integer;
 
-    new-instance v4, Ljava/lang/Integer;
+    invoke-direct {v3, p5}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-direct {v4, p5}, Ljava/lang/Integer;-><init>(I)V
+    const/4 v4, 0x4
 
-    aput-object v4, v2, v3
+    aput-object v3, v2, v4
 
-    const/4 v3, 0x5
+    new-instance v3, Ljava/lang/Integer;
 
-    new-instance v4, Ljava/lang/Integer;
+    invoke-direct {v3, p6}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-direct {v4, p6}, Ljava/lang/Integer;-><init>(I)V
+    const/4 v4, 0x5
 
-    aput-object v4, v2, v3
+    aput-object v3, v2, v4
 
     const/4 v3, 0x6
 
     aput-object p7, v2, v3
 
-    const/4 v3, 0x7
+    new-instance v3, Ljava/lang/Integer;
 
-    new-instance v4, Ljava/lang/Integer;
+    invoke-direct {v3, p8}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-direct {v4, p8}, Ljava/lang/Integer;-><init>(I)V
+    const/4 v4, 0x7
 
-    aput-object v4, v2, v3
+    aput-object v3, v2, v4
 
     invoke-static {v5, v1, v2}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -986,124 +1068,124 @@
 .end method
 
 .method public constructor <init>(Ljava/util/GregorianCalendar;)V
-    .locals 4
+    .locals 6
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    const/high16 v0, -0x80000000
+    const/high16 v2, -0x80000000
 
     invoke-direct {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;-><init>()V
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_year:I
+    iput v2, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_year:I
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_month:I
+    iput v2, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_month:I
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_day:I
+    iput v2, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_day:I
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_hour:I
+    iput v2, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_hour:I
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_minute:I
+    iput v2, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_minute:I
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_second:I
+    iput v2, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_second:I
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_timezone:I
+    iput v2, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->orig_timezone:I
 
-    iput-object v2, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->eon:Ljava/math/BigInteger;
+    iput-object v4, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->eon:Ljava/math/BigInteger;
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
+    iput v2, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->month:I
+    iput v2, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->month:I
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->day:I
+    iput v2, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->day:I
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->timezone:I
+    iput v2, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->timezone:I
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->hour:I
+    iput v2, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->hour:I
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->minute:I
+    iput v2, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->minute:I
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->second:I
+    iput v2, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->second:I
 
-    iput-object v2, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->fractionalSecond:Ljava/math/BigDecimal;
+    iput-object v4, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->fractionalSecond:Ljava/math/BigDecimal;
 
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    invoke-virtual {p1, v0}, Ljava/util/GregorianCalendar;->get(I)I
-
-    move-result v0
-
-    invoke-virtual {p1, v1}, Ljava/util/GregorianCalendar;->get(I)I
+    invoke-virtual {p1, v2}, Ljava/util/GregorianCalendar;->get(I)I
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    invoke-virtual {p1, v3}, Ljava/util/GregorianCalendar;->get(I)I
+
+    move-result v2
+
+    if-eqz v2, :cond_0
 
     :goto_0
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setYear(I)V
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setYear(I)V
 
-    const/4 v0, 0x2
-
-    invoke-virtual {p1, v0}, Ljava/util/GregorianCalendar;->get(I)I
-
-    move-result v0
-
-    add-int/lit8 v0, v0, 0x1
-
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setMonth(I)V
-
-    const/4 v0, 0x5
-
-    invoke-virtual {p1, v0}, Ljava/util/GregorianCalendar;->get(I)I
-
-    move-result v0
-
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setDay(I)V
-
-    const/16 v0, 0xb
-
-    invoke-virtual {p1, v0}, Ljava/util/GregorianCalendar;->get(I)I
-
-    move-result v0
-
-    const/16 v1, 0xc
-
-    invoke-virtual {p1, v1}, Ljava/util/GregorianCalendar;->get(I)I
-
-    move-result v1
-
-    const/16 v2, 0xd
+    const/4 v2, 0x2
 
     invoke-virtual {p1, v2}, Ljava/util/GregorianCalendar;->get(I)I
 
     move-result v2
 
-    const/16 v3, 0xe
+    add-int/lit8 v2, v2, 0x1
+
+    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setMonth(I)V
+
+    const/4 v2, 0x5
+
+    invoke-virtual {p1, v2}, Ljava/util/GregorianCalendar;->get(I)I
+
+    move-result v2
+
+    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setDay(I)V
+
+    const/16 v2, 0xb
+
+    invoke-virtual {p1, v2}, Ljava/util/GregorianCalendar;->get(I)I
+
+    move-result v2
+
+    const/16 v3, 0xc
 
     invoke-virtual {p1, v3}, Ljava/util/GregorianCalendar;->get(I)I
 
     move-result v3
 
-    invoke-virtual {p0, v0, v1, v2, v3}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setTime(IIII)V
+    const/16 v4, 0xd
 
-    const/16 v0, 0xf
+    invoke-virtual {p1, v4}, Ljava/util/GregorianCalendar;->get(I)I
 
-    invoke-virtual {p1, v0}, Ljava/util/GregorianCalendar;->get(I)I
+    move-result v4
 
-    move-result v0
+    const/16 v5, 0xe
 
-    const/16 v1, 0x10
+    invoke-virtual {p1, v5}, Ljava/util/GregorianCalendar;->get(I)I
 
-    invoke-virtual {p1, v1}, Ljava/util/GregorianCalendar;->get(I)I
+    move-result v5
 
-    move-result v1
+    invoke-virtual {p0, v2, v3, v4, v5}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setTime(IIII)V
 
-    add-int/2addr v0, v1
+    const/16 v2, 0xf
 
-    const v1, 0xea60
+    invoke-virtual {p1, v2}, Ljava/util/GregorianCalendar;->get(I)I
 
-    div-int/2addr v0, v1
+    move-result v2
+
+    const/16 v3, 0x10
+
+    invoke-virtual {p1, v3}, Ljava/util/GregorianCalendar;->get(I)I
+
+    move-result v3
+
+    add-int/2addr v2, v3
+
+    const v3, 0xea60
+
+    div-int v0, v2, v3
 
     invoke-virtual {p0, v0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setTimezone(I)V
 
@@ -1112,7 +1194,7 @@
     return-void
 
     :cond_0
-    neg-int v0, v0
+    neg-int v1, v1
 
     goto :goto_0
 .end method
@@ -1128,7 +1210,7 @@
 .end method
 
 .method private checkFieldValueConstraint(II)V
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -1158,31 +1240,31 @@
     :cond_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "InvalidFieldValue"
+    const/4 v1, 0x2
 
-    const/4 v2, 0x2
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-instance v2, Ljava/lang/Integer;
+
+    invoke-direct {v2, p2}, Ljava/lang/Integer;-><init>(I)V
 
     const/4 v3, 0x0
 
-    new-instance v4, Ljava/lang/Integer;
+    aput-object v2, v1, v3
 
-    invoke-direct {v4, p2}, Ljava/lang/Integer;-><init>(I)V
+    sget-object v2, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->FIELD_NAME:[Ljava/lang/String;
 
-    aput-object v4, v2, v3
+    aget-object v2, v2, p1
 
     const/4 v3, 0x1
 
-    sget-object v4, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->FIELD_NAME:[Ljava/lang/String;
+    aput-object v2, v1, v3
 
-    aget-object v4, v4, p1
+    const/4 v2, 0x0
 
-    aput-object v4, v2, v3
+    const-string/jumbo v3, "InvalidFieldValue"
 
-    const/4 v3, 0x0
-
-    invoke-static {v3, v1, v2}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v2, v3, v1}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -1448,11 +1530,11 @@
 .method public static createTime(IIILjava/math/BigDecimal;I)Lmf/javax/xml/datatype/XMLGregorianCalendar;
     .locals 9
 
+    const/4 v1, 0x0
+
     const/high16 v2, -0x80000000
 
     new-instance v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;
-
-    const/4 v1, 0x0
 
     move v3, v2
 
@@ -1472,241 +1554,216 @@
 .end method
 
 .method private format(Ljava/lang/String;)Ljava/lang/String;
-    .locals 9
+    .locals 13
 
-    const/16 v8, 0x2d
+    const/16 v12, 0x2d
 
-    const/4 v7, 0x4
+    const/4 v11, 0x4
 
-    const/4 v0, 0x0
+    const/4 v10, 0x2
 
-    const/4 v6, 0x2
+    new-instance v1, Ljava/lang/StringBuffer;
 
-    new-instance v3, Ljava/lang/StringBuffer;
+    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuffer;-><init>()V
+    const/4 v3, 0x0
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v4
+    move-result v5
 
-    :goto_0
-    if-ge v0, v4, :cond_7
-
-    add-int/lit8 v2, v0, 0x1
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
-
-    move-result v0
-
-    const/16 v1, 0x25
-
-    if-ne v0, v1, :cond_0
-
-    add-int/lit8 v1, v2, 0x1
-
-    invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
-
-    move-result v0
-
-    sparse-switch v0, :sswitch_data_0
-
-    new-instance v0, Ljava/lang/InternalError;
-
-    invoke-direct {v0}, Ljava/lang/InternalError;-><init>()V
-
-    throw v0
+    move v4, v3
 
     :cond_0
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    :goto_0
+    if-ge v4, v5, :cond_6
 
-    move v0, v2
+    add-int/lit8 v3, v4, 0x1
+
+    invoke-virtual {p1, v4}, Ljava/lang/String;->charAt(I)C
+
+    move-result v2
+
+    const/16 v8, 0x25
+
+    if-ne v2, v8, :cond_1
+
+    add-int/lit8 v4, v3, 0x1
+
+    invoke-virtual {p1, v3}, Ljava/lang/String;->charAt(I)C
+
+    move-result v8
+
+    sparse-switch v8, :sswitch_data_0
+
+    new-instance v8, Ljava/lang/InternalError;
+
+    invoke-direct {v8}, Ljava/lang/InternalError;-><init>()V
+
+    throw v8
+
+    :cond_1
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+
+    move v4, v3
 
     goto :goto_0
 
     :sswitch_0
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->eon:Ljava/math/BigInteger;
+    iget-object v8, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->eon:Ljava/math/BigInteger;
 
-    if-eqz v0, :cond_1
+    if-eqz v8, :cond_2
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getEonAndYear()Ljava/math/BigInteger;
 
-    move-result-object v0
+    move-result-object v8
 
-    invoke-direct {p0, v3, v0, v7}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->printNumber(Ljava/lang/StringBuffer;Ljava/math/BigInteger;I)V
-
-    move v0, v1
-
-    goto :goto_0
-
-    :cond_1
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
-
-    if-ltz v0, :cond_2
-
-    :goto_1
-    invoke-direct {p0, v3, v0, v7}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->printNumber(Ljava/lang/StringBuffer;II)V
-
-    move v0, v1
+    invoke-direct {p0, v1, v8, v11}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->printNumber(Ljava/lang/StringBuffer;Ljava/math/BigInteger;I)V
 
     goto :goto_0
 
     :cond_2
-    invoke-virtual {v3, v8}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
-
     iget v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
 
-    neg-int v0, v0
+    if-ltz v0, :cond_3
+
+    :goto_1
+    invoke-direct {p0, v1, v0, v11}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->printNumber(Ljava/lang/StringBuffer;II)V
+
+    goto :goto_0
+
+    :cond_3
+    invoke-virtual {v1, v12}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+
+    iget v8, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
+
+    neg-int v0, v8
 
     goto :goto_1
 
     :sswitch_1
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getMonth()I
 
-    move-result v0
+    move-result v8
 
-    invoke-direct {p0, v3, v0, v6}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->printNumber(Ljava/lang/StringBuffer;II)V
-
-    move v0, v1
+    invoke-direct {p0, v1, v8, v10}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->printNumber(Ljava/lang/StringBuffer;II)V
 
     goto :goto_0
 
     :sswitch_2
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getDay()I
 
-    move-result v0
+    move-result v8
 
-    invoke-direct {p0, v3, v0, v6}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->printNumber(Ljava/lang/StringBuffer;II)V
-
-    move v0, v1
+    invoke-direct {p0, v1, v8, v10}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->printNumber(Ljava/lang/StringBuffer;II)V
 
     goto :goto_0
 
     :sswitch_3
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getHour()I
 
-    move-result v0
+    move-result v8
 
-    invoke-direct {p0, v3, v0, v6}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->printNumber(Ljava/lang/StringBuffer;II)V
-
-    move v0, v1
+    invoke-direct {p0, v1, v8, v10}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->printNumber(Ljava/lang/StringBuffer;II)V
 
     goto :goto_0
 
     :sswitch_4
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getMinute()I
 
-    move-result v0
+    move-result v8
 
-    invoke-direct {p0, v3, v0, v6}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->printNumber(Ljava/lang/StringBuffer;II)V
-
-    move v0, v1
+    invoke-direct {p0, v1, v8, v10}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->printNumber(Ljava/lang/StringBuffer;II)V
 
     goto :goto_0
 
     :sswitch_5
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getSecond()I
 
-    move-result v0
+    move-result v8
 
-    invoke-direct {p0, v3, v0, v6}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->printNumber(Ljava/lang/StringBuffer;II)V
+    invoke-direct {p0, v1, v8, v10}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->printNumber(Ljava/lang/StringBuffer;II)V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getFractionalSecond()Ljava/math/BigDecimal;
 
-    move-result-object v0
+    move-result-object v8
 
-    if-nez v0, :cond_3
+    if-eqz v8, :cond_0
 
-    move v0, v1
+    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getFractionalSecond()Ljava/math/BigDecimal;
+
+    move-result-object v8
+
+    invoke-direct {p0, v8}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->toString(Ljava/math/BigDecimal;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/String;->length()I
+
+    move-result v8
+
+    const/4 v9, 0x1
+
+    invoke-virtual {v6, v9, v8}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_0
-
-    :cond_3
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getFractionalSecond()Ljava/math/BigDecimal;
-
-    move-result-object v0
-
-    invoke-direct {p0, v0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->toString(Ljava/math/BigDecimal;)Ljava/lang/String;
-
-    move-result-object v0
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
-
-    move-result v5
-
-    invoke-virtual {v0, v2, v5}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    move v0, v1
-
-    goto/16 :goto_0
 
     :sswitch_6
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getTimezone()I
 
-    move-result v0
+    move-result v7
 
-    if-eqz v0, :cond_4
+    if-eqz v7, :cond_4
 
-    const/high16 v2, -0x80000000
+    const/high16 v8, -0x80000000
 
-    if-ne v0, v2, :cond_5
+    if-eq v7, v8, :cond_0
 
-    move v0, v1
+    if-ltz v7, :cond_5
+
+    const/16 v8, 0x2b
+
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+
+    :goto_2
+    div-int/lit8 v8, v7, 0x3c
+
+    invoke-direct {p0, v1, v8, v10}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->printNumber(Ljava/lang/StringBuffer;II)V
+
+    const/16 v8, 0x3a
+
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+
+    rem-int/lit8 v8, v7, 0x3c
+
+    invoke-direct {p0, v1, v8, v10}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->printNumber(Ljava/lang/StringBuffer;II)V
 
     goto/16 :goto_0
 
     :cond_4
-    const/16 v0, 0x5a
+    const/16 v8, 0x5a
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
-
-    move v0, v1
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto/16 :goto_0
 
     :cond_5
-    if-ltz v0, :cond_6
+    invoke-virtual {v1, v12}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    const/16 v2, 0x2b
-
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
-
-    :goto_2
-    div-int/lit8 v2, v0, 0x3c
-
-    invoke-direct {p0, v3, v2, v6}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->printNumber(Ljava/lang/StringBuffer;II)V
-
-    const/16 v2, 0x3a
-
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
-
-    rem-int/lit8 v0, v0, 0x3c
-
-    invoke-direct {p0, v3, v0, v6}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->printNumber(Ljava/lang/StringBuffer;II)V
-
-    move v0, v1
-
-    goto/16 :goto_0
-
-    :cond_6
-    invoke-virtual {v3, v8}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
-
-    mul-int/lit8 v0, v0, -0x1
+    mul-int/lit8 v7, v7, -0x1
 
     goto :goto_2
 
-    :cond_7
-    invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    :cond_6
+    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v8
 
-    return-object v0
+    return-object v8
 
     :sswitch_data_0
     .sparse-switch
@@ -1721,19 +1778,19 @@
 .end method
 
 .method private getSeconds()Ljava/math/BigDecimal;
-    .locals 2
+    .locals 4
 
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->second:I
+    iget v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->second:I
 
-    const/high16 v1, -0x80000000
+    const/high16 v2, -0x80000000
 
-    if-eq v0, v1, :cond_0
+    if-eq v1, v2, :cond_0
 
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->second:I
+    iget v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->second:I
 
-    int-to-long v0, v0
+    int-to-long v2, v1
 
-    invoke-static {v0, v1}, Ljava/math/BigDecimal;->valueOf(J)Ljava/math/BigDecimal;
+    invoke-static {v2, v3}, Ljava/math/BigDecimal;->valueOf(J)Ljava/math/BigDecimal;
 
     move-result-object v0
 
@@ -1744,42 +1801,42 @@
     return-object v0
 
     :cond_0
-    sget-object v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->DECIMAL_ZERO:Ljava/math/BigDecimal;
+    sget-object v1, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->DECIMAL_ZERO:Ljava/math/BigDecimal;
 
-    return-object v0
+    return-object v1
 
     :cond_1
     iget-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->fractionalSecond:Ljava/math/BigDecimal;
 
     invoke-virtual {v0, v1}, Ljava/math/BigDecimal;->add(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method private static internalCompare(Lmf/javax/xml/datatype/XMLGregorianCalendar;Lmf/javax/xml/datatype/XMLGregorianCalendar;)I
-    .locals 2
+    .locals 3
 
     invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getEon()Ljava/math/BigInteger;
 
-    move-result-object v0
+    move-result-object v1
 
     invoke-virtual {p1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getEon()Ljava/math/BigInteger;
 
-    move-result-object v1
+    move-result-object v2
 
-    if-eq v0, v1, :cond_1
+    if-eq v1, v2, :cond_1
 
     invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getEonAndYear()Ljava/math/BigInteger;
 
-    move-result-object v0
+    move-result-object v1
 
     invoke-virtual {p1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getEonAndYear()Ljava/math/BigInteger;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->compareField(Ljava/math/BigInteger;Ljava/math/BigInteger;)I
+    invoke-static {v1, v2}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->compareField(Ljava/math/BigInteger;Ljava/math/BigInteger;)I
 
     move-result v0
 
@@ -1788,13 +1845,13 @@
     :cond_0
     invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getMonth()I
 
-    move-result v0
+    move-result v1
 
     invoke-virtual {p1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getMonth()I
 
-    move-result v1
+    move-result v2
 
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->compareField(II)I
+    invoke-static {v1, v2}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->compareField(II)I
 
     move-result v0
 
@@ -1802,13 +1859,13 @@
 
     invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getDay()I
 
-    move-result v0
+    move-result v1
 
     invoke-virtual {p1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getDay()I
 
-    move-result v1
+    move-result v2
 
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->compareField(II)I
+    invoke-static {v1, v2}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->compareField(II)I
 
     move-result v0
 
@@ -1816,13 +1873,13 @@
 
     invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getHour()I
 
-    move-result v0
+    move-result v1
 
     invoke-virtual {p1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getHour()I
 
-    move-result v1
+    move-result v2
 
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->compareField(II)I
+    invoke-static {v1, v2}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->compareField(II)I
 
     move-result v0
 
@@ -1830,13 +1887,13 @@
 
     invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getMinute()I
 
-    move-result v0
+    move-result v1
 
     invoke-virtual {p1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getMinute()I
 
-    move-result v1
+    move-result v2
 
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->compareField(II)I
+    invoke-static {v1, v2}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->compareField(II)I
 
     move-result v0
 
@@ -1844,13 +1901,13 @@
 
     invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getSecond()I
 
-    move-result v0
+    move-result v1
 
     invoke-virtual {p1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getSecond()I
 
-    move-result v1
+    move-result v2
 
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->compareField(II)I
+    invoke-static {v1, v2}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->compareField(II)I
 
     move-result v0
 
@@ -1858,13 +1915,13 @@
 
     invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getFractionalSecond()Ljava/math/BigDecimal;
 
-    move-result-object v0
+    move-result-object v1
 
     invoke-virtual {p1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getFractionalSecond()Ljava/math/BigDecimal;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->compareField(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)I
+    invoke-static {v1, v2}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->compareField(Ljava/math/BigDecimal;Ljava/math/BigDecimal;)I
 
     move-result v0
 
@@ -1873,13 +1930,13 @@
     :cond_1
     invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getYear()I
 
-    move-result v0
+    move-result v1
 
     invoke-virtual {p1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getYear()I
 
-    move-result v1
+    move-result v2
 
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->compareField(II)I
+    invoke-static {v1, v2}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->compareField(II)I
 
     move-result v0
 
@@ -2053,28 +2110,30 @@
 .end method
 
 .method private normalizeToTimezone(Lmf/javax/xml/datatype/XMLGregorianCalendar;I)Lmf/javax/xml/datatype/XMLGregorianCalendar;
-    .locals 9
+    .locals 10
 
     const/4 v2, 0x0
 
+    move v8, p2
+
     invoke-virtual {p1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->clone()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v9
 
-    move-object v8, v0
+    check-cast v9, Lmf/javax/xml/datatype/XMLGregorianCalendar;
 
-    check-cast v8, Lmf/javax/xml/datatype/XMLGregorianCalendar;
-
-    neg-int v6, p2
+    neg-int v8, p2
 
     new-instance v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;
 
-    if-gez v6, :cond_0
+    if-gez v8, :cond_0
 
     move v1, v2
 
     :goto_0
-    if-ltz v6, :cond_1
+    if-ltz v8, :cond_1
+
+    move v6, v8
 
     :goto_1
     move v3, v2
@@ -2087,11 +2146,11 @@
 
     invoke-direct/range {v0 .. v7}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;-><init>(ZIIIIII)V
 
-    invoke-virtual {v8, v0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->add(Lmf/javax/xml/datatype/Duration;)V
+    invoke-virtual {v9, v0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->add(Lmf/javax/xml/datatype/Duration;)V
 
-    invoke-virtual {v8, v2}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->setTimezone(I)V
+    invoke-virtual {v9, v2}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->setTimezone(I)V
 
-    return-object v8
+    return-object v9
 
     :cond_0
     const/4 v1, 0x1
@@ -2099,7 +2158,7 @@
     goto :goto_0
 
     :cond_1
-    neg-int v6, v6
+    neg-int v6, v8
 
     goto :goto_1
 .end method
@@ -2270,101 +2329,101 @@
 .end method
 
 .method private toString(Ljava/math/BigDecimal;)Ljava/lang/String;
-    .locals 6
-
-    const/4 v1, 0x0
+    .locals 7
 
     invoke-virtual {p1}, Ljava/math/BigDecimal;->unscaledValue()Ljava/math/BigInteger;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-virtual {v0}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
     invoke-virtual {p1}, Ljava/math/BigDecimal;->scale()I
 
-    move-result v0
+    move-result v4
 
-    if-eqz v0, :cond_0
+    if-eqz v4, :cond_0
 
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
-
-    move-result v3
-
-    sub-int/2addr v3, v0
-
-    if-eqz v3, :cond_1
-
-    if-gtz v3, :cond_2
-
-    new-instance v0, Ljava/lang/StringBuffer;
-
-    rsub-int/lit8 v4, v3, 0x3
-
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
 
     move-result v5
 
-    add-int/2addr v4, v5
+    sub-int v2, v5, v4
 
-    invoke-direct {v0, v4}, Ljava/lang/StringBuffer;-><init>(I)V
+    if-eqz v2, :cond_1
 
-    const-string/jumbo v4, "0."
+    if-gtz v2, :cond_2
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    new-instance v0, Ljava/lang/StringBuffer;
+
+    rsub-int/lit8 v5, v2, 0x3
+
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
+
+    move-result v6
+
+    add-int/2addr v5, v6
+
+    invoke-direct {v0, v5}, Ljava/lang/StringBuffer;-><init>(I)V
+
+    const-string/jumbo v5, "0."
+
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    const/4 v1, 0x0
 
     :goto_0
-    neg-int v4, v3
+    neg-int v5, v2
 
-    if-ge v1, v4, :cond_3
+    if-ge v1, v5, :cond_3
 
-    const/16 v4, 0x30
+    const/16 v5, 0x30
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_0
-    return-object v2
+    return-object v3
 
     :cond_1
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "0."
+    const-string/jumbo v6, "0."
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v5
 
-    return-object v0
+    return-object v5
 
     :cond_2
     new-instance v0, Ljava/lang/StringBuffer;
 
-    invoke-direct {v0, v2}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v3}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
-    const/16 v1, 0x2e
+    const/16 v5, 0x2e
 
-    invoke-virtual {v0, v3, v1}, Ljava/lang/StringBuffer;->insert(IC)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v2, v5}, Ljava/lang/StringBuffer;->insert(IC)Ljava/lang/StringBuffer;
 
     :goto_1
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v5
 
-    return-object v0
+    return-object v5
 
     :cond_3
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_1
 .end method
@@ -2391,759 +2450,1083 @@
 
 # virtual methods
 .method public add(Lmf/javax/xml/datatype/Duration;)V
-    .locals 14
+    .locals 36
 
-    const/4 v12, 0x2
+    const/16 v32, 0x6
 
-    const/4 v11, 0x3
+    move/from16 v0, v32
 
-    const/4 v2, 0x1
+    new-array v14, v0, [Z
 
-    const/4 v4, 0x0
+    invoke-virtual/range {p1 .. p1}, Lmf/javax/xml/datatype/Duration;->getSign()I
 
-    const/high16 v10, -0x80000000
+    move-result v21
 
-    const/4 v0, 0x6
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getMonth()I
 
-    new-array v5, v0, [Z
+    move-result v25
 
-    invoke-virtual {p1}, Lmf/javax/xml/datatype/Duration;->getSign()I
+    const/high16 v32, -0x80000000
 
-    move-result v3
+    move/from16 v0, v25
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getMonth()I
+    move/from16 v1, v32
 
-    move-result v0
-
-    if-eq v0, v10, :cond_1
+    if-eq v0, v1, :cond_1
 
     :goto_0
-    sget-object v1, Lmf/javax/xml/datatype/DatatypeConstants;->MONTHS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v32, Lmf/javax/xml/datatype/DatatypeConstants;->MONTHS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    invoke-virtual {p1, v1}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
+    move-object/from16 v0, p1
 
-    move-result-object v1
+    move-object/from16 v1, v32
 
-    invoke-static {v1, v3}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->sanitize(Ljava/lang/Number;I)Ljava/math/BigInteger;
+    invoke-virtual {v0, v1}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
 
-    move-result-object v1
+    move-result-object v32
 
-    int-to-long v6, v0
+    move-object/from16 v0, v32
 
-    invoke-static {v6, v7}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+    move/from16 v1, v21
 
-    move-result-object v0
+    invoke-static {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->sanitize(Ljava/lang/Number;I)Ljava/math/BigInteger;
 
-    invoke-virtual {v0, v1}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    move-result-object v6
 
-    move-result-object v0
+    move/from16 v0, v25
 
-    sget-object v1, Ljava/math/BigInteger;->ONE:Ljava/math/BigInteger;
+    int-to-long v0, v0
+
+    move-wide/from16 v32, v0
+
+    invoke-static/range {v32 .. v33}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+
+    move-result-object v32
+
+    move-object/from16 v0, v32
+
+    invoke-virtual {v0, v6}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+
+    move-result-object v28
+
+    sget-object v32, Ljava/math/BigInteger;->ONE:Ljava/math/BigInteger;
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, v32
 
     invoke-virtual {v0, v1}, Ljava/math/BigInteger;->subtract(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    move-result-object v1
+    move-result-object v32
 
-    sget-object v6, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->TWELVE:Ljava/math/BigInteger;
+    sget-object v33, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->TWELVE:Ljava/math/BigInteger;
 
-    invoke-virtual {v1, v6}, Ljava/math/BigInteger;->mod(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-virtual/range {v32 .. v33}, Ljava/math/BigInteger;->mod(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    move-result-object v1
+    move-result-object v32
 
-    invoke-virtual {v1}, Ljava/math/BigInteger;->intValue()I
+    invoke-virtual/range {v32 .. v32}, Ljava/math/BigInteger;->intValue()I
 
-    move-result v1
+    move-result v32
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v32, v32, 0x1
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setMonth(I)V
+    move-object/from16 v0, p0
 
-    new-instance v1, Ljava/math/BigDecimal;
+    move/from16 v1, v32
 
-    sget-object v6, Ljava/math/BigInteger;->ONE:Ljava/math/BigInteger;
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setMonth(I)V
 
-    invoke-virtual {v0, v6}, Ljava/math/BigInteger;->subtract(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    new-instance v32, Ljava/math/BigDecimal;
 
-    move-result-object v0
+    sget-object v33, Ljava/math/BigInteger;->ONE:Ljava/math/BigInteger;
 
-    invoke-direct {v1, v0}, Ljava/math/BigDecimal;-><init>(Ljava/math/BigInteger;)V
+    move-object/from16 v0, v28
 
-    new-instance v0, Ljava/math/BigDecimal;
+    move-object/from16 v1, v33
 
-    sget-object v6, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->TWELVE:Ljava/math/BigInteger;
+    invoke-virtual {v0, v1}, Ljava/math/BigInteger;->subtract(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    invoke-direct {v0, v6}, Ljava/math/BigDecimal;-><init>(Ljava/math/BigInteger;)V
+    move-result-object v33
 
-    invoke-virtual {v1, v0, v11}, Ljava/math/BigDecimal;->divide(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
+    invoke-direct/range {v32 .. v33}, Ljava/math/BigDecimal;-><init>(Ljava/math/BigInteger;)V
 
-    move-result-object v0
+    new-instance v33, Ljava/math/BigDecimal;
 
-    invoke-virtual {v0}, Ljava/math/BigDecimal;->toBigInteger()Ljava/math/BigInteger;
+    sget-object v34, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->TWELVE:Ljava/math/BigInteger;
 
-    move-result-object v1
+    invoke-direct/range {v33 .. v34}, Ljava/math/BigDecimal;-><init>(Ljava/math/BigInteger;)V
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getEonAndYear()Ljava/math/BigInteger;
+    const/16 v34, 0x3
 
-    move-result-object v0
+    invoke-virtual/range {v32 .. v34}, Ljava/math/BigDecimal;->divide(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
 
-    if-eqz v0, :cond_2
+    move-result-object v32
+
+    invoke-virtual/range {v32 .. v32}, Ljava/math/BigDecimal;->toBigInteger()Ljava/math/BigInteger;
+
+    move-result-object v2
+
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getEonAndYear()Ljava/math/BigInteger;
+
+    move-result-object v27
+
+    if-eqz v27, :cond_2
 
     :goto_1
-    sget-object v6, Lmf/javax/xml/datatype/DatatypeConstants;->YEARS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v32, Lmf/javax/xml/datatype/DatatypeConstants;->YEARS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    invoke-virtual {p1, v6}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
+    move-object/from16 v0, p1
 
-    move-result-object v6
+    move-object/from16 v1, v32
 
-    invoke-static {v6, v3}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->sanitize(Ljava/lang/Number;I)Ljava/math/BigInteger;
+    invoke-virtual {v0, v1}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
 
-    move-result-object v6
+    move-result-object v32
 
-    invoke-virtual {v0, v6}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    move-object/from16 v0, v32
 
-    move-result-object v0
+    move/from16 v1, v21
 
-    invoke-virtual {v0, v1}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-static {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->sanitize(Ljava/lang/Number;I)Ljava/math/BigInteger;
 
-    move-result-object v0
+    move-result-object v8
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setYear(Ljava/math/BigInteger;)V
+    move-object/from16 v0, v27
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getSecond()I
+    invoke-virtual {v0, v8}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    move-result v0
+    move-result-object v32
 
-    if-eq v0, v10, :cond_3
+    move-object/from16 v0, v32
 
-    invoke-direct {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getSeconds()Ljava/math/BigDecimal;
+    invoke-virtual {v0, v2}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    move-result-object v0
+    move-result-object v12
 
-    move-object v1, v0
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v12}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setYear(Ljava/math/BigInteger;)V
+
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getSecond()I
+
+    move-result v32
+
+    const/high16 v33, -0x80000000
+
+    move/from16 v0, v32
+
+    move/from16 v1, v33
+
+    if-eq v0, v1, :cond_3
+
+    invoke-direct/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getSeconds()Ljava/math/BigDecimal;
+
+    move-result-object v26
 
     :goto_2
-    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->SECONDS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v32, Lmf/javax/xml/datatype/DatatypeConstants;->SECONDS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    invoke-virtual {p1, v0}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
+    move-object/from16 v0, p1
 
-    move-result-object v0
+    move-object/from16 v1, v32
 
-    check-cast v0, Ljava/math/BigDecimal;
+    invoke-virtual {v0, v1}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
 
-    invoke-static {v0, v3}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
+    move-result-object v32
 
-    move-result-object v0
+    check-cast v32, Ljava/math/BigDecimal;
 
-    invoke-virtual {v1, v0}, Ljava/math/BigDecimal;->add(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+    move-object/from16 v0, v32
 
-    move-result-object v0
+    move/from16 v1, v21
 
-    new-instance v1, Ljava/math/BigDecimal;
-
-    new-instance v6, Ljava/math/BigDecimal;
-
-    invoke-virtual {v0}, Ljava/math/BigDecimal;->toBigInteger()Ljava/math/BigInteger;
+    invoke-static {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
 
     move-result-object v7
 
-    invoke-direct {v6, v7}, Ljava/math/BigDecimal;-><init>(Ljava/math/BigInteger;)V
+    move-object/from16 v0, v26
 
-    sget-object v7, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->DECIMAL_SIXTY:Ljava/math/BigDecimal;
+    invoke-virtual {v0, v7}, Ljava/math/BigDecimal;->add(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
 
-    invoke-virtual {v6, v7, v11}, Ljava/math/BigDecimal;->divide(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
+    move-result-object v29
 
-    move-result-object v6
+    new-instance v13, Ljava/math/BigDecimal;
 
-    invoke-virtual {v6}, Ljava/math/BigDecimal;->toBigInteger()Ljava/math/BigInteger;
+    new-instance v32, Ljava/math/BigDecimal;
 
-    move-result-object v6
+    invoke-virtual/range {v29 .. v29}, Ljava/math/BigDecimal;->toBigInteger()Ljava/math/BigInteger;
 
-    invoke-direct {v1, v6}, Ljava/math/BigDecimal;-><init>(Ljava/math/BigInteger;)V
+    move-result-object v33
 
-    sget-object v6, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->DECIMAL_SIXTY:Ljava/math/BigDecimal;
+    invoke-direct/range {v32 .. v33}, Ljava/math/BigDecimal;-><init>(Ljava/math/BigInteger;)V
 
-    invoke-virtual {v1, v6}, Ljava/math/BigDecimal;->multiply(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+    sget-object v33, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->DECIMAL_SIXTY:Ljava/math/BigDecimal;
 
-    move-result-object v6
+    const/16 v34, 0x3
 
-    invoke-virtual {v0, v6}, Ljava/math/BigDecimal;->subtract(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+    invoke-virtual/range {v32 .. v34}, Ljava/math/BigDecimal;->divide(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
 
-    move-result-object v6
+    move-result-object v32
 
-    invoke-virtual {v1}, Ljava/math/BigDecimal;->toBigInteger()Ljava/math/BigInteger;
+    invoke-virtual/range {v32 .. v32}, Ljava/math/BigDecimal;->toBigInteger()Ljava/math/BigInteger;
 
-    move-result-object v0
+    move-result-object v32
 
-    invoke-virtual {v6}, Ljava/math/BigDecimal;->intValue()I
+    move-object/from16 v0, v32
 
-    move-result v1
+    invoke-direct {v13, v0}, Ljava/math/BigDecimal;-><init>(Ljava/math/BigInteger;)V
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setSecond(I)V
+    sget-object v32, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->DECIMAL_SIXTY:Ljava/math/BigDecimal;
 
-    new-instance v1, Ljava/math/BigDecimal;
+    move-object/from16 v0, v32
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getSecond()I
+    invoke-virtual {v13, v0}, Ljava/math/BigDecimal;->multiply(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
 
-    move-result v7
+    move-result-object v32
 
-    int-to-long v8, v7
+    move-object/from16 v0, v29
 
-    invoke-static {v8, v9}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+    move-object/from16 v1, v32
 
-    move-result-object v7
+    invoke-virtual {v0, v1}, Ljava/math/BigDecimal;->subtract(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
 
-    invoke-direct {v1, v7}, Ljava/math/BigDecimal;-><init>(Ljava/math/BigInteger;)V
+    move-result-object v11
 
-    invoke-virtual {v6, v1}, Ljava/math/BigDecimal;->subtract(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+    invoke-virtual {v13}, Ljava/math/BigDecimal;->toBigInteger()Ljava/math/BigInteger;
 
-    move-result-object v1
+    move-result-object v2
 
-    sget-object v6, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->DECIMAL_ZERO:Ljava/math/BigDecimal;
+    invoke-virtual {v11}, Ljava/math/BigDecimal;->intValue()I
 
-    invoke-virtual {v1, v6}, Ljava/math/BigDecimal;->compareTo(Ljava/math/BigDecimal;)I
+    move-result v32
 
-    move-result v6
+    move-object/from16 v0, p0
 
-    if-ltz v6, :cond_4
+    move/from16 v1, v32
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setFractionalSecond(Ljava/math/BigDecimal;)V
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setSecond(I)V
+
+    new-instance v32, Ljava/math/BigDecimal;
+
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getSecond()I
+
+    move-result v33
+
+    move/from16 v0, v33
+
+    int-to-long v0, v0
+
+    move-wide/from16 v34, v0
+
+    invoke-static/range {v34 .. v35}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+
+    move-result-object v33
+
+    invoke-direct/range {v32 .. v33}, Ljava/math/BigDecimal;-><init>(Ljava/math/BigInteger;)V
+
+    move-object/from16 v0, v32
+
+    invoke-virtual {v11, v0}, Ljava/math/BigDecimal;->subtract(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+
+    move-result-object v31
+
+    sget-object v32, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->DECIMAL_ZERO:Ljava/math/BigDecimal;
+
+    invoke-virtual/range {v31 .. v32}, Ljava/math/BigDecimal;->compareTo(Ljava/math/BigDecimal;)I
+
+    move-result v32
+
+    if-ltz v32, :cond_4
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v31
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setFractionalSecond(Ljava/math/BigDecimal;)V
 
     :goto_3
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getMinute()I
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getMinute()I
 
-    move-result v1
+    move-result v24
 
-    if-eq v1, v10, :cond_6
+    const/high16 v32, -0x80000000
+
+    move/from16 v0, v24
+
+    move/from16 v1, v32
+
+    if-eq v0, v1, :cond_6
 
     :goto_4
-    sget-object v6, Lmf/javax/xml/datatype/DatatypeConstants;->MINUTES:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v32, Lmf/javax/xml/datatype/DatatypeConstants;->MINUTES:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    invoke-virtual {p1, v6}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
+    move-object/from16 v0, p1
 
-    move-result-object v6
+    move-object/from16 v1, v32
 
-    invoke-static {v6, v3}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->sanitize(Ljava/lang/Number;I)Ljava/math/BigInteger;
+    invoke-virtual {v0, v1}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
 
-    move-result-object v6
+    move-result-object v32
 
-    int-to-long v8, v1
+    move-object/from16 v0, v32
 
-    invoke-static {v8, v9}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+    move/from16 v1, v21
 
-    move-result-object v1
+    invoke-static {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->sanitize(Ljava/lang/Number;I)Ljava/math/BigInteger;
 
-    invoke-virtual {v1, v6}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    move-result-object v5
 
-    move-result-object v1
+    move/from16 v0, v24
 
-    invoke-virtual {v1, v0}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    int-to-long v0, v0
 
-    move-result-object v0
+    move-wide/from16 v32, v0
 
-    sget-object v1, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->SIXTY:Ljava/math/BigInteger;
+    invoke-static/range {v32 .. v33}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+
+    move-result-object v32
+
+    move-object/from16 v0, v32
+
+    invoke-virtual {v0, v5}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+
+    move-result-object v32
+
+    move-object/from16 v0, v32
+
+    invoke-virtual {v0, v2}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+
+    move-result-object v28
+
+    sget-object v32, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->SIXTY:Ljava/math/BigInteger;
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, v32
 
     invoke-virtual {v0, v1}, Ljava/math/BigInteger;->mod(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    move-result-object v1
+    move-result-object v32
 
-    invoke-virtual {v1}, Ljava/math/BigInteger;->intValue()I
+    invoke-virtual/range {v32 .. v32}, Ljava/math/BigInteger;->intValue()I
 
-    move-result v1
+    move-result v32
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setMinute(I)V
+    move-object/from16 v0, p0
 
-    new-instance v1, Ljava/math/BigDecimal;
+    move/from16 v1, v32
 
-    invoke-direct {v1, v0}, Ljava/math/BigDecimal;-><init>(Ljava/math/BigInteger;)V
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setMinute(I)V
 
-    sget-object v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->DECIMAL_SIXTY:Ljava/math/BigDecimal;
+    new-instance v32, Ljava/math/BigDecimal;
 
-    invoke-virtual {v1, v0, v11}, Ljava/math/BigDecimal;->divide(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
+    move-object/from16 v0, v32
 
-    move-result-object v0
+    move-object/from16 v1, v28
 
-    invoke-virtual {v0}, Ljava/math/BigDecimal;->toBigInteger()Ljava/math/BigInteger;
+    invoke-direct {v0, v1}, Ljava/math/BigDecimal;-><init>(Ljava/math/BigInteger;)V
 
-    move-result-object v1
+    sget-object v33, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->DECIMAL_SIXTY:Ljava/math/BigDecimal;
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getHour()I
+    const/16 v34, 0x3
 
-    move-result v0
+    invoke-virtual/range {v32 .. v34}, Ljava/math/BigDecimal;->divide(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
 
-    if-eq v0, v10, :cond_7
+    move-result-object v32
+
+    invoke-virtual/range {v32 .. v32}, Ljava/math/BigDecimal;->toBigInteger()Ljava/math/BigInteger;
+
+    move-result-object v2
+
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getHour()I
+
+    move-result v23
+
+    const/high16 v32, -0x80000000
+
+    move/from16 v0, v23
+
+    move/from16 v1, v32
+
+    if-eq v0, v1, :cond_7
 
     :goto_5
-    sget-object v6, Lmf/javax/xml/datatype/DatatypeConstants;->HOURS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v32, Lmf/javax/xml/datatype/DatatypeConstants;->HOURS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    invoke-virtual {p1, v6}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
+    move-object/from16 v0, p1
 
-    move-result-object v6
+    move-object/from16 v1, v32
 
-    invoke-static {v6, v3}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->sanitize(Ljava/lang/Number;I)Ljava/math/BigInteger;
+    invoke-virtual {v0, v1}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
 
-    move-result-object v6
+    move-result-object v32
 
-    int-to-long v8, v0
+    move-object/from16 v0, v32
 
-    invoke-static {v8, v9}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+    move/from16 v1, v21
 
-    move-result-object v0
+    invoke-static {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->sanitize(Ljava/lang/Number;I)Ljava/math/BigInteger;
 
-    invoke-virtual {v0, v6}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    move-result-object v4
 
-    move-result-object v0
+    move/from16 v0, v23
 
-    invoke-virtual {v0, v1}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    int-to-long v0, v0
 
-    move-result-object v0
+    move-wide/from16 v32, v0
 
-    sget-object v1, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->TWENTY_FOUR:Ljava/math/BigInteger;
+    invoke-static/range {v32 .. v33}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+
+    move-result-object v32
+
+    move-object/from16 v0, v32
+
+    invoke-virtual {v0, v4}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+
+    move-result-object v32
+
+    move-object/from16 v0, v32
+
+    invoke-virtual {v0, v2}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+
+    move-result-object v28
+
+    sget-object v32, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->TWENTY_FOUR:Ljava/math/BigInteger;
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, v32
 
     invoke-virtual {v0, v1}, Ljava/math/BigInteger;->mod(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    move-result-object v1
+    move-result-object v32
 
-    invoke-virtual {v1}, Ljava/math/BigInteger;->intValue()I
+    invoke-virtual/range {v32 .. v32}, Ljava/math/BigInteger;->intValue()I
 
-    move-result v1
+    move-result v32
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setHour(I)V
+    move-object/from16 v0, p0
 
-    new-instance v1, Ljava/math/BigDecimal;
+    move/from16 v1, v32
 
-    invoke-direct {v1, v0}, Ljava/math/BigDecimal;-><init>(Ljava/math/BigInteger;)V
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setHour(I)V
 
-    new-instance v0, Ljava/math/BigDecimal;
+    new-instance v32, Ljava/math/BigDecimal;
 
-    sget-object v6, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->TWENTY_FOUR:Ljava/math/BigInteger;
+    move-object/from16 v0, v32
 
-    invoke-direct {v0, v6}, Ljava/math/BigDecimal;-><init>(Ljava/math/BigInteger;)V
+    move-object/from16 v1, v28
 
-    invoke-virtual {v1, v0, v11}, Ljava/math/BigDecimal;->divide(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
+    invoke-direct {v0, v1}, Ljava/math/BigDecimal;-><init>(Ljava/math/BigInteger;)V
 
-    move-result-object v0
+    new-instance v33, Ljava/math/BigDecimal;
 
-    invoke-virtual {v0}, Ljava/math/BigDecimal;->toBigInteger()Ljava/math/BigInteger;
+    sget-object v34, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->TWENTY_FOUR:Ljava/math/BigInteger;
 
-    move-result-object v1
+    invoke-direct/range {v33 .. v34}, Ljava/math/BigDecimal;-><init>(Ljava/math/BigInteger;)V
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getDay()I
+    const/16 v34, 0x3
 
-    move-result v0
+    invoke-virtual/range {v32 .. v34}, Ljava/math/BigDecimal;->divide(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
 
-    if-eq v0, v10, :cond_8
+    move-result-object v32
+
+    invoke-virtual/range {v32 .. v32}, Ljava/math/BigDecimal;->toBigInteger()Ljava/math/BigInteger;
+
+    move-result-object v2
+
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getDay()I
+
+    move-result v22
+
+    const/high16 v32, -0x80000000
+
+    move/from16 v0, v22
+
+    move/from16 v1, v32
+
+    if-eq v0, v1, :cond_8
 
     :goto_6
-    sget-object v6, Lmf/javax/xml/datatype/DatatypeConstants;->DAYS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v32, Lmf/javax/xml/datatype/DatatypeConstants;->DAYS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    invoke-virtual {p1, v6}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
+    move-object/from16 v0, p1
 
-    move-result-object v6
+    move-object/from16 v1, v32
 
-    invoke-static {v6, v3}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->sanitize(Ljava/lang/Number;I)Ljava/math/BigInteger;
+    invoke-virtual {v0, v1}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
+
+    move-result-object v32
+
+    move-object/from16 v0, v32
+
+    move/from16 v1, v21
+
+    invoke-static {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->sanitize(Ljava/lang/Number;I)Ljava/math/BigInteger;
 
     move-result-object v3
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getEonAndYear()Ljava/math/BigInteger;
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getEonAndYear()Ljava/math/BigInteger;
 
-    move-result-object v6
+    move-result-object v32
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getMonth()I
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getMonth()I
 
-    move-result v7
+    move-result v33
 
-    invoke-static {v6, v7}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->maximumDayInMonthFor(Ljava/math/BigInteger;I)I
+    invoke-static/range {v32 .. v33}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->maximumDayInMonthFor(Ljava/math/BigInteger;I)I
 
-    move-result v6
+    move-result v17
 
-    if-gt v0, v6, :cond_9
+    move/from16 v0, v22
 
-    if-lt v0, v2, :cond_a
+    move/from16 v1, v17
 
-    int-to-long v6, v0
+    if-gt v0, v1, :cond_9
 
-    invoke-static {v6, v7}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+    const/16 v32, 0x1
 
-    move-result-object v0
+    move/from16 v0, v22
+
+    move/from16 v1, v32
+
+    if-lt v0, v1, :cond_a
+
+    move/from16 v0, v22
+
+    int-to-long v0, v0
+
+    move-wide/from16 v32, v0
+
+    invoke-static/range {v32 .. v33}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+
+    move-result-object v30
 
     :goto_7
+    move-object/from16 v0, v30
+
     invoke-virtual {v0, v3}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    move-result-object v0
+    move-result-object v32
 
-    invoke-virtual {v0, v1}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    move-object/from16 v0, v32
 
-    move-result-object v0
+    invoke-virtual {v0, v2}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+
+    move-result-object v9
 
     :cond_0
     :goto_8
-    sget-object v1, Ljava/math/BigInteger;->ONE:Ljava/math/BigInteger;
+    sget-object v32, Ljava/math/BigInteger;->ONE:Ljava/math/BigInteger;
 
-    invoke-virtual {v0, v1}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
+    move-object/from16 v0, v32
 
-    move-result v1
+    invoke-virtual {v9, v0}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
 
-    if-ltz v1, :cond_b
+    move-result v32
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getEonAndYear()Ljava/math/BigInteger;
+    if-ltz v32, :cond_b
 
-    move-result-object v1
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getEonAndYear()Ljava/math/BigInteger;
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getMonth()I
+    move-result-object v32
 
-    move-result v3
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getMonth()I
 
-    invoke-static {v1, v3}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->maximumDayInMonthFor(Ljava/math/BigInteger;I)I
+    move-result v33
 
-    move-result v1
+    invoke-static/range {v32 .. v33}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->maximumDayInMonthFor(Ljava/math/BigInteger;I)I
 
-    int-to-long v6, v1
+    move-result v32
 
-    invoke-static {v6, v7}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+    move/from16 v0, v32
 
-    move-result-object v1
+    int-to-long v0, v0
 
-    invoke-virtual {v0, v1}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
+    move-wide/from16 v32, v0
 
-    move-result v1
+    invoke-static/range {v32 .. v33}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
 
-    if-gtz v1, :cond_d
+    move-result-object v32
 
-    invoke-virtual {v0}, Ljava/math/BigInteger;->intValue()I
+    move-object/from16 v0, v32
 
-    move-result v0
+    invoke-virtual {v9, v0}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setDay(I)V
+    move-result v32
 
-    move v0, v4
+    if-gtz v32, :cond_d
+
+    invoke-virtual {v9}, Ljava/math/BigInteger;->intValue()I
+
+    move-result v32
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setDay(I)V
+
+    const/4 v15, 0x0
 
     :goto_9
-    const/4 v1, 0x5
+    const/16 v32, 0x5
 
-    if-gt v0, v1, :cond_10
+    move/from16 v0, v32
 
-    aget-boolean v1, v5, v0
+    if-gt v15, v0, :cond_10
 
-    if-nez v1, :cond_f
+    aget-boolean v32, v14, v15
+
+    if-nez v32, :cond_f
 
     :goto_a
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v15, v15, 0x1
 
     goto :goto_9
 
     :cond_1
-    sget-object v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->MIN_FIELD_VALUE:[I
+    sget-object v32, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->MIN_FIELD_VALUE:[I
 
-    aget v0, v0, v2
+    const/16 v33, 0x1
 
-    aput-boolean v2, v5, v2
+    aget v25, v32, v33
+
+    const/16 v32, 0x1
+
+    const/16 v33, 0x1
+
+    aput-boolean v32, v14, v33
 
     goto/16 :goto_0
 
     :cond_2
-    aput-boolean v2, v5, v4
+    const/16 v32, 0x1
 
-    sget-object v0, Ljava/math/BigInteger;->ZERO:Ljava/math/BigInteger;
+    const/16 v33, 0x0
+
+    aput-boolean v32, v14, v33
+
+    sget-object v27, Ljava/math/BigInteger;->ZERO:Ljava/math/BigInteger;
 
     goto/16 :goto_1
 
     :cond_3
-    const/4 v0, 0x5
+    const/16 v32, 0x1
 
-    aput-boolean v2, v5, v0
+    const/16 v33, 0x5
 
-    sget-object v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->DECIMAL_ZERO:Ljava/math/BigDecimal;
+    aput-boolean v32, v14, v33
 
-    move-object v1, v0
+    sget-object v26, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->DECIMAL_ZERO:Ljava/math/BigDecimal;
 
     goto/16 :goto_2
 
     :cond_4
-    sget-object v6, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->DECIMAL_ONE:Ljava/math/BigDecimal;
+    sget-object v32, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->DECIMAL_ONE:Ljava/math/BigDecimal;
 
-    invoke-virtual {v6, v1}, Ljava/math/BigDecimal;->add(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+    move-object/from16 v0, v32
 
-    move-result-object v1
+    move-object/from16 v1, v31
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setFractionalSecond(Ljava/math/BigDecimal;)V
+    invoke-virtual {v0, v1}, Ljava/math/BigDecimal;->add(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getSecond()I
+    move-result-object v32
 
-    move-result v1
+    move-object/from16 v0, p0
 
-    if-eqz v1, :cond_5
+    move-object/from16 v1, v32
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getSecond()I
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setFractionalSecond(Ljava/math/BigDecimal;)V
 
-    move-result v1
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getSecond()I
 
-    add-int/lit8 v1, v1, -0x1
+    move-result v32
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setSecond(I)V
+    if-eqz v32, :cond_5
+
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getSecond()I
+
+    move-result v32
+
+    add-int/lit8 v32, v32, -0x1
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setSecond(I)V
 
     goto/16 :goto_3
 
     :cond_5
-    const/16 v1, 0x3b
+    const/16 v32, 0x3b
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setSecond(I)V
+    move-object/from16 v0, p0
 
-    sget-object v1, Ljava/math/BigInteger;->ONE:Ljava/math/BigInteger;
+    move/from16 v1, v32
 
-    invoke-virtual {v0, v1}, Ljava/math/BigInteger;->subtract(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setSecond(I)V
 
-    move-result-object v0
+    sget-object v32, Ljava/math/BigInteger;->ONE:Ljava/math/BigInteger;
+
+    move-object/from16 v0, v32
+
+    invoke-virtual {v2, v0}, Ljava/math/BigInteger;->subtract(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+
+    move-result-object v2
 
     goto/16 :goto_3
 
     :cond_6
-    const/4 v1, 0x4
+    const/16 v32, 0x1
 
-    aput-boolean v2, v5, v1
+    const/16 v33, 0x4
 
-    sget-object v1, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->MIN_FIELD_VALUE:[I
+    aput-boolean v32, v14, v33
 
-    const/4 v6, 0x4
+    sget-object v32, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->MIN_FIELD_VALUE:[I
 
-    aget v1, v1, v6
+    const/16 v33, 0x4
+
+    aget v24, v32, v33
 
     goto/16 :goto_4
 
     :cond_7
-    aput-boolean v2, v5, v11
+    const/16 v32, 0x1
 
-    sget-object v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->MIN_FIELD_VALUE:[I
+    const/16 v33, 0x3
 
-    aget v0, v0, v11
+    aput-boolean v32, v14, v33
+
+    sget-object v32, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->MIN_FIELD_VALUE:[I
+
+    const/16 v33, 0x3
+
+    aget v23, v32, v33
 
     goto/16 :goto_5
 
     :cond_8
-    aput-boolean v2, v5, v12
+    const/16 v32, 0x1
 
-    sget-object v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->MIN_FIELD_VALUE:[I
+    const/16 v33, 0x2
 
-    aget v0, v0, v12
+    aput-boolean v32, v14, v33
+
+    sget-object v32, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->MIN_FIELD_VALUE:[I
+
+    const/16 v33, 0x2
+
+    aget v22, v32, v33
 
     goto/16 :goto_6
 
     :cond_9
-    int-to-long v6, v6
+    move/from16 v0, v17
 
-    invoke-static {v6, v7}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+    int-to-long v0, v0
 
-    move-result-object v0
+    move-wide/from16 v32, v0
+
+    invoke-static/range {v32 .. v33}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+
+    move-result-object v30
 
     goto/16 :goto_7
 
     :cond_a
-    sget-object v0, Ljava/math/BigInteger;->ONE:Ljava/math/BigInteger;
+    sget-object v30, Ljava/math/BigInteger;->ONE:Ljava/math/BigInteger;
 
     goto/16 :goto_7
 
     :cond_b
-    iget v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->month:I
+    const/16 v18, 0x0
 
-    if-ge v1, v12, :cond_c
+    move-object/from16 v0, p0
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getEonAndYear()Ljava/math/BigInteger;
+    iget v0, v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->month:I
 
-    move-result-object v1
+    move/from16 v32, v0
 
-    const-wide/16 v6, 0x1
+    const/16 v33, 0x2
 
-    invoke-static {v6, v7}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+    move/from16 v0, v32
 
-    move-result-object v3
+    move/from16 v1, v33
 
-    invoke-virtual {v1, v3}, Ljava/math/BigInteger;->subtract(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    if-ge v0, v1, :cond_c
 
-    move-result-object v1
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getEonAndYear()Ljava/math/BigInteger;
 
-    const/16 v3, 0xc
+    move-result-object v32
 
-    invoke-static {v1, v3}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->maximumDayInMonthFor(Ljava/math/BigInteger;I)I
+    const-wide/16 v34, 0x1
 
-    move-result v1
+    invoke-static/range {v34 .. v35}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
 
-    int-to-long v6, v1
+    move-result-object v33
 
-    invoke-static {v6, v7}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+    invoke-virtual/range {v32 .. v33}, Ljava/math/BigInteger;->subtract(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    move-result-object v1
+    move-result-object v32
+
+    const/16 v33, 0xc
+
+    invoke-static/range {v32 .. v33}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->maximumDayInMonthFor(Ljava/math/BigInteger;I)I
+
+    move-result v32
+
+    move/from16 v0, v32
+
+    int-to-long v0, v0
+
+    move-wide/from16 v32, v0
+
+    invoke-static/range {v32 .. v33}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+
+    move-result-object v18
 
     :goto_b
-    invoke-virtual {v0, v1}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    move-object/from16 v0, v18
 
-    move-result-object v1
+    invoke-virtual {v9, v0}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    const/4 v0, -0x1
+    move-result-object v9
 
-    move v13, v0
-
-    move-object v0, v1
-
-    move v1, v13
+    const/16 v19, -0x1
 
     :goto_c
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getMonth()I
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getMonth()I
 
-    move-result v3
+    move-result v32
 
-    add-int/2addr v1, v3
+    add-int v16, v32, v19
 
-    add-int/lit8 v3, v1, -0x1
+    add-int/lit8 v32, v16, -0x1
 
-    rem-int/lit8 v3, v3, 0xc
+    rem-int/lit8 v10, v32, 0xc
 
-    if-ltz v3, :cond_e
+    if-ltz v10, :cond_e
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v32, v16, -0x1
 
-    div-int/lit8 v1, v1, 0xc
+    div-int/lit8 v20, v32, 0xc
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v10, v10, 0x1
 
     :goto_d
-    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setMonth(I)V
+    move-object/from16 v0, p0
 
-    if-eqz v1, :cond_0
+    invoke-virtual {v0, v10}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setMonth(I)V
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getEonAndYear()Ljava/math/BigInteger;
+    if-eqz v20, :cond_0
 
-    move-result-object v3
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getEonAndYear()Ljava/math/BigInteger;
 
-    int-to-long v6, v1
+    move-result-object v32
 
-    invoke-static {v6, v7}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+    move/from16 v0, v20
 
-    move-result-object v1
+    int-to-long v0, v0
 
-    invoke-virtual {v3, v1}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    move-wide/from16 v34, v0
 
-    move-result-object v1
+    invoke-static/range {v34 .. v35}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setYear(Ljava/math/BigInteger;)V
+    move-result-object v33
+
+    invoke-virtual/range {v32 .. v33}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+
+    move-result-object v32
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setYear(Ljava/math/BigInteger;)V
 
     goto/16 :goto_8
 
     :cond_c
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getEonAndYear()Ljava/math/BigInteger;
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getEonAndYear()Ljava/math/BigInteger;
 
-    move-result-object v1
+    move-result-object v32
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getMonth()I
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getMonth()I
 
-    move-result v3
+    move-result v33
 
-    add-int/lit8 v3, v3, -0x1
+    add-int/lit8 v33, v33, -0x1
 
-    invoke-static {v1, v3}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->maximumDayInMonthFor(Ljava/math/BigInteger;I)I
+    invoke-static/range {v32 .. v33}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->maximumDayInMonthFor(Ljava/math/BigInteger;I)I
 
-    move-result v1
+    move-result v32
 
-    int-to-long v6, v1
+    move/from16 v0, v32
 
-    invoke-static {v6, v7}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+    int-to-long v0, v0
 
-    move-result-object v1
+    move-wide/from16 v32, v0
+
+    invoke-static/range {v32 .. v33}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+
+    move-result-object v18
 
     goto :goto_b
 
     :cond_d
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getEonAndYear()Ljava/math/BigInteger;
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getEonAndYear()Ljava/math/BigInteger;
 
-    move-result-object v1
+    move-result-object v32
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getMonth()I
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getMonth()I
 
-    move-result v3
+    move-result v33
 
-    invoke-static {v1, v3}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->maximumDayInMonthFor(Ljava/math/BigInteger;I)I
+    invoke-static/range {v32 .. v33}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->maximumDayInMonthFor(Ljava/math/BigInteger;I)I
 
-    move-result v1
+    move-result v32
 
-    neg-int v1, v1
+    move/from16 v0, v32
 
-    int-to-long v6, v1
+    neg-int v0, v0
 
-    invoke-static {v6, v7}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+    move/from16 v32, v0
 
-    move-result-object v1
+    move/from16 v0, v32
 
-    invoke-virtual {v0, v1}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    int-to-long v0, v0
 
-    move-result-object v0
+    move-wide/from16 v32, v0
 
-    move v1, v2
+    invoke-static/range {v32 .. v33}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+
+    move-result-object v32
+
+    move-object/from16 v0, v32
+
+    invoke-virtual {v9, v0}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+
+    move-result-object v9
+
+    const/16 v19, 0x1
 
     goto :goto_c
 
     :cond_e
-    add-int/lit8 v3, v3, 0xc
+    add-int/lit8 v32, v10, 0xc
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v10, v32, 0x1
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v32, v16, -0x1
 
-    int-to-long v6, v1
+    move/from16 v0, v32
 
-    invoke-static {v6, v7}, Ljava/math/BigDecimal;->valueOf(J)Ljava/math/BigDecimal;
+    int-to-long v0, v0
 
-    move-result-object v1
+    move-wide/from16 v32, v0
 
-    new-instance v6, Ljava/math/BigDecimal;
+    invoke-static/range {v32 .. v33}, Ljava/math/BigDecimal;->valueOf(J)Ljava/math/BigDecimal;
 
-    sget-object v7, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->TWELVE:Ljava/math/BigInteger;
+    move-result-object v32
 
-    invoke-direct {v6, v7}, Ljava/math/BigDecimal;-><init>(Ljava/math/BigInteger;)V
+    new-instance v33, Ljava/math/BigDecimal;
 
-    invoke-virtual {v1, v6, v4}, Ljava/math/BigDecimal;->divide(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
+    sget-object v34, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->TWELVE:Ljava/math/BigInteger;
 
-    move-result-object v1
+    invoke-direct/range {v33 .. v34}, Ljava/math/BigDecimal;-><init>(Ljava/math/BigInteger;)V
 
-    invoke-virtual {v1}, Ljava/math/BigDecimal;->intValue()I
+    const/16 v34, 0x0
 
-    move-result v1
+    invoke-virtual/range {v32 .. v34}, Ljava/math/BigDecimal;->divide(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
+
+    move-result-object v32
+
+    invoke-virtual/range {v32 .. v32}, Ljava/math/BigDecimal;->intValue()I
+
+    move-result v20
 
     goto :goto_d
 
     :cond_f
-    packed-switch v0, :pswitch_data_0
+    packed-switch v15, :pswitch_data_0
 
     goto/16 :goto_a
 
     :pswitch_0
-    invoke-virtual {p0, v10}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setYear(I)V
+    const/high16 v32, -0x80000000
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setYear(I)V
 
     goto/16 :goto_a
 
     :pswitch_1
-    invoke-virtual {p0, v10}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setMonth(I)V
+    const/high16 v32, -0x80000000
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setMonth(I)V
 
     goto/16 :goto_a
 
     :pswitch_2
-    invoke-virtual {p0, v10}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setDay(I)V
+    const/high16 v32, -0x80000000
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setDay(I)V
 
     goto/16 :goto_a
 
     :pswitch_3
-    invoke-virtual {p0, v10}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setHour(I)V
+    const/high16 v32, -0x80000000
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setHour(I)V
 
     goto/16 :goto_a
 
     :pswitch_4
-    invoke-virtual {p0, v10}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setMinute(I)V
+    const/high16 v32, -0x80000000
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setMinute(I)V
 
     goto/16 :goto_a
 
     :pswitch_5
-    invoke-virtual {p0, v10}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setSecond(I)V
+    const/high16 v32, -0x80000000
 
-    const/4 v1, 0x0
+    move-object/from16 v0, p0
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setFractionalSecond(Ljava/math/BigDecimal;)V
+    move/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setSecond(I)V
+
+    const/16 v32, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setFractionalSecond(Ljava/math/BigDecimal;)V
 
     goto/16 :goto_a
 
@@ -3218,175 +3601,177 @@
 .end method
 
 .method public compare(Lmf/javax/xml/datatype/XMLGregorianCalendar;)I
-    .locals 6
+    .locals 13
 
-    const/4 v5, -0x1
+    const/4 v12, 0x1
 
-    const/16 v4, -0x348
+    const/4 v11, -0x1
 
-    const/4 v3, 0x2
+    const/16 v10, -0x348
 
-    const/high16 v2, -0x80000000
+    const/high16 v9, -0x80000000
+
+    const/4 v6, 0x2
+
+    move-object v4, p0
+
+    move-object v5, p1
 
     invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getTimezone()I
 
-    move-result v0
+    move-result v7
 
     invoke-virtual {p1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getTimezone()I
 
-    move-result v1
+    move-result v8
 
-    if-eq v0, v1, :cond_1
+    if-eq v7, v8, :cond_1
 
     invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getTimezone()I
 
-    move-result v0
+    move-result v7
 
-    if-ne v0, v2, :cond_2
+    if-ne v7, v9, :cond_2
 
     :cond_0
     invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getTimezone()I
 
-    move-result v0
+    move-result v7
 
-    if-ne v0, v2, :cond_3
+    if-ne v7, v9, :cond_3
 
     invoke-virtual {p1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getTimezone()I
 
-    move-result v0
+    move-result v7
 
-    if-nez v0, :cond_7
+    if-nez v7, :cond_7
 
     :goto_0
-    invoke-direct {p0, p0, v4}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->normalizeToTimezone(Lmf/javax/xml/datatype/XMLGregorianCalendar;I)Lmf/javax/xml/datatype/XMLGregorianCalendar;
+    invoke-direct {p0, p0, v10}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->normalizeToTimezone(Lmf/javax/xml/datatype/XMLGregorianCalendar;I)Lmf/javax/xml/datatype/XMLGregorianCalendar;
 
     move-result-object v0
 
-    invoke-static {v0, p1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->internalCompare(Lmf/javax/xml/datatype/XMLGregorianCalendar;Lmf/javax/xml/datatype/XMLGregorianCalendar;)I
+    invoke-static {v0, v5}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->internalCompare(Lmf/javax/xml/datatype/XMLGregorianCalendar;Lmf/javax/xml/datatype/XMLGregorianCalendar;)I
 
-    move-result v0
+    move-result v6
 
-    if-eq v0, v5, :cond_8
+    if-eq v6, v11, :cond_8
 
-    const/16 v0, 0x348
+    const/16 v7, 0x348
 
-    invoke-direct {p0, p0, v0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->normalizeToTimezone(Lmf/javax/xml/datatype/XMLGregorianCalendar;I)Lmf/javax/xml/datatype/XMLGregorianCalendar;
+    invoke-direct {p0, p0, v7}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->normalizeToTimezone(Lmf/javax/xml/datatype/XMLGregorianCalendar;I)Lmf/javax/xml/datatype/XMLGregorianCalendar;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-static {v0, p1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->internalCompare(Lmf/javax/xml/datatype/XMLGregorianCalendar;Lmf/javax/xml/datatype/XMLGregorianCalendar;)I
+    invoke-static {v2, v5}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->internalCompare(Lmf/javax/xml/datatype/XMLGregorianCalendar;Lmf/javax/xml/datatype/XMLGregorianCalendar;)I
 
-    move-result v0
+    move-result v6
 
-    const/4 v1, 0x1
+    if-eq v6, v12, :cond_9
 
-    if-eq v0, v1, :cond_9
+    const/4 v7, 0x2
 
-    return v3
+    return v7
 
     :cond_1
     invoke-static {p0, p1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->internalCompare(Lmf/javax/xml/datatype/XMLGregorianCalendar;Lmf/javax/xml/datatype/XMLGregorianCalendar;)I
 
-    move-result v0
+    move-result v7
 
-    return v0
+    return v7
 
     :cond_2
     invoke-virtual {p1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getTimezone()I
 
-    move-result v0
+    move-result v7
 
-    if-eq v0, v2, :cond_0
+    if-eq v7, v9, :cond_0
 
     invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->normalize()Lmf/javax/xml/datatype/XMLGregorianCalendar;
 
-    move-result-object v0
+    move-result-object v4
 
-    check-cast v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;
+    check-cast v4, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;
 
     invoke-virtual {p1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->normalize()Lmf/javax/xml/datatype/XMLGregorianCalendar;
 
-    move-result-object v1
+    move-result-object v5
 
-    check-cast v1, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;
+    check-cast v5, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;
 
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->internalCompare(Lmf/javax/xml/datatype/XMLGregorianCalendar;Lmf/javax/xml/datatype/XMLGregorianCalendar;)I
+    invoke-static {v4, v5}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->internalCompare(Lmf/javax/xml/datatype/XMLGregorianCalendar;Lmf/javax/xml/datatype/XMLGregorianCalendar;)I
 
-    move-result v0
+    move-result v7
 
-    return v0
+    return v7
 
     :cond_3
     invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getTimezone()I
 
-    move-result v0
+    move-result v7
 
-    if-nez v0, :cond_4
-
-    move-object v0, p0
+    if-nez v7, :cond_4
 
     :goto_1
-    const/16 v1, 0x348
+    const/16 v7, 0x348
 
-    invoke-direct {p0, p1, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->normalizeToTimezone(Lmf/javax/xml/datatype/XMLGregorianCalendar;I)Lmf/javax/xml/datatype/XMLGregorianCalendar;
+    invoke-direct {p0, p1, v7}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->normalizeToTimezone(Lmf/javax/xml/datatype/XMLGregorianCalendar;I)Lmf/javax/xml/datatype/XMLGregorianCalendar;
+
+    move-result-object v3
+
+    invoke-static {v4, v3}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->internalCompare(Lmf/javax/xml/datatype/XMLGregorianCalendar;Lmf/javax/xml/datatype/XMLGregorianCalendar;)I
+
+    move-result v6
+
+    if-eq v6, v11, :cond_5
+
+    invoke-direct {p0, p1, v10}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->normalizeToTimezone(Lmf/javax/xml/datatype/XMLGregorianCalendar;I)Lmf/javax/xml/datatype/XMLGregorianCalendar;
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->internalCompare(Lmf/javax/xml/datatype/XMLGregorianCalendar;Lmf/javax/xml/datatype/XMLGregorianCalendar;)I
+    invoke-static {v4, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->internalCompare(Lmf/javax/xml/datatype/XMLGregorianCalendar;Lmf/javax/xml/datatype/XMLGregorianCalendar;)I
 
-    move-result v1
+    move-result v6
 
-    if-eq v1, v5, :cond_5
+    if-eq v6, v12, :cond_6
 
-    invoke-direct {p0, p1, v4}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->normalizeToTimezone(Lmf/javax/xml/datatype/XMLGregorianCalendar;I)Lmf/javax/xml/datatype/XMLGregorianCalendar;
+    const/4 v7, 0x2
 
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->internalCompare(Lmf/javax/xml/datatype/XMLGregorianCalendar;Lmf/javax/xml/datatype/XMLGregorianCalendar;)I
-
-    move-result v0
-
-    const/4 v1, 0x1
-
-    if-eq v0, v1, :cond_6
-
-    return v3
+    return v7
 
     :cond_4
     invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->normalize()Lmf/javax/xml/datatype/XMLGregorianCalendar;
 
-    move-result-object v0
+    move-result-object v4
 
-    check-cast v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;
+    check-cast v4, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;
 
     goto :goto_1
 
     :cond_5
-    return v1
+    return v6
 
     :cond_6
-    return v0
+    return v6
 
     :cond_7
     invoke-virtual {p1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getTimezone()I
 
-    move-result v0
+    move-result v7
 
-    invoke-direct {p0, p1, v0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->normalizeToTimezone(Lmf/javax/xml/datatype/XMLGregorianCalendar;I)Lmf/javax/xml/datatype/XMLGregorianCalendar;
+    invoke-direct {p0, p1, v7}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->normalizeToTimezone(Lmf/javax/xml/datatype/XMLGregorianCalendar;I)Lmf/javax/xml/datatype/XMLGregorianCalendar;
 
-    move-result-object v0
+    move-result-object v5
 
-    check-cast v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;
-
-    move-object p1, v0
+    check-cast v5, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;
 
     goto :goto_0
 
     :cond_8
-    return v0
+    return v6
 
     :cond_9
-    return v0
+    return v6
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
@@ -3562,101 +3947,101 @@
 .end method
 
 .method public getTimeZone(I)Ljava/util/TimeZone;
-    .locals 5
+    .locals 8
 
-    const/16 v1, 0x2d
+    const/16 v6, 0x2d
 
-    const/high16 v0, -0x80000000
+    const/high16 v7, -0x80000000
+
+    const/4 v3, 0x0
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getTimezone()I
 
-    move-result v2
+    move-result v5
 
-    if-eq v2, v0, :cond_0
+    if-eq v5, v7, :cond_0
 
     :goto_0
-    if-eq v2, v0, :cond_1
+    if-eq v5, v7, :cond_1
 
-    if-ltz v2, :cond_2
+    if-ltz v5, :cond_2
 
-    const/16 v0, 0x2b
+    const/16 v4, 0x2b
 
     :goto_1
-    if-eq v0, v1, :cond_3
-
-    move v1, v2
+    if-eq v4, v6, :cond_3
 
     :goto_2
-    div-int/lit8 v2, v1, 0x3c
+    div-int/lit8 v1, v5, 0x3c
 
-    mul-int/lit8 v3, v2, 0x3c
+    mul-int/lit8 v6, v1, 0x3c
 
-    sub-int/2addr v1, v3
+    sub-int v2, v5, v6
 
-    new-instance v3, Ljava/lang/StringBuffer;
+    new-instance v0, Ljava/lang/StringBuffer;
 
-    const/16 v4, 0x8
+    const/16 v6, 0x8
 
-    invoke-direct {v3, v4}, Ljava/lang/StringBuffer;-><init>(I)V
+    invoke-direct {v0, v6}, Ljava/lang/StringBuffer;-><init>(I)V
 
-    const-string/jumbo v4, "GMT"
+    const-string/jumbo v6, "GMT"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    if-nez v1, :cond_4
+    if-nez v2, :cond_4
 
     :goto_3
-    invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-static {v0}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
+    invoke-static {v6}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
 
-    move-result-object v0
+    move-result-object v3
 
     :goto_4
-    return-object v0
+    return-object v3
 
     :cond_0
-    move v2, p1
+    move v5, p1
 
     goto :goto_0
 
     :cond_1
     invoke-static {}, Ljava/util/TimeZone;->getDefault()Ljava/util/TimeZone;
 
-    move-result-object v0
+    move-result-object v3
 
     goto :goto_4
 
     :cond_2
-    move v0, v1
+    move v4, v6
 
     goto :goto_1
 
     :cond_3
-    neg-int v1, v2
+    neg-int v5, v5
 
     goto :goto_2
 
     :cond_4
-    const/16 v0, 0xa
+    const/16 v6, 0xa
 
-    if-lt v1, v0, :cond_5
+    if-lt v2, v6, :cond_5
 
     :goto_5
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
     goto :goto_3
 
     :cond_5
-    const/16 v0, 0x30
+    const/16 v6, 0x30
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto :goto_5
 .end method
@@ -3968,71 +4353,71 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
-
-    const/4 v1, 0x0
+    .locals 4
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getTimezone()I
 
-    move-result v0
+    move-result v1
 
     const/high16 v2, -0x80000000
 
-    if-eq v0, v2, :cond_0
+    if-eq v1, v2, :cond_0
 
     :goto_0
-    if-nez v0, :cond_1
+    move-object v0, p0
+
+    if-nez v1, :cond_1
 
     :goto_1
-    invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getYear()I
+    invoke-virtual {v0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getYear()I
 
-    move-result v0
+    move-result v2
 
-    invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getMonth()I
+    invoke-virtual {v0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getMonth()I
 
-    move-result v1
+    move-result v3
 
-    add-int/2addr v0, v1
+    add-int/2addr v2, v3
 
-    invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getDay()I
+    invoke-virtual {v0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getDay()I
 
-    move-result v1
+    move-result v3
 
-    add-int/2addr v0, v1
+    add-int/2addr v2, v3
 
-    invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getHour()I
+    invoke-virtual {v0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getHour()I
 
-    move-result v1
+    move-result v3
 
-    add-int/2addr v0, v1
+    add-int/2addr v2, v3
 
-    invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getMinute()I
+    invoke-virtual {v0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getMinute()I
 
-    move-result v1
+    move-result v3
 
-    add-int/2addr v0, v1
+    add-int/2addr v2, v3
 
-    invoke-virtual {p0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getSecond()I
+    invoke-virtual {v0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getSecond()I
 
-    move-result v1
+    move-result v3
 
-    add-int/2addr v0, v1
+    add-int/2addr v2, v3
 
-    return v0
+    return v2
 
     :cond_0
-    move v0, v1
+    const/4 v1, 0x0
 
     goto :goto_0
 
     :cond_1
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getTimezone()I
 
-    move-result v0
+    move-result v2
 
-    invoke-direct {p0, p0, v0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->normalizeToTimezone(Lmf/javax/xml/datatype/XMLGregorianCalendar;I)Lmf/javax/xml/datatype/XMLGregorianCalendar;
+    invoke-direct {p0, p0, v2}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->normalizeToTimezone(Lmf/javax/xml/datatype/XMLGregorianCalendar;I)Lmf/javax/xml/datatype/XMLGregorianCalendar;
 
-    move-result-object p0
+    move-result-object v0
 
     goto :goto_1
 .end method
@@ -4077,11 +4462,11 @@
 
     iget v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->day:I
 
-    const/16 v1, 0x7d0
+    iget v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->month:I
 
-    iget v2, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->month:I
+    const/16 v2, 0x7d0
 
-    invoke-static {v1, v2}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->maximumDayInMonthFor(II)I
+    invoke-static {v2, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->maximumDayInMonthFor(II)I
 
     move-result v1
 
@@ -4167,9 +4552,9 @@
 
     const/high16 v2, -0x80000000
 
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->timezone:I
+    iget v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->timezone:I
 
-    invoke-direct {p0, p0, v0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->normalizeToTimezone(Lmf/javax/xml/datatype/XMLGregorianCalendar;I)Lmf/javax/xml/datatype/XMLGregorianCalendar;
+    invoke-direct {p0, p0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->normalizeToTimezone(Lmf/javax/xml/datatype/XMLGregorianCalendar;I)Lmf/javax/xml/datatype/XMLGregorianCalendar;
 
     move-result-object v0
 
@@ -4255,11 +4640,11 @@
 .end method
 
 .method public setFractionalSecond(Ljava/math/BigDecimal;)V
-    .locals 5
-
-    const/4 v4, 0x0
+    .locals 4
 
     const/4 v3, 0x0
+
+    const/4 v2, 0x0
 
     if-nez p1, :cond_0
 
@@ -4280,15 +4665,15 @@
     :cond_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "InvalidFractional"
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    aput-object p1, v1, v2
 
-    aput-object p1, v2, v3
+    const-string/jumbo v2, "InvalidFractional"
 
-    invoke-static {v4, v1, v2}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v3, v2, v1}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -4439,60 +4824,60 @@
 .end method
 
 .method public setYear(I)V
-    .locals 3
+    .locals 5
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    const/high16 v0, -0x80000000
+    const/high16 v2, -0x80000000
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v2, :cond_0
 
     invoke-static {p1}, Ljava/lang/Math;->abs(I)I
 
-    move-result v0
+    move-result v2
 
-    const v1, 0x3b9aca00
+    const v3, 0x3b9aca00
 
-    if-lt v0, v1, :cond_1
+    if-lt v2, v3, :cond_1
 
-    int-to-long v0, p1
+    int-to-long v2, p1
 
-    invoke-static {v0, v1}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
-
-    move-result-object v0
-
-    sget-object v1, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->BILLION_B:Ljava/math/BigInteger;
-
-    invoke-virtual {v0, v1}, Ljava/math/BigInteger;->remainder(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-static {v2, v3}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Ljava/math/BigInteger;->intValue()I
+    sget-object v2, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->BILLION_B:Ljava/math/BigInteger;
+
+    invoke-virtual {v1, v2}, Ljava/math/BigInteger;->remainder(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/math/BigInteger;->intValue()I
 
     move-result v2
 
     iput v2, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
 
-    invoke-virtual {v0, v1}, Ljava/math/BigInteger;->subtract(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-virtual {v1, v0}, Ljava/math/BigInteger;->subtract(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-direct {p0, v0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setEon(Ljava/math/BigInteger;)V
+    invoke-direct {p0, v2}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setEon(Ljava/math/BigInteger;)V
 
     :goto_0
     return-void
 
     :cond_0
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
+    iput v2, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
 
-    iput-object v2, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->eon:Ljava/math/BigInteger;
+    iput-object v4, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->eon:Ljava/math/BigInteger;
 
     goto :goto_0
 
     :cond_1
     iput p1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
 
-    iput-object v2, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->eon:Ljava/math/BigInteger;
+    iput-object v4, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->eon:Ljava/math/BigInteger;
 
     goto :goto_0
 .end method
@@ -4500,13 +4885,13 @@
 .method public setYear(Ljava/math/BigInteger;)V
     .locals 2
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     if-eqz p1, :cond_0
 
-    sget-object v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->BILLION_B:Ljava/math/BigInteger;
+    sget-object v1, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->BILLION_B:Ljava/math/BigInteger;
 
-    invoke-virtual {p1, v0}, Ljava/math/BigInteger;->remainder(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-virtual {p1, v1}, Ljava/math/BigInteger;->remainder(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
     move-result-object v0
 
@@ -4518,222 +4903,220 @@
 
     invoke-virtual {p1, v0}, Ljava/math/BigInteger;->subtract(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-direct {p0, v0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setEon(Ljava/math/BigInteger;)V
+    invoke-direct {p0, v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->setEon(Ljava/math/BigInteger;)V
 
     :goto_0
     return-void
 
     :cond_0
-    iput-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->eon:Ljava/math/BigInteger;
+    iput-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->eon:Ljava/math/BigInteger;
 
-    const/high16 v0, -0x80000000
+    const/high16 v1, -0x80000000
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
+    iput v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
 
     goto :goto_0
 .end method
 
 .method public toGregorianCalendar()Ljava/util/GregorianCalendar;
-    .locals 7
+    .locals 10
 
-    const/4 v1, 0x1
+    const/4 v6, 0x1
 
-    const/4 v2, 0x0
+    const/4 v7, 0x0
 
-    const/high16 v6, -0x80000000
+    const/high16 v9, -0x80000000
 
-    invoke-virtual {p0, v6}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getTimeZone(I)Ljava/util/TimeZone;
+    const/4 v3, 0x0
 
-    move-result-object v0
+    const/high16 v0, -0x80000000
+
+    invoke-virtual {p0, v9}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getTimeZone(I)Ljava/util/TimeZone;
+
+    move-result-object v4
 
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
-    move-result-object v3
+    move-result-object v2
 
-    new-instance v4, Ljava/util/GregorianCalendar;
+    new-instance v3, Ljava/util/GregorianCalendar;
 
-    invoke-direct {v4, v0, v3}, Ljava/util/GregorianCalendar;-><init>(Ljava/util/TimeZone;Ljava/util/Locale;)V
+    invoke-direct {v3, v4, v2}, Ljava/util/GregorianCalendar;-><init>(Ljava/util/TimeZone;Ljava/util/Locale;)V
 
-    invoke-virtual {v4}, Ljava/util/GregorianCalendar;->clear()V
+    invoke-virtual {v3}, Ljava/util/GregorianCalendar;->clear()V
 
-    sget-object v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->PURE_GREGORIAN_CHANGE:Ljava/util/Date;
+    sget-object v5, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->PURE_GREGORIAN_CHANGE:Ljava/util/Date;
 
-    invoke-virtual {v4, v0}, Ljava/util/GregorianCalendar;->setGregorianChange(Ljava/util/Date;)V
+    invoke-virtual {v3, v5}, Ljava/util/GregorianCalendar;->setGregorianChange(Ljava/util/Date;)V
 
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
+    iget v5, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
 
-    if-ne v0, v6, :cond_0
+    if-ne v5, v9, :cond_0
 
     :goto_0
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->month:I
+    iget v5, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->month:I
 
-    if-ne v0, v6, :cond_4
+    if-ne v5, v9, :cond_4
 
     :goto_1
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->day:I
+    iget v5, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->day:I
 
-    if-ne v0, v6, :cond_5
+    if-ne v5, v9, :cond_5
 
     :goto_2
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->hour:I
+    iget v5, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->hour:I
 
-    if-ne v0, v6, :cond_6
+    if-ne v5, v9, :cond_6
 
     :goto_3
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->minute:I
+    iget v5, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->minute:I
 
-    if-ne v0, v6, :cond_7
+    if-ne v5, v9, :cond_7
 
     :goto_4
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->second:I
+    iget v5, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->second:I
 
-    if-ne v0, v6, :cond_8
+    if-ne v5, v9, :cond_8
 
     :goto_5
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->fractionalSecond:Ljava/math/BigDecimal;
+    iget-object v5, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->fractionalSecond:Ljava/math/BigDecimal;
 
-    if-nez v0, :cond_9
+    if-nez v5, :cond_9
 
     :goto_6
-    return-object v4
+    return-object v3
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->eon:Ljava/math/BigInteger;
+    iget-object v5, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->eon:Ljava/math/BigInteger;
 
-    if-eqz v0, :cond_1
+    if-eqz v5, :cond_1
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getEonAndYear()Ljava/math/BigInteger;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v3}, Ljava/math/BigInteger;->signum()I
+    invoke-virtual {v1}, Ljava/math/BigInteger;->signum()I
 
-    move-result v0
+    move-result v5
 
-    const/4 v5, -0x1
+    const/4 v8, -0x1
 
-    if-eq v0, v5, :cond_3
+    if-eq v5, v8, :cond_3
 
-    move v0, v1
+    move v5, v6
 
     :goto_7
-    invoke-virtual {v4, v2, v0}, Ljava/util/GregorianCalendar;->set(II)V
+    invoke-virtual {v3, v7, v5}, Ljava/util/GregorianCalendar;->set(II)V
 
-    invoke-virtual {v3}, Ljava/math/BigInteger;->abs()Ljava/math/BigInteger;
+    invoke-virtual {v1}, Ljava/math/BigInteger;->abs()Ljava/math/BigInteger;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-virtual {v0}, Ljava/math/BigInteger;->intValue()I
+    invoke-virtual {v5}, Ljava/math/BigInteger;->intValue()I
 
-    move-result v0
+    move-result v5
 
-    invoke-virtual {v4, v1, v0}, Ljava/util/GregorianCalendar;->set(II)V
+    invoke-virtual {v3, v6, v5}, Ljava/util/GregorianCalendar;->set(II)V
 
     goto :goto_0
 
     :cond_1
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
+    iget v5, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
 
-    if-ltz v0, :cond_2
+    if-ltz v5, :cond_2
 
-    move v0, v1
+    move v5, v6
 
     :goto_8
-    invoke-virtual {v4, v2, v0}, Ljava/util/GregorianCalendar;->set(II)V
+    invoke-virtual {v3, v7, v5}, Ljava/util/GregorianCalendar;->set(II)V
 
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
+    iget v5, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
 
-    invoke-static {v0}, Ljava/lang/Math;->abs(I)I
+    invoke-static {v5}, Ljava/lang/Math;->abs(I)I
 
-    move-result v0
+    move-result v5
 
-    invoke-virtual {v4, v1, v0}, Ljava/util/GregorianCalendar;->set(II)V
+    invoke-virtual {v3, v6, v5}, Ljava/util/GregorianCalendar;->set(II)V
 
     goto :goto_0
 
     :cond_2
-    move v0, v2
+    move v5, v7
 
     goto :goto_8
 
     :cond_3
-    move v0, v2
+    move v5, v7
 
     goto :goto_7
 
     :cond_4
-    const/4 v0, 0x2
+    iget v5, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->month:I
 
-    iget v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->month:I
+    add-int/lit8 v5, v5, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    const/4 v6, 0x2
 
-    invoke-virtual {v4, v0, v1}, Ljava/util/GregorianCalendar;->set(II)V
+    invoke-virtual {v3, v6, v5}, Ljava/util/GregorianCalendar;->set(II)V
 
     goto :goto_1
 
     :cond_5
-    const/4 v0, 0x5
+    iget v5, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->day:I
 
-    iget v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->day:I
+    const/4 v6, 0x5
 
-    invoke-virtual {v4, v0, v1}, Ljava/util/GregorianCalendar;->set(II)V
+    invoke-virtual {v3, v6, v5}, Ljava/util/GregorianCalendar;->set(II)V
 
     goto :goto_2
 
     :cond_6
-    const/16 v0, 0xb
+    iget v5, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->hour:I
 
-    iget v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->hour:I
+    const/16 v6, 0xb
 
-    invoke-virtual {v4, v0, v1}, Ljava/util/GregorianCalendar;->set(II)V
+    invoke-virtual {v3, v6, v5}, Ljava/util/GregorianCalendar;->set(II)V
 
     goto :goto_3
 
     :cond_7
-    const/16 v0, 0xc
+    iget v5, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->minute:I
 
-    iget v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->minute:I
+    const/16 v6, 0xc
 
-    invoke-virtual {v4, v0, v1}, Ljava/util/GregorianCalendar;->set(II)V
+    invoke-virtual {v3, v6, v5}, Ljava/util/GregorianCalendar;->set(II)V
 
     goto :goto_4
 
     :cond_8
-    const/16 v0, 0xd
+    iget v5, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->second:I
 
-    iget v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->second:I
+    const/16 v6, 0xd
 
-    invoke-virtual {v4, v0, v1}, Ljava/util/GregorianCalendar;->set(II)V
+    invoke-virtual {v3, v6, v5}, Ljava/util/GregorianCalendar;->set(II)V
 
     goto :goto_5
 
     :cond_9
-    const/16 v0, 0xe
-
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getMillisecond()I
 
-    move-result v1
+    move-result v5
 
-    invoke-virtual {v4, v0, v1}, Ljava/util/GregorianCalendar;->set(II)V
+    const/16 v6, 0xe
+
+    invoke-virtual {v3, v6, v5}, Ljava/util/GregorianCalendar;->set(II)V
 
     goto :goto_6
 .end method
 
 .method public toGregorianCalendar(Ljava/util/TimeZone;Ljava/util/Locale;Lmf/javax/xml/datatype/XMLGregorianCalendar;)Ljava/util/GregorianCalendar;
-    .locals 8
+    .locals 16
 
-    const/4 v7, -0x1
+    const/4 v11, 0x0
 
-    const/4 v2, 0x1
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x0
-
-    const/high16 v1, -0x80000000
+    move-object/from16 v12, p1
 
     if-eqz p1, :cond_1
 
@@ -4741,114 +5124,154 @@
     if-eqz p2, :cond_3
 
     :goto_1
-    new-instance v5, Ljava/util/GregorianCalendar;
+    new-instance v11, Ljava/util/GregorianCalendar;
 
-    invoke-direct {v5, p1, p2}, Ljava/util/GregorianCalendar;-><init>(Ljava/util/TimeZone;Ljava/util/Locale;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {v5}, Ljava/util/GregorianCalendar;->clear()V
+    invoke-direct {v11, v12, v0}, Ljava/util/GregorianCalendar;-><init>(Ljava/util/TimeZone;Ljava/util/Locale;)V
 
-    sget-object v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->PURE_GREGORIAN_CHANGE:Ljava/util/Date;
+    invoke-virtual {v11}, Ljava/util/GregorianCalendar;->clear()V
 
-    invoke-virtual {v5, v0}, Ljava/util/GregorianCalendar;->setGregorianChange(Ljava/util/Date;)V
+    sget-object v13, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->PURE_GREGORIAN_CHANGE:Ljava/util/Date;
 
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
+    invoke-virtual {v11, v13}, Ljava/util/GregorianCalendar;->setGregorianChange(Ljava/util/Date;)V
 
-    if-ne v0, v1, :cond_4
+    move-object/from16 v0, p0
+
+    iget v13, v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
+
+    const/high16 v14, -0x80000000
+
+    if-ne v13, v14, :cond_4
 
     if-nez p3, :cond_8
 
     :cond_0
     :goto_2
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->month:I
+    move-object/from16 v0, p0
 
-    if-ne v0, v1, :cond_c
+    iget v13, v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->month:I
+
+    const/high16 v14, -0x80000000
+
+    if-ne v13, v14, :cond_c
 
     if-nez p3, :cond_d
 
-    move v0, v1
+    const/high16 v6, -0x80000000
 
     :goto_3
-    if-ne v0, v1, :cond_e
+    const/high16 v13, -0x80000000
+
+    if-ne v6, v13, :cond_e
 
     :goto_4
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->day:I
+    move-object/from16 v0, p0
 
-    if-ne v0, v1, :cond_f
+    iget v13, v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->day:I
+
+    const/high16 v14, -0x80000000
+
+    if-ne v13, v14, :cond_f
 
     if-nez p3, :cond_10
 
-    move v0, v1
+    const/high16 v1, -0x80000000
 
     :goto_5
-    if-ne v0, v1, :cond_11
+    const/high16 v13, -0x80000000
+
+    if-ne v1, v13, :cond_11
 
     :goto_6
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->hour:I
+    move-object/from16 v0, p0
 
-    if-ne v0, v1, :cond_12
+    iget v13, v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->hour:I
+
+    const/high16 v14, -0x80000000
+
+    if-ne v13, v14, :cond_12
 
     if-nez p3, :cond_13
 
-    move v0, v1
+    const/high16 v4, -0x80000000
 
     :goto_7
-    if-ne v0, v1, :cond_14
+    const/high16 v13, -0x80000000
+
+    if-ne v4, v13, :cond_14
 
     :goto_8
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->minute:I
+    move-object/from16 v0, p0
 
-    if-ne v0, v1, :cond_15
+    iget v13, v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->minute:I
+
+    const/high16 v14, -0x80000000
+
+    if-ne v13, v14, :cond_15
 
     if-nez p3, :cond_16
 
-    move v0, v1
+    const/high16 v5, -0x80000000
 
     :goto_9
-    if-ne v0, v1, :cond_17
+    const/high16 v13, -0x80000000
+
+    if-ne v5, v13, :cond_17
 
     :goto_a
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->second:I
+    move-object/from16 v0, p0
 
-    if-ne v0, v1, :cond_18
+    iget v13, v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->second:I
+
+    const/high16 v14, -0x80000000
+
+    if-ne v13, v14, :cond_18
 
     if-nez p3, :cond_19
 
-    move v0, v1
+    const/high16 v7, -0x80000000
 
     :goto_b
-    if-ne v0, v1, :cond_1a
+    const/high16 v13, -0x80000000
+
+    if-ne v7, v13, :cond_1a
 
     :goto_c
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->fractionalSecond:Ljava/math/BigDecimal;
+    move-object/from16 v0, p0
 
-    if-nez v0, :cond_1b
+    iget-object v13, v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->fractionalSecond:Ljava/math/BigDecimal;
+
+    if-nez v13, :cond_1b
 
     if-nez p3, :cond_1c
 
-    move-object v0, v4
+    const/4 v3, 0x0
 
     :goto_d
-    if-nez v0, :cond_1d
+    if-nez v3, :cond_1d
 
     :goto_e
-    return-object v5
+    return-object v11
 
     :cond_1
+    const/high16 v9, -0x80000000
+
     if-nez p3, :cond_2
 
-    move v0, v1
-
     :goto_f
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getTimeZone(I)Ljava/util/TimeZone;
+    move-object/from16 v0, p0
 
-    move-result-object p1
+    invoke-virtual {v0, v9}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getTimeZone(I)Ljava/util/TimeZone;
 
-    goto :goto_0
+    move-result-object v12
+
+    goto/16 :goto_0
 
     :cond_2
-    invoke-virtual {p3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getTimezone()I
+    invoke-virtual/range {p3 .. p3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getTimezone()I
 
-    move-result v0
+    move-result v9
 
     goto :goto_f
 
@@ -4857,281 +5280,319 @@
 
     move-result-object p2
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :cond_4
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->eon:Ljava/math/BigInteger;
+    move-object/from16 v0, p0
 
-    if-eqz v0, :cond_5
+    iget-object v13, v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->eon:Ljava/math/BigInteger;
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getEonAndYear()Ljava/math/BigInteger;
+    if-eqz v13, :cond_5
 
-    move-result-object v6
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getEonAndYear()Ljava/math/BigInteger;
 
-    invoke-virtual {v6}, Ljava/math/BigInteger;->signum()I
+    move-result-object v10
 
-    move-result v0
+    invoke-virtual {v10}, Ljava/math/BigInteger;->signum()I
 
-    if-eq v0, v7, :cond_7
+    move-result v13
 
-    move v0, v2
+    const/4 v14, 0x0
+
+    const/4 v15, -0x1
+
+    if-eq v13, v15, :cond_7
+
+    const/4 v13, 0x1
 
     :goto_10
-    invoke-virtual {v5, v3, v0}, Ljava/util/GregorianCalendar;->set(II)V
+    invoke-virtual {v11, v14, v13}, Ljava/util/GregorianCalendar;->set(II)V
 
-    invoke-virtual {v6}, Ljava/math/BigInteger;->abs()Ljava/math/BigInteger;
+    invoke-virtual {v10}, Ljava/math/BigInteger;->abs()Ljava/math/BigInteger;
 
-    move-result-object v0
+    move-result-object v13
 
-    invoke-virtual {v0}, Ljava/math/BigInteger;->intValue()I
+    invoke-virtual {v13}, Ljava/math/BigInteger;->intValue()I
 
-    move-result v0
+    move-result v13
 
-    invoke-virtual {v5, v2, v0}, Ljava/util/GregorianCalendar;->set(II)V
+    const/4 v14, 0x1
 
-    goto :goto_2
+    invoke-virtual {v11, v14, v13}, Ljava/util/GregorianCalendar;->set(II)V
+
+    goto/16 :goto_2
 
     :cond_5
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
+    move-object/from16 v0, p0
 
-    if-ltz v0, :cond_6
+    iget v13, v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
 
-    move v0, v2
+    const/4 v14, 0x0
+
+    if-ltz v13, :cond_6
+
+    const/4 v13, 0x1
 
     :goto_11
-    invoke-virtual {v5, v3, v0}, Ljava/util/GregorianCalendar;->set(II)V
+    invoke-virtual {v11, v14, v13}, Ljava/util/GregorianCalendar;->set(II)V
 
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
+    move-object/from16 v0, p0
 
-    invoke-static {v0}, Ljava/lang/Math;->abs(I)I
+    iget v13, v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->year:I
 
-    move-result v0
+    invoke-static {v13}, Ljava/lang/Math;->abs(I)I
 
-    invoke-virtual {v5, v2, v0}, Ljava/util/GregorianCalendar;->set(II)V
+    move-result v13
 
-    goto :goto_2
+    const/4 v14, 0x1
+
+    invoke-virtual {v11, v14, v13}, Ljava/util/GregorianCalendar;->set(II)V
+
+    goto/16 :goto_2
 
     :cond_6
-    move v0, v3
+    const/4 v13, 0x0
 
     goto :goto_11
 
     :cond_7
-    move v0, v3
+    const/4 v13, 0x0
 
     goto :goto_10
 
     :cond_8
-    invoke-virtual {p3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getYear()I
+    invoke-virtual/range {p3 .. p3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getYear()I
 
-    move-result v6
+    move-result v8
 
-    if-eq v6, v1, :cond_0
+    const/high16 v13, -0x80000000
 
-    invoke-virtual {p3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getEon()Ljava/math/BigInteger;
+    if-eq v8, v13, :cond_0
 
-    move-result-object v0
+    invoke-virtual/range {p3 .. p3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getEon()Ljava/math/BigInteger;
 
-    if-eqz v0, :cond_9
+    move-result-object v13
 
-    invoke-virtual {p3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getEonAndYear()Ljava/math/BigInteger;
+    if-eqz v13, :cond_9
 
-    move-result-object v6
+    invoke-virtual/range {p3 .. p3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getEonAndYear()Ljava/math/BigInteger;
 
-    invoke-virtual {v6}, Ljava/math/BigInteger;->signum()I
+    move-result-object v2
 
-    move-result v0
+    invoke-virtual {v2}, Ljava/math/BigInteger;->signum()I
 
-    if-eq v0, v7, :cond_b
+    move-result v13
 
-    move v0, v2
+    const/4 v14, 0x0
+
+    const/4 v15, -0x1
+
+    if-eq v13, v15, :cond_b
+
+    const/4 v13, 0x1
 
     :goto_12
-    invoke-virtual {v5, v3, v0}, Ljava/util/GregorianCalendar;->set(II)V
+    invoke-virtual {v11, v14, v13}, Ljava/util/GregorianCalendar;->set(II)V
 
-    invoke-virtual {v6}, Ljava/math/BigInteger;->abs()Ljava/math/BigInteger;
+    invoke-virtual {v2}, Ljava/math/BigInteger;->abs()Ljava/math/BigInteger;
 
-    move-result-object v0
+    move-result-object v13
 
-    invoke-virtual {v0}, Ljava/math/BigInteger;->intValue()I
+    invoke-virtual {v13}, Ljava/math/BigInteger;->intValue()I
 
-    move-result v0
+    move-result v13
 
-    invoke-virtual {v5, v2, v0}, Ljava/util/GregorianCalendar;->set(II)V
+    const/4 v14, 0x1
+
+    invoke-virtual {v11, v14, v13}, Ljava/util/GregorianCalendar;->set(II)V
 
     goto/16 :goto_2
 
     :cond_9
-    if-ltz v6, :cond_a
+    const/4 v14, 0x0
 
-    move v0, v2
+    if-ltz v8, :cond_a
+
+    const/4 v13, 0x1
 
     :goto_13
-    invoke-virtual {v5, v3, v0}, Ljava/util/GregorianCalendar;->set(II)V
+    invoke-virtual {v11, v14, v13}, Ljava/util/GregorianCalendar;->set(II)V
 
-    invoke-static {v6}, Ljava/lang/Math;->abs(I)I
+    invoke-static {v8}, Ljava/lang/Math;->abs(I)I
 
-    move-result v0
+    move-result v13
 
-    invoke-virtual {v5, v2, v0}, Ljava/util/GregorianCalendar;->set(II)V
+    const/4 v14, 0x1
+
+    invoke-virtual {v11, v14, v13}, Ljava/util/GregorianCalendar;->set(II)V
 
     goto/16 :goto_2
 
     :cond_a
-    move v0, v3
+    const/4 v13, 0x0
 
     goto :goto_13
 
     :cond_b
-    move v0, v3
+    const/4 v13, 0x0
 
     goto :goto_12
 
     :cond_c
-    const/4 v0, 0x2
+    move-object/from16 v0, p0
 
-    iget v2, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->month:I
+    iget v13, v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->month:I
 
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 v13, v13, -0x1
 
-    invoke-virtual {v5, v0, v2}, Ljava/util/GregorianCalendar;->set(II)V
+    const/4 v14, 0x2
+
+    invoke-virtual {v11, v14, v13}, Ljava/util/GregorianCalendar;->set(II)V
 
     goto/16 :goto_4
 
     :cond_d
-    invoke-virtual {p3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getMonth()I
+    invoke-virtual/range {p3 .. p3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getMonth()I
 
-    move-result v0
+    move-result v6
 
     goto/16 :goto_3
 
     :cond_e
-    const/4 v2, 0x2
+    add-int/lit8 v13, v6, -0x1
 
-    add-int/lit8 v0, v0, -0x1
+    const/4 v14, 0x2
 
-    invoke-virtual {v5, v2, v0}, Ljava/util/GregorianCalendar;->set(II)V
+    invoke-virtual {v11, v14, v13}, Ljava/util/GregorianCalendar;->set(II)V
 
     goto/16 :goto_4
 
     :cond_f
-    const/4 v0, 0x5
+    move-object/from16 v0, p0
 
-    iget v2, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->day:I
+    iget v13, v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->day:I
 
-    invoke-virtual {v5, v0, v2}, Ljava/util/GregorianCalendar;->set(II)V
+    const/4 v14, 0x5
+
+    invoke-virtual {v11, v14, v13}, Ljava/util/GregorianCalendar;->set(II)V
 
     goto/16 :goto_6
 
     :cond_10
-    invoke-virtual {p3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getDay()I
+    invoke-virtual/range {p3 .. p3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getDay()I
 
-    move-result v0
+    move-result v1
 
     goto/16 :goto_5
 
     :cond_11
-    const/4 v2, 0x5
+    const/4 v13, 0x5
 
-    invoke-virtual {v5, v2, v0}, Ljava/util/GregorianCalendar;->set(II)V
+    invoke-virtual {v11, v13, v1}, Ljava/util/GregorianCalendar;->set(II)V
 
     goto/16 :goto_6
 
     :cond_12
-    const/16 v0, 0xb
+    move-object/from16 v0, p0
 
-    iget v2, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->hour:I
+    iget v13, v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->hour:I
 
-    invoke-virtual {v5, v0, v2}, Ljava/util/GregorianCalendar;->set(II)V
+    const/16 v14, 0xb
+
+    invoke-virtual {v11, v14, v13}, Ljava/util/GregorianCalendar;->set(II)V
 
     goto/16 :goto_8
 
     :cond_13
-    invoke-virtual {p3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getHour()I
+    invoke-virtual/range {p3 .. p3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getHour()I
 
-    move-result v0
+    move-result v4
 
     goto/16 :goto_7
 
     :cond_14
-    const/16 v2, 0xb
+    const/16 v13, 0xb
 
-    invoke-virtual {v5, v2, v0}, Ljava/util/GregorianCalendar;->set(II)V
+    invoke-virtual {v11, v13, v4}, Ljava/util/GregorianCalendar;->set(II)V
 
     goto/16 :goto_8
 
     :cond_15
-    const/16 v0, 0xc
+    move-object/from16 v0, p0
 
-    iget v2, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->minute:I
+    iget v13, v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->minute:I
 
-    invoke-virtual {v5, v0, v2}, Ljava/util/GregorianCalendar;->set(II)V
+    const/16 v14, 0xc
+
+    invoke-virtual {v11, v14, v13}, Ljava/util/GregorianCalendar;->set(II)V
 
     goto/16 :goto_a
 
     :cond_16
-    invoke-virtual {p3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getMinute()I
+    invoke-virtual/range {p3 .. p3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getMinute()I
 
-    move-result v0
+    move-result v5
 
     goto/16 :goto_9
 
     :cond_17
-    const/16 v2, 0xc
+    const/16 v13, 0xc
 
-    invoke-virtual {v5, v2, v0}, Ljava/util/GregorianCalendar;->set(II)V
+    invoke-virtual {v11, v13, v5}, Ljava/util/GregorianCalendar;->set(II)V
 
     goto/16 :goto_a
 
     :cond_18
-    const/16 v0, 0xd
+    move-object/from16 v0, p0
 
-    iget v1, p0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->second:I
+    iget v13, v0, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->second:I
 
-    invoke-virtual {v5, v0, v1}, Ljava/util/GregorianCalendar;->set(II)V
+    const/16 v14, 0xd
+
+    invoke-virtual {v11, v14, v13}, Ljava/util/GregorianCalendar;->set(II)V
 
     goto/16 :goto_c
 
     :cond_19
-    invoke-virtual {p3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getSecond()I
+    invoke-virtual/range {p3 .. p3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getSecond()I
 
-    move-result v0
+    move-result v7
 
     goto/16 :goto_b
 
     :cond_1a
-    const/16 v1, 0xd
+    const/16 v13, 0xd
 
-    invoke-virtual {v5, v1, v0}, Ljava/util/GregorianCalendar;->set(II)V
+    invoke-virtual {v11, v13, v7}, Ljava/util/GregorianCalendar;->set(II)V
 
     goto/16 :goto_c
 
     :cond_1b
-    const/16 v0, 0xe
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getMillisecond()I
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->getMillisecond()I
+    move-result v13
 
-    move-result v1
+    const/16 v14, 0xe
 
-    invoke-virtual {v5, v0, v1}, Ljava/util/GregorianCalendar;->set(II)V
+    invoke-virtual {v11, v14, v13}, Ljava/util/GregorianCalendar;->set(II)V
 
     goto/16 :goto_e
 
     :cond_1c
-    invoke-virtual {p3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getFractionalSecond()Ljava/math/BigDecimal;
+    invoke-virtual/range {p3 .. p3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getFractionalSecond()Ljava/math/BigDecimal;
 
-    move-result-object v0
+    move-result-object v3
 
     goto/16 :goto_d
 
     :cond_1d
-    const/16 v0, 0xe
+    invoke-virtual/range {p3 .. p3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getMillisecond()I
 
-    invoke-virtual {p3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->getMillisecond()I
+    move-result v13
 
-    move-result v1
+    const/16 v14, 0xe
 
-    invoke-virtual {v5, v0, v1}, Ljava/util/GregorianCalendar;->set(II)V
+    invoke-virtual {v11, v14, v13}, Ljava/util/GregorianCalendar;->set(II)V
 
     goto/16 :goto_e
 .end method
@@ -5180,9 +5641,9 @@
     :goto_0
     invoke-direct {p0, v0}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->format(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 
     :cond_0
     const-string/jumbo v0, "%Y-%M-%DT%h:%m:%s%z"

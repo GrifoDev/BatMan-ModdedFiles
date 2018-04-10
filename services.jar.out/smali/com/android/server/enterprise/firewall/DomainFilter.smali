@@ -1762,24 +1762,16 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_7
 
     invoke-interface {v8}, Ljava/util/List;->isEmpty()Z
 
     move-result v12
 
+    xor-int/lit8 v12, v12, 0x1
+
     if-eqz v12, :cond_7
 
-    :cond_6
-    iget-object v12, v2, Landroid/app/ActivityManager$RunningAppProcessInfo;->pkgList:[Ljava/lang/String;
-
-    const/4 v13, 0x0
-
-    aget-object v12, v12, v13
-
-    return-object v12
-
-    :cond_7
     iget-object v12, v2, Landroid/app/ActivityManager$RunningAppProcessInfo;->pkgList:[Ljava/lang/String;
 
     invoke-static {v12}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
@@ -1790,12 +1782,12 @@
 
     move-result-object v7
 
-    :cond_8
+    :cond_6
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v12
 
-    if-eqz v12, :cond_6
+    if-eqz v12, :cond_7
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1813,9 +1805,18 @@
 
     move-result v12
 
-    if-eqz v12, :cond_8
+    if-eqz v12, :cond_6
 
     return-object v9
+
+    :cond_7
+    iget-object v12, v2, Landroid/app/ActivityManager$RunningAppProcessInfo;->pkgList:[Ljava/lang/String;
+
+    const/4 v13, 0x0
+
+    aget-object v12, v12, v13
+
+    return-object v12
 .end method
 
 .method private hasAnyRuleInDatabase()Z
@@ -1931,13 +1932,17 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    xor-int/lit8 v4, v4, 0x1
+
+    if-nez v4, :cond_3
 
     invoke-static {v15}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v4
 
-    if-nez v4, :cond_2
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_2
 
     :cond_3
     const-string/jumbo v4, "adminUid"
@@ -2527,7 +2532,9 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    xor-int/lit8 v2, v2, 0x1
+
+    if-nez v2, :cond_1
 
     :cond_2
     if-nez p2, :cond_3
@@ -2927,7 +2934,7 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_7
 
     new-instance v14, Ljava/util/HashMap;
 
@@ -2994,50 +3001,16 @@
 
     move-result-object v10
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_6
 
     invoke-interface {v10}, Ljava/util/List;->isEmpty()Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    xor-int/lit8 v3, v3, 0x1
 
-    :cond_3
-    :goto_1
-    return-void
+    if-eqz v3, :cond_6
 
-    :cond_4
-    :try_start_1
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Lcom/android/server/enterprise/firewall/DomainFilter;->mUserIdMap:Ljava/util/Map;
-
-    invoke-interface {v3, v13}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/util/Map;
-
-    new-instance v5, Ljava/lang/Integer;
-
-    move/from16 v0, v19
-
-    invoke-direct {v5, v0}, Ljava/lang/Integer;-><init>(I)V
-
-    invoke-interface {v3, v15, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v3
-
-    monitor-exit v4
-
-    throw v3
-
-    :cond_5
     const/4 v3, 0x0
 
     invoke-interface {v10, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -3058,7 +3031,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_3
 
     move-object/from16 v0, p0
 
@@ -3070,9 +3043,9 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_6
 
-    :cond_6
+    :cond_3
     const-string/jumbo v3, "blacklist"
 
     move-object/from16 v0, p0
@@ -3105,28 +3078,32 @@
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_4
 
     invoke-static {v8}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    xor-int/lit8 v3, v3, 0x1
+
+    if-nez v3, :cond_4
 
     invoke-static {v11}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-nez v3, :cond_3
+    xor-int/lit8 v3, v3, 0x1
 
-    :cond_7
+    if-eqz v3, :cond_6
+
+    :cond_4
     const/4 v12, -0x1
 
     invoke-static {v11}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_5
 
     const-string/jumbo v3, "dns2"
 
@@ -3144,7 +3121,7 @@
 
     const/4 v3, -0x1
 
-    if-eq v12, v3, :cond_8
+    if-eq v12, v3, :cond_5
 
     const-string/jumbo v3, "networkId"
 
@@ -3168,7 +3145,7 @@
 
     invoke-virtual {v3, v4, v0, v1}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->put(Ljava/lang/String;Landroid/content/ContentValues;Landroid/content/ContentValues;)Z
 
-    :cond_8
+    :cond_5
     const-string/jumbo v4, "ADD"
 
     invoke-static/range {v19 .. v19}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
@@ -3185,7 +3162,39 @@
 
     invoke-direct/range {v3 .. v9}, Lcom/android/server/enterprise/firewall/DomainFilter;->sendToCache(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    goto/16 :goto_1
+    :cond_6
+    return-void
+
+    :cond_7
+    :try_start_1
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/server/enterprise/firewall/DomainFilter;->mUserIdMap:Ljava/util/Map;
+
+    invoke-interface {v3, v13}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/util/Map;
+
+    new-instance v5, Ljava/lang/Integer;
+
+    move/from16 v0, v19
+
+    invoke-direct {v5, v0}, Ljava/lang/Integer;-><init>(I)V
+
+    invoke-interface {v3, v15, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto/16 :goto_0
+
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v4
+
+    throw v3
 .end method
 
 .method private packageRemoved(Landroid/content/Intent;)V
@@ -3394,7 +3403,7 @@
     invoke-virtual {v1, v2, v14, v15}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->put(Ljava/lang/String;Landroid/content/ContentValues;Landroid/content/ContentValues;)Z
 
     :cond_3
-    const-string/jumbo v2, "REMOVE"
+    const-string/jumbo v2, "CLEAR"
 
     invoke-static/range {v16 .. v16}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3485,8 +3494,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
 
+    if-eqz v0, :cond_3
+
+    :cond_2
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/firewall/DomainFilter;->packageAdded(Landroid/content/Intent;)V
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+
+    :cond_3
     invoke-interface {v7, v10}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -3501,7 +3525,7 @@
 
     move-result v8
 
-    if-ne v8, v3, :cond_3
+    if-ne v8, v3, :cond_4
 
     sget-object v0, Lcom/android/server/enterprise/firewall/DomainFilter;->TAG:Ljava/lang/String;
 
@@ -3511,19 +3535,7 @@
 
     return-void
 
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-
-    throw v0
-
-    :cond_2
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/firewall/DomainFilter;->packageAdded(Landroid/content/Intent;)V
-
-    return-void
-
-    :cond_3
+    :cond_4
     iget-object v1, p0, Lcom/android/server/enterprise/firewall/DomainFilter;->mUserIdMapLock:Ljava/lang/Object;
 
     monitor-enter v1
@@ -3551,7 +3563,7 @@
 
     monitor-exit v1
 
-    if-eq v9, v8, :cond_4
+    if-eq v9, v8, :cond_5
 
     const-string/jumbo v1, "REPLACE"
 
@@ -3571,7 +3583,7 @@
 
     invoke-direct/range {v0 .. v6}, Lcom/android/server/enterprise/firewall/DomainFilter;->sendToCache(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_4
+    :cond_5
     return-void
 
     :catchall_1
@@ -4123,37 +4135,35 @@
 .end method
 
 .method private releaseNetworks(I)V
-    .locals 12
+    .locals 11
 
-    const/4 v11, 0x0
-
-    const/4 v8, -0x1
+    const/4 v10, 0x0
 
     new-instance v7, Landroid/content/ContentValues;
 
     invoke-direct {v7}, Landroid/content/ContentValues;-><init>()V
 
-    const-string/jumbo v9, "adminUid"
+    const-string/jumbo v8, "adminUid"
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v10
+    move-result-object v9
 
-    invoke-virtual {v7, v9, v10}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    invoke-virtual {v7, v8, v9}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    const/4 v9, 0x1
+    const/4 v8, 0x1
 
-    new-array v1, v9, [Ljava/lang/String;
+    new-array v1, v8, [Ljava/lang/String;
 
-    const-string/jumbo v9, "networkId"
+    const-string/jumbo v8, "networkId"
 
-    aput-object v9, v1, v11
+    aput-object v8, v1, v10
 
-    iget-object v9, p0, Lcom/android/server/enterprise/firewall/DomainFilter;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v8, p0, Lcom/android/server/enterprise/firewall/DomainFilter;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v10, "DomainFilterTable"
+    const-string/jumbo v9, "DomainFilterTable"
 
-    invoke-virtual {v9, v10, v1, v7}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getValues(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;)Ljava/util/List;
+    invoke-virtual {v8, v9, v1, v7}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getValues(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;)Ljava/util/List;
 
     move-result-object v4
 
@@ -4161,9 +4171,9 @@
 
     invoke-interface {v4}, Ljava/util/List;->isEmpty()Z
 
-    move-result v9
+    move-result v8
 
-    if-eqz v9, :cond_1
+    if-eqz v8, :cond_1
 
     :cond_0
     return-void
@@ -4177,9 +4187,9 @@
     :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v9
+    move-result v8
 
-    if-eqz v9, :cond_4
+    if-eqz v8, :cond_4
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4187,9 +4197,9 @@
 
     check-cast v2, Landroid/content/ContentValues;
 
-    const-string/jumbo v9, "networkId"
+    const-string/jumbo v8, "networkId"
 
-    invoke-virtual {v2, v9}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+    invoke-virtual {v2, v8}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
 
     move-result-object v0
 
@@ -4200,26 +4210,28 @@
     move-result v6
 
     :goto_1
+    const/4 v8, -0x1
+
     if-eq v6, v8, :cond_2
 
-    iget-object v9, p0, Lcom/android/server/enterprise/firewall/DomainFilter;->mNetworkHandler:Lcom/android/server/enterprise/firewall/DomainFilter$NetworkManagementHandler;
+    iget-object v8, p0, Lcom/android/server/enterprise/firewall/DomainFilter;->mNetworkHandler:Lcom/android/server/enterprise/firewall/DomainFilter$NetworkManagementHandler;
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v10
+    move-result-object v9
 
-    invoke-static {v9, v11, v10}, Landroid/os/Message;->obtain(Landroid/os/Handler;ILjava/lang/Object;)Landroid/os/Message;
+    invoke-static {v8, v10, v9}, Landroid/os/Message;->obtain(Landroid/os/Handler;ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v5
 
-    iget-object v9, p0, Lcom/android/server/enterprise/firewall/DomainFilter;->mNetworkHandler:Lcom/android/server/enterprise/firewall/DomainFilter$NetworkManagementHandler;
+    iget-object v8, p0, Lcom/android/server/enterprise/firewall/DomainFilter;->mNetworkHandler:Lcom/android/server/enterprise/firewall/DomainFilter$NetworkManagementHandler;
 
-    invoke-virtual {v9, v5}, Lcom/android/server/enterprise/firewall/DomainFilter$NetworkManagementHandler;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {v8, v5}, Lcom/android/server/enterprise/firewall/DomainFilter$NetworkManagementHandler;->sendMessage(Landroid/os/Message;)Z
 
     goto :goto_0
 
     :cond_3
-    move v6, v8
+    const/4 v6, -0x1
 
     goto :goto_1
 
@@ -4527,13 +4539,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_8
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_7
-    :goto_0
-    return-void
+    if-eqz v2, :cond_7
 
-    :cond_8
     const-string/jumbo v2, "NETID"
 
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -4542,7 +4551,8 @@
 
     invoke-direct {p0, v1}, Lcom/android/server/enterprise/firewall/DomainFilter;->executeCommand(Ljava/util/ArrayList;)V
 
-    goto :goto_0
+    :cond_7
+    return-void
 .end method
 
 .method private setupNetworkDns(Ljava/lang/String;Ljava/lang/String;)I
@@ -4615,7 +4625,13 @@
 
     const/4 v5, 0x1
 
-    const/4 v10, 0x2
+    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_4
+
+    const/4 v10, 0x1
 
     new-array v0, v10, [Ljava/lang/String;
 
@@ -4623,15 +4639,12 @@
 
     aput-object p1, v0, v10
 
-    const/4 v10, 0x1
-
-    aput-object p2, v0, v10
-
+    :goto_0
     iget-object v10, p0, Lcom/android/server/enterprise/firewall/DomainFilter;->mNetworkService:Landroid/os/INetworkManagementService;
 
     const-string/jumbo v11, ""
 
-    invoke-interface {v10, v6, v0, v11}, Landroid/os/INetworkManagementService;->setDnsServersForNetwork(I[Ljava/lang/String;Ljava/lang/String;)V
+    invoke-interface {v10, v6, v0, v11}, Landroid/os/INetworkManagementService;->setDnsConfigurationForNetwork(I[Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v11, p0, Lcom/android/server/enterprise/firewall/DomainFilter;->mNetworkIdListLock:Ljava/lang/Object;
 
@@ -4646,7 +4659,7 @@
 
     new-instance v12, Lcom/android/server/enterprise/firewall/DomainFilter$NetworkIdInfo;
 
-    invoke-direct {v12, p0, v6, p1, p2}, Lcom/android/server/enterprise/firewall/DomainFilter$NetworkIdInfo;-><init>(Lcom/android/server/enterprise/firewall/DomainFilter;ILjava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v12, v6, p1, p2}, Lcom/android/server/enterprise/firewall/DomainFilter$NetworkIdInfo;-><init>(ILjava/lang/String;Ljava/lang/String;)V
 
     invoke-interface {v10, v12}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_1
@@ -4663,15 +4676,30 @@
 
     invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    :goto_0
+    :goto_1
     if-nez v7, :cond_3
 
     return v6
 
+    :cond_4
+    const/4 v10, 0x2
+
+    :try_start_3
+    new-array v0, v10, [Ljava/lang/String;
+
+    const/4 v10, 0x0
+
+    aput-object p1, v0, v10
+
+    const/4 v10, 0x1
+
+    aput-object p2, v0, v10
+
+    goto :goto_0
+
     :catchall_0
     move-exception v10
 
-    :try_start_3
     monitor-exit v11
 
     throw v10
@@ -4687,12 +4715,12 @@
 
     invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    goto :goto_0
+    goto :goto_1
 
     :catch_1
     move-exception v1
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_5
 
     :try_start_4
     sget-object v10, Lcom/android/server/enterprise/firewall/DomainFilter;->TAG:Ljava/lang/String;
@@ -4727,7 +4755,7 @@
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_2
     .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
-    :goto_1
+    :goto_2
     :try_start_6
     iget-object v10, p0, Lcom/android/server/enterprise/firewall/DomainFilter;->mConnectivityService:Landroid/net/IConnectivityManager;
 
@@ -4736,10 +4764,10 @@
     .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_3
     .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
-    :goto_2
+    :goto_3
     invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    goto :goto_0
+    goto :goto_1
 
     :catch_2
     move-exception v2
@@ -4773,7 +4801,7 @@
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
-    goto :goto_1
+    goto :goto_2
 
     :catchall_1
     move-exception v10
@@ -4782,7 +4810,7 @@
 
     throw v10
 
-    :cond_4
+    :cond_5
     :try_start_8
     sget-object v10, Lcom/android/server/enterprise/firewall/DomainFilter;->TAG:Ljava/lang/String;
 
@@ -4812,12 +4840,12 @@
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_1
 
-    goto :goto_1
+    goto :goto_2
 
     :catch_3
     move-exception v3
 
-    goto :goto_2
+    goto :goto_3
 .end method
 
 .method private trimDomainUrls(Ljava/util/List;)V
@@ -5665,7 +5693,7 @@
 
     move/from16 v1, v33
 
-    if-ge v0, v1, :cond_1c
+    if-ge v0, v1, :cond_19
 
     move-object/from16 v0, p2
 
@@ -5727,18 +5755,15 @@
 
     move-result v33
 
-    if-eqz v33, :cond_6
+    xor-int/lit8 v17, v33, 0x1
 
-    const/16 v17, 0x0
-
-    :goto_2
-    if-nez v17, :cond_8
+    if-nez v17, :cond_7
 
     invoke-static {v13}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v33
 
-    if-eqz v33, :cond_8
+    if-eqz v33, :cond_7
 
     invoke-virtual/range {v24 .. v24}, Lcom/samsung/android/knox/net/firewall/DomainFilterRule;->getDenyDomains()Ljava/util/List;
 
@@ -5750,7 +5775,7 @@
 
     move-result-object v33
 
-    if-nez v33, :cond_7
+    if-nez v33, :cond_6
 
     :cond_5
     new-instance v33, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
@@ -5768,11 +5793,6 @@
     goto :goto_1
 
     :cond_6
-    const/16 v17, 0x1
-
-    goto :goto_2
-
-    :cond_7
     invoke-virtual/range {v24 .. v24}, Lcom/samsung/android/knox/net/firewall/DomainFilterRule;->getDenyDomains()Ljava/util/List;
 
     move-result-object v33
@@ -5781,7 +5801,7 @@
 
     move-result v33
 
-    if-eqz v33, :cond_8
+    if-eqz v33, :cond_7
 
     invoke-virtual/range {v24 .. v24}, Lcom/samsung/android/knox/net/firewall/DomainFilterRule;->getAllowDomains()Ljava/util/List;
 
@@ -5793,7 +5813,7 @@
 
     if-nez v33, :cond_5
 
-    :cond_8
+    :cond_7
     invoke-virtual/range {v24 .. v24}, Lcom/samsung/android/knox/net/firewall/DomainFilterRule;->getApplication()Lcom/samsung/android/knox/AppIdentity;
 
     move-result-object v33
@@ -5834,7 +5854,7 @@
 
     move-result v33
 
-    if-nez v33, :cond_9
+    if-nez v33, :cond_8
 
     move-object/from16 v0, p0
 
@@ -5848,7 +5868,7 @@
 
     move-result v28
 
-    :cond_9
+    :cond_8
     const/4 v8, 0x1
 
     const-string/jumbo v33, "*"
@@ -5861,7 +5881,7 @@
 
     move-result v33
 
-    if-nez v33, :cond_a
+    if-nez v33, :cond_9
 
     move-object/from16 v0, p0
 
@@ -5873,10 +5893,10 @@
 
     move-result v8
 
-    :cond_a
-    if-nez v28, :cond_b
+    :cond_9
+    if-nez v28, :cond_a
 
-    if-eqz v8, :cond_b
+    if-eqz v8, :cond_a
 
     new-instance v33, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
 
@@ -5892,16 +5912,18 @@
 
     goto/16 :goto_1
 
-    :cond_b
-    if-nez v17, :cond_c
+    :cond_a
+    if-nez v17, :cond_b
 
     invoke-static {v13}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v33
 
-    if-eqz v33, :cond_e
+    xor-int/lit8 v33, v33, 0x1
 
-    :cond_c
+    if-nez v33, :cond_c
+
+    :cond_b
     if-eqz v17, :cond_d
 
     move-object/from16 v0, p0
@@ -5910,7 +5932,24 @@
 
     move-result v33
 
-    if-eqz v33, :cond_e
+    xor-int/lit8 v33, v33, 0x1
+
+    if-eqz v33, :cond_d
+
+    :cond_c
+    new-instance v33, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
+
+    sget-object v34, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->FAILED:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
+
+    sget-object v35, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->INVALID_PARAMETER_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
+
+    const-string/jumbo v36, "Invalid DNS(s) provided"
+
+    invoke-direct/range {v33 .. v36}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
+
+    aput-object v33, v23, v18
+
+    goto/16 :goto_1
 
     :cond_d
     move-object/from16 v0, p0
@@ -5921,7 +5960,7 @@
 
     move-result v33
 
-    if-nez v33, :cond_f
+    if-nez v33, :cond_e
 
     new-instance v33, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
 
@@ -5938,21 +5977,6 @@
     goto/16 :goto_1
 
     :cond_e
-    new-instance v33, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
-
-    sget-object v34, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->FAILED:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
-
-    sget-object v35, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->INVALID_PARAMETER_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
-
-    const-string/jumbo v36, "Invalid DNS(s) provided"
-
-    invoke-direct/range {v33 .. v36}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
-
-    aput-object v33, v23, v18
-
-    goto/16 :goto_1
-
-    :cond_f
     new-instance v30, Landroid/content/ContentValues;
 
     invoke-direct/range {v30 .. v30}, Landroid/content/ContentValues;-><init>()V
@@ -6045,16 +6069,27 @@
 
     invoke-direct/range {v25 .. v25}, Landroid/content/ContentValues;-><init>()V
 
-    if-eqz v11, :cond_10
+    if-eqz v11, :cond_f
 
     invoke-interface {v11}, Ljava/util/List;->isEmpty()Z
 
     move-result v33
 
-    if-eqz v33, :cond_11
+    xor-int/lit8 v33, v33, 0x1
 
-    :cond_10
-    :goto_3
+    if-eqz v33, :cond_f
+
+    const/16 v33, 0x0
+
+    move/from16 v0, v33
+
+    invoke-interface {v11, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v25
+
+    check-cast v25, Landroid/content/ContentValues;
+
+    :cond_f
     invoke-virtual/range {v24 .. v24}, Lcom/samsung/android/knox/net/firewall/DomainFilterRule;->getDenyDomains()Ljava/util/List;
 
     move-result-object v14
@@ -6067,63 +6102,17 @@
 
     move-result v33
 
-    if-eqz v33, :cond_12
+    if-eqz v33, :cond_10
 
     invoke-interface {v15}, Ljava/util/List;->isEmpty()Z
 
     move-result v33
 
-    if-eqz v33, :cond_12
+    xor-int/lit8 v33, v33, 0x1
 
-    :goto_4
-    const/16 v20, -0x1
+    if-eqz v33, :cond_13
 
-    if-eqz v17, :cond_19
-
-    if-eqz v8, :cond_18
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v12, v13}, Lcom/android/server/enterprise/firewall/DomainFilter;->setupNetworkDns(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v20
-
-    const/16 v33, -0x1
-
-    move/from16 v0, v20
-
-    move/from16 v1, v33
-
-    if-ne v0, v1, :cond_17
-
-    new-instance v33, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
-
-    sget-object v34, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->FAILED:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
-
-    sget-object v35, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->UNEXPECTED_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
-
-    const-string/jumbo v36, "Error occurred applying DNS(s)"
-
-    invoke-direct/range {v33 .. v36}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
-
-    aput-object v33, v23, v18
-
-    goto/16 :goto_1
-
-    :cond_11
-    const/16 v33, 0x0
-
-    move/from16 v0, v33
-
-    invoke-interface {v11, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v25
-
-    check-cast v25, Landroid/content/ContentValues;
-
-    goto :goto_3
-
-    :cond_12
+    :cond_10
     const-string/jumbo v33, "blacklist"
 
     move-object/from16 v0, p0
@@ -6174,7 +6163,7 @@
 
     move-result v33
 
-    if-eqz v33, :cond_14
+    if-eqz v33, :cond_11
 
     move-object/from16 v0, v31
 
@@ -6182,16 +6171,35 @@
 
     move-result v33
 
-    if-eqz v33, :cond_15
+    xor-int/lit8 v16, v33, 0x1
 
-    const/16 v16, 0x0
+    :goto_2
+    if-nez v16, :cond_12
 
-    :goto_5
-    if-nez v16, :cond_13
+    xor-int/lit8 v33, v17, 0x1
 
-    if-eqz v17, :cond_16
+    if-eqz v33, :cond_12
 
-    :cond_13
+    new-instance v33, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
+
+    sget-object v34, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->NO_CHANGES:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
+
+    sget-object v35, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->NO_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
+
+    const-string/jumbo v36, "The specified rule is already in the database."
+
+    invoke-direct/range {v33 .. v36}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
+
+    aput-object v33, v23, v18
+
+    goto/16 :goto_1
+
+    :cond_11
+    const/16 v16, 0x1
+
+    goto :goto_2
+
+    :cond_12
     move-object/from16 v0, p0
 
     invoke-direct {v0, v14, v9}, Lcom/android/server/enterprise/firewall/DomainFilter;->createDomainString(Ljava/util/List;Ljava/util/Set;)Ljava/lang/String;
@@ -6224,26 +6232,34 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto/16 :goto_4
+    :cond_13
+    const/16 v20, -0x1
 
-    :cond_14
-    const/16 v16, 0x1
+    if-eqz v17, :cond_16
 
-    goto :goto_5
+    if-eqz v8, :cond_15
 
-    :cond_15
-    const/16 v16, 0x1
+    move-object/from16 v0, p0
 
-    goto :goto_5
+    invoke-direct {v0, v12, v13}, Lcom/android/server/enterprise/firewall/DomainFilter;->setupNetworkDns(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_16
+    move-result v20
+
+    const/16 v33, -0x1
+
+    move/from16 v0, v20
+
+    move/from16 v1, v33
+
+    if-ne v0, v1, :cond_14
+
     new-instance v33, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
 
-    sget-object v34, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->NO_CHANGES:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
+    sget-object v34, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->FAILED:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
 
-    sget-object v35, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->NO_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
+    sget-object v35, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->UNEXPECTED_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
 
-    const-string/jumbo v36, "The specified rule is already in the database."
+    const-string/jumbo v36, "Error occurred applying DNS(s)"
 
     invoke-direct/range {v33 .. v36}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
 
@@ -6251,7 +6267,7 @@
 
     goto/16 :goto_1
 
-    :cond_17
+    :cond_14
     const-string/jumbo v33, "networkId"
 
     move-object/from16 v0, v25
@@ -6262,7 +6278,7 @@
 
     move-result v33
 
-    if-eqz v33, :cond_18
+    if-eqz v33, :cond_15
 
     const-string/jumbo v33, "networkId"
 
@@ -6284,13 +6300,13 @@
 
     move/from16 v1, v33
 
-    if-eq v0, v1, :cond_18
+    if-eq v0, v1, :cond_15
 
     move/from16 v0, v20
 
     move/from16 v1, v22
 
-    if-eq v0, v1, :cond_18
+    if-eq v0, v1, :cond_15
 
     move-object/from16 v0, p0
 
@@ -6326,7 +6342,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/enterprise/firewall/DomainFilter$NetworkManagementHandler;->sendMessage(Landroid/os/Message;)Z
 
-    :cond_18
+    :cond_15
     const-string/jumbo v33, "dns1"
 
     move-object/from16 v0, v30
@@ -6357,7 +6373,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    :cond_19
+    :cond_16
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/firewall/DomainFilter;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
@@ -6378,7 +6394,7 @@
 
     move-result v33
 
-    if-nez v33, :cond_1a
+    if-nez v33, :cond_17
 
     new-instance v33, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
 
@@ -6430,8 +6446,8 @@
 
     goto/16 :goto_1
 
-    :cond_1a
-    if-eqz v8, :cond_1b
+    :cond_17
+    if-eqz v8, :cond_18
 
     const-string/jumbo v33, "ADD"
 
@@ -6451,7 +6467,7 @@
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/enterprise/firewall/DomainFilter;->updateDaemonCache(Lcom/samsung/android/knox/ContextInfo;Lcom/samsung/android/knox/net/firewall/DomainFilterRule;Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_1b
+    :cond_18
     invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/firewall/DomainFilter;->processPackageExceptionListDelayed()V
 
     new-instance v33, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
@@ -6470,7 +6486,7 @@
 
     goto/16 :goto_1
 
-    :cond_1c
+    :cond_19
     monitor-exit p0
 
     return-object v23
@@ -6581,7 +6597,7 @@
 
     invoke-direct {v3, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_2
 
     iget-object v5, p0, Lcom/android/server/enterprise/firewall/DomainFilter;->mDomainReportCache:Ljava/util/Set;
 
@@ -6589,18 +6605,15 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    xor-int/lit8 v5, v5, 0x1
+
+    if-eqz v5, :cond_2
+
+    iget-object v5, p0, Lcom/android/server/enterprise/firewall/DomainFilter;->mDomainReportCache:Ljava/util/Set;
+
+    invoke-interface {v5, v3}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :cond_1
-    if-nez p2, :cond_2
-
-    invoke-direct {p0, v2}, Lcom/android/server/enterprise/firewall/DomainFilter;->isDomainFilterReportEnabledAsUser(I)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_4
-
-    :cond_2
     :goto_0
     new-instance v6, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
 
@@ -6608,7 +6621,7 @@
 
     sget-object v8, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->NO_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
 
-    if-eqz p2, :cond_5
+    if-eqz p2, :cond_3
 
     const-string/jumbo v5, "Domain Report successfully enabled."
 
@@ -6617,21 +6630,24 @@
 
     return-object v6
 
-    :cond_3
-    iget-object v5, p0, Lcom/android/server/enterprise/firewall/DomainFilter;->mDomainReportCache:Ljava/util/Set;
+    :cond_2
+    if-nez p2, :cond_1
 
-    invoke-interface {v5, v3}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-direct {p0, v2}, Lcom/android/server/enterprise/firewall/DomainFilter;->isDomainFilterReportEnabledAsUser(I)Z
 
-    goto :goto_0
+    move-result v5
 
-    :cond_4
+    xor-int/lit8 v5, v5, 0x1
+
+    if-eqz v5, :cond_1
+
     iget-object v5, p0, Lcom/android/server/enterprise/firewall/DomainFilter;->mDomainReportCache:Ljava/util/Set;
 
     invoke-interface {v5, v3}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_1
 
     iget-object v5, p0, Lcom/android/server/enterprise/firewall/DomainFilter;->mDomainReportCache:Ljava/util/Set;
 
@@ -6641,7 +6657,7 @@
 
     goto :goto_0
 
-    :cond_5
+    :cond_3
     const-string/jumbo v5, "Domain Report successfully disabled."
 
     goto :goto_1
@@ -6740,7 +6756,7 @@
 
     move-result v8
 
-    if-nez v8, :cond_2
+    if-nez v8, :cond_0
 
     iget-object v8, p0, Lcom/android/server/enterprise/firewall/DomainFilter;->mDomainReportCache:Ljava/util/Set;
 
@@ -6752,8 +6768,14 @@
 
     move-result v8
 
-    if-eqz v8, :cond_2
+    xor-int/lit8 v8, v8, 0x1
 
+    if-eqz v8, :cond_1
+
+    :cond_0
+    return-object v4
+
+    :cond_1
     new-instance v5, Ljava/util/ArrayList;
 
     invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
@@ -6782,13 +6804,13 @@
 
     move-result-object v3
 
-    :cond_0
+    :cond_2
     :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_5
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -6802,15 +6824,15 @@
 
     move-result-object v1
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_3
 
     invoke-interface {p2, v1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_2
 
-    :cond_1
+    :cond_3
     const-string/jumbo v8, "time"
 
     invoke-virtual {v2, v8}, Landroid/content/ContentValues;->getAsLong(Ljava/lang/String;)Ljava/lang/Long;
@@ -6819,7 +6841,7 @@
 
     new-instance v10, Lcom/samsung/android/knox/net/firewall/DomainFilterReport;
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_4
 
     invoke-virtual {v6}, Ljava/lang/Long;->longValue()J
 
@@ -6838,15 +6860,12 @@
 
     goto :goto_0
 
-    :cond_2
-    return-object v4
-
-    :cond_3
+    :cond_4
     const-wide/16 v8, 0x0
 
     goto :goto_1
 
-    :cond_4
+    :cond_5
     return-object v4
 .end method
 
@@ -7165,7 +7184,9 @@
 
     move-result v10
 
-    if-eqz v10, :cond_0
+    xor-int/lit8 v10, v10, 0x1
+
+    if-nez v10, :cond_0
 
     if-nez v3, :cond_1
 
@@ -7201,7 +7222,9 @@
 
     move-result v10
 
-    if-eqz v10, :cond_0
+    xor-int/lit8 v10, v10, 0x1
+
+    if-nez v10, :cond_0
 
     :cond_3
     const-string/jumbo v10, "networkId"
@@ -7333,7 +7356,7 @@
 .end method
 
 .method declared-synchronized removeDomainFilterRules(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;)[Lcom/samsung/android/knox/net/firewall/FirewallResponse;
-    .locals 33
+    .locals 32
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -7353,37 +7376,37 @@
     :try_start_0
     invoke-interface/range {p2 .. p2}, Ljava/util/List;->isEmpty()Z
 
-    move-result v28
+    move-result v27
 
-    if-eqz v28, :cond_0
+    if-eqz v27, :cond_0
 
-    const/16 v28, 0x1
+    const/16 v27, 0x1
 
-    move/from16 v0, v28
+    move/from16 v0, v27
 
     new-array v0, v0, [Lcom/samsung/android/knox/net/firewall/FirewallResponse;
 
-    move-object/from16 v19, v0
+    move-object/from16 v18, v0
 
-    new-instance v28, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
+    new-instance v27, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
 
-    sget-object v29, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->FAILED:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
+    sget-object v28, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->FAILED:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
 
-    sget-object v30, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->OPERATION_NOT_PERMITTED_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
+    sget-object v29, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->OPERATION_NOT_PERMITTED_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
 
-    const-string/jumbo v31, "No rule was specified."
+    const-string/jumbo v30, "No rule was specified."
 
-    invoke-direct/range {v28 .. v31}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
+    invoke-direct/range {v27 .. v30}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
 
-    const/16 v29, 0x0
+    const/16 v28, 0x0
 
-    aput-object v28, v19, v29
+    aput-object v27, v18, v28
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return-object v19
+    return-object v18
 
     :cond_0
     :try_start_1
@@ -7399,27 +7422,27 @@
 
     if-nez v5, :cond_3
 
-    const/16 v28, 0x1
+    const/16 v27, 0x1
 
-    move/from16 v0, v28
+    move/from16 v0, v27
 
     new-array v0, v0, [Lcom/samsung/android/knox/net/firewall/FirewallResponse;
 
-    move-object/from16 v19, v0
+    move-object/from16 v18, v0
 
-    new-instance v28, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
+    new-instance v27, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
 
-    sget-object v29, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->NO_CHANGES:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
+    sget-object v28, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->NO_CHANGES:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
 
-    sget-object v30, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->OPERATION_NOT_PERMITTED_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
+    sget-object v29, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->OPERATION_NOT_PERMITTED_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
 
-    const-string/jumbo v31, "The rules are already cleared."
+    const-string/jumbo v30, "The rules are already cleared."
 
-    invoke-direct/range {v28 .. v31}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
+    invoke-direct/range {v27 .. v30}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
 
-    const/16 v29, 0x0
+    const/16 v28, 0x0
 
-    aput-object v28, v19, v29
+    aput-object v27, v18, v28
 
     :cond_1
     :goto_0
@@ -7427,22 +7450,22 @@
 
     iget-object v0, v0, Lcom/android/server/enterprise/firewall/DomainFilter;->mExceptionListLock:Ljava/lang/Object;
 
-    move-object/from16 v29, v0
+    move-object/from16 v28, v0
 
-    monitor-enter v29
+    monitor-enter v28
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :try_start_2
     invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/firewall/DomainFilter;->hasAnyRuleInDatabase()Z
 
-    move-result v28
+    move-result v27
 
-    if-nez v28, :cond_2
+    if-nez v27, :cond_2
 
-    const/16 v28, 0x0
+    const/16 v27, 0x0
 
-    move/from16 v0, v28
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
@@ -7452,7 +7475,7 @@
 
     :cond_2
     :try_start_3
-    monitor-exit v29
+    monitor-exit v28
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/firewall/DomainFilter;->maybeClearCaptivePortalHosts()V
     :try_end_3
@@ -7460,86 +7483,86 @@
 
     monitor-exit p0
 
-    return-object v19
+    return-object v18
 
     :cond_3
-    const/16 v28, -0x1
+    const/16 v27, -0x1
 
-    move/from16 v0, v28
+    move/from16 v0, v27
 
     if-ne v5, v0, :cond_4
 
-    const/16 v28, 0x1
+    const/16 v27, 0x1
 
     :try_start_4
-    move/from16 v0, v28
+    move/from16 v0, v27
 
     new-array v0, v0, [Lcom/samsung/android/knox/net/firewall/FirewallResponse;
 
-    move-object/from16 v19, v0
+    move-object/from16 v18, v0
 
-    new-instance v28, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
+    new-instance v27, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
 
-    sget-object v29, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->FAILED:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
+    sget-object v28, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->FAILED:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
 
-    sget-object v30, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->NOT_AUTHORIZED_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
+    sget-object v29, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->NOT_AUTHORIZED_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
 
-    const-string/jumbo v31, "This administrator can\'t execute this operation because he is not the owner."
+    const-string/jumbo v30, "This administrator can\'t execute this operation because he is not the owner."
 
-    invoke-direct/range {v28 .. v31}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
+    invoke-direct/range {v27 .. v30}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
 
-    const/16 v29, 0x0
+    const/16 v28, 0x0
 
-    aput-object v28, v19, v29
+    aput-object v27, v18, v28
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     goto :goto_0
 
     :catchall_0
-    move-exception v28
+    move-exception v27
 
     monitor-exit p0
 
-    throw v28
+    throw v27
 
     :cond_4
     :try_start_5
-    sget-object v28, Lcom/samsung/android/knox/net/firewall/DomainFilterRule;->CLEAR_ALL:Ljava/util/List;
+    sget-object v27, Lcom/samsung/android/knox/net/firewall/DomainFilterRule;->CLEAR_ALL:Ljava/util/List;
 
     move-object/from16 v0, p2
 
-    move-object/from16 v1, v28
+    move-object/from16 v1, v27
 
     if-ne v0, v1, :cond_6
 
-    const/16 v28, 0x1
+    const/16 v27, 0x1
 
-    move/from16 v0, v28
+    move/from16 v0, v27
 
     new-array v0, v0, [Lcom/samsung/android/knox/net/firewall/FirewallResponse;
 
-    move-object/from16 v19, v0
+    move-object/from16 v18, v0
 
     move-object/from16 v0, p0
 
     invoke-direct {v0, v6}, Lcom/android/server/enterprise/firewall/DomainFilter;->releaseNetworks(I)V
 
-    new-instance v22, Landroid/content/ContentValues;
+    new-instance v21, Landroid/content/ContentValues;
 
-    invoke-direct/range {v22 .. v22}, Landroid/content/ContentValues;-><init>()V
+    invoke-direct/range {v21 .. v21}, Landroid/content/ContentValues;-><init>()V
 
-    const-string/jumbo v28, "adminUid"
+    const-string/jumbo v27, "adminUid"
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v29
+    move-result-object v28
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v21
 
-    move-object/from16 v1, v28
+    move-object/from16 v1, v27
 
-    move-object/from16 v2, v29
+    move-object/from16 v2, v28
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
@@ -7547,111 +7570,111 @@
 
     iget-object v0, v0, Lcom/android/server/enterprise/firewall/DomainFilter;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    move-object/from16 v28, v0
+    move-object/from16 v27, v0
 
-    const-string/jumbo v29, "DomainFilterTable"
+    const-string/jumbo v28, "DomainFilterTable"
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v27
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v28
 
-    move-object/from16 v2, v22
+    move-object/from16 v2, v21
 
     invoke-virtual {v0, v1, v2}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->delete(Ljava/lang/String;Landroid/content/ContentValues;)I
 
-    move-result v28
+    move-result v27
 
-    if-gtz v28, :cond_5
+    if-gtz v27, :cond_5
 
-    new-instance v28, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
+    new-instance v27, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
 
-    sget-object v29, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->FAILED:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
+    sget-object v28, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->FAILED:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
 
-    sget-object v30, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->DATABASE_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
+    sget-object v29, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->DATABASE_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
 
-    const-string/jumbo v31, "Failed to clear rules from database."
+    const-string/jumbo v30, "Failed to clear rules from database."
 
-    invoke-direct/range {v28 .. v31}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
+    invoke-direct/range {v27 .. v30}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
 
-    const/16 v29, 0x0
+    const/16 v28, 0x0
 
-    aput-object v28, v19, v29
+    aput-object v27, v18, v28
 
     :goto_1
-    const-string/jumbo v28, "CLEAR"
+    const-string/jumbo v27, "CLEAR"
+
+    const/16 v28, 0x0
 
     const/16 v29, 0x0
-
-    const/16 v30, 0x0
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move-object/from16 v2, v29
+    move-object/from16 v2, v28
 
-    move-object/from16 v3, v28
+    move-object/from16 v3, v27
 
-    move-object/from16 v4, v30
+    move-object/from16 v4, v29
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/enterprise/firewall/DomainFilter;->updateDaemonCache(Lcom/samsung/android/knox/ContextInfo;Lcom/samsung/android/knox/net/firewall/DomainFilterRule;Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_0
 
     :cond_5
-    new-instance v28, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
+    new-instance v27, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
 
-    sget-object v29, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->SUCCESS:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
+    sget-object v28, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->SUCCESS:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
 
-    sget-object v30, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->NO_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
+    sget-object v29, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->NO_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
 
-    new-instance v31, Ljava/lang/StringBuilder;
+    new-instance v30, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v31 .. v31}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v30 .. v30}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v32, "Rules successfully cleared. Admin: "
+    const-string/jumbo v31, "Rules successfully cleared. Admin: "
 
-    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v30 .. v31}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v31
+    move-result-object v30
 
-    move-object/from16 v0, v31
+    move-object/from16 v0, v30
 
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v31
+    move-result-object v30
 
-    invoke-virtual/range {v31 .. v31}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v30 .. v30}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v31
+    move-result-object v30
 
-    invoke-direct/range {v28 .. v31}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
+    invoke-direct/range {v27 .. v30}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
 
-    const/16 v29, 0x0
+    const/16 v28, 0x0
 
-    aput-object v28, v19, v29
+    aput-object v27, v18, v28
 
     goto :goto_1
 
     :cond_6
     invoke-interface/range {p2 .. p2}, Ljava/util/List;->size()I
 
-    move-result v28
+    move-result v27
 
-    move/from16 v0, v28
+    move/from16 v0, v27
 
     new-array v0, v0, [Lcom/samsung/android/knox/net/firewall/FirewallResponse;
 
-    move-object/from16 v19, v0
+    move-object/from16 v18, v0
 
     const/4 v15, 0x0
 
     :goto_2
     invoke-interface/range {p2 .. p2}, Ljava/util/List;->size()I
 
-    move-result v28
+    move-result v27
 
-    move/from16 v0, v28
+    move/from16 v0, v27
 
     if-ge v15, v0, :cond_1
 
@@ -7659,27 +7682,27 @@
 
     invoke-interface {v0, v15}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v20
+    move-result-object v19
 
-    check-cast v20, Lcom/samsung/android/knox/net/firewall/DomainFilterRule;
+    check-cast v19, Lcom/samsung/android/knox/net/firewall/DomainFilterRule;
 
-    invoke-virtual/range {v20 .. v20}, Lcom/samsung/android/knox/net/firewall/DomainFilterRule;->getApplication()Lcom/samsung/android/knox/AppIdentity;
+    invoke-virtual/range {v19 .. v19}, Lcom/samsung/android/knox/net/firewall/DomainFilterRule;->getApplication()Lcom/samsung/android/knox/AppIdentity;
 
-    move-result-object v28
+    move-result-object v27
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v28
+    move-object/from16 v1, v27
 
     invoke-direct {v0, v1}, Lcom/android/server/enterprise/firewall/DomainFilter;->validateApplicationIdentity(Lcom/samsung/android/knox/AppIdentity;)Lcom/samsung/android/knox/net/firewall/FirewallResponse;
 
-    move-result-object v28
+    move-result-object v27
 
-    aput-object v28, v19, v15
+    aput-object v27, v18, v15
 
-    aget-object v28, v19, v15
+    aget-object v27, v18, v15
 
-    if-eqz v28, :cond_8
+    if-eqz v27, :cond_8
 
     :cond_7
     :goto_3
@@ -7688,39 +7711,39 @@
     goto :goto_2
 
     :cond_8
-    invoke-virtual/range {v20 .. v20}, Lcom/samsung/android/knox/net/firewall/DomainFilterRule;->getApplication()Lcom/samsung/android/knox/AppIdentity;
+    invoke-virtual/range {v19 .. v19}, Lcom/samsung/android/knox/net/firewall/DomainFilterRule;->getApplication()Lcom/samsung/android/knox/AppIdentity;
 
-    move-result-object v28
+    move-result-object v27
 
-    invoke-virtual/range {v28 .. v28}, Lcom/samsung/android/knox/AppIdentity;->getPackageName()Ljava/lang/String;
+    invoke-virtual/range {v27 .. v27}, Lcom/samsung/android/knox/AppIdentity;->getPackageName()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v17
 
-    new-instance v22, Landroid/content/ContentValues;
+    new-instance v21, Landroid/content/ContentValues;
 
-    invoke-direct/range {v22 .. v22}, Landroid/content/ContentValues;-><init>()V
+    invoke-direct/range {v21 .. v21}, Landroid/content/ContentValues;-><init>()V
 
-    const-string/jumbo v28, "adminUid"
+    const-string/jumbo v27, "adminUid"
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v29
+    move-result-object v28
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v21
 
-    move-object/from16 v1, v28
+    move-object/from16 v1, v27
 
-    move-object/from16 v2, v29
+    move-object/from16 v2, v28
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    const-string/jumbo v28, "packageName"
+    const-string/jumbo v27, "packageName"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v21
 
-    move-object/from16 v1, v28
+    move-object/from16 v1, v27
 
-    move-object/from16 v2, v18
+    move-object/from16 v2, v17
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -7728,19 +7751,19 @@
 
     iget-object v0, v0, Lcom/android/server/enterprise/firewall/DomainFilter;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    move-object/from16 v28, v0
+    move-object/from16 v27, v0
 
-    const-string/jumbo v29, "DomainFilterTable"
+    const-string/jumbo v28, "DomainFilterTable"
 
-    const/16 v30, 0x0
+    const/16 v29, 0x0
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v27
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v28
 
-    move-object/from16 v2, v30
+    move-object/from16 v2, v29
 
-    move-object/from16 v3, v22
+    move-object/from16 v3, v21
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getValues(Ljava/lang/String;[Ljava/lang/String;Landroid/content/ContentValues;)Ljava/util/List;
 
@@ -7750,154 +7773,158 @@
 
     invoke-interface {v9}, Ljava/util/List;->isEmpty()Z
 
-    move-result v28
+    move-result v27
 
-    if-eqz v28, :cond_a
+    if-eqz v27, :cond_a
 
     :cond_9
-    new-instance v28, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
+    new-instance v27, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
 
-    sget-object v29, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->NO_CHANGES:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
+    sget-object v28, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->NO_CHANGES:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
 
-    sget-object v30, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->NO_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
+    sget-object v29, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->NO_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
 
-    const-string/jumbo v31, "The rule is not in the database."
+    const-string/jumbo v30, "The rule is not in the database."
 
-    invoke-direct/range {v28 .. v31}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
+    invoke-direct/range {v27 .. v30}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
 
-    aput-object v28, v19, v15
+    aput-object v27, v18, v15
 
     goto :goto_3
 
     :cond_a
-    const/16 v28, 0x0
+    const/16 v27, 0x0
 
-    move/from16 v0, v28
+    move/from16 v0, v27
 
     invoke-interface {v9, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v21
+    move-result-object v20
 
-    check-cast v21, Landroid/content/ContentValues;
+    check-cast v20, Landroid/content/ContentValues;
 
-    const-string/jumbo v28, "signature"
+    const-string/jumbo v27, "signature"
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
-    move-object/from16 v1, v28
+    move-object/from16 v1, v27
 
     invoke-virtual {v0, v1}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v24
-
-    invoke-virtual/range {v20 .. v20}, Lcom/samsung/android/knox/net/firewall/DomainFilterRule;->getApplication()Lcom/samsung/android/knox/AppIdentity;
-
-    move-result-object v28
-
-    invoke-virtual/range {v28 .. v28}, Lcom/samsung/android/knox/AppIdentity;->getSignature()Ljava/lang/String;
-
     move-result-object v23
 
-    if-eqz v23, :cond_c
+    invoke-virtual/range {v19 .. v19}, Lcom/samsung/android/knox/net/firewall/DomainFilterRule;->getApplication()Lcom/samsung/android/knox/AppIdentity;
 
-    if-nez v24, :cond_c
+    move-result-object v27
+
+    invoke-virtual/range {v27 .. v27}, Lcom/samsung/android/knox/AppIdentity;->getSignature()Ljava/lang/String;
+
+    move-result-object v22
+
+    if-eqz v22, :cond_c
+
+    if-nez v23, :cond_c
 
     :cond_b
-    new-instance v28, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
+    new-instance v27, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
 
-    sget-object v29, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->FAILED:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
+    sget-object v28, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->FAILED:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
 
-    sget-object v30, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->INVALID_PARAMETER_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
+    sget-object v29, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->INVALID_PARAMETER_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
 
-    const-string/jumbo v31, "Signature does not match with the previous added."
+    const-string/jumbo v30, "Signature does not match with the previous added."
 
-    invoke-direct/range {v28 .. v31}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
+    invoke-direct/range {v27 .. v30}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
 
-    aput-object v28, v19, v15
+    aput-object v27, v18, v15
 
     goto/16 :goto_3
 
     :cond_c
-    if-nez v23, :cond_d
+    if-nez v22, :cond_d
 
-    if-nez v24, :cond_b
+    if-nez v23, :cond_b
 
     :cond_d
+    if-eqz v22, :cond_e
+
     if-eqz v23, :cond_e
 
-    if-eqz v24, :cond_e
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual/range {v23 .. v24}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v27
 
-    move-result v28
+    xor-int/lit8 v27, v27, 0x1
 
-    if-eqz v28, :cond_b
+    if-nez v27, :cond_b
 
     :cond_e
     const/4 v12, 0x0
 
-    invoke-virtual/range {v20 .. v20}, Lcom/samsung/android/knox/net/firewall/DomainFilterRule;->getDns1()Ljava/lang/String;
+    invoke-virtual/range {v19 .. v19}, Lcom/samsung/android/knox/net/firewall/DomainFilterRule;->getDns1()Ljava/lang/String;
 
-    move-result-object v28
+    move-result-object v27
 
-    invoke-static/range {v28 .. v28}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static/range {v27 .. v27}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v28
+    move-result v27
 
-    if-nez v28, :cond_f
+    if-nez v27, :cond_f
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v19
+
+    move-object/from16 v2, v20
+
+    invoke-virtual {v0, v1, v6, v2}, Lcom/android/server/enterprise/firewall/DomainFilter;->removeDnsForApplication(Lcom/samsung/android/knox/net/firewall/DomainFilterRule;ILandroid/content/ContentValues;)Lcom/samsung/android/knox/net/firewall/FirewallResponse;
+
+    move-result-object v27
+
+    aput-object v27, v18, v15
+
+    aget-object v27, v18, v15
+
+    if-nez v27, :cond_7
+
+    const/4 v12, 0x1
+
+    :cond_f
+    const-string/jumbo v27, "blacklist"
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, v20
 
-    move-object/from16 v2, v21
-
-    invoke-virtual {v0, v1, v6, v2}, Lcom/android/server/enterprise/firewall/DomainFilter;->removeDnsForApplication(Lcom/samsung/android/knox/net/firewall/DomainFilterRule;ILandroid/content/ContentValues;)Lcom/samsung/android/knox/net/firewall/FirewallResponse;
-
-    move-result-object v28
-
-    aput-object v28, v19, v15
-
-    aget-object v28, v19, v15
-
-    if-nez v28, :cond_7
-
-    const/4 v12, 0x1
-
-    :cond_f
-    const-string/jumbo v28, "blacklist"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v21
-
-    move-object/from16 v2, v28
+    move-object/from16 v2, v27
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/firewall/DomainFilter;->getListFromDB(Landroid/content/ContentValues;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v8
 
-    const-string/jumbo v28, "whitelist"
+    const-string/jumbo v27, "whitelist"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v20
 
-    move-object/from16 v2, v28
+    move-object/from16 v2, v27
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/firewall/DomainFilter;->getListFromDB(Landroid/content/ContentValues;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v27
+    move-result-object v26
 
-    invoke-virtual/range {v20 .. v20}, Lcom/samsung/android/knox/net/firewall/DomainFilterRule;->getDenyDomains()Ljava/util/List;
+    invoke-virtual/range {v19 .. v19}, Lcom/samsung/android/knox/net/firewall/DomainFilterRule;->getDenyDomains()Ljava/util/List;
 
     move-result-object v10
 
-    invoke-virtual/range {v20 .. v20}, Lcom/samsung/android/knox/net/firewall/DomainFilterRule;->getAllowDomains()Ljava/util/List;
+    invoke-virtual/range {v19 .. v19}, Lcom/samsung/android/knox/net/firewall/DomainFilterRule;->getAllowDomains()Ljava/util/List;
 
     move-result-object v11
 
-    if-eqz v10, :cond_13
+    const/4 v14, 0x0
+
+    if-eqz v10, :cond_10
 
     move-object/from16 v0, p0
 
@@ -7914,7 +7941,7 @@
     move-result v14
 
     :goto_4
-    if-eqz v11, :cond_14
+    if-eqz v11, :cond_11
 
     move-object/from16 v0, p0
 
@@ -7922,108 +7949,250 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v26
 
     invoke-direct {v0, v1}, Lcom/android/server/enterprise/firewall/DomainFilter;->createDomainSet(Ljava/lang/String;)Ljava/util/Set;
 
-    move-result-object v26
+    move-result-object v25
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v25
 
     invoke-interface {v0, v11}, Ljava/util/Set;->removeAll(Ljava/util/Collection;)Z
 
-    move-result v28
+    move-result v27
 
-    or-int v14, v14, v28
+    or-int v14, v14, v27
 
     :goto_5
-    if-nez v14, :cond_10
+    if-nez v14, :cond_12
 
-    if-eqz v12, :cond_15
+    xor-int/lit8 v27, v12, 0x1
+
+    if-eqz v27, :cond_12
+
+    new-instance v27, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
+
+    sget-object v28, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->NO_CHANGES:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
+
+    sget-object v29, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->NO_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
+
+    const-string/jumbo v30, "The rule is not in the database."
+
+    invoke-direct/range {v27 .. v30}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
+
+    aput-object v27, v18, v15
+
+    goto/16 :goto_3
 
     :cond_10
-    if-eqz v14, :cond_11
+    new-instance v7, Ljava/util/HashSet;
 
-    const-string/jumbo v28, ";"
+    invoke-direct {v7}, Ljava/util/HashSet;-><init>()V
 
-    move-object/from16 v0, v28
+    const/4 v14, 0x1
+
+    goto :goto_4
+
+    :cond_11
+    new-instance v25, Ljava/util/HashSet;
+
+    invoke-direct/range {v25 .. v25}, Ljava/util/HashSet;-><init>()V
+
+    const/16 v27, 0x1
+
+    or-int v14, v14, v27
+
+    goto :goto_5
+
+    :cond_12
+    if-eqz v14, :cond_13
+
+    const-string/jumbo v27, ";"
+
+    move-object/from16 v0, v27
 
     invoke-static {v0, v7}, Landroid/text/TextUtils;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
 
     move-result-object v8
 
-    const-string/jumbo v28, ";"
+    const-string/jumbo v27, ";"
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v27
 
-    move-object/from16 v1, v26
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/text/TextUtils;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
 
-    move-result-object v27
+    move-result-object v26
 
-    :cond_11
-    const-string/jumbo v28, "dns1"
+    :cond_13
+    const-string/jumbo v27, "dns1"
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
-    move-object/from16 v1, v28
+    move-object/from16 v1, v27
 
     invoke-virtual {v0, v1}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v28
+    move-result-object v27
 
-    if-eqz v28, :cond_16
+    if-eqz v27, :cond_15
 
     const/4 v13, 0x1
 
     :goto_6
-    const-string/jumbo v28, ""
+    const-string/jumbo v27, ""
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v27
 
     invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v28
+    move-result v27
 
-    if-eqz v28, :cond_12
+    if-eqz v27, :cond_18
 
-    const-string/jumbo v28, ""
+    const-string/jumbo v27, ""
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v27
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v26
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v28
+    move-result v27
 
-    if-eqz v28, :cond_12
+    if-eqz v27, :cond_18
 
-    if-nez v12, :cond_17
+    if-nez v12, :cond_14
 
-    if-eqz v13, :cond_17
+    xor-int/lit8 v27, v13, 0x1
 
-    :cond_12
-    new-instance v25, Landroid/content/ContentValues;
+    if-eqz v27, :cond_18
 
-    invoke-direct/range {v25 .. v25}, Landroid/content/ContentValues;-><init>()V
+    :cond_14
+    move-object/from16 v0, p0
 
-    const-string/jumbo v28, "blacklist"
+    iget-object v0, v0, Lcom/android/server/enterprise/firewall/DomainFilter;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    move-object/from16 v0, v25
+    move-object/from16 v27, v0
+
+    const-string/jumbo v28, "DomainFilterTable"
+
+    move-object/from16 v0, v27
 
     move-object/from16 v1, v28
+
+    move-object/from16 v2, v21
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->delete(Ljava/lang/String;Landroid/content/ContentValues;)I
+
+    move-result v27
+
+    if-gtz v27, :cond_16
+
+    new-instance v27, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
+
+    sget-object v28, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->FAILED:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
+
+    sget-object v29, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->DATABASE_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
+
+    const-string/jumbo v30, "Failed to remove/update rule from the database."
+
+    invoke-direct/range {v27 .. v30}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
+
+    aput-object v27, v18, v15
+
+    goto/16 :goto_3
+
+    :cond_15
+    const/4 v13, 0x0
+
+    goto :goto_6
+
+    :cond_16
+    const-string/jumbo v27, "networkId"
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v27
+
+    invoke-virtual {v0, v1}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v16
+
+    if-eqz v16, :cond_17
+
+    const-string/jumbo v27, "REMOVE"
+
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/Integer;->intValue()I
+
+    move-result v28
+
+    invoke-static/range {v28 .. v28}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v28
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    move-object/from16 v2, v19
+
+    move-object/from16 v3, v27
+
+    move-object/from16 v4, v28
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/enterprise/firewall/DomainFilter;->updateDaemonCache(Lcom/samsung/android/knox/ContextInfo;Lcom/samsung/android/knox/net/firewall/DomainFilterRule;Ljava/lang/String;Ljava/lang/String;)V
+
+    new-instance v27, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
+
+    sget-object v28, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->SUCCESS:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
+
+    sget-object v29, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->NO_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
+
+    const-string/jumbo v30, "The rule was successfuly removed/updated."
+
+    invoke-direct/range {v27 .. v30}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
+
+    aput-object v27, v18, v15
+
+    goto/16 :goto_3
+
+    :cond_17
+    new-instance v27, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
+
+    sget-object v28, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->FAILED:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
+
+    sget-object v29, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->DATABASE_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
+
+    const-string/jumbo v30, "Failed to remove/update rule from the database."
+
+    invoke-direct/range {v27 .. v30}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
+
+    aput-object v27, v18, v15
+
+    goto/16 :goto_3
+
+    :cond_18
+    new-instance v24, Landroid/content/ContentValues;
+
+    invoke-direct/range {v24 .. v24}, Landroid/content/ContentValues;-><init>()V
+
+    const-string/jumbo v27, "blacklist"
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v27
 
     invoke-virtual {v0, v1, v8}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v28, "whitelist"
+    const-string/jumbo v27, "whitelist"
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v24
 
-    move-object/from16 v1, v28
+    move-object/from16 v1, v27
 
-    move-object/from16 v2, v27
+    move-object/from16 v2, v26
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -8031,231 +8200,109 @@
 
     iget-object v0, v0, Lcom/android/server/enterprise/firewall/DomainFilter;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    move-object/from16 v28, v0
+    move-object/from16 v27, v0
 
-    const-string/jumbo v29, "DomainFilterTable"
+    const-string/jumbo v28, "DomainFilterTable"
 
-    move-object/from16 v0, v28
-
-    move-object/from16 v1, v29
-
-    move-object/from16 v2, v25
-
-    move-object/from16 v3, v22
-
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->put(Ljava/lang/String;Landroid/content/ContentValues;Landroid/content/ContentValues;)Z
-
-    move-result v28
-
-    if-nez v28, :cond_19
-
-    new-instance v28, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
-
-    sget-object v29, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->FAILED:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
-
-    sget-object v30, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->DATABASE_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
-
-    const-string/jumbo v31, "Failed to remove/update rule from the database."
-
-    invoke-direct/range {v28 .. v31}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
-
-    aput-object v28, v19, v15
-
-    goto/16 :goto_3
-
-    :cond_13
-    new-instance v7, Ljava/util/HashSet;
-
-    invoke-direct {v7}, Ljava/util/HashSet;-><init>()V
-
-    const/4 v14, 0x1
-
-    goto/16 :goto_4
-
-    :cond_14
-    new-instance v26, Ljava/util/HashSet;
-
-    invoke-direct/range {v26 .. v26}, Ljava/util/HashSet;-><init>()V
-
-    const/16 v28, 0x1
-
-    or-int v14, v14, v28
-
-    goto/16 :goto_5
-
-    :cond_15
-    new-instance v28, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
-
-    sget-object v29, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->NO_CHANGES:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
-
-    sget-object v30, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->NO_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
-
-    const-string/jumbo v31, "The rule is not in the database."
-
-    invoke-direct/range {v28 .. v31}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
-
-    aput-object v28, v19, v15
-
-    goto/16 :goto_3
-
-    :cond_16
-    const/4 v13, 0x0
-
-    goto/16 :goto_6
-
-    :cond_17
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/enterprise/firewall/DomainFilter;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
-
-    move-object/from16 v28, v0
-
-    const-string/jumbo v29, "DomainFilterTable"
-
-    move-object/from16 v0, v28
-
-    move-object/from16 v1, v29
-
-    move-object/from16 v2, v22
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->delete(Ljava/lang/String;Landroid/content/ContentValues;)I
-
-    move-result v28
-
-    if-gtz v28, :cond_18
-
-    new-instance v28, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
-
-    sget-object v29, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->FAILED:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
-
-    sget-object v30, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->DATABASE_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
-
-    const-string/jumbo v31, "Failed to remove/update rule from the database."
-
-    invoke-direct/range {v28 .. v31}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
-
-    aput-object v28, v19, v15
-
-    goto/16 :goto_3
-
-    :cond_18
-    const-string/jumbo v28, "networkId"
-
-    move-object/from16 v0, v21
+    move-object/from16 v0, v27
 
     move-object/from16 v1, v28
 
-    invoke-virtual {v0, v1}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+    move-object/from16 v2, v24
 
-    move-result-object v28
+    move-object/from16 v3, v21
 
-    invoke-virtual/range {v28 .. v28}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->put(Ljava/lang/String;Landroid/content/ContentValues;Landroid/content/ContentValues;)Z
 
-    move-result v16
+    move-result v27
 
-    const-string/jumbo v28, "REMOVE"
+    if-nez v27, :cond_19
 
-    invoke-static/range {v16 .. v16}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    new-instance v27, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
 
-    move-result-object v29
+    sget-object v28, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->FAILED:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
 
-    move-object/from16 v0, p0
+    sget-object v29, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->DATABASE_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
 
-    move-object/from16 v1, p1
+    const-string/jumbo v30, "Failed to remove/update rule from the database."
 
-    move-object/from16 v2, v20
+    invoke-direct/range {v27 .. v30}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
 
-    move-object/from16 v3, v28
-
-    move-object/from16 v4, v29
-
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/enterprise/firewall/DomainFilter;->updateDaemonCache(Lcom/samsung/android/knox/ContextInfo;Lcom/samsung/android/knox/net/firewall/DomainFilterRule;Ljava/lang/String;Ljava/lang/String;)V
-
-    new-instance v28, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
-
-    sget-object v29, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->SUCCESS:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
-
-    sget-object v30, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->NO_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
-
-    const-string/jumbo v31, "The rule was successfuly removed/updated."
-
-    invoke-direct/range {v28 .. v31}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
-
-    aput-object v28, v19, v15
+    aput-object v27, v18, v15
 
     goto/16 :goto_3
 
     :cond_19
-    const/16 v17, 0x0
+    const/16 v16, 0x0
 
     if-eqz v12, :cond_1a
 
-    const-string/jumbo v28, "networkId"
+    const-string/jumbo v27, "networkId"
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
-    move-object/from16 v1, v28
+    move-object/from16 v1, v27
 
     invoke-virtual {v0, v1}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result-object v17
+    move-result-object v16
 
     :cond_1a
-    if-nez v17, :cond_1b
+    if-nez v16, :cond_1b
 
-    new-instance v17, Ljava/lang/Integer;
+    new-instance v16, Ljava/lang/Integer;
 
-    const/16 v28, -0x1
+    const/16 v27, -0x1
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v16
 
-    move/from16 v1, v28
+    move/from16 v1, v27
 
     invoke-direct {v0, v1}, Ljava/lang/Integer;-><init>(I)V
 
     :cond_1b
-    const-string/jumbo v28, "REMOVE"
+    const-string/jumbo v27, "REMOVE"
 
-    invoke-virtual/range {v17 .. v17}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/Integer;->intValue()I
 
-    move-result v29
+    move-result v28
 
-    invoke-static/range {v29 .. v29}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static/range {v28 .. v28}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v29
+    move-result-object v28
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move-object/from16 v2, v20
+    move-object/from16 v2, v19
 
-    move-object/from16 v3, v28
+    move-object/from16 v3, v27
 
-    move-object/from16 v4, v29
+    move-object/from16 v4, v28
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/enterprise/firewall/DomainFilter;->updateDaemonCache(Lcom/samsung/android/knox/ContextInfo;Lcom/samsung/android/knox/net/firewall/DomainFilterRule;Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v28, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
+    new-instance v27, Lcom/samsung/android/knox/net/firewall/FirewallResponse;
 
-    sget-object v29, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->SUCCESS:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
+    sget-object v28, Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;->SUCCESS:Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;
 
-    sget-object v30, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->NO_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
+    sget-object v29, Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;->NO_ERROR:Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;
 
-    const-string/jumbo v31, "The rule was successfuly removed/updated."
+    const-string/jumbo v30, "The rule was successfuly removed/updated."
 
-    invoke-direct/range {v28 .. v31}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
+    invoke-direct/range {v27 .. v30}, Lcom/samsung/android/knox/net/firewall/FirewallResponse;-><init>(Lcom/samsung/android/knox/net/firewall/FirewallResponse$Result;Lcom/samsung/android/knox/net/firewall/FirewallResponse$ErrorCode;Ljava/lang/String;)V
 
-    aput-object v28, v19, v15
+    aput-object v27, v18, v15
 
     goto/16 :goto_3
 
     :catchall_1
-    move-exception v28
+    move-exception v27
 
-    monitor-exit v29
+    monitor-exit v28
 
-    throw v28
+    throw v27
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 .end method

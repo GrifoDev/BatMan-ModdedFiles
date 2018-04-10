@@ -60,71 +60,71 @@
 .end method
 
 .method protected synchronizeData()V
-    .locals 5
+    .locals 6
 
-    const/4 v3, 0x1
+    const/4 v5, 0x1
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/dom/DeferredAttrImpl;->needsSyncData(Z)V
+    invoke-virtual {p0, v4}, Lmf/org/apache/xerces/dom/DeferredAttrImpl;->needsSyncData(Z)V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DeferredAttrImpl;->ownerDocument()Lmf/org/apache/xerces/dom/CoreDocumentImpl;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;
+    check-cast v2, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;
 
-    iget v1, p0, Lmf/org/apache/xerces/dom/DeferredAttrImpl;->fNodeIndex:I
+    iget v3, p0, Lmf/org/apache/xerces/dom/DeferredAttrImpl;->fNodeIndex:I
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeName(I)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeName(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredAttrImpl;->name:Ljava/lang/String;
+    iput-object v3, p0, Lmf/org/apache/xerces/dom/DeferredAttrImpl;->name:Ljava/lang/String;
 
-    iget v1, p0, Lmf/org/apache/xerces/dom/DeferredAttrImpl;->fNodeIndex:I
+    iget v3, p0, Lmf/org/apache/xerces/dom/DeferredAttrImpl;->fNodeIndex:I
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeExtra(I)I
+    invoke-virtual {v2, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeExtra(I)I
 
-    move-result v4
+    move-result v0
 
-    and-int/lit8 v1, v4, 0x20
+    and-int/lit8 v3, v0, 0x20
 
-    if-nez v1, :cond_0
+    if-nez v3, :cond_0
 
-    move v1, v2
+    move v3, v4
 
     :goto_0
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/DeferredAttrImpl;->isSpecified(Z)V
+    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/dom/DeferredAttrImpl;->isSpecified(Z)V
 
-    and-int/lit16 v1, v4, 0x200
+    and-int/lit16 v3, v0, 0x200
 
-    if-nez v1, :cond_1
+    if-nez v3, :cond_1
 
     :goto_1
-    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/dom/DeferredAttrImpl;->isIdAttribute(Z)V
+    invoke-virtual {p0, v4}, Lmf/org/apache/xerces/dom/DeferredAttrImpl;->isIdAttribute(Z)V
 
-    iget v1, p0, Lmf/org/apache/xerces/dom/DeferredAttrImpl;->fNodeIndex:I
+    iget v3, p0, Lmf/org/apache/xerces/dom/DeferredAttrImpl;->fNodeIndex:I
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getLastChild(I)I
+    invoke-virtual {v2, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getLastChild(I)I
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getTypeInfo(I)Ljava/lang/Object;
+    invoke-virtual {v2, v1}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getTypeInfo(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v3
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DeferredAttrImpl;->type:Ljava/lang/Object;
+    iput-object v3, p0, Lmf/org/apache/xerces/dom/DeferredAttrImpl;->type:Ljava/lang/Object;
 
     return-void
 
     :cond_0
-    move v1, v3
+    move v3, v5
 
     goto :goto_0
 
     :cond_1
-    move v2, v3
+    move v4, v5
 
     goto :goto_1
 .end method

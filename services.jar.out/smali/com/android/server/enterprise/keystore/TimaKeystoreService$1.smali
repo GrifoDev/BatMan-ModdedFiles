@@ -123,7 +123,7 @@
 
     const/4 v2, 0x3
 
-    invoke-static {v1, v2}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-wrap6(Lcom/android/server/enterprise/keystore/TimaKeystoreService;I)V
+    invoke-static {v1, v2}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-wrap7(Lcom/android/server/enterprise/keystore/TimaKeystoreService;I)V
 
     :cond_1
     return-void

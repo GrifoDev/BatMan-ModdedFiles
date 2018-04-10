@@ -34,6 +34,8 @@
 
 .field private mConnectionManager:Lcom/android/server/enterprise/nap/NetworkAnalyticsConnectionManager;
 
+.field private stateOfFileDescriptor:Z
+
 .field private stateOfThread:Z
 
 .field private syncObject:Ljava/lang/Object;
@@ -129,6 +131,8 @@
 
     iput-boolean v2, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsDriver;->stateOfThread:Z
 
+    iput-boolean v2, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsDriver;->stateOfFileDescriptor:Z
+
     const-string/jumbo v0, "{ \"src\":\"10.10.12.12\", \"dst\":\"66.7.251.20\", \"sport\":\"5000\", \"dport\":\"443\", \"uid\":\"10197\", \"pid\":\"666\", \"bsent\":\"1400\", \"brecv\":\"4500\", \"hostname\":\"www.space.com\", \"protocol\":\"tcp\", \"hash\":\"a0627953\" }"
 
     iput-object v0, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsDriver;->test:Ljava/lang/String;
@@ -163,6 +167,14 @@
     sget-object v0, Lcom/android/server/enterprise/nap/NetworkAnalyticsDriver;->mInstance:Lcom/android/server/enterprise/nap/NetworkAnalyticsDriver;
 
     return-object v0
+.end method
+
+.method private setStateOfCharDevice(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsDriver;->stateOfFileDescriptor:Z
+
+    return-void
 .end method
 
 .method private setStateOfThread(Z)V
@@ -204,26 +216,11 @@
     return-void
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDriver;->openDevice()I
-
-    move-result v0
-
-    if-gez v0, :cond_1
-
-    const-string/jumbo v1, "NetworkAnalytics:NetworkAnalyticsDriver"
-
-    const-string/jumbo v2, "beginDataRecording: Opening of character device failed."
-
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_1
     invoke-virtual {p0}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDriver;->activate()I
 
     move-result v0
 
-    if-gez v0, :cond_2
+    if-gez v0, :cond_1
 
     const-string/jumbo v1, "NetworkAnalytics:NetworkAnalyticsDriver"
 
@@ -233,7 +230,7 @@
 
     return-void
 
-    :cond_2
+    :cond_1
     new-instance v1, Lcom/android/server/enterprise/nap/NetworkAnalyticsDriver$KernelDataFetch;
 
     invoke-direct {v1, p0}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDriver$KernelDataFetch;-><init>(Lcom/android/server/enterprise/nap/NetworkAnalyticsDriver;)V
@@ -330,6 +327,8 @@
     return-void
 
     :cond_3
+    invoke-direct {p0, v3}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDriver;->setStateOfCharDevice(Z)V
+
     return-void
 .end method
 
@@ -341,6 +340,65 @@
     invoke-virtual {v0, p1}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDataDelivery;->accumulateData(Ljava/lang/String;)I
 
     return-void
+.end method
+
+.method public declared-synchronized openCharDevice()I
+    .locals 3
+
+    const/4 v2, 0x0
+
+    monitor-enter p0
+
+    const/4 v0, -0x1
+
+    :try_start_0
+    iget-boolean v1, p0, Lcom/android/server/enterprise/nap/NetworkAnalyticsDriver;->stateOfFileDescriptor:Z
+
+    if-nez v1, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDriver;->openDevice()I
+
+    move-result v0
+
+    if-gez v0, :cond_0
+
+    const-string/jumbo v1, "NetworkAnalytics:NetworkAnalyticsDriver"
+
+    const-string/jumbo v2, "beginDataRecording: Opening of character device failed."
+
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    const/16 v0, -0x13
+
+    const/16 v1, -0x13
+
+    monitor-exit p0
+
+    return v1
+
+    :cond_0
+    const/4 v1, 0x1
+
+    :try_start_1
+    invoke-direct {p0, v1}, Lcom/android/server/enterprise/nap/NetworkAnalyticsDriver;->setStateOfCharDevice(Z)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    monitor-exit p0
+
+    return v2
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit p0
+
+    throw v1
 .end method
 
 .method public native openDevice()I

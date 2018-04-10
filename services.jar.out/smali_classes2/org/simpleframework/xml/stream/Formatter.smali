@@ -145,11 +145,11 @@
 
     aput-char v1, v0, v7
 
-    const/4 v1, 0x5
+    const/16 v1, 0x3b
 
-    const/16 v2, 0x3b
+    const/4 v2, 0x5
 
-    aput-char v2, v0, v1
+    aput-char v1, v0, v2
 
     sput-object v0, Lorg/simpleframework/xml/stream/Formatter;->DOUBLE:[C
 
@@ -177,11 +177,11 @@
 
     aput-char v1, v0, v7
 
-    const/4 v1, 0x5
+    const/16 v1, 0x3b
 
-    const/16 v2, 0x3b
+    const/4 v2, 0x5
 
-    aput-char v2, v0, v1
+    aput-char v1, v0, v2
 
     sput-object v0, Lorg/simpleframework/xml/stream/Formatter;->SINGLE:[C
 
@@ -741,9 +741,9 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/stream/Formatter;->indenter:Lorg/simpleframework/xml/stream/Indenter;
+    iget-object v1, p0, Lorg/simpleframework/xml/stream/Formatter;->indenter:Lorg/simpleframework/xml/stream/Indenter;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/stream/Indenter;->top()Ljava/lang/String;
+    invoke-virtual {v1}, Lorg/simpleframework/xml/stream/Indenter;->top()Ljava/lang/String;
 
     move-result-object v0
 
@@ -757,9 +757,9 @@
     if-nez v0, :cond_1
 
     :goto_1
-    sget-object v0, Lorg/simpleframework/xml/stream/Formatter$Tag;->COMMENT:Lorg/simpleframework/xml/stream/Formatter$Tag;
+    sget-object v1, Lorg/simpleframework/xml/stream/Formatter$Tag;->COMMENT:Lorg/simpleframework/xml/stream/Formatter$Tag;
 
-    iput-object v0, p0, Lorg/simpleframework/xml/stream/Formatter;->last:Lorg/simpleframework/xml/stream/Formatter$Tag;
+    iput-object v1, p0, Lorg/simpleframework/xml/stream/Formatter;->last:Lorg/simpleframework/xml/stream/Formatter$Tag;
 
     return-void
 
@@ -773,15 +773,15 @@
     :cond_1
     invoke-direct {p0, v0}, Lorg/simpleframework/xml/stream/Formatter;->append(Ljava/lang/String;)V
 
-    sget-object v0, Lorg/simpleframework/xml/stream/Formatter;->OPEN:[C
+    sget-object v1, Lorg/simpleframework/xml/stream/Formatter;->OPEN:[C
 
-    invoke-direct {p0, v0}, Lorg/simpleframework/xml/stream/Formatter;->append([C)V
+    invoke-direct {p0, v1}, Lorg/simpleframework/xml/stream/Formatter;->append([C)V
 
     invoke-direct {p0, p1}, Lorg/simpleframework/xml/stream/Formatter;->append(Ljava/lang/String;)V
 
-    sget-object v0, Lorg/simpleframework/xml/stream/Formatter;->CLOSE:[C
+    sget-object v1, Lorg/simpleframework/xml/stream/Formatter;->CLOSE:[C
 
-    invoke-direct {p0, v0}, Lorg/simpleframework/xml/stream/Formatter;->append([C)V
+    invoke-direct {p0, v1}, Lorg/simpleframework/xml/stream/Formatter;->append([C)V
 
     goto :goto_1
 .end method
@@ -798,9 +798,9 @@
 
     const/16 v3, 0x2f
 
-    iget-object v0, p0, Lorg/simpleframework/xml/stream/Formatter;->indenter:Lorg/simpleframework/xml/stream/Indenter;
+    iget-object v1, p0, Lorg/simpleframework/xml/stream/Formatter;->indenter:Lorg/simpleframework/xml/stream/Indenter;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/stream/Indenter;->pop()Ljava/lang/String;
+    invoke-virtual {v1}, Lorg/simpleframework/xml/stream/Indenter;->pop()Ljava/lang/String;
 
     move-result-object v0
 
@@ -817,16 +817,16 @@
     if-ne v1, v2, :cond_1
 
     :goto_0
-    iget-object v0, p0, Lorg/simpleframework/xml/stream/Formatter;->last:Lorg/simpleframework/xml/stream/Formatter$Tag;
+    iget-object v1, p0, Lorg/simpleframework/xml/stream/Formatter;->last:Lorg/simpleframework/xml/stream/Formatter$Tag;
 
-    sget-object v1, Lorg/simpleframework/xml/stream/Formatter$Tag;->START:Lorg/simpleframework/xml/stream/Formatter$Tag;
+    sget-object v2, Lorg/simpleframework/xml/stream/Formatter$Tag;->START:Lorg/simpleframework/xml/stream/Formatter$Tag;
 
-    if-ne v0, v1, :cond_2
+    if-ne v1, v2, :cond_2
 
     :goto_1
-    sget-object v0, Lorg/simpleframework/xml/stream/Formatter$Tag;->END:Lorg/simpleframework/xml/stream/Formatter$Tag;
+    sget-object v1, Lorg/simpleframework/xml/stream/Formatter$Tag;->END:Lorg/simpleframework/xml/stream/Formatter$Tag;
 
-    iput-object v0, p0, Lorg/simpleframework/xml/stream/Formatter;->last:Lorg/simpleframework/xml/stream/Formatter$Tag;
+    iput-object v1, p0, Lorg/simpleframework/xml/stream/Formatter;->last:Lorg/simpleframework/xml/stream/Formatter$Tag;
 
     return-void
 
@@ -843,9 +843,9 @@
     goto :goto_0
 
     :cond_2
-    const/16 v0, 0x3c
+    const/16 v1, 0x3c
 
-    invoke-direct {p0, v0}, Lorg/simpleframework/xml/stream/Formatter;->write(C)V
+    invoke-direct {p0, v1}, Lorg/simpleframework/xml/stream/Formatter;->write(C)V
 
     invoke-direct {p0, v3}, Lorg/simpleframework/xml/stream/Formatter;->write(C)V
 
@@ -953,9 +953,9 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/stream/Formatter;->indenter:Lorg/simpleframework/xml/stream/Indenter;
+    iget-object v1, p0, Lorg/simpleframework/xml/stream/Formatter;->indenter:Lorg/simpleframework/xml/stream/Indenter;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/stream/Indenter;->push()Ljava/lang/String;
+    invoke-virtual {v1}, Lorg/simpleframework/xml/stream/Indenter;->push()Ljava/lang/String;
 
     move-result-object v0
 
@@ -970,22 +970,22 @@
 
     invoke-direct {p0, v0}, Lorg/simpleframework/xml/stream/Formatter;->append(Ljava/lang/String;)V
 
-    const/16 v0, 0x3c
+    const/16 v1, 0x3c
 
-    invoke-direct {p0, v0}, Lorg/simpleframework/xml/stream/Formatter;->append(C)V
+    invoke-direct {p0, v1}, Lorg/simpleframework/xml/stream/Formatter;->append(C)V
 
     invoke-direct {p0, p2}, Lorg/simpleframework/xml/stream/Formatter;->isEmpty(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
     :goto_1
     invoke-direct {p0, p1}, Lorg/simpleframework/xml/stream/Formatter;->append(Ljava/lang/String;)V
 
-    sget-object v0, Lorg/simpleframework/xml/stream/Formatter$Tag;->START:Lorg/simpleframework/xml/stream/Formatter$Tag;
+    sget-object v1, Lorg/simpleframework/xml/stream/Formatter$Tag;->START:Lorg/simpleframework/xml/stream/Formatter$Tag;
 
-    iput-object v0, p0, Lorg/simpleframework/xml/stream/Formatter;->last:Lorg/simpleframework/xml/stream/Formatter$Tag;
+    iput-object v1, p0, Lorg/simpleframework/xml/stream/Formatter;->last:Lorg/simpleframework/xml/stream/Formatter$Tag;
 
     return-void
 
@@ -999,9 +999,9 @@
     :cond_1
     invoke-direct {p0, p2}, Lorg/simpleframework/xml/stream/Formatter;->append(Ljava/lang/String;)V
 
-    const/16 v0, 0x3a
+    const/16 v1, 0x3a
 
-    invoke-direct {p0, v0}, Lorg/simpleframework/xml/stream/Formatter;->append(C)V
+    invoke-direct {p0, v1}, Lorg/simpleframework/xml/stream/Formatter;->append(C)V
 
     goto :goto_1
 .end method

@@ -3,11 +3,6 @@
 .source "HttpTransportMetrics.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract getBytesTransferred()J
 .end method

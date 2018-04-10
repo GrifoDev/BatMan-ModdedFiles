@@ -58,16 +58,16 @@
 .end method
 
 .method private getConvert(Ljava/lang/Class;)Lorg/simpleframework/xml/convert/Convert;
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const-class v0, Lorg/simpleframework/xml/convert/Convert;
+    const-class v2, Lorg/simpleframework/xml/convert/Convert;
 
-    invoke-direct {p0, p1, v0}, Lorg/simpleframework/xml/convert/ConverterScanner;->getAnnotation(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+    invoke-direct {p0, p1, v2}, Lorg/simpleframework/xml/convert/ConverterScanner;->getAnnotation(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
 
     move-result-object v0
 
@@ -79,9 +79,9 @@
     return-object v0
 
     :cond_1
-    const-class v1, Lorg/simpleframework/xml/Root;
+    const-class v2, Lorg/simpleframework/xml/Root;
 
-    invoke-direct {p0, p1, v1}, Lorg/simpleframework/xml/convert/ConverterScanner;->getAnnotation(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+    invoke-direct {p0, p1, v2}, Lorg/simpleframework/xml/convert/ConverterScanner;->getAnnotation(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
 
     move-result-object v1
 
@@ -89,34 +89,34 @@
 
     if-nez v1, :cond_0
 
-    new-instance v0, Lorg/simpleframework/xml/convert/ConvertException;
+    new-instance v2, Lorg/simpleframework/xml/convert/ConvertException;
 
-    const-string/jumbo v1, "Root annotation required for %s"
+    const/4 v3, 0x1
 
-    const/4 v2, 0x1
+    new-array v3, v3, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const/4 v4, 0x0
 
-    const/4 v3, 0x0
+    aput-object p1, v3, v4
 
-    aput-object p1, v2, v3
+    const-string/jumbo v4, "Root annotation required for %s"
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/convert/ConvertException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v2, v4, v3}, Lorg/simpleframework/xml/convert/ConvertException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    throw v0
+    throw v2
 .end method
 
 .method private getConvert(Lorg/simpleframework/xml/strategy/Type;)Lorg/simpleframework/xml/convert/Convert;
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const-class v0, Lorg/simpleframework/xml/convert/Convert;
+    const-class v2, Lorg/simpleframework/xml/convert/Convert;
 
-    invoke-interface {p1, v0}, Lorg/simpleframework/xml/strategy/Type;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+    invoke-interface {p1, v2}, Lorg/simpleframework/xml/strategy/Type;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
 
     move-result-object v0
 
@@ -128,9 +128,9 @@
     return-object v0
 
     :cond_1
-    const-class v1, Lorg/simpleframework/xml/Element;
+    const-class v2, Lorg/simpleframework/xml/Element;
 
-    invoke-interface {p1, v1}, Lorg/simpleframework/xml/strategy/Type;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+    invoke-interface {p1, v2}, Lorg/simpleframework/xml/strategy/Type;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
 
     move-result-object v1
 
@@ -138,25 +138,25 @@
 
     if-nez v1, :cond_0
 
-    new-instance v0, Lorg/simpleframework/xml/convert/ConvertException;
+    new-instance v2, Lorg/simpleframework/xml/convert/ConvertException;
 
-    const-string/jumbo v1, "Element annotation required for %s"
+    const/4 v3, 0x1
 
-    const/4 v2, 0x1
+    new-array v3, v3, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const/4 v4, 0x0
 
-    const/4 v3, 0x0
+    aput-object p1, v3, v4
 
-    aput-object p1, v2, v3
+    const-string/jumbo v4, "Element annotation required for %s"
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/convert/ConvertException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v2, v4, v3}, Lorg/simpleframework/xml/convert/ConvertException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    throw v0
+    throw v2
 .end method
 
 .method private getConvert(Lorg/simpleframework/xml/strategy/Type;Ljava/lang/Class;)Lorg/simpleframework/xml/convert/Convert;
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -174,13 +174,13 @@
     :cond_0
     invoke-direct {p0, p2}, Lorg/simpleframework/xml/convert/ConverterScanner;->getConvert(Ljava/lang/Class;)Lorg/simpleframework/xml/convert/Convert;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method private getType(Lorg/simpleframework/xml/strategy/Type;Ljava/lang/Object;)Ljava/lang/Class;
-    .locals 1
+    .locals 2
 
     invoke-interface {p1}, Lorg/simpleframework/xml/strategy/Type;->getType()Ljava/lang/Class;
 
@@ -193,13 +193,13 @@
     :cond_0
     invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method private getType(Lorg/simpleframework/xml/strategy/Type;Lorg/simpleframework/xml/strategy/Value;)Ljava/lang/Class;
-    .locals 1
+    .locals 2
 
     invoke-interface {p1}, Lorg/simpleframework/xml/strategy/Type;->getType()Ljava/lang/Class;
 
@@ -212,73 +212,73 @@
     :cond_0
     invoke-interface {p2}, Lorg/simpleframework/xml/strategy/Value;->getType()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 
 # virtual methods
 .method public getConverter(Lorg/simpleframework/xml/strategy/Type;Ljava/lang/Object;)Lorg/simpleframework/xml/convert/Converter;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     invoke-direct {p0, p1, p2}, Lorg/simpleframework/xml/convert/ConverterScanner;->getType(Lorg/simpleframework/xml/strategy/Type;Ljava/lang/Object;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-direct {p0, p1, v0}, Lorg/simpleframework/xml/convert/ConverterScanner;->getConvert(Lorg/simpleframework/xml/strategy/Type;Ljava/lang/Class;)Lorg/simpleframework/xml/convert/Convert;
+    invoke-direct {p0, p1, v1}, Lorg/simpleframework/xml/convert/ConverterScanner;->getConvert(Lorg/simpleframework/xml/strategy/Type;Ljava/lang/Class;)Lorg/simpleframework/xml/convert/Convert;
 
     move-result-object v0
 
     if-nez v0, :cond_0
 
-    return-object v1
+    return-object v2
 
     :cond_0
-    iget-object v1, p0, Lorg/simpleframework/xml/convert/ConverterScanner;->factory:Lorg/simpleframework/xml/convert/ConverterFactory;
+    iget-object v2, p0, Lorg/simpleframework/xml/convert/ConverterScanner;->factory:Lorg/simpleframework/xml/convert/ConverterFactory;
 
-    invoke-virtual {v1, v0}, Lorg/simpleframework/xml/convert/ConverterFactory;->getInstance(Lorg/simpleframework/xml/convert/Convert;)Lorg/simpleframework/xml/convert/Converter;
+    invoke-virtual {v2, v0}, Lorg/simpleframework/xml/convert/ConverterFactory;->getInstance(Lorg/simpleframework/xml/convert/Convert;)Lorg/simpleframework/xml/convert/Converter;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 .end method
 
 .method public getConverter(Lorg/simpleframework/xml/strategy/Type;Lorg/simpleframework/xml/strategy/Value;)Lorg/simpleframework/xml/convert/Converter;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     invoke-direct {p0, p1, p2}, Lorg/simpleframework/xml/convert/ConverterScanner;->getType(Lorg/simpleframework/xml/strategy/Type;Lorg/simpleframework/xml/strategy/Value;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-direct {p0, p1, v0}, Lorg/simpleframework/xml/convert/ConverterScanner;->getConvert(Lorg/simpleframework/xml/strategy/Type;Ljava/lang/Class;)Lorg/simpleframework/xml/convert/Convert;
+    invoke-direct {p0, p1, v1}, Lorg/simpleframework/xml/convert/ConverterScanner;->getConvert(Lorg/simpleframework/xml/strategy/Type;Ljava/lang/Class;)Lorg/simpleframework/xml/convert/Convert;
 
     move-result-object v0
 
     if-nez v0, :cond_0
 
-    return-object v1
+    return-object v2
 
     :cond_0
-    iget-object v1, p0, Lorg/simpleframework/xml/convert/ConverterScanner;->factory:Lorg/simpleframework/xml/convert/ConverterFactory;
+    iget-object v2, p0, Lorg/simpleframework/xml/convert/ConverterScanner;->factory:Lorg/simpleframework/xml/convert/ConverterFactory;
 
-    invoke-virtual {v1, v0}, Lorg/simpleframework/xml/convert/ConverterFactory;->getInstance(Lorg/simpleframework/xml/convert/Convert;)Lorg/simpleframework/xml/convert/Converter;
+    invoke-virtual {v2, v0}, Lorg/simpleframework/xml/convert/ConverterFactory;->getInstance(Lorg/simpleframework/xml/convert/Convert;)Lorg/simpleframework/xml/convert/Converter;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 .end method

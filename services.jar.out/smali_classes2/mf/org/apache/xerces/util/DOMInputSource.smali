@@ -47,13 +47,13 @@
 .end method
 
 .method private static getSystemIdFromNode(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
-    .locals 2
+    .locals 3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     if-nez p0, :cond_0
 
-    return-object v1
+    return-object v2
 
     :cond_0
     :try_start_0
@@ -62,19 +62,19 @@
     .catch Ljava/lang/NoSuchMethodError; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    return-object v1
+    return-object v2
 
     :catch_1
     move-exception v0
 
-    return-object v1
+    return-object v2
 .end method
 
 

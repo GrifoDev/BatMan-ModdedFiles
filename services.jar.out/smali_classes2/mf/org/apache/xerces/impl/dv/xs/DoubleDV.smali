@@ -21,68 +21,68 @@
 .end method
 
 .method static isPossibleFP(Ljava/lang/String;)Z
-    .locals 5
-
-    const/4 v1, 0x0
+    .locals 4
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    move v0, v1
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v0, v2, :cond_4
+    if-ge v1, v2, :cond_4
 
-    invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
-    move-result v3
+    move-result v0
 
-    const/16 v4, 0x30
+    const/16 v3, 0x30
 
-    if-ge v3, v4, :cond_2
+    if-ge v0, v3, :cond_2
 
     :cond_0
-    const/16 v4, 0x2e
+    const/16 v3, 0x2e
 
-    if-ne v3, v4, :cond_3
+    if-ne v0, v3, :cond_3
 
     :cond_1
     :goto_1
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_2
-    const/16 v4, 0x39
+    const/16 v3, 0x39
 
-    if-gt v3, v4, :cond_0
+    if-gt v0, v3, :cond_0
 
     goto :goto_1
 
     :cond_3
-    const/16 v4, 0x2d
+    const/16 v3, 0x2d
 
-    if-eq v3, v4, :cond_1
+    if-eq v0, v3, :cond_1
 
-    const/16 v4, 0x2b
+    const/16 v3, 0x2b
 
-    if-eq v3, v4, :cond_1
+    if-eq v0, v3, :cond_1
 
-    const/16 v4, 0x45
+    const/16 v3, 0x45
 
-    if-eq v3, v4, :cond_1
+    if-eq v0, v3, :cond_1
 
-    const/16 v4, 0x65
+    const/16 v3, 0x65
 
-    if-eq v3, v4, :cond_1
+    if-eq v0, v3, :cond_1
 
-    return v1
+    const/4 v3, 0x0
+
+    return v3
 
     :cond_4
-    const/4 v0, 0x1
+    const/4 v3, 0x1
 
-    return v0
+    return v3
 .end method
 
 
@@ -110,20 +110,18 @@
     .end annotation
 
     :try_start_0
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/DoubleDV$XDouble;
+    new-instance v1, Lmf/org/apache/xerces/impl/dv/xs/DoubleDV$XDouble;
 
-    invoke-direct {v0, p1}, Lmf/org/apache/xerces/impl/dv/xs/DoubleDV$XDouble;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, p1}, Lmf/org/apache/xerces/impl/dv/xs/DoubleDV$XDouble;-><init>(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object v1
 
     :catch_0
     move-exception v0
 
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
-
-    const-string/jumbo v1, "cvc-datatype-valid.1.2.1"
+    new-instance v1, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
 
     const/4 v2, 0x2
 
@@ -133,15 +131,17 @@
 
     aput-object p1, v2, v3
 
-    const/4 v3, 0x1
+    const-string/jumbo v3, "double"
 
-    const-string/jumbo v4, "double"
+    const/4 v4, 0x1
 
-    aput-object v4, v2, v3
+    aput-object v3, v2, v4
 
-    invoke-direct {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v3, "cvc-datatype-valid.1.2.1"
 
-    throw v0
+    invoke-direct {v1, v3, v2}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v1
 .end method
 
 .method public getAllowedFacets()S

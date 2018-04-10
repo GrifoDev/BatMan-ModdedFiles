@@ -41,24 +41,26 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .locals 3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    instance-of v0, p1, Lorg/simpleframework/xml/core/KeyBuilder$Key;
+    instance-of v1, p1, Lorg/simpleframework/xml/core/KeyBuilder$Key;
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    return v1
+    return v2
 
     :cond_0
-    check-cast p1, Lorg/simpleframework/xml/core/KeyBuilder$Key;
+    move-object v0, p1
 
-    invoke-virtual {p0, p1}, Lorg/simpleframework/xml/core/KeyBuilder$Key;->equals(Lorg/simpleframework/xml/core/KeyBuilder$Key;)Z
+    check-cast v0, Lorg/simpleframework/xml/core/KeyBuilder$Key;
 
-    move-result v0
+    invoke-virtual {p0, v0}, Lorg/simpleframework/xml/core/KeyBuilder$Key;->equals(Lorg/simpleframework/xml/core/KeyBuilder$Key;)Z
 
-    return v0
+    move-result v1
+
+    return v1
 .end method
 
 .method public equals(Lorg/simpleframework/xml/core/KeyBuilder$Key;)Z

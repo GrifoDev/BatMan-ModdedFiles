@@ -59,7 +59,7 @@
     const/4 v0, 0x0
 
     :try_start_0
-    sget-object v1, Lcom/samsung/android/knox/EnterpriseDeviceManager;->KNOX_CCM_POLICY_SERVICE:Ljava/lang/String;
+    const-string/jumbo v1, "knox_ccm_policy"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -572,7 +572,7 @@
 .end method
 
 .method public getAliasesForPackage(Ljava/lang/String;)Ljava/util/List;
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -585,58 +585,40 @@
         }
     .end annotation
 
-    invoke-static {}, Lcom/android/server/enterprise/EDMProxyService;->getCCMService()Lcom/samsung/android/knox/keystore/IClientCertificateManager;
+    const-string/jumbo v1, "knox_ccm_policy"
+
+    invoke-static {v1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
+
+    check-cast v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;
 
     if-nez v0, :cond_0
 
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object v3
+    move-result-object v1
 
-    return-object v3
+    return-object v1
 
     :cond_0
-    :try_start_0
     new-instance v1, Lcom/samsung/android/knox/ContextInfo;
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v3
+    move-result v2
 
-    invoke-direct {v1, v3}, Lcom/samsung/android/knox/ContextInfo;-><init>(I)V
+    invoke-direct {v1, v2}, Lcom/samsung/android/knox/ContextInfo;-><init>(I)V
 
-    invoke-direct {p0, v1}, Lcom/android/server/enterprise/EDMProxyService;->fixContextInfoForMP(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+    invoke-virtual {v0, v1, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getAliasesForPackage(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v1
 
-    invoke-interface {v0, v1, p1}, Lcom/samsung/android/knox/keystore/IClientCertificateManager;->getAliasesForPackage(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Ljava/util/List;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v3
-
-    return-object v3
-
-    :catch_0
-    move-exception v2
-
-    const-string/jumbo v3, "EDMProxyService"
-
-    const-string/jumbo v4, "getAliasesForPackage failed - Exception "
-
-    invoke-static {v3, v4, v2}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
-
-    move-result-object v3
-
-    return-object v3
+    return-object v1
 .end method
 
 .method public getAliasesForWiFi()Ljava/util/List;
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -647,42 +629,28 @@
         }
     .end annotation
 
-    invoke-static {}, Lcom/android/server/enterprise/EDMProxyService;->getCCMService()Lcom/samsung/android/knox/keystore/IClientCertificateManager;
+    const-string/jumbo v1, "knox_ccm_policy"
+
+    invoke-static {v1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
+
+    check-cast v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;
 
     if-nez v0, :cond_0
 
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object v2
+    move-result-object v1
 
-    return-object v2
+    return-object v1
 
     :cond_0
-    :try_start_0
-    invoke-interface {v0}, Lcom/samsung/android/knox/keystore/IClientCertificateManager;->getAliasesForWiFi()Ljava/util/List;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-virtual {v0}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getAliasesForWiFi()Ljava/util/List;
 
-    move-result-object v2
+    move-result-object v1
 
-    return-object v2
-
-    :catch_0
-    move-exception v1
-
-    const-string/jumbo v2, "EDMProxyService"
-
-    const-string/jumbo v3, "getAliasesForWiFi failed - Exception "
-
-    invoke-static {v2, v3, v1}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
-
-    move-result-object v2
-
-    return-object v2
+    return-object v1
 .end method
 
 .method public getAllowBluetoothDataTransfer(Z)Z
@@ -981,7 +949,7 @@
 .end method
 
 .method public getCertificateAliasesHavingPrivateKey()Ljava/util/List;
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -992,54 +960,36 @@
         }
     .end annotation
 
-    invoke-static {}, Lcom/android/server/enterprise/EDMProxyService;->getCCMService()Lcom/samsung/android/knox/keystore/IClientCertificateManager;
+    const-string/jumbo v1, "knox_ccm_policy"
+
+    invoke-static {v1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
+
+    check-cast v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;
 
     if-nez v0, :cond_0
 
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object v3
+    move-result-object v1
 
-    return-object v3
+    return-object v1
 
     :cond_0
-    :try_start_0
     new-instance v1, Lcom/samsung/android/knox/ContextInfo;
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v3
+    move-result v2
 
-    invoke-direct {v1, v3}, Lcom/samsung/android/knox/ContextInfo;-><init>(I)V
+    invoke-direct {v1, v2}, Lcom/samsung/android/knox/ContextInfo;-><init>(I)V
 
-    invoke-direct {p0, v1}, Lcom/android/server/enterprise/EDMProxyService;->fixContextInfoForMP(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+    invoke-virtual {v0, v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getCertificateAliasesHavingPrivateKey(Lcom/samsung/android/knox/ContextInfo;)Ljava/util/List;
 
     move-result-object v1
 
-    invoke-interface {v0, v1}, Lcom/samsung/android/knox/keystore/IClientCertificateManager;->getCertificateAliasesHavingPrivateKey(Lcom/samsung/android/knox/ContextInfo;)Ljava/util/List;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v3
-
-    return-object v3
-
-    :catch_0
-    move-exception v2
-
-    const-string/jumbo v3, "EDMProxyService"
-
-    const-string/jumbo v4, "getCertificateAliasesHavingPrivateKey failed - Exception "
-
-    invoke-static {v3, v4, v2}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
-
-    move-result-object v3
-
-    return-object v3
+    return-object v1
 .end method
 
 .method public getCertificateChain(Ljava/lang/String;)[B
@@ -1154,7 +1104,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
+    check-cast v0, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;
 
     if-nez v0, :cond_0
 
@@ -1163,7 +1113,7 @@
     return v1
 
     :cond_0
-    invoke-virtual {v0}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->getKeyboardMode()I
+    invoke-virtual {v0}, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;->getKeyboardMode()I
 
     move-result v1
 
@@ -1252,7 +1202,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
+    check-cast v0, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;
 
     if-nez v0, :cond_0
 
@@ -1261,7 +1211,7 @@
     return v1
 
     :cond_0
-    invoke-virtual {v0}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->getHideNotificationMessages()I
+    invoke-virtual {v0}, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;->getHideNotificationMessages()I
 
     move-result v1
 
@@ -1277,7 +1227,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
+    check-cast v0, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;
 
     if-nez v0, :cond_0
 
@@ -1286,7 +1236,7 @@
     return v1
 
     :cond_0
-    invoke-virtual {v0}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->getProKioskNotificationMessagesState()Z
+    invoke-virtual {v0}, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;->getProKioskNotificationMessagesState()Z
 
     move-result v1
 
@@ -1302,7 +1252,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
+    check-cast v0, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;
 
     if-nez v0, :cond_0
 
@@ -1311,7 +1261,7 @@
     return v1
 
     :cond_0
-    invoke-virtual {v0}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->getProKioskState()Z
+    invoke-virtual {v0}, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;->getProKioskState()Z
 
     move-result v1
 
@@ -1354,7 +1304,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
+    check-cast v0, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;
 
     if-nez v0, :cond_0
 
@@ -1363,7 +1313,7 @@
     return v1
 
     :cond_0
-    invoke-virtual {v0}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->getSensorDisabled()I
+    invoke-virtual {v0}, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;->getSensorDisabled()I
 
     move-result v1
 
@@ -1371,97 +1321,69 @@
 .end method
 
 .method public getSlotIdForCaller(Ljava/lang/String;)J
-    .locals 8
+    .locals 4
 
-    const-wide/16 v6, -0x1
+    const-string/jumbo v1, "knox_ccm_policy"
 
-    invoke-static {}, Lcom/android/server/enterprise/EDMProxyService;->getCCMService()Lcom/samsung/android/knox/keystore/IClientCertificateManager;
+    invoke-static {v1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
+    check-cast v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;
+
     if-nez v0, :cond_0
 
-    return-wide v6
+    const-wide/16 v2, -0x1
+
+    return-wide v2
 
     :cond_0
-    :try_start_0
     new-instance v1, Lcom/samsung/android/knox/ContextInfo;
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v3
+    move-result v2
 
-    invoke-direct {v1, v3}, Lcom/samsung/android/knox/ContextInfo;-><init>(I)V
+    invoke-direct {v1, v2}, Lcom/samsung/android/knox/ContextInfo;-><init>(I)V
 
-    invoke-direct {p0, v1}, Lcom/android/server/enterprise/EDMProxyService;->fixContextInfoForMP(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+    invoke-virtual {v0, v1, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getSlotIdForCaller(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)J
 
-    move-result-object v1
+    move-result-wide v2
 
-    invoke-interface {v0, v1, p1}, Lcom/samsung/android/knox/keystore/IClientCertificateManager;->getSlotIdForCaller(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)J
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-wide v4
-
-    return-wide v4
-
-    :catch_0
-    move-exception v2
-
-    const-string/jumbo v3, "EDMProxyService"
-
-    const-string/jumbo v4, "getSlotIdForCaller failed - Exception "
-
-    invoke-static {v3, v4, v2}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    return-wide v6
+    return-wide v2
 .end method
 
 .method public getSlotIdForPackage(Ljava/lang/String;Ljava/lang/String;)J
-    .locals 8
+    .locals 4
 
-    const-wide/16 v6, -0x1
+    const-string/jumbo v1, "knox_ccm_policy"
 
-    invoke-static {}, Lcom/android/server/enterprise/EDMProxyService;->getCCMService()Lcom/samsung/android/knox/keystore/IClientCertificateManager;
+    invoke-static {v1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
+    check-cast v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;
+
     if-nez v0, :cond_0
 
-    return-wide v6
+    const-wide/16 v2, -0x1
+
+    return-wide v2
 
     :cond_0
-    :try_start_0
     new-instance v1, Lcom/samsung/android/knox/ContextInfo;
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v3
+    move-result v2
 
-    invoke-direct {v1, v3}, Lcom/samsung/android/knox/ContextInfo;-><init>(I)V
+    invoke-direct {v1, v2}, Lcom/samsung/android/knox/ContextInfo;-><init>(I)V
 
-    invoke-direct {p0, v1}, Lcom/android/server/enterprise/EDMProxyService;->fixContextInfoForMP(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+    invoke-virtual {v0, v1, p1, p2}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->getSlotIdForPackage(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;)J
 
-    move-result-object v1
+    move-result-wide v2
 
-    invoke-interface {v0, v1, p1, p2}, Lcom/samsung/android/knox/keystore/IClientCertificateManager;->getSlotIdForPackage(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;)J
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-wide v4
-
-    return-wide v4
-
-    :catch_0
-    move-exception v2
-
-    const-string/jumbo v3, "EDMProxyService"
-
-    const-string/jumbo v4, "getSlotIdForPackage failed - Exception "
-
-    invoke-static {v3, v4, v2}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    return-wide v6
+    return-wide v2
 .end method
 
 .method public getToastEnabledState()Z
@@ -1473,7 +1395,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
+    check-cast v0, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;
 
     if-nez v0, :cond_0
 
@@ -1482,7 +1404,7 @@
     return v1
 
     :cond_0
-    invoke-virtual {v0}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->getToastEnabledState()Z
+    invoke-virtual {v0}, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;->getToastEnabledState()Z
 
     move-result v1
 
@@ -1498,7 +1420,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
+    check-cast v0, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;
 
     if-nez v0, :cond_0
 
@@ -1507,7 +1429,7 @@
     return v1
 
     :cond_0
-    invoke-virtual {v0}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->getToastGravity()I
+    invoke-virtual {v0}, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;->getToastGravity()I
 
     move-result v1
 
@@ -1523,7 +1445,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
+    check-cast v0, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;
 
     if-nez v0, :cond_0
 
@@ -1532,7 +1454,7 @@
     return v1
 
     :cond_0
-    invoke-virtual {v0}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->getToastGravityEnabledState()Z
+    invoke-virtual {v0}, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;->getToastGravityEnabledState()Z
 
     move-result v1
 
@@ -1548,7 +1470,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
+    check-cast v0, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;
 
     if-nez v0, :cond_0
 
@@ -1557,7 +1479,7 @@
     return v1
 
     :cond_0
-    invoke-virtual {v0}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->getToastGravityXOffset()I
+    invoke-virtual {v0}, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;->getToastGravityXOffset()I
 
     move-result v1
 
@@ -1573,7 +1495,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
+    check-cast v0, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;
 
     if-nez v0, :cond_0
 
@@ -1582,7 +1504,7 @@
     return v1
 
     :cond_0
-    invoke-virtual {v0}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->getToastGravityYOffset()I
+    invoke-virtual {v0}, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;->getToastGravityYOffset()I
 
     move-result v1
 
@@ -1598,7 +1520,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
+    check-cast v0, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;
 
     if-nez v0, :cond_0
 
@@ -1607,7 +1529,7 @@
     return v1
 
     :cond_0
-    invoke-virtual {v0}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->getToastShowPackageNameState()Z
+    invoke-virtual {v0}, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;->getToastShowPackageNameState()Z
 
     move-result v1
 
@@ -1623,7 +1545,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
+    check-cast v0, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;
 
     if-nez v0, :cond_0
 
@@ -1632,7 +1554,7 @@
     return v1
 
     :cond_0
-    invoke-virtual {v0}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->getVolumeButtonRotationState()Z
+    invoke-virtual {v0}, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;->getVolumeButtonRotationState()Z
 
     move-result v1
 
@@ -1648,7 +1570,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
+    check-cast v0, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;
 
     if-nez v0, :cond_0
 
@@ -1657,7 +1579,7 @@
     return v1
 
     :cond_0
-    invoke-virtual {v0}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->getVolumeControlStream()I
+    invoke-virtual {v0}, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;->getVolumeControlStream()I
 
     move-result v1
 
@@ -1673,7 +1595,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
+    check-cast v0, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;
 
     if-nez v0, :cond_0
 
@@ -1682,7 +1604,7 @@
     return v1
 
     :cond_0
-    invoke-virtual {v0}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->getVolumePanelEnabledState()Z
+    invoke-virtual {v0}, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;->getVolumePanelEnabledState()Z
 
     move-result v1
 
@@ -1698,7 +1620,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
+    check-cast v0, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;
 
     if-nez v0, :cond_0
 
@@ -1707,7 +1629,7 @@
     return v1
 
     :cond_0
-    invoke-virtual {v0}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->getWifiAutoSwitchDelay()I
+    invoke-virtual {v0}, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;->getWifiAutoSwitchDelay()I
 
     move-result v1
 
@@ -1723,7 +1645,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
+    check-cast v0, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;
 
     if-nez v0, :cond_0
 
@@ -1732,7 +1654,7 @@
     return v1
 
     :cond_0
-    invoke-virtual {v0}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->getWifiAutoSwitchState()Z
+    invoke-virtual {v0}, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;->getWifiAutoSwitchState()Z
 
     move-result v1
 
@@ -1748,7 +1670,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
+    check-cast v0, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;
 
     if-nez v0, :cond_0
 
@@ -1757,7 +1679,7 @@
     return v1
 
     :cond_0
-    invoke-virtual {v0}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->getWifiAutoSwitchThreshold()I
+    invoke-virtual {v0}, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;->getWifiAutoSwitchThreshold()I
 
     move-result v1
 
@@ -1811,7 +1733,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
+    check-cast v0, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;
 
     if-nez v0, :cond_0
 
@@ -1820,7 +1742,7 @@
     return v1
 
     :cond_0
-    invoke-virtual {v0}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->getWifiState()Z
+    invoke-virtual {v0}, Lcom/samsung/android/knox/custom/KnoxCustomManagerService;->getWifiState()Z
 
     move-result v1
 
@@ -1828,50 +1750,36 @@
 .end method
 
 .method public isAccessControlMethodPassword()Z
-    .locals 6
+    .locals 3
 
-    const/4 v5, 0x0
+    const-string/jumbo v1, "knox_ccm_policy"
 
-    invoke-static {}, Lcom/android/server/enterprise/EDMProxyService;->getCCMService()Lcom/samsung/android/knox/keystore/IClientCertificateManager;
+    invoke-static {v1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
+    check-cast v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;
+
     if-nez v0, :cond_0
 
-    return v5
+    const/4 v1, 0x0
+
+    return v1
 
     :cond_0
-    :try_start_0
     new-instance v1, Lcom/samsung/android/knox/ContextInfo;
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v3
+    move-result v2
 
-    invoke-direct {v1, v3}, Lcom/samsung/android/knox/ContextInfo;-><init>(I)V
+    invoke-direct {v1, v2}, Lcom/samsung/android/knox/ContextInfo;-><init>(I)V
 
-    invoke-direct {p0, v1}, Lcom/android/server/enterprise/EDMProxyService;->fixContextInfoForMP(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+    invoke-virtual {v0, v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isAccessControlMethodPassword(Lcom/samsung/android/knox/ContextInfo;)Z
 
-    move-result-object v1
+    move-result v1
 
-    invoke-interface {v0, v1}, Lcom/samsung/android/knox/keystore/IClientCertificateManager;->isAccessControlMethodPassword(Lcom/samsung/android/knox/ContextInfo;)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v3
-
-    return v3
-
-    :catch_0
-    move-exception v2
-
-    const-string/jumbo v3, "EDMProxyService"
-
-    const-string/jumbo v4, "isAccessControlMethodPassword failed - Exception "
-
-    invoke-static {v3, v4, v2}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    return v5
+    return v1
 .end method
 
 .method public isAccountAdditionAllowed(Ljava/lang/String;Ljava/lang/String;Z)Z
@@ -1924,6 +1832,31 @@
     return v1
 .end method
 
+.method public isAccountRemovalAllowedAsUser(Ljava/lang/String;Ljava/lang/String;ZI)Z
+    .locals 2
+
+    const-string/jumbo v1, "device_account_policy"
+
+    invoke-static {v1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;
+
+    if-nez v0, :cond_0
+
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_0
+    invoke-virtual {v0, p1, p2, p3, p4}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->isAccountRemovalAllowedAsUser(Ljava/lang/String;Ljava/lang/String;ZI)Z
+
+    move-result v1
+
+    return v1
+.end method
+
 .method public isAndroidBeamAllowed(Z)Z
     .locals 3
 
@@ -1945,6 +1878,56 @@
 
     :cond_0
     invoke-virtual {v0, v2, p1}, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->isAndroidBeamAllowed(Lcom/samsung/android/knox/ContextInfo;Z)Z
+
+    move-result v1
+
+    return v1
+.end method
+
+.method public isAnyApplicationIconChangedAsUser(I)Z
+    .locals 2
+
+    const-string/jumbo v1, "application_policy"
+
+    invoke-static {v1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/enterprise/application/ApplicationPolicy;
+
+    if-nez v0, :cond_0
+
+    const/4 v1, 0x0
+
+    return v1
+
+    :cond_0
+    invoke-virtual {v0, p1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->isAnyApplicationIconChangedAsUser(I)Z
+
+    move-result v1
+
+    return v1
+.end method
+
+.method public isAnyApplicationNameChangedAsUser(I)Z
+    .locals 2
+
+    const-string/jumbo v1, "application_policy"
+
+    invoke-static {v1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/enterprise/application/ApplicationPolicy;
+
+    if-nez v0, :cond_0
+
+    const/4 v1, 0x0
+
+    return v1
+
+    :cond_0
+    invoke-virtual {v0, p1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->isAnyApplicationNameChangedAsUser(I)Z
 
     move-result v1
 
@@ -2047,36 +2030,11 @@
 .end method
 
 .method public isBTSecureAccessAllowedAsUser(I)Z
-    .locals 3
+    .locals 1
 
-    const-string/jumbo v1, "smartcard_access_policy"
+    const/4 v0, 0x0
 
-    invoke-static {v1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/server/enterprise/container/SmartCardAccessPolicy;
-
-    if-nez v0, :cond_0
-
-    const/4 v1, 0x0
-
-    return v1
-
-    :cond_0
-    new-instance v1, Lcom/samsung/android/knox/ContextInfo;
-
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v2
-
-    invoke-direct {v1, v2}, Lcom/samsung/android/knox/ContextInfo;-><init>(I)V
-
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/enterprise/container/SmartCardAccessPolicy;->isBTSecureAccessAllowedAsUser(Lcom/samsung/android/knox/ContextInfo;I)Z
-
-    move-result v1
-
-    return v1
+    return v0
 .end method
 
 .method public isBackgroundProcessLimitAllowed()Z
@@ -2302,97 +2260,69 @@
 .end method
 
 .method public isCCMPolicyEnabledForCaller()Z
-    .locals 6
+    .locals 3
 
-    const/4 v5, 0x0
+    const-string/jumbo v1, "knox_ccm_policy"
 
-    invoke-static {}, Lcom/android/server/enterprise/EDMProxyService;->getCCMService()Lcom/samsung/android/knox/keystore/IClientCertificateManager;
+    invoke-static {v1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
+    check-cast v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;
+
     if-nez v0, :cond_0
 
-    return v5
+    const/4 v1, 0x0
+
+    return v1
 
     :cond_0
-    :try_start_0
     new-instance v1, Lcom/samsung/android/knox/ContextInfo;
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v3
+    move-result v2
 
-    invoke-direct {v1, v3}, Lcom/samsung/android/knox/ContextInfo;-><init>(I)V
+    invoke-direct {v1, v2}, Lcom/samsung/android/knox/ContextInfo;-><init>(I)V
 
-    invoke-direct {p0, v1}, Lcom/android/server/enterprise/EDMProxyService;->fixContextInfoForMP(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+    invoke-virtual {v0, v1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isCCMPolicyEnabledForCaller(Lcom/samsung/android/knox/ContextInfo;)Z
 
-    move-result-object v1
+    move-result v1
 
-    invoke-interface {v0, v1}, Lcom/samsung/android/knox/keystore/IClientCertificateManager;->isCCMPolicyEnabledForCaller(Lcom/samsung/android/knox/ContextInfo;)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v3
-
-    return v3
-
-    :catch_0
-    move-exception v2
-
-    const-string/jumbo v3, "EDMProxyService"
-
-    const-string/jumbo v4, "isCCMPolicyEnabledForCaller failed - Exception "
-
-    invoke-static {v3, v4, v2}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    return v5
+    return v1
 .end method
 
 .method public isCCMPolicyEnabledForPackage(Ljava/lang/String;)Z
-    .locals 6
+    .locals 3
 
-    const/4 v5, 0x0
+    const-string/jumbo v1, "knox_ccm_policy"
 
-    invoke-static {}, Lcom/android/server/enterprise/EDMProxyService;->getCCMService()Lcom/samsung/android/knox/keystore/IClientCertificateManager;
+    invoke-static {v1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
+    check-cast v0, Lcom/android/server/enterprise/ccm/ClientCertificateManager;
+
     if-nez v0, :cond_0
 
-    return v5
+    const/4 v1, 0x0
+
+    return v1
 
     :cond_0
-    :try_start_0
     new-instance v1, Lcom/samsung/android/knox/ContextInfo;
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v3
+    move-result v2
 
-    invoke-direct {v1, v3}, Lcom/samsung/android/knox/ContextInfo;-><init>(I)V
+    invoke-direct {v1, v2}, Lcom/samsung/android/knox/ContextInfo;-><init>(I)V
 
-    invoke-direct {p0, v1}, Lcom/android/server/enterprise/EDMProxyService;->fixContextInfoForMP(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+    invoke-virtual {v0, v1, p1}, Lcom/android/server/enterprise/ccm/ClientCertificateManager;->isCCMPolicyEnabledForPackage(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
 
-    move-result-object v1
+    move-result v1
 
-    invoke-interface {v0, v1, p1}, Lcom/samsung/android/knox/keystore/IClientCertificateManager;->isCCMPolicyEnabledForPackage(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v3
-
-    return v3
-
-    :catch_0
-    move-exception v2
-
-    const-string/jumbo v3, "EDMProxyService"
-
-    const-string/jumbo v4, "isCCMPolicyEnabledForPackage failed - Exception "
-
-    invoke-static {v3, v4, v2}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    return v5
+    return v1
 .end method
 
 .method public isCaCertificateTrustedAsUser([BZZI)Z
@@ -2652,6 +2582,31 @@
     return v1
 .end method
 
+.method public isCertificateValidationAtInstallEnabledAsUser(I)Z
+    .locals 2
+
+    const-string/jumbo v1, "certificate_policy"
+
+    invoke-static {v1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/enterprise/certificate/CertificatePolicy;
+
+    if-nez v0, :cond_0
+
+    const/4 v1, 0x0
+
+    return v1
+
+    :cond_0
+    invoke-virtual {v0, p1}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->isCertificateValidationAtInstallEnabledAsUser(I)Z
+
+    move-result v1
+
+    return v1
+.end method
+
 .method public isChangeRequested()I
     .locals 3
 
@@ -2855,6 +2810,58 @@
 
     :cond_0
     invoke-virtual {v0, v2}, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->isDiscoverableEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
+
+    move-result v1
+
+    return v1
+.end method
+
+.method public isFactoryResetAllowed()Z
+    .locals 3
+
+    const/4 v2, 0x0
+
+    const-string/jumbo v1, "restriction_policy"
+
+    invoke-static {v1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;
+
+    if-nez v0, :cond_0
+
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_0
+    invoke-virtual {v0, v2}, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->isFactoryResetAllowed(Lcom/samsung/android/knox/ContextInfo;)Z
+
+    move-result v1
+
+    return v1
+.end method
+
+.method public isGoogleAccountsAutoSyncAllowedAsUser(I)Z
+    .locals 2
+
+    const-string/jumbo v1, "restriction_policy"
+
+    invoke-static {v1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;
+
+    if-nez v0, :cond_0
+
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_0
+    invoke-virtual {v0, p1}, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->isGoogleAccountsAutoSyncAllowedAsUser(I)Z
 
     move-result v1
 
@@ -3219,6 +3226,72 @@
     return v1
 .end method
 
+.method public isMockLocationEnabled()Z
+    .locals 3
+
+    const-string/jumbo v1, "restriction_policy"
+
+    invoke-static {v1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/enterprise/restriction/RestrictionPolicy;
+
+    if-nez v0, :cond_0
+
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_0
+    new-instance v1, Lcom/samsung/android/knox/ContextInfo;
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v2
+
+    invoke-direct {v1, v2}, Lcom/samsung/android/knox/ContextInfo;-><init>(I)V
+
+    invoke-virtual {v0, v1}, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->isMockLocationEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
+
+    move-result v1
+
+    return v1
+.end method
+
+.method public isMultifactorAuthenticationEnabled()Z
+    .locals 3
+
+    const-string/jumbo v1, "password_policy"
+
+    invoke-static {v1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/enterprise/security/PasswordPolicy;
+
+    if-nez v0, :cond_0
+
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_0
+    new-instance v1, Lcom/samsung/android/knox/ContextInfo;
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v2
+
+    invoke-direct {v1, v2}, Lcom/samsung/android/knox/ContextInfo;-><init>(I)V
+
+    invoke-virtual {v0, v1}, Lcom/android/server/enterprise/security/PasswordPolicy;->isMultifactorAuthenticationEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
+
+    move-result v1
+
+    return v1
+.end method
+
 .method public isNFCEnabled()Z
     .locals 2
 
@@ -3447,70 +3520,57 @@
     return v1
 .end method
 
-.method public isPackageWhitelistedFromBTSecureAccess(Ljava/lang/String;)Z
+.method public isPackageInAvrWhitelist(I)Z
     .locals 3
 
-    const-string/jumbo v1, "smartcard_access_policy"
+    const-string/jumbo v1, "application_policy"
 
     invoke-static {v1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/server/enterprise/container/SmartCardAccessPolicy;
+    check-cast v0, Lcom/android/server/enterprise/application/ApplicationPolicy;
 
     if-nez v0, :cond_0
 
-    const/4 v1, 0x1
+    const-string/jumbo v1, "EDMProxyService"
+
+    const-string/jumbo v2, "AVR Policy returning false due null applicationPolicy"
+
+    invoke-static {v1, v2}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v1, 0x0
 
     return v1
 
     :cond_0
-    new-instance v1, Lcom/samsung/android/knox/ContextInfo;
+    invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
 
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+    move-result v1
 
-    move-result v2
+    const/4 v2, 0x3
 
-    invoke-direct {v1, v2}, Lcom/samsung/android/knox/ContextInfo;-><init>(I)V
-
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/enterprise/container/SmartCardAccessPolicy;->isPackageWhitelistedFromBTSecureAccess(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
+    invoke-virtual {v0, v2, v1, p1}, Lcom/android/server/enterprise/application/ApplicationPolicy;->isPackageInWhitelistInternal(III)Z
 
     move-result v1
 
     return v1
 .end method
 
+.method public isPackageWhitelistedFromBTSecureAccess(Ljava/lang/String;)Z
+    .locals 1
+
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
 .method public isPackageWhitelistedFromBTSecureAccessUid(I)Z
-    .locals 3
+    .locals 1
 
-    const-string/jumbo v1, "smartcard_access_policy"
+    const/4 v0, 0x1
 
-    invoke-static {v1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/server/enterprise/container/SmartCardAccessPolicy;
-
-    if-nez v0, :cond_0
-
-    const/4 v1, 0x1
-
-    return v1
-
-    :cond_0
-    new-instance v1, Lcom/samsung/android/knox/ContextInfo;
-
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v2
-
-    invoke-direct {v1, v2}, Lcom/samsung/android/knox/ContextInfo;-><init>(I)V
-
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/enterprise/container/SmartCardAccessPolicy;->isPackageWhitelistedFromBTSecureAccessUid(Lcom/samsung/android/knox/ContextInfo;I)Z
-
-    move-result v1
-
-    return v1
+    return v0
 .end method
 
 .method public isPairingEnabled()Z
@@ -4271,6 +4331,27 @@
     return-void
 .end method
 
+.method public notifyPasswordPolicyOneLockChanged(ZI)V
+    .locals 2
+
+    const-string/jumbo v1, "password_policy"
+
+    invoke-static {v1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/enterprise/security/PasswordPolicy;
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {v0, p1, p2}, Lcom/android/server/enterprise/security/PasswordPolicy;->notifyPasswordPolicyOneLockChanged(ZI)V
+
+    return-void
+.end method
+
 .method public notifyUserKeystoreUnlocked(I)V
     .locals 4
 
@@ -4490,18 +4571,21 @@
 
     move-result v9
 
-    if-eqz v9, :cond_0
+    xor-int/lit8 v9, v9, 0x1
 
-    const/4 v7, 0x0
-
-    if-nez p1, :cond_1
-
-    return v12
+    if-eqz v9, :cond_1
 
     :cond_0
     return v10
 
     :cond_1
+    const/4 v7, 0x0
+
+    if-nez p1, :cond_2
+
+    return v12
+
+    :cond_2
     :try_start_0
     invoke-static {p1}, Landroid/security/Credentials;->convertFromPem([B)Ljava/util/List;
     :try_end_0
@@ -4511,7 +4595,7 @@
 
     move-result-object v7
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_3
 
     const-string/jumbo v9, "EDMProxyService"
 
@@ -4574,17 +4658,17 @@
 
     return v12
 
-    :cond_2
+    :cond_3
     invoke-interface {v7}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :cond_3
+    :cond_4
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v9
 
-    if-eqz v9, :cond_4
+    if-eqz v9, :cond_5
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4600,10 +4684,10 @@
 
     move-result v8
 
-    if-eq v8, v10, :cond_3
+    if-eq v8, v10, :cond_4
 
     return v8
 
-    :cond_4
+    :cond_5
     return v10
 .end method

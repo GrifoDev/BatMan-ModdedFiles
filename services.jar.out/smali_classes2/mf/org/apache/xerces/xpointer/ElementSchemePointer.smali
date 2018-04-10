@@ -147,108 +147,108 @@
 .method protected checkMatch()Z
     .locals 5
 
-    const/4 v1, 0x0
+    const/4 v4, 0x0
 
-    iget-boolean v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsShortHand:Z
+    iget-boolean v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsShortHand:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fChildSequence:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fChildSequence:[I
 
-    array-length v0, v0
+    array-length v1, v1
 
     iget v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
 
     add-int/lit8 v2, v2, 0x1
 
-    if-le v0, v2, :cond_3
+    if-le v1, v2, :cond_3
 
-    return v1
+    return v4
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fChildSequence:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fChildSequence:[I
 
-    array-length v0, v0
+    array-length v1, v1
 
     iget v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
 
     add-int/lit8 v2, v2, 0x1
 
-    if-le v0, v2, :cond_1
+    if-le v1, v2, :cond_1
 
-    return v1
+    return v4
 
     :cond_1
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_0
-    iget-object v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fChildSequence:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fChildSequence:[I
 
-    array-length v2, v2
+    array-length v1, v1
 
-    if-ge v0, v2, :cond_6
+    if-ge v0, v1, :cond_6
 
-    iget-object v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fChildSequence:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fChildSequence:[I
+
+    aget v1, v1, v0
+
+    iget-object v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildSequence:[I
 
     aget v2, v2, v0
 
-    iget-object v3, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildSequence:[I
-
-    aget v3, v3, v0
-
-    if-ne v2, v3, :cond_2
+    if-ne v1, v2, :cond_2
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_2
-    return v1
+    return v4
 
     :cond_3
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_1
-    iget-object v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fChildSequence:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fChildSequence:[I
 
-    array-length v2, v2
+    array-length v1, v1
 
-    if-ge v0, v2, :cond_6
+    if-ge v0, v1, :cond_6
+
+    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildSequence:[I
+
+    array-length v1, v1
+
+    add-int/lit8 v2, v0, 0x2
+
+    if-lt v1, v2, :cond_4
+
+    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fChildSequence:[I
+
+    aget v1, v1, v0
 
     iget-object v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildSequence:[I
 
-    array-length v2, v2
+    add-int/lit8 v3, v0, 0x1
 
-    add-int/lit8 v3, v0, 0x2
+    aget v2, v2, v3
 
-    if-lt v2, v3, :cond_4
-
-    iget-object v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fChildSequence:[I
-
-    aget v2, v2, v0
-
-    iget-object v3, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildSequence:[I
-
-    add-int/lit8 v4, v0, 0x1
-
-    aget v3, v3, v4
-
-    if-ne v2, v3, :cond_5
+    if-ne v1, v2, :cond_5
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
     :cond_4
-    return v1
+    return v4
 
     :cond_5
-    return v1
+    return v4
 
     :cond_6
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    return v0
+    return v1
 .end method
 
 .method public getSchemeData()Ljava/lang/String;
@@ -425,42 +425,42 @@
 .end method
 
 .method protected matchChildSequence(Lmf/org/apache/xerces/xni/QName;I)Z
-    .locals 5
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    iget v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
+    iget v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
 
+    iget-object v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildSequence:[I
+
+    array-length v2, v2
+
+    if-ge v1, v2, :cond_1
+
+    :goto_0
+    iget-boolean v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsResolveElement:Z
+
+    if-nez v1, :cond_2
+
+    :cond_0
+    :goto_1
+    iget-boolean v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsElementFound:Z
+
+    return v1
+
+    :cond_1
     iget-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildSequence:[I
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_1
-
-    :goto_0
-    iget-boolean v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsResolveElement:Z
-
-    if-nez v0, :cond_2
-
-    :cond_0
-    :goto_1
-    iget-boolean v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsElementFound:Z
-
-    return v0
-
-    :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildSequence:[I
-
-    array-length v0, v0
-
-    new-array v0, v0, [I
+    new-array v0, v1, [I
 
     iget-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildSequence:[I
 
@@ -468,7 +468,7 @@
 
     array-length v2, v2
 
-    invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v1, v4, v0, v4, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     iget v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
 
@@ -482,191 +482,191 @@
 
     array-length v2, v0
 
-    invoke-static {v0, v3, v1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v0, v4, v1, v4, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     goto :goto_0
 
     :cond_2
     if-eqz p2, :cond_3
 
-    if-eq p2, v4, :cond_7
+    if-eq p2, v5, :cond_7
 
-    const/4 v0, 0x2
+    const/4 v1, 0x2
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v1, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildSequence:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildSequence:[I
 
-    iget v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
+    iget v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
 
-    iget v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildPosition:I
+    iget v3, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildPosition:I
 
-    aput v2, v0, v1
+    aput v3, v1, v2
 
-    iget v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildPosition:I
+    iget v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildPosition:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    iput v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildPosition:I
+    iput v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildPosition:I
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->checkMatch()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_d
+    if-nez v1, :cond_d
 
-    iput-boolean v3, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsElementFound:Z
+    iput-boolean v4, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsElementFound:Z
 
-    iput-boolean v3, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fWasOnlyEmptyElementFound:Z
+    iput-boolean v4, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fWasOnlyEmptyElementFound:Z
 
     goto :goto_1
 
     :cond_3
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildSequence:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildSequence:[I
+
+    iget v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
+
+    iget v3, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildPosition:I
+
+    aput v3, v1, v2
 
     iget v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
 
-    iget v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildPosition:I
+    add-int/lit8 v1, v1, 0x1
 
-    aput v2, v0, v1
+    iput v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
 
-    iget v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
+    iput v5, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildPosition:I
 
-    add-int/lit8 v0, v0, 0x1
+    iget v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
 
-    iput v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
+    iget v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fFoundDepth:I
 
-    iput v4, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildPosition:I
-
-    iget v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
-
-    iget v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fFoundDepth:I
-
-    if-gt v0, v1, :cond_5
+    if-gt v1, v2, :cond_5
 
     :cond_4
     invoke-virtual {p0}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->checkMatch()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_6
+    if-nez v1, :cond_6
 
-    iput-boolean v3, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsElementFound:Z
+    iput-boolean v4, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsElementFound:Z
 
-    iput v3, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fFoundDepth:I
+    iput v4, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fFoundDepth:I
 
     goto :goto_1
 
     :cond_5
-    iget v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fFoundDepth:I
+    iget v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fFoundDepth:I
 
-    if-eqz v0, :cond_4
+    if-eqz v1, :cond_4
 
     goto :goto_1
 
     :cond_6
-    iput-boolean v4, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsElementFound:Z
+    iput-boolean v5, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsElementFound:Z
 
-    iget v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
+    iget v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
 
-    iput v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fFoundDepth:I
+    iput v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fFoundDepth:I
 
     goto :goto_1
 
     :cond_7
-    iget v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
+    iget v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
 
-    iget v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fFoundDepth:I
+    iget v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fFoundDepth:I
 
-    if-eq v0, v1, :cond_9
+    if-eq v1, v2, :cond_9
 
-    iget v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
+    iget v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
 
-    iget v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fFoundDepth:I
+    iget v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fFoundDepth:I
 
-    if-lt v0, v1, :cond_a
+    if-lt v1, v2, :cond_a
 
     :cond_8
-    iget v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
+    iget v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
 
-    iget v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fFoundDepth:I
+    iget v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fFoundDepth:I
 
-    if-gt v0, v1, :cond_c
+    if-gt v1, v2, :cond_c
 
     :goto_2
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildSequence:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildSequence:[I
+
+    iget v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
+
+    aput v4, v1, v2
 
     iget v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
 
-    aput v3, v0, v1
+    add-int/lit8 v1, v1, -0x1
 
-    iget v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
+    iput v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
 
-    add-int/lit8 v0, v0, -0x1
+    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildSequence:[I
 
-    iput v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
+    iget v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
 
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildSequence:[I
+    aget v1, v1, v2
 
-    iget v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildDepth:I
+    add-int/lit8 v1, v1, 0x1
 
-    aget v0, v0, v1
-
-    add-int/lit8 v0, v0, 0x1
-
-    iput v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildPosition:I
+    iput v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildPosition:I
 
     goto/16 :goto_1
 
     :cond_9
-    iput-boolean v4, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsElementFound:Z
+    iput-boolean v5, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsElementFound:Z
 
     goto :goto_2
 
     :cond_a
-    iget v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fFoundDepth:I
+    iget v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fFoundDepth:I
 
-    if-eqz v0, :cond_8
+    if-eqz v1, :cond_8
 
     :cond_b
-    iput-boolean v3, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsElementFound:Z
+    iput-boolean v4, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsElementFound:Z
 
     goto :goto_2
 
     :cond_c
-    iget v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fFoundDepth:I
+    iget v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fFoundDepth:I
 
-    if-eqz v0, :cond_b
+    if-eqz v1, :cond_b
 
     goto :goto_2
 
     :cond_d
-    iget-boolean v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsElementFound:Z
+    iget-boolean v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsElementFound:Z
 
-    if-eqz v0, :cond_e
+    if-eqz v1, :cond_e
 
-    iput-boolean v3, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fWasOnlyEmptyElementFound:Z
+    iput-boolean v4, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fWasOnlyEmptyElementFound:Z
 
     :goto_3
-    iput-boolean v4, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsElementFound:Z
+    iput-boolean v5, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsElementFound:Z
 
     goto/16 :goto_1
 
     :cond_e
-    iput-boolean v4, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fWasOnlyEmptyElementFound:Z
+    iput-boolean v5, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fWasOnlyEmptyElementFound:Z
 
     goto :goto_3
 .end method
 
 .method public parseXPointer(Ljava/lang/String;)V
-    .locals 7
+    .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
 
-    const/4 v6, 0x1
+    const/4 v10, 0x1
 
     const/4 v4, 0x0
 
@@ -674,11 +674,11 @@
 
     new-instance v2, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    invoke-direct {v2, p0, v0, v1}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;-><init>(Lmf/org/apache/xerces/xpointer/ElementSchemePointer;Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;)V
+    invoke-direct {v2, p0, v1, v3}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;-><init>(Lmf/org/apache/xerces/xpointer/ElementSchemePointer;Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;)V
 
     new-instance v0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$1;
 
@@ -696,107 +696,107 @@
 
     invoke-static/range {v0 .. v5}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Scanner;->access$1(Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Scanner;Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;Ljava/lang/String;II)Z
 
-    move-result v0
+    move-result v7
 
-    if-eqz v0, :cond_0
+    if-eqz v7, :cond_0
 
     :goto_0
     invoke-static {v2}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->access$4(Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;)I
 
-    move-result v0
+    move-result v1
 
-    div-int/lit8 v0, v0, 0x2
+    div-int/lit8 v1, v1, 0x2
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    new-array v1, v0, [I
+    new-array v8, v1, [I
 
-    move v0, v4
+    const/4 v6, 0x0
 
     :goto_1
     invoke-static {v2}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_1
+    if-eqz v1, :cond_1
 
     invoke-static {v2}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->access$6(Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;)I
 
-    move-result v3
+    move-result v9
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v9, :pswitch_data_0
 
-    const-string/jumbo v3, "InvalidElementSchemeXPointer"
+    const-string/jumbo v1, "InvalidElementSchemeXPointer"
 
-    new-array v5, v6, [Ljava/lang/Object;
+    new-array v3, v10, [Ljava/lang/Object;
 
-    aput-object p1, v5, v4
+    aput-object p1, v3, v4
 
-    invoke-virtual {p0, v3, v5}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-virtual {p0, v1, v3}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_1
 
     :cond_0
-    const-string/jumbo v0, "InvalidElementSchemeXPointer"
+    const-string/jumbo v1, "InvalidElementSchemeXPointer"
 
-    new-array v1, v6, [Ljava/lang/Object;
+    new-array v3, v10, [Ljava/lang/Object;
 
-    aput-object p1, v1, v4
+    aput-object p1, v3, v4
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-virtual {p0, v1, v3}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_0
 
     :pswitch_0
     invoke-static {v2}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->access$6(Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;)I
 
-    move-result v3
+    move-result v9
 
-    invoke-static {v2, v3}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;I)Ljava/lang/String;
+    invoke-static {v2, v9}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    iput-object v3, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fShortHandPointerName:Ljava/lang/String;
+    iput-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fShortHandPointerName:Ljava/lang/String;
 
-    new-instance v3, Lmf/org/apache/xerces/xpointer/ShortHandPointer;
+    new-instance v1, Lmf/org/apache/xerces/xpointer/ShortHandPointer;
 
-    iget-object v5, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    iget-object v3, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    invoke-direct {v3, v5}, Lmf/org/apache/xerces/xpointer/ShortHandPointer;-><init>(Lmf/org/apache/xerces/util/SymbolTable;)V
+    invoke-direct {v1, v3}, Lmf/org/apache/xerces/xpointer/ShortHandPointer;-><init>(Lmf/org/apache/xerces/util/SymbolTable;)V
 
-    iput-object v3, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fShortHandPointer:Lmf/org/apache/xerces/xpointer/ShortHandPointer;
+    iput-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fShortHandPointer:Lmf/org/apache/xerces/xpointer/ShortHandPointer;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fShortHandPointer:Lmf/org/apache/xerces/xpointer/ShortHandPointer;
+    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fShortHandPointer:Lmf/org/apache/xerces/xpointer/ShortHandPointer;
 
-    iget-object v5, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fShortHandPointerName:Ljava/lang/String;
+    iget-object v3, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fShortHandPointerName:Ljava/lang/String;
 
-    invoke-virtual {v3, v5}, Lmf/org/apache/xerces/xpointer/ShortHandPointer;->setSchemeName(Ljava/lang/String;)V
+    invoke-virtual {v1, v3}, Lmf/org/apache/xerces/xpointer/ShortHandPointer;->setSchemeName(Ljava/lang/String;)V
 
     goto :goto_1
 
     :pswitch_1
     invoke-static {v2}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->access$6(Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;)I
 
-    move-result v3
+    move-result v1
 
-    aput v3, v1, v0
+    aput v1, v8, v6
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_1
 
     :cond_1
-    new-array v2, v0, [I
+    new-array v1, v6, [I
 
-    iput-object v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fChildSequence:[I
+    iput-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fChildSequence:[I
 
-    new-array v2, v0, [I
+    new-array v1, v6, [I
 
-    iput-object v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildSequence:[I
+    iput-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fCurrentChildSequence:[I
 
-    iget-object v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fChildSequence:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fChildSequence:[I
 
-    invoke-static {v1, v4, v2, v4, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v8, v4, v1, v4, v6}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     return-void
 
@@ -843,77 +843,77 @@
 .end method
 
 .method public resolveXPointer(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;I)Z
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fShortHandPointerName:Ljava/lang/String;
+    const/4 v0, 0x0
 
-    if-nez v0, :cond_1
+    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fShortHandPointerName:Ljava/lang/String;
 
-    iput-boolean v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsResolveElement:Z
+    if-nez v1, :cond_1
 
-    move v0, v1
+    iput-boolean v3, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsResolveElement:Z
 
     :goto_0
-    iget-object v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fChildSequence:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fChildSequence:[I
 
-    array-length v2, v2
+    array-length v1, v1
 
-    if-gtz v2, :cond_3
+    if-gtz v1, :cond_3
 
     if-nez v0, :cond_4
 
     :cond_0
-    iput-boolean v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsFragmentResolved:Z
+    iput-boolean v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsFragmentResolved:Z
 
     :goto_1
-    iget-boolean v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsFragmentResolved:Z
+    iget-boolean v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsFragmentResolved:Z
 
-    return v0
+    return v1
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fShortHandPointer:Lmf/org/apache/xerces/xpointer/ShortHandPointer;
+    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fShortHandPointer:Lmf/org/apache/xerces/xpointer/ShortHandPointer;
 
-    invoke-virtual {v0, p1, p2, p3, p4}, Lmf/org/apache/xerces/xpointer/ShortHandPointer;->resolveXPointer(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;I)Z
+    invoke-virtual {v1, p1, p2, p3, p4}, Lmf/org/apache/xerces/xpointer/ShortHandPointer;->resolveXPointer(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;I)Z
 
     move-result v0
 
     if-nez v0, :cond_2
 
-    iput-boolean v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsResolveElement:Z
+    iput-boolean v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsResolveElement:Z
 
     goto :goto_0
 
     :cond_2
-    iput-boolean v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsResolveElement:Z
+    iput-boolean v3, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsResolveElement:Z
 
-    iput-boolean v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsShortHand:Z
+    iput-boolean v3, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsShortHand:Z
 
     goto :goto_0
 
     :cond_3
     invoke-virtual {p0, p1, p4}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->matchChildSequence(Lmf/org/apache/xerces/xni/QName;I)Z
 
-    move-result v0
+    move-result v1
 
-    iput-boolean v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsFragmentResolved:Z
+    iput-boolean v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsFragmentResolved:Z
 
     goto :goto_1
 
     :cond_4
-    iget-object v2, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fChildSequence:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fChildSequence:[I
 
-    array-length v2, v2
+    array-length v1, v1
 
-    if-gtz v2, :cond_0
+    if-gtz v1, :cond_0
 
     iput-boolean v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->fIsFragmentResolved:Z
 

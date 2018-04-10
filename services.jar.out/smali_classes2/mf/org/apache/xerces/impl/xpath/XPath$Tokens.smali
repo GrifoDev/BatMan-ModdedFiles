@@ -452,709 +452,709 @@
 
     const/4 v6, 0x1
 
-    const/4 v1, 0x0
+    const/4 v5, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/16 v0, 0x100
+    const/16 v2, 0x100
 
-    new-array v0, v0, [I
+    new-array v2, v2, [I
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokens:[I
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokens:[I
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenCount:I
+    iput v5, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenCount:I
 
-    new-instance v0, Ljava/util/Hashtable;
+    new-instance v2, Ljava/util/Hashtable;
 
-    invoke-direct {v0}, Ljava/util/Hashtable;-><init>()V
+    invoke-direct {v2}, Ljava/util/Hashtable;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fSymbolMapping:Ljava/util/Hashtable;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fSymbolMapping:Ljava/util/Hashtable;
 
-    new-instance v0, Ljava/util/Hashtable;
+    new-instance v2, Ljava/util/Hashtable;
 
-    invoke-direct {v0}, Ljava/util/Hashtable;-><init>()V
+    invoke-direct {v2}, Ljava/util/Hashtable;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
     iput-object p1, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    const/16 v0, 0xd
+    const/16 v2, 0xd
 
-    new-array v2, v0, [Ljava/lang/String;
+    new-array v1, v2, [Ljava/lang/String;
 
-    const-string/jumbo v0, "ancestor"
+    const-string/jumbo v2, "ancestor"
 
-    aput-object v0, v2, v1
+    aput-object v2, v1, v5
 
-    const-string/jumbo v0, "ancestor-or-self"
+    const-string/jumbo v2, "ancestor-or-self"
 
-    aput-object v0, v2, v6
+    aput-object v2, v1, v6
 
-    const-string/jumbo v0, "attribute"
+    const-string/jumbo v2, "attribute"
 
-    aput-object v0, v2, v7
+    aput-object v2, v1, v7
 
-    const-string/jumbo v0, "child"
+    const-string/jumbo v2, "child"
 
-    aput-object v0, v2, v8
+    aput-object v2, v1, v8
 
-    const-string/jumbo v0, "descendant"
+    const-string/jumbo v2, "descendant"
 
-    aput-object v0, v2, v9
+    aput-object v2, v1, v9
 
-    const/4 v0, 0x5
+    const-string/jumbo v2, "descendant-or-self"
 
-    const-string/jumbo v3, "descendant-or-self"
+    const/4 v3, 0x5
 
-    aput-object v3, v2, v0
+    aput-object v2, v1, v3
 
-    const/4 v0, 0x6
+    const/4 v2, 0x6
 
     const-string/jumbo v3, "following"
 
-    aput-object v3, v2, v0
+    aput-object v3, v1, v2
 
-    const/4 v0, 0x7
+    const-string/jumbo v2, "following-sibling"
 
-    const-string/jumbo v3, "following-sibling"
+    const/4 v3, 0x7
 
-    aput-object v3, v2, v0
+    aput-object v2, v1, v3
 
-    const/16 v0, 0x8
+    const-string/jumbo v2, "namespace"
 
-    const-string/jumbo v3, "namespace"
+    const/16 v3, 0x8
 
-    aput-object v3, v2, v0
+    aput-object v2, v1, v3
 
-    const/16 v0, 0x9
+    const/16 v2, 0x9
 
     const-string/jumbo v3, "parent"
 
-    aput-object v3, v2, v0
+    aput-object v3, v1, v2
 
-    const/16 v0, 0xa
+    const-string/jumbo v2, "preceding"
 
-    const-string/jumbo v3, "preceding"
+    const/16 v3, 0xa
 
-    aput-object v3, v2, v0
+    aput-object v2, v1, v3
 
-    const/16 v0, 0xb
+    const-string/jumbo v2, "preceding-sibling"
 
-    const-string/jumbo v3, "preceding-sibling"
+    const/16 v3, 0xb
 
-    aput-object v3, v2, v0
+    aput-object v2, v1, v3
 
-    const/16 v0, 0xc
+    const/16 v2, 0xc
 
     const-string/jumbo v3, "self"
 
-    aput-object v3, v2, v0
+    aput-object v3, v1, v2
 
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_0
-    array-length v3, v2
+    array-length v2, v1
 
-    if-ge v0, v3, :cond_0
+    if-ge v0, v2, :cond_0
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fSymbolMapping:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fSymbolMapping:Ljava/util/Hashtable;
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    aget-object v5, v2, v0
+    aget-object v4, v1, v0
 
-    invoke-virtual {v4, v5}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v3, v4}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    new-instance v5, Ljava/lang/Integer;
+    new-instance v4, Ljava/lang/Integer;
 
-    invoke-direct {v5, v0}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v4, v0}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {v3, v4, v5}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v2, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    invoke-direct {v2, v1}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v5}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v1, "EXPRTOKEN_OPEN_PAREN"
+    const-string/jumbo v4, "EXPRTOKEN_OPEN_PAREN"
 
-    invoke-virtual {v0, v2, v1}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    invoke-direct {v1, v6}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v6}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_CLOSE_PAREN"
+    const-string/jumbo v4, "EXPRTOKEN_CLOSE_PAREN"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    invoke-direct {v1, v7}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v7}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_OPEN_BRACKET"
+    const-string/jumbo v4, "EXPRTOKEN_OPEN_BRACKET"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    invoke-direct {v1, v8}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v8}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_CLOSE_BRACKET"
+    const-string/jumbo v4, "EXPRTOKEN_CLOSE_BRACKET"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    invoke-direct {v1, v9}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v9}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_PERIOD"
+    const-string/jumbo v4, "EXPRTOKEN_PERIOD"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/4 v2, 0x5
+    const/4 v4, 0x5
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_DOUBLE_PERIOD"
+    const-string/jumbo v4, "EXPRTOKEN_DOUBLE_PERIOD"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/4 v2, 0x6
+    const/4 v4, 0x6
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_ATSIGN"
+    const-string/jumbo v4, "EXPRTOKEN_ATSIGN"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/4 v2, 0x7
+    const/4 v4, 0x7
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_COMMA"
+    const-string/jumbo v4, "EXPRTOKEN_COMMA"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x8
+    const/16 v4, 0x8
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_DOUBLE_COLON"
+    const-string/jumbo v4, "EXPRTOKEN_DOUBLE_COLON"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x9
+    const/16 v4, 0x9
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_NAMETEST_ANY"
+    const-string/jumbo v4, "EXPRTOKEN_NAMETEST_ANY"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0xa
+    const/16 v4, 0xa
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_NAMETEST_NAMESPACE"
+    const-string/jumbo v4, "EXPRTOKEN_NAMETEST_NAMESPACE"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0xb
+    const/16 v4, 0xb
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_NAMETEST_QNAME"
+    const-string/jumbo v4, "EXPRTOKEN_NAMETEST_QNAME"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0xc
+    const/16 v4, 0xc
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_NODETYPE_COMMENT"
+    const-string/jumbo v4, "EXPRTOKEN_NODETYPE_COMMENT"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0xd
+    const/16 v4, 0xd
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_NODETYPE_TEXT"
+    const-string/jumbo v4, "EXPRTOKEN_NODETYPE_TEXT"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0xe
+    const/16 v4, 0xe
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_NODETYPE_PI"
+    const-string/jumbo v4, "EXPRTOKEN_NODETYPE_PI"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0xf
+    const/16 v4, 0xf
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_NODETYPE_NODE"
+    const-string/jumbo v4, "EXPRTOKEN_NODETYPE_NODE"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x10
+    const/16 v4, 0x10
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_OPERATOR_AND"
+    const-string/jumbo v4, "EXPRTOKEN_OPERATOR_AND"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x11
+    const/16 v4, 0x11
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_OPERATOR_OR"
+    const-string/jumbo v4, "EXPRTOKEN_OPERATOR_OR"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x12
+    const/16 v4, 0x12
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_OPERATOR_MOD"
+    const-string/jumbo v4, "EXPRTOKEN_OPERATOR_MOD"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x13
+    const/16 v4, 0x13
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_OPERATOR_DIV"
+    const-string/jumbo v4, "EXPRTOKEN_OPERATOR_DIV"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x14
+    const/16 v4, 0x14
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_OPERATOR_MULT"
+    const-string/jumbo v4, "EXPRTOKEN_OPERATOR_MULT"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x15
+    const/16 v4, 0x15
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_OPERATOR_SLASH"
+    const-string/jumbo v4, "EXPRTOKEN_OPERATOR_SLASH"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x16
+    const/16 v4, 0x16
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_OPERATOR_DOUBLE_SLASH"
+    const-string/jumbo v4, "EXPRTOKEN_OPERATOR_DOUBLE_SLASH"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x17
+    const/16 v4, 0x17
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_OPERATOR_UNION"
+    const-string/jumbo v4, "EXPRTOKEN_OPERATOR_UNION"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x18
+    const/16 v4, 0x18
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_OPERATOR_PLUS"
+    const-string/jumbo v4, "EXPRTOKEN_OPERATOR_PLUS"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x19
+    const/16 v4, 0x19
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_OPERATOR_MINUS"
+    const-string/jumbo v4, "EXPRTOKEN_OPERATOR_MINUS"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x1a
+    const/16 v4, 0x1a
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_OPERATOR_EQUAL"
+    const-string/jumbo v4, "EXPRTOKEN_OPERATOR_EQUAL"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x1b
+    const/16 v4, 0x1b
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_OPERATOR_NOT_EQUAL"
+    const-string/jumbo v4, "EXPRTOKEN_OPERATOR_NOT_EQUAL"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x1c
+    const/16 v4, 0x1c
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_OPERATOR_LESS"
+    const-string/jumbo v4, "EXPRTOKEN_OPERATOR_LESS"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x1d
+    const/16 v4, 0x1d
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_OPERATOR_LESS_EQUAL"
+    const-string/jumbo v4, "EXPRTOKEN_OPERATOR_LESS_EQUAL"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x1e
+    const/16 v4, 0x1e
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_OPERATOR_GREATER"
+    const-string/jumbo v4, "EXPRTOKEN_OPERATOR_GREATER"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x1f
+    const/16 v4, 0x1f
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_OPERATOR_GREATER_EQUAL"
+    const-string/jumbo v4, "EXPRTOKEN_OPERATOR_GREATER_EQUAL"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x20
+    const/16 v4, 0x20
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_FUNCTION_NAME"
+    const-string/jumbo v4, "EXPRTOKEN_FUNCTION_NAME"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x21
+    const/16 v4, 0x21
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_AXISNAME_ANCESTOR"
+    const-string/jumbo v4, "EXPRTOKEN_AXISNAME_ANCESTOR"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x22
+    const/16 v4, 0x22
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_AXISNAME_ANCESTOR_OR_SELF"
+    const-string/jumbo v4, "EXPRTOKEN_AXISNAME_ANCESTOR_OR_SELF"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x23
+    const/16 v4, 0x23
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_AXISNAME_ATTRIBUTE"
+    const-string/jumbo v4, "EXPRTOKEN_AXISNAME_ATTRIBUTE"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x24
+    const/16 v4, 0x24
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_AXISNAME_CHILD"
+    const-string/jumbo v4, "EXPRTOKEN_AXISNAME_CHILD"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x25
+    const/16 v4, 0x25
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_AXISNAME_DESCENDANT"
+    const-string/jumbo v4, "EXPRTOKEN_AXISNAME_DESCENDANT"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x26
+    const/16 v4, 0x26
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_AXISNAME_DESCENDANT_OR_SELF"
+    const-string/jumbo v4, "EXPRTOKEN_AXISNAME_DESCENDANT_OR_SELF"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x27
+    const/16 v4, 0x27
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_AXISNAME_FOLLOWING"
+    const-string/jumbo v4, "EXPRTOKEN_AXISNAME_FOLLOWING"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x28
+    const/16 v4, 0x28
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_AXISNAME_FOLLOWING_SIBLING"
+    const-string/jumbo v4, "EXPRTOKEN_AXISNAME_FOLLOWING_SIBLING"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x29
+    const/16 v4, 0x29
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_AXISNAME_NAMESPACE"
+    const-string/jumbo v4, "EXPRTOKEN_AXISNAME_NAMESPACE"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x2a
+    const/16 v4, 0x2a
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_AXISNAME_PARENT"
+    const-string/jumbo v4, "EXPRTOKEN_AXISNAME_PARENT"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x2b
+    const/16 v4, 0x2b
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_AXISNAME_PRECEDING"
+    const-string/jumbo v4, "EXPRTOKEN_AXISNAME_PRECEDING"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x2c
+    const/16 v4, 0x2c
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_AXISNAME_PRECEDING_SIBLING"
+    const-string/jumbo v4, "EXPRTOKEN_AXISNAME_PRECEDING_SIBLING"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x2d
+    const/16 v4, 0x2d
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_AXISNAME_SELF"
+    const-string/jumbo v4, "EXPRTOKEN_AXISNAME_SELF"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x2e
+    const/16 v4, 0x2e
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_LITERAL"
+    const-string/jumbo v4, "EXPRTOKEN_LITERAL"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x2f
+    const/16 v4, 0x2f
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_NUMBER"
+    const-string/jumbo v4, "EXPRTOKEN_NUMBER"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    new-instance v1, Ljava/lang/Integer;
+    new-instance v3, Ljava/lang/Integer;
 
-    const/16 v2, 0x30
+    const/16 v4, 0x30
 
-    invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v3, v4}, Ljava/lang/Integer;-><init>(I)V
 
-    const-string/jumbo v2, "EXPRTOKEN_VARIABLE_REFERENCE"
+    const-string/jumbo v4, "EXPRTOKEN_VARIABLE_REFERENCE"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
 .end method
@@ -1162,52 +1162,52 @@
 
 # virtual methods
 .method public addToken(I)V
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokens:[I
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokens:[I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenCount:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenCount:I
 
-    aput p1, v0, v1
+    aput p1, v2, v3
     :try_end_0
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenCount:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenCount:I
+    iput v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenCount:I
 
     return-void
 
     :catch_0
     move-exception v0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokens:[I
-
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenCount:I
-
-    shl-int/lit8 v1, v1, 0x1
-
-    new-array v1, v1, [I
-
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokens:[I
-
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokens:[I
 
     iget v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenCount:I
 
-    invoke-static {v0, v3, v1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    shl-int/lit8 v2, v2, 0x1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokens:[I
+    new-array v2, v2, [I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenCount:I
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokens:[I
 
-    aput p1, v0, v1
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokens:[I
+
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenCount:I
+
+    invoke-static {v1, v4, v2, v4, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokens:[I
+
+    iget v3, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenCount:I
+
+    aput p1, v2, v3
 
     goto :goto_0
 .end method
@@ -1215,9 +1215,9 @@
 .method public addToken(Ljava/lang/String;)V
     .locals 2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->fTokenNames:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1228,9 +1228,9 @@
     :goto_0
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    move-result v0
+    move-result v1
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->addToken(I)V
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->addToken(I)V
 
     return-void
 
@@ -2146,9 +2146,9 @@
     goto :goto_4
 
     :cond_4
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    invoke-virtual {v0}, Ljava/io/PrintStream;->println()V
+    invoke-virtual {v1}, Ljava/io/PrintStream;->println()V
 
     return-void
 
@@ -2280,7 +2280,7 @@
 .end method
 
 .method public nextTokenAsString()Ljava/lang/String;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/xpath/XPathException;
@@ -2289,9 +2289,9 @@
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->nextToken()I
 
-    move-result v0
+    move-result v1
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->getTokenString(I)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xpath/XPath$Tokens;->getTokenString(I)Ljava/lang/String;
 
     move-result-object v0
 
@@ -2300,13 +2300,13 @@
     return-object v0
 
     :cond_0
-    new-instance v0, Lmf/org/apache/xerces/impl/xpath/XPathException;
+    new-instance v1, Lmf/org/apache/xerces/impl/xpath/XPathException;
 
-    const-string/jumbo v1, "c-general-xpath"
+    const-string/jumbo v2, "c-general-xpath"
 
-    invoke-direct {v0, v1}, Lmf/org/apache/xerces/impl/xpath/XPathException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Lmf/org/apache/xerces/impl/xpath/XPathException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v1
 .end method
 
 .method public peekToken()I

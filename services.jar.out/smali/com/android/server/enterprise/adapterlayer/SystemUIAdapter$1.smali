@@ -1,5 +1,5 @@
 .class Lcom/android/server/enterprise/adapterlayer/SystemUIAdapter$1;
-.super Landroid/content/pm/IKnoxModeChangeObserver$Stub;
+.super Landroid/content/BroadcastReceiver;
 .source "SystemUIAdapter.java"
 
 
@@ -24,33 +24,59 @@
 
     iput-object p1, p0, Lcom/android/server/enterprise/adapterlayer/SystemUIAdapter$1;->this$0:Lcom/android/server/enterprise/adapterlayer/SystemUIAdapter;
 
-    invoke-direct {p0}, Landroid/content/pm/IKnoxModeChangeObserver$Stub;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onKnoxModeChange(I)V
-    .locals 1
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 3
 
-    invoke-static {p1}, Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;->isValidKnoxId(I)Z
+    const-string/jumbo v1, "android.intent.action.USER_ADDED"
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const-string/jumbo v1, "SystemUIAdapter"
+
+    const-string/jumbo v2, "Received intent: ACTION_USER_ADDED"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v1, "android.intent.extra.user_handle"
+
+    const/4 v2, -0x1
+
+    invoke-virtual {p2, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    invoke-static {v0}, Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;->isValidKnoxId(I)Z
 
-    iget-object v0, p0, Lcom/android/server/enterprise/adapterlayer/SystemUIAdapter$1;->this$0:Lcom/android/server/enterprise/adapterlayer/SystemUIAdapter;
+    move-result v1
 
-    invoke-virtual {v0, p1}, Lcom/android/server/enterprise/adapterlayer/SystemUIAdapter;->isComContainerId(I)Z
+    if-eqz v1, :cond_0
 
-    move-result v0
+    iget-object v1, p0, Lcom/android/server/enterprise/adapterlayer/SystemUIAdapter$1;->this$0:Lcom/android/server/enterprise/adapterlayer/SystemUIAdapter;
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v1, v0}, Lcom/android/server/enterprise/adapterlayer/SystemUIAdapter;->isComContainerId(I)Z
 
-    iget-object v0, p0, Lcom/android/server/enterprise/adapterlayer/SystemUIAdapter$1;->this$0:Lcom/android/server/enterprise/adapterlayer/SystemUIAdapter;
+    move-result v1
 
-    invoke-static {v0, p1}, Lcom/android/server/enterprise/adapterlayer/SystemUIAdapter;->-wrap1(Lcom/android/server/enterprise/adapterlayer/SystemUIAdapter;I)V
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/enterprise/adapterlayer/SystemUIAdapter$1;->this$0:Lcom/android/server/enterprise/adapterlayer/SystemUIAdapter;
+
+    invoke-static {v1, v0}, Lcom/android/server/enterprise/adapterlayer/SystemUIAdapter;->-wrap1(Lcom/android/server/enterprise/adapterlayer/SystemUIAdapter;I)V
 
     :cond_0
     return-void

@@ -7,276 +7,174 @@
 .annotation runtime Ljava/lang/Deprecated;
 .end annotation
 
+.annotation build Lorg/apache/http/annotation/Contract;
+    threading = .enum Lorg/apache/http/annotation/ThreadingBehavior;->SAFE_CONDITIONAL:Lorg/apache/http/annotation/ThreadingBehavior;
+.end annotation
+
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .locals 1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    move-object v0, v1
+    invoke-direct {p0, v0, v0}, Lorg/apache/http/impl/client/AbstractHttpClient;-><init>(Lorg/apache/http/conn/ClientConnectionManager;Lorg/apache/http/params/HttpParams;)V
 
-    check-cast v0, Lorg/apache/http/conn/ClientConnectionManager;
+    return-void
+.end method
 
-    check-cast v1, Lorg/apache/http/params/HttpParams;
+.method public constructor <init>(Lorg/apache/http/conn/ClientConnectionManager;)V
+    .locals 1
 
-    invoke-direct {p0, v0, v1}, Lorg/apache/http/impl/client/AbstractHttpClient;-><init>(Lorg/apache/http/conn/ClientConnectionManager;Lorg/apache/http/params/HttpParams;)V
+    const/4 v0, 0x0
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    invoke-direct {p0, p1, v0}, Lorg/apache/http/impl/client/AbstractHttpClient;-><init>(Lorg/apache/http/conn/ClientConnectionManager;Lorg/apache/http/params/HttpParams;)V
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 .method public constructor <init>(Lorg/apache/http/conn/ClientConnectionManager;Lorg/apache/http/params/HttpParams;)V
-    .locals 2
+    .locals 0
 
-    const/4 v1, 0x0
+    invoke-direct {p0, p1, p2}, Lorg/apache/http/impl/client/AbstractHttpClient;-><init>(Lorg/apache/http/conn/ClientConnectionManager;Lorg/apache/http/params/HttpParams;)V
 
-    move-object v0, v1
-
-    check-cast v0, Lorg/apache/http/conn/ClientConnectionManager;
-
-    check-cast v1, Lorg/apache/http/params/HttpParams;
-
-    invoke-direct {p0, v0, v1}, Lorg/apache/http/impl/client/AbstractHttpClient;-><init>(Lorg/apache/http/conn/ClientConnectionManager;Lorg/apache/http/params/HttpParams;)V
-
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 .method public constructor <init>(Lorg/apache/http/params/HttpParams;)V
-    .locals 2
+    .locals 1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    move-object v0, v1
+    invoke-direct {p0, v0, p1}, Lorg/apache/http/impl/client/AbstractHttpClient;-><init>(Lorg/apache/http/conn/ClientConnectionManager;Lorg/apache/http/params/HttpParams;)V
 
-    check-cast v0, Lorg/apache/http/conn/ClientConnectionManager;
+    return-void
+.end method
 
-    check-cast v1, Lorg/apache/http/params/HttpParams;
+.method public static setDefaultHttpParams(Lorg/apache/http/params/HttpParams;)V
+    .locals 3
 
-    invoke-direct {p0, v0, v1}, Lorg/apache/http/impl/client/AbstractHttpClient;-><init>(Lorg/apache/http/conn/ClientConnectionManager;Lorg/apache/http/params/HttpParams;)V
+    sget-object v0, Lorg/apache/http/HttpVersion;->HTTP_1_1:Lorg/apache/http/HttpVersion;
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    invoke-static {p0, v0}, Lorg/apache/http/params/HttpProtocolParams;->setVersion(Lorg/apache/http/params/HttpParams;Lorg/apache/http/ProtocolVersion;)V
 
-    const-string/jumbo v1, "Stub!"
+    sget-object v0, Lorg/apache/http/protocol/HTTP;->DEF_CONTENT_CHARSET:Ljava/nio/charset/Charset;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0}, Ljava/nio/charset/Charset;->name()Ljava/lang/String;
 
-    throw v0
+    move-result-object v0
+
+    invoke-static {p0, v0}, Lorg/apache/http/params/HttpProtocolParams;->setContentCharset(Lorg/apache/http/params/HttpParams;Ljava/lang/String;)V
+
+    const/4 v0, 0x1
+
+    invoke-static {p0, v0}, Lorg/apache/http/params/HttpConnectionParams;->setTcpNoDelay(Lorg/apache/http/params/HttpParams;Z)V
+
+    const/16 v0, 0x2000
+
+    invoke-static {p0, v0}, Lorg/apache/http/params/HttpConnectionParams;->setSocketBufferSize(Lorg/apache/http/params/HttpParams;I)V
+
+    const-string/jumbo v0, "Apache-HttpClient"
+
+    const-string/jumbo v1, "org.apache.http.client"
+
+    const-class v2, Lorg/apache/http/impl/client/DefaultHttpClient;
+
+    invoke-static {v0, v1, v2}, Lorg/apache/http/util/VersionInfo;->getUserAgent(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p0, v0}, Lorg/apache/http/params/HttpProtocolParams;->setUserAgent(Lorg/apache/http/params/HttpParams;Ljava/lang/String;)V
+
+    return-void
 .end method
 
 
 # virtual methods
-.method protected createAuthSchemeRegistry()Lorg/apache/http/auth/AuthSchemeRegistry;
-    .locals 2
-
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
-.method protected createClientConnectionManager()Lorg/apache/http/conn/ClientConnectionManager;
-    .locals 2
-
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
-.method protected createConnectionKeepAliveStrategy()Lorg/apache/http/conn/ConnectionKeepAliveStrategy;
-    .locals 2
-
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
-.method protected createConnectionReuseStrategy()Lorg/apache/http/ConnectionReuseStrategy;
-    .locals 2
-
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
-.method protected createCookieSpecRegistry()Lorg/apache/http/cookie/CookieSpecRegistry;
-    .locals 2
-
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
-.method protected createCookieStore()Lorg/apache/http/client/CookieStore;
-    .locals 2
-
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
-.method protected createCredentialsProvider()Lorg/apache/http/client/CredentialsProvider;
-    .locals 2
-
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
-.method protected createHttpContext()Lorg/apache/http/protocol/HttpContext;
-    .locals 2
-
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
 .method protected createHttpParams()Lorg/apache/http/params/HttpParams;
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v0, Lorg/apache/http/params/SyncBasicHttpParams;
 
-    const-string/jumbo v1, "Stub!"
+    invoke-direct {v0}, Lorg/apache/http/params/SyncBasicHttpParams;-><init>()V
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-static {v0}, Lorg/apache/http/impl/client/DefaultHttpClient;->setDefaultHttpParams(Lorg/apache/http/params/HttpParams;)V
 
-    throw v0
+    return-object v0
 .end method
 
 .method protected createHttpProcessor()Lorg/apache/http/protocol/BasicHttpProcessor;
     .locals 2
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v0, Lorg/apache/http/protocol/BasicHttpProcessor;
 
-    const-string/jumbo v1, "Stub!"
+    invoke-direct {v0}, Lorg/apache/http/protocol/BasicHttpProcessor;-><init>()V
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    new-instance v1, Lorg/apache/http/client/protocol/RequestDefaultHeaders;
 
-    throw v0
-.end method
+    invoke-direct {v1}, Lorg/apache/http/client/protocol/RequestDefaultHeaders;-><init>()V
 
-.method protected createHttpRequestRetryHandler()Lorg/apache/http/client/HttpRequestRetryHandler;
-    .locals 2
+    invoke-virtual {v0, v1}, Lorg/apache/http/protocol/BasicHttpProcessor;->addInterceptor(Lorg/apache/http/HttpRequestInterceptor;)V
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v1, Lorg/apache/http/protocol/RequestContent;
 
-    const-string/jumbo v1, "Stub!"
+    invoke-direct {v1}, Lorg/apache/http/protocol/RequestContent;-><init>()V
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lorg/apache/http/protocol/BasicHttpProcessor;->addInterceptor(Lorg/apache/http/HttpRequestInterceptor;)V
 
-    throw v0
-.end method
+    new-instance v1, Lorg/apache/http/protocol/RequestTargetHost;
 
-.method protected createHttpRoutePlanner()Lorg/apache/http/conn/routing/HttpRoutePlanner;
-    .locals 2
+    invoke-direct {v1}, Lorg/apache/http/protocol/RequestTargetHost;-><init>()V
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    invoke-virtual {v0, v1}, Lorg/apache/http/protocol/BasicHttpProcessor;->addInterceptor(Lorg/apache/http/HttpRequestInterceptor;)V
 
-    const-string/jumbo v1, "Stub!"
+    new-instance v1, Lorg/apache/http/client/protocol/RequestClientConnControl;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1}, Lorg/apache/http/client/protocol/RequestClientConnControl;-><init>()V
 
-    throw v0
-.end method
+    invoke-virtual {v0, v1}, Lorg/apache/http/protocol/BasicHttpProcessor;->addInterceptor(Lorg/apache/http/HttpRequestInterceptor;)V
 
-.method protected createProxyAuthenticationHandler()Lorg/apache/http/client/AuthenticationHandler;
-    .locals 2
+    new-instance v1, Lorg/apache/http/protocol/RequestUserAgent;
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    invoke-direct {v1}, Lorg/apache/http/protocol/RequestUserAgent;-><init>()V
 
-    const-string/jumbo v1, "Stub!"
+    invoke-virtual {v0, v1}, Lorg/apache/http/protocol/BasicHttpProcessor;->addInterceptor(Lorg/apache/http/HttpRequestInterceptor;)V
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    new-instance v1, Lorg/apache/http/protocol/RequestExpectContinue;
 
-    throw v0
-.end method
+    invoke-direct {v1}, Lorg/apache/http/protocol/RequestExpectContinue;-><init>()V
 
-.method protected createRedirectHandler()Lorg/apache/http/client/RedirectHandler;
-    .locals 2
+    invoke-virtual {v0, v1}, Lorg/apache/http/protocol/BasicHttpProcessor;->addInterceptor(Lorg/apache/http/HttpRequestInterceptor;)V
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v1, Lorg/apache/http/client/protocol/RequestAddCookies;
 
-    const-string/jumbo v1, "Stub!"
+    invoke-direct {v1}, Lorg/apache/http/client/protocol/RequestAddCookies;-><init>()V
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lorg/apache/http/protocol/BasicHttpProcessor;->addInterceptor(Lorg/apache/http/HttpRequestInterceptor;)V
 
-    throw v0
-.end method
+    new-instance v1, Lorg/apache/http/client/protocol/ResponseProcessCookies;
 
-.method protected createRequestExecutor()Lorg/apache/http/protocol/HttpRequestExecutor;
-    .locals 2
+    invoke-direct {v1}, Lorg/apache/http/client/protocol/ResponseProcessCookies;-><init>()V
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    invoke-virtual {v0, v1}, Lorg/apache/http/protocol/BasicHttpProcessor;->addInterceptor(Lorg/apache/http/HttpResponseInterceptor;)V
 
-    const-string/jumbo v1, "Stub!"
+    new-instance v1, Lorg/apache/http/client/protocol/RequestAuthCache;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1}, Lorg/apache/http/client/protocol/RequestAuthCache;-><init>()V
 
-    throw v0
-.end method
+    invoke-virtual {v0, v1}, Lorg/apache/http/protocol/BasicHttpProcessor;->addInterceptor(Lorg/apache/http/HttpRequestInterceptor;)V
 
-.method protected createTargetAuthenticationHandler()Lorg/apache/http/client/AuthenticationHandler;
-    .locals 2
+    new-instance v1, Lorg/apache/http/client/protocol/RequestTargetAuthentication;
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    invoke-direct {v1}, Lorg/apache/http/client/protocol/RequestTargetAuthentication;-><init>()V
 
-    const-string/jumbo v1, "Stub!"
+    invoke-virtual {v0, v1}, Lorg/apache/http/protocol/BasicHttpProcessor;->addInterceptor(Lorg/apache/http/HttpRequestInterceptor;)V
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    new-instance v1, Lorg/apache/http/client/protocol/RequestProxyAuthentication;
 
-    throw v0
-.end method
+    invoke-direct {v1}, Lorg/apache/http/client/protocol/RequestProxyAuthentication;-><init>()V
 
-.method protected createUserTokenHandler()Lorg/apache/http/client/UserTokenHandler;
-    .locals 2
+    invoke-virtual {v0, v1}, Lorg/apache/http/protocol/BasicHttpProcessor;->addInterceptor(Lorg/apache/http/HttpRequestInterceptor;)V
 
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-object v0
 .end method

@@ -48,10 +48,17 @@
 .method public onBootPhase(I)V
     .locals 1
 
+    invoke-static {}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-wrap4()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
     iget-object v0, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService$Lifecycle;->mService:Lcom/android/server/enterprise/keystore/TimaKeystoreService;
 
-    invoke-static {v0, p1}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-wrap7(Lcom/android/server/enterprise/keystore/TimaKeystoreService;I)V
+    invoke-static {v0, p1}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-wrap8(Lcom/android/server/enterprise/keystore/TimaKeystoreService;I)V
 
+    :cond_0
     return-void
 .end method
 

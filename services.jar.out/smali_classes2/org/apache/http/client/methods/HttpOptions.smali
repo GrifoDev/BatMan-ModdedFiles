@@ -3,62 +3,47 @@
 .source "HttpOptions.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # static fields
 .field public static final METHOD_NAME:Ljava/lang/String; = "OPTIONS"
 
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .locals 0
 
     invoke-direct {p0}, Lorg/apache/http/client/methods/HttpRequestBase;-><init>()V
 
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 2
+    .locals 1
 
     invoke-direct {p0}, Lorg/apache/http/client/methods/HttpRequestBase;-><init>()V
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    invoke-static {p1}, Ljava/net/URI;->create(Ljava/lang/String;)Ljava/net/URI;
 
-    const-string/jumbo v1, "Stub!"
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lorg/apache/http/client/methods/HttpOptions;->setURI(Ljava/net/URI;)V
 
-    throw v0
+    return-void
 .end method
 
 .method public constructor <init>(Ljava/net/URI;)V
-    .locals 2
+    .locals 0
 
     invoke-direct {p0}, Lorg/apache/http/client/methods/HttpRequestBase;-><init>()V
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    invoke-virtual {p0, p1}, Lorg/apache/http/client/methods/HttpOptions;->setURI(Ljava/net/URI;)V
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 
 # virtual methods
 .method public getAllowedMethods(Lorg/apache/http/HttpResponse;)Ljava/util/Set;
-    .locals 2
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,23 +56,64 @@
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const-string/jumbo v8, "HTTP response"
 
-    const-string/jumbo v1, "Stub!"
+    invoke-static {p1, v8}, Lorg/apache/http/util/Args;->notNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    const-string/jumbo v8, "Allow"
 
-    throw v0
+    invoke-interface {p1, v8}, Lorg/apache/http/HttpResponse;->headerIterator(Ljava/lang/String;)Lorg/apache/http/HeaderIterator;
+
+    move-result-object v5
+
+    new-instance v7, Ljava/util/HashSet;
+
+    invoke-direct {v7}, Ljava/util/HashSet;-><init>()V
+
+    :cond_0
+    invoke-interface {v5}, Lorg/apache/http/HeaderIterator;->hasNext()Z
+
+    move-result v8
+
+    if-nez v8, :cond_1
+
+    return-object v7
+
+    :cond_1
+    invoke-interface {v5}, Lorg/apache/http/HeaderIterator;->nextHeader()Lorg/apache/http/Header;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Lorg/apache/http/Header;->getElements()[Lorg/apache/http/HeaderElement;
+
+    move-result-object v2
+
+    move-object v0, v2
+
+    array-length v6, v0
+
+    const/4 v4, 0x0
+
+    :goto_0
+    if-ge v4, v6, :cond_0
+
+    aget-object v1, v0, v4
+
+    invoke-interface {v1}, Lorg/apache/http/HeaderElement;->getName()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-interface {v7, v8}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_0
 .end method
 
 .method public getMethod()Ljava/lang/String;
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const-string/jumbo v0, "OPTIONS"
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-object v0
 .end method

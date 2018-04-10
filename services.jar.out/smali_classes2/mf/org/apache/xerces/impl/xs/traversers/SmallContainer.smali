@@ -53,14 +53,14 @@
     :cond_0
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/SmallContainer;->values:[Lmf/org/apache/xerces/impl/xs/traversers/OneAttr;
 
-    aget-object v0, v1, v0
+    aget-object v1, v1, v0
 
-    return-object v0
+    return-object v1
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 .end method
 
 .method put(Ljava/lang/String;Lmf/org/apache/xerces/impl/xs/traversers/OneAttr;)V

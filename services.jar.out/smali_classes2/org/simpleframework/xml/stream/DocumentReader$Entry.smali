@@ -88,32 +88,32 @@
 .end method
 
 .method public isReserved()Z
-    .locals 2
+    .locals 3
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/stream/DocumentReader$Entry;->getPrefix()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/stream/DocumentReader$Entry;->getName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    const-string/jumbo v0, "xml"
+    const-string/jumbo v2, "xml"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v0, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v2
 
-    return v0
+    return v2
 
     :cond_0
-    const-string/jumbo v1, "xml"
+    const-string/jumbo v2, "xml"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v2
 
-    return v0
+    return v2
 .end method

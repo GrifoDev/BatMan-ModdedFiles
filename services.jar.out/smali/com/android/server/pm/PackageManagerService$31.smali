@@ -1,14 +1,11 @@
 .class Lcom/android/server/pm/PackageManagerService$31;
-.super Ljava/lang/Object;
+.super Ljava/lang/Thread;
 .source "PackageManagerService.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/pm/PackageManagerService;->movePackage(Ljava/lang/String;Ljava/lang/String;)I
+    value = Lcom/android/server/pm/PackageManagerService;->movePackageInternal(Ljava/lang/String;Ljava/lang/String;IILandroid/os/UserHandle;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,30 +17,34 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/pm/PackageManagerService;
 
+.field final synthetic val$installedLatch:Ljava/util/concurrent/CountDownLatch;
+
+.field final synthetic val$measurePath:Ljava/io/File;
+
 .field final synthetic val$moveId:I
 
-.field final synthetic val$packageName:Ljava/lang/String;
+.field final synthetic val$sizeBytes:J
 
-.field final synthetic val$user:Landroid/os/UserHandle;
-
-.field final synthetic val$volumeUuid:Ljava/lang/String;
+.field final synthetic val$startFreeBytes:J
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;Ljava/lang/String;ILandroid/os/UserHandle;)V
+.method constructor <init>(Lcom/android/server/pm/PackageManagerService;Ljava/util/concurrent/CountDownLatch;JLjava/io/File;JI)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$31;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    iput-object p2, p0, Lcom/android/server/pm/PackageManagerService$31;->val$packageName:Ljava/lang/String;
+    iput-object p2, p0, Lcom/android/server/pm/PackageManagerService$31;->val$installedLatch:Ljava/util/concurrent/CountDownLatch;
 
-    iput-object p3, p0, Lcom/android/server/pm/PackageManagerService$31;->val$volumeUuid:Ljava/lang/String;
+    iput-wide p3, p0, Lcom/android/server/pm/PackageManagerService$31;->val$startFreeBytes:J
 
-    iput p4, p0, Lcom/android/server/pm/PackageManagerService$31;->val$moveId:I
+    iput-object p5, p0, Lcom/android/server/pm/PackageManagerService$31;->val$measurePath:Ljava/io/File;
 
-    iput-object p5, p0, Lcom/android/server/pm/PackageManagerService$31;->val$user:Landroid/os/UserHandle;
+    iput-wide p6, p0, Lcom/android/server/pm/PackageManagerService$31;->val$sizeBytes:J
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput p8, p0, Lcom/android/server/pm/PackageManagerService$31;->val$moveId:I
+
+    invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
 
     return-void
 .end method
@@ -51,64 +52,79 @@
 
 # virtual methods
 .method public run()V
-    .locals 6
+    .locals 11
 
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$31;->this$0:Lcom/android/server/pm/PackageManagerService;
+    const-wide/16 v4, 0x50
 
-    iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$31;->val$packageName:Ljava/lang/String;
-
-    iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$31;->val$volumeUuid:Ljava/lang/String;
-
-    iget v4, p0, Lcom/android/server/pm/PackageManagerService$31;->val$moveId:I
-
-    iget-object v5, p0, Lcom/android/server/pm/PackageManagerService$31;->val$user:Landroid/os/UserHandle;
-
-    invoke-static {v1, v2, v3, v4, v5}, Lcom/android/server/pm/PackageManagerService;->-wrap37(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;Ljava/lang/String;ILandroid/os/UserHandle;)V
-    :try_end_0
-    .catch Lcom/android/server/pm/PackageManagerException; {:try_start_0 .. :try_end_0} :catch_0
+    const/4 v9, 0x0
 
     :goto_0
+    :try_start_0
+    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$31;->val$installedLatch:Ljava/util/concurrent/CountDownLatch;
+
+    const-wide/16 v2, 0x1
+
+    sget-object v1, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
+
+    invoke-virtual {v0, v2, v3, v1}, Ljava/util/concurrent/CountDownLatch;->await(JLjava/util/concurrent/TimeUnit;)Z
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
     return-void
 
     :catch_0
-    move-exception v0
+    move-exception v8
 
-    const-string/jumbo v1, "PackageManager"
+    :cond_0
+    iget-wide v0, p0, Lcom/android/server/pm/PackageManagerService$31;->val$startFreeBytes:J
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$31;->val$measurePath:Ljava/io/File;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v2}, Ljava/io/File;->getUsableSpace()J
 
-    const-string/jumbo v3, "Failed to move "
+    move-result-wide v2
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sub-long v6, v0, v2
 
-    move-result-object v2
+    mul-long v0, v6, v4
 
-    iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$31;->val$packageName:Ljava/lang/String;
+    iget-wide v2, p0, Lcom/android/server/pm/PackageManagerService$31;->val$sizeBytes:J
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    div-long/2addr v0, v2
 
-    move-result-object v2
+    const-wide/16 v2, 0x0
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static/range {v0 .. v5}, Landroid/util/MathUtils;->constrain(JJJ)J
 
-    move-result-object v2
+    move-result-wide v0
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    long-to-int v0, v0
 
-    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$31;->this$0:Lcom/android/server/pm/PackageManagerService;
+    add-int/lit8 v10, v0, 0xa
 
-    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->-get8(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$MoveCallbacks;
+    if-le v9, v10, :cond_1
 
-    move-result-object v1
+    move v10, v9
 
-    iget v2, p0, Lcom/android/server/pm/PackageManagerService$31;->val$moveId:I
+    :goto_1
+    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$31;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    const/4 v3, -0x6
+    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->-get12(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$MoveCallbacks;
 
-    invoke-static {v1, v2, v3}, Lcom/android/server/pm/PackageManagerService$MoveCallbacks;->-wrap1(Lcom/android/server/pm/PackageManagerService$MoveCallbacks;II)V
+    move-result-object v0
+
+    iget v1, p0, Lcom/android/server/pm/PackageManagerService$31;->val$moveId:I
+
+    invoke-static {v0, v1, v10}, Lcom/android/server/pm/PackageManagerService$MoveCallbacks;->-wrap1(Lcom/android/server/pm/PackageManagerService$MoveCallbacks;II)V
 
     goto :goto_0
+
+    :cond_1
+    move v9, v10
+
+    goto :goto_1
 .end method

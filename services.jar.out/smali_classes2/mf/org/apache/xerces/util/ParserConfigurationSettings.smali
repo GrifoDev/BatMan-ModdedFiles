@@ -76,37 +76,38 @@
 
     if-nez p1, :cond_0
 
-    move v0, v1
-
     :goto_0
-    if-ge v1, v0, :cond_2
+    const/4 v2, 0x0
 
-    aget-object v2, p1, v1
+    :goto_1
+    if-ge v2, v1, :cond_2
+
+    aget-object v0, p1, v2
 
     iget-object v3, p0, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->fRecognizedFeatures:Ljava/util/ArrayList;
 
-    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
     move-result v3
 
     if-eqz v3, :cond_1
 
-    :goto_1
-    add-int/lit8 v1, v1, 0x1
+    :goto_2
+    add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_0
-    array-length v0, p1
+    array-length v1, p1
 
     goto :goto_0
 
     :cond_1
     iget-object v3, p0, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->fRecognizedFeatures:Ljava/util/ArrayList;
 
-    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_2
     return-void
@@ -115,87 +116,132 @@
 .method public addRecognizedProperties([Ljava/lang/String;)V
     .locals 4
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     if-nez p1, :cond_0
 
-    move v0, v1
-
     :goto_0
-    if-ge v1, v0, :cond_2
+    const/4 v0, 0x0
 
-    aget-object v2, p1, v1
+    :goto_1
+    if-ge v0, v2, :cond_2
+
+    aget-object v1, p1, v0
 
     iget-object v3, p0, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->fRecognizedProperties:Ljava/util/ArrayList;
 
-    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
     move-result v3
 
     if-eqz v3, :cond_1
 
-    :goto_1
-    add-int/lit8 v1, v1, 0x1
+    :goto_2
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_0
-    array-length v0, p1
+    array-length v2, p1
 
     goto :goto_0
 
     :cond_1
     iget-object v3, p0, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->fRecognizedProperties:Ljava/util/ArrayList;
 
-    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_2
     return-void
 .end method
 
 .method protected checkFeature(Ljava/lang/String;)V
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
         }
     .end annotation
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->fRecognizedFeatures:Ljava/util/ArrayList;
+    iget-object v1, p0, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->fRecognizedFeatures:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     :goto_0
     return-void
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->fParentSettings:Lmf/org/apache/xerces/xni/parser/XMLComponentManager;
+    iget-object v1, p0, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->fParentSettings:Lmf/org/apache/xerces/xni/parser/XMLComponentManager;
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
-    new-instance v0, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
+    const/4 v0, 0x0
 
-    invoke-direct {v0, v1, p1}, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;-><init>(SLjava/lang/String;)V
+    new-instance v1, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
 
-    throw v0
+    invoke-direct {v1, v2, p1}, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;-><init>(SLjava/lang/String;)V
+
+    throw v1
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->fParentSettings:Lmf/org/apache/xerces/xni/parser/XMLComponentManager;
+    iget-object v1, p0, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->fParentSettings:Lmf/org/apache/xerces/xni/parser/XMLComponentManager;
 
-    invoke-interface {v0, p1}, Lmf/org/apache/xerces/xni/parser/XMLComponentManager;->getFeature(Ljava/lang/String;)Z
+    invoke-interface {v1, p1}, Lmf/org/apache/xerces/xni/parser/XMLComponentManager;->getFeature(Ljava/lang/String;)Z
 
     goto :goto_0
 .end method
 
 .method protected checkProperty(Ljava/lang/String;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
+        }
+    .end annotation
+
+    const/4 v2, 0x0
+
+    iget-object v1, p0, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->fRecognizedProperties:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iget-object v1, p0, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->fParentSettings:Lmf/org/apache/xerces/xni/parser/XMLComponentManager;
+
+    if-nez v1, :cond_1
+
+    const/4 v0, 0x0
+
+    new-instance v1, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
+
+    invoke-direct {v1, v2, p1}, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;-><init>(SLjava/lang/String;)V
+
+    throw v1
+
+    :cond_1
+    iget-object v1, p0, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->fParentSettings:Lmf/org/apache/xerces/xni/parser/XMLComponentManager;
+
+    invoke-interface {v1, p1}, Lmf/org/apache/xerces/xni/parser/XMLComponentManager;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
+
+    goto :goto_0
+.end method
+
+.method public getFeature(Ljava/lang/String;)Z
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -203,49 +249,9 @@
         }
     .end annotation
 
-    const/4 v1, 0x0
+    iget-object v1, p0, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->fFeatures:Ljava/util/HashMap;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->fRecognizedProperties:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    :goto_0
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->fParentSettings:Lmf/org/apache/xerces/xni/parser/XMLComponentManager;
-
-    if-nez v0, :cond_1
-
-    new-instance v0, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
-
-    invoke-direct {v0, v1, p1}, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;-><init>(SLjava/lang/String;)V
-
-    throw v0
-
-    :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->fParentSettings:Lmf/org/apache/xerces/xni/parser/XMLComponentManager;
-
-    invoke-interface {v0, p1}, Lmf/org/apache/xerces/xni/parser/XMLComponentManager;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
-
-    goto :goto_0
-.end method
-
-.method public getFeature(Ljava/lang/String;)Z
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
-        }
-    .end annotation
-
-    iget-object v0, p0, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->fFeatures:Ljava/util/HashMap;
-
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -255,29 +261,29 @@
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 
     :cond_0
     invoke-virtual {p0, p1}, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->checkFeature(Ljava/lang/String;)V
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return v0
+    return v1
 .end method
 
 .method public getProperty(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
         }
     .end annotation
 
-    iget-object v0, p0, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->fProperties:Ljava/util/HashMap;
+    iget-object v1, p0, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->fProperties:Ljava/util/HashMap;
 
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 

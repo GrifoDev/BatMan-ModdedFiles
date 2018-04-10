@@ -204,40 +204,40 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/ElementLabel;->name:Ljava/lang/String;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ElementLabel;->name:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
     :goto_0
-    iget-object v0, p0, Lorg/simpleframework/xml/core/ElementLabel;->name:Ljava/lang/String;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ElementLabel;->name:Ljava/lang/String;
 
-    return-object v0
+    return-object v2
 
     :cond_0
-    iget-object v0, p0, Lorg/simpleframework/xml/core/ElementLabel;->format:Lorg/simpleframework/xml/stream/Format;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ElementLabel;->format:Lorg/simpleframework/xml/stream/Format;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/stream/Format;->getStyle()Lorg/simpleframework/xml/stream/Style;
+    invoke-virtual {v2}, Lorg/simpleframework/xml/stream/Format;->getStyle()Lorg/simpleframework/xml/stream/Style;
 
     move-result-object v0
 
-    iget-object v1, p0, Lorg/simpleframework/xml/core/ElementLabel;->detail:Lorg/simpleframework/xml/core/Introspector;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ElementLabel;->detail:Lorg/simpleframework/xml/core/Introspector;
 
-    invoke-virtual {v1}, Lorg/simpleframework/xml/core/Introspector;->getName()Ljava/lang/String;
+    invoke-virtual {v2}, Lorg/simpleframework/xml/core/Introspector;->getName()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-interface {v0, v1}, Lorg/simpleframework/xml/stream/Style;->getElement(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lorg/simpleframework/xml/core/ElementLabel;->name:Ljava/lang/String;
+    iput-object v2, p0, Lorg/simpleframework/xml/core/ElementLabel;->name:Ljava/lang/String;
 
     goto :goto_0
 .end method
@@ -251,21 +251,21 @@
 .end method
 
 .method public getPath()Ljava/lang/String;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/ElementLabel;->path:Ljava/lang/String;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ElementLabel;->path:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
     :goto_0
-    iget-object v0, p0, Lorg/simpleframework/xml/core/ElementLabel;->path:Ljava/lang/String;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ElementLabel;->path:Ljava/lang/String;
 
-    return-object v0
+    return-object v2
 
     :cond_0
     invoke-virtual {p0}, Lorg/simpleframework/xml/core/ElementLabel;->getExpression()Lorg/simpleframework/xml/core/Expression;
@@ -278,9 +278,9 @@
 
     invoke-interface {v0, v1}, Lorg/simpleframework/xml/core/Expression;->getElement(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lorg/simpleframework/xml/core/ElementLabel;->path:Ljava/lang/String;
+    iput-object v2, p0, Lorg/simpleframework/xml/core/ElementLabel;->path:Ljava/lang/String;
 
     goto :goto_0
 .end method

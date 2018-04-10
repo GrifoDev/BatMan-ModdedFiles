@@ -57,9 +57,9 @@
 
     const/4 v2, 0x1
 
-    const-string/jumbo v0, "accesskey"
+    const-string/jumbo v1, "accesskey"
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/html/dom/HTMLInputElementImpl;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Lmf/org/apache/html/dom/HTMLInputElementImpl;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -226,29 +226,29 @@
 .end method
 
 .method public getTabIndex()I
-    .locals 1
+    .locals 2
 
     :try_start_0
-    const-string/jumbo v0, "tabindex"
+    const-string/jumbo v1, "tabindex"
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/html/dom/HTMLInputElementImpl;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Lmf/org/apache/html/dom/HTMLInputElementImpl;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 
     :catch_0
     move-exception v0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return v0
+    return v1
 .end method
 
 .method public getType()Ljava/lang/String;
@@ -397,13 +397,13 @@
 .method public setMaxLength(I)V
     .locals 2
 
-    const-string/jumbo v0, "maxlength"
-
     invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/html/dom/HTMLInputElementImpl;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
+    const-string/jumbo v1, "maxlength"
+
+    invoke-virtual {p0, v1, v0}, Lmf/org/apache/html/dom/HTMLInputElementImpl;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -451,13 +451,13 @@
 .method public setTabIndex(I)V
     .locals 2
 
-    const-string/jumbo v0, "tabindex"
-
     invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/html/dom/HTMLInputElementImpl;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
+    const-string/jumbo v1, "tabindex"
+
+    invoke-virtual {p0, v1, v0}, Lmf/org/apache/html/dom/HTMLInputElementImpl;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method

@@ -127,19 +127,19 @@
 
     const-string/jumbo v3, "http://www.w3.org/TR/1998/REC-xml-19980210"
 
-    const-string/jumbo v4, "InvalidASCII"
+    const/4 v4, 0x1
 
-    const/4 v5, 0x1
-
-    new-array v5, v5, [Ljava/lang/Object;
-
-    const/4 v7, 0x0
+    new-array v5, v4, [Ljava/lang/Object;
 
     invoke-static {v6}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v4
 
-    aput-object v6, v5, v7
+    const/4 v7, 0x0
+
+    aput-object v4, v5, v7
+
+    const-string/jumbo v4, "InvalidASCII"
 
     invoke-direct/range {v0 .. v5}, Lmf/org/apache/xerces/impl/io/MalformedByteSequenceException;-><init>(Lmf/org/apache/xerces/util/MessageFormatter;Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
 
@@ -147,14 +147,14 @@
 .end method
 
 .method public read([CII)I
-    .locals 8
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    const/4 v6, 0x0
+    const/4 v9, 0x0
 
     iget-object v0, p0, Lmf/org/apache/xerces/impl/io/ASCIIReader;->fBuffer:[B
 
@@ -167,30 +167,30 @@
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/io/ASCIIReader;->fBuffer:[B
 
-    invoke-virtual {v0, v1, v6, p3}, Ljava/io/InputStream;->read([BII)I
+    invoke-virtual {v0, v1, v9, p3}, Ljava/io/InputStream;->read([BII)I
 
-    move-result v1
+    move-result v7
 
-    move v0, v6
+    const/4 v8, 0x0
 
     :goto_1
-    if-ge v0, v1, :cond_2
+    if-ge v8, v7, :cond_2
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/io/ASCIIReader;->fBuffer:[B
+    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/ASCIIReader;->fBuffer:[B
 
-    aget-byte v7, v2, v0
+    aget-byte v6, v0, v8
 
-    if-ltz v7, :cond_1
+    if-ltz v6, :cond_1
 
-    add-int v2, p2, v0
+    add-int v0, p2, v8
 
-    int-to-char v3, v7
+    int-to-char v1, v6
 
-    int-to-char v3, v3
+    int-to-char v1, v1
 
-    aput-char v3, p1, v2
+    aput-char v1, p1, v0
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v8, v8, 0x1
 
     goto :goto_1
 
@@ -210,26 +210,26 @@
 
     const-string/jumbo v3, "http://www.w3.org/TR/1998/REC-xml-19980210"
 
+    const/4 v4, 0x1
+
+    new-array v5, v4, [Ljava/lang/Object;
+
+    and-int/lit16 v4, v6, 0xff
+
+    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    aput-object v4, v5, v9
+
     const-string/jumbo v4, "InvalidASCII"
-
-    const/4 v5, 0x1
-
-    new-array v5, v5, [Ljava/lang/Object;
-
-    and-int/lit16 v7, v7, 0xff
-
-    invoke-static {v7}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v7
-
-    aput-object v7, v5, v6
 
     invoke-direct/range {v0 .. v5}, Lmf/org/apache/xerces/impl/io/MalformedByteSequenceException;-><init>(Lmf/org/apache/xerces/util/MessageFormatter;Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
 
     throw v0
 
     :cond_2
-    return v1
+    return v7
 .end method
 
 .method public ready()Z

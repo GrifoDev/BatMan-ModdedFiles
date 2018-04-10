@@ -76,41 +76,41 @@
 .method public createDOMParser()Lmf/org/apache/xerces/parsers/DOMParser;
     .locals 3
 
-    iget-boolean v0, p0, Lmf/org/apache/xerces/parsers/CachingParserPool;->fShadowSymbolTable:Z
+    iget-boolean v2, p0, Lmf/org/apache/xerces/parsers/CachingParserPool;->fShadowSymbolTable:Z
 
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/CachingParserPool;->fSynchronizedSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    iget-object v1, p0, Lmf/org/apache/xerces/parsers/CachingParserPool;->fSynchronizedSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
     :goto_0
-    iget-boolean v1, p0, Lmf/org/apache/xerces/parsers/CachingParserPool;->fShadowGrammarPool:Z
+    iget-boolean v2, p0, Lmf/org/apache/xerces/parsers/CachingParserPool;->fShadowGrammarPool:Z
 
-    if-nez v1, :cond_1
+    if-nez v2, :cond_1
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/CachingParserPool;->fSynchronizedGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
+    iget-object v0, p0, Lmf/org/apache/xerces/parsers/CachingParserPool;->fSynchronizedGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
 
     :goto_1
     new-instance v2, Lmf/org/apache/xerces/parsers/DOMParser;
 
-    invoke-direct {v2, v0, v1}, Lmf/org/apache/xerces/parsers/DOMParser;-><init>(Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;)V
+    invoke-direct {v2, v1, v0}, Lmf/org/apache/xerces/parsers/DOMParser;-><init>(Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;)V
 
     return-object v2
 
     :cond_0
-    new-instance v0, Lmf/org/apache/xerces/util/ShadowedSymbolTable;
+    new-instance v1, Lmf/org/apache/xerces/util/ShadowedSymbolTable;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/CachingParserPool;->fSynchronizedSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    iget-object v2, p0, Lmf/org/apache/xerces/parsers/CachingParserPool;->fSynchronizedSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    invoke-direct {v0, v1}, Lmf/org/apache/xerces/util/ShadowedSymbolTable;-><init>(Lmf/org/apache/xerces/util/SymbolTable;)V
+    invoke-direct {v1, v2}, Lmf/org/apache/xerces/util/ShadowedSymbolTable;-><init>(Lmf/org/apache/xerces/util/SymbolTable;)V
 
     goto :goto_0
 
     :cond_1
-    new-instance v1, Lmf/org/apache/xerces/parsers/CachingParserPool$ShadowedGrammarPool;
+    new-instance v0, Lmf/org/apache/xerces/parsers/CachingParserPool$ShadowedGrammarPool;
 
     iget-object v2, p0, Lmf/org/apache/xerces/parsers/CachingParserPool;->fSynchronizedGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
 
-    invoke-direct {v1, v2}, Lmf/org/apache/xerces/parsers/CachingParserPool$ShadowedGrammarPool;-><init>(Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;)V
+    invoke-direct {v0, v2}, Lmf/org/apache/xerces/parsers/CachingParserPool$ShadowedGrammarPool;-><init>(Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;)V
 
     goto :goto_1
 .end method
@@ -118,41 +118,41 @@
 .method public createSAXParser()Lmf/org/apache/xerces/parsers/SAXParser;
     .locals 3
 
-    iget-boolean v0, p0, Lmf/org/apache/xerces/parsers/CachingParserPool;->fShadowSymbolTable:Z
+    iget-boolean v2, p0, Lmf/org/apache/xerces/parsers/CachingParserPool;->fShadowSymbolTable:Z
 
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/CachingParserPool;->fSynchronizedSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    iget-object v1, p0, Lmf/org/apache/xerces/parsers/CachingParserPool;->fSynchronizedSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
     :goto_0
-    iget-boolean v1, p0, Lmf/org/apache/xerces/parsers/CachingParserPool;->fShadowGrammarPool:Z
+    iget-boolean v2, p0, Lmf/org/apache/xerces/parsers/CachingParserPool;->fShadowGrammarPool:Z
 
-    if-nez v1, :cond_1
+    if-nez v2, :cond_1
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/CachingParserPool;->fSynchronizedGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
+    iget-object v0, p0, Lmf/org/apache/xerces/parsers/CachingParserPool;->fSynchronizedGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
 
     :goto_1
     new-instance v2, Lmf/org/apache/xerces/parsers/SAXParser;
 
-    invoke-direct {v2, v0, v1}, Lmf/org/apache/xerces/parsers/SAXParser;-><init>(Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;)V
+    invoke-direct {v2, v1, v0}, Lmf/org/apache/xerces/parsers/SAXParser;-><init>(Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;)V
 
     return-object v2
 
     :cond_0
-    new-instance v0, Lmf/org/apache/xerces/util/ShadowedSymbolTable;
+    new-instance v1, Lmf/org/apache/xerces/util/ShadowedSymbolTable;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/CachingParserPool;->fSynchronizedSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    iget-object v2, p0, Lmf/org/apache/xerces/parsers/CachingParserPool;->fSynchronizedSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    invoke-direct {v0, v1}, Lmf/org/apache/xerces/util/ShadowedSymbolTable;-><init>(Lmf/org/apache/xerces/util/SymbolTable;)V
+    invoke-direct {v1, v2}, Lmf/org/apache/xerces/util/ShadowedSymbolTable;-><init>(Lmf/org/apache/xerces/util/SymbolTable;)V
 
     goto :goto_0
 
     :cond_1
-    new-instance v1, Lmf/org/apache/xerces/parsers/CachingParserPool$ShadowedGrammarPool;
+    new-instance v0, Lmf/org/apache/xerces/parsers/CachingParserPool$ShadowedGrammarPool;
 
     iget-object v2, p0, Lmf/org/apache/xerces/parsers/CachingParserPool;->fSynchronizedGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
 
-    invoke-direct {v1, v2}, Lmf/org/apache/xerces/parsers/CachingParserPool$ShadowedGrammarPool;-><init>(Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;)V
+    invoke-direct {v0, v2}, Lmf/org/apache/xerces/parsers/CachingParserPool$ShadowedGrammarPool;-><init>(Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;)V
 
     goto :goto_1
 .end method

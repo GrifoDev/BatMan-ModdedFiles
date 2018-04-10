@@ -36,35 +36,37 @@
 .end method
 
 .method private getType(Lmf/org/apache/xerces/xni/XMLResourceIdentifier;)Ljava/lang/String;
-    .locals 2
+    .locals 3
 
-    instance-of v0, p1, Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
+    instance-of v1, p1, Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     :cond_0
-    const-string/jumbo v0, "http://www.w3.org/TR/REC-xml"
+    const-string/jumbo v1, "http://www.w3.org/TR/REC-xml"
 
-    return-object v0
+    return-object v1
 
     :cond_1
-    check-cast p1, Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
+    move-object v0, p1
 
-    const-string/jumbo v0, "http://www.w3.org/2001/XMLSchema"
+    check-cast v0, Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
 
-    invoke-interface {p1}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;->getGrammarType()Ljava/lang/String;
+    invoke-interface {v0}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;->getGrammarType()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v2, "http://www.w3.org/2001/XMLSchema"
 
-    move-result v0
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v0, :cond_0
+    move-result v1
 
-    const-string/jumbo v0, "http://www.w3.org/2001/XMLSchema"
+    if-eqz v1, :cond_0
 
-    return-object v0
+    const-string/jumbo v1, "http://www.w3.org/2001/XMLSchema"
+
+    return-object v1
 .end method
 
 
@@ -78,7 +80,7 @@
 .end method
 
 .method public resolveEntity(Lmf/org/apache/xerces/xni/XMLResourceIdentifier;)Lmf/org/apache/xerces/xni/parser/XMLInputSource;
-    .locals 8
+    .locals 15
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;,
@@ -86,130 +88,132 @@
         }
     .end annotation
 
-    const/4 v1, 0x0
-
     iget-object v0, p0, Lmf/org/apache/xerces/util/DOMEntityResolverWrapper;->fEntityResolver:Lmf/org/w3c/dom/ls/LSResourceResolver;
 
     if-nez v0, :cond_1
 
     :cond_0
-    return-object v1
+    const/4 v0, 0x0
+
+    return-object v0
 
     :cond_1
     if-eqz p1, :cond_3
 
-    iget-object v2, p0, Lmf/org/apache/xerces/util/DOMEntityResolverWrapper;->fEntityResolver:Lmf/org/w3c/dom/ls/LSResourceResolver;
+    iget-object v0, p0, Lmf/org/apache/xerces/util/DOMEntityResolverWrapper;->fEntityResolver:Lmf/org/w3c/dom/ls/LSResourceResolver;
 
-    invoke-direct {p0, p1}, Lmf/org/apache/xerces/util/DOMEntityResolverWrapper;->getType(Lmf/org/apache/xerces/xni/XMLResourceIdentifier;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-interface {p1}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getNamespace()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-interface {p1}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getPublicId()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-interface {p1}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getLiteralSystemId()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-interface {p1}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getBaseSystemId()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-interface/range {v2 .. v7}, Lmf/org/w3c/dom/ls/LSResourceResolver;->resolveResource(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lmf/org/w3c/dom/ls/LSInput;
-
-    move-result-object v0
-
-    :goto_0
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0}, Lmf/org/w3c/dom/ls/LSInput;->getPublicId()Ljava/lang/String;
+    invoke-direct/range {p0 .. p1}, Lmf/org/apache/xerces/util/DOMEntityResolverWrapper;->getType(Lmf/org/apache/xerces/xni/XMLResourceIdentifier;)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/ls/LSInput;->getSystemId()Ljava/lang/String;
+    invoke-interface/range {p1 .. p1}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getNamespace()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/ls/LSInput;->getBaseURI()Ljava/lang/String;
+    invoke-interface/range {p1 .. p1}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getPublicId()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/ls/LSInput;->getByteStream()Ljava/io/InputStream;
+    invoke-interface/range {p1 .. p1}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getLiteralSystemId()Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/ls/LSInput;->getCharacterStream()Ljava/io/Reader;
+    invoke-interface/range {p1 .. p1}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getBaseSystemId()Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/ls/LSInput;->getEncoding()Ljava/lang/String;
+    invoke-interface/range {v0 .. v5}, Lmf/org/w3c/dom/ls/LSResourceResolver;->resolveResource(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lmf/org/w3c/dom/ls/LSInput;
+
+    move-result-object v11
+
+    :goto_0
+    if-eqz v11, :cond_0
+
+    invoke-interface {v11}, Lmf/org/w3c/dom/ls/LSInput;->getPublicId()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-interface {v11}, Lmf/org/w3c/dom/ls/LSInput;->getSystemId()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-interface {v11}, Lmf/org/w3c/dom/ls/LSInput;->getBaseURI()Ljava/lang/String;
 
     move-result-object v6
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/ls/LSInput;->getStringData()Ljava/lang/String;
+    invoke-interface {v11}, Lmf/org/w3c/dom/ls/LSInput;->getByteStream()Ljava/io/InputStream;
 
-    move-result-object v0
+    move-result-object v7
 
-    new-instance v7, Lmf/org/apache/xerces/xni/parser/XMLInputSource;
+    invoke-interface {v11}, Lmf/org/w3c/dom/ls/LSInput;->getCharacterStream()Ljava/io/Reader;
 
-    invoke-direct {v7, v1, v2, v3}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v8
 
-    if-nez v5, :cond_4
+    invoke-interface {v11}, Lmf/org/w3c/dom/ls/LSInput;->getEncoding()Ljava/lang/String;
 
-    if-nez v4, :cond_5
+    move-result-object v10
 
-    if-nez v0, :cond_6
+    invoke-interface {v11}, Lmf/org/w3c/dom/ls/LSInput;->getStringData()Ljava/lang/String;
+
+    move-result-object v9
+
+    new-instance v14, Lmf/org/apache/xerces/xni/parser/XMLInputSource;
+
+    invoke-direct {v14, v12, v13, v6}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    if-nez v8, :cond_4
+
+    if-nez v7, :cond_5
+
+    if-nez v9, :cond_6
 
     :cond_2
     :goto_1
-    invoke-virtual {v7, v6}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->setEncoding(Ljava/lang/String;)V
+    invoke-virtual {v14, v10}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->setEncoding(Ljava/lang/String;)V
 
-    return-object v7
+    return-object v14
 
     :cond_3
     iget-object v0, p0, Lmf/org/apache/xerces/util/DOMEntityResolverWrapper;->fEntityResolver:Lmf/org/w3c/dom/ls/LSResourceResolver;
 
-    move-object v2, v1
+    const/4 v1, 0x0
 
-    move-object v3, v1
+    const/4 v2, 0x0
 
-    move-object v4, v1
+    const/4 v3, 0x0
 
-    move-object v5, v1
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
 
     invoke-interface/range {v0 .. v5}, Lmf/org/w3c/dom/ls/LSResourceResolver;->resolveResource(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lmf/org/w3c/dom/ls/LSInput;
 
-    move-result-object v0
+    move-result-object v11
 
     goto :goto_0
 
     :cond_4
-    invoke-virtual {v7, v5}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->setCharacterStream(Ljava/io/Reader;)V
+    invoke-virtual {v14, v8}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->setCharacterStream(Ljava/io/Reader;)V
 
     goto :goto_1
 
     :cond_5
-    invoke-virtual {v7, v4}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->setByteStream(Ljava/io/InputStream;)V
+    invoke-virtual {v14, v7}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->setByteStream(Ljava/io/InputStream;)V
 
     goto :goto_1
 
     :cond_6
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    invoke-virtual {v9}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
-    new-instance v1, Ljava/io/StringReader;
+    new-instance v0, Ljava/io/StringReader;
 
-    invoke-direct {v1, v0}, Ljava/io/StringReader;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v9}, Ljava/io/StringReader;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v7, v1}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->setCharacterStream(Ljava/io/Reader;)V
+    invoke-virtual {v14, v0}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->setCharacterStream(Ljava/io/Reader;)V
 
     goto :goto_1
 .end method

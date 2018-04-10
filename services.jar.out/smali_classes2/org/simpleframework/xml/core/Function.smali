@@ -35,20 +35,20 @@
 
 # virtual methods
 .method public call(Lorg/simpleframework/xml/core/Context;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     if-nez p2, :cond_0
 
-    return-object v0
+    return-object v2
 
     :cond_0
     invoke-interface {p1}, Lorg/simpleframework/xml/core/Context;->getSession()Lorg/simpleframework/xml/core/Session;
@@ -57,34 +57,34 @@
 
     invoke-virtual {v0}, Lorg/simpleframework/xml/core/Session;->getMap()Ljava/util/Map;
 
-    move-result-object v0
+    move-result-object v1
 
-    iget-boolean v1, p0, Lorg/simpleframework/xml/core/Function;->contextual:Z
+    iget-boolean v2, p0, Lorg/simpleframework/xml/core/Function;->contextual:Z
 
-    if-nez v1, :cond_1
+    if-nez v2, :cond_1
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/Function;->method:Ljava/lang/reflect/Method;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/Function;->method:Ljava/lang/reflect/Method;
 
-    new-array v1, v3, [Ljava/lang/Object;
+    new-array v3, v4, [Ljava/lang/Object;
 
-    invoke-virtual {v0, p2, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p2, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 
     :cond_1
-    iget-object v1, p0, Lorg/simpleframework/xml/core/Function;->method:Ljava/lang/reflect/Method;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/Function;->method:Ljava/lang/reflect/Method;
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v3, v3, [Ljava/lang/Object;
 
-    aput-object v0, v2, v3
+    aput-object v1, v3, v4
 
-    invoke-virtual {v1, p2, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p2, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 .end method

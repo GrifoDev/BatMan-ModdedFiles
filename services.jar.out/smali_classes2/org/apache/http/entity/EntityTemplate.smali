@@ -3,106 +3,95 @@
 .source "EntityTemplate.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
+# instance fields
+.field private final contentproducer:Lorg/apache/http/entity/ContentProducer;
 
 
 # direct methods
 .method public constructor <init>(Lorg/apache/http/entity/ContentProducer;)V
-    .locals 2
+    .locals 1
 
     invoke-direct {p0}, Lorg/apache/http/entity/AbstractHttpEntity;-><init>()V
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const-string/jumbo v0, "Content producer"
 
-    const-string/jumbo v1, "Stub!"
+    invoke-static {p1, v0}, Lorg/apache/http/util/Args;->notNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    move-result-object v0
 
-    throw v0
+    check-cast v0, Lorg/apache/http/entity/ContentProducer;
+
+    iput-object v0, p0, Lorg/apache/http/entity/EntityTemplate;->contentproducer:Lorg/apache/http/entity/ContentProducer;
+
+    return-void
 .end method
 
 
 # virtual methods
-.method public consumeContent()V
-    .locals 2
+.method public getContent()Ljava/io/InputStream;
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v0, Ljava/io/ByteArrayOutputStream;
 
-    const-string/jumbo v1, "Stub!"
+    invoke-direct {v0}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lorg/apache/http/entity/EntityTemplate;->writeTo(Ljava/io/OutputStream;)V
 
-    throw v0
-.end method
+    new-instance v1, Ljava/io/ByteArrayInputStream;
 
-.method public getContent()Ljava/io/InputStream;
-    .locals 2
+    invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    move-result-object v2
 
-    const-string/jumbo v1, "Stub!"
+    invoke-direct {v1, v2}, Ljava/io/ByteArrayInputStream;-><init>([B)V
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-object v1
 .end method
 
 .method public getContentLength()J
     .locals 2
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const-wide/16 v0, -0x1
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-wide v0
 .end method
 
 .method public isRepeatable()Z
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const/4 v0, 0x1
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return v0
 .end method
 
 .method public isStreaming()Z
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const/4 v0, 0x0
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return v0
 .end method
 
 .method public writeTo(Ljava/io/OutputStream;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const-string/jumbo v0, "Output stream"
 
-    const-string/jumbo v1, "Stub!"
+    invoke-static {p1, v0}, Lorg/apache/http/util/Args;->notNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    iget-object v0, p0, Lorg/apache/http/entity/EntityTemplate;->contentproducer:Lorg/apache/http/entity/ContentProducer;
 
-    throw v0
+    invoke-interface {v0, p1}, Lorg/apache/http/entity/ContentProducer;->writeTo(Ljava/io/OutputStream;)V
+
+    return-void
 .end method

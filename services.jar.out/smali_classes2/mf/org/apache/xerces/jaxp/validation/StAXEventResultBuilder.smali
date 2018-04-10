@@ -117,23 +117,23 @@
 .method private getNamespaceIterator()Ljava/util/Iterator;
     .locals 2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fNamespaceContext:Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fNamespaceContext:Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->getDeclaredPrefixCount()I
+    invoke-virtual {v1}, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->getDeclaredPrefixCount()I
 
-    move-result v1
+    move-result v0
 
-    if-gtz v1, :cond_0
+    if-gtz v0, :cond_0
 
-    sget-object v0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->EMPTY_COLLECTION_ITERATOR:Ljava/util/Iterator;
+    sget-object v1, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->EMPTY_COLLECTION_ITERATOR:Ljava/util/Iterator;
 
     :goto_0
-    return-object v0
+    return-object v1
 
     :cond_0
-    new-instance v0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder$NamespaceIterator;
+    new-instance v1, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder$NamespaceIterator;
 
-    invoke-direct {v0, p0, v1}, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder$NamespaceIterator;-><init>(Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;I)V
+    invoke-direct {v1, p0, v0}, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder$NamespaceIterator;-><init>(Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;I)V
 
     goto :goto_0
 .end method
@@ -171,39 +171,39 @@
 .end method
 
 .method public characters(Lmf/org/apache/xerces/xni/XMLString;Lmf/org/apache/xerces/xni/Augmentations;)V
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
 
-    iget-boolean v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fIgnoreChars:Z
+    iget-boolean v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fIgnoreChars:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     :goto_0
     return-void
 
     :cond_0
     :try_start_0
-    iget-boolean v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fInCDATA:Z
+    iget-boolean v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fInCDATA:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fEventWriter:Lmf/javax/xml/stream/XMLEventWriter;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fEventWriter:Lmf/javax/xml/stream/XMLEventWriter;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fEventFactory:Lmf/javax/xml/stream/XMLEventFactory;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fEventFactory:Lmf/javax/xml/stream/XMLEventFactory;
 
     invoke-virtual {p1}, Lmf/org/apache/xerces/xni/XMLString;->toString()Ljava/lang/String;
 
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Lmf/javax/xml/stream/XMLEventFactory;->createCData(Ljava/lang/String;)Lmf/javax/xml/stream/events/Characters;
+
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Lmf/javax/xml/stream/XMLEventFactory;->createCData(Ljava/lang/String;)Lmf/javax/xml/stream/events/Characters;
-
-    move-result-object v1
-
-    invoke-interface {v0, v1}, Lmf/javax/xml/stream/XMLEventWriter;->add(Lmf/javax/xml/stream/events/XMLEvent;)V
+    invoke-interface {v1, v2}, Lmf/javax/xml/stream/XMLEventWriter;->add(Lmf/javax/xml/stream/events/XMLEvent;)V
     :try_end_0
     .catch Lmf/javax/xml/stream/XMLStreamException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -220,19 +220,19 @@
 
     :cond_1
     :try_start_1
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fEventWriter:Lmf/javax/xml/stream/XMLEventWriter;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fEventWriter:Lmf/javax/xml/stream/XMLEventWriter;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fEventFactory:Lmf/javax/xml/stream/XMLEventFactory;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fEventFactory:Lmf/javax/xml/stream/XMLEventFactory;
 
     invoke-virtual {p1}, Lmf/org/apache/xerces/xni/XMLString;->toString()Ljava/lang/String;
 
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Lmf/javax/xml/stream/XMLEventFactory;->createCharacters(Ljava/lang/String;)Lmf/javax/xml/stream/events/Characters;
+
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Lmf/javax/xml/stream/XMLEventFactory;->createCharacters(Ljava/lang/String;)Lmf/javax/xml/stream/events/Characters;
-
-    move-result-object v1
-
-    invoke-interface {v0, v1}, Lmf/javax/xml/stream/XMLEventWriter;->add(Lmf/javax/xml/stream/events/XMLEvent;)V
+    invoke-interface {v1, v2}, Lmf/javax/xml/stream/XMLEventWriter;->add(Lmf/javax/xml/stream/events/XMLEvent;)V
     :try_end_1
     .catch Lmf/javax/xml/stream/XMLStreamException; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -402,7 +402,7 @@
 .end method
 
 .method public endElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/Augmentations;)V
-    .locals 6
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
@@ -410,41 +410,41 @@
     .end annotation
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fStAXValidatorHelper:Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fStAXValidatorHelper:Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->getCurrentEvent()Lmf/javax/xml/stream/events/XMLEvent;
-
-    move-result-object v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fEventWriter:Lmf/javax/xml/stream/XMLEventWriter;
-
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fEventFactory:Lmf/javax/xml/stream/XMLEventFactory;
-
-    iget-object v2, p1, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
-
-    iget-object v3, p1, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
-
-    iget-object v4, p1, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
-
-    invoke-direct {p0}, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->getNamespaceIterator()Ljava/util/Iterator;
-
-    move-result-object v5
-
-    invoke-virtual {v1, v2, v3, v4, v5}, Lmf/javax/xml/stream/XMLEventFactory;->createEndElement(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Iterator;)Lmf/javax/xml/stream/events/EndElement;
+    invoke-virtual {v2}, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->getCurrentEvent()Lmf/javax/xml/stream/events/XMLEvent;
 
     move-result-object v1
 
-    invoke-interface {v0, v1}, Lmf/javax/xml/stream/XMLEventWriter;->add(Lmf/javax/xml/stream/events/XMLEvent;)V
+    if-nez v1, :cond_0
+
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fEventWriter:Lmf/javax/xml/stream/XMLEventWriter;
+
+    iget-object v3, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fEventFactory:Lmf/javax/xml/stream/XMLEventFactory;
+
+    iget-object v4, p1, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+
+    iget-object v5, p1, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+
+    iget-object v6, p1, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
+
+    invoke-direct {p0}, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->getNamespaceIterator()Ljava/util/Iterator;
+
+    move-result-object v7
+
+    invoke-virtual {v3, v4, v5, v6, v7}, Lmf/javax/xml/stream/XMLEventFactory;->createEndElement(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Iterator;)Lmf/javax/xml/stream/events/EndElement;
+
+    move-result-object v3
+
+    invoke-interface {v2, v3}, Lmf/javax/xml/stream/XMLEventWriter;->add(Lmf/javax/xml/stream/events/XMLEvent;)V
 
     :goto_0
     return-void
 
     :cond_0
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fEventWriter:Lmf/javax/xml/stream/XMLEventWriter;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fEventWriter:Lmf/javax/xml/stream/XMLEventWriter;
 
-    invoke-interface {v1, v0}, Lmf/javax/xml/stream/XMLEventWriter;->add(Lmf/javax/xml/stream/events/XMLEvent;)V
+    invoke-interface {v2, v1}, Lmf/javax/xml/stream/XMLEventWriter;->add(Lmf/javax/xml/stream/events/XMLEvent;)V
     :try_end_0
     .catch Lmf/javax/xml/stream/XMLStreamException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -453,11 +453,11 @@
     :catch_0
     move-exception v0
 
-    new-instance v1, Lmf/org/apache/xerces/xni/XNIException;
+    new-instance v2, Lmf/org/apache/xerces/xni/XNIException;
 
-    invoke-direct {v1, v0}, Lmf/org/apache/xerces/xni/XNIException;-><init>(Ljava/lang/Exception;)V
+    invoke-direct {v2, v0}, Lmf/org/apache/xerces/xni/XNIException;-><init>(Ljava/lang/Exception;)V
 
-    throw v1
+    throw v2
 .end method
 
 .method public endGeneralEntity(Ljava/lang/String;Lmf/org/apache/xerces/xni/Augmentations;)V
@@ -495,9 +495,9 @@
 
     invoke-virtual {v2, v0, v3}, Lmf/javax/xml/stream/XMLEventFactory;->createEntityReference(Ljava/lang/String;Lmf/javax/xml/stream/events/EntityDeclaration;)Lmf/javax/xml/stream/events/EntityReference;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-interface {v1, v0}, Lmf/javax/xml/stream/XMLEventWriter;->add(Lmf/javax/xml/stream/events/XMLEvent;)V
+    invoke-interface {v1, v2}, Lmf/javax/xml/stream/XMLEventWriter;->add(Lmf/javax/xml/stream/events/XMLEvent;)V
 
     return-void
 .end method
@@ -576,9 +576,9 @@
     :cond_0
     invoke-virtual {v2, v3, v0}, Lmf/javax/xml/stream/XMLEventFactory;->createProcessingInstruction(Ljava/lang/String;Ljava/lang/String;)Lmf/javax/xml/stream/events/ProcessingInstruction;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-interface {v1, v0}, Lmf/javax/xml/stream/XMLEventWriter;->add(Lmf/javax/xml/stream/events/XMLEvent;)V
+    invoke-interface {v1, v2}, Lmf/javax/xml/stream/XMLEventWriter;->add(Lmf/javax/xml/stream/events/XMLEvent;)V
 
     return-void
 .end method
@@ -663,35 +663,35 @@
 
     invoke-interface {p1}, Lmf/javax/xml/stream/XMLStreamReader;->getVersion()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
     invoke-interface {p1}, Lmf/javax/xml/stream/XMLStreamReader;->getCharacterEncodingScheme()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
     invoke-interface {p1}, Lmf/javax/xml/stream/XMLStreamReader;->standaloneSet()Z
 
-    move-result v2
+    move-result v1
 
     iget-object v3, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fEventWriter:Lmf/javax/xml/stream/XMLEventWriter;
 
     iget-object v4, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fEventFactory:Lmf/javax/xml/stream/XMLEventFactory;
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    const-string/jumbo v1, "UTF-8"
+    const-string/jumbo v0, "UTF-8"
 
     :cond_0
-    if-nez v0, :cond_1
+    if-nez v2, :cond_1
 
-    const-string/jumbo v0, "1.0"
+    const-string/jumbo v2, "1.0"
 
     :cond_1
-    invoke-virtual {v4, v1, v0, v2}, Lmf/javax/xml/stream/XMLEventFactory;->createStartDocument(Ljava/lang/String;Ljava/lang/String;Z)Lmf/javax/xml/stream/events/StartDocument;
+    invoke-virtual {v4, v0, v2, v1}, Lmf/javax/xml/stream/XMLEventFactory;->createStartDocument(Ljava/lang/String;Ljava/lang/String;Z)Lmf/javax/xml/stream/events/StartDocument;
 
-    move-result-object v0
+    move-result-object v4
 
-    invoke-interface {v3, v0}, Lmf/javax/xml/stream/XMLEventWriter;->add(Lmf/javax/xml/stream/events/XMLEvent;)V
+    invoke-interface {v3, v4}, Lmf/javax/xml/stream/XMLEventWriter;->add(Lmf/javax/xml/stream/events/XMLEvent;)V
 
     return-void
 .end method
@@ -723,7 +723,7 @@
 .end method
 
 .method public startElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;)V
-    .locals 8
+    .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
@@ -733,12 +733,12 @@
     :try_start_0
     invoke-interface {p2}, Lmf/org/apache/xerces/xni/XMLAttributes;->getLength()I
 
-    move-result v4
+    move-result v8
 
-    if-eqz v4, :cond_1
+    if-eqz v8, :cond_1
 
     :cond_0
-    iget-object v7, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fEventWriter:Lmf/javax/xml/stream/XMLEventWriter;
+    iget-object v10, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fEventWriter:Lmf/javax/xml/stream/XMLEventWriter;
 
     iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fEventFactory:Lmf/javax/xml/stream/XMLEventFactory;
 
@@ -753,7 +753,7 @@
     :goto_0
     iget-object v3, p1, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
 
-    invoke-direct {p0, p2, v4}, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->getAttributeIterator(Lmf/org/apache/xerces/xni/XMLAttributes;I)Ljava/util/Iterator;
+    invoke-direct {p0, p2, v8}, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->getAttributeIterator(Lmf/org/apache/xerces/xni/XMLAttributes;I)Ljava/util/Iterator;
 
     move-result-object v4
 
@@ -771,7 +771,7 @@
 
     move-result-object v0
 
-    invoke-interface {v7, v0}, Lmf/javax/xml/stream/XMLEventWriter;->add(Lmf/javax/xml/stream/events/XMLEvent;)V
+    invoke-interface {v10, v0}, Lmf/javax/xml/stream/XMLEventWriter;->add(Lmf/javax/xml/stream/events/XMLEvent;)V
 
     return-void
 
@@ -780,13 +780,13 @@
 
     invoke-virtual {v0}, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->getCurrentEvent()Lmf/javax/xml/stream/events/XMLEvent;
 
-    move-result-object v0
+    move-result-object v9
 
-    if-eqz v0, :cond_0
+    if-eqz v9, :cond_0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fEventWriter:Lmf/javax/xml/stream/XMLEventWriter;
+    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fEventWriter:Lmf/javax/xml/stream/XMLEventWriter;
 
-    invoke-interface {v1, v0}, Lmf/javax/xml/stream/XMLEventWriter;->add(Lmf/javax/xml/stream/events/XMLEvent;)V
+    invoke-interface {v0, v9}, Lmf/javax/xml/stream/XMLEventWriter;->add(Lmf/javax/xml/stream/events/XMLEvent;)V
 
     return-void
 
@@ -798,13 +798,13 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception v7
 
-    new-instance v1, Lmf/org/apache/xerces/xni/XNIException;
+    new-instance v0, Lmf/org/apache/xerces/xni/XNIException;
 
-    invoke-direct {v1, v0}, Lmf/org/apache/xerces/xni/XNIException;-><init>(Ljava/lang/Exception;)V
+    invoke-direct {v0, v7}, Lmf/org/apache/xerces/xni/XNIException;-><init>(Ljava/lang/Exception;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public startGeneralEntity(Ljava/lang/String;Lmf/org/apache/xerces/xni/XMLResourceIdentifier;Ljava/lang/String;Lmf/org/apache/xerces/xni/Augmentations;)V

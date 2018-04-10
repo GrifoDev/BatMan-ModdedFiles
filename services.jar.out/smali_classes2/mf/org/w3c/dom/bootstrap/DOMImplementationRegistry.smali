@@ -27,7 +27,7 @@
 .end method
 
 .method private static getClassLoader()Ljava/lang/ClassLoader;
-    .locals 1
+    .locals 3
 
     :try_start_0
     invoke-static {}, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;->getContextClassLoader()Ljava/lang/ClassLoader;
@@ -38,27 +38,27 @@
 
     if-nez v0, :cond_0
 
-    const-class v0, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;
+    const-class v2, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    invoke-virtual {v2}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 
     :cond_0
     return-object v0
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    const-class v0, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;
+    const-class v2, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    invoke-virtual {v2}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 .end method
 
 .method private static getContextClassLoader()Ljava/lang/ClassLoader;
@@ -90,25 +90,25 @@
 .end method
 
 .method private static getResourceAsStream(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/io/InputStream;
-    .locals 1
+    .locals 2
 
     invoke-static {}, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;->isJRE11()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    new-instance v0, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry$4;
+    new-instance v1, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry$4;
 
-    invoke-direct {v0, p0, p1}, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry$4;-><init>(Ljava/lang/ClassLoader;Ljava/lang/String;)V
+    invoke-direct {v1, p0, p1}, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry$4;-><init>(Ljava/lang/ClassLoader;Ljava/lang/String;)V
 
-    invoke-static {v0}, Ljava/security/AccessController;->doPrivileged(Ljava/security/PrivilegedAction;)Ljava/lang/Object;
+    invoke-static {v1}, Ljava/security/AccessController;->doPrivileged(Ljava/security/PrivilegedAction;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Ljava/io/InputStream;
+    check-cast v1, Ljava/io/InputStream;
 
-    return-object v0
+    return-object v1
 
     :cond_0
     if-eqz p0, :cond_1
@@ -129,90 +129,92 @@
 .end method
 
 .method private static getServiceValue(Ljava/lang/ClassLoader;)Ljava/lang/String;
-    .locals 5
+    .locals 10
 
-    const/4 v4, 0x0
+    const/4 v9, 0x0
 
-    const-string/jumbo v0, "META-INF/services/org.w3c.dom.DOMImplementationSourceList"
+    const-string/jumbo v5, "META-INF/services/org.w3c.dom.DOMImplementationSourceList"
 
     :try_start_0
-    invoke-static {p0, v0}, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;->getResourceAsStream(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/io/InputStream;
+    invoke-static {p0, v5}, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;->getResourceAsStream(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/io/InputStream;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
-    move-result-object v1
+    move-result-object v3
 
-    if-nez v1, :cond_1
+    if-nez v3, :cond_1
 
     :cond_0
-    return-object v4
+    return-object v9
 
     :cond_1
     :try_start_1
-    new-instance v0, Ljava/io/BufferedReader;
+    new-instance v4, Ljava/io/BufferedReader;
 
-    new-instance v2, Ljava/io/InputStreamReader;
+    new-instance v7, Ljava/io/InputStreamReader;
 
-    const-string/jumbo v3, "UTF-8"
+    const-string/jumbo v8, "UTF-8"
 
-    invoke-direct {v2, v1, v3}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;Ljava/lang/String;)V
+    invoke-direct {v7, v3, v8}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;Ljava/lang/String;)V
 
-    const/16 v3, 0x50
+    const/16 v8, 0x50
 
-    invoke-direct {v0, v2, v3}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;I)V
+    invoke-direct {v4, v7, v8}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;I)V
     :try_end_1
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
     :goto_0
+    const/4 v6, 0x0
+
     :try_start_2
-    invoke-virtual {v0}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    move-result-object v1
+    move-result-object v6
 
     :try_start_3
-    invoke-virtual {v0}, Ljava/io/BufferedReader;->close()V
+    invoke-virtual {v4}, Ljava/io/BufferedReader;->close()V
 
-    if-eqz v1, :cond_0
+    if-eqz v6, :cond_0
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {v6}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v7
 
-    if-lez v0, :cond_0
+    if-lez v7, :cond_0
 
-    return-object v1
+    return-object v6
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    new-instance v0, Ljava/io/BufferedReader;
+    new-instance v4, Ljava/io/BufferedReader;
 
-    new-instance v2, Ljava/io/InputStreamReader;
+    new-instance v7, Ljava/io/InputStreamReader;
 
-    invoke-direct {v2, v1}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)V
+    invoke-direct {v7, v3}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)V
 
-    const/16 v1, 0x50
+    const/16 v8, 0x50
 
-    invoke-direct {v0, v2, v1}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;I)V
+    invoke-direct {v4, v7, v8}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;I)V
 
     goto :goto_0
 
-    :catch_1
+    :catchall_0
     move-exception v0
 
-    return-object v4
+    invoke-virtual {v4}, Ljava/io/BufferedReader;->close()V
 
-    :catchall_0
-    move-exception v1
-
-    invoke-virtual {v0}, Ljava/io/BufferedReader;->close()V
-
-    throw v1
+    throw v0
     :try_end_3
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
+
+    :catch_1
+    move-exception v2
+
+    return-object v9
 .end method
 
 .method private static getSystemProperty(Ljava/lang/String;)Ljava/lang/String;
@@ -246,29 +248,33 @@
 .end method
 
 .method private static isJRE11()Z
-    .locals 1
+    .locals 3
 
     :try_start_0
-    const-string/jumbo v0, "java.security.AccessController"
+    const-string/jumbo v2, "java.security.AccessController"
 
-    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-static {v2}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    const/4 v0, 0x0
+    move-result-object v1
 
-    return v0
+    const/4 v2, 0x0
+
+    return v2
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    const/4 v0, 0x1
+    move-object v0, v1
 
-    return v0
+    const/4 v2, 0x1
+
+    return v2
 .end method
 
 .method public static newInstance()Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;
-    .locals 4
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/ClassNotFoundException;,
@@ -278,91 +284,93 @@
         }
     .end annotation
 
-    new-instance v1, Ljava/util/Vector;
+    new-instance v5, Ljava/util/Vector;
 
-    invoke-direct {v1}, Ljava/util/Vector;-><init>()V
+    invoke-direct {v5}, Ljava/util/Vector;-><init>()V
 
     invoke-static {}, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;->getClassLoader()Ljava/lang/ClassLoader;
 
-    move-result-object v2
-
-    const-string/jumbo v0, "org.w3c.dom.DOMImplementationSourceList"
-
-    invoke-static {v0}, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;->getSystemProperty(Ljava/lang/String;)Ljava/lang/String;
-
     move-result-object v0
 
-    if-nez v0, :cond_2
+    const-string/jumbo v7, "org.w3c.dom.DOMImplementationSourceList"
+
+    invoke-static {v7}, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;->getSystemProperty(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    if-nez v1, :cond_2
 
     :cond_0
-    invoke-static {v2}, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;->getServiceValue(Ljava/lang/ClassLoader;)Ljava/lang/String;
+    invoke-static {v0}, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;->getServiceValue(Ljava/lang/ClassLoader;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     :goto_0
-    if-eqz v0, :cond_3
+    if-eqz v1, :cond_3
 
     :goto_1
-    if-nez v0, :cond_4
+    if-nez v1, :cond_4
 
     :cond_1
-    new-instance v0, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;
+    new-instance v7, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;
 
-    invoke-direct {v0, v1}, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;-><init>(Ljava/util/Vector;)V
+    invoke-direct {v7, v5}, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;-><init>(Ljava/util/Vector;)V
 
-    return-object v0
+    return-object v7
 
     :cond_2
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
 
-    move-result v3
+    move-result v7
 
-    if-eqz v3, :cond_0
+    if-eqz v7, :cond_0
 
     goto :goto_0
 
     :cond_3
-    const-string/jumbo v0, "mf.org.apache.xerces.dom.DOMXSImplementationSourceImpl"
+    const-string/jumbo v1, "mf.org.apache.xerces.dom.DOMXSImplementationSourceImpl"
 
     goto :goto_1
 
     :cond_4
-    new-instance v3, Ljava/util/StringTokenizer;
+    new-instance v6, Ljava/util/StringTokenizer;
 
-    invoke-direct {v3, v0}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;)V
+    invoke-direct {v6, v1}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;)V
 
     :goto_2
-    invoke-virtual {v3}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
+    invoke-virtual {v6}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
 
-    move-result v0
+    move-result v7
 
-    if-eqz v0, :cond_1
+    if-eqz v7, :cond_1
 
-    invoke-virtual {v3}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v4
 
-    if-nez v2, :cond_5
+    const/4 v3, 0x0
 
-    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    if-nez v0, :cond_5
 
-    move-result-object v0
+    invoke-static {v4}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+
+    move-result-object v3
 
     :goto_3
-    invoke-virtual {v0}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
+    invoke-virtual {v3}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Lmf/org/w3c/dom/DOMImplementationSource;
+    check-cast v2, Lmf/org/w3c/dom/DOMImplementationSource;
 
-    invoke-virtual {v1, v0}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+    invoke-virtual {v5, v2}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
 
     goto :goto_2
 
     :cond_5
-    invoke-virtual {v2, v0}, Ljava/lang/ClassLoader;->loadClass(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-virtual {v0, v4}, Ljava/lang/ClassLoader;->loadClass(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v3
 
     goto :goto_3
 .end method
@@ -401,112 +409,106 @@
 .end method
 
 .method public getDOMImplementation(Ljava/lang/String;)Lmf/org/w3c/dom/DOMImplementation;
-    .locals 4
+    .locals 7
 
-    const/4 v3, 0x0
+    const/4 v6, 0x0
 
-    iget-object v0, p0, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;->sources:Ljava/util/Vector;
+    iget-object v5, p0, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;->sources:Ljava/util/Vector;
 
-    invoke-virtual {v0}, Ljava/util/Vector;->size()I
+    invoke-virtual {v5}, Ljava/util/Vector;->size()I
 
-    move-result v2
+    move-result v3
+
+    const/4 v2, 0x0
 
     const/4 v0, 0x0
 
-    move v1, v0
-
     :goto_0
-    if-ge v1, v2, :cond_1
+    if-ge v0, v3, :cond_1
 
-    iget-object v0, p0, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;->sources:Ljava/util/Vector;
+    iget-object v5, p0, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;->sources:Ljava/util/Vector;
 
-    invoke-virtual {v0, v1}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v5, v0}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v4
 
-    check-cast v0, Lmf/org/w3c/dom/DOMImplementationSource;
+    check-cast v4, Lmf/org/w3c/dom/DOMImplementationSource;
 
-    invoke-interface {v0, p1}, Lmf/org/w3c/dom/DOMImplementationSource;->getDOMImplementation(Ljava/lang/String;)Lmf/org/w3c/dom/DOMImplementation;
+    invoke-interface {v4, p1}, Lmf/org/w3c/dom/DOMImplementationSource;->getDOMImplementation(Ljava/lang/String;)Lmf/org/w3c/dom/DOMImplementation;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    return-object v0
+    return-object v1
 
     :cond_1
-    return-object v3
+    return-object v6
 .end method
 
 .method public getDOMImplementationList(Ljava/lang/String;)Lmf/org/w3c/dom/DOMImplementationList;
-    .locals 7
+    .locals 8
 
-    const/4 v1, 0x0
+    new-instance v2, Ljava/util/Vector;
 
-    new-instance v3, Ljava/util/Vector;
+    invoke-direct {v2}, Ljava/util/Vector;-><init>()V
 
-    invoke-direct {v3}, Ljava/util/Vector;-><init>()V
+    iget-object v7, p0, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;->sources:Ljava/util/Vector;
 
-    iget-object v0, p0, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;->sources:Ljava/util/Vector;
+    invoke-virtual {v7}, Ljava/util/Vector;->size()I
 
-    invoke-virtual {v0}, Ljava/util/Vector;->size()I
+    move-result v5
 
-    move-result v4
-
-    move v2, v1
+    const/4 v0, 0x0
 
     :goto_0
-    if-ge v2, v4, :cond_1
+    if-ge v0, v5, :cond_1
 
-    iget-object v0, p0, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;->sources:Ljava/util/Vector;
+    iget-object v7, p0, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;->sources:Ljava/util/Vector;
 
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lmf/org/w3c/dom/DOMImplementationSource;
-
-    invoke-interface {v0, p1}, Lmf/org/w3c/dom/DOMImplementationSource;->getDOMImplementationList(Ljava/lang/String;)Lmf/org/w3c/dom/DOMImplementationList;
-
-    move-result-object v5
-
-    move v0, v1
-
-    :goto_1
-    invoke-interface {v5}, Lmf/org/w3c/dom/DOMImplementationList;->getLength()I
-
-    move-result v6
-
-    if-ge v0, v6, :cond_0
-
-    invoke-interface {v5, v0}, Lmf/org/w3c/dom/DOMImplementationList;->item(I)Lmf/org/w3c/dom/DOMImplementation;
+    invoke-virtual {v7, v0}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
     move-result-object v6
 
-    invoke-virtual {v3, v6}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+    check-cast v6, Lmf/org/w3c/dom/DOMImplementationSource;
 
-    add-int/lit8 v0, v0, 0x1
+    invoke-interface {v6, p1}, Lmf/org/w3c/dom/DOMImplementationSource;->getDOMImplementationList(Ljava/lang/String;)Lmf/org/w3c/dom/DOMImplementationList;
+
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    :goto_1
+    invoke-interface {v3}, Lmf/org/w3c/dom/DOMImplementationList;->getLength()I
+
+    move-result v7
+
+    if-ge v4, v7, :cond_0
+
+    invoke-interface {v3, v4}, Lmf/org/w3c/dom/DOMImplementationList;->item(I)Lmf/org/w3c/dom/DOMImplementation;
+
+    move-result-object v1
+
+    invoke-virtual {v2, v1}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_1
 
     :cond_0
-    add-int/lit8 v0, v2, 0x1
-
-    move v2, v0
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_1
-    new-instance v0, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry$1;
+    new-instance v7, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry$1;
 
-    invoke-direct {v0, p0, v3}, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry$1;-><init>(Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;Ljava/util/Vector;)V
+    invoke-direct {v7, p0, v2}, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry$1;-><init>(Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry;Ljava/util/Vector;)V
 
-    return-object v0
+    return-object v7
 .end method

@@ -291,9 +291,9 @@
 .end method
 
 .method private setupStAXResultHandler(Lmf/javax/xml/transform/stax/StAXResult;)V
-    .locals 2
+    .locals 3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     if-eqz p1, :cond_0
 
@@ -303,72 +303,72 @@
 
     if-nez v0, :cond_1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXEventResultBuilder:Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXEventResultBuilder:Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;
 
-    if-eqz v0, :cond_3
+    if-eqz v1, :cond_3
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXEventResultBuilder:Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXEventResultBuilder:Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXValidatorHandler:Lmf/org/apache/xerces/jaxp/validation/StAXDocumentHandler;
+    iput-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXValidatorHandler:Lmf/org/apache/xerces/jaxp/validation/StAXDocumentHandler;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXEventResultBuilder:Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXEventResultBuilder:Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;
 
-    invoke-virtual {v0, p1}, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->setStAXResult(Lmf/javax/xml/transform/stax/StAXResult;)V
+    invoke-virtual {v1, p1}, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->setStAXResult(Lmf/javax/xml/transform/stax/StAXResult;)V
 
     :goto_1
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXValidatorHandler:Lmf/org/apache/xerces/jaxp/validation/StAXDocumentHandler;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXValidatorHandler:Lmf/org/apache/xerces/jaxp/validation/StAXDocumentHandler;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->setDocumentHandler(Lmf/org/apache/xerces/xni/XMLDocumentHandler;)V
+    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->setDocumentHandler(Lmf/org/apache/xerces/xni/XMLDocumentHandler;)V
 
     return-void
 
     :cond_0
-    iput-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXValidatorHandler:Lmf/org/apache/xerces/jaxp/validation/StAXDocumentHandler;
+    iput-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXValidatorHandler:Lmf/org/apache/xerces/jaxp/validation/StAXDocumentHandler;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fSchemaValidator:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->setDocumentHandler(Lmf/org/apache/xerces/xni/XMLDocumentHandler;)V
+    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->setDocumentHandler(Lmf/org/apache/xerces/xni/XMLDocumentHandler;)V
 
     return-void
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXStreamResultBuilder:Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXStreamResultBuilder:Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;
 
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
     :goto_2
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXStreamResultBuilder:Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXStreamResultBuilder:Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXValidatorHandler:Lmf/org/apache/xerces/jaxp/validation/StAXDocumentHandler;
+    iput-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXValidatorHandler:Lmf/org/apache/xerces/jaxp/validation/StAXDocumentHandler;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXStreamResultBuilder:Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXStreamResultBuilder:Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;
 
-    invoke-virtual {v0, p1}, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->setStAXResult(Lmf/javax/xml/transform/stax/StAXResult;)V
+    invoke-virtual {v1, p1}, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;->setStAXResult(Lmf/javax/xml/transform/stax/StAXResult;)V
 
     goto :goto_1
 
     :cond_2
-    new-instance v0, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;
+    new-instance v1, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fNamespaceContext:Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fNamespaceContext:Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;
 
-    invoke-direct {v0, v1}, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;-><init>(Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;)V
+    invoke-direct {v1, v2}, Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;-><init>(Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;)V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXStreamResultBuilder:Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;
+    iput-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXStreamResultBuilder:Lmf/org/apache/xerces/jaxp/validation/StAXStreamResultBuilder;
 
     goto :goto_2
 
     :cond_3
-    new-instance v0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;
+    new-instance v1, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fNamespaceContext:Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fNamespaceContext:Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;
 
-    invoke-direct {v0, p0, v1}, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;-><init>(Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;)V
+    invoke-direct {v1, p0, v2}, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;-><init>(Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;)V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXEventResultBuilder:Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;
+    iput-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXEventResultBuilder:Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;
 
     goto :goto_0
 .end method
@@ -376,36 +376,32 @@
 
 # virtual methods
 .method final fillQName(Lmf/org/apache/xerces/xni/QName;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 6
+    .locals 5
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    iget-boolean v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStringsInternalized:Z
+    iget-boolean v2, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStringsInternalized:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_1
 
     if-nez p2, :cond_7
 
-    :goto_0
-    move-object v0, p2
-
     :cond_0
+    :goto_0
     if-eqz p3, :cond_8
-
-    move-object v1, p3
 
     :goto_1
     if-eqz p4, :cond_9
 
     :goto_2
-    sget-object v2, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    move-object v0, p3
 
-    if-ne p4, v2, :cond_a
+    sget-object v1, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    move-object v2, v1
+    if-ne p4, v1, :cond_a
 
     :goto_3
-    invoke-virtual {p1, p4, v1, v2, v0}, Lmf/org/apache/xerces/xni/QName;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p1, p4, p3, v0, p2}, Lmf/org/apache/xerces/xni/QName;->setValues(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 
@@ -413,34 +409,34 @@
     if-nez p2, :cond_4
 
     :cond_2
+    move-object p2, v1
+
     :goto_4
     if-nez p3, :cond_5
 
-    sget-object v1, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object p3, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
     :goto_5
     if-nez p4, :cond_6
 
     :cond_3
-    sget-object v2, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object p4, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
     :goto_6
-    move-object p4, v2
-
     goto :goto_2
 
     :cond_4
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v2
 
-    if-lez v1, :cond_2
+    if-lez v2, :cond_2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    invoke-virtual {v0, p2}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, p2}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p2
 
     goto :goto_4
 
@@ -449,22 +445,22 @@
 
     invoke-virtual {v1, p3}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p3
 
     goto :goto_5
 
     :cond_6
     invoke-virtual {p4}, Ljava/lang/String;->length()I
 
-    move-result v2
+    move-result v1
 
-    if-lez v2, :cond_3
+    if-lez v1, :cond_3
 
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    invoke-virtual {v2, p4}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, p4}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p4
 
     goto :goto_6
 
@@ -473,12 +469,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-nez v1, :cond_0
+
+    const/4 p2, 0x0
 
     goto :goto_0
 
     :cond_8
-    sget-object v1, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object p3, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
     goto :goto_1
 
@@ -488,41 +486,41 @@
     goto :goto_2
 
     :cond_a
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStringBuffer:Lmf/org/apache/xerces/util/XMLStringBuffer;
+
+    invoke-virtual {v1}, Lmf/org/apache/xerces/util/XMLStringBuffer;->clear()V
+
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStringBuffer:Lmf/org/apache/xerces/util/XMLStringBuffer;
+
+    invoke-virtual {v1, p4}, Lmf/org/apache/xerces/util/XMLStringBuffer;->append(Ljava/lang/String;)V
+
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStringBuffer:Lmf/org/apache/xerces/util/XMLStringBuffer;
+
+    const/16 v2, 0x3a
+
+    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/util/XMLStringBuffer;->append(C)V
+
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStringBuffer:Lmf/org/apache/xerces/util/XMLStringBuffer;
+
+    invoke-virtual {v1, p3}, Lmf/org/apache/xerces/util/XMLStringBuffer;->append(Ljava/lang/String;)V
+
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+
     iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStringBuffer:Lmf/org/apache/xerces/util/XMLStringBuffer;
 
-    invoke-virtual {v2}, Lmf/org/apache/xerces/util/XMLStringBuffer;->clear()V
-
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStringBuffer:Lmf/org/apache/xerces/util/XMLStringBuffer;
-
-    invoke-virtual {v2, p4}, Lmf/org/apache/xerces/util/XMLStringBuffer;->append(Ljava/lang/String;)V
-
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStringBuffer:Lmf/org/apache/xerces/util/XMLStringBuffer;
-
-    const/16 v3, 0x3a
-
-    invoke-virtual {v2, v3}, Lmf/org/apache/xerces/util/XMLStringBuffer;->append(C)V
-
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStringBuffer:Lmf/org/apache/xerces/util/XMLStringBuffer;
-
-    invoke-virtual {v2, v1}, Lmf/org/apache/xerces/util/XMLStringBuffer;->append(Ljava/lang/String;)V
-
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    iget-object v2, v2, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
 
     iget-object v3, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStringBuffer:Lmf/org/apache/xerces/util/XMLStringBuffer;
 
-    iget-object v3, v3, Lmf/org/apache/xerces/util/XMLStringBuffer;->ch:[C
+    iget v3, v3, Lmf/org/apache/xerces/util/XMLStringBuffer;->offset:I
 
     iget-object v4, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStringBuffer:Lmf/org/apache/xerces/util/XMLStringBuffer;
 
-    iget v4, v4, Lmf/org/apache/xerces/util/XMLStringBuffer;->offset:I
+    iget v4, v4, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
 
-    iget-object v5, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStringBuffer:Lmf/org/apache/xerces/util/XMLStringBuffer;
+    invoke-virtual {v1, v2, v3, v4}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol([CII)Ljava/lang/String;
 
-    iget v5, v5, Lmf/org/apache/xerces/util/XMLStringBuffer;->length:I
-
-    invoke-virtual {v2, v3, v4, v5}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol([CII)Ljava/lang/String;
-
-    move-result-object v2
+    move-result-object v0
 
     goto :goto_3
 .end method
@@ -581,21 +579,21 @@
 .end method
 
 .method public isEntityUnparsed(Ljava/lang/String;)Z
-    .locals 2
+    .locals 3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fEntities:Ljava/util/HashMap;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fEntities:Ljava/util/HashMap;
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     :cond_0
-    return v1
+    return v2
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fEntities:Ljava/util/HashMap;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fEntities:Ljava/util/HashMap;
 
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -605,29 +603,27 @@
 
     invoke-interface {v0}, Lmf/javax/xml/stream/events/EntityDeclaration;->getNotationName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-nez v0, :cond_2
+    if-nez v1, :cond_2
 
-    return v1
+    return v2
 
     :cond_2
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    return v0
+    return v1
 .end method
 
 .method final processEntityDeclarations(Ljava/util/List;)V
     .locals 5
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
     if-nez p1, :cond_1
 
-    move v1, v0
-
     :goto_0
-    if-gtz v1, :cond_2
+    if-gtz v2, :cond_2
 
     :cond_0
     return-void
@@ -635,22 +631,22 @@
     :cond_1
     invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v1
+    move-result v2
 
     goto :goto_0
 
     :cond_2
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fEntities:Ljava/util/HashMap;
+    iget-object v3, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fEntities:Ljava/util/HashMap;
 
-    if-eqz v2, :cond_3
+    if-eqz v3, :cond_3
 
     :goto_1
-    move v2, v0
+    const/4 v1, 0x0
 
     :goto_2
-    if-ge v2, v1, :cond_0
+    if-ge v1, v2, :cond_0
 
-    invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -664,18 +660,16 @@
 
     invoke-virtual {v3, v4, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    add-int/lit8 v0, v2, 0x1
-
-    move v2, v0
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_2
 
     :cond_3
-    new-instance v2, Ljava/util/HashMap;
+    new-instance v3, Ljava/util/HashMap;
 
-    invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v3}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fEntities:Ljava/util/HashMap;
+    iput-object v3, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fEntities:Ljava/util/HashMap;
 
     goto :goto_1
 .end method
@@ -734,7 +728,7 @@
 .end method
 
 .method public validate(Lmf/javax/xml/transform/Source;Lmf/javax/xml/transform/Result;)V
-    .locals 6
+    .locals 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;,
@@ -742,38 +736,42 @@
         }
     .end annotation
 
-    const/4 v5, 0x0
+    const/4 v12, 0x0
 
-    const/4 v2, 0x0
+    const/4 v9, 0x0
 
-    instance-of v0, p2, Lmf/javax/xml/transform/stax/StAXResult;
+    instance-of v7, p2, Lmf/javax/xml/transform/stax/StAXResult;
 
-    if-eqz v0, :cond_1
+    if-eqz v7, :cond_1
 
     :cond_0
-    check-cast p1, Lmf/javax/xml/transform/stax/StAXSource;
+    move-object v5, p1
 
-    check-cast p2, Lmf/javax/xml/transform/stax/StAXResult;
+    check-cast v5, Lmf/javax/xml/transform/stax/StAXSource;
+
+    move-object v4, p2
+
+    check-cast v4, Lmf/javax/xml/transform/stax/StAXResult;
 
     :try_start_0
-    invoke-virtual {p1}, Lmf/javax/xml/transform/stax/StAXSource;->getXMLStreamReader()Lmf/javax/xml/stream/XMLStreamReader;
+    invoke-virtual {v5}, Lmf/javax/xml/transform/stax/StAXSource;->getXMLStreamReader()Lmf/javax/xml/stream/XMLStreamReader;
 
-    move-result-object v0
+    move-result-object v6
 
-    if-nez v0, :cond_2
+    if-nez v6, :cond_2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fEventHelper:Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$EventHelper;
+    iget-object v7, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fEventHelper:Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$EventHelper;
 
-    if-eqz v0, :cond_4
+    if-eqz v7, :cond_4
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fEventHelper:Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$EventHelper;
+    iget-object v7, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fEventHelper:Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$EventHelper;
 
-    invoke-virtual {p1}, Lmf/javax/xml/transform/stax/StAXSource;->getXMLEventReader()Lmf/javax/xml/stream/XMLEventReader;
+    invoke-virtual {v5}, Lmf/javax/xml/transform/stax/StAXSource;->getXMLEventReader()Lmf/javax/xml/stream/XMLEventReader;
 
-    move-result-object v1
+    move-result-object v8
 
-    invoke-virtual {v0, v1, p2}, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$EventHelper;->validate(Lmf/javax/xml/stream/XMLEventReader;Lmf/javax/xml/transform/stax/StAXResult;)V
+    invoke-virtual {v7, v8, v4}, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$EventHelper;->validate(Lmf/javax/xml/stream/XMLEventReader;Lmf/javax/xml/transform/stax/StAXResult;)V
     :try_end_0
     .catch Lmf/javax/xml/stream/XMLStreamException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Lmf/org/apache/xerces/xni/parser/XMLParseException; {:try_start_0 .. :try_end_0} :catch_1
@@ -781,19 +779,19 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :goto_1
-    iput-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fCurrentEvent:Lmf/javax/xml/stream/events/XMLEvent;
+    iput-object v9, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fCurrentEvent:Lmf/javax/xml/stream/events/XMLEvent;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXLocationWrapper:Lmf/org/apache/xerces/util/StAXLocationWrapper;
+    iget-object v7, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXLocationWrapper:Lmf/org/apache/xerces/util/StAXLocationWrapper;
 
-    invoke-virtual {v0, v2}, Lmf/org/apache/xerces/util/StAXLocationWrapper;->setLocation(Lmf/javax/xml/stream/Location;)V
+    invoke-virtual {v7, v9}, Lmf/org/apache/xerces/util/StAXLocationWrapper;->setLocation(Lmf/javax/xml/stream/Location;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fXMLStreamReaderLocation:Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$XMLStreamReaderLocation;
+    iget-object v7, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fXMLStreamReaderLocation:Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$XMLStreamReaderLocation;
 
-    invoke-virtual {v0, v2}, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$XMLStreamReaderLocation;->setXMLStreamReader(Lmf/javax/xml/stream/XMLStreamReader;)V
+    invoke-virtual {v7, v9}, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$XMLStreamReaderLocation;->setXMLStreamReader(Lmf/javax/xml/stream/XMLStreamReader;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXValidatorHandler:Lmf/org/apache/xerces/jaxp/validation/StAXDocumentHandler;
+    iget-object v7, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXValidatorHandler:Lmf/org/apache/xerces/jaxp/validation/StAXDocumentHandler;
 
-    if-nez v0, :cond_6
+    if-nez v7, :cond_6
 
     :goto_2
     return-void
@@ -801,60 +799,60 @@
     :cond_1
     if-eqz p2, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v7, Ljava/lang/IllegalArgumentException;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fComponentManager:Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;
+    iget-object v8, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fComponentManager:Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->getLocale()Ljava/util/Locale;
+    invoke-virtual {v8}, Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;->getLocale()Ljava/util/Locale;
 
-    move-result-object v1
+    move-result-object v8
 
-    const-string/jumbo v2, "SourceResultMismatch"
+    const-string/jumbo v9, "SourceResultMismatch"
 
-    const/4 v3, 0x2
+    const/4 v10, 0x2
 
-    new-array v3, v3, [Ljava/lang/Object;
+    new-array v10, v10, [Ljava/lang/Object;
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v4
+    move-result-object v11
 
-    invoke-virtual {v4}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v11}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v11
 
-    aput-object v4, v3, v5
-
-    const/4 v4, 0x1
+    aput-object v11, v10, v12
 
     invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v5
+    move-result-object v11
 
-    invoke-virtual {v5}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v11}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v11
 
-    aput-object v5, v3, v4
+    const/4 v12, 0x1
 
-    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/jaxp/validation/JAXPValidationMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    aput-object v11, v10, v12
 
-    move-result-object v1
+    invoke-static {v8, v9, v10}, Lmf/org/apache/xerces/jaxp/validation/JAXPValidationMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object v8
 
-    throw v0
+    invoke-direct {v7, v8}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v7
 
     :cond_2
     :try_start_1
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStreamHelper:Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$StreamHelper;
+    iget-object v7, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStreamHelper:Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$StreamHelper;
 
-    if-eqz v1, :cond_3
+    if-eqz v7, :cond_3
 
     :goto_3
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStreamHelper:Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$StreamHelper;
+    iget-object v7, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStreamHelper:Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$StreamHelper;
 
-    invoke-virtual {v1, v0, p2}, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$StreamHelper;->validate(Lmf/javax/xml/stream/XMLStreamReader;Lmf/javax/xml/transform/stax/StAXResult;)V
+    invoke-virtual {v7, v6, v4}, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$StreamHelper;->validate(Lmf/javax/xml/stream/XMLStreamReader;Lmf/javax/xml/transform/stax/StAXResult;)V
     :try_end_1
     .catch Lmf/javax/xml/stream/XMLStreamException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Lmf/org/apache/xerces/xni/parser/XMLParseException; {:try_start_1 .. :try_end_1} :catch_1
@@ -864,44 +862,44 @@
     goto :goto_1
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
     :try_start_2
-    new-instance v1, Lorg/xml/sax/SAXException;
+    new-instance v7, Lorg/xml/sax/SAXException;
 
-    invoke-direct {v1, v0}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/Exception;)V
+    invoke-direct {v7, v1}, Lorg/xml/sax/SAXException;-><init>(Ljava/lang/Exception;)V
 
-    throw v1
+    throw v7
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     :catchall_0
     move-exception v0
 
-    iput-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fCurrentEvent:Lmf/javax/xml/stream/events/XMLEvent;
+    iput-object v9, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fCurrentEvent:Lmf/javax/xml/stream/events/XMLEvent;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXLocationWrapper:Lmf/org/apache/xerces/util/StAXLocationWrapper;
+    iget-object v7, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXLocationWrapper:Lmf/org/apache/xerces/util/StAXLocationWrapper;
 
-    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/util/StAXLocationWrapper;->setLocation(Lmf/javax/xml/stream/Location;)V
+    invoke-virtual {v7, v9}, Lmf/org/apache/xerces/util/StAXLocationWrapper;->setLocation(Lmf/javax/xml/stream/Location;)V
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fXMLStreamReaderLocation:Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$XMLStreamReaderLocation;
+    iget-object v7, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fXMLStreamReaderLocation:Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$XMLStreamReaderLocation;
 
-    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$XMLStreamReaderLocation;->setXMLStreamReader(Lmf/javax/xml/stream/XMLStreamReader;)V
+    invoke-virtual {v7, v9}, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$XMLStreamReaderLocation;->setXMLStreamReader(Lmf/javax/xml/stream/XMLStreamReader;)V
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXValidatorHandler:Lmf/org/apache/xerces/jaxp/validation/StAXDocumentHandler;
+    iget-object v7, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXValidatorHandler:Lmf/org/apache/xerces/jaxp/validation/StAXDocumentHandler;
 
-    if-nez v1, :cond_5
+    if-nez v7, :cond_5
 
     :goto_4
     throw v0
 
     :cond_3
     :try_start_3
-    new-instance v1, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$StreamHelper;
+    new-instance v7, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$StreamHelper;
 
-    invoke-direct {v1, p0}, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$StreamHelper;-><init>(Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;)V
+    invoke-direct {v7, p0}, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$StreamHelper;-><init>(Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;)V
 
-    iput-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStreamHelper:Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$StreamHelper;
+    iput-object v7, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStreamHelper:Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$StreamHelper;
     :try_end_3
     .catch Lmf/javax/xml/stream/XMLStreamException; {:try_start_3 .. :try_end_3} :catch_0
     .catch Lmf/org/apache/xerces/xni/parser/XMLParseException; {:try_start_3 .. :try_end_3} :catch_1
@@ -911,24 +909,24 @@
     goto :goto_3
 
     :catch_1
-    move-exception v0
+    move-exception v3
 
     :try_start_4
-    invoke-static {v0}, Lmf/org/apache/xerces/jaxp/validation/Util;->toSAXParseException(Lmf/org/apache/xerces/xni/parser/XMLParseException;)Lorg/xml/sax/SAXParseException;
+    invoke-static {v3}, Lmf/org/apache/xerces/jaxp/validation/Util;->toSAXParseException(Lmf/org/apache/xerces/xni/parser/XMLParseException;)Lorg/xml/sax/SAXParseException;
 
-    move-result-object v0
+    move-result-object v7
 
-    throw v0
+    throw v7
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     :cond_4
     :try_start_5
-    new-instance v0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$EventHelper;
+    new-instance v7, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$EventHelper;
 
-    invoke-direct {v0, p0}, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$EventHelper;-><init>(Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;)V
+    invoke-direct {v7, p0}, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$EventHelper;-><init>(Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;)V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fEventHelper:Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$EventHelper;
+    iput-object v7, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fEventHelper:Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$EventHelper;
     :try_end_5
     .catch Lmf/javax/xml/stream/XMLStreamException; {:try_start_5 .. :try_end_5} :catch_0
     .catch Lmf/org/apache/xerces/xni/parser/XMLParseException; {:try_start_5 .. :try_end_5} :catch_1
@@ -938,28 +936,28 @@
     goto :goto_0
 
     :catch_2
-    move-exception v0
+    move-exception v2
 
     :try_start_6
-    invoke-static {v0}, Lmf/org/apache/xerces/jaxp/validation/Util;->toSAXException(Lmf/org/apache/xerces/xni/XNIException;)Lorg/xml/sax/SAXException;
+    invoke-static {v2}, Lmf/org/apache/xerces/jaxp/validation/Util;->toSAXException(Lmf/org/apache/xerces/xni/XNIException;)Lorg/xml/sax/SAXException;
 
-    move-result-object v0
+    move-result-object v7
 
-    throw v0
+    throw v7
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     :cond_5
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXValidatorHandler:Lmf/org/apache/xerces/jaxp/validation/StAXDocumentHandler;
+    iget-object v7, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXValidatorHandler:Lmf/org/apache/xerces/jaxp/validation/StAXDocumentHandler;
 
-    invoke-interface {v1, v2}, Lmf/org/apache/xerces/jaxp/validation/StAXDocumentHandler;->setStAXResult(Lmf/javax/xml/transform/stax/StAXResult;)V
+    invoke-interface {v7, v9}, Lmf/org/apache/xerces/jaxp/validation/StAXDocumentHandler;->setStAXResult(Lmf/javax/xml/transform/stax/StAXResult;)V
 
     goto :goto_4
 
     :cond_6
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXValidatorHandler:Lmf/org/apache/xerces/jaxp/validation/StAXDocumentHandler;
+    iget-object v7, p0, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper;->fStAXValidatorHandler:Lmf/org/apache/xerces/jaxp/validation/StAXDocumentHandler;
 
-    invoke-interface {v0, v2}, Lmf/org/apache/xerces/jaxp/validation/StAXDocumentHandler;->setStAXResult(Lmf/javax/xml/transform/stax/StAXResult;)V
+    invoke-interface {v7, v9}, Lmf/org/apache/xerces/jaxp/validation/StAXDocumentHandler;->setStAXResult(Lmf/javax/xml/transform/stax/StAXResult;)V
 
     goto :goto_2
 .end method

@@ -88,46 +88,46 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    iget-object v5, p0, Lorg/simpleframework/xml/core/SetPart;->cache:Lorg/simpleframework/xml/util/Cache;
 
-    iget-object v1, p0, Lorg/simpleframework/xml/core/SetPart;->cache:Lorg/simpleframework/xml/util/Cache;
+    invoke-interface {v5}, Lorg/simpleframework/xml/util/Cache;->isEmpty()Z
 
-    invoke-interface {v1}, Lorg/simpleframework/xml/util/Cache;->isEmpty()Z
+    move-result v5
 
-    move-result v1
-
-    if-nez v1, :cond_1
+    if-nez v5, :cond_1
 
     :cond_0
-    iget-object v0, p0, Lorg/simpleframework/xml/core/SetPart;->cache:Lorg/simpleframework/xml/util/Cache;
+    iget-object v5, p0, Lorg/simpleframework/xml/core/SetPart;->cache:Lorg/simpleframework/xml/util/Cache;
 
-    invoke-interface {v0, p1}, Lorg/simpleframework/xml/util/Cache;->fetch(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v5, p1}, Lorg/simpleframework/xml/util/Cache;->fetch(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v5
 
-    check-cast v0, Ljava/lang/annotation/Annotation;
+    check-cast v5, Ljava/lang/annotation/Annotation;
 
-    return-object v0
+    return-object v5
 
     :cond_1
-    iget-object v1, p0, Lorg/simpleframework/xml/core/SetPart;->list:[Ljava/lang/annotation/Annotation;
+    iget-object v0, p0, Lorg/simpleframework/xml/core/SetPart;->list:[Ljava/lang/annotation/Annotation;
 
-    array-length v2, v1
+    array-length v4, v0
+
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v0, v2, :cond_0
+    if-ge v2, v4, :cond_0
 
-    aget-object v3, v1, v0
+    aget-object v1, v0, v2
 
-    invoke-interface {v3}, Ljava/lang/annotation/Annotation;->annotationType()Ljava/lang/Class;
+    invoke-interface {v1}, Ljava/lang/annotation/Annotation;->annotationType()Ljava/lang/Class;
 
-    move-result-object v4
+    move-result-object v3
 
     iget-object v5, p0, Lorg/simpleframework/xml/core/SetPart;->cache:Lorg/simpleframework/xml/util/Cache;
 
-    invoke-interface {v5, v4, v3}, Lorg/simpleframework/xml/util/Cache;->cache(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-interface {v5, v3, v1}, Lorg/simpleframework/xml/util/Cache;->cache(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 .end method

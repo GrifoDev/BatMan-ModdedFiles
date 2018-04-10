@@ -813,45 +813,43 @@
 .method public static main([Ljava/lang/String;)V
     .locals 3
 
-    const-string/jumbo v0, "SAX features:"
+    sget-object v0, Lmf/org/apache/xerces/impl/Constants;->fgSAXFeatures:[Ljava/lang/String;
 
-    const-string/jumbo v1, "http://xml.org/sax/features/"
+    const-string/jumbo v1, "SAX features:"
 
-    sget-object v2, Lmf/org/apache/xerces/impl/Constants;->fgSAXFeatures:[Ljava/lang/String;
+    const-string/jumbo v2, "http://xml.org/sax/features/"
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/Constants;->print(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v1, v2, v0}, Lmf/org/apache/xerces/impl/Constants;->print(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    const-string/jumbo v0, "SAX properties:"
+    sget-object v0, Lmf/org/apache/xerces/impl/Constants;->fgSAXProperties:[Ljava/lang/String;
 
-    const-string/jumbo v1, "http://xml.org/sax/properties/"
+    const-string/jumbo v1, "SAX properties:"
 
-    sget-object v2, Lmf/org/apache/xerces/impl/Constants;->fgSAXProperties:[Ljava/lang/String;
+    const-string/jumbo v2, "http://xml.org/sax/properties/"
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/Constants;->print(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v1, v2, v0}, Lmf/org/apache/xerces/impl/Constants;->print(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    const-string/jumbo v0, "Xerces features:"
+    sget-object v0, Lmf/org/apache/xerces/impl/Constants;->fgXercesFeatures:[Ljava/lang/String;
 
-    const-string/jumbo v1, "http://apache.org/xml/features/"
+    const-string/jumbo v1, "Xerces features:"
 
-    sget-object v2, Lmf/org/apache/xerces/impl/Constants;->fgXercesFeatures:[Ljava/lang/String;
+    const-string/jumbo v2, "http://apache.org/xml/features/"
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/Constants;->print(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v1, v2, v0}, Lmf/org/apache/xerces/impl/Constants;->print(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    const-string/jumbo v0, "Xerces properties:"
+    sget-object v0, Lmf/org/apache/xerces/impl/Constants;->fgXercesProperties:[Ljava/lang/String;
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/"
+    const-string/jumbo v1, "Xerces properties:"
 
-    sget-object v2, Lmf/org/apache/xerces/impl/Constants;->fgXercesProperties:[Ljava/lang/String;
+    const-string/jumbo v2, "http://apache.org/xml/properties/"
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/impl/Constants;->print(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v1, v2, v0}, Lmf/org/apache/xerces/impl/Constants;->print(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
 
     return-void
 .end method
 
 .method private static print(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
     .locals 3
-
-    const/4 v0, 0x0
 
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -861,11 +859,11 @@
 
     if-gtz v1, :cond_1
 
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    const-string/jumbo v1, " none."
+    const-string/jumbo v2, " none."
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     :cond_0
     return-void
@@ -874,6 +872,8 @@
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     invoke-virtual {v1}, Ljava/io/PrintStream;->println()V
+
+    const/4 v0, 0x0
 
     :goto_0
     array-length v1, p2

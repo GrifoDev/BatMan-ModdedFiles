@@ -8,31 +8,31 @@
 .end annotation
 
 
+# static fields
+.field private static final serialVersionUID:J = -0x77ff549cf91bbbabL
+
+
+# instance fields
+.field private final response:Lorg/apache/http/HttpResponse;
+
+
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lorg/apache/http/HttpResponse;)V
-    .locals 2
+    .locals 0
 
-    invoke-direct {p0}, Lorg/apache/http/HttpException;-><init>()V
+    invoke-direct {p0, p1}, Lorg/apache/http/HttpException;-><init>(Ljava/lang/String;)V
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iput-object p2, p0, Lorg/apache/http/impl/client/TunnelRefusedException;->response:Lorg/apache/http/HttpResponse;
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 
 # virtual methods
 .method public getResponse()Lorg/apache/http/HttpResponse;
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/impl/client/TunnelRefusedException;->response:Lorg/apache/http/HttpResponse;
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-object v0
 .end method

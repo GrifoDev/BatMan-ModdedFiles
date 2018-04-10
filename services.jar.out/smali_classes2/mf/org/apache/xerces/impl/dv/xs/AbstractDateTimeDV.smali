@@ -45,172 +45,176 @@
 .end method
 
 .method private append3(Ljava/lang/StringBuffer;D)V
-    .locals 8
+    .locals 12
 
-    const/16 v7, 0x30
+    const/16 v11, 0x30
 
-    const/16 v6, 0x2e
-
-    const/4 v0, 0x0
+    const/16 v10, 0x2e
 
     invoke-static {p2, p3}, Ljava/lang/String;->valueOf(D)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    const/16 v1, 0x45
+    const/16 v8, 0x45
 
-    invoke-virtual {v2, v1}, Ljava/lang/String;->indexOf(I)I
+    invoke-virtual {v1, v8}, Ljava/lang/String;->indexOf(I)I
 
     move-result v3
 
-    const/4 v1, -0x1
+    const/4 v8, -0x1
 
-    if-eq v3, v1, :cond_0
+    if-eq v3, v8, :cond_0
 
-    const-wide/high16 v4, 0x3ff0000000000000L    # 1.0
+    const-wide/high16 v8, 0x3ff0000000000000L    # 1.0
 
-    cmpg-double v1, p2, v4
+    cmpg-double v8, p2, v8
 
-    if-gez v1, :cond_6
+    if-gez v8, :cond_4
 
-    add-int/lit8 v1, v3, 0x2
+    add-int/lit8 v8, v3, 0x2
 
     :try_start_0
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
 
-    move-result v4
+    move-result v9
 
-    invoke-virtual {p0, v2, v1, v4}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->parseInt(Ljava/lang/String;II)I
+    invoke-virtual {p0, v1, v8, v9}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->parseInt(Ljava/lang/String;II)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v4
+    move-result v5
 
-    const-string/jumbo v1, "0."
+    const-string/jumbo v8, "0."
 
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p1, v8}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    const/4 v1, 0x1
+    const/4 v6, 0x1
 
     :goto_0
-    if-ge v1, v4, :cond_1
+    if-ge v6, v5, :cond_1
 
-    invoke-virtual {p1, v7}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {p1, v11}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     return-void
 
     :catch_0
-    move-exception v0
+    move-exception v2
 
-    invoke-virtual {p1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     return-void
 
     :cond_1
-    add-int/lit8 v1, v3, -0x1
+    add-int/lit8 v4, v3, -0x1
 
     :goto_1
-    if-lez v1, :cond_3
+    if-lez v4, :cond_2
 
-    invoke-virtual {v2, v1}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v1, v4}, Ljava/lang/String;->charAt(I)C
 
-    move-result v3
+    move-result v0
 
-    if-ne v3, v7, :cond_3
+    if-ne v0, v11, :cond_2
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v4, v4, -0x1
 
     goto :goto_1
 
     :cond_2
-    invoke-virtual {v2, v0}, Ljava/lang/String;->charAt(I)C
-
-    move-result v3
-
-    if-ne v3, v6, :cond_5
+    const/4 v6, 0x0
 
     :goto_2
-    add-int/lit8 v0, v0, 0x1
+    if-gt v6, v4, :cond_8
 
-    :cond_3
-    if-le v0, v1, :cond_2
+    invoke-virtual {v1, v6}, Ljava/lang/String;->charAt(I)C
 
-    :cond_4
-    return-void
+    move-result v0
 
-    :cond_5
-    invoke-virtual {p1, v3}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    if-ne v0, v10, :cond_3
+
+    :goto_3
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_2
 
-    :cond_6
-    add-int/lit8 v1, v3, 0x1
-
-    :try_start_1
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
-
-    move-result v4
-
-    invoke-virtual {p0, v2, v1, v4}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->parseInt(Ljava/lang/String;II)I
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
-
-    move-result v1
-
-    add-int/lit8 v1, v1, 0x2
-
-    :goto_3
-    if-ge v0, v3, :cond_9
-
-    invoke-virtual {v2, v0}, Ljava/lang/String;->charAt(I)C
-
-    move-result v4
-
-    if-ne v4, v6, :cond_7
-
-    :goto_4
-    add-int/lit8 v0, v0, 0x1
+    :cond_3
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto :goto_3
 
-    :catch_1
-    move-exception v0
+    :cond_4
+    add-int/lit8 v8, v3, 0x1
 
-    invoke-virtual {p1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    :try_start_1
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
 
-    return-void
+    move-result v9
 
-    :cond_7
-    if-eq v0, v1, :cond_8
+    invoke-virtual {p0, v1, v8, v9}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->parseInt(Ljava/lang/String;II)I
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+
+    move-result v5
+
+    add-int/lit8 v7, v5, 0x2
+
+    const/4 v6, 0x0
+
+    :goto_4
+    if-ge v6, v3, :cond_7
+
+    invoke-virtual {v1, v6}, Ljava/lang/String;->charAt(I)C
+
+    move-result v0
+
+    if-ne v0, v10, :cond_5
 
     :goto_5
-    invoke-virtual {p1, v4}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_4
 
-    :cond_8
-    invoke-virtual {p1, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    :catch_1
+    move-exception v2
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    return-void
+
+    :cond_5
+    if-eq v6, v7, :cond_6
+
+    :goto_6
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto :goto_5
 
-    :cond_9
-    sub-int v0, v1, v3
-
-    :goto_6
-    if-lez v0, :cond_4
-
-    invoke-virtual {p1, v7}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
-
-    add-int/lit8 v0, v0, -0x1
+    :cond_6
+    invoke-virtual {p1, v10}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto :goto_6
+
+    :cond_7
+    sub-int v6, v7, v3
+
+    :goto_7
+    if-lez v6, :cond_8
+
+    invoke-virtual {p1, v11}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+
+    add-int/lit8 v6, v6, -0x1
+
+    goto :goto_7
+
+    :cond_8
+    return-void
 .end method
 
 .method private cloneDate(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V
@@ -455,144 +459,144 @@
 .end method
 
 .method protected compareDates(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Z)S
-    .locals 8
+    .locals 10
 
-    const/4 v7, 0x1
+    const/4 v9, 0x1
 
-    const/4 v6, -0x1
+    const/4 v8, -0x1
 
-    const/16 v5, -0xe
+    const/16 v7, -0xe
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
+
+    const/4 v5, 0x0
+
+    iget v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->utc:I
+
+    iget v4, p2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->utc:I
+
+    if-eq v3, v4, :cond_0
+
+    new-instance v2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;
 
     const/4 v3, 0x0
 
-    iget v0, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->utc:I
+    invoke-direct {v2, v3, p0}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;-><init>(Ljava/lang/String;Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;)V
 
-    iget v1, p2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->utc:I
+    iget v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->utc:I
 
-    if-eq v0, v1, :cond_0
+    const/16 v4, 0x5a
 
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;
+    if-eq v3, v4, :cond_1
 
-    const/4 v1, 0x0
+    iget v3, p2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->utc:I
 
-    invoke-direct {v0, v1, p0}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;-><init>(Ljava/lang/String;Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;)V
+    const/16 v4, 0x5a
 
-    iget v1, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->utc:I
+    if-eq v3, v4, :cond_4
 
-    const/16 v2, 0x5a
-
-    if-eq v1, v2, :cond_1
-
-    iget v1, p2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->utc:I
-
-    const/16 v2, 0x5a
-
-    if-eq v1, v2, :cond_4
-
-    return v4
+    return v6
 
     :cond_0
     invoke-virtual {p0, p1, p2}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->compareOrder(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)S
 
-    move-result v0
+    move-result v3
 
-    return v0
+    return v3
 
     :cond_1
-    invoke-direct {p0, p2, v0}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->cloneDate(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V
+    invoke-direct {p0, p2, v2}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->cloneDate(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V
 
-    const/16 v1, 0xe
+    const/16 v3, 0xe
 
-    iput v1, v0, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneHr:I
+    iput v3, v2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneHr:I
 
-    iput v3, v0, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneMin:I
+    iput v5, v2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneMin:I
 
-    const/16 v1, 0x2b
+    const/16 v3, 0x2b
 
-    iput v1, v0, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->utc:I
+    iput v3, v2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->utc:I
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->normalize(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V
+    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->normalize(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V
 
-    invoke-virtual {p0, p1, v0}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->compareOrder(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)S
-
-    move-result v1
-
-    if-eq v1, v6, :cond_2
-
-    invoke-direct {p0, p2, v0}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->cloneDate(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V
-
-    iput v5, v0, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneHr:I
-
-    iput v3, v0, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneMin:I
-
-    const/16 v1, 0x2d
-
-    iput v1, v0, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->utc:I
-
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->normalize(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V
-
-    invoke-virtual {p0, p1, v0}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->compareOrder(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)S
+    invoke-virtual {p0, p1, v2}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->compareOrder(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)S
 
     move-result v0
 
-    if-eq v0, v7, :cond_3
+    if-eq v0, v8, :cond_2
 
-    return v4
+    invoke-direct {p0, p2, v2}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->cloneDate(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V
+
+    iput v7, v2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneHr:I
+
+    iput v5, v2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneMin:I
+
+    const/16 v3, 0x2d
+
+    iput v3, v2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->utc:I
+
+    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->normalize(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V
+
+    invoke-virtual {p0, p1, v2}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->compareOrder(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)S
+
+    move-result v1
+
+    if-eq v1, v9, :cond_3
+
+    return v6
 
     :cond_2
-    return v1
-
-    :cond_3
     return v0
 
+    :cond_3
+    return v1
+
     :cond_4
-    invoke-direct {p0, p1, v0}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->cloneDate(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V
+    invoke-direct {p0, p1, v2}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->cloneDate(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V
 
-    iput v5, v0, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneHr:I
+    iput v7, v2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneHr:I
 
-    iput v3, v0, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneMin:I
+    iput v5, v2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneMin:I
 
-    const/16 v1, 0x2d
+    const/16 v3, 0x2d
 
-    iput v1, v0, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->utc:I
+    iput v3, v2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->utc:I
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->normalize(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V
+    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->normalize(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V
 
-    invoke-virtual {p0, v0, p2}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->compareOrder(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)S
-
-    move-result v1
-
-    if-eq v1, v6, :cond_5
-
-    invoke-direct {p0, p1, v0}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->cloneDate(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V
-
-    const/16 v1, 0xe
-
-    iput v1, v0, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneHr:I
-
-    iput v3, v0, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneMin:I
-
-    const/16 v1, 0x2b
-
-    iput v1, v0, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->utc:I
-
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->normalize(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V
-
-    invoke-virtual {p0, v0, p2}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->compareOrder(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)S
+    invoke-virtual {p0, v2, p2}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->compareOrder(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)S
 
     move-result v0
 
-    if-eq v0, v7, :cond_6
+    if-eq v0, v8, :cond_5
 
-    return v4
+    invoke-direct {p0, p1, v2}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->cloneDate(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V
+
+    const/16 v3, 0xe
+
+    iput v3, v2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneHr:I
+
+    iput v5, v2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneMin:I
+
+    const/16 v3, 0x2b
+
+    iput v3, v2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->utc:I
+
+    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->normalize(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V
+
+    invoke-virtual {p0, v2, p2}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->compareOrder(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)S
+
+    move-result v1
+
+    if-eq v1, v9, :cond_6
+
+    return v6
 
     :cond_5
-    return v1
+    return v0
 
     :cond_6
-    return v0
+    return v1
 .end method
 
 .method protected compareOrder(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)S
@@ -812,9 +816,9 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method protected fQuotient(II)I
@@ -852,39 +856,41 @@
 .end method
 
 .method protected findUTCSign(Ljava/lang/String;II)I
-    .locals 2
+    .locals 3
+
+    move v1, p2
 
     :goto_0
-    if-ge p2, p3, :cond_2
+    if-ge v1, p3, :cond_2
 
-    invoke-virtual {p1, p2}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
-    const/16 v1, 0x5a
+    const/16 v2, 0x5a
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v2, :cond_1
 
     :cond_0
-    return p2
+    return v1
 
     :cond_1
-    const/16 v1, 0x2b
+    const/16 v2, 0x2b
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v2, :cond_0
 
-    const/16 v1, 0x2d
+    const/16 v2, 0x2d
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v2, :cond_0
 
-    add-int/lit8 p2, p2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_2
-    const/4 v0, -0x1
+    const/4 v2, -0x1
 
-    return v0
+    return v2
 .end method
 
 .method public getAllowedFacets()S
@@ -896,7 +902,7 @@
 .end method
 
 .method protected getDate(Ljava/lang/String;IILmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)I
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/RuntimeException;
@@ -905,36 +911,36 @@
 
     invoke-virtual {p0, p1, p2, p3, p4}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->getYearMonth(Ljava/lang/String;IILmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)I
 
-    move-result v0
+    move-result p2
 
-    add-int/lit8 v1, v0, 0x1
+    add-int/lit8 v0, p2, 0x1
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p1, p2}, Ljava/lang/String;->charAt(I)C
 
-    move-result v0
+    move-result v2
 
-    const/16 v2, 0x2d
+    const/16 v3, 0x2d
 
-    if-ne v0, v2, :cond_0
+    if-ne v2, v3, :cond_0
 
-    add-int/lit8 v0, v1, 0x2
+    add-int/lit8 v1, v0, 0x2
 
-    invoke-virtual {p0, p1, v1, v0}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->parseInt(Ljava/lang/String;II)I
+    invoke-virtual {p0, p1, v0, v1}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->parseInt(Ljava/lang/String;II)I
 
-    move-result v1
+    move-result v2
 
-    iput v1, p4, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->day:I
+    iput v2, p4, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->day:I
 
-    return v0
+    return v1
 
     :cond_0
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v2, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v1, "CCYY-MM must be followed by \'-\' sign"
+    const-string/jumbo v3, "CCYY-MM must be followed by \'-\' sign"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v2
 .end method
 
 .method protected getDuration(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)Lmf/javax/xml/datatype/Duration;
@@ -946,258 +952,262 @@
 .end method
 
 .method protected final getFractionalSecondsAsBigDecimal(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)Ljava/math/BigDecimal;
-    .locals 5
+    .locals 7
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    new-instance v0, Ljava/lang/StringBuffer;
+    new-instance v1, Ljava/lang/StringBuffer;
 
-    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
 
-    iget-wide v2, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->unNormSecond:D
+    iget-wide v4, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->unNormSecond:D
 
-    invoke-direct {p0, v0, v2, v3}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->append3(Ljava/lang/StringBuffer;D)V
+    invoke-direct {p0, v1, v4, v5}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->append3(Ljava/lang/StringBuffer;D)V
 
-    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    const/16 v1, 0x2e
+    const/16 v4, 0x2e
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->indexOf(I)I
+    invoke-virtual {v3, v4}, Ljava/lang/String;->indexOf(I)I
 
-    move-result v1
+    move-result v2
 
-    const/4 v2, -0x1
+    const/4 v4, -0x1
 
-    if-eq v1, v2, :cond_0
+    if-eq v2, v4, :cond_0
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {v3, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    new-instance v1, Ljava/math/BigDecimal;
+    new-instance v0, Ljava/math/BigDecimal;
 
-    invoke-direct {v1, v0}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v3}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;)V
 
-    const-wide/16 v2, 0x0
+    const-wide/16 v4, 0x0
 
-    invoke-static {v2, v3}, Ljava/math/BigDecimal;->valueOf(J)Ljava/math/BigDecimal;
+    invoke-static {v4, v5}, Ljava/math/BigDecimal;->valueOf(J)Ljava/math/BigDecimal;
 
-    move-result-object v0
+    move-result-object v4
 
-    invoke-virtual {v1, v0}, Ljava/math/BigDecimal;->compareTo(Ljava/math/BigDecimal;)I
+    invoke-virtual {v0, v4}, Ljava/math/BigDecimal;->compareTo(Ljava/math/BigDecimal;)I
 
-    move-result v0
+    move-result v4
 
-    if-eqz v0, :cond_1
+    if-eqz v4, :cond_1
 
-    return-object v1
+    return-object v0
 
     :cond_0
-    return-object v4
+    return-object v6
 
     :cond_1
-    return-object v4
+    return-object v6
 .end method
 
 .method protected getTime(Ljava/lang/String;IILmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V
-    .locals 4
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/RuntimeException;
         }
     .end annotation
 
-    const/16 v3, 0x3a
+    const/16 v4, 0x3a
 
-    add-int/lit8 v0, p2, 0x2
+    add-int/lit8 v1, p2, 0x2
 
-    invoke-virtual {p0, p1, p2, v0}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->parseInt(Ljava/lang/String;II)I
+    invoke-virtual {p0, p1, p2, v1}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->parseInt(Ljava/lang/String;II)I
 
-    move-result v1
+    move-result v3
 
-    iput v1, p4, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->hour:I
+    iput v3, p4, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->hour:I
 
-    add-int/lit8 v1, v0, 0x1
+    add-int/lit8 v2, v1, 0x1
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
+
+    move-result v3
+
+    if-ne v3, v4, :cond_0
+
+    move p2, v2
+
+    add-int/lit8 v1, v2, 0x2
+
+    invoke-virtual {p0, p1, p2, v1}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->parseInt(Ljava/lang/String;II)I
+
+    move-result v3
+
+    iput v3, p4, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->minute:I
+
+    add-int/lit8 v2, v1, 0x1
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
+
+    move-result v3
+
+    if-ne v3, v4, :cond_1
+
+    invoke-virtual {p0, p1, p2, p3}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->findUTCSign(Ljava/lang/String;II)I
 
     move-result v0
 
-    if-ne v0, v3, :cond_0
+    move p2, v2
 
-    add-int/lit8 v0, v1, 0x2
+    if-ltz v0, :cond_2
 
-    invoke-virtual {p0, p1, v1, v0}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->parseInt(Ljava/lang/String;II)I
-
-    move-result v2
-
-    iput v2, p4, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->minute:I
-
-    add-int/lit8 v2, v0, 0x1
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
-
-    move-result v0
-
-    if-ne v0, v3, :cond_1
-
-    invoke-virtual {p0, p1, v1, p3}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->findUTCSign(Ljava/lang/String;II)I
-
-    move-result v1
-
-    if-ltz v1, :cond_2
-
-    move v0, v1
+    move v1, v0
 
     :goto_0
-    invoke-virtual {p0, p1, v2, v0}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->parseSecond(Ljava/lang/String;II)D
+    invoke-virtual {p0, p1, p2, v1}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->parseSecond(Ljava/lang/String;II)D
 
-    move-result-wide v2
+    move-result-wide v4
 
-    iput-wide v2, p4, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->second:D
+    iput-wide v4, p4, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->second:D
 
-    if-gtz v1, :cond_3
+    if-gtz v0, :cond_3
 
     :goto_1
     return-void
 
     :cond_0
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v3, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v1, "Error in parsing time zone"
+    const-string/jumbo v4, "Error in parsing time zone"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v3
 
     :cond_1
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v3, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v1, "Error in parsing time zone"
+    const-string/jumbo v4, "Error in parsing time zone"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v3
 
     :cond_2
-    move v0, p3
+    move v1, p3
 
     goto :goto_0
 
     :cond_3
-    invoke-virtual {p0, p1, p4, v1, p3}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->getTimeZone(Ljava/lang/String;Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;II)V
+    invoke-virtual {p0, p1, p4, v0, p3}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->getTimeZone(Ljava/lang/String;Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;II)V
 
     goto :goto_1
 .end method
 
 .method protected getTimeZone(Ljava/lang/String;Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;II)V
-    .locals 5
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/RuntimeException;
         }
     .end annotation
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
     invoke-virtual {p1, p3}, Ljava/lang/String;->charAt(I)C
 
-    move-result v0
+    move-result v3
 
-    iput v0, p2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->utc:I
+    iput v3, p2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->utc:I
 
     invoke-virtual {p1, p3}, Ljava/lang/String;->charAt(I)C
 
-    move-result v0
+    move-result v3
 
-    const/16 v1, 0x5a
+    const/16 v4, 0x5a
 
-    if-eq v0, v1, :cond_0
+    if-eq v3, v4, :cond_0
 
-    add-int/lit8 v0, p4, -0x6
+    add-int/lit8 v3, p4, -0x6
 
-    if-le p3, v0, :cond_2
+    if-le p3, v3, :cond_2
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v3, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v1, "Error in parsing time zone"
+    const-string/jumbo v4, "Error in parsing time zone"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v3
 
     :cond_0
-    add-int/lit8 v0, p3, 0x1
+    add-int/lit8 p3, p3, 0x1
 
-    if-gt p4, v0, :cond_1
+    if-gt p4, p3, :cond_1
 
     return-void
 
     :cond_1
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v3, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v1, "Error in parsing time zone"
+    const-string/jumbo v4, "Error in parsing time zone"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v3
 
     :cond_2
     invoke-virtual {p1, p3}, Ljava/lang/String;->charAt(I)C
 
-    move-result v0
+    move-result v3
 
-    const/16 v1, 0x2d
+    const/16 v4, 0x2d
 
-    if-eq v0, v1, :cond_4
+    if-eq v3, v4, :cond_4
 
     const/4 v0, 0x1
 
     :goto_0
-    add-int/lit8 v1, p3, 0x1
+    add-int/lit8 p3, p3, 0x1
 
-    add-int/lit8 v2, v1, 0x2
+    add-int/lit8 v1, p3, 0x2
 
-    invoke-virtual {p0, p1, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->parseInt(Ljava/lang/String;II)I
+    invoke-virtual {p0, p1, p3, v1}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->parseInt(Ljava/lang/String;II)I
 
-    move-result v1
+    move-result v3
 
-    mul-int/2addr v1, v0
+    mul-int/2addr v3, v0
 
-    iput v1, p2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneHr:I
+    iput v3, p2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneHr:I
 
-    add-int/lit8 v1, v2, 0x1
+    add-int/lit8 v2, v1, 0x1
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
 
-    move-result v2
+    move-result v3
 
-    const/16 v3, 0x3a
+    const/16 v4, 0x3a
 
-    if-ne v2, v3, :cond_5
+    if-ne v3, v4, :cond_5
 
-    add-int/lit8 v2, v1, 0x2
+    add-int/lit8 v3, v2, 0x2
 
-    invoke-virtual {p0, p1, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->parseInt(Ljava/lang/String;II)I
+    invoke-virtual {p0, p1, v2, v3}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->parseInt(Ljava/lang/String;II)I
 
-    move-result v2
+    move-result v3
 
-    mul-int/2addr v0, v2
+    mul-int/2addr v3, v0
 
-    iput v0, p2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneMin:I
+    iput v3, p2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneMin:I
 
-    add-int/lit8 v0, v1, 0x2
+    add-int/lit8 v3, v2, 0x2
 
-    if-ne v0, p4, :cond_6
+    if-ne v3, p4, :cond_6
 
-    iget v0, p2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneHr:I
+    iget v3, p2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneHr:I
 
-    if-eqz v0, :cond_7
+    if-eqz v3, :cond_7
 
     :cond_3
-    iput-boolean v4, p2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->normalized:Z
+    iput-boolean v5, p2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->normalized:Z
 
     :goto_1
     return-void
@@ -1208,27 +1218,27 @@
     goto :goto_0
 
     :cond_5
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v3, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v1, "Error in parsing time zone"
+    const-string/jumbo v4, "Error in parsing time zone"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v3
 
     :cond_6
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v3, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v1, "Error in parsing time zone"
+    const-string/jumbo v4, "Error in parsing time zone"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v3
 
     :cond_7
-    iget v0, p2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneMin:I
+    iget v3, p2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneMin:I
 
-    if-nez v0, :cond_3
+    if-nez v3, :cond_3
 
     goto :goto_1
 .end method
@@ -1242,182 +1252,190 @@
 .end method
 
 .method protected getYearMonth(Ljava/lang/String;IILmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)I
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/RuntimeException;
         }
     .end annotation
 
-    const/4 v2, 0x4
+    const/4 v3, 0x4
 
-    const/16 v3, 0x2d
+    const/16 v4, 0x2d
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
 
-    move-result v0
+    move-result v2
 
-    if-eq v0, v3, :cond_1
+    if-eq v2, v4, :cond_1
 
     :goto_0
-    invoke-virtual {p0, p1, p2, p3, v3}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->indexOf(Ljava/lang/String;IIC)I
+    invoke-virtual {p0, p1, p2, p3, v4}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->indexOf(Ljava/lang/String;IIC)I
 
     move-result v0
 
-    const/4 v1, -0x1
+    const/4 v2, -0x1
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v2, :cond_2
 
     sub-int v1, v0, p2
 
-    if-lt v1, v2, :cond_3
+    if-lt v1, v3, :cond_3
 
-    if-gt v1, v2, :cond_4
+    if-gt v1, v3, :cond_4
 
     :cond_0
     invoke-virtual {p0, p1, v0}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->parseIntYear(Ljava/lang/String;I)I
 
-    move-result v1
+    move-result v2
 
-    iput v1, p4, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->year:I
+    iput v2, p4, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->year:I
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
+
+    move-result v2
+
+    if-ne v2, v4, :cond_5
+
+    add-int/lit8 v0, v0, 0x1
+
+    move p2, v0
+
+    add-int/lit8 v0, v0, 0x2
+
+    invoke-virtual {p0, p1, p2, v0}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->parseInt(Ljava/lang/String;II)I
+
+    move-result v2
+
+    iput v2, p4, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->month:I
+
+    return v0
+
+    :cond_1
+    add-int/lit8 p2, p2, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    new-instance v2, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v3, "Year separator is missing or misplaced"
+
+    invoke-direct {v2, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    :cond_3
+    new-instance v2, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v3, "Year must have \'CCYY\' format"
+
+    invoke-direct {v2, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    :cond_4
+    invoke-virtual {p1, p2}, Ljava/lang/String;->charAt(I)C
+
+    move-result v2
+
+    const/16 v3, 0x30
+
+    if-ne v2, v3, :cond_0
+
+    new-instance v2, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v3, "Leading zeros are required if the year value would otherwise have fewer than four digits; otherwise they are forbidden"
+
+    invoke-direct {v2, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    :cond_5
+    new-instance v2, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v3, "CCYY must be followed by \'-\' sign"
+
+    invoke-direct {v2, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+.end method
+
+.method protected indexOf(Ljava/lang/String;IIC)I
+    .locals 2
+
+    move v0, p2
+
+    :goto_0
+    if-ge v0, p3, :cond_1
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
 
     move-result v1
 
-    if-ne v1, v3, :cond_5
+    if-eq v1, p4, :cond_0
 
     add-int/lit8 v0, v0, 0x1
 
-    add-int/lit8 v1, v0, 0x2
-
-    invoke-virtual {p0, p1, v0, v1}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->parseInt(Ljava/lang/String;II)I
-
-    move-result v0
-
-    iput v0, p4, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->month:I
-
-    return v1
-
-    :cond_1
-    add-int/lit8 p2, p2, 0x1
-
-    goto :goto_0
-
-    :cond_2
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Year separator is missing or misplaced"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_3
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Year must have \'CCYY\' format"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_4
-    invoke-virtual {p1, p2}, Ljava/lang/String;->charAt(I)C
-
-    move-result v1
-
-    const/16 v2, 0x30
-
-    if-ne v1, v2, :cond_0
-
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Leading zeros are required if the year value would otherwise have fewer than four digits; otherwise they are forbidden"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_5
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "CCYY must be followed by \'-\' sign"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
-.method protected indexOf(Ljava/lang/String;IIC)I
-    .locals 1
-
-    :goto_0
-    if-ge p2, p3, :cond_1
-
-    invoke-virtual {p1, p2}, Ljava/lang/String;->charAt(I)C
-
-    move-result v0
-
-    if-eq v0, p4, :cond_0
-
-    add-int/lit8 p2, p2, 0x1
-
     goto :goto_0
 
     :cond_0
-    return p2
+    return v0
 
     :cond_1
-    const/4 v0, -0x1
+    const/4 v1, -0x1
 
-    return v0
+    return v1
 .end method
 
 .method public isIdentical(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 3
+    .locals 5
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    instance-of v0, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;
+    instance-of v2, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;
 
-    if-nez v0, :cond_1
+    if-nez v2, :cond_1
 
     :cond_0
-    return v2
+    return v4
 
     :cond_1
-    instance-of v0, p2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;
+    instance-of v2, p2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
-    check-cast p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;
+    move-object v0, p1
 
-    check-cast p2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;
+    check-cast v0, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;
 
-    iget v0, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneHr:I
+    move-object v1, p2
 
-    iget v1, p2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneHr:I
+    check-cast v1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;
 
-    if-eq v0, v1, :cond_3
+    iget v2, v0, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneHr:I
+
+    iget v3, v1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneHr:I
+
+    if-eq v2, v3, :cond_3
 
     :cond_2
-    return v2
+    return v4
 
     :cond_3
-    iget v0, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneMin:I
+    iget v2, v0, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneMin:I
 
-    iget v1, p2, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneMin:I
+    iget v3, v1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneMin:I
 
-    if-ne v0, v1, :cond_2
+    if-ne v2, v3, :cond_2
 
-    invoke-virtual {p1, p2}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v2
 
-    return v0
+    return v2
 .end method
 
 .method protected final isNextCharUTCSign(Ljava/lang/String;II)Z
@@ -1439,9 +1457,9 @@
     if-ne v0, v1, :cond_2
 
     :cond_1
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    return v0
+    return v1
 
     :cond_2
     const/16 v1, 0x2b
@@ -1528,121 +1546,123 @@
 
     invoke-virtual {p0, v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->mod(III)I
 
-    move-result v0
+    move-result v2
 
-    add-int/2addr v0, p2
+    add-int/2addr v2, p2
 
-    return v0
+    return v2
 .end method
 
 .method protected normalize(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V
-    .locals 7
+    .locals 9
 
-    const/16 v6, 0x18
+    const/16 v7, 0x18
 
-    const/16 v5, 0xd
+    const/16 v8, 0xd
 
-    const/4 v2, -0x1
+    const/4 v4, -0x1
 
-    const/4 v1, 0x1
+    const/4 v5, 0x1
 
-    iget v0, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->minute:I
+    const/4 v1, -0x1
 
-    iget v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneMin:I
+    iget v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->minute:I
 
-    mul-int/lit8 v3, v3, -0x1
+    iget v6, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneMin:I
 
-    add-int/2addr v0, v3
+    mul-int/lit8 v6, v6, -0x1
+
+    add-int v2, v3, v6
 
     const/16 v3, 0x3c
 
-    invoke-virtual {p0, v0, v3}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->fQuotient(II)I
-
-    move-result v3
-
-    const/16 v4, 0x3c
-
-    invoke-virtual {p0, v0, v4, v3}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->mod(III)I
+    invoke-virtual {p0, v2, v3}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->fQuotient(II)I
 
     move-result v0
 
-    iput v0, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->minute:I
+    const/16 v3, 0x3c
 
-    iget v0, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->hour:I
-
-    iget v4, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneHr:I
-
-    mul-int/lit8 v4, v4, -0x1
-
-    add-int/2addr v0, v4
-
-    add-int/2addr v0, v3
-
-    invoke-virtual {p0, v0, v6}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->fQuotient(II)I
+    invoke-virtual {p0, v2, v3, v0}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->mod(III)I
 
     move-result v3
 
-    invoke-virtual {p0, v0, v6, v3}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->mod(III)I
+    iput v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->minute:I
+
+    iget v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->hour:I
+
+    iget v6, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneHr:I
+
+    mul-int/lit8 v6, v6, -0x1
+
+    add-int/2addr v3, v6
+
+    add-int v2, v3, v0
+
+    invoke-virtual {p0, v2, v7}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->fQuotient(II)I
 
     move-result v0
 
-    iput v0, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->hour:I
+    invoke-virtual {p0, v2, v7, v0}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->mod(III)I
 
-    iget v0, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->day:I
+    move-result v3
 
-    add-int/2addr v0, v3
+    iput v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->hour:I
 
-    iput v0, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->day:I
+    iget v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->day:I
+
+    add-int/2addr v3, v0
+
+    iput v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->day:I
 
     :cond_0
     :goto_0
-    iget v0, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->year:I
+    iget v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->year:I
 
-    iget v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->month:I
+    iget v6, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->month:I
 
-    invoke-virtual {p0, v0, v3}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->maxDayInMonthFor(II)I
+    invoke-virtual {p0, v3, v6}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->maxDayInMonthFor(II)I
 
-    move-result v0
-
-    iget v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->day:I
-
-    if-lt v3, v1, :cond_1
+    move-result v2
 
     iget v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->day:I
 
-    if-gt v3, v0, :cond_3
+    if-lt v3, v5, :cond_1
 
-    const/16 v0, 0x5a
+    iget v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->day:I
 
-    iput v0, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->utc:I
+    if-gt v3, v2, :cond_3
+
+    const/16 v3, 0x5a
+
+    iput v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->utc:I
 
     return-void
 
     :cond_1
-    iget v0, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->day:I
+    iget v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->day:I
 
-    iget v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->year:I
+    iget v6, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->year:I
 
-    iget v4, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->month:I
+    iget v7, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->month:I
 
-    add-int/lit8 v4, v4, -0x1
+    add-int/lit8 v7, v7, -0x1
 
-    invoke-virtual {p0, v3, v4}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->maxDayInMonthFor(II)I
+    invoke-virtual {p0, v6, v7}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->maxDayInMonthFor(II)I
 
-    move-result v3
+    move-result v6
 
-    add-int/2addr v0, v3
+    add-int/2addr v3, v6
 
-    iput v0, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->day:I
+    iput v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->day:I
 
-    move v0, v2
+    const/4 v0, -0x1
 
     :goto_1
     iget v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->month:I
 
-    add-int/2addr v0, v3
+    add-int v2, v3, v0
 
-    invoke-virtual {p0, v0, v1, v5}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->modulo(III)I
+    invoke-virtual {p0, v2, v5, v8}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->modulo(III)I
 
     move-result v3
 
@@ -1650,515 +1670,527 @@
 
     iget v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->year:I
 
-    invoke-virtual {p0, v0, v1, v5}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->fQuotient(III)I
+    invoke-virtual {p0, v2, v5, v8}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->fQuotient(III)I
 
-    move-result v0
+    move-result v6
 
-    add-int/2addr v0, v3
+    add-int/2addr v3, v6
 
-    iput v0, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->year:I
+    iput v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->year:I
 
-    iget v0, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->year:I
+    iget v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->year:I
 
-    if-nez v0, :cond_0
+    if-nez v3, :cond_0
 
-    iget v0, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneHr:I
+    iget v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneHr:I
 
-    if-gez v0, :cond_4
+    if-gez v3, :cond_4
 
     :cond_2
-    move v0, v1
+    move v3, v5
 
     :goto_2
-    iput v0, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->year:I
+    iput v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->year:I
 
     goto :goto_0
 
     :cond_3
     iget v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->day:I
 
-    sub-int v0, v3, v0
+    sub-int/2addr v3, v2
 
-    iput v0, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->day:I
+    iput v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->day:I
 
-    move v0, v1
+    const/4 v0, 0x1
 
     goto :goto_1
 
     :cond_4
-    iget v0, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneMin:I
+    iget v3, p1, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->timezoneMin:I
 
-    if-ltz v0, :cond_2
+    if-ltz v3, :cond_2
 
-    move v0, v2
+    move v3, v4
 
     goto :goto_2
 .end method
 
 .method protected parseInt(Ljava/lang/String;II)I
-    .locals 4
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/NumberFormatException;
         }
     .end annotation
 
+    const/16 v4, 0xa
+
+    const/4 v5, 0x0
+
     const/4 v0, 0x0
 
-    const v1, -0xccccccc
+    const v2, -0x7fffffff
+
+    const v3, -0xccccccc
+
+    move v1, p2
 
     :cond_0
-    invoke-virtual {p1, p2}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
 
-    move-result v2
+    move-result v6
 
-    invoke-static {v2}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->getDigit(C)I
+    invoke-static {v6}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->getDigit(C)I
 
-    move-result v2
+    move-result v0
 
-    if-ltz v2, :cond_1
+    if-ltz v0, :cond_1
 
-    if-lt v0, v1, :cond_2
+    if-lt v5, v3, :cond_2
 
-    mul-int/lit8 v0, v0, 0xa
+    mul-int/lit8 v5, v5, 0xa
 
-    const v3, -0x7fffffff
+    const v6, -0x7fffffff
 
-    add-int/2addr v3, v2
+    add-int/2addr v6, v0
 
-    if-lt v0, v3, :cond_3
+    if-lt v5, v6, :cond_3
 
-    sub-int/2addr v0, v2
+    sub-int/2addr v5, v0
 
-    add-int/lit8 p2, p2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    if-lt p2, p3, :cond_0
+    if-lt v1, p3, :cond_0
 
-    neg-int v0, v0
+    neg-int v6, v5
 
-    return v0
+    return v6
 
     :cond_1
-    new-instance v0, Ljava/lang/NumberFormatException;
+    new-instance v6, Ljava/lang/NumberFormatException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "\'"
+    const-string/jumbo v8, "\'"
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v7, v8}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v7
 
-    const-string/jumbo v2, "\' has wrong format"
+    const-string/jumbo v8, "\' has wrong format"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v7
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v7
 
-    invoke-direct {v0, v1}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v6, v7}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v6
 
     :cond_2
-    new-instance v0, Ljava/lang/NumberFormatException;
+    new-instance v6, Ljava/lang/NumberFormatException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "\'"
+    const-string/jumbo v8, "\'"
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v7, v8}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v7
 
-    const-string/jumbo v2, "\' has wrong format"
+    const-string/jumbo v8, "\' has wrong format"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v7
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v7
 
-    invoke-direct {v0, v1}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v6, v7}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v6
 
     :cond_3
-    new-instance v0, Ljava/lang/NumberFormatException;
+    new-instance v6, Ljava/lang/NumberFormatException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "\'"
+    const-string/jumbo v8, "\'"
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v7, v8}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v7
 
-    const-string/jumbo v2, "\' has wrong format"
+    const-string/jumbo v8, "\' has wrong format"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v7
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v7
 
-    invoke-direct {v0, v1}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v6, v7}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v6
 .end method
 
 .method protected parseIntYear(Ljava/lang/String;I)I
-    .locals 8
+    .locals 11
 
-    const/4 v3, 0x1
+    const/4 v8, 0x0
 
-    const/4 v2, 0x0
+    const/16 v6, 0xa
+
+    const/4 v7, 0x0
+
+    const/4 v5, 0x0
+
+    const/4 v1, 0x0
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, v8}, Ljava/lang/String;->charAt(I)C
+
+    move-result v8
+
+    const/16 v9, 0x2d
+
+    if-eq v8, v9, :cond_0
+
+    const v3, -0x7fffffff
+
+    :goto_0
+    div-int/lit8 v4, v3, 0xa
+
+    move v2, v1
+
+    :goto_1
+    if-ge v2, p2, :cond_4
+
+    add-int/lit8 v1, v2, 0x1
+
+    invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
+
+    move-result v8
+
+    invoke-static {v8}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->getDigit(C)I
+
+    move-result v0
+
+    if-ltz v0, :cond_1
+
+    if-lt v7, v4, :cond_2
+
+    mul-int/lit8 v7, v7, 0xa
+
+    add-int v8, v3, v0
+
+    if-lt v7, v8, :cond_3
+
+    sub-int/2addr v7, v0
+
+    move v2, v1
+
+    goto :goto_1
+
+    :cond_0
+    const/4 v5, 0x1
+
+    const/high16 v3, -0x80000000
+
+    const/4 v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    new-instance v8, Ljava/lang/NumberFormatException;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    const-string/jumbo v10, "\'"
+
+    invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    const-string/jumbo v10, "\' has wrong format"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-direct {v8, v9}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
+
+    throw v8
+
+    :cond_2
+    new-instance v8, Ljava/lang/NumberFormatException;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    const-string/jumbo v10, "\'"
+
+    invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    const-string/jumbo v10, "\' has wrong format"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-direct {v8, v9}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
+
+    throw v8
+
+    :cond_3
+    new-instance v8, Ljava/lang/NumberFormatException;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    const-string/jumbo v10, "\'"
+
+    invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    const-string/jumbo v10, "\' has wrong format"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-direct {v8, v9}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
+
+    throw v8
+
+    :cond_4
+    if-nez v5, :cond_5
+
+    neg-int v8, v7
+
+    return v8
+
+    :cond_5
+    const/4 v8, 0x1
+
+    if-gt v2, v8, :cond_6
+
+    new-instance v8, Ljava/lang/NumberFormatException;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    const-string/jumbo v10, "\'"
+
+    invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    const-string/jumbo v10, "\' has wrong format"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-direct {v8, v9}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
+
+    throw v8
+
+    :cond_6
+    return v7
+.end method
+
+.method protected parseSecond(Ljava/lang/String;II)D
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/NumberFormatException;
+        }
+    .end annotation
+
+    const/4 v1, -0x1
+
+    move v2, p2
+
+    :goto_0
+    if-ge v2, p3, :cond_3
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
-    const/16 v1, 0x2d
+    const/16 v3, 0x2e
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v3, :cond_1
 
-    const v0, -0x7fffffff
+    const/16 v3, 0x39
 
-    move v1, v2
-
-    move v4, v2
-
-    :goto_0
-    div-int/lit8 v6, v0, 0xa
-
-    move v5, v2
-
-    :goto_1
-    if-ge v1, p2, :cond_4
-
-    add-int/lit8 v2, v1, 0x1
-
-    invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
-
-    move-result v1
-
-    invoke-static {v1}, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV;->getDigit(C)I
-
-    move-result v1
-
-    if-ltz v1, :cond_1
-
-    if-lt v5, v6, :cond_2
-
-    mul-int/lit8 v5, v5, 0xa
-
-    add-int v7, v0, v1
-
-    if-lt v5, v7, :cond_3
-
-    sub-int v1, v5, v1
-
-    move v5, v1
-
-    move v1, v2
-
-    goto :goto_1
+    if-le v0, v3, :cond_2
 
     :cond_0
-    const/high16 v0, -0x80000000
+    new-instance v3, Ljava/lang/NumberFormatException;
 
-    move v1, v3
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    move v4, v3
+    const-string/jumbo v5, "\'"
 
-    goto :goto_0
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "\' has wrong format"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
+
+    throw v3
 
     :cond_1
-    new-instance v0, Ljava/lang/NumberFormatException;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    const-string/jumbo v2, "\'"
-
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "\' has wrong format"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_2
-    new-instance v0, Ljava/lang/NumberFormatException;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    const-string/jumbo v2, "\'"
-
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "\' has wrong format"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_3
-    new-instance v0, Ljava/lang/NumberFormatException;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    const-string/jumbo v2, "\'"
-
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "\' has wrong format"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_4
-    if-nez v4, :cond_5
-
-    neg-int v0, v5
-
-    return v0
-
-    :cond_5
-    if-gt v1, v3, :cond_6
-
-    new-instance v0, Ljava/lang/NumberFormatException;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    const-string/jumbo v2, "\'"
-
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "\' has wrong format"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_6
-    return v5
-.end method
-
-.method protected parseSecond(Ljava/lang/String;II)D
-    .locals 5
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/NumberFormatException;
-        }
-    .end annotation
-
-    const/4 v2, -0x1
-
-    move v1, p2
-
-    move v0, v2
-
-    :goto_0
-    if-ge v1, p3, :cond_3
-
-    invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
-
-    move-result v3
-
-    const/16 v4, 0x2e
-
-    if-eq v3, v4, :cond_1
-
-    const/16 v4, 0x39
-
-    if-le v3, v4, :cond_2
-
-    :cond_0
-    new-instance v0, Ljava/lang/NumberFormatException;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    const-string/jumbo v2, "\'"
-
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "\' has wrong format"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_1
-    move v0, v1
+    move v1, v2
 
     :goto_1
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_2
-    const/16 v4, 0x30
+    const/16 v3, 0x30
 
-    if-lt v3, v4, :cond_0
+    if-lt v0, v3, :cond_0
 
     goto :goto_1
 
     :cond_3
-    if-eq v0, v2, :cond_5
+    const/4 v3, -0x1
 
-    add-int/lit8 v1, p2, 0x2
+    if-eq v1, v3, :cond_5
 
-    if-eq v1, v0, :cond_7
+    add-int/lit8 v3, p2, 0x2
+
+    if-eq v3, v1, :cond_7
 
     :cond_4
-    new-instance v0, Ljava/lang/NumberFormatException;
+    new-instance v3, Ljava/lang/NumberFormatException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "\'"
+    const-string/jumbo v5, "\'"
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v4
 
-    const-string/jumbo v2, "\' has wrong format"
+    const-string/jumbo v5, "\' has wrong format"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-direct {v0, v1}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v3
 
     :cond_5
-    add-int/lit8 v0, p2, 0x2
+    add-int/lit8 v3, p2, 0x2
 
-    if-ne v0, p3, :cond_6
+    if-ne v3, p3, :cond_6
 
     :goto_2
     invoke-virtual {p1, p2, p3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-static {v0}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
+    invoke-static {v3}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
 
-    move-result-wide v0
+    move-result-wide v4
 
-    return-wide v0
+    return-wide v4
 
     :cond_6
-    new-instance v0, Ljava/lang/NumberFormatException;
+    new-instance v3, Ljava/lang/NumberFormatException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "\'"
+    const-string/jumbo v5, "\'"
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v4
 
-    const-string/jumbo v2, "\' has wrong format"
+    const-string/jumbo v5, "\' has wrong format"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-direct {v0, v1}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/NumberFormatException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v3
 
     :cond_7
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v3, v1, 0x1
 
-    if-eq v0, p3, :cond_4
+    if-eq v3, p3, :cond_4
 
     goto :goto_2
 .end method

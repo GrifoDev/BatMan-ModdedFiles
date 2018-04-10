@@ -56,9 +56,9 @@
     :goto_0
     invoke-virtual {v0}, Lorg/simpleframework/xml/core/SessionManager$Reference;->get()Lorg/simpleframework/xml/core/Session;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
     iget-object v1, p0, Lorg/simpleframework/xml/core/SessionManager;->local:Ljava/lang/ThreadLocal;
@@ -71,26 +71,26 @@
 
 # virtual methods
 .method public close()V
-    .locals 3
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/SessionManager;->local:Ljava/lang/ThreadLocal;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/SessionManager;->local:Ljava/lang/ThreadLocal;
 
-    invoke-virtual {v0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
+    invoke-virtual {v2}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lorg/simpleframework/xml/core/SessionManager$Reference;
+    check-cast v1, Lorg/simpleframework/xml/core/SessionManager$Reference;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/SessionManager$Reference;->clear()I
+    invoke-virtual {v1}, Lorg/simpleframework/xml/core/SessionManager$Reference;->clear()I
 
     move-result v0
 
@@ -100,20 +100,20 @@
     return-void
 
     :cond_0
-    new-instance v0, Lorg/simpleframework/xml/core/PersistenceException;
+    new-instance v2, Lorg/simpleframework/xml/core/PersistenceException;
 
-    const-string/jumbo v1, "Session does not exist"
+    new-array v3, v3, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v4, "Session does not exist"
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/core/PersistenceException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v2, v4, v3}, Lorg/simpleframework/xml/core/PersistenceException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    throw v0
+    throw v2
 
     :cond_1
-    iget-object v0, p0, Lorg/simpleframework/xml/core/SessionManager;->local:Ljava/lang/ThreadLocal;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/SessionManager;->local:Ljava/lang/ThreadLocal;
 
-    invoke-virtual {v0}, Ljava/lang/ThreadLocal;->remove()V
+    invoke-virtual {v2}, Ljava/lang/ThreadLocal;->remove()V
 
     goto :goto_0
 .end method
@@ -136,16 +136,16 @@
 .end method
 
 .method public open(Z)Lorg/simpleframework/xml/core/Session;
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/SessionManager;->local:Ljava/lang/ThreadLocal;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/SessionManager;->local:Ljava/lang/ThreadLocal;
 
-    invoke-virtual {v0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
+    invoke-virtual {v1}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -155,14 +155,14 @@
 
     invoke-direct {p0, p1}, Lorg/simpleframework/xml/core/SessionManager;->create(Z)Lorg/simpleframework/xml/core/Session;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
     invoke-virtual {v0}, Lorg/simpleframework/xml/core/SessionManager$Reference;->get()Lorg/simpleframework/xml/core/Session;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method

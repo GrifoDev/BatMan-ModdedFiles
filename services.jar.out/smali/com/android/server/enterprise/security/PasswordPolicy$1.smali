@@ -1,5 +1,5 @@
 .class Lcom/android/server/enterprise/security/PasswordPolicy$1;
-.super Landroid/content/BroadcastReceiver;
+.super Ljava/util/ArrayList;
 .source "PasswordPolicy.java"
 
 
@@ -13,6 +13,15 @@
     name = null
 .end annotation
 
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/util/ArrayList",
+        "<",
+        "Ljava/lang/String;",
+        ">;"
+    }
+.end annotation
+
 
 # instance fields
 .field final synthetic this$0:Lcom/android/server/enterprise/security/PasswordPolicy;
@@ -20,44 +29,19 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/enterprise/security/PasswordPolicy;)V
-    .locals 0
+    .locals 1
 
     iput-object p1, p0, Lcom/android/server/enterprise/security/PasswordPolicy$1;->this$0:Lcom/android/server/enterprise/security/PasswordPolicy;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Ljava/util/ArrayList;-><init>()V
 
-    return-void
-.end method
+    const-string/jumbo v0, "com.samsung.android.knox.containeragent"
 
+    invoke-virtual {p0, v0}, Lcom/android/server/enterprise/security/PasswordPolicy$1;->add(Ljava/lang/Object;)Z
 
-# virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+    const-string/jumbo v0, "com.samsung.android.knox.containercore"
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lcom/android/server/enterprise/security/PasswordPolicy$1;->add(Ljava/lang/Object;)Z
 
-    move-result-object v0
-
-    const-string/jumbo v2, "com.samsung.android.knox.intent.action.KNOXFRAMEWORK_SYSTEMUI_UPDATE_INTENT_INTERNAL"
-
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    const-string/jumbo v2, "com.samsung.android.knox.intent.extra.USER_ID_INTERNAL"
-
-    const/4 v3, 0x0
-
-    invoke-virtual {p2, v2, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/server/enterprise/security/PasswordPolicy$1;->this$0:Lcom/android/server/enterprise/security/PasswordPolicy;
-
-    invoke-static {v2, v1}, Lcom/android/server/enterprise/security/PasswordPolicy;->-wrap6(Lcom/android/server/enterprise/security/PasswordPolicy;I)V
-
-    :cond_0
     return-void
 .end method

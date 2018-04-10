@@ -45,41 +45,41 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/ScannerFactory;->cache:Lorg/simpleframework/xml/util/Cache;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ScannerFactory;->cache:Lorg/simpleframework/xml/util/Cache;
 
-    invoke-interface {v0, p1}, Lorg/simpleframework/xml/util/Cache;->fetch(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lorg/simpleframework/xml/core/Scanner;
-
-    if-eqz v0, :cond_0
-
-    :goto_0
-    return-object v0
-
-    :cond_0
-    iget-object v0, p0, Lorg/simpleframework/xml/core/ScannerFactory;->support:Lorg/simpleframework/xml/core/Support;
-
-    invoke-virtual {v0, p1}, Lorg/simpleframework/xml/core/Support;->getDetail(Ljava/lang/Class;)Lorg/simpleframework/xml/core/Detail;
+    invoke-interface {v2, p1}, Lorg/simpleframework/xml/util/Cache;->fetch(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/ScannerFactory;->support:Lorg/simpleframework/xml/core/Support;
+    check-cast v1, Lorg/simpleframework/xml/core/Scanner;
 
-    invoke-virtual {v0, p1}, Lorg/simpleframework/xml/core/Support;->isPrimitive(Ljava/lang/Class;)Z
+    if-eqz v1, :cond_0
 
-    move-result v0
+    :goto_0
+    return-object v1
 
-    if-nez v0, :cond_2
+    :cond_0
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ScannerFactory;->support:Lorg/simpleframework/xml/core/Support;
 
-    new-instance v0, Lorg/simpleframework/xml/core/ObjectScanner;
+    invoke-virtual {v2, p1}, Lorg/simpleframework/xml/core/Support;->getDetail(Ljava/lang/Class;)Lorg/simpleframework/xml/core/Detail;
+
+    move-result-object v0
 
     iget-object v2, p0, Lorg/simpleframework/xml/core/ScannerFactory;->support:Lorg/simpleframework/xml/core/Support;
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/core/ObjectScanner;-><init>(Lorg/simpleframework/xml/core/Detail;Lorg/simpleframework/xml/core/Support;)V
+    invoke-virtual {v2, p1}, Lorg/simpleframework/xml/core/Support;->isPrimitive(Ljava/lang/Class;)Z
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/core/Scanner;->isPrimitive()Z
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    new-instance v1, Lorg/simpleframework/xml/core/ObjectScanner;
+
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ScannerFactory;->support:Lorg/simpleframework/xml/core/Support;
+
+    invoke-direct {v1, v0, v2}, Lorg/simpleframework/xml/core/ObjectScanner;-><init>(Lorg/simpleframework/xml/core/Detail;Lorg/simpleframework/xml/core/Support;)V
+
+    invoke-interface {v1}, Lorg/simpleframework/xml/core/Scanner;->isPrimitive()Z
 
     move-result v2
 
@@ -87,16 +87,16 @@
 
     :cond_1
     :goto_1
-    iget-object v1, p0, Lorg/simpleframework/xml/core/ScannerFactory;->cache:Lorg/simpleframework/xml/util/Cache;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ScannerFactory;->cache:Lorg/simpleframework/xml/util/Cache;
 
-    invoke-interface {v1, p1, v0}, Lorg/simpleframework/xml/util/Cache;->cache(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-interface {v2, p1, v1}, Lorg/simpleframework/xml/util/Cache;->cache(Ljava/lang/Object;Ljava/lang/Object;)V
 
     goto :goto_0
 
     :cond_2
-    new-instance v0, Lorg/simpleframework/xml/core/PrimitiveScanner;
+    new-instance v1, Lorg/simpleframework/xml/core/PrimitiveScanner;
 
-    invoke-direct {v0, v1}, Lorg/simpleframework/xml/core/PrimitiveScanner;-><init>(Lorg/simpleframework/xml/core/Detail;)V
+    invoke-direct {v1, v0}, Lorg/simpleframework/xml/core/PrimitiveScanner;-><init>(Lorg/simpleframework/xml/core/Detail;)V
 
     goto :goto_1
 
@@ -109,11 +109,11 @@
 
     if-nez v2, :cond_1
 
-    new-instance v0, Lorg/simpleframework/xml/core/DefaultScanner;
+    new-instance v1, Lorg/simpleframework/xml/core/DefaultScanner;
 
     iget-object v2, p0, Lorg/simpleframework/xml/core/ScannerFactory;->support:Lorg/simpleframework/xml/core/Support;
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/core/DefaultScanner;-><init>(Lorg/simpleframework/xml/core/Detail;Lorg/simpleframework/xml/core/Support;)V
+    invoke-direct {v1, v0, v2}, Lorg/simpleframework/xml/core/DefaultScanner;-><init>(Lorg/simpleframework/xml/core/Detail;Lorg/simpleframework/xml/core/Support;)V
 
     goto :goto_1
 .end method

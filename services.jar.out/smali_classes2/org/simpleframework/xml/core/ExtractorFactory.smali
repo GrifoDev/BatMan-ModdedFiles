@@ -38,14 +38,14 @@
 .end method
 
 .method private getBuilder(Ljava/lang/annotation/Annotation;)Lorg/simpleframework/xml/core/ExtractorFactory$ExtractorBuilder;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     instance-of v0, p1, Lorg/simpleframework/xml/ElementUnion;
 
@@ -61,15 +61,15 @@
 
     new-instance v0, Lorg/simpleframework/xml/core/PersistenceException;
 
-    const-string/jumbo v1, "Annotation %s is not a union"
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    aput-object p1, v1, v2
 
-    aput-object p1, v2, v3
+    const-string/jumbo v2, "Annotation %s is not a union"
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/core/PersistenceException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v0, v2, v1}, Lorg/simpleframework/xml/core/PersistenceException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
     throw v0
 
@@ -108,16 +108,16 @@
 .end method
 
 .method private getInstance(Ljava/lang/annotation/Annotation;)Ljava/lang/Object;
-    .locals 5
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     invoke-direct {p0, p1}, Lorg/simpleframework/xml/core/ExtractorFactory;->getBuilder(Ljava/lang/annotation/Annotation;)Lorg/simpleframework/xml/core/ExtractorFactory$ExtractorBuilder;
 
@@ -125,39 +125,39 @@
 
     invoke-static {v0}, Lorg/simpleframework/xml/core/ExtractorFactory$ExtractorBuilder;->access$000(Lorg/simpleframework/xml/core/ExtractorFactory$ExtractorBuilder;)Ljava/lang/reflect/Constructor;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Ljava/lang/reflect/Constructor;->isAccessible()Z
+    invoke-virtual {v1}, Ljava/lang/reflect/Constructor;->isAccessible()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
     :goto_0
-    const/4 v1, 0x3
+    const/4 v2, 0x3
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array v2, v2, [Ljava/lang/Object;
 
-    iget-object v2, p0, Lorg/simpleframework/xml/core/ExtractorFactory;->contact:Lorg/simpleframework/xml/core/Contact;
+    iget-object v3, p0, Lorg/simpleframework/xml/core/ExtractorFactory;->contact:Lorg/simpleframework/xml/core/Contact;
 
-    aput-object v2, v1, v3
+    aput-object v3, v2, v4
 
-    aput-object p1, v1, v4
-
-    const/4 v2, 0x2
+    aput-object p1, v2, v5
 
     iget-object v3, p0, Lorg/simpleframework/xml/core/ExtractorFactory;->format:Lorg/simpleframework/xml/stream/Format;
 
-    aput-object v3, v1, v2
+    const/4 v4, 0x2
 
-    invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+    aput-object v3, v2, v4
 
-    move-result-object v0
+    invoke-virtual {v1, v2}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
-    return-object v0
+    move-result-object v2
+
+    return-object v2
 
     :cond_0
-    invoke-virtual {v0, v4}, Ljava/lang/reflect/Constructor;->setAccessible(Z)V
+    invoke-virtual {v1, v5}, Ljava/lang/reflect/Constructor;->setAccessible(Z)V
 
     goto :goto_0
 .end method

@@ -4,52 +4,68 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lorg/apache/http/impl/io/AbstractMessageWriter",
+        "<",
+        "Lorg/apache/http/HttpRequest;",
+        ">;"
+    }
+.end annotation
+
 .annotation runtime Ljava/lang/Deprecated;
 .end annotation
 
 
 # direct methods
 .method public constructor <init>(Lorg/apache/http/io/SessionOutputBuffer;Lorg/apache/http/message/LineFormatter;Lorg/apache/http/params/HttpParams;)V
-    .locals 3
+    .locals 0
 
-    const/4 v1, 0x0
+    invoke-direct {p0, p1, p2, p3}, Lorg/apache/http/impl/io/AbstractMessageWriter;-><init>(Lorg/apache/http/io/SessionOutputBuffer;Lorg/apache/http/message/LineFormatter;Lorg/apache/http/params/HttpParams;)V
 
-    move-object v0, v1
-
-    check-cast v0, Lorg/apache/http/io/SessionOutputBuffer;
-
-    move-object v2, v1
-
-    check-cast v2, Lorg/apache/http/message/LineFormatter;
-
-    check-cast v1, Lorg/apache/http/params/HttpParams;
-
-    invoke-direct {p0, v0, v2, v1}, Lorg/apache/http/impl/io/AbstractMessageWriter;-><init>(Lorg/apache/http/io/SessionOutputBuffer;Lorg/apache/http/message/LineFormatter;Lorg/apache/http/params/HttpParams;)V
-
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 
 # virtual methods
-.method protected writeHeadLine(Lorg/apache/http/HttpMessage;)V
-    .locals 2
+.method protected bridge synthetic writeHeadLine(Lorg/apache/http/HttpMessage;)V
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    check-cast p1, Lorg/apache/http/HttpRequest;
 
-    const-string/jumbo v1, "Stub!"
+    invoke-virtual {p0, p1}, Lorg/apache/http/impl/io/HttpRequestWriter;->writeHeadLine(Lorg/apache/http/HttpRequest;)V
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    return-void
+.end method
 
-    throw v0
+.method protected writeHeadLine(Lorg/apache/http/HttpRequest;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lorg/apache/http/impl/io/HttpRequestWriter;->lineFormatter:Lorg/apache/http/message/LineFormatter;
+
+    iget-object v1, p0, Lorg/apache/http/impl/io/HttpRequestWriter;->lineBuf:Lorg/apache/http/util/CharArrayBuffer;
+
+    invoke-interface {p1}, Lorg/apache/http/HttpRequest;->getRequestLine()Lorg/apache/http/RequestLine;
+
+    move-result-object v2
+
+    invoke-interface {v0, v1, v2}, Lorg/apache/http/message/LineFormatter;->formatRequestLine(Lorg/apache/http/util/CharArrayBuffer;Lorg/apache/http/RequestLine;)Lorg/apache/http/util/CharArrayBuffer;
+
+    iget-object v0, p0, Lorg/apache/http/impl/io/HttpRequestWriter;->sessionBuffer:Lorg/apache/http/io/SessionOutputBuffer;
+
+    iget-object v1, p0, Lorg/apache/http/impl/io/HttpRequestWriter;->lineBuf:Lorg/apache/http/util/CharArrayBuffer;
+
+    invoke-interface {v0, v1}, Lorg/apache/http/io/SessionOutputBuffer;->writeLine(Lorg/apache/http/util/CharArrayBuffer;)V
+
+    return-void
 .end method

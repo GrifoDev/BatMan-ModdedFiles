@@ -13,35 +13,36 @@
 .end method
 
 .method public static getInstance()Lorg/simpleframework/xml/stream/Provider;
-    .locals 1
+    .locals 2
 
     :try_start_0
-    new-instance v0, Lorg/simpleframework/xml/stream/StreamProvider;
+    new-instance v1, Lorg/simpleframework/xml/stream/StreamProvider;
 
-    invoke-direct {v0}, Lorg/simpleframework/xml/stream/StreamProvider;-><init>()V
+    invoke-direct {v1}, Lorg/simpleframework/xml/stream/StreamProvider;-><init>()V
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_1
 
-    return-object v0
+    return-object v1
 
     :catch_0
     move-exception v0
 
     :try_start_1
-    new-instance v0, Lorg/simpleframework/xml/stream/PullProvider;
+    new-instance v1, Lorg/simpleframework/xml/stream/PullProvider;
 
-    invoke-direct {v0}, Lorg/simpleframework/xml/stream/PullProvider;-><init>()V
+    invoke-direct {v1}, Lorg/simpleframework/xml/stream/PullProvider;-><init>()V
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
 
-    return-object v0
+    return-object v1
 
     :catch_1
     move-exception v0
 
-    new-instance v0, Lorg/simpleframework/xml/stream/DocumentProvider;
+    new-instance v1, Lorg/simpleframework/xml/stream/DocumentProvider;
 
-    invoke-direct {v0}, Lorg/simpleframework/xml/stream/DocumentProvider;-><init>()V
+    invoke-direct {v1}, Lorg/simpleframework/xml/stream/DocumentProvider;-><init>()V
 
-    return-object v0
+    return-object v1
 .end method

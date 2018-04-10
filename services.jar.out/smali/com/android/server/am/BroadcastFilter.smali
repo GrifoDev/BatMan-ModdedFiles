@@ -6,6 +6,8 @@
 # instance fields
 .field added:Z
 
+.field final instantApp:Z
+
 .field final owningUid:I
 
 .field final owningUserId:I
@@ -16,9 +18,11 @@
 
 .field final requiredPermission:Ljava/lang/String;
 
+.field final visibleToInstantApp:Z
+
 
 # direct methods
-.method constructor <init>(Landroid/content/IntentFilter;Lcom/android/server/am/ReceiverList;Ljava/lang/String;Ljava/lang/String;II)V
+.method constructor <init>(Landroid/content/IntentFilter;Lcom/android/server/am/ReceiverList;Ljava/lang/String;Ljava/lang/String;IIZZ)V
     .locals 1
 
     invoke-direct {p0, p1}, Landroid/content/IntentFilter;-><init>(Landroid/content/IntentFilter;)V
@@ -36,6 +40,10 @@
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/am/BroadcastFilter;->added:Z
+
+    iput-boolean p7, p0, Lcom/android/server/am/BroadcastFilter;->instantApp:Z
+
+    iput-boolean p8, p0, Lcom/android/server/am/BroadcastFilter;->visibleToInstantApp:Z
 
     return-void
 .end method

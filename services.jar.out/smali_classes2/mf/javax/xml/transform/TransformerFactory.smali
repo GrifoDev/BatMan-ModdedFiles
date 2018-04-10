@@ -13,7 +13,7 @@
 .end method
 
 .method public static newInstance()Lmf/javax/xml/transform/TransformerFactory;
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/javax/xml/transform/TransformerFactoryConfigurationError;
@@ -21,19 +21,19 @@
     .end annotation
 
     :try_start_0
-    const-string/jumbo v0, "javax.xml.transform.TransformerFactory"
+    const-string/jumbo v1, "javax.xml.transform.TransformerFactory"
 
-    const-string/jumbo v1, "com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl"
+    const-string/jumbo v2, "com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl"
 
-    invoke-static {v0, v1}, Lmf/javax/xml/transform/FactoryFinder;->find(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v1, v2}, Lmf/javax/xml/transform/FactoryFinder;->find(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/javax/xml/transform/TransformerFactory;
+    check-cast v1, Lmf/javax/xml/transform/TransformerFactory;
     :try_end_0
     .catch Lmf/javax/xml/transform/FactoryFinder$ConfigurationError; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object v1
 
     :catch_0
     move-exception v0
@@ -46,33 +46,33 @@
 
     invoke-virtual {v0}, Lmf/javax/xml/transform/FactoryFinder$ConfigurationError;->getMessage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-direct {v1, v2, v0}, Lmf/javax/xml/transform/TransformerFactoryConfigurationError;-><init>(Ljava/lang/Exception;Ljava/lang/String;)V
+    invoke-direct {v1, v2, v3}, Lmf/javax/xml/transform/TransformerFactoryConfigurationError;-><init>(Ljava/lang/Exception;Ljava/lang/String;)V
 
     throw v1
 .end method
 
 .method public static newInstance(Ljava/lang/String;Ljava/lang/ClassLoader;)Lmf/javax/xml/transform/TransformerFactory;
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/javax/xml/transform/TransformerFactoryConfigurationError;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     :try_start_0
-    invoke-static {p0, p1, v0}, Lmf/javax/xml/transform/FactoryFinder;->newInstance(Ljava/lang/String;Ljava/lang/ClassLoader;Z)Ljava/lang/Object;
+    invoke-static {p0, p1, v1}, Lmf/javax/xml/transform/FactoryFinder;->newInstance(Ljava/lang/String;Ljava/lang/ClassLoader;Z)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/javax/xml/transform/TransformerFactory;
+    check-cast v1, Lmf/javax/xml/transform/TransformerFactory;
     :try_end_0
     .catch Lmf/javax/xml/transform/FactoryFinder$ConfigurationError; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object v1
 
     :catch_0
     move-exception v0
@@ -85,9 +85,9 @@
 
     invoke-virtual {v0}, Lmf/javax/xml/transform/FactoryFinder$ConfigurationError;->getMessage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-direct {v1, v2, v0}, Lmf/javax/xml/transform/TransformerFactoryConfigurationError;-><init>(Ljava/lang/Exception;Ljava/lang/String;)V
+    invoke-direct {v1, v2, v3}, Lmf/javax/xml/transform/TransformerFactoryConfigurationError;-><init>(Ljava/lang/Exception;Ljava/lang/String;)V
 
     throw v1
 .end method

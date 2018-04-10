@@ -16,9 +16,11 @@
 
 .field public static final INTENT_ACTION_GENERAL_SINGLE:Ljava/lang/String; = "com.samsung.android.providers.context.log.action.USE_APP_FEATURE_SURVEY"
 
-.field public static final MMFW_LOGGING_APPID:Ljava/lang/String; = "MMFW"
+.field public static final MMFW_ERROR_LOGGING_FEATURE:Ljava/lang/String; = "MMER"
 
-.field public static final MMFW_LOGGING_FEATURE:Ljava/lang/String; = "MMIF"
+.field public static final MMFW_INFO_LOGGING_FEATURE:Ljava/lang/String; = "MMIF"
+
+.field public static final MMFW_LOGGING_APPID:Ljava/lang/String; = "MMFW"
 
 .field private static final SERVICE_NAME:Ljava/lang/String; = "media_resource_monitor"
 

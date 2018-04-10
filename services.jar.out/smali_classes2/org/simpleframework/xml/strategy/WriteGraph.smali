@@ -59,7 +59,7 @@
 .end method
 
 .method private writeArray(Ljava/lang/Class;Ljava/lang/Object;Lorg/simpleframework/xml/stream/NodeMap;)Ljava/lang/Class;
-    .locals 2
+    .locals 3
 
     invoke-static {p2}, Ljava/lang/reflect/Array;->getLength(Ljava/lang/Object;)I
 
@@ -74,24 +74,24 @@
     :goto_0
     invoke-virtual {p1}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
     iget-object v1, p0, Lorg/simpleframework/xml/strategy/WriteGraph;->length:Ljava/lang/String;
 
     invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-interface {p3, v1, v0}, Lorg/simpleframework/xml/stream/NodeMap;->put(Ljava/lang/String;Ljava/lang/String;)Lorg/simpleframework/xml/stream/Node;
+    invoke-interface {p3, v1, v2}, Lorg/simpleframework/xml/stream/NodeMap;->put(Ljava/lang/String;Ljava/lang/String;)Lorg/simpleframework/xml/stream/Node;
 
     goto :goto_0
 .end method
 
 .method private writeReference(Ljava/lang/Object;Lorg/simpleframework/xml/stream/NodeMap;)Z
-    .locals 2
+    .locals 4
 
     invoke-virtual {p0, p1}, Lorg/simpleframework/xml/strategy/WriteGraph;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -107,74 +107,74 @@
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    iget-object v1, p0, Lorg/simpleframework/xml/strategy/WriteGraph;->mark:Ljava/lang/String;
+    iget-object v3, p0, Lorg/simpleframework/xml/strategy/WriteGraph;->mark:Ljava/lang/String;
 
-    invoke-interface {p2, v1, v0}, Lorg/simpleframework/xml/stream/NodeMap;->put(Ljava/lang/String;Ljava/lang/String;)Lorg/simpleframework/xml/stream/Node;
+    invoke-interface {p2, v3, v2}, Lorg/simpleframework/xml/stream/NodeMap;->put(Ljava/lang/String;Ljava/lang/String;)Lorg/simpleframework/xml/stream/Node;
 
-    invoke-virtual {p0, p1, v0}, Lorg/simpleframework/xml/strategy/WriteGraph;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p1, v2}, Lorg/simpleframework/xml/strategy/WriteGraph;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
-    return v0
+    return v3
 
     :cond_0
-    iget-object v1, p0, Lorg/simpleframework/xml/strategy/WriteGraph;->refer:Ljava/lang/String;
+    iget-object v3, p0, Lorg/simpleframework/xml/strategy/WriteGraph;->refer:Ljava/lang/String;
 
-    invoke-interface {p2, v1, v0}, Lorg/simpleframework/xml/stream/NodeMap;->put(Ljava/lang/String;Ljava/lang/String;)Lorg/simpleframework/xml/stream/Node;
+    invoke-interface {p2, v3, v0}, Lorg/simpleframework/xml/stream/NodeMap;->put(Ljava/lang/String;Ljava/lang/String;)Lorg/simpleframework/xml/stream/Node;
 
-    const/4 v0, 0x1
+    const/4 v3, 0x1
 
-    return v0
+    return v3
 .end method
 
 
 # virtual methods
 .method public write(Lorg/simpleframework/xml/strategy/Type;Ljava/lang/Object;Lorg/simpleframework/xml/stream/NodeMap;)Z
-    .locals 3
+    .locals 5
 
     invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object v0
 
     invoke-interface {p1}, Lorg/simpleframework/xml/strategy/Type;->getType()Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v1}, Ljava/lang/Class;->isArray()Z
+    move-object v2, v0
 
-    move-result v0
+    invoke-virtual {v0}, Ljava/lang/Class;->isArray()Z
 
-    if-nez v0, :cond_0
+    move-result v3
 
-    move-object v0, v1
+    if-nez v3, :cond_0
 
     :goto_0
-    if-ne v1, v2, :cond_1
+    if-ne v0, v1, :cond_1
 
     :goto_1
     invoke-direct {p0, p2, p3}, Lorg/simpleframework/xml/strategy/WriteGraph;->writeReference(Ljava/lang/Object;Lorg/simpleframework/xml/stream/NodeMap;)Z
 
-    move-result v0
+    move-result v3
 
-    return v0
+    return v3
 
     :cond_0
-    invoke-direct {p0, v1, p2, p3}, Lorg/simpleframework/xml/strategy/WriteGraph;->writeArray(Ljava/lang/Class;Ljava/lang/Object;Lorg/simpleframework/xml/stream/NodeMap;)Ljava/lang/Class;
+    invoke-direct {p0, v0, p2, p3}, Lorg/simpleframework/xml/strategy/WriteGraph;->writeArray(Ljava/lang/Class;Ljava/lang/Object;Lorg/simpleframework/xml/stream/NodeMap;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v2
 
     goto :goto_0
 
     :cond_1
-    iget-object v1, p0, Lorg/simpleframework/xml/strategy/WriteGraph;->label:Ljava/lang/String;
+    iget-object v3, p0, Lorg/simpleframework/xml/strategy/WriteGraph;->label:Ljava/lang/String;
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v4
 
-    invoke-interface {p3, v1, v0}, Lorg/simpleframework/xml/stream/NodeMap;->put(Ljava/lang/String;Ljava/lang/String;)Lorg/simpleframework/xml/stream/Node;
+    invoke-interface {p3, v3, v4}, Lorg/simpleframework/xml/stream/NodeMap;->put(Ljava/lang/String;Ljava/lang/String;)Lorg/simpleframework/xml/stream/Node;
 
     goto :goto_1
 .end method

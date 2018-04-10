@@ -79,7 +79,7 @@
     :pswitch_3
     iget-object v5, p0, Lcom/android/server/input/InputManagerService$InputManagerHandler;->this$0:Lcom/android/server/input/InputManagerService;
 
-    invoke-static {v5}, Lcom/android/server/input/InputManagerService;->-wrap18(Lcom/android/server/input/InputManagerService;)V
+    invoke-static {v5}, Lcom/android/server/input/InputManagerService;->-wrap19(Lcom/android/server/input/InputManagerService;)V
 
     goto :goto_0
 
@@ -93,7 +93,7 @@
     :pswitch_5
     iget-object v5, p0, Lcom/android/server/input/InputManagerService$InputManagerHandler;->this$0:Lcom/android/server/input/InputManagerService;
 
-    invoke-static {v5}, Lcom/android/server/input/InputManagerService;->-wrap17(Lcom/android/server/input/InputManagerService;)V
+    invoke-static {v5}, Lcom/android/server/input/InputManagerService;->-wrap18(Lcom/android/server/input/InputManagerService;)V
 
     goto :goto_0
 
@@ -177,17 +177,6 @@
 
     iget-object v5, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v5, Ljava/lang/String;
-
-    invoke-static {v8, v5}, Lcom/android/server/input/InputManagerService;->-wrap19(Lcom/android/server/input/InputManagerService;Ljava/lang/String;)V
-
-    goto :goto_0
-
-    :pswitch_a
-    iget-object v8, p0, Lcom/android/server/input/InputManagerService$InputManagerHandler;->this$0:Lcom/android/server/input/InputManagerService;
-
-    iget-object v5, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
     check-cast v5, Ljava/lang/Integer;
 
     invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
@@ -198,7 +187,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_b
+    :pswitch_a
     iget-object v8, p0, Lcom/android/server/input/InputManagerService$InputManagerHandler;->this$0:Lcom/android/server/input/InputManagerService;
 
     iget-object v5, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -223,14 +212,14 @@
         :pswitch_6
         :pswitch_7
         :pswitch_8
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
         :pswitch_9
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
         :pswitch_a
-        :pswitch_b
     .end packed-switch
 .end method

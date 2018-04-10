@@ -38,7 +38,7 @@
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    invoke-static {p1}, Lcom/android/server/GmsAlarmManager;->-get4(Lcom/android/server/GmsAlarmManager;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/android/server/GmsAlarmManager;->-get6(Lcom/android/server/GmsAlarmManager;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -107,11 +107,11 @@
 
     iget-object v0, p0, Lcom/android/server/GmsAlarmManager$SetupWizardCompleteOrBootCompleteReceiver;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v0, v3}, Lcom/android/server/GmsAlarmManager;->-set1(Lcom/android/server/GmsAlarmManager;Z)Z
+    invoke-static {v0, v3}, Lcom/android/server/GmsAlarmManager;->-set2(Lcom/android/server/GmsAlarmManager;Z)Z
 
     iget-object v0, p0, Lcom/android/server/GmsAlarmManager$SetupWizardCompleteOrBootCompleteReceiver;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v0}, Lcom/android/server/GmsAlarmManager;->-get7(Lcom/android/server/GmsAlarmManager;)Lcom/android/server/GmsAlarmManager$GmsHandler;
+    invoke-static {v0}, Lcom/android/server/GmsAlarmManager;->-get10(Lcom/android/server/GmsAlarmManager;)Lcom/android/server/GmsAlarmManager$GmsHandler;
 
     move-result-object v0
 
@@ -119,7 +119,7 @@
 
     iget-object v0, p0, Lcom/android/server/GmsAlarmManager$SetupWizardCompleteOrBootCompleteReceiver;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v0}, Lcom/android/server/GmsAlarmManager;->-get7(Lcom/android/server/GmsAlarmManager;)Lcom/android/server/GmsAlarmManager$GmsHandler;
+    invoke-static {v0}, Lcom/android/server/GmsAlarmManager;->-get10(Lcom/android/server/GmsAlarmManager;)Lcom/android/server/GmsAlarmManager$GmsHandler;
 
     move-result-object v0
 

@@ -37,19 +37,19 @@
 .end method
 
 .method private namespace(Lorg/simpleframework/xml/stream/OutputNode;)V
-    .locals 1
+    .locals 2
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/NamespaceDecorator;->primary:Lorg/simpleframework/xml/Namespace;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/NamespaceDecorator;->primary:Lorg/simpleframework/xml/Namespace;
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     :goto_0
     return-void
 
     :cond_0
-    iget-object v0, p0, Lorg/simpleframework/xml/core/NamespaceDecorator;->primary:Lorg/simpleframework/xml/Namespace;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/NamespaceDecorator;->primary:Lorg/simpleframework/xml/Namespace;
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/Namespace;->reference()Ljava/lang/String;
+    invoke-interface {v1}, Lorg/simpleframework/xml/Namespace;->reference()Ljava/lang/String;
 
     move-result-object v0
 
@@ -59,43 +59,43 @@
 .end method
 
 .method private scope(Lorg/simpleframework/xml/stream/OutputNode;)V
-    .locals 4
+    .locals 6
 
     invoke-interface {p1}, Lorg/simpleframework/xml/stream/OutputNode;->getNamespaces()Lorg/simpleframework/xml/stream/NamespaceMap;
 
     move-result-object v1
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/NamespaceDecorator;->scope:Ljava/util/List;
+    iget-object v5, p0, Lorg/simpleframework/xml/core/NamespaceDecorator;->scope:Ljava/util/List;
 
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v5}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v0
 
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result v5
 
-    if-nez v0, :cond_0
+    if-nez v5, :cond_0
 
     return-void
 
     :cond_0
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Lorg/simpleframework/xml/Namespace;
+    check-cast v2, Lorg/simpleframework/xml/Namespace;
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/Namespace;->reference()Ljava/lang/String;
+    invoke-interface {v2}, Lorg/simpleframework/xml/Namespace;->reference()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-interface {v2}, Lorg/simpleframework/xml/Namespace;->prefix()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/Namespace;->prefix()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-interface {v1, v3, v0}, Lorg/simpleframework/xml/stream/NamespaceMap;->setReference(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v1, v4, v3}, Lorg/simpleframework/xml/stream/NamespaceMap;->setReference(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_0
 .end method

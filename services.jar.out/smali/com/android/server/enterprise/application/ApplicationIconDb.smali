@@ -543,245 +543,349 @@
 .end method
 
 .method deleteApplicationIcon(Ljava/lang/String;I)Z
-    .locals 10
+    .locals 15
 
-    const/4 v7, 0x0
+    const/4 v10, 0x0
 
-    const/4 v5, 0x0
+    const/4 v3, 0x0
 
     const/4 v2, 0x0
-
-    const/4 v1, 0x0
 
     :try_start_0
     invoke-virtual {p0}, Lcom/android/server/enterprise/application/ApplicationIconDb;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
 
-    move-result-object v2
+    move-result-object v3
 
-    if-nez v2, :cond_0
+    if-nez v3, :cond_0
 
-    return v7
+    const/4 v12, 0x0
+
+    return v12
 
     :cond_0
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "SELECT * FROM ApplicationIcon WHERE pkgname = \'"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, "\' AND "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
     const-string/jumbo v8, "nameowner"
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move/from16 v9, p2
 
-    move-result-object v7
+    new-instance v12, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v8, " = "
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v13, "SELECT * FROM ApplicationIcon WHERE pkgname = \'"
 
-    move-result-object v7
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v12
 
-    move-result-object v7
+    move-object/from16 v0, p1
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v12
 
-    const/4 v8, 0x0
+    const-string/jumbo v13, "\' AND "
 
-    invoke-virtual {v2, v7, v8}, Landroid/database/sqlite/SQLiteDatabase;->rawQuery(Ljava/lang/String;[Ljava/lang/String;)Landroid/database/Cursor;
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v12
 
-    invoke-interface {v1}, Landroid/database/Cursor;->moveToFirst()Z
+    invoke-virtual {v12, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result v7
+    move-result-object v12
 
-    if-eqz v7, :cond_1
+    const-string/jumbo v13, " = "
 
-    const-string/jumbo v7, "newname"
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-interface {v1, v7}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    move-result-object v12
 
-    move-result v7
+    move/from16 v0, p2
 
-    invoke-interface {v1, v7}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v12
 
-    if-eqz v4, :cond_3
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    new-instance v6, Landroid/content/ContentValues;
+    move-result-object v12
 
-    invoke-direct {v6}, Landroid/content/ContentValues;-><init>()V
+    const/4 v13, 0x0
 
-    const-string/jumbo v7, "imagedata"
+    invoke-virtual {v3, v12, v13}, Landroid/database/sqlite/SQLiteDatabase;->rawQuery(Ljava/lang/String;[Ljava/lang/String;)Landroid/database/Cursor;
 
-    invoke-virtual {v6, v7}, Landroid/content/ContentValues;->putNull(Ljava/lang/String;)V
+    move-result-object v2
 
-    const-string/jumbo v7, "ApplicationIcon"
+    if-eqz v2, :cond_1
 
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "pkgname = \'"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, "\' AND "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, "nameowner"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, " = "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    const/4 v9, 0x0
-
-    invoke-virtual {v2, v7, v6, v8, v9}, Landroid/database/sqlite/SQLiteDatabase;->update(Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
+    invoke-interface {v2}, Landroid/database/Cursor;->getCount()I
     :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v0
+    move-result v12
 
-    if-lez v0, :cond_1
-
-    const/4 v5, 0x1
+    if-nez v12, :cond_3
 
     :cond_1
-    :goto_0
-    if-eqz v1, :cond_2
+    if-eqz v2, :cond_2
 
-    invoke-interface {v1}, Landroid/database/Cursor;->close()V
-
-    :cond_2
-    :goto_1
-    return v5
-
-    :cond_3
     :try_start_1
-    const-string/jumbo v7, "ApplicationIcon"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "pkgname = \'"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, "\' AND "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, "nameowner"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, " = "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    const/4 v9, 0x0
-
-    invoke-virtual {v2, v7, v8, v9}, Landroid/database/sqlite/SQLiteDatabase;->delete(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)I
+    invoke-interface {v2}, Landroid/database/Cursor;->close()V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    move-result v0
-
-    if-lez v0, :cond_1
-
-    const/4 v5, 0x1
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v3
-
+    :cond_2
+    :goto_0
     :try_start_2
-    invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
+    const-string/jumbo v8, "userid"
+
+    invoke-static/range {p2 .. p2}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v9
+
+    new-instance v12, Ljava/lang/StringBuilder;
+
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v13, "SELECT * FROM ApplicationIcon WHERE pkgname = \'"
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    const-string/jumbo v13, "\' AND "
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    const-string/jumbo v13, " = "
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    const/4 v13, 0x0
+
+    invoke-virtual {v3, v12, v13}, Landroid/database/sqlite/SQLiteDatabase;->rawQuery(Ljava/lang/String;[Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v2
+
+    :cond_3
+    invoke-interface {v2}, Landroid/database/Cursor;->moveToFirst()Z
+
+    move-result v12
+
+    if-eqz v12, :cond_5
+
+    const-string/jumbo v12, "nameowner"
+
+    invoke-interface {v2, v12}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v12
+
+    invoke-interface {v2, v12}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v7
+
+    if-eqz v7, :cond_4
+
+    move/from16 v0, p2
+
+    if-ne v7, v0, :cond_5
+
+    :cond_4
+    const-string/jumbo v12, "newname"
+
+    invoke-interface {v2, v12}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v12
+
+    invoke-interface {v2, v12}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_7
+
+    new-instance v11, Landroid/content/ContentValues;
+
+    invoke-direct {v11}, Landroid/content/ContentValues;-><init>()V
+
+    const-string/jumbo v12, "imagedata"
+
+    invoke-virtual {v11, v12}, Landroid/content/ContentValues;->putNull(Ljava/lang/String;)V
+
+    const-string/jumbo v12, "ApplicationIcon"
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v14, "pkgname = \'"
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v13, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v14, "\' AND "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v14, " = "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    const/4 v14, 0x0
+
+    invoke-virtual {v3, v12, v11, v13, v14}, Landroid/database/sqlite/SQLiteDatabase;->update(Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
     :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    if-eqz v1, :cond_2
+    move-result v1
 
-    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+    if-lez v1, :cond_5
+
+    const/4 v10, 0x1
+
+    :cond_5
+    :goto_1
+    if-eqz v2, :cond_6
+
+    invoke-interface {v2}, Landroid/database/Cursor;->close()V
+
+    :cond_6
+    :goto_2
+    return v10
+
+    :catch_0
+    move-exception v5
+
+    goto/16 :goto_0
+
+    :cond_7
+    :try_start_3
+    const-string/jumbo v12, "ApplicationIcon"
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v14, "pkgname = \'"
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v13, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v14, "\' AND "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v14, " = "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    const/4 v14, 0x0
+
+    invoke-virtual {v3, v12, v13, v14}, Landroid/database/sqlite/SQLiteDatabase;->delete(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)I
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    move-result v1
+
+    if-lez v1, :cond_5
+
+    const/4 v10, 0x1
 
     goto :goto_1
 
+    :catch_1
+    move-exception v4
+
+    :try_start_4
+    invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    if-eqz v2, :cond_6
+
+    invoke-interface {v2}, Landroid/database/Cursor;->close()V
+
+    goto :goto_2
+
     :catchall_0
-    move-exception v7
+    move-exception v12
 
-    if-eqz v1, :cond_4
+    if-eqz v2, :cond_8
 
-    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+    invoke-interface {v2}, Landroid/database/Cursor;->close()V
 
-    :cond_4
-    throw v7
+    :cond_8
+    throw v12
 .end method
 
 .method deleteApplicationName(Ljava/lang/String;I)Z

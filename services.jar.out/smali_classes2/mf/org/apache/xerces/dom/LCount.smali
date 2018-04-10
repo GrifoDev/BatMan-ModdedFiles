@@ -49,9 +49,9 @@
 .method static lookup(Ljava/lang/String;)Lmf/org/apache/xerces/dom/LCount;
     .locals 2
 
-    sget-object v0, Lmf/org/apache/xerces/dom/LCount;->lCounts:Ljava/util/Hashtable;
+    sget-object v1, Lmf/org/apache/xerces/dom/LCount;->lCounts:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p0}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p0}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 

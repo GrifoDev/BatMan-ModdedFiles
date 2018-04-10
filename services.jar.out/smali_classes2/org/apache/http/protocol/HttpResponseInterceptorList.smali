@@ -25,7 +25,23 @@
 .end method
 
 .method public abstract removeResponseInterceptorByClass(Ljava/lang/Class;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/Class",
+            "<+",
+            "Lorg/apache/http/HttpResponseInterceptor;",
+            ">;)V"
+        }
+    .end annotation
 .end method
 
 .method public abstract setInterceptors(Ljava/util/List;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<*>;)V"
+        }
+    .end annotation
 .end method

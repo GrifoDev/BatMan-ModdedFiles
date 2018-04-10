@@ -205,11 +205,11 @@
     :cond_0
     new-instance v0, Lmf/org/w3c/dom/DOMException;
 
-    const-string/jumbo v1, "parameter error"
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    const-string/jumbo v2, "parameter error"
 
-    invoke-direct {v0, v2, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
 
     throw v0
 

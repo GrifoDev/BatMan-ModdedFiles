@@ -49,7 +49,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/server/VibratorService;->-set4(Lcom/android/server/VibratorService;Z)Z
+    invoke-static {v0, v1}, Lcom/android/server/VibratorService;->-set3(Lcom/android/server/VibratorService;Z)Z
 
     goto :goto_0
 
@@ -58,7 +58,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/server/VibratorService;->-set4(Lcom/android/server/VibratorService;Z)Z
+    invoke-static {v0, v1}, Lcom/android/server/VibratorService;->-set3(Lcom/android/server/VibratorService;Z)Z
 
     goto :goto_0
 

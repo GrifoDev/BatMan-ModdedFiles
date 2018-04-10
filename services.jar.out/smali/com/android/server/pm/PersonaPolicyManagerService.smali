@@ -86,6 +86,18 @@
 
 .field mReceiver:Landroid/content/BroadcastReceiver;
 
+.field private policyHandlers:Ljava/util/HashMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/HashMap",
+            "<",
+            "Ljava/lang/Integer;",
+            "Lcom/android/server/pm/PersonaPolicyHandler;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 
 # direct methods
 .method static synthetic -wrap0(Lcom/android/server/pm/PersonaPolicyManagerService;)Lcom/android/server/pm/PersonaManagerService;
@@ -142,6 +154,12 @@
     invoke-direct {v0, p0}, Lcom/android/server/pm/PersonaPolicyManagerService$1;-><init>(Lcom/android/server/pm/PersonaPolicyManagerService;)V
 
     iput-object v0, p0, Lcom/android/server/pm/PersonaPolicyManagerService;->mReceiver:Landroid/content/BroadcastReceiver;
+
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/pm/PersonaPolicyManagerService;->policyHandlers:Ljava/util/HashMap;
 
     iput-object v1, p0, Lcom/android/server/pm/PersonaPolicyManagerService;->SHARE_WITH_KNOX:Ljava/util/List;
 
@@ -648,202 +666,141 @@
 .end method
 
 .method private getDataSyncPolicy(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 16
+    .locals 12
 
-    invoke-direct/range {p0 .. p0}, Lcom/android/server/pm/PersonaPolicyManagerService;->getPersonaManagerService()Lcom/android/server/pm/PersonaManagerService;
+    invoke-static {p1}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
-    move-result-object v13
+    move-result v1
 
-    if-eqz v13, :cond_0
+    invoke-direct {p0, v1, p3}, Lcom/android/server/pm/PersonaPolicyManagerService;->getDefaultRCPPolicy(ZLjava/lang/String;)Ljava/lang/String;
 
-    invoke-direct/range {p0 .. p0}, Lcom/android/server/pm/PersonaPolicyManagerService;->getPersonaManagerService()Lcom/android/server/pm/PersonaManagerService;
+    move-result-object v0
 
-    move-result-object v13
+    if-nez v1, :cond_0
 
-    move/from16 v0, p1
-
-    invoke-virtual {v13, v0}, Lcom/android/server/pm/PersonaManagerService;->exists(I)Z
-
-    move-result v4
-
-    :goto_0
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p3
-
-    invoke-direct {v0, v4, v1}, Lcom/android/server/pm/PersonaPolicyManagerService;->getDefaultRCPPolicy(ZLjava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    if-nez v4, :cond_1
-
-    return-object v3
+    return-object v0
 
     :cond_0
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    goto :goto_0
+    monitor-enter p0
 
-    :cond_1
-    const/4 v6, 0x0
+    if-eqz v1, :cond_2
 
-    const-string/jumbo v13, "mum_container_rcp_policy"
+    :try_start_0
+    invoke-virtual {p0, p1}, Lcom/android/server/pm/PersonaPolicyManagerService;->getPersonaData(I)Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;
 
-    invoke-static {v13}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    move-result-object v4
 
-    move-result-object v8
+    if-eqz v4, :cond_2
 
-    check-cast v8, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;
+    iget-object v9, v4, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;->mRCPDataSettings:Ljava/util/HashMap;
 
-    if-eqz v8, :cond_2
+    invoke-virtual {v9, p2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move/from16 v0, p1
+    move-result-object v2
 
-    move-object/from16 v1, p2
+    check-cast v2, Ljava/util/ArrayList;
 
-    move-object/from16 v2, p3
+    if-eqz v2, :cond_2
 
-    invoke-virtual {v8, v0, v1, v2}, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->getDataSyncPolicyByUser(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v6
 
-    :cond_2
-    if-eqz v6, :cond_3
+    :cond_1
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
-    const-string/jumbo v13, "true"
+    move-result v9
 
-    invoke-virtual {v6, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-eqz v9, :cond_2
 
-    move-result v13
-
-    if-eqz v13, :cond_6
-
-    :cond_3
-    monitor-enter p0
-
-    if-eqz v4, :cond_5
-
-    :try_start_0
-    invoke-virtual/range {p0 .. p1}, Lcom/android/server/pm/PersonaPolicyManagerService;->getPersonaData(I)Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;
-
-    move-result-object v7
-
-    if-eqz v7, :cond_5
-
-    iget-object v13, v7, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;->mRCPDataSettings:Ljava/util/HashMap;
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v13, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v5
 
-    check-cast v5, Ljava/util/ArrayList;
+    check-cast v5, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;
 
-    if-eqz v5, :cond_5
+    iget-object v9, v5, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;->property:Ljava/lang/String;
 
-    invoke-interface {v5}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v9, p3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v10
+    move-result v9
 
-    :cond_4
-    invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
+    if-eqz v9, :cond_1
 
-    move-result v13
+    iget-object v9, v5, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;->value:Ljava/lang/String;
 
-    if-eqz v13, :cond_5
+    if-eqz v9, :cond_1
 
-    invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    iget-object v9, v5, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;->value:Ljava/lang/String;
 
-    move-result-object v9
+    const-string/jumbo v10, ""
 
-    check-cast v9, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;
+    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    iget-object v13, v9, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;->property:Ljava/lang/String;
+    move-result v9
 
-    move-object/from16 v0, p3
+    xor-int/lit8 v9, v9, 0x1
 
-    invoke-virtual {v13, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-eqz v9, :cond_1
 
-    move-result v13
-
-    if-eqz v13, :cond_4
-
-    iget-object v13, v9, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;->value:Ljava/lang/String;
-
-    if-eqz v13, :cond_4
-
-    iget-object v13, v9, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;->value:Ljava/lang/String;
-
-    const-string/jumbo v14, ""
-
-    invoke-virtual {v13, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-nez v13, :cond_4
-
-    iget-object v13, v9, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;->value:Ljava/lang/String;
+    iget-object v9, v5, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;->value:Ljava/lang/String;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return-object v13
+    return-object v9
 
-    :cond_5
+    :cond_2
     monitor-exit p0
 
-    :cond_6
-    invoke-static/range {p1 .. p1}, Lcom/sec/enterprise/knox/container/KnoxContainerManager;->getConfigurationType(I)Lcom/sec/enterprise/knox/container/KnoxConfigurationType;
+    invoke-static {p1}, Lcom/sec/enterprise/knox/container/KnoxContainerManager;->getConfigurationType(I)Lcom/sec/enterprise/knox/container/KnoxConfigurationType;
 
-    move-result-object v11
+    move-result-object v7
 
-    if-eqz v11, :cond_7
+    if-eqz v7, :cond_3
 
-    move-object/from16 v0, p2
+    invoke-virtual {v7, p2, p3}, Lcom/sec/enterprise/knox/container/KnoxConfigurationType;->getDataSyncPolicy(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-object/from16 v1, p3
+    move-result-object v8
 
-    invoke-virtual {v11, v0, v1}, Lcom/sec/enterprise/knox/container/KnoxConfigurationType;->getDataSyncPolicy(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    const-string/jumbo v9, "PersonaPolicyManagerService"
 
-    move-result-object v12
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v13, "PersonaPolicyManagerService"
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-instance v14, Ljava/lang/StringBuilder;
+    const-string/jumbo v11, "configuration value set by MDM : "
 
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v15, "configuration value set by MDM : "
+    move-result-object v10
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v10
 
-    invoke-virtual {v14, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v10
 
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v14
+    if-eqz v8, :cond_3
 
-    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz v12, :cond_7
-
-    return-object v12
+    return-object v8
 
     :catchall_0
-    move-exception v13
+    move-exception v9
 
     monitor-exit p0
 
-    throw v13
+    throw v9
 
-    :cond_7
-    return-object v3
+    :cond_3
+    return-object v0
 .end method
 
 .method private final getDefaultRCPPolicy(ZLjava/lang/String;)Ljava/lang/String;
@@ -935,145 +892,111 @@
 .end method
 
 .method private getNotificationSyncPolicy(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 9
+    .locals 8
 
-    invoke-direct {p0}, Lcom/android/server/pm/PersonaPolicyManagerService;->getPersonaManagerService()Lcom/android/server/pm/PersonaManagerService;
-
-    move-result-object v7
-
-    if-eqz v7, :cond_0
-
-    invoke-direct {p0}, Lcom/android/server/pm/PersonaPolicyManagerService;->getPersonaManagerService()Lcom/android/server/pm/PersonaManagerService;
-
-    move-result-object v7
-
-    invoke-virtual {v7, p1}, Lcom/android/server/pm/PersonaManagerService;->exists(I)Z
+    invoke-static {p1}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
     move-result v0
 
-    :goto_0
-    if-nez v0, :cond_1
+    if-nez v0, :cond_0
 
     invoke-direct {p0, v0, p3}, Lcom/android/server/pm/PersonaPolicyManagerService;->getDefaultRCPPolicy(ZLjava/lang/String;)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    return-object v7
+    return-object v6
 
     :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-
-    :cond_1
     const/4 v2, 0x0
-
-    const-string/jumbo v7, "mum_container_rcp_policy"
-
-    invoke-static {v7}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;
-
-    if-eqz v4, :cond_2
-
-    invoke-virtual {v4, p1, p2, p3}, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->getNotificationSyncPolicyByUser(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    :cond_2
-    if-nez v2, :cond_5
 
     monitor-enter p0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_2
 
     :try_start_0
     invoke-virtual {p0, p1}, Lcom/android/server/pm/PersonaPolicyManagerService;->getPersonaData(I)Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;
 
     move-result-object v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_2
 
-    iget-object v7, v3, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;->mRCPNotifSettings:Ljava/util/HashMap;
+    iget-object v6, v3, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;->mRCPNotifSettings:Ljava/util/HashMap;
 
-    invoke-virtual {v7, p2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, p2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/util/ArrayList;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_2
 
     invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v6
-
-    :cond_3
-    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_4
-
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
     move-result-object v5
 
-    check-cast v5, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;
+    :cond_1
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
-    iget-object v7, v5, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;->property:Ljava/lang/String;
+    move-result v6
 
-    invoke-virtual {v7, p3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-eqz v6, :cond_2
 
-    move-result v7
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    if-eqz v7, :cond_3
+    move-result-object v4
 
-    iget-object v7, v5, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;->value:Ljava/lang/String;
+    check-cast v4, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;
 
-    if-eqz v7, :cond_3
+    iget-object v6, v4, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;->property:Ljava/lang/String;
 
-    iget-object v7, v5, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;->value:Ljava/lang/String;
+    invoke-virtual {v6, p3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v8, ""
+    move-result v6
 
-    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-eqz v6, :cond_1
 
-    move-result v7
+    iget-object v6, v4, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;->value:Ljava/lang/String;
 
-    if-nez v7, :cond_3
+    if-eqz v6, :cond_1
 
-    iget-object v7, v5, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;->value:Ljava/lang/String;
+    iget-object v6, v4, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;->value:Ljava/lang/String;
+
+    const-string/jumbo v7, ""
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    xor-int/lit8 v6, v6, 0x1
+
+    if-eqz v6, :cond_1
+
+    iget-object v6, v4, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;->value:Ljava/lang/String;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return-object v7
+    return-object v6
 
-    :cond_4
+    :cond_2
     :try_start_1
     invoke-direct {p0, v0, p3}, Lcom/android/server/pm/PersonaPolicyManagerService;->getDefaultRCPPolicy(ZLjava/lang/String;)Ljava/lang/String;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    move-result-object v7
+    move-result-object v6
 
     monitor-exit p0
 
-    return-object v7
+    return-object v6
 
     :catchall_0
-    move-exception v7
+    move-exception v6
 
     monitor-exit p0
 
-    throw v7
-
-    :cond_5
-    return-object v2
+    throw v6
 .end method
 
 .method private getPersonaManagerService()Lcom/android/server/pm/PersonaManagerService;
@@ -1100,33 +1023,47 @@
 .end method
 
 .method private getPersonaPolicyManager(I)Landroid/content/pm/IPersonaPolicyHandler;
-    .locals 2
+    .locals 3
 
-    const/4 v1, 0x0
+    iget-object v1, p0, Lcom/android/server/pm/PersonaPolicyManagerService;->policyHandlers:Ljava/util/HashMap;
 
-    invoke-direct {p0}, Lcom/android/server/pm/PersonaPolicyManagerService;->getPersonaManagerService()Lcom/android/server/pm/PersonaManagerService;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object v2
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v1, v2}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
-    invoke-direct {p0}, Lcom/android/server/pm/PersonaPolicyManagerService;->getPersonaManagerService()Lcom/android/server/pm/PersonaManagerService;
+    move-result v1
 
-    move-result-object v0
+    if-nez v1, :cond_0
 
-    invoke-virtual {v0, p1}, Lcom/android/server/pm/PersonaManagerService;->getPersonaPolicyHandler(I)Ljava/lang/Object;
+    new-instance v0, Lcom/android/server/pm/PersonaPolicyHandler;
 
-    move-result-object v0
+    iget-object v1, p0, Lcom/android/server/pm/PersonaPolicyManagerService;->mContext:Landroid/content/Context;
 
-    check-cast v0, Landroid/os/IBinder;
+    invoke-direct {v0, v1}, Lcom/android/server/pm/PersonaPolicyHandler;-><init>(Landroid/content/Context;)V
 
-    invoke-static {v0}, Landroid/content/pm/IPersonaPolicyHandler$Stub;->asInterface(Landroid/os/IBinder;)Landroid/content/pm/IPersonaPolicyHandler;
+    iget-object v1, p0, Lcom/android/server/pm/PersonaPolicyManagerService;->policyHandlers:Ljava/util/HashMap;
 
-    move-result-object v0
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    return-object v0
+    move-result-object v2
+
+    invoke-virtual {v1, v2, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_0
+    iget-object v1, p0, Lcom/android/server/pm/PersonaPolicyManagerService;->policyHandlers:Ljava/util/HashMap;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/content/pm/IPersonaPolicyHandler;
+
     return-object v1
 .end method
 
@@ -1378,7 +1315,7 @@
 
     move/from16 v1, v21
 
-    if-eq v0, v1, :cond_21
+    if-eq v0, v1, :cond_20
 
     packed-switch v19, :pswitch_data_0
 
@@ -2613,15 +2550,76 @@
 
     move-result-object v13
 
-    if-eqz v13, :cond_1e
+    if-eqz v13, :cond_1f
 
     invoke-virtual {v13}, Ljava/lang/String;->isEmpty()Z
 
     move-result v21
 
+    xor-int/lit8 v21, v21, 0x1
+
     if-eqz v21, :cond_1f
 
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;->mSecureFolderPolicies:Ljava/util/HashMap;
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v21
+
+    if-eqz v21, :cond_1e
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;->mSecureFolderPolicies:Ljava/util/HashMap;
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v21
+
+    check-cast v21, Ljava/util/List;
+
+    move-object/from16 v0, v21
+
+    invoke-interface {v0, v13}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_3
+
     :cond_1e
+    new-instance v12, Ljava/util/ArrayList;
+
+    invoke-direct {v12}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-interface {v12, v13}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;->mSecureFolderPolicies:Ljava/util/HashMap;
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v0, v1, v12}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto/16 :goto_3
+
+    :cond_1f
     const-string/jumbo v21, "PersonaPolicyManagerService"
 
     new-instance v22, Ljava/lang/StringBuilder;
@@ -2649,66 +2647,6 @@
     invoke-static/range {v21 .. v22}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {v11}, Lcom/android/internal/util/XmlUtils;->skipCurrentTag(Lorg/xmlpull/v1/XmlPullParser;)V
-
-    goto/16 :goto_3
-
-    :cond_1f
-    move-object/from16 v0, p1
-
-    iget-object v0, v0, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;->mSecureFolderPolicies:Ljava/util/HashMap;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v21
-
-    if-eqz v21, :cond_20
-
-    move-object/from16 v0, p1
-
-    iget-object v0, v0, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;->mSecureFolderPolicies:Ljava/util/HashMap;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v21
-
-    check-cast v21, Ljava/util/List;
-
-    move-object/from16 v0, v21
-
-    invoke-interface {v0, v13}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_3
-
-    :cond_20
-    new-instance v12, Ljava/util/ArrayList;
-
-    invoke-direct {v12}, Ljava/util/ArrayList;-><init>()V
-
-    invoke-interface {v12, v13}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    move-object/from16 v0, p1
-
-    iget-object v0, v0, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;->mSecureFolderPolicies:Ljava/util/HashMap;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v1, v12}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_7
     .catch Ljava/lang/NullPointerException; {:try_start_7 .. :try_end_7} :catch_0
     .catch Ljava/lang/NumberFormatException; {:try_start_7 .. :try_end_7} :catch_1
@@ -2719,7 +2657,7 @@
 
     goto/16 :goto_3
 
-    :cond_21
+    :cond_20
     move-object/from16 v16, v17
 
     goto/16 :goto_1
@@ -3992,7 +3930,7 @@
 
     move-object/from16 v19, v0
 
-    if-eqz v19, :cond_16
+    if-eqz v19, :cond_1a
 
     iget-object v0, v11, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;->mRCPDataSettings:Ljava/util/HashMap;
 
@@ -4002,68 +3940,10 @@
 
     move-result v19
 
-    if-eqz v19, :cond_19
+    xor-int/lit8 v19, v19, 0x1
 
-    :cond_16
-    :goto_0
-    iget-object v0, v11, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;->mRCPNotifSettings:Ljava/util/HashMap;
+    if-eqz v19, :cond_1a
 
-    move-object/from16 v19, v0
-
-    if-eqz v19, :cond_17
-
-    iget-object v0, v11, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;->mRCPNotifSettings:Ljava/util/HashMap;
-
-    move-object/from16 v19, v0
-
-    invoke-virtual/range {v19 .. v19}, Ljava/util/HashMap;->isEmpty()Z
-
-    move-result v19
-
-    if-eqz v19, :cond_1e
-
-    :cond_17
-    :goto_1
-    iget-object v0, v11, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;->mSecureFolderPolicies:Ljava/util/HashMap;
-
-    move-object/from16 v19, v0
-
-    if-eqz v19, :cond_18
-
-    iget-object v0, v11, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;->mSecureFolderPolicies:Ljava/util/HashMap;
-
-    move-object/from16 v19, v0
-
-    invoke-virtual/range {v19 .. v19}, Ljava/util/HashMap;->isEmpty()Z
-
-    move-result v19
-
-    if-eqz v19, :cond_22
-
-    :cond_18
-    :goto_2
-    const-string/jumbo v19, "policies"
-
-    const/16 v20, 0x0
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v19
-
-    invoke-interface {v10, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    invoke-interface {v10}, Lorg/xmlpull/v1/XmlSerializer;->endDocument()V
-
-    invoke-virtual/range {v16 .. v16}, Ljava/io/FileOutputStream;->close()V
-
-    invoke-virtual {v5}, Lcom/android/internal/util/JournaledFile;->commit()V
-
-    move-object/from16 v15, v16
-
-    :goto_3
-    return-void
-
-    :cond_19
     const-string/jumbo v19, "rcp-data-settings"
 
     const/16 v20, 0x0
@@ -4086,13 +3966,13 @@
 
     move-result-object v7
 
-    :cond_1a
-    :goto_4
+    :cond_16
+    :goto_0
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v19
 
-    if-eqz v19, :cond_1d
+    if-eqz v19, :cond_19
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4136,13 +4016,15 @@
 
     check-cast v14, Ljava/util/ArrayList;
 
-    if-eqz v14, :cond_1a
+    if-eqz v14, :cond_16
 
     invoke-virtual {v14}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v19
 
-    if-nez v19, :cond_1a
+    xor-int/lit8 v19, v19, 0x1
+
+    if-eqz v19, :cond_16
 
     const-string/jumbo v19, "application"
 
@@ -4168,7 +4050,246 @@
 
     move-result-object v13
 
+    :goto_1
+    invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v19
+
+    if-eqz v19, :cond_18
+
+    invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v12
+
+    check-cast v12, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;
+
+    const-string/jumbo v19, "property"
+
+    const/16 v20, 0x0
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v19
+
+    invoke-interface {v10, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    const-string/jumbo v19, "name"
+
+    iget-object v0, v12, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;->property:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x0
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v19
+
+    move-object/from16 v2, v20
+
+    invoke-interface {v10, v0, v1, v2}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    const-string/jumbo v19, "value"
+
+    iget-object v0, v12, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;->value:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x0
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v19
+
+    move-object/from16 v2, v20
+
+    invoke-interface {v10, v0, v1, v2}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    const-string/jumbo v19, "property"
+
+    const/16 v20, 0x0
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v19
+
+    invoke-interface {v10, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception v3
+
+    move-object/from16 v15, v16
+
+    :goto_2
+    if-eqz v15, :cond_17
+
+    :try_start_2
+    invoke-virtual {v15}, Ljava/io/FileOutputStream;->close()V
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+
+    :cond_17
+    :goto_3
+    invoke-virtual {v5}, Lcom/android/internal/util/JournaledFile;->rollback()V
+
+    :goto_4
+    return-void
+
+    :cond_18
+    :try_start_3
+    const-string/jumbo v19, "application"
+
+    const/16 v20, 0x0
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v19
+
+    invoke-interface {v10, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    goto/16 :goto_0
+
+    :cond_19
+    const-string/jumbo v19, "rcp-data-settings"
+
+    const/16 v20, 0x0
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v19
+
+    invoke-interface {v10, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    :cond_1a
+    iget-object v0, v11, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;->mRCPNotifSettings:Ljava/util/HashMap;
+
+    move-object/from16 v19, v0
+
+    if-eqz v19, :cond_1e
+
+    iget-object v0, v11, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;->mRCPNotifSettings:Ljava/util/HashMap;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Ljava/util/HashMap;->isEmpty()Z
+
+    move-result v19
+
+    xor-int/lit8 v19, v19, 0x1
+
+    if-eqz v19, :cond_1e
+
+    const-string/jumbo v19, "rcp-notif-settings"
+
+    const/16 v20, 0x0
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v19
+
+    invoke-interface {v10, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    iget-object v0, v11, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;->mRCPNotifSettings:Ljava/util/HashMap;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
+
+    move-result-object v19
+
+    invoke-interface/range {v19 .. v19}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v7
+
+    :cond_1b
     :goto_5
+    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v19
+
+    if-eqz v19, :cond_1d
+
+    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Ljava/lang/String;
+
+    const-string/jumbo v19, "PersonaPolicyManagerService"
+
+    new-instance v20, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v21, "key : "
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, v11, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;->mRCPNotifSettings:Ljava/util/HashMap;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v14
+
+    check-cast v14, Ljava/util/ArrayList;
+
+    if-eqz v14, :cond_1b
+
+    invoke-virtual {v14}, Ljava/util/ArrayList;->isEmpty()Z
+
+    move-result v19
+
+    xor-int/lit8 v19, v19, 0x1
+
+    if-eqz v19, :cond_1b
+
+    const-string/jumbo v19, "package"
+
+    const/16 v20, 0x0
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v19
+
+    invoke-interface {v10, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    const-string/jumbo v19, "name"
+
+    const/16 v20, 0x0
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v19
+
+    invoke-interface {v10, v0, v1, v6}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    invoke-interface {v14}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v13
+
+    :goto_6
     invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v19
@@ -4232,33 +4353,11 @@
     move-object/from16 v1, v19
 
     invoke-interface {v10, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_5
-
-    :catch_0
-    move-exception v3
-
-    move-object/from16 v15, v16
-
-    :goto_6
-    if-eqz v15, :cond_1b
-
-    :try_start_2
-    invoke-virtual {v15}, Ljava/io/FileOutputStream;->close()V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
-
-    :cond_1b
-    :goto_7
-    invoke-virtual {v5}, Lcom/android/internal/util/JournaledFile;->rollback()V
-
-    goto/16 :goto_3
+    goto :goto_6
 
     :cond_1c
-    :try_start_3
-    const-string/jumbo v19, "application"
+    const-string/jumbo v19, "package"
 
     const/16 v20, 0x0
 
@@ -4268,22 +4367,9 @@
 
     invoke-interface {v10, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    goto/16 :goto_4
+    goto/16 :goto_5
 
     :cond_1d
-    const-string/jumbo v19, "rcp-data-settings"
-
-    const/16 v20, 0x0
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v19
-
-    invoke-interface {v10, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    goto/16 :goto_0
-
-    :cond_1e
     const-string/jumbo v19, "rcp-notif-settings"
 
     const/16 v20, 0x0
@@ -4292,196 +4378,27 @@
 
     move-object/from16 v1, v19
 
-    invoke-interface {v10, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {v10, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    iget-object v0, v11, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;->mRCPNotifSettings:Ljava/util/HashMap;
+    :cond_1e
+    iget-object v0, v11, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;->mSecureFolderPolicies:Ljava/util/HashMap;
 
     move-object/from16 v19, v0
-
-    invoke-virtual/range {v19 .. v19}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
-
-    move-result-object v19
-
-    invoke-interface/range {v19 .. v19}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v7
-
-    :cond_1f
-    :goto_8
-    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v19
 
     if-eqz v19, :cond_21
 
-    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Ljava/lang/String;
-
-    const-string/jumbo v19, "PersonaPolicyManagerService"
-
-    new-instance v20, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v21, "key : "
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    move-object/from16 v0, v20
-
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v20
-
-    invoke-static/range {v19 .. v20}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, v11, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;->mRCPNotifSettings:Ljava/util/HashMap;
+    iget-object v0, v11, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaPolicyData;->mSecureFolderPolicies:Ljava/util/HashMap;
 
     move-object/from16 v19, v0
 
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v14
-
-    check-cast v14, Ljava/util/ArrayList;
-
-    if-eqz v14, :cond_1f
-
-    invoke-virtual {v14}, Ljava/util/ArrayList;->isEmpty()Z
+    invoke-virtual/range {v19 .. v19}, Ljava/util/HashMap;->isEmpty()Z
 
     move-result v19
 
-    if-nez v19, :cond_1f
+    xor-int/lit8 v19, v19, 0x1
 
-    const-string/jumbo v19, "package"
+    if-eqz v19, :cond_21
 
-    const/16 v20, 0x0
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v19
-
-    invoke-interface {v10, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    const-string/jumbo v19, "name"
-
-    const/16 v20, 0x0
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v19
-
-    invoke-interface {v10, v0, v1, v6}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    invoke-interface {v14}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v13
-
-    :goto_9
-    invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v19
-
-    if-eqz v19, :cond_20
-
-    invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;
-
-    const-string/jumbo v19, "property"
-
-    const/16 v20, 0x0
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v19
-
-    invoke-interface {v10, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    const-string/jumbo v19, "name"
-
-    iget-object v0, v12, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;->property:Ljava/lang/String;
-
-    move-object/from16 v20, v0
-
-    const/16 v21, 0x0
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v19
-
-    move-object/from16 v2, v20
-
-    invoke-interface {v10, v0, v1, v2}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    const-string/jumbo v19, "value"
-
-    iget-object v0, v12, Lcom/android/server/pm/PersonaPolicyManagerService$PersonaRCPSettings;->value:Ljava/lang/String;
-
-    move-object/from16 v20, v0
-
-    const/16 v21, 0x0
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v19
-
-    move-object/from16 v2, v20
-
-    invoke-interface {v10, v0, v1, v2}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    const-string/jumbo v19, "property"
-
-    const/16 v20, 0x0
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v19
-
-    invoke-interface {v10, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    goto :goto_9
-
-    :cond_20
-    const-string/jumbo v19, "package"
-
-    const/16 v20, 0x0
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v19
-
-    invoke-interface {v10, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    goto/16 :goto_8
-
-    :cond_21
-    const-string/jumbo v19, "rcp-notif-settings"
-
-    const/16 v20, 0x0
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v19
-
-    invoke-interface {v10, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    goto/16 :goto_1
-
-    :cond_22
     const-string/jumbo v19, "managed-applications"
 
     const/16 v20, 0x0
@@ -4514,12 +4431,12 @@
 
     move-result-object v8
 
-    :cond_23
+    :cond_1f
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v19
 
-    if-eqz v19, :cond_24
+    if-eqz v19, :cond_20
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4543,12 +4460,12 @@
 
     move-result-object v18
 
-    :goto_a
+    :goto_7
     invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v19
 
-    if-eqz v19, :cond_23
+    if-eqz v19, :cond_1f
 
     invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4580,9 +4497,9 @@
 
     invoke-interface {v10, v0, v6}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    goto :goto_a
+    goto :goto_7
 
-    :cond_24
+    :cond_20
     const-string/jumbo v19, "secure-folder"
 
     const/16 v20, 0x0
@@ -4602,20 +4519,93 @@
     move-object/from16 v1, v19
 
     invoke-interface {v10, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    :cond_21
+    const-string/jumbo v19, "policies"
+
+    const/16 v20, 0x0
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v19
+
+    invoke-interface {v10, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    invoke-interface {v10}, Lorg/xmlpull/v1/XmlSerializer;->endDocument()V
+
+    invoke-virtual/range {v16 .. v16}, Ljava/io/FileOutputStream;->close()V
+
+    invoke-virtual {v5}, Lcom/android/internal/util/JournaledFile;->commit()V
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
 
-    goto/16 :goto_2
+    move-object/from16 v15, v16
+
+    goto/16 :goto_4
 
     :catch_1
     move-exception v4
 
-    goto/16 :goto_7
+    goto/16 :goto_3
 
     :catch_2
     move-exception v3
 
-    goto/16 :goto_6
+    goto/16 :goto_2
+.end method
+
+.method private sendRCPPolicyChangedBroadcast(I)V
+    .locals 5
+
+    :try_start_0
+    const-string/jumbo v2, "mum_container_rcp_policy"
+
+    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v1, p1}, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->sendRCPPolicyChangedBroadcast(I)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "PersonaPolicyManagerService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Exception: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method
 
 .method private setApplicationBlackList(Ljava/util/List;I)V
@@ -4805,17 +4795,7 @@
     monitor-enter p0
 
     :try_start_0
-    invoke-direct {p0}, Lcom/android/server/pm/PersonaPolicyManagerService;->getPersonaManagerService()Lcom/android/server/pm/PersonaManagerService;
-
-    move-result-object v6
-
-    if-eqz v6, :cond_4
-
-    invoke-direct {p0}, Lcom/android/server/pm/PersonaPolicyManagerService;->getPersonaManagerService()Lcom/android/server/pm/PersonaManagerService;
-
-    move-result-object v6
-
-    invoke-virtual {v6, p1}, Lcom/android/server/pm/PersonaManagerService;->exists(I)Z
+    invoke-static {p1}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
     move-result v6
 
@@ -4938,17 +4918,7 @@
     monitor-enter p0
 
     :try_start_0
-    invoke-direct {p0}, Lcom/android/server/pm/PersonaPolicyManagerService;->getPersonaManagerService()Lcom/android/server/pm/PersonaManagerService;
-
-    move-result-object v6
-
-    if-eqz v6, :cond_4
-
-    invoke-direct {p0}, Lcom/android/server/pm/PersonaPolicyManagerService;->getPersonaManagerService()Lcom/android/server/pm/PersonaManagerService;
-
-    move-result-object v6
-
-    invoke-virtual {v6, p1}, Lcom/android/server/pm/PersonaManagerService;->exists(I)Z
+    invoke-static {p1}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
     move-result v6
 
@@ -5072,10 +5042,6 @@
             Landroid/os/RemoteException;
         }
     .end annotation
-
-    const-string/jumbo v0, "addLockOnImage"
-
-    invoke-static {v0}, Lcom/android/server/pm/PersonaPolicyManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
 
     const/4 v0, 0x0
 
@@ -6213,10 +6179,6 @@
         }
     .end annotation
 
-    const-string/jumbo v0, "isBadgeRequired"
-
-    invoke-static {v0}, Lcom/android/server/pm/PersonaPolicyManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
-
     const/4 v0, 0x0
 
     return v0
@@ -6229,10 +6191,6 @@
             Landroid/os/RemoteException;
         }
     .end annotation
-
-    const-string/jumbo v0, "isBadgeRequiredFromOwner"
-
-    invoke-static {v0}, Lcom/android/server/pm/PersonaPolicyManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
 
     const/4 v0, 0x0
 
@@ -7433,11 +7391,11 @@
 .end method
 
 .method public setRCPDataPolicy(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v2, "setRCPDataPolicy"
+    const-string/jumbo v3, "setRCPDataPolicy"
 
-    invoke-static {v2}, Lcom/android/server/pm/PersonaPolicyManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
+    invoke-static {v3}, Lcom/android/server/pm/PersonaPolicyManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
@@ -7445,13 +7403,18 @@
 
     invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
 
-    move-result v1
-
-    invoke-direct {p0, v1, p1, p2, p3}, Lcom/android/server/pm/PersonaPolicyManagerService;->setRCPDataPolicyForUser(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
-
     move-result v2
 
-    return v2
+    invoke-direct {p0, v2, p1, p2, p3}, Lcom/android/server/pm/PersonaPolicyManagerService;->setRCPDataPolicyForUser(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-direct {p0, v2}, Lcom/android/server/pm/PersonaPolicyManagerService;->sendRCPPolicyChangedBroadcast(I)V
+
+    :cond_0
+    return v1
 .end method
 
 .method public setRCPNotificationPolicy(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z

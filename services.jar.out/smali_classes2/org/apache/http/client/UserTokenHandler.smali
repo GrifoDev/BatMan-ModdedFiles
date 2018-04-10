@@ -3,11 +3,6 @@
 .source "UserTokenHandler.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract getUserToken(Lorg/apache/http/protocol/HttpContext;)Ljava/lang/Object;
 .end method

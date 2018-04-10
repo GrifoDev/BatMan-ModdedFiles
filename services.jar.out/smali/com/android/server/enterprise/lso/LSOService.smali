@@ -2007,9 +2007,12 @@
     return-void
 .end method
 
-.method public getData(Lcom/samsung/android/knox/ContextInfo;I)Lcom/samsung/android/knox/lockscreen/LSOItemData;
+.method public declared-synchronized getData(Lcom/samsung/android/knox/ContextInfo;I)Lcom/samsung/android/knox/lockscreen/LSOItemData;
     .locals 3
 
+    monitor-enter p0
+
+    :try_start_0
     const-string/jumbo v0, "LSOService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2052,8 +2055,18 @@
     invoke-direct {v0, v1}, Ljava/security/InvalidParameterException;-><init>(Ljava/lang/String;)V
 
     throw v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
 
     :cond_1
+    :try_start_1
     sget-boolean v0, Lcom/android/server/enterprise/lso/LSOService;->DEBUG:Z
 
     if-eqz v0, :cond_2
@@ -2088,6 +2101,10 @@
     iget-object v0, p0, Lcom/android/server/enterprise/lso/LSOService;->mItemData:[Lcom/samsung/android/knox/lockscreen/LSOItemData;
 
     aget-object v0, v0, p2
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit p0
 
     return-object v0
 .end method
@@ -2848,35 +2865,33 @@
 
     move/from16 v0, p3
 
-    if-ne v0, v2, :cond_3
+    if-ne v0, v2, :cond_4
 
-    if-eqz v10, :cond_4
+    if-eqz v10, :cond_3
 
     invoke-virtual {v10}, Landroid/telephony/TelephonyManager;->isVoiceCapable()Z
 
     move-result v2
 
+    xor-int/lit8 v2, v2, 0x1
+
     if-eqz v2, :cond_4
 
     :cond_3
-    move-object/from16 v0, p2
+    const-string/jumbo v2, "LSOService"
 
-    move/from16 v1, p3
+    const-string/jumbo v3, "setData() failed because telephony is not supported."
 
-    invoke-virtual {p0, v11, v0, v1}, Lcom/android/server/enterprise/lso/LSOService;->copyFiles(ILcom/samsung/android/knox/lockscreen/LSOItemData;I)Z
+    invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
-
-    move-result v2
-
-    if-nez v2, :cond_5
 
     :try_start_6
     invoke-virtual/range {p2 .. p2}, Lcom/samsung/android/knox/lockscreen/LSOItemData;->closeFileDescriptor()V
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
-    const/4 v2, -0x4
+    const/4 v2, -0x3
 
     monitor-exit p0
 
@@ -2884,20 +2899,24 @@
 
     :cond_4
     :try_start_7
-    const-string/jumbo v2, "LSOService"
+    move-object/from16 v0, p2
 
-    const-string/jumbo v3, "setData() failed because telephony is not supported."
+    move/from16 v1, p3
 
-    invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v11, v0, v1}, Lcom/android/server/enterprise/lso/LSOService;->copyFiles(ILcom/samsung/android/knox/lockscreen/LSOItemData;I)Z
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_0
+
+    move-result v2
+
+    if-nez v2, :cond_5
 
     :try_start_8
     invoke-virtual/range {p2 .. p2}, Lcom/samsung/android/knox/lockscreen/LSOItemData;->closeFileDescriptor()V
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_1
 
-    const/4 v2, -0x3
+    const/4 v2, -0x4
 
     monitor-exit p0
 

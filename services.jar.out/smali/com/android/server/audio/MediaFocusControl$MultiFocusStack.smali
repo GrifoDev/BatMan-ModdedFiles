@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0xa
     name = "MultiFocusStack"
 .end annotation
 
@@ -28,14 +28,10 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Lcom/android/server/audio/MediaFocusControl;
-
 
 # direct methods
-.method public constructor <init>(Lcom/android/server/audio/MediaFocusControl;)V
+.method public constructor <init>()V
     .locals 3
-
-    iput-object p1, p0, Lcom/android/server/audio/MediaFocusControl$MultiFocusStack;->this$0:Lcom/android/server/audio/MediaFocusControl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -133,11 +129,11 @@
     return-object v4
 .end method
 
-.method public getFocusRequester(I)Ljava/util/ArrayList;
+.method public getFocusRequester(IZ)Ljava/util/ArrayList;
     .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(I)",
+            "(IZ)",
             "Ljava/util/ArrayList",
             "<",
             "Lcom/android/server/audio/FocusRequester;",
@@ -158,7 +154,7 @@
 
     move-result v5
 
-    if-ge v2, v5, :cond_2
+    if-ge v2, v5, :cond_3
 
     iget-object v5, p0, Lcom/android/server/audio/MediaFocusControl$MultiFocusStack;->mFocusStacks:Landroid/util/SparseArray;
 
@@ -178,7 +174,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -192,18 +188,21 @@
 
     if-ne v5, p1, :cond_0
 
+    if-eqz p2, :cond_1
+
     invoke-interface {v4}, Ljava/util/Iterator;->remove()V
 
+    :cond_1
     invoke-virtual {v3, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
-    :cond_1
+    :cond_2
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     return-object v3
 .end method
 

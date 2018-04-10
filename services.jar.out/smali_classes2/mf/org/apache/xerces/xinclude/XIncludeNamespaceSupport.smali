@@ -41,9 +41,9 @@
 .method public getURIFromIncludeParent(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
 
-    iget v0, p0, Lmf/org/apache/xerces/xinclude/XIncludeNamespaceSupport;->fCurrentContext:I
+    iget v1, p0, Lmf/org/apache/xerces/xinclude/XIncludeNamespaceSupport;->fCurrentContext:I
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 v0, v1, -0x1
 
     :goto_0
     if-gtz v0, :cond_1
@@ -51,9 +51,9 @@
     :cond_0
     invoke-virtual {p0, p1, v0}, Lmf/org/apache/xerces/xinclude/XIncludeNamespaceSupport;->getURI(Ljava/lang/String;I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_1
     iget-object v1, p0, Lmf/org/apache/xerces/xinclude/XIncludeNamespaceSupport;->fValidContext:[Z
@@ -74,35 +74,35 @@
 
     invoke-super {p0}, Lmf/org/apache/xerces/xinclude/MultipleScopeNamespaceSupport;->pushContext()V
 
-    iget v0, p0, Lmf/org/apache/xerces/xinclude/XIncludeNamespaceSupport;->fCurrentContext:I
-
-    add-int/lit8 v0, v0, 0x1
-
-    iget-object v1, p0, Lmf/org/apache/xerces/xinclude/XIncludeNamespaceSupport;->fValidContext:[Z
-
-    array-length v1, v1
-
-    if-eq v0, v1, :cond_0
-
-    :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/xinclude/XIncludeNamespaceSupport;->fValidContext:[Z
-
     iget v1, p0, Lmf/org/apache/xerces/xinclude/XIncludeNamespaceSupport;->fCurrentContext:I
 
-    const/4 v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    aput-boolean v2, v0, v1
+    iget-object v2, p0, Lmf/org/apache/xerces/xinclude/XIncludeNamespaceSupport;->fValidContext:[Z
+
+    array-length v2, v2
+
+    if-eq v1, v2, :cond_0
+
+    :goto_0
+    iget-object v1, p0, Lmf/org/apache/xerces/xinclude/XIncludeNamespaceSupport;->fValidContext:[Z
+
+    iget v2, p0, Lmf/org/apache/xerces/xinclude/XIncludeNamespaceSupport;->fCurrentContext:I
+
+    const/4 v3, 0x1
+
+    aput-boolean v3, v1, v2
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/xinclude/XIncludeNamespaceSupport;->fValidContext:[Z
+    iget-object v1, p0, Lmf/org/apache/xerces/xinclude/XIncludeNamespaceSupport;->fValidContext:[Z
 
-    array-length v0, v0
+    array-length v1, v1
 
-    mul-int/lit8 v0, v0, 0x2
+    mul-int/lit8 v1, v1, 0x2
 
-    new-array v0, v0, [Z
+    new-array v0, v1, [Z
 
     iget-object v1, p0, Lmf/org/apache/xerces/xinclude/XIncludeNamespaceSupport;->fValidContext:[Z
 

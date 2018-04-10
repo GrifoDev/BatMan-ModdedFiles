@@ -48,113 +48,111 @@
 .end method
 
 .method private maxEffectiveTotalRangeAllSeq()I
-    .locals 4
+    .locals 5
+
+    const/4 v4, -0x1
+
+    const/4 v2, 0x0
 
     const/4 v0, 0x0
 
-    const/4 v3, -0x1
-
-    move v1, v0
-
     :goto_0
-    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticleCount:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticleCount:I
 
-    if-ge v0, v2, :cond_1
+    if-ge v0, v3, :cond_1
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticles:[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticles:[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
-    aget-object v2, v2, v0
+    aget-object v3, v3, v0
 
-    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->maxEffectiveTotalRange()I
+    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->maxEffectiveTotalRange()I
 
-    move-result v2
+    move-result v1
 
-    if-eq v2, v3, :cond_0
+    if-eq v1, v4, :cond_0
 
-    add-int/2addr v1, v2
+    add-int/2addr v2, v1
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    return v3
+    return v4
 
     :cond_1
-    return v1
+    return v2
 .end method
 
 .method private maxEffectiveTotalRangeChoice()I
-    .locals 4
+    .locals 6
 
-    const/4 v0, 0x0
+    const/4 v5, 0x0
 
-    const/4 v3, -0x1
+    const/4 v4, -0x1
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticleCount:I
+    const/4 v1, 0x0
 
-    if-gtz v1, :cond_1
+    iget v3, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticleCount:I
+
+    if-gtz v3, :cond_1
 
     :cond_0
-    const/4 v1, 0x1
-
-    move v2, v1
+    const/4 v0, 0x1
 
     :goto_0
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticleCount:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticleCount:I
 
-    if-ge v2, v1, :cond_4
+    if-ge v0, v3, :cond_4
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticles:[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticles:[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
-    aget-object v1, v1, v2
+    aget-object v3, v3, v0
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->maxEffectiveTotalRange()I
+    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->maxEffectiveTotalRange()I
 
-    move-result v1
+    move-result v2
 
-    if-eq v1, v3, :cond_2
+    if-eq v2, v4, :cond_2
 
-    if-gt v1, v0, :cond_3
+    if-gt v2, v1, :cond_3
 
     :goto_1
-    add-int/lit8 v1, v2, 0x1
-
-    move v2, v1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_1
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticles:[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticles:[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
-    aget-object v0, v1, v0
+    aget-object v3, v3, v5
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->maxEffectiveTotalRange()I
+    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->maxEffectiveTotalRange()I
 
-    move-result v0
+    move-result v1
 
-    if-ne v0, v3, :cond_0
+    if-ne v1, v4, :cond_0
 
-    return v3
+    return v4
 
     :cond_2
-    return v3
+    return v4
 
     :cond_3
-    move v0, v1
+    move v1, v2
 
     goto :goto_1
 
     :cond_4
-    return v0
+    return v1
 .end method
 
 .method private minEffectiveTotalRangeAllSeq()I
     .locals 3
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    move v1, v0
+    const/4 v0, 0x0
 
     :goto_0
     iget v2, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticleCount:I
@@ -180,59 +178,57 @@
 .end method
 
 .method private minEffectiveTotalRangeChoice()I
-    .locals 3
+    .locals 5
 
-    const/4 v0, 0x0
+    const/4 v4, 0x0
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticleCount:I
+    const/4 v1, 0x0
 
-    if-gtz v1, :cond_0
+    iget v3, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticleCount:I
+
+    if-gtz v3, :cond_0
 
     :goto_0
-    const/4 v1, 0x1
-
-    move v2, v1
+    const/4 v0, 0x1
 
     :goto_1
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticleCount:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticleCount:I
 
-    if-ge v2, v1, :cond_2
+    if-ge v0, v3, :cond_2
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticles:[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticles:[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
-    aget-object v1, v1, v2
+    aget-object v3, v3, v0
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->minEffectiveTotalRange()I
+    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->minEffectiveTotalRange()I
 
-    move-result v1
+    move-result v2
 
-    if-lt v1, v0, :cond_1
+    if-lt v2, v1, :cond_1
 
     :goto_2
-    add-int/lit8 v1, v2, 0x1
-
-    move v2, v1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
     :cond_0
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticles:[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticles:[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
-    aget-object v0, v1, v0
+    aget-object v3, v3, v4
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->minEffectiveTotalRange()I
+    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->minEffectiveTotalRange()I
 
-    move-result v0
+    move-result v1
 
     goto :goto_0
 
     :cond_1
-    move v0, v1
+    move v1, v2
 
     goto :goto_2
 
     :cond_2
-    return v0
+    return v1
 .end method
 
 
@@ -360,36 +356,36 @@
 .method public isEmpty()Z
     .locals 3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_0
-    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticleCount:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticleCount:I
 
-    if-ge v0, v2, :cond_1
+    if-ge v0, v1, :cond_1
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticles:[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticles:[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
-    aget-object v2, v2, v0
+    aget-object v1, v1, v0
 
-    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->isEmpty()Z
+    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->isEmpty()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    return v1
+    return v2
 
     :cond_1
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    return v0
+    return v1
 .end method
 
 .method public maxEffectiveTotalRange()I
@@ -461,46 +457,46 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fDescription:Ljava/lang/String;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fDescription:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fDescription:Ljava/lang/String;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fDescription:Ljava/lang/String;
 
-    return-object v0
+    return-object v2
 
     :cond_0
-    new-instance v1, Ljava/lang/StringBuffer;
+    new-instance v0, Ljava/lang/StringBuffer;
 
-    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fCompositor:S
+    iget-short v2, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fCompositor:S
 
-    const/16 v2, 0x67
+    const/16 v3, 0x67
 
-    if-eq v0, v2, :cond_1
+    if-eq v2, v3, :cond_1
 
-    const/16 v0, 0x28
+    const/16 v2, 0x28
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     :goto_1
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticleCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticleCount:I
 
-    if-gtz v0, :cond_2
+    if-gtz v2, :cond_2
 
     :goto_2
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
     :goto_3
     iget v2, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticleCount:I
 
-    if-ge v0, v2, :cond_4
+    if-ge v1, v2, :cond_4
 
     iget-short v2, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fCompositor:S
 
@@ -510,60 +506,60 @@
 
     const/16 v2, 0x2c
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     :goto_4
     iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticles:[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
-    aget-object v2, v2, v0
+    aget-object v2, v2, v1
 
     invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_3
 
     :cond_1
-    const-string/jumbo v0, "all("
+    const-string/jumbo v2, "all("
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_1
 
     :cond_2
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticles:[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fParticles:[Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
-    aget-object v0, v0, v3
+    aget-object v2, v2, v4
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_2
 
     :cond_3
     const/16 v2, 0x7c
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto :goto_4
 
     :cond_4
-    const/16 v0, 0x29
+    const/16 v2, 0x29
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fDescription:Ljava/lang/String;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSModelGroupImpl;->fDescription:Ljava/lang/String;
 
     goto :goto_0
 .end method

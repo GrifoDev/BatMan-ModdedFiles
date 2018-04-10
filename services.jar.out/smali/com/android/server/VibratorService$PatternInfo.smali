@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0xa
     name = "PatternInfo"
 .end annotation
 
@@ -18,8 +18,6 @@
 .field private engine:[I
 
 .field private pattern:[J
-
-.field final synthetic this$0:Lcom/android/server/VibratorService;
 
 
 # direct methods
@@ -39,44 +37,34 @@
     return-object v0
 .end method
 
-.method private constructor <init>(Lcom/android/server/VibratorService;)V
+.method static synthetic -set0(Lcom/android/server/VibratorService$PatternInfo;[I)[I
     .locals 0
 
-    iput-object p1, p0, Lcom/android/server/VibratorService$PatternInfo;->this$0:Lcom/android/server/VibratorService;
+    iput-object p1, p0, Lcom/android/server/VibratorService$PatternInfo;->engine:[I
+
+    return-object p1
+.end method
+
+.method static synthetic -set1(Lcom/android/server/VibratorService$PatternInfo;[J)[J
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/VibratorService$PatternInfo;->pattern:[J
+
+    return-object p1
+.end method
+
+.method private constructor <init>()V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/VibratorService;Lcom/android/server/VibratorService$PatternInfo;)V
+.method synthetic constructor <init>(Lcom/android/server/VibratorService$PatternInfo;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/VibratorService$PatternInfo;-><init>(Lcom/android/server/VibratorService;)V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method init(Landroid/content/res/Resources;II)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/VibratorService$PatternInfo;->this$0:Lcom/android/server/VibratorService;
-
-    invoke-static {v0, p1, p2, p3}, Lcom/android/server/VibratorService;->-wrap1(Lcom/android/server/VibratorService;Landroid/content/res/Resources;II)[J
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/server/VibratorService$PatternInfo;->pattern:[J
-
-    iget-object v0, p0, Lcom/android/server/VibratorService$PatternInfo;->this$0:Lcom/android/server/VibratorService;
-
-    invoke-static {v0, p1, p2}, Lcom/android/server/VibratorService;->-wrap0(Lcom/android/server/VibratorService;Landroid/content/res/Resources;I)[I
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/server/VibratorService$PatternInfo;->engine:[I
+    invoke-direct {p0}, Lcom/android/server/VibratorService$PatternInfo;-><init>()V
 
     return-void
 .end method

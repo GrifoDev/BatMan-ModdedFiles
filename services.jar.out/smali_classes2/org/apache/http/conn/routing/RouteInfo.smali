@@ -11,9 +11,6 @@
     }
 .end annotation
 
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
 
 # virtual methods
 .method public abstract getHopCount()I

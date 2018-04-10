@@ -108,38 +108,40 @@
 .end method
 
 .method public read([CII)I
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    const/4 v0, 0x0
-
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/io/Latin1Reader;->fBuffer:[B
-
-    array-length v1, v1
-
-    if-gt p3, v1, :cond_0
-
-    :goto_0
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/io/Latin1Reader;->fInputStream:Ljava/io/InputStream;
-
     iget-object v2, p0, Lmf/org/apache/xerces/impl/io/Latin1Reader;->fBuffer:[B
 
-    invoke-virtual {v1, v2, v0, p3}, Ljava/io/InputStream;->read([BII)I
+    array-length v2, v2
 
-    move-result v1
+    if-gt p3, v2, :cond_0
 
-    :goto_1
-    if-ge v0, v1, :cond_1
-
-    add-int v2, p2, v0
+    :goto_0
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/io/Latin1Reader;->fInputStream:Ljava/io/InputStream;
 
     iget-object v3, p0, Lmf/org/apache/xerces/impl/io/Latin1Reader;->fBuffer:[B
 
-    aget-byte v3, v3, v0
+    const/4 v4, 0x0
+
+    invoke-virtual {v2, v3, v4, p3}, Ljava/io/InputStream;->read([BII)I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    :goto_1
+    if-ge v1, v0, :cond_1
+
+    add-int v2, p2, v1
+
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/io/Latin1Reader;->fBuffer:[B
+
+    aget-byte v3, v3, v1
 
     and-int/lit16 v3, v3, 0xff
 
@@ -149,19 +151,19 @@
 
     aput-char v3, p1, v2
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
     :cond_0
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/io/Latin1Reader;->fBuffer:[B
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/io/Latin1Reader;->fBuffer:[B
 
-    array-length p3, v1
+    array-length p3, v2
 
     goto :goto_0
 
     :cond_1
-    return v1
+    return v0
 .end method
 
 .method public ready()Z

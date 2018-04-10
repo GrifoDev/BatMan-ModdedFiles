@@ -27,16 +27,14 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :catch_0
     move-exception v0
 
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
-
-    const-string/jumbo v1, "cvc-datatype-valid.1.2.1"
+    new-instance v1, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
 
     const/4 v2, 0x2
 
@@ -46,15 +44,17 @@
 
     aput-object p1, v2, v3
 
-    const/4 v3, 0x1
+    const-string/jumbo v3, "dateTime"
 
-    const-string/jumbo v4, "dateTime"
+    const/4 v4, 0x1
 
-    aput-object v4, v2, v3
+    aput-object v3, v2, v4
 
-    invoke-direct {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v3, "cvc-datatype-valid.1.2.1"
 
-    throw v0
+    invoke-direct {v1, v3, v2}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v1
 .end method
 
 .method protected getXMLGregorianCalendar(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)Lmf/javax/xml/datatype/XMLGregorianCalendar;
@@ -128,14 +128,14 @@
 .end method
 
 .method protected parse(Ljava/lang/String;)Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;
-    .locals 5
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/dv/xs/SchemaDateTimeException;
         }
     .end annotation
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
     new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;
 
@@ -143,73 +143,73 @@
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v3
 
-    const/16 v2, 0x54
+    const/16 v4, 0x54
 
-    invoke-virtual {p0, p1, v3, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/DateTimeDV;->indexOf(Ljava/lang/String;IIC)I
+    invoke-virtual {p0, p1, v5, v3, v4}, Lmf/org/apache/xerces/impl/dv/xs/DateTimeDV;->indexOf(Ljava/lang/String;IIC)I
 
     move-result v2
 
-    invoke-virtual {p0, p1, v3, v2, v0}, Lmf/org/apache/xerces/impl/dv/xs/DateTimeDV;->getDate(Ljava/lang/String;IILmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)I
+    invoke-virtual {p0, p1, v5, v2, v0}, Lmf/org/apache/xerces/impl/dv/xs/DateTimeDV;->getDate(Ljava/lang/String;IILmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)I
 
-    move-result v3
+    move-result v1
 
     add-int/lit8 v4, v2, 0x1
 
-    invoke-virtual {p0, p1, v4, v1, v0}, Lmf/org/apache/xerces/impl/dv/xs/DateTimeDV;->getTime(Ljava/lang/String;IILmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V
+    invoke-virtual {p0, p1, v4, v3, v0}, Lmf/org/apache/xerces/impl/dv/xs/DateTimeDV;->getTime(Ljava/lang/String;IILmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V
 
-    if-ne v3, v2, :cond_1
+    if-ne v1, v2, :cond_1
 
     invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/dv/xs/DateTimeDV;->validateDateTime(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V
 
     invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/dv/xs/DateTimeDV;->saveUnnormalized(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V
 
-    iget v1, v0, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->utc:I
+    iget v4, v0, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->utc:I
 
-    if-nez v1, :cond_2
+    if-nez v4, :cond_2
 
     :cond_0
     :goto_0
     return-object v0
 
     :cond_1
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v4, Ljava/lang/RuntimeException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v6
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v2, " is an invalid dateTime dataype value. "
+    const-string/jumbo v6, " is an invalid dateTime dataype value. "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v5
 
-    const-string/jumbo v2, "Invalid character(s) seprating date and time values."
+    const-string/jumbo v6, "Invalid character(s) seprating date and time values."
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v5
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v5
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v5}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v4
 
     :cond_2
-    iget v1, v0, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->utc:I
+    iget v4, v0, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->utc:I
 
-    const/16 v2, 0x5a
+    const/16 v5, 0x5a
 
-    if-eq v1, v2, :cond_0
+    if-eq v4, v5, :cond_0
 
     invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/dv/xs/DateTimeDV;->normalize(Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V
 

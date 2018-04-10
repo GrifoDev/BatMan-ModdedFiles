@@ -85,6 +85,38 @@
 
     if-nez v7, :cond_1
 
+    const-string/jumbo v7, "SecurityLogAgent:SEDenialService"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "Got Modify Event and sending Denial Intent for "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const-string/jumbo v9, " / "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     new-instance v4, Landroid/content/Intent;
 
     const-string/jumbo v7, "samsung.intent.action.knox.DENIAL_NOTIFICATION"
@@ -118,6 +150,12 @@
     const-string/jumbo v8, ""
 
     invoke-static {v7, v8}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v7, "SecurityLogAgent:SEDenialService"
+
+    const-string/jumbo v8, "audit.ondenial set to 0 after sending samsung.intent.action.knox.DENIAL_NOTIFICATION intent"
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
     :goto_0
@@ -200,14 +238,6 @@
     const-string/jumbo v8, "Sending Denial Intent for zip"
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v7, p0, Lcom/android/server/SEDenialService$AuditFileObserver;->this$0:Lcom/android/server/SEDenialService;
-
-    invoke-static {v7}, Lcom/android/server/SEDenialService;->-get1(Lcom/android/server/SEDenialService;)Lcom/android/server/SEDenialService$WifiStateReceiver;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Lcom/android/server/SEDenialService$WifiStateReceiver;->registerReceiver()V
 
     :cond_2
     return-void
@@ -293,14 +323,6 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v7, p0, Lcom/android/server/SEDenialService$AuditFileObserver;->this$0:Lcom/android/server/SEDenialService;
-
-    invoke-static {v7}, Lcom/android/server/SEDenialService;->-get1(Lcom/android/server/SEDenialService;)Lcom/android/server/SEDenialService$WifiStateReceiver;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Lcom/android/server/SEDenialService$WifiStateReceiver;->registerReceiver()V
-
     :cond_4
     const-string/jumbo v7, "AASA.old"
 
@@ -355,14 +377,6 @@
     const-string/jumbo v8, "Sending AASA Intent for zip"
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v7, p0, Lcom/android/server/SEDenialService$AuditFileObserver;->this$0:Lcom/android/server/SEDenialService;
-
-    invoke-static {v7}, Lcom/android/server/SEDenialService;->-get1(Lcom/android/server/SEDenialService;)Lcom/android/server/SEDenialService$WifiStateReceiver;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Lcom/android/server/SEDenialService$WifiStateReceiver;->registerReceiver()V
 
     goto/16 :goto_0
 .end method

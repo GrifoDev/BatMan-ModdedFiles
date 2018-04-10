@@ -70,42 +70,37 @@
 
     invoke-virtual {v0, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get24()Ljava/lang/Object;
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get28()Ljava/lang/Object;
 
     move-result-object v1
 
     monitor-enter v1
 
     :try_start_0
-    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get18()Z
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get20()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get17()Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get19()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->-set12(Z)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
-    :goto_0
     monitor-exit v1
 
     return-void
-
-    :cond_1
-    const/4 v0, 0x0
-
-    :try_start_1
-    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->-set8(Z)Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_0
 
     :catchall_0
     move-exception v0
@@ -136,13 +131,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
-    :goto_0
-    return-void
+    if-eqz v1, :cond_1
 
     :cond_0
-    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-wrap10()V
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-wrap11()V
 
-    goto :goto_0
+    :cond_1
+    return-void
 .end method

@@ -72,26 +72,26 @@
 
     invoke-virtual {p2}, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->getGrammars()[Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
 
-    move-result-object v1
+    move-result-object v0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    array-length v2, v1
+    array-length v3, v0
 
-    if-ge v0, v2, :cond_0
+    if-ge v1, v3, :cond_0
 
     new-instance v2, Lmf/org/apache/xerces/dom/ASModelImpl;
 
     invoke-direct {v2}, Lmf/org/apache/xerces/dom/ASModelImpl;-><init>()V
 
-    aget-object v3, v1, v0
+    aget-object v3, v0, v1
 
     invoke-virtual {v2, v3}, Lmf/org/apache/xerces/dom/ASModelImpl;->setGrammar(Lmf/org/apache/xerces/impl/xs/SchemaGrammar;)V
 
     invoke-virtual {p1, v2}, Lmf/org/apache/xerces/dom/ASModelImpl;->addASModel(Lmf/org/apache/xerces/dom3/as/ASModel;)V
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
@@ -122,56 +122,52 @@
 .end method
 
 .method private initGrammarBucketRecurse(Lmf/org/apache/xerces/dom/ASModelImpl;)V
-    .locals 2
+    .locals 4
 
     invoke-virtual {p1}, Lmf/org/apache/xerces/dom/ASModelImpl;->getGrammar()Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
 
-    move-result-object v0
+    move-result-object v2
 
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
     :goto_0
     const/4 v0, 0x0
 
-    move v1, v0
-
     :goto_1
     invoke-virtual {p1}, Lmf/org/apache/xerces/dom/ASModelImpl;->getInternalASModels()Ljava/util/Vector;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0}, Ljava/util/Vector;->size()I
+    invoke-virtual {v2}, Ljava/util/Vector;->size()I
 
-    move-result v0
+    move-result v2
 
-    if-ge v1, v0, :cond_1
+    if-ge v0, v2, :cond_1
 
     invoke-virtual {p1}, Lmf/org/apache/xerces/dom/ASModelImpl;->getInternalASModels()Ljava/util/Vector;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v2, v0}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/org/apache/xerces/dom/ASModelImpl;
+    check-cast v1, Lmf/org/apache/xerces/dom/ASModelImpl;
 
-    invoke-direct {p0, v0}, Lmf/org/apache/xerces/parsers/DOMASBuilderImpl;->initGrammarBucketRecurse(Lmf/org/apache/xerces/dom/ASModelImpl;)V
+    invoke-direct {p0, v1}, Lmf/org/apache/xerces/parsers/DOMASBuilderImpl;->initGrammarBucketRecurse(Lmf/org/apache/xerces/dom/ASModelImpl;)V
 
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/DOMASBuilderImpl;->fGrammarBucket:Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;
+    iget-object v2, p0, Lmf/org/apache/xerces/parsers/DOMASBuilderImpl;->fGrammarBucket:Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;
 
     invoke-virtual {p1}, Lmf/org/apache/xerces/dom/ASModelImpl;->getGrammar()Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->putGrammar(Lmf/org/apache/xerces/impl/xs/SchemaGrammar;)V
+    invoke-virtual {v2, v3}, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->putGrammar(Lmf/org/apache/xerces/impl/xs/SchemaGrammar;)V
 
     goto :goto_0
 
@@ -180,62 +176,60 @@
 .end method
 
 .method private initGrammarPool(Lmf/org/apache/xerces/dom/ASModelImpl;Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;)V
-    .locals 3
+    .locals 5
 
-    const/4 v0, 0x0
+    const/4 v4, 0x0
 
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
-    new-array v1, v1, [Lmf/org/apache/xerces/xni/grammars/Grammar;
+    new-array v0, v3, [Lmf/org/apache/xerces/xni/grammars/Grammar;
 
     invoke-virtual {p1}, Lmf/org/apache/xerces/dom/ASModelImpl;->getGrammar()Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
 
-    move-result-object v2
+    move-result-object v3
 
-    aput-object v2, v1, v0
+    aput-object v3, v0, v4
 
-    if-nez v2, :cond_0
+    if-nez v3, :cond_0
 
     :goto_0
     invoke-virtual {p1}, Lmf/org/apache/xerces/dom/ASModelImpl;->getInternalASModels()Ljava/util/Vector;
 
     move-result-object v2
 
-    move v1, v0
+    const/4 v1, 0x0
 
     :goto_1
     invoke-virtual {v2}, Ljava/util/Vector;->size()I
 
-    move-result v0
+    move-result v3
 
-    if-ge v1, v0, :cond_1
+    if-ge v1, v3, :cond_1
 
     invoke-virtual {v2, v1}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v3
 
-    check-cast v0, Lmf/org/apache/xerces/dom/ASModelImpl;
+    check-cast v3, Lmf/org/apache/xerces/dom/ASModelImpl;
 
-    invoke-direct {p0, v0, p2}, Lmf/org/apache/xerces/parsers/DOMASBuilderImpl;->initGrammarPool(Lmf/org/apache/xerces/dom/ASModelImpl;Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;)V
+    invoke-direct {p0, v3, p2}, Lmf/org/apache/xerces/parsers/DOMASBuilderImpl;->initGrammarPool(Lmf/org/apache/xerces/dom/ASModelImpl;Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;)V
 
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
     :cond_0
-    aget-object v2, v1, v0
+    aget-object v3, v0, v4
 
-    invoke-interface {v2}, Lmf/org/apache/xerces/xni/grammars/Grammar;->getGrammarDescription()Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
+    invoke-interface {v3}, Lmf/org/apache/xerces/xni/grammars/Grammar;->getGrammarDescription()Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-interface {v2}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;->getGrammarType()Ljava/lang/String;
+    invoke-interface {v3}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;->getGrammarType()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-interface {p2, v2, v1}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;->cacheGrammars(Ljava/lang/String;[Lmf/org/apache/xerces/xni/grammars/Grammar;)V
+    invoke-interface {p2, v3, v0}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;->cacheGrammars(Ljava/lang/String;[Lmf/org/apache/xerces/xni/grammars/Grammar;)V
 
     goto :goto_0
 
@@ -254,18 +248,16 @@
 .end method
 
 .method parseASInputSource(Lmf/org/apache/xerces/xni/parser/XMLInputSource;)Lmf/org/apache/xerces/dom3/as/ASModel;
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v1, 0x0
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DOMASBuilderImpl;->fGrammarBucket:Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/DOMASBuilderImpl;->fGrammarBucket:Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;
-
-    if-eqz v0, :cond_0
+    if-eqz v3, :cond_0
 
     :goto_0
     invoke-direct {p0}, Lmf/org/apache/xerces/parsers/DOMASBuilderImpl;->initGrammarBucket()V
@@ -278,46 +270,46 @@
 
     invoke-virtual {v0, p1}, Lmf/org/apache/xerces/parsers/XMLGrammarCachingConfiguration;->parseXMLSchema(Lmf/org/apache/xerces/xni/parser/XMLInputSource;)Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
 
-    move-result-object v2
+    move-result-object v1
 
     invoke-virtual {v0}, Lmf/org/apache/xerces/parsers/XMLGrammarCachingConfiguration;->unlockGrammarPool()V
 
-    if-nez v2, :cond_1
+    const/4 v2, 0x0
 
-    move-object v0, v1
+    if-nez v1, :cond_1
 
     :goto_1
-    return-object v0
+    return-object v2
 
     :cond_0
-    new-instance v0, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;
+    new-instance v3, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;
 
-    invoke-direct {v0}, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;-><init>()V
+    invoke-direct {v3}, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/parsers/DOMASBuilderImpl;->fGrammarBucket:Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;
+    iput-object v3, p0, Lmf/org/apache/xerces/parsers/DOMASBuilderImpl;->fGrammarBucket:Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;
 
     goto :goto_0
 
     :cond_1
-    new-instance v0, Lmf/org/apache/xerces/dom/ASModelImpl;
+    new-instance v2, Lmf/org/apache/xerces/dom/ASModelImpl;
 
-    invoke-direct {v0}, Lmf/org/apache/xerces/dom/ASModelImpl;-><init>()V
+    invoke-direct {v2}, Lmf/org/apache/xerces/dom/ASModelImpl;-><init>()V
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/DOMASBuilderImpl;->fGrammarBucket:Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DOMASBuilderImpl;->fGrammarBucket:Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-virtual {v1, v2, v3}, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->putGrammar(Lmf/org/apache/xerces/impl/xs/SchemaGrammar;Z)Z
+    invoke-virtual {v3, v1, v4}, Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;->putGrammar(Lmf/org/apache/xerces/impl/xs/SchemaGrammar;Z)Z
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/DOMASBuilderImpl;->fGrammarBucket:Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;
+    iget-object v3, p0, Lmf/org/apache/xerces/parsers/DOMASBuilderImpl;->fGrammarBucket:Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;
 
-    invoke-direct {p0, v0, v1}, Lmf/org/apache/xerces/parsers/DOMASBuilderImpl;->addGrammars(Lmf/org/apache/xerces/dom/ASModelImpl;Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;)V
+    invoke-direct {p0, v2, v3}, Lmf/org/apache/xerces/parsers/DOMASBuilderImpl;->addGrammars(Lmf/org/apache/xerces/dom/ASModelImpl;Lmf/org/apache/xerces/impl/xs/XSGrammarBucket;)V
 
     goto :goto_1
 .end method
 
 .method public parseASInputSource(Lmf/org/w3c/dom/ls/LSInput;)Lmf/org/apache/xerces/dom3/as/ASModel;
-    .locals 1
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/dom3/as/DOMASException;,
@@ -327,25 +319,25 @@
 
     invoke-virtual {p0, p1}, Lmf/org/apache/xerces/parsers/DOMASBuilderImpl;->dom2xmlInputSource(Lmf/org/w3c/dom/ls/LSInput;)Lmf/org/apache/xerces/xni/parser/XMLInputSource;
 
-    move-result-object v0
+    move-result-object v2
 
     :try_start_0
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/parsers/DOMASBuilderImpl;->parseASInputSource(Lmf/org/apache/xerces/xni/parser/XMLInputSource;)Lmf/org/apache/xerces/dom3/as/ASModel;
+    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/parsers/DOMASBuilderImpl;->parseASInputSource(Lmf/org/apache/xerces/xni/parser/XMLInputSource;)Lmf/org/apache/xerces/dom3/as/ASModel;
     :try_end_0
     .catch Lmf/org/apache/xerces/xni/XNIException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v0
+    move-result-object v3
 
-    return-object v0
+    return-object v3
 
     :catch_0
     move-exception v0
 
     invoke-virtual {v0}, Lmf/org/apache/xerces/xni/XNIException;->getException()Ljava/lang/Exception;
 
-    move-result-object v0
+    move-result-object v1
 
-    throw v0
+    throw v1
 .end method
 
 .method public parseASURI(Ljava/lang/String;)Lmf/org/apache/xerces/dom3/as/ASModel;
@@ -365,9 +357,9 @@
 
     invoke-virtual {p0, v0}, Lmf/org/apache/xerces/parsers/DOMASBuilderImpl;->parseASInputSource(Lmf/org/apache/xerces/xni/parser/XMLInputSource;)Lmf/org/apache/xerces/dom3/as/ASModel;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public setAbstractSchema(Lmf/org/apache/xerces/dom3/as/ASModel;)V
@@ -377,11 +369,11 @@
 
     iput-object p1, p0, Lmf/org/apache/xerces/parsers/DOMASBuilderImpl;->fAbstractSchema:Lmf/org/apache/xerces/dom/ASModelImpl;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/DOMASBuilderImpl;->fConfiguration:Lmf/org/apache/xerces/xni/parser/XMLParserConfiguration;
+    iget-object v1, p0, Lmf/org/apache/xerces/parsers/DOMASBuilderImpl;->fConfiguration:Lmf/org/apache/xerces/xni/parser/XMLParserConfiguration;
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/grammar-pool"
+    const-string/jumbo v2, "http://apache.org/xml/properties/internal/grammar-pool"
 
-    invoke-interface {v0, v1}, Lmf/org/apache/xerces/xni/parser/XMLParserConfiguration;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-interface {v1, v2}, Lmf/org/apache/xerces/xni/parser/XMLParserConfiguration;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 

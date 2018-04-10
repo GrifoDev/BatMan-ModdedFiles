@@ -182,14 +182,14 @@
 .end method
 
 .method public getDependent()Lorg/simpleframework/xml/strategy/Type;
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/core/ElementMapLabel;->getContact()Lorg/simpleframework/xml/core/Contact;
 
@@ -204,21 +204,21 @@
 
     if-eqz v1, :cond_1
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->items:[Ljava/lang/Class;
-
-    array-length v0, v0
-
-    if-eqz v0, :cond_2
-
-    new-instance v0, Lorg/simpleframework/xml/core/ClassType;
-
     iget-object v1, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->items:[Ljava/lang/Class;
 
-    aget-object v1, v1, v4
+    array-length v1, v1
 
-    invoke-direct {v0, v1}, Lorg/simpleframework/xml/core/ClassType;-><init>(Ljava/lang/Class;)V
+    if-eqz v1, :cond_2
 
-    return-object v0
+    new-instance v1, Lorg/simpleframework/xml/core/ClassType;
+
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->items:[Ljava/lang/Class;
+
+    aget-object v2, v2, v3
+
+    invoke-direct {v1, v2}, Lorg/simpleframework/xml/core/ClassType;-><init>(Ljava/lang/Class;)V
+
+    return-object v1
 
     :cond_0
     invoke-interface {v0}, Lorg/simpleframework/xml/core/Contact;->getDependents()[Ljava/lang/Class;
@@ -232,64 +232,64 @@
     :cond_1
     new-instance v1, Lorg/simpleframework/xml/core/ElementException;
 
-    const-string/jumbo v2, "Unable to determine type for %s"
+    const/4 v2, 0x1
 
-    const/4 v3, 0x1
+    new-array v2, v2, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    aput-object v0, v2, v3
 
-    aput-object v0, v3, v4
+    const-string/jumbo v3, "Unable to determine type for %s"
 
-    invoke-direct {v1, v2, v3}, Lorg/simpleframework/xml/core/ElementException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v1, v3, v2}, Lorg/simpleframework/xml/core/ElementException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
     throw v1
 
     :cond_2
-    new-instance v0, Lorg/simpleframework/xml/core/ClassType;
+    new-instance v1, Lorg/simpleframework/xml/core/ClassType;
 
-    const-class v1, Ljava/lang/Object;
+    const-class v2, Ljava/lang/Object;
 
-    invoke-direct {v0, v1}, Lorg/simpleframework/xml/core/ClassType;-><init>(Ljava/lang/Class;)V
+    invoke-direct {v1, v2}, Lorg/simpleframework/xml/core/ClassType;-><init>(Ljava/lang/Class;)V
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public getEmpty(Lorg/simpleframework/xml/core/Context;)Ljava/lang/Object;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    new-instance v0, Lorg/simpleframework/xml/core/ClassType;
+    new-instance v1, Lorg/simpleframework/xml/core/ClassType;
 
-    iget-object v1, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->type:Ljava/lang/Class;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->type:Ljava/lang/Class;
 
-    invoke-direct {v0, v1}, Lorg/simpleframework/xml/core/ClassType;-><init>(Ljava/lang/Class;)V
+    invoke-direct {v1, v2}, Lorg/simpleframework/xml/core/ClassType;-><init>(Ljava/lang/Class;)V
 
-    new-instance v1, Lorg/simpleframework/xml/core/MapFactory;
+    new-instance v0, Lorg/simpleframework/xml/core/MapFactory;
 
-    invoke-direct {v1, p1, v0}, Lorg/simpleframework/xml/core/MapFactory;-><init>(Lorg/simpleframework/xml/core/Context;Lorg/simpleframework/xml/strategy/Type;)V
+    invoke-direct {v0, p1, v1}, Lorg/simpleframework/xml/core/MapFactory;-><init>(Lorg/simpleframework/xml/core/Context;Lorg/simpleframework/xml/strategy/Type;)V
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->label:Lorg/simpleframework/xml/ElementMap;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->label:Lorg/simpleframework/xml/ElementMap;
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/ElementMap;->empty()Z
+    invoke-interface {v2}, Lorg/simpleframework/xml/ElementMap;->empty()Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    return-object v0
+    return-object v2
 
     :cond_0
-    invoke-virtual {v1}, Lorg/simpleframework/xml/core/Factory;->getInstance()Ljava/lang/Object;
+    invoke-virtual {v0}, Lorg/simpleframework/xml/core/Factory;->getInstance()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 .end method
 
 .method public getEntry()Ljava/lang/String;
@@ -300,9 +300,9 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->format:Lorg/simpleframework/xml/stream/Format;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->format:Lorg/simpleframework/xml/stream/Format;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/stream/Format;->getStyle()Lorg/simpleframework/xml/stream/Style;
+    invoke-virtual {v1}, Lorg/simpleframework/xml/stream/Format;->getStyle()Lorg/simpleframework/xml/stream/Style;
 
     move-result-object v0
 
@@ -321,9 +321,9 @@
 
     invoke-interface {v0, v1}, Lorg/simpleframework/xml/stream/Style;->getElement(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
     iget-object v1, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->detail:Lorg/simpleframework/xml/core/Introspector;
@@ -374,27 +374,27 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->name:Ljava/lang/String;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->name:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
     :goto_0
-    iget-object v0, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->name:Ljava/lang/String;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->name:Ljava/lang/String;
 
-    return-object v0
+    return-object v2
 
     :cond_0
-    iget-object v0, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->format:Lorg/simpleframework/xml/stream/Format;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->format:Lorg/simpleframework/xml/stream/Format;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/stream/Format;->getStyle()Lorg/simpleframework/xml/stream/Style;
-
-    move-result-object v1
-
-    iget-object v0, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->entry:Lorg/simpleframework/xml/core/Entry;
-
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/Entry;->getEntry()Ljava/lang/String;
+    invoke-virtual {v2}, Lorg/simpleframework/xml/stream/Format;->getStyle()Lorg/simpleframework/xml/stream/Style;
 
     move-result-object v0
+
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->entry:Lorg/simpleframework/xml/core/Entry;
+
+    invoke-virtual {v2}, Lorg/simpleframework/xml/core/Entry;->getEntry()Ljava/lang/String;
+
+    move-result-object v1
 
     iget-object v2, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->label:Lorg/simpleframework/xml/ElementMap;
 
@@ -405,20 +405,20 @@
     if-eqz v2, :cond_1
 
     :goto_1
-    invoke-interface {v1, v0}, Lorg/simpleframework/xml/stream/Style;->getElement(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v0, v1}, Lorg/simpleframework/xml/stream/Style;->getElement(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->name:Ljava/lang/String;
+    iput-object v2, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->name:Ljava/lang/String;
 
     goto :goto_0
 
     :cond_1
-    iget-object v0, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->detail:Lorg/simpleframework/xml/core/Introspector;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->detail:Lorg/simpleframework/xml/core/Introspector;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/Introspector;->getName()Ljava/lang/String;
+    invoke-virtual {v2}, Lorg/simpleframework/xml/core/Introspector;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     goto :goto_1
 .end method
@@ -432,21 +432,21 @@
 .end method
 
 .method public getPath()Ljava/lang/String;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->path:Ljava/lang/String;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->path:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
     :goto_0
-    iget-object v0, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->path:Ljava/lang/String;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->path:Ljava/lang/String;
 
-    return-object v0
+    return-object v2
 
     :cond_0
     invoke-virtual {p0}, Lorg/simpleframework/xml/core/ElementMapLabel;->getExpression()Lorg/simpleframework/xml/core/Expression;
@@ -459,9 +459,9 @@
 
     invoke-interface {v0, v1}, Lorg/simpleframework/xml/core/Expression;->getElement(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->path:Ljava/lang/String;
+    iput-object v2, p0, Lorg/simpleframework/xml/core/ElementMapLabel;->path:Ljava/lang/String;
 
     goto :goto_0
 .end method

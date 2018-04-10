@@ -71,9 +71,9 @@
 
     new-instance v0, Lmf/org/apache/xerces/stax/events/AttributeImpl;
 
-    const-string/jumbo v3, "CDATA"
-
     iget-object v5, p0, Lmf/org/apache/xerces/stax/XMLEventFactoryImpl;->fLocation:Lmf/javax/xml/stream/Location;
+
+    const-string/jumbo v3, "CDATA"
 
     const/4 v4, 0x1
 
@@ -91,11 +91,11 @@
 
     new-instance v0, Lmf/org/apache/xerces/stax/events/CharactersImpl;
 
-    const/16 v1, 0xc
+    iget-object v1, p0, Lmf/org/apache/xerces/stax/XMLEventFactoryImpl;->fLocation:Lmf/javax/xml/stream/Location;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/stax/XMLEventFactoryImpl;->fLocation:Lmf/javax/xml/stream/Location;
+    const/16 v2, 0xc
 
-    invoke-direct {v0, p1, v1, v2}, Lmf/org/apache/xerces/stax/events/CharactersImpl;-><init>(Ljava/lang/String;ILmf/javax/xml/stream/Location;)V
+    invoke-direct {v0, p1, v2, v1}, Lmf/org/apache/xerces/stax/events/CharactersImpl;-><init>(Ljava/lang/String;ILmf/javax/xml/stream/Location;)V
 
     return-object v0
 .end method
@@ -105,11 +105,11 @@
 
     new-instance v0, Lmf/org/apache/xerces/stax/events/CharactersImpl;
 
-    const/4 v1, 0x4
+    iget-object v1, p0, Lmf/org/apache/xerces/stax/XMLEventFactoryImpl;->fLocation:Lmf/javax/xml/stream/Location;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/stax/XMLEventFactoryImpl;->fLocation:Lmf/javax/xml/stream/Location;
+    const/4 v2, 0x4
 
-    invoke-direct {v0, p1, v1, v2}, Lmf/org/apache/xerces/stax/events/CharactersImpl;-><init>(Ljava/lang/String;ILmf/javax/xml/stream/Location;)V
+    invoke-direct {v0, p1, v2, v1}, Lmf/org/apache/xerces/stax/events/CharactersImpl;-><init>(Ljava/lang/String;ILmf/javax/xml/stream/Location;)V
 
     return-object v0
 .end method
@@ -209,11 +209,11 @@
 
     new-instance v0, Lmf/org/apache/xerces/stax/events/CharactersImpl;
 
-    const/4 v1, 0x6
+    iget-object v1, p0, Lmf/org/apache/xerces/stax/XMLEventFactoryImpl;->fLocation:Lmf/javax/xml/stream/Location;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/stax/XMLEventFactoryImpl;->fLocation:Lmf/javax/xml/stream/Location;
+    const/4 v2, 0x6
 
-    invoke-direct {v0, p1, v1, v2}, Lmf/org/apache/xerces/stax/events/CharactersImpl;-><init>(Ljava/lang/String;ILmf/javax/xml/stream/Location;)V
+    invoke-direct {v0, p1, v2, v1}, Lmf/org/apache/xerces/stax/events/CharactersImpl;-><init>(Ljava/lang/String;ILmf/javax/xml/stream/Location;)V
 
     return-object v0
 .end method

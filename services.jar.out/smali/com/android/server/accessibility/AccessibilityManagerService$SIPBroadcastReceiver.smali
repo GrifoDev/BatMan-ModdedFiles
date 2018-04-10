@@ -65,7 +65,7 @@
 
     move-result v3
 
-    invoke-static {v2, v3}, Lcom/android/server/accessibility/AccessibilityManagerService;->-set7(Lcom/android/server/accessibility/AccessibilityManagerService;Z)Z
+    invoke-static {v2, v3}, Lcom/android/server/accessibility/AccessibilityManagerService;->-set6(Lcom/android/server/accessibility/AccessibilityManagerService;Z)Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 

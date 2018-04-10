@@ -4012,7 +4012,7 @@
 
     iget-object v2, v0, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->mContext:Landroid/content/Context;
 
-    const v3, 0x1040646
+    const v3, 0x1040af7
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4022,7 +4022,7 @@
 
     iget-object v2, v0, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->mContext:Landroid/content/Context;
 
-    const v3, 0x1040647
+    const v3, 0x1040af6
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4142,15 +4142,15 @@
 .method private createNotification(Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_1
 
     invoke-direct {p0}, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->isNetworkConnected()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->profileErrorMessage:Ljava/util/concurrent/ConcurrentHashMap;
 
@@ -4158,29 +4158,30 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
-
-    :cond_0
-    sget-boolean v0, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->DBG:Z
+    xor-int/lit8 v0, v0, 0x1
 
     if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->profileErrorMessage:Ljava/util/concurrent/ConcurrentHashMap;
+
+    invoke-virtual {v0, p1, p2}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->createNotification()V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    sget-boolean v0, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->DBG:Z
+
+    if-eqz v0, :cond_0
 
     sget-object v0, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->TAG:Ljava/lang/String;
 
     const-string/jumbo v1, "can not create a notification"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    :goto_0
-    return-void
-
-    :cond_2
-    iget-object v0, p0, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->profileErrorMessage:Ljava/util/concurrent/ConcurrentHashMap;
-
-    invoke-virtual {v0, p1, p2}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    invoke-direct {p0}, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->createNotification()V
 
     goto :goto_0
 .end method
@@ -6682,50 +6683,19 @@
 .end method
 
 .method private initializeVpnDataAndVendors()V
-    .locals 4
+    .locals 2
 
-    sget-boolean v1, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->DBG:Z
+    sget-boolean v0, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->DBG:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    sget-object v1, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->TAG:Ljava/lang/String;
+    sget-object v0, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v2, "initializeVpnDataAndVendors"
+    const-string/jumbo v1, "initializeVpnDataAndVendors"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    invoke-static {}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnMigration;->isNeedToMigration()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    sget-object v1, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->TAG:Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "initializeHashtable : Have to wait until migration done : "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_1
     invoke-direct {p0}, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->setupIntentFilter()V
 
     invoke-direct {p0}, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->initializeHashtable()V
@@ -17480,7 +17450,7 @@
 
     new-array v1, v1, [Ljava/lang/String;
 
-    const-string/jumbo v2, "com.samsung.android.knox.permission.KNOX_GENERIC_VPN"
+    const-string/jumbo v2, "com.samsung.android.knox.permission.KNOX_VPN_GENERIC"
 
     const/4 v3, 0x0
 
@@ -18017,7 +17987,13 @@
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    xor-int/lit8 v6, v6, 0x1
+
+    if-eqz v6, :cond_3
+
+    invoke-virtual {v4, v12, v10}, Lcom/samsung/android/knox/net/vpn/EnterpriseResponseData;->setStatus(II)V
+
+    return-object v4
 
     :cond_3
     :try_start_0
@@ -18089,7 +18065,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_5
 
     iget-object v6, p0, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->packageNameVpnMap:Ljava/util/HashMap;
 
@@ -18165,26 +18141,18 @@
     const/4 v7, 0x0
 
     invoke-virtual {v4, v6, v7}, Lcom/samsung/android/knox/net/vpn/EnterpriseResponseData;->setStatus(II)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
     return-object v4
 
     :cond_5
-    invoke-virtual {v4, v12, v10}, Lcom/samsung/android/knox/net/vpn/EnterpriseResponseData;->setStatus(II)V
-
-    return-object v4
-
-    :cond_6
     const/4 v6, 0x1
 
     const/4 v7, 0x4
 
-    :try_start_1
     invoke-virtual {v4, v6, v7}, Lcom/samsung/android/knox/net/vpn/EnterpriseResponseData;->setStatus(II)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
@@ -18469,11 +18437,27 @@
 
     move-result v8
 
-    if-eqz v8, :cond_1
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_0
+
+    const/4 v8, 0x1
+
+    const/4 v9, 0x1
+
+    invoke-virtual {v5, v8, v9}, Lcom/samsung/android/knox/net/vpn/EnterpriseResponseData;->setStatus(II)V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit p0
+
+    return-object v5
 
     :cond_0
-    if-eqz p1, :cond_c
+    if-eqz p1, :cond_b
 
+    :try_start_2
     iget-object v8, p1, Lcom/sec/enterprise/knox/EnterprisePremiumVpnConnection;->type:Ljava/lang/String;
 
     const-string/jumbo v9, "key_vpn"
@@ -18482,7 +18466,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_c
+    if-eqz v8, :cond_b
 
     iget-object v8, p1, Lcom/sec/enterprise/knox/EnterprisePremiumVpnConnection;->name:Ljava/lang/String;
 
@@ -18492,20 +18476,15 @@
 
     const/16 v9, 0xf
 
-    if-le v8, v9, :cond_2
+    if-le v8, v9, :cond_1
 
     const/4 v8, 0x1
 
     const/16 v9, 0x9
 
     invoke-virtual {v5, v8, v9}, Lcom/samsung/android/knox/net/vpn/EnterpriseResponseData;->setStatus(II)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
-
-    :try_start_2
-    invoke-static {}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnMigration;->markedMigrationIsDone()Z
     :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     monitor-exit p0
@@ -18513,32 +18492,12 @@
     return-object v5
 
     :cond_1
-    const/4 v8, 0x1
-
-    const/4 v9, 0x1
-
     :try_start_3
-    invoke-virtual {v5, v8, v9}, Lcom/samsung/android/knox/net/vpn/EnterpriseResponseData;->setStatus(II)V
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
-
-    :try_start_4
-    invoke-static {}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnMigration;->markedMigrationIsDone()Z
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    monitor-exit p0
-
-    return-object v5
-
-    :cond_2
-    :try_start_5
     invoke-direct {p0}, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->getMocanaVPNinterface()Lcom/mocana/vpn/android/velo/IEnterpriseMocanaVpnService;
 
     move-result-object v8
 
-    if-nez v8, :cond_3
+    if-nez v8, :cond_2
 
     sget-object v8, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->TAG:Ljava/lang/String;
 
@@ -18551,21 +18510,16 @@
     const/16 v9, 0xa
 
     invoke-virtual {v5, v8, v9}, Lcom/samsung/android/knox/net/vpn/EnterpriseResponseData;->setStatus(II)V
-    :try_end_5
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
-
-    :try_start_6
-    invoke-static {}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnMigration;->markedMigrationIsDone()Z
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     monitor-exit p0
 
     return-object v5
 
-    :cond_3
-    :try_start_7
+    :cond_2
+    :try_start_4
     iget-object v8, p0, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->vpninterfacelist:Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2$VpnInterfaceList;
 
     iget-object v8, v8, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2$VpnInterfaceList;->mocanaInterface:Lcom/mocana/vpn/android/velo/IEnterpriseMocanaVpnService;
@@ -18578,14 +18532,14 @@
 
     move-result-object v8
 
-    if-nez v8, :cond_4
+    if-nez v8, :cond_3
 
     const/4 p2, 0x0
 
-    :cond_4
+    :cond_3
     sget-boolean v8, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->DBG:Z
 
-    if-eqz v8, :cond_5
+    if-eqz v8, :cond_4
 
     sget-object v8, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->TAG:Ljava/lang/String;
 
@@ -18633,8 +18587,8 @@
 
     invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_5
-    if-eqz p2, :cond_8
+    :cond_4
+    if-eqz p2, :cond_7
 
     iget-object v8, p1, Lcom/sec/enterprise/knox/EnterprisePremiumVpnConnection;->name:Ljava/lang/String;
 
@@ -18642,7 +18596,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_6
 
     iget-object v8, p0, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->vpninterfacelist:Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2$VpnInterfaceList;
 
@@ -18662,7 +18616,7 @@
 
     move-result v8
 
-    if-nez v8, :cond_6
+    if-nez v8, :cond_5
 
     const-string/jumbo v8, "CONNECTED"
 
@@ -18670,59 +18624,49 @@
 
     move-result v8
 
-    if-nez v8, :cond_6
+    if-nez v8, :cond_5
 
     const-string/jumbo v8, "DISCONNECTING"
 
     invoke-virtual {v6, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-    :try_end_7
-    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_0
-    .catchall {:try_start_7 .. :try_end_7} :catchall_1
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     move-result v8
 
-    if-eqz v8, :cond_8
+    if-eqz v8, :cond_7
 
-    :cond_6
-    :try_start_8
-    invoke-static {}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnMigration;->markedMigrationIsDone()Z
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_0
-
+    :cond_5
     monitor-exit p0
 
     return-object v5
 
-    :cond_7
-    :try_start_9
+    :cond_6
+    :try_start_5
     iget-object v8, p1, Lcom/sec/enterprise/knox/EnterprisePremiumVpnConnection;->name:Ljava/lang/String;
 
     invoke-virtual {p2, v8}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v8
 
-    if-nez v8, :cond_8
+    if-nez v8, :cond_7
 
     const/4 v8, 0x1
 
     const/16 v9, 0x9
 
     invoke-virtual {v5, v8, v9}, Lcom/samsung/android/knox/net/vpn/EnterpriseResponseData;->setStatus(II)V
-    :try_end_9
-    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_0
-    .catchall {:try_start_9 .. :try_end_9} :catchall_1
-
-    :try_start_a
-    invoke-static {}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnMigration;->markedMigrationIsDone()Z
-    :try_end_a
-    .catchall {:try_start_a .. :try_end_a} :catchall_0
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     monitor-exit p0
 
     return-object v5
 
-    :cond_8
-    :try_start_b
+    :cond_7
+    :try_start_6
     const-string/jumbo v8, "\\s"
 
     invoke-static {v8}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
@@ -18739,7 +18683,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_8
 
     sget-object v8, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->TAG:Ljava/lang/String;
 
@@ -18752,24 +18696,19 @@
     const/16 v9, 0x9
 
     invoke-virtual {v5, v8, v9}, Lcom/samsung/android/knox/net/vpn/EnterpriseResponseData;->setStatus(II)V
-    :try_end_b
-    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_b} :catch_0
-    .catchall {:try_start_b .. :try_end_b} :catchall_1
-
-    :try_start_c
-    invoke-static {}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnMigration;->markedMigrationIsDone()Z
-    :try_end_c
-    .catchall {:try_start_c .. :try_end_c} :catchall_0
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_0
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     monitor-exit p0
 
     return-object v5
 
-    :cond_9
-    :try_start_d
+    :cond_8
+    :try_start_7
     sget-boolean v8, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->DBG:Z
 
-    if-eqz v8, :cond_a
+    if-eqz v8, :cond_9
 
     sget-object v8, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->TAG:Ljava/lang/String;
 
@@ -18817,7 +18756,7 @@
 
     invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_a
+    :cond_9
     iget-object v8, p0, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->vpninterfacelist:Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2$VpnInterfaceList;
 
     iget-object v8, v8, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2$VpnInterfaceList;->mocanaInterface:Lcom/mocana/vpn/android/velo/IEnterpriseMocanaVpnService;
@@ -18830,11 +18769,11 @@
 
     move-result v7
 
-    if-eqz v7, :cond_b
+    if-eqz v7, :cond_a
 
     invoke-direct {p0, v0, p1}, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->addVpnProfileToDatabase(ILcom/sec/enterprise/knox/EnterprisePremiumVpnConnection;)V
 
-    :cond_b
+    :cond_a
     sget-object v8, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->TAG:Ljava/lang/String;
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -18868,38 +18807,32 @@
     const/4 v9, 0x0
 
     invoke-virtual {v5, v8, v9}, Lcom/samsung/android/knox/net/vpn/EnterpriseResponseData;->setStatus(II)V
-    :try_end_d
-    .catch Ljava/lang/Exception; {:try_start_d .. :try_end_d} :catch_0
-    .catchall {:try_start_d .. :try_end_d} :catchall_1
+    :try_end_7
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_0
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
     :goto_0
-    :try_start_e
-    invoke-static {}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnMigration;->markedMigrationIsDone()Z
-    :try_end_e
-    .catchall {:try_start_e .. :try_end_e} :catchall_0
-
-    :goto_1
     monitor-exit p0
 
     return-object v5
 
-    :cond_c
+    :cond_b
     const/4 v8, 0x1
 
     const/4 v9, 0x2
 
-    :try_start_f
+    :try_start_8
     invoke-virtual {v5, v8, v9}, Lcom/samsung/android/knox/net/vpn/EnterpriseResponseData;->setStatus(II)V
-    :try_end_f
-    .catch Ljava/lang/Exception; {:try_start_f .. :try_end_f} :catch_0
-    .catchall {:try_start_f .. :try_end_f} :catchall_1
+    :try_end_8
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_0
+    .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
     goto :goto_0
 
     :catch_0
     move-exception v1
 
-    :try_start_10
+    :try_start_9
     sget-object v8, Lcom/android/server/enterprise/vpn/knoxvpn/EnterprisePremiumVpnPolicyServiceV2;->TAG:Ljava/lang/String;
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -18927,15 +18860,10 @@
     const/4 v9, 0x3
 
     invoke-virtual {v5, v8, v9}, Lcom/samsung/android/knox/net/vpn/EnterpriseResponseData;->setStatus(II)V
-    :try_end_10
-    .catchall {:try_start_10 .. :try_end_10} :catchall_1
+    :try_end_9
+    .catchall {:try_start_9 .. :try_end_9} :catchall_0
 
-    :try_start_11
-    invoke-static {}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnMigration;->markedMigrationIsDone()Z
-    :try_end_11
-    .catchall {:try_start_11 .. :try_end_11} :catchall_0
-
-    goto :goto_1
+    goto :goto_0
 
     :catchall_0
     move-exception v8
@@ -18943,16 +18871,6 @@
     monitor-exit p0
 
     throw v8
-
-    :catchall_1
-    move-exception v8
-
-    :try_start_12
-    invoke-static {}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnMigration;->markedMigrationIsDone()Z
-
-    throw v8
-    :try_end_12
-    .catchall {:try_start_12 .. :try_end_12} :catchall_0
 .end method
 
 .method public setForwardRoutes(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Lcom/samsung/android/knox/net/vpn/EnterpriseResponseData;
@@ -19277,7 +19195,7 @@
 
     new-array v3, v3, [Ljava/lang/String;
 
-    const-string/jumbo v4, "com.samsung.android.knox.permission.KNOX_GENERIC_VPN"
+    const-string/jumbo v4, "com.samsung.android.knox.permission.KNOX_VPN_GENERIC"
 
     const/4 v5, 0x0
 

@@ -985,7 +985,9 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    xor-int/lit8 v5, v5, 0x1
+
+    if-nez v5, :cond_0
 
     return-void
 .end method

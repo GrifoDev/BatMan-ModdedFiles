@@ -42,386 +42,678 @@
 
     const/4 v4, 0x1
 
-    iget v0, p1, Landroid/os/Message;->what:I
+    iget v1, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v1, :pswitch_data_0
 
     :goto_0
     return-void
 
     :pswitch_0
-    const-string/jumbo v0, "GmsAlarmManager"
+    const-string/jumbo v1, "GmsAlarmManager"
 
-    const-string/jumbo v1, "receiver delay check network message"
+    const-string/jumbo v2, "receiver delay check network message"
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v0}, Lcom/android/server/GmsAlarmManager;->-get7(Lcom/android/server/GmsAlarmManager;)Lcom/android/server/GmsAlarmManager$GmsHandler;
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get10(Lcom/android/server/GmsAlarmManager;)Lcom/android/server/GmsAlarmManager$GmsHandler;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, v4}, Lcom/android/server/GmsAlarmManager$GmsHandler;->removeMessages(I)V
+    invoke-virtual {v1, v4}, Lcom/android/server/GmsAlarmManager$GmsHandler;->removeMessages(I)V
 
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v0}, Lcom/android/server/GmsAlarmManager;->-get7(Lcom/android/server/GmsAlarmManager;)Lcom/android/server/GmsAlarmManager$GmsHandler;
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-wrap3(Lcom/android/server/GmsAlarmManager;)Z
 
-    move-result-object v0
+    move-result v1
 
-    const-wide/32 v2, 0x36ee80
+    if-eqz v1, :cond_0
 
-    invoke-virtual {v0, v4, v2, v3}, Lcom/android/server/GmsAlarmManager$GmsHandler;->sendEmptyMessageDelayed(IJ)Z
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get10(Lcom/android/server/GmsAlarmManager;)Lcom/android/server/GmsAlarmManager$GmsHandler;
 
-    invoke-static {v0}, Lcom/android/server/GmsAlarmManager;->-get10(Lcom/android/server/GmsAlarmManager;)Z
+    move-result-object v1
 
-    move-result v0
+    const-wide/32 v2, 0xdbba0
 
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
-
-    invoke-static {v0}, Lcom/android/server/GmsAlarmManager;->-get12(Lcom/android/server/GmsAlarmManager;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
-
-    invoke-static {v0}, Lcom/android/server/GmsAlarmManager;->-get0(Lcom/android/server/GmsAlarmManager;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
-
-    invoke-static {v0}, Lcom/android/server/GmsAlarmManager;->-wrap2(Lcom/android/server/GmsAlarmManager;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
-
-    invoke-static {v0}, Lcom/android/server/GmsAlarmManager;->-wrap0(Lcom/android/server/GmsAlarmManager;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
-
-    const-string/jumbo v1, "https://www.google.com/"
-
-    const/16 v2, 0xc8
-
-    invoke-static {v0, v1, v2}, Lcom/android/server/GmsAlarmManager;->-wrap1(Lcom/android/server/GmsAlarmManager;Ljava/lang/String;I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
-
-    invoke-static {v0, v4}, Lcom/android/server/GmsAlarmManager;->-set2(Lcom/android/server/GmsAlarmManager;Z)Z
+    invoke-virtual {v1, v4, v2, v3}, Lcom/android/server/GmsAlarmManager$GmsHandler;->sendEmptyMessageDelayed(IJ)Z
 
     :goto_1
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v0, v5}, Lcom/android/server/GmsAlarmManager;->-set6(Lcom/android/server/GmsAlarmManager;Z)Z
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get13(Lcom/android/server/GmsAlarmManager;)Z
 
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    move-result v1
 
-    invoke-static {v0}, Lcom/android/server/GmsAlarmManager;->-get6(Lcom/android/server/GmsAlarmManager;)Z
+    if-nez v1, :cond_1
 
-    move-result v0
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    if-nez v0, :cond_4
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get15(Lcom/android/server/GmsAlarmManager;)Z
 
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    move-result v1
 
-    invoke-static {v0}, Lcom/android/server/GmsAlarmManager;->-get7(Lcom/android/server/GmsAlarmManager;)Lcom/android/server/GmsAlarmManager$GmsHandler;
+    xor-int/lit8 v1, v1, 0x1
 
-    move-result-object v0
+    if-eqz v1, :cond_1
 
-    invoke-virtual {v0, v6}, Lcom/android/server/GmsAlarmManager$GmsHandler;->removeMessages(I)V
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get4(Lcom/android/server/GmsAlarmManager;)Z
 
-    invoke-static {v0}, Lcom/android/server/GmsAlarmManager;->-get7(Lcom/android/server/GmsAlarmManager;)Lcom/android/server/GmsAlarmManager$GmsHandler;
+    move-result v1
 
-    move-result-object v0
+    xor-int/lit8 v1, v1, 0x1
 
-    invoke-virtual {v0, v6}, Lcom/android/server/GmsAlarmManager$GmsHandler;->sendEmptyMessage(I)Z
+    if-eqz v1, :cond_1
+
+    const-string/jumbo v1, "GmsAlarmManager"
+
+    const-string/jumbo v2, "Screen is off,skip check"
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    :cond_1
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    :cond_0
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v0}, Lcom/android/server/GmsAlarmManager;->-get2(Lcom/android/server/GmsAlarmManager;)Z
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get10(Lcom/android/server/GmsAlarmManager;)Lcom/android/server/GmsAlarmManager$GmsHandler;
+
+    move-result-object v1
+
+    const-wide/32 v2, 0x1b7740
+
+    invoke-virtual {v1, v4, v2, v3}, Lcom/android/server/GmsAlarmManager$GmsHandler;->sendEmptyMessageDelayed(IJ)Z
+
+    goto :goto_1
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get9(Lcom/android/server/GmsAlarmManager;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    const-string/jumbo v0, "GmsAlarmManager"
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get2(Lcom/android/server/GmsAlarmManager;)Z
 
-    const-string/jumbo v1, "Screen is off,skip check"
+    move-result v1
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz v1, :cond_3
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-wrap2(Lcom/android/server/GmsAlarmManager;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-wrap0(Lcom/android/server/GmsAlarmManager;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    const-string/jumbo v2, "https://www.google.com/"
+
+    const/16 v3, 0xc8
+
+    invoke-static {v1, v2, v3}, Lcom/android/server/GmsAlarmManager;->-wrap1(Lcom/android/server/GmsAlarmManager;Ljava/lang/String;I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1, v4}, Lcom/android/server/GmsAlarmManager;->-set3(Lcom/android/server/GmsAlarmManager;Z)Z
+
+    :goto_2
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-wrap0(Lcom/android/server/GmsAlarmManager;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get9(Lcom/android/server/GmsAlarmManager;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    iget-object v2, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v2}, Lcom/android/server/GmsAlarmManager;->-get7(Lcom/android/server/GmsAlarmManager;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v4, v2}, Lcom/android/server/GmsAlarmManager;->setUrlFirewallRule(ZLjava/util/ArrayList;)V
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get7(Lcom/android/server/GmsAlarmManager;)Ljava/util/ArrayList;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
+
+    :goto_3
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1, v5}, Lcom/android/server/GmsAlarmManager;->-set7(Lcom/android/server/GmsAlarmManager;Z)Z
+
+    if-eqz v0, :cond_6
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get0(Lcom/android/server/GmsAlarmManager;)Lcom/android/server/GmsAlarmManager$NetWorkStats;
+
+    move-result-object v1
+
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v2
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/server/GmsAlarmManager$NetWorkStats;->setEndTime(J)V
+
+    :goto_4
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get9(Lcom/android/server/GmsAlarmManager;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_7
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get10(Lcom/android/server/GmsAlarmManager;)Lcom/android/server/GmsAlarmManager$GmsHandler;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v6}, Lcom/android/server/GmsAlarmManager$GmsHandler;->removeMessages(I)V
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get10(Lcom/android/server/GmsAlarmManager;)Lcom/android/server/GmsAlarmManager$GmsHandler;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v6}, Lcom/android/server/GmsAlarmManager$GmsHandler;->sendEmptyMessage(I)Z
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get16(Lcom/android/server/GmsAlarmManager;)Lcom/android/server/GmsAlarmManager$NetWorkStats;
+
+    move-result-object v1
+
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v2
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/server/GmsAlarmManager$NetWorkStats;->addStartTime(J)V
 
     goto/16 :goto_0
 
     :cond_2
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v0, v5}, Lcom/android/server/GmsAlarmManager;->-set2(Lcom/android/server/GmsAlarmManager;Z)Z
+    invoke-static {v1, v5}, Lcom/android/server/GmsAlarmManager;->-set3(Lcom/android/server/GmsAlarmManager;Z)Z
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_3
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v0, v4}, Lcom/android/server/GmsAlarmManager;->-set2(Lcom/android/server/GmsAlarmManager;Z)Z
+    invoke-static {v1, v4}, Lcom/android/server/GmsAlarmManager;->-set3(Lcom/android/server/GmsAlarmManager;Z)Z
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_4
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v0}, Lcom/android/server/GmsAlarmManager;->-get7(Lcom/android/server/GmsAlarmManager;)Lcom/android/server/GmsAlarmManager$GmsHandler;
+    const-string/jumbo v2, "checkin.gstatic.com"
 
-    move-result-object v0
+    invoke-virtual {v1, v2}, Lcom/android/server/GmsAlarmManager;->parseHostAndSetUrlFirewallRule(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v7}, Lcom/android/server/GmsAlarmManager$GmsHandler;->removeMessages(I)V
+    goto :goto_3
 
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    :cond_5
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v0}, Lcom/android/server/GmsAlarmManager;->-get7(Lcom/android/server/GmsAlarmManager;)Lcom/android/server/GmsAlarmManager$GmsHandler;
+    iget-object v2, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    move-result-object v0
+    invoke-static {v2}, Lcom/android/server/GmsAlarmManager;->-get7(Lcom/android/server/GmsAlarmManager;)Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v7}, Lcom/android/server/GmsAlarmManager$GmsHandler;->sendEmptyMessage(I)Z
+    move-result-object v2
+
+    invoke-virtual {v1, v4, v2}, Lcom/android/server/GmsAlarmManager;->setUrlFirewallRule(ZLjava/util/ArrayList;)V
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get7(Lcom/android/server/GmsAlarmManager;)Ljava/util/ArrayList;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
+
+    goto :goto_3
+
+    :cond_6
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get16(Lcom/android/server/GmsAlarmManager;)Lcom/android/server/GmsAlarmManager$NetWorkStats;
+
+    move-result-object v1
+
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v2
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/server/GmsAlarmManager$NetWorkStats;->setEndTime(J)V
+
+    goto :goto_4
+
+    :cond_7
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get10(Lcom/android/server/GmsAlarmManager;)Lcom/android/server/GmsAlarmManager$GmsHandler;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v7}, Lcom/android/server/GmsAlarmManager$GmsHandler;->removeMessages(I)V
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get10(Lcom/android/server/GmsAlarmManager;)Lcom/android/server/GmsAlarmManager$GmsHandler;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v7}, Lcom/android/server/GmsAlarmManager$GmsHandler;->sendEmptyMessage(I)Z
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get0(Lcom/android/server/GmsAlarmManager;)Lcom/android/server/GmsAlarmManager$NetWorkStats;
+
+    move-result-object v1
+
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v2
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/server/GmsAlarmManager$NetWorkStats;->addStartTime(J)V
 
     goto/16 :goto_0
 
     :pswitch_1
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v0}, Lcom/android/server/GmsAlarmManager;->-get1(Lcom/android/server/GmsAlarmManager;)Z
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get4(Lcom/android/server/GmsAlarmManager;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_5
+    if-eqz v1, :cond_8
 
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v0}, Lcom/android/server/GmsAlarmManager;->-get2(Lcom/android/server/GmsAlarmManager;)Z
+    invoke-static {v1, v5}, Lcom/android/server/GmsAlarmManager;->-set2(Lcom/android/server/GmsAlarmManager;Z)Z
 
-    move-result v0
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    if-eqz v0, :cond_6
+    invoke-static {v1, v6}, Lcom/android/server/GmsAlarmManager;->-wrap10(Lcom/android/server/GmsAlarmManager;I)V
 
-    :cond_5
-    const-string/jumbo v0, "GmsAlarmManager"
+    :cond_8
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get3(Lcom/android/server/GmsAlarmManager;)Z
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    move-result v1
 
-    const-string/jumbo v2, "MSG_DISABLE_GMS_NETWORK:"
+    if-eqz v1, :cond_9
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    return-void
 
-    move-result-object v1
+    :cond_9
+    const-string/jumbo v1, "GmsAlarmManager"
 
-    iget-object v2, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-static {v2}, Lcom/android/server/GmsAlarmManager;->-get5(Lcom/android/server/GmsAlarmManager;)I
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result v2
+    const-string/jumbo v3, "MSG_DISABLE_GMS_NETWORK:"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, ","
+    iget-object v3, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v3}, Lcom/android/server/GmsAlarmManager;->-get8(Lcom/android/server/GmsAlarmManager;)I
 
-    move-result-object v1
+    move-result v3
 
-    iget-object v2, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-static {v2}, Lcom/android/server/GmsAlarmManager;->-get11(Lcom/android/server/GmsAlarmManager;)I
+    move-result-object v2
 
-    move-result v2
+    const-string/jumbo v3, ","
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, ","
+    iget-object v3, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v3}, Lcom/android/server/GmsAlarmManager;->-get14(Lcom/android/server/GmsAlarmManager;)I
 
-    move-result-object v1
+    move-result v3
 
-    iget-object v2, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-static {v2}, Lcom/android/server/GmsAlarmManager;->-get3(Lcom/android/server/GmsAlarmManager;)I
+    move-result-object v2
 
-    move-result v2
+    const-string/jumbo v3, ","
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget-object v3, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    move-result-object v1
+    invoke-static {v3}, Lcom/android/server/GmsAlarmManager;->-get5(Lcom/android/server/GmsAlarmManager;)I
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get1(Lcom/android/server/GmsAlarmManager;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_a
 
     invoke-static {}, Lcom/android/server/EventLogTags;->writeSecDisableNet()V
 
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v0, v5}, Lcom/android/server/GmsAlarmManager;->-wrap7(Lcom/android/server/GmsAlarmManager;Z)V
+    invoke-static {v1, v5}, Lcom/android/server/GmsAlarmManager;->-wrap12(Lcom/android/server/GmsAlarmManager;Z)V
 
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    :cond_a
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v0, v6}, Lcom/android/server/GmsAlarmManager;->-wrap6(Lcom/android/server/GmsAlarmManager;I)V
+    invoke-static {v1, v4}, Lcom/android/server/GmsAlarmManager;->-set1(Lcom/android/server/GmsAlarmManager;Z)Z
 
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v0, v4}, Lcom/android/server/GmsAlarmManager;->-set0(Lcom/android/server/GmsAlarmManager;Z)Z
+    invoke-static {v1, v5}, Lcom/android/server/GmsAlarmManager;->-wrap11(Lcom/android/server/GmsAlarmManager;Z)V
 
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v0, v5}, Lcom/android/server/GmsAlarmManager;->-set1(Lcom/android/server/GmsAlarmManager;Z)Z
+    invoke-static {v1, v6}, Lcom/android/server/GmsAlarmManager;->-wrap10(Lcom/android/server/GmsAlarmManager;I)V
 
     goto/16 :goto_0
 
-    :cond_6
+    :pswitch_2
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get4(Lcom/android/server/GmsAlarmManager;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_b
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1, v5}, Lcom/android/server/GmsAlarmManager;->-set2(Lcom/android/server/GmsAlarmManager;Z)Z
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1, v4}, Lcom/android/server/GmsAlarmManager;->-wrap10(Lcom/android/server/GmsAlarmManager;I)V
+
+    :cond_b
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get3(Lcom/android/server/GmsAlarmManager;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_c
+
     return-void
 
-    :pswitch_2
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    :cond_c
+    const-string/jumbo v1, "GmsAlarmManager"
 
-    invoke-static {v0}, Lcom/android/server/GmsAlarmManager;->-get1(Lcom/android/server/GmsAlarmManager;)Z
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    move-result v0
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-nez v0, :cond_7
+    const-string/jumbo v3, "MSG_ENABLE_GMS_NETWORK:"
 
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v0}, Lcom/android/server/GmsAlarmManager;->-get2(Lcom/android/server/GmsAlarmManager;)Z
+    move-result-object v2
 
-    move-result v0
+    iget-object v3, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    if-eqz v0, :cond_8
+    invoke-static {v3}, Lcom/android/server/GmsAlarmManager;->-get8(Lcom/android/server/GmsAlarmManager;)I
 
-    :cond_7
-    const-string/jumbo v0, "GmsAlarmManager"
+    move-result v3
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v2
 
-    const-string/jumbo v2, "MSG_ENABLE_GMS_NETWORK:"
+    const-string/jumbo v3, ","
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    iget-object v2, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    iget-object v3, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v2}, Lcom/android/server/GmsAlarmManager;->-get5(Lcom/android/server/GmsAlarmManager;)I
+    invoke-static {v3}, Lcom/android/server/GmsAlarmManager;->-get14(Lcom/android/server/GmsAlarmManager;)I
 
-    move-result v2
+    move-result v3
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, ","
+    const-string/jumbo v3, ","
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    iget-object v2, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    iget-object v3, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v2}, Lcom/android/server/GmsAlarmManager;->-get11(Lcom/android/server/GmsAlarmManager;)I
+    invoke-static {v3}, Lcom/android/server/GmsAlarmManager;->-get5(Lcom/android/server/GmsAlarmManager;)I
 
-    move-result v2
+    move-result v3
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, ","
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    move-result-object v1
+    invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v2, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v2}, Lcom/android/server/GmsAlarmManager;->-get3(Lcom/android/server/GmsAlarmManager;)I
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get1(Lcom/android/server/GmsAlarmManager;)Z
 
-    move-result v2
+    move-result v1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    if-nez v1, :cond_d
 
     invoke-static {}, Lcom/android/server/EventLogTags;->writeSecEnableNet()V
 
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v0}, Lcom/android/server/GmsAlarmManager;->-wrap4(Lcom/android/server/GmsAlarmManager;)V
+    invoke-static {v1, v4}, Lcom/android/server/GmsAlarmManager;->-wrap12(Lcom/android/server/GmsAlarmManager;Z)V
 
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    :cond_d
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v0, v4}, Lcom/android/server/GmsAlarmManager;->-wrap7(Lcom/android/server/GmsAlarmManager;Z)V
+    invoke-static {v1, v5}, Lcom/android/server/GmsAlarmManager;->-set1(Lcom/android/server/GmsAlarmManager;Z)Z
 
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v0, v4}, Lcom/android/server/GmsAlarmManager;->-wrap6(Lcom/android/server/GmsAlarmManager;I)V
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-wrap7(Lcom/android/server/GmsAlarmManager;)V
 
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v0, v5}, Lcom/android/server/GmsAlarmManager;->-set0(Lcom/android/server/GmsAlarmManager;Z)Z
+    invoke-static {v1, v4}, Lcom/android/server/GmsAlarmManager;->-wrap11(Lcom/android/server/GmsAlarmManager;Z)V
 
-    iget-object v0, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
 
-    invoke-static {v0, v5}, Lcom/android/server/GmsAlarmManager;->-set1(Lcom/android/server/GmsAlarmManager;Z)Z
+    invoke-static {v1, v4}, Lcom/android/server/GmsAlarmManager;->-wrap10(Lcom/android/server/GmsAlarmManager;I)V
 
     goto/16 :goto_0
 
-    :cond_8
-    return-void
+    :pswitch_3
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get3(Lcom/android/server/GmsAlarmManager;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_e
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get1(Lcom/android/server/GmsAlarmManager;)Z
+
+    move-result v1
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_e
+
+    const-string/jumbo v1, "GmsAlarmManager"
+
+    const-string/jumbo v2, "MSG_ENABLE_GMS_NETWORK_BY_CHARGING"
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Lcom/android/server/EventLogTags;->writeSecEnableNetByCharging()V
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1, v4}, Lcom/android/server/GmsAlarmManager;->-wrap12(Lcom/android/server/GmsAlarmManager;Z)V
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-wrap7(Lcom/android/server/GmsAlarmManager;)V
+
+    :cond_e
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1, v4}, Lcom/android/server/GmsAlarmManager;->-set0(Lcom/android/server/GmsAlarmManager;Z)Z
+
+    goto/16 :goto_0
+
+    :pswitch_4
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get3(Lcom/android/server/GmsAlarmManager;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_f
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1}, Lcom/android/server/GmsAlarmManager;->-get1(Lcom/android/server/GmsAlarmManager;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_f
+
+    const-string/jumbo v1, "GmsAlarmManager"
+
+    const-string/jumbo v2, "MSG_DISABLE_GMS_NETWORK_BY_UNCHARGING"
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Lcom/android/server/EventLogTags;->writeSecDisableNetByUncharging()V
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1, v5}, Lcom/android/server/GmsAlarmManager;->-wrap12(Lcom/android/server/GmsAlarmManager;Z)V
+
+    :cond_f
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {v1, v5}, Lcom/android/server/GmsAlarmManager;->-set0(Lcom/android/server/GmsAlarmManager;Z)Z
+
+    goto/16 :goto_0
+
+    :pswitch_5
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    const-string/jumbo v2, "com.android.server.gmsalarmmanager"
+
+    const-string/jumbo v3, "GNET"
+
+    iget-object v4, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v6
+
+    invoke-static {v4, v6, v7}, Lcom/android/server/GmsAlarmManager;->-wrap4(Lcom/android/server/GmsAlarmManager;J)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v1, v2, v3, v4}, Lcom/android/server/GmsAlarmManager;->-wrap6(Lcom/android/server/GmsAlarmManager;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/android/server/GmsAlarmManager$GmsHandler;->this$0:Lcom/android/server/GmsAlarmManager;
+
+    const-wide/32 v2, 0x5265c00
+
+    invoke-static {v1, v2, v3}, Lcom/android/server/GmsAlarmManager;->-wrap9(Lcom/android/server/GmsAlarmManager;J)V
+
+    goto/16 :goto_0
 
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
         :pswitch_1
         :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
     .end packed-switch
 .end method

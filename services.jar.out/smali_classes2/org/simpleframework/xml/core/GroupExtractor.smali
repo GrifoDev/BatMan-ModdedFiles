@@ -63,16 +63,16 @@
 .end method
 
 .method private extract()V
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/GroupExtractor;->factory:Lorg/simpleframework/xml/core/ExtractorFactory;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/GroupExtractor;->factory:Lorg/simpleframework/xml/core/ExtractorFactory;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/ExtractorFactory;->getInstance()Lorg/simpleframework/xml/core/Extractor;
+    invoke-virtual {v1}, Lorg/simpleframework/xml/core/ExtractorFactory;->getInstance()Lorg/simpleframework/xml/core/Extractor;
 
     move-result-object v0
 
@@ -88,7 +88,7 @@
 .end method
 
 .method private extract(Lorg/simpleframework/xml/core/Extractor;)V
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -97,23 +97,25 @@
 
     invoke-interface {p1}, Lorg/simpleframework/xml/core/Extractor;->getAnnotations()[Ljava/lang/annotation/Annotation;
 
-    move-result-object v1
+    move-result-object v4
 
-    array-length v2, v1
+    move-object v0, v4
 
-    const/4 v0, 0x0
+    array-length v3, v0
+
+    const/4 v1, 0x0
 
     :goto_0
-    if-lt v0, v2, :cond_0
+    if-lt v1, v3, :cond_0
 
     return-void
 
     :cond_0
-    aget-object v3, v1, v0
+    aget-object v2, v0, v1
 
-    invoke-direct {p0, p1, v3}, Lorg/simpleframework/xml/core/GroupExtractor;->extract(Lorg/simpleframework/xml/core/Extractor;Ljava/lang/annotation/Annotation;)V
+    invoke-direct {p0, p1, v2}, Lorg/simpleframework/xml/core/GroupExtractor;->extract(Lorg/simpleframework/xml/core/Extractor;Ljava/lang/annotation/Annotation;)V
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 .end method
@@ -239,53 +241,51 @@
 .end method
 
 .method public isInline()Z
-    .locals 3
+    .locals 4
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/GroupExtractor;->registry:Lorg/simpleframework/xml/core/GroupExtractor$Registry;
+    iget-object v3, p0, Lorg/simpleframework/xml/core/GroupExtractor;->registry:Lorg/simpleframework/xml/core/GroupExtractor$Registry;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/GroupExtractor$Registry;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :cond_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    iget-object v0, p0, Lorg/simpleframework/xml/core/GroupExtractor;->registry:Lorg/simpleframework/xml/core/GroupExtractor$Registry;
-
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/GroupExtractor$Registry;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    move v0, v1
-
-    :goto_0
-    return v0
-
-    :cond_1
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {v3}, Lorg/simpleframework/xml/core/GroupExtractor$Registry;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    check-cast v0, Lorg/simpleframework/xml/core/Label;
+    :cond_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/core/Label;->isInline()Z
+    move-result v3
 
-    move-result v0
+    if-nez v3, :cond_1
 
-    if-nez v0, :cond_0
+    iget-object v3, p0, Lorg/simpleframework/xml/core/GroupExtractor;->registry:Lorg/simpleframework/xml/core/GroupExtractor$Registry;
 
-    return v1
+    invoke-virtual {v3}, Lorg/simpleframework/xml/core/GroupExtractor$Registry;->isEmpty()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    :goto_0
+    return v2
+
+    :cond_1
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lorg/simpleframework/xml/core/Label;
+
+    invoke-interface {v1}, Lorg/simpleframework/xml/core/Label;->isInline()Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    return v2
 
     :cond_2
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
     goto :goto_0
 .end method

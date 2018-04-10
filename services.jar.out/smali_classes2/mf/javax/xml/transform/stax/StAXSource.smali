@@ -20,22 +20,22 @@
 
 # direct methods
 .method public constructor <init>(Lmf/javax/xml/stream/XMLEventReader;)V
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/javax/xml/stream/XMLStreamException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object v0, p0, Lmf/javax/xml/transform/stax/StAXSource;->xmlEventReader:Lmf/javax/xml/stream/XMLEventReader;
+    iput-object v2, p0, Lmf/javax/xml/transform/stax/StAXSource;->xmlEventReader:Lmf/javax/xml/stream/XMLEventReader;
 
-    iput-object v0, p0, Lmf/javax/xml/transform/stax/StAXSource;->xmlStreamReader:Lmf/javax/xml/stream/XMLStreamReader;
+    iput-object v2, p0, Lmf/javax/xml/transform/stax/StAXSource;->xmlStreamReader:Lmf/javax/xml/stream/XMLStreamReader;
 
-    iput-object v0, p0, Lmf/javax/xml/transform/stax/StAXSource;->systemId:Ljava/lang/String;
+    iput-object v2, p0, Lmf/javax/xml/transform/stax/StAXSource;->systemId:Ljava/lang/String;
 
     if-eqz p1, :cond_1
 
@@ -56,51 +56,51 @@
 
     invoke-interface {v0}, Lmf/javax/xml/stream/events/XMLEvent;->getLocation()Lmf/javax/xml/stream/Location;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-interface {v0}, Lmf/javax/xml/stream/Location;->getSystemId()Ljava/lang/String;
+    invoke-interface {v2}, Lmf/javax/xml/stream/Location;->getSystemId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lmf/javax/xml/transform/stax/StAXSource;->systemId:Ljava/lang/String;
+    iput-object v2, p0, Lmf/javax/xml/transform/stax/StAXSource;->systemId:Ljava/lang/String;
 
     return-void
 
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "StAXSource(XMLEventReader) with XMLEventReader == null"
+    const-string/jumbo v3, "StAXSource(XMLEventReader) with XMLEventReader == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v2
 
     :cond_2
     const/4 v2, 0x1
 
     if-eq v1, v2, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance v2, Ljava/lang/IllegalStateException;
 
-    const-string/jumbo v1, "StAXSource(XMLEventReader) with XMLEventReader not in XMLStreamConstants.START_DOCUMENT or XMLStreamConstants.START_ELEMENT state"
+    const-string/jumbo v3, "StAXSource(XMLEventReader) with XMLEventReader not in XMLStreamConstants.START_DOCUMENT or XMLStreamConstants.START_ELEMENT state"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v2
 .end method
 
 .method public constructor <init>(Lmf/javax/xml/stream/XMLStreamReader;)V
-    .locals 2
+    .locals 3
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object v0, p0, Lmf/javax/xml/transform/stax/StAXSource;->xmlEventReader:Lmf/javax/xml/stream/XMLEventReader;
+    iput-object v1, p0, Lmf/javax/xml/transform/stax/StAXSource;->xmlEventReader:Lmf/javax/xml/stream/XMLEventReader;
 
-    iput-object v0, p0, Lmf/javax/xml/transform/stax/StAXSource;->xmlStreamReader:Lmf/javax/xml/stream/XMLStreamReader;
+    iput-object v1, p0, Lmf/javax/xml/transform/stax/StAXSource;->xmlStreamReader:Lmf/javax/xml/stream/XMLStreamReader;
 
-    iput-object v0, p0, Lmf/javax/xml/transform/stax/StAXSource;->systemId:Ljava/lang/String;
+    iput-object v1, p0, Lmf/javax/xml/transform/stax/StAXSource;->systemId:Ljava/lang/String;
 
     if-eqz p1, :cond_1
 
@@ -117,37 +117,37 @@
 
     invoke-interface {p1}, Lmf/javax/xml/stream/XMLStreamReader;->getLocation()Lmf/javax/xml/stream/Location;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-interface {v0}, Lmf/javax/xml/stream/Location;->getSystemId()Ljava/lang/String;
+    invoke-interface {v1}, Lmf/javax/xml/stream/Location;->getSystemId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lmf/javax/xml/transform/stax/StAXSource;->systemId:Ljava/lang/String;
+    iput-object v1, p0, Lmf/javax/xml/transform/stax/StAXSource;->systemId:Ljava/lang/String;
 
     return-void
 
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "StAXSource(XMLStreamReader) with XMLStreamReader == null"
+    const-string/jumbo v2, "StAXSource(XMLStreamReader) with XMLStreamReader == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v1
 
     :cond_2
     const/4 v1, 0x1
 
     if-eq v0, v1, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance v1, Ljava/lang/IllegalStateException;
 
-    const-string/jumbo v1, "StAXSource(XMLStreamReader) with XMLStreamReadernot in XMLStreamConstants.START_DOCUMENT or XMLStreamConstants.START_ELEMENT state"
+    const-string/jumbo v2, "StAXSource(XMLStreamReader) with XMLStreamReadernot in XMLStreamConstants.START_DOCUMENT or XMLStreamConstants.START_ELEMENT state"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v1
 .end method
 
 

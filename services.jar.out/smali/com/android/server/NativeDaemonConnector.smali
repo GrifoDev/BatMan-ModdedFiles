@@ -31,6 +31,10 @@
 # instance fields
 .field private final BUFFER_SIZE:I
 
+.field private final NETD_CONNECTION_RETRY:I
+
+.field private final NETD_RESTART_RETRY:I
+
 .field private final TAG:Ljava/lang/String;
 
 .field private mCallbackHandler:Landroid/os/Handler;
@@ -108,6 +112,14 @@
 
     iput v0, p0, Lcom/android/server/NativeDaemonConnector;->BUFFER_SIZE:I
 
+    const/4 v0, 0x3
+
+    iput v0, p0, Lcom/android/server/NativeDaemonConnector;->NETD_CONNECTION_RETRY:I
+
+    const/4 v0, 0x2
+
+    iput v0, p0, Lcom/android/server/NativeDaemonConnector;->NETD_RESTART_RETRY:I
+
     iput-object p1, p0, Lcom/android/server/NativeDaemonConnector;->mCallbacks:Lcom/android/server/INativeDaemonConnectorCallbacks;
 
     iput-object p2, p0, Lcom/android/server/NativeDaemonConnector;->mSocket:Ljava/lang/String;
@@ -161,8 +173,6 @@
 .method static appendEscaped(Ljava/lang/StringBuilder;Ljava/lang/String;)V
     .locals 6
 
-    const/4 v1, 0x0
-
     const/16 v5, 0x22
 
     const/16 v4, 0x20
@@ -171,23 +181,23 @@
 
     move-result v4
 
-    if-ltz v4, :cond_0
+    if-ltz v4, :cond_1
 
     const/4 v1, 0x1
 
-    :cond_0
-    if-eqz v1, :cond_1
+    :goto_0
+    if-eqz v1, :cond_0
 
     invoke-virtual {p0, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :cond_1
+    :cond_0
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v3
 
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_1
     if-ge v2, v3, :cond_4
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
@@ -200,8 +210,13 @@
 
     invoke-virtual {p0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :goto_1
+    :goto_2
     add-int/lit8 v2, v2, 0x1
+
+    goto :goto_1
+
+    :cond_1
+    const/4 v1, 0x0
 
     goto :goto_0
 
@@ -214,12 +229,12 @@
 
     invoke-virtual {p0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_3
     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_4
     if-eqz v1, :cond_5
@@ -290,7 +305,7 @@
 
     move-result-object v5
 
-    const-string/jumbo v22, "[listenToSocket1] before trying to socket.connect"
+    const-string/jumbo v22, "[listenToSocket] determineSocketAddress done"
 
     move-object/from16 v0, p0
 
@@ -302,7 +317,7 @@
 
     invoke-virtual {v0, v5}, Landroid/net/LocalSocket;->connect(Landroid/net/LocalSocketAddress;)V
 
-    const-string/jumbo v22, "[listenToSocket2] before socket.getInputStream"
+    const-string/jumbo v22, "[listenToSocket] socket connect done"
 
     move-object/from16 v0, p0
 
@@ -314,7 +329,7 @@
 
     move-result-object v14
 
-    const-string/jumbo v22, "[listenToSocket3] before socket.getOutputStream"
+    const-string/jumbo v22, "[listenToSocket] socket getInputStream done"
 
     move-object/from16 v0, p0
 
@@ -349,7 +364,7 @@
     :try_start_3
     monitor-exit v23
 
-    const-string/jumbo v22, "[listenToSocket4] before onDaemonConnected"
+    const-string/jumbo v22, "[listenToSocket] socket getOutputStream done"
 
     move-object/from16 v0, p0
 
@@ -365,6 +380,14 @@
 
     invoke-interface/range {v22 .. v22}, Lcom/android/server/INativeDaemonConnectorCallbacks;->onDaemonConnected()V
 
+    const-string/jumbo v22, "[listenToSocket] onDaemonConnected done"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v22
+
+    invoke-direct {v0, v1}, Lcom/android/server/NativeDaemonConnector;->loge(Ljava/lang/String;)V
+
     const/4 v12, 0x0
 
     const/16 v22, 0x1000
@@ -375,7 +398,7 @@
 
     const/16 v21, 0x0
 
-    const-string/jumbo v22, "[listenToSocket4] before read in while"
+    const-string/jumbo v22, "[listenToSocket] before read in while"
 
     move-object/from16 v0, p0
 
@@ -442,14 +465,6 @@
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
     .catchall {:try_start_3 .. :try_end_3} :catchall_2
-
-    const-string/jumbo v22, " enter finally for deleting socket "
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v22
-
-    invoke-direct {v0, v1}, Lcom/android/server/NativeDaemonConnector;->loge(Ljava/lang/String;)V
 
     move-object/from16 v0, p0
 
@@ -568,7 +583,7 @@
 
     invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v23, " Communications error: "
+    const-string/jumbo v23, "Communications error: "
 
     invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -598,14 +613,6 @@
     move-exception v22
 
     :goto_4
-    const-string/jumbo v23, " enter finally for deleting socket "
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v23
-
-    invoke-direct {v0, v1}, Lcom/android/server/NativeDaemonConnector;->loge(Ljava/lang/String;)V
-
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/NativeDaemonConnector;->mDaemonLock:Ljava/lang/Object;
@@ -2287,19 +2294,19 @@
 .end method
 
 .method public run()V
-    .locals 12
+    .locals 8
 
-    const-wide/16 v10, 0x0
+    new-instance v5, Landroid/os/Handler;
 
-    new-instance v3, Landroid/os/Handler;
+    iget-object v6, p0, Lcom/android/server/NativeDaemonConnector;->mLooper:Landroid/os/Looper;
 
-    iget-object v8, p0, Lcom/android/server/NativeDaemonConnector;->mLooper:Landroid/os/Looper;
+    invoke-direct {v5, v6, p0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;)V
 
-    invoke-direct {v3, v8, p0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;)V
+    iput-object v5, p0, Lcom/android/server/NativeDaemonConnector;->mCallbackHandler:Landroid/os/Handler;
 
-    iput-object v3, p0, Lcom/android/server/NativeDaemonConnector;->mCallbackHandler:Landroid/os/Handler;
+    const/4 v3, 0x0
 
-    const-wide/16 v6, 0x0
+    const/4 v2, 0x0
 
     :goto_0
     :try_start_0
@@ -2310,59 +2317,235 @@
     goto :goto_0
 
     :catch_0
-    move-exception v2
+    move-exception v0
 
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    move-result-wide v0
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    sub-long v4, v0, v6
+    const-string/jumbo v6, "Error in NativeDaemonConnector: "
 
-    const-wide/16 v8, 0x1388
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    cmp-long v3, v4, v8
+    move-result-object v5
 
-    if-ltz v3, :cond_0
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    cmp-long v3, v6, v10
+    move-result-object v5
 
-    if-lez v3, :cond_0
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p0, v5}, Lcom/android/server/NativeDaemonConnector;->loge(Ljava/lang/String;)V
 
-    const-string/jumbo v8, "Error in NativeDaemonConnector: "
+    const-string/jumbo v5, "ro.arch"
 
-    invoke-virtual {v3, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v6, "UNKNOWN"
 
-    move-result-object v3
+    invoke-static {v5, v6}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    move-result-object v3
+    const-string/jumbo v6, "exynos"
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result-object v3
+    move-result v5
 
-    invoke-direct {p0, v3}, Lcom/android/server/NativeDaemonConnector;->loge(Ljava/lang/String;)V
+    if-eqz v5, :cond_0
 
-    const-wide/16 v6, 0x0
+    const-string/jumbo v5, "1"
+
+    const-string/jumbo v6, "sys.boot_completed"
+
+    const-string/jumbo v7, "UNKNOWN"
+
+    invoke-static {v6, v7}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    xor-int/lit8 v5, v5, 0x1
+
+    if-eqz v5, :cond_0
+
+    const-string/jumbo v5, "NetdConnector"
+
+    iget-object v6, p0, Lcom/android/server/NativeDaemonConnector;->TAG:Ljava/lang/String;
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    add-int/lit8 v3, v3, 0x1
+
+    const/4 v5, 0x3
+
+    if-ge v3, v5, :cond_1
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "NetdConnector failed connection, retryCount: "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-direct {p0, v5}, Lcom/android/server/NativeDaemonConnector;->loge(Ljava/lang/String;)V
 
     :cond_0
-    cmp-long v3, v6, v10
+    :goto_1
+    const-wide/16 v6, 0x1388
 
-    if-nez v3, :cond_1
-
-    move-wide v6, v0
-
-    :cond_1
-    const-wide/16 v8, 0x64
-
-    invoke-static {v8, v9}, Landroid/os/SystemClock;->sleep(J)V
+    invoke-static {v6, v7}, Landroid/os/SystemClock;->sleep(J)V
 
     goto :goto_0
+
+    :cond_1
+    add-int/lit8 v2, v2, 0x1
+
+    const/4 v5, 0x2
+
+    if-ge v2, v5, :cond_2
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "NetdConnector failed connection, so restart the netd. restartNetdCount: "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-direct {p0, v5}, Lcom/android/server/NativeDaemonConnector;->loge(Ljava/lang/String;)V
+
+    const-string/jumbo v5, "ctl.restart"
+
+    const-string/jumbo v6, "netd"
+
+    invoke-static {v5, v6}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+
+    :goto_2
+    const/4 v3, 0x0
+
+    goto :goto_1
+
+    :cond_2
+    const-string/jumbo v5, "0x494d"
+
+    const-string/jumbo v6, "ro.debug_level"
+
+    const-string/jumbo v7, "UNKNOWN"
+
+    invoke-static {v6, v7}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_3
+
+    :try_start_1
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "NetdConnector failed connection, do sysrq panic. restartNetdCount: "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-direct {p0, v5}, Lcom/android/server/NativeDaemonConnector;->loge(Ljava/lang/String;)V
+
+    new-instance v4, Ljava/io/FileWriter;
+
+    const-string/jumbo v5, "/proc/sysrq-trigger"
+
+    invoke-direct {v4, v5}, Ljava/io/FileWriter;-><init>(Ljava/lang/String;)V
+
+    const/16 v5, 0x63
+
+    invoke-virtual {v4, v5}, Ljava/io/FileWriter;->write(I)V
+
+    invoke-virtual {v4}, Ljava/io/FileWriter;->close()V
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
+
+    goto :goto_2
+
+    :catch_1
+    move-exception v1
+
+    const-string/jumbo v5, "Failed to write to /proc/sysrq-trigger"
+
+    invoke-direct {p0, v5}, Lcom/android/server/NativeDaemonConnector;->loge(Ljava/lang/String;)V
+
+    goto :goto_2
+
+    :cond_3
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "NetdConnector failed connection, so restart the platform. restartNetdCount: "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-direct {p0, v5}, Lcom/android/server/NativeDaemonConnector;->loge(Ljava/lang/String;)V
+
+    const-string/jumbo v5, "sys.sf.restart"
+
+    const-string/jumbo v6, "1"
+
+    invoke-static {v5, v6}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_2
 .end method
 
 .method public setDebug(Z)V

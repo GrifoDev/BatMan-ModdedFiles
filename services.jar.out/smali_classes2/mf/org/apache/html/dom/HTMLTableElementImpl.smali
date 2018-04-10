@@ -57,25 +57,25 @@
 
     if-nez v0, :cond_0
 
-    new-instance v1, Lmf/org/apache/html/dom/HTMLTableCaptionElementImpl;
+    new-instance v0, Lmf/org/apache/html/dom/HTMLTableCaptionElementImpl;
 
     invoke-virtual {p0}, Lmf/org/apache/html/dom/HTMLTableElementImpl;->getOwnerDocument()Lmf/org/w3c/dom/Document;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/org/apache/html/dom/HTMLDocumentImpl;
+    check-cast v1, Lmf/org/apache/html/dom/HTMLDocumentImpl;
 
     const-string/jumbo v2, "CAPTION"
 
-    invoke-direct {v1, v0, v2}, Lmf/org/apache/html/dom/HTMLTableCaptionElementImpl;-><init>(Lmf/org/apache/html/dom/HTMLDocumentImpl;Ljava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Lmf/org/apache/html/dom/HTMLTableCaptionElementImpl;-><init>(Lmf/org/apache/html/dom/HTMLDocumentImpl;Ljava/lang/String;)V
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/html/dom/HTMLTableElementImpl;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-virtual {p0, v0}, Lmf/org/apache/html/dom/HTMLTableElementImpl;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return-object v1
+    return-object v0
 
     :cond_0
     monitor-exit p0
@@ -83,11 +83,11 @@
     return-object v0
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
     monitor-exit p0
 
-    throw v0
+    throw v1
 .end method
 
 .method public declared-synchronized createTFoot()Lmf/org/w3c/dom/html/HTMLElement;
@@ -102,25 +102,25 @@
 
     if-nez v0, :cond_0
 
-    new-instance v1, Lmf/org/apache/html/dom/HTMLTableSectionElementImpl;
+    new-instance v0, Lmf/org/apache/html/dom/HTMLTableSectionElementImpl;
 
     invoke-virtual {p0}, Lmf/org/apache/html/dom/HTMLTableElementImpl;->getOwnerDocument()Lmf/org/w3c/dom/Document;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/org/apache/html/dom/HTMLDocumentImpl;
+    check-cast v1, Lmf/org/apache/html/dom/HTMLDocumentImpl;
 
     const-string/jumbo v2, "TFOOT"
 
-    invoke-direct {v1, v0, v2}, Lmf/org/apache/html/dom/HTMLTableSectionElementImpl;-><init>(Lmf/org/apache/html/dom/HTMLDocumentImpl;Ljava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Lmf/org/apache/html/dom/HTMLTableSectionElementImpl;-><init>(Lmf/org/apache/html/dom/HTMLDocumentImpl;Ljava/lang/String;)V
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/html/dom/HTMLTableElementImpl;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-virtual {p0, v0}, Lmf/org/apache/html/dom/HTMLTableElementImpl;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return-object v1
+    return-object v0
 
     :cond_0
     monitor-exit p0
@@ -128,11 +128,11 @@
     return-object v0
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
     monitor-exit p0
 
-    throw v0
+    throw v1
 .end method
 
 .method public declared-synchronized createTHead()Lmf/org/w3c/dom/html/HTMLElement;
@@ -147,25 +147,25 @@
 
     if-nez v0, :cond_0
 
-    new-instance v1, Lmf/org/apache/html/dom/HTMLTableSectionElementImpl;
+    new-instance v0, Lmf/org/apache/html/dom/HTMLTableSectionElementImpl;
 
     invoke-virtual {p0}, Lmf/org/apache/html/dom/HTMLTableElementImpl;->getOwnerDocument()Lmf/org/w3c/dom/Document;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/org/apache/html/dom/HTMLDocumentImpl;
+    check-cast v1, Lmf/org/apache/html/dom/HTMLDocumentImpl;
 
     const-string/jumbo v2, "THEAD"
 
-    invoke-direct {v1, v0, v2}, Lmf/org/apache/html/dom/HTMLTableSectionElementImpl;-><init>(Lmf/org/apache/html/dom/HTMLDocumentImpl;Ljava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Lmf/org/apache/html/dom/HTMLTableSectionElementImpl;-><init>(Lmf/org/apache/html/dom/HTMLDocumentImpl;Ljava/lang/String;)V
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/html/dom/HTMLTableElementImpl;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-virtual {p0, v0}, Lmf/org/apache/html/dom/HTMLTableElementImpl;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return-object v1
+    return-object v0
 
     :cond_0
     monitor-exit p0
@@ -173,15 +173,15 @@
     return-object v0
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
     monitor-exit p0
 
-    throw v0
+    throw v1
 .end method
 
 .method public declared-synchronized deleteCaption()V
-    .locals 1
+    .locals 2
 
     monitor-enter p0
 
@@ -208,11 +208,11 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
     monitor-exit p0
 
-    throw v0
+    throw v1
 .end method
 
 .method public declared-synchronized deleteRow(I)V
@@ -223,24 +223,24 @@
     :try_start_0
     invoke-virtual {p0}, Lmf/org/apache/html/dom/HTMLTableElementImpl;->getFirstChild()Lmf/org/w3c/dom/Node;
 
-    move-result-object v2
+    move-result-object v1
 
     :goto_0
-    if-eqz v2, :cond_4
+    if-eqz v1, :cond_4
 
-    instance-of v1, v2, Lmf/org/w3c/dom/html/HTMLTableRowElement;
+    instance-of v2, v1, Lmf/org/w3c/dom/html/HTMLTableRowElement;
 
-    if-nez v1, :cond_1
+    if-nez v2, :cond_1
 
-    instance-of v1, v2, Lmf/org/apache/html/dom/HTMLTableSectionElementImpl;
+    instance-of v2, v1, Lmf/org/apache/html/dom/HTMLTableSectionElementImpl;
 
-    if-nez v1, :cond_3
+    if-nez v2, :cond_3
 
     :cond_0
     :goto_1
-    invoke-interface {v2}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
-    move-result-object v2
+    move-result-object v1
 
     goto :goto_0
 
@@ -252,7 +252,7 @@
     goto :goto_1
 
     :cond_2
-    invoke-virtual {p0, v2}, Lmf/org/apache/html/dom/HTMLTableElementImpl;->removeChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-virtual {p0, v1}, Lmf/org/apache/html/dom/HTMLTableElementImpl;->removeChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -262,13 +262,13 @@
 
     :cond_3
     :try_start_1
-    move-object v0, v2
+    move-object v0, v1
 
     check-cast v0, Lmf/org/apache/html/dom/HTMLTableSectionElementImpl;
 
-    move-object v1, v0
+    move-object v2, v0
 
-    invoke-virtual {v1, p1}, Lmf/org/apache/html/dom/HTMLTableSectionElementImpl;->deleteRowX(I)I
+    invoke-virtual {v2, p1}, Lmf/org/apache/html/dom/HTMLTableSectionElementImpl;->deleteRowX(I)I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -286,15 +286,15 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception v2
 
     monitor-exit p0
 
-    throw v1
+    throw v2
 .end method
 
 .method public declared-synchronized deleteTFoot()V
-    .locals 1
+    .locals 2
 
     monitor-enter p0
 
@@ -321,15 +321,15 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
     monitor-exit p0
 
-    throw v0
+    throw v1
 .end method
 
 .method public declared-synchronized deleteTHead()V
-    .locals 1
+    .locals 2
 
     monitor-enter p0
 
@@ -356,11 +356,11 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
     monitor-exit p0
 
-    throw v0
+    throw v1
 .end method
 
 .method public getAlign()Ljava/lang/String;
@@ -456,11 +456,11 @@
     return-object v3
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
     monitor-exit p0
 
-    throw v0
+    throw v1
 .end method
 
 .method public getCellPadding()Ljava/lang/String;
@@ -632,11 +632,11 @@
     return-object v3
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
     monitor-exit p0
 
-    throw v0
+    throw v1
 .end method
 
 .method public declared-synchronized getTHead()Lmf/org/w3c/dom/html/HTMLTableSectionElement;
@@ -692,11 +692,11 @@
     return-object v3
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
     monitor-exit p0
 
-    throw v0
+    throw v1
 .end method
 
 .method public getWidth()Ljava/lang/String;
@@ -714,92 +714,84 @@
 .method public insertRow(I)Lmf/org/w3c/dom/html/HTMLElement;
     .locals 3
 
-    new-instance v1, Lmf/org/apache/html/dom/HTMLTableRowElementImpl;
+    new-instance v0, Lmf/org/apache/html/dom/HTMLTableRowElementImpl;
 
     invoke-virtual {p0}, Lmf/org/apache/html/dom/HTMLTableElementImpl;->getOwnerDocument()Lmf/org/w3c/dom/Document;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/org/apache/html/dom/HTMLDocumentImpl;
+    check-cast v1, Lmf/org/apache/html/dom/HTMLDocumentImpl;
 
     const-string/jumbo v2, "TR"
 
-    invoke-direct {v1, v0, v2}, Lmf/org/apache/html/dom/HTMLTableRowElementImpl;-><init>(Lmf/org/apache/html/dom/HTMLDocumentImpl;Ljava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Lmf/org/apache/html/dom/HTMLTableRowElementImpl;-><init>(Lmf/org/apache/html/dom/HTMLDocumentImpl;Ljava/lang/String;)V
 
-    invoke-virtual {p0, p1, v1}, Lmf/org/apache/html/dom/HTMLTableElementImpl;->insertRowX(ILmf/org/apache/html/dom/HTMLTableRowElementImpl;)V
+    invoke-virtual {p0, p1, v0}, Lmf/org/apache/html/dom/HTMLTableElementImpl;->insertRowX(ILmf/org/apache/html/dom/HTMLTableRowElementImpl;)V
 
-    return-object v1
+    return-object v0
 .end method
 
 .method insertRowX(ILmf/org/apache/html/dom/HTMLTableRowElementImpl;)V
-    .locals 4
+    .locals 3
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     invoke-virtual {p0}, Lmf/org/apache/html/dom/HTMLTableElementImpl;->getFirstChild()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
-
-    move v2, p1
+    move-result-object v0
 
     :goto_0
-    if-eqz v1, :cond_4
+    if-eqz v0, :cond_3
 
-    instance-of v3, v1, Lmf/org/w3c/dom/html/HTMLTableRowElement;
+    instance-of v2, v0, Lmf/org/w3c/dom/html/HTMLTableRowElement;
 
-    if-nez v3, :cond_1
+    if-nez v2, :cond_1
 
-    instance-of v3, v1, Lmf/org/apache/html/dom/HTMLTableSectionElementImpl;
+    instance-of v2, v0, Lmf/org/apache/html/dom/HTMLTableSectionElementImpl;
 
-    if-nez v3, :cond_2
+    if-nez v2, :cond_2
 
     :cond_0
-    :goto_1
-    invoke-interface {v1}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
+    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNextSibling()Lmf/org/w3c/dom/Node;
 
-    move-result-object v1
+    move-result-object v0
 
     goto :goto_0
 
     :cond_1
-    if-nez v2, :cond_0
+    if-nez p1, :cond_0
 
-    invoke-virtual {p0, p2, v1}, Lmf/org/apache/html/dom/HTMLTableElementImpl;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-virtual {p0, p2, v0}, Lmf/org/apache/html/dom/HTMLTableElementImpl;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
     return-void
 
     :cond_2
-    move-object v0, v1
+    move-object v1, v0
 
-    check-cast v0, Lmf/org/apache/html/dom/HTMLTableSectionElementImpl;
+    move-object v2, v0
 
-    invoke-virtual {v0, v2, p2}, Lmf/org/apache/html/dom/HTMLTableSectionElementImpl;->insertRowX(ILmf/org/apache/html/dom/HTMLTableRowElementImpl;)I
+    check-cast v2, Lmf/org/apache/html/dom/HTMLTableSectionElementImpl;
 
-    move-result v0
+    invoke-virtual {v2, p1, p2}, Lmf/org/apache/html/dom/HTMLTableSectionElementImpl;->insertRowX(ILmf/org/apache/html/dom/HTMLTableRowElementImpl;)I
 
-    if-ltz v0, :cond_3
+    move-result p1
 
-    move v2, v0
+    if-gez p1, :cond_0
 
-    move-object v0, v1
-
-    goto :goto_1
-
-    :cond_3
     return-void
 
-    :cond_4
-    if-nez v0, :cond_5
+    :cond_3
+    if-nez v1, :cond_4
 
     invoke-virtual {p0, p2}, Lmf/org/apache/html/dom/HTMLTableElementImpl;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
-    :goto_2
+    :goto_1
     return-void
 
-    :cond_5
-    invoke-interface {v0, p2}, Lmf/org/w3c/dom/Node;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    :cond_4
+    invoke-interface {v1, p2}, Lmf/org/w3c/dom/Node;->appendChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
-    goto :goto_2
+    goto :goto_1
 .end method
 
 .method public setAlign(Ljava/lang/String;)V

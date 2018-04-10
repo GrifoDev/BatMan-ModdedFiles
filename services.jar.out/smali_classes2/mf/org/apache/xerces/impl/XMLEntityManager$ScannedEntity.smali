@@ -138,28 +138,26 @@
 
 # virtual methods
 .method public getCharacterOffset()I
-    .locals 3
+    .locals 6
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
+    iget-object v3, v3, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
 
-    invoke-virtual {v0}, Ljava/util/Stack;->size()I
+    invoke-virtual {v3}, Ljava/util/Stack;->size()I
 
-    move-result v0
+    move-result v2
 
-    add-int/lit8 v0, v0, -0x1
-
-    move v1, v0
+    add-int/lit8 v1, v2, -0x1
 
     :goto_0
     if-ltz v1, :cond_1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
+    iget-object v3, v3, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
 
-    invoke-virtual {v0, v1}, Ljava/util/Stack;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Ljava/util/Stack;->elementAt(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -167,58 +165,54 @@
 
     invoke-virtual {v0}, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->isExternal()Z
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_0
+    if-nez v3, :cond_0
 
-    add-int/lit8 v0, v1, -0x1
-
-    move v1, v0
+    add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
     :cond_0
-    iget v1, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->baseCharOffset:I
+    iget v3, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->baseCharOffset:I
 
-    iget v2, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->position:I
+    iget v4, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->position:I
 
-    iget v0, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->startPosition:I
+    iget v5, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->startPosition:I
 
-    sub-int v0, v2, v0
+    sub-int/2addr v4, v5
 
-    add-int/2addr v0, v1
+    add-int/2addr v3, v4
 
-    return v0
+    return v3
 
     :cond_1
-    const/4 v0, -0x1
+    const/4 v3, -0x1
 
-    return v0
+    return v3
 .end method
 
 .method public getColumnNumber()I
-    .locals 3
+    .locals 4
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
+    iget-object v3, v3, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
 
-    invoke-virtual {v0}, Ljava/util/Stack;->size()I
+    invoke-virtual {v3}, Ljava/util/Stack;->size()I
 
-    move-result v0
+    move-result v2
 
-    add-int/lit8 v0, v0, -0x1
-
-    move v1, v0
+    add-int/lit8 v1, v2, -0x1
 
     :goto_0
     if-ltz v1, :cond_1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
+    iget-object v3, v3, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
 
-    invoke-virtual {v0, v1}, Ljava/util/Stack;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Ljava/util/Stack;->elementAt(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -226,50 +220,46 @@
 
     invoke-virtual {v0}, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->isExternal()Z
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_0
+    if-nez v3, :cond_0
 
-    add-int/lit8 v0, v1, -0x1
-
-    move v1, v0
+    add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
     :cond_0
-    iget v0, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->columnNumber:I
+    iget v3, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->columnNumber:I
 
-    return v0
+    return v3
 
     :cond_1
-    const/4 v0, -0x1
+    const/4 v3, -0x1
 
-    return v0
+    return v3
 .end method
 
 .method public getEncoding()Ljava/lang/String;
-    .locals 3
+    .locals 4
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
+    iget-object v3, v3, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
 
-    invoke-virtual {v0}, Ljava/util/Stack;->size()I
+    invoke-virtual {v3}, Ljava/util/Stack;->size()I
 
-    move-result v0
+    move-result v2
 
-    add-int/lit8 v0, v0, -0x1
-
-    move v1, v0
+    add-int/lit8 v1, v2, -0x1
 
     :goto_0
     if-ltz v1, :cond_1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
+    iget-object v3, v3, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
 
-    invoke-virtual {v0, v1}, Ljava/util/Stack;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Ljava/util/Stack;->elementAt(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -277,112 +267,104 @@
 
     invoke-virtual {v0}, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->isExternal()Z
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_0
+    if-nez v3, :cond_0
 
-    add-int/lit8 v0, v1, -0x1
-
-    move v1, v0
+    add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->encoding:Ljava/lang/String;
+    iget-object v3, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->encoding:Ljava/lang/String;
 
-    return-object v0
+    return-object v3
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
-    return-object v0
+    return-object v3
 .end method
 
 .method public getExpandedSystemId()Ljava/lang/String;
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
+    iget-object v3, v3, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
 
-    invoke-virtual {v0}, Ljava/util/Stack;->size()I
+    invoke-virtual {v3}, Ljava/util/Stack;->size()I
 
-    move-result v0
+    move-result v2
 
-    add-int/lit8 v0, v0, -0x1
-
-    move v1, v0
+    add-int/lit8 v1, v2, -0x1
 
     :goto_0
     if-ltz v1, :cond_2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
+    iget-object v3, v3, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
 
-    invoke-virtual {v0, v1}, Ljava/util/Stack;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Ljava/util/Stack;->elementAt(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;
 
-    iget-object v2, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->entityLocation:Lmf/org/apache/xerces/xni/XMLResourceIdentifier;
+    iget-object v3, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->entityLocation:Lmf/org/apache/xerces/xni/XMLResourceIdentifier;
 
-    if-nez v2, :cond_1
+    if-nez v3, :cond_1
 
     :cond_0
-    add-int/lit8 v0, v1, -0x1
-
-    move v1, v0
+    add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
     :cond_1
-    iget-object v2, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->entityLocation:Lmf/org/apache/xerces/xni/XMLResourceIdentifier;
+    iget-object v3, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->entityLocation:Lmf/org/apache/xerces/xni/XMLResourceIdentifier;
 
-    invoke-interface {v2}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getExpandedSystemId()Ljava/lang/String;
+    invoke-interface {v3}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getExpandedSystemId()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->entityLocation:Lmf/org/apache/xerces/xni/XMLResourceIdentifier;
+    iget-object v3, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->entityLocation:Lmf/org/apache/xerces/xni/XMLResourceIdentifier;
 
-    invoke-interface {v0}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getExpandedSystemId()Ljava/lang/String;
+    invoke-interface {v3}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getExpandedSystemId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    return-object v0
+    return-object v3
 
     :cond_2
-    return-object v3
+    return-object v4
 .end method
 
 .method public getLineNumber()I
-    .locals 3
+    .locals 4
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
+    iget-object v3, v3, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
 
-    invoke-virtual {v0}, Ljava/util/Stack;->size()I
+    invoke-virtual {v3}, Ljava/util/Stack;->size()I
 
-    move-result v0
+    move-result v2
 
-    add-int/lit8 v0, v0, -0x1
-
-    move v1, v0
+    add-int/lit8 v1, v2, -0x1
 
     :goto_0
     if-ltz v1, :cond_1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
+    iget-object v3, v3, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
 
-    invoke-virtual {v0, v1}, Ljava/util/Stack;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Ljava/util/Stack;->elementAt(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -390,112 +372,104 @@
 
     invoke-virtual {v0}, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->isExternal()Z
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_0
+    if-nez v3, :cond_0
 
-    add-int/lit8 v0, v1, -0x1
-
-    move v1, v0
+    add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
     :cond_0
-    iget v0, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->lineNumber:I
+    iget v3, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->lineNumber:I
 
-    return v0
+    return v3
 
     :cond_1
-    const/4 v0, -0x1
+    const/4 v3, -0x1
 
-    return v0
+    return v3
 .end method
 
 .method public getLiteralSystemId()Ljava/lang/String;
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
+    iget-object v3, v3, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
 
-    invoke-virtual {v0}, Ljava/util/Stack;->size()I
+    invoke-virtual {v3}, Ljava/util/Stack;->size()I
 
-    move-result v0
+    move-result v2
 
-    add-int/lit8 v0, v0, -0x1
-
-    move v1, v0
+    add-int/lit8 v1, v2, -0x1
 
     :goto_0
     if-ltz v1, :cond_2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
+    iget-object v3, v3, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
 
-    invoke-virtual {v0, v1}, Ljava/util/Stack;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Ljava/util/Stack;->elementAt(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;
 
-    iget-object v2, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->entityLocation:Lmf/org/apache/xerces/xni/XMLResourceIdentifier;
+    iget-object v3, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->entityLocation:Lmf/org/apache/xerces/xni/XMLResourceIdentifier;
 
-    if-nez v2, :cond_1
+    if-nez v3, :cond_1
 
     :cond_0
-    add-int/lit8 v0, v1, -0x1
-
-    move v1, v0
+    add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
     :cond_1
-    iget-object v2, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->entityLocation:Lmf/org/apache/xerces/xni/XMLResourceIdentifier;
+    iget-object v3, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->entityLocation:Lmf/org/apache/xerces/xni/XMLResourceIdentifier;
 
-    invoke-interface {v2}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getLiteralSystemId()Ljava/lang/String;
+    invoke-interface {v3}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getLiteralSystemId()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->entityLocation:Lmf/org/apache/xerces/xni/XMLResourceIdentifier;
+    iget-object v3, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->entityLocation:Lmf/org/apache/xerces/xni/XMLResourceIdentifier;
 
-    invoke-interface {v0}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getLiteralSystemId()Ljava/lang/String;
+    invoke-interface {v3}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getLiteralSystemId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    return-object v0
+    return-object v3
 
     :cond_2
-    return-object v3
+    return-object v4
 .end method
 
 .method public getXMLVersion()Ljava/lang/String;
-    .locals 3
+    .locals 4
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
+    iget-object v3, v3, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
 
-    invoke-virtual {v0}, Ljava/util/Stack;->size()I
+    invoke-virtual {v3}, Ljava/util/Stack;->size()I
 
-    move-result v0
+    move-result v2
 
-    add-int/lit8 v0, v0, -0x1
-
-    move v1, v0
+    add-int/lit8 v1, v2, -0x1
 
     :goto_0
     if-ltz v1, :cond_1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->this$0:Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
+    iget-object v3, v3, Lmf/org/apache/xerces/impl/XMLEntityManager;->fEntityStack:Ljava/util/Stack;
 
-    invoke-virtual {v0, v1}, Ljava/util/Stack;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Ljava/util/Stack;->elementAt(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -503,25 +477,23 @@
 
     invoke-virtual {v0}, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->isExternal()Z
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_0
+    if-nez v3, :cond_0
 
-    add-int/lit8 v0, v1, -0x1
-
-    move v1, v0
+    add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->xmlVersion:Ljava/lang/String;
+    iget-object v3, v0, Lmf/org/apache/xerces/impl/XMLEntityManager$ScannedEntity;->xmlVersion:Ljava/lang/String;
 
-    return-object v0
+    return-object v3
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
-    return-object v0
+    return-object v3
 .end method
 
 .method public isEncodingExternallySpecified()Z
@@ -662,7 +634,7 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method

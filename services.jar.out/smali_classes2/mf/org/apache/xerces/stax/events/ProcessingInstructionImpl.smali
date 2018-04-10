@@ -59,42 +59,42 @@
     .end annotation
 
     :try_start_0
-    const-string/jumbo v0, "<?"
+    const-string/jumbo v1, "<?"
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/stax/events/ProcessingInstructionImpl;->fTarget:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xerces/stax/events/ProcessingInstructionImpl;->fTarget:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/stax/events/ProcessingInstructionImpl;->fData:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xerces/stax/events/ProcessingInstructionImpl;->fData:Ljava/lang/String;
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     :cond_0
     :goto_0
-    const-string/jumbo v0, "?>"
+    const-string/jumbo v1, "?>"
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
     return-void
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/stax/events/ProcessingInstructionImpl;->fData:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xerces/stax/events/ProcessingInstructionImpl;->fData:Ljava/lang/String;
 
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v1
 
-    if-lez v0, :cond_0
+    if-lez v1, :cond_0
 
-    const/16 v0, 0x20
+    const/16 v1, 0x20
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(I)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(I)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/stax/events/ProcessingInstructionImpl;->fData:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xerces/stax/events/ProcessingInstructionImpl;->fData:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 

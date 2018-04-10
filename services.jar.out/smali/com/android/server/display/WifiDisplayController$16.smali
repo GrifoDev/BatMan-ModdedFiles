@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/display/WifiDisplayController;->tryDiscoverPeers()V
+    value = Lcom/android/server/display/WifiDisplayController;->updateWfdEnableState()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -43,7 +43,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "Discover peers failed with reason "
+    const-string/jumbo v2, "Failed to set WFD info with reason "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -63,7 +63,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method
@@ -73,22 +73,9 @@
 
     const-string/jumbo v0, "WifiDisplayController"
 
-    const-string/jumbo v1, "Discover peers succeeded.  Requesting peers now."
+    const-string/jumbo v1, "Successfully set WFD info."
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$16;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    invoke-static {v0}, Lcom/android/server/display/WifiDisplayController;->-get12(Lcom/android/server/display/WifiDisplayController;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$16;->this$0:Lcom/android/server/display/WifiDisplayController;
-
-    invoke-static {v0}, Lcom/android/server/display/WifiDisplayController;->-wrap18(Lcom/android/server/display/WifiDisplayController;)V
-
-    :cond_0
     return-void
 .end method

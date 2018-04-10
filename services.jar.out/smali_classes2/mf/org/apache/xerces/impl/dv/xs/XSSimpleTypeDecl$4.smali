@@ -36,58 +36,58 @@
 .method public contains(Ljava/lang/Object;)Z
     .locals 3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$4;->this$0:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$4;->this$0:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->access$0(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;)[Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+    invoke-static {v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->access$0(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;)[Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     :cond_0
-    return v1
+    return v2
 
     :cond_1
-    instance-of v0, p1, Lmf/org/apache/xerces/xs/ShortList;
+    instance-of v1, p1, Lmf/org/apache/xerces/xs/ShortList;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_0
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$4;->this$0:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$4;->this$0:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    invoke-static {v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->access$1(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;)I
+    invoke-static {v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->access$1(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;)I
 
-    move-result v2
+    move-result v1
 
-    if-ge v0, v2, :cond_3
+    if-ge v0, v1, :cond_3
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$4;->this$0:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$4;->this$0:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    invoke-static {v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->access$0(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;)[Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+    invoke-static {v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->access$0(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;)[Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
 
-    move-result-object v2
+    move-result-object v1
 
-    aget-object v2, v2, v0
+    aget-object v1, v1, v0
 
-    iget-object v2, v2, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->itemValueTypes:Lmf/org/apache/xerces/xs/ShortList;
+    iget-object v1, v1, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->itemValueTypes:Lmf/org/apache/xerces/xs/ShortList;
 
-    if-eq v2, p1, :cond_2
+    if-eq v1, p1, :cond_2
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_2
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    return v0
+    return v1
 
     :cond_3
-    return v1
+    return v2
 .end method
 
 .method public getLength()I

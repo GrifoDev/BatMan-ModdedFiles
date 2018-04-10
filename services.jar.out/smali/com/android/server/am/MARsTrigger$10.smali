@@ -32,197 +32,92 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 6
-
-    const/4 v5, -0x1
+    .locals 7
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v2, "MARsTrigger"
+    const-string/jumbo v4, "MARsTrigger"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "broadcast received action : "
+    const-string/jumbo v6, "broadcast received action : "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v2, "com.samsung.knox.securefolder.SETUP_COMPLETE"
+    const-string/jumbo v4, "android.intent.action.USER_SWITCHED"
 
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v4
 
-    if-eqz v2, :cond_2
+    if-eqz v4, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/am/MARsTrigger$10;->this$0:Lcom/android/server/am/MARsTrigger;
+    const-string/jumbo v4, "android.intent.extra.user_handle"
 
-    iget-object v2, v2, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+    const/4 v5, 0x0
 
-    iget-object v2, v2, Lcom/android/server/am/MARsPolicyManager;->mDBManager:Lcom/android/server/am/MARsDBManager;
+    invoke-virtual {p2, v4, v5}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    invoke-virtual {v2}, Lcom/android/server/am/MARsDBManager;->checkUidColumnExist()V
+    move-result v3
 
-    const-string/jumbo v2, "userid"
+    new-instance v1, Landroid/os/UserHandle;
 
-    invoke-virtual {p2, v2, v5}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-direct {v1, v3}, Landroid/os/UserHandle;-><init>(I)V
 
-    move-result v1
+    iget-object v4, p0, Lcom/android/server/am/MARsTrigger$10;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    const/16 v2, 0x96
+    invoke-static {v4, v1}, Lcom/android/server/am/MARsTrigger;->-wrap0(Lcom/android/server/am/MARsTrigger;Landroid/os/UserHandle;)Landroid/content/Context;
 
-    if-lt v1, v2, :cond_1
+    move-result-object v2
 
-    const/16 v2, 0xa0
+    const-string/jumbo v4, "MARsTrigger"
 
-    if-gt v1, v2, :cond_1
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/android/server/am/MARsTrigger$10;->this$0:Lcom/android/server/am/MARsTrigger;
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v2, v2, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+    const-string/jumbo v6, "mContext.id = "
 
-    iget v2, v2, Lcom/android/server/am/MARsPolicyManager;->SecureFolderUserId:I
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-eq v1, v2, :cond_0
+    move-result-object v5
 
-    iget-object v2, p0, Lcom/android/server/am/MARsTrigger$10;->this$0:Lcom/android/server/am/MARsTrigger;
+    invoke-virtual {v2}, Landroid/content/Context;->getUserId()I
 
-    iget-object v2, v2, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+    move-result v6
 
-    iput v1, v2, Lcom/android/server/am/MARsPolicyManager;->SecureFolderUserId:I
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v4, p0, Lcom/android/server/am/MARsTrigger$10;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v4, v4, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    invoke-virtual {v4, v2}, Lcom/android/server/am/MARsPolicyManager;->switchUser(Landroid/content/Context;)V
 
     :cond_0
-    const-string/jumbo v2, "MARsTrigger"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "mUserActionReceiver "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, " userId = "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v2, p0, Lcom/android/server/am/MARsTrigger$10;->this$0:Lcom/android/server/am/MARsTrigger;
-
-    invoke-virtual {v2, v1}, Lcom/android/server/am/MARsTrigger;->registerSecureFolderReceiver(I)V
-
-    iget-object v2, p0, Lcom/android/server/am/MARsTrigger$10;->this$0:Lcom/android/server/am/MARsTrigger;
-
-    iget-object v2, v2, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
-
-    iget-object v2, v2, Lcom/android/server/am/MARsPolicyManager;->mDBManager:Lcom/android/server/am/MARsDBManager;
-
-    invoke-virtual {v2, v1}, Lcom/android/server/am/MARsDBManager;->insertSecureFolderPackagesToDB(I)V
-
-    :cond_1
-    :goto_0
     return-void
-
-    :cond_2
-    const-string/jumbo v2, "android.intent.action.USER_STOPPED"
-
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    const-string/jumbo v2, "android.intent.extra.user_handle"
-
-    invoke-virtual {p2, v2, v5}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v1
-
-    if-eq v1, v5, :cond_1
-
-    iget-object v2, p0, Lcom/android/server/am/MARsTrigger$10;->this$0:Lcom/android/server/am/MARsTrigger;
-
-    iget-object v2, v2, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
-
-    iget v2, v2, Lcom/android/server/am/MARsPolicyManager;->SecureFolderUserId:I
-
-    if-ne v1, v2, :cond_1
-
-    const-string/jumbo v2, "MARsTrigger"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "mUserActionReceiver "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, " userId = "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v2, p0, Lcom/android/server/am/MARsTrigger$10;->this$0:Lcom/android/server/am/MARsTrigger;
-
-    invoke-virtual {v2}, Lcom/android/server/am/MARsTrigger;->unregisterSecureFolderReceiver()V
-
-    iget-object v2, p0, Lcom/android/server/am/MARsTrigger$10;->this$0:Lcom/android/server/am/MARsTrigger;
-
-    iget-object v2, v2, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
-
-    iget-object v2, v2, Lcom/android/server/am/MARsPolicyManager;->mDBManager:Lcom/android/server/am/MARsDBManager;
-
-    invoke-virtual {v2, v1}, Lcom/android/server/am/MARsDBManager;->deleteSecureFolderPackagesInDB(I)V
-
-    goto :goto_0
 .end method

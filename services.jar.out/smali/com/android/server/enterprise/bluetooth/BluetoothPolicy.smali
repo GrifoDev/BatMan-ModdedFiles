@@ -36,6 +36,8 @@
 
 .field private mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
+.field private mEnterpriseDumpHelper:Lcom/android/server/enterprise/utils/EnterpriseDumpHelper;
+
 .field private mLogQueue:Ljava/util/concurrent/BlockingQueue;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -190,16 +192,6 @@
 
     iput-object v1, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->mLogQueue:Ljava/util/concurrent/BlockingQueue;
 
-    new-instance v1, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$StoreLogThread;
-
-    invoke-direct {v1, p0}, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$StoreLogThread;-><init>(Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;)V
-
-    iput-object v1, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->mThread:Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$StoreLogThread;
-
-    iget-object v1, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->mThread:Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$StoreLogThread;
-
-    invoke-virtual {v1}, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$StoreLogThread;->start()V
-
     new-instance v1, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$BluetoothProfilePolicy;
 
     iget-object v2, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->mContext:Landroid/content/Context;
@@ -227,6 +219,14 @@
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->mBluetoothManagerAdapter:Lcom/android/server/enterprise/adapterlayer/BluetoothManagerAdapter;
+
+    new-instance v1, Lcom/android/server/enterprise/utils/EnterpriseDumpHelper;
+
+    iget-object v2, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->mContext:Landroid/content/Context;
+
+    invoke-direct {v1, v2}, Lcom/android/server/enterprise/utils/EnterpriseDumpHelper;-><init>(Landroid/content/Context;)V
+
+    iput-object v1, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->mEnterpriseDumpHelper:Lcom/android/server/enterprise/utils/EnterpriseDumpHelper;
 
     invoke-direct {p0}, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->initProfileMap()V
 
@@ -1430,27 +1430,30 @@
 
     invoke-direct {v2, p1}, Lcom/samsung/android/knox/ContextInfo;-><init>(I)V
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     invoke-virtual {v0, v2}, Lcom/android/server/enterprise/bluetooth/BluetoothSecureModePolicy;->isSecureModeEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
 
     move-result v4
 
+    xor-int/lit8 v4, v4, 0x1
+
     if-eqz v4, :cond_1
 
+    :cond_0
+    return v3
+
+    :cond_1
     invoke-virtual {v0, v2}, Lcom/android/server/enterprise/bluetooth/BluetoothSecureModePolicy;->getSecureModeConfiguration(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/bluetooth/BluetoothSecureModeConfig;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2
 
     sparse-switch p2, :sswitch_data_0
 
-    :cond_0
+    :cond_2
     :goto_0
-    return v3
-
-    :cond_1
     return v3
 
     :sswitch_0
@@ -1571,7 +1574,7 @@
     return-void
 
     :sswitch_0
-    const v0, 0x1040a25
+    const v0, 0x104014e
 
     :goto_0
     invoke-static {v0}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
@@ -1579,47 +1582,47 @@
     return-void
 
     :sswitch_1
-    const v0, 0x1040a26
+    const v0, 0x104014d
 
     goto :goto_0
 
     :sswitch_2
-    const v0, 0x1040a23
+    const v0, 0x1040151
 
     goto :goto_0
 
     :sswitch_3
-    const v0, 0x1040a24
+    const v0, 0x1040142
 
     goto :goto_0
 
     :sswitch_4
-    const v0, 0x1040a27
+    const v0, 0x1040144
 
     goto :goto_0
 
     :sswitch_5
-    const v0, 0x1040a28
+    const v0, 0x104014b
 
     goto :goto_0
 
     :sswitch_6
-    const v0, 0x1040a29
+    const v0, 0x104014c
 
     goto :goto_0
 
     :sswitch_7
-    const v0, 0x1040a2a
+    const v0, 0x1040157
 
     goto :goto_0
 
     :sswitch_8
-    const v0, 0x1040a2b
+    const v0, 0x1040154
 
     goto :goto_0
 
     :sswitch_9
-    const v0, 0x1040a2c
+    const v0, 0x1040145
 
     goto :goto_0
 
@@ -2808,6 +2811,111 @@
     return v1
 .end method
 
+.method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    .locals 5
+
+    const/4 v4, 0x0
+
+    iget-object v0, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v1, "android.permission.DUMP"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "Permission Denial: can\'t dump SecurityPolicy"
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->mEnterpriseDumpHelper:Lcom/android/server/enterprise/utils/EnterpriseDumpHelper;
+
+    const-string/jumbo v1, "BLUETOOTH"
+
+    const/16 v2, 0xc
+
+    new-array v2, v2, [Ljava/lang/String;
+
+    const-string/jumbo v3, "allowCallerID"
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "allowDataTransfer"
+
+    const/4 v4, 0x1
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "allowOutgoingCalls"
+
+    const/4 v4, 0x2
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "desktopConnectivityEnabled"
+
+    const/4 v4, 0x3
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "devicePolicyEnabled"
+
+    const/4 v4, 0x4
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "discoverableModeEnabled"
+
+    const/4 v4, 0x5
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "bluetoothEnabled"
+
+    const/4 v4, 0x6
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "limitedDiscoverableEnabled"
+
+    const/4 v4, 0x7
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "bluetoothLogEnabled"
+
+    const/16 v4, 0x8
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "pairingEnabled"
+
+    const/16 v4, 0x9
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "profileSettings"
+
+    const/16 v4, 0xa
+
+    aput-object v3, v2, v4
+
+    const-string/jumbo v3, "profilePolicyEnabled"
+
+    const/16 v4, 0xb
+
+    aput-object v3, v2, v4
+
+    invoke-virtual {v0, p2, v1, v2}, Lcom/android/server/enterprise/utils/EnterpriseDumpHelper;->dumpTable(Ljava/io/PrintWriter;Ljava/lang/String;[Ljava/lang/String;)V
+
+    return-void
+.end method
+
 .method public getAllBluetoothDevicesBlackLists(Lcom/samsung/android/knox/ContextInfo;)Ljava/util/List;
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
@@ -3039,18 +3147,16 @@
     :cond_1
     if-eqz p2, :cond_2
 
-    if-eqz v0, :cond_3
+    xor-int/lit8 v4, v0, 0x1
 
-    :cond_2
-    :goto_0
-    return v0
+    if-eqz v4, :cond_2
 
-    :cond_3
-    const v4, 0x1040a31
+    const v4, 0x1040148
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
-    goto :goto_0
+    :cond_2
+    return v0
 .end method
 
 .method public getBluetoothLog(Lcom/samsung/android/knox/ContextInfo;)Ljava/util/List;
@@ -3491,18 +3597,16 @@
 
     if-eqz p2, :cond_2
 
-    if-eqz v0, :cond_3
+    xor-int/lit8 v1, v0, 0x1
 
-    :cond_2
-    :goto_0
-    return v0
+    if-eqz v1, :cond_2
 
-    :cond_3
-    const v1, 0x1040a2f
+    const v1, 0x104014a
 
     invoke-static {v1}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
-    goto :goto_0
+    :cond_2
+    return v0
 .end method
 
 .method public isBluetoothDeviceRestrictionActive(Lcom/samsung/android/knox/ContextInfo;)Z
@@ -3568,10 +3672,15 @@
     :goto_0
     if-eqz p1, :cond_1
 
-    if-eqz v0, :cond_4
+    xor-int/lit8 v4, v0, 0x1
+
+    if-eqz v4, :cond_1
+
+    const v4, 0x1040153
+
+    invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
     :cond_1
-    :goto_1
     return v0
 
     :cond_2
@@ -3613,13 +3722,6 @@
     move v0, v1
 
     goto :goto_0
-
-    :cond_4
-    const v4, 0x1040a22
-
-    invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
-
-    goto :goto_1
 .end method
 
 .method public isBluetoothEnabledWithMsg(Z)Z
@@ -3871,18 +3973,16 @@
     :cond_1
     if-eqz p1, :cond_2
 
-    if-eqz v0, :cond_3
+    xor-int/lit8 v4, v0, 0x1
 
-    :cond_2
-    :goto_0
-    return v0
+    if-eqz v4, :cond_2
 
-    :cond_3
-    const v4, 0x1040a2d
+    const v4, 0x1040149
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
-    goto :goto_0
+    :cond_2
+    return v0
 .end method
 
 .method public isDiscoverableEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
@@ -3982,18 +4082,10 @@
 
     iget-boolean v6, v1, Lcom/samsung/android/knox/bluetooth/BluetoothSecureModeConfig;->scanMode:Z
 
-    if-eqz v6, :cond_3
-
-    const/4 v2, 0x0
+    xor-int/lit8 v2, v6, 0x1
 
     :cond_2
-    :goto_0
     return v2
-
-    :cond_3
-    const/4 v2, 0x1
-
-    goto :goto_0
 .end method
 
 .method public isLimitedDiscoverableEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
@@ -4133,18 +4225,16 @@
     :cond_1
     if-eqz p1, :cond_2
 
-    if-eqz v0, :cond_3
+    xor-int/lit8 v4, v0, 0x1
 
-    :cond_2
-    :goto_0
-    return v0
+    if-eqz v4, :cond_2
 
-    :cond_3
-    const v4, 0x1040a30
+    const v4, 0x104014f
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
-    goto :goto_0
+    :cond_2
+    return v0
 .end method
 
 .method public isPairingEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
@@ -4210,18 +4300,16 @@
     :cond_1
     if-eqz p1, :cond_2
 
-    if-eqz v0, :cond_3
+    xor-int/lit8 v4, v0, 0x1
 
-    :cond_2
-    :goto_0
-    return v0
+    if-eqz v4, :cond_2
 
-    :cond_3
-    const v4, 0x1040a2e
+    const v4, 0x1040150
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
-    goto :goto_0
+    :cond_2
+    return v0
 .end method
 
 .method public isProfileEnabled(Lcom/samsung/android/knox/ContextInfo;I)Z
@@ -4270,10 +4358,13 @@
     :goto_0
     if-eqz p2, :cond_1
 
-    if-eqz v4, :cond_6
+    xor-int/lit8 v5, v4, 0x1
+
+    if-eqz v5, :cond_1
+
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->showProfileBlockedToast(I)V
 
     :cond_1
-    :goto_1
     return v4
 
     :cond_2
@@ -4310,7 +4401,7 @@
 
     const/4 v3, 0x0
 
-    :goto_2
+    :goto_1
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v5
@@ -4339,7 +4430,7 @@
     :cond_5
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_2
+    goto :goto_1
 
     :catch_1
     move-exception v1
@@ -4353,11 +4444,6 @@
     invoke-static {v5, v6}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
-
-    :cond_6
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->showProfileBlockedToast(I)V
-
-    goto :goto_1
 .end method
 
 .method public notifyToAddSystemService(Ljava/lang/String;Landroid/os/IBinder;)V
@@ -5057,10 +5143,27 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_0
+
+    const-string/jumbo v2, "BluetoothPolicyService"
+
+    const-string/jumbo v3, "setBluetoothLogEnabled - Clean log"
+
+    invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v2, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v3, "BluetoothLogTable"
+
+    invoke-virtual {v2, v3}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->remove(Ljava/lang/String;)Z
+
+    iget-object v2, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->mLogQueue:Ljava/util/concurrent/BlockingQueue;
+
+    invoke-interface {v2}, Ljava/util/concurrent/BlockingQueue;->clear()V
 
     :cond_0
-    :goto_0
     const-string/jumbo v2, "BluetoothPolicyService"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -5091,25 +5194,6 @@
 
     :cond_1
     return v1
-
-    :cond_2
-    const-string/jumbo v2, "BluetoothPolicyService"
-
-    const-string/jumbo v3, "setBluetoothLogEnabled - Clean log"
-
-    invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v2, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
-
-    const-string/jumbo v3, "BluetoothLogTable"
-
-    invoke-virtual {v2, v3}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->remove(Ljava/lang/String;)Z
-
-    iget-object v2, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->mLogQueue:Ljava/util/concurrent/BlockingQueue;
-
-    invoke-interface {v2}, Ljava/util/concurrent/BlockingQueue;->clear()V
-
-    goto :goto_0
 .end method
 
 .method public setDesktopConnectivityState(Lcom/samsung/android/knox/ContextInfo;Z)Z
@@ -5167,28 +5251,24 @@
     if-eqz v2, :cond_0
 
     invoke-virtual {v0}, Landroid/bluetooth/BluetoothAdapter;->isEnabled()Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v3
 
     if-eqz v3, :cond_0
 
-    if-eqz p2, :cond_1
+    xor-int/lit8 v3, p2, 0x1
+
+    if-eqz v3, :cond_0
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->disableDesktopConnectivity()V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
     :goto_0
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     return v2
-
-    :cond_1
-    :try_start_1
-    invoke-direct {p0}, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->disableDesktopConnectivity()V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-
-    goto :goto_0
 
     :catch_0
     move-exception v1
@@ -5745,6 +5825,16 @@
 
     invoke-virtual {v0}, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$BluetoothDevicePolicy;->reload()Z
 
+    new-instance v0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$StoreLogThread;
+
+    invoke-direct {v0, p0}, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$StoreLogThread;-><init>(Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;)V
+
+    iput-object v0, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->mThread:Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$StoreLogThread;
+
+    iget-object v0, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->mThread:Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$StoreLogThread;
+
+    invoke-virtual {v0}, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$StoreLogThread;->start()V
+
     return-void
 .end method
 
@@ -5768,29 +5858,27 @@
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
 
     move-result v4
 
+    xor-int/lit8 v4, v4, 0x1
+
     if-eqz v4, :cond_1
 
-    :cond_0
-    return-object v1
-
-    :cond_1
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    :cond_2
+    :cond_0
     :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -5800,7 +5888,7 @@
 
     iget-object v4, v2, Lcom/samsung/android/knox/ControlInfo;->entries:Ljava/util/List;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_0
 
     iget-object v4, v2, Lcom/samsung/android/knox/ControlInfo;->entries:Ljava/util/List;
 
@@ -5808,7 +5896,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_0
 
     new-instance v0, Lcom/samsung/android/knox/bluetooth/BluetoothControlInfo;
 
@@ -5833,4 +5921,7 @@
     invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
+
+    :cond_1
+    return-object v1
 .end method

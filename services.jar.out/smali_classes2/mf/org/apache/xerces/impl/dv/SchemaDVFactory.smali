@@ -34,7 +34,7 @@
 .end method
 
 .method public static final getInstance(Ljava/lang/String;)Lmf/org/apache/xerces/impl/dv/SchemaDVFactory;
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/dv/DVFactoryException;
@@ -42,42 +42,42 @@
     .end annotation
 
     :try_start_0
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/SchemaDVFactoryImpl;
+    new-instance v1, Lmf/org/apache/xerces/impl/dv/xs/SchemaDVFactoryImpl;
 
-    invoke-direct {v0}, Lmf/org/apache/xerces/impl/dv/xs/SchemaDVFactoryImpl;-><init>()V
+    invoke-direct {v1}, Lmf/org/apache/xerces/impl/dv/xs/SchemaDVFactoryImpl;-><init>()V
     :try_end_0
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object v1
 
     :catch_0
     move-exception v0
 
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/DVFactoryException;
+    new-instance v1, Lmf/org/apache/xerces/impl/dv/DVFactoryException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "Schema factory class "
+    const-string/jumbo v3, "Schema factory class "
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, " does not extend from SchemaDVFactory."
+    const-string/jumbo v3, " does not extend from SchemaDVFactory."
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-direct {v0, v1}, Lmf/org/apache/xerces/impl/dv/DVFactoryException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Lmf/org/apache/xerces/impl/dv/DVFactoryException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v1
 .end method
 
 

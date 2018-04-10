@@ -1,6 +1,5 @@
 .class public abstract Lcom/sun/org/apache/xml/internal/security/utils/SignatureElementProxy;
 .super Lcom/sun/org/apache/xml/internal/security/utils/ElementProxy;
-.source "Unknown"
 
 
 # direct methods

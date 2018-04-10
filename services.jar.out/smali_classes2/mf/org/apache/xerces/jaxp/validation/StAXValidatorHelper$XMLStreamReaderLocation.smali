@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public getCharacterOffset()I
-    .locals 1
+    .locals 2
 
     invoke-direct {p0}, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$XMLStreamReaderLocation;->getLocation()Lmf/javax/xml/stream/Location;
 
@@ -63,20 +63,20 @@
 
     if-nez v0, :cond_0
 
-    const/4 v0, -0x1
+    const/4 v1, -0x1
 
-    return v0
+    return v1
 
     :cond_0
     invoke-interface {v0}, Lmf/javax/xml/stream/Location;->getCharacterOffset()I
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 .end method
 
 .method public getColumnNumber()I
-    .locals 1
+    .locals 2
 
     invoke-direct {p0}, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$XMLStreamReaderLocation;->getLocation()Lmf/javax/xml/stream/Location;
 
@@ -84,20 +84,20 @@
 
     if-nez v0, :cond_0
 
-    const/4 v0, -0x1
+    const/4 v1, -0x1
 
-    return v0
+    return v1
 
     :cond_0
     invoke-interface {v0}, Lmf/javax/xml/stream/Location;->getColumnNumber()I
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 .end method
 
 .method public getLineNumber()I
-    .locals 1
+    .locals 2
 
     invoke-direct {p0}, Lmf/org/apache/xerces/jaxp/validation/StAXValidatorHelper$XMLStreamReaderLocation;->getLocation()Lmf/javax/xml/stream/Location;
 
@@ -105,16 +105,16 @@
 
     if-nez v0, :cond_0
 
-    const/4 v0, -0x1
+    const/4 v1, -0x1
 
-    return v0
+    return v1
 
     :cond_0
     invoke-interface {v0}, Lmf/javax/xml/stream/Location;->getLineNumber()I
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 .end method
 
 .method public getPublicId()Ljava/lang/String;
@@ -133,9 +133,9 @@
     :cond_0
     invoke-interface {v0}, Lmf/javax/xml/stream/Location;->getPublicId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public getSystemId()Ljava/lang/String;
@@ -154,9 +154,9 @@
     :cond_0
     invoke-interface {v0}, Lmf/javax/xml/stream/Location;->getSystemId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public setXMLStreamReader(Lmf/javax/xml/stream/XMLStreamReader;)V

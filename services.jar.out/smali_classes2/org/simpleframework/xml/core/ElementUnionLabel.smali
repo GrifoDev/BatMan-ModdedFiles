@@ -68,7 +68,7 @@
 .end method
 
 .method public getConverter(Lorg/simpleframework/xml/core/Context;)Lorg/simpleframework/xml/core/Converter;
-    .locals 5
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -94,23 +94,23 @@
     return-object v2
 
     :cond_0
-    new-instance v0, Lorg/simpleframework/xml/core/UnionException;
+    new-instance v2, Lorg/simpleframework/xml/core/UnionException;
 
-    const-string/jumbo v1, "Union %s was not declared on a field or method"
+    const/4 v3, 0x1
 
-    const/4 v2, 0x1
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    const/4 v3, 0x0
+    new-array v3, v3, [Ljava/lang/Object;
 
     iget-object v4, p0, Lorg/simpleframework/xml/core/ElementUnionLabel;->label:Lorg/simpleframework/xml/core/Label;
 
-    aput-object v4, v2, v3
+    const/4 v5, 0x0
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/core/UnionException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    aput-object v4, v3, v5
 
-    throw v0
+    const-string/jumbo v4, "Union %s was not declared on a field or method"
+
+    invoke-direct {v2, v4, v3}, Lorg/simpleframework/xml/core/UnionException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v2
 .end method
 
 .method public getDecorator()Lorg/simpleframework/xml/core/Decorator;
@@ -211,14 +211,14 @@
 .end method
 
 .method public getLabel(Ljava/lang/Class;)Lorg/simpleframework/xml/core/Label;
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/core/ElementUnionLabel;->getContact()Lorg/simpleframework/xml/core/Contact;
 
@@ -232,36 +232,36 @@
 
     if-eqz v1, :cond_0
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/ElementUnionLabel;->extractor:Lorg/simpleframework/xml/core/GroupExtractor;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/ElementUnionLabel;->extractor:Lorg/simpleframework/xml/core/GroupExtractor;
 
-    invoke-virtual {v0, p1}, Lorg/simpleframework/xml/core/GroupExtractor;->getLabel(Ljava/lang/Class;)Lorg/simpleframework/xml/core/Label;
+    invoke-virtual {v1, p1}, Lorg/simpleframework/xml/core/GroupExtractor;->getLabel(Ljava/lang/Class;)Lorg/simpleframework/xml/core/Label;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
     new-instance v1, Lorg/simpleframework/xml/core/UnionException;
 
-    const-string/jumbo v2, "No type matches %s in %s for %s"
+    const/4 v2, 0x3
 
-    const/4 v3, 0x3
+    new-array v2, v2, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    aput-object p1, v2, v3
 
-    aput-object p1, v3, v4
+    iget-object v3, p0, Lorg/simpleframework/xml/core/ElementUnionLabel;->union:Lorg/simpleframework/xml/ElementUnion;
 
     const/4 v4, 0x1
 
-    iget-object v5, p0, Lorg/simpleframework/xml/core/ElementUnionLabel;->union:Lorg/simpleframework/xml/ElementUnion;
+    aput-object v3, v2, v4
 
-    aput-object v5, v3, v4
+    const/4 v3, 0x2
 
-    const/4 v4, 0x2
+    aput-object v0, v2, v3
 
-    aput-object v0, v3, v4
+    const-string/jumbo v3, "No type matches %s in %s for %s"
 
-    invoke-direct {v1, v2, v3}, Lorg/simpleframework/xml/core/UnionException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v1, v3, v2}, Lorg/simpleframework/xml/core/UnionException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
     throw v1
 .end method
@@ -359,14 +359,14 @@
 .end method
 
 .method public getType(Ljava/lang/Class;)Lorg/simpleframework/xml/strategy/Type;
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/core/ElementUnionLabel;->getContact()Lorg/simpleframework/xml/core/Contact;
 
@@ -393,25 +393,25 @@
     :cond_0
     new-instance v1, Lorg/simpleframework/xml/core/UnionException;
 
-    const-string/jumbo v2, "No type matches %s in %s for %s"
+    const/4 v2, 0x3
 
-    const/4 v3, 0x3
+    new-array v2, v2, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    aput-object p1, v2, v3
 
-    aput-object p1, v3, v4
+    iget-object v3, p0, Lorg/simpleframework/xml/core/ElementUnionLabel;->union:Lorg/simpleframework/xml/ElementUnion;
 
     const/4 v4, 0x1
 
-    iget-object v5, p0, Lorg/simpleframework/xml/core/ElementUnionLabel;->union:Lorg/simpleframework/xml/ElementUnion;
+    aput-object v3, v2, v4
 
-    aput-object v5, v3, v4
+    const/4 v3, 0x2
 
-    const/4 v4, 0x2
+    aput-object v0, v2, v3
 
-    aput-object v0, v3, v4
+    const-string/jumbo v3, "No type matches %s in %s for %s"
 
-    invoke-direct {v1, v2, v3}, Lorg/simpleframework/xml/core/UnionException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v1, v3, v2}, Lorg/simpleframework/xml/core/UnionException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
     throw v1
 

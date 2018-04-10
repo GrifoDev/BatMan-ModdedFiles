@@ -1912,7 +1912,7 @@
 
     move-result-wide v30
 
-    if-eqz v32, :cond_9
+    if-eqz v32, :cond_4
 
     :try_start_0
     move/from16 v0, v32
@@ -1923,7 +1923,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_3
 
     invoke-static/range {v22 .. v22}, Lcom/android/server/enterprise/email/SettingsUtils;->getEmailPackageName(I)Ljava/lang/String;
 
@@ -2011,7 +2011,7 @@
 
     move-result-object v20
 
-    if-eqz v20, :cond_a
+    if-eqz v20, :cond_5
 
     const-string/jumbo v6, "SettingsUtils"
 
@@ -2040,13 +2040,13 @@
     invoke-static {v6, v7}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     :goto_1
-    if-eqz v20, :cond_c
+    if-eqz v20, :cond_8
 
     invoke-interface/range {v20 .. v20}, Landroid/database/Cursor;->getCount()I
 
     move-result v6
 
-    if-lez v6, :cond_c
+    if-lez v6, :cond_8
 
     invoke-interface/range {v20 .. v20}, Landroid/database/Cursor;->moveToFirst()Z
 
@@ -2288,7 +2288,7 @@
 
     const/4 v7, 0x2
 
-    if-ne v7, v6, :cond_d
+    if-ne v7, v6, :cond_b
 
     const/4 v6, 0x1
 
@@ -2301,7 +2301,7 @@
 
     const/16 v7, 0x40
 
-    if-ne v7, v6, :cond_e
+    if-ne v7, v6, :cond_c
 
     const/4 v6, 0x1
 
@@ -2324,7 +2324,7 @@
 
     const/4 v7, 0x1
 
-    if-ne v6, v7, :cond_f
+    if-ne v6, v7, :cond_d
 
     const/4 v6, 0x1
 
@@ -2483,12 +2483,181 @@
 
     move-result v29
 
-    if-eqz v28, :cond_10
+    if-eqz v28, :cond_1
 
-    if-eqz v29, :cond_10
+    xor-int/lit8 v6, v29, 0x1
 
-    if-eqz p6, :cond_1
+    if-eqz v6, :cond_e
 
+    :cond_1
+    const/4 v12, 0x0
+
+    const-string/jumbo v6, "SettingsUtils"
+
+    const-string/jumbo v7, "getAccountIds : null "
+
+    invoke-static {v6, v7}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    const/4 v6, 0x0
+
+    if-eqz v20, :cond_2
+
+    invoke-interface/range {v20 .. v20}, Landroid/database/Cursor;->close()V
+
+    :cond_2
+    return-object v6
+
+    :cond_3
+    :try_start_3
+    move-object/from16 v0, p7
+
+    iget v6, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-static {v6}, Lcom/android/server/enterprise/email/SettingsUtils;->getPackageNameForUid(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    new-instance v7, Landroid/os/UserHandle;
+
+    move/from16 v0, v32
+
+    invoke-direct {v7, v0}, Landroid/os/UserHandle;-><init>(I)V
+
+    const/4 v9, 0x0
+
+    move-object/from16 v0, p5
+
+    invoke-virtual {v0, v6, v9, v7}, Landroid/content/Context;->createPackageContextAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)Landroid/content/Context;
+
+    move-result-object v6
+
+    sput-object v6, Lcom/android/server/enterprise/email/SettingsUtils;->emails:Landroid/content/Context;
+
+    const-string/jumbo v6, "SettingsUtils"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "getAccountDetails : USER space   "
+
+    invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    move-object/from16 v0, p7
+
+    iget v9, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-static {v9}, Lcom/android/server/enterprise/email/SettingsUtils;->getPackageNameForUid(I)Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+
+    goto/16 :goto_0
+
+    :catch_0
+    move-exception v23
+
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/Exception;->printStackTrace()V
+
+    return-object v19
+
+    :cond_4
+    :try_start_4
+    sput-object p5, Lcom/android/server/enterprise/email/SettingsUtils;->emails:Landroid/content/Context;
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
+
+    goto/16 :goto_0
+
+    :cond_5
+    :try_start_5
+    const-string/jumbo v6, "SettingsUtils"
+
+    const-string/jumbo v7, "getAccount row count : Email cursor is invalid"
+
+    invoke-static {v6, v7}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_1
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+
+    goto/16 :goto_1
+
+    :catch_1
+    move-exception v23
+
+    move-object/from16 v12, v19
+
+    :goto_5
+    :try_start_6
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/Exception;->printStackTrace()V
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+
+    if-eqz v20, :cond_6
+
+    invoke-interface/range {v20 .. v20}, Landroid/database/Cursor;->close()V
+
+    :cond_6
+    if-eqz v21, :cond_7
+
+    invoke-interface/range {v21 .. v21}, Landroid/database/Cursor;->close()V
+
+    :cond_7
+    :goto_6
+    invoke-static/range {v30 .. v31}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return-object v12
+
+    :cond_8
+    move-object/from16 v12, v19
+
+    :cond_9
+    if-eqz v20, :cond_a
+
+    invoke-interface/range {v20 .. v20}, Landroid/database/Cursor;->close()V
+
+    :cond_a
+    if-eqz v21, :cond_7
+
+    invoke-interface/range {v21 .. v21}, Landroid/database/Cursor;->close()V
+
+    goto :goto_6
+
+    :cond_b
+    const/4 v6, 0x0
+
+    goto/16 :goto_2
+
+    :cond_c
+    const/4 v6, 0x0
+
+    goto/16 :goto_3
+
+    :cond_d
+    const/4 v6, 0x0
+
+    goto/16 :goto_4
+
+    :cond_e
+    if-eqz p6, :cond_f
+
+    :try_start_7
     move/from16 v0, v22
 
     move-wide/from16 v1, p3
@@ -2513,7 +2682,7 @@
 
     iput-object v6, v12, Lcom/android/server/enterprise/email/AccountMetaData;->mOutGoingServerPassword:Ljava/lang/String;
 
-    :cond_1
+    :cond_f
     const/4 v6, 0x0
 
     iput-boolean v6, v12, Lcom/android/server/enterprise/email/AccountMetaData;->mIsEAS:Z
@@ -2526,7 +2695,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_10
 
     iget-object v6, v12, Lcom/android/server/enterprise/email/AccountMetaData;->mInComingServerLogin:Ljava/lang/String;
 
@@ -2556,7 +2725,7 @@
 
     iput-object v6, v12, Lcom/android/server/enterprise/email/AccountMetaData;->mOutGoingServerLogin:Ljava/lang/String;
 
-    :cond_2
+    :cond_10
     const/4 v6, 0x1
 
     iput-boolean v6, v12, Lcom/android/server/enterprise/email/AccountMetaData;->mAllowHTMLEmail:Z
@@ -2631,21 +2800,21 @@
 
     move-result-object v21
 
-    if-eqz v21, :cond_5
+    if-eqz v21, :cond_9
 
     invoke-interface/range {v21 .. v21}, Landroid/database/Cursor;->getCount()I
 
     move-result v6
 
-    if-lez v6, :cond_5
+    if-lez v6, :cond_9
 
     invoke-interface/range {v21 .. v21}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_9
 
-    :cond_3
+    :goto_7
     const-string/jumbo v6, "value"
 
     move-object/from16 v0, v21
@@ -2674,9 +2843,9 @@
 
     move-result-object v24
 
-    if-eqz v24, :cond_4
+    if-eqz v24, :cond_11
 
-    if-eqz v25, :cond_4
+    if-eqz v25, :cond_11
 
     const-string/jumbo v6, "AllowHTMLEmail"
 
@@ -2686,7 +2855,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_11
 
     const-string/jumbo v6, "true"
 
@@ -2698,184 +2867,17 @@
 
     iput-boolean v6, v12, Lcom/android/server/enterprise/email/AccountMetaData;->mAllowHTMLEmail:Z
 
-    :cond_4
+    :cond_11
     invoke-interface/range {v21 .. v21}, Landroid/database/Cursor;->moveToNext()Z
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
-
-    move-result v6
-
-    if-nez v6, :cond_3
-
-    :cond_5
-    :goto_5
-    if-eqz v20, :cond_6
-
-    invoke-interface/range {v20 .. v20}, Landroid/database/Cursor;->close()V
-
-    :cond_6
-    if-eqz v21, :cond_7
-
-    invoke-interface/range {v21 .. v21}, Landroid/database/Cursor;->close()V
-
-    :cond_7
-    :goto_6
-    invoke-static/range {v30 .. v31}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return-object v12
-
-    :cond_8
-    :try_start_3
-    move-object/from16 v0, p7
-
-    iget v6, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
-
-    invoke-static {v6}, Lcom/android/server/enterprise/email/SettingsUtils;->getPackageNameForUid(I)Ljava/lang/String;
-
-    move-result-object v6
-
-    new-instance v7, Landroid/os/UserHandle;
-
-    move/from16 v0, v32
-
-    invoke-direct {v7, v0}, Landroid/os/UserHandle;-><init>(I)V
-
-    const/4 v9, 0x0
-
-    move-object/from16 v0, p5
-
-    invoke-virtual {v0, v6, v9, v7}, Landroid/content/Context;->createPackageContextAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)Landroid/content/Context;
-
-    move-result-object v6
-
-    sput-object v6, Lcom/android/server/enterprise/email/SettingsUtils;->emails:Landroid/content/Context;
-
-    const-string/jumbo v6, "SettingsUtils"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "getAccountDetails : USER space   "
-
-    invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    move-object/from16 v0, p7
-
-    iget v9, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
-
-    invoke-static {v9}, Lcom/android/server/enterprise/email/SettingsUtils;->getPackageNameForUid(I)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
-
-    goto/16 :goto_0
-
-    :catch_0
-    move-exception v23
-
-    invoke-virtual/range {v23 .. v23}, Ljava/lang/Exception;->printStackTrace()V
-
-    return-object v19
-
-    :cond_9
-    :try_start_4
-    sput-object p5, Lcom/android/server/enterprise/email/SettingsUtils;->emails:Landroid/content/Context;
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
-
-    goto/16 :goto_0
-
-    :cond_a
-    :try_start_5
-    const-string/jumbo v6, "SettingsUtils"
-
-    const-string/jumbo v7, "getAccount row count : Email cursor is invalid"
-
-    invoke-static {v6, v7}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_5
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_1
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
-
-    goto/16 :goto_1
-
-    :catch_1
-    move-exception v23
-
-    move-object/from16 v12, v19
-
-    :goto_7
-    :try_start_6
-    invoke-virtual/range {v23 .. v23}, Ljava/lang/Exception;->printStackTrace()V
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_1
-
-    if-eqz v20, :cond_b
-
-    invoke-interface/range {v20 .. v20}, Landroid/database/Cursor;->close()V
-
-    :cond_b
-    if-eqz v21, :cond_7
-
-    invoke-interface/range {v21 .. v21}, Landroid/database/Cursor;->close()V
-
-    goto :goto_6
-
-    :cond_c
-    move-object/from16 v12, v19
-
-    goto :goto_5
-
-    :cond_d
-    const/4 v6, 0x0
-
-    goto/16 :goto_2
-
-    :cond_e
-    const/4 v6, 0x0
-
-    goto/16 :goto_3
-
-    :cond_f
-    const/4 v6, 0x0
-
-    goto/16 :goto_4
-
-    :cond_10
-    const/4 v12, 0x0
-
-    :try_start_7
-    const-string/jumbo v6, "SettingsUtils"
-
-    const-string/jumbo v7, "getAccountIds : null "
-
-    invoke-static {v6, v7}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_7
     .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_2
     .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
-    const/4 v6, 0x0
+    move-result v6
 
-    if-eqz v20, :cond_11
+    if-eqz v6, :cond_9
 
-    invoke-interface/range {v20 .. v20}, Landroid/database/Cursor;->close()V
-
-    :cond_11
-    return-object v6
+    goto :goto_7
 
     :catchall_0
     move-exception v6
@@ -2903,7 +2905,7 @@
     :catch_2
     move-exception v23
 
-    goto :goto_7
+    goto/16 :goto_5
 .end method
 
 .method private static getAccountCBContentUri(I)Landroid/net/Uri;
@@ -6294,7 +6296,7 @@
 
     const/4 v1, 0x5
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_6
 
     const-string/jumbo v0, "2.5"
 
@@ -6302,103 +6304,104 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_6
+
+    if-gt p1, v2, :cond_0
+
+    return v2
 
     :cond_0
-    if-gt p1, v3, :cond_8
+    if-gt p1, v1, :cond_1
+
+    return v5
+
+    :cond_1
+    const/16 v0, 0xa
+
+    if-gt p1, v0, :cond_2
+
+    return v3
+
+    :cond_2
+    const/16 v0, 0x14
+
+    if-gt p1, v0, :cond_3
+
+    return v1
+
+    :cond_3
+    const/16 v0, 0x32
+
+    if-gt p1, v0, :cond_4
+
+    const/4 v0, 0x6
+
+    return v0
+
+    :cond_4
+    const/16 v0, 0x64
+
+    if-gt p1, v0, :cond_5
+
+    return v4
+
+    :cond_5
+    const/16 v0, 0x8
+
+    return v0
+
+    :cond_6
+    if-gt p1, v3, :cond_7
 
     const/4 v0, 0x0
 
     return v0
 
-    :cond_1
-    if-gt p1, v2, :cond_2
-
-    return v2
-
-    :cond_2
-    if-gt p1, v1, :cond_3
-
-    return v5
-
-    :cond_3
-    const/16 v0, 0xa
-
-    if-gt p1, v0, :cond_4
-
-    return v3
-
-    :cond_4
-    const/16 v0, 0x14
-
-    if-gt p1, v0, :cond_5
-
-    return v1
-
-    :cond_5
-    const/16 v0, 0x32
-
-    if-gt p1, v0, :cond_6
-
-    const/4 v0, 0x6
-
-    return v0
-
-    :cond_6
-    const/16 v0, 0x64
-
-    if-gt p1, v0, :cond_7
-
-    return v4
-
     :cond_7
-    const/16 v0, 0x8
-
-    return v0
-
-    :cond_8
-    if-gt p1, v1, :cond_9
+    if-gt p1, v1, :cond_8
 
     const/4 v0, 0x1
 
     return v0
 
-    :cond_9
-    if-gt p1, v4, :cond_a
+    :cond_8
+    if-gt p1, v4, :cond_9
 
     return v2
 
-    :cond_a
+    :cond_9
     const/16 v0, 0xa
 
-    if-gt p1, v0, :cond_b
+    if-gt p1, v0, :cond_a
 
     return v5
 
-    :cond_b
+    :cond_a
     const/16 v0, 0x14
 
-    if-gt p1, v0, :cond_c
+    if-gt p1, v0, :cond_b
 
     return v3
 
-    :cond_c
+    :cond_b
     const/16 v0, 0x32
 
-    if-gt p1, v0, :cond_d
+    if-gt p1, v0, :cond_c
 
     return v1
 
-    :cond_d
+    :cond_c
     const/16 v0, 0x64
 
-    if-gt p1, v0, :cond_e
+    if-gt p1, v0, :cond_d
 
     const/4 v0, 0x6
 
     return v0
 
-    :cond_e
+    :cond_d
     return v4
 .end method
 
@@ -6423,17 +6426,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
+    if-eqz v0, :cond_0
+
     packed-switch p1, :pswitch_data_0
-
-    const v0, 0x7fffffff
-
-    return v0
-
-    :cond_1
-    packed-switch p1, :pswitch_data_1
 
     const v0, 0x7fffffff
 
@@ -6461,6 +6458,13 @@
 
     :pswitch_6
     const/16 v0, 0x64
+
+    return v0
+
+    :cond_0
+    packed-switch p1, :pswitch_data_1
+
+    const v0, 0x7fffffff
 
     return v0
 
@@ -6498,18 +6502,6 @@
 
     :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_7
-        :pswitch_8
-        :pswitch_9
-        :pswitch_a
-        :pswitch_b
-        :pswitch_c
-        :pswitch_d
-        :pswitch_e
-    .end packed-switch
-
-    :pswitch_data_1
-    .packed-switch 0x0
         :pswitch_0
         :pswitch_0
         :pswitch_0
@@ -6519,6 +6511,18 @@
         :pswitch_4
         :pswitch_5
         :pswitch_6
+    .end packed-switch
+
+    :pswitch_data_1
+    .packed-switch 0x0
+        :pswitch_7
+        :pswitch_8
+        :pswitch_9
+        :pswitch_a
+        :pswitch_b
+        :pswitch_c
+        :pswitch_d
+        :pswitch_e
     .end packed-switch
 .end method
 
@@ -7882,16 +7886,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_0
-    :goto_0
-    return v1
+    if-eqz v2, :cond_0
 
-    :cond_1
     const/4 v1, 0x0
 
-    goto :goto_0
+    :cond_0
+    return v1
 .end method
 
 .method private static isExistingAccount(Landroid/net/Uri;JLandroid/content/Context;)Z
@@ -8092,9 +8094,7 @@
 
     invoke-static {p1}, Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;->getInstance(Landroid/content/Context;)Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;
 
-    move-result-object v1
-
-    invoke-virtual {v1, p0}, Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;->isPersonaId(I)Z
+    invoke-static {p0}, Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;->isValidKnoxId(I)Z
 
     move-result v1
 
@@ -8935,6 +8935,8 @@
     const-class v13, Lcom/android/server/enterprise/email/SettingsUtils;
 
     monitor-enter v13
+
+    const/4 v6, 0x0
 
     :try_start_0
     invoke-static/range {p0 .. p0}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I

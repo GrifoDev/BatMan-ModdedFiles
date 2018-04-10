@@ -1,6 +1,5 @@
 .class public Lcom/sun/org/apache/xml/internal/security/utils/JavaUtils;
 .super Ljava/lang/Object;
-.source "Unknown"
 
 
 # static fields
@@ -53,16 +52,16 @@
 .end method
 
 .method static synthetic class$(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 2
+    .locals 3
 
     :try_start_0
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :catch_0
     move-exception v0
@@ -71,15 +70,15 @@
 
     invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-direct {v1, v0}, Ljava/lang/NoClassDefFoundError;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/NoClassDefFoundError;-><init>(Ljava/lang/String;)V
 
     throw v1
 .end method
 
 .method public static getBytesFromFile(Ljava/lang/String;)[B
-    .locals 5
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;,
@@ -87,22 +86,63 @@
         }
     .end annotation
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    new-instance v0, Ljava/io/FileInputStream;
+    const/4 v0, 0x0
 
-    invoke-direct {v0, p0}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
+    new-instance v1, Ljava/io/FileInputStream;
+
+    invoke-direct {v1, p0}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
+
+    new-instance v2, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;
+
+    invoke-direct {v2}, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;-><init>()V
+
+    const/16 v5, 0x400
+
+    new-array v3, v5, [B
+
+    :goto_0
+    invoke-virtual {v1, v3}, Ljava/io/FileInputStream;->read([B)I
+
+    move-result v4
+
+    if-gtz v4, :cond_0
+
+    invoke-virtual {v2}, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;->toByteArray()[B
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_0
+    invoke-virtual {v2, v3, v6, v4}, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;->write([BII)V
+
+    goto :goto_0
+.end method
+
+.method public static getBytesFromStream(Ljava/io/InputStream;)[B
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    const/4 v5, 0x0
+
+    const/4 v0, 0x0
 
     new-instance v1, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;
 
     invoke-direct {v1}, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;-><init>()V
 
-    const/16 v2, 0x400
+    const/16 v4, 0x400
 
-    new-array v2, v2, [B
+    new-array v2, v4, [B
 
     :goto_0
-    invoke-virtual {v0, v2}, Ljava/io/FileInputStream;->read([B)I
+    invoke-virtual {p0, v2}, Ljava/io/InputStream;->read([B)I
 
     move-result v3
 
@@ -115,64 +155,27 @@
     return-object v0
 
     :cond_0
-    invoke-virtual {v1, v2, v4, v3}, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;->write([BII)V
-
-    goto :goto_0
-.end method
-
-.method public static getBytesFromStream(Ljava/io/InputStream;)[B
-    .locals 4
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    const/4 v3, 0x0
-
-    new-instance v0, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;
-
-    invoke-direct {v0}, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;-><init>()V
-
-    const/16 v1, 0x400
-
-    new-array v1, v1, [B
-
-    :goto_0
-    invoke-virtual {p0, v1}, Ljava/io/InputStream;->read([B)I
-
-    move-result v2
-
-    if-gtz v2, :cond_0
-
-    invoke-virtual {v0}, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;->toByteArray()[B
-
-    move-result-object v0
-
-    return-object v0
-
-    :cond_0
-    invoke-virtual {v0, v1, v3, v2}, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;->write([BII)V
+    invoke-virtual {v1, v2, v5, v3}, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;->write([BII)V
 
     goto :goto_0
 .end method
 
 .method public static writeBytesToFilename(Ljava/lang/String;[B)V
-    .locals 3
+    .locals 5
 
     if-nez p0, :cond_1
 
     :cond_0
     :try_start_0
-    sget-object v0, Lcom/sun/org/apache/xml/internal/security/utils/JavaUtils;->log:Ljava/util/logging/Logger;
+    sget-object v2, Lcom/sun/org/apache/xml/internal/security/utils/JavaUtils;->log:Ljava/util/logging/Logger;
 
-    sget-object v1, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
+    sget-object v3, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
 
-    invoke-virtual {v0, v1}, Ljava/util/logging/Logger;->isLoggable(Ljava/util/logging/Level;)Z
+    invoke-virtual {v2, v3}, Ljava/util/logging/Logger;->isLoggable(Ljava/util/logging/Level;)Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_2
+    if-nez v2, :cond_2
 
     :goto_0
     return-void
@@ -195,18 +198,18 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception v2
 
     goto :goto_0
 
     :cond_2
-    sget-object v0, Lcom/sun/org/apache/xml/internal/security/utils/JavaUtils;->log:Ljava/util/logging/Logger;
+    sget-object v2, Lcom/sun/org/apache/xml/internal/security/utils/JavaUtils;->log:Ljava/util/logging/Logger;
 
-    sget-object v1, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
+    sget-object v3, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
 
-    const-string/jumbo v2, "writeBytesToFilename got null byte[] pointed"
+    const-string/jumbo v4, "writeBytesToFilename got null byte[] pointed"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
+    invoke-virtual {v2, v3, v4}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 

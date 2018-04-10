@@ -179,28 +179,22 @@
 .end method
 
 .method public endElement(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 10
+    .locals 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;
         }
     .end annotation
 
-    const/4 v9, 0x4
+    const/4 v4, -0x1
 
-    const/4 v8, 0x3
+    new-instance v3, Ljava/util/Vector;
 
-    const/4 v7, 0x2
-
-    const/4 v6, 0x1
-
-    new-instance v2, Ljava/util/Vector;
-
-    invoke-direct {v2}, Ljava/util/Vector;-><init>()V
+    invoke-direct {v3}, Ljava/util/Vector;-><init>()V
 
     invoke-virtual {p0}, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->inExtensionNamespace()Z
 
-    move-result v3
+    move-result v5
 
     if-nez p1, :cond_2
 
@@ -210,221 +204,241 @@
 
     :cond_1
     :goto_1
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->namespaceStack:Ljava/util/Stack;
+    iget-object v9, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->namespaceStack:Ljava/util/Stack;
 
-    invoke-virtual {v0}, Ljava/util/Stack;->pop()Ljava/lang/Object;
+    invoke-virtual {v9}, Ljava/util/Stack;->pop()Ljava/lang/Object;
 
     return-void
 
     :cond_2
-    if-nez v3, :cond_0
+    if-nez v5, :cond_0
 
-    const-string/jumbo v0, "urn:oasis:names:tc:entity:xmlns:xml:catalog"
+    const-string/jumbo v9, "urn:oasis:names:tc:entity:xmlns:xml:catalog"
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v9
 
-    if-eqz v0, :cond_4
+    if-eqz v9, :cond_4
 
     :cond_3
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->baseURIStack:Ljava/util/Stack;
+    iget-object v9, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->baseURIStack:Ljava/util/Stack;
 
-    invoke-virtual {v0}, Ljava/util/Stack;->pop()Ljava/lang/Object;
+    invoke-virtual {v9}, Ljava/util/Stack;->pop()Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Ljava/lang/String;
+
+    iget-object v9, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->baseURIStack:Ljava/util/Stack;
+
+    invoke-virtual {v9}, Ljava/util/Stack;->peek()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/lang/String;
 
-    iget-object v1, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->baseURIStack:Ljava/util/Stack;
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v1}, Ljava/util/Stack;->peek()Ljava/lang/Object;
+    move-result v9
 
-    move-result-object v1
+    if-nez v9, :cond_0
 
-    check-cast v1, Ljava/lang/String;
+    sget v4, Lmf/org/apache/xml/resolver/Catalog;->BASE:I
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v0}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
 
-    move-result v0
+    iget-object v9, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    if-nez v0, :cond_0
+    const-string/jumbo v10, "(reset) xml:base"
 
-    sget v0, Lmf/org/apache/xml/resolver/Catalog;->BASE:I
+    const/4 v11, 0x4
 
-    invoke-virtual {v2, v1}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
-
-    iget-object v4, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
-
-    const-string/jumbo v5, "(reset) xml:base"
-
-    invoke-virtual {v4, v9, v5, v1}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v9, v11, v10, v0}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
 
     :try_start_0
     new-instance v1, Lmf/org/apache/xml/resolver/CatalogEntry;
 
-    invoke-direct {v1, v0, v2}, Lmf/org/apache/xml/resolver/CatalogEntry;-><init>(ILjava/util/Vector;)V
+    invoke-direct {v1, v4, v3}, Lmf/org/apache/xml/resolver/CatalogEntry;-><init>(ILjava/util/Vector;)V
 
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->catalog:Lmf/org/apache/xml/resolver/Catalog;
+    iget-object v9, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->catalog:Lmf/org/apache/xml/resolver/Catalog;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xml/resolver/Catalog;->addEntry(Lmf/org/apache/xml/resolver/CatalogEntry;)V
+    invoke-virtual {v9, v1}, Lmf/org/apache/xml/resolver/Catalog;->addEntry(Lmf/org/apache/xml/resolver/CatalogEntry;)V
     :try_end_0
     .catch Lmf/org/apache/xml/resolver/CatalogException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception v2
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
+    invoke-virtual {v2}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
 
-    move-result v1
+    move-result v9
 
-    if-eq v1, v8, :cond_5
+    const/4 v10, 0x3
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
+    if-eq v9, v10, :cond_5
 
-    move-result v0
+    invoke-virtual {v2}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
 
-    if-ne v0, v7, :cond_0
+    move-result v9
 
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    const/4 v10, 0x2
 
-    const-string/jumbo v1, "Invalid catalog entry (rbase)"
+    if-ne v9, v10, :cond_0
 
-    invoke-virtual {v0, v6, v1, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+    iget-object v9, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+
+    const-string/jumbo v10, "Invalid catalog entry (rbase)"
+
+    const/4 v11, 0x1
+
+    invoke-virtual {v9, v11, v10, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_4
-    const-string/jumbo v0, "urn:oasis:names:tc:entity:xmlns:tr9401:catalog"
+    const-string/jumbo v9, "urn:oasis:names:tc:entity:xmlns:tr9401:catalog"
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v9
 
-    if-nez v0, :cond_3
+    if-nez v9, :cond_3
 
     goto :goto_0
 
     :cond_5
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    iget-object v9, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    const-string/jumbo v1, "Invalid catalog entry type"
+    const-string/jumbo v10, "Invalid catalog entry type"
 
-    invoke-virtual {v0, v6, v1, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+    const/4 v11, 0x1
+
+    invoke-virtual {v9, v11, v10, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_6
-    const-string/jumbo v0, "urn:oasis:names:tc:entity:xmlns:xml:catalog"
+    const-string/jumbo v9, "urn:oasis:names:tc:entity:xmlns:xml:catalog"
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v9
 
-    if-eqz v0, :cond_1
+    if-eqz v9, :cond_1
 
-    if-nez v3, :cond_1
+    if-nez v5, :cond_1
 
-    const-string/jumbo v0, "catalog"
+    const-string/jumbo v9, "catalog"
 
-    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v9
 
-    if-eqz v0, :cond_8
+    if-eqz v9, :cond_8
 
     :cond_7
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->overrideStack:Ljava/util/Stack;
+    iget-object v9, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->overrideStack:Ljava/util/Stack;
 
-    invoke-virtual {v0}, Ljava/util/Stack;->pop()Ljava/lang/Object;
+    invoke-virtual {v9}, Ljava/util/Stack;->pop()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v7
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v7, Ljava/lang/String;
 
-    iget-object v1, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->overrideStack:Ljava/util/Stack;
+    iget-object v9, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->overrideStack:Ljava/util/Stack;
 
-    invoke-virtual {v1}, Ljava/util/Stack;->peek()Ljava/lang/Object;
+    invoke-virtual {v9}, Ljava/util/Stack;->peek()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v6
 
-    check-cast v1, Ljava/lang/String;
+    check-cast v6, Ljava/lang/String;
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v9
 
-    if-nez v0, :cond_1
+    if-nez v9, :cond_1
 
-    sget v0, Lmf/org/apache/xml/resolver/Catalog;->OVERRIDE:I
+    sget v4, Lmf/org/apache/xml/resolver/Catalog;->OVERRIDE:I
 
-    invoke-virtual {v2, v1}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v6}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
 
-    iget-object v3, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->overrideStack:Ljava/util/Stack;
+    iget-object v9, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->overrideStack:Ljava/util/Stack;
 
-    invoke-virtual {v3, v1}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v9, v6}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v3, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    iget-object v9, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    const-string/jumbo v4, "(reset) override"
+    const-string/jumbo v10, "(reset) override"
 
-    invoke-virtual {v3, v9, v4, v1}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+    const/4 v11, 0x4
+
+    invoke-virtual {v9, v11, v10, v6}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
 
     :try_start_1
     new-instance v1, Lmf/org/apache/xml/resolver/CatalogEntry;
 
-    invoke-direct {v1, v0, v2}, Lmf/org/apache/xml/resolver/CatalogEntry;-><init>(ILjava/util/Vector;)V
+    invoke-direct {v1, v4, v3}, Lmf/org/apache/xml/resolver/CatalogEntry;-><init>(ILjava/util/Vector;)V
 
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->catalog:Lmf/org/apache/xml/resolver/Catalog;
+    iget-object v9, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->catalog:Lmf/org/apache/xml/resolver/Catalog;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xml/resolver/Catalog;->addEntry(Lmf/org/apache/xml/resolver/CatalogEntry;)V
+    invoke-virtual {v9, v1}, Lmf/org/apache/xml/resolver/Catalog;->addEntry(Lmf/org/apache/xml/resolver/CatalogEntry;)V
     :try_end_1
     .catch Lmf/org/apache/xml/resolver/CatalogException; {:try_start_1 .. :try_end_1} :catch_1
 
     goto/16 :goto_1
 
     :catch_1
-    move-exception v0
+    move-exception v2
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
+    invoke-virtual {v2}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
 
-    move-result v1
+    move-result v9
 
-    if-eq v1, v8, :cond_9
+    const/4 v10, 0x3
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
+    if-eq v9, v10, :cond_9
 
-    move-result v0
+    invoke-virtual {v2}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
 
-    if-ne v0, v7, :cond_1
+    move-result v9
 
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    const/4 v10, 0x2
 
-    const-string/jumbo v1, "Invalid catalog entry (roverride)"
+    if-ne v9, v10, :cond_1
 
-    invoke-virtual {v0, v6, v1, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+    iget-object v9, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+
+    const-string/jumbo v10, "Invalid catalog entry (roverride)"
+
+    const/4 v11, 0x1
+
+    invoke-virtual {v9, v11, v10, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_1
 
     :cond_8
-    const-string/jumbo v0, "group"
+    const-string/jumbo v9, "group"
 
-    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v9
 
-    if-nez v0, :cond_7
+    if-nez v9, :cond_7
 
     goto/16 :goto_1
 
     :cond_9
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    iget-object v9, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    const-string/jumbo v1, "Invalid catalog entry type"
+    const-string/jumbo v10, "Invalid catalog entry type"
 
-    invoke-virtual {v0, v6, v1, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+    const/4 v11, 0x1
+
+    invoke-virtual {v9, v11, v10, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_1
 .end method
@@ -462,69 +476,68 @@
 .method protected inExtensionNamespace()Z
     .locals 5
 
-    const/4 v1, 0x1
+    const/4 v3, 0x0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->namespaceStack:Ljava/util/Stack;
+    iget-object v4, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->namespaceStack:Ljava/util/Stack;
 
-    invoke-virtual {v0}, Ljava/util/Stack;->elements()Ljava/util/Enumeration;
+    invoke-virtual {v4}, Ljava/util/Stack;->elements()Ljava/util/Enumeration;
 
-    move-result-object v3
-
-    move v0, v2
+    move-result-object v0
 
     :goto_0
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
     :cond_0
-    return v0
+    return v1
 
     :cond_1
-    invoke-interface {v3}, Ljava/util/Enumeration;->hasMoreElements()Z
+    invoke-interface {v0}, Ljava/util/Enumeration;->hasMoreElements()Z
 
     move-result v4
 
     if-eqz v4, :cond_0
 
-    invoke-interface {v3}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v2, Ljava/lang/String;
 
-    if-eqz v0, :cond_3
+    if-eqz v2, :cond_3
 
     const-string/jumbo v4, "urn:oasis:names:tc:entity:xmlns:tr9401:catalog"
 
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
     if-eqz v4, :cond_4
 
     :cond_2
-    move v0, v2
+    move v1, v3
 
+    :goto_1
     goto :goto_0
 
     :cond_3
-    move v0, v1
+    const/4 v1, 0x1
 
     goto :goto_0
 
     :cond_4
     const-string/jumbo v4, "urn:oasis:names:tc:entity:xmlns:xml:catalog"
 
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v4
 
-    if-nez v0, :cond_2
+    if-nez v4, :cond_2
 
-    move v0, v1
+    const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method public processingInstruction(Ljava/lang/String;Ljava/lang/String;)V
@@ -603,1436 +616,1545 @@
 .end method
 
 .method public startElement(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V
-    .locals 11
+    .locals 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;
         }
     .end annotation
 
-    const/4 v10, 0x3
+    const/4 v5, -0x1
 
-    const/4 v9, 0x2
+    new-instance v4, Ljava/util/Vector;
 
-    const/4 v8, 0x1
+    invoke-direct {v4}, Ljava/util/Vector;-><init>()V
 
-    const/4 v7, 0x4
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->namespaceStack:Ljava/util/Stack;
 
-    const/4 v1, -0x1
-
-    new-instance v0, Ljava/util/Vector;
-
-    invoke-direct {v0}, Ljava/util/Vector;-><init>()V
-
-    iget-object v2, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->namespaceStack:Ljava/util/Stack;
-
-    invoke-virtual {v2, p1}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v8, p1}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-virtual {p0}, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->inExtensionNamespace()Z
 
-    move-result v3
+    move-result v6
 
     if-nez p1, :cond_2
 
     :cond_0
     :goto_0
-    if-nez p1, :cond_28
+    if-nez p1, :cond_1b
 
     :cond_1
     :goto_1
     return-void
 
     :cond_2
-    const-string/jumbo v2, "urn:oasis:names:tc:entity:xmlns:xml:catalog"
+    const-string/jumbo v8, "urn:oasis:names:tc:entity:xmlns:xml:catalog"
 
-    invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v8
 
-    if-eqz v2, :cond_0
+    if-eqz v8, :cond_0
 
-    if-nez v3, :cond_0
+    if-nez v6, :cond_0
 
-    const-string/jumbo v2, "xml:base"
+    const-string/jumbo v8, "xml:base"
 
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v0, p4
 
-    move-result-object v2
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
 
-    if-nez v2, :cond_4
+    move-result-object v8
 
-    iget-object v2, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->baseURIStack:Ljava/util/Stack;
+    if-nez v8, :cond_5
 
-    iget-object v4, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->baseURIStack:Ljava/util/Stack;
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->baseURIStack:Ljava/util/Stack;
 
-    invoke-virtual {v4}, Ljava/util/Stack;->peek()Ljava/lang/Object;
+    iget-object v9, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->baseURIStack:Ljava/util/Stack;
 
-    move-result-object v4
+    invoke-virtual {v9}, Ljava/util/Stack;->peek()Ljava/lang/Object;
 
-    invoke-virtual {v2, v4}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
 
     :goto_2
-    const-string/jumbo v2, "catalog"
+    const-string/jumbo v8, "catalog"
 
-    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v8
 
-    if-eqz v2, :cond_7
+    if-eqz v8, :cond_8
 
     :cond_3
-    const-string/jumbo v2, "prefer"
+    const-string/jumbo v8, "prefer"
 
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v0, p4
 
-    move-result-object v2
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
 
-    if-nez v2, :cond_8
+    move-result-object v8
+
+    if-nez v8, :cond_9
 
     :goto_3
-    iget-object v2, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->overrideStack:Ljava/util/Stack;
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->overrideStack:Ljava/util/Stack;
 
-    iget-object v4, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->overrideStack:Ljava/util/Stack;
+    iget-object v9, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->overrideStack:Ljava/util/Stack;
 
-    invoke-virtual {v4}, Ljava/util/Stack;->peek()Ljava/lang/Object;
+    invoke-virtual {v9}, Ljava/util/Stack;->peek()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v9
 
-    invoke-virtual {v2, v4}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v8, v9}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
 
     :goto_4
-    const-string/jumbo v2, "delegatePublic"
+    const-string/jumbo v8, "delegatePublic"
 
-    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v8
 
-    if-nez v2, :cond_d
+    if-nez v8, :cond_e
 
-    const-string/jumbo v2, "delegateSystem"
+    const-string/jumbo v8, "delegateSystem"
 
-    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v8
 
-    if-nez v2, :cond_f
+    if-nez v8, :cond_f
 
-    const-string/jumbo v2, "delegateURI"
+    const-string/jumbo v8, "delegateURI"
 
-    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v8
 
-    if-nez v2, :cond_11
+    if-nez v8, :cond_10
 
-    const-string/jumbo v2, "rewriteSystem"
+    const-string/jumbo v8, "rewriteSystem"
 
-    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v8
 
-    if-nez v2, :cond_13
+    if-nez v8, :cond_11
 
-    const-string/jumbo v2, "systemSuffix"
+    const-string/jumbo v8, "systemSuffix"
 
-    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v8
 
-    if-nez v2, :cond_15
+    if-nez v8, :cond_12
 
-    const-string/jumbo v2, "rewriteURI"
+    const-string/jumbo v8, "rewriteURI"
 
-    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v8
 
-    if-nez v2, :cond_17
+    if-nez v8, :cond_13
 
-    const-string/jumbo v2, "uriSuffix"
+    const-string/jumbo v8, "uriSuffix"
 
-    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v8
 
-    if-nez v2, :cond_19
+    if-nez v8, :cond_14
 
-    const-string/jumbo v2, "nextCatalog"
+    const-string/jumbo v8, "nextCatalog"
 
-    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v8
 
-    if-nez v2, :cond_1b
+    if-nez v8, :cond_15
 
-    const-string/jumbo v2, "public"
+    const-string/jumbo v8, "public"
 
-    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v8
 
-    if-nez v2, :cond_1d
+    if-nez v8, :cond_16
 
-    const-string/jumbo v2, "system"
+    const-string/jumbo v8, "system"
 
-    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v8
 
-    if-nez v2, :cond_1f
+    if-nez v8, :cond_17
 
-    const-string/jumbo v2, "uri"
+    const-string/jumbo v8, "uri"
 
-    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v8
 
-    if-nez v2, :cond_21
+    if-nez v8, :cond_18
 
-    const-string/jumbo v2, "catalog"
+    const-string/jumbo v8, "catalog"
 
-    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v8
 
-    if-eqz v2, :cond_23
-
-    :goto_5
-    move v2, v1
-
-    :goto_6
-    if-gez v2, :cond_25
-
-    move v1, v2
-
-    goto/16 :goto_0
+    if-eqz v8, :cond_19
 
     :cond_4
-    const-string/jumbo v1, "xml:base"
-
-    invoke-interface {p4, v1}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    sget v2, Lmf/org/apache/xml/resolver/Catalog;->BASE:I
-
-    invoke-virtual {v0, v1}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
-
-    iget-object v4, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->baseURIStack:Ljava/util/Stack;
-
-    invoke-virtual {v4, v1}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v4, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
-
-    const-string/jumbo v5, "xml:base"
-
-    invoke-virtual {v4, v7, v5, v1}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+    :goto_5
+    if-ltz v5, :cond_0
 
     :try_start_0
-    new-instance v1, Lmf/org/apache/xml/resolver/CatalogEntry;
+    new-instance v2, Lmf/org/apache/xml/resolver/CatalogEntry;
 
-    invoke-direct {v1, v2, v0}, Lmf/org/apache/xml/resolver/CatalogEntry;-><init>(ILjava/util/Vector;)V
+    invoke-direct {v2, v5, v4}, Lmf/org/apache/xml/resolver/CatalogEntry;-><init>(ILjava/util/Vector;)V
 
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->catalog:Lmf/org/apache/xml/resolver/Catalog;
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->catalog:Lmf/org/apache/xml/resolver/Catalog;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xml/resolver/Catalog;->addEntry(Lmf/org/apache/xml/resolver/CatalogEntry;)V
+    invoke-virtual {v8, v2}, Lmf/org/apache/xml/resolver/Catalog;->addEntry(Lmf/org/apache/xml/resolver/CatalogEntry;)V
     :try_end_0
     .catch Lmf/org/apache/xml/resolver/CatalogException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_5
-    :goto_7
-    const/4 v1, -0x1
-
-    new-instance v0, Ljava/util/Vector;
-
-    invoke-direct {v0}, Ljava/util/Vector;-><init>()V
-
-    goto/16 :goto_2
+    goto/16 :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception v3
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
+    invoke-virtual {v3}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
 
-    move-result v1
+    move-result v8
 
-    if-eq v1, v10, :cond_6
+    const/4 v9, 0x3
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
+    if-eq v8, v9, :cond_1a
 
-    move-result v0
+    invoke-virtual {v3}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
 
-    if-ne v0, v9, :cond_5
+    move-result v8
 
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    const/4 v9, 0x2
 
-    const-string/jumbo v1, "Invalid catalog entry (base)"
+    if-ne v8, v9, :cond_0
 
-    invoke-virtual {v0, v8, v1, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    goto :goto_7
+    const-string/jumbo v9, "Invalid catalog entry"
 
-    :cond_6
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    const/4 v10, 0x1
 
-    const-string/jumbo v1, "Invalid catalog entry type"
+    invoke-virtual {v8, v10, v9, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v0, v8, v1, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+    goto/16 :goto_0
 
-    goto :goto_7
+    :cond_5
+    const-string/jumbo v8, "xml:base"
 
-    :cond_7
-    const-string/jumbo v2, "group"
+    move-object/from16 v0, p4
 
-    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_3
-
-    goto/16 :goto_3
-
-    :cond_8
-    const-string/jumbo v1, "prefer"
-
-    invoke-interface {p4, v1}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    const-string/jumbo v2, "public"
+    sget v5, Lmf/org/apache/xml/resolver/Catalog;->BASE:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v1}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
 
-    move-result v2
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->baseURIStack:Ljava/util/Stack;
 
-    if-nez v2, :cond_a
+    invoke-virtual {v8, v1}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v2, "system"
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v9, "xml:base"
 
-    move-result v1
+    const/4 v10, 0x4
 
-    if-nez v1, :cond_b
-
-    iget-object v1, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
-
-    const-string/jumbo v2, "Invalid prefer: must be \'system\' or \'public\'"
-
-    invoke-virtual {v1, v8, v2, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
-
-    iget-object v1, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->catalog:Lmf/org/apache/xml/resolver/Catalog;
-
-    invoke-virtual {v1}, Lmf/org/apache/xml/resolver/Catalog;->getDefaultOverride()Ljava/lang/String;
-
-    move-result-object v1
-
-    :goto_8
-    sget v2, Lmf/org/apache/xml/resolver/Catalog;->OVERRIDE:I
-
-    invoke-virtual {v0, v1}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
-
-    iget-object v4, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->overrideStack:Ljava/util/Stack;
-
-    invoke-virtual {v4, v1}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v4, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
-
-    const-string/jumbo v5, "override"
-
-    invoke-virtual {v4, v7, v5, v1}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v8, v10, v9, v1}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
 
     :try_start_1
-    new-instance v1, Lmf/org/apache/xml/resolver/CatalogEntry;
+    new-instance v2, Lmf/org/apache/xml/resolver/CatalogEntry;
 
-    invoke-direct {v1, v2, v0}, Lmf/org/apache/xml/resolver/CatalogEntry;-><init>(ILjava/util/Vector;)V
+    invoke-direct {v2, v5, v4}, Lmf/org/apache/xml/resolver/CatalogEntry;-><init>(ILjava/util/Vector;)V
 
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->catalog:Lmf/org/apache/xml/resolver/Catalog;
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->catalog:Lmf/org/apache/xml/resolver/Catalog;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xml/resolver/Catalog;->addEntry(Lmf/org/apache/xml/resolver/CatalogEntry;)V
+    invoke-virtual {v8, v2}, Lmf/org/apache/xml/resolver/Catalog;->addEntry(Lmf/org/apache/xml/resolver/CatalogEntry;)V
     :try_end_1
     .catch Lmf/org/apache/xml/resolver/CatalogException; {:try_start_1 .. :try_end_1} :catch_1
 
-    :cond_9
-    :goto_9
-    const/4 v1, -0x1
+    :cond_6
+    :goto_6
+    const/4 v5, -0x1
 
-    new-instance v0, Ljava/util/Vector;
+    new-instance v4, Ljava/util/Vector;
 
-    invoke-direct {v0}, Ljava/util/Vector;-><init>()V
+    invoke-direct {v4}, Ljava/util/Vector;-><init>()V
 
-    goto/16 :goto_4
-
-    :cond_a
-    const-string/jumbo v1, "yes"
-
-    goto :goto_8
-
-    :cond_b
-    const-string/jumbo v1, "no"
-
-    goto :goto_8
+    goto/16 :goto_2
 
     :catch_1
-    move-exception v0
+    move-exception v3
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
+    invoke-virtual {v3}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
 
-    move-result v1
+    move-result v8
 
-    if-eq v1, v10, :cond_c
+    const/4 v9, 0x3
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
+    if-eq v8, v9, :cond_7
 
-    move-result v0
+    invoke-virtual {v3}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
 
-    if-ne v0, v9, :cond_9
+    move-result v8
 
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    const/4 v9, 0x2
 
-    const-string/jumbo v1, "Invalid catalog entry (override)"
+    if-ne v8, v9, :cond_6
 
-    invoke-virtual {v0, v8, v1, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    goto :goto_9
+    const-string/jumbo v9, "Invalid catalog entry (base)"
 
-    :cond_c
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    const/4 v10, 0x1
 
-    const-string/jumbo v1, "Invalid catalog entry type"
+    invoke-virtual {v8, v10, v9, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v0, v8, v1, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+    goto :goto_6
 
-    goto :goto_9
+    :cond_7
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    :cond_d
-    const-string/jumbo v2, "publicIdStartString"
+    const-string/jumbo v9, "Invalid catalog entry type"
 
-    const-string/jumbo v4, "catalog"
+    const/4 v10, 0x1
 
-    invoke-virtual {p0, p4, v2, v4}, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->checkAttributes(Lorg/xml/sax/Attributes;Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-virtual {v8, v10, v9, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
 
-    move-result v2
+    goto :goto_6
 
-    if-nez v2, :cond_e
+    :cond_8
+    const-string/jumbo v8, "group"
 
-    move v2, v1
+    invoke-virtual {p2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    goto/16 :goto_6
+    move-result v8
 
-    :cond_e
-    sget v1, Lmf/org/apache/xml/resolver/Catalog;->DELEGATE_PUBLIC:I
+    if-nez v8, :cond_3
 
-    const-string/jumbo v2, "publicIdStartString"
+    goto/16 :goto_3
 
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+    :cond_9
+    const-string/jumbo v8, "prefer"
 
-    move-result-object v2
+    move-object/from16 v0, p4
 
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
 
-    const-string/jumbo v2, "catalog"
+    move-result-object v7
 
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+    const-string/jumbo v8, "public"
 
-    move-result-object v2
+    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+    move-result v8
 
-    iget-object v2, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    if-nez v8, :cond_b
 
-    const-string/jumbo v4, "delegatePublic"
+    const-string/jumbo v8, "system"
 
-    const-string/jumbo v5, "publicIdStartString"
+    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-interface {p4, v5}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+    move-result v8
 
-    move-result-object v5
+    if-nez v8, :cond_c
 
-    invoke-static {v5}, Lmf/org/apache/xml/resolver/helpers/PublicId;->normalize(Ljava/lang/String;)Ljava/lang/String;
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    move-result-object v5
+    const/4 v9, 0x1
 
-    const-string/jumbo v6, "catalog"
+    const-string/jumbo v10, "Invalid prefer: must be \'system\' or \'public\'"
 
-    invoke-interface {p4, v6}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v8, v9, v10, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
 
-    move-result-object v6
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->catalog:Lmf/org/apache/xml/resolver/Catalog;
 
-    invoke-virtual {v2, v7, v4, v5, v6}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v8}, Lmf/org/apache/xml/resolver/Catalog;->getDefaultOverride()Ljava/lang/String;
 
-    move v2, v1
+    move-result-object v7
 
-    goto/16 :goto_6
+    :goto_7
+    sget v5, Lmf/org/apache/xml/resolver/Catalog;->OVERRIDE:I
 
-    :cond_f
-    const-string/jumbo v2, "systemIdStartString"
+    invoke-virtual {v4, v7}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v4, "catalog"
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->overrideStack:Ljava/util/Stack;
 
-    invoke-virtual {p0, p4, v2, v4}, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->checkAttributes(Lorg/xml/sax/Attributes;Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-virtual {v8, v7}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result v2
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    if-nez v2, :cond_10
+    const-string/jumbo v9, "override"
 
-    move v2, v1
+    const/4 v10, 0x4
 
-    goto/16 :goto_6
+    invoke-virtual {v8, v10, v9, v7}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
 
-    :cond_10
-    sget v1, Lmf/org/apache/xml/resolver/Catalog;->DELEGATE_SYSTEM:I
-
-    const-string/jumbo v2, "systemIdStartString"
-
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v2, "catalog"
-
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
-
-    const-string/jumbo v4, "delegateSystem"
-
-    const-string/jumbo v5, "systemIdStartString"
-
-    invoke-interface {p4, v5}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "catalog"
-
-    invoke-interface {p4, v6}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v2, v7, v4, v5, v6}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move v2, v1
-
-    goto/16 :goto_6
-
-    :cond_11
-    const-string/jumbo v2, "uriStartString"
-
-    const-string/jumbo v4, "catalog"
-
-    invoke-virtual {p0, p4, v2, v4}, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->checkAttributes(Lorg/xml/sax/Attributes;Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_12
-
-    move v2, v1
-
-    goto/16 :goto_6
-
-    :cond_12
-    sget v1, Lmf/org/apache/xml/resolver/Catalog;->DELEGATE_URI:I
-
-    const-string/jumbo v2, "uriStartString"
-
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v2, "catalog"
-
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
-
-    const-string/jumbo v4, "delegateURI"
-
-    const-string/jumbo v5, "uriStartString"
-
-    invoke-interface {p4, v5}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "catalog"
-
-    invoke-interface {p4, v6}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v2, v7, v4, v5, v6}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move v2, v1
-
-    goto/16 :goto_6
-
-    :cond_13
-    const-string/jumbo v2, "systemIdStartString"
-
-    const-string/jumbo v4, "rewritePrefix"
-
-    invoke-virtual {p0, p4, v2, v4}, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->checkAttributes(Lorg/xml/sax/Attributes;Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_14
-
-    move v2, v1
-
-    goto/16 :goto_6
-
-    :cond_14
-    sget v1, Lmf/org/apache/xml/resolver/Catalog;->REWRITE_SYSTEM:I
-
-    const-string/jumbo v2, "systemIdStartString"
-
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v2, "rewritePrefix"
-
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
-
-    const-string/jumbo v4, "rewriteSystem"
-
-    const-string/jumbo v5, "systemIdStartString"
-
-    invoke-interface {p4, v5}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "rewritePrefix"
-
-    invoke-interface {p4, v6}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v2, v7, v4, v5, v6}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move v2, v1
-
-    goto/16 :goto_6
-
-    :cond_15
-    const-string/jumbo v2, "systemIdSuffix"
-
-    const-string/jumbo v4, "uri"
-
-    invoke-virtual {p0, p4, v2, v4}, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->checkAttributes(Lorg/xml/sax/Attributes;Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_16
-
-    move v2, v1
-
-    goto/16 :goto_6
-
-    :cond_16
-    sget v1, Lmf/org/apache/xml/resolver/Catalog;->SYSTEM_SUFFIX:I
-
-    const-string/jumbo v2, "systemIdSuffix"
-
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v2, "uri"
-
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
-
-    const-string/jumbo v4, "systemSuffix"
-
-    const-string/jumbo v5, "systemIdSuffix"
-
-    invoke-interface {p4, v5}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "uri"
-
-    invoke-interface {p4, v6}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v2, v7, v4, v5, v6}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move v2, v1
-
-    goto/16 :goto_6
-
-    :cond_17
-    const-string/jumbo v2, "uriStartString"
-
-    const-string/jumbo v4, "rewritePrefix"
-
-    invoke-virtual {p0, p4, v2, v4}, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->checkAttributes(Lorg/xml/sax/Attributes;Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_18
-
-    move v2, v1
-
-    goto/16 :goto_6
-
-    :cond_18
-    sget v1, Lmf/org/apache/xml/resolver/Catalog;->REWRITE_URI:I
-
-    const-string/jumbo v2, "uriStartString"
-
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v2, "rewritePrefix"
-
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
-
-    const-string/jumbo v4, "rewriteURI"
-
-    const-string/jumbo v5, "uriStartString"
-
-    invoke-interface {p4, v5}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "rewritePrefix"
-
-    invoke-interface {p4, v6}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v2, v7, v4, v5, v6}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move v2, v1
-
-    goto/16 :goto_6
-
-    :cond_19
-    const-string/jumbo v2, "uriSuffix"
-
-    const-string/jumbo v4, "uri"
-
-    invoke-virtual {p0, p4, v2, v4}, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->checkAttributes(Lorg/xml/sax/Attributes;Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_1a
-
-    move v2, v1
-
-    goto/16 :goto_6
-
-    :cond_1a
-    sget v1, Lmf/org/apache/xml/resolver/Catalog;->URI_SUFFIX:I
-
-    const-string/jumbo v2, "uriSuffix"
-
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v2, "uri"
-
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
-
-    const-string/jumbo v4, "uriSuffix"
-
-    const-string/jumbo v5, "uriSuffix"
-
-    invoke-interface {p4, v5}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "uri"
-
-    invoke-interface {p4, v6}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v2, v7, v4, v5, v6}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move v2, v1
-
-    goto/16 :goto_6
-
-    :cond_1b
-    const-string/jumbo v2, "catalog"
-
-    invoke-virtual {p0, p4, v2}, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->checkAttributes(Lorg/xml/sax/Attributes;Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_1c
-
-    move v2, v1
-
-    goto/16 :goto_6
-
-    :cond_1c
-    sget v1, Lmf/org/apache/xml/resolver/Catalog;->CATALOG:I
-
-    const-string/jumbo v2, "catalog"
-
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
-
-    const-string/jumbo v4, "nextCatalog"
-
-    const-string/jumbo v5, "catalog"
-
-    invoke-interface {p4, v5}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v2, v7, v4, v5}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
-
-    move v2, v1
-
-    goto/16 :goto_6
-
-    :cond_1d
-    const-string/jumbo v2, "publicId"
-
-    const-string/jumbo v4, "uri"
-
-    invoke-virtual {p0, p4, v2, v4}, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->checkAttributes(Lorg/xml/sax/Attributes;Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_1e
-
-    move v2, v1
-
-    goto/16 :goto_6
-
-    :cond_1e
-    sget v1, Lmf/org/apache/xml/resolver/Catalog;->PUBLIC:I
-
-    const-string/jumbo v2, "publicId"
-
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v2, "uri"
-
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
-
-    const-string/jumbo v4, "public"
-
-    const-string/jumbo v5, "publicId"
-
-    invoke-interface {p4, v5}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v5}, Lmf/org/apache/xml/resolver/helpers/PublicId;->normalize(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "uri"
-
-    invoke-interface {p4, v6}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v2, v7, v4, v5, v6}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move v2, v1
-
-    goto/16 :goto_6
-
-    :cond_1f
-    const-string/jumbo v2, "systemId"
-
-    const-string/jumbo v4, "uri"
-
-    invoke-virtual {p0, p4, v2, v4}, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->checkAttributes(Lorg/xml/sax/Attributes;Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_20
-
-    move v2, v1
-
-    goto/16 :goto_6
-
-    :cond_20
-    sget v1, Lmf/org/apache/xml/resolver/Catalog;->SYSTEM:I
-
-    const-string/jumbo v2, "systemId"
-
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v2, "uri"
-
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
-
-    const-string/jumbo v4, "system"
-
-    const-string/jumbo v5, "systemId"
-
-    invoke-interface {p4, v5}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "uri"
-
-    invoke-interface {p4, v6}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v2, v7, v4, v5, v6}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    move v2, v1
-
-    goto/16 :goto_6
-
-    :cond_21
-    const-string/jumbo v2, "name"
-
-    const-string/jumbo v4, "uri"
-
-    invoke-virtual {p0, p4, v2, v4}, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->checkAttributes(Lorg/xml/sax/Attributes;Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_22
-
-    move v2, v1
-
-    goto/16 :goto_6
-
-    :cond_22
-    sget v1, Lmf/org/apache/xml/resolver/Catalog;->URI:I
-
-    const-string/jumbo v2, "name"
-
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v2, "uri"
-
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
-
-    iget-object v2, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
-
-    const-string/jumbo v4, "uri"
-
-    const-string/jumbo v5, "name"
-
-    invoke-interface {p4, v5}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "uri"
-
-    invoke-interface {p4, v6}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v2, v7, v4, v5, v6}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    goto/16 :goto_5
-
-    :cond_23
-    const-string/jumbo v2, "group"
-
-    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_24
-
-    move v2, v1
-
-    goto/16 :goto_6
-
-    :cond_24
-    iget-object v2, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
-
-    const-string/jumbo v4, "Invalid catalog entry type"
-
-    invoke-virtual {v2, v8, v4, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
-
-    move v2, v1
-
-    goto/16 :goto_6
-
-    :cond_25
     :try_start_2
-    new-instance v1, Lmf/org/apache/xml/resolver/CatalogEntry;
+    new-instance v2, Lmf/org/apache/xml/resolver/CatalogEntry;
 
-    invoke-direct {v1, v2, v0}, Lmf/org/apache/xml/resolver/CatalogEntry;-><init>(ILjava/util/Vector;)V
+    invoke-direct {v2, v5, v4}, Lmf/org/apache/xml/resolver/CatalogEntry;-><init>(ILjava/util/Vector;)V
 
-    iget-object v4, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->catalog:Lmf/org/apache/xml/resolver/Catalog;
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->catalog:Lmf/org/apache/xml/resolver/Catalog;
 
-    invoke-virtual {v4, v1}, Lmf/org/apache/xml/resolver/Catalog;->addEntry(Lmf/org/apache/xml/resolver/CatalogEntry;)V
+    invoke-virtual {v8, v2}, Lmf/org/apache/xml/resolver/Catalog;->addEntry(Lmf/org/apache/xml/resolver/CatalogEntry;)V
     :try_end_2
     .catch Lmf/org/apache/xml/resolver/CatalogException; {:try_start_2 .. :try_end_2} :catch_2
 
-    move v1, v2
+    :cond_a
+    :goto_8
+    const/4 v5, -0x1
 
-    goto/16 :goto_0
+    new-instance v4, Ljava/util/Vector;
+
+    invoke-direct {v4}, Ljava/util/Vector;-><init>()V
+
+    goto/16 :goto_4
+
+    :cond_b
+    const-string/jumbo v7, "yes"
+
+    goto :goto_7
+
+    :cond_c
+    const-string/jumbo v7, "no"
+
+    goto :goto_7
 
     :catch_2
-    move-exception v1
+    move-exception v3
 
-    invoke-virtual {v1}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
+    invoke-virtual {v3}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
 
-    move-result v4
+    move-result v8
 
-    if-eq v4, v10, :cond_26
+    const/4 v9, 0x3
 
-    invoke-virtual {v1}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
+    if-eq v8, v9, :cond_d
 
-    move-result v1
+    invoke-virtual {v3}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
 
-    if-eq v1, v9, :cond_27
+    move-result v8
+
+    const/4 v9, 0x2
+
+    if-ne v8, v9, :cond_a
+
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+
+    const-string/jumbo v9, "Invalid catalog entry (override)"
+
+    const/4 v10, 0x1
+
+    invoke-virtual {v8, v10, v9, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_8
+
+    :cond_d
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+
+    const-string/jumbo v9, "Invalid catalog entry type"
+
+    const/4 v10, 0x1
+
+    invoke-virtual {v8, v10, v9, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_8
+
+    :cond_e
+    const-string/jumbo v8, "publicIdStartString"
+
+    const-string/jumbo v9, "catalog"
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {p0, v0, v8, v9}, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->checkAttributes(Lorg/xml/sax/Attributes;Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_4
+
+    sget v5, Lmf/org/apache/xml/resolver/Catalog;->DELEGATE_PUBLIC:I
+
+    const-string/jumbo v8, "publicIdStartString"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v8, "catalog"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+
+    const/4 v9, 0x4
+
+    const-string/jumbo v10, "delegatePublic"
+
+    const-string/jumbo v11, "publicIdStartString"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v11}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v11}, Lmf/org/apache/xml/resolver/helpers/PublicId;->normalize(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "catalog"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v12}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v8, v9, v10, v11, v12}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_5
+
+    :cond_f
+    const-string/jumbo v8, "systemIdStartString"
+
+    const-string/jumbo v9, "catalog"
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {p0, v0, v8, v9}, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->checkAttributes(Lorg/xml/sax/Attributes;Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_4
+
+    sget v5, Lmf/org/apache/xml/resolver/Catalog;->DELEGATE_SYSTEM:I
+
+    const-string/jumbo v8, "systemIdStartString"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v8, "catalog"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+
+    const/4 v9, 0x4
+
+    const-string/jumbo v10, "delegateSystem"
+
+    const-string/jumbo v11, "systemIdStartString"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v11}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "catalog"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v12}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v8, v9, v10, v11, v12}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_5
+
+    :cond_10
+    const-string/jumbo v8, "uriStartString"
+
+    const-string/jumbo v9, "catalog"
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {p0, v0, v8, v9}, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->checkAttributes(Lorg/xml/sax/Attributes;Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_4
+
+    sget v5, Lmf/org/apache/xml/resolver/Catalog;->DELEGATE_URI:I
+
+    const-string/jumbo v8, "uriStartString"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v8, "catalog"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+
+    const/4 v9, 0x4
+
+    const-string/jumbo v10, "delegateURI"
+
+    const-string/jumbo v11, "uriStartString"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v11}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "catalog"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v12}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v8, v9, v10, v11, v12}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_5
+
+    :cond_11
+    const-string/jumbo v8, "systemIdStartString"
+
+    const-string/jumbo v9, "rewritePrefix"
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {p0, v0, v8, v9}, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->checkAttributes(Lorg/xml/sax/Attributes;Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_4
+
+    sget v5, Lmf/org/apache/xml/resolver/Catalog;->REWRITE_SYSTEM:I
+
+    const-string/jumbo v8, "systemIdStartString"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v8, "rewritePrefix"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+
+    const/4 v9, 0x4
+
+    const-string/jumbo v10, "rewriteSystem"
+
+    const-string/jumbo v11, "systemIdStartString"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v11}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "rewritePrefix"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v12}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v8, v9, v10, v11, v12}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_5
+
+    :cond_12
+    const-string/jumbo v8, "systemIdSuffix"
+
+    const-string/jumbo v9, "uri"
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {p0, v0, v8, v9}, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->checkAttributes(Lorg/xml/sax/Attributes;Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_4
+
+    sget v5, Lmf/org/apache/xml/resolver/Catalog;->SYSTEM_SUFFIX:I
+
+    const-string/jumbo v8, "systemIdSuffix"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v8, "uri"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+
+    const/4 v9, 0x4
+
+    const-string/jumbo v10, "systemSuffix"
+
+    const-string/jumbo v11, "systemIdSuffix"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v11}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "uri"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v12}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v8, v9, v10, v11, v12}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_5
+
+    :cond_13
+    const-string/jumbo v8, "uriStartString"
+
+    const-string/jumbo v9, "rewritePrefix"
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {p0, v0, v8, v9}, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->checkAttributes(Lorg/xml/sax/Attributes;Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_4
+
+    sget v5, Lmf/org/apache/xml/resolver/Catalog;->REWRITE_URI:I
+
+    const-string/jumbo v8, "uriStartString"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v8, "rewritePrefix"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+
+    const/4 v9, 0x4
+
+    const-string/jumbo v10, "rewriteURI"
+
+    const-string/jumbo v11, "uriStartString"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v11}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "rewritePrefix"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v12}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v8, v9, v10, v11, v12}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_5
+
+    :cond_14
+    const-string/jumbo v8, "uriSuffix"
+
+    const-string/jumbo v9, "uri"
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {p0, v0, v8, v9}, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->checkAttributes(Lorg/xml/sax/Attributes;Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_4
+
+    sget v5, Lmf/org/apache/xml/resolver/Catalog;->URI_SUFFIX:I
+
+    const-string/jumbo v8, "uriSuffix"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v8, "uri"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+
+    const/4 v9, 0x4
+
+    const-string/jumbo v10, "uriSuffix"
+
+    const-string/jumbo v11, "uriSuffix"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v11}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "uri"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v12}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v8, v9, v10, v11, v12}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_5
+
+    :cond_15
+    const-string/jumbo v8, "catalog"
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {p0, v0, v8}, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->checkAttributes(Lorg/xml/sax/Attributes;Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_4
+
+    sget v5, Lmf/org/apache/xml/resolver/Catalog;->CATALOG:I
+
+    const-string/jumbo v8, "catalog"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+
+    const-string/jumbo v9, "catalog"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v9}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v9
+
+    const-string/jumbo v10, "nextCatalog"
+
+    const/4 v11, 0x4
+
+    invoke-virtual {v8, v11, v10, v9}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_5
+
+    :cond_16
+    const-string/jumbo v8, "publicId"
+
+    const-string/jumbo v9, "uri"
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {p0, v0, v8, v9}, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->checkAttributes(Lorg/xml/sax/Attributes;Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_4
+
+    sget v5, Lmf/org/apache/xml/resolver/Catalog;->PUBLIC:I
+
+    const-string/jumbo v8, "publicId"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v8, "uri"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+
+    const/4 v9, 0x4
+
+    const-string/jumbo v10, "public"
+
+    const-string/jumbo v11, "publicId"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v11}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v11}, Lmf/org/apache/xml/resolver/helpers/PublicId;->normalize(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "uri"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v12}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v8, v9, v10, v11, v12}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_5
+
+    :cond_17
+    const-string/jumbo v8, "systemId"
+
+    const-string/jumbo v9, "uri"
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {p0, v0, v8, v9}, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->checkAttributes(Lorg/xml/sax/Attributes;Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_4
+
+    sget v5, Lmf/org/apache/xml/resolver/Catalog;->SYSTEM:I
+
+    const-string/jumbo v8, "systemId"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v8, "uri"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+
+    const/4 v9, 0x4
+
+    const-string/jumbo v10, "system"
+
+    const-string/jumbo v11, "systemId"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v11}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "uri"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v12}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v8, v9, v10, v11, v12}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_5
+
+    :cond_18
+    const-string/jumbo v8, "name"
+
+    const-string/jumbo v9, "uri"
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {p0, v0, v8, v9}, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->checkAttributes(Lorg/xml/sax/Attributes;Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_4
+
+    sget v5, Lmf/org/apache/xml/resolver/Catalog;->URI:I
+
+    const-string/jumbo v8, "name"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v8, "uri"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+
+    const/4 v9, 0x4
+
+    const-string/jumbo v10, "uri"
+
+    const-string/jumbo v11, "name"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v11}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "uri"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v12}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v8, v9, v10, v11, v12}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_5
+
+    :cond_19
+    const-string/jumbo v8, "group"
+
+    invoke-virtual {p2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_4
+
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+
+    const-string/jumbo v9, "Invalid catalog entry type"
+
+    const/4 v10, 0x1
+
+    invoke-virtual {v8, v10, v9, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_5
+
+    :cond_1a
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+
+    const-string/jumbo v9, "Invalid catalog entry type"
+
+    const/4 v10, 0x1
+
+    invoke-virtual {v8, v10, v9, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_1b
+    const-string/jumbo v8, "urn:oasis:names:tc:entity:xmlns:tr9401:catalog"
+
+    invoke-virtual {v8, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_1
+
+    if-nez v6, :cond_1
+
+    const-string/jumbo v8, "xml:base"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    if-nez v8, :cond_1c
+
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->baseURIStack:Ljava/util/Stack;
+
+    iget-object v9, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->baseURIStack:Ljava/util/Stack;
+
+    invoke-virtual {v9}, Ljava/util/Stack;->peek()Ljava/lang/Object;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
+
+    :goto_9
+    const-string/jumbo v8, "doctype"
+
+    invoke-virtual {p2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_1f
+
+    const-string/jumbo v8, "document"
+
+    invoke-virtual {p2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_20
+
+    const-string/jumbo v8, "dtddecl"
+
+    invoke-virtual {p2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_21
+
+    const-string/jumbo v8, "entity"
+
+    invoke-virtual {p2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_22
+
+    const-string/jumbo v8, "linktype"
+
+    invoke-virtual {p2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_23
+
+    const-string/jumbo v8, "notation"
+
+    invoke-virtual {p2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_24
+
+    const-string/jumbo v8, "sgmldecl"
+
+    invoke-virtual {p2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_25
+
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+
+    const-string/jumbo v9, "Invalid catalog entry type"
+
+    const/4 v10, 0x1
+
+    invoke-virtual {v8, v10, v9, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
 
     :goto_a
-    move v1, v2
-
-    goto/16 :goto_0
-
-    :cond_26
-    iget-object v1, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
-
-    const-string/jumbo v4, "Invalid catalog entry type"
-
-    invoke-virtual {v1, v8, v4, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_a
-
-    :cond_27
-    iget-object v1, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
-
-    const-string/jumbo v4, "Invalid catalog entry"
-
-    invoke-virtual {v1, v8, v4, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
-
-    move v1, v2
-
-    goto/16 :goto_0
-
-    :cond_28
-    const-string/jumbo v2, "urn:oasis:names:tc:entity:xmlns:tr9401:catalog"
-
-    invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    if-nez v3, :cond_1
-
-    const-string/jumbo v2, "xml:base"
-
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    if-nez v2, :cond_29
-
-    iget-object v2, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->baseURIStack:Ljava/util/Stack;
-
-    iget-object v3, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->baseURIStack:Ljava/util/Stack;
-
-    invoke-virtual {v3}, Ljava/util/Stack;->peek()Ljava/lang/Object;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
-
-    :goto_b
-    const-string/jumbo v2, "doctype"
-
-    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_2c
-
-    const-string/jumbo v2, "document"
-
-    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_2d
-
-    const-string/jumbo v2, "dtddecl"
-
-    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_2e
-
-    const-string/jumbo v2, "entity"
-
-    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_2f
-
-    const-string/jumbo v2, "linktype"
-
-    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_30
-
-    const-string/jumbo v2, "notation"
-
-    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_31
-
-    const-string/jumbo v2, "sgmldecl"
-
-    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_32
-
-    iget-object v2, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
-
-    const-string/jumbo v3, "Invalid catalog entry type"
-
-    invoke-virtual {v2, v8, v3, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
-
-    :goto_c
-    if-ltz v1, :cond_1
+    if-ltz v5, :cond_1
 
     :try_start_3
     new-instance v2, Lmf/org/apache/xml/resolver/CatalogEntry;
 
-    invoke-direct {v2, v1, v0}, Lmf/org/apache/xml/resolver/CatalogEntry;-><init>(ILjava/util/Vector;)V
+    invoke-direct {v2, v5, v4}, Lmf/org/apache/xml/resolver/CatalogEntry;-><init>(ILjava/util/Vector;)V
 
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->catalog:Lmf/org/apache/xml/resolver/Catalog;
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->catalog:Lmf/org/apache/xml/resolver/Catalog;
 
-    invoke-virtual {v0, v2}, Lmf/org/apache/xml/resolver/Catalog;->addEntry(Lmf/org/apache/xml/resolver/CatalogEntry;)V
+    invoke-virtual {v8, v2}, Lmf/org/apache/xml/resolver/Catalog;->addEntry(Lmf/org/apache/xml/resolver/CatalogEntry;)V
     :try_end_3
     .catch Lmf/org/apache/xml/resolver/CatalogException; {:try_start_3 .. :try_end_3} :catch_3
 
     goto/16 :goto_1
 
     :catch_3
-    move-exception v0
+    move-exception v3
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
+    invoke-virtual {v3}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
 
-    move-result v1
+    move-result v8
 
-    if-eq v1, v10, :cond_33
+    const/4 v9, 0x3
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
+    if-eq v8, v9, :cond_26
 
-    move-result v0
+    invoke-virtual {v3}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
 
-    if-ne v0, v9, :cond_1
+    move-result v8
 
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    const/4 v9, 0x2
 
-    const-string/jumbo v1, "Invalid catalog entry"
+    if-ne v8, v9, :cond_1
 
-    invoke-virtual {v0, v8, v1, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+
+    const-string/jumbo v9, "Invalid catalog entry"
+
+    const/4 v10, 0x1
+
+    invoke-virtual {v8, v10, v9, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_1
 
-    :cond_29
-    const-string/jumbo v1, "xml:base"
+    :cond_1c
+    const-string/jumbo v8, "xml:base"
 
-    invoke-interface {p4, v1}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    sget v2, Lmf/org/apache/xml/resolver/Catalog;->BASE:I
+    sget v5, Lmf/org/apache/xml/resolver/Catalog;->BASE:I
 
-    invoke-virtual {v0, v1}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v1}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
 
-    iget-object v3, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->baseURIStack:Ljava/util/Stack;
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->baseURIStack:Ljava/util/Stack;
 
-    invoke-virtual {v3, v1}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v8, v1}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v3, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    const-string/jumbo v4, "xml:base"
+    const-string/jumbo v9, "xml:base"
 
-    invoke-virtual {v3, v7, v4, v1}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+    const/4 v10, 0x4
+
+    invoke-virtual {v8, v10, v9, v1}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
 
     :try_start_4
-    new-instance v1, Lmf/org/apache/xml/resolver/CatalogEntry;
+    new-instance v2, Lmf/org/apache/xml/resolver/CatalogEntry;
 
-    invoke-direct {v1, v2, v0}, Lmf/org/apache/xml/resolver/CatalogEntry;-><init>(ILjava/util/Vector;)V
+    invoke-direct {v2, v5, v4}, Lmf/org/apache/xml/resolver/CatalogEntry;-><init>(ILjava/util/Vector;)V
 
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->catalog:Lmf/org/apache/xml/resolver/Catalog;
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->catalog:Lmf/org/apache/xml/resolver/Catalog;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xml/resolver/Catalog;->addEntry(Lmf/org/apache/xml/resolver/CatalogEntry;)V
+    invoke-virtual {v8, v2}, Lmf/org/apache/xml/resolver/Catalog;->addEntry(Lmf/org/apache/xml/resolver/CatalogEntry;)V
     :try_end_4
     .catch Lmf/org/apache/xml/resolver/CatalogException; {:try_start_4 .. :try_end_4} :catch_4
 
-    :cond_2a
-    :goto_d
-    const/4 v1, -0x1
+    :cond_1d
+    :goto_b
+    const/4 v5, -0x1
 
-    new-instance v0, Ljava/util/Vector;
+    new-instance v4, Ljava/util/Vector;
 
-    invoke-direct {v0}, Ljava/util/Vector;-><init>()V
+    invoke-direct {v4}, Ljava/util/Vector;-><init>()V
 
-    goto/16 :goto_b
+    goto/16 :goto_9
 
     :catch_4
-    move-exception v0
+    move-exception v3
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
+    invoke-virtual {v3}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
 
-    move-result v1
+    move-result v8
 
-    if-eq v1, v10, :cond_2b
+    const/4 v9, 0x3
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
+    if-eq v8, v9, :cond_1e
 
-    move-result v0
+    invoke-virtual {v3}, Lmf/org/apache/xml/resolver/CatalogException;->getExceptionType()I
 
-    if-ne v0, v9, :cond_2a
+    move-result v8
 
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    const/4 v9, 0x2
 
-    const-string/jumbo v1, "Invalid catalog entry (base)"
+    if-ne v8, v9, :cond_1d
 
-    invoke-virtual {v0, v8, v1, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    goto :goto_d
+    const-string/jumbo v9, "Invalid catalog entry (base)"
 
-    :cond_2b
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    const/4 v10, 0x1
 
-    const-string/jumbo v1, "Invalid catalog entry type"
+    invoke-virtual {v8, v10, v9, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v0, v8, v1, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+    goto :goto_b
 
-    goto :goto_d
+    :cond_1e
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    :cond_2c
-    sget v1, Lmf/org/apache/xml/resolver/Catalog;->DOCTYPE:I
+    const-string/jumbo v9, "Invalid catalog entry type"
 
-    const-string/jumbo v2, "name"
+    const/4 v10, 0x1
 
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v8, v10, v9, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
 
-    move-result-object v2
+    goto :goto_b
 
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+    :cond_1f
+    sget v5, Lmf/org/apache/xml/resolver/Catalog;->DOCTYPE:I
 
-    const-string/jumbo v2, "uri"
+    const-string/jumbo v8, "name"
 
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v0, p4
 
-    move-result-object v2
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+    move-result-object v8
 
-    goto/16 :goto_c
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
 
-    :cond_2d
-    sget v1, Lmf/org/apache/xml/resolver/Catalog;->DOCUMENT:I
+    const-string/jumbo v8, "uri"
 
-    const-string/jumbo v2, "uri"
+    move-object/from16 v0, p4
 
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v8
 
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_c
+    goto/16 :goto_a
 
-    :cond_2e
-    sget v1, Lmf/org/apache/xml/resolver/Catalog;->DTDDECL:I
+    :cond_20
+    sget v5, Lmf/org/apache/xml/resolver/Catalog;->DOCUMENT:I
 
-    const-string/jumbo v2, "publicId"
+    const-string/jumbo v8, "uri"
 
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v0, p4
 
-    move-result-object v2
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+    move-result-object v8
 
-    const-string/jumbo v2, "uri"
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
 
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+    goto/16 :goto_a
 
-    move-result-object v2
+    :cond_21
+    sget v5, Lmf/org/apache/xml/resolver/Catalog;->DTDDECL:I
 
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+    const-string/jumbo v8, "publicId"
 
-    goto/16 :goto_c
+    move-object/from16 v0, p4
 
-    :cond_2f
-    sget v1, Lmf/org/apache/xml/resolver/Catalog;->ENTITY:I
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
 
-    const-string/jumbo v2, "name"
+    move-result-object v8
 
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
 
-    move-result-object v2
+    const-string/jumbo v8, "uri"
 
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+    move-object/from16 v0, p4
 
-    const-string/jumbo v2, "uri"
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v8
 
-    move-result-object v2
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+    goto/16 :goto_a
 
-    goto/16 :goto_c
+    :cond_22
+    sget v5, Lmf/org/apache/xml/resolver/Catalog;->ENTITY:I
 
-    :cond_30
-    sget v1, Lmf/org/apache/xml/resolver/Catalog;->LINKTYPE:I
+    const-string/jumbo v8, "name"
 
-    const-string/jumbo v2, "name"
+    move-object/from16 v0, p4
 
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v8
 
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v2, "uri"
+    const-string/jumbo v8, "uri"
 
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v0, p4
 
-    move-result-object v2
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+    move-result-object v8
 
-    goto/16 :goto_c
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
 
-    :cond_31
-    sget v1, Lmf/org/apache/xml/resolver/Catalog;->NOTATION:I
+    goto/16 :goto_a
 
-    const-string/jumbo v2, "name"
+    :cond_23
+    sget v5, Lmf/org/apache/xml/resolver/Catalog;->LINKTYPE:I
 
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+    const-string/jumbo v8, "name"
 
-    move-result-object v2
+    move-object/from16 v0, p4
 
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
 
-    const-string/jumbo v2, "uri"
+    move-result-object v8
 
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
 
-    move-result-object v2
+    const-string/jumbo v8, "uri"
 
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+    move-object/from16 v0, p4
 
-    goto/16 :goto_c
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
 
-    :cond_32
-    sget v1, Lmf/org/apache/xml/resolver/Catalog;->SGMLDECL:I
+    move-result-object v8
 
-    const-string/jumbo v2, "uri"
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
 
-    invoke-interface {p4, v2}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+    goto/16 :goto_a
 
-    move-result-object v2
+    :cond_24
+    sget v5, Lmf/org/apache/xml/resolver/Catalog;->NOTATION:I
 
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+    const-string/jumbo v8, "name"
 
-    goto/16 :goto_c
+    move-object/from16 v0, p4
 
-    :cond_33
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
 
-    const-string/jumbo v1, "Invalid catalog entry type"
+    move-result-object v8
 
-    invoke-virtual {v0, v8, v1, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v8, "uri"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_a
+
+    :cond_25
+    sget v5, Lmf/org/apache/xml/resolver/Catalog;->SGMLDECL:I
+
+    const-string/jumbo v8, "uri"
+
+    move-object/from16 v0, p4
+
+    invoke-interface {v0, v8}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v8}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_a
+
+    :cond_26
+    iget-object v8, p0, Lmf/org/apache/xml/resolver/readers/OASISXMLCatalogReader;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+
+    const-string/jumbo v9, "Invalid catalog entry type"
+
+    const/4 v10, 0x1
+
+    invoke-virtual {v8, v10, v9, p2}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_1
 .end method

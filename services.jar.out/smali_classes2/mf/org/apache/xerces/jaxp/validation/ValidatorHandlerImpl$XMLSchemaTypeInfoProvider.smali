@@ -54,6 +54,8 @@
 .method private checkStateAttribute()V
     .locals 4
 
+    const/4 v3, 0x0
+
     iget-boolean v0, p0, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->fInStartElement:Z
 
     if-eqz v0, :cond_0
@@ -75,8 +77,6 @@
 
     const-string/jumbo v2, "TypeInfoProviderIllegalStateAttribute"
 
-    const/4 v3, 0x0
-
     invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/jaxp/validation/JAXPValidationMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
@@ -88,6 +88,8 @@
 
 .method private checkStateElement()V
     .locals 4
+
+    const/4 v3, 0x0
 
     iget-boolean v0, p0, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->fInStartElement:Z
 
@@ -115,8 +117,6 @@
 
     const-string/jumbo v2, "TypeInfoProviderIllegalStateElement"
 
-    const/4 v3, 0x0
-
     invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/jaxp/validation/JAXPValidationMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
@@ -127,62 +127,62 @@
 .end method
 
 .method private getAttributeType(I)Lmf/org/w3c/dom/TypeInfo;
-    .locals 2
+    .locals 4
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
     invoke-direct {p0}, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->checkStateAttribute()V
 
     if-gez p1, :cond_1
 
     :cond_0
-    new-instance v0, Ljava/lang/IndexOutOfBoundsException;
+    new-instance v2, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v2
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->fAttributes:Lmf/org/apache/xerces/xni/XMLAttributes;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->fAttributes:Lmf/org/apache/xerces/xni/XMLAttributes;
 
-    invoke-interface {v0}, Lmf/org/apache/xerces/xni/XMLAttributes;->getLength()I
+    invoke-interface {v2}, Lmf/org/apache/xerces/xni/XMLAttributes;->getLength()I
 
-    move-result v0
+    move-result v2
 
-    if-le v0, p1, :cond_0
+    if-le v2, p1, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->fAttributes:Lmf/org/apache/xerces/xni/XMLAttributes;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->fAttributes:Lmf/org/apache/xerces/xni/XMLAttributes;
 
-    invoke-interface {v0, p1}, Lmf/org/apache/xerces/xni/XMLAttributes;->getAugmentations(I)Lmf/org/apache/xerces/xni/Augmentations;
+    invoke-interface {v2, p1}, Lmf/org/apache/xerces/xni/XMLAttributes;->getAugmentations(I)Lmf/org/apache/xerces/xni/Augmentations;
 
     move-result-object v0
 
     if-eqz v0, :cond_2
 
-    const-string/jumbo v1, "ATTRIBUTE_PSVI"
+    const-string/jumbo v2, "ATTRIBUTE_PSVI"
 
-    invoke-interface {v0, v1}, Lmf/org/apache/xerces/xni/Augmentations;->getItem(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-interface {v0, v2}, Lmf/org/apache/xerces/xni/Augmentations;->getItem(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/org/apache/xerces/xs/AttributePSVI;
+    check-cast v1, Lmf/org/apache/xerces/xs/AttributePSVI;
 
-    invoke-direct {p0, v0}, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->getTypeInfoFromPSVI(Lmf/org/apache/xerces/xs/ItemPSVI;)Lmf/org/w3c/dom/TypeInfo;
+    invoke-direct {p0, v1}, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->getTypeInfoFromPSVI(Lmf/org/apache/xerces/xs/ItemPSVI;)Lmf/org/w3c/dom/TypeInfo;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 
     :cond_2
-    return-object v1
+    return-object v3
 .end method
 
 .method private getTypeInfoFromPSVI(Lmf/org/apache/xerces/xs/ItemPSVI;)Lmf/org/w3c/dom/TypeInfo;
-    .locals 3
+    .locals 4
 
     const/4 v1, 0x0
 
@@ -190,11 +190,11 @@
 
     invoke-interface {p1}, Lmf/org/apache/xerces/xs/ItemPSVI;->getValidity()S
 
-    move-result v0
+    move-result v2
 
-    const/4 v2, 0x2
+    const/4 v3, 0x2
 
-    if-eq v0, v2, :cond_2
+    if-eq v2, v3, :cond_2
 
     :cond_0
     invoke-interface {p1}, Lmf/org/apache/xerces/xs/ItemPSVI;->getTypeDefinition()Lmf/org/apache/xerces/xs/XSTypeDefinition;
@@ -304,21 +304,21 @@
 .end method
 
 .method getAttributePSVI(I)Lmf/org/apache/xerces/xs/AttributePSVI;
-    .locals 2
+    .locals 3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->fAttributes:Lmf/org/apache/xerces/xni/XMLAttributes;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->fAttributes:Lmf/org/apache/xerces/xni/XMLAttributes;
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     :cond_0
-    return-object v1
+    return-object v2
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->fAttributes:Lmf/org/apache/xerces/xni/XMLAttributes;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->fAttributes:Lmf/org/apache/xerces/xni/XMLAttributes;
 
-    invoke-interface {v0, p1}, Lmf/org/apache/xerces/xni/XMLAttributes;->getAugmentations(I)Lmf/org/apache/xerces/xni/Augmentations;
+    invoke-interface {v1, p1}, Lmf/org/apache/xerces/xni/XMLAttributes;->getAugmentations(I)Lmf/org/apache/xerces/xni/Augmentations;
 
     move-result-object v0
 
@@ -328,29 +328,29 @@
 
     invoke-interface {v0, v1}, Lmf/org/apache/xerces/xni/Augmentations;->getItem(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/org/apache/xerces/xs/AttributePSVI;
+    check-cast v1, Lmf/org/apache/xerces/xs/AttributePSVI;
 
-    return-object v0
+    return-object v1
 .end method
 
 .method getAttributePSVIByName(Ljava/lang/String;Ljava/lang/String;)Lmf/org/apache/xerces/xs/AttributePSVI;
-    .locals 2
+    .locals 3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->fAttributes:Lmf/org/apache/xerces/xni/XMLAttributes;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->fAttributes:Lmf/org/apache/xerces/xni/XMLAttributes;
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     :cond_0
-    return-object v1
+    return-object v2
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->fAttributes:Lmf/org/apache/xerces/xni/XMLAttributes;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->fAttributes:Lmf/org/apache/xerces/xni/XMLAttributes;
 
-    invoke-interface {v0, p1, p2}, Lmf/org/apache/xerces/xni/XMLAttributes;->getAugmentations(Ljava/lang/String;Ljava/lang/String;)Lmf/org/apache/xerces/xni/Augmentations;
+    invoke-interface {v1, p1, p2}, Lmf/org/apache/xerces/xni/XMLAttributes;->getAugmentations(Ljava/lang/String;Ljava/lang/String;)Lmf/org/apache/xerces/xni/Augmentations;
 
     move-result-object v0
 
@@ -360,11 +360,11 @@
 
     invoke-interface {v0, v1}, Lmf/org/apache/xerces/xni/Augmentations;->getItem(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/org/apache/xerces/xs/AttributePSVI;
+    check-cast v1, Lmf/org/apache/xerces/xs/AttributePSVI;
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public getAttributeTypeInfo(I)Lmf/org/w3c/dom/TypeInfo;
@@ -442,21 +442,21 @@
 .end method
 
 .method public getElementTypeInfo()Lmf/org/w3c/dom/TypeInfo;
-    .locals 2
+    .locals 3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     invoke-direct {p0}, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->checkStateElement()V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->fElementAugs:Lmf/org/apache/xerces/xni/Augmentations;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->fElementAugs:Lmf/org/apache/xerces/xni/Augmentations;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->fElementAugs:Lmf/org/apache/xerces/xni/Augmentations;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->fElementAugs:Lmf/org/apache/xerces/xni/Augmentations;
 
-    const-string/jumbo v1, "ELEMENT_PSVI"
+    const-string/jumbo v2, "ELEMENT_PSVI"
 
-    invoke-interface {v0, v1}, Lmf/org/apache/xerces/xni/Augmentations;->getItem(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-interface {v1, v2}, Lmf/org/apache/xerces/xni/Augmentations;->getItem(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -464,16 +464,16 @@
 
     invoke-direct {p0, v0}, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->getTypeInfoFromPSVI(Lmf/org/apache/xerces/xs/ItemPSVI;)Lmf/org/w3c/dom/TypeInfo;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    return-object v1
+    return-object v2
 .end method
 
 .method public isIdAttribute(I)Z
-    .locals 1
+    .locals 2
 
     invoke-direct {p0}, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->checkStateAttribute()V
 
@@ -487,14 +487,14 @@
 
     invoke-interface {v0}, Lmf/org/apache/xerces/impl/dv/XSSimpleType;->isIDType()Z
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return v0
+    return v1
 .end method
 
 .method public isSpecified(I)Z

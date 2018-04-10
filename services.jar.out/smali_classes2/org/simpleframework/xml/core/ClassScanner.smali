@@ -202,19 +202,19 @@
     return v3
 
     :cond_0
-    const-class v1, Ljava/util/Map;
+    aget-object v1, v0, v3
 
-    aget-object v0, v0, v3
+    const-class v2, Ljava/util/Map;
 
-    invoke-virtual {v1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 .end method
 
 .method private method(Lorg/simpleframework/xml/core/Detail;)V
-    .locals 2
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -223,18 +223,18 @@
 
     invoke-interface {p1}, Lorg/simpleframework/xml/core/Detail;->getMethods()Ljava/util/List;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result v3
 
-    if-nez v0, :cond_0
+    if-nez v3, :cond_0
 
     return-void
 
@@ -251,95 +251,97 @@
 .end method
 
 .method private method(Lorg/simpleframework/xml/core/MethodDetail;)V
-    .locals 6
-
-    const/4 v0, 0x0
+    .locals 7
 
     invoke-virtual {p1}, Lorg/simpleframework/xml/core/MethodDetail;->getAnnotations()[Ljava/lang/annotation/Annotation;
 
-    move-result-object v1
+    move-result-object v4
 
     invoke-virtual {p1}, Lorg/simpleframework/xml/core/MethodDetail;->getMethod()Ljava/lang/reflect/Method;
 
-    move-result-object v2
+    move-result-object v5
 
-    array-length v3, v1
+    move-object v0, v4
+
+    array-length v3, v4
+
+    const/4 v1, 0x0
 
     :goto_0
-    if-lt v0, v3, :cond_0
+    if-lt v1, v3, :cond_0
 
     return-void
 
     :cond_0
-    aget-object v4, v1, v0
+    aget-object v2, v4, v1
 
-    instance-of v5, v4, Lorg/simpleframework/xml/core/Commit;
+    instance-of v6, v2, Lorg/simpleframework/xml/core/Commit;
 
-    if-nez v5, :cond_1
+    if-nez v6, :cond_1
 
     :goto_1
-    instance-of v5, v4, Lorg/simpleframework/xml/core/Validate;
+    instance-of v6, v2, Lorg/simpleframework/xml/core/Validate;
 
-    if-nez v5, :cond_2
+    if-nez v6, :cond_2
 
     :goto_2
-    instance-of v5, v4, Lorg/simpleframework/xml/core/Persist;
+    instance-of v6, v2, Lorg/simpleframework/xml/core/Persist;
 
-    if-nez v5, :cond_3
+    if-nez v6, :cond_3
 
     :goto_3
-    instance-of v5, v4, Lorg/simpleframework/xml/core/Complete;
+    instance-of v6, v2, Lorg/simpleframework/xml/core/Complete;
 
-    if-nez v5, :cond_4
+    if-nez v6, :cond_4
 
     :goto_4
-    instance-of v5, v4, Lorg/simpleframework/xml/core/Replace;
+    instance-of v6, v2, Lorg/simpleframework/xml/core/Replace;
 
-    if-nez v5, :cond_5
+    if-nez v6, :cond_5
 
     :goto_5
-    instance-of v4, v4, Lorg/simpleframework/xml/core/Resolve;
+    instance-of v6, v2, Lorg/simpleframework/xml/core/Resolve;
 
-    if-nez v4, :cond_6
+    if-nez v6, :cond_6
 
     :goto_6
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_1
-    invoke-direct {p0, v2}, Lorg/simpleframework/xml/core/ClassScanner;->commit(Ljava/lang/reflect/Method;)V
+    invoke-direct {p0, v5}, Lorg/simpleframework/xml/core/ClassScanner;->commit(Ljava/lang/reflect/Method;)V
 
     goto :goto_1
 
     :cond_2
-    invoke-direct {p0, v2}, Lorg/simpleframework/xml/core/ClassScanner;->validate(Ljava/lang/reflect/Method;)V
+    invoke-direct {p0, v5}, Lorg/simpleframework/xml/core/ClassScanner;->validate(Ljava/lang/reflect/Method;)V
 
     goto :goto_2
 
     :cond_3
-    invoke-direct {p0, v2}, Lorg/simpleframework/xml/core/ClassScanner;->persist(Ljava/lang/reflect/Method;)V
+    invoke-direct {p0, v5}, Lorg/simpleframework/xml/core/ClassScanner;->persist(Ljava/lang/reflect/Method;)V
 
     goto :goto_3
 
     :cond_4
-    invoke-direct {p0, v2}, Lorg/simpleframework/xml/core/ClassScanner;->complete(Ljava/lang/reflect/Method;)V
+    invoke-direct {p0, v5}, Lorg/simpleframework/xml/core/ClassScanner;->complete(Ljava/lang/reflect/Method;)V
 
     goto :goto_4
 
     :cond_5
-    invoke-direct {p0, v2}, Lorg/simpleframework/xml/core/ClassScanner;->replace(Ljava/lang/reflect/Method;)V
+    invoke-direct {p0, v5}, Lorg/simpleframework/xml/core/ClassScanner;->replace(Ljava/lang/reflect/Method;)V
 
     goto :goto_5
 
     :cond_6
-    invoke-direct {p0, v2}, Lorg/simpleframework/xml/core/ClassScanner;->resolve(Ljava/lang/reflect/Method;)V
+    invoke-direct {p0, v5}, Lorg/simpleframework/xml/core/ClassScanner;->resolve(Ljava/lang/reflect/Method;)V
 
     goto :goto_6
 .end method
 
 .method private namespace(Lorg/simpleframework/xml/core/Detail;)V
-    .locals 5
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -348,46 +350,48 @@
 
     invoke-interface {p1}, Lorg/simpleframework/xml/core/Detail;->getNamespaceList()Lorg/simpleframework/xml/NamespaceList;
 
-    move-result-object v0
+    move-result-object v6
 
     invoke-interface {p1}, Lorg/simpleframework/xml/core/Detail;->getNamespace()Lorg/simpleframework/xml/Namespace;
 
-    move-result-object v1
+    move-result-object v5
 
-    if-nez v1, :cond_1
+    if-nez v5, :cond_1
 
     :goto_0
-    if-nez v0, :cond_2
+    if-nez v6, :cond_2
 
     :cond_0
     return-void
 
     :cond_1
-    iget-object v2, p0, Lorg/simpleframework/xml/core/ClassScanner;->decorator:Lorg/simpleframework/xml/core/NamespaceDecorator;
+    iget-object v7, p0, Lorg/simpleframework/xml/core/ClassScanner;->decorator:Lorg/simpleframework/xml/core/NamespaceDecorator;
 
-    invoke-virtual {v2, v1}, Lorg/simpleframework/xml/core/NamespaceDecorator;->add(Lorg/simpleframework/xml/Namespace;)V
+    invoke-virtual {v7, v5}, Lorg/simpleframework/xml/core/NamespaceDecorator;->add(Lorg/simpleframework/xml/Namespace;)V
 
     goto :goto_0
 
     :cond_2
-    invoke-interface {v0}, Lorg/simpleframework/xml/NamespaceList;->value()[Lorg/simpleframework/xml/Namespace;
+    invoke-interface {v6}, Lorg/simpleframework/xml/NamespaceList;->value()[Lorg/simpleframework/xml/Namespace;
 
-    move-result-object v1
+    move-result-object v3
 
-    array-length v2, v1
+    move-object v0, v3
 
-    const/4 v0, 0x0
+    array-length v2, v0
+
+    const/4 v1, 0x0
 
     :goto_1
-    if-ge v0, v2, :cond_0
+    if-ge v1, v2, :cond_0
 
-    aget-object v3, v1, v0
+    aget-object v4, v0, v1
 
-    iget-object v4, p0, Lorg/simpleframework/xml/core/ClassScanner;->decorator:Lorg/simpleframework/xml/core/NamespaceDecorator;
+    iget-object v7, p0, Lorg/simpleframework/xml/core/ClassScanner;->decorator:Lorg/simpleframework/xml/core/NamespaceDecorator;
 
-    invoke-virtual {v4, v3}, Lorg/simpleframework/xml/core/NamespaceDecorator;->add(Lorg/simpleframework/xml/Namespace;)V
+    invoke-virtual {v7, v4}, Lorg/simpleframework/xml/core/NamespaceDecorator;->add(Lorg/simpleframework/xml/Namespace;)V
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 .end method
@@ -453,7 +457,7 @@
 .end method
 
 .method private scan(Lorg/simpleframework/xml/core/Detail;)V
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -462,35 +466,35 @@
 
     invoke-interface {p1}, Lorg/simpleframework/xml/core/Detail;->getOverride()Lorg/simpleframework/xml/DefaultType;
 
-    move-result-object v1
+    move-result-object v0
 
     invoke-interface {p1}, Lorg/simpleframework/xml/core/Detail;->getType()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
     :goto_0
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     invoke-direct {p0, p1}, Lorg/simpleframework/xml/core/ClassScanner;->commit(Lorg/simpleframework/xml/core/Detail;)V
 
     return-void
 
     :cond_0
-    iget-object v2, p0, Lorg/simpleframework/xml/core/ClassScanner;->support:Lorg/simpleframework/xml/core/Support;
+    iget-object v3, p0, Lorg/simpleframework/xml/core/ClassScanner;->support:Lorg/simpleframework/xml/core/Support;
 
-    invoke-virtual {v2, v0, v1}, Lorg/simpleframework/xml/core/Support;->getDetail(Ljava/lang/Class;Lorg/simpleframework/xml/DefaultType;)Lorg/simpleframework/xml/core/Detail;
+    invoke-virtual {v3, v1, v0}, Lorg/simpleframework/xml/core/Support;->getDetail(Ljava/lang/Class;Lorg/simpleframework/xml/DefaultType;)Lorg/simpleframework/xml/core/Detail;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-direct {p0, v0}, Lorg/simpleframework/xml/core/ClassScanner;->namespace(Lorg/simpleframework/xml/core/Detail;)V
+    invoke-direct {p0, v2}, Lorg/simpleframework/xml/core/ClassScanner;->namespace(Lorg/simpleframework/xml/core/Detail;)V
 
-    invoke-direct {p0, v0}, Lorg/simpleframework/xml/core/ClassScanner;->method(Lorg/simpleframework/xml/core/Detail;)V
+    invoke-direct {p0, v2}, Lorg/simpleframework/xml/core/ClassScanner;->method(Lorg/simpleframework/xml/core/Detail;)V
 
-    invoke-direct {p0, v0}, Lorg/simpleframework/xml/core/ClassScanner;->definition(Lorg/simpleframework/xml/core/Detail;)V
+    invoke-direct {p0, v2}, Lorg/simpleframework/xml/core/ClassScanner;->definition(Lorg/simpleframework/xml/core/Detail;)V
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/core/Detail;->getSuper()Ljava/lang/Class;
+    invoke-interface {v2}, Lorg/simpleframework/xml/core/Detail;->getSuper()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
     goto :goto_0
 .end method

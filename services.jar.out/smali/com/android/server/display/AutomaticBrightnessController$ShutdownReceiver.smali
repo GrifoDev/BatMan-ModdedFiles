@@ -56,7 +56,7 @@
 
     iget-object v1, p0, Lcom/android/server/display/AutomaticBrightnessController$ShutdownReceiver;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    invoke-static {v1}, Lcom/android/server/display/AutomaticBrightnessController;->-get14(Lcom/android/server/display/AutomaticBrightnessController;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/android/server/display/AutomaticBrightnessController;->-get15(Lcom/android/server/display/AutomaticBrightnessController;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -65,7 +65,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/display/AutomaticBrightnessController$ShutdownReceiver;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    invoke-static {v1}, Lcom/android/server/display/AutomaticBrightnessController;->-get17(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;
+    invoke-static {v1}, Lcom/android/server/display/AutomaticBrightnessController;->-get18(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;
 
     move-result-object v1
 

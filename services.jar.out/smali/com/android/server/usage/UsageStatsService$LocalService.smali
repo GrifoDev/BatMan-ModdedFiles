@@ -56,55 +56,97 @@
 .end method
 
 .method public applyRestoredPayload(ILjava/lang/String;[B)V
-    .locals 4
-
-    if-nez p1, :cond_0
+    .locals 6
 
     iget-object v1, p0, Lcom/android/server/usage/UsageStatsService$LocalService;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    iget-object v2, p0, Lcom/android/server/usage/UsageStatsService$LocalService;->this$0:Lcom/android/server/usage/UsageStatsService;
+    invoke-static {v1}, Lcom/android/server/usage/UsageStatsService;->-get3(Lcom/android/server/usage/UsageStatsService;)Ljava/lang/Object;
 
-    invoke-static {v2}, Lcom/android/server/usage/UsageStatsService;->-wrap3(Lcom/android/server/usage/UsageStatsService;)J
+    move-result-object v2
 
-    move-result-wide v2
+    monitor-enter v2
 
-    invoke-static {v1, p1, v2, v3}, Lcom/android/server/usage/UsageStatsService;->-wrap2(Lcom/android/server/usage/UsageStatsService;IJ)Lcom/android/server/usage/UserUsageStatsService;
+    if-nez p1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsService$LocalService;->this$0:Lcom/android/server/usage/UsageStatsService;
+
+    iget-object v3, p0, Lcom/android/server/usage/UsageStatsService$LocalService;->this$0:Lcom/android/server/usage/UsageStatsService;
+
+    invoke-static {v3}, Lcom/android/server/usage/UsageStatsService;->-wrap4(Lcom/android/server/usage/UsageStatsService;)J
+
+    move-result-wide v4
+
+    invoke-static {v1, p1, v4, v5}, Lcom/android/server/usage/UsageStatsService;->-wrap3(Lcom/android/server/usage/UsageStatsService;IJ)Lcom/android/server/usage/UserUsageStatsService;
 
     move-result-object v0
 
     invoke-virtual {v0, p2, p3}, Lcom/android/server/usage/UserUsageStatsService;->applyRestoredPayload(Ljava/lang/String;[B)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
+    monitor-exit v2
+
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
 .end method
 
 .method public getBackupPayload(ILjava/lang/String;)[B
-    .locals 4
-
-    if-nez p1, :cond_0
+    .locals 6
 
     iget-object v1, p0, Lcom/android/server/usage/UsageStatsService$LocalService;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    iget-object v2, p0, Lcom/android/server/usage/UsageStatsService$LocalService;->this$0:Lcom/android/server/usage/UsageStatsService;
+    invoke-static {v1}, Lcom/android/server/usage/UsageStatsService;->-get3(Lcom/android/server/usage/UsageStatsService;)Ljava/lang/Object;
 
-    invoke-static {v2}, Lcom/android/server/usage/UsageStatsService;->-wrap3(Lcom/android/server/usage/UsageStatsService;)J
+    move-result-object v2
 
-    move-result-wide v2
+    monitor-enter v2
 
-    invoke-static {v1, p1, v2, v3}, Lcom/android/server/usage/UsageStatsService;->-wrap2(Lcom/android/server/usage/UsageStatsService;IJ)Lcom/android/server/usage/UserUsageStatsService;
+    if-nez p1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsService$LocalService;->this$0:Lcom/android/server/usage/UsageStatsService;
+
+    iget-object v3, p0, Lcom/android/server/usage/UsageStatsService$LocalService;->this$0:Lcom/android/server/usage/UsageStatsService;
+
+    invoke-static {v3}, Lcom/android/server/usage/UsageStatsService;->-wrap4(Lcom/android/server/usage/UsageStatsService;)J
+
+    move-result-wide v4
+
+    invoke-static {v1, p1, v4, v5}, Lcom/android/server/usage/UsageStatsService;->-wrap3(Lcom/android/server/usage/UsageStatsService;IJ)Lcom/android/server/usage/UserUsageStatsService;
 
     move-result-object v0
 
     invoke-virtual {v0, p2}, Lcom/android/server/usage/UserUsageStatsService;->getBackupPayload(Ljava/lang/String;)[B
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v1
+
+    monitor-exit v2
 
     return-object v1
 
     :cond_0
     const/4 v1, 0x0
 
+    monitor-exit v2
+
     return-object v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
 .end method
 
 .method public getIdleUidsForUser(I)[I
@@ -146,7 +188,9 @@
 
     iget-object v0, p0, Lcom/android/server/usage/UsageStatsService$LocalService;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    iget-boolean v0, v0, Lcom/android/server/usage/UsageStatsService;->mAppIdleParoled:Z
+    invoke-virtual {v0}, Lcom/android/server/usage/UsageStatsService;->isParoledOrCharging()Z
+
+    move-result v0
 
     return v0
 .end method
@@ -159,6 +203,37 @@
     invoke-virtual {v0}, Lcom/android/server/usage/UsageStatsService;->shutdown()V
 
     return-void
+.end method
+
+.method public queryUsageStatsForUser(IIJJZ)Ljava/util/List;
+    .locals 9
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(IIJJZ)",
+            "Ljava/util/List",
+            "<",
+            "Landroid/app/usage/UsageStats;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsService$LocalService;->this$0:Lcom/android/server/usage/UsageStatsService;
+
+    move v2, p1
+
+    move v3, p2
+
+    move-wide v4, p3
+
+    move-wide v6, p5
+
+    move/from16 v8, p7
+
+    invoke-virtual/range {v1 .. v8}, Lcom/android/server/usage/UsageStatsService;->queryUsageStats(IIJJZ)Ljava/util/List;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public removeAppIdleStateChangeListener(Landroid/app/usage/UsageStatsManagerInternal$AppIdleStateChangeListener;)V
@@ -314,7 +389,7 @@
 
     iget-object v11, p0, Lcom/android/server/usage/UsageStatsService$LocalService;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    invoke-static {v11}, Lcom/android/server/usage/UsageStatsService;->-get2(Lcom/android/server/usage/UsageStatsService;)Ljava/util/HashMap;
+    invoke-static {v11}, Lcom/android/server/usage/UsageStatsService;->-get5(Lcom/android/server/usage/UsageStatsService;)Ljava/util/HashMap;
 
     move-result-object v12
 
@@ -335,12 +410,12 @@
 
     move/from16 v0, p4
 
-    if-ne v0, v11, :cond_6
+    if-ne v0, v11, :cond_5
 
     :cond_1
     iget-object v11, p0, Lcom/android/server/usage/UsageStatsService$LocalService;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    invoke-static {v11}, Lcom/android/server/usage/UsageStatsService;->-get2(Lcom/android/server/usage/UsageStatsService;)Ljava/util/HashMap;
+    invoke-static {v11}, Lcom/android/server/usage/UsageStatsService;->-get5(Lcom/android/server/usage/UsageStatsService;)Ljava/util/HashMap;
 
     move-result-object v11
 
@@ -358,7 +433,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_6
+    if-eqz v11, :cond_5
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -383,7 +458,7 @@
 
     iget-object v11, p0, Lcom/android/server/usage/UsageStatsService$LocalService;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    invoke-static {v11}, Lcom/android/server/usage/UsageStatsService;->-get3(Lcom/android/server/usage/UsageStatsService;)Ljava/util/HashMap;
+    invoke-static {v11}, Lcom/android/server/usage/UsageStatsService;->-get6(Lcom/android/server/usage/UsageStatsService;)Ljava/util/HashMap;
 
     move-result-object v11
 
@@ -395,7 +470,7 @@
 
     iget-object v11, p0, Lcom/android/server/usage/UsageStatsService$LocalService;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    invoke-static {v11}, Lcom/android/server/usage/UsageStatsService;->-get3(Lcom/android/server/usage/UsageStatsService;)Ljava/util/HashMap;
+    invoke-static {v11}, Lcom/android/server/usage/UsageStatsService;->-get6(Lcom/android/server/usage/UsageStatsService;)Ljava/util/HashMap;
 
     move-result-object v11
 
@@ -411,17 +486,20 @@
 
     move-result v11
 
-    if-eqz v11, :cond_4
+    xor-int/lit8 v11, v11, 0x1
+
+    if-eqz v11, :cond_3
+
+    const/4 v9, 0x0
 
     :cond_3
-    :goto_1
     if-eqz v9, :cond_2
 
     const/4 v11, 0x1
 
     move/from16 v0, p4
 
-    if-ne v0, v11, :cond_5
+    if-ne v0, v11, :cond_4
 
     move-object/from16 v0, p2
 
@@ -450,11 +528,6 @@
     throw v11
 
     :cond_4
-    const/4 v9, 0x0
-
-    goto :goto_1
-
-    :cond_5
     const/4 v11, 0x2
 
     move/from16 v0, p4
@@ -469,18 +542,18 @@
 
     goto :goto_0
 
-    :cond_6
+    :cond_5
     :try_start_4
     invoke-interface {v8}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    :goto_2
+    :goto_1
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_7
+    if-eqz v11, :cond_6
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -490,7 +563,7 @@
 
     iget-object v11, p0, Lcom/android/server/usage/UsageStatsService$LocalService;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    invoke-static {v11}, Lcom/android/server/usage/UsageStatsService;->-get2(Lcom/android/server/usage/UsageStatsService;)Ljava/util/HashMap;
+    invoke-static {v11}, Lcom/android/server/usage/UsageStatsService;->-get5(Lcom/android/server/usage/UsageStatsService;)Ljava/util/HashMap;
 
     move-result-object v11
 
@@ -498,7 +571,7 @@
 
     iget-object v11, p0, Lcom/android/server/usage/UsageStatsService$LocalService;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    invoke-static {v11}, Lcom/android/server/usage/UsageStatsService;->-get3(Lcom/android/server/usage/UsageStatsService;)Ljava/util/HashMap;
+    invoke-static {v11}, Lcom/android/server/usage/UsageStatsService;->-get6(Lcom/android/server/usage/UsageStatsService;)Ljava/util/HashMap;
 
     move-result-object v11
 
@@ -506,9 +579,9 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_7
+    :cond_6
     monitor-exit v12
 
     return-void
@@ -549,6 +622,64 @@
     iget-object v1, v1, Lcom/android/server/usage/UsageStatsService;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v1, v4, p2, v4, v0}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
+
+    return-void
+.end method
+
+.method public reportShortcutUsage(Ljava/lang/String;Ljava/lang/String;I)V
+    .locals 5
+
+    const/4 v4, 0x0
+
+    if-eqz p1, :cond_0
+
+    if-nez p2, :cond_1
+
+    :cond_0
+    const-string/jumbo v1, "UsageStatsService"
+
+    const-string/jumbo v2, "Event reported without a package name or a shortcut ID"
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_1
+    new-instance v0, Landroid/app/usage/UsageEvents$Event;
+
+    invoke-direct {v0}, Landroid/app/usage/UsageEvents$Event;-><init>()V
+
+    invoke-virtual {p1}, Ljava/lang/String;->intern()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v0, Landroid/app/usage/UsageEvents$Event;->mPackage:Ljava/lang/String;
+
+    invoke-virtual {p2}, Ljava/lang/String;->intern()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v0, Landroid/app/usage/UsageEvents$Event;->mShortcutId:Ljava/lang/String;
+
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v2
+
+    iput-wide v2, v0, Landroid/app/usage/UsageEvents$Event;->mTimeStamp:J
+
+    const/16 v1, 0x8
+
+    iput v1, v0, Landroid/app/usage/UsageEvents$Event;->mEventType:I
+
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsService$LocalService;->this$0:Lcom/android/server/usage/UsageStatsService;
+
+    iget-object v1, v1, Lcom/android/server/usage/UsageStatsService;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {v1, v4, p3, v4, v0}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v1
 

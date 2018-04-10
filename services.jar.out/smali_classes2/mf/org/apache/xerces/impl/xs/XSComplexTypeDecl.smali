@@ -105,25 +105,23 @@
 .method private isDerivedByAny(Ljava/lang/String;Ljava/lang/String;ILmf/org/apache/xerces/xs/XSTypeDefinition;)Z
     .locals 4
 
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     const/4 v0, 0x0
 
-    move-object v3, p4
-
     :goto_0
-    if-nez v3, :cond_1
+    if-nez p4, :cond_1
 
     :cond_0
     :goto_1
     return v0
 
     :cond_1
-    if-eq v3, v2, :cond_0
+    if-eq p4, v1, :cond_0
 
-    invoke-interface {v3}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getName()Ljava/lang/String;
+    invoke-interface {p4}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getName()Ljava/lang/String;
 
     move-result-object v2
 
@@ -134,25 +132,23 @@
     if-nez v2, :cond_3
 
     :cond_2
-    invoke-direct {p0, p1, p2, p3, v3}, Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;->isDerivedByRestriction(Ljava/lang/String;Ljava/lang/String;ILmf/org/apache/xerces/xs/XSTypeDefinition;)Z
+    invoke-direct {p0, p1, p2, p3, p4}, Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;->isDerivedByRestriction(Ljava/lang/String;Ljava/lang/String;ILmf/org/apache/xerces/xs/XSTypeDefinition;)Z
 
     move-result v2
 
     if-nez v2, :cond_6
 
-    invoke-direct {p0, p1, p2, p3, v3}, Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;->isDerivedByExtension(Ljava/lang/String;Ljava/lang/String;ILmf/org/apache/xerces/xs/XSTypeDefinition;)Z
+    invoke-direct {p0, p1, p2, p3, p4}, Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;->isDerivedByExtension(Ljava/lang/String;Ljava/lang/String;ILmf/org/apache/xerces/xs/XSTypeDefinition;)Z
 
     move-result v2
 
     if-eqz v2, :cond_7
 
-    invoke-interface {v3}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getBaseType()Lmf/org/apache/xerces/xs/XSTypeDefinition;
+    move-object v1, p4
+
+    invoke-interface {p4}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getBaseType()Lmf/org/apache/xerces/xs/XSTypeDefinition;
 
     move-result-object p4
-
-    move-object v2, v3
-
-    move-object v3, p4
 
     goto :goto_0
 
@@ -162,7 +158,7 @@
     :cond_4
     if-eqz p1, :cond_2
 
-    invoke-interface {v3}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
+    invoke-interface {p4}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
 
     move-result-object v2
 
@@ -173,12 +169,12 @@
     if-eqz v2, :cond_2
 
     :goto_2
-    move v0, v1
+    const/4 v0, 0x1
 
     goto :goto_1
 
     :cond_5
-    invoke-interface {v3}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
+    invoke-interface {p4}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
 
     move-result-object v2
 
@@ -187,120 +183,110 @@
     goto :goto_2
 
     :cond_6
-    return v1
+    return v3
 
     :cond_7
-    return v1
+    return v3
 .end method
 
 .method private isDerivedByExtension(Ljava/lang/String;Ljava/lang/String;ILmf/org/apache/xerces/xs/XSTypeDefinition;)Z
     .locals 5
 
+    const/4 v4, 0x0
+
     const/4 v0, 0x0
 
-    const/4 v3, 0x0
-
-    move-object v1, v0
-
-    move v2, v3
-
-    move-object v0, p4
+    const/4 v1, 0x0
 
     :goto_0
-    if-nez v0, :cond_1
+    if-nez p4, :cond_1
 
     :cond_0
-    return v3
+    return v4
 
     :cond_1
-    if-eq v0, v1, :cond_0
+    if-eq p4, v1, :cond_0
 
     if-nez p1, :cond_4
 
     :cond_2
     :goto_1
-    invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getName()Ljava/lang/String;
+    invoke-interface {p4}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {p2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_5
+    if-nez v2, :cond_5
 
     :cond_3
-    instance-of v1, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    instance-of v2, p4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    if-nez v1, :cond_8
+    if-nez v2, :cond_8
 
-    move-object v1, v0
+    move-object v2, p4
 
-    check-cast v1, Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
+    check-cast v2, Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;->getDerivationMethod()S
+    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;->getDerivationMethod()S
 
-    move-result v1
+    move-result v2
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    if-eq v1, v4, :cond_c
-
-    move v1, v2
+    if-eq v2, v3, :cond_c
 
     :goto_2
-    invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getBaseType()Lmf/org/apache/xerces/xs/XSTypeDefinition;
+    move-object v1, p4
+
+    invoke-interface {p4}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getBaseType()Lmf/org/apache/xerces/xs/XSTypeDefinition;
 
     move-result-object p4
-
-    move v2, v1
-
-    move-object v1, v0
-
-    move-object v0, p4
 
     goto :goto_0
 
     :cond_4
-    sget-object v1, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->URI_SCHEMAFORSCHEMA:Ljava/lang/String;
+    sget-object v2, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->URI_SCHEMAFORSCHEMA:Ljava/lang/String;
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_2
+    if-eqz v2, :cond_2
 
-    const-string/jumbo v1, "anySimpleType"
+    const-string/jumbo v2, "anySimpleType"
 
-    invoke-virtual {p2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_2
+    if-eqz v2, :cond_2
 
-    sget-object v1, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->URI_SCHEMAFORSCHEMA:Ljava/lang/String;
+    sget-object v2, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->URI_SCHEMAFORSCHEMA:Ljava/lang/String;
 
-    invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
+    invoke-interface {p4}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_2
+    if-eqz v2, :cond_2
 
-    const-string/jumbo v1, "anyType"
+    invoke-interface {p4}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getName()Ljava/lang/String;
 
-    invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getName()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v4
+    const-string/jumbo v3, "anyType"
 
-    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_0
+    if-nez v2, :cond_0
 
     goto :goto_1
 
@@ -310,81 +296,81 @@
     :cond_6
     if-eqz p1, :cond_3
 
-    invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
+    invoke-interface {p4}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_3
+    if-eqz v2, :cond_3
 
     :goto_3
-    return v2
+    return v0
 
     :cond_7
-    invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
+    invoke-interface {p4}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    if-nez v1, :cond_6
+    if-nez v2, :cond_6
 
     goto :goto_3
 
     :cond_8
-    sget-object v1, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->URI_SCHEMAFORSCHEMA:Ljava/lang/String;
+    sget-object v2, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->URI_SCHEMAFORSCHEMA:Ljava/lang/String;
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_a
+    if-nez v2, :cond_a
 
     :cond_9
     :goto_4
-    and-int/lit8 v1, p3, 0x2
+    and-int/lit8 v2, p3, 0x2
 
-    if-nez v1, :cond_b
+    if-nez v2, :cond_b
 
-    check-cast v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    check-cast p4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    invoke-virtual {v0, p1, p2, p3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->isDOMDerivedFrom(Ljava/lang/String;Ljava/lang/String;I)Z
+    invoke-virtual {p4, p1, p2, p3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->isDOMDerivedFrom(Ljava/lang/String;Ljava/lang/String;I)Z
 
-    move-result v0
+    move-result v2
 
-    and-int/2addr v0, v2
+    and-int/2addr v2, v0
 
-    return v0
+    return v2
 
     :cond_a
-    const-string/jumbo v1, "anyType"
+    const-string/jumbo v2, "anyType"
 
-    invoke-virtual {p2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_9
+    if-eqz v2, :cond_9
 
     const-string/jumbo p2, "anySimpleType"
 
     goto :goto_4
 
     :cond_b
-    check-cast v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    check-cast p4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit8 v1, p3, 0x1
+    and-int/lit8 v2, p3, 0x1
 
-    invoke-virtual {v0, p1, p2, v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->isDOMDerivedFrom(Ljava/lang/String;Ljava/lang/String;I)Z
+    invoke-virtual {p4, p1, p2, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->isDOMDerivedFrom(Ljava/lang/String;Ljava/lang/String;I)Z
 
-    move-result v0
+    move-result v2
 
-    and-int/2addr v0, v2
+    and-int/2addr v2, v0
 
-    return v0
+    return v2
 
     :cond_c
-    or-int/lit8 v1, v2, 0x1
+    or-int/lit8 v0, v0, 0x1
 
     goto :goto_2
 .end method
@@ -392,27 +378,23 @@
 .method private isDerivedByRestriction(Ljava/lang/String;Ljava/lang/String;ILmf/org/apache/xerces/xs/XSTypeDefinition;)Z
     .locals 4
 
-    const/4 v0, 0x0
-
     const/4 v3, 0x0
 
-    move-object v1, v0
-
-    move-object v0, p4
+    const/4 v0, 0x0
 
     :goto_0
-    if-nez v0, :cond_1
+    if-nez p4, :cond_1
 
     :cond_0
     return v3
 
     :cond_1
-    if-eq v0, v1, :cond_0
+    if-eq p4, v0, :cond_0
 
     if-nez p1, :cond_4
 
     :cond_2
-    invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getName()Ljava/lang/String;
+    invoke-interface {p4}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getName()Ljava/lang/String;
 
     move-result-object v1
 
@@ -423,18 +405,18 @@
     if-nez v1, :cond_5
 
     :cond_3
-    invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
+    invoke-interface {p4}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
 
     move-result-object v1
 
     if-eqz v1, :cond_7
 
     :goto_1
-    instance-of v1, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    instance-of v1, p4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
     if-nez v1, :cond_8
 
-    move-object v1, v0
+    move-object v1, p4
 
     check-cast v1, Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
 
@@ -446,13 +428,11 @@
 
     if-ne v1, v2, :cond_b
 
-    invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getBaseType()Lmf/org/apache/xerces/xs/XSTypeDefinition;
+    move-object v0, p4
+
+    invoke-interface {p4}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getBaseType()Lmf/org/apache/xerces/xs/XSTypeDefinition;
 
     move-result-object p4
-
-    move-object v1, v0
-
-    move-object v0, p4
 
     goto :goto_0
 
@@ -478,7 +458,7 @@
     :cond_5
     if-eqz p1, :cond_3
 
-    invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
+    invoke-interface {p4}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
 
     move-result-object v1
 
@@ -489,9 +469,9 @@
     if-eqz v1, :cond_3
 
     :cond_6
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    return v0
+    return v1
 
     :cond_7
     if-eqz p1, :cond_6
@@ -509,13 +489,13 @@
 
     :cond_9
     :goto_2
-    check-cast v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    check-cast p4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    invoke-virtual {v0, p1, p2, p3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->isDOMDerivedFrom(Ljava/lang/String;Ljava/lang/String;I)Z
+    invoke-virtual {p4, p1, p2, p3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->isDOMDerivedFrom(Ljava/lang/String;Ljava/lang/String;I)Z
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 
     :cond_a
     const-string/jumbo v1, "anyType"
@@ -537,9 +517,9 @@
 
 # virtual methods
 .method appendTypeInfo(Ljava/lang/StringBuffer;)V
-    .locals 6
+    .locals 7
 
-    const/4 v2, 0x3
+    const/4 v6, 0x3
 
     const/4 v5, 0x2
 
@@ -547,27 +527,27 @@
 
     const/4 v3, 0x0
 
-    const/4 v0, 0x4
+    const/4 v2, 0x4
 
-    new-array v0, v0, [Ljava/lang/String;
+    new-array v0, v2, [Ljava/lang/String;
 
-    const-string/jumbo v1, "EMPTY"
+    const-string/jumbo v2, "EMPTY"
 
-    aput-object v1, v0, v3
+    aput-object v2, v0, v3
 
-    const-string/jumbo v1, "SIMPLE"
+    const-string/jumbo v2, "SIMPLE"
 
-    aput-object v1, v0, v4
+    aput-object v2, v0, v4
 
-    const-string/jumbo v1, "ELEMENT"
+    const-string/jumbo v2, "ELEMENT"
 
-    aput-object v1, v0, v5
+    aput-object v2, v0, v5
 
-    const-string/jumbo v1, "MIXED"
+    const-string/jumbo v2, "MIXED"
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v6
 
-    new-array v1, v2, [Ljava/lang/String;
+    new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "EMPTY"
 
@@ -624,106 +604,106 @@
 
     iget-short v3, p0, Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;->fContentType:S
 
-    aget-object v0, v0, v3
+    aget-object v3, v0, v3
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-string/jumbo v2, "\', "
+    const-string/jumbo v3, "\', "
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    const-string/jumbo v0, " isAbstract=\'"
+    const-string/jumbo v2, " isAbstract=\'"
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v2
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;->getAbstract()Z
 
-    move-result v2
+    move-result v3
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Z)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Z)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-string/jumbo v2, "\', "
+    const-string/jumbo v3, "\', "
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    const-string/jumbo v0, " hasTypeId=\'"
+    const-string/jumbo v2, " hasTypeId=\'"
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v2
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;->containsTypeID()Z
 
-    move-result v2
+    move-result v3
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Z)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Z)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-string/jumbo v2, "\', "
+    const-string/jumbo v3, "\', "
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    const-string/jumbo v0, " final=\'"
+    const-string/jumbo v2, " final=\'"
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v2
 
-    iget-short v2, p0, Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;->fFinal:S
+    iget-short v3, p0, Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;->fFinal:S
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-string/jumbo v2, "\', "
+    const-string/jumbo v3, "\', "
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    const-string/jumbo v0, " block=\'"
+    const-string/jumbo v2, " block=\'"
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v2
 
-    iget-short v2, p0, Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;->fBlock:S
+    iget-short v3, p0, Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;->fBlock:S
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-string/jumbo v2, "\', "
+    const-string/jumbo v3, "\', "
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;->fParticle:Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;->fParticle:Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
-    if-nez v0, :cond_1
+    if-nez v2, :cond_1
 
     :goto_1
-    const-string/jumbo v0, " derivedBy=\'"
+    const-string/jumbo v2, " derivedBy=\'"
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v2
 
-    iget-short v2, p0, Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;->fDerivedBy:S
+    iget-short v3, p0, Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;->fDerivedBy:S
 
-    aget-object v1, v1, v2
+    aget-object v3, v1, v3
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-string/jumbo v1, "\'. "
+    const-string/jumbo v3, "\'. "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     return-void
 
@@ -751,25 +731,25 @@
     goto/16 :goto_0
 
     :cond_1
-    const-string/jumbo v0, " particle=\'"
+    const-string/jumbo v2, " particle=\'"
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    move-result-object v0
-
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;->fParticle:Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
-
-    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     move-result-object v2
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;->fParticle:Lmf/org/apache/xerces/impl/xs/XSParticleDecl;
 
-    move-result-object v0
+    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/xs/XSParticleDecl;->toString()Ljava/lang/String;
 
-    const-string/jumbo v2, "\', "
+    move-result-object v3
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "\', "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_1
 .end method
@@ -794,72 +774,74 @@
 .end method
 
 .method public derivedFrom(Ljava/lang/String;Ljava/lang/String;S)Z
-    .locals 3
+    .locals 4
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     if-eqz p2, :cond_4
 
     if-nez p1, :cond_5
 
     :cond_0
+    move-object v0, p0
+
     :goto_0
-    invoke-interface {p0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getName()Ljava/lang/String;
+    invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_7
+    if-nez v1, :cond_7
 
     :cond_1
-    sget-object v0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnySimpleType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+    sget-object v1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnySimpleType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
 
-    if-ne p0, v0, :cond_6
+    if-ne v0, v1, :cond_6
 
     :cond_2
     :goto_1
-    sget-object v0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnySimpleType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+    sget-object v1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnySimpleType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
 
-    if-ne p0, v0, :cond_a
+    if-ne v0, v1, :cond_a
 
     :cond_3
-    return v1
-
-    :cond_4
-    return v1
-
-    :cond_5
-    sget-object v0, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->URI_SCHEMAFORSCHEMA:Ljava/lang/String;
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v0, "anyType"
-
-    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
     return v2
 
+    :cond_4
+    return v2
+
+    :cond_5
+    sget-object v1, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->URI_SCHEMAFORSCHEMA:Ljava/lang/String;
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const-string/jumbo v1, "anyType"
+
+    invoke-virtual {p2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    return v3
+
     :cond_6
-    sget-object v0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnyType:Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
+    sget-object v1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnyType:Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
 
-    if-eq p0, v0, :cond_2
+    if-eq v0, v1, :cond_2
 
-    invoke-interface {p0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getBaseType()Lmf/org/apache/xerces/xs/XSTypeDefinition;
+    invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getBaseType()Lmf/org/apache/xerces/xs/XSTypeDefinition;
 
-    move-result-object p0
+    move-result-object v0
 
     goto :goto_0
 
@@ -869,83 +851,85 @@
     :cond_8
     if-eqz p1, :cond_1
 
-    invoke-interface {p0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
+    invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
     goto :goto_1
 
     :cond_9
-    invoke-interface {p0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
+    invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-nez v0, :cond_8
+    if-nez v1, :cond_8
 
     goto :goto_1
 
     :cond_a
-    sget-object v0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnyType:Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
+    sget-object v1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnyType:Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
 
-    if-eq p0, v0, :cond_3
+    if-eq v0, v1, :cond_3
 
-    return v2
+    return v3
 .end method
 
 .method public derivedFromType(Lmf/org/apache/xerces/xs/XSTypeDefinition;S)Z
-    .locals 3
+    .locals 4
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     if-eqz p1, :cond_1
 
-    sget-object v0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnyType:Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
+    sget-object v1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnyType:Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
 
-    if-eq p1, v0, :cond_2
+    if-eq p1, v1, :cond_2
+
+    move-object v0, p0
 
     :goto_0
-    if-ne p0, p1, :cond_4
+    if-ne v0, p1, :cond_4
 
     :cond_0
     :goto_1
-    if-eq p0, p1, :cond_5
+    if-eq v0, p1, :cond_5
 
-    return v1
-
-    :cond_1
-    return v1
-
-    :cond_2
     return v2
 
+    :cond_1
+    return v2
+
+    :cond_2
+    return v3
+
     :cond_3
-    sget-object v0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnyType:Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
+    sget-object v1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnyType:Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
 
-    if-eq p0, v0, :cond_0
+    if-eq v0, v1, :cond_0
 
-    invoke-interface {p0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getBaseType()Lmf/org/apache/xerces/xs/XSTypeDefinition;
+    invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getBaseType()Lmf/org/apache/xerces/xs/XSTypeDefinition;
 
-    move-result-object p0
+    move-result-object v0
 
     goto :goto_0
 
     :cond_4
-    sget-object v0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnySimpleType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+    sget-object v1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnySimpleType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
 
-    if-ne p0, v0, :cond_3
+    if-ne v0, v1, :cond_3
 
     goto :goto_1
 
     :cond_5
-    return v2
+    return v3
 .end method
 
 .method public getAbstract()Z
@@ -1715,7 +1699,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .locals 2
 
     new-instance v0, Ljava/lang/StringBuffer;
 
@@ -1725,7 +1709,7 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method

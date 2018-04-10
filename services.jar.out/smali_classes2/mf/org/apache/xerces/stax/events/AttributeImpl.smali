@@ -90,7 +90,7 @@
 .end method
 
 .method public final writeAsEncodedUnicode(Ljava/io/Writer;)V
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/javax/xml/stream/XMLStreamException;
@@ -98,50 +98,50 @@
     .end annotation
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xerces/stax/events/AttributeImpl;->fName:Lmf/javax/xml/namespace/QName;
+    iget-object v2, p0, Lmf/org/apache/xerces/stax/events/AttributeImpl;->fName:Lmf/javax/xml/namespace/QName;
 
-    invoke-virtual {v0}, Lmf/javax/xml/namespace/QName;->getPrefix()Ljava/lang/String;
+    invoke-virtual {v2}, Lmf/javax/xml/namespace/QName;->getPrefix()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     :cond_0
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/stax/events/AttributeImpl;->fName:Lmf/javax/xml/namespace/QName;
+    iget-object v2, p0, Lmf/org/apache/xerces/stax/events/AttributeImpl;->fName:Lmf/javax/xml/namespace/QName;
 
-    invoke-virtual {v0}, Lmf/javax/xml/namespace/QName;->getLocalPart()Ljava/lang/String;
+    invoke-virtual {v2}, Lmf/javax/xml/namespace/QName;->getLocalPart()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v2}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    const-string/jumbo v0, "=\""
+    const-string/jumbo v2, "=\""
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v2}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/stax/events/AttributeImpl;->fValue:Ljava/lang/String;
+    iget-object v2, p0, Lmf/org/apache/xerces/stax/events/AttributeImpl;->fValue:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v2}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    const/16 v0, 0x22
+    const/16 v2, 0x22
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(I)V
+    invoke-virtual {p1, v2}, Ljava/io/Writer;->write(I)V
 
     return-void
 
     :cond_1
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v2
 
-    if-lez v1, :cond_0
+    if-lez v2, :cond_0
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    const/16 v0, 0x3a
+    const/16 v2, 0x3a
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(I)V
+    invoke-virtual {p1, v2}, Ljava/io/Writer;->write(I)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -150,9 +150,9 @@
     :catch_0
     move-exception v0
 
-    new-instance v1, Lmf/javax/xml/stream/XMLStreamException;
+    new-instance v2, Lmf/javax/xml/stream/XMLStreamException;
 
-    invoke-direct {v1, v0}, Lmf/javax/xml/stream/XMLStreamException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v2, v0}, Lmf/javax/xml/stream/XMLStreamException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v2
 .end method

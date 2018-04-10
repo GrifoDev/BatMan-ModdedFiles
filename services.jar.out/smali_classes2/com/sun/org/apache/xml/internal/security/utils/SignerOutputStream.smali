@@ -1,6 +1,5 @@
 .class public Lcom/sun/org/apache/xml/internal/security/utils/SignerOutputStream;
 .super Ljava/io/ByteArrayOutputStream;
-.source "Unknown"
 
 
 # static fields
@@ -50,11 +49,11 @@
     .locals 4
 
     :try_start_0
-    iget-object v0, p0, Lcom/sun/org/apache/xml/internal/security/utils/SignerOutputStream;->sa:Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm;
+    iget-object v1, p0, Lcom/sun/org/apache/xml/internal/security/utils/SignerOutputStream;->sa:Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm;
 
-    int-to-byte v1, p1
+    int-to-byte v2, p1
 
-    invoke-virtual {v0, v1}, Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm;->update(B)V
+    invoke-virtual {v1, v2}, Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm;->update(B)V
     :try_end_0
     .catch Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -77,13 +76,13 @@
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v1
 .end method
@@ -92,9 +91,9 @@
     .locals 4
 
     :try_start_0
-    iget-object v0, p0, Lcom/sun/org/apache/xml/internal/security/utils/SignerOutputStream;->sa:Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm;
+    iget-object v1, p0, Lcom/sun/org/apache/xml/internal/security/utils/SignerOutputStream;->sa:Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm;
 
-    invoke-virtual {v0, p1}, Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm;->update([B)V
+    invoke-virtual {v1, p1}, Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm;->update([B)V
     :try_end_0
     .catch Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -117,13 +116,13 @@
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v1
 .end method
@@ -132,9 +131,9 @@
     .locals 4
 
     :try_start_0
-    iget-object v0, p0, Lcom/sun/org/apache/xml/internal/security/utils/SignerOutputStream;->sa:Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm;
+    iget-object v1, p0, Lcom/sun/org/apache/xml/internal/security/utils/SignerOutputStream;->sa:Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm;
 
-    invoke-virtual {v0, p1, p2, p3}, Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm;->update([BII)V
+    invoke-virtual {v1, p1, p2, p3}, Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm;->update([BII)V
     :try_end_0
     .catch Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -157,13 +156,13 @@
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v1
 .end method

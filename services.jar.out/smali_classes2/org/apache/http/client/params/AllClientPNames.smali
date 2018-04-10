@@ -3,6 +3,7 @@
 .source "AllClientPNames.java"
 
 # interfaces
+.implements Lorg/apache/http/params/CoreConnectionPNames;
 .implements Lorg/apache/http/params/CoreProtocolPNames;
 .implements Lorg/apache/http/client/params/ClientPNames;
 .implements Lorg/apache/http/auth/params/AuthPNames;

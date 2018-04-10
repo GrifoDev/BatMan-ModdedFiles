@@ -33,47 +33,49 @@
 .end method
 
 .method constructor <init>(Ljava/lang/String;Lmf/org/w3c/dom/Element;)V
-    .locals 2
+    .locals 3
 
-    const/4 v1, -0x1
+    const/4 v2, -0x1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSAnnotationInfo;->fAnnotation:Ljava/lang/String;
 
-    instance-of v0, p2, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;
+    instance-of v1, p2, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSAnnotationInfo;->fLine:I
+    iput v2, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSAnnotationInfo;->fLine:I
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSAnnotationInfo;->fColumn:I
+    iput v2, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSAnnotationInfo;->fColumn:I
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSAnnotationInfo;->fCharOffset:I
+    iput v2, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSAnnotationInfo;->fCharOffset:I
 
     :goto_0
     return-void
 
     :cond_0
-    check-cast p2, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;
+    move-object v0, p2
 
-    invoke-virtual {p2}, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->getLineNumber()I
+    check-cast v0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;
 
-    move-result v0
+    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->getLineNumber()I
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSAnnotationInfo;->fLine:I
+    move-result v1
 
-    invoke-virtual {p2}, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->getColumnNumber()I
+    iput v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSAnnotationInfo;->fLine:I
 
-    move-result v0
+    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->getColumnNumber()I
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSAnnotationInfo;->fColumn:I
+    move-result v1
 
-    invoke-virtual {p2}, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->getCharacterOffset()I
+    iput v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSAnnotationInfo;->fColumn:I
 
-    move-result v0
+    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->getCharacterOffset()I
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSAnnotationInfo;->fCharOffset:I
+    move-result v1
+
+    iput v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSAnnotationInfo;->fCharOffset:I
 
     goto :goto_0
 .end method

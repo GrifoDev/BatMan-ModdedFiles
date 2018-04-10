@@ -71,9 +71,9 @@
     :goto_0
     invoke-virtual {p0, p1}, Lorg/simpleframework/xml/core/GroupExtractor$Registry;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
     :goto_1
     return-void
@@ -92,7 +92,7 @@
 .end method
 
 .method private registerText(Lorg/simpleframework/xml/core/Label;)V
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -103,25 +103,25 @@
 
     move-result-object v0
 
-    const-class v1, Lorg/simpleframework/xml/Text;
+    const-class v2, Lorg/simpleframework/xml/Text;
 
-    invoke-interface {v0, v1}, Lorg/simpleframework/xml/core/Contact;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+    invoke-interface {v0, v2}, Lorg/simpleframework/xml/core/Contact;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lorg/simpleframework/xml/Text;
+    check-cast v1, Lorg/simpleframework/xml/Text;
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     :goto_0
     return-void
 
     :cond_0
-    new-instance v1, Lorg/simpleframework/xml/core/TextListLabel;
+    new-instance v2, Lorg/simpleframework/xml/core/TextListLabel;
 
-    invoke-direct {v1, p1, v0}, Lorg/simpleframework/xml/core/TextListLabel;-><init>(Lorg/simpleframework/xml/core/Label;Lorg/simpleframework/xml/Text;)V
+    invoke-direct {v2, p1, v1}, Lorg/simpleframework/xml/core/TextListLabel;-><init>(Lorg/simpleframework/xml/core/Label;Lorg/simpleframework/xml/Text;)V
 
-    iput-object v1, p0, Lorg/simpleframework/xml/core/GroupExtractor$Registry;->text:Lorg/simpleframework/xml/core/Label;
+    iput-object v2, p0, Lorg/simpleframework/xml/core/GroupExtractor$Registry;->text:Lorg/simpleframework/xml/core/Label;
 
     goto :goto_0
 .end method
@@ -240,7 +240,7 @@
 .end method
 
 .method public resolve(Ljava/lang/Class;)Lorg/simpleframework/xml/core/Label;
-    .locals 1
+    .locals 2
 
     invoke-direct {p0, p1}, Lorg/simpleframework/xml/core/GroupExtractor$Registry;->resolveText(Ljava/lang/Class;)Lorg/simpleframework/xml/core/Label;
 
@@ -253,9 +253,9 @@
     :cond_0
     invoke-direct {p0, p1}, Lorg/simpleframework/xml/core/GroupExtractor$Registry;->resolveElement(Ljava/lang/Class;)Lorg/simpleframework/xml/core/Label;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public resolveText()Lorg/simpleframework/xml/core/Label;

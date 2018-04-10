@@ -110,27 +110,27 @@
 
     new-array v0, v0, [Ljava/lang/Class;
 
-    const/4 v1, 0x0
+    const-class v1, Ljava/lang/reflect/Constructor;
 
-    const-class v2, Ljava/lang/reflect/Constructor;
+    const/4 v2, 0x0
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     const/4 v1, 0x1
 
     aput-object p1, v0, v1
 
-    const/4 v1, 0x2
+    const-class v1, Lorg/simpleframework/xml/stream/Format;
 
-    const-class v2, Lorg/simpleframework/xml/stream/Format;
+    const/4 v2, 0x2
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x3
+    sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    sget-object v2, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+    const/4 v2, 0x3
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     invoke-direct {p0, v0}, Lorg/simpleframework/xml/core/ParameterFactory$ParameterBuilder;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
@@ -151,11 +151,11 @@
 
     new-array v0, v0, [Ljava/lang/Class;
 
-    const/4 v1, 0x0
+    const-class v1, Ljava/lang/reflect/Constructor;
 
-    const-class v2, Ljava/lang/reflect/Constructor;
+    const/4 v2, 0x0
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     const/4 v1, 0x1
 
@@ -165,17 +165,17 @@
 
     aput-object p2, v0, v1
 
-    const/4 v1, 0x3
+    const-class v1, Lorg/simpleframework/xml/stream/Format;
 
-    const-class v2, Lorg/simpleframework/xml/stream/Format;
+    const/4 v2, 0x3
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x4
+    sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    sget-object v2, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+    const/4 v2, 0x4
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     invoke-direct {p0, v0}, Lorg/simpleframework/xml/core/ParameterFactory$ParameterBuilder;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 

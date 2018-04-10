@@ -51,39 +51,39 @@
 .end method
 
 .method public item(I)Lmf/org/w3c/dom/DOMImplementation;
-    .locals 2
+    .locals 3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     if-gez p1, :cond_1
 
     :cond_0
-    return-object v1
+    return-object v2
 
     :cond_1
-    iget-object v0, p0, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry$1;->val$implementations:Ljava/util/Vector;
+    iget-object v1, p0, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry$1;->val$implementations:Ljava/util/Vector;
 
-    invoke-virtual {v0}, Ljava/util/Vector;->size()I
+    invoke-virtual {v1}, Ljava/util/Vector;->size()I
 
-    move-result v0
+    move-result v1
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v1, :cond_0
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry$1;->val$implementations:Ljava/util/Vector;
+    iget-object v1, p0, Lmf/org/w3c/dom/bootstrap/DOMImplementationRegistry$1;->val$implementations:Ljava/util/Vector;
 
-    invoke-virtual {v0, p1}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v1, p1}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/org/w3c/dom/DOMImplementation;
+    check-cast v1, Lmf/org/w3c/dom/DOMImplementation;
     :try_end_0
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object v1
 
     :catch_0
     move-exception v0
 
-    return-object v1
+    return-object v2
 .end method

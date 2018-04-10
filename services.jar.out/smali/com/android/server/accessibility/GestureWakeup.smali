@@ -22,8 +22,6 @@
 
 
 # instance fields
-.field mCoverManager:Lcom/samsung/android/sdk/cover/ScoverManager;
-
 .field private mIsSettingGestureWakeUp:Z
 
 .field private mSContextListener:Landroid/hardware/scontext/SContextListener;
@@ -283,168 +281,129 @@
 .end method
 
 .method private launchGestureWakeup()V
-    .locals 8
+    .locals 6
 
-    const-string/jumbo v4, "GestureWakeup"
+    const-string/jumbo v2, "GestureWakeup"
 
-    const-string/jumbo v5, "launchGestureWakeup()+"
+    const-string/jumbo v3, "launchGestureWakeup()+"
 
-    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    sget-object v4, Lcom/android/server/accessibility/GestureWakeup;->mContext:Landroid/content/Context;
+    sget-object v2, Lcom/android/server/accessibility/GestureWakeup;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v5, "phone"
+    const-string/jumbo v3, "desktopmode"
 
-    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/samsung/android/desktopmode/SemDesktopModeManager;
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/samsung/android/desktopmode/SemDesktopModeManager;->isDesktopMode()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const-string/jumbo v2, "GestureWakeup"
+
+    const-string/jumbo v3, "launchGestureWakeup() :: No action in Desktop mode+"
+
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    sget-object v2, Lcom/android/server/accessibility/GestureWakeup;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v3, "phone"
+
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/telephony/TelephonyManager;
+
+    invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->getCallState()I
+
+    move-result v2
+
+    const/4 v3, 0x2
+
+    if-eq v2, v3, :cond_1
+
+    invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->getCallState()I
+
+    move-result v2
+
+    const/4 v3, 0x1
+
+    if-ne v2, v3, :cond_2
+
+    :cond_1
+    const-string/jumbo v2, "GestureWakeup"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "CALL_STATE_OFFHOOK or CALL_STATE_RINGING : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    check-cast v3, Landroid/telephony/TelephonyManager;
-
-    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getCallState()I
+    invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->getCallState()I
 
     move-result v4
 
-    const/4 v5, 0x2
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    if-eq v4, v5, :cond_0
+    move-result-object v3
 
-    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getCallState()I
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result v4
+    move-result-object v3
 
-    const/4 v5, 0x1
-
-    if-ne v4, v5, :cond_1
-
-    :cond_0
-    const-string/jumbo v4, "GestureWakeup"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "CALL_STATE_OFFHOOK or CALL_STATE_RINGING : "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getCallState()I
-
-    move-result v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
-    :cond_1
-    iget-object v4, p0, Lcom/android/server/accessibility/GestureWakeup;->mCoverManager:Lcom/samsung/android/sdk/cover/ScoverManager;
+    :cond_2
+    sget-object v2, Lcom/android/server/accessibility/GestureWakeup;->mPM:Landroid/os/PowerManager;
 
-    invoke-virtual {v4}, Lcom/samsung/android/sdk/cover/ScoverManager;->getCoverState()Lcom/samsung/android/sdk/cover/ScoverState;
+    if-nez v2, :cond_3
+
+    sget-object v2, Lcom/android/server/accessibility/GestureWakeup;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v3, "power"
+
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
 
-    const/4 v0, 0x0
+    check-cast v2, Landroid/os/PowerManager;
 
-    if-eqz v2, :cond_2
-
-    :try_start_0
-    invoke-virtual {v2}, Lcom/samsung/android/sdk/cover/ScoverState;->getSwitchState()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
-    const/4 v0, 0x1
-
-    :cond_2
-    :goto_0
-    if-nez v0, :cond_4
-
-    invoke-static {}, Lcom/android/server/accessibility/GestureWakeup;->isSupportCover()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_4
-
-    const-string/jumbo v4, "GestureWakeup"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "..bCoverOpen.. = "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    return-void
+    sput-object v2, Lcom/android/server/accessibility/GestureWakeup;->mPM:Landroid/os/PowerManager;
 
     :cond_3
-    const/4 v0, 0x0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v1
-
-    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
-
-    :cond_4
-    sget-object v4, Lcom/android/server/accessibility/GestureWakeup;->mPM:Landroid/os/PowerManager;
-
-    if-nez v4, :cond_5
-
-    sget-object v4, Lcom/android/server/accessibility/GestureWakeup;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v5, "power"
-
-    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/os/PowerManager;
-
-    sput-object v4, Lcom/android/server/accessibility/GestureWakeup;->mPM:Landroid/os/PowerManager;
-
-    :cond_5
-    sget-object v4, Lcom/android/server/accessibility/GestureWakeup;->mPM:Landroid/os/PowerManager;
+    sget-object v2, Lcom/android/server/accessibility/GestureWakeup;->mPM:Landroid/os/PowerManager;
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v6
+    move-result-wide v4
 
-    invoke-virtual {v4, v6, v7}, Landroid/os/PowerManager;->wakeUp(J)V
+    invoke-virtual {v2, v4, v5}, Landroid/os/PowerManager;->wakeUp(J)V
 
-    sget-object v4, Lcom/android/server/accessibility/GestureWakeup;->mContext:Landroid/content/Context;
+    sget-object v2, Lcom/android/server/accessibility/GestureWakeup;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v5, "com.samsung.android.app.airwakeupview"
+    const-string/jumbo v3, "com.samsung.android.app.airwakeupview"
 
-    const-string/jumbo v6, "ACC3"
+    const-string/jumbo v4, "ACC3"
 
-    invoke-static {v4, v5, v6}, Lcom/android/server/accessibility/GestureWakeup;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v2, v3, v4}, Lcom/android/server/accessibility/GestureWakeup;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -574,30 +533,11 @@
 
     sput-object v0, Lcom/android/server/accessibility/GestureWakeup;->mPM:Landroid/os/PowerManager;
 
-    iget-object v0, p0, Lcom/android/server/accessibility/GestureWakeup;->mCoverManager:Lcom/samsung/android/sdk/cover/ScoverManager;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Lcom/samsung/android/sdk/cover/ScoverManager;
-
-    sget-object v1, Lcom/android/server/accessibility/GestureWakeup;->mContext:Landroid/content/Context;
-
-    invoke-direct {v0, v1}, Lcom/samsung/android/sdk/cover/ScoverManager;-><init>(Landroid/content/Context;)V
-
-    iput-object v0, p0, Lcom/android/server/accessibility/GestureWakeup;->mCoverManager:Lcom/samsung/android/sdk/cover/ScoverManager;
-
-    const-string/jumbo v0, "GestureWakeup"
-
-    const-string/jumbo v1, "StartGestureWakeup() create mCoverManager instance"
-
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
     invoke-direct {p0}, Lcom/android/server/accessibility/GestureWakeup;->registerApproachListener()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_0
 
     const-string/jumbo v0, "GestureWakeup"
 
@@ -609,7 +549,7 @@
 
     return v0
 
-    :cond_1
+    :cond_0
     sget-object v0, Lcom/android/server/accessibility/GestureWakeup;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;

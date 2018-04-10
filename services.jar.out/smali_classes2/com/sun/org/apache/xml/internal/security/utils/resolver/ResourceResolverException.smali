@@ -1,6 +1,5 @@
 .class public Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverException;
 .super Lcom/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException;
-.source "Unknown"
 
 
 # static fields

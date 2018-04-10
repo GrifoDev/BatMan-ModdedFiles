@@ -12,6 +12,9 @@
 .field public static final HTTP_CONNECTION:Ljava/lang/String; = "http.connection"
 
 .field public static final HTTP_PROXY_HOST:Ljava/lang/String; = "http.proxy_host"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final HTTP_REQUEST:Ljava/lang/String; = "http.request"
 

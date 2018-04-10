@@ -32,33 +32,35 @@
 .end method
 
 .method private declared-synchronized writeToDOM(Lmf/org/w3c/dom/Node;S)V
-    .locals 5
+    .locals 10
 
-    const/4 v1, 0x1
+    const/4 v9, 0x1
 
     monitor-enter p0
 
-    if-eq p2, v1, :cond_0
+    if-eq p2, v9, :cond_1
 
     :try_start_0
     move-object v0, p1
 
     check-cast v0, Lmf/org/w3c/dom/Document;
 
-    move-object v1, v0
+    move-object v9, v0
+
+    move-object v6, v9
 
     :goto_0
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;->fGrammar:Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;->fGrammar:Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
 
-    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->getDOMParser()Lmf/org/apache/xerces/parsers/DOMParser;
+    invoke-virtual {v9}, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->getDOMParser()Lmf/org/apache/xerces/parsers/DOMParser;
 
-    move-result-object v2
+    move-result-object v8
 
     new-instance v3, Ljava/io/StringReader;
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;->fData:Ljava/lang/String;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;->fData:Ljava/lang/String;
 
-    invoke-direct {v3, v4}, Ljava/io/StringReader;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v9}, Ljava/io/StringReader;-><init>(Ljava/lang/String;)V
 
     new-instance v4, Lorg/xml/sax/InputSource;
 
@@ -67,7 +69,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
-    invoke-virtual {v2, v4}, Lmf/org/apache/xerces/parsers/DOMParser;->parse(Lorg/xml/sax/InputSource;)V
+    invoke-virtual {v8, v4}, Lmf/org/apache/xerces/parsers/DOMParser;->parse(Lorg/xml/sax/InputSource;)V
     :try_end_1
     .catch Lorg/xml/sax/SAXException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
@@ -75,32 +77,35 @@
 
     :goto_1
     :try_start_2
-    invoke-virtual {v2}, Lmf/org/apache/xerces/parsers/DOMParser;->getDocument()Lmf/org/w3c/dom/Document;
-
-    move-result-object v3
-
-    invoke-virtual {v2}, Lmf/org/apache/xerces/parsers/DOMParser;->dropDocumentReferences()V
-
-    invoke-interface {v3}, Lmf/org/w3c/dom/Document;->getDocumentElement()Lmf/org/w3c/dom/Element;
-
-    move-result-object v3
-
-    instance-of v2, v1, Lmf/org/apache/xerces/dom/CoreDocumentImpl;
-
-    if-nez v2, :cond_1
-
-    const/4 v2, 0x1
-
-    invoke-interface {v1, v3, v2}, Lmf/org/w3c/dom/Document;->importNode(Lmf/org/w3c/dom/Node;Z)Lmf/org/w3c/dom/Node;
-
-    move-result-object v1
-
-    :goto_2
-    invoke-interface {p1}, Lmf/org/w3c/dom/Node;->getFirstChild()Lmf/org/w3c/dom/Node;
+    invoke-virtual {v8}, Lmf/org/apache/xerces/parsers/DOMParser;->getDocument()Lmf/org/w3c/dom/Document;
 
     move-result-object v2
 
-    invoke-interface {p1, v1, v2}, Lmf/org/w3c/dom/Node;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-virtual {v8}, Lmf/org/apache/xerces/parsers/DOMParser;->dropDocumentReferences()V
+
+    invoke-interface {v2}, Lmf/org/w3c/dom/Document;->getDocumentElement()Lmf/org/w3c/dom/Element;
+
+    move-result-object v5
+
+    const/4 v7, 0x0
+
+    instance-of v9, v6, Lmf/org/apache/xerces/dom/CoreDocumentImpl;
+
+    if-nez v9, :cond_2
+
+    const/4 v9, 0x1
+
+    invoke-interface {v6, v5, v9}, Lmf/org/w3c/dom/Document;->importNode(Lmf/org/w3c/dom/Node;Z)Lmf/org/w3c/dom/Node;
+
+    move-result-object v7
+
+    :cond_0
+    :goto_2
+    invoke-interface {p1}, Lmf/org/w3c/dom/Node;->getFirstChild()Lmf/org/w3c/dom/Node;
+
+    move-result-object v9
+
+    invoke-interface {p1, v7, v9}, Lmf/org/w3c/dom/Node;->insertBefore(Lmf/org/w3c/dom/Node;Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -108,92 +113,87 @@
 
     return-void
 
-    :cond_0
+    :cond_1
     :try_start_3
     invoke-interface {p1}, Lmf/org/w3c/dom/Node;->getOwnerDocument()Lmf/org/w3c/dom/Document;
 
-    move-result-object v1
+    move-result-object v6
 
     goto :goto_0
 
     :catch_0
-    move-exception v3
+    move-exception v1
 
     goto :goto_1
 
     :catch_1
-    move-exception v3
+    move-exception v9
 
     goto :goto_1
 
-    :cond_1
-    invoke-interface {v1, v3}, Lmf/org/w3c/dom/Document;->adoptNode(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_2
-
-    move-object v1, v2
-
-    goto :goto_2
-
     :cond_2
-    const/4 v2, 0x1
+    invoke-interface {v6, v5}, Lmf/org/w3c/dom/Document;->adoptNode(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
-    invoke-interface {v1, v3, v2}, Lmf/org/w3c/dom/Document;->importNode(Lmf/org/w3c/dom/Node;Z)Lmf/org/w3c/dom/Node;
+    move-result-object v7
+
+    if-nez v7, :cond_0
+
+    const/4 v9, 0x1
+
+    invoke-interface {v6, v5, v9}, Lmf/org/w3c/dom/Document;->importNode(Lmf/org/w3c/dom/Node;Z)Lmf/org/w3c/dom/Node;
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    move-result-object v1
+    move-result-object v7
 
     goto :goto_2
 
     :catchall_0
-    move-exception v1
+    move-exception v9
 
     monitor-exit p0
 
-    throw v1
+    throw v9
 .end method
 
 .method private declared-synchronized writeToSAX(Lorg/xml/sax/ContentHandler;)V
-    .locals 3
+    .locals 5
 
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;->fGrammar:Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;->fGrammar:Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->getSAXParser()Lmf/org/apache/xerces/parsers/SAXParser;
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->getSAXParser()Lmf/org/apache/xerces/parsers/SAXParser;
 
-    move-result-object v0
+    move-result-object v3
 
     new-instance v1, Ljava/io/StringReader;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;->fData:Ljava/lang/String;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;->fData:Ljava/lang/String;
 
-    invoke-direct {v1, v2}, Ljava/io/StringReader;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v4}, Ljava/io/StringReader;-><init>(Ljava/lang/String;)V
 
     new-instance v2, Lorg/xml/sax/InputSource;
 
     invoke-direct {v2, v1}, Lorg/xml/sax/InputSource;-><init>(Ljava/io/Reader;)V
 
-    invoke-virtual {v0, p1}, Lmf/org/apache/xerces/parsers/SAXParser;->setContentHandler(Lorg/xml/sax/ContentHandler;)V
+    invoke-virtual {v3, p1}, Lmf/org/apache/xerces/parsers/SAXParser;->setContentHandler(Lorg/xml/sax/ContentHandler;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
-    invoke-virtual {v0, v2}, Lmf/org/apache/xerces/parsers/SAXParser;->parse(Lorg/xml/sax/InputSource;)V
+    invoke-virtual {v3, v2}, Lmf/org/apache/xerces/parsers/SAXParser;->parse(Lorg/xml/sax/InputSource;)V
     :try_end_1
     .catch Lorg/xml/sax/SAXException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :goto_0
-    const/4 v1, 0x0
+    const/4 v4, 0x0
 
     :try_start_2
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/parsers/SAXParser;->setContentHandler(Lorg/xml/sax/ContentHandler;)V
+    invoke-virtual {v3, v4}, Lmf/org/apache/xerces/parsers/SAXParser;->setContentHandler(Lorg/xml/sax/ContentHandler;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -202,21 +202,21 @@
     return-void
 
     :catch_0
-    move-exception v1
+    move-exception v0
 
     goto :goto_0
 
     :catch_1
-    move-exception v1
+    move-exception v4
 
     goto :goto_0
 
     :catchall_0
-    move-exception v0
+    move-exception v4
 
     monitor-exit p0
 
-    throw v0
+    throw v4
 .end method
 
 

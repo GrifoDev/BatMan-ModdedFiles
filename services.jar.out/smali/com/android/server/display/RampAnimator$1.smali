@@ -35,9 +35,11 @@
 
 # virtual methods
 .method public run()V
-    .locals 13
+    .locals 14
 
-    const/4 v12, 0x1
+    const/4 v13, 0x1
+
+    const/4 v12, 0x0
 
     const/high16 v11, 0x41200000    # 10.0f
 
@@ -55,7 +57,7 @@
 
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
-    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get5(Lcom/android/server/display/RampAnimator;)J
+    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get6(Lcom/android/server/display/RampAnimator;)J
 
     move-result-wide v8
 
@@ -69,11 +71,11 @@
 
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
-    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get9(Lcom/android/server/display/RampAnimator;)I
+    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get10(Lcom/android/server/display/RampAnimator;)I
 
     move-result v7
 
-    if-ne v7, v12, :cond_1
+    if-ne v7, v13, :cond_1
 
     const v7, 0x3c83126f    # 0.016f
 
@@ -83,13 +85,13 @@
 
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
-    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get8(Lcom/android/server/display/RampAnimator;)Landroid/util/IntProperty;
+    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get9(Lcom/android/server/display/RampAnimator;)Landroid/util/IntProperty;
 
     move-result-object v7
 
     iget-object v8, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
-    invoke-static {v8}, Lcom/android/server/display/RampAnimator;->-get7(Lcom/android/server/display/RampAnimator;)Ljava/lang/Object;
+    invoke-static {v8}, Lcom/android/server/display/RampAnimator;->-get8(Lcom/android/server/display/RampAnimator;)Ljava/lang/Object;
 
     move-result-object v8
 
@@ -168,7 +170,7 @@
 
     iget-object v8, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
-    invoke-static {v8}, Lcom/android/server/display/RampAnimator;->-get10(Lcom/android/server/display/RampAnimator;)I
+    invoke-static {v8}, Lcom/android/server/display/RampAnimator;->-get11(Lcom/android/server/display/RampAnimator;)I
 
     move-result v8
 
@@ -207,13 +209,13 @@
 
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
-    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get8(Lcom/android/server/display/RampAnimator;)Landroid/util/IntProperty;
+    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get9(Lcom/android/server/display/RampAnimator;)Landroid/util/IntProperty;
 
     move-result-object v7
 
     iget-object v8, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
-    invoke-static {v8}, Lcom/android/server/display/RampAnimator;->-get7(Lcom/android/server/display/RampAnimator;)Ljava/lang/Object;
+    invoke-static {v8}, Lcom/android/server/display/RampAnimator;->-get8(Lcom/android/server/display/RampAnimator;)Ljava/lang/Object;
 
     move-result-object v8
 
@@ -228,7 +230,7 @@
     :cond_3
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
-    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get10(Lcom/android/server/display/RampAnimator;)I
+    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get11(Lcom/android/server/display/RampAnimator;)I
 
     move-result v7
 
@@ -251,7 +253,7 @@
     :cond_5
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
-    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get9(Lcom/android/server/display/RampAnimator;)I
+    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get10(Lcom/android/server/display/RampAnimator;)I
 
     move-result v7
 
@@ -263,11 +265,11 @@
 
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
-    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get9(Lcom/android/server/display/RampAnimator;)I
+    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get10(Lcom/android/server/display/RampAnimator;)I
 
     move-result v7
 
-    if-ne v7, v12, :cond_8
+    if-ne v7, v13, :cond_8
 
     const/high16 v0, 0x3f800000    # 1.0f
 
@@ -307,11 +309,27 @@
 
     div-float v0, v7, v11
 
+    iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
+
+    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get4(Lcom/android/server/display/RampAnimator;)I
+
+    move-result v7
+
+    if-eqz v7, :cond_6
+
+    iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
+
+    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get4(Lcom/android/server/display/RampAnimator;)I
+
+    move-result v7
+
+    int-to-float v0, v7
+
     :cond_6
     :goto_2
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
-    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get10(Lcom/android/server/display/RampAnimator;)I
+    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get11(Lcom/android/server/display/RampAnimator;)I
 
     move-result v7
 
@@ -335,7 +353,7 @@
 
     iget-object v9, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
-    invoke-static {v9}, Lcom/android/server/display/RampAnimator;->-get10(Lcom/android/server/display/RampAnimator;)I
+    invoke-static {v9}, Lcom/android/server/display/RampAnimator;->-get11(Lcom/android/server/display/RampAnimator;)I
 
     move-result v9
 
@@ -361,7 +379,7 @@
 
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
-    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get4(Lcom/android/server/display/RampAnimator;)F
+    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get5(Lcom/android/server/display/RampAnimator;)F
 
     move-result v0
 
@@ -380,7 +398,7 @@
 
     iget-object v9, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
-    invoke-static {v9}, Lcom/android/server/display/RampAnimator;->-get10(Lcom/android/server/display/RampAnimator;)I
+    invoke-static {v9}, Lcom/android/server/display/RampAnimator;->-get11(Lcom/android/server/display/RampAnimator;)I
 
     move-result v9
 
@@ -397,13 +415,11 @@
     :cond_a
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
-    const/4 v8, 0x0
-
-    invoke-static {v7, v8}, Lcom/android/server/display/RampAnimator;->-set1(Lcom/android/server/display/RampAnimator;Z)Z
+    invoke-static {v7, v12}, Lcom/android/server/display/RampAnimator;->-set1(Lcom/android/server/display/RampAnimator;Z)Z
 
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
-    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get6(Lcom/android/server/display/RampAnimator;)Lcom/android/server/display/RampAnimator$Listener;
+    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get7(Lcom/android/server/display/RampAnimator;)Lcom/android/server/display/RampAnimator$Listener;
 
     move-result-object v7
 
@@ -411,7 +427,7 @@
 
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
-    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get6(Lcom/android/server/display/RampAnimator;)Lcom/android/server/display/RampAnimator$Listener;
+    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get7(Lcom/android/server/display/RampAnimator;)Lcom/android/server/display/RampAnimator$Listener;
 
     move-result-object v7
 

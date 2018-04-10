@@ -50,16 +50,16 @@
 
     invoke-virtual {p0, v1}, Lorg/simpleframework/xml/stream/OutputStack;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lorg/simpleframework/xml/stream/OutputNode;
+    check-cast v1, Lorg/simpleframework/xml/stream/OutputNode;
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
@@ -82,7 +82,7 @@
 .end method
 
 .method public pop()Lorg/simpleframework/xml/stream/OutputNode;
-    .locals 1
+    .locals 2
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/stream/OutputStack;->size()I
 
@@ -90,18 +90,18 @@
 
     if-lez v0, :cond_0
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 v1, v0, -0x1
 
-    invoke-virtual {p0, v0}, Lorg/simpleframework/xml/stream/OutputStack;->purge(I)Lorg/simpleframework/xml/stream/OutputNode;
+    invoke-virtual {p0, v1}, Lorg/simpleframework/xml/stream/OutputStack;->purge(I)Lorg/simpleframework/xml/stream/OutputNode;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public purge(I)Lorg/simpleframework/xml/stream/OutputNode;
@@ -139,7 +139,7 @@
 .end method
 
 .method public top()Lorg/simpleframework/xml/stream/OutputNode;
-    .locals 1
+    .locals 2
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/stream/OutputStack;->size()I
 
@@ -147,18 +147,18 @@
 
     if-lez v0, :cond_0
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 v1, v0, -0x1
 
-    invoke-virtual {p0, v0}, Lorg/simpleframework/xml/stream/OutputStack;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, v1}, Lorg/simpleframework/xml/stream/OutputStack;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lorg/simpleframework/xml/stream/OutputNode;
+    check-cast v1, Lorg/simpleframework/xml/stream/OutputNode;
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 .end method

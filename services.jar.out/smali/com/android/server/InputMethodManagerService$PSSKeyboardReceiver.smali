@@ -50,7 +50,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "InputMethodService onReceive() intentAction"
+    const-string/jumbo v4, "PSSKeyboardReceiver : onReceive() intentAction"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -88,7 +88,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "onReceive() getIntExtra "
+    const-string/jumbo v4, "PSSKeyboardReceiver : onReceive(), getIntExtra - "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -117,6 +117,16 @@
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$PSSKeyboardReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-static {v2}, Lcom/android/server/InputMethodManagerService;->-wrap3(Lcom/android/server/InputMethodManagerService;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/server/InputMethodManagerService$PSSKeyboardReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
+
+    const-string/jumbo v3, "com.sec.android.inputmethod.iwnnime.japan/.standardcommon.IWnnLanguageSwitcher"
+
+    invoke-static {v2, v3}, Lcom/android/server/InputMethodManagerService;->-wrap2(Lcom/android/server/InputMethodManagerService;Ljava/lang/String;)Z
 
     move-result v2
 
@@ -175,7 +185,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "InputMethodService onReceive() keyboardState : "
+    const-string/jumbo v4, "PSSKeyboardReceiver :  onReceive(), keyboardState - "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -261,7 +271,7 @@
 
     invoke-virtual {v2}, Lcom/android/server/InputMethodManagerService;->hideKeyboardDialog()V
 
-    invoke-static {v5}, Lcom/android/server/InputMethodManagerService;->-set7(I)I
+    invoke-static {v5}, Lcom/android/server/InputMethodManagerService;->-set6(I)I
 
     goto :goto_1
 .end method

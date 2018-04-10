@@ -78,7 +78,7 @@
 
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$ScreenChangeObserver;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-static {v0}, Lcom/android/server/am/ActivityManagerService;->-wrap15(Lcom/android/server/am/ActivityManagerService;)V
+    invoke-static {v0}, Lcom/android/server/am/ActivityManagerService;->-wrap12(Lcom/android/server/am/ActivityManagerService;)V
 
     :cond_0
     return-void

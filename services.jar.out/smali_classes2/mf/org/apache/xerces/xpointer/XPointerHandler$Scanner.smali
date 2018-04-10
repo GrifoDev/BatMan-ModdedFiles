@@ -116,17 +116,17 @@
 
     aput-byte v4, v0, v1
 
-    const/16 v1, 0x28
+    const/4 v1, 0x4
 
-    const/4 v2, 0x4
+    const/16 v2, 0x28
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
-    const/16 v1, 0x29
+    const/4 v1, 0x5
 
-    const/4 v2, 0x5
+    const/16 v2, 0x29
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     const/16 v1, 0x2a
 
@@ -140,23 +140,23 @@
 
     aput-byte v4, v0, v1
 
-    const/16 v1, 0x2d
+    const/4 v1, 0x6
 
-    const/4 v2, 0x6
+    const/16 v2, 0x2d
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
-    const/16 v1, 0x2e
+    const/4 v1, 0x7
 
-    const/4 v2, 0x7
+    const/16 v2, 0x2e
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
-    const/16 v1, 0x2f
+    const/16 v1, 0x8
 
-    const/16 v2, 0x8
+    const/16 v2, 0x2f
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     const/16 v1, 0x30
 
@@ -210,11 +210,11 @@
 
     aput-byte v4, v0, v1
 
-    const/16 v1, 0x3d
+    const/16 v1, 0xb
 
-    const/16 v2, 0xb
+    const/16 v2, 0x3d
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     const/16 v1, 0x3e
 
@@ -344,17 +344,17 @@
 
     aput-byte v4, v0, v1
 
-    const/16 v1, 0x5e
+    const/4 v1, 0x3
 
-    const/4 v2, 0x3
+    const/16 v2, 0x5e
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
-    const/16 v1, 0x5f
+    const/16 v1, 0xd
 
-    const/16 v2, 0xd
+    const/16 v2, 0x5f
 
-    aput-byte v2, v0, v1
+    aput-byte v1, v0, v2
 
     const/16 v1, 0x60
 
@@ -523,478 +523,580 @@
 
     const/16 v5, 0x80
 
-    const/16 v1, 0xe
+    const/16 v2, 0xe
 
     const/4 v4, 0x5
 
-    move v2, p4
-
     :goto_0
-    if-eq v2, p3, :cond_0
+    if-eq p4, p3, :cond_a
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p1, p4}, Ljava/lang/String;->charAt(I)C
 
-    move-result v3
+    move-result v0
 
-    if-ge v3, v5, :cond_1
+    if-ge v0, v5, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->fASCIICharMap:[B
+    iget-object v3, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->fASCIICharMap:[B
 
-    aget-byte v0, v0, v3
+    aget-byte v1, v3, v0
 
     :goto_1
-    if-eq v0, v7, :cond_2
+    if-eq v1, v7, :cond_1
 
-    if-eq v0, v4, :cond_6
+    if-eq v1, v4, :cond_5
 
-    if-eq v0, v6, :cond_7
+    if-eq v1, v6, :cond_6
 
-    int-to-char v0, v3
+    int-to-char v3, v0
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 p4, p4, 0x1
 
     goto :goto_0
 
     :cond_0
-    move v0, v2
-
-    :goto_2
-    return v0
-
-    :cond_1
-    move v0, v1
+    move v1, v2
 
     goto :goto_1
 
-    :cond_2
-    invoke-virtual {p2, v3}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    :cond_1
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    add-int/lit8 v0, v2, 0x1
+    add-int/lit8 p4, p4, 0x1
 
-    invoke-direct {p0, p1, p2, p3, v0}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->scanData(Ljava/lang/String;Ljava/lang/StringBuffer;II)I
+    invoke-direct {p0, p1, p2, p3, p4}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->scanData(Ljava/lang/String;Ljava/lang/StringBuffer;II)I
 
-    move-result v2
+    move-result p4
 
-    if-eq v2, p3, :cond_3
+    if-eq p4, p3, :cond_2
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p1, p4}, Ljava/lang/String;->charAt(I)C
 
-    move-result v3
+    move-result v0
 
-    if-ge v3, v5, :cond_4
+    if-ge v0, v5, :cond_3
 
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->fASCIICharMap:[B
+    iget-object v3, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->fASCIICharMap:[B
 
-    aget-byte v0, v0, v3
+    aget-byte v1, v3, v0
 
-    :goto_3
-    if-ne v0, v4, :cond_5
+    :goto_2
+    if-ne v1, v4, :cond_4
 
-    int-to-char v0, v3
+    int-to-char v3, v0
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 p4, p4, 0x1
 
     goto :goto_0
 
+    :cond_2
+    return p4
+
     :cond_3
-    return v2
+    move v1, v2
+
+    goto :goto_2
 
     :cond_4
-    move v0, v1
+    return p3
+
+    :cond_5
+    return p4
+
+    :cond_6
+    add-int/lit8 p4, p4, 0x1
+
+    invoke-virtual {p1, p4}, Ljava/lang/String;->charAt(I)C
+
+    move-result v0
+
+    if-ge v0, v5, :cond_8
+
+    iget-object v3, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->fASCIICharMap:[B
+
+    aget-byte v1, v3, v0
+
+    :goto_3
+    if-ne v1, v6, :cond_9
+
+    :cond_7
+    int-to-char v3, v0
+
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+
+    add-int/lit8 p4, p4, 0x1
+
+    goto :goto_0
+
+    :cond_8
+    move v1, v2
 
     goto :goto_3
 
-    :cond_5
-    return p3
-
-    :cond_6
-    return v2
-
-    :cond_7
-    add-int/lit8 v2, v2, 0x1
-
-    invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
-
-    move-result v3
-
-    if-ge v3, v5, :cond_9
-
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->fASCIICharMap:[B
-
-    aget-byte v0, v0, v3
-
-    :goto_4
-    if-ne v0, v6, :cond_a
-
-    :cond_8
-    int-to-char v0, v3
-
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
-
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_0
-
     :cond_9
-    move v0, v1
+    if-eq v1, v7, :cond_7
 
-    goto :goto_4
+    if-eq v1, v4, :cond_7
 
     :cond_a
-    if-eq v0, v7, :cond_8
-
-    if-eq v0, v4, :cond_8
-
-    move v0, v2
-
-    goto :goto_2
+    return p4
 .end method
 
 .method private scanExpr(Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;Ljava/lang/String;II)Z
-    .locals 8
+    .locals 19
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
 
-    const/4 v1, 0x0
+    const/4 v11, 0x0
 
-    const/4 v0, 0x0
+    const/4 v6, 0x0
 
-    const/4 v2, 0x0
+    const/4 v8, 0x0
 
-    new-instance v6, Ljava/lang/StringBuffer;
+    const/4 v9, 0x0
 
-    invoke-direct {v6}, Ljava/lang/StringBuffer;-><init>()V
+    const/4 v12, 0x0
 
-    move-object v3, v2
+    const/4 v13, 0x0
 
-    move v4, v0
+    new-instance v14, Ljava/lang/StringBuffer;
 
-    move v5, v1
-
-    move v1, p4
+    invoke-direct {v14}, Ljava/lang/StringBuffer;-><init>()V
 
     :goto_0
-    if-eq v1, p5, :cond_11
+    move/from16 v0, p4
 
-    invoke-virtual {p3, v1}, Ljava/lang/String;->charAt(I)C
+    move/from16 v1, p5
 
-    move-result v0
+    if-eq v0, v1, :cond_11
 
-    move v2, v0
+    invoke-virtual/range {p3 .. p4}, Ljava/lang/String;->charAt(I)C
 
-    move v0, v1
+    move-result v4
 
     :goto_1
-    const/16 v1, 0x20
+    const/16 v15, 0x20
 
-    if-ne v2, v1, :cond_3
+    if-ne v4, v15, :cond_1
 
     :cond_0
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p4, p4, 0x1
 
-    if-eq v0, p5, :cond_1
+    move/from16 v0, p4
 
-    invoke-virtual {p3, v0}, Ljava/lang/String;->charAt(I)C
+    move/from16 v1, p5
 
-    move-result v1
+    if-eq v0, v1, :cond_2
 
-    move v2, v1
+    invoke-virtual/range {p3 .. p4}, Ljava/lang/String;->charAt(I)C
+
+    move-result v4
 
     goto :goto_1
 
     :cond_1
-    move v1, v0
+    const/16 v15, 0xa
+
+    if-eq v4, v15, :cond_0
+
+    const/16 v15, 0x9
+
+    if-eq v4, v15, :cond_0
+
+    const/16 v15, 0xd
+
+    if-eq v4, v15, :cond_0
+
+    :cond_2
+    move/from16 v0, p4
+
+    move/from16 v1, p5
+
+    if-eq v0, v1, :cond_11
+
+    const/16 v15, 0x80
+
+    if-ge v4, v15, :cond_4
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->fASCIICharMap:[B
+
+    aget-byte v5, v15, v4
 
     :goto_2
-    if-eq v1, p5, :cond_11
-
-    const/16 v0, 0x80
-
-    if-ge v2, v0, :cond_4
-
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->fASCIICharMap:[B
-
-    aget-byte v0, v0, v2
-
-    :goto_3
-    packed-switch v0, :pswitch_data_0
+    packed-switch v5, :pswitch_data_0
 
     goto :goto_0
 
     :pswitch_0
-    if-eqz v5, :cond_5
+    if-eqz v11, :cond_5
 
-    if-gtz v5, :cond_e
-
-    :cond_2
-    const/4 v0, 0x0
-
-    return v0
+    if-gtz v11, :cond_e
 
     :cond_3
-    const/16 v1, 0xa
+    const/4 v15, 0x0
 
-    if-eq v2, v1, :cond_0
+    return v15
 
-    const/16 v1, 0x9
-
-    if-eq v2, v1, :cond_0
-
-    const/16 v1, 0xd
-
-    if-eq v2, v1, :cond_0
-
-    move v1, v0
+    :cond_4
+    const/16 v5, 0xe
 
     goto :goto_2
 
-    :cond_4
-    const/16 v0, 0xe
-
-    goto :goto_3
-
     :pswitch_1
-    const/4 v0, 0x0
+    const/4 v15, 0x0
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->addToken(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)V
+    move-object/from16 v0, p0
 
-    add-int/lit8 v0, v5, 0x1
+    move-object/from16 v1, p2
 
-    add-int/lit8 v1, v1, 0x1
+    invoke-virtual {v0, v1, v15}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->addToken(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)V
 
-    move v5, v0
+    add-int/lit8 v11, v11, 0x1
+
+    add-int/lit8 p4, p4, 0x1
 
     goto :goto_0
 
     :pswitch_2
-    const/4 v0, 0x1
+    const/4 v15, 0x1
 
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->addToken(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)V
+    move-object/from16 v0, p0
 
-    add-int/lit8 v0, v4, 0x1
+    move-object/from16 v1, p2
 
-    add-int/lit8 v1, v1, 0x1
+    invoke-virtual {v0, v1, v15}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->addToken(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)V
 
-    move v4, v0
+    add-int/lit8 v6, v6, 0x1
+
+    add-int/lit8 p4, p4, 0x1
 
     goto :goto_0
 
     :cond_5
-    invoke-direct {p0, p3, p5, v1}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->scanNCName(Ljava/lang/String;II)I
+    move/from16 v10, p4
 
-    move-result v3
+    move-object/from16 v0, p0
 
-    if-eq v3, v1, :cond_6
+    move-object/from16 v1, p3
 
-    if-lt v3, p5, :cond_7
+    move/from16 v2, p5
 
-    const/4 v0, -0x1
+    move/from16 v3, p4
 
-    :goto_4
-    invoke-virtual {p3, v1, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p1, v1}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    sget-object v1, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
-
-    const/16 v4, 0x3a
-
-    if-eq v0, v4, :cond_8
-
-    move-object v0, v1
-
-    move v1, v3
-
-    :goto_5
-    if-ne v1, p5, :cond_c
-
-    if-eq v1, p5, :cond_d
-
-    :goto_6
-    const/4 v0, 0x0
-
-    move-object v3, v2
-
-    move v4, v0
-
-    goto :goto_0
-
-    :cond_6
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->this$0:Lmf/org/apache/xerces/xpointer/XPointerHandler;
-
-    const-string/jumbo v1, "InvalidShortHandPointer"
-
-    const/4 v2, 0x1
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    const/4 v3, 0x0
-
-    aput-object p3, v2, v3
-
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler;->access$0(Lmf/org/apache/xerces/xpointer/XPointerHandler;Ljava/lang/String;[Ljava/lang/Object;)V
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_7
-    invoke-virtual {p3, v3}, Ljava/lang/String;->charAt(I)C
-
-    move-result v0
-
-    goto :goto_4
-
-    :cond_8
-    add-int/lit8 v0, v3, 0x1
-
-    if-eq v0, p5, :cond_9
-
-    invoke-virtual {p3, v0}, Ljava/lang/String;->charAt(I)C
-
-    invoke-direct {p0, p3, p5, v0}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->scanNCName(Ljava/lang/String;II)I
-
-    move-result v1
-
-    if-eq v1, v0, :cond_a
-
-    if-lt v1, p5, :cond_b
-
-    :goto_7
-    invoke-virtual {p3, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    move-object v7, v2
-
-    move-object v2, v0
-
-    move-object v0, v7
-
-    goto :goto_5
-
-    :cond_9
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_a
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_b
-    invoke-virtual {p3, v1}, Ljava/lang/String;->charAt(I)C
-
-    goto :goto_7
-
-    :cond_c
-    const/4 v3, 0x3
-
-    invoke-virtual {p0, p2, v3}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->addToken(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)V
-
-    invoke-static {p2, v0}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$0(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;Ljava/lang/String;)V
-
-    invoke-static {p2, v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$0(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;Ljava/lang/String;)V
-
-    goto :goto_6
-
-    :cond_d
-    const/4 v0, 0x2
-
-    invoke-virtual {p0, p2, v0}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->addToken(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)V
-
-    invoke-static {p2, v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$0(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;Ljava/lang/String;)V
-
-    goto :goto_6
-
-    :cond_e
-    if-nez v4, :cond_2
-
-    if-eqz v3, :cond_2
-
-    invoke-direct {p0, p3, v6, p5, v1}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->scanData(Ljava/lang/String;Ljava/lang/StringBuffer;II)I
+    invoke-direct {v0, v1, v2, v3}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->scanNCName(Ljava/lang/String;II)I
 
     move-result p4
 
-    if-eq p4, v1, :cond_f
+    move/from16 v0, p4
 
-    if-lt p4, p5, :cond_10
+    if-eq v0, v10, :cond_6
 
-    :goto_8
-    invoke-virtual {v6}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    move/from16 v0, p4
 
-    move-result-object v0
+    move/from16 v1, p5
 
-    invoke-virtual {p1, v0}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    if-lt v0, v1, :cond_7
 
-    move-result-object v0
+    const/4 v4, -0x1
 
-    const/4 v1, 0x4
+    :goto_3
+    move-object/from16 v0, p3
 
-    invoke-virtual {p0, p2, v1}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->addToken(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)V
+    move/from16 v1, p4
 
-    invoke-static {p2, v0}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$0(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;Ljava/lang/String;)V
+    invoke-virtual {v0, v10, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    const/4 v0, 0x0
+    move-result-object v15
 
-    const/4 v1, 0x0
+    move-object/from16 v0, p1
 
-    invoke-virtual {v6}, Ljava/lang/StringBuffer;->length()I
+    invoke-virtual {v0, v15}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result v2
+    move-result-object v9
 
-    invoke-virtual {v6, v1, v2}, Ljava/lang/StringBuffer;->delete(II)Ljava/lang/StringBuffer;
+    sget-object v12, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    move v5, v0
+    const/16 v15, 0x3a
 
-    move v1, p4
+    if-eq v4, v15, :cond_8
+
+    :goto_4
+    move/from16 v0, p4
+
+    move/from16 v1, p5
+
+    if-ne v0, v1, :cond_c
+
+    move/from16 v0, p4
+
+    move/from16 v1, p5
+
+    if-eq v0, v1, :cond_d
+
+    :goto_5
+    const/4 v6, 0x0
+
+    goto/16 :goto_0
+
+    :cond_6
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->this$0:Lmf/org/apache/xerces/xpointer/XPointerHandler;
+
+    const-string/jumbo v16, "InvalidShortHandPointer"
+
+    const/16 v17, 0x1
+
+    move/from16 v0, v17
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v17, v0
+
+    const/16 v18, 0x0
+
+    aput-object p3, v17, v18
+
+    invoke-static/range {v15 .. v17}, Lmf/org/apache/xerces/xpointer/XPointerHandler;->access$0(Lmf/org/apache/xerces/xpointer/XPointerHandler;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    const/4 v15, 0x0
+
+    return v15
+
+    :cond_7
+    invoke-virtual/range {p3 .. p4}, Ljava/lang/String;->charAt(I)C
+
+    move-result v4
+
+    goto :goto_3
+
+    :cond_8
+    add-int/lit8 p4, p4, 0x1
+
+    move/from16 v0, p4
+
+    move/from16 v1, p5
+
+    if-eq v0, v1, :cond_9
+
+    invoke-virtual/range {p3 .. p4}, Ljava/lang/String;->charAt(I)C
+
+    move-result v4
+
+    move-object v12, v9
+
+    move/from16 v10, p4
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p3
+
+    move/from16 v2, p5
+
+    move/from16 v3, p4
+
+    invoke-direct {v0, v1, v2, v3}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->scanNCName(Ljava/lang/String;II)I
+
+    move-result p4
+
+    move/from16 v0, p4
+
+    if-eq v0, v10, :cond_a
+
+    move/from16 v0, p4
+
+    move/from16 v1, p5
+
+    if-lt v0, v1, :cond_b
+
+    const/4 v4, -0x1
+
+    :goto_6
+    const/4 v8, 0x1
+
+    move-object/from16 v0, p3
+
+    move/from16 v1, p4
+
+    invoke-virtual {v0, v10, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v15
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v15}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v9
+
+    goto :goto_4
+
+    :cond_9
+    const/4 v15, 0x0
+
+    return v15
+
+    :cond_a
+    const/4 v15, 0x0
+
+    return v15
+
+    :cond_b
+    invoke-virtual/range {p3 .. p4}, Ljava/lang/String;->charAt(I)C
+
+    move-result v4
+
+    goto :goto_6
+
+    :cond_c
+    const/4 v15, 0x3
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    invoke-virtual {v0, v1, v15}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->addToken(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)V
+
+    move-object/from16 v0, p2
+
+    invoke-static {v0, v12}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$0(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;Ljava/lang/String;)V
+
+    move-object/from16 v0, p2
+
+    invoke-static {v0, v9}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$0(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;Ljava/lang/String;)V
+
+    const/4 v8, 0x0
+
+    goto :goto_5
+
+    :cond_d
+    const/4 v15, 0x2
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    invoke-virtual {v0, v1, v15}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->addToken(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)V
+
+    move-object/from16 v0, p2
+
+    invoke-static {v0, v9}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$0(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;Ljava/lang/String;)V
+
+    const/4 v8, 0x0
+
+    goto/16 :goto_5
+
+    :cond_e
+    if-nez v6, :cond_3
+
+    if-eqz v9, :cond_3
+
+    move/from16 v7, p4
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p3
+
+    move/from16 v2, p5
+
+    move/from16 v3, p4
+
+    invoke-direct {v0, v1, v14, v2, v3}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->scanData(Ljava/lang/String;Ljava/lang/StringBuffer;II)I
+
+    move-result p4
+
+    move/from16 v0, p4
+
+    if-eq v0, v7, :cond_f
+
+    move/from16 v0, p4
+
+    move/from16 v1, p5
+
+    if-lt v0, v1, :cond_10
+
+    const/4 v4, -0x1
+
+    :goto_7
+    invoke-virtual {v14}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v15}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v13
+
+    const/4 v15, 0x4
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p2
+
+    invoke-virtual {v0, v1, v15}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->addToken(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)V
+
+    move-object/from16 v0, p2
+
+    invoke-static {v0, v13}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$0(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;Ljava/lang/String;)V
+
+    const/4 v11, 0x0
+
+    invoke-virtual {v14}, Ljava/lang/StringBuffer;->length()I
+
+    move-result v15
+
+    const/16 v16, 0x0
+
+    move/from16 v0, v16
+
+    invoke-virtual {v14, v0, v15}, Ljava/lang/StringBuffer;->delete(II)Ljava/lang/StringBuffer;
 
     goto/16 :goto_0
 
     :cond_f
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->this$0:Lmf/org/apache/xerces/xpointer/XPointerHandler;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v1, "InvalidSchemeDataInXPointer"
+    iget-object v15, v0, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->this$0:Lmf/org/apache/xerces/xpointer/XPointerHandler;
 
-    const/4 v2, 0x1
+    const-string/jumbo v16, "InvalidSchemeDataInXPointer"
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const/16 v17, 0x1
 
-    const/4 v3, 0x0
+    move/from16 v0, v17
 
-    aput-object p3, v2, v3
+    new-array v0, v0, [Ljava/lang/Object;
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler;->access$0(Lmf/org/apache/xerces/xpointer/XPointerHandler;Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v17, v0
 
-    const/4 v0, 0x0
+    const/16 v18, 0x0
 
-    return v0
+    aput-object p3, v17, v18
+
+    invoke-static/range {v15 .. v17}, Lmf/org/apache/xerces/xpointer/XPointerHandler;->access$0(Lmf/org/apache/xerces/xpointer/XPointerHandler;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    const/4 v15, 0x0
+
+    return v15
 
     :cond_10
-    invoke-virtual {p3, p4}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual/range {p3 .. p4}, Ljava/lang/String;->charAt(I)C
 
-    goto :goto_8
+    move-result v4
+
+    goto :goto_7
 
     :cond_11
-    const/4 v0, 0x1
+    const/4 v15, 0x1
 
-    return v0
+    return v15
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -1016,25 +1118,25 @@
 .end method
 
 .method private scanNCName(Ljava/lang/String;II)I
-    .locals 5
+    .locals 6
 
-    const/16 v4, 0x80
+    const/16 v5, 0x80
 
-    const/16 v3, 0xd
+    const/16 v4, 0xd
 
-    const/16 v2, 0xc
+    const/16 v3, 0xc
 
     invoke-virtual {p1, p3}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
-    if-ge v0, v4, :cond_2
+    if-ge v0, v5, :cond_2
 
-    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->fASCIICharMap:[B
+    iget-object v2, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->fASCIICharMap:[B
 
-    aget-byte v0, v1, v0
+    aget-byte v1, v2, v0
 
-    if-ne v0, v2, :cond_3
+    if-ne v1, v3, :cond_3
 
     :cond_0
     :goto_0
@@ -1046,27 +1148,27 @@
 
     move-result v0
 
-    if-ge v0, v4, :cond_4
+    if-ge v0, v5, :cond_4
 
-    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->fASCIICharMap:[B
+    iget-object v2, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->fASCIICharMap:[B
 
-    aget-byte v0, v1, v0
+    aget-byte v1, v2, v0
 
-    if-eq v0, v2, :cond_0
+    if-eq v1, v3, :cond_0
 
-    const/16 v1, 0x9
+    const/16 v2, 0x9
 
-    if-eq v0, v1, :cond_0
+    if-eq v1, v2, :cond_0
 
-    const/4 v1, 0x7
+    const/4 v2, 0x7
 
-    if-eq v0, v1, :cond_0
+    if-eq v1, v2, :cond_0
 
-    const/4 v1, 0x6
+    const/4 v2, 0x6
 
-    if-eq v0, v1, :cond_0
+    if-eq v1, v2, :cond_0
 
-    if-eq v0, v3, :cond_0
+    if-eq v1, v4, :cond_0
 
     :cond_1
     return p3
@@ -1074,23 +1176,23 @@
     :cond_2
     invoke-static {v0}, Lmf/org/apache/xerces/util/XMLChar;->isNameStart(I)Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
     return p3
 
     :cond_3
-    if-eq v0, v3, :cond_0
+    if-eq v1, v4, :cond_0
 
     return p3
 
     :cond_4
     invoke-static {v0}, Lmf/org/apache/xerces/util/XMLChar;->isName(I)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_1
+    if-eqz v2, :cond_1
 
     goto :goto_0
 .end method

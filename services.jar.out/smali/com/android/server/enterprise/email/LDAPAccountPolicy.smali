@@ -1033,6 +1033,8 @@
 
     move-result v5
 
+    const/4 v4, 0x0
+
     invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/enterprise/email/LDAPAccountPolicy;->getLDAPAccount(Lcom/samsung/android/knox/ContextInfo;J)Lcom/samsung/android/knox/accounts/LDAPAccount;
 
     move-result-object v0
@@ -1099,26 +1101,57 @@
 
     move-result v8
 
-    if-eqz v8, :cond_2
+    xor-int/lit8 v8, v8, 0x1
 
-    :cond_1
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+    if-eqz v8, :cond_1
+
+    const-string/jumbo v8, "LDAPAccountPolicyService"
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "deleteLDAPAccount() : MDM DeviceAccountPolicy restriction - cannot delete account : "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    monitor-exit p0
+
+    return v11
+
+    :cond_1
+    :try_start_2
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
     move-result-wide v6
 
-    :try_start_2
+    :try_start_3
     iget-object v8, p0, Lcom/android/server/enterprise/email/LDAPAccountPolicy;->mContext:Landroid/content/Context;
 
     invoke-static {v8, p1, p2, p3}, Lcom/android/server/enterprise/email/EmailProviderHelper;->deleteLDAPAccount(Landroid/content/Context;Lcom/samsung/android/knox/ContextInfo;J)Z
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     move-result v4
 
-    :try_start_3
+    :try_start_4
     invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     :goto_0
@@ -1153,42 +1186,12 @@
     move-result-object v9
 
     invoke-static {v8, v9}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    monitor-exit p0
-
-    return v4
-
-    :cond_2
-    :try_start_4
-    const-string/jumbo v8, "LDAPAccountPolicyService"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "deleteLDAPAccount() : MDM DeviceAccountPolicy restriction - cannot delete account : "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     monitor-exit p0
 
-    return v11
+    return v4
 
     :catch_0
     move-exception v3

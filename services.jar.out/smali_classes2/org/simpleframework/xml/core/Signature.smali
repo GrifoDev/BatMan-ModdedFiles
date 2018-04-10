@@ -104,38 +104,38 @@
 .end method
 
 .method public copy()Lorg/simpleframework/xml/core/Signature;
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    new-instance v1, Lorg/simpleframework/xml/core/Signature;
+    new-instance v2, Lorg/simpleframework/xml/core/Signature;
 
-    invoke-direct {v1, p0}, Lorg/simpleframework/xml/core/Signature;-><init>(Lorg/simpleframework/xml/core/Signature;)V
+    invoke-direct {v2, p0}, Lorg/simpleframework/xml/core/Signature;-><init>(Lorg/simpleframework/xml/core/Signature;)V
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/core/Signature;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
-
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    return-object v1
-
-    :cond_0
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
     move-result-object v0
 
-    check-cast v0, Lorg/simpleframework/xml/core/Parameter;
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    invoke-virtual {v1, v0}, Lorg/simpleframework/xml/core/Signature;->add(Lorg/simpleframework/xml/core/Parameter;)V
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    return-object v2
+
+    :cond_0
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lorg/simpleframework/xml/core/Parameter;
+
+    invoke-virtual {v2, v1}, Lorg/simpleframework/xml/core/Signature;->add(Lorg/simpleframework/xml/core/Parameter;)V
 
     goto :goto_0
 .end method

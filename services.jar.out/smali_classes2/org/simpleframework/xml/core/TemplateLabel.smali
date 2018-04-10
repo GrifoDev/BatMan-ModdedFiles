@@ -91,11 +91,11 @@
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/core/TemplateLabel;->getPath()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/core/TemplateLabel;->getName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
     const/4 v2, 0x2
 
@@ -103,11 +103,11 @@
 
     const/4 v3, 0x0
 
+    aput-object v1, v2, v3
+
+    const/4 v3, 0x1
+
     aput-object v0, v2, v3
-
-    const/4 v0, 0x1
-
-    aput-object v1, v2, v0
 
     return-object v2
 .end method

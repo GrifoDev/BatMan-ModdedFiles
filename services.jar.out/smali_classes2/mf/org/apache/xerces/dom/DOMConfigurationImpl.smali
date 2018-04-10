@@ -153,506 +153,506 @@
 .end method
 
 .method protected constructor <init>(Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xni/parser/XMLComponentManager;)V
-    .locals 8
+    .locals 12
 
-    const/4 v7, 0x3
+    const/4 v11, 0x3
 
-    const/4 v6, 0x2
+    const/4 v10, 0x2
 
-    const/4 v1, 0x0
+    const/4 v7, 0x0
 
-    const/4 v5, 0x1
+    const/4 v9, 0x1
 
-    const/4 v4, 0x0
+    const/4 v8, 0x0
 
     invoke-direct {p0, p2}, Lmf/org/apache/xerces/util/ParserConfigurationSettings;-><init>(Lmf/org/apache/xerces/xni/parser/XMLComponentManager;)V
 
-    iput-short v4, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iput-short v8, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    new-instance v0, Lmf/org/apache/xerces/util/DOMErrorHandlerWrapper;
+    new-instance v6, Lmf/org/apache/xerces/util/DOMErrorHandlerWrapper;
 
-    invoke-direct {v0}, Lmf/org/apache/xerces/util/DOMErrorHandlerWrapper;-><init>()V
+    invoke-direct {v6}, Lmf/org/apache/xerces/util/DOMErrorHandlerWrapper;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fErrorHandlerWrapper:Lmf/org/apache/xerces/util/DOMErrorHandlerWrapper;
+    iput-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fErrorHandlerWrapper:Lmf/org/apache/xerces/util/DOMErrorHandlerWrapper;
 
-    iput-object v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fSchemaLocation:Ljava/lang/String;
+    iput-object v7, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fSchemaLocation:Ljava/lang/String;
 
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v6, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fRecognizedFeatures:Ljava/util/ArrayList;
+    iput-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fRecognizedFeatures:Ljava/util/ArrayList;
 
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v6, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fRecognizedProperties:Ljava/util/ArrayList;
+    iput-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fRecognizedProperties:Ljava/util/ArrayList;
 
-    new-instance v0, Ljava/util/HashMap;
+    new-instance v6, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v6}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fFeatures:Ljava/util/HashMap;
+    iput-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fFeatures:Ljava/util/HashMap;
 
-    new-instance v0, Ljava/util/HashMap;
+    new-instance v6, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v6}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fProperties:Ljava/util/HashMap;
+    iput-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fProperties:Ljava/util/HashMap;
 
-    const/16 v0, 0x12
+    const/16 v6, 0x12
 
-    new-array v0, v0, [Ljava/lang/String;
+    new-array v2, v6, [Ljava/lang/String;
 
-    const-string/jumbo v2, "http://xml.org/sax/features/validation"
+    const-string/jumbo v6, "http://xml.org/sax/features/validation"
 
-    aput-object v2, v0, v4
+    aput-object v6, v2, v8
 
-    const-string/jumbo v2, "http://xml.org/sax/features/namespaces"
+    const-string/jumbo v6, "http://xml.org/sax/features/namespaces"
 
-    aput-object v2, v0, v5
+    aput-object v6, v2, v9
 
-    const-string/jumbo v2, "http://apache.org/xml/features/validation/schema"
+    const-string/jumbo v6, "http://apache.org/xml/features/validation/schema"
 
-    aput-object v2, v0, v6
+    aput-object v6, v2, v10
 
-    const-string/jumbo v2, "http://apache.org/xml/features/validation/schema-full-checking"
+    const-string/jumbo v6, "http://apache.org/xml/features/validation/schema-full-checking"
 
-    aput-object v2, v0, v7
+    aput-object v6, v2, v11
 
-    const/4 v2, 0x4
+    const/4 v6, 0x4
 
-    const-string/jumbo v3, "http://apache.org/xml/features/validation/dynamic"
+    const-string/jumbo v7, "http://apache.org/xml/features/validation/dynamic"
 
-    aput-object v3, v0, v2
+    aput-object v7, v2, v6
 
-    const/4 v2, 0x5
+    const/4 v6, 0x5
 
-    const-string/jumbo v3, "http://apache.org/xml/features/validation/schema/normalized-value"
+    const-string/jumbo v7, "http://apache.org/xml/features/validation/schema/normalized-value"
 
-    aput-object v3, v0, v2
+    aput-object v7, v2, v6
 
-    const/4 v2, 0x6
+    const/4 v6, 0x6
 
-    const-string/jumbo v3, "http://apache.org/xml/features/validation/schema/element-default"
+    const-string/jumbo v7, "http://apache.org/xml/features/validation/schema/element-default"
 
-    aput-object v3, v0, v2
+    aput-object v7, v2, v6
 
-    const/4 v2, 0x7
+    const/4 v6, 0x7
 
-    const-string/jumbo v3, "http://apache.org/xml/features/validation/schema/augment-psvi"
+    const-string/jumbo v7, "http://apache.org/xml/features/validation/schema/augment-psvi"
 
-    aput-object v3, v0, v2
+    aput-object v7, v2, v6
 
-    const/16 v2, 0x8
+    const/16 v6, 0x8
 
-    const-string/jumbo v3, "http://apache.org/xml/features/generate-synthetic-annotations"
+    const-string/jumbo v7, "http://apache.org/xml/features/generate-synthetic-annotations"
 
-    aput-object v3, v0, v2
+    aput-object v7, v2, v6
 
-    const/16 v2, 0x9
+    const/16 v6, 0x9
 
-    const-string/jumbo v3, "http://apache.org/xml/features/validate-annotations"
+    const-string/jumbo v7, "http://apache.org/xml/features/validate-annotations"
 
-    aput-object v3, v0, v2
+    aput-object v7, v2, v6
 
-    const/16 v2, 0xa
+    const/16 v6, 0xa
 
-    const-string/jumbo v3, "http://apache.org/xml/features/honour-all-schemaLocations"
+    const-string/jumbo v7, "http://apache.org/xml/features/honour-all-schemaLocations"
 
-    aput-object v3, v0, v2
+    aput-object v7, v2, v6
 
-    const/16 v2, 0xb
+    const/16 v6, 0xb
 
-    const-string/jumbo v3, "http://apache.org/xml/features/internal/validation/schema/use-grammar-pool-only"
+    const-string/jumbo v7, "http://apache.org/xml/features/internal/validation/schema/use-grammar-pool-only"
 
-    aput-object v3, v0, v2
+    aput-object v7, v2, v6
 
-    const/16 v2, 0xc
+    const/16 v6, 0xc
 
-    const-string/jumbo v3, "http://apache.org/xml/features/disallow-doctype-decl"
+    const-string/jumbo v7, "http://apache.org/xml/features/disallow-doctype-decl"
 
-    aput-object v3, v0, v2
+    aput-object v7, v2, v6
 
-    const/16 v2, 0xd
+    const/16 v6, 0xd
 
-    const-string/jumbo v3, "http://apache.org/xml/features/validation/balance-syntax-trees"
+    const-string/jumbo v7, "http://apache.org/xml/features/validation/balance-syntax-trees"
 
-    aput-object v3, v0, v2
+    aput-object v7, v2, v6
 
-    const/16 v2, 0xe
+    const/16 v6, 0xe
 
-    const-string/jumbo v3, "http://apache.org/xml/features/validation/warn-on-duplicate-attdef"
+    const-string/jumbo v7, "http://apache.org/xml/features/validation/warn-on-duplicate-attdef"
 
-    aput-object v3, v0, v2
+    aput-object v7, v2, v6
 
-    const/16 v2, 0xf
+    const/16 v6, 0xf
 
-    const-string/jumbo v3, "http://apache.org/xml/features/internal/parser-settings"
+    const-string/jumbo v7, "http://apache.org/xml/features/internal/parser-settings"
 
-    aput-object v3, v0, v2
+    aput-object v7, v2, v6
 
-    const/16 v2, 0x10
+    const/16 v6, 0x10
 
-    const-string/jumbo v3, "http://apache.org/xml/features/namespace-growth"
+    const-string/jumbo v7, "http://apache.org/xml/features/namespace-growth"
 
-    aput-object v3, v0, v2
+    aput-object v7, v2, v6
 
-    const/16 v2, 0x11
+    const/16 v6, 0x11
 
-    const-string/jumbo v3, "http://apache.org/xml/features/internal/tolerate-duplicates"
+    const-string/jumbo v7, "http://apache.org/xml/features/internal/tolerate-duplicates"
 
-    aput-object v3, v0, v2
+    aput-object v7, v2, v6
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->addRecognizedFeatures([Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->addRecognizedFeatures([Ljava/lang/String;)V
 
-    const-string/jumbo v0, "http://xml.org/sax/features/validation"
+    const-string/jumbo v6, "http://xml.org/sax/features/validation"
 
-    invoke-virtual {p0, v0, v4}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v6, v8}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/validation/schema"
+    const-string/jumbo v6, "http://apache.org/xml/features/validation/schema"
 
-    invoke-virtual {p0, v0, v4}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v6, v8}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/validation/schema-full-checking"
+    const-string/jumbo v6, "http://apache.org/xml/features/validation/schema-full-checking"
 
-    invoke-virtual {p0, v0, v4}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v6, v8}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/validation/dynamic"
+    const-string/jumbo v6, "http://apache.org/xml/features/validation/dynamic"
 
-    invoke-virtual {p0, v0, v4}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v6, v8}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/validation/schema/normalized-value"
+    const-string/jumbo v6, "http://apache.org/xml/features/validation/schema/normalized-value"
 
-    invoke-virtual {p0, v0, v4}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v6, v8}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/validation/schema/element-default"
+    const-string/jumbo v6, "http://apache.org/xml/features/validation/schema/element-default"
 
-    invoke-virtual {p0, v0, v4}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v6, v8}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://xml.org/sax/features/namespaces"
+    const-string/jumbo v6, "http://xml.org/sax/features/namespaces"
 
-    invoke-virtual {p0, v0, v5}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v6, v9}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/validation/schema/augment-psvi"
+    const-string/jumbo v6, "http://apache.org/xml/features/validation/schema/augment-psvi"
 
-    invoke-virtual {p0, v0, v5}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v6, v9}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/generate-synthetic-annotations"
+    const-string/jumbo v6, "http://apache.org/xml/features/generate-synthetic-annotations"
 
-    invoke-virtual {p0, v0, v4}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v6, v8}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/validate-annotations"
+    const-string/jumbo v6, "http://apache.org/xml/features/validate-annotations"
 
-    invoke-virtual {p0, v0, v4}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v6, v8}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/honour-all-schemaLocations"
+    const-string/jumbo v6, "http://apache.org/xml/features/honour-all-schemaLocations"
 
-    invoke-virtual {p0, v0, v4}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v6, v8}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/internal/validation/schema/use-grammar-pool-only"
+    const-string/jumbo v6, "http://apache.org/xml/features/internal/validation/schema/use-grammar-pool-only"
 
-    invoke-virtual {p0, v0, v4}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v6, v8}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/disallow-doctype-decl"
+    const-string/jumbo v6, "http://apache.org/xml/features/disallow-doctype-decl"
 
-    invoke-virtual {p0, v0, v4}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v6, v8}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/validation/balance-syntax-trees"
+    const-string/jumbo v6, "http://apache.org/xml/features/validation/balance-syntax-trees"
 
-    invoke-virtual {p0, v0, v4}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v6, v8}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/validation/warn-on-duplicate-attdef"
+    const-string/jumbo v6, "http://apache.org/xml/features/validation/warn-on-duplicate-attdef"
 
-    invoke-virtual {p0, v0, v4}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v6, v8}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/internal/parser-settings"
+    const-string/jumbo v6, "http://apache.org/xml/features/internal/parser-settings"
 
-    invoke-virtual {p0, v0, v5}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v6, v9}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/namespace-growth"
+    const-string/jumbo v6, "http://apache.org/xml/features/namespace-growth"
 
-    invoke-virtual {p0, v0, v4}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v6, v8}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v0, "http://apache.org/xml/features/internal/tolerate-duplicates"
+    const-string/jumbo v6, "http://apache.org/xml/features/internal/tolerate-duplicates"
 
-    invoke-virtual {p0, v0, v4}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v6, v8}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
 
-    const/16 v0, 0x10
+    const/16 v6, 0x10
 
-    new-array v0, v0, [Ljava/lang/String;
+    new-array v3, v6, [Ljava/lang/String;
 
-    const-string/jumbo v2, "http://xml.org/sax/properties/xml-string"
+    const-string/jumbo v6, "http://xml.org/sax/properties/xml-string"
 
-    aput-object v2, v0, v4
+    aput-object v6, v3, v8
 
-    const-string/jumbo v2, "http://apache.org/xml/properties/internal/symbol-table"
+    const-string/jumbo v6, "http://apache.org/xml/properties/internal/symbol-table"
 
-    aput-object v2, v0, v5
+    aput-object v6, v3, v9
 
-    const-string/jumbo v2, "http://apache.org/xml/properties/internal/error-handler"
+    const-string/jumbo v6, "http://apache.org/xml/properties/internal/error-handler"
 
-    aput-object v2, v0, v6
+    aput-object v6, v3, v10
 
-    const-string/jumbo v2, "http://apache.org/xml/properties/internal/entity-resolver"
+    const-string/jumbo v6, "http://apache.org/xml/properties/internal/entity-resolver"
 
-    aput-object v2, v0, v7
+    aput-object v6, v3, v11
 
-    const/4 v2, 0x4
+    const/4 v6, 0x4
 
-    const-string/jumbo v3, "http://apache.org/xml/properties/internal/error-reporter"
+    const-string/jumbo v7, "http://apache.org/xml/properties/internal/error-reporter"
 
-    aput-object v3, v0, v2
+    aput-object v7, v3, v6
 
-    const/4 v2, 0x5
+    const/4 v6, 0x5
 
-    const-string/jumbo v3, "http://apache.org/xml/properties/internal/entity-manager"
+    const-string/jumbo v7, "http://apache.org/xml/properties/internal/entity-manager"
 
-    aput-object v3, v0, v2
+    aput-object v7, v3, v6
 
-    const/4 v2, 0x6
+    const/4 v6, 0x6
 
-    const-string/jumbo v3, "http://apache.org/xml/properties/internal/validation-manager"
+    const-string/jumbo v7, "http://apache.org/xml/properties/internal/validation-manager"
 
-    aput-object v3, v0, v2
+    aput-object v7, v3, v6
 
-    const/4 v2, 0x7
+    const/4 v6, 0x7
 
-    const-string/jumbo v3, "http://apache.org/xml/properties/internal/grammar-pool"
+    const-string/jumbo v7, "http://apache.org/xml/properties/internal/grammar-pool"
 
-    aput-object v3, v0, v2
+    aput-object v7, v3, v6
 
-    const/16 v2, 0x8
+    const/16 v6, 0x8
 
-    const-string/jumbo v3, "http://apache.org/xml/properties/security-manager"
+    const-string/jumbo v7, "http://apache.org/xml/properties/security-manager"
 
-    aput-object v3, v0, v2
+    aput-object v7, v3, v6
 
-    const/16 v2, 0x9
+    const/16 v6, 0x9
 
-    const-string/jumbo v3, "http://java.sun.com/xml/jaxp/properties/schemaSource"
+    const-string/jumbo v7, "http://java.sun.com/xml/jaxp/properties/schemaSource"
 
-    aput-object v3, v0, v2
+    aput-object v7, v3, v6
 
-    const/16 v2, 0xa
+    const/16 v6, 0xa
 
-    const-string/jumbo v3, "http://java.sun.com/xml/jaxp/properties/schemaLanguage"
+    const-string/jumbo v7, "http://java.sun.com/xml/jaxp/properties/schemaLanguage"
 
-    aput-object v3, v0, v2
+    aput-object v7, v3, v6
 
-    const/16 v2, 0xb
+    const/16 v6, 0xb
 
-    const-string/jumbo v3, "http://apache.org/xml/properties/schema/external-schemaLocation"
+    const-string/jumbo v7, "http://apache.org/xml/properties/schema/external-schemaLocation"
 
-    aput-object v3, v0, v2
+    aput-object v7, v3, v6
 
-    const/16 v2, 0xc
+    const/16 v6, 0xc
 
-    const-string/jumbo v3, "http://apache.org/xml/properties/schema/external-noNamespaceSchemaLocation"
+    const-string/jumbo v7, "http://apache.org/xml/properties/schema/external-noNamespaceSchemaLocation"
 
-    aput-object v3, v0, v2
+    aput-object v7, v3, v6
 
-    const/16 v2, 0xd
+    const/16 v6, 0xd
 
-    const-string/jumbo v3, "http://apache.org/xml/properties/internal/validator/dtd"
+    const-string/jumbo v7, "http://apache.org/xml/properties/internal/validator/dtd"
 
-    aput-object v3, v0, v2
+    aput-object v7, v3, v6
 
-    const/16 v2, 0xe
+    const/16 v6, 0xe
 
-    const-string/jumbo v3, "http://apache.org/xml/properties/internal/datatype-validator-factory"
+    const-string/jumbo v7, "http://apache.org/xml/properties/internal/datatype-validator-factory"
 
-    aput-object v3, v0, v2
+    aput-object v7, v3, v6
 
-    const/16 v2, 0xf
+    const/16 v6, 0xf
 
-    const-string/jumbo v3, "http://apache.org/xml/properties/internal/validation/schema/dv-factory"
+    const-string/jumbo v7, "http://apache.org/xml/properties/internal/validation/schema/dv-factory"
 
-    aput-object v3, v0, v2
+    aput-object v7, v3, v6
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->addRecognizedProperties([Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->addRecognizedProperties([Ljava/lang/String;)V
 
-    iget-short v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    or-int/lit8 v0, v0, 0x1
+    or-int/lit8 v6, v6, 0x1
 
-    int-to-short v0, v0
+    int-to-short v6, v6
 
-    int-to-short v0, v0
+    int-to-short v6, v6
 
-    iput-short v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iput-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    iget-short v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    or-int/lit8 v0, v0, 0x4
+    or-int/lit8 v6, v6, 0x4
 
-    int-to-short v0, v0
+    int-to-short v6, v6
 
-    int-to-short v0, v0
+    int-to-short v6, v6
 
-    iput-short v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iput-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    iget-short v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    or-int/lit8 v0, v0, 0x20
+    or-int/lit8 v6, v6, 0x20
 
-    int-to-short v0, v0
+    int-to-short v6, v6
 
-    int-to-short v0, v0
+    int-to-short v6, v6
 
-    iput-short v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iput-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    iget-short v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    or-int/lit8 v0, v0, 0x8
+    or-int/lit8 v6, v6, 0x8
 
-    int-to-short v0, v0
+    int-to-short v6, v6
 
-    int-to-short v0, v0
+    int-to-short v6, v6
 
-    iput-short v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iput-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    iget-short v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    or-int/lit8 v0, v0, 0x10
+    or-int/lit8 v6, v6, 0x10
 
-    int-to-short v0, v0
+    int-to-short v6, v6
 
-    int-to-short v0, v0
+    int-to-short v6, v6
 
-    iput-short v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iput-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    iget-short v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    or-int/lit16 v0, v0, 0x100
+    or-int/lit16 v6, v6, 0x100
 
-    int-to-short v0, v0
+    int-to-short v6, v6
 
-    int-to-short v0, v0
+    int-to-short v6, v6
 
-    iput-short v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iput-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    iget-short v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    or-int/lit16 v0, v0, 0x200
+    or-int/lit16 v6, v6, 0x200
 
-    int-to-short v0, v0
+    int-to-short v6, v6
 
-    int-to-short v0, v0
+    int-to-short v6, v6
 
-    iput-short v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iput-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
     if-eqz p1, :cond_1
 
     :goto_0
     iput-object p1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v6, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fComponents:Ljava/util/ArrayList;
+    iput-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fComponents:Ljava/util/ArrayList;
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/symbol-table"
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    const-string/jumbo v7, "http://apache.org/xml/properties/internal/symbol-table"
 
-    invoke-virtual {p0, v0, v2}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v7, v6}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
-    new-instance v0, Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    new-instance v6, Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    invoke-direct {v0}, Lmf/org/apache/xerces/impl/XMLErrorReporter;-><init>()V
+    invoke-direct {v6}, Lmf/org/apache/xerces/impl/XMLErrorReporter;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iput-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/error-reporter"
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    const-string/jumbo v7, "http://apache.org/xml/properties/internal/error-reporter"
 
-    invoke-virtual {p0, v0, v2}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v7, v6}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->addComponent(Lmf/org/apache/xerces/xni/parser/XMLComponent;)V
+    invoke-virtual {p0, v6}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->addComponent(Lmf/org/apache/xerces/xni/parser/XMLComponent;)V
 
     invoke-static {}, Lmf/org/apache/xerces/impl/dv/DTDDVFactory;->getInstance()Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
 
-    move-result-object v0
+    move-result-object v6
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fDatatypeValidatorFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
+    iput-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fDatatypeValidatorFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
 
-    const-string/jumbo v0, "mf.org.apache.xerces.impl.dv.dtd.XML11DTDDVFactoryImpl"
+    const-string/jumbo v6, "mf.org.apache.xerces.impl.dv.dtd.XML11DTDDVFactoryImpl"
 
-    invoke-static {v0}, Lmf/org/apache/xerces/impl/dv/DTDDVFactory;->getInstance(Ljava/lang/String;)Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
+    invoke-static {v6}, Lmf/org/apache/xerces/impl/dv/DTDDVFactory;->getInstance(Ljava/lang/String;)Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
 
-    move-result-object v0
+    move-result-object v6
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fXML11DatatypeFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
+    iput-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fXML11DatatypeFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fDatatypeValidatorFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fDatatypeValidatorFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fCurrentDVFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
+    iput-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fCurrentDVFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/datatype-validator-factory"
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fCurrentDVFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fCurrentDVFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
+    const-string/jumbo v7, "http://apache.org/xml/properties/internal/datatype-validator-factory"
 
-    invoke-virtual {p0, v0, v2}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v7, v6}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
-    new-instance v0, Lmf/org/apache/xerces/impl/XMLEntityManager;
+    new-instance v1, Lmf/org/apache/xerces/impl/XMLEntityManager;
 
-    invoke-direct {v0}, Lmf/org/apache/xerces/impl/XMLEntityManager;-><init>()V
+    invoke-direct {v1}, Lmf/org/apache/xerces/impl/XMLEntityManager;-><init>()V
 
-    const-string/jumbo v2, "http://apache.org/xml/properties/internal/entity-manager"
+    const-string/jumbo v6, "http://apache.org/xml/properties/internal/entity-manager"
 
-    invoke-virtual {p0, v2, v0}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v6, v1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->addComponent(Lmf/org/apache/xerces/xni/parser/XMLComponent;)V
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->addComponent(Lmf/org/apache/xerces/xni/parser/XMLComponent;)V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->createValidationManager()Lmf/org/apache/xerces/impl/validation/ValidationManager;
 
-    move-result-object v0
+    move-result-object v6
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fValidationManager:Lmf/org/apache/xerces/impl/validation/ValidationManager;
+    iput-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fValidationManager:Lmf/org/apache/xerces/impl/validation/ValidationManager;
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/validation-manager"
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fValidationManager:Lmf/org/apache/xerces/impl/validation/ValidationManager;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fValidationManager:Lmf/org/apache/xerces/impl/validation/ValidationManager;
+    const-string/jumbo v7, "http://apache.org/xml/properties/internal/validation-manager"
 
-    invoke-virtual {p0, v0, v2}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v7, v6}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v2, "http://www.w3.org/TR/1998/REC-xml-19980210"
+    const-string/jumbo v7, "http://www.w3.org/TR/1998/REC-xml-19980210"
 
-    invoke-virtual {v0, v2}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->getMessageFormatter(Ljava/lang/String;)Lmf/org/apache/xerces/util/MessageFormatter;
+    invoke-virtual {v6, v7}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->getMessageFormatter(Ljava/lang/String;)Lmf/org/apache/xerces/util/MessageFormatter;
 
-    move-result-object v0
+    move-result-object v6
 
-    if-eqz v0, :cond_2
+    if-eqz v6, :cond_2
 
     :goto_1
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v2, "http://www.w3.org/TR/xml-schema-1"
+    const-string/jumbo v7, "http://www.w3.org/TR/xml-schema-1"
 
-    invoke-virtual {v0, v2}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->getMessageFormatter(Ljava/lang/String;)Lmf/org/apache/xerces/util/MessageFormatter;
+    invoke-virtual {v6, v7}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->getMessageFormatter(Ljava/lang/String;)Lmf/org/apache/xerces/util/MessageFormatter;
 
-    move-result-object v0
+    move-result-object v6
 
-    if-eqz v0, :cond_3
+    if-eqz v6, :cond_3
 
     :cond_0
     :goto_2
     :try_start_0
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setLocale(Ljava/util/Locale;)V
+    invoke-virtual {p0, v6}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setLocale(Ljava/util/Locale;)V
     :try_end_0
-    .catch Lmf/org/apache/xerces/xni/XNIException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Lmf/org/apache/xerces/xni/XNIException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_3
     return-void
@@ -665,82 +665,86 @@
     goto :goto_0
 
     :cond_2
-    new-instance v0, Lmf/org/apache/xerces/impl/msg/XMLMessageFormatter;
+    new-instance v4, Lmf/org/apache/xerces/impl/msg/XMLMessageFormatter;
 
-    invoke-direct {v0}, Lmf/org/apache/xerces/impl/msg/XMLMessageFormatter;-><init>()V
+    invoke-direct {v4}, Lmf/org/apache/xerces/impl/msg/XMLMessageFormatter;-><init>()V
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v3, "http://www.w3.org/TR/1998/REC-xml-19980210"
+    const-string/jumbo v7, "http://www.w3.org/TR/1998/REC-xml-19980210"
 
-    invoke-virtual {v2, v3, v0}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->putMessageFormatter(Ljava/lang/String;Lmf/org/apache/xerces/util/MessageFormatter;)V
+    invoke-virtual {v6, v7, v4}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->putMessageFormatter(Ljava/lang/String;Lmf/org/apache/xerces/util/MessageFormatter;)V
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v3, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+    const-string/jumbo v7, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
 
-    invoke-virtual {v2, v3, v0}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->putMessageFormatter(Ljava/lang/String;Lmf/org/apache/xerces/util/MessageFormatter;)V
+    invoke-virtual {v6, v7, v4}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->putMessageFormatter(Ljava/lang/String;Lmf/org/apache/xerces/util/MessageFormatter;)V
 
     goto :goto_1
 
     :cond_3
+    const/4 v5, 0x0
+
     :try_start_1
-    const-string/jumbo v0, "mf.org.apache.xerces.impl.xs.XSMessageFormatter"
+    const-string/jumbo v6, "mf.org.apache.xerces.impl.xs.XSMessageFormatter"
 
     invoke-static {}, Lmf/org/apache/xerces/dom/ObjectFactory;->findClassLoader()Ljava/lang/ClassLoader;
 
-    move-result-object v2
+    move-result-object v7
 
-    const/4 v3, 0x1
+    const/4 v8, 0x1
 
-    invoke-static {v0, v2, v3}, Lmf/org/apache/xerces/dom/ObjectFactory;->newInstance(Ljava/lang/String;Ljava/lang/ClassLoader;Z)Ljava/lang/Object;
+    invoke-static {v6, v7, v8}, Lmf/org/apache/xerces/dom/ObjectFactory;->newInstance(Ljava/lang/String;Ljava/lang/ClassLoader;Z)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v6
+
+    move-object v0, v6
 
     check-cast v0, Lmf/org/apache/xerces/util/MessageFormatter;
+
+    move-object v5, v0
     :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
     :goto_4
-    if-eqz v0, :cond_0
+    if-eqz v5, :cond_0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v2, "http://www.w3.org/TR/xml-schema-1"
+    const-string/jumbo v7, "http://www.w3.org/TR/xml-schema-1"
 
-    invoke-virtual {v1, v2, v0}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->putMessageFormatter(Ljava/lang/String;Lmf/org/apache/xerces/util/MessageFormatter;)V
+    invoke-virtual {v6, v7, v5}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->putMessageFormatter(Ljava/lang/String;Lmf/org/apache/xerces/util/MessageFormatter;)V
 
     goto :goto_2
 
     :catch_0
-    move-exception v0
-
-    move-object v0, v1
-
-    goto :goto_4
-
-    :catch_1
-    move-exception v0
+    move-exception v6
 
     goto :goto_3
+
+    :catch_1
+    move-exception v6
+
+    goto :goto_4
 .end method
 
 .method private static newFeatureNotFoundError(Ljava/lang/String;)Lmf/org/w3c/dom/DOMException;
-    .locals 4
+    .locals 5
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "FEATURE_NOT_FOUND"
+    const-string/jumbo v2, "FEATURE_NOT_FOUND"
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v3, v3, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    aput-object p0, v2, v3
+    aput-object p0, v3, v4
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -754,21 +758,21 @@
 .end method
 
 .method private static newFeatureNotSupportedError(Ljava/lang/String;)Lmf/org/w3c/dom/DOMException;
-    .locals 4
+    .locals 5
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "FEATURE_NOT_SUPPORTED"
+    const-string/jumbo v2, "FEATURE_NOT_SUPPORTED"
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v3, v3, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    aput-object p0, v2, v3
+    aput-object p0, v3, v4
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -782,21 +786,21 @@
 .end method
 
 .method private static newTypeMismatchError(Ljava/lang/String;)Lmf/org/w3c/dom/DOMException;
-    .locals 4
+    .locals 5
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "TYPE_MISMATCH_ERR"
+    const-string/jumbo v2, "TYPE_MISMATCH_ERR"
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v3, v3, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    aput-object p0, v2, v3
+    aput-object p0, v3, v4
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -812,19 +816,19 @@
 
 # virtual methods
 .method protected addComponent(Lmf/org/apache/xerces/xni/parser/XMLComponent;)V
-    .locals 1
+    .locals 3
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fComponents:Ljava/util/ArrayList;
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fComponents:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v2, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fComponents:Ljava/util/ArrayList;
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fComponents:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v2, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     invoke-interface {p1}, Lmf/org/apache/xerces/xni/parser/XMLComponent;->getRecognizedFeatures()[Ljava/lang/String;
 
@@ -834,9 +838,9 @@
 
     invoke-interface {p1}, Lmf/org/apache/xerces/xni/parser/XMLComponent;->getRecognizedProperties()[Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->addRecognizedProperties([Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->addRecognizedProperties([Ljava/lang/String;)V
 
     return-void
 
@@ -1220,20 +1224,20 @@
 .end method
 
 .method protected checkProperty(Ljava/lang/String;)V
-    .locals 2
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
         }
     .end annotation
 
-    const-string/jumbo v0, "http://xml.org/sax/properties/"
+    const-string/jumbo v2, "http://xml.org/sax/properties/"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_1
+    if-nez v2, :cond_1
 
     :cond_0
     invoke-super {p0, p1}, Lmf/org/apache/xerces/util/ParserConfigurationSettings;->checkProperty(Ljava/lang/String;)V
@@ -1243,39 +1247,41 @@
     :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v2
 
-    const-string/jumbo v1, "http://xml.org/sax/properties/"
+    const-string/jumbo v3, "http://xml.org/sax/properties/"
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v3
 
-    sub-int/2addr v0, v1
+    sub-int v0, v2, v3
 
-    const-string/jumbo v1, "xml-string"
+    const-string/jumbo v2, "xml-string"
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v2, :cond_0
 
-    const-string/jumbo v0, "xml-string"
+    const-string/jumbo v2, "xml-string"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_0
-
-    new-instance v0, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
+    if-eqz v2, :cond_0
 
     const/4 v1, 0x1
 
-    invoke-direct {v0, v1, p1}, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;-><init>(SLjava/lang/String;)V
+    new-instance v2, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;
 
-    throw v0
+    const/4 v3, 0x1
+
+    invoke-direct {v2, v3, p1}, Lmf/org/apache/xerces/xni/parser/XMLConfigurationException;-><init>(SLjava/lang/String;)V
+
+    throw v2
 .end method
 
 .method protected createValidationManager()Lmf/org/apache/xerces/impl/validation/ValidationManager;
@@ -1390,425 +1396,425 @@
 
     const/4 v2, 0x0
 
-    const-string/jumbo v0, "comments"
+    const-string/jumbo v1, "comments"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
-    const-string/jumbo v0, "namespaces"
+    const-string/jumbo v1, "namespaces"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_3
+    if-nez v1, :cond_3
 
-    const-string/jumbo v0, "datatype-normalization"
+    const-string/jumbo v1, "datatype-normalization"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_5
+    if-nez v1, :cond_5
 
-    const-string/jumbo v0, "cdata-sections"
+    const-string/jumbo v1, "cdata-sections"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_7
+    if-nez v1, :cond_7
 
-    const-string/jumbo v0, "entities"
+    const-string/jumbo v1, "entities"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_9
+    if-nez v1, :cond_9
 
-    const-string/jumbo v0, "split-cdata-sections"
+    const-string/jumbo v1, "split-cdata-sections"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_b
+    if-nez v1, :cond_b
 
-    const-string/jumbo v0, "validate"
+    const-string/jumbo v1, "validate"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_d
+    if-nez v1, :cond_d
 
-    const-string/jumbo v0, "well-formed"
+    const-string/jumbo v1, "well-formed"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_f
+    if-nez v1, :cond_f
 
-    const-string/jumbo v0, "namespace-declarations"
+    const-string/jumbo v1, "namespace-declarations"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_11
+    if-nez v1, :cond_11
 
-    const-string/jumbo v0, "infoset"
+    const-string/jumbo v1, "infoset"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_13
+    if-nez v1, :cond_13
 
-    const-string/jumbo v0, "normalize-characters"
+    const-string/jumbo v1, "normalize-characters"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_15
+    if-eqz v1, :cond_15
 
     :cond_0
-    sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
-    return-object v0
+    return-object v1
 
     :cond_1
-    iget-short v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    and-int/lit8 v0, v0, 0x20
+    and-int/lit8 v1, v1, 0x20
 
-    if-nez v0, :cond_2
+    if-nez v1, :cond_2
 
-    sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     :goto_0
-    return-object v0
+    return-object v1
 
     :cond_2
-    sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     goto :goto_0
 
     :cond_3
-    iget-short v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    and-int/lit8 v0, v0, 0x1
+    and-int/lit8 v1, v1, 0x1
 
-    if-nez v0, :cond_4
+    if-nez v1, :cond_4
 
-    sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     :goto_1
-    return-object v0
+    return-object v1
 
     :cond_4
-    sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     goto :goto_1
 
     :cond_5
-    iget-short v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    and-int/lit8 v0, v0, 0x2
+    and-int/lit8 v1, v1, 0x2
 
-    if-nez v0, :cond_6
+    if-nez v1, :cond_6
 
-    sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     :goto_2
-    return-object v0
+    return-object v1
 
     :cond_6
-    sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     goto :goto_2
 
     :cond_7
-    iget-short v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    and-int/lit8 v0, v0, 0x8
+    and-int/lit8 v1, v1, 0x8
 
-    if-nez v0, :cond_8
+    if-nez v1, :cond_8
 
-    sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     :goto_3
-    return-object v0
+    return-object v1
 
     :cond_8
-    sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     goto :goto_3
 
     :cond_9
-    iget-short v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    and-int/lit8 v0, v0, 0x4
+    and-int/lit8 v1, v1, 0x4
 
-    if-nez v0, :cond_a
+    if-nez v1, :cond_a
 
-    sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     :goto_4
-    return-object v0
+    return-object v1
 
     :cond_a
-    sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     goto :goto_4
 
     :cond_b
-    iget-short v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    and-int/lit8 v0, v0, 0x10
+    and-int/lit8 v1, v1, 0x10
 
-    if-nez v0, :cond_c
+    if-nez v1, :cond_c
 
-    sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     :goto_5
-    return-object v0
+    return-object v1
 
     :cond_c
-    sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     goto :goto_5
 
     :cond_d
-    iget-short v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    and-int/lit8 v0, v0, 0x40
+    and-int/lit8 v1, v1, 0x40
 
-    if-nez v0, :cond_e
+    if-nez v1, :cond_e
 
-    sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     :goto_6
-    return-object v0
+    return-object v1
 
     :cond_e
-    sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     goto :goto_6
 
     :cond_f
-    iget-short v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    and-int/lit16 v0, v0, 0x100
+    and-int/lit16 v1, v1, 0x100
 
-    if-nez v0, :cond_10
+    if-nez v1, :cond_10
 
-    sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     :goto_7
-    return-object v0
+    return-object v1
 
     :cond_10
-    sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     goto :goto_7
 
     :cond_11
-    iget-short v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    and-int/lit16 v0, v0, 0x200
+    and-int/lit16 v1, v1, 0x200
 
-    if-nez v0, :cond_12
+    if-nez v1, :cond_12
 
-    sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     :goto_8
-    return-object v0
+    return-object v1
 
     :cond_12
-    sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     goto :goto_8
 
     :cond_13
-    iget-short v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    and-int/lit16 v0, v0, 0x32f
+    and-int/lit16 v1, v1, 0x32f
 
-    const/16 v1, 0x321
+    const/16 v2, 0x321
 
-    if-eq v0, v1, :cond_14
+    if-eq v1, v2, :cond_14
 
-    sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     :goto_9
-    return-object v0
+    return-object v1
 
     :cond_14
-    sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     goto :goto_9
 
     :cond_15
-    const-string/jumbo v0, "canonical-form"
+    const-string/jumbo v1, "canonical-form"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    const-string/jumbo v0, "validate-if-schema"
+    const-string/jumbo v1, "validate-if-schema"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    const-string/jumbo v0, "check-character-normalization"
+    const-string/jumbo v1, "check-character-normalization"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    const-string/jumbo v0, "http://apache.org/xml/features/validation/schema/augment-psvi"
+    const-string/jumbo v1, "http://apache.org/xml/features/validation/schema/augment-psvi"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_16
+    if-nez v1, :cond_16
 
-    const-string/jumbo v0, "psvi"
+    const-string/jumbo v1, "psvi"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_17
+    if-nez v1, :cond_17
 
-    const-string/jumbo v0, "element-content-whitespace"
+    const-string/jumbo v1, "element-content-whitespace"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_19
+    if-nez v1, :cond_19
 
-    const-string/jumbo v0, "error-handler"
+    const-string/jumbo v1, "error-handler"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_1a
+    if-nez v1, :cond_1a
 
-    const-string/jumbo v0, "resource-resolver"
+    const-string/jumbo v1, "resource-resolver"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_1b
+    if-nez v1, :cond_1b
 
-    const-string/jumbo v0, "schema-type"
+    const-string/jumbo v1, "schema-type"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_1e
+    if-nez v1, :cond_1e
 
-    const-string/jumbo v0, "schema-location"
+    const-string/jumbo v1, "schema-location"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_1f
+    if-nez v1, :cond_1f
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/entity-resolver"
+    const-string/jumbo v1, "http://apache.org/xml/properties/internal/entity-resolver"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_20
+    if-nez v1, :cond_20
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/symbol-table"
+    const-string/jumbo v1, "http://apache.org/xml/properties/internal/symbol-table"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_21
+    if-nez v1, :cond_21
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/grammar-pool"
+    const-string/jumbo v1, "http://apache.org/xml/properties/internal/grammar-pool"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_22
+    if-nez v1, :cond_22
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/security-manager"
+    const-string/jumbo v1, "http://apache.org/xml/properties/security-manager"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_23
+    if-nez v1, :cond_23
 
     invoke-static {p1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->newFeatureNotFoundError(Ljava/lang/String;)Lmf/org/w3c/dom/DOMException;
 
-    move-result-object v0
+    move-result-object v1
 
-    throw v0
+    throw v1
 
     :cond_16
-    sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
-    return-object v0
+    return-object v1
 
     :cond_17
-    iget-short v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    and-int/lit16 v0, v0, 0x80
+    and-int/lit16 v1, v1, 0x80
 
-    if-nez v0, :cond_18
+    if-nez v1, :cond_18
 
-    sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     :goto_a
-    return-object v0
+    return-object v1
 
     :cond_18
-    sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     goto :goto_a
 
     :cond_19
-    sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
-    return-object v0
+    return-object v1
 
     :cond_1a
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fErrorHandlerWrapper:Lmf/org/apache/xerces/util/DOMErrorHandlerWrapper;
+    iget-object v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fErrorHandlerWrapper:Lmf/org/apache/xerces/util/DOMErrorHandlerWrapper;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/DOMErrorHandlerWrapper;->getErrorHandler()Lmf/org/w3c/dom/DOMErrorHandler;
+    invoke-virtual {v1}, Lmf/org/apache/xerces/util/DOMErrorHandlerWrapper;->getErrorHandler()Lmf/org/w3c/dom/DOMErrorHandler;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_1b
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->getEntityResolver()Lmf/org/apache/xerces/xni/parser/XMLEntityResolver;
@@ -1829,70 +1835,70 @@
 
     invoke-virtual {v0}, Lmf/org/apache/xerces/util/DOMEntityResolverWrapper;->getEntityResolver()Lmf/org/w3c/dom/ls/LSResourceResolver;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_1e
-    const-string/jumbo v0, "http://java.sun.com/xml/jaxp/properties/schemaLanguage"
+    const-string/jumbo v1, "http://java.sun.com/xml/jaxp/properties/schemaLanguage"
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_1f
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fSchemaLocation:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fSchemaLocation:Ljava/lang/String;
 
-    return-object v0
+    return-object v1
 
     :cond_20
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->getEntityResolver()Lmf/org/apache/xerces/xni/parser/XMLEntityResolver;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_21
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/symbol-table"
+    const-string/jumbo v1, "http://apache.org/xml/properties/internal/symbol-table"
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_22
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/grammar-pool"
+    const-string/jumbo v1, "http://apache.org/xml/properties/internal/grammar-pool"
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_23
-    const-string/jumbo v0, "http://apache.org/xml/properties/security-manager"
+    const-string/jumbo v1, "http://apache.org/xml/properties/security-manager"
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->getProperty(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public getParameterNames()Lmf/org/w3c/dom/DOMStringList;
     .locals 2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fRecognizedParameters:Lmf/org/w3c/dom/DOMStringList;
+    iget-object v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fRecognizedParameters:Lmf/org/w3c/dom/DOMStringList;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fRecognizedParameters:Lmf/org/w3c/dom/DOMStringList;
+    iget-object v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fRecognizedParameters:Lmf/org/w3c/dom/DOMStringList;
 
-    return-object v0
+    return-object v1
 
     :cond_0
     new-instance v0, Ljava/util/ArrayList;
@@ -2017,34 +2023,32 @@
 .end method
 
 .method protected reset()V
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fValidationManager:Lmf/org/apache/xerces/impl/validation/ValidationManager;
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fValidationManager:Lmf/org/apache/xerces/impl/validation/ValidationManager;
 
-    if-nez v0, :cond_0
+    if-nez v3, :cond_0
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fComponents:Ljava/util/ArrayList;
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fComponents:Ljava/util/ArrayList;
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
-    move-result v2
+    move-result v1
 
-    const/4 v0, 0x0
-
-    move v1, v0
+    const/4 v2, 0x0
 
     :goto_1
-    if-ge v1, v2, :cond_1
+    if-ge v2, v1, :cond_1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fComponents:Ljava/util/ArrayList;
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fComponents:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -2052,16 +2056,14 @@
 
     invoke-interface {v0, p0}, Lmf/org/apache/xerces/xni/parser/XMLComponent;->reset(Lmf/org/apache/xerces/xni/parser/XMLComponentManager;)V
 
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fValidationManager:Lmf/org/apache/xerces/impl/validation/ValidationManager;
+    iget-object v3, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fValidationManager:Lmf/org/apache/xerces/impl/validation/ValidationManager;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/validation/ValidationManager;->reset()V
+    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/validation/ValidationManager;->reset()V
 
     goto :goto_0
 
@@ -2113,11 +2115,11 @@
 
     iput-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fCurrentDVFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/datatype-validator-factory"
+    iget-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fCurrentDVFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fCurrentDVFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
+    const-string/jumbo v1, "http://apache.org/xml/properties/internal/datatype-validator-factory"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v1, v0}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
     goto :goto_0
 
@@ -2126,11 +2128,11 @@
 
     iput-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fCurrentDVFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/internal/datatype-validator-factory"
+    iget-object v0, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fCurrentDVFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fCurrentDVFactory:Lmf/org/apache/xerces/impl/dv/DTDDVFactory;
+    const-string/jumbo v1, "http://apache.org/xml/properties/internal/datatype-validator-factory"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v1, v0}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
     goto :goto_0
 .end method
@@ -2204,646 +2206,600 @@
 .end method
 
 .method public setParameter(Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 5
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/w3c/dom/DOMException;
         }
     .end annotation
 
+    const/4 v7, 0x0
+
     const/4 v2, 0x1
 
-    const/4 v3, 0x0
+    instance-of v6, p2, Ljava/lang/Boolean;
 
-    instance-of v1, p2, Ljava/lang/Boolean;
-
-    if-nez v1, :cond_1
-
-    move v1, v2
-
-    :goto_0
-    if-nez v1, :cond_20
+    if-nez v6, :cond_2
 
     :cond_0
-    const-string/jumbo v1, "error-handler"
+    :goto_0
+    if-nez v2, :cond_1c
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    :cond_1
+    const/4 v2, 0x1
 
-    move-result v1
+    const-string/jumbo v6, "error-handler"
 
-    if-nez v1, :cond_22
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    const-string/jumbo v1, "resource-resolver"
+    move-result v6
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    if-nez v6, :cond_1e
 
-    move-result v1
+    const-string/jumbo v6, "resource-resolver"
 
-    if-nez v1, :cond_25
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    const-string/jumbo v1, "schema-location"
+    move-result v6
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    if-nez v6, :cond_21
 
-    move-result v1
+    const-string/jumbo v6, "schema-location"
 
-    if-nez v1, :cond_28
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    const-string/jumbo v1, "schema-type"
+    move-result v6
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    if-nez v6, :cond_24
 
-    move-result v1
+    const-string/jumbo v6, "schema-type"
 
-    if-nez v1, :cond_2e
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/entity-resolver"
+    move-result v6
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    if-nez v6, :cond_2a
 
-    move-result v1
+    const-string/jumbo v6, "http://apache.org/xml/properties/internal/entity-resolver"
 
-    if-nez v1, :cond_33
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/symbol-table"
+    move-result v6
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    if-nez v6, :cond_2f
 
-    move-result v1
+    const-string/jumbo v6, "http://apache.org/xml/properties/internal/symbol-table"
 
-    if-nez v1, :cond_36
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/grammar-pool"
+    move-result v6
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    if-nez v6, :cond_32
 
-    move-result v1
+    const-string/jumbo v6, "http://apache.org/xml/properties/internal/grammar-pool"
 
-    if-nez v1, :cond_38
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    const-string/jumbo v1, "http://apache.org/xml/properties/security-manager"
+    move-result v6
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    if-nez v6, :cond_34
 
-    move-result v1
+    const-string/jumbo v6, "http://apache.org/xml/properties/security-manager"
 
-    if-nez v1, :cond_3b
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_37
 
     invoke-static {p1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->newFeatureNotFoundError(Ljava/lang/String;)Lmf/org/w3c/dom/DOMException;
 
-    move-result-object v1
+    move-result-object v6
 
-    throw v1
+    throw v6
 
-    :cond_1
-    move-object v1, p2
+    :cond_2
+    move-object v6, p2
 
-    check-cast v1, Ljava/lang/Boolean;
+    check-cast v6, Ljava/lang/Boolean;
 
-    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual {v6}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v4
 
-    const-string/jumbo v1, "comments"
+    const-string/jumbo v6, "comments"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v6
 
-    if-nez v1, :cond_3
+    if-nez v6, :cond_4
 
-    const-string/jumbo v1, "datatype-normalization"
+    const-string/jumbo v6, "datatype-normalization"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v6
 
-    if-nez v1, :cond_5
+    if-nez v6, :cond_6
 
-    const-string/jumbo v1, "namespaces"
+    const-string/jumbo v6, "namespaces"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v6
 
-    if-nez v1, :cond_8
+    if-nez v6, :cond_8
 
-    const-string/jumbo v1, "cdata-sections"
+    const-string/jumbo v6, "cdata-sections"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v6
 
-    if-nez v1, :cond_a
+    if-nez v6, :cond_a
 
-    const-string/jumbo v1, "entities"
+    const-string/jumbo v6, "entities"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v6
 
-    if-nez v1, :cond_c
+    if-nez v6, :cond_c
 
-    const-string/jumbo v1, "split-cdata-sections"
+    const-string/jumbo v6, "split-cdata-sections"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v6
 
-    if-nez v1, :cond_e
+    if-nez v6, :cond_e
 
-    const-string/jumbo v1, "validate"
+    const-string/jumbo v6, "validate"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v6
 
-    if-nez v1, :cond_10
+    if-nez v6, :cond_10
 
-    const-string/jumbo v1, "well-formed"
+    const-string/jumbo v6, "well-formed"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v6
 
-    if-nez v1, :cond_12
+    if-nez v6, :cond_12
 
-    const-string/jumbo v1, "namespace-declarations"
+    const-string/jumbo v6, "namespace-declarations"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v6
 
-    if-nez v1, :cond_14
+    if-nez v6, :cond_14
 
-    const-string/jumbo v1, "infoset"
+    const-string/jumbo v6, "infoset"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v6
 
-    if-nez v1, :cond_16
+    if-nez v6, :cond_16
 
-    const-string/jumbo v1, "normalize-characters"
+    const-string/jumbo v6, "normalize-characters"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v6
 
-    if-eqz v1, :cond_18
-
-    :cond_2
-    if-nez v4, :cond_19
-
-    move v1, v2
-
-    goto/16 :goto_0
+    if-eqz v6, :cond_17
 
     :cond_3
-    if-nez v4, :cond_4
+    if-eqz v4, :cond_0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    invoke-static {p1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->newFeatureNotSupportedError(Ljava/lang/String;)Lmf/org/w3c/dom/DOMException;
 
-    and-int/lit8 v1, v1, -0x21
+    move-result-object v6
+
+    throw v6
+
+    :cond_4
+    if-nez v4, :cond_5
+
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+
+    and-int/lit8 v6, v6, -0x21
 
     :goto_1
-    int-to-short v1, v1
+    int-to-short v6, v6
 
-    int-to-short v1, v1
+    int-to-short v6, v6
 
-    iput-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
-
-    move v1, v2
+    iput-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
     goto/16 :goto_0
 
-    :cond_4
-    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    :cond_5
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    or-int/lit8 v1, v1, 0x20
+    or-int/lit8 v6, v6, 0x20
 
     goto :goto_1
 
-    :cond_5
-    const-string/jumbo v1, "http://apache.org/xml/features/validation/schema/normalized-value"
+    :cond_6
+    const-string/jumbo v6, "http://apache.org/xml/features/validation/schema/normalized-value"
 
-    invoke-virtual {p0, v1, v4}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
-
-    if-nez v4, :cond_6
-
-    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
-
-    and-int/lit8 v1, v1, -0x3
-
-    :goto_2
-    int-to-short v1, v1
-
-    int-to-short v1, v1
-
-    iput-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    invoke-virtual {p0, v6, v4}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
 
     if-nez v4, :cond_7
 
-    move v1, v2
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+
+    and-int/lit8 v6, v6, -0x3
+
+    :goto_2
+    int-to-short v6, v6
+
+    int-to-short v6, v6
+
+    iput-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+
+    if-eqz v4, :cond_0
+
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+
+    or-int/lit8 v6, v6, 0x40
+
+    int-to-short v6, v6
+
+    int-to-short v6, v6
+
+    iput-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
     goto/16 :goto_0
-
-    :cond_6
-    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
-
-    or-int/lit8 v1, v1, 0x2
-
-    goto :goto_2
 
     :cond_7
-    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    or-int/lit8 v1, v1, 0x40
+    or-int/lit8 v6, v6, 0x2
 
-    int-to-short v1, v1
-
-    int-to-short v1, v1
-
-    iput-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
-
-    move v1, v2
-
-    goto/16 :goto_0
+    goto :goto_2
 
     :cond_8
     if-nez v4, :cond_9
 
-    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    and-int/lit8 v1, v1, -0x2
+    and-int/lit8 v6, v6, -0x2
 
     :goto_3
-    int-to-short v1, v1
+    int-to-short v6, v6
 
-    int-to-short v1, v1
+    int-to-short v6, v6
 
-    iput-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
-
-    move v1, v2
+    iput-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
     goto/16 :goto_0
 
     :cond_9
-    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    or-int/lit8 v1, v1, 0x1
+    or-int/lit8 v6, v6, 0x1
 
     goto :goto_3
 
     :cond_a
     if-nez v4, :cond_b
 
-    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    and-int/lit8 v1, v1, -0x9
+    and-int/lit8 v6, v6, -0x9
 
     :goto_4
-    int-to-short v1, v1
+    int-to-short v6, v6
 
-    int-to-short v1, v1
+    int-to-short v6, v6
 
-    iput-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
-
-    move v1, v2
+    iput-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
     goto/16 :goto_0
 
     :cond_b
-    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    or-int/lit8 v1, v1, 0x8
+    or-int/lit8 v6, v6, 0x8
 
     goto :goto_4
 
     :cond_c
     if-nez v4, :cond_d
 
-    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    and-int/lit8 v1, v1, -0x5
+    and-int/lit8 v6, v6, -0x5
 
     :goto_5
-    int-to-short v1, v1
+    int-to-short v6, v6
 
-    int-to-short v1, v1
+    int-to-short v6, v6
 
-    iput-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
-
-    move v1, v2
+    iput-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
     goto/16 :goto_0
 
     :cond_d
-    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    or-int/lit8 v1, v1, 0x4
+    or-int/lit8 v6, v6, 0x4
 
     goto :goto_5
 
     :cond_e
     if-nez v4, :cond_f
 
-    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    and-int/lit8 v1, v1, -0x11
+    and-int/lit8 v6, v6, -0x11
 
     :goto_6
-    int-to-short v1, v1
+    int-to-short v6, v6
 
-    int-to-short v1, v1
+    int-to-short v6, v6
 
-    iput-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
-
-    move v1, v2
+    iput-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
     goto/16 :goto_0
 
     :cond_f
-    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    or-int/lit8 v1, v1, 0x10
+    or-int/lit8 v6, v6, 0x10
 
     goto :goto_6
 
     :cond_10
     if-nez v4, :cond_11
 
-    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    and-int/lit8 v1, v1, -0x41
+    and-int/lit8 v6, v6, -0x41
 
     :goto_7
-    int-to-short v1, v1
+    int-to-short v6, v6
 
-    int-to-short v1, v1
+    int-to-short v6, v6
 
-    iput-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
-
-    move v1, v2
+    iput-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
     goto/16 :goto_0
 
     :cond_11
-    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    or-int/lit8 v1, v1, 0x40
+    or-int/lit8 v6, v6, 0x40
 
     goto :goto_7
 
     :cond_12
     if-nez v4, :cond_13
 
-    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    and-int/lit16 v1, v1, -0x101
+    and-int/lit16 v6, v6, -0x101
 
     :goto_8
-    int-to-short v1, v1
+    int-to-short v6, v6
 
-    int-to-short v1, v1
+    int-to-short v6, v6
 
-    iput-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
-
-    move v1, v2
+    iput-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
     goto/16 :goto_0
 
     :cond_13
-    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    or-int/lit16 v1, v1, 0x100
+    or-int/lit16 v6, v6, 0x100
 
     goto :goto_8
 
     :cond_14
     if-nez v4, :cond_15
 
-    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    and-int/lit16 v1, v1, -0x201
+    and-int/lit16 v6, v6, -0x201
 
     :goto_9
-    int-to-short v1, v1
+    int-to-short v6, v6
 
-    int-to-short v1, v1
+    int-to-short v6, v6
 
-    iput-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
-
-    move v1, v2
+    iput-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
     goto/16 :goto_0
 
     :cond_15
-    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    or-int/lit16 v1, v1, 0x200
+    or-int/lit16 v6, v6, 0x200
 
     goto :goto_9
 
     :cond_16
-    if-nez v4, :cond_17
+    if-eqz v4, :cond_0
 
-    move v1, v2
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+
+    or-int/lit16 v6, v6, 0x321
+
+    int-to-short v6, v6
+
+    int-to-short v6, v6
+
+    iput-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+
+    and-int/lit8 v6, v6, -0xf
+
+    int-to-short v6, v6
+
+    int-to-short v6, v6
+
+    iput-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+
+    const-string/jumbo v6, "http://apache.org/xml/features/validation/schema/normalized-value"
+
+    invoke-virtual {p0, v6, v7}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
 
     goto/16 :goto_0
 
     :cond_17
-    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    const-string/jumbo v6, "canonical-form"
 
-    or-int/lit16 v1, v1, 0x321
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    int-to-short v1, v1
+    move-result v6
 
-    int-to-short v1, v1
+    if-nez v6, :cond_3
 
-    iput-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    const-string/jumbo v6, "validate-if-schema"
 
-    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    and-int/lit8 v1, v1, -0xf
+    move-result v6
 
-    int-to-short v1, v1
+    if-nez v6, :cond_3
 
-    int-to-short v1, v1
+    const-string/jumbo v6, "check-character-normalization"
 
-    iput-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    const-string/jumbo v1, "http://apache.org/xml/features/validation/schema/normalized-value"
+    move-result v6
 
-    invoke-virtual {p0, v1, v3}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setFeature(Ljava/lang/String;Z)V
+    if-nez v6, :cond_3
 
-    move v1, v2
+    const-string/jumbo v6, "element-content-whitespace"
+
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_18
+
+    const-string/jumbo v6, "http://apache.org/xml/features/validation/schema/augment-psvi"
+
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_19
+
+    const-string/jumbo v6, "psvi"
+
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_1a
+
+    const/4 v2, 0x0
 
     goto/16 :goto_0
 
     :cond_18
-    const-string/jumbo v1, "canonical-form"
+    if-nez v4, :cond_0
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    const-string/jumbo v1, "validate-if-schema"
-
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    const-string/jumbo v1, "check-character-normalization"
-
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    const-string/jumbo v1, "element-content-whitespace"
-
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_1a
-
-    const-string/jumbo v1, "http://apache.org/xml/features/validation/schema/augment-psvi"
-
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_1c
-
-    const-string/jumbo v1, "psvi"
-
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_1e
-
-    move v1, v3
-
-    goto/16 :goto_0
-
-    :cond_19
     invoke-static {p1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->newFeatureNotSupportedError(Ljava/lang/String;)Lmf/org/w3c/dom/DOMException;
 
-    move-result-object v1
+    move-result-object v6
 
-    throw v1
+    throw v6
+
+    :cond_19
+    if-nez v4, :cond_0
+
+    invoke-static {p1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->newFeatureNotSupportedError(Ljava/lang/String;)Lmf/org/w3c/dom/DOMException;
+
+    move-result-object v6
+
+    throw v6
 
     :cond_1a
-    if-eqz v4, :cond_1b
+    if-nez v4, :cond_1b
 
-    move v1, v2
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
+
+    and-int/lit16 v6, v6, -0x81
+
+    :goto_a
+    int-to-short v6, v6
+
+    int-to-short v6, v6
+
+    iput-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
     goto/16 :goto_0
 
     :cond_1b
-    invoke-static {p1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->newFeatureNotSupportedError(Ljava/lang/String;)Lmf/org/w3c/dom/DOMException;
+    iget-short v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
 
-    move-result-object v1
-
-    throw v1
-
-    :cond_1c
-    if-eqz v4, :cond_1d
-
-    move v1, v2
-
-    goto/16 :goto_0
-
-    :cond_1d
-    invoke-static {p1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->newFeatureNotSupportedError(Ljava/lang/String;)Lmf/org/w3c/dom/DOMException;
-
-    move-result-object v1
-
-    throw v1
-
-    :cond_1e
-    if-nez v4, :cond_1f
-
-    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
-
-    and-int/lit16 v1, v1, -0x81
-
-    :goto_a
-    int-to-short v1, v1
-
-    int-to-short v1, v1
-
-    iput-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
-
-    move v1, v2
-
-    goto/16 :goto_0
-
-    :cond_1f
-    iget-short v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->features:S
-
-    or-int/lit16 v1, v1, 0x80
+    or-int/lit16 v6, v6, 0x80
 
     goto :goto_a
 
-    :cond_20
-    instance-of v1, p2, Ljava/lang/Boolean;
+    :cond_1c
+    instance-of v6, p2, Ljava/lang/Boolean;
 
-    if-eqz v1, :cond_0
+    if-eqz v6, :cond_1
 
-    :cond_21
+    :cond_1d
     :goto_b
     return-void
 
-    :cond_22
-    instance-of v1, p2, Lmf/org/w3c/dom/DOMErrorHandler;
+    :cond_1e
+    instance-of v6, p2, Lmf/org/w3c/dom/DOMErrorHandler;
 
-    if-eqz v1, :cond_24
+    if-eqz v6, :cond_20
 
-    :cond_23
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fErrorHandlerWrapper:Lmf/org/apache/xerces/util/DOMErrorHandlerWrapper;
+    :cond_1f
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fErrorHandlerWrapper:Lmf/org/apache/xerces/util/DOMErrorHandlerWrapper;
 
     check-cast p2, Lmf/org/w3c/dom/DOMErrorHandler;
 
-    invoke-virtual {v1, p2}, Lmf/org/apache/xerces/util/DOMErrorHandlerWrapper;->setErrorHandler(Lmf/org/w3c/dom/DOMErrorHandler;)V
+    invoke-virtual {v6, p2}, Lmf/org/apache/xerces/util/DOMErrorHandlerWrapper;->setErrorHandler(Lmf/org/w3c/dom/DOMErrorHandler;)V
 
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fErrorHandlerWrapper:Lmf/org/apache/xerces/util/DOMErrorHandlerWrapper;
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fErrorHandlerWrapper:Lmf/org/apache/xerces/util/DOMErrorHandlerWrapper;
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setErrorHandler(Lmf/org/apache/xerces/xni/parser/XMLErrorHandler;)V
+    invoke-virtual {p0, v6}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setErrorHandler(Lmf/org/apache/xerces/xni/parser/XMLErrorHandler;)V
 
     goto :goto_b
 
-    :cond_24
-    if-eqz p2, :cond_23
+    :cond_20
+    if-eqz p2, :cond_1f
 
     invoke-static {p1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->newTypeMismatchError(Ljava/lang/String;)Lmf/org/w3c/dom/DOMException;
 
-    move-result-object v1
+    move-result-object v6
 
-    throw v1
+    throw v6
 
-    :cond_25
-    instance-of v1, p2, Lmf/org/w3c/dom/ls/LSResourceResolver;
+    :cond_21
+    instance-of v6, p2, Lmf/org/w3c/dom/ls/LSResourceResolver;
 
-    if-eqz v1, :cond_27
+    if-eqz v6, :cond_23
 
-    :cond_26
+    :cond_22
     :try_start_0
-    new-instance v1, Lmf/org/apache/xerces/util/DOMEntityResolverWrapper;
+    new-instance v6, Lmf/org/apache/xerces/util/DOMEntityResolverWrapper;
 
     check-cast p2, Lmf/org/w3c/dom/ls/LSResourceResolver;
 
-    invoke-direct {v1, p2}, Lmf/org/apache/xerces/util/DOMEntityResolverWrapper;-><init>(Lmf/org/w3c/dom/ls/LSResourceResolver;)V
+    invoke-direct {v6, p2}, Lmf/org/apache/xerces/util/DOMEntityResolverWrapper;-><init>(Lmf/org/w3c/dom/ls/LSResourceResolver;)V
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setEntityResolver(Lmf/org/apache/xerces/xni/parser/XMLEntityResolver;)V
+    invoke-virtual {p0, v6}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setEntityResolver(Lmf/org/apache/xerces/xni/parser/XMLEntityResolver;)V
     :try_end_0
     .catch Lmf/org/apache/xerces/xni/parser/XMLConfigurationException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -2854,59 +2810,59 @@
 
     goto :goto_b
 
-    :cond_27
-    if-eqz p2, :cond_26
+    :cond_23
+    if-eqz p2, :cond_22
 
     invoke-static {p1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->newTypeMismatchError(Ljava/lang/String;)Lmf/org/w3c/dom/DOMException;
 
-    move-result-object v1
+    move-result-object v6
 
-    throw v1
+    throw v6
 
-    :cond_28
-    instance-of v1, p2, Ljava/lang/String;
+    :cond_24
+    instance-of v6, p2, Ljava/lang/String;
 
-    if-eqz v1, :cond_2a
+    if-eqz v6, :cond_26
 
-    :cond_29
-    if-eqz p2, :cond_2b
+    :cond_25
+    if-eqz p2, :cond_27
 
     :try_start_1
     move-object v0, p2
 
     check-cast v0, Ljava/lang/String;
 
-    move-object v1, v0
+    move-object v6, v0
 
-    iput-object v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fSchemaLocation:Ljava/lang/String;
+    iput-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fSchemaLocation:Ljava/lang/String;
 
-    new-instance v1, Ljava/util/StringTokenizer;
+    new-instance v5, Ljava/util/StringTokenizer;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fSchemaLocation:Ljava/lang/String;
+    iget-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fSchemaLocation:Ljava/lang/String;
 
-    const-string/jumbo v3, " \n\t\r"
+    const-string/jumbo v7, " \n\t\r"
 
-    invoke-direct {v1, v2, v3}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v5, v6, v7}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v1}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
+    invoke-virtual {v5}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
 
-    move-result v2
+    move-result v6
 
-    if-nez v2, :cond_2c
+    if-nez v6, :cond_28
 
-    const-string/jumbo v1, "http://java.sun.com/xml/jaxp/properties/schemaSource"
+    const-string/jumbo v6, "http://java.sun.com/xml/jaxp/properties/schemaSource"
 
-    const/4 v2, 0x1
+    const/4 v7, 0x1
 
-    new-array v2, v2, [Ljava/lang/String;
-
-    const/4 v3, 0x0
+    new-array v7, v7, [Ljava/lang/String;
 
     check-cast p2, Ljava/lang/String;
 
-    aput-object p2, v2, v3
+    const/4 v8, 0x0
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    aput-object p2, v7, v8
+
+    invoke-virtual {p0, v6, v7}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
     :try_end_1
     .catch Lmf/org/apache/xerces/xni/parser/XMLConfigurationException; {:try_start_1 .. :try_end_1} :catch_1
 
@@ -2917,104 +2873,104 @@
 
     goto :goto_b
 
-    :cond_2a
-    if-eqz p2, :cond_29
+    :cond_26
+    if-eqz p2, :cond_25
 
     invoke-static {p1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->newTypeMismatchError(Ljava/lang/String;)Lmf/org/w3c/dom/DOMException;
 
-    move-result-object v1
+    move-result-object v6
 
-    throw v1
+    throw v6
 
-    :cond_2b
-    const/4 v1, 0x0
+    :cond_27
+    const/4 v6, 0x0
 
     :try_start_2
-    iput-object v1, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fSchemaLocation:Ljava/lang/String;
+    iput-object v6, p0, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->fSchemaLocation:Ljava/lang/String;
 
-    const-string/jumbo v1, "http://java.sun.com/xml/jaxp/properties/schemaSource"
+    const-string/jumbo v6, "http://java.sun.com/xml/jaxp/properties/schemaSource"
 
-    const/4 v2, 0x0
+    const/4 v7, 0x0
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v6, v7}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
     goto :goto_b
 
-    :cond_2c
-    new-instance v2, Ljava/util/ArrayList;
+    :cond_28
+    new-instance v3, Ljava/util/ArrayList;
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-virtual {v1}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :goto_c
-    invoke-virtual {v1}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
+    invoke-virtual {v5}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
 
-    move-result v3
+    move-result v6
 
-    if-eqz v3, :cond_2d
+    if-eqz v6, :cond_29
 
-    invoke-virtual {v1}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_c
 
-    :cond_2d
-    const-string/jumbo v1, "http://java.sun.com/xml/jaxp/properties/schemaSource"
+    :cond_29
+    const-string/jumbo v6, "http://java.sun.com/xml/jaxp/properties/schemaSource"
 
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
-    move-result v3
+    move-result v7
 
-    new-array v3, v3, [Ljava/lang/String;
+    new-array v7, v7, [Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-virtual {v3, v7}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v7
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v6, v7}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
     :try_end_2
     .catch Lmf/org/apache/xerces/xni/parser/XMLConfigurationException; {:try_start_2 .. :try_end_2} :catch_1
 
     goto/16 :goto_b
 
-    :cond_2e
-    instance-of v1, p2, Ljava/lang/String;
+    :cond_2a
+    instance-of v6, p2, Ljava/lang/String;
 
-    if-eqz v1, :cond_30
+    if-eqz v6, :cond_2c
 
-    :cond_2f
-    if-eqz p2, :cond_31
+    :cond_2b
+    if-eqz p2, :cond_2d
 
     :try_start_3
-    sget-object v1, Lmf/org/apache/xerces/impl/Constants;->NS_XMLSCHEMA:Ljava/lang/String;
+    sget-object v6, Lmf/org/apache/xerces/impl/Constants;->NS_XMLSCHEMA:Ljava/lang/String;
 
-    invoke-virtual {p2, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v6}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v6
 
-    if-nez v1, :cond_32
+    if-nez v6, :cond_2e
 
-    sget-object v1, Lmf/org/apache/xerces/impl/Constants;->NS_DTD:Ljava/lang/String;
+    sget-object v6, Lmf/org/apache/xerces/impl/Constants;->NS_DTD:Ljava/lang/String;
 
-    invoke-virtual {p2, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v6}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v6
 
-    if-eqz v1, :cond_21
+    if-eqz v6, :cond_1d
 
-    const-string/jumbo v1, "http://java.sun.com/xml/jaxp/properties/schemaLanguage"
+    const-string/jumbo v6, "http://java.sun.com/xml/jaxp/properties/schemaLanguage"
 
-    sget-object v2, Lmf/org/apache/xerces/impl/Constants;->NS_DTD:Ljava/lang/String;
+    sget-object v7, Lmf/org/apache/xerces/impl/Constants;->NS_DTD:Ljava/lang/String;
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v6, v7}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
     :try_end_3
     .catch Lmf/org/apache/xerces/xni/parser/XMLConfigurationException; {:try_start_3 .. :try_end_3} :catch_2
 
@@ -3025,42 +2981,42 @@
 
     goto/16 :goto_b
 
-    :cond_30
-    if-eqz p2, :cond_2f
+    :cond_2c
+    if-eqz p2, :cond_2b
 
     invoke-static {p1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->newTypeMismatchError(Ljava/lang/String;)Lmf/org/w3c/dom/DOMException;
 
-    move-result-object v1
+    move-result-object v6
 
-    throw v1
+    throw v6
 
-    :cond_31
+    :cond_2d
     :try_start_4
-    const-string/jumbo v1, "http://java.sun.com/xml/jaxp/properties/schemaLanguage"
+    const-string/jumbo v6, "http://java.sun.com/xml/jaxp/properties/schemaLanguage"
 
-    const/4 v2, 0x0
+    const/4 v7, 0x0
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v6, v7}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
     goto/16 :goto_b
 
-    :cond_32
-    const-string/jumbo v1, "http://java.sun.com/xml/jaxp/properties/schemaLanguage"
+    :cond_2e
+    const-string/jumbo v6, "http://java.sun.com/xml/jaxp/properties/schemaLanguage"
 
-    sget-object v2, Lmf/org/apache/xerces/impl/Constants;->NS_XMLSCHEMA:Ljava/lang/String;
+    sget-object v7, Lmf/org/apache/xerces/impl/Constants;->NS_XMLSCHEMA:Ljava/lang/String;
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v6, v7}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
     :try_end_4
     .catch Lmf/org/apache/xerces/xni/parser/XMLConfigurationException; {:try_start_4 .. :try_end_4} :catch_2
 
     goto/16 :goto_b
 
-    :cond_33
-    instance-of v1, p2, Lmf/org/apache/xerces/xni/parser/XMLEntityResolver;
+    :cond_2f
+    instance-of v6, p2, Lmf/org/apache/xerces/xni/parser/XMLEntityResolver;
 
-    if-eqz v1, :cond_35
+    if-eqz v6, :cond_31
 
-    :cond_34
+    :cond_30
     :try_start_5
     check-cast p2, Lmf/org/apache/xerces/xni/parser/XMLEntityResolver;
 
@@ -3075,74 +3031,74 @@
 
     goto/16 :goto_b
 
-    :cond_35
-    if-eqz p2, :cond_34
+    :cond_31
+    if-eqz p2, :cond_30
 
     invoke-static {p1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->newTypeMismatchError(Ljava/lang/String;)Lmf/org/w3c/dom/DOMException;
 
-    move-result-object v1
+    move-result-object v6
 
-    throw v1
+    throw v6
+
+    :cond_32
+    instance-of v6, p2, Lmf/org/apache/xerces/util/SymbolTable;
+
+    if-nez v6, :cond_33
+
+    invoke-static {p1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->newTypeMismatchError(Ljava/lang/String;)Lmf/org/w3c/dom/DOMException;
+
+    move-result-object v6
+
+    throw v6
+
+    :cond_33
+    const-string/jumbo v6, "http://apache.org/xml/properties/internal/symbol-table"
+
+    invoke-virtual {p0, v6, p2}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+
+    goto/16 :goto_b
+
+    :cond_34
+    instance-of v6, p2, Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
+
+    if-eqz v6, :cond_36
+
+    :cond_35
+    const-string/jumbo v6, "http://apache.org/xml/properties/internal/grammar-pool"
+
+    invoke-virtual {p0, v6, p2}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+
+    goto/16 :goto_b
 
     :cond_36
-    instance-of v1, p2, Lmf/org/apache/xerces/util/SymbolTable;
-
-    if-nez v1, :cond_37
+    if-eqz p2, :cond_35
 
     invoke-static {p1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->newTypeMismatchError(Ljava/lang/String;)Lmf/org/w3c/dom/DOMException;
 
-    move-result-object v1
+    move-result-object v6
 
-    throw v1
+    throw v6
 
     :cond_37
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/symbol-table"
+    instance-of v6, p2, Lmf/org/apache/xerces/util/SecurityManager;
 
-    invoke-virtual {p0, v1, p2}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
-
-    goto/16 :goto_b
+    if-eqz v6, :cond_39
 
     :cond_38
-    instance-of v1, p2, Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
+    const-string/jumbo v6, "http://apache.org/xml/properties/security-manager"
 
-    if-eqz v1, :cond_3a
+    invoke-virtual {p0, v6, p2}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+
+    goto/16 :goto_b
 
     :cond_39
-    const-string/jumbo v1, "http://apache.org/xml/properties/internal/grammar-pool"
-
-    invoke-virtual {p0, v1, p2}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
-
-    goto/16 :goto_b
-
-    :cond_3a
-    if-eqz p2, :cond_39
+    if-eqz p2, :cond_38
 
     invoke-static {p1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->newTypeMismatchError(Ljava/lang/String;)Lmf/org/w3c/dom/DOMException;
 
-    move-result-object v1
+    move-result-object v6
 
-    throw v1
-
-    :cond_3b
-    instance-of v1, p2, Lmf/org/apache/xerces/util/SecurityManager;
-
-    if-eqz v1, :cond_3d
-
-    :cond_3c
-    const-string/jumbo v1, "http://apache.org/xml/properties/security-manager"
-
-    invoke-virtual {p0, v1, p2}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
-
-    goto/16 :goto_b
-
-    :cond_3d
-    if-eqz p2, :cond_3c
-
-    invoke-static {p1}, Lmf/org/apache/xerces/dom/DOMConfigurationImpl;->newTypeMismatchError(Ljava/lang/String;)Lmf/org/w3c/dom/DOMException;
-
-    move-result-object v1
-
-    throw v1
+    throw v6
 .end method
 
 .method public setProperty(Ljava/lang/String;Ljava/lang/Object;)V

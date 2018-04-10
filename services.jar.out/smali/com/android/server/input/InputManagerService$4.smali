@@ -1,9 +1,6 @@
 .class Lcom/android/server/input/InputManagerService$4;
-.super Ljava/lang/Object;
+.super Landroid/content/BroadcastReceiver;
 .source "InputManagerService.java"
-
-# interfaces
-.implements Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListener;
 
 
 # annotations
@@ -27,107 +24,63 @@
 
     iput-object p1, p0, Lcom/android/server/input/InputManagerService$4;->this$0:Lcom/android/server/input/InputManagerService;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onDesktopDockConnectionChanged(Z)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onDesktopModeChanged(Z)V
-    .locals 5
-
-    const/4 v4, 0x2
-
-    const/4 v2, 0x0
-
-    const/4 v3, 0x4
-
-    if-eqz p1, :cond_0
-
-    const-string/jumbo v0, "InputManager"
-
-    const-string/jumbo v1, "received KNOXDESKTOP_MODE enabled"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/server/input/InputManagerService$4;->this$0:Lcom/android/server/input/InputManagerService;
-
-    invoke-static {v0}, Lcom/android/server/input/InputManagerService;->-get7(Lcom/android/server/input/InputManagerService;)J
-
-    move-result-wide v0
-
-    invoke-static {v0, v1, v4, v2}, Lcom/android/server/input/InputManagerService;->-wrap11(JII)V
-
-    iget-object v0, p0, Lcom/android/server/input/InputManagerService$4;->this$0:Lcom/android/server/input/InputManagerService;
-
-    invoke-static {v0}, Lcom/android/server/input/InputManagerService;->-get7(Lcom/android/server/input/InputManagerService;)J
-
-    move-result-wide v0
-
-    const/4 v2, -0x1
-
-    invoke-static {v0, v1, v3, v2}, Lcom/android/server/input/InputManagerService;->-wrap11(JII)V
-
-    iget-object v0, p0, Lcom/android/server/input/InputManagerService$4;->this$0:Lcom/android/server/input/InputManagerService;
-
-    const/4 v1, -0x3
-
-    invoke-static {v0, v1}, Lcom/android/server/input/InputManagerService;->-set3(Lcom/android/server/input/InputManagerService;I)I
-
-    :goto_0
-    iget-object v0, p0, Lcom/android/server/input/InputManagerService$4;->this$0:Lcom/android/server/input/InputManagerService;
-
-    invoke-static {v0}, Lcom/android/server/input/InputManagerService;->-get7(Lcom/android/server/input/InputManagerService;)J
-
-    move-result-wide v0
-
-    invoke-static {v0, v1, p1}, Lcom/android/server/input/InputManagerService;->-wrap8(JZ)V
-
-    sput-boolean p1, Landroid/view/PointerIcon;->mDesktopMode:Z
-
-    invoke-static {}, Landroid/view/PointerIcon;->clearSystemIcons()V
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/input/InputManagerService$4;->this$0:Lcom/android/server/input/InputManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/input/InputManagerService;->updatePointerSpeedFromSettings()V
 
+    iget-object v0, p0, Lcom/android/server/input/InputManagerService$4;->this$0:Lcom/android/server/input/InputManagerService;
+
+    invoke-virtual {v0}, Lcom/android/server/input/InputManagerService;->updateShowTouchesFromSettings()V
+
+    iget-object v0, p0, Lcom/android/server/input/InputManagerService$4;->this$0:Lcom/android/server/input/InputManagerService;
+
+    invoke-virtual {v0}, Lcom/android/server/input/InputManagerService;->updateAccessibilityLargePointerFromSettings()V
+
+    iget-object v0, p0, Lcom/android/server/input/InputManagerService$4;->this$0:Lcom/android/server/input/InputManagerService;
+
+    invoke-virtual {v0}, Lcom/android/server/input/InputManagerService;->updateCoverTestModeFromSettings()V
+
+    iget-object v0, p0, Lcom/android/server/input/InputManagerService$4;->this$0:Lcom/android/server/input/InputManagerService;
+
+    invoke-virtual {v0}, Lcom/android/server/input/InputManagerService;->updateShowHoveringFromSettings()V
+
+    iget-object v0, p0, Lcom/android/server/input/InputManagerService$4;->this$0:Lcom/android/server/input/InputManagerService;
+
+    invoke-virtual {v0}, Lcom/android/server/input/InputManagerService;->updateShowFingerHoveringFromSettings()V
+
+    iget-object v0, p0, Lcom/android/server/input/InputManagerService$4;->this$0:Lcom/android/server/input/InputManagerService;
+
+    invoke-virtual {v0}, Lcom/android/server/input/InputManagerService;->updateGloveModeFromSettings()V
+
+    iget-object v0, p0, Lcom/android/server/input/InputManagerService$4;->this$0:Lcom/android/server/input/InputManagerService;
+
+    invoke-virtual {v0}, Lcom/android/server/input/InputManagerService;->updateKidsModeFromSettings()V
+
+    iget-object v0, p0, Lcom/android/server/input/InputManagerService$4;->this$0:Lcom/android/server/input/InputManagerService;
+
+    invoke-virtual {v0}, Lcom/android/server/input/InputManagerService;->updatePenHoveringFromSettings()V
+
+    iget-object v0, p0, Lcom/android/server/input/InputManagerService$4;->this$0:Lcom/android/server/input/InputManagerService;
+
+    invoke-virtual {v0}, Lcom/android/server/input/InputManagerService;->updateAccessibilityEnabledFromSettings()V
+
+    iget-object v0, p0, Lcom/android/server/input/InputManagerService$4;->this$0:Lcom/android/server/input/InputManagerService;
+
+    invoke-virtual {v0}, Lcom/android/server/input/InputManagerService;->updateSideSyncFromSettings()V
+
+    iget-object v0, p0, Lcom/android/server/input/InputManagerService$4;->this$0:Lcom/android/server/input/InputManagerService;
+
+    invoke-virtual {v0}, Lcom/android/server/input/InputManagerService;->updateSpenScreenOnFromSettings()V
+
     return-void
-
-    :cond_0
-    const-string/jumbo v0, "InputManager"
-
-    const-string/jumbo v1, "received KNOXDESKTOP_MODE disabled"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/server/input/InputManagerService$4;->this$0:Lcom/android/server/input/InputManagerService;
-
-    invoke-static {v0, v2}, Lcom/android/server/input/InputManagerService;->-set3(Lcom/android/server/input/InputManagerService;I)I
-
-    iget-object v0, p0, Lcom/android/server/input/InputManagerService$4;->this$0:Lcom/android/server/input/InputManagerService;
-
-    invoke-static {v0}, Lcom/android/server/input/InputManagerService;->-get7(Lcom/android/server/input/InputManagerService;)J
-
-    move-result-wide v0
-
-    invoke-static {v0, v1, v4, v3}, Lcom/android/server/input/InputManagerService;->-wrap11(JII)V
-
-    iget-object v0, p0, Lcom/android/server/input/InputManagerService$4;->this$0:Lcom/android/server/input/InputManagerService;
-
-    invoke-static {v0}, Lcom/android/server/input/InputManagerService;->-get7(Lcom/android/server/input/InputManagerService;)J
-
-    move-result-wide v0
-
-    const/4 v2, 0x3
-
-    invoke-static {v0, v1, v3, v2}, Lcom/android/server/input/InputManagerService;->-wrap11(JII)V
-
-    goto :goto_0
 .end method

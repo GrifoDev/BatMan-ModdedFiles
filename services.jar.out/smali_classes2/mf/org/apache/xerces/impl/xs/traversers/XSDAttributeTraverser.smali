@@ -117,7 +117,7 @@
 .end method
 
 .method protected traverseGlobal(Lmf/org/w3c/dom/Element;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;Lmf/org/apache/xerces/impl/xs/SchemaGrammar;)Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
-    .locals 7
+    .locals 8
 
     const/4 v5, 0x1
 
@@ -139,466 +139,513 @@
 
     invoke-virtual/range {v0 .. v6}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->traverseNamedAttr(Lmf/org/w3c/dom/Element;[Ljava/lang/Object;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;Lmf/org/apache/xerces/impl/xs/SchemaGrammar;ZLmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;)Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
 
-    move-result-object v0
+    move-result-object v7
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fAttrChecker:Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;
+    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fAttrChecker:Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;
 
-    invoke-virtual {v1, v2, p2}, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->returnAttrArray([Ljava/lang/Object;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)V
+    invoke-virtual {v0, v2, p2}, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->returnAttrArray([Ljava/lang/Object;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)V
 
-    return-object v0
+    return-object v7
 .end method
 
 .method protected traverseLocal(Lmf/org/w3c/dom/Element;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;Lmf/org/apache/xerces/impl/xs/SchemaGrammar;Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;)Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;
-    .locals 13
+    .locals 26
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fAttrChecker:Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x0
+    iget-object v3, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fAttrChecker:Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;
 
-    invoke-virtual {v0, p1, v1, p2}, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->checkAttributes(Lmf/org/w3c/dom/Element;ZLmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)[Ljava/lang/Object;
+    const/4 v4, 0x0
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, p2
+
+    invoke-virtual {v3, v0, v4, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->checkAttributes(Lmf/org/w3c/dom/Element;ZLmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)[Ljava/lang/Object;
+
+    move-result-object v6
+
+    sget v3, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_DEFAULT:I
+
+    aget-object v20, v6, v3
+
+    check-cast v20, Ljava/lang/String;
+
+    sget v3, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_FIXED:I
+
+    aget-object v21, v6, v3
+
+    check-cast v21, Ljava/lang/String;
+
+    sget v3, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_NAME:I
+
+    aget-object v23, v6, v3
+
+    check-cast v23, Ljava/lang/String;
+
+    sget v3, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_REF:I
+
+    aget-object v24, v6, v3
+
+    check-cast v24, Lmf/org/apache/xerces/xni/QName;
+
+    sget v3, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_USE:I
+
+    aget-object v25, v6, v3
+
+    check-cast v25, Lmf/org/apache/xerces/impl/xs/util/XInt;
+
+    const/16 v17, 0x0
+
+    const/4 v14, 0x0
+
+    sget-object v3, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ATT_REF:Ljava/lang/String;
+
+    move-object/from16 v0, p1
+
+    invoke-interface {v0, v3}, Lmf/org/w3c/dom/Element;->getAttributeNode(Ljava/lang/String;)Lmf/org/w3c/dom/Attr;
 
     move-result-object v3
 
-    sget v0, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_DEFAULT:I
+    if-nez v3, :cond_3
 
-    aget-object v0, v3, v0
+    const/4 v12, 0x0
 
-    move-object v8, v0
+    move-object/from16 v7, p0
 
-    check-cast v8, Ljava/lang/String;
+    move-object/from16 v8, p1
 
-    sget v0, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_FIXED:I
+    move-object v9, v6
 
-    aget-object v0, v3, v0
+    move-object/from16 v10, p2
 
-    move-object v9, v0
+    move-object/from16 v11, p3
 
-    check-cast v9, Ljava/lang/String;
+    move-object/from16 v13, p4
 
-    sget v0, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_NAME:I
+    invoke-virtual/range {v7 .. v13}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->traverseNamedAttr(Lmf/org/w3c/dom/Element;[Ljava/lang/Object;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;Lmf/org/apache/xerces/impl/xs/SchemaGrammar;ZLmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;)Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
 
-    aget-object v0, v3, v0
-
-    check-cast v0, Ljava/lang/String;
-
-    sget v1, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_REF:I
-
-    aget-object v1, v3, v1
-
-    move-object v6, v1
-
-    check-cast v6, Lmf/org/apache/xerces/xni/QName;
-
-    sget v1, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_USE:I
-
-    aget-object v1, v3, v1
-
-    move-object v10, v1
-
-    check-cast v10, Lmf/org/apache/xerces/impl/xs/util/XInt;
-
-    const/4 v11, 0x0
-
-    sget-object v1, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ATT_REF:Ljava/lang/String;
-
-    invoke-interface {p1, v1}, Lmf/org/w3c/dom/Element;->getAttributeNode(Ljava/lang/String;)Lmf/org/w3c/dom/Attr;
-
-    move-result-object v1
-
-    if-nez v1, :cond_3
-
-    const/4 v6, 0x0
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v4, p2
-
-    move-object/from16 v5, p3
-
-    move-object/from16 v7, p4
-
-    invoke-virtual/range {v1 .. v7}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->traverseNamedAttr(Lmf/org/w3c/dom/Element;[Ljava/lang/Object;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;Lmf/org/apache/xerces/impl/xs/SchemaGrammar;ZLmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;)Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
-
-    move-result-object v7
-
-    move-object v2, v11
-
-    move-object v4, v0
+    move-result-object v17
 
     :goto_0
-    const/4 v0, 0x0
+    const/16 v19, 0x0
 
-    if-nez v8, :cond_9
+    if-nez v20, :cond_9
 
-    if-nez v9, :cond_a
+    if-nez v21, :cond_a
 
     :goto_1
-    move v5, v0
+    const/16 v16, 0x0
+
+    if-nez v17, :cond_b
 
     :goto_2
-    const/4 v6, 0x0
-
-    if-nez v7, :cond_b
-
-    :goto_3
-    if-nez v8, :cond_10
+    if-nez v20, :cond_10
 
     :cond_0
-    :goto_4
-    const/4 v0, 0x1
+    :goto_3
+    const/4 v3, 0x1
 
-    if-eq v5, v0, :cond_11
+    move/from16 v0, v19
+
+    if-eq v0, v3, :cond_11
 
     :cond_1
-    :goto_5
-    if-nez v8, :cond_12
+    :goto_4
+    if-nez v20, :cond_12
 
     :cond_2
-    :goto_6
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fAttrChecker:Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;
+    :goto_5
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v3, p2}, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->returnAttrArray([Ljava/lang/Object;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)V
+    iget-object v3, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fAttrChecker:Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;
 
-    return-object v6
+    move-object/from16 v0, p2
+
+    invoke-virtual {v3, v6, v0}, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->returnAttrArray([Ljava/lang/Object;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)V
+
+    return-object v16
 
     :cond_3
-    if-nez v6, :cond_4
+    if-nez v24, :cond_4
 
-    const/4 v7, 0x0
-
-    move-object v2, v11
-
-    move-object v4, v0
+    const/16 v17, 0x0
 
     goto :goto_0
 
     :cond_4
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fSchemaHandler:Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x1
+    iget-object v3, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fSchemaHandler:Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;
 
-    invoke-virtual {v0, p2, v1, v6, p1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->getGlobalDecl(Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;ILmf/org/apache/xerces/xni/QName;Lmf/org/w3c/dom/Element;)Ljava/lang/Object;
+    const/4 v4, 0x1
 
-    move-result-object v0
+    move-object/from16 v0, p2
 
-    move-object v7, v0
+    move-object/from16 v1, v24
 
-    check-cast v7, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
+    move-object/from16 v2, p1
 
-    invoke-static {p1}, Lmf/org/apache/xerces/util/DOMUtil;->getFirstChildElement(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
+    invoke-virtual {v3, v0, v4, v1, v2}, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->getGlobalDecl(Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;ILmf/org/apache/xerces/xni/QName;Lmf/org/w3c/dom/Element;)Ljava/lang/Object;
 
-    move-result-object v12
+    move-result-object v17
 
-    if-nez v12, :cond_6
+    check-cast v17, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
+
+    invoke-static/range {p1 .. p1}, Lmf/org/apache/xerces/util/DOMUtil;->getFirstChildElement(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
+
+    move-result-object v18
+
+    if-nez v18, :cond_6
 
     :cond_5
-    invoke-static {p1}, Lmf/org/apache/xerces/util/DOMUtil;->getSyntheticAnnotation(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
+    invoke-static/range {p1 .. p1}, Lmf/org/apache/xerces/util/DOMUtil;->getSyntheticAnnotation(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v5
 
-    if-nez v2, :cond_7
+    if-nez v5, :cond_7
 
-    move-object v1, v12
-
-    move-object v0, v11
+    :goto_6
+    if-nez v18, :cond_8
 
     :goto_7
-    if-nez v1, :cond_8
+    move-object/from16 v0, v24
 
-    :goto_8
-    iget-object v1, v6, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
 
-    move-object v2, v0
-
-    move-object v4, v1
+    move-object/from16 v23, v0
 
     goto :goto_0
 
     :cond_6
-    invoke-static {v12}, Lmf/org/apache/xerces/util/DOMUtil;->getLocalName(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
+    invoke-static/range {v18 .. v18}, Lmf/org/apache/xerces/util/DOMUtil;->getLocalName(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    sget-object v1, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_ANNOTATION:Ljava/lang/String;
+    sget-object v4, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_ANNOTATION:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v3
 
-    if-eqz v0, :cond_5
+    if-eqz v3, :cond_5
 
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {p0, v12, v3, v0, p2}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->traverseAnnotationDecl(Lmf/org/w3c/dom/Element;[Ljava/lang/Object;ZLmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
+    move-object/from16 v0, p0
 
-    move-result-object v11
+    move-object/from16 v1, v18
 
-    invoke-static {v12}, Lmf/org/apache/xerces/util/DOMUtil;->getNextSiblingElement(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
+    move-object/from16 v2, p2
 
-    move-result-object v0
+    invoke-virtual {v0, v1, v6, v3, v2}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->traverseAnnotationDecl(Lmf/org/w3c/dom/Element;[Ljava/lang/Object;ZLmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
-    move-object v1, v0
+    move-result-object v14
 
-    move-object v0, v11
+    invoke-static/range {v18 .. v18}, Lmf/org/apache/xerces/util/DOMUtil;->getNextSiblingElement(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
 
-    goto :goto_7
+    move-result-object v18
+
+    goto :goto_6
 
     :cond_7
-    const/4 v4, 0x0
+    const/4 v7, 0x0
 
-    move-object v0, p0
+    move-object/from16 v3, p0
 
-    move-object v1, p1
+    move-object/from16 v4, p1
 
-    move-object v5, p2
+    move-object/from16 v8, p2
 
-    invoke-virtual/range {v0 .. v5}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->traverseSyntheticAnnotation(Lmf/org/w3c/dom/Element;Ljava/lang/String;[Ljava/lang/Object;ZLmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
+    invoke-virtual/range {v3 .. v8}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->traverseSyntheticAnnotation(Lmf/org/w3c/dom/Element;Ljava/lang/String;[Ljava/lang/Object;ZLmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
-    move-result-object v0
+    move-result-object v14
 
-    move-object v1, v12
+    goto :goto_6
+
+    :cond_8
+    const/4 v3, 0x1
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    move-object/from16 v0, v24
+
+    iget-object v4, v0, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+
+    const/4 v7, 0x0
+
+    aput-object v4, v3, v7
+
+    const-string/jumbo v4, "src-attribute.3.2"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v0, v4, v3, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
 
     goto :goto_7
 
-    :cond_8
-    const-string/jumbo v2, "src-attribute.3.2"
+    :cond_9
+    const/16 v19, 0x1
 
-    const/4 v4, 0x1
+    goto/16 :goto_1
 
-    new-array v4, v4, [Ljava/lang/Object;
+    :cond_a
+    const/16 v19, 0x2
 
-    const/4 v5, 0x0
+    move-object/from16 v20, v21
 
-    iget-object v11, v6, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+    const/16 v21, 0x0
 
-    aput-object v11, v4, v5
+    goto/16 :goto_1
 
-    invoke-virtual {p0, v2, v4, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
+    :cond_b
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fSchemaHandler:Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;
+
+    iget-object v3, v3, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->fDeclPool:Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;
+
+    if-nez v3, :cond_c
+
+    new-instance v16, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;
+
+    invoke-direct/range {v16 .. v16}, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;-><init>()V
+
+    :goto_8
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v16
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fAttrDecl:Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
+
+    invoke-virtual/range {v25 .. v25}, Lmf/org/apache/xerces/impl/xs/util/XInt;->shortValue()S
+
+    move-result v3
+
+    int-to-short v3, v3
+
+    move-object/from16 v0, v16
+
+    iput-short v3, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fUse:S
+
+    move/from16 v0, v19
+
+    int-to-short v3, v0
+
+    move-object/from16 v0, v16
+
+    iput-short v3, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fConstraintType:S
+
+    if-nez v20, :cond_d
+
+    :goto_9
+    sget-object v3, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ATT_REF:Ljava/lang/String;
+
+    move-object/from16 v0, p1
+
+    invoke-interface {v0, v3}, Lmf/org/w3c/dom/Element;->getAttributeNode(Ljava/lang/String;)Lmf/org/w3c/dom/Attr;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_e
+
+    if-nez v14, :cond_f
+
+    sget-object v15, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->EMPTY_LIST:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+
+    :goto_a
+    move-object/from16 v0, v16
+
+    iput-object v15, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fAnnotations:Lmf/org/apache/xerces/xs/XSObjectList;
+
+    goto/16 :goto_2
+
+    :cond_c
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fSchemaHandler:Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;
+
+    iget-object v3, v3, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->fDeclPool:Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;
+
+    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->getAttributeUse()Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;
+
+    move-result-object v16
 
     goto :goto_8
 
-    :cond_9
-    const/4 v0, 0x1
+    :cond_d
+    new-instance v3, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
 
-    goto :goto_1
+    invoke-direct {v3}, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;-><init>()V
 
-    :cond_a
-    const/4 v0, 0x2
+    move-object/from16 v0, v16
 
-    const/4 v1, 0x0
+    iput-object v3, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fDefault:Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
 
-    move v5, v0
+    move-object/from16 v0, v16
 
-    move-object v8, v9
+    iget-object v3, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fDefault:Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
 
-    move-object v9, v1
+    move-object/from16 v0, v20
 
-    goto :goto_2
-
-    :cond_b
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fSchemaHandler:Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;
-
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->fDeclPool:Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;
-
-    if-nez v0, :cond_c
-
-    new-instance v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;
-
-    invoke-direct {v0}, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;-><init>()V
-
-    move-object v6, v0
-
-    :goto_9
-    iput-object v7, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fAttrDecl:Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
-
-    invoke-virtual {v10}, Lmf/org/apache/xerces/impl/xs/util/XInt;->shortValue()S
-
-    move-result v0
-
-    int-to-short v0, v0
-
-    iput-short v0, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fUse:S
-
-    int-to-short v0, v5
-
-    iput-short v0, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fConstraintType:S
-
-    if-nez v8, :cond_d
-
-    :goto_a
-    sget-object v0, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ATT_REF:Ljava/lang/String;
-
-    invoke-interface {p1, v0}, Lmf/org/w3c/dom/Element;->getAttributeNode(Ljava/lang/String;)Lmf/org/w3c/dom/Attr;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_e
-
-    if-nez v2, :cond_f
-
-    sget-object v1, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->EMPTY_LIST:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
-
-    :goto_b
-    iput-object v1, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fAnnotations:Lmf/org/apache/xerces/xs/XSObjectList;
-
-    goto/16 :goto_3
-
-    :cond_c
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fSchemaHandler:Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;
-
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->fDeclPool:Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;
-
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->getAttributeUse()Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;
-
-    move-result-object v0
-
-    move-object v6, v0
+    iput-object v0, v3, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->normalizedValue:Ljava/lang/String;
 
     goto :goto_9
 
-    :cond_d
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+    :cond_e
+    invoke-virtual/range {v17 .. v17}, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->getAnnotations()Lmf/org/apache/xerces/xs/XSObjectList;
 
-    invoke-direct {v0}, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;-><init>()V
+    move-result-object v3
 
-    iput-object v0, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fDefault:Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+    move-object/from16 v0, v16
 
-    iget-object v0, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fDefault:Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+    iput-object v3, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fAnnotations:Lmf/org/apache/xerces/xs/XSObjectList;
 
-    iput-object v8, v0, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->normalizedValue:Ljava/lang/String;
+    goto/16 :goto_2
+
+    :cond_f
+    new-instance v15, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+
+    invoke-direct {v15}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;-><init>()V
+
+    move-object v3, v15
+
+    check-cast v3, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+
+    invoke-virtual {v3, v14}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->addXSObject(Lmf/org/apache/xerces/xs/XSObject;)V
 
     goto :goto_a
 
-    :cond_e
-    invoke-virtual {v7}, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->getAnnotations()Lmf/org/apache/xerces/xs/XSObjectList;
+    :cond_10
+    if-eqz v21, :cond_0
 
-    move-result-object v0
+    const/4 v3, 0x1
 
-    iput-object v0, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fAnnotations:Lmf/org/apache/xerces/xs/XSObjectList;
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const/4 v4, 0x0
+
+    aput-object v23, v3, v4
+
+    const-string/jumbo v4, "src-attribute.1"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v4, v3, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
 
     goto/16 :goto_3
 
-    :cond_f
-    new-instance v1, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+    :cond_11
+    if-eqz v25, :cond_1
 
-    invoke-direct {v1}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;-><init>()V
+    invoke-virtual/range {v25 .. v25}, Lmf/org/apache/xerces/impl/xs/util/XInt;->intValue()I
 
-    move-object v0, v1
+    move-result v3
 
-    check-cast v0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+    if-eqz v3, :cond_1
 
-    invoke-virtual {v0, v2}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->addXSObject(Lmf/org/apache/xerces/xs/XSObject;)V
+    const/4 v3, 0x1
 
-    goto :goto_b
+    new-array v3, v3, [Ljava/lang/Object;
 
-    :cond_10
-    if-eqz v9, :cond_0
+    const/4 v4, 0x0
 
-    const-string/jumbo v0, "src-attribute.1"
+    aput-object v23, v3, v4
 
-    const/4 v1, 0x1
+    const-string/jumbo v4, "src-attribute.2"
 
-    new-array v1, v1, [Ljava/lang/Object;
+    move-object/from16 v0, p0
 
-    const/4 v2, 0x0
+    move-object/from16 v1, p1
 
-    aput-object v4, v1, v2
+    invoke-virtual {v0, v4, v3, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
 
-    invoke-virtual {p0, v0, v1, p1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
+    const/4 v3, 0x0
+
+    move-object/from16 v0, v16
+
+    iput-short v3, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fUse:S
 
     goto/16 :goto_4
 
-    :cond_11
-    if-eqz v10, :cond_1
-
-    invoke-virtual {v10}, Lmf/org/apache/xerces/impl/xs/util/XInt;->intValue()I
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const-string/jumbo v0, "src-attribute.2"
-
-    const/4 v1, 0x1
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    const/4 v2, 0x0
-
-    aput-object v4, v1, v2
-
-    invoke-virtual {p0, v0, v1, p1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
-
-    const/4 v0, 0x0
-
-    iput-short v0, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fUse:S
-
-    goto/16 :goto_5
-
     :cond_12
-    if-eqz v6, :cond_2
+    if-eqz v16, :cond_2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fValidationState:Lmf/org/apache/xerces/impl/validation/ValidationState;
+    move-object/from16 v0, p0
 
-    iget-object v1, p2, Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;->fNamespaceSupport:Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;
+    iget-object v3, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fValidationState:Lmf/org/apache/xerces/impl/validation/ValidationState;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/validation/ValidationState;->setNamespaceSupport(Lmf/org/apache/xerces/xni/NamespaceContext;)V
+    move-object/from16 v0, p2
+
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;->fNamespaceSupport:Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;
+
+    invoke-virtual {v3, v4}, Lmf/org/apache/xerces/impl/validation/ValidationState;->setNamespaceSupport(Lmf/org/apache/xerces/xni/NamespaceContext;)V
 
     :try_start_0
-    invoke-virtual {p0, v6}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->checkDefaultValid(Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;)V
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->checkDefaultValid(Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;)V
     :try_end_0
     .catch Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException; {:try_start_0 .. :try_end_0} :catch_0
 
+    :goto_b
+    invoke-virtual/range {v17 .. v17}, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->getTypeDefinition()Lmf/org/apache/xerces/xs/XSSimpleTypeDefinition;
+
+    move-result-object v3
+
+    check-cast v3, Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+
+    invoke-interface {v3}, Lmf/org/apache/xerces/impl/dv/XSSimpleType;->isIDType()Z
+
+    move-result v3
+
+    if-nez v3, :cond_14
+
     :goto_c
-    invoke-virtual {v7}, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->getTypeDefinition()Lmf/org/apache/xerces/xs/XSSimpleTypeDefinition;
+    move-object/from16 v0, v16
 
-    move-result-object v0
+    iget-object v3, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fAttrDecl:Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
 
-    check-cast v0, Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->getConstraintType()S
 
-    invoke-interface {v0}, Lmf/org/apache/xerces/impl/dv/XSSimpleType;->isIDType()Z
+    move-result v3
 
-    move-result v0
+    const/4 v4, 0x2
 
-    if-nez v0, :cond_14
+    if-ne v3, v4, :cond_2
 
-    :goto_d
-    iget-object v0, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fAttrDecl:Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
+    move-object/from16 v0, v16
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->getConstraintType()S
+    iget-short v3, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fConstraintType:S
 
-    move-result v0
+    if-eqz v3, :cond_2
 
-    const/4 v1, 0x2
+    move-object/from16 v0, v16
 
-    if-ne v0, v1, :cond_2
+    iget-short v3, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fConstraintType:S
 
-    iget-short v0, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fConstraintType:S
+    const/4 v4, 0x2
 
-    if-eqz v0, :cond_2
-
-    iget-short v0, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fConstraintType:S
-
-    const/4 v1, 0x2
-
-    if-eq v0, v1, :cond_15
+    if-eq v3, v4, :cond_15
 
     :cond_13
-    const-string/jumbo v0, "au-props-correct.2"
+    const/4 v3, 0x2
 
-    const/4 v1, 0x2
+    new-array v3, v3, [Ljava/lang/Object;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    const/4 v4, 0x0
 
-    const/4 v2, 0x0
+    aput-object v23, v3, v4
 
-    aput-object v4, v1, v2
+    move-object/from16 v0, v16
 
-    const/4 v2, 0x1
-
-    iget-object v4, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fAttrDecl:Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fAttrDecl:Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
 
     invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->getValInfo()Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
 
@@ -608,421 +655,423 @@
 
     move-result-object v4
 
-    aput-object v4, v1, v2
+    const/4 v7, 0x1
 
-    invoke-virtual {p0, v0, v1, p1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
+    aput-object v4, v3, v7
 
-    iget-object v0, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fAttrDecl:Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
+    const-string/jumbo v4, "au-props-correct.2"
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->getValInfo()Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
-
-    move-result-object v0
-
-    iput-object v0, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fDefault:Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
-
-    const/4 v0, 0x2
-
-    iput-short v0, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fConstraintType:S
-
-    goto/16 :goto_6
-
-    :catch_0
-    move-exception v0
-
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getKey()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getArgs()[Ljava/lang/Object;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v1, v0, p1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
-
-    const-string/jumbo v0, "a-props-correct.2"
-
-    const/4 v1, 0x2
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    const/4 v2, 0x0
-
-    aput-object v4, v1, v2
-
-    const/4 v2, 0x1
-
-    aput-object v8, v1, v2
-
-    invoke-virtual {p0, v0, v1, p1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
-
-    const/4 v0, 0x0
-
-    iput-object v0, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fDefault:Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
-
-    const/4 v0, 0x0
-
-    iput-short v0, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fConstraintType:S
-
-    goto :goto_c
-
-    :cond_14
-    const-string/jumbo v0, "a-props-correct.3"
-
-    const/4 v1, 0x1
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    const/4 v2, 0x0
-
-    aput-object v4, v1, v2
-
-    invoke-virtual {p0, v0, v1, p1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
-
-    const/4 v0, 0x0
-
-    iput-object v0, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fDefault:Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
-
-    const/4 v0, 0x0
-
-    iput-short v0, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fConstraintType:S
-
-    goto :goto_d
-
-    :cond_15
-    iget-object v0, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fAttrDecl:Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
-
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->getValInfo()Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
-
-    move-result-object v0
-
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValue:Ljava/lang/Object;
-
-    iget-object v1, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fDefault:Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
-
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValue:Ljava/lang/Object;
-
-    invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_13
-
-    goto/16 :goto_6
-.end method
-
-.method traverseNamedAttr(Lmf/org/w3c/dom/Element;[Ljava/lang/Object;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;Lmf/org/apache/xerces/impl/xs/SchemaGrammar;ZLmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;)Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
-    .locals 22
-
-    sget v3, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_DEFAULT:I
-
-    aget-object v3, p2, v3
-
-    move-object v12, v3
-
-    check-cast v12, Ljava/lang/String;
-
-    sget v3, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_FIXED:I
-
-    aget-object v3, p2, v3
-
-    move-object v13, v3
-
-    check-cast v13, Ljava/lang/String;
-
-    sget v3, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_FORM:I
-
-    aget-object v3, p2, v3
-
-    check-cast v3, Lmf/org/apache/xerces/impl/xs/util/XInt;
-
-    sget v4, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_NAME:I
-
-    aget-object v4, p2, v4
-
-    check-cast v4, Ljava/lang/String;
-
-    sget v5, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_TYPE:I
-
-    aget-object v5, p2, v5
-
-    move-object v14, v5
-
-    check-cast v14, Lmf/org/apache/xerces/xni/QName;
-
-    move-object/from16 v0, p0
-
-    iget-object v5, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fSchemaHandler:Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;
-
-    iget-object v5, v5, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->fDeclPool:Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;
-
-    if-nez v5, :cond_8
-
-    new-instance v19, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
-
-    invoke-direct/range {v19 .. v19}, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;-><init>()V
-
-    :goto_0
-    if-nez v4, :cond_9
-
-    move-object v15, v4
-
-    :goto_1
-    const/4 v5, 0x0
-
-    const/4 v10, 0x0
-
-    const/4 v4, 0x0
-
-    if-nez p5, :cond_a
-
-    if-nez p6, :cond_b
-
-    :goto_2
-    if-nez v3, :cond_c
-
-    move-object/from16 v0, p3
-
-    iget-boolean v3, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;->fAreLocalAttributesQualified:Z
-
-    if-nez v3, :cond_e
-
-    move/from16 v16, v4
-
-    move-object/from16 v17, v5
-
-    :goto_3
-    const/4 v9, 0x0
-
-    const/4 v3, 0x0
-
-    if-nez p5, :cond_f
-
-    move/from16 v18, v3
-
-    :goto_4
-    invoke-static/range {p1 .. p1}, Lmf/org/apache/xerces/util/DOMUtil;->getFirstChildElement(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
-
-    move-result-object v11
-
-    const/4 v3, 0x0
-
-    if-nez v11, :cond_12
-
-    :cond_0
-    invoke-static/range {p1 .. p1}, Lmf/org/apache/xerces/util/DOMUtil;->getSyntheticAnnotation(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
-
-    move-result-object v5
-
-    if-nez v5, :cond_13
-
-    move-object v5, v3
-
-    move-object v3, v11
-
-    :goto_5
-    const/4 v6, 0x0
-
-    const/4 v4, 0x0
-
-    if-nez v3, :cond_14
-
-    move/from16 v20, v4
-
-    move-object/from16 v21, v3
-
-    :goto_6
-    if-eqz v6, :cond_16
-
-    :cond_1
-    :goto_7
-    if-eqz v6, :cond_19
-
-    :goto_8
-    if-nez v5, :cond_1a
-
-    sget-object v11, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->EMPTY_LIST:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
-
-    :goto_9
-    move-object/from16 v3, v19
-
-    move-object v4, v15
-
-    move-object/from16 v5, v17
-
-    move/from16 v7, v18
-
-    move/from16 v8, v16
-
-    invoke-virtual/range {v3 .. v11}, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->setValues(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/impl/dv/XSSimpleType;SSLmf/org/apache/xerces/impl/dv/ValidatedInfo;Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;Lmf/org/apache/xerces/xs/XSObjectList;)V
-
-    if-eqz v15, :cond_1b
-
-    move-object v4, v15
-
-    :goto_a
-    if-nez v21, :cond_1d
-
-    :goto_b
-    if-nez v12, :cond_1e
-
-    :cond_2
-    :goto_c
-    if-nez v20, :cond_1f
-
-    :cond_3
-    :goto_d
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    invoke-virtual {v0, v4, v6, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->checkNotationType(Ljava/lang/String;Lmf/org/apache/xerces/xs/XSTypeDefinition;Lmf/org/w3c/dom/Element;)V
+    invoke-virtual {v0, v4, v3, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
 
-    if-nez v9, :cond_20
+    move-object/from16 v0, v16
 
-    :goto_e
-    if-nez v9, :cond_21
+    iget-object v3, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fAttrDecl:Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
 
-    :cond_4
-    :goto_f
-    if-nez v4, :cond_22
+    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->getValInfo()Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
 
-    :cond_5
-    if-nez v17, :cond_23
+    move-result-object v3
 
-    :cond_6
-    const-string/jumbo v3, "(no name)"
+    move-object/from16 v0, v16
 
-    invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    iput-object v3, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fDefault:Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
 
-    move-result v3
+    const/4 v3, 0x2
 
-    if-nez v3, :cond_24
+    move-object/from16 v0, v16
 
-    if-nez p5, :cond_25
+    iput-short v3, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fConstraintType:S
 
-    :cond_7
-    :goto_10
-    return-object v19
+    goto/16 :goto_5
 
-    :cond_8
-    move-object/from16 v0, p0
+    :catch_0
+    move-exception v22
 
-    iget-object v5, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fSchemaHandler:Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;
+    invoke-virtual/range {v22 .. v22}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getKey()Ljava/lang/String;
 
-    iget-object v5, v5, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->fDeclPool:Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;
+    move-result-object v3
 
-    invoke-virtual {v5}, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->getAttributeDecl()Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
-
-    move-result-object v19
-
-    goto :goto_0
-
-    :cond_9
-    move-object/from16 v0, p0
-
-    iget-object v5, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
-
-    invoke-virtual {v5, v4}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual/range {v22 .. v22}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getArgs()[Ljava/lang/Object;
 
     move-result-object v4
 
-    move-object v15, v4
+    move-object/from16 v0, p0
 
-    goto :goto_1
+    move-object/from16 v1, p1
 
-    :cond_a
-    move-object/from16 v0, p3
+    invoke-virtual {v0, v3, v4, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
 
-    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;->fTargetNamespace:Ljava/lang/String;
+    const/4 v3, 0x2
 
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const/4 v4, 0x0
+
+    aput-object v23, v3, v4
+
+    const/4 v4, 0x1
+
+    aput-object v20, v3, v4
+
+    const-string/jumbo v4, "a-props-correct.2"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v4, v3, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
+
+    const/4 v3, 0x0
+
+    move-object/from16 v0, v16
+
+    iput-object v3, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fDefault:Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+
+    const/4 v3, 0x0
+
+    move-object/from16 v0, v16
+
+    iput-short v3, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fConstraintType:S
+
+    goto/16 :goto_b
+
+    :cond_14
     const/4 v3, 0x1
 
-    move/from16 v16, v3
+    new-array v3, v3, [Ljava/lang/Object;
 
-    move-object/from16 v17, v4
+    const/4 v4, 0x0
 
-    goto :goto_3
+    aput-object v23, v3, v4
 
-    :cond_b
-    const/4 v4, 0x2
+    const-string/jumbo v4, "a-props-correct.3"
 
-    move-object/from16 v10, p6
+    move-object/from16 v0, p0
 
-    goto/16 :goto_2
+    move-object/from16 v1, p1
 
-    :cond_c
-    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/xs/util/XInt;->intValue()I
+    invoke-virtual {v0, v4, v3, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
+
+    const/4 v3, 0x0
+
+    move-object/from16 v0, v16
+
+    iput-object v3, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fDefault:Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+
+    const/4 v3, 0x0
+
+    move-object/from16 v0, v16
+
+    iput-short v3, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fConstraintType:S
+
+    goto/16 :goto_c
+
+    :cond_15
+    move-object/from16 v0, v16
+
+    iget-object v3, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fAttrDecl:Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
+
+    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->getValInfo()Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+
+    move-result-object v3
+
+    iget-object v3, v3, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValue:Ljava/lang/Object;
+
+    move-object/from16 v0, v16
+
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fDefault:Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+
+    iget-object v4, v4, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValue:Ljava/lang/Object;
+
+    invoke-virtual {v3, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    const/4 v6, 0x1
+    if-eqz v3, :cond_13
 
-    if-eq v3, v6, :cond_d
+    goto/16 :goto_5
+.end method
 
-    move/from16 v16, v4
+.method traverseNamedAttr(Lmf/org/w3c/dom/Element;[Ljava/lang/Object;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;Lmf/org/apache/xerces/impl/xs/SchemaGrammar;ZLmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;)Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
+    .locals 37
 
-    move-object/from16 v17, v5
+    sget v4, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_DEFAULT:I
 
-    goto/16 :goto_3
+    aget-object v29, p2, v4
+
+    check-cast v29, Ljava/lang/String;
+
+    sget v4, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_FIXED:I
+
+    aget-object v30, p2, v4
+
+    check-cast v30, Ljava/lang/String;
+
+    sget v4, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_FORM:I
+
+    aget-object v31, p2, v4
+
+    check-cast v31, Lmf/org/apache/xerces/impl/xs/util/XInt;
+
+    sget v4, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_NAME:I
+
+    aget-object v17, p2, v4
+
+    check-cast v17, Ljava/lang/String;
+
+    sget v4, Lmf/org/apache/xerces/impl/xs/traversers/XSAttributeChecker;->ATTIDX_TYPE:I
+
+    aget-object v36, p2, v4
+
+    check-cast v36, Lmf/org/apache/xerces/xni/QName;
+
+    const/16 v16, 0x0
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fSchemaHandler:Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;
+
+    iget-object v4, v4, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->fDeclPool:Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;
+
+    if-nez v4, :cond_b
+
+    new-instance v16, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
+
+    invoke-direct/range {v16 .. v16}, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;-><init>()V
+
+    :goto_0
+    if-nez v17, :cond_c
+
+    :goto_1
+    const/16 v18, 0x0
+
+    const/4 v14, 0x0
+
+    const/4 v12, 0x0
+
+    if-nez p5, :cond_d
+
+    if-nez p6, :cond_e
+
+    :goto_2
+    if-nez v31, :cond_f
+
+    move-object/from16 v0, p3
+
+    iget-boolean v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;->fAreLocalAttributesQualified:Z
+
+    if-nez v4, :cond_10
+
+    :cond_0
+    :goto_3
+    const/4 v13, 0x0
+
+    const/4 v11, 0x0
+
+    if-nez p5, :cond_11
+
+    :cond_1
+    :goto_4
+    invoke-static/range {p1 .. p1}, Lmf/org/apache/xerces/util/DOMUtil;->getFirstChildElement(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
+
+    move-result-object v27
+
+    const/16 v25, 0x0
+
+    if-nez v27, :cond_13
+
+    :cond_2
+    invoke-static/range {p1 .. p1}, Lmf/org/apache/xerces/util/DOMUtil;->getSyntheticAnnotation(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
+
+    move-result-object v6
+
+    if-nez v6, :cond_14
+
+    :goto_5
+    const/4 v10, 0x0
+
+    const/16 v32, 0x0
+
+    if-nez v27, :cond_15
+
+    :cond_3
+    :goto_6
+    if-eqz v10, :cond_16
+
+    :cond_4
+    :goto_7
+    if-eqz v10, :cond_19
+
+    :goto_8
+    if-nez v25, :cond_1a
+
+    sget-object v15, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->EMPTY_LIST:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+
+    :goto_9
+    move-object/from16 v7, v16
+
+    move-object/from16 v8, v17
+
+    move-object/from16 v9, v18
+
+    invoke-virtual/range {v7 .. v15}, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->setValues(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/impl/dv/XSSimpleType;SSLmf/org/apache/xerces/impl/dv/ValidatedInfo;Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;Lmf/org/apache/xerces/xs/XSObjectList;)V
+
+    if-eqz v17, :cond_1b
+
+    :goto_a
+    if-nez v27, :cond_1d
+
+    :goto_b
+    if-nez v29, :cond_1e
+
+    :cond_5
+    :goto_c
+    if-nez v32, :cond_1f
+
+    :cond_6
+    :goto_d
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v17
+
+    move-object/from16 v2, p1
+
+    invoke-virtual {v0, v1, v10, v2}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->checkNotationType(Ljava/lang/String;Lmf/org/apache/xerces/xs/XSTypeDefinition;Lmf/org/w3c/dom/Element;)V
+
+    if-nez v13, :cond_20
+
+    :goto_e
+    if-nez v13, :cond_21
+
+    :cond_7
+    :goto_f
+    if-nez v17, :cond_22
+
+    :cond_8
+    if-nez v18, :cond_23
+
+    :cond_9
+    const-string/jumbo v4, "(no name)"
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_24
+
+    if-nez p5, :cond_25
+
+    :cond_a
+    :goto_10
+    return-object v16
+
+    :cond_b
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fSchemaHandler:Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;
+
+    iget-object v4, v4, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->fDeclPool:Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;
+
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xs/XSDeclarationPool;->getAttributeDecl()Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
+
+    move-result-object v16
+
+    goto :goto_0
+
+    :cond_c
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v4, v0}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v17
+
+    goto :goto_1
 
     :cond_d
     move-object/from16 v0, p3
 
-    iget-object v3, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;->fTargetNamespace:Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;->fTargetNamespace:Ljava/lang/String;
 
-    move/from16 v16, v4
+    move-object/from16 v18, v0
 
-    move-object/from16 v17, v3
+    const/4 v12, 0x1
 
-    goto/16 :goto_3
+    goto :goto_3
 
     :cond_e
+    move-object/from16 v14, p6
+
+    const/4 v12, 0x2
+
+    goto :goto_2
+
+    :cond_f
+    invoke-virtual/range {v31 .. v31}, Lmf/org/apache/xerces/impl/xs/util/XInt;->intValue()I
+
+    move-result v4
+
+    const/4 v5, 0x1
+
+    if-ne v4, v5, :cond_0
+
     move-object/from16 v0, p3
 
-    iget-object v3, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;->fTargetNamespace:Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;->fTargetNamespace:Ljava/lang/String;
 
-    move/from16 v16, v4
+    move-object/from16 v18, v0
 
-    move-object/from16 v17, v3
+    goto :goto_3
+
+    :cond_10
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;->fTargetNamespace:Ljava/lang/String;
+
+    move-object/from16 v18, v0
 
     goto/16 :goto_3
 
-    :cond_f
-    if-nez v13, :cond_10
-
-    if-nez v12, :cond_11
-
-    :goto_11
-    move/from16 v18, v3
-
-    goto/16 :goto_4
-
-    :cond_10
-    new-instance v9, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
-
-    invoke-direct {v9}, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;-><init>()V
-
-    iput-object v13, v9, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->normalizedValue:Ljava/lang/String;
-
-    const/4 v3, 0x2
-
-    goto :goto_11
-
     :cond_11
-    new-instance v9, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+    if-nez v30, :cond_12
 
-    invoke-direct {v9}, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;-><init>()V
+    if-eqz v29, :cond_1
 
-    iput-object v12, v9, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->normalizedValue:Ljava/lang/String;
+    new-instance v13, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
 
-    const/4 v3, 0x1
+    invoke-direct {v13}, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;-><init>()V
 
-    move/from16 v18, v3
+    move-object/from16 v0, v29
+
+    iput-object v0, v13, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->normalizedValue:Ljava/lang/String;
+
+    const/4 v11, 0x1
 
     goto/16 :goto_4
 
     :cond_12
-    invoke-static {v11}, Lmf/org/apache/xerces/util/DOMUtil;->getLocalName(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
+    new-instance v13, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+
+    invoke-direct {v13}, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;-><init>()V
+
+    move-object/from16 v0, v30
+
+    iput-object v0, v13, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->normalizedValue:Ljava/lang/String;
+
+    const/4 v11, 0x2
+
+    goto/16 :goto_4
+
+    :cond_13
+    invoke-static/range {v27 .. v27}, Lmf/org/apache/xerces/util/DOMUtil;->getLocalName(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -1032,321 +1081,314 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, p2
+    move-object/from16 v1, v27
 
-    move-object/from16 v2, p3
+    move-object/from16 v2, p2
 
-    invoke-virtual {v0, v11, v1, v3, v2}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->traverseAnnotationDecl(Lmf/org/w3c/dom/Element;[Ljava/lang/Object;ZLmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
+    move-object/from16 v3, p3
 
-    move-result-object v3
+    invoke-virtual {v0, v1, v2, v4, v3}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->traverseAnnotationDecl(Lmf/org/w3c/dom/Element;[Ljava/lang/Object;ZLmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
-    invoke-static {v11}, Lmf/org/apache/xerces/util/DOMUtil;->getNextSiblingElement(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
+    move-result-object v25
 
-    move-result-object v4
+    invoke-static/range {v27 .. v27}, Lmf/org/apache/xerces/util/DOMUtil;->getNextSiblingElement(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
 
-    move-object v5, v3
-
-    move-object v3, v4
-
-    goto/16 :goto_5
-
-    :cond_13
-    const/4 v7, 0x0
-
-    move-object/from16 v3, p0
-
-    move-object/from16 v4, p1
-
-    move-object/from16 v6, p2
-
-    move-object/from16 v8, p3
-
-    invoke-virtual/range {v3 .. v8}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->traverseSyntheticAnnotation(Lmf/org/w3c/dom/Element;Ljava/lang/String;[Ljava/lang/Object;ZLmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
-
-    move-result-object v3
-
-    move-object v5, v3
-
-    move-object v3, v11
+    move-result-object v27
 
     goto/16 :goto_5
 
     :cond_14
-    invoke-static {v3}, Lmf/org/apache/xerces/util/DOMUtil;->getLocalName(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
+    const/4 v8, 0x0
 
-    move-result-object v7
+    move-object/from16 v4, p0
 
-    sget-object v8, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_SIMPLETYPE:Ljava/lang/String;
+    move-object/from16 v5, p1
 
-    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v7, p2
 
-    move-result v7
+    move-object/from16 v9, p3
 
-    if-nez v7, :cond_15
+    invoke-virtual/range {v4 .. v9}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->traverseSyntheticAnnotation(Lmf/org/w3c/dom/Element;Ljava/lang/String;[Ljava/lang/Object;ZLmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
-    move/from16 v20, v4
+    move-result-object v25
 
-    move-object/from16 v21, v3
-
-    goto/16 :goto_6
+    goto/16 :goto_5
 
     :cond_15
+    invoke-static/range {v27 .. v27}, Lmf/org/apache/xerces/util/DOMUtil;->getLocalName(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
+
+    move-result-object v28
+
+    sget-object v4, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_SIMPLETYPE:Ljava/lang/String;
+
+    move-object/from16 v0, v28
+
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fSchemaHandler:Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;
 
     iget-object v4, v4, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->fSimpleTypeTraverser:Lmf/org/apache/xerces/impl/xs/traversers/XSDSimpleTypeTraverser;
 
-    move-object/from16 v0, p3
+    move-object/from16 v0, v27
 
-    move-object/from16 v1, p4
+    move-object/from16 v1, p3
 
-    invoke-virtual {v4, v3, v0, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDSimpleTypeTraverser;->traverseLocal(Lmf/org/w3c/dom/Element;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;Lmf/org/apache/xerces/impl/xs/SchemaGrammar;)Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+    move-object/from16 v2, p4
 
-    move-result-object v6
+    invoke-virtual {v4, v0, v1, v2}, Lmf/org/apache/xerces/impl/xs/traversers/XSDSimpleTypeTraverser;->traverseLocal(Lmf/org/w3c/dom/Element;Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;Lmf/org/apache/xerces/impl/xs/SchemaGrammar;)Lmf/org/apache/xerces/impl/dv/XSSimpleType;
 
-    const/4 v4, 0x1
+    move-result-object v10
 
-    invoke-static {v3}, Lmf/org/apache/xerces/util/DOMUtil;->getNextSiblingElement(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
+    const/16 v32, 0x1
 
-    move-result-object v3
+    invoke-static/range {v27 .. v27}, Lmf/org/apache/xerces/util/DOMUtil;->getNextSiblingElement(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Element;
 
-    move/from16 v20, v4
-
-    move-object/from16 v21, v3
+    move-result-object v27
 
     goto/16 :goto_6
 
     :cond_16
-    if-eqz v14, :cond_1
+    if-eqz v36, :cond_4
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fSchemaHandler:Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fSchemaHandler:Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;
 
-    const/4 v4, 0x7
+    const/4 v5, 0x7
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, p1
+    move-object/from16 v1, v36
 
-    invoke-virtual {v3, v0, v4, v14, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->getGlobalDecl(Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;ILmf/org/apache/xerces/xni/QName;Lmf/org/w3c/dom/Element;)Ljava/lang/Object;
+    move-object/from16 v2, p1
 
-    move-result-object v3
+    invoke-virtual {v4, v0, v5, v1, v2}, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->getGlobalDecl(Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;ILmf/org/apache/xerces/xni/QName;Lmf/org/w3c/dom/Element;)Ljava/lang/Object;
 
-    check-cast v3, Lmf/org/apache/xerces/xs/XSTypeDefinition;
+    move-result-object v35
 
-    if-nez v3, :cond_18
+    check-cast v35, Lmf/org/apache/xerces/xs/XSTypeDefinition;
+
+    if-nez v35, :cond_18
 
     :cond_17
-    const-string/jumbo v4, "src-resolve"
+    const/4 v4, 0x2
 
-    const/4 v7, 0x2
+    new-array v4, v4, [Ljava/lang/Object;
 
-    new-array v7, v7, [Ljava/lang/Object;
+    move-object/from16 v0, v36
 
-    const/4 v8, 0x0
+    iget-object v5, v0, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
 
-    iget-object v11, v14, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+    const/4 v7, 0x0
 
-    aput-object v11, v7, v8
+    aput-object v5, v4, v7
 
-    const/4 v8, 0x1
+    const-string/jumbo v5, "simpleType definition"
 
-    const-string/jumbo v11, "simpleType definition"
+    const/4 v7, 0x1
 
-    aput-object v11, v7, v8
+    aput-object v5, v4, v7
+
+    const-string/jumbo v5, "src-resolve"
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    invoke-virtual {v0, v4, v7, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
+    invoke-virtual {v0, v5, v4, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
 
-    if-nez v3, :cond_1
+    if-nez v35, :cond_4
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v36
 
-    iput-object v14, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fUnresolvedTypeName:Lmf/org/apache/xerces/xni/QName;
+    move-object/from16 v1, v16
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fUnresolvedTypeName:Lmf/org/apache/xerces/xni/QName;
 
     goto/16 :goto_7
 
     :cond_18
-    invoke-interface {v3}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getTypeCategory()S
+    invoke-interface/range {v35 .. v35}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getTypeCategory()S
 
     move-result v4
 
-    const/16 v7, 0x10
+    const/16 v5, 0x10
 
-    if-ne v4, v7, :cond_17
+    if-ne v4, v5, :cond_17
 
-    check-cast v3, Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+    move-object/from16 v10, v35
 
-    move-object v6, v3
+    check-cast v10, Lmf/org/apache/xerces/impl/dv/XSSimpleType;
 
     goto/16 :goto_7
 
     :cond_19
-    sget-object v6, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnySimpleType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+    sget-object v10, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnySimpleType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
 
     goto/16 :goto_8
 
     :cond_1a
-    new-instance v4, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+    new-instance v15, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
-    invoke-direct {v4}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;-><init>()V
+    invoke-direct {v15}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;-><init>()V
 
-    move-object v3, v4
+    move-object v4, v15
 
-    check-cast v3, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+    check-cast v4, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
-    invoke-virtual {v3, v5}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->addXSObject(Lmf/org/apache/xerces/xs/XSObject;)V
+    move-object/from16 v0, v25
 
-    move-object v11, v4
+    invoke-virtual {v4, v0}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->addXSObject(Lmf/org/apache/xerces/xs/XSObject;)V
 
     goto/16 :goto_9
 
     :cond_1b
     if-nez p5, :cond_1c
 
-    const-string/jumbo v3, "src-attribute.3.1"
+    const-string/jumbo v4, "src-attribute.3.1"
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    invoke-virtual {v0, v3, v4, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
+    invoke-virtual {v0, v4, v5, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
 
-    :goto_12
-    const-string/jumbo v4, "(no name)"
+    :goto_11
+    const-string/jumbo v17, "(no name)"
 
     goto/16 :goto_a
 
     :cond_1c
-    const-string/jumbo v3, "s4s-att-must-appear"
-
     const/4 v4, 0x2
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    sget-object v5, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_ATTRIBUTE:Ljava/lang/String;
+
+    const/4 v7, 0x0
+
+    aput-object v5, v4, v7
+
+    sget-object v5, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ATT_NAME:Ljava/lang/String;
+
+    const/4 v7, 0x1
+
+    aput-object v5, v4, v7
+
+    const-string/jumbo v5, "s4s-att-must-appear"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v5, v4, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
+
+    goto :goto_11
+
+    :cond_1d
+    const/4 v4, 0x3
 
     new-array v4, v4, [Ljava/lang/Object;
 
     const/4 v5, 0x0
 
-    sget-object v7, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ELT_ATTRIBUTE:Ljava/lang/String;
+    aput-object v17, v4, v5
 
-    aput-object v7, v4, v5
-
-    const/4 v5, 0x1
-
-    sget-object v7, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->ATT_NAME:Ljava/lang/String;
-
-    aput-object v7, v4, v5
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v3, v4, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
-
-    goto :goto_12
-
-    :cond_1d
-    const-string/jumbo v3, "s4s-elt-must-match.1"
-
-    const/4 v5, 0x3
-
-    new-array v5, v5, [Ljava/lang/Object;
-
-    const/4 v7, 0x0
-
-    aput-object v4, v5, v7
+    const-string/jumbo v5, "(annotation?, (simpleType?))"
 
     const/4 v7, 0x1
 
-    const-string/jumbo v8, "(annotation?, (simpleType?))"
+    aput-object v5, v4, v7
 
-    aput-object v8, v5, v7
+    invoke-static/range {v27 .. v27}, Lmf/org/apache/xerces/util/DOMUtil;->getLocalName(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
+
+    move-result-object v5
 
     const/4 v7, 0x2
 
-    invoke-static/range {v21 .. v21}, Lmf/org/apache/xerces/util/DOMUtil;->getLocalName(Lmf/org/w3c/dom/Node;)Ljava/lang/String;
+    aput-object v5, v4, v7
 
-    move-result-object v8
-
-    aput-object v8, v5, v7
+    const-string/jumbo v5, "s4s-elt-must-match.1"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v27
 
-    invoke-virtual {v0, v3, v5, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
+    invoke-virtual {v0, v5, v4, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
 
     goto/16 :goto_b
 
     :cond_1e
-    if-eqz v13, :cond_2
+    if-eqz v30, :cond_5
 
-    const-string/jumbo v3, "src-attribute.1"
+    const/4 v4, 0x1
 
-    const/4 v5, 0x1
+    new-array v4, v4, [Ljava/lang/Object;
 
-    new-array v5, v5, [Ljava/lang/Object;
+    const/4 v5, 0x0
 
-    const/4 v7, 0x0
+    aput-object v17, v4, v5
 
-    aput-object v4, v5, v7
+    const-string/jumbo v5, "src-attribute.1"
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    invoke-virtual {v0, v3, v5, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
+    invoke-virtual {v0, v5, v4, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
 
     goto/16 :goto_c
 
     :cond_1f
-    if-eqz v14, :cond_3
+    if-eqz v36, :cond_6
 
-    const-string/jumbo v3, "src-attribute.4"
+    const/4 v4, 0x1
 
-    const/4 v5, 0x1
+    new-array v4, v4, [Ljava/lang/Object;
 
-    new-array v5, v5, [Ljava/lang/Object;
+    const/4 v5, 0x0
 
-    const/4 v7, 0x0
+    aput-object v17, v4, v5
 
-    aput-object v4, v5, v7
+    const-string/jumbo v5, "src-attribute.4"
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    invoke-virtual {v0, v3, v5, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
+    invoke-virtual {v0, v5, v4, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
 
     goto/16 :goto_d
 
     :cond_20
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fValidationState:Lmf/org/apache/xerces/impl/validation/ValidationState;
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fValidationState:Lmf/org/apache/xerces/impl/validation/ValidationState;
 
     move-object/from16 v0, p3
 
     iget-object v5, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;->fNamespaceSupport:Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;
 
-    invoke-virtual {v3, v5}, Lmf/org/apache/xerces/impl/validation/ValidationState;->setNamespaceSupport(Lmf/org/apache/xerces/xni/NamespaceContext;)V
+    invoke-virtual {v4, v5}, Lmf/org/apache/xerces/impl/validation/ValidationState;->setNamespaceSupport(Lmf/org/apache/xerces/xni/NamespaceContext;)V
 
     :try_start_0
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v16
 
     invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->checkDefaultValid(Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;)V
     :try_end_0
@@ -1355,130 +1397,70 @@
     goto/16 :goto_e
 
     :catch_0
-    move-exception v3
+    move-exception v33
 
-    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getKey()Ljava/lang/String;
+    invoke-virtual/range {v33 .. v33}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getKey()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual/range {v33 .. v33}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getArgs()[Ljava/lang/Object;
 
     move-result-object v5
 
-    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getArgs()[Ljava/lang/Object;
-
-    move-result-object v3
-
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    invoke-virtual {v0, v5, v3, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
+    invoke-virtual {v0, v4, v5, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
 
-    const-string/jumbo v3, "a-props-correct.2"
+    const/4 v4, 0x2
 
-    const/4 v5, 0x2
+    new-array v4, v4, [Ljava/lang/Object;
 
-    new-array v5, v5, [Ljava/lang/Object;
+    const/4 v5, 0x0
 
-    const/4 v7, 0x0
+    aput-object v17, v4, v5
 
-    aput-object v4, v5, v7
+    iget-object v5, v13, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->normalizedValue:Ljava/lang/String;
 
     const/4 v7, 0x1
 
-    iget-object v8, v9, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->normalizedValue:Ljava/lang/String;
+    aput-object v5, v4, v7
 
-    aput-object v8, v5, v7
+    const-string/jumbo v5, "a-props-correct.2"
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    invoke-virtual {v0, v3, v5, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
+    invoke-virtual {v0, v5, v4, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
 
-    const/4 v9, 0x0
+    const/4 v13, 0x0
 
-    const/4 v7, 0x0
+    const/4 v11, 0x0
 
-    move-object/from16 v3, v19
+    const/16 v20, 0x0
 
-    move-object/from16 v5, v17
+    move-object/from16 v19, v10
 
-    move/from16 v8, v16
+    move/from16 v21, v12
 
-    invoke-virtual/range {v3 .. v11}, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->setValues(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/impl/dv/XSSimpleType;SSLmf/org/apache/xerces/impl/dv/ValidatedInfo;Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;Lmf/org/apache/xerces/xs/XSObjectList;)V
+    move-object/from16 v22, v13
+
+    move-object/from16 v23, v14
+
+    move-object/from16 v24, v15
+
+    invoke-virtual/range {v16 .. v24}, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->setValues(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/impl/dv/XSSimpleType;SSLmf/org/apache/xerces/impl/dv/ValidatedInfo;Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;Lmf/org/apache/xerces/xs/XSObjectList;)V
 
     goto/16 :goto_e
 
     :cond_21
-    invoke-interface {v6}, Lmf/org/apache/xerces/impl/dv/XSSimpleType;->isIDType()Z
+    invoke-interface {v10}, Lmf/org/apache/xerces/impl/dv/XSSimpleType;->isIDType()Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_4
-
-    const-string/jumbo v3, "a-props-correct.3"
-
-    const/4 v5, 0x1
-
-    new-array v5, v5, [Ljava/lang/Object;
-
-    const/4 v7, 0x0
-
-    aput-object v4, v5, v7
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v3, v5, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
-
-    const/4 v9, 0x0
-
-    const/4 v7, 0x0
-
-    move-object/from16 v3, v19
-
-    move-object/from16 v5, v17
-
-    move/from16 v8, v16
-
-    invoke-virtual/range {v3 .. v11}, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->setValues(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/impl/dv/XSSimpleType;SSLmf/org/apache/xerces/impl/dv/ValidatedInfo;Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;Lmf/org/apache/xerces/xs/XSObjectList;)V
-
-    goto/16 :goto_f
-
-    :cond_22
-    sget-object v3, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
-
-    invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_5
-
-    const-string/jumbo v3, "no-xmlns"
-
-    const/4 v4, 0x0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v3, v4, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
-
-    const/4 v3, 0x0
-
-    return-object v3
-
-    :cond_23
-    sget-object v3, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->URI_XSI:Ljava/lang/String;
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_6
-
-    const-string/jumbo v3, "no-xsi"
+    if-eqz v4, :cond_7
 
     const/4 v4, 0x1
 
@@ -1486,92 +1468,177 @@
 
     const/4 v5, 0x0
 
-    sget-object v6, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->URI_XSI:Ljava/lang/String;
+    aput-object v17, v4, v5
 
-    aput-object v6, v4, v5
+    const-string/jumbo v5, "a-props-correct.3"
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    invoke-virtual {v0, v3, v4, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
+    invoke-virtual {v0, v5, v4, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
 
-    const/4 v3, 0x0
+    const/4 v13, 0x0
 
-    return-object v3
+    const/4 v11, 0x0
+
+    const/16 v20, 0x0
+
+    move-object/from16 v19, v10
+
+    move/from16 v21, v12
+
+    move-object/from16 v22, v13
+
+    move-object/from16 v23, v14
+
+    move-object/from16 v24, v15
+
+    invoke-virtual/range {v16 .. v24}, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->setValues(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/impl/dv/XSSimpleType;SSLmf/org/apache/xerces/impl/dv/ValidatedInfo;Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;Lmf/org/apache/xerces/xs/XSObjectList;)V
+
+    goto/16 :goto_f
+
+    :cond_22
+    sget-object v4, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_8
+
+    const-string/jumbo v4, "no-xmlns"
+
+    const/4 v5, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v4, v5, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
+
+    const/4 v4, 0x0
+
+    return-object v4
+
+    :cond_23
+    sget-object v4, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->URI_XSI:Ljava/lang/String;
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_9
+
+    const/4 v4, 0x1
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    sget-object v5, Lmf/org/apache/xerces/impl/xs/SchemaSymbols;->URI_XSI:Ljava/lang/String;
+
+    const/4 v7, 0x0
+
+    aput-object v5, v4, v7
+
+    const-string/jumbo v5, "no-xsi"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v5, v4, v1}, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;Lmf/org/w3c/dom/Element;)V
+
+    const/4 v4, 0x0
+
+    return-object v4
 
     :cond_24
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    return-object v3
+    return-object v4
 
     :cond_25
     move-object/from16 v0, p4
 
-    invoke-virtual {v0, v4}, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->getGlobalAttributeDecl(Ljava/lang/String;)Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
+    move-object/from16 v1, v17
 
-    move-result-object v3
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->getGlobalAttributeDecl(Ljava/lang/String;)Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
 
-    if-eqz v3, :cond_27
+    move-result-object v4
 
-    :goto_13
+    if-eqz v4, :cond_26
+
+    :goto_12
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fSchemaHandler:Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fSchemaHandler:Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;
 
     move-object/from16 v0, p3
 
-    invoke-virtual {v3, v0}, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->schemaDocument2SystemId(Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)Ljava/lang/String;
+    invoke-virtual {v4, v0}, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->schemaDocument2SystemId(Lmf/org/apache/xerces/impl/xs/traversers/XSDocumentInfo;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v34
 
     move-object/from16 v0, p4
 
-    invoke-virtual {v0, v4, v5}, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->getGlobalAttributeDecl(Ljava/lang/String;Ljava/lang/String;)Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
+    move-object/from16 v1, v17
 
-    move-result-object v3
+    move-object/from16 v2, v34
 
-    if-eqz v3, :cond_28
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->getGlobalAttributeDecl(Ljava/lang/String;Ljava/lang/String;)Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
 
-    :goto_14
+    move-result-object v26
+
+    if-eqz v26, :cond_27
+
+    :goto_13
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fSchemaHandler:Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;
 
     iget-boolean v4, v4, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->fTolerateDuplicates:Z
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_a
 
-    if-nez v3, :cond_26
+    if-nez v26, :cond_28
 
-    move-object/from16 v3, v19
-
-    :cond_26
+    :goto_14
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lmf/org/apache/xerces/impl/xs/traversers/XSDAttributeTraverser;->fSchemaHandler:Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;
 
-    invoke-virtual {v4, v3}, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->addGlobalAttributeDecl(Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;)V
+    move-object/from16 v0, v16
 
-    move-object/from16 v19, v3
+    invoke-virtual {v4, v0}, Lmf/org/apache/xerces/impl/xs/traversers/XSDHandler;->addGlobalAttributeDecl(Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;)V
 
     goto/16 :goto_10
+
+    :cond_26
+    move-object/from16 v0, p4
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->addGlobalAttributeDecl(Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;)V
+
+    goto :goto_12
 
     :cond_27
     move-object/from16 v0, p4
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v16
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->addGlobalAttributeDecl(Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;)V
+    move-object/from16 v2, v34
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->addGlobalAttributeDecl(Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;Ljava/lang/String;)V
 
     goto :goto_13
 
     :cond_28
-    move-object/from16 v0, p4
-
-    move-object/from16 v1, v19
-
-    invoke-virtual {v0, v1, v5}, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->addGlobalAttributeDecl(Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;Ljava/lang/String;)V
+    move-object/from16 v16, v26
 
     goto :goto_14
 .end method

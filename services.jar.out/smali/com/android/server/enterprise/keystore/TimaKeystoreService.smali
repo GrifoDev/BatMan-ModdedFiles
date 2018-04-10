@@ -43,17 +43,13 @@
 
 .field private static final KNOX_KEYSTORE_PERMISSION:Ljava/lang/String; = "com.sec.enterprise.knox.permission.KNOX_KEYSTORE"
 
-.field private static final KNOX_KEYSTORE_PERMISSION_NEW:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_KEYSTORE"
+.field private static final KNOX_KEYSTORE_PERMISSION_NEW:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_TIMA_KEYSTORE"
 
 .field private static final KNOX_KEYSTORE_PER_APP_PERMISSION:Ljava/lang/String; = "com.sec.enterprise.permission.KNOX_KEYSTORE_PER_APP"
 
-.field private static final KNOX_KEYSTORE_PER_APP_PERMISSION_NEW:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_KEYSTORE_PER_APP"
-
-.field private static final MSG_ADMIN_REMOVED:I = 0x2
+.field private static final KNOX_KEYSTORE_PER_APP_PERMISSION_NEW:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_TIMA_KEYSTORE_PER_APP"
 
 .field private static final MSG_BIND_DOWNLOADABLEKS:I = 0x3
-
-.field private static final MSG_PRE_ADMIN_REMOVAL:I = 0x1
 
 .field private static final RESTART_DKS_TIMEOUT_MILLIS:I = 0x1f4
 
@@ -70,17 +66,6 @@
 
 # instance fields
 .field private final TIMA_SERVICE:Ljava/lang/String;
-
-.field final interfaceQueueBlocking:Ljava/util/concurrent/BlockingQueue;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/concurrent/BlockingQueue",
-            "<",
-            "Lcom/samsung/android/knox/downloadablekeystore/IDownloadableKeystoreService;",
-            ">;"
-        }
-    .end annotation
-.end field
 
 .field private mBootCompleteReceiver:Landroid/content/BroadcastReceiver;
 
@@ -101,10 +86,6 @@
 .field mReceiver:Landroid/content/BroadcastReceiver;
 
 .field private final mTimaService:Landroid/service/tima/ITimaService;
-
-.field private onAdminRemoveduid:I
-
-.field private onPreAdminRemovaluid:I
 
 .field private pReceiver:Landroid/content/BroadcastReceiver;
 
@@ -134,22 +115,6 @@
     iget-object v0, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->mDKSService:Lcom/samsung/android/knox/downloadablekeystore/IDownloadableKeystoreService;
 
     return-object v0
-.end method
-
-.method static synthetic -get3(Lcom/android/server/enterprise/keystore/TimaKeystoreService;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->onAdminRemoveduid:I
-
-    return v0
-.end method
-
-.method static synthetic -get4(Lcom/android/server/enterprise/keystore/TimaKeystoreService;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->onPreAdminRemovaluid:I
-
-    return v0
 .end method
 
 .method static synthetic -set0(Lcom/android/server/enterprise/keystore/TimaKeystoreService;Lcom/samsung/android/knox/downloadablekeystore/IDownloadableKeystoreService;)Lcom/samsung/android/knox/downloadablekeystore/IDownloadableKeystoreService;
@@ -200,7 +165,17 @@
     return v0
 .end method
 
-.method static synthetic -wrap4(Lcom/android/server/enterprise/keystore/TimaKeystoreService;I)I
+.method static synthetic -wrap4()Z
+    .locals 1
+
+    invoke-static {}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->supportDKS()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap5(Lcom/android/server/enterprise/keystore/TimaKeystoreService;I)I
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->bindDownlodableKeystoreService(I)I
@@ -210,7 +185,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap5(Lcom/android/server/enterprise/keystore/TimaKeystoreService;)V
+.method static synthetic -wrap6(Lcom/android/server/enterprise/keystore/TimaKeystoreService;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->enforcePermission()V
@@ -218,7 +193,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap6(Lcom/android/server/enterprise/keystore/TimaKeystoreService;I)V
+.method static synthetic -wrap7(Lcom/android/server/enterprise/keystore/TimaKeystoreService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->scheduleDKSRestart(I)V
@@ -226,7 +201,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap7(Lcom/android/server/enterprise/keystore/TimaKeystoreService;I)V
+.method static synthetic -wrap8(Lcom/android/server/enterprise/keystore/TimaKeystoreService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->systemReady(I)V
@@ -252,8 +227,6 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 6
-
-    const/4 v4, 0x1
 
     const/4 v5, 0x0
 
@@ -284,12 +257,6 @@
     invoke-direct {v3, p0}, Lcom/android/server/enterprise/keystore/TimaKeystoreService$1;-><init>(Lcom/android/server/enterprise/keystore/TimaKeystoreService;)V
 
     iput-object v3, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->mBootCompleteReceiver:Landroid/content/BroadcastReceiver;
-
-    new-instance v3, Ljava/util/concurrent/LinkedBlockingQueue;
-
-    invoke-direct {v3, v4}, Ljava/util/concurrent/LinkedBlockingQueue;-><init>(I)V
-
-    iput-object v3, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->interfaceQueueBlocking:Ljava/util/concurrent/BlockingQueue;
 
     new-instance v3, Lcom/android/server/enterprise/keystore/TimaKeystoreService$2;
 
@@ -394,6 +361,12 @@
 
     :cond_2
     :goto_0
+    invoke-static {}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->supportDKS()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
@@ -430,6 +403,7 @@
 
     invoke-virtual {v3, v4, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
+    :cond_3
     return-void
 
     :catch_0
@@ -736,7 +710,7 @@
 
     iget-object v1, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v2, "com.samsung.android.knox.permission.KNOX_KEYSTORE"
+    const-string/jumbo v2, "com.samsung.android.knox.permission.KNOX_TIMA_KEYSTORE"
 
     invoke-virtual {v1, v2, v4}, Landroid/content/Context;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -820,7 +794,7 @@
     :try_start_2
     iget-object v3, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v4, "com.samsung.android.knox.permission.KNOX_KEYSTORE"
+    const-string/jumbo v4, "com.samsung.android.knox.permission.KNOX_TIMA_KEYSTORE"
 
     const/4 v5, 0x0
 
@@ -835,7 +809,7 @@
 
     iget-object v3, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v4, "com.samsung.android.knox.permission.KNOX_KEYSTORE_PER_APP"
+    const-string/jumbo v4, "com.samsung.android.knox.permission.KNOX_TIMA_KEYSTORE_PER_APP"
 
     invoke-virtual {v3, v4, v6}, Landroid/content/Context;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -877,7 +851,7 @@
 
     iget-object v1, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v2, "com.samsung.android.knox.permission.KNOX_KEYSTORE_PER_APP"
+    const-string/jumbo v2, "com.samsung.android.knox.permission.KNOX_TIMA_KEYSTORE_PER_APP"
 
     invoke-virtual {v1, v2, v4}, Landroid/content/Context;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -1145,15 +1119,9 @@
 .end method
 
 .method private scheduleDKSRestart(I)V
-    .locals 8
-
-    const-wide/16 v6, 0x1f4
+    .locals 5
 
     const/4 v4, 0x3
-
-    const/4 v3, 0x2
-
-    const/4 v2, 0x1
 
     sget-object v0, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->TAG:Ljava/lang/String;
 
@@ -1163,36 +1131,8 @@
 
     sget-object v0, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->mInternalHandler:Landroid/os/Handler;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_1
 
-    if-ne p1, v2, :cond_1
-
-    sget-object v0, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->mInternalHandler:Landroid/os/Handler;
-
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
-
-    sget-object v0, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->mInternalHandler:Landroid/os/Handler;
-
-    invoke-virtual {v0, v2, v6, v7}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    if-ne p1, v3, :cond_2
-
-    sget-object v0, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->mInternalHandler:Landroid/os/Handler;
-
-    invoke-virtual {v0, v3}, Landroid/os/Handler;->removeMessages(I)V
-
-    sget-object v0, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->mInternalHandler:Landroid/os/Handler;
-
-    invoke-virtual {v0, v3, v6, v7}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
-
-    goto :goto_0
-
-    :cond_2
     if-ne p1, v4, :cond_0
 
     sget-object v0, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->mInternalHandler:Landroid/os/Handler;
@@ -1201,11 +1141,15 @@
 
     sget-object v0, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->mInternalHandler:Landroid/os/Handler;
 
-    invoke-virtual {v0, v4, v6, v7}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+    const-wide/16 v2, 0x1f4
 
-    goto :goto_0
+    invoke-virtual {v0, v4, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    :cond_3
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
     sget-object v0, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->TAG:Ljava/lang/String;
 
     const-string/jumbo v1, "scheduleDKSRestart Failed"
@@ -1276,6 +1220,54 @@
     invoke-virtual {v3, v4, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     return-void
+.end method
+
+.method private static supportDKS()Z
+    .locals 6
+
+    const-string/jumbo v3, ""
+
+    const-string/jumbo v4, "ro.build.flavor"
+
+    const-string/jumbo v5, "None"
+
+    invoke-static {v4, v5}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string/jumbo v2, "great"
+
+    const-string/jumbo v1, "dream"
+
+    const-string/jumbo v0, "cruiser"
+
+    invoke-virtual {v3, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    invoke-virtual {v3, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    invoke-virtual {v3, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    :goto_0
+    return v4
+
+    :cond_0
+    const/4 v4, 0x1
+
+    goto :goto_0
 .end method
 
 .method private systemReady(I)V
@@ -1893,7 +1885,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_5
 
     const-string/jumbo v30, "SELECT * FROM MUMCONTAINER;"
 
@@ -1907,20 +1899,20 @@
 
     move-result-object v11
 
-    if-eqz v11, :cond_6
+    if-eqz v11, :cond_5
 
     invoke-interface {v11}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v30
 
-    if-eqz v30, :cond_6
+    if-eqz v30, :cond_5
 
     :goto_2
     invoke-interface {v11}, Landroid/database/Cursor;->isAfterLast()Z
 
     move-result v30
 
-    if-nez v30, :cond_6
+    if-nez v30, :cond_5
 
     const/16 v30, 0x0
 
@@ -1988,23 +1980,103 @@
 
     invoke-static/range {v30 .. v31}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v9, :cond_5
+    if-eqz v9, :cond_a
 
     invoke-interface {v9}, Ljava/util/List;->isEmpty()Z
 
     move-result v30
 
+    xor-int/lit8 v30, v30, 0x1
+
     if-eqz v30, :cond_a
 
-    :cond_5
+    invoke-interface {v9}, Ljava/util/List;->size()I
+
+    move-result v30
+
+    move/from16 v0, v30
+
+    new-array v0, v0, [I
+
+    move-object/from16 v28, v0
+
+    const/16 v23, 0x0
+
+    invoke-interface {v9}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v7
+
     :goto_4
+    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v30
+
+    if-eqz v30, :cond_9
+
+    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v30
+
+    check-cast v30, Ljava/lang/Integer;
+
+    invoke-virtual/range {v30 .. v30}, Ljava/lang/Integer;->intValue()I
+
+    move-result v5
+
+    aput v5, v28, v23
+
+    add-int/lit8 v23, v23, 0x1
+
+    goto :goto_4
+
+    :cond_5
+    if-eqz v11, :cond_6
+
+    invoke-interface {v11}, Landroid/database/Cursor;->close()V
+
+    :cond_6
+    if-eqz v4, :cond_4
+
+    invoke-virtual {v4}, Landroid/database/sqlite/SQLiteDatabase;->close()V
+
+    goto :goto_3
+
+    :catchall_1
+    move-exception v30
+
+    if-eqz v11, :cond_7
+
+    invoke-interface {v11}, Landroid/database/Cursor;->close()V
+
+    :cond_7
+    if-eqz v4, :cond_8
+
+    invoke-virtual {v4}, Landroid/database/sqlite/SQLiteDatabase;->close()V
+
+    :cond_8
+    throw v30
+
+    :cond_9
+    const-string/jumbo v30, "ADMINLUIDLIST"
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v30
+
+    move-object/from16 v2, v28
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putIntArray(Ljava/lang/String;[I)V
+
+    :cond_a
     if-eqz v15, :cond_1
 
     invoke-interface {v15}, Ljava/util/List;->isEmpty()Z
 
     move-result v30
 
-    if-nez v30, :cond_1
+    xor-int/lit8 v30, v30, 0x1
+
+    if-eqz v30, :cond_1
 
     invoke-interface {v15}, Ljava/util/List;->size()I
 
@@ -2027,7 +2099,7 @@
 
     move-result v30
 
-    if-eqz v30, :cond_c
+    if-eqz v30, :cond_b
 
     invoke-interface {v14}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2045,87 +2117,7 @@
 
     goto :goto_5
 
-    :cond_6
-    if-eqz v11, :cond_7
-
-    invoke-interface {v11}, Landroid/database/Cursor;->close()V
-
-    :cond_7
-    if-eqz v4, :cond_4
-
-    invoke-virtual {v4}, Landroid/database/sqlite/SQLiteDatabase;->close()V
-
-    goto :goto_3
-
-    :catchall_1
-    move-exception v30
-
-    if-eqz v11, :cond_8
-
-    invoke-interface {v11}, Landroid/database/Cursor;->close()V
-
-    :cond_8
-    if-eqz v4, :cond_9
-
-    invoke-virtual {v4}, Landroid/database/sqlite/SQLiteDatabase;->close()V
-
-    :cond_9
-    throw v30
-
-    :cond_a
-    invoke-interface {v9}, Ljava/util/List;->size()I
-
-    move-result v30
-
-    move/from16 v0, v30
-
-    new-array v0, v0, [I
-
-    move-object/from16 v28, v0
-
-    const/16 v23, 0x0
-
-    invoke-interface {v9}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v7
-
-    :goto_6
-    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v30
-
-    if-eqz v30, :cond_b
-
-    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v30
-
-    check-cast v30, Ljava/lang/Integer;
-
-    invoke-virtual/range {v30 .. v30}, Ljava/lang/Integer;->intValue()I
-
-    move-result v5
-
-    aput v5, v28, v23
-
-    add-int/lit8 v23, v23, 0x1
-
-    goto :goto_6
-
     :cond_b
-    const-string/jumbo v30, "ADMINLUIDLIST"
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v30
-
-    move-object/from16 v2, v28
-
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putIntArray(Ljava/lang/String;[I)V
-
-    goto :goto_4
-
-    :cond_c
     const-string/jumbo v30, "CONTAINERIDLIST"
 
     move-object/from16 v0, v21
@@ -2139,6 +2131,8 @@
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto/16 :goto_0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -2507,19 +2501,60 @@
 
     move-result-object v10
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_5
 
     invoke-interface {v10}, Ljava/util/List;->isEmpty()Z
 
     move-result v13
 
-    if-eqz v13, :cond_6
+    xor-int/lit8 v13, v13, 0x1
+
+    if-eqz v13, :cond_5
+
+    const/4 v4, 0x0
+
+    const/4 v6, 0x0
+
+    invoke-interface {v10}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v7
 
     :cond_3
-    :goto_0
-    if-nez v11, :cond_4
+    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
-    if-eqz v1, :cond_4
+    move-result v13
+
+    if-eqz v13, :cond_5
+
+    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/content/ContentValues;
+
+    if-eqz v4, :cond_4
+
+    const-string/jumbo v13, "enabled"
+
+    invoke-virtual {v4, v13}, Landroid/content/ContentValues;->getAsBoolean(Ljava/lang/String;)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_4
+
+    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v6
+
+    :cond_4
+    if-eqz v6, :cond_3
+
+    const/4 v11, 0x1
+
+    :cond_5
+    if-nez v11, :cond_6
+
+    if-eqz v1, :cond_6
 
     iget v13, v1, Landroid/content/pm/ApplicationInfo;->flags:I
     :try_end_0
@@ -2527,15 +2562,15 @@
 
     and-int/lit8 v13, v13, 0x1
 
-    if-eqz v13, :cond_4
+    if-eqz v13, :cond_6
 
     const/4 v11, 0x1
 
-    :cond_4
-    :goto_1
+    :cond_6
+    :goto_0
     sget-boolean v13, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->DBG:Z
 
-    if-eqz v13, :cond_5
+    if-eqz v13, :cond_7
 
     sget-object v13, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->TAG:Ljava/lang/String;
 
@@ -2559,54 +2594,8 @@
 
     invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_5
-    return v11
-
-    :cond_6
-    const/4 v4, 0x0
-
-    const/4 v6, 0x0
-
-    :try_start_1
-    invoke-interface {v10}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v7
-
     :cond_7
-    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v13
-
-    if-eqz v13, :cond_3
-
-    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/content/ContentValues;
-
-    if-eqz v4, :cond_8
-
-    const-string/jumbo v13, "enabled"
-
-    invoke-virtual {v4, v13}, Landroid/content/ContentValues;->getAsBoolean(Ljava/lang/String;)Ljava/lang/Boolean;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_8
-
-    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-
-    move-result v6
-
-    :cond_8
-    if-eqz v6, :cond_7
-
-    const/4 v11, 0x1
-
-    goto :goto_0
+    return v11
 
     :catch_0
     move-exception v5
@@ -2637,7 +2626,7 @@
 
     invoke-static {v13, v14}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method public isTimaKeystoreEnabledInDB(Landroid/app/enterprise/ContextInfo;)Z
@@ -2697,21 +2686,63 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_5
 
     invoke-interface {v6}, Ljava/util/List;->isEmpty()Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v8
+
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_5
+
+    const/4 v2, 0x0
+
+    const/4 v4, 0x0
+
+    invoke-interface {v6}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v5
+
+    :cond_3
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
     if-eqz v8, :cond_5
 
-    :cond_3
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/content/ContentValues;
+
+    if-eqz v2, :cond_4
+
+    const-string/jumbo v8, "enabled"
+
+    invoke-virtual {v2, v8}, Landroid/content/ContentValues;->getAsBoolean(Ljava/lang/String;)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_4
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v4
+
+    :cond_4
+    if-eqz v4, :cond_3
+
+    const/4 v7, 0x1
+
+    :cond_5
     :goto_0
     sget-boolean v8, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->DBG:Z
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_6
 
     sget-object v8, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->TAG:Ljava/lang/String;
 
@@ -2735,54 +2766,8 @@
 
     invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_4
-    return v7
-
-    :cond_5
-    const/4 v2, 0x0
-
-    const/4 v4, 0x0
-
-    :try_start_1
-    invoke-interface {v6}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v5
-
     :cond_6
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v8
-
-    if-eqz v8, :cond_3
-
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/content/ContentValues;
-
-    if-eqz v2, :cond_7
-
-    const-string/jumbo v8, "enabled"
-
-    invoke-virtual {v2, v8}, Landroid/content/ContentValues;->getAsBoolean(Ljava/lang/String;)Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_7
-
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-
-    move-result v4
-
-    :cond_7
-    if-eqz v4, :cond_6
-
-    const/4 v7, 0x1
-
-    goto :goto_0
+    return v7
 
     :catch_0
     move-exception v3
@@ -2901,72 +2886,26 @@
 
     move-result-object v9
 
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_4
 
     invoke-interface {v9}, Ljava/util/List;->isEmpty()Z
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result v11
 
-    if-eqz v11, :cond_5
-
-    :cond_3
-    :goto_1
-    sget-boolean v11, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->DBG:Z
+    xor-int/lit8 v11, v11, 0x1
 
     if-eqz v11, :cond_4
 
-    sget-object v11, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->TAG:Ljava/lang/String;
-
-    new-instance v12, Ljava/lang/StringBuilder;
-
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v13, "isTimaKeystoreEnabledInDBPerApp returning -"
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12, v10}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-static {v11, v12}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_4
-    return v10
-
-    :catch_0
-    move-exception v7
-
-    sget-object v11, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v12, "isTimaKeystoreEnabledInDBPerApp() get callingUid, caller failed"
-
-    invoke-static {v11, v12}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
-
-    goto :goto_0
-
-    :cond_5
-    :try_start_2
     invoke-interface {v9}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v6
 
-    :cond_6
+    :cond_3
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_3
+    if-eqz v11, :cond_4
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3034,31 +2973,73 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_3
 
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
     move-result v11
 
-    if-ne v3, v11, :cond_6
+    if-ne v3, v11, :cond_3
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v11
 
-    if-eqz v11, :cond_6
+    if-eqz v11, :cond_3
 
     sget-object v11, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->TAG:Ljava/lang/String;
 
     const-string/jumbo v12, "isTimaKeystoreEnabledInDBPerApp matched. caller app can use TKS"
 
     invoke-static {v11, v12}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
     const/4 v10, 0x1
 
-    goto/16 :goto_1
+    :cond_4
+    :goto_1
+    sget-boolean v11, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->DBG:Z
+
+    if-eqz v11, :cond_5
+
+    sget-object v11, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->TAG:Ljava/lang/String;
+
+    new-instance v12, Ljava/lang/StringBuilder;
+
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v13, "isTimaKeystoreEnabledInDBPerApp returning -"
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12, v10}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-static {v11, v12}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_5
+    return v10
+
+    :catch_0
+    move-exception v7
+
+    sget-object v11, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v12, "isTimaKeystoreEnabledInDBPerApp() get callingUid, caller failed"
+
+    invoke-static {v11, v12}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto/16 :goto_0
 
     :catch_1
     move-exception v8
@@ -3089,7 +3070,7 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_1
+    goto :goto_1
 .end method
 
 .method public isTimaKeystoreEnabledInternal(Landroid/app/enterprise/ContextInfo;)Z
@@ -3159,6 +3140,8 @@
     return v7
 
     :cond_5
+    const/4 v1, 0x0
+
     sget-object v2, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->TAG:Ljava/lang/String;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -3274,49 +3257,25 @@
 .end method
 
 .method public onAdminRemoved(I)V
-    .locals 2
+    .locals 0
 
-    iput p1, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->onAdminRemoveduid:I
-
-    sget-object v0, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->mInternalHandler:Landroid/os/Handler;
-
-    if-eqz v0, :cond_0
-
-    sget-object v0, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->mInternalHandler:Landroid/os/Handler;
-
-    new-instance v1, Lcom/android/server/enterprise/keystore/TimaKeystoreService$6;
-
-    invoke-direct {v1, p0}, Lcom/android/server/enterprise/keystore/TimaKeystoreService$6;-><init>(Lcom/android/server/enterprise/keystore/TimaKeystoreService;)V
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    :cond_0
     return-void
 .end method
 
 .method public onPreAdminRemoval(I)V
-    .locals 2
+    .locals 0
 
-    iput p1, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->onPreAdminRemovaluid:I
-
-    sget-object v0, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->mInternalHandler:Landroid/os/Handler;
-
-    if-eqz v0, :cond_0
-
-    sget-object v0, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->mInternalHandler:Landroid/os/Handler;
-
-    new-instance v1, Lcom/android/server/enterprise/keystore/TimaKeystoreService$5;
-
-    invoke-direct {v1, p0}, Lcom/android/server/enterprise/keystore/TimaKeystoreService$5;-><init>(Lcom/android/server/enterprise/keystore/TimaKeystoreService;)V
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    :cond_0
     return-void
 .end method
 
 .method public systemReady()V
     .locals 3
+
+    invoke-static {}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->supportDKS()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     new-instance v0, Landroid/os/HandlerThread;
 
@@ -3344,5 +3303,6 @@
 
     sput-object v0, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->mInternalHandler:Landroid/os/Handler;
 
+    :cond_0
     return-void
 .end method

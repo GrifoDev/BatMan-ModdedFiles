@@ -1,6 +1,5 @@
 .class public Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;
 .super Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;
-.source "Unknown"
 
 
 # static fields
@@ -48,41 +47,41 @@
 
     new-array v0, v0, [Ljava/lang/String;
 
-    const/4 v1, 0x0
+    const-string/jumbo v1, "http.proxy.host"
 
-    const-string/jumbo v2, "http.proxy.host"
+    const/4 v2, 0x0
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x1
+    const-string/jumbo v1, "http.proxy.port"
 
-    const-string/jumbo v2, "http.proxy.port"
+    const/4 v2, 0x1
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x2
+    const-string/jumbo v1, "http.proxy.username"
 
-    const-string/jumbo v2, "http.proxy.username"
+    const/4 v2, 0x2
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x3
+    const-string/jumbo v1, "http.proxy.password"
 
-    const-string/jumbo v2, "http.proxy.password"
+    const/4 v2, 0x3
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x4
+    const-string/jumbo v1, "http.basic.username"
 
-    const-string/jumbo v2, "http.basic.username"
+    const/4 v2, 0x4
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x5
+    const-string/jumbo v1, "http.basic.password"
 
-    const-string/jumbo v2, "http.basic.password"
+    const/4 v2, 0x5
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     sput-object v0, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->properties:[Ljava/lang/String;
 
@@ -109,16 +108,16 @@
 .end method
 
 .method static synthetic class$(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 2
+    .locals 3
 
     :try_start_0
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :catch_0
     move-exception v0
@@ -127,9 +126,9 @@
 
     invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-direct {v1, v0}, Ljava/lang/NoClassDefFoundError;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/NoClassDefFoundError;-><init>(Ljava/lang/String;)V
 
     throw v1
 .end method
@@ -193,41 +192,41 @@
     if-eqz v1, :cond_3
 
     :cond_0
-    sget-object v0, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->log:Ljava/util/logging/Logger;
+    sget-object v1, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->log:Ljava/util/logging/Logger;
 
-    sget-object v1, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
+    sget-object v2, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
 
-    invoke-virtual {v0, v1}, Ljava/util/logging/Logger;->isLoggable(Ljava/util/logging/Level;)Z
+    invoke-virtual {v1, v2}, Ljava/util/logging/Logger;->isLoggable(Ljava/util/logging/Level;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_5
+    if-nez v1, :cond_5
 
     :goto_0
     return v5
 
     :cond_1
-    sget-object v0, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->log:Ljava/util/logging/Logger;
+    sget-object v1, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->log:Ljava/util/logging/Logger;
 
-    sget-object v1, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
+    sget-object v2, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
 
-    invoke-virtual {v0, v1}, Ljava/util/logging/Logger;->isLoggable(Ljava/util/logging/Level;)Z
+    invoke-virtual {v1, v2}, Ljava/util/logging/Logger;->isLoggable(Ljava/util/logging/Level;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_2
+    if-nez v1, :cond_2
 
     :goto_1
     return v5
 
     :cond_2
-    sget-object v0, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->log:Ljava/util/logging/Logger;
+    sget-object v1, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->log:Ljava/util/logging/Logger;
 
-    sget-object v1, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
+    sget-object v2, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
 
-    const-string/jumbo v2, "quick fail, uri == null"
+    const-string/jumbo v3, "quick fail, uri == null"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
+    invoke-virtual {v1, v2, v3}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
 
     goto :goto_1
 
@@ -271,18 +270,18 @@
     if-nez v1, :cond_8
 
     :goto_3
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    return v0
+    return v1
 
     :cond_5
-    sget-object v0, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->log:Ljava/util/logging/Logger;
+    sget-object v1, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->log:Ljava/util/logging/Logger;
 
-    sget-object v1, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
+    sget-object v2, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
 
-    const-string/jumbo v2, "quick fail for empty URIs and local ones"
+    const-string/jumbo v3, "quick fail for empty URIs and local ones"
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
+    invoke-virtual {v1, v2, v3}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -352,13 +351,13 @@
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {v1, v2, v0}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
+    invoke-virtual {v1, v2, v3}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
 
     goto :goto_3
 
@@ -379,13 +378,13 @@
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {v1, v2, v0}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
+    invoke-virtual {v1, v2, v3}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
 
     goto :goto_4
 .end method
@@ -399,261 +398,315 @@
 .end method
 
 .method public engineResolve(Lorg/w3c/dom/Attr;Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;
-    .locals 12
+    .locals 29
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverException;
         }
     .end annotation
 
-    const/4 v4, 0x1
-
-    const/4 v3, 0x0
+    const/16 v17, 0x0
 
     :try_start_0
-    sget-object v0, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->properties:[Ljava/lang/String;
+    sget-object v25, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->properties:[Ljava/lang/String;
 
-    const/4 v1, 0x0
+    const/16 v26, 0x0
 
-    aget-object v0, v0, v1
+    aget-object v25, v25, v26
 
-    invoke-virtual {p0, v0}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;->engineGetProperty(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    move-result-object v7
+    move-object/from16 v1, v25
 
-    sget-object v0, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->properties:[Ljava/lang/String;
+    invoke-virtual {v0, v1}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;->engineGetProperty(Ljava/lang/String;)Ljava/lang/String;
 
-    const/4 v1, 0x1
+    move-result-object v19
 
-    aget-object v0, v0, v1
+    sget-object v25, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->properties:[Ljava/lang/String;
 
-    invoke-virtual {p0, v0}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;->engineGetProperty(Ljava/lang/String;)Ljava/lang/String;
+    const/16 v26, 0x1
 
-    move-result-object v8
+    aget-object v25, v25, v26
 
-    if-nez v7, :cond_4
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;->engineGetProperty(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v20
+
+    if-nez v19, :cond_4
 
     :cond_0
-    move v6, v3
-
     :goto_0
     invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;
 
-    move-result-object v0
+    move-result-object v25
 
-    const-string/jumbo v1, "http.proxySet"
+    const-string/jumbo v26, "http.proxySet"
 
-    invoke-virtual {v0, v1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual/range {v25 .. v26}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v21
 
-    check-cast v0, Ljava/lang/String;
-
-    invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "http.proxyHost"
-
-    invoke-virtual {v1, v2}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/String;
+    check-cast v21, Ljava/lang/String;
 
     invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;
 
-    move-result-object v2
+    move-result-object v25
 
-    const-string/jumbo v5, "http.proxyPort"
+    const-string/jumbo v26, "http.proxyHost"
 
-    invoke-virtual {v2, v5}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual/range {v25 .. v26}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v22
 
-    check-cast v2, Ljava/lang/String;
+    check-cast v22, Ljava/lang/String;
 
-    if-nez v0, :cond_5
+    invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;
+
+    move-result-object v25
+
+    const-string/jumbo v26, "http.proxyPort"
+
+    invoke-virtual/range {v25 .. v26}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v23
+
+    check-cast v23, Ljava/lang/String;
+
+    if-nez v21, :cond_5
 
     :cond_1
-    move v5, v3
+    const/16 v24, 0x0
 
     :goto_1
-    if-nez v6, :cond_6
+    if-nez v17, :cond_6
 
     :goto_2
-    invoke-interface {p1}, Lorg/w3c/dom/Node;->getNodeValue()Ljava/lang/String;
+    invoke-interface/range {p1 .. p1}, Lorg/w3c/dom/Node;->getNodeValue()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v25
 
-    invoke-direct {p0, v4, p2}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->getNewURI(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/utils/URI;
+    move-object/from16 v0, p0
 
-    move-result-object v6
+    move-object/from16 v1, v25
 
-    new-instance v4, Lcom/sun/org/apache/xml/internal/utils/URI;
+    move-object/from16 v2, p2
 
-    invoke-direct {v4, v6}, Lcom/sun/org/apache/xml/internal/utils/URI;-><init>(Lcom/sun/org/apache/xml/internal/utils/URI;)V
+    invoke-direct {v0, v1, v2}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->getNewURI(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/utils/URI;
 
-    const/4 v7, 0x0
+    move-result-object v5
 
-    invoke-virtual {v4, v7}, Lcom/sun/org/apache/xml/internal/utils/URI;->setFragment(Ljava/lang/String;)V
+    new-instance v6, Lcom/sun/org/apache/xml/internal/utils/URI;
+
+    invoke-direct {v6, v5}, Lcom/sun/org/apache/xml/internal/utils/URI;-><init>(Lcom/sun/org/apache/xml/internal/utils/URI;)V
+
+    const/16 v25, 0x0
+
+    move-object/from16 v0, v25
+
+    invoke-virtual {v6, v0}, Lcom/sun/org/apache/xml/internal/utils/URI;->setFragment(Ljava/lang/String;)V
 
     new-instance v7, Ljava/net/URL;
 
-    invoke-virtual {v4}, Lcom/sun/org/apache/xml/internal/utils/URI;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Lcom/sun/org/apache/xml/internal/utils/URI;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v25
 
-    invoke-direct {v7, v4}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
+    move-object/from16 v0, v25
+
+    invoke-direct {v7, v0}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v7}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
 
-    move-result-object v4
-
-    sget-object v8, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->properties:[Ljava/lang/String;
-
-    const/4 v9, 0x2
-
-    aget-object v8, v8, v9
-
-    invoke-virtual {p0, v8}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;->engineGetProperty(Ljava/lang/String;)Ljava/lang/String;
-
     move-result-object v8
 
-    sget-object v9, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->properties:[Ljava/lang/String;
+    sget-object v25, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->properties:[Ljava/lang/String;
 
-    const/4 v10, 0x3
+    const/16 v26, 0x2
 
-    aget-object v9, v9, v10
+    aget-object v25, v25, v26
 
-    invoke-virtual {p0, v9}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;->engineGetProperty(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;->engineGetProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v9
 
-    if-nez v8, :cond_8
+    sget-object v25, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->properties:[Ljava/lang/String;
+
+    const/16 v26, 0x3
+
+    aget-object v25, v25, v26
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;->engineGetProperty(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v10
+
+    if-nez v9, :cond_8
 
     :cond_2
     :goto_3
-    const-string/jumbo v8, "WWW-Authenticate"
+    const-string/jumbo v25, "WWW-Authenticate"
 
-    invoke-virtual {v4, v8}, Ljava/net/URLConnection;->getHeaderField(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v0, v25
 
-    move-result-object v8
+    invoke-virtual {v8, v0}, Ljava/net/URLConnection;->getHeaderField(Ljava/lang/String;)Ljava/lang/String;
 
-    if-nez v8, :cond_9
+    move-result-object v9
+
+    if-nez v9, :cond_9
 
     :cond_3
     :goto_4
-    const-string/jumbo v7, "Content-Type"
+    const-string/jumbo v25, "Content-Type"
 
-    invoke-virtual {v4, v7}, Ljava/net/URLConnection;->getHeaderField(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v0, v25
 
-    move-result-object v7
+    invoke-virtual {v8, v0}, Ljava/net/URLConnection;->getHeaderField(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v4}, Ljava/net/URLConnection;->getInputStream()Ljava/io/InputStream;
+    move-result-object v9
 
-    move-result-object v4
+    invoke-virtual {v8}, Ljava/net/URLConnection;->getInputStream()Ljava/io/InputStream;
 
-    new-instance v8, Ljava/io/ByteArrayOutputStream;
+    move-result-object v10
 
-    invoke-direct {v8}, Ljava/io/ByteArrayOutputStream;-><init>()V
+    new-instance v11, Ljava/io/ByteArrayOutputStream;
 
-    const/16 v9, 0x1000
+    invoke-direct {v11}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
-    new-array v9, v9, [B
+    const/16 v25, 0x1000
+
+    move/from16 v0, v25
+
+    new-array v12, v0, [B
+
+    const/4 v13, 0x0
+
+    const/4 v15, 0x0
 
     :goto_5
-    invoke-virtual {v4, v9}, Ljava/io/InputStream;->read([B)I
+    invoke-virtual {v10, v12}, Ljava/io/InputStream;->read([B)I
 
-    move-result v10
+    move-result v13
 
-    if-gez v10, :cond_a
+    if-gez v13, :cond_a
 
-    sget-object v4, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->log:Ljava/util/logging/Logger;
+    sget-object v25, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->log:Ljava/util/logging/Logger;
 
-    sget-object v9, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
+    sget-object v26, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
 
-    invoke-virtual {v4, v9}, Ljava/util/logging/Logger;->isLoggable(Ljava/util/logging/Level;)Z
+    invoke-virtual/range {v25 .. v26}, Ljava/util/logging/Logger;->isLoggable(Ljava/util/logging/Level;)Z
 
-    move-result v4
+    move-result v25
 
-    if-nez v4, :cond_b
+    if-nez v25, :cond_b
 
     :goto_6
-    new-instance v3, Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;
+    new-instance v16, Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;
 
-    invoke-virtual {v8}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
+    invoke-virtual {v11}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
-    move-result-object v4
+    move-result-object v25
 
-    invoke-direct {v3, v4}, Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;-><init>([B)V
+    move-object/from16 v0, v16
 
-    invoke-virtual {v6}, Lcom/sun/org/apache/xml/internal/utils/URI;->toString()Ljava/lang/String;
+    move-object/from16 v1, v25
 
-    move-result-object v4
+    invoke-direct {v0, v1}, Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;-><init>([B)V
 
-    invoke-virtual {v3, v4}, Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;->setSourceURI(Ljava/lang/String;)V
+    invoke-virtual {v5}, Lcom/sun/org/apache/xml/internal/utils/URI;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3, v7}, Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;->setMIMEType(Ljava/lang/String;)V
+    move-result-object v25
 
-    if-nez v5, :cond_c
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;->setSourceURI(Ljava/lang/String;)V
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v9}, Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;->setMIMEType(Ljava/lang/String;)V
+
+    if-nez v24, :cond_c
 
     :goto_7
-    return-object v3
+    return-object v16
 
     :cond_4
-    if-eqz v8, :cond_0
+    if-eqz v20, :cond_0
 
-    move v6, v4
+    const/16 v17, 0x1
 
     goto/16 :goto_0
 
     :cond_5
-    if-eqz v1, :cond_1
+    if-eqz v22, :cond_1
 
-    if-eqz v2, :cond_1
+    if-eqz v23, :cond_1
 
-    move v5, v4
+    const/16 v24, 0x1
 
     goto/16 :goto_1
 
     :cond_6
-    sget-object v4, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->log:Ljava/util/logging/Logger;
+    sget-object v25, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->log:Ljava/util/logging/Logger;
 
-    sget-object v6, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
+    sget-object v26, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
 
-    invoke-virtual {v4, v6}, Ljava/util/logging/Logger;->isLoggable(Ljava/util/logging/Level;)Z
+    invoke-virtual/range {v25 .. v26}, Ljava/util/logging/Logger;->isLoggable(Ljava/util/logging/Level;)Z
 
-    move-result v4
+    move-result v25
 
-    if-nez v4, :cond_7
+    if-nez v25, :cond_7
 
     :goto_8
     invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;
 
-    move-result-object v4
+    move-result-object v25
 
-    const-string/jumbo v6, "http.proxySet"
+    const-string/jumbo v26, "http.proxySet"
 
-    const-string/jumbo v9, "true"
+    const-string/jumbo v27, "true"
 
-    invoke-virtual {v4, v6, v9}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;
-
-    move-result-object v4
-
-    const-string/jumbo v6, "http.proxyHost"
-
-    invoke-virtual {v4, v6, v7}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual/range {v25 .. v27}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;
 
-    move-result-object v4
+    move-result-object v25
 
-    const-string/jumbo v6, "http.proxyPort"
+    const-string/jumbo v26, "http.proxyHost"
 
-    invoke-virtual {v4, v6, v8}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v0, v25
+
+    move-object/from16 v1, v26
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;
+
+    move-result-object v25
+
+    const-string/jumbo v26, "http.proxyPort"
+
+    move-object/from16 v0, v25
+
+    move-object/from16 v1, v26
+
+    move-object/from16 v2, v20
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/net/MalformedURLException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
@@ -661,51 +714,69 @@
     goto/16 :goto_2
 
     :catch_0
-    move-exception v0
+    move-exception v18
 
-    new-instance v1, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverException;
+    new-instance v25, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverException;
 
-    const-string/jumbo v2, "generic.EmptyMessage"
+    const-string/jumbo v26, "generic.EmptyMessage"
 
-    invoke-direct {v1, v2, v0, p1, p2}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverException;-><init>(Ljava/lang/String;Ljava/lang/Exception;Lorg/w3c/dom/Attr;Ljava/lang/String;)V
+    move-object/from16 v0, v25
 
-    throw v1
+    move-object/from16 v1, v26
+
+    move-object/from16 v2, v18
+
+    move-object/from16 v3, p1
+
+    move-object/from16 v4, p2
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverException;-><init>(Ljava/lang/String;Ljava/lang/Exception;Lorg/w3c/dom/Attr;Ljava/lang/String;)V
+
+    throw v25
 
     :cond_7
     :try_start_1
-    sget-object v4, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->log:Ljava/util/logging/Logger;
+    sget-object v25, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->log:Ljava/util/logging/Logger;
 
-    sget-object v6, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
+    sget-object v26, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
 
-    new-instance v9, Ljava/lang/StringBuffer;
+    new-instance v27, Ljava/lang/StringBuffer;
 
-    invoke-direct {v9}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuffer;-><init>()V
 
-    const-string/jumbo v10, "Use of HTTP proxy enabled: "
+    const-string/jumbo v28, "Use of HTTP proxy enabled: "
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v9
+    move-result-object v27
 
-    invoke-virtual {v9, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-object/from16 v0, v27
 
-    move-result-object v9
+    move-object/from16 v1, v19
 
-    const-string/jumbo v10, ":"
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-result-object v27
 
-    move-result-object v9
+    const-string/jumbo v28, ":"
 
-    invoke-virtual {v9, v8}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v9
+    move-result-object v27
 
-    invoke-virtual {v9}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    move-object/from16 v0, v27
 
-    move-result-object v9
+    move-object/from16 v1, v20
 
-    invoke-virtual {v4, v6, v9}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v27
+
+    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v27
+
+    invoke-virtual/range {v25 .. v27}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
     :try_end_1
     .catch Ljava/net/MalformedURLException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
@@ -713,219 +784,277 @@
     goto :goto_8
 
     :catch_1
-    move-exception v0
+    move-exception v18
 
-    new-instance v1, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverException;
+    new-instance v25, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverException;
 
-    const-string/jumbo v2, "generic.EmptyMessage"
+    const-string/jumbo v26, "generic.EmptyMessage"
 
-    invoke-direct {v1, v2, v0, p1, p2}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverException;-><init>(Ljava/lang/String;Ljava/lang/Exception;Lorg/w3c/dom/Attr;Ljava/lang/String;)V
+    move-object/from16 v0, v25
 
-    throw v1
+    move-object/from16 v1, v26
+
+    move-object/from16 v2, v18
+
+    move-object/from16 v3, p1
+
+    move-object/from16 v4, p2
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverException;-><init>(Ljava/lang/String;Ljava/lang/Exception;Lorg/w3c/dom/Attr;Ljava/lang/String;)V
+
+    throw v25
 
     :cond_8
-    if-eqz v9, :cond_2
+    if-eqz v10, :cond_2
 
     :try_start_2
-    new-instance v10, Ljava/lang/StringBuffer;
+    new-instance v25, Ljava/lang/StringBuffer;
 
-    invoke-direct {v10}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuffer;-><init>()V
 
-    invoke-virtual {v10, v8}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-object/from16 v0, v25
 
-    move-result-object v8
+    invoke-virtual {v0, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    const-string/jumbo v10, ":"
+    move-result-object v25
 
-    invoke-virtual {v8, v10}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    const-string/jumbo v26, ":"
 
-    move-result-object v8
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-result-object v25
 
-    move-result-object v8
+    move-object/from16 v0, v25
 
-    invoke-virtual {v8}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v10}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v8
+    move-result-object v25
 
-    invoke-virtual {v8}, Ljava/lang/String;->getBytes()[B
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v11
 
-    invoke-static {v8}, Lcom/sun/org/apache/xml/internal/security/utils/Base64;->encode([B)Ljava/lang/String;
+    invoke-virtual {v11}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object v8
+    move-result-object v25
 
-    const-string/jumbo v9, "Proxy-Authorization"
+    invoke-static/range {v25 .. v25}, Lcom/sun/org/apache/xml/internal/security/utils/Base64;->encode([B)Ljava/lang/String;
 
-    invoke-virtual {v4, v9, v8}, Ljava/net/URLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v12
+
+    const-string/jumbo v25, "Proxy-Authorization"
+
+    move-object/from16 v0, v25
+
+    invoke-virtual {v8, v0, v12}, Ljava/net/URLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_3
 
     :cond_9
-    const-string/jumbo v9, "Basic"
+    const-string/jumbo v25, "Basic"
 
-    invoke-virtual {v8, v9}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    move-object/from16 v0, v25
 
-    move-result v8
+    invoke-virtual {v9, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    if-eqz v8, :cond_3
+    move-result v25
 
-    sget-object v8, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->properties:[Ljava/lang/String;
+    if-eqz v25, :cond_3
 
-    const/4 v9, 0x4
+    sget-object v25, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->properties:[Ljava/lang/String;
 
-    aget-object v8, v8, v9
+    const/16 v26, 0x4
 
-    invoke-virtual {p0, v8}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;->engineGetProperty(Ljava/lang/String;)Ljava/lang/String;
+    aget-object v25, v25, v26
 
-    move-result-object v8
+    move-object/from16 v0, p0
 
-    sget-object v9, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->properties:[Ljava/lang/String;
+    move-object/from16 v1, v25
 
-    const/4 v10, 0x5
+    invoke-virtual {v0, v1}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;->engineGetProperty(Ljava/lang/String;)Ljava/lang/String;
 
-    aget-object v9, v9, v10
+    move-result-object v10
 
-    invoke-virtual {p0, v9}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;->engineGetProperty(Ljava/lang/String;)Ljava/lang/String;
+    sget-object v25, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->properties:[Ljava/lang/String;
 
-    move-result-object v9
+    const/16 v26, 0x5
 
-    if-eqz v8, :cond_3
+    aget-object v25, v25, v26
 
-    if-eqz v9, :cond_3
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;->engineGetProperty(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    if-eqz v10, :cond_3
+
+    if-eqz v11, :cond_3
 
     invoke-virtual {v7}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
 
-    move-result-object v4
+    move-result-object v8
 
-    new-instance v7, Ljava/lang/StringBuffer;
+    new-instance v25, Ljava/lang/StringBuffer;
 
-    invoke-direct {v7}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuffer;-><init>()V
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-object/from16 v0, v25
 
-    move-result-object v7
+    invoke-virtual {v0, v10}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    const-string/jumbo v8, ":"
+    move-result-object v25
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    const-string/jumbo v26, ":"
 
-    move-result-object v7
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v7, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-result-object v25
 
-    move-result-object v7
+    move-object/from16 v0, v25
 
-    invoke-virtual {v7}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v7
+    move-result-object v25
 
-    invoke-virtual {v7}, Ljava/lang/String;->getBytes()[B
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v12
 
-    invoke-static {v7}, Lcom/sun/org/apache/xml/internal/security/utils/Base64;->encode([B)Ljava/lang/String;
+    invoke-virtual {v12}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object v7
+    move-result-object v25
 
-    const-string/jumbo v8, "Authorization"
+    invoke-static/range {v25 .. v25}, Lcom/sun/org/apache/xml/internal/security/utils/Base64;->encode([B)Ljava/lang/String;
 
-    new-instance v9, Ljava/lang/StringBuffer;
+    move-result-object v14
 
-    invoke-direct {v9}, Ljava/lang/StringBuffer;-><init>()V
+    new-instance v25, Ljava/lang/StringBuffer;
 
-    const-string/jumbo v10, "Basic "
+    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuffer;-><init>()V
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    const-string/jumbo v26, "Basic "
 
-    move-result-object v9
+    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v9, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-result-object v25
 
-    move-result-object v7
+    move-object/from16 v0, v25
 
-    invoke-virtual {v7}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v7
+    move-result-object v25
 
-    invoke-virtual {v4, v8, v7}, Ljava/net/URLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v25
+
+    const-string/jumbo v26, "Authorization"
+
+    move-object/from16 v0, v26
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v8, v0, v1}, Ljava/net/URLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_4
 
     :cond_a
-    const/4 v11, 0x0
+    const/16 v25, 0x0
 
-    invoke-virtual {v8, v9, v11, v10}, Ljava/io/ByteArrayOutputStream;->write([BII)V
+    move/from16 v0, v25
 
-    add-int/2addr v3, v10
+    invoke-virtual {v11, v12, v0, v13}, Ljava/io/ByteArrayOutputStream;->write([BII)V
+
+    add-int/2addr v15, v13
 
     goto/16 :goto_5
 
     :cond_b
-    sget-object v4, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->log:Ljava/util/logging/Logger;
+    sget-object v25, Lcom/sun/org/apache/xml/internal/security/utils/resolver/implementations/ResolverDirectHTTP;->log:Ljava/util/logging/Logger;
 
-    sget-object v9, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
+    sget-object v26, Ljava/util/logging/Level;->FINE:Ljava/util/logging/Level;
 
-    new-instance v10, Ljava/lang/StringBuffer;
+    new-instance v27, Ljava/lang/StringBuffer;
 
-    invoke-direct {v10}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuffer;-><init>()V
 
-    const-string/jumbo v11, "Fetched "
+    const-string/jumbo v28, "Fetched "
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v10
+    move-result-object v27
 
-    invoke-virtual {v10, v3}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    move-object/from16 v0, v27
 
-    move-result-object v3
+    invoke-virtual {v0, v15}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    const-string/jumbo v10, " bytes from URI "
+    move-result-object v27
 
-    invoke-virtual {v3, v10}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    const-string/jumbo v28, " bytes from URI "
 
-    move-result-object v3
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v6}, Lcom/sun/org/apache/xml/internal/utils/URI;->toString()Ljava/lang/String;
+    move-result-object v27
 
-    move-result-object v10
+    invoke-virtual {v5}, Lcom/sun/org/apache/xml/internal/utils/URI;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3, v10}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-result-object v28
 
-    move-result-object v3
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    move-result-object v27
 
-    move-result-object v3
+    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    invoke-virtual {v4, v9, v3}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
+    move-result-object v27
+
+    invoke-virtual/range {v25 .. v27}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;)V
 
     goto/16 :goto_6
 
     :cond_c
     invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;
 
-    move-result-object v4
+    move-result-object v25
 
-    const-string/jumbo v5, "http.proxySet"
+    const-string/jumbo v26, "http.proxySet"
 
-    invoke-virtual {v4, v5, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v0, v25
 
-    invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;
+    move-object/from16 v1, v26
 
-    move-result-object v0
+    move-object/from16 v2, v21
 
-    const-string/jumbo v4, "http.proxyHost"
-
-    invoke-virtual {v0, v4, v1}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;
 
-    move-result-object v0
+    move-result-object v25
 
-    const-string/jumbo v1, "http.proxyPort"
+    const-string/jumbo v26, "http.proxyHost"
+
+    move-object/from16 v0, v25
+
+    move-object/from16 v1, v26
+
+    move-object/from16 v2, v22
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-static {}, Ljava/lang/System;->getProperties()Ljava/util/Properties;
+
+    move-result-object v25
+
+    const-string/jumbo v26, "http.proxyPort"
+
+    move-object/from16 v0, v25
+
+    move-object/from16 v1, v26
+
+    move-object/from16 v2, v23
 
     invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_2

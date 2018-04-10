@@ -80,7 +80,7 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    const/16 v0, 0xf
+    const/16 v0, 0x10
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -168,9 +168,15 @@
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wpa_supplicant"
+    const-string/jumbo v1, "conscrypt"
 
     const/16 v2, 0xe
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "wpa_supplicant"
+
+    const/16 v2, 0xf
 
     aput-object v1, v0, v2
 
@@ -342,7 +348,7 @@
 
     move-result v17
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_5
 
     move-object/from16 v0, p1
 
@@ -351,7 +357,7 @@
     :goto_0
     const/16 v16, 0x0
 
-    if-eqz v17, :cond_5
+    if-eqz v17, :cond_6
 
     move-object/from16 v0, p0
 
@@ -363,7 +369,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_6
 
     move-object/from16 v0, p0
 
@@ -409,10 +415,13 @@
     if-ne v0, v4, :cond_1
 
     :cond_0
-    if-eqz v16, :cond_6
+    xor-int/lit8 v4, v16, 0x1
+
+    if-eqz v4, :cond_1
+
+    const/16 p8, -0x1
 
     :cond_1
-    :goto_2
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/enterprise/auditlog/AuditLogService;->mLinkedHashMap:Ljava/util/Map;
@@ -421,7 +430,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_b
+    if-nez v4, :cond_a
 
     move-object/from16 v0, p0
 
@@ -447,12 +456,12 @@
     move-result-object v18
 
     :cond_2
-    :goto_3
+    :goto_2
     invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_9
 
     invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -476,18 +485,27 @@
 
     move/from16 v0, p8
 
-    if-eq v0, v4, :cond_3
+    if-eq v0, v4, :cond_4
 
-    if-nez v13, :cond_7
+    if-nez v13, :cond_3
 
-    const/16 v4, 0x64
+    invoke-static/range {p8 .. p8}, Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;->isValidKnoxId(I)Z
 
-    move/from16 v0, p8
+    move-result v4
 
-    if-ge v0, v4, :cond_7
+    xor-int/lit8 v4, v4, 0x1
+
+    if-nez v4, :cond_4
 
     :cond_3
-    :goto_4
+    move/from16 v0, p8
+
+    if-ne v13, v0, :cond_7
+
+    if-eqz v13, :cond_7
+
+    :cond_4
+    :goto_3
     invoke-virtual {v12}, Lcom/android/server/enterprise/auditlog/Admin;->getAuditLogRulesInfo()Lcom/samsung/android/knox/log/AuditLogRulesInfo;
 
     move-result-object v5
@@ -558,11 +576,11 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-eqz p4, :cond_9
+    if-eqz p4, :cond_8
 
     const-string/jumbo v4, "1"
 
-    :goto_5
+    :goto_4
     move-object/from16 v0, v19
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -629,7 +647,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto/16 :goto_3
+    goto/16 :goto_2
 
     :catchall_0
     move-exception v4
@@ -638,33 +656,21 @@
 
     throw v4
 
-    :cond_4
+    :cond_5
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v15
 
     goto/16 :goto_0
 
-    :cond_5
+    :cond_6
     invoke-static {v15}, Landroid/os/UserHandle;->getUserId(I)I
 
     move-result p8
 
     goto/16 :goto_1
 
-    :cond_6
-    const/16 p8, -0x1
-
-    goto/16 :goto_2
-
     :cond_7
-    move/from16 v0, p8
-
-    if-ne v13, v0, :cond_8
-
-    if-nez v13, :cond_3
-
-    :cond_8
     :try_start_1
     invoke-virtual {v12}, Lcom/android/server/enterprise/auditlog/Admin;->getUid()I
 
@@ -680,19 +686,19 @@
 
     if-eqz v4, :cond_2
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
-    :cond_9
+    :cond_8
     const-string/jumbo v4, "0"
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_5
+    goto :goto_4
 
-    :cond_a
+    :cond_9
     monitor-exit v20
 
-    :cond_b
+    :cond_a
     return-void
 .end method
 
@@ -1030,9 +1036,11 @@
 
     const/4 v8, 0x1
 
-    const/16 v5, 0x64
+    invoke-static {p1}, Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;->isValidKnoxId(I)Z
 
-    if-lt p1, v5, :cond_3
+    move-result v5
+
+    if-eqz v5, :cond_3
 
     iget-object v5, p0, Lcom/android/server/enterprise/auditlog/AuditLogService;->mContainerOwnerCache:Landroid/content/ContentValues;
 
@@ -1422,15 +1430,15 @@
 
     move-result-object v3
 
-    const-string/jumbo v10, "auditLogKernelEnabled"
+    const-string/jumbo v10, "true"
 
-    invoke-virtual {p1, v10}, Landroid/content/ContentValues;->get(Ljava/lang/String;)Ljava/lang/Object;
+    const-string/jumbo v11, "auditLogKernelEnabled"
 
-    move-result-object v10
+    invoke-virtual {p1, v11}, Landroid/content/ContentValues;->get(Ljava/lang/String;)Ljava/lang/Object;
 
-    const-string/jumbo v11, "true"
+    move-result-object v11
 
-    invoke-virtual {v10, v11}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -2790,7 +2798,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_7
 
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -2814,23 +2822,6 @@
     return v6
 
     :cond_1
-    iget-object v4, p0, Lcom/android/server/enterprise/auditlog/AuditLogService;->mContext:Landroid/content/Context;
-
-    invoke-static {v4, p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->isManagedProfileUser(Landroid/content/Context;Lcom/samsung/android/knox/ContextInfo;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    const-string/jumbo v4, "AuditLogService"
-
-    const-string/jumbo v5, " AuditLogger calls from Profile return default value"
-
-    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    return v6
-
-    :cond_2
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v1
@@ -2853,34 +2844,34 @@
 
     move-result v4
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_2
 
     const/16 v4, 0x7cf
 
-    if-ne v1, v4, :cond_6
+    if-ne v1, v4, :cond_5
 
-    :cond_3
+    :cond_2
     :goto_0
     const/4 v3, 0x0
 
-    :cond_4
-    if-eqz v3, :cond_5
+    :cond_3
+    if-eqz v3, :cond_4
 
     :try_start_0
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/auditlog/AuditLogService;->enforceLoggerPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_5
+    :cond_4
     :goto_1
     const/4 v4, 0x1
 
     return v4
 
-    :cond_6
+    :cond_5
     const/16 v4, 0x138a
 
-    if-ne v1, v4, :cond_4
+    if-ne v1, v4, :cond_3
 
     goto :goto_0
 
@@ -2893,7 +2884,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_7
+    if-nez v4, :cond_6
 
     const-string/jumbo v4, "AuditLogService"
 
@@ -2917,7 +2908,7 @@
 
     invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_7
+    :cond_6
     invoke-static {}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getInstance()Lcom/android/server/enterprise/EnterpriseDeviceManagerService;
 
     move-result-object v4
@@ -2930,7 +2921,7 @@
 
     goto :goto_1
 
-    :cond_8
+    :cond_7
     return v6
 .end method
 
@@ -3235,7 +3226,9 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    xor-int/lit8 v4, v4, 0x1
+
+    if-nez v4, :cond_0
 
     invoke-virtual/range {p7 .. p7}, Landroid/os/ParcelFileDescriptor;->canDetectErrors()Z
     :try_end_1
@@ -3887,27 +3880,8 @@
 .end method
 
 .method public isAuditLogEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/enterprise/auditlog/AuditLogService;->mContext:Landroid/content/Context;
-
-    invoke-static {v0, p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->isManagedProfileUser(Landroid/content/Context;Lcom/samsung/android/knox/ContextInfo;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v0, "AuditLogService"
-
-    const-string/jumbo v1, " isAuditLogEnabled calls from Profile return default value"
-
-    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/auditlog/AuditLogService;->enforceAuditLogPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
@@ -3966,9 +3940,11 @@
     return v4
 
     :cond_1
-    const/16 v3, 0x64
+    invoke-static {p1}, Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;->isValidKnoxId(I)Z
 
-    if-ge p1, v3, :cond_3
+    move-result v3
+
+    if-nez v3, :cond_3
 
     if-eqz v0, :cond_2
 
@@ -4012,27 +3988,8 @@
 .end method
 
 .method public isIPTablesLoggingEnabled(Lcom/samsung/android/knox/ContextInfo;)Z
-    .locals 5
+    .locals 4
 
-    const/4 v4, 0x0
-
-    iget-object v1, p0, Lcom/android/server/enterprise/auditlog/AuditLogService;->mContext:Landroid/content/Context;
-
-    invoke-static {v1, p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->isManagedProfileUser(Landroid/content/Context;Lcom/samsung/android/knox/ContextInfo;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const-string/jumbo v1, "AuditLogService"
-
-    const-string/jumbo v2, " isIPTablesLoggingEnabled calls from Profile return default value"
-
-    invoke-static {v1, v2}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    return v4
-
-    :cond_0
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/auditlog/AuditLogService;->enforceAuditLogPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
@@ -4051,7 +4008,7 @@
 
     check-cast v0, Lcom/android/server/enterprise/auditlog/Admin;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Lcom/android/server/enterprise/auditlog/Admin;->getIptablesLogging()Z
 
@@ -4059,8 +4016,10 @@
 
     return v1
 
-    :cond_1
-    return v4
+    :cond_0
+    const/4 v1, 0x0
+
+    return v1
 .end method
 
 .method public notifyToAddSystemService(Ljava/lang/String;Landroid/os/IBinder;)V
@@ -4258,7 +4217,46 @@
 
     move-result v2
 
-    if-eqz v2, :cond_7
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_2
+
+    invoke-virtual/range {p2 .. p2}, Lcom/samsung/android/knox/log/AuditLogRulesInfo;->getGroupsRule()Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v13
+
+    :goto_0
+    invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v12
+
+    check-cast v12, Ljava/lang/Integer;
+
+    invoke-virtual {v12}, Ljava/lang/Integer;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, ","
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_0
 
     :cond_2
     new-instance v17, Ljava/lang/StringBuilder;
@@ -4279,7 +4277,46 @@
 
     move-result v2
 
-    if-eqz v2, :cond_8
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_3
+
+    invoke-virtual/range {p2 .. p2}, Lcom/samsung/android/knox/log/AuditLogRulesInfo;->getUsersRule()Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v13
+
+    :goto_1
+    invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v12
+
+    check-cast v12, Ljava/lang/Integer;
+
+    invoke-virtual {v12}, Ljava/lang/Integer;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, ","
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_1
 
     :cond_3
     const-string/jumbo v2, "auditLogRuleOutcome"
@@ -4368,13 +4405,13 @@
 
     const-string/jumbo v4, "Cannot set filter on Database"
 
-    if-eqz v11, :cond_9
+    if-eqz v11, :cond_7
 
     invoke-virtual {v11}, Lcom/android/server/enterprise/auditlog/Admin;->getPackageName()Ljava/lang/String;
 
     move-result-object v2
 
-    :goto_0
+    :goto_2
     invoke-virtual {v3, v4, v2}, Lcom/android/server/enterprise/auditlog/InformFailure;->broadcastFailure(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_4
@@ -4428,85 +4465,9 @@
     return v15
 
     :cond_7
-    invoke-virtual/range {p2 .. p2}, Lcom/samsung/android/knox/log/AuditLogRulesInfo;->getGroupsRule()Ljava/util/List;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v13
-
-    :goto_1
-    invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, Ljava/lang/Integer;
-
-    invoke-virtual {v12}, Ljava/lang/Integer;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, ","
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    goto :goto_1
-
-    :cond_8
-    invoke-virtual/range {p2 .. p2}, Lcom/samsung/android/knox/log/AuditLogRulesInfo;->getUsersRule()Ljava/util/List;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v13
-
-    :goto_2
-    invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_3
-
-    invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, Ljava/lang/Integer;
-
-    invoke-virtual {v12}, Ljava/lang/Integer;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, ","
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    goto :goto_2
-
-    :cond_9
     const-string/jumbo v2, ""
 
-    goto :goto_0
+    goto :goto_2
 
     :catchall_0
     move-exception v3

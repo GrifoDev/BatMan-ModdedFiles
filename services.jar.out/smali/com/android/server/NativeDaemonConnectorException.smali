@@ -99,7 +99,7 @@
     return v0
 
     :cond_0
-    const/16 v0, 0x1f3
+    const/4 v0, -0x1
 
     goto :goto_0
 .end method

@@ -43,17 +43,17 @@
 
 # virtual methods
 .method public run()Ljava/lang/Object;
-    .locals 2
+    .locals 3
 
-    iget-object v0, p0, Lmf/javax/xml/xpath/SecuritySupport$5;->val$cl:Ljava/lang/ClassLoader;
+    iget-object v1, p0, Lmf/javax/xml/xpath/SecuritySupport$5;->val$cl:Ljava/lang/ClassLoader;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object v0, p0, Lmf/javax/xml/xpath/SecuritySupport$5;->val$cl:Ljava/lang/ClassLoader;
+    iget-object v1, p0, Lmf/javax/xml/xpath/SecuritySupport$5;->val$cl:Ljava/lang/ClassLoader;
 
-    iget-object v1, p0, Lmf/javax/xml/xpath/SecuritySupport$5;->val$name:Ljava/lang/String;
+    iget-object v2, p0, Lmf/javax/xml/xpath/SecuritySupport$5;->val$name:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/ClassLoader;->getResource(Ljava/lang/String;)Ljava/net/URL;
+    invoke-virtual {v1, v2}, Ljava/lang/ClassLoader;->getResource(Ljava/lang/String;)Ljava/net/URL;
 
     move-result-object v0
 
@@ -61,11 +61,11 @@
     return-object v0
 
     :cond_0
-    const-class v0, Ljava/lang/Object;
-
     iget-object v1, p0, Lmf/javax/xml/xpath/SecuritySupport$5;->val$name:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/Class;->getResource(Ljava/lang/String;)Ljava/net/URL;
+    const-class v2, Ljava/lang/Object;
+
+    invoke-virtual {v2, v1}, Ljava/lang/Class;->getResource(Ljava/lang/String;)Ljava/net/URL;
 
     move-result-object v0
 

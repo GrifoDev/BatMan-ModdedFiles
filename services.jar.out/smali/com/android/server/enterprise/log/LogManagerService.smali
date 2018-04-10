@@ -257,15 +257,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_1
-    return v2
+    if-eqz v1, :cond_1
 
-    :cond_2
     const/4 v1, 0x0
 
     return v1
+
+    :cond_1
+    return v2
 .end method
 
 .method private static createLogger(I)Lcom/android/server/enterprise/log/Logger;

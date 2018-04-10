@@ -4,8 +4,6 @@
 
 
 # static fields
-.field private static final DBG:Z
-
 .field private static final TAG:Ljava/lang/String; = "DLP_DLPCacheHelper"
 
 .field private static mUserCacheMap:Ljava/util/HashMap;
@@ -28,10 +26,6 @@
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
-
-    sget-boolean v0, Lcom/samsung/android/knox/dlp/DLPConstants;->DBG:Z
-
-    sput-boolean v0, Lcom/android/server/enterprise/dlp/DLPCacheHelper;->DBG:Z
 
     new-instance v0, Ljava/util/HashMap;
 
@@ -64,10 +58,6 @@
     monitor-enter v1
 
     :try_start_0
-    sget-boolean v0, Lcom/android/server/enterprise/dlp/DLPCacheHelper;->DBG:Z
-
-    if-eqz v0, :cond_0
-
     const-string/jumbo v0, "DLP_DLPCacheHelper"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -88,9 +78,8 @@
 
     move-result-object v2
 
-    invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v2}, Lcom/samsung/android/knox/dlp/log/DLPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_0
     sget-object v0, Lcom/android/server/enterprise/dlp/DLPCacheHelper;->mUserCacheMap:Ljava/util/HashMap;
 
     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -101,11 +90,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
-
-    sget-boolean v0, Lcom/android/server/enterprise/dlp/DLPCacheHelper;->DBG:Z
-
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     const-string/jumbo v0, "DLP_DLPCacheHelper"
 
@@ -133,9 +118,8 @@
 
     move-result-object v2
 
-    invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v2}, Lcom/samsung/android/knox/dlp/log/DLPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_1
     sget-object v0, Lcom/android/server/enterprise/dlp/DLPCacheHelper;->mUserCacheMap:Ljava/util/HashMap;
 
     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -146,7 +130,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_2
+    :cond_0
     const/4 v0, 0x1
 
     monitor-exit v1
@@ -220,7 +204,7 @@
 
     const-string/jumbo v12, "config is null"
 
-    invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v11, v12}, Lcom/samsung/android/knox/dlp/log/DLPLog;->e(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
@@ -277,7 +261,7 @@
 
     move-result-object v12
 
-    invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v11, v12}, Lcom/samsung/android/knox/dlp/log/DLPLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
     sget-object v11, Lcom/android/server/enterprise/dlp/DLPCacheHelper;->mUserCacheMap:Ljava/util/HashMap;
 
@@ -472,10 +456,6 @@
 
     :cond_a
     :try_start_4
-    sget-boolean v11, Lcom/android/server/enterprise/dlp/DLPCacheHelper;->DBG:Z
-
-    if-eqz v11, :cond_b
-
     const-string/jumbo v11, "DLP_DLPCacheHelper"
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -496,9 +476,8 @@
 
     move-result-object v12
 
-    invoke-static {v11, v12}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v11, v12}, Lcom/samsung/android/knox/dlp/log/DLPLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_b
     sget-object v11, Lcom/android/server/enterprise/dlp/DLPCacheHelper;->mUserCacheMap:Ljava/util/HashMap;
 
     invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;

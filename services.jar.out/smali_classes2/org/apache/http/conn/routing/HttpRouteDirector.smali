@@ -3,11 +3,6 @@
 .source "HttpRouteDirector.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # static fields
 .field public static final COMPLETE:I = 0x0
 

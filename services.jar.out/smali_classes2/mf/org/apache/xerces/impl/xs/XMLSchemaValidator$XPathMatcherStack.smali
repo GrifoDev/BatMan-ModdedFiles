@@ -48,25 +48,25 @@
 
     const/4 v3, 0x0
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XPathMatcherStack;->fMatchersCount:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XPathMatcherStack;->fMatchersCount:I
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XPathMatcherStack;->fMatchers:[Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XPathMatcherStack;->fMatchers:[Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;
 
-    array-length v1, v1
+    array-length v2, v2
 
-    if-eq v0, v1, :cond_0
+    if-eq v1, v2, :cond_0
 
     :goto_0
     return-void
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XPathMatcherStack;->fMatchers:[Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XPathMatcherStack;->fMatchers:[Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;
 
-    array-length v0, v0
+    array-length v1, v1
 
-    mul-int/lit8 v0, v0, 0x2
+    mul-int/lit8 v1, v1, 0x2
 
-    new-array v0, v0, [Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;
+    new-array v0, v1, [Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XPathMatcherStack;->fMatchers:[Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;
 
@@ -102,33 +102,33 @@
 .end method
 
 .method public clear()V
-    .locals 4
+    .locals 3
 
-    const/4 v1, 0x0
-
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_0
-    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XPathMatcherStack;->fMatchersCount:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XPathMatcherStack;->fMatchersCount:I
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v1, :cond_0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XPathMatcherStack;->fMatchers:[Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XPathMatcherStack;->fMatchers:[Lmf/org/apache/xerces/impl/xs/identity/XPathMatcher;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    aput-object v3, v2, v0
+    aput-object v2, v1, v0
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
+    const/4 v1, 0x0
+
     iput v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XPathMatcherStack;->fMatchersCount:I
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XPathMatcherStack;->fContextStack:Lmf/org/apache/xerces/util/IntStack;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$XPathMatcherStack;->fContextStack:Lmf/org/apache/xerces/util/IntStack;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/IntStack;->clear()V
+    invoke-virtual {v1}, Lmf/org/apache/xerces/util/IntStack;->clear()V
 
     return-void
 .end method

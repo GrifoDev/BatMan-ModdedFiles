@@ -12,75 +12,135 @@
 
 
 # instance fields
-.field protected attemptReuse:Z
+.field protected final attemptReuse:Z
 
-.field protected managedConn:Lorg/apache/http/conn/ManagedClientConnection;
+.field protected final managedConn:Lorg/apache/http/conn/ManagedClientConnection;
 
 
 # direct methods
 .method public constructor <init>(Lorg/apache/http/conn/ManagedClientConnection;Z)V
-    .locals 2
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const-string/jumbo v0, "Connection"
 
-    const-string/jumbo v1, "Stub!"
+    invoke-static {p1, v0}, Lorg/apache/http/util/Args;->notNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    iput-object p1, p0, Lorg/apache/http/conn/BasicEofSensorWatcher;->managedConn:Lorg/apache/http/conn/ManagedClientConnection;
 
-    throw v0
+    iput-boolean p2, p0, Lorg/apache/http/conn/BasicEofSensorWatcher;->attemptReuse:Z
+
+    return-void
 .end method
 
 
 # virtual methods
 .method public eofDetected(Ljava/io/InputStream;)Z
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const/4 v2, 0x0
 
-    const-string/jumbo v1, "Stub!"
+    :try_start_0
+    iget-boolean v1, p0, Lorg/apache/http/conn/BasicEofSensorWatcher;->attemptReuse:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    if-nez v1, :cond_0
+
+    :goto_0
+    iget-object v1, p0, Lorg/apache/http/conn/BasicEofSensorWatcher;->managedConn:Lorg/apache/http/conn/ManagedClientConnection;
+
+    invoke-interface {v1}, Lorg/apache/http/conn/ManagedClientConnection;->releaseConnection()V
+
+    return v2
+
+    :cond_0
+    :try_start_1
+    invoke-virtual {p1}, Ljava/io/InputStream;->close()V
+
+    iget-object v1, p0, Lorg/apache/http/conn/BasicEofSensorWatcher;->managedConn:Lorg/apache/http/conn/ManagedClientConnection;
+
+    invoke-interface {v1}, Lorg/apache/http/conn/ManagedClientConnection;->markReusable()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    iget-object v1, p0, Lorg/apache/http/conn/BasicEofSensorWatcher;->managedConn:Lorg/apache/http/conn/ManagedClientConnection;
+
+    invoke-interface {v1}, Lorg/apache/http/conn/ManagedClientConnection;->releaseConnection()V
 
     throw v0
 .end method
 
 .method public streamAbort(Ljava/io/InputStream;)Z
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/conn/BasicEofSensorWatcher;->managedConn:Lorg/apache/http/conn/ManagedClientConnection;
 
-    const-string/jumbo v1, "Stub!"
+    invoke-interface {v0}, Lorg/apache/http/conn/ManagedClientConnection;->abortConnection()V
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    const/4 v0, 0x0
 
-    throw v0
+    return v0
 .end method
 
 .method public streamClosed(Ljava/io/InputStream;)Z
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const/4 v2, 0x0
 
-    const-string/jumbo v1, "Stub!"
+    :try_start_0
+    iget-boolean v1, p0, Lorg/apache/http/conn/BasicEofSensorWatcher;->attemptReuse:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    if-nez v1, :cond_0
+
+    :goto_0
+    iget-object v1, p0, Lorg/apache/http/conn/BasicEofSensorWatcher;->managedConn:Lorg/apache/http/conn/ManagedClientConnection;
+
+    invoke-interface {v1}, Lorg/apache/http/conn/ManagedClientConnection;->releaseConnection()V
+
+    return v2
+
+    :cond_0
+    :try_start_1
+    invoke-virtual {p1}, Ljava/io/InputStream;->close()V
+
+    iget-object v1, p0, Lorg/apache/http/conn/BasicEofSensorWatcher;->managedConn:Lorg/apache/http/conn/ManagedClientConnection;
+
+    invoke-interface {v1}, Lorg/apache/http/conn/ManagedClientConnection;->markReusable()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    iget-object v1, p0, Lorg/apache/http/conn/BasicEofSensorWatcher;->managedConn:Lorg/apache/http/conn/ManagedClientConnection;
+
+    invoke-interface {v1}, Lorg/apache/http/conn/ManagedClientConnection;->releaseConnection()V
 
     throw v0
 .end method

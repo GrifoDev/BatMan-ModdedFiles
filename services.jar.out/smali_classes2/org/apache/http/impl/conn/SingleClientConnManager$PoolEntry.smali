@@ -22,59 +22,73 @@
 .method protected constructor <init>(Lorg/apache/http/impl/conn/SingleClientConnManager;)V
     .locals 2
 
-    const/4 v1, 0x0
-
     iput-object p1, p0, Lorg/apache/http/impl/conn/SingleClientConnManager$PoolEntry;->this$0:Lorg/apache/http/impl/conn/SingleClientConnManager;
 
-    move-object v0, v1
+    iget-object v0, p1, Lorg/apache/http/impl/conn/SingleClientConnManager;->connOperator:Lorg/apache/http/conn/ClientConnectionOperator;
 
-    check-cast v0, Lorg/apache/http/conn/ClientConnectionOperator;
-
-    check-cast v1, Lorg/apache/http/conn/routing/HttpRoute;
+    const/4 v1, 0x0
 
     invoke-direct {p0, v0, v1}, Lorg/apache/http/impl/conn/AbstractPoolEntry;-><init>(Lorg/apache/http/conn/ClientConnectionOperator;Lorg/apache/http/conn/routing/HttpRoute;)V
 
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 
 # virtual methods
 .method protected close()V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    invoke-virtual {p0}, Lorg/apache/http/impl/conn/SingleClientConnManager$PoolEntry;->shutdownEntry()V
 
-    const-string/jumbo v1, "Stub!"
+    iget-object v0, p0, Lorg/apache/http/impl/conn/SingleClientConnManager$PoolEntry;->connection:Lorg/apache/http/conn/OperatedClientConnection;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-interface {v0}, Lorg/apache/http/conn/OperatedClientConnection;->isOpen()Z
 
-    throw v0
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lorg/apache/http/impl/conn/SingleClientConnManager$PoolEntry;->connection:Lorg/apache/http/conn/OperatedClientConnection;
+
+    invoke-interface {v0}, Lorg/apache/http/conn/OperatedClientConnection;->close()V
+
+    goto :goto_0
 .end method
 
 .method protected shutdown()V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    invoke-virtual {p0}, Lorg/apache/http/impl/conn/SingleClientConnManager$PoolEntry;->shutdownEntry()V
 
-    const-string/jumbo v1, "Stub!"
+    iget-object v0, p0, Lorg/apache/http/impl/conn/SingleClientConnManager$PoolEntry;->connection:Lorg/apache/http/conn/OperatedClientConnection;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-interface {v0}, Lorg/apache/http/conn/OperatedClientConnection;->isOpen()Z
 
-    throw v0
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lorg/apache/http/impl/conn/SingleClientConnManager$PoolEntry;->connection:Lorg/apache/http/conn/OperatedClientConnection;
+
+    invoke-interface {v0}, Lorg/apache/http/conn/OperatedClientConnection;->shutdown()V
+
+    goto :goto_0
 .end method

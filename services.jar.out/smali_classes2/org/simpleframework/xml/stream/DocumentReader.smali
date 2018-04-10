@@ -66,37 +66,37 @@
 .end method
 
 .method private build(Lorg/simpleframework/xml/stream/DocumentReader$Start;)Lorg/simpleframework/xml/stream/DocumentReader$Start;
-    .locals 5
-
-    const/4 v0, 0x0
+    .locals 6
 
     invoke-virtual {p1}, Lorg/simpleframework/xml/stream/DocumentReader$Start;->getAttributes()Lorg/w3c/dom/NamedNodeMap;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-interface {v1}, Lorg/w3c/dom/NamedNodeMap;->getLength()I
+    invoke-interface {v2}, Lorg/w3c/dom/NamedNodeMap;->getLength()I
 
-    move-result v2
+    move-result v1
+
+    const/4 v0, 0x0
 
     :goto_0
-    if-lt v0, v2, :cond_0
+    if-lt v0, v1, :cond_0
 
     return-object p1
 
     :cond_0
-    invoke-interface {v1, v0}, Lorg/w3c/dom/NamedNodeMap;->item(I)Lorg/w3c/dom/Node;
+    invoke-interface {v2, v0}, Lorg/w3c/dom/NamedNodeMap;->item(I)Lorg/w3c/dom/Node;
 
     move-result-object v3
 
     invoke-direct {p0, v3}, Lorg/simpleframework/xml/stream/DocumentReader;->attribute(Lorg/w3c/dom/Node;)Lorg/simpleframework/xml/stream/DocumentReader$Entry;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-interface {v3}, Lorg/simpleframework/xml/stream/Attribute;->isReserved()Z
+    invoke-interface {v4}, Lorg/simpleframework/xml/stream/Attribute;->isReserved()Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_1
+    if-eqz v5, :cond_1
 
     :goto_1
     add-int/lit8 v0, v0, 0x1
@@ -104,7 +104,7 @@
     goto :goto_0
 
     :cond_1
-    invoke-virtual {p1, v3}, Lorg/simpleframework/xml/stream/DocumentReader$Start;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v4}, Lorg/simpleframework/xml/stream/DocumentReader$Start;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 .end method
@@ -127,9 +127,9 @@
 
     invoke-direct {p0, p1}, Lorg/simpleframework/xml/stream/DocumentReader;->text(Lorg/w3c/dom/Node;)Lorg/simpleframework/xml/stream/DocumentReader$Text;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
     if-nez p1, :cond_1
@@ -137,14 +137,14 @@
     :goto_0
     invoke-direct {p0, p1}, Lorg/simpleframework/xml/stream/DocumentReader;->start(Lorg/w3c/dom/Node;)Lorg/simpleframework/xml/stream/DocumentReader$Start;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_1
-    iget-object v0, p0, Lorg/simpleframework/xml/stream/DocumentReader;->stack:Lorg/simpleframework/xml/stream/NodeStack;
+    iget-object v1, p0, Lorg/simpleframework/xml/stream/DocumentReader;->stack:Lorg/simpleframework/xml/stream/NodeStack;
 
-    invoke-virtual {v0, p1}, Lorg/simpleframework/xml/stream/NodeStack;->push(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p1}, Lorg/simpleframework/xml/stream/NodeStack;->push(Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 .end method
@@ -162,16 +162,16 @@
 .end method
 
 .method private read()Lorg/simpleframework/xml/stream/EventNode;
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/stream/DocumentReader;->queue:Lorg/simpleframework/xml/stream/NodeExtractor;
+    iget-object v1, p0, Lorg/simpleframework/xml/stream/DocumentReader;->queue:Lorg/simpleframework/xml/stream/NodeExtractor;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/stream/NodeExtractor;->peek()Ljava/lang/Object;
+    invoke-virtual {v1}, Lorg/simpleframework/xml/stream/NodeExtractor;->peek()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -181,20 +181,20 @@
 
     invoke-direct {p0, v0}, Lorg/simpleframework/xml/stream/DocumentReader;->read(Lorg/w3c/dom/Node;)Lorg/simpleframework/xml/stream/EventNode;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
     invoke-direct {p0}, Lorg/simpleframework/xml/stream/DocumentReader;->end()Lorg/simpleframework/xml/stream/DocumentReader$End;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method private read(Lorg/w3c/dom/Node;)Lorg/simpleframework/xml/stream/EventNode;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -203,48 +203,48 @@
 
     invoke-interface {p1}, Lorg/w3c/dom/Node;->getParentNode()Lorg/w3c/dom/Node;
 
-    move-result-object v1
-
-    iget-object v0, p0, Lorg/simpleframework/xml/stream/DocumentReader;->stack:Lorg/simpleframework/xml/stream/NodeStack;
-
-    invoke-virtual {v0}, Lorg/simpleframework/xml/stream/NodeStack;->top()Ljava/lang/Object;
-
     move-result-object v0
 
-    check-cast v0, Lorg/w3c/dom/Node;
+    iget-object v2, p0, Lorg/simpleframework/xml/stream/DocumentReader;->stack:Lorg/simpleframework/xml/stream/NodeStack;
 
-    if-ne v1, v0, :cond_0
+    invoke-virtual {v2}, Lorg/simpleframework/xml/stream/NodeStack;->top()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lorg/w3c/dom/Node;
+
+    if-ne v0, v1, :cond_0
 
     if-nez p1, :cond_2
 
     :goto_0
     invoke-direct {p0, p1}, Lorg/simpleframework/xml/stream/DocumentReader;->convert(Lorg/w3c/dom/Node;)Lorg/simpleframework/xml/stream/EventNode;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 
     :cond_0
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     :goto_1
     invoke-direct {p0}, Lorg/simpleframework/xml/stream/DocumentReader;->end()Lorg/simpleframework/xml/stream/DocumentReader$End;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 
     :cond_1
-    iget-object v0, p0, Lorg/simpleframework/xml/stream/DocumentReader;->stack:Lorg/simpleframework/xml/stream/NodeStack;
+    iget-object v2, p0, Lorg/simpleframework/xml/stream/DocumentReader;->stack:Lorg/simpleframework/xml/stream/NodeStack;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/stream/NodeStack;->pop()Ljava/lang/Object;
+    invoke-virtual {v2}, Lorg/simpleframework/xml/stream/NodeStack;->pop()Ljava/lang/Object;
 
     goto :goto_1
 
     :cond_2
-    iget-object v0, p0, Lorg/simpleframework/xml/stream/DocumentReader;->queue:Lorg/simpleframework/xml/stream/NodeExtractor;
+    iget-object v2, p0, Lorg/simpleframework/xml/stream/DocumentReader;->queue:Lorg/simpleframework/xml/stream/NodeExtractor;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/stream/NodeExtractor;->poll()Ljava/lang/Object;
+    invoke-virtual {v2}, Lorg/simpleframework/xml/stream/NodeExtractor;->poll()Ljava/lang/Object;
 
     goto :goto_0
 .end method
@@ -267,9 +267,9 @@
     :cond_0
     invoke-direct {p0, v0}, Lorg/simpleframework/xml/stream/DocumentReader;->build(Lorg/simpleframework/xml/stream/DocumentReader$Start;)Lorg/simpleframework/xml/stream/DocumentReader$Start;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method private text(Lorg/w3c/dom/Node;)Lorg/simpleframework/xml/stream/DocumentReader$Text;

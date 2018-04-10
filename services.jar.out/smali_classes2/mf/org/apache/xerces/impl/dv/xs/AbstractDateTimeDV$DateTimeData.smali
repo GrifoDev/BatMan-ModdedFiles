@@ -490,9 +490,9 @@
 .method public normalize()Lmf/org/apache/xerces/xs/datatypes/XSDateTime;
     .locals 2
 
-    iget-boolean v0, p0, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->normalized:Z
+    iget-boolean v1, p0, Lmf/org/apache/xerces/impl/dv/xs/AbstractDateTimeDV$DateTimeData;->normalized:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     return-object p0
 

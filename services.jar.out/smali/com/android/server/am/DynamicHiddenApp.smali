@@ -6,14 +6,13 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/am/DynamicHiddenApp$HotnessValue;,
-        Lcom/android/server/am/DynamicHiddenApp$ILS_Q;
+        Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
     }
 .end annotation
 
 
 # static fields
-.field static final AREs_EMERGENCY_TRIGGER_COOLTIME:I = 0xdbba0
+.field static AREs_EMERGENCY_TRIGGER_COOLTIME:I = 0x0
 
 .field static final BG_COUNT_CACHED:I = 0x1
 
@@ -29,8 +28,6 @@
 
 .field static final DECREASE_SCORE_THREAD_TIME_INTERNAL:J = 0x5265c00L
 
-.field static DHA_ADJ_CACHED_FACTOR:Z = false
-
 .field static final DHA_DYNAMICEXCEPT_PROC_ARRAY:[Ljava/lang/String;
 
 .field static DHA_HOTNESS_ENABLE:Z = false
@@ -42,6 +39,8 @@
 .field static DHA_HOTNESS_LRU_PROTECT_MIN:I = 0x0
 
 .field static final DHA_HOTNESS_PROTECT_TIME:J = 0x1388L
+
+.field static final DHA_HOTNESS_SKIP_ARRAY:[Ljava/lang/String;
 
 .field static DHA_INCREASE_THRESHOLD:J = 0x0L
 
@@ -63,8 +62,6 @@
 
 .field static final HOTNESS_EMPTY:I = 0x1
 
-.field static INFINITE_CACHED_ENABLE:Z = false
-
 .field static INIT_CACHED_APPS:I = 0x0
 
 .field static INIT_EMPTY_APPS:I = 0x0
@@ -81,7 +78,11 @@
 
 .field static MIN_EMPTY_APPS:I = 0x0
 
-.field static final TAG:Ljava/lang/String;
+.field static final PRELOADNUM:I = 0x2
+
+.field static PREVENT_HOTNESS:Z = false
+
+.field static final TAG:Ljava/lang/String; = "ActivityManager"
 
 .field static final TAG_DHA:Ljava/lang/String; = "DynamicHiddenApp"
 
@@ -129,23 +130,11 @@
 
 .field static mDhaKeepEmptyEnableKnox:I
 
-.field static mILS_2nd_Enable:Z
-
-.field static mILS_Enable:Z
-
 .field static mKnoxAMSExceptionEnable:Z
 
 .field static mLMKArray:Ljava/lang/String;
 
 .field static mLMKScale:F
-
-.field static mSzILSFlag:Z
-
-.field static mSzILSRate:F
-
-.field static mSzILS_SDHARate:F
-
-.field static mb64bitLMKEnable:Z
 
 .field static strPrevAppForActivityHotness:Ljava/lang/String;
 
@@ -154,8 +143,6 @@
 
 # instance fields
 .field private DHA_HOTNESS_MAX_VALUE:I
-
-.field private SLUGGISH_AGING_TIME:J
 
 .field hotnessCached:I
 
@@ -176,6 +163,8 @@
 .field killingProcessesUssTotal:J
 
 .field mAm:Lcom/android/server/am/ActivityManagerService;
+
+.field mConstants:Lcom/android/server/am/ActivityManagerConstants;
 
 .field mContext:Landroid/content/Context;
 
@@ -238,6 +227,20 @@
 
 .field mProcessList:Lcom/android/server/am/ProcessList;
 
+.field private mProtectedTargetMap:Landroid/util/ArrayMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/ArrayMap",
+            "<",
+            "Ljava/lang/Integer;",
+            "Ljava/util/ArrayList",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;"
+        }
+    .end annotation
+.end field
+
 .field private mSzDHAStep:I
 
 .field private mSzDHAThreshold:J
@@ -280,10 +283,6 @@
     sput-object v0, Lcom/android/server/am/DynamicHiddenApp;->debuggingR:Lcom/android/server/am/ProcessRecord;
 
     sput-boolean v3, Lcom/android/server/am/DynamicHiddenApp;->isLogPrinted:Z
-
-    const-string/jumbo v0, "ActivityManager"
-
-    sput-object v0, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -341,6 +340,20 @@
 
     sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_ENABLE:Z
 
+    const-string/jumbo v0, "ro.config.prevent_hotness"
+
+    const-string/jumbo v1, "false"
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->PREVENT_HOTNESS:Z
+
     const-string/jumbo v0, "ro.cfg.dha_2ndprop_thMB"
 
     const-string/jumbo v1, "4096"
@@ -357,7 +370,7 @@
 
     const-string/jumbo v0, "ro.config.dha_cached_max"
 
-    const-string/jumbo v1, "6"
+    const-string/jumbo v1, "16"
 
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -385,7 +398,7 @@
 
     const-string/jumbo v0, "ro.config.dha_cached_max"
 
-    const-string/jumbo v1, "6"
+    const-string/jumbo v1, "16"
 
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -399,7 +412,7 @@
 
     const-string/jumbo v0, "ro.config.dha_empty_init"
 
-    const-string/jumbo v1, "30"
+    const-string/jumbo v1, "32"
 
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -427,7 +440,7 @@
 
     const-string/jumbo v0, "ro.config.dha_empty_max"
 
-    const-string/jumbo v1, "30"
+    const-string/jumbo v1, "32"
 
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -466,92 +479,6 @@
     move-result v0
 
     sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->LDHA_SPC_ENABLE:Z
-
-    const-string/jumbo v0, "ro.config.dha_adj_cached_factor"
-
-    const-string/jumbo v1, "false"
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->DHA_ADJ_CACHED_FACTOR:Z
-
-    const-string/jumbo v0, "ro.config.64bit_lmk_enable"
-
-    const-string/jumbo v1, "true"
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->mb64bitLMKEnable:Z
-
-    const-string/jumbo v0, "ro.config.dha_ils_enable"
-
-    const-string/jumbo v1, "false"
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->mILS_Enable:Z
-
-    const-string/jumbo v0, "ro.config.dha_ils_2nd_enable"
-
-    const-string/jumbo v1, "false"
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->mILS_2nd_Enable:Z
-
-    const-string/jumbo v0, "ro.config.dha_ils_rate"
-
-    const-string/jumbo v1, "1.5"
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v0
-
-    sput v0, Lcom/android/server/am/DynamicHiddenApp;->mSzILSRate:F
-
-    const-string/jumbo v0, "ro.config.dha_ils_sdha_rate"
-
-    const-string/jumbo v1, "1.8"
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v0
-
-    sput v0, Lcom/android/server/am/DynamicHiddenApp;->mSzILS_SDHARate:F
-
-    sput-boolean v3, Lcom/android/server/am/DynamicHiddenApp;->mSzILSFlag:Z
 
     const-string/jumbo v0, "ro.config.dha_pwhitelist_enable"
 
@@ -635,7 +562,7 @@
 
     const-string/jumbo v0, "ro.config.fall_prevent_enable"
 
-    const-string/jumbo v1, "false"
+    const-string/jumbo v1, "true"
 
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -660,20 +587,6 @@
     move-result v0
 
     sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->DHA_PACKAGE_ENABLE:Z
-
-    const-string/jumbo v0, "ro.config.infinite_bg_enable"
-
-    const-string/jumbo v1, "false"
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->INFINITE_CACHED_ENABLE:Z
 
     const-string/jumbo v0, "ro.config.dha_es_lru_en"
 
@@ -743,11 +656,15 @@
 
     sput-object v0, Lcom/android/server/am/DynamicHiddenApp;->strPrevAppForEmptyHotness:Ljava/lang/String;
 
+    const v0, 0xdbba0
+
+    sput v0, Lcom/android/server/am/DynamicHiddenApp;->AREs_EMERGENCY_TRIGGER_COOLTIME:I
+
     const/16 v0, 0xd
 
     new-array v0, v0, [Ljava/lang/String;
 
-    const-string/jumbo v1, "com.sec.android.app.sbrowser"
+    const-string/jumbo v1, "Reserved"
 
     aput-object v1, v0, v3
 
@@ -755,31 +672,31 @@
 
     aput-object v1, v0, v4
 
-    const-string/jumbo v1, "com.sec.android.app.music"
+    const-string/jumbo v1, "Reserved"
 
     aput-object v1, v0, v5
 
-    const-string/jumbo v1, "com.sec.android.app.myfiles"
+    const-string/jumbo v1, "Reserved"
 
     aput-object v1, v0, v6
 
-    const-string/jumbo v1, "com.google.android.gm"
+    const-string/jumbo v1, "Reserved"
 
     aput-object v1, v0, v7
 
-    const-string/jumbo v1, "Reserved"
+    const-string/jumbo v1, "com.samsung.cmh:CMH"
 
     const/4 v2, 0x5
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "Reserved"
+    const-string/jumbo v1, "com.sec.android.provider.badge"
 
     const/4 v2, 0x6
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.android.vending"
+    const-string/jumbo v1, "Reserved"
 
     const/4 v2, 0x7
 
@@ -803,13 +720,13 @@
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.google.android.music:ui"
+    const-string/jumbo v1, "Reserved"
 
     const/16 v2, 0xb
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.google.android.music:main"
+    const-string/jumbo v1, "Reserved"
 
     const/16 v2, 0xc
 
@@ -817,9 +734,7 @@
 
     sput-object v0, Lcom/android/server/am/DynamicHiddenApp;->DHA_DYNAMICEXCEPT_PROC_ARRAY:[Ljava/lang/String;
 
-    const/4 v0, 0x6
-
-    new-array v0, v0, [[Ljava/lang/String;
+    new-array v0, v6, [[Ljava/lang/String;
 
     new-array v1, v5, [Ljava/lang/String;
 
@@ -835,18 +750,6 @@
 
     new-array v1, v5, [Ljava/lang/String;
 
-    const-string/jumbo v2, "com.samsung.klmsagent"
-
-    aput-object v2, v1, v3
-
-    const-string/jumbo v2, "1"
-
-    aput-object v2, v1, v4
-
-    aput-object v1, v0, v4
-
-    new-array v1, v5, [Ljava/lang/String;
-
     const-string/jumbo v2, "CONTACTS"
 
     aput-object v2, v1, v3
@@ -855,31 +758,7 @@
 
     aput-object v2, v1, v4
 
-    aput-object v1, v0, v5
-
-    new-array v1, v5, [Ljava/lang/String;
-
-    const-string/jumbo v2, "android.process.media"
-
-    aput-object v2, v1, v3
-
-    const-string/jumbo v2, "2"
-
-    aput-object v2, v1, v4
-
-    aput-object v1, v0, v6
-
-    new-array v1, v5, [Ljava/lang/String;
-
-    const-string/jumbo v2, "com.android.managedprovisioning"
-
-    aput-object v2, v1, v3
-
-    const-string/jumbo v2, "1"
-
-    aput-object v2, v1, v4
-
-    aput-object v1, v0, v7
+    aput-object v1, v0, v4
 
     new-array v1, v5, [Ljava/lang/String;
 
@@ -891,11 +770,29 @@
 
     aput-object v2, v1, v4
 
-    const/4 v2, 0x5
-
-    aput-object v1, v0, v2
+    aput-object v1, v0, v5
 
     sput-object v0, Lcom/android/server/am/DynamicHiddenApp;->DHA_STATICEXCEPT_PROC_ARRAY:[[Ljava/lang/String;
+
+    new-array v0, v7, [Ljava/lang/String;
+
+    const-string/jumbo v1, "com.sec.android.app.tinym"
+
+    aput-object v1, v0, v3
+
+    const-string/jumbo v1, "com.slab.ACT"
+
+    aput-object v1, v0, v4
+
+    const-string/jumbo v1, "com.google.android.packageinstaller"
+
+    aput-object v1, v0, v5
+
+    const-string/jumbo v1, "com.android.systemui"
+
+    aput-object v1, v0, v6
+
+    sput-object v0, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_SKIP_ARRAY:[Ljava/lang/String;
 
     new-instance v0, Ljava/util/HashMap;
 
@@ -940,7 +837,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/ProcessList;Landroid/content/Context;)V
+.method public constructor <init>(Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/ProcessList;Landroid/content/Context;Lcom/android/server/am/ActivityManagerConstants;)V
     .locals 6
 
     const-wide/16 v4, 0x0
@@ -987,14 +884,6 @@
 
     iput-boolean v2, p0, Lcom/android/server/am/DynamicHiddenApp;->mDynamicLMKFlag:Z
 
-    iput-wide v4, p0, Lcom/android/server/am/DynamicHiddenApp;->mLastTimeTriggerAREs:J
-
-    const-wide/16 v0, -0x1
-
-    iput-wide v0, p0, Lcom/android/server/am/DynamicHiddenApp;->SLUGGISH_AGING_TIME:J
-
-    iput-boolean v2, p0, Lcom/android/server/am/DynamicHiddenApp;->mDidStepUp:Z
-
     const v0, 0xf4240
 
     iput v0, p0, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_MAX_VALUE:I
@@ -1016,6 +905,16 @@
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/am/DynamicHiddenApp;->mLastKillTimeMap:Ljava/util/HashMap;
+
+    new-instance v0, Landroid/util/ArrayMap;
+
+    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/am/DynamicHiddenApp;->mProtectedTargetMap:Landroid/util/ArrayMap;
+
+    iput-wide v4, p0, Lcom/android/server/am/DynamicHiddenApp;->mLastTimeTriggerAREs:J
+
+    iput-boolean v2, p0, Lcom/android/server/am/DynamicHiddenApp;->mDidStepUp:Z
 
     new-instance v0, Ljava/util/HashMap;
 
@@ -1043,6 +942,8 @@
 
     iput-object p3, p0, Lcom/android/server/am/DynamicHiddenApp;->mContext:Landroid/content/Context;
 
+    iput-object p4, p0, Lcom/android/server/am/DynamicHiddenApp;->mConstants:Lcom/android/server/am/ActivityManagerConstants;
+
     new-instance v0, Lcom/android/internal/util/MemInfoReader;
 
     invoke-direct {v0}, Lcom/android/internal/util/MemInfoReader;-><init>()V
@@ -1062,8 +963,6 @@
     invoke-virtual {p0}, Lcom/android/server/am/DynamicHiddenApp;->initProperty()V
 
     return-void
-
-    nop
 
     :array_0
     .array-data 4
@@ -1220,7 +1119,7 @@
 
     move-result-object v8
 
-    invoke-static {v7, v8}, Landroid/util/Slog;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
     iget v7, v1, Lcom/android/server/am/ProcessRecord;->hotnessAdj:I
@@ -1273,7 +1172,7 @@
 
     move-result-object v8
 
-    invoke-static {v7, v8}, Landroid/util/Slog;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_5
     add-int/lit8 v4, v4, -0x1
@@ -1738,76 +1637,6 @@
     return-void
 .end method
 
-.method public static updateILS(Ljava/lang/String;)V
-    .locals 4
-
-    sget-boolean v1, Lcom/android/server/am/DynamicHiddenApp;->mILS_Enable:Z
-
-    if-nez v1, :cond_0
-
-    return-void
-
-    :cond_0
-    sget-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->mSzILSFlag:Z
-
-    invoke-static {p0}, Lcom/android/server/am/DynamicHiddenApp$ILS_Q;->isAppsLaunchFreq(Ljava/lang/String;)Z
-
-    move-result v1
-
-    sput-boolean v1, Lcom/android/server/am/DynamicHiddenApp;->mSzILSFlag:Z
-
-    sget-boolean v1, Lcom/android/server/am/DynamicHiddenApp;->mSzILSFlag:Z
-
-    if-eq v0, v1, :cond_1
-
-    sget-object v1, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "ILS: FlagChange["
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "] Before "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, " to "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    sget-boolean v3, Lcom/android/server/am/DynamicHiddenApp;->mSzILSFlag:Z
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    return-void
-.end method
-
 
 # virtual methods
 .method final decreaseHotnessAdj(Lcom/android/server/am/ProcessRecord;I)V
@@ -1870,7 +1699,7 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_3
     iget-object v2, p0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
@@ -1938,7 +1767,7 @@
 
     move-result-object v3
 
-    invoke-static {v1, v3}, Landroid/util/Slog;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_4
     invoke-virtual {v0, p2}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->getHotness(I)I
@@ -2008,7 +1837,7 @@
 
     move-result-object v3
 
-    invoke-static {v1, v3}, Landroid/util/Slog;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -2026,53 +1855,58 @@
 .end method
 
 .method decrementEmptyAppCount(II)I
-    .locals 2
+    .locals 3
 
+    move v0, p1
+
+    sget v1, Lcom/android/server/am/DynamicHiddenApp;->MIN_EMPTY_APPS:I
+
+    if-gt p1, v1, :cond_2
+
+    add-int/lit8 v1, p2, -0x1
+
+    iput v1, p0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
+
+    iget v1, p0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
+
+    sget v2, Lcom/android/server/am/DynamicHiddenApp;->MIN_CACHED_APPS:I
+
+    if-ge v1, v2, :cond_0
+
+    sget v1, Lcom/android/server/am/DynamicHiddenApp;->MIN_CACHED_APPS:I
+
+    iput v1, p0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
+
+    :cond_0
+    sget v1, Lcom/android/server/am/DynamicHiddenApp;->MIN_EMPTY_APPS:I
+
+    if-ge p1, v1, :cond_1
+
+    sget v0, Lcom/android/server/am/DynamicHiddenApp;->MIN_EMPTY_APPS:I
+
+    :cond_1
+    return v0
+
+    :cond_2
     iget v1, p0, Lcom/android/server/am/DynamicHiddenApp;->mSzDHAStep:I
 
     sub-int v0, p1, v1
 
-    sget-boolean v1, Lcom/android/server/am/DynamicHiddenApp;->INFINITE_CACHED_ENABLE:Z
-
-    if-eqz v1, :cond_1
-
-    sget v1, Lcom/android/server/am/DynamicHiddenApp;->MAX_CACHED_APPS:I
-
-    if-le p2, v1, :cond_1
-
-    add-int/lit8 v1, p2, -0x1
-
-    iput v1, p0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
-
-    iget v0, p0, Lcom/android/server/am/DynamicHiddenApp;->mMaxEmpty:I
-
-    :cond_0
-    :goto_0
-    return v0
-
-    :cond_1
     iget v1, p0, Lcom/android/server/am/DynamicHiddenApp;->mMaxEmpty:I
 
-    if-le v1, v0, :cond_3
+    if-le v1, v0, :cond_4
 
     sget v1, Lcom/android/server/am/DynamicHiddenApp;->MIN_EMPTY_APPS:I
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_3
 
     sget v0, Lcom/android/server/am/DynamicHiddenApp;->MIN_EMPTY_APPS:I
 
-    :cond_2
-    sget v1, Lcom/android/server/am/DynamicHiddenApp;->MIN_CACHED_APPS:I
-
-    if-le p2, v1, :cond_0
-
-    add-int/lit8 v1, p2, -0x1
-
-    iput v1, p0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
-
-    goto :goto_0
-
     :cond_3
+    :goto_0
+    return v0
+
+    :cond_4
     iget v0, p0, Lcom/android/server/am/DynamicHiddenApp;->mMaxEmpty:I
 
     goto :goto_0
@@ -2116,7 +1950,7 @@
 .end method
 
 .method public dhaProcessesLocked(Ljava/util/ArrayList;Lcom/android/server/am/ProcessRecord;)V
-    .locals 32
+    .locals 36
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2129,328 +1963,380 @@
         }
     .end annotation
 
-    new-instance v5, Ljava/util/ArrayList;
+    new-instance v8, Ljava/util/ArrayList;
 
-    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
 
-    new-instance v7, Ljava/util/ArrayList;
+    new-instance v10, Ljava/util/ArrayList;
 
-    invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v10}, Ljava/util/ArrayList;-><init>()V
+
+    new-instance v9, Ljava/util/ArrayList;
+
+    invoke-direct {v9}, Ljava/util/ArrayList;-><init>()V
+
+    new-instance v11, Ljava/util/ArrayList;
+
+    invoke-direct {v11}, Ljava/util/ArrayList;-><init>()V
 
     new-instance v6, Ljava/util/ArrayList;
 
     invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
 
-    new-instance v8, Ljava/util/ArrayList;
-
-    invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
-
     invoke-virtual/range {p1 .. p1}, Ljava/util/ArrayList;->size()I
 
-    move-result v10
+    move-result v13
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v22
+    move-result-wide v28
 
-    const-wide/32 v26, 0x1b7740
+    const-wide/32 v32, 0x1b7740
 
-    sub-long v24, v22, v26
+    sub-long v30, v28, v32
 
-    const/16 v26, 0x0
+    const/4 v5, 0x2
 
-    move/from16 v0, v26
+    const/16 v27, 0x0
+
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
 
-    const/16 v26, 0x0
+    const/16 v27, 0x0
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
 
-    const/16 v26, 0x0
+    const/16 v27, 0x0
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->mNumNonCachedProcs:I
 
-    const/16 v26, 0x0
+    const/16 v27, 0x0
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->mNumCachedHiddenProcs:I
 
-    const/16 v26, 0x0
+    const/16 v27, 0x0
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->hotnessCached:I
 
-    const/16 v26, 0x0
+    const/16 v27, 0x0
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->hotnessEmpty:I
 
-    const-wide/16 v12, 0x0
+    const-wide/16 v18, 0x0
 
-    const/16 v16, 0x0
+    const/16 v21, 0x0
 
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->LDHA_ES_ENABLE:Z
+    const/4 v4, 0x0
 
-    if-eqz v26, :cond_0
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->LDHA_ES_ENABLE:Z
+
+    if-eqz v27, :cond_0
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/am/DynamicHiddenApp;->setProcessLimit()V
 
     :cond_0
-    add-int/lit8 v15, v10, -0x1
+    add-int/lit8 v20, v13, -0x1
 
     :goto_0
-    if-ltz v15, :cond_49
+    if-ltz v20, :cond_51
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v15}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    move/from16 v1, v20
 
-    move-result-object v11
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    check-cast v11, Lcom/android/server/am/ProcessRecord;
+    move-result-object v16
 
-    const/16 v16, 0x0
+    check-cast v16, Lcom/android/server/am/ProcessRecord;
 
-    iget-boolean v0, v11, Lcom/android/server/am/ProcessRecord;->killedByAm:Z
+    const/16 v21, 0x0
 
-    move/from16 v26, v0
+    move-object/from16 v0, v16
 
-    if-nez v26, :cond_1
+    iget-boolean v0, v0, Lcom/android/server/am/ProcessRecord;->killedByAm:Z
 
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->thread:Landroid/app/IApplicationThread;
+    move/from16 v27, v0
 
-    move-object/from16 v26, v0
+    if-nez v27, :cond_1
 
-    if-eqz v26, :cond_1
+    move-object/from16 v0, v16
 
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->mAMSExceptionEnable:Z
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->thread:Landroid/app/IApplicationThread;
 
-    if-eqz v26, :cond_3
+    move-object/from16 v27, v0
 
-    iget v0, v11, Lcom/android/server/am/ProcessRecord;->uid:I
+    if-eqz v27, :cond_1
 
-    move/from16 v26, v0
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->mAMSExceptionEnable:Z
 
-    invoke-static/range {v26 .. v26}, Landroid/os/UserHandle;->getUserId(I)I
+    if-eqz v27, :cond_3
 
-    move-result v26
+    move-object/from16 v0, v16
 
-    const/16 v27, 0x64
+    iget v0, v0, Lcom/android/server/am/ProcessRecord;->uid:I
 
-    move/from16 v0, v26
+    move/from16 v27, v0
 
-    move/from16 v1, v27
+    invoke-static/range {v27 .. v27}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v27
+
+    const/16 v32, 0x64
+
+    move/from16 v0, v27
+
+    move/from16 v1, v32
 
     if-ge v0, v1, :cond_2
 
-    iget-boolean v0, v11, Lcom/android/server/am/ProcessRecord;->isAMSException:Z
+    move-object/from16 v0, v16
 
-    move/from16 v26, v0
+    iget-boolean v0, v0, Lcom/android/server/am/ProcessRecord;->isAMSException:Z
 
-    if-eqz v26, :cond_3
+    move/from16 v27, v0
 
-    iget v0, v11, Lcom/android/server/am/ProcessRecord;->AMSExceptionFlag:I
+    if-eqz v27, :cond_3
 
-    move/from16 v26, v0
+    move-object/from16 v0, v16
 
-    const/16 v27, 0x2
+    iget v0, v0, Lcom/android/server/am/ProcessRecord;->AMSExceptionFlag:I
 
-    move/from16 v0, v26
+    move/from16 v27, v0
 
-    move/from16 v1, v27
+    const/16 v32, 0x2
+
+    move/from16 v0, v27
+
+    move/from16 v1, v32
 
     if-gt v0, v1, :cond_3
 
     :cond_1
     :goto_1
-    add-int/lit8 v15, v15, -0x1
+    add-int/lit8 v20, v20, -0x1
 
     goto :goto_0
 
     :cond_2
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->mKnoxAMSExceptionEnable:Z
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->mKnoxAMSExceptionEnable:Z
 
-    if-eqz v26, :cond_3
+    if-eqz v27, :cond_3
 
-    iget-boolean v0, v11, Lcom/android/server/am/ProcessRecord;->isAMSException:Z
+    move-object/from16 v0, v16
 
-    move/from16 v26, v0
+    iget-boolean v0, v0, Lcom/android/server/am/ProcessRecord;->isAMSException:Z
 
-    if-eqz v26, :cond_3
+    move/from16 v27, v0
 
-    iget v0, v11, Lcom/android/server/am/ProcessRecord;->AMSExceptionFlag:I
+    if-eqz v27, :cond_3
 
-    move/from16 v26, v0
+    move-object/from16 v0, v16
 
-    const/16 v27, 0x2
+    iget v0, v0, Lcom/android/server/am/ProcessRecord;->AMSExceptionFlag:I
 
-    move/from16 v0, v26
+    move/from16 v27, v0
 
-    move/from16 v1, v27
+    const/16 v32, 0x2
+
+    move/from16 v0, v27
+
+    move/from16 v1, v32
 
     if-ge v0, v1, :cond_1
 
-    iget v0, v11, Lcom/android/server/am/ProcessRecord;->AMSExceptionFlag:I
+    move-object/from16 v0, v16
 
-    move/from16 v26, v0
+    iget v0, v0, Lcom/android/server/am/ProcessRecord;->AMSExceptionFlag:I
 
-    if-nez v26, :cond_3
+    move/from16 v27, v0
 
-    const/16 v16, 0x1
+    if-nez v27, :cond_3
+
+    const/16 v21, 0x1
 
     :cond_3
-    sget v26, Lcom/android/server/am/DynamicHiddenApp;->mDhaKeepEmptyEnable:I
+    sget v27, Lcom/android/server/am/DynamicHiddenApp;->mDhaKeepEmptyEnable:I
 
-    const/16 v27, 0x1
+    const/16 v32, 0x1
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
-    move/from16 v1, v27
+    move/from16 v1, v32
 
     if-eq v0, v1, :cond_4
 
-    sget v26, Lcom/android/server/am/DynamicHiddenApp;->mDhaKeepEmptyEnableKnox:I
+    sget v27, Lcom/android/server/am/DynamicHiddenApp;->mDhaKeepEmptyEnableKnox:I
 
-    const/16 v27, 0x1
+    const/16 v32, 0x1
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
-    move/from16 v1, v27
+    move/from16 v1, v32
 
     if-ne v0, v1, :cond_5
 
     :cond_4
-    iget v0, v11, Lcom/android/server/am/ProcessRecord;->dhaKeepEmptyFlag:I
+    move-object/from16 v0, v16
 
-    move/from16 v26, v0
+    iget v0, v0, Lcom/android/server/am/ProcessRecord;->dhaKeepEmptyFlag:I
 
-    if-lez v26, :cond_5
+    move/from16 v27, v0
 
-    const/16 v16, 0x1
+    if-lez v27, :cond_5
+
+    const/16 v21, 0x1
 
     :cond_5
-    const/16 v17, 0x0
+    const/16 v22, 0x0
 
-    const/16 v18, 0x0
+    const/16 v23, 0x0
 
-    const/16 v20, 0x0
+    const/16 v25, 0x0
 
-    iget v0, v11, Lcom/android/server/am/ProcessRecord;->curProcState:I
+    move-object/from16 v0, v16
 
-    move/from16 v26, v0
+    iget v0, v0, Lcom/android/server/am/ProcessRecord;->curProcState:I
 
-    packed-switch v26, :pswitch_data_0
+    move/from16 v27, v0
+
+    packed-switch v27, :pswitch_data_0
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mNumNonCachedProcs:I
 
-    move/from16 v26, v0
+    move/from16 v27, v0
 
-    add-int/lit8 v26, v26, 0x1
+    add-int/lit8 v27, v27, 0x1
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->mNumNonCachedProcs:I
 
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->LDHA_SPC_ENABLE:Z
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->LDHA_SPC_ENABLE:Z
 
-    if-eqz v26, :cond_1
+    if-eqz v27, :cond_1
 
-    iget v0, v11, Lcom/android/server/am/ProcessRecord;->curAdj:I
+    move-object/from16 v0, v16
 
-    move/from16 v26, v0
+    iget v0, v0, Lcom/android/server/am/ProcessRecord;->curAdj:I
 
-    const/16 v27, 0x384
+    move/from16 v27, v0
 
-    move/from16 v0, v26
+    const/16 v32, 0x384
 
-    move/from16 v1, v27
+    move/from16 v0, v27
+
+    move/from16 v1, v32
 
     if-lt v0, v1, :cond_1
 
-    if-eqz v16, :cond_2a
+    if-eqz v21, :cond_2f
 
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->activities:Ljava/util/ArrayList;
+    move-object/from16 v0, v16
 
-    move-object/from16 v26, v0
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->activities:Ljava/util/ArrayList;
 
-    invoke-virtual/range {v26 .. v26}, Ljava/util/ArrayList;->size()I
+    move-object/from16 v27, v0
 
-    move-result v26
+    invoke-virtual/range {v27 .. v27}, Ljava/util/ArrayList;->size()I
 
-    if-gtz v26, :cond_6
+    move-result v27
+
+    if-gtz v27, :cond_6
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
 
-    move-object/from16 v26, v0
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
     move-object/from16 v27, v0
 
-    invoke-virtual/range {v26 .. v27}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    move-object/from16 v0, v16
 
-    move-result v26
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
-    if-eqz v26, :cond_6
+    move-object/from16 v32, v0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v27
+
+    if-eqz v27, :cond_6
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
 
-    move-object/from16 v26, v0
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
     move-object/from16 v27, v0
 
-    invoke-virtual/range {v26 .. v27}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v0, v16
 
-    move-result-object v26
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
-    check-cast v26, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
+    move-object/from16 v32, v0
 
-    const/16 v27, 0x0
+    move-object/from16 v0, v27
 
-    const/16 v28, 0x1
+    move-object/from16 v1, v32
 
-    invoke-virtual/range {v26 .. v28}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->setHotness(II)V
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v27
+
+    check-cast v27, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
+
+    const/16 v32, 0x0
+
+    const/16 v33, 0x1
+
+    move-object/from16 v0, v27
+
+    move/from16 v1, v32
+
+    move/from16 v2, v33
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->setHotness(II)V
 
     :cond_6
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mNumNonCachedProcs:I
 
-    move/from16 v26, v0
+    move/from16 v27, v0
 
-    add-int/lit8 v26, v26, -0x1
+    add-int/lit8 v27, v27, -0x1
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
@@ -2459,20 +2345,72 @@
     goto/16 :goto_1
 
     :pswitch_0
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->DHA_PACKAGE_ENABLE:Z
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->DHA_PACKAGE_ENABLE:Z
 
-    if-nez v26, :cond_1
+    if-eqz v27, :cond_7
 
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mNumCachedHiddenProcs:I
+
+    move/from16 v27, v0
+
+    add-int/lit8 v27, v27, 0x1
+
+    move/from16 v0, v27
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->mNumCachedHiddenProcs:I
+
+    goto/16 :goto_1
+
+    :cond_7
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v27, v0
+
+    const-string/jumbo v32, "sandboxed_process0"
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v27
+
+    if-eqz v27, :cond_8
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mNumCachedHiddenProcs:I
+
+    move/from16 v27, v0
+
+    add-int/lit8 v27, v27, 0x1
+
+    move/from16 v0, v27
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->mNumCachedHiddenProcs:I
+
+    goto/16 :goto_1
+
+    :cond_8
     :pswitch_1
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mNumCachedHiddenProcs:I
 
-    move/from16 v26, v0
+    move/from16 v27, v0
 
-    add-int/lit8 v26, v26, 0x1
+    add-int/lit8 v27, v27, 0x1
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
@@ -2482,377 +2420,437 @@
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
 
-    move/from16 v26, v0
+    move/from16 v27, v0
 
-    add-int/lit8 v26, v26, 0x1
+    add-int/lit8 v27, v27, 0x1
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
 
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->LDHA_ES_ENABLE:Z
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->LDHA_ES_ENABLE:Z
 
-    if-eqz v26, :cond_f
+    if-eqz v27, :cond_11
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
 
-    move/from16 v26, v0
+    move/from16 v27, v0
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
 
-    move/from16 v27, v0
+    move/from16 v32, v0
 
-    add-int v26, v26, v27
+    add-int v27, v27, v32
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMax_ES_Total:I
 
-    move/from16 v27, v0
+    move/from16 v32, v0
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
-    move/from16 v1, v27
+    move/from16 v1, v32
 
-    if-le v0, v1, :cond_a
+    if-le v0, v1, :cond_c
 
-    const/16 v17, 0x1
+    const/16 v22, 0x1
 
     :goto_2
-    if-eqz v17, :cond_c
+    if-eqz v22, :cond_e
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
 
-    move/from16 v26, v0
+    move/from16 v27, v0
 
-    sget v27, Lcom/android/server/am/DynamicHiddenApp;->MIN_CACHED_APPS:I
+    sget v32, Lcom/android/server/am/DynamicHiddenApp;->MIN_CACHED_APPS:I
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
-    move/from16 v1, v27
+    move/from16 v1, v32
 
-    if-le v0, v1, :cond_b
+    if-le v0, v1, :cond_d
 
-    const/16 v17, 0x1
+    const/16 v22, 0x1
 
-    :cond_7
+    :cond_9
     :goto_3
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
 
-    if-eqz v26, :cond_8
+    if-eqz v27, :cond_a
 
-    sget-object v26, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
+    sget-object v27, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
 
-    new-instance v27, Ljava/lang/StringBuilder;
+    new-instance v32, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v28, "CA numC[ "
+    const-string/jumbo v33, "CA numC[ "
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v32
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
 
-    move/from16 v28, v0
+    move/from16 v33, v0
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v32
 
-    const-string/jumbo v28, " ] numE [ "
+    const-string/jumbo v33, " ] numE [ "
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v32
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
 
-    move/from16 v28, v0
+    move/from16 v33, v0
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v32
 
-    const-string/jumbo v28, " ], Total: "
+    const-string/jumbo v33, " ], Total: "
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v32
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMax_ES_Total:I
 
-    move/from16 v28, v0
+    move/from16 v33, v0
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v32
 
-    const-string/jumbo v28, " isDHAKill "
+    const-string/jumbo v33, " isDHAKill "
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v32
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v32
 
-    move/from16 v1, v17
+    move/from16 v1, v22
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v32
 
-    const-string/jumbo v28, " adj "
+    const-string/jumbo v33, " adj "
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v32
 
-    iget v0, v11, Lcom/android/server/am/ProcessRecord;->curAdj:I
+    move-object/from16 v0, v16
 
-    move/from16 v28, v0
+    iget v0, v0, Lcom/android/server/am/ProcessRecord;->curAdj:I
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move/from16 v33, v0
 
-    move-result-object v27
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v28, " pname: "
+    move-result-object v32
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v33, " pname: "
 
-    move-result-object v27
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+    move-result-object v32
 
-    move-object/from16 v28, v0
+    move-object/from16 v0, v16
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
-    move-result-object v27
+    move-object/from16 v33, v0
 
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v32
 
-    invoke-static/range {v26 .. v27}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    :cond_8
-    :goto_4
-    if-eqz v17, :cond_9
-
-    const-string/jumbo v20, "DHA"
-
-    :cond_9
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_ENABLE:Z
-
-    if-eqz v26, :cond_11
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
-
-    move-object/from16 v26, v0
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v27, v0
-
-    invoke-virtual/range {v26 .. v27}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v26
-
-    if-eqz v26, :cond_11
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
-
-    move-object/from16 v26, v0
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v27, v0
-
-    invoke-virtual/range {v26 .. v27}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v26
-
-    check-cast v26, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
-
-    const/16 v27, 0x0
-
-    invoke-virtual/range {v26 .. v27}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->getIsHotness(I)Z
-
-    move-result v18
-
-    :goto_5
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_ENABLE:Z
-
-    if-eqz v26, :cond_14
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
-
-    move-object/from16 v26, v0
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v27, v0
-
-    invoke-virtual/range {v26 .. v27}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v26
-
-    if-eqz v26, :cond_12
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
-
-    move-object/from16 v26, v0
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v27, v0
-
-    invoke-virtual/range {v26 .. v27}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v26
-
-    check-cast v26, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
-
-    const/16 v27, 0x0
-
-    invoke-virtual/range {v26 .. v27}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->getIsHotness(I)Z
-
-    move-result v18
-
-    :goto_6
-    if-eqz v18, :cond_13
-
-    const/16 v26, 0x0
-
-    move/from16 v0, v26
-
-    invoke-virtual {v5, v0, v11}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
-
-    move-object/from16 v26, v0
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v27, v0
-
-    invoke-virtual/range {v26 .. v27}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v26
-
-    check-cast v26, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
-
-    const/16 v27, 0x0
-
-    const/16 v28, 0x0
-
-    invoke-virtual/range {v26 .. v28}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->setIsHotness(ZI)V
-
-    if-eqz v20, :cond_14
-
-    const/16 v26, 0x0
-
-    move/from16 v0, v26
-
-    invoke-virtual {v6, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v26
-
-    if-eqz v26, :cond_14
-
-    const/16 v26, 0x0
-
-    move/from16 v0, v26
-
-    invoke-virtual {v6, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v26
-
-    check-cast v26, Lcom/android/server/am/ProcessRecord;
-
-    new-instance v27, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v32
 
     move-object/from16 v0, v27
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v32
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_a
+    :goto_4
+    if-eqz v22, :cond_b
+
+    const-string/jumbo v25, "DHA"
+
+    :cond_b
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->PREVENT_HOTNESS:Z
+
+    if-eqz v27, :cond_13
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v32, v0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v27
+
+    if-eqz v27, :cond_13
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v32, v0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v27
+
+    check-cast v27, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
+
+    const/16 v32, 0x0
+
+    move-object/from16 v0, v27
+
+    move/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->getIsHotness(I)Z
+
+    move-result v23
+
+    :goto_5
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->PREVENT_HOTNESS:Z
+
+    if-eqz v27, :cond_16
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v32, v0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v27
+
+    if-eqz v27, :cond_14
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v32, v0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v27
+
+    check-cast v27, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
+
+    const/16 v32, 0x0
+
+    move-object/from16 v0, v27
+
+    move/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->getIsHotness(I)Z
+
+    move-result v23
+
+    :goto_6
+    if-eqz v23, :cond_15
+
+    const/16 v27, 0x0
+
+    move/from16 v0, v27
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v8, v0, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v32, v0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v27
+
+    check-cast v27, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
+
+    const/16 v32, 0x0
+
+    const/16 v33, 0x0
+
+    move-object/from16 v0, v27
+
+    move/from16 v1, v32
+
+    move/from16 v2, v33
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->setIsHotness(ZI)V
+
+    if-eqz v25, :cond_16
+
+    const/16 v27, 0x0
+
+    move/from16 v0, v27
+
+    invoke-virtual {v9, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v27
+
+    if-eqz v27, :cond_16
+
+    const/16 v27, 0x0
+
+    move/from16 v0, v27
+
+    invoke-virtual {v9, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v27
+
+    check-cast v27, Lcom/android/server/am/ProcessRecord;
+
+    new-instance v32, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v32
+
+    move-object/from16 v1, v25
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v32
 
-    const-string/jumbo v28, "_H:"
+    const-string/jumbo v33, "_H:"
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v32
 
-    const-string/jumbo v28, "cached #"
+    const-string/jumbo v33, "cached #"
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v32
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
 
-    move/from16 v28, v0
+    move/from16 v33, v0
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v32
 
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v27
+    move-result-object v32
 
-    const/16 v28, 0x1
+    const/16 v33, 0x1
 
-    invoke-virtual/range {v26 .. v28}, Lcom/android/server/am/ProcessRecord;->kill(Ljava/lang/String;Z)V
+    move-object/from16 v0, v27
 
-    const/16 v26, 0x0
+    move-object/from16 v1, v32
 
-    move/from16 v0, v26
+    move/from16 v2, v33
 
-    invoke-virtual {v6, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/ProcessRecord;->kill(Ljava/lang/String;Z)V
+
+    const/16 v27, 0x0
+
+    move/from16 v0, v27
+
+    invoke-virtual {v9, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mNumCachedHiddenProcs:I
 
-    move/from16 v26, v0
+    move/from16 v27, v0
 
-    add-int/lit8 v26, v26, -0x1
+    add-int/lit8 v27, v27, -0x1
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
@@ -2862,339 +2860,336 @@
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
 
-    move/from16 v26, v0
+    move/from16 v27, v0
 
-    add-int/lit8 v26, v26, -0x1
+    add-int/lit8 v27, v27, -0x1
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
 
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
 
-    if-eqz v26, :cond_1
+    if-eqz v27, :cond_1
 
-    sget-object v26, Lcom/android/server/am/DynamicHiddenApp;->TAG_HOTNESS:Ljava/lang/String;
+    sget-object v27, Lcom/android/server/am/DynamicHiddenApp;->TAG_HOTNESS:Ljava/lang/String;
 
-    new-instance v27, Ljava/lang/StringBuilder;
+    new-instance v32, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v28, "CA hotness protected "
+    const-string/jumbo v33, "CA hotness protected "
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v32
 
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+    move-object/from16 v0, v16
 
-    move-object/from16 v28, v0
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v33, v0
 
-    move-result-object v27
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v28, ", "
+    move-result-object v32
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v33, ", "
 
-    move-result-object v27
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v0, v11, Lcom/android/server/am/ProcessRecord;->hotnessAdj:I
+    move-result-object v32
 
-    move/from16 v28, v0
+    move-object/from16 v0, v16
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    iget v0, v0, Lcom/android/server/am/ProcessRecord;->hotnessAdj:I
 
-    move-result-object v27
+    move/from16 v33, v0
 
-    const-string/jumbo v28, ", "
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v32
 
-    move-result-object v27
+    const-string/jumbo v33, ", "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
 
-    move/from16 v28, v0
+    move/from16 v33, v0
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v32
 
-    const-string/jumbo v28, "/"
+    const-string/jumbo v33, "/"
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v32
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
 
-    move/from16 v28, v0
+    move/from16 v33, v0
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v32
 
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v27
+    move-result-object v32
 
-    invoke-static/range {v26 .. v27}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_1
 
-    :cond_a
-    const/16 v17, 0x0
+    :cond_c
+    const/16 v22, 0x0
 
     goto/16 :goto_2
 
-    :cond_b
-    const/16 v17, 0x0
+    :cond_d
+    const/16 v22, 0x0
 
     goto/16 :goto_3
 
-    :cond_c
+    :cond_e
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
 
-    move/from16 v26, v0
+    move/from16 v27, v0
 
-    sget v27, Lcom/android/server/am/DynamicHiddenApp;->MAX_CACHED_APPS:I
+    sget v32, Lcom/android/server/am/DynamicHiddenApp;->MAX_CACHED_APPS:I
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
-    move/from16 v1, v27
+    move/from16 v1, v32
 
-    if-le v0, v1, :cond_d
+    if-le v0, v1, :cond_f
 
-    const/16 v17, 0x1
+    const/16 v22, 0x1
 
     :goto_7
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->ES_LRU_BASE_ENABLE:Z
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->ES_LRU_BASE_ENABLE:Z
 
-    if-nez v26, :cond_7
+    if-nez v27, :cond_9
 
-    if-nez v17, :cond_7
+    xor-int/lit8 v27, v22, 0x1
+
+    if-eqz v27, :cond_9
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
 
-    move/from16 v26, v0
+    move/from16 v27, v0
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMax_ES_Total:I
 
-    move/from16 v27, v0
+    move/from16 v32, v0
 
-    sget v28, Lcom/android/server/am/DynamicHiddenApp;->MIN_EMPTY_APPS:I
+    sget v33, Lcom/android/server/am/DynamicHiddenApp;->MIN_EMPTY_APPS:I
 
-    sub-int v27, v27, v28
+    sub-int v32, v32, v33
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
-    move/from16 v1, v27
+    move/from16 v1, v32
 
-    if-le v0, v1, :cond_e
+    if-le v0, v1, :cond_10
 
-    const/16 v17, 0x1
-
-    goto/16 :goto_3
-
-    :cond_d
-    const/16 v17, 0x0
-
-    goto :goto_7
-
-    :cond_e
-    const/16 v17, 0x0
+    const/16 v22, 0x1
 
     goto/16 :goto_3
 
     :cond_f
+    const/16 v22, 0x0
+
+    goto :goto_7
+
+    :cond_10
+    const/16 v22, 0x0
+
+    goto/16 :goto_3
+
+    :cond_11
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
 
-    move/from16 v26, v0
+    move/from16 v27, v0
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
 
-    move/from16 v27, v0
+    move/from16 v32, v0
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
-    move/from16 v1, v27
+    move/from16 v1, v32
 
-    if-le v0, v1, :cond_10
+    if-le v0, v1, :cond_12
 
-    const/16 v17, 0x1
-
-    goto/16 :goto_4
-
-    :cond_10
-    const/16 v17, 0x0
+    const/16 v22, 0x1
 
     goto/16 :goto_4
 
-    :cond_11
-    const/16 v18, 0x0
+    :cond_12
+    const/16 v22, 0x0
+
+    goto/16 :goto_4
+
+    :cond_13
+    const/16 v23, 0x0
 
     goto/16 :goto_5
 
-    :cond_12
-    const/16 v18, 0x0
+    :cond_14
+    const/16 v23, 0x0
 
     goto/16 :goto_6
 
-    :cond_13
-    const/16 v26, 0x0
-
-    move/from16 v0, v26
-
-    invoke-virtual {v6, v0, v11}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
-
-    :cond_14
-    if-eqz v20, :cond_19
-
-    invoke-static {}, Landroid/util/GateConfig;->isGateEnabled()Z
-
-    move-result v26
-
-    if-eqz v26, :cond_15
-
-    const-string/jumbo v26, "com.android.vending"
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v27, v0
-
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v26
-
-    if-eqz v26, :cond_15
-
-    const-string/jumbo v26, "GATE"
-
-    const-string/jumbo v27, "<GATE-M> MARKET_LAUNCHED_FAIL </GATE-M>"
-
-    invoke-static/range {v26 .. v27}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
     :cond_15
-    if-eqz v16, :cond_17
+    const/16 v27, 0x0
 
-    iget v0, v11, Lcom/android/server/am/ProcessRecord;->dhaKeepEmptyFlag:I
+    move/from16 v0, v27
 
-    move/from16 v26, v0
+    move-object/from16 v1, v16
 
-    const/16 v27, 0x1
+    invoke-virtual {v9, v0, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
 
-    move/from16 v0, v26
+    :cond_16
+    if-eqz v25, :cond_1a
 
-    move/from16 v1, v27
+    if-eqz v21, :cond_18
 
-    if-ne v0, v1, :cond_16
+    move-object/from16 v0, v16
 
-    sget-object v26, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
+    iget v0, v0, Lcom/android/server/am/ProcessRecord;->dhaKeepEmptyFlag:I
 
-    new-instance v27, Ljava/lang/StringBuilder;
+    move/from16 v27, v0
 
-    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
+    const/16 v32, 0x1
 
-    const-string/jumbo v28, "PWHL - "
+    move/from16 v0, v27
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move/from16 v1, v32
 
-    move-result-object v27
+    if-ne v0, v1, :cond_17
 
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+    sget-object v27, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
 
-    move-object/from16 v28, v0
+    new-instance v32, Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v27
+    const-string/jumbo v33, "PWHL - "
 
-    const-string/jumbo v28, " in Cached"
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v32
 
-    move-result-object v27
+    move-object/from16 v0, v16
 
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
-    move-result-object v27
+    move-object/from16 v33, v0
 
-    invoke-static/range {v26 .. v27}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, " in Cached"
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v32
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mAm:Lcom/android/server/am/ActivityManagerService;
 
-    move-object/from16 v26, v0
-
-    move-object/from16 v0, v26
-
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
-
-    move-object/from16 v26, v0
-
-    new-instance v27, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
+    move-object/from16 v27, v0
 
     move-object/from16 v0, v27
 
-    move-object/from16 v1, v20
+    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+
+    move-object/from16 v27, v0
+
+    new-instance v32, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v32
+
+    move-object/from16 v1, v25
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v32
 
-    const-string/jumbo v28, ":"
+    const-string/jumbo v33, ":"
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v32
 
-    const-string/jumbo v28, "Convert from hidden to empty"
+    const-string/jumbo v33, "Convert from hidden to empty"
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v32
 
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v27
+    move-result-object v32
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v16
 
-    invoke-virtual {v0, v11, v1}, Lcom/android/server/am/ActivityStackSupervisor;->scheduleDestroyAllActivities(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;)V
+    move-object/from16 v2, v32
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/ActivityStackSupervisor;->scheduleDestroyAllActivities(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;)V
 
     :goto_8
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mNumCachedHiddenProcs:I
 
-    move/from16 v26, v0
+    move/from16 v27, v0
 
-    add-int/lit8 v26, v26, -0x1
+    add-int/lit8 v27, v27, -0x1
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
@@ -3204,11 +3199,11 @@
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
 
-    move/from16 v26, v0
+    move/from16 v27, v0
 
-    add-int/lit8 v26, v26, -0x1
+    add-int/lit8 v27, v27, -0x1
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
@@ -3216,261 +3211,313 @@
 
     goto/16 :goto_1
 
-    :cond_16
-    sget-object v26, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
+    :cond_17
+    sget-object v27, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
 
-    new-instance v27, Ljava/lang/StringBuilder;
+    new-instance v32, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v28, "PWHL_KNOX - "
+    const-string/jumbo v33, "PWHL_KNOX - "
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v32
 
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+    move-object/from16 v0, v16
 
-    move-object/from16 v28, v0
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v33, v0
 
-    move-result-object v27
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v28, " in Cached"
+    move-result-object v32
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v33, " in Cached"
 
-    move-result-object v27
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v32
 
-    move-result-object v27
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static/range {v26 .. v27}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v32
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mAm:Lcom/android/server/am/ActivityManagerService;
 
-    move-object/from16 v26, v0
+    move-object/from16 v27, v0
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
     iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
-    move-object/from16 v26, v0
+    move-object/from16 v27, v0
 
+    new-instance v32, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v32
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, ":"
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, "Convert from hidden to empty knox"
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v32
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v16
+
+    move-object/from16 v2, v32
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/ActivityStackSupervisor;->scheduleDestroyAllActivities(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;)V
+
+    goto :goto_8
+
+    :cond_18
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->FALL_PREVENT_ENABLE:Z
+
+    if-eqz v27, :cond_19
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->killingProcessesUss:Ljava/util/HashMap;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v16
+
+    iget v0, v0, Lcom/android/server/am/ProcessRecord;->pid:I
+
+    move/from16 v32, v0
+
+    invoke-static/range {v32 .. v32}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v32
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v27
+
+    if-nez v27, :cond_19
+
+    move-object/from16 v0, v16
+
+    iget-wide v0, v0, Lcom/android/server/am/ProcessRecord;->lastPss:J
+
+    move-wide/from16 v32, v0
+
+    const-wide/16 v34, 0x400
+
+    mul-long v18, v32, v34
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->killingProcessesUss:Ljava/util/HashMap;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v16
+
+    iget v0, v0, Lcom/android/server/am/ProcessRecord;->pid:I
+
+    move/from16 v32, v0
+
+    invoke-static/range {v32 .. v32}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v32
+
+    invoke-static/range {v18 .. v19}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v33
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    move-object/from16 v2, v33
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-object/from16 v0, p0
+
+    iget-wide v0, v0, Lcom/android/server/am/DynamicHiddenApp;->killingProcessesUssTotal:J
+
+    move-wide/from16 v32, v0
+
+    add-long v32, v32, v18
+
+    move-wide/from16 v0, v32
+
+    move-object/from16 v2, p0
+
+    iput-wide v0, v2, Lcom/android/server/am/DynamicHiddenApp;->killingProcessesUssTotal:J
+
+    sget-object v27, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
+
+    new-instance v32, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v33, "KPU : put ["
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, "] : "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-wide/16 v34, 0x400
+
+    div-long v34, v18, v34
+
+    move-object/from16 v0, v32
+
+    move-wide/from16 v1, v34
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, " K"
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v32
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_19
     new-instance v27, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
 
     move-object/from16 v0, v27
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v25
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v27
 
-    const-string/jumbo v28, ":"
+    const-string/jumbo v32, ":"
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v27
 
-    move-result-object v27
-
-    const-string/jumbo v28, "Convert from hidden to empty knox"
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v27
-
-    move-object/from16 v0, v26
-
-    move-object/from16 v1, v27
-
-    invoke-virtual {v0, v11, v1}, Lcom/android/server/am/ActivityStackSupervisor;->scheduleDestroyAllActivities(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;)V
-
-    goto :goto_8
-
-    :cond_17
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->FALL_PREVENT_ENABLE:Z
-
-    if-eqz v26, :cond_18
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->killingProcessesUss:Ljava/util/HashMap;
-
-    move-object/from16 v26, v0
-
-    iget v0, v11, Lcom/android/server/am/ProcessRecord;->pid:I
-
-    move/from16 v27, v0
-
-    invoke-static/range {v27 .. v27}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v27
-
-    invoke-virtual/range {v26 .. v27}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v26
-
-    if-nez v26, :cond_18
-
-    iget-wide v0, v11, Lcom/android/server/am/ProcessRecord;->lastPss:J
-
-    move-wide/from16 v26, v0
-
-    const-wide/16 v28, 0x400
-
-    mul-long v12, v26, v28
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->killingProcessesUss:Ljava/util/HashMap;
-
-    move-object/from16 v26, v0
-
-    iget v0, v11, Lcom/android/server/am/ProcessRecord;->pid:I
-
-    move/from16 v27, v0
-
-    invoke-static/range {v27 .. v27}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v27
-
-    invoke-static {v12, v13}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v28
-
-    invoke-virtual/range {v26 .. v28}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-object/from16 v0, p0
-
-    iget-wide v0, v0, Lcom/android/server/am/DynamicHiddenApp;->killingProcessesUssTotal:J
-
-    move-wide/from16 v26, v0
-
-    add-long v26, v26, v12
-
-    move-wide/from16 v0, v26
-
-    move-object/from16 v2, p0
-
-    iput-wide v0, v2, Lcom/android/server/am/DynamicHiddenApp;->killingProcessesUssTotal:J
-
-    sget-object v26, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
-
-    new-instance v27, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v28, "KPU : put ["
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, "] : "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-wide/16 v28, 0x400
-
-    div-long v28, v12, v28
-
-    invoke-virtual/range {v27 .. v29}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, " K"
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v27
-
-    invoke-static/range {v26 .. v27}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_18
-    new-instance v26, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v26
-
-    move-object/from16 v1, v20
+    move-object/from16 v1, v32
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v26
+    move-result-object v27
 
-    const-string/jumbo v27, ":"
+    const-string/jumbo v32, "cached #"
 
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v27
 
-    move-result-object v26
+    move-object/from16 v1, v32
 
-    const-string/jumbo v27, "cached #"
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v26
+    move-result-object v27
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
 
-    move/from16 v27, v0
+    move/from16 v32, v0
 
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v27
 
-    move-result-object v26
+    move/from16 v1, v32
 
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v26
+    move-result-object v27
 
-    const/16 v27, 0x1
+    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-object/from16 v0, v26
+    move-result-object v27
 
-    move/from16 v1, v27
+    const/16 v32, 0x1
 
-    invoke-virtual {v11, v0, v1}, Lcom/android/server/am/ProcessRecord;->kill(Ljava/lang/String;Z)V
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v27
+
+    move/from16 v2, v32
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/ProcessRecord;->kill(Ljava/lang/String;Z)V
 
     goto/16 :goto_8
 
-    :cond_19
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_ENABLE:Z
+    :cond_1a
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->PREVENT_HOTNESS:Z
 
-    if-eqz v26, :cond_1
+    if-eqz v27, :cond_1
 
-    if-nez v18, :cond_1
+    xor-int/lit8 v27, v23, 0x1
 
-    const/16 v26, 0x0
+    if-eqz v27, :cond_1
 
-    move/from16 v0, v26
+    const/16 v27, 0x0
 
-    invoke-virtual {v5, v0, v11}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+    move/from16 v0, v27
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v8, v0, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
 
     goto/16 :goto_1
 
@@ -3479,480 +3526,81 @@
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
 
-    move/from16 v26, v0
-
-    sget v27, Lcom/android/server/am/ProcessList;->TRIM_EMPTY_APPS:I
-
-    move/from16 v0, v26
-
-    move/from16 v1, v27
-
-    if-le v0, v1, :cond_1a
-
-    iget-wide v0, v11, Lcom/android/server/am/ProcessRecord;->lastActivityTime:J
-
-    move-wide/from16 v26, v0
-
-    cmp-long v26, v26, v24
-
-    if-gez v26, :cond_1a
-
-    new-instance v26, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v27, "empty for "
-
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v26
-
-    const-wide/32 v28, 0x1b7740
-
-    add-long v28, v28, v24
-
-    iget-wide v0, v11, Lcom/android/server/am/ProcessRecord;->lastActivityTime:J
-
-    move-wide/from16 v30, v0
-
-    sub-long v28, v28, v30
-
-    const-wide/16 v30, 0x3e8
-
-    div-long v28, v28, v30
-
-    move-object/from16 v0, v26
-
-    move-wide/from16 v1, v28
-
-    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v26
-
-    const-string/jumbo v27, "s"
-
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v26
-
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v26
-
-    const/16 v27, 0x1
-
-    move-object/from16 v0, v26
-
-    move/from16 v1, v27
-
-    invoke-virtual {v11, v0, v1}, Lcom/android/server/am/ProcessRecord;->kill(Ljava/lang/String;Z)V
-
-    goto/16 :goto_1
-
-    :cond_1a
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
-
-    move/from16 v26, v0
-
-    add-int/lit8 v26, v26, 0x1
-
-    move/from16 v0, v26
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
-
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->LDHA_ES_ENABLE:Z
-
-    if-eqz v26, :cond_21
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
-
-    move/from16 v26, v0
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
-
     move/from16 v27, v0
 
-    add-int v26, v26, v27
-
     move-object/from16 v0, p0
 
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMax_ES_Total:I
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mConstants:Lcom/android/server/am/ActivityManagerConstants;
 
-    move/from16 v27, v0
+    move-object/from16 v32, v0
 
-    move/from16 v0, v26
+    move-object/from16 v0, v32
 
-    move/from16 v1, v27
+    iget v0, v0, Lcom/android/server/am/ActivityManagerConstants;->CUR_TRIM_EMPTY_PROCESSES:I
 
-    if-le v0, v1, :cond_1d
+    move/from16 v32, v0
 
-    const/16 v17, 0x1
+    move/from16 v0, v27
 
-    :goto_9
-    if-eqz v17, :cond_1f
+    move/from16 v1, v32
 
-    move-object/from16 v0, p0
+    if-le v0, v1, :cond_1b
 
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+    move-object/from16 v0, v16
 
-    move/from16 v26, v0
+    iget-wide v0, v0, Lcom/android/server/am/ProcessRecord;->lastActivityTime:J
 
-    sget v27, Lcom/android/server/am/DynamicHiddenApp;->MIN_EMPTY_APPS:I
+    move-wide/from16 v32, v0
 
-    move/from16 v0, v26
+    cmp-long v27, v32, v30
 
-    move/from16 v1, v27
-
-    if-le v0, v1, :cond_1e
-
-    const/16 v17, 0x1
-
-    :goto_a
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
-
-    if-eqz v26, :cond_1b
-
-    sget-object v26, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
+    if-gez v27, :cond_1b
 
     new-instance v27, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v28, "CE numC[ "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
-
-    move/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, " ] numE [ "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
-
-    move/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, " ], Total: "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMax_ES_Total:I
-
-    move/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, " isDHAKill "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
+    const-string/jumbo v32, "empty for "
 
     move-object/from16 v0, v27
 
-    move/from16 v1, v17
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, " adj "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    iget v0, v11, Lcom/android/server/am/ProcessRecord;->curAdj:I
-
-    move/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, " pname: "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v27
-
-    invoke-static/range {v26 .. v27}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1b
-    :goto_b
-    if-eqz v17, :cond_1c
-
-    const-string/jumbo v20, "DHA"
-
-    :cond_1c
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_ENABLE:Z
-
-    if-eqz v26, :cond_25
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
-
-    move-object/from16 v26, v0
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v27, v0
-
-    invoke-virtual/range {v26 .. v27}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v26
-
-    if-eqz v26, :cond_23
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
-
-    move-object/from16 v26, v0
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v27, v0
-
-    invoke-virtual/range {v26 .. v27}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v26
-
-    check-cast v26, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
-
-    const/16 v27, 0x1
-
-    invoke-virtual/range {v26 .. v27}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->getIsHotness(I)Z
-
-    move-result v18
-
-    :goto_c
-    if-eqz v18, :cond_24
-
-    const/16 v26, 0x0
-
-    move/from16 v0, v26
-
-    invoke-virtual {v7, v0, v11}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
-
-    move-object/from16 v26, v0
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v27, v0
-
-    invoke-virtual/range {v26 .. v27}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v26
-
-    check-cast v26, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
-
-    const/16 v27, 0x0
-
-    const/16 v28, 0x1
-
-    invoke-virtual/range {v26 .. v28}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->setIsHotness(ZI)V
-
-    if-eqz v20, :cond_25
-
-    const/16 v26, 0x0
-
-    move/from16 v0, v26
-
-    invoke-virtual {v8, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v26
-
-    if-eqz v26, :cond_25
-
-    const/16 v26, 0x0
-
-    move/from16 v0, v26
-
-    invoke-virtual {v8, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v26
-
-    check-cast v26, Lcom/android/server/am/ProcessRecord;
-
-    new-instance v27, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v27
-
-    move-object/from16 v1, v20
+    move-object/from16 v1, v32
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v27
 
-    const-string/jumbo v28, "_H:"
+    const-wide/32 v32, 0x1b7740
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    add-long v32, v32, v30
 
-    move-result-object v27
+    move-object/from16 v0, v16
 
-    const-string/jumbo v28, "empty #"
+    iget-wide v0, v0, Lcom/android/server/am/ProcessRecord;->lastActivityTime:J
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-wide/from16 v34, v0
 
-    move-result-object v27
+    sub-long v32, v32, v34
 
-    move-object/from16 v0, p0
+    const-wide/16 v34, 0x3e8
 
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+    div-long v32, v32, v34
 
-    move/from16 v28, v0
+    move-object/from16 v0, v27
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-wide/from16 v1, v32
 
-    move-result-object v27
-
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     move-result-object v27
 
-    const/16 v28, 0x1
+    const-string/jumbo v32, "s"
 
-    invoke-virtual/range {v26 .. v28}, Lcom/android/server/am/ProcessRecord;->kill(Ljava/lang/String;Z)V
+    move-object/from16 v0, v27
 
-    const/16 v26, 0x0
+    move-object/from16 v1, v32
 
-    move/from16 v0, v26
-
-    invoke-virtual {v8, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
-
-    move/from16 v26, v0
-
-    add-int/lit8 v26, v26, -0x1
-
-    move/from16 v0, v26
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
-
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
-
-    if-eqz v26, :cond_1
-
-    sget-object v26, Lcom/android/server/am/DynamicHiddenApp;->TAG_HOTNESS:Ljava/lang/String;
-
-    new-instance v27, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v28, "EM hotness protected "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, ", "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    iget v0, v11, Lcom/android/server/am/ProcessRecord;->hotnessAdj:I
-
-    move/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, ", "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
-
-    move/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, "/"
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxEmpty:I
-
-    move/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v27
 
@@ -3960,135 +3608,827 @@
 
     move-result-object v27
 
-    invoke-static/range {v26 .. v27}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    const/16 v32, 0x1
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v27
+
+    move/from16 v2, v32
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/ProcessRecord;->kill(Ljava/lang/String;Z)V
+
+    goto/16 :goto_1
+
+    :cond_1b
+    move-object/from16 v0, v16
+
+    iget-boolean v0, v0, Lcom/android/server/am/ProcessRecord;->isActiveLaunch:Z
+
+    move/from16 v27, v0
+
+    if-eqz v27, :cond_1e
+
+    const-wide/16 v14, 0x0
+
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v32
+
+    move-object/from16 v0, v16
+
+    iget-wide v0, v0, Lcom/android/server/am/ProcessRecord;->activeLaunchTime:J
+
+    move-wide/from16 v34, v0
+
+    sub-long v14, v32, v34
+
+    move-object/from16 v0, v16
+
+    iget-wide v0, v0, Lcom/android/server/am/ProcessRecord;->activeLaunchTime:J
+
+    move-wide/from16 v32, v0
+
+    const-wide/16 v34, -0x1
+
+    cmp-long v27, v32, v34
+
+    if-eqz v27, :cond_1c
+
+    const-wide/16 v32, 0xbb8
+
+    cmp-long v27, v14, v32
+
+    if-lez v27, :cond_1c
+
+    const-string/jumbo v27, "AL_Kill : over 3 sec"
+
+    const/16 v32, 0x1
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v27
+
+    move/from16 v2, v32
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/ProcessRecord;->kill(Ljava/lang/String;Z)V
+
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
+
+    if-eqz v27, :cond_1
+
+    sget-object v27, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
+
+    new-instance v32, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v33, "AL_Kill : over 3 sec: "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v32
+
+    invoke-virtual {v0, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v32
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_1
+
+    :cond_1c
+    const/16 v27, 0x2
+
+    move/from16 v0, v27
+
+    if-ge v4, v0, :cond_1d
+
+    const/16 v27, 0x0
+
+    move/from16 v0, v27
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v6, v0, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+
+    add-int/lit8 v4, v4, 0x1
+
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
+
+    if-eqz v27, :cond_1
+
+    sget-object v27, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
+
+    new-instance v32, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v33, "Active App Launch process < 2: "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, ", "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v16
+
+    iget-boolean v0, v0, Lcom/android/server/am/ProcessRecord;->isActiveLaunch:Z
+
+    move/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, ", "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v32
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, ", "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v32
+
+    invoke-virtual {v0, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v32
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_1
 
     :cond_1d
-    const/16 v17, 0x0
+    const-string/jumbo v27, "AL_Kill : over 3 slots"
 
-    goto/16 :goto_9
+    const/16 v32, 0x1
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v27
+
+    move/from16 v2, v32
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/ProcessRecord;->kill(Ljava/lang/String;Z)V
+
+    goto/16 :goto_1
 
     :cond_1e
-    const/16 v17, 0x0
+    move-object/from16 v0, p0
 
-    goto/16 :goto_a
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+
+    move/from16 v27, v0
+
+    add-int/lit8 v27, v27, 0x1
+
+    move/from16 v0, v27
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->LDHA_ES_ENABLE:Z
+
+    if-eqz v27, :cond_25
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
+
+    move/from16 v27, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+
+    move/from16 v32, v0
+
+    add-int v27, v27, v32
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMax_ES_Total:I
+
+    move/from16 v32, v0
+
+    move/from16 v0, v27
+
+    move/from16 v1, v32
+
+    if-le v0, v1, :cond_21
+
+    const/16 v22, 0x1
+
+    :goto_9
+    if-eqz v22, :cond_23
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+
+    move/from16 v27, v0
+
+    sget v32, Lcom/android/server/am/DynamicHiddenApp;->MIN_EMPTY_APPS:I
+
+    move/from16 v0, v27
+
+    move/from16 v1, v32
+
+    if-le v0, v1, :cond_22
+
+    const/16 v22, 0x1
+
+    :goto_a
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
+
+    if-eqz v27, :cond_1f
+
+    sget-object v27, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
+
+    new-instance v32, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v33, "CE numC[ "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
+
+    move/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, " ] numE [ "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+
+    move/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, " ], Total: "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMax_ES_Total:I
+
+    move/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, " isDHAKill "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v32
+
+    move/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, " adj "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v16
+
+    iget v0, v0, Lcom/android/server/am/ProcessRecord;->curAdj:I
+
+    move/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, " pname: "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v32
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1f
-    move-object/from16 v0, p0
+    :goto_b
+    if-eqz v22, :cond_20
 
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
-
-    move/from16 v26, v0
-
-    sget v27, Lcom/android/server/am/DynamicHiddenApp;->MAX_EMPTY_APPS:I
-
-    move/from16 v0, v26
-
-    move/from16 v1, v27
-
-    if-le v0, v1, :cond_20
-
-    const/16 v17, 0x1
-
-    goto/16 :goto_a
+    const-string/jumbo v25, "DHA"
 
     :cond_20
-    const/16 v17, 0x0
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->PREVENT_HOTNESS:Z
 
-    goto/16 :goto_a
+    if-eqz v27, :cond_29
 
-    :cond_21
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v32, v0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v27
+
+    if-eqz v27, :cond_27
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v32, v0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v27
+
+    check-cast v27, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
+
+    const/16 v32, 0x1
+
+    move-object/from16 v0, v27
+
+    move/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->getIsHotness(I)Z
+
+    move-result v23
+
+    :goto_c
+    if-eqz v23, :cond_28
+
+    const/16 v27, 0x0
+
+    move/from16 v0, v27
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v10, v0, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v32, v0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v27
+
+    check-cast v27, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
+
+    const/16 v32, 0x0
+
+    const/16 v33, 0x1
+
+    move-object/from16 v0, v27
+
+    move/from16 v1, v32
+
+    move/from16 v2, v33
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->setIsHotness(ZI)V
+
+    if-eqz v25, :cond_29
+
+    const/16 v27, 0x0
+
+    move/from16 v0, v27
+
+    invoke-virtual {v11, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v27
+
+    if-eqz v27, :cond_29
+
+    const/16 v27, 0x0
+
+    move/from16 v0, v27
+
+    invoke-virtual {v11, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v27
+
+    check-cast v27, Lcom/android/server/am/ProcessRecord;
+
+    new-instance v32, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v32
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, "_H:"
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, "empty #"
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
 
-    move/from16 v26, v0
+    move/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v32
+
+    const/16 v33, 0x1
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    move/from16 v2, v33
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/ProcessRecord;->kill(Ljava/lang/String;Z)V
+
+    const/16 v27, 0x0
+
+    move/from16 v0, v27
+
+    invoke-virtual {v11, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+
+    move/from16 v27, v0
+
+    add-int/lit8 v27, v27, -0x1
+
+    move/from16 v0, v27
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
+
+    if-eqz v27, :cond_1
+
+    sget-object v27, Lcom/android/server/am/DynamicHiddenApp;->TAG_HOTNESS:Ljava/lang/String;
+
+    new-instance v32, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v33, "EM hotness protected "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, ", "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v16
+
+    iget v0, v0, Lcom/android/server/am/ProcessRecord;->hotnessAdj:I
+
+    move/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, ", "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+
+    move/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, "/"
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxEmpty:I
 
-    move/from16 v27, v0
+    move/from16 v33, v0
 
-    move/from16 v0, v26
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move/from16 v1, v27
+    move-result-object v32
 
-    if-le v0, v1, :cond_22
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const/16 v17, 0x1
+    move-result-object v32
 
-    goto/16 :goto_b
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_1
+
+    :cond_21
+    const/16 v22, 0x0
+
+    goto/16 :goto_9
 
     :cond_22
-    const/16 v17, 0x0
+    const/16 v22, 0x0
 
-    goto/16 :goto_b
+    goto/16 :goto_a
 
     :cond_23
-    const/16 v18, 0x0
-
-    goto/16 :goto_c
-
-    :cond_24
-    const/16 v26, 0x0
-
-    move/from16 v0, v26
-
-    invoke-virtual {v8, v0, v11}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
-
-    :cond_25
-    if-eqz v16, :cond_27
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
-
-    move-object/from16 v26, v0
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v27, v0
-
-    invoke-virtual/range {v26 .. v27}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v26
-
-    if-eqz v26, :cond_26
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
-
-    move-object/from16 v26, v0
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v27, v0
-
-    invoke-virtual/range {v26 .. v27}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v26
-
-    check-cast v26, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
-
-    const/16 v27, 0x0
-
-    const/16 v28, 0x1
-
-    invoke-virtual/range {v26 .. v28}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->setHotness(II)V
-
-    :cond_26
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
 
-    move/from16 v26, v0
+    move/from16 v27, v0
 
-    add-int/lit8 v26, v26, -0x1
+    sget v32, Lcom/android/server/am/DynamicHiddenApp;->MAX_EMPTY_APPS:I
 
-    move/from16 v0, v26
+    move/from16 v0, v27
+
+    move/from16 v1, v32
+
+    if-le v0, v1, :cond_24
+
+    const/16 v22, 0x1
+
+    goto/16 :goto_a
+
+    :cond_24
+    const/16 v22, 0x0
+
+    goto/16 :goto_a
+
+    :cond_25
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+
+    move/from16 v27, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxEmpty:I
+
+    move/from16 v32, v0
+
+    move/from16 v0, v27
+
+    move/from16 v1, v32
+
+    if-le v0, v1, :cond_26
+
+    const/16 v22, 0x1
+
+    goto/16 :goto_b
+
+    :cond_26
+    const/16 v22, 0x0
+
+    goto/16 :goto_b
+
+    :cond_27
+    const/16 v23, 0x0
+
+    goto/16 :goto_c
+
+    :cond_28
+    const/16 v27, 0x0
+
+    move/from16 v0, v27
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v11, v0, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+
+    :cond_29
+    if-eqz v21, :cond_2b
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v32, v0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v27
+
+    if-eqz v27, :cond_2a
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v32, v0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v27
+
+    check-cast v27, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
+
+    const/16 v32, 0x0
+
+    const/16 v33, 0x1
+
+    move-object/from16 v0, v27
+
+    move/from16 v1, v32
+
+    move/from16 v2, v33
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->setHotness(II)V
+
+    :cond_2a
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+
+    move/from16 v27, v0
+
+    add-int/lit8 v27, v27, -0x1
+
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
@@ -4096,112 +4436,254 @@
 
     goto/16 :goto_1
 
-    :cond_27
-    if-eqz v20, :cond_29
+    :cond_2b
+    move-object/from16 v0, v16
 
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->FALL_PREVENT_ENABLE:Z
+    iget-boolean v0, v0, Lcom/android/server/am/ProcessRecord;->isPreload:Z
 
-    if-eqz v26, :cond_28
+    move/from16 v27, v0
+
+    if-eqz v27, :cond_2c
+
+    sget-object v27, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
+
+    new-instance v32, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v33, "Preload - "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, " skipped"
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v32
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+
+    move/from16 v27, v0
+
+    add-int/lit8 v27, v27, -0x1
+
+    move/from16 v0, v27
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+
+    goto/16 :goto_1
+
+    :cond_2c
+    if-eqz v25, :cond_2e
+
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->FALL_PREVENT_ENABLE:Z
+
+    if-eqz v27, :cond_2d
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->killingProcessesUss:Ljava/util/HashMap;
 
-    move-object/from16 v26, v0
+    move-object/from16 v27, v0
 
-    iget v0, v11, Lcom/android/server/am/ProcessRecord;->pid:I
+    move-object/from16 v0, v16
 
-    move/from16 v27, v0
+    iget v0, v0, Lcom/android/server/am/ProcessRecord;->pid:I
 
-    invoke-static/range {v27 .. v27}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move/from16 v32, v0
+
+    invoke-static/range {v32 .. v32}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v32
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v27
 
-    invoke-virtual/range {v26 .. v27}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    if-nez v27, :cond_2d
 
-    move-result-object v26
+    move-object/from16 v0, v16
 
-    if-nez v26, :cond_28
+    iget-wide v0, v0, Lcom/android/server/am/ProcessRecord;->lastPss:J
 
-    iget-wide v0, v11, Lcom/android/server/am/ProcessRecord;->lastPss:J
+    move-wide/from16 v32, v0
 
-    move-wide/from16 v26, v0
+    const-wide/16 v34, 0x400
 
-    const-wide/16 v28, 0x400
-
-    mul-long v12, v26, v28
+    mul-long v18, v32, v34
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->killingProcessesUss:Ljava/util/HashMap;
 
-    move-object/from16 v26, v0
+    move-object/from16 v27, v0
 
-    iget v0, v11, Lcom/android/server/am/ProcessRecord;->pid:I
+    move-object/from16 v0, v16
 
-    move/from16 v27, v0
+    iget v0, v0, Lcom/android/server/am/ProcessRecord;->pid:I
 
-    invoke-static/range {v27 .. v27}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move/from16 v32, v0
 
-    move-result-object v27
+    invoke-static/range {v32 .. v32}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v12, v13}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    move-result-object v32
 
-    move-result-object v28
+    invoke-static/range {v18 .. v19}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    invoke-virtual/range {v26 .. v28}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v33
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    move-object/from16 v2, v33
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lcom/android/server/am/DynamicHiddenApp;->killingProcessesUssTotal:J
 
-    move-wide/from16 v26, v0
+    move-wide/from16 v32, v0
 
-    add-long v26, v26, v12
+    add-long v32, v32, v18
 
-    move-wide/from16 v0, v26
+    move-wide/from16 v0, v32
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Lcom/android/server/am/DynamicHiddenApp;->killingProcessesUssTotal:J
 
-    sget-object v26, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
+    sget-object v27, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
 
+    new-instance v32, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v33, "KPU : put ["
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, "] : "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-wide/16 v34, 0x400
+
+    div-long v34, v18, v34
+
+    move-object/from16 v0, v32
+
+    move-wide/from16 v1, v34
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, " K"
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v32
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2d
     new-instance v27, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v28, "KPU : put ["
+    move-object/from16 v0, v27
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v1, v25
 
-    move-result-object v27
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v27
 
-    const-string/jumbo v28, "] : "
+    const-string/jumbo v32, ":"
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v27
 
-    move-result-object v27
+    move-object/from16 v1, v32
 
-    const-wide/16 v28, 0x400
-
-    div-long v28, v12, v28
-
-    invoke-virtual/range {v27 .. v29}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v27
 
-    const-string/jumbo v28, " K"
+    const-string/jumbo v32, "empty #"
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v27
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+
+    move/from16 v32, v0
+
+    move-object/from16 v0, v27
+
+    move/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v27
 
@@ -4209,32 +4691,15 @@
 
     move-result-object v27
 
-    invoke-static/range {v26 .. v27}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    const/16 v32, 0x1
 
-    :cond_28
-    new-instance v26, Ljava/lang/StringBuilder;
+    move-object/from16 v0, v16
 
-    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
+    move-object/from16 v1, v27
 
-    move-object/from16 v0, v26
+    move/from16 v2, v32
 
-    move-object/from16 v1, v20
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v26
-
-    const-string/jumbo v27, ":"
-
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v26
-
-    const-string/jumbo v27, "empty #"
-
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v26
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/ProcessRecord;->kill(Ljava/lang/String;Z)V
 
     move-object/from16 v0, p0
 
@@ -4242,748 +4707,905 @@
 
     move/from16 v27, v0
 
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    add-int/lit8 v27, v27, -0x1
 
-    move-result-object v26
-
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v26
-
-    const/16 v27, 0x1
-
-    move-object/from16 v0, v26
-
-    move/from16 v1, v27
-
-    invoke-virtual {v11, v0, v1}, Lcom/android/server/am/ProcessRecord;->kill(Ljava/lang/String;Z)V
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
-
-    move/from16 v26, v0
-
-    add-int/lit8 v26, v26, -0x1
-
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
-
-    goto/16 :goto_1
-
-    :cond_29
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_ENABLE:Z
-
-    if-eqz v26, :cond_1
-
-    if-nez v18, :cond_1
-
-    const/16 v26, 0x0
-
-    move/from16 v0, v26
-
-    invoke-virtual {v7, v0, v11}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
-
-    goto/16 :goto_1
-
-    :cond_2a
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->activities:Ljava/util/ArrayList;
-
-    move-object/from16 v26, v0
-
-    invoke-virtual/range {v26 .. v26}, Ljava/util/ArrayList;->size()I
-
-    move-result v26
-
-    if-lez v26, :cond_3b
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
-
-    move/from16 v26, v0
-
-    add-int/lit8 v26, v26, 0x1
-
-    move/from16 v0, v26
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
-
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->LDHA_ES_ENABLE:Z
-
-    if-eqz v26, :cond_33
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
-
-    move/from16 v26, v0
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
-
-    move/from16 v27, v0
-
-    add-int v26, v26, v27
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMax_ES_Total:I
-
-    move/from16 v27, v0
-
-    move/from16 v0, v26
-
-    move/from16 v1, v27
-
-    if-le v0, v1, :cond_2e
-
-    const/16 v17, 0x1
-
-    :goto_d
-    if-eqz v17, :cond_30
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
-
-    move/from16 v26, v0
-
-    sget v27, Lcom/android/server/am/DynamicHiddenApp;->MIN_CACHED_APPS:I
-
-    move/from16 v0, v26
-
-    move/from16 v1, v27
-
-    if-le v0, v1, :cond_2f
-
-    const/16 v17, 0x1
-
-    :cond_2b
-    :goto_e
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
-
-    if-eqz v26, :cond_2c
-
-    sget-object v26, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
-
-    new-instance v27, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v28, "CAS numC[ "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
-
-    move/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, " ] numE [ "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
-
-    move/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, " ], Total: "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMax_ES_Total:I
-
-    move/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, " isDHAKill "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    move-object/from16 v0, v27
-
-    move/from16 v1, v17
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, " adj "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    iget v0, v11, Lcom/android/server/am/ProcessRecord;->curAdj:I
-
-    move/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, " pname: "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v27
-
-    invoke-static/range {v26 .. v27}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2c
-    :goto_f
-    if-eqz v17, :cond_2d
-
-    const-string/jumbo v20, "DHA"
-
-    :cond_2d
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_ENABLE:Z
-
-    if-eqz v26, :cond_37
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
-
-    move-object/from16 v26, v0
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v27, v0
-
-    invoke-virtual/range {v26 .. v27}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v26
-
-    if-eqz v26, :cond_35
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
-
-    move-object/from16 v26, v0
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v27, v0
-
-    invoke-virtual/range {v26 .. v27}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v26
-
-    check-cast v26, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
-
-    const/16 v27, 0x0
-
-    invoke-virtual/range {v26 .. v27}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->getIsHotness(I)Z
-
-    move-result v18
-
-    :goto_10
-    if-eqz v18, :cond_36
-
-    const/16 v26, 0x0
-
-    move/from16 v0, v26
-
-    invoke-virtual {v5, v0, v11}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
-
-    move-object/from16 v26, v0
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v27, v0
-
-    invoke-virtual/range {v26 .. v27}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v26
-
-    check-cast v26, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
-
-    const/16 v27, 0x0
-
-    const/16 v28, 0x0
-
-    invoke-virtual/range {v26 .. v28}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->setIsHotness(ZI)V
-
-    if-eqz v20, :cond_37
-
-    const/16 v26, 0x0
-
-    move/from16 v0, v26
-
-    invoke-virtual {v6, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v26
-
-    if-eqz v26, :cond_37
-
-    const/16 v26, 0x0
-
-    move/from16 v0, v26
-
-    invoke-virtual {v6, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v26
-
-    check-cast v26, Lcom/android/server/am/ProcessRecord;
-
-    new-instance v27, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v27
-
-    move-object/from16 v1, v20
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, "_H:"
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, "cached #"
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
-
-    move/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v27
-
-    const/16 v28, 0x1
-
-    invoke-virtual/range {v26 .. v28}, Lcom/android/server/am/ProcessRecord;->kill(Ljava/lang/String;Z)V
-
-    const/16 v26, 0x0
-
-    move/from16 v0, v26
-
-    invoke-virtual {v6, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mNumNonCachedProcs:I
-
-    move/from16 v26, v0
-
-    add-int/lit8 v26, v26, -0x1
-
-    move/from16 v0, v26
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->mNumNonCachedProcs:I
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
-
-    move/from16 v26, v0
-
-    add-int/lit8 v26, v26, -0x1
-
-    move/from16 v0, v26
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
-
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
-
-    if-eqz v26, :cond_1
-
-    sget-object v26, Lcom/android/server/am/DynamicHiddenApp;->TAG_HOTNESS:Ljava/lang/String;
-
-    new-instance v27, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v28, "CA hotness protected "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, ", "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    iget v0, v11, Lcom/android/server/am/ProcessRecord;->hotnessAdj:I
-
-    move/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, ", "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
-
-    move/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, "/"
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
-
-    move/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v27
-
-    invoke-static/range {v26 .. v27}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_1
 
     :cond_2e
-    const/16 v17, 0x0
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->PREVENT_HOTNESS:Z
 
-    goto/16 :goto_d
+    if-eqz v27, :cond_1
+
+    xor-int/lit8 v27, v23, 0x1
+
+    if-eqz v27, :cond_1
+
+    const/16 v27, 0x0
+
+    move/from16 v0, v27
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v10, v0, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+
+    goto/16 :goto_1
 
     :cond_2f
-    const/16 v17, 0x0
+    move-object/from16 v0, v16
 
-    goto/16 :goto_e
-
-    :cond_30
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
-
-    move/from16 v26, v0
-
-    sget v27, Lcom/android/server/am/DynamicHiddenApp;->MAX_CACHED_APPS:I
-
-    move/from16 v0, v26
-
-    move/from16 v1, v27
-
-    if-le v0, v1, :cond_31
-
-    const/16 v17, 0x1
-
-    :goto_11
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->ES_LRU_BASE_ENABLE:Z
-
-    if-nez v26, :cond_2b
-
-    if-nez v17, :cond_2b
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
-
-    move/from16 v26, v0
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMax_ES_Total:I
+    iget-boolean v0, v0, Lcom/android/server/am/ProcessRecord;->isPreload:Z
 
     move/from16 v27, v0
 
-    sget v28, Lcom/android/server/am/DynamicHiddenApp;->MIN_EMPTY_APPS:I
+    if-eqz v27, :cond_30
 
-    sub-int v27, v27, v28
+    sget-object v27, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
 
-    move/from16 v0, v26
+    new-instance v32, Ljava/lang/StringBuilder;
 
-    move/from16 v1, v27
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-le v0, v1, :cond_32
+    const-string/jumbo v33, "Preload - "
 
-    const/16 v17, 0x1
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_e
+    move-result-object v32
 
-    :cond_31
-    const/16 v17, 0x0
+    move-object/from16 v0, v16
 
-    goto :goto_11
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
-    :cond_32
-    const/16 v17, 0x0
+    move-object/from16 v33, v0
 
-    goto/16 :goto_e
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_33
-    move-object/from16 v0, p0
+    move-result-object v32
 
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
+    const-string/jumbo v33, " skipped"
 
-    move/from16 v26, v0
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, p0
+    move-result-object v32
 
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move/from16 v27, v0
+    move-result-object v32
 
-    move/from16 v0, v26
+    move-object/from16 v0, v27
 
-    move/from16 v1, v27
+    move-object/from16 v1, v32
 
-    if-le v0, v1, :cond_34
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v17, 0x1
-
-    goto/16 :goto_f
-
-    :cond_34
-    const/16 v17, 0x0
-
-    goto/16 :goto_f
-
-    :cond_35
-    const/16 v18, 0x0
-
-    goto/16 :goto_10
-
-    :cond_36
-    const/16 v26, 0x0
-
-    move/from16 v0, v26
-
-    invoke-virtual {v6, v0, v11}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
-
-    :cond_37
-    if-eqz v20, :cond_3a
-
-    invoke-static {}, Landroid/util/GateConfig;->isGateEnabled()Z
-
-    move-result v26
-
-    if-eqz v26, :cond_38
-
-    const-string/jumbo v26, "com.android.vending"
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v27, v0
-
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v26
-
-    if-eqz v26, :cond_38
-
-    const-string/jumbo v26, "GATE"
-
-    const-string/jumbo v27, "<GATE-M> MARKET_LAUNCHED_FAIL </GATE-M>"
-
-    invoke-static/range {v26 .. v27}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_38
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mNumNonCachedProcs:I
 
-    move/from16 v26, v0
+    move/from16 v27, v0
 
-    add-int/lit8 v26, v26, -0x1
+    add-int/lit8 v27, v27, -0x1
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->mNumNonCachedProcs:I
 
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->FALL_PREVENT_ENABLE:Z
+    goto/16 :goto_1
 
-    if-eqz v26, :cond_39
+    :cond_30
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->activities:Ljava/util/ArrayList;
+
+    move-object/from16 v27, v0
+
+    invoke-virtual/range {v27 .. v27}, Ljava/util/ArrayList;->size()I
+
+    move-result v27
+
+    if-lez v27, :cond_40
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
+
+    move/from16 v27, v0
+
+    add-int/lit8 v27, v27, 0x1
+
+    move/from16 v0, v27
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
+
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->LDHA_ES_ENABLE:Z
+
+    if-eqz v27, :cond_39
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
+
+    move/from16 v27, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+
+    move/from16 v32, v0
+
+    add-int v27, v27, v32
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMax_ES_Total:I
+
+    move/from16 v32, v0
+
+    move/from16 v0, v27
+
+    move/from16 v1, v32
+
+    if-le v0, v1, :cond_34
+
+    const/16 v22, 0x1
+
+    :goto_d
+    if-eqz v22, :cond_36
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
+
+    move/from16 v27, v0
+
+    sget v32, Lcom/android/server/am/DynamicHiddenApp;->MIN_CACHED_APPS:I
+
+    move/from16 v0, v27
+
+    move/from16 v1, v32
+
+    if-le v0, v1, :cond_35
+
+    const/16 v22, 0x1
+
+    :cond_31
+    :goto_e
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
+
+    if-eqz v27, :cond_32
+
+    sget-object v27, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
+
+    new-instance v32, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v33, "CAS numC[ "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
+
+    move/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, " ] numE [ "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+
+    move/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, " ], Total: "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMax_ES_Total:I
+
+    move/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, " isDHAKill "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v32
+
+    move/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, " adj "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v16
+
+    iget v0, v0, Lcom/android/server/am/ProcessRecord;->curAdj:I
+
+    move/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, " pname: "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v32
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_32
+    :goto_f
+    if-eqz v22, :cond_33
+
+    const-string/jumbo v25, "DHA"
+
+    :cond_33
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->PREVENT_HOTNESS:Z
+
+    if-eqz v27, :cond_3d
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v32, v0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v27
+
+    if-eqz v27, :cond_3b
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v32, v0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v27
+
+    check-cast v27, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
+
+    const/16 v32, 0x0
+
+    move-object/from16 v0, v27
+
+    move/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->getIsHotness(I)Z
+
+    move-result v23
+
+    :goto_10
+    if-eqz v23, :cond_3c
+
+    const/16 v27, 0x0
+
+    move/from16 v0, v27
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v8, v0, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v32, v0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v27
+
+    check-cast v27, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
+
+    const/16 v32, 0x0
+
+    const/16 v33, 0x0
+
+    move-object/from16 v0, v27
+
+    move/from16 v1, v32
+
+    move/from16 v2, v33
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->setIsHotness(ZI)V
+
+    if-eqz v25, :cond_3d
+
+    const/16 v27, 0x0
+
+    move/from16 v0, v27
+
+    invoke-virtual {v9, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v27
+
+    if-eqz v27, :cond_3d
+
+    const/16 v27, 0x0
+
+    move/from16 v0, v27
+
+    invoke-virtual {v9, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v27
+
+    check-cast v27, Lcom/android/server/am/ProcessRecord;
+
+    new-instance v32, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v32
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, "_H:"
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, "cached #"
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
+
+    move/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v32
+
+    const/16 v33, 0x1
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    move/from16 v2, v33
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/ProcessRecord;->kill(Ljava/lang/String;Z)V
+
+    const/16 v27, 0x0
+
+    move/from16 v0, v27
+
+    invoke-virtual {v9, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mNumNonCachedProcs:I
+
+    move/from16 v27, v0
+
+    add-int/lit8 v27, v27, -0x1
+
+    move/from16 v0, v27
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->mNumNonCachedProcs:I
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
+
+    move/from16 v27, v0
+
+    add-int/lit8 v27, v27, -0x1
+
+    move/from16 v0, v27
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
+
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
+
+    if-eqz v27, :cond_1
+
+    sget-object v27, Lcom/android/server/am/DynamicHiddenApp;->TAG_HOTNESS:Ljava/lang/String;
+
+    new-instance v32, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v33, "CA hotness protected "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, ", "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v16
+
+    iget v0, v0, Lcom/android/server/am/ProcessRecord;->hotnessAdj:I
+
+    move/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, ", "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
+
+    move/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, "/"
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
+
+    move/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v32
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_1
+
+    :cond_34
+    const/16 v22, 0x0
+
+    goto/16 :goto_d
+
+    :cond_35
+    const/16 v22, 0x0
+
+    goto/16 :goto_e
+
+    :cond_36
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
+
+    move/from16 v27, v0
+
+    sget v32, Lcom/android/server/am/DynamicHiddenApp;->MAX_CACHED_APPS:I
+
+    move/from16 v0, v27
+
+    move/from16 v1, v32
+
+    if-le v0, v1, :cond_37
+
+    const/16 v22, 0x1
+
+    :goto_11
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->ES_LRU_BASE_ENABLE:Z
+
+    if-nez v27, :cond_31
+
+    xor-int/lit8 v27, v22, 0x1
+
+    if-eqz v27, :cond_31
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
+
+    move/from16 v27, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMax_ES_Total:I
+
+    move/from16 v32, v0
+
+    sget v33, Lcom/android/server/am/DynamicHiddenApp;->MIN_EMPTY_APPS:I
+
+    sub-int v32, v32, v33
+
+    move/from16 v0, v27
+
+    move/from16 v1, v32
+
+    if-le v0, v1, :cond_38
+
+    const/16 v22, 0x1
+
+    goto/16 :goto_e
+
+    :cond_37
+    const/16 v22, 0x0
+
+    goto :goto_11
+
+    :cond_38
+    const/16 v22, 0x0
+
+    goto/16 :goto_e
+
+    :cond_39
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
+
+    move/from16 v27, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
+
+    move/from16 v32, v0
+
+    move/from16 v0, v27
+
+    move/from16 v1, v32
+
+    if-le v0, v1, :cond_3a
+
+    const/16 v22, 0x1
+
+    goto/16 :goto_f
+
+    :cond_3a
+    const/16 v22, 0x0
+
+    goto/16 :goto_f
+
+    :cond_3b
+    const/16 v23, 0x0
+
+    goto/16 :goto_10
+
+    :cond_3c
+    const/16 v27, 0x0
+
+    move/from16 v0, v27
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v9, v0, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+
+    :cond_3d
+    if-eqz v25, :cond_3f
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mNumNonCachedProcs:I
+
+    move/from16 v27, v0
+
+    add-int/lit8 v27, v27, -0x1
+
+    move/from16 v0, v27
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->mNumNonCachedProcs:I
+
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->FALL_PREVENT_ENABLE:Z
+
+    if-eqz v27, :cond_3e
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->killingProcessesUss:Ljava/util/HashMap;
 
-    move-object/from16 v26, v0
+    move-object/from16 v27, v0
 
-    iget v0, v11, Lcom/android/server/am/ProcessRecord;->pid:I
+    move-object/from16 v0, v16
 
-    move/from16 v27, v0
+    iget v0, v0, Lcom/android/server/am/ProcessRecord;->pid:I
 
-    invoke-static/range {v27 .. v27}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move/from16 v32, v0
+
+    invoke-static/range {v32 .. v32}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v32
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v27
 
-    invoke-virtual/range {v26 .. v27}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    if-nez v27, :cond_3e
 
-    move-result-object v26
+    move-object/from16 v0, v16
 
-    if-nez v26, :cond_39
+    iget-wide v0, v0, Lcom/android/server/am/ProcessRecord;->lastPss:J
 
-    iget-wide v0, v11, Lcom/android/server/am/ProcessRecord;->lastPss:J
+    move-wide/from16 v32, v0
 
-    move-wide/from16 v26, v0
+    const-wide/16 v34, 0x400
 
-    const-wide/16 v28, 0x400
-
-    mul-long v12, v26, v28
+    mul-long v18, v32, v34
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->killingProcessesUss:Ljava/util/HashMap;
 
-    move-object/from16 v26, v0
+    move-object/from16 v27, v0
 
-    iget v0, v11, Lcom/android/server/am/ProcessRecord;->pid:I
+    move-object/from16 v0, v16
 
-    move/from16 v27, v0
+    iget v0, v0, Lcom/android/server/am/ProcessRecord;->pid:I
 
-    invoke-static/range {v27 .. v27}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move/from16 v32, v0
 
-    move-result-object v27
+    invoke-static/range {v32 .. v32}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v12, v13}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    move-result-object v32
 
-    move-result-object v28
+    invoke-static/range {v18 .. v19}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    invoke-virtual/range {v26 .. v28}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v33
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    move-object/from16 v2, v33
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lcom/android/server/am/DynamicHiddenApp;->killingProcessesUssTotal:J
 
-    move-wide/from16 v26, v0
+    move-wide/from16 v32, v0
 
-    add-long v26, v26, v12
+    add-long v32, v32, v18
 
-    move-wide/from16 v0, v26
+    move-wide/from16 v0, v32
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Lcom/android/server/am/DynamicHiddenApp;->killingProcessesUssTotal:J
 
-    sget-object v26, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
+    sget-object v27, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
 
+    new-instance v32, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v33, "KPU : put ["
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, "] : "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-wide/16 v34, 0x400
+
+    div-long v34, v18, v34
+
+    move-object/from16 v0, v32
+
+    move-wide/from16 v1, v34
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, " K"
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v32
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_3e
     new-instance v27, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v28, "KPU : put ["
+    move-object/from16 v0, v27
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v1, v25
 
-    move-result-object v27
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v27
 
-    const-string/jumbo v28, "] : "
+    const-string/jumbo v32, ":"
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v27
 
-    move-result-object v27
+    move-object/from16 v1, v32
 
-    const-wide/16 v28, 0x400
-
-    div-long v28, v12, v28
-
-    invoke-virtual/range {v27 .. v29}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v27
 
-    const-string/jumbo v28, " K"
+    const-string/jumbo v32, "SPC_cached #"
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v27
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
+
+    move/from16 v32, v0
+
+    move-object/from16 v0, v27
+
+    move/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v27
 
@@ -4991,32 +5613,15 @@
 
     move-result-object v27
 
-    invoke-static/range {v26 .. v27}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    const/16 v32, 0x1
 
-    :cond_39
-    new-instance v26, Ljava/lang/StringBuilder;
+    move-object/from16 v0, v16
 
-    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
+    move-object/from16 v1, v27
 
-    move-object/from16 v0, v26
+    move/from16 v2, v32
 
-    move-object/from16 v1, v20
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v26
-
-    const-string/jumbo v27, ":"
-
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v26
-
-    const-string/jumbo v27, "SPC_cached #"
-
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v26
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/ProcessRecord;->kill(Ljava/lang/String;Z)V
 
     move-object/from16 v0, p0
 
@@ -5024,31 +5629,9 @@
 
     move/from16 v27, v0
 
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    add-int/lit8 v27, v27, -0x1
 
-    move-result-object v26
-
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v26
-
-    const/16 v27, 0x1
-
-    move-object/from16 v0, v26
-
-    move/from16 v1, v27
-
-    invoke-virtual {v11, v0, v1}, Lcom/android/server/am/ProcessRecord;->kill(Ljava/lang/String;Z)V
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
-
-    move/from16 v26, v0
-
-    add-int/lit8 v26, v26, -0x1
-
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
@@ -5056,644 +5639,986 @@
 
     goto/16 :goto_1
 
-    :cond_3a
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_ENABLE:Z
+    :cond_3f
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->PREVENT_HOTNESS:Z
 
-    if-eqz v26, :cond_1
+    if-eqz v27, :cond_1
 
-    if-nez v18, :cond_1
+    xor-int/lit8 v27, v23, 0x1
 
-    const/16 v26, 0x0
-
-    move/from16 v0, v26
-
-    invoke-virtual {v5, v0, v11}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
-
-    goto/16 :goto_1
-
-    :cond_3b
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
-
-    move/from16 v26, v0
-
-    add-int/lit8 v26, v26, 0x1
-
-    move/from16 v0, v26
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
-
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->LDHA_ES_ENABLE:Z
-
-    if-eqz v26, :cond_42
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
-
-    move/from16 v26, v0
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
-
-    move/from16 v27, v0
-
-    add-int v26, v26, v27
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMax_ES_Total:I
-
-    move/from16 v27, v0
-
-    move/from16 v0, v26
-
-    move/from16 v1, v27
-
-    if-le v0, v1, :cond_3e
-
-    const/16 v17, 0x1
-
-    :goto_12
-    if-eqz v17, :cond_40
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
-
-    move/from16 v26, v0
-
-    sget v27, Lcom/android/server/am/DynamicHiddenApp;->MIN_EMPTY_APPS:I
-
-    move/from16 v0, v26
-
-    move/from16 v1, v27
-
-    if-le v0, v1, :cond_3f
-
-    const/16 v17, 0x1
-
-    :goto_13
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
-
-    if-eqz v26, :cond_3c
-
-    sget-object v26, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
-
-    new-instance v27, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v28, "CES numC[ "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
-
-    move/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, " ] numE [ "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
-
-    move/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, " ], Total: "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMax_ES_Total:I
-
-    move/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, " isDHAKill "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    move-object/from16 v0, v27
-
-    move/from16 v1, v17
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, " adj "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    iget v0, v11, Lcom/android/server/am/ProcessRecord;->curAdj:I
-
-    move/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, " pname: "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v27
-
-    invoke-static/range {v26 .. v27}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_3c
-    :goto_14
-    if-eqz v17, :cond_3d
-
-    const-string/jumbo v20, "DHA"
-
-    :cond_3d
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_ENABLE:Z
-
-    if-eqz v26, :cond_46
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
-
-    move-object/from16 v26, v0
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v27, v0
-
-    invoke-virtual/range {v26 .. v27}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v26
-
-    if-eqz v26, :cond_44
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
-
-    move-object/from16 v26, v0
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v27, v0
-
-    invoke-virtual/range {v26 .. v27}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v26
-
-    check-cast v26, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
-
-    const/16 v27, 0x1
-
-    invoke-virtual/range {v26 .. v27}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->getIsHotness(I)Z
-
-    move-result v18
-
-    :goto_15
-    if-eqz v18, :cond_45
-
-    const/16 v26, 0x0
-
-    move/from16 v0, v26
-
-    invoke-virtual {v7, v0, v11}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
-
-    move-object/from16 v26, v0
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v27, v0
-
-    invoke-virtual/range {v26 .. v27}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v26
-
-    check-cast v26, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
+    if-eqz v27, :cond_1
 
     const/16 v27, 0x0
 
-    const/16 v28, 0x1
+    move/from16 v0, v27
 
-    invoke-virtual/range {v26 .. v28}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->setIsHotness(ZI)V
+    move-object/from16 v1, v16
 
-    if-eqz v20, :cond_46
+    invoke-virtual {v8, v0, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
 
-    const/16 v26, 0x0
+    goto/16 :goto_1
 
-    move/from16 v0, v26
+    :cond_40
+    move-object/from16 v0, v16
 
-    invoke-virtual {v8, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    iget-boolean v0, v0, Lcom/android/server/am/ProcessRecord;->isActiveLaunch:Z
 
-    move-result-object v26
+    move/from16 v27, v0
 
-    if-eqz v26, :cond_46
+    if-eqz v27, :cond_43
 
-    const/16 v26, 0x0
+    const-wide/16 v14, 0x0
 
-    move/from16 v0, v26
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    invoke-virtual {v8, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    move-result-wide v32
 
-    move-result-object v26
+    move-object/from16 v0, v16
 
-    check-cast v26, Lcom/android/server/am/ProcessRecord;
+    iget-wide v0, v0, Lcom/android/server/am/ProcessRecord;->activeLaunchTime:J
 
-    new-instance v27, Ljava/lang/StringBuilder;
+    move-wide/from16 v34, v0
 
-    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
+    sub-long v14, v32, v34
+
+    move-object/from16 v0, v16
+
+    iget-wide v0, v0, Lcom/android/server/am/ProcessRecord;->activeLaunchTime:J
+
+    move-wide/from16 v32, v0
+
+    const-wide/16 v34, -0x1
+
+    cmp-long v27, v32, v34
+
+    if-eqz v27, :cond_41
+
+    const-wide/16 v32, 0xbb8
+
+    cmp-long v27, v14, v32
+
+    if-lez v27, :cond_41
+
+    const-string/jumbo v27, "AL_Kill : over 3 sec"
+
+    const/16 v32, 0x1
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v27
+
+    move/from16 v2, v32
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/ProcessRecord;->kill(Ljava/lang/String;Z)V
+
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
+
+    if-eqz v27, :cond_1
+
+    sget-object v27, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
+
+    new-instance v32, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v33, "AL_Kill : over 3 sec: "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v32
+
+    invoke-virtual {v0, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v32
 
     move-object/from16 v0, v27
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v32
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v27
+    goto/16 :goto_1
 
-    const-string/jumbo v28, "_H:"
+    :cond_41
+    const/16 v27, 0x2
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move/from16 v0, v27
 
-    move-result-object v27
+    if-ge v4, v0, :cond_42
 
-    const-string/jumbo v28, "empty #"
+    const/16 v27, 0x0
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move/from16 v0, v27
 
-    move-result-object v27
+    move-object/from16 v1, v16
 
+    invoke-virtual {v6, v0, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+
+    add-int/lit8 v4, v4, 0x1
+
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
+
+    if-eqz v27, :cond_1
+
+    sget-object v27, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
+
+    new-instance v32, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v33, "Active App Launch process < 2 : "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, ", "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v16
+
+    iget-boolean v0, v0, Lcom/android/server/am/ProcessRecord;->isActiveLaunch:Z
+
+    move/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, ", "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v32
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, ", "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v16
+
+    iget-wide v0, v0, Lcom/android/server/am/ProcessRecord;->activeLaunchTime:J
+
+    move-wide/from16 v34, v0
+
+    move-object/from16 v0, v32
+
+    move-wide/from16 v1, v34
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v32
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_1
+
+    :cond_42
+    const-string/jumbo v27, "AL_Kill : over 3 slots"
+
+    const/16 v32, 0x1
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v27
+
+    move/from16 v2, v32
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/ProcessRecord;->kill(Ljava/lang/String;Z)V
+
+    goto/16 :goto_1
+
+    :cond_43
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
 
-    move/from16 v28, v0
+    move/from16 v27, v0
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    add-int/lit8 v27, v27, 0x1
 
-    move-result-object v27
-
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v27
-
-    const/16 v28, 0x1
-
-    invoke-virtual/range {v26 .. v28}, Lcom/android/server/am/ProcessRecord;->kill(Ljava/lang/String;Z)V
-
-    const/16 v26, 0x0
-
-    move/from16 v0, v26
-
-    invoke-virtual {v8, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mNumNonCachedProcs:I
-
-    move/from16 v26, v0
-
-    add-int/lit8 v26, v26, -0x1
-
-    move/from16 v0, v26
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->mNumNonCachedProcs:I
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
-
-    move/from16 v26, v0
-
-    add-int/lit8 v26, v26, -0x1
-
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
 
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->LDHA_ES_ENABLE:Z
 
-    if-eqz v26, :cond_1
-
-    sget-object v26, Lcom/android/server/am/DynamicHiddenApp;->TAG_HOTNESS:Ljava/lang/String;
-
-    new-instance v27, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v28, "EM hotness protected "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, ", "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    iget v0, v11, Lcom/android/server/am/ProcessRecord;->hotnessAdj:I
-
-    move/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, ", "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
+    if-eqz v27, :cond_4a
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
-
-    move/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string/jumbo v28, "/"
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxEmpty:I
-
-    move/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v27
-
-    invoke-static/range {v26 .. v27}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_1
-
-    :cond_3e
-    const/16 v17, 0x0
-
-    goto/16 :goto_12
-
-    :cond_3f
-    const/16 v17, 0x0
-
-    goto/16 :goto_13
-
-    :cond_40
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
-
-    move/from16 v26, v0
-
-    sget v27, Lcom/android/server/am/DynamicHiddenApp;->MAX_EMPTY_APPS:I
-
-    move/from16 v0, v26
-
-    move/from16 v1, v27
-
-    if-le v0, v1, :cond_41
-
-    const/16 v17, 0x1
-
-    goto/16 :goto_13
-
-    :cond_41
-    const/16 v17, 0x0
-
-    goto/16 :goto_13
-
-    :cond_42
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
-
-    move/from16 v26, v0
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxEmpty:I
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
 
     move/from16 v27, v0
 
-    move/from16 v0, v26
+    move-object/from16 v0, p0
 
-    move/from16 v1, v27
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
 
-    if-le v0, v1, :cond_43
+    move/from16 v32, v0
 
-    const/16 v17, 0x1
+    add-int v27, v27, v32
 
-    goto/16 :goto_14
+    move-object/from16 v0, p0
 
-    :cond_43
-    const/16 v17, 0x0
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMax_ES_Total:I
 
-    goto/16 :goto_14
+    move/from16 v32, v0
+
+    move/from16 v0, v27
+
+    move/from16 v1, v32
+
+    if-le v0, v1, :cond_46
+
+    const/16 v22, 0x1
+
+    :goto_12
+    if-eqz v22, :cond_48
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+
+    move/from16 v27, v0
+
+    sget v32, Lcom/android/server/am/DynamicHiddenApp;->MIN_EMPTY_APPS:I
+
+    move/from16 v0, v27
+
+    move/from16 v1, v32
+
+    if-le v0, v1, :cond_47
+
+    const/16 v22, 0x1
+
+    :goto_13
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
+
+    if-eqz v27, :cond_44
+
+    sget-object v27, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
+
+    new-instance v32, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v33, "CES numC[ "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
+
+    move/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, " ] numE [ "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+
+    move/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, " ], Total: "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMax_ES_Total:I
+
+    move/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, " isDHAKill "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v32
+
+    move/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, " adj "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v16
+
+    iget v0, v0, Lcom/android/server/am/ProcessRecord;->curAdj:I
+
+    move/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, " pname: "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v32
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_44
-    const/16 v18, 0x0
+    :goto_14
+    if-eqz v22, :cond_45
 
-    goto/16 :goto_15
+    const-string/jumbo v25, "DHA"
 
     :cond_45
-    const/16 v26, 0x0
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->PREVENT_HOTNESS:Z
 
-    move/from16 v0, v26
+    if-eqz v27, :cond_4e
 
-    invoke-virtual {v8, v0, v11}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+    move-object/from16 v0, p0
 
-    :cond_46
-    if-eqz v20, :cond_48
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v32, v0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v27
+
+    if-eqz v27, :cond_4c
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v32, v0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v27
+
+    check-cast v27, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
+
+    const/16 v32, 0x1
+
+    move-object/from16 v0, v27
+
+    move/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->getIsHotness(I)Z
+
+    move-result v23
+
+    :goto_15
+    if-eqz v23, :cond_4d
+
+    const/16 v27, 0x0
+
+    move/from16 v0, v27
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v10, v0, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v32, v0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v27
+
+    check-cast v27, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
+
+    const/16 v32, 0x0
+
+    const/16 v33, 0x1
+
+    move-object/from16 v0, v27
+
+    move/from16 v1, v32
+
+    move/from16 v2, v33
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->setIsHotness(ZI)V
+
+    if-eqz v25, :cond_4e
+
+    const/16 v27, 0x0
+
+    move/from16 v0, v27
+
+    invoke-virtual {v11, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v27
+
+    if-eqz v27, :cond_4e
+
+    const/16 v27, 0x0
+
+    move/from16 v0, v27
+
+    invoke-virtual {v11, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v27
+
+    check-cast v27, Lcom/android/server/am/ProcessRecord;
+
+    new-instance v32, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v32
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, "_H:"
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, "empty #"
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+
+    move/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v32
+
+    const/16 v33, 0x1
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    move/from16 v2, v33
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/ProcessRecord;->kill(Ljava/lang/String;Z)V
+
+    const/16 v27, 0x0
+
+    move/from16 v0, v27
+
+    invoke-virtual {v11, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mNumNonCachedProcs:I
 
-    move/from16 v26, v0
+    move/from16 v27, v0
 
-    add-int/lit8 v26, v26, -0x1
+    add-int/lit8 v27, v27, -0x1
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->mNumNonCachedProcs:I
 
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->FALL_PREVENT_ENABLE:Z
+    move-object/from16 v0, p0
 
-    if-eqz v26, :cond_47
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+
+    move/from16 v27, v0
+
+    add-int/lit8 v27, v27, -0x1
+
+    move/from16 v0, v27
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
+
+    if-eqz v27, :cond_1
+
+    sget-object v27, Lcom/android/server/am/DynamicHiddenApp;->TAG_HOTNESS:Ljava/lang/String;
+
+    new-instance v32, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v33, "EM hotness protected "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, ", "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v16
+
+    iget v0, v0, Lcom/android/server/am/ProcessRecord;->hotnessAdj:I
+
+    move/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, ", "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+
+    move/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, "/"
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxEmpty:I
+
+    move/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v32
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_1
+
+    :cond_46
+    const/16 v22, 0x0
+
+    goto/16 :goto_12
+
+    :cond_47
+    const/16 v22, 0x0
+
+    goto/16 :goto_13
+
+    :cond_48
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+
+    move/from16 v27, v0
+
+    sget v32, Lcom/android/server/am/DynamicHiddenApp;->MAX_EMPTY_APPS:I
+
+    move/from16 v0, v27
+
+    move/from16 v1, v32
+
+    if-le v0, v1, :cond_49
+
+    const/16 v22, 0x1
+
+    goto/16 :goto_13
+
+    :cond_49
+    const/16 v22, 0x0
+
+    goto/16 :goto_13
+
+    :cond_4a
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+
+    move/from16 v27, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxEmpty:I
+
+    move/from16 v32, v0
+
+    move/from16 v0, v27
+
+    move/from16 v1, v32
+
+    if-le v0, v1, :cond_4b
+
+    const/16 v22, 0x1
+
+    goto/16 :goto_14
+
+    :cond_4b
+    const/16 v22, 0x0
+
+    goto/16 :goto_14
+
+    :cond_4c
+    const/16 v23, 0x0
+
+    goto/16 :goto_15
+
+    :cond_4d
+    const/16 v27, 0x0
+
+    move/from16 v0, v27
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v11, v0, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+
+    :cond_4e
+    if-eqz v25, :cond_50
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mNumNonCachedProcs:I
+
+    move/from16 v27, v0
+
+    add-int/lit8 v27, v27, -0x1
+
+    move/from16 v0, v27
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->mNumNonCachedProcs:I
+
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->FALL_PREVENT_ENABLE:Z
+
+    if-eqz v27, :cond_4f
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->killingProcessesUss:Ljava/util/HashMap;
 
-    move-object/from16 v26, v0
+    move-object/from16 v27, v0
 
-    iget v0, v11, Lcom/android/server/am/ProcessRecord;->pid:I
+    move-object/from16 v0, v16
 
-    move/from16 v27, v0
+    iget v0, v0, Lcom/android/server/am/ProcessRecord;->pid:I
 
-    invoke-static/range {v27 .. v27}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move/from16 v32, v0
+
+    invoke-static/range {v32 .. v32}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v32
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v27
 
-    invoke-virtual/range {v26 .. v27}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    if-nez v27, :cond_4f
 
-    move-result-object v26
+    move-object/from16 v0, v16
 
-    if-nez v26, :cond_47
+    iget-wide v0, v0, Lcom/android/server/am/ProcessRecord;->lastPss:J
 
-    iget-wide v0, v11, Lcom/android/server/am/ProcessRecord;->lastPss:J
+    move-wide/from16 v32, v0
 
-    move-wide/from16 v26, v0
+    const-wide/16 v34, 0x400
 
-    const-wide/16 v28, 0x400
-
-    mul-long v12, v26, v28
+    mul-long v18, v32, v34
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->killingProcessesUss:Ljava/util/HashMap;
 
-    move-object/from16 v26, v0
+    move-object/from16 v27, v0
 
-    iget v0, v11, Lcom/android/server/am/ProcessRecord;->pid:I
+    move-object/from16 v0, v16
 
-    move/from16 v27, v0
+    iget v0, v0, Lcom/android/server/am/ProcessRecord;->pid:I
 
-    invoke-static/range {v27 .. v27}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move/from16 v32, v0
 
-    move-result-object v27
+    invoke-static/range {v32 .. v32}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v12, v13}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    move-result-object v32
 
-    move-result-object v28
+    invoke-static/range {v18 .. v19}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    invoke-virtual/range {v26 .. v28}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v33
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    move-object/from16 v2, v33
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lcom/android/server/am/DynamicHiddenApp;->killingProcessesUssTotal:J
 
-    move-wide/from16 v26, v0
+    move-wide/from16 v32, v0
 
-    add-long v26, v26, v12
+    add-long v32, v32, v18
 
-    move-wide/from16 v0, v26
+    move-wide/from16 v0, v32
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Lcom/android/server/am/DynamicHiddenApp;->killingProcessesUssTotal:J
 
-    sget-object v26, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
+    sget-object v27, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
 
+    new-instance v32, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v33, "KPU : put ["
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v33, v0
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, "] : "
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-wide/16 v34, 0x400
+
+    div-long v34, v18, v34
+
+    move-object/from16 v0, v32
+
+    move-wide/from16 v1, v34
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    const-string/jumbo v33, " K"
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v32
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_4f
     new-instance v27, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v28, "KPU : put ["
+    move-object/from16 v0, v27
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v1, v25
 
-    move-result-object v27
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v28, v0
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v27
 
-    const-string/jumbo v28, "] : "
+    const-string/jumbo v32, ":"
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v27
 
-    move-result-object v27
+    move-object/from16 v1, v32
 
-    const-wide/16 v28, 0x400
-
-    div-long v28, v12, v28
-
-    invoke-virtual/range {v27 .. v29}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v27
 
-    const-string/jumbo v28, " K"
+    const-string/jumbo v32, "SPC_empty #"
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v27
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
+
+    move/from16 v32, v0
+
+    move-object/from16 v0, v27
+
+    move/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v27
 
@@ -5701,32 +6626,15 @@
 
     move-result-object v27
 
-    invoke-static/range {v26 .. v27}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    const/16 v32, 0x1
 
-    :cond_47
-    new-instance v26, Ljava/lang/StringBuilder;
+    move-object/from16 v0, v16
 
-    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
+    move-object/from16 v1, v27
 
-    move-object/from16 v0, v26
+    move/from16 v2, v32
 
-    move-object/from16 v1, v20
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v26
-
-    const-string/jumbo v27, ":"
-
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v26
-
-    const-string/jumbo v27, "SPC_empty #"
-
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v26
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/ProcessRecord;->kill(Ljava/lang/String;Z)V
 
     move-object/from16 v0, p0
 
@@ -5734,31 +6642,9 @@
 
     move/from16 v27, v0
 
-    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    add-int/lit8 v27, v27, -0x1
 
-    move-result-object v26
-
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v26
-
-    const/16 v27, 0x1
-
-    move-object/from16 v0, v26
-
-    move/from16 v1, v27
-
-    invoke-virtual {v11, v0, v1}, Lcom/android/server/am/ProcessRecord;->kill(Ljava/lang/String;Z)V
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
-
-    move/from16 v26, v0
-
-    add-int/lit8 v26, v26, -0x1
-
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
@@ -5766,794 +6652,842 @@
 
     goto/16 :goto_1
 
-    :cond_48
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_ENABLE:Z
+    :cond_50
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->PREVENT_HOTNESS:Z
 
-    if-eqz v26, :cond_1
+    if-eqz v27, :cond_1
 
-    if-nez v18, :cond_1
+    xor-int/lit8 v27, v23, 0x1
 
-    const/16 v26, 0x0
+    if-eqz v27, :cond_1
 
-    move/from16 v0, v26
+    const/16 v27, 0x0
 
-    invoke-virtual {v7, v0, v11}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+    move/from16 v0, v27
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v10, v0, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
 
     goto/16 :goto_1
 
-    :cond_49
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_ENABLE:Z
+    :cond_51
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->PREVENT_HOTNESS:Z
 
-    if-eqz v26, :cond_56
+    if-eqz v27, :cond_5e
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
 
-    move-object/from16 v27, v0
+    move-object/from16 v32, v0
 
-    monitor-enter v27
+    monitor-enter v32
 
     :try_start_0
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessLFU:Ljava/util/ArrayList;
 
-    move-object/from16 v26, v0
+    move-object/from16 v27, v0
 
-    invoke-virtual/range {v26 .. v26}, Ljava/util/ArrayList;->clear()V
+    invoke-virtual/range {v27 .. v27}, Ljava/util/ArrayList;->clear()V
 
-    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v10}, Ljava/util/ArrayList;->size()I
 
-    move-result v26
+    move-result v27
 
-    add-int/lit8 v19, v26, -0x1
+    add-int/lit8 v24, v27, -0x1
 
     :goto_16
-    if-ltz v19, :cond_4b
+    if-ltz v24, :cond_53
 
-    move/from16 v0, v19
+    move/from16 v0, v24
 
-    invoke-virtual {v7, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v10, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v11
+    move-result-object v16
 
-    check-cast v11, Lcom/android/server/am/ProcessRecord;
+    check-cast v16, Lcom/android/server/am/ProcessRecord;
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
 
-    move-object/from16 v26, v0
+    move-object/from16 v27, v0
 
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+    move-object/from16 v0, v16
 
-    move-object/from16 v28, v0
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
-    move-object/from16 v0, v26
+    move-object/from16 v33, v0
 
-    move-object/from16 v1, v28
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v33
 
     invoke-virtual {v0, v1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v26
+    move-result v27
 
-    if-eqz v26, :cond_4a
+    if-eqz v27, :cond_52
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
 
-    move-object/from16 v26, v0
+    move-object/from16 v27, v0
 
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+    move-object/from16 v0, v16
 
-    move-object/from16 v28, v0
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
-    move-object/from16 v0, v26
+    move-object/from16 v33, v0
 
-    move-object/from16 v1, v28
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v33
 
     invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v26
+    move-result-object v27
 
-    check-cast v26, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
+    check-cast v27, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
 
-    const/16 v28, 0x1
+    const/16 v33, 0x1
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
-    move/from16 v1, v28
+    move/from16 v1, v33
 
     invoke-virtual {v0, v1}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->getHotness(I)I
 
-    move-result v26
+    move-result v27
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
-    iput v0, v11, Lcom/android/server/am/ProcessRecord;->hotnessAdj:I
+    move-object/from16 v1, v16
+
+    iput v0, v1, Lcom/android/server/am/ProcessRecord;->hotnessAdj:I
 
     :goto_17
-    add-int/lit8 v19, v19, -0x1
+    add-int/lit8 v24, v24, -0x1
 
     goto :goto_16
 
-    :cond_4a
-    const/16 v26, 0x0
+    :cond_52
+    const/16 v27, 0x0
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
-    iput v0, v11, Lcom/android/server/am/ProcessRecord;->hotnessAdj:I
+    move-object/from16 v1, v16
+
+    iput v0, v1, Lcom/android/server/am/ProcessRecord;->hotnessAdj:I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_17
 
     :catchall_0
-    move-exception v26
+    move-exception v27
 
-    monitor-exit v27
+    monitor-exit v32
 
-    throw v26
+    throw v27
 
-    :cond_4b
+    :cond_53
     :try_start_1
-    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
 
-    move-result v26
+    move-result v27
 
-    add-int/lit8 v19, v26, -0x1
+    add-int/lit8 v24, v27, -0x1
 
     :goto_18
-    if-ltz v19, :cond_4d
+    if-ltz v24, :cond_55
 
-    move/from16 v0, v19
+    move/from16 v0, v24
 
-    invoke-virtual {v5, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v8, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v11
+    move-result-object v16
 
-    check-cast v11, Lcom/android/server/am/ProcessRecord;
+    check-cast v16, Lcom/android/server/am/ProcessRecord;
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
 
-    move-object/from16 v26, v0
+    move-object/from16 v27, v0
 
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+    move-object/from16 v0, v16
 
-    move-object/from16 v28, v0
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
-    move-object/from16 v0, v26
+    move-object/from16 v33, v0
 
-    move-object/from16 v1, v28
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v33
 
     invoke-virtual {v0, v1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v26
+    move-result v27
 
-    if-eqz v26, :cond_4c
+    if-eqz v27, :cond_54
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
 
-    move-object/from16 v26, v0
+    move-object/from16 v27, v0
 
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+    move-object/from16 v0, v16
 
-    move-object/from16 v28, v0
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
-    move-object/from16 v0, v26
+    move-object/from16 v33, v0
 
-    move-object/from16 v1, v28
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v33
 
     invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v26
+    move-result-object v27
 
-    check-cast v26, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
+    check-cast v27, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
 
-    const/16 v28, 0x0
+    const/16 v33, 0x0
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
-    move/from16 v1, v28
+    move/from16 v1, v33
 
     invoke-virtual {v0, v1}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->getHotness(I)I
 
-    move-result v26
+    move-result v27
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
-    iput v0, v11, Lcom/android/server/am/ProcessRecord;->hotnessAdj:I
+    move-object/from16 v1, v16
+
+    iput v0, v1, Lcom/android/server/am/ProcessRecord;->hotnessAdj:I
 
     :goto_19
-    add-int/lit8 v19, v19, -0x1
+    add-int/lit8 v24, v24, -0x1
 
     goto :goto_18
 
-    :cond_4c
-    const/16 v26, 0x0
+    :cond_54
+    const/16 v27, 0x0
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
-    iput v0, v11, Lcom/android/server/am/ProcessRecord;->hotnessAdj:I
+    move-object/from16 v1, v16
+
+    iput v0, v1, Lcom/android/server/am/ProcessRecord;->hotnessAdj:I
 
     goto :goto_19
 
-    :cond_4d
-    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
+    :cond_55
+    invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
 
-    move-result v26
+    move-result v27
 
-    sget v28, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_LRU_PROTECT_MIN:I
+    sget v33, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_LRU_PROTECT_MIN:I
 
-    sub-int v26, v26, v28
+    sub-int v27, v27, v33
 
-    move/from16 v0, v26
-
-    int-to-float v0, v0
-
-    move/from16 v26, v0
-
-    sget v28, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_LFU_MINCachedRate:F
-
-    mul-float v4, v26, v28
-
-    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
-
-    move-result v26
-
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     int-to-float v0, v0
 
-    move/from16 v26, v0
+    move/from16 v27, v0
 
-    sget v28, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_LFU_MINEmptyRate:F
+    sget v33, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_LFU_MINCachedRate:F
 
-    mul-float v28, v28, v4
+    mul-float v7, v27, v33
 
-    sub-float v26, v26, v28
+    invoke-virtual {v10}, Ljava/util/ArrayList;->size()I
 
-    const/16 v28, 0x0
+    move-result v27
 
-    cmpl-float v26, v26, v28
+    move/from16 v0, v27
 
-    if-lez v26, :cond_50
+    int-to-float v0, v0
 
-    sget v26, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_LFU_MINEmptyRate:F
+    move/from16 v27, v0
 
-    mul-float v9, v4, v26
+    sget v33, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_LFU_MINEmptyRate:F
+
+    mul-float v33, v33, v7
+
+    sub-float v27, v27, v33
+
+    const/16 v33, 0x0
+
+    cmpl-float v27, v27, v33
+
+    if-lez v27, :cond_58
+
+    sget v27, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_LFU_MINEmptyRate:F
+
+    mul-float v12, v7, v27
 
     :goto_1a
-    const/16 v26, 0x0
+    const/16 v27, 0x0
 
-    cmpl-float v26, v4, v26
+    cmpl-float v27, v7, v27
 
-    if-lez v26, :cond_55
+    if-lez v27, :cond_5d
 
-    new-instance v26, Lcom/android/server/am/DynamicHiddenApp$2;
+    new-instance v27, Lcom/android/server/am/DynamicHiddenApp$3;
 
-    move-object/from16 v0, v26
-
-    move-object/from16 v1, p0
-
-    invoke-direct {v0, v1}, Lcom/android/server/am/DynamicHiddenApp$2;-><init>(Lcom/android/server/am/DynamicHiddenApp;)V
-
-    move-object/from16 v0, v26
-
-    invoke-static {v5, v0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v5}, Lcom/android/server/am/DynamicHiddenApp;->computeHotnessAdjLocked(Ljava/util/ArrayList;)V
-
-    new-instance v26, Lcom/android/server/am/DynamicHiddenApp$3;
-
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
     move-object/from16 v1, p0
 
     invoke-direct {v0, v1}, Lcom/android/server/am/DynamicHiddenApp$3;-><init>(Lcom/android/server/am/DynamicHiddenApp;)V
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
-    invoke-static {v7, v0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v7}, Lcom/android/server/am/DynamicHiddenApp;->computeHotnessAdjLocked(Ljava/util/ArrayList;)V
-
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
-
-    if-eqz v26, :cond_4e
-
-    sget-object v26, Lcom/android/server/am/DynamicHiddenApp;->TAG_HOTNESS:Ljava/lang/String;
-
-    new-instance v28, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v29, "CachedLFUMax = "
-
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    move-object/from16 v0, v28
-
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    const-string/jumbo v29, ", EmptyLFUMax = "
-
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    move-object/from16 v0, v28
-
-    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v28
-
-    move-object/from16 v0, v26
-
-    move-object/from16 v1, v28
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_4e
-    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
-
-    move-result v26
-
-    add-int/lit8 v21, v26, -0x1
-
-    :goto_1b
-    move/from16 v0, v21
-
-    int-to-float v0, v0
-
-    move/from16 v26, v0
-
-    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
-
-    move-result v28
-
-    move/from16 v0, v28
-
-    int-to-float v0, v0
-
-    move/from16 v28, v0
-
-    sub-float v28, v28, v4
-
-    cmpl-float v26, v26, v28
-
-    if-ltz v26, :cond_51
-
-    move/from16 v0, v21
-
-    invoke-virtual {v5, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v11
-
-    check-cast v11, Lcom/android/server/am/ProcessRecord;
+    invoke-static {v8, v0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+    invoke-direct {v0, v8}, Lcom/android/server/am/DynamicHiddenApp;->computeHotnessAdjLocked(Ljava/util/ArrayList;)V
 
-    move-object/from16 v26, v0
+    new-instance v27, Lcom/android/server/am/DynamicHiddenApp$4;
 
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v28, v0
-
-    move-object/from16 v0, v26
-
-    move-object/from16 v1, v28
-
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v26
-
-    if-eqz v26, :cond_4f
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
-
-    move-object/from16 v26, v0
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v28, v0
-
-    move-object/from16 v0, v26
-
-    move-object/from16 v1, v28
-
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v14
-
-    check-cast v14, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
-
-    const/16 v26, 0x1
-
-    const/16 v28, 0x0
-
-    move/from16 v0, v26
-
-    move/from16 v1, v28
-
-    invoke-virtual {v14, v0, v1}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->setIsHotness(ZI)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
-
-    move-object/from16 v26, v0
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v28, v0
-
-    move-object/from16 v0, v26
-
-    move-object/from16 v1, v28
-
-    invoke-virtual {v0, v1, v14}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessLFU:Ljava/util/ArrayList;
-
-    move-object/from16 v26, v0
-
-    move-object/from16 v0, v26
-
-    invoke-virtual {v0, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->hotnessCached:I
-
-    move/from16 v26, v0
-
-    add-int/lit8 v26, v26, 0x1
-
-    move/from16 v0, v26
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->hotnessCached:I
-
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
-
-    if-eqz v26, :cond_4f
-
-    sget-object v26, Lcom/android/server/am/DynamicHiddenApp;->TAG_HOTNESS:Ljava/lang/String;
-
-    new-instance v28, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v29, " hotnessCachedP "
-
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v29, v0
-
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v28
-
-    move-object/from16 v0, v26
-
-    move-object/from16 v1, v28
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_4f
-    add-int/lit8 v21, v21, -0x1
-
-    goto/16 :goto_1b
-
-    :cond_50
-    const/4 v9, 0x0
-
-    goto/16 :goto_1a
-
-    :cond_51
-    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
-
-    move-result v26
-
-    add-int/lit8 v21, v26, -0x1
-
-    :goto_1c
-    move/from16 v0, v21
-
-    int-to-float v0, v0
-
-    move/from16 v26, v0
-
-    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
-
-    move-result v28
-
-    move/from16 v0, v28
-
-    int-to-float v0, v0
-
-    move/from16 v28, v0
-
-    sub-float v28, v28, v9
-
-    cmpl-float v26, v26, v28
-
-    if-ltz v26, :cond_53
-
-    move/from16 v0, v21
-
-    invoke-virtual {v7, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v11
-
-    check-cast v11, Lcom/android/server/am/ProcessRecord;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
-
-    move-object/from16 v26, v0
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v28, v0
-
-    move-object/from16 v0, v26
-
-    move-object/from16 v1, v28
-
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v26
-
-    if-eqz v26, :cond_52
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
-
-    move-object/from16 v26, v0
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v28, v0
-
-    move-object/from16 v0, v26
-
-    move-object/from16 v1, v28
-
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v14
-
-    check-cast v14, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
-
-    const/16 v26, 0x1
-
-    const/16 v28, 0x1
-
-    move/from16 v0, v26
-
-    move/from16 v1, v28
-
-    invoke-virtual {v14, v0, v1}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->setIsHotness(ZI)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
-
-    move-object/from16 v26, v0
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v28, v0
-
-    move-object/from16 v0, v26
-
-    move-object/from16 v1, v28
-
-    invoke-virtual {v0, v1, v14}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessLFU:Ljava/util/ArrayList;
-
-    move-object/from16 v26, v0
-
-    move-object/from16 v0, v26
-
-    invoke-virtual {v0, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->hotnessEmpty:I
-
-    move/from16 v26, v0
-
-    add-int/lit8 v26, v26, 0x1
-
-    move/from16 v0, v26
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->hotnessEmpty:I
-
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
-
-    if-eqz v26, :cond_52
-
-    sget-object v26, Lcom/android/server/am/DynamicHiddenApp;->TAG_HOTNESS:Ljava/lang/String;
-
-    new-instance v28, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v29, " hotnessEmptyP "
-
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    iget-object v0, v11, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object/from16 v29, v0
-
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v28
-
-    move-object/from16 v0, v26
-
-    move-object/from16 v1, v28
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_52
-    add-int/lit8 v21, v21, -0x1
-
-    goto/16 :goto_1c
-
-    :cond_53
-    sget-boolean v26, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
-
-    if-eqz v26, :cond_54
-
-    sget-object v26, Lcom/android/server/am/DynamicHiddenApp;->TAG_HOTNESS:Ljava/lang/String;
-
-    new-instance v28, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v29, "hotnessCached = "
-
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->hotnessCached:I
-
-    move/from16 v29, v0
-
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    const-string/jumbo v29, ", hotnessEmpty = "
-
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->hotnessEmpty:I
-
-    move/from16 v29, v0
-
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v28
-
-    move-object/from16 v0, v26
-
-    move-object/from16 v1, v28
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_54
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessLFU:Ljava/util/ArrayList;
-
-    move-object/from16 v26, v0
-
-    new-instance v28, Lcom/android/server/am/DynamicHiddenApp$4;
-
-    move-object/from16 v0, v28
+    move-object/from16 v0, v27
 
     move-object/from16 v1, p0
 
     invoke-direct {v0, v1}, Lcom/android/server/am/DynamicHiddenApp$4;-><init>(Lcom/android/server/am/DynamicHiddenApp;)V
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
-    move-object/from16 v1, v28
+    invoke-static {v10, v0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v10}, Lcom/android/server/am/DynamicHiddenApp;->computeHotnessAdjLocked(Ljava/util/ArrayList;)V
+
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
+
+    if-eqz v27, :cond_56
+
+    sget-object v27, Lcom/android/server/am/DynamicHiddenApp;->TAG_HOTNESS:Ljava/lang/String;
+
+    new-instance v33, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v34, "CachedLFUMax = "
+
+    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v33
+
+    move-object/from16 v0, v33
+
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v33
+
+    const-string/jumbo v34, ", EmptyLFUMax = "
+
+    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v33
+
+    move-object/from16 v0, v33
+
+    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v33
+
+    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v33
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v33
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_56
+    invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
+
+    move-result v27
+
+    add-int/lit8 v26, v27, -0x1
+
+    :goto_1b
+    move/from16 v0, v26
+
+    int-to-float v0, v0
+
+    move/from16 v27, v0
+
+    invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
+
+    move-result v33
+
+    move/from16 v0, v33
+
+    int-to-float v0, v0
+
+    move/from16 v33, v0
+
+    sub-float v33, v33, v7
+
+    cmpl-float v27, v27, v33
+
+    if-ltz v27, :cond_59
+
+    move/from16 v0, v26
+
+    invoke-virtual {v8, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v16
+
+    check-cast v16, Lcom/android/server/am/ProcessRecord;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v33, v0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v33
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v27
+
+    if-eqz v27, :cond_57
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v33, v0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v33
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v17
+
+    check-cast v17, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
+
+    const/16 v27, 0x1
+
+    const/16 v33, 0x0
+
+    move-object/from16 v0, v17
+
+    move/from16 v1, v27
+
+    move/from16 v2, v33
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->setIsHotness(ZI)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v33, v0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v33
+
+    move-object/from16 v2, v17
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessLFU:Ljava/util/ArrayList;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->hotnessCached:I
+
+    move/from16 v27, v0
+
+    add-int/lit8 v27, v27, 0x1
+
+    move/from16 v0, v27
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->hotnessCached:I
+
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
+
+    if-eqz v27, :cond_57
+
+    sget-object v27, Lcom/android/server/am/DynamicHiddenApp;->TAG_HOTNESS:Ljava/lang/String;
+
+    new-instance v33, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v34, " hotnessCachedP "
+
+    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v33
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v34, v0
+
+    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v33
+
+    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v33
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v33
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_57
+    add-int/lit8 v26, v26, -0x1
+
+    goto/16 :goto_1b
+
+    :cond_58
+    const/4 v12, 0x0
+
+    goto/16 :goto_1a
+
+    :cond_59
+    invoke-virtual {v10}, Ljava/util/ArrayList;->size()I
+
+    move-result v27
+
+    add-int/lit8 v26, v27, -0x1
+
+    :goto_1c
+    move/from16 v0, v26
+
+    int-to-float v0, v0
+
+    move/from16 v27, v0
+
+    invoke-virtual {v10}, Ljava/util/ArrayList;->size()I
+
+    move-result v33
+
+    move/from16 v0, v33
+
+    int-to-float v0, v0
+
+    move/from16 v33, v0
+
+    sub-float v33, v33, v12
+
+    cmpl-float v27, v27, v33
+
+    if-ltz v27, :cond_5b
+
+    move/from16 v0, v26
+
+    invoke-virtual {v10, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v16
+
+    check-cast v16, Lcom/android/server/am/ProcessRecord;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v33, v0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v33
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v27
+
+    if-eqz v27, :cond_5a
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v33, v0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v33
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v17
+
+    check-cast v17, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
+
+    const/16 v27, 0x1
+
+    const/16 v33, 0x1
+
+    move-object/from16 v0, v17
+
+    move/from16 v1, v27
+
+    move/from16 v2, v33
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->setIsHotness(ZI)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v33, v0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v33
+
+    move-object/from16 v2, v17
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessLFU:Ljava/util/ArrayList;
+
+    move-object/from16 v27, v0
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->hotnessEmpty:I
+
+    move/from16 v27, v0
+
+    add-int/lit8 v27, v27, 0x1
+
+    move/from16 v0, v27
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lcom/android/server/am/DynamicHiddenApp;->hotnessEmpty:I
+
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
+
+    if-eqz v27, :cond_5a
+
+    sget-object v27, Lcom/android/server/am/DynamicHiddenApp;->TAG_HOTNESS:Ljava/lang/String;
+
+    new-instance v33, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v34, " hotnessEmptyP "
+
+    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v33
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v34, v0
+
+    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v33
+
+    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v33
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v33
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_5a
+    add-int/lit8 v26, v26, -0x1
+
+    goto/16 :goto_1c
+
+    :cond_5b
+    sget-boolean v27, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
+
+    if-eqz v27, :cond_5c
+
+    sget-object v27, Lcom/android/server/am/DynamicHiddenApp;->TAG_HOTNESS:Ljava/lang/String;
+
+    new-instance v33, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v34, "hotnessCached = "
+
+    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v33
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->hotnessCached:I
+
+    move/from16 v34, v0
+
+    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v33
+
+    const-string/jumbo v34, ", hotnessEmpty = "
+
+    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v33
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->hotnessEmpty:I
+
+    move/from16 v34, v0
+
+    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v33
+
+    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v33
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v33
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_5c
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessLFU:Ljava/util/ArrayList;
+
+    move-object/from16 v27, v0
+
+    new-instance v33, Lcom/android/server/am/DynamicHiddenApp$5;
+
+    move-object/from16 v0, v33
+
+    move-object/from16 v1, p0
+
+    invoke-direct {v0, v1}, Lcom/android/server/am/DynamicHiddenApp$5;-><init>(Lcom/android/server/am/DynamicHiddenApp;)V
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v33
 
     invoke-static {v0, v1}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    :cond_55
-    monitor-exit v27
+    :cond_5d
+    monitor-exit v32
 
-    :cond_56
+    :cond_5e
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numCached:I
-
-    move/from16 v26, v0
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
 
     move/from16 v27, v0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v26
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->numEmpty:I
 
-    move/from16 v2, v27
+    move/from16 v32, v0
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v27
+
+    move/from16 v2, v32
 
     invoke-virtual {v0, v1, v2}, Lcom/android/server/am/DynamicHiddenApp;->updateHiddenAppNum(II)I
 
-    move-result v26
+    move-result v27
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
@@ -6563,9 +7497,9 @@
 
     iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxEmpty:I
 
-    move/from16 v26, v0
+    move/from16 v27, v0
 
-    move/from16 v0, v26
+    move/from16 v0, v27
 
     move-object/from16 v1, p0
 
@@ -6574,7 +7508,7 @@
     return-void
 
     :pswitch_data_0
-    .packed-switch 0xe
+    .packed-switch 0xf
         :pswitch_1
         :pswitch_0
         :pswitch_2
@@ -6901,6 +7835,16 @@
 
     :cond_0
     return-void
+.end method
+
+.method getAREsCoolTimeForSluggishAging()J
+    .locals 2
+
+    sget v0, Lcom/android/server/am/DynamicHiddenApp;->AREs_EMERGENCY_TRIGGER_COOLTIME:I
+
+    int-to-long v0, v0
+
+    return-wide v0
 .end method
 
 .method protected getBgProcCount(I)I
@@ -7289,33 +8233,159 @@
     return-object v1
 .end method
 
-.method public getSluggishAgingTime()J
-    .locals 2
+.method public getTopHotProcess()Landroid/util/ArrayMap;
+    .locals 8
 
-    iget-wide v0, p0, Lcom/android/server/am/DynamicHiddenApp;->SLUGGISH_AGING_TIME:J
+    new-instance v4, Ljava/util/ArrayList;
 
-    return-wide v0
+    iget-object v6, p0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+
+    invoke-virtual {v6}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
+
+    move-result-object v6
+
+    invoke-direct {v4, v6}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    new-instance v6, Lcom/android/server/am/DynamicHiddenApp$2;
+
+    invoke-direct {v6, p0}, Lcom/android/server/am/DynamicHiddenApp$2;-><init>(Lcom/android/server/am/DynamicHiddenApp;)V
+
+    invoke-static {v4, v6}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
+
+    iget-object v6, p0, Lcom/android/server/am/DynamicHiddenApp;->mProtectedTargetMap:Landroid/util/ArrayMap;
+
+    if-eqz v6, :cond_0
+
+    iget-object v6, p0, Lcom/android/server/am/DynamicHiddenApp;->mProtectedTargetMap:Landroid/util/ArrayMap;
+
+    invoke-virtual {v6}, Landroid/util/ArrayMap;->clear()V
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    const/4 v6, 0x2
+
+    if-ge v0, v6, :cond_4
+
+    invoke-interface {v4, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Ljava/util/Map$Entry;
+
+    invoke-virtual {v6}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "="
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v6
+
+    const/4 v7, 0x0
+
+    aget-object v3, v6, v7
+
+    const/4 v5, 0x0
+
+    const/4 v2, 0x0
+
+    if-eqz v3, :cond_2
+
+    iget-object v6, p0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+
+    invoke-virtual {v6, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
+
+    invoke-virtual {v6}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->getPackageName()Ljava/lang/String;
+
+    move-result-object v5
+
+    iget-object v6, p0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
+
+    invoke-virtual {v6, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;
+
+    invoke-virtual {v6}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->getUid()I
+
+    move-result v2
+
+    iget-object v6, p0, Lcom/android/server/am/DynamicHiddenApp;->mProtectedTargetMap:Landroid/util/ArrayMap;
+
+    if-eqz v6, :cond_2
+
+    iget-object v6, p0, Lcom/android/server/am/DynamicHiddenApp;->mProtectedTargetMap:Landroid/util/ArrayMap;
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/util/ArrayList;
+
+    if-eqz v1, :cond_3
+
+    invoke-virtual {v1, v5}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_1
+
+    invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_1
+    :goto_1
+    iget-object v6, p0, Lcom/android/server/am/DynamicHiddenApp;->mProtectedTargetMap:Landroid/util/ArrayMap;
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7, v1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_2
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_3
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_1
+
+    :cond_4
+    iget-object v6, p0, Lcom/android/server/am/DynamicHiddenApp;->mProtectedTargetMap:Landroid/util/ArrayMap;
+
+    return-object v6
 .end method
 
 .method incrementEmptyAppCount()I
     .locals 4
 
-    iget v1, p0, Lcom/android/server/am/DynamicHiddenApp;->mMaxEmpty:I
-
-    iget v2, p0, Lcom/android/server/am/DynamicHiddenApp;->mSzDHAStep:I
-
-    add-int v0, v1, v2
-
-    sget v1, Lcom/android/server/am/DynamicHiddenApp;->MAX_EMPTY_APPS:I
-
-    if-le v0, v1, :cond_0
-
     sget v0, Lcom/android/server/am/DynamicHiddenApp;->MAX_EMPTY_APPS:I
 
-    :cond_0
+    sget v1, Lcom/android/server/am/DynamicHiddenApp;->MAX_CACHED_APPS:I
+
+    iput v1, p0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
+
     sget-boolean v1, Lcom/android/server/am/DynamicHiddenApp;->FALL_PREVENT_ENABLE:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Lcom/android/server/am/DynamicHiddenApp;->killingProcessesUss:Ljava/util/HashMap;
 
@@ -7325,7 +8395,7 @@
 
     iput-wide v2, p0, Lcom/android/server/am/DynamicHiddenApp;->killingProcessesUssTotal:J
 
-    :cond_1
+    :cond_0
     return v0
 .end method
 
@@ -7401,7 +8471,7 @@
 
     const-string/jumbo v1, "ro.config.dha_cached_max"
 
-    const-string/jumbo v2, "6"
+    const-string/jumbo v2, "16"
 
     invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -7441,7 +8511,7 @@
 
     const-string/jumbo v1, "ro.config.dha_cached_max"
 
-    const-string/jumbo v2, "6"
+    const-string/jumbo v2, "16"
 
     invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -7461,7 +8531,7 @@
 
     const-string/jumbo v1, "ro.config.dha_empty_init"
 
-    const-string/jumbo v2, "30"
+    const-string/jumbo v2, "32"
 
     invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -7501,7 +8571,7 @@
 
     const-string/jumbo v1, "ro.config.dha_empty_max"
 
-    const-string/jumbo v2, "30"
+    const-string/jumbo v2, "32"
 
     invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -7556,106 +8626,6 @@
     move-result v0
 
     sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->LDHA_SPC_ENABLE:Z
-
-    const-string/jumbo v0, "ro.cfg.dha_adj_cached_factor"
-
-    const-string/jumbo v1, "ro.config.dha_adj_cached_factor"
-
-    const-string/jumbo v2, "false"
-
-    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->DHA_ADJ_CACHED_FACTOR:Z
-
-    const-string/jumbo v0, "ro.cfg.64bit_lmk_enable"
-
-    const-string/jumbo v1, "ro.config.64bit_lmk_enable"
-
-    const-string/jumbo v2, "true"
-
-    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->mb64bitLMKEnable:Z
-
-    const-string/jumbo v0, "ro.cfg.dha_ils_enable"
-
-    const-string/jumbo v1, "ro.config.dha_ils_enable"
-
-    const-string/jumbo v2, "false"
-
-    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->mILS_Enable:Z
-
-    const-string/jumbo v0, "ro.cfg.dha_ils_2nd_enable"
-
-    const-string/jumbo v1, "ro.config.dha_ils_2nd_enable"
-
-    const-string/jumbo v2, "false"
-
-    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->mILS_2nd_Enable:Z
-
-    const-string/jumbo v0, "ro.cfg.dha_ils_rate"
-
-    const-string/jumbo v1, "ro.config.dha_ils_rate"
-
-    const-string/jumbo v2, "1.5"
-
-    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v0
-
-    sput v0, Lcom/android/server/am/DynamicHiddenApp;->mSzILSRate:F
 
     const-string/jumbo v0, "ro.cfg.dha_pwhitelist_enable"
 
@@ -7777,7 +8747,7 @@
 
     const-string/jumbo v1, "ro.config.fall_prevent_enable"
 
-    const-string/jumbo v2, "false"
+    const-string/jumbo v2, "true"
 
     invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -7812,26 +8782,6 @@
     move-result v0
 
     sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->DHA_PACKAGE_ENABLE:Z
-
-    const-string/jumbo v0, "ro.cfg.infinite_bg_enable"
-
-    const-string/jumbo v1, "ro.config.infinite_bg_enable"
-
-    const-string/jumbo v2, "true"
-
-    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/server/am/DynamicHiddenApp;->INFINITE_CACHED_ENABLE:Z
 
     const-string/jumbo v0, "ro.cfg.dha_es_lru_en"
 
@@ -8318,6 +9268,26 @@
     goto :goto_2
 
     :cond_5
+    const/4 v1, 0x0
+
+    :goto_3
+    sget-object v3, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_SKIP_ARRAY:[Ljava/lang/String;
+
+    array-length v3, v3
+
+    if-ge v1, v3, :cond_6
+
+    sget-object v3, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_SKIP_ARRAY:[Ljava/lang/String;
+
+    aget-object v3, v3, v1
+
+    invoke-virtual {p0, v3, v6}, Lcom/android/server/am/DynamicHiddenApp;->setSkipPackage(Ljava/lang/String;Z)V
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_3
+
+    :cond_6
     return-void
 .end method
 
@@ -8439,6 +9409,18 @@
     iget-object v0, p0, Lcom/android/server/am/DynamicHiddenApp;->mDecreaseHotnessScoreThread:Ljava/lang/Thread;
 
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
+
+    return-void
+.end method
+
+.method setAREsCoolTimeForSluggishAging(I)V
+    .locals 1
+
+    mul-int/lit8 v0, p1, 0x3c
+
+    mul-int/lit16 v0, v0, 0x3e8
+
+    sput v0, Lcom/android/server/am/DynamicHiddenApp;->AREs_EMERGENCY_TRIGGER_COOLTIME:I
 
     return-void
 .end method
@@ -8877,7 +9859,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_26
+    if-eqz v11, :cond_21
 
     sget-object v11, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
 
@@ -8899,7 +9881,7 @@
 
     move-result-object v9
 
-    if-eqz v9, :cond_23
+    if-eqz v9, :cond_1e
 
     invoke-virtual {v9}, Ljava/lang/String;->isEmpty()Z
 
@@ -9235,64 +10217,13 @@
     goto/16 :goto_0
 
     :cond_b
-    const-string/jumbo v11, "ro.config.dha_ils_enable"
-
-    invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_c
-
-    invoke-static {v10}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
-
-    move-result v11
-
-    sput-boolean v11, Lcom/android/server/am/DynamicHiddenApp;->mILS_Enable:Z
-
-    goto/16 :goto_0
-
-    :cond_c
-    const-string/jumbo v11, "ro.config.dha_ils_rate"
-
-    invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_d
-
-    invoke-static {v10}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v11
-
-    sput v11, Lcom/android/server/am/DynamicHiddenApp;->mSzILSRate:F
-
-    goto/16 :goto_0
-
-    :cond_d
-    const-string/jumbo v11, "ro.config.dha_ils_sdha_rate"
-
-    invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_e
-
-    invoke-static {v10}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v11
-
-    sput v11, Lcom/android/server/am/DynamicHiddenApp;->mSzILS_SDHARate:F
-
-    goto/16 :goto_0
-
-    :cond_e
     const-string/jumbo v11, "ro.config.dha_pwhitelist_enable"
 
     invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v11
 
-    if-eqz v11, :cond_f
+    if-eqz v11, :cond_c
 
     invoke-static {v10}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
@@ -9304,14 +10235,14 @@
 
     goto/16 :goto_0
 
-    :cond_f
+    :cond_c
     const-string/jumbo v11, "ro.config.dha_knox_plist_enable"
 
     invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v11
 
-    if-eqz v11, :cond_10
+    if-eqz v11, :cond_d
 
     invoke-static {v10}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
@@ -9323,14 +10254,14 @@
 
     goto/16 :goto_0
 
-    :cond_10
+    :cond_d
     const-string/jumbo v11, "ro.config.dha_pwhl_key"
 
     invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v11
 
-    if-eqz v11, :cond_11
+    if-eqz v11, :cond_e
 
     invoke-static {v10}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
@@ -9342,14 +10273,14 @@
 
     goto/16 :goto_0
 
-    :cond_11
+    :cond_e
     const-string/jumbo v11, "ro.config.dha_pwhl_key_knox"
 
     invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v11
 
-    if-eqz v11, :cond_12
+    if-eqz v11, :cond_f
 
     invoke-static {v10}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
@@ -9361,8 +10292,59 @@
 
     goto/16 :goto_0
 
+    :cond_f
+    const-string/jumbo v11, "ro.config.ldha_es_enable"
+
+    invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_10
+
+    invoke-static {v10}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+
+    move-result v11
+
+    sput-boolean v11, Lcom/android/server/am/DynamicHiddenApp;->LDHA_ES_ENABLE:Z
+
+    goto/16 :goto_0
+
+    :cond_10
+    const-string/jumbo v11, "ro.config.ldha_spc_enable"
+
+    invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_11
+
+    invoke-static {v10}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+
+    move-result v11
+
+    sput-boolean v11, Lcom/android/server/am/DynamicHiddenApp;->LDHA_SPC_ENABLE:Z
+
+    goto/16 :goto_0
+
+    :cond_11
+    const-string/jumbo v11, "ro.config.ams_exception_enable"
+
+    invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_12
+
+    invoke-static {v10}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+
+    move-result v11
+
+    sput-boolean v11, Lcom/android/server/am/DynamicHiddenApp;->mAMSExceptionEnable:Z
+
+    goto/16 :goto_0
+
     :cond_12
-    const-string/jumbo v11, "ro.config.64bit_lmk_enable"
+    const-string/jumbo v11, "ro.config.ams_knoxexpt_enable"
 
     invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -9374,14 +10356,12 @@
 
     move-result v11
 
-    sput-boolean v11, Lcom/android/server/am/DynamicHiddenApp;->mb64bitLMKEnable:Z
-
-    const/4 v7, 0x1
+    sput-boolean v11, Lcom/android/server/am/DynamicHiddenApp;->mKnoxAMSExceptionEnable:Z
 
     goto/16 :goto_0
 
     :cond_13
-    const-string/jumbo v11, "ro.config.ldha_es_enable"
+    const-string/jumbo v11, "ro.config.fha_enable"
 
     invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -9393,12 +10373,14 @@
 
     move-result v11
 
-    sput-boolean v11, Lcom/android/server/am/DynamicHiddenApp;->LDHA_ES_ENABLE:Z
+    sput-boolean v11, Lcom/android/server/am/DynamicHiddenApp;->FHA_ENABLE:Z
+
+    const/4 v7, 0x1
 
     goto/16 :goto_0
 
     :cond_14
-    const-string/jumbo v11, "ro.config.ldha_spc_enable"
+    const-string/jumbo v11, "ro.config.fall_prevent_enable"
 
     invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -9410,12 +10392,12 @@
 
     move-result v11
 
-    sput-boolean v11, Lcom/android/server/am/DynamicHiddenApp;->LDHA_SPC_ENABLE:Z
+    sput-boolean v11, Lcom/android/server/am/DynamicHiddenApp;->FALL_PREVENT_ENABLE:Z
 
     goto/16 :goto_0
 
     :cond_15
-    const-string/jumbo v11, "ro.config.ams_exception_enable"
+    const-string/jumbo v11, "ro.config.dha_es_lru_en"
 
     invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -9427,12 +10409,12 @@
 
     move-result v11
 
-    sput-boolean v11, Lcom/android/server/am/DynamicHiddenApp;->mAMSExceptionEnable:Z
+    sput-boolean v11, Lcom/android/server/am/DynamicHiddenApp;->ES_LRU_BASE_ENABLE:Z
 
     goto/16 :goto_0
 
     :cond_16
-    const-string/jumbo v11, "ro.config.ams_knoxexpt_enable"
+    const-string/jumbo v11, "ro.config.dha_package_enable"
 
     invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -9444,12 +10426,12 @@
 
     move-result v11
 
-    sput-boolean v11, Lcom/android/server/am/DynamicHiddenApp;->mKnoxAMSExceptionEnable:Z
+    sput-boolean v11, Lcom/android/server/am/DynamicHiddenApp;->DHA_PACKAGE_ENABLE:Z
 
     goto/16 :goto_0
 
     :cond_17
-    const-string/jumbo v11, "ro.config.fha_enable"
+    const-string/jumbo v11, "ro.config.hotness_LRU_Min"
 
     invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -9457,18 +10439,16 @@
 
     if-eqz v11, :cond_18
 
-    invoke-static {v10}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+    invoke-static {v10}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v11
 
-    sput-boolean v11, Lcom/android/server/am/DynamicHiddenApp;->FHA_ENABLE:Z
-
-    const/4 v7, 0x1
+    sput v11, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_LRU_PROTECT_MIN:I
 
     goto/16 :goto_0
 
     :cond_18
-    const-string/jumbo v11, "ro.config.dha_adj_cached_factor"
+    const-string/jumbo v11, "ro.config.ro.config.hotness_LFU_CaRate"
 
     invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -9476,16 +10456,16 @@
 
     if-eqz v11, :cond_19
 
-    invoke-static {v10}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+    invoke-static {v10}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v11
 
-    sput-boolean v11, Lcom/android/server/am/DynamicHiddenApp;->DHA_ADJ_CACHED_FACTOR:Z
+    sput v11, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_LFU_MINCachedRate:F
 
     goto/16 :goto_0
 
     :cond_19
-    const-string/jumbo v11, "ro.config.fall_prevent_enable"
+    const-string/jumbo v11, "ro.config.hotness_LFU_EmRate"
 
     invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -9493,16 +10473,16 @@
 
     if-eqz v11, :cond_1a
 
-    invoke-static {v10}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+    invoke-static {v10}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v11
 
-    sput-boolean v11, Lcom/android/server/am/DynamicHiddenApp;->FALL_PREVENT_ENABLE:Z
+    sput v11, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_LFU_MINEmptyRate:F
 
     goto/16 :goto_0
 
     :cond_1a
-    const-string/jumbo v11, "ro.config.dha_es_lru_en"
+    const-string/jumbo v11, "ro.config.dha_hotness_enable"
 
     invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -9514,12 +10494,12 @@
 
     move-result v11
 
-    sput-boolean v11, Lcom/android/server/am/DynamicHiddenApp;->ES_LRU_BASE_ENABLE:Z
+    sput-boolean v11, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_ENABLE:Z
 
     goto/16 :goto_0
 
     :cond_1b
-    const-string/jumbo v11, "ro.config.dha_package_enable"
+    const-string/jumbo v11, "ro.config.mars_ares_cool_time"
 
     invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -9527,16 +10507,48 @@
 
     if-eqz v11, :cond_1c
 
-    invoke-static {v10}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+    sget-boolean v11, Lcom/android/server/am/MARsPolicyManager;->MARs_ENABLE:Z
+
+    if-eqz v11, :cond_0
+
+    iget-object v11, p0, Lcom/android/server/am/DynamicHiddenApp;->mAm:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v11, v11, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    if-eqz v11, :cond_0
+
+    iget-object v11, p0, Lcom/android/server/am/DynamicHiddenApp;->mAm:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v11, v11, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    const/4 v12, 0x3
+
+    invoke-virtual {v11, v12}, Lcom/android/server/am/MARsPolicyManager;->isPolicyEnabled(I)Z
 
     move-result v11
 
-    sput-boolean v11, Lcom/android/server/am/DynamicHiddenApp;->DHA_PACKAGE_ENABLE:Z
+    if-eqz v11, :cond_0
+
+    iget-object v11, p0, Lcom/android/server/am/DynamicHiddenApp;->mAm:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v11, v11, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    invoke-virtual {v11}, Lcom/android/server/am/MARsPolicyManager;->getEmergencyKillEnabled()Z
+
+    move-result v11
+
+    if-eqz v11, :cond_0
+
+    invoke-static {v10}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v11
+
+    invoke-virtual {p0, v11}, Lcom/android/server/am/DynamicHiddenApp;->setAREsCoolTimeForSluggishAging(I)V
 
     goto/16 :goto_0
 
     :cond_1c
-    const-string/jumbo v11, "ro.config.infinite_bg_enable"
+    const-string/jumbo v11, "ro.config.mars_ares_unused_time"
 
     invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -9544,100 +10556,51 @@
 
     if-eqz v11, :cond_1d
 
-    invoke-static {v10}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+    sget-boolean v11, Lcom/android/server/am/MARsPolicyManager;->MARs_ENABLE:Z
+
+    if-eqz v11, :cond_0
+
+    iget-object v11, p0, Lcom/android/server/am/DynamicHiddenApp;->mAm:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v11, v11, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    if-eqz v11, :cond_0
+
+    iget-object v11, p0, Lcom/android/server/am/DynamicHiddenApp;->mAm:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v11, v11, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    const/4 v12, 0x3
+
+    invoke-virtual {v11, v12}, Lcom/android/server/am/MARsPolicyManager;->isPolicyEnabled(I)Z
 
     move-result v11
 
-    sput-boolean v11, Lcom/android/server/am/DynamicHiddenApp;->INFINITE_CACHED_ENABLE:Z
+    if-eqz v11, :cond_0
+
+    iget-object v11, p0, Lcom/android/server/am/DynamicHiddenApp;->mAm:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v11, v11, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    invoke-virtual {v11}, Lcom/android/server/am/MARsPolicyManager;->getEmergencyKillEnabled()Z
+
+    move-result v11
+
+    if-eqz v11, :cond_0
+
+    iget-object v11, p0, Lcom/android/server/am/DynamicHiddenApp;->mAm:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v11, v11, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+
+    invoke-static {v10}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v12
+
+    invoke-virtual {v11, v12}, Lcom/android/server/am/MARsPolicyManager;->setUnusedAREsTimeForSluggishAging(I)V
 
     goto/16 :goto_0
 
     :cond_1d
-    const-string/jumbo v11, "ro.config.hotness_LRU_Min"
-
-    invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_1e
-
-    invoke-static {v10}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v11
-
-    sput v11, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_LRU_PROTECT_MIN:I
-
-    goto/16 :goto_0
-
-    :cond_1e
-    const-string/jumbo v11, "ro.config.ro.config.hotness_LFU_CaRate"
-
-    invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_1f
-
-    invoke-static {v10}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v11
-
-    sput v11, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_LFU_MINCachedRate:F
-
-    goto/16 :goto_0
-
-    :cond_1f
-    const-string/jumbo v11, "ro.config.hotness_LFU_EmRate"
-
-    invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_20
-
-    invoke-static {v10}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v11
-
-    sput v11, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_LFU_MINEmptyRate:F
-
-    goto/16 :goto_0
-
-    :cond_20
-    const-string/jumbo v11, "ro.config.dha_hotness_enable"
-
-    invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_21
-
-    invoke-static {v10}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
-
-    move-result v11
-
-    sput-boolean v11, Lcom/android/server/am/DynamicHiddenApp;->DHA_HOTNESS_ENABLE:Z
-
-    goto/16 :goto_0
-
-    :cond_21
-    const-string/jumbo v11, "ro.config.sluggish_aging_time"
-
-    invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_22
-
-    invoke-static {v10}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-
-    move-result-wide v12
-
-    iput-wide v12, p0, Lcom/android/server/am/DynamicHiddenApp;->SLUGGISH_AGING_TIME:J
-
-    goto/16 :goto_0
-
-    :cond_22
     sget-object v11, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
 
     const-string/jumbo v12, "not matched parameter"
@@ -9646,17 +10609,17 @@
 
     goto/16 :goto_0
 
-    :cond_23
+    :cond_1e
     invoke-virtual {v1}, Ljava/io/BufferedReader;->close()V
 
-    if-eqz v8, :cond_24
+    if-eqz v8, :cond_1f
 
     const/4 v11, 0x0
 
     invoke-virtual {p0, v11}, Lcom/android/server/am/DynamicHiddenApp;->makeLists(Z)V
 
-    :cond_24
-    if-eqz v7, :cond_25
+    :cond_1f
+    if-eqz v7, :cond_20
 
     iget-object v11, p0, Lcom/android/server/am/DynamicHiddenApp;->mProcessList:Lcom/android/server/am/ProcessList;
 
@@ -9686,7 +10649,7 @@
 
     iput-wide v12, p0, Lcom/android/server/am/DynamicHiddenApp;->mSzDHAThreshold:J
 
-    :cond_25
+    :cond_20
     sget-object v11, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
 
     const-string/jumbo v12, "complete parameter"
@@ -9695,7 +10658,7 @@
 
     goto/16 :goto_1
 
-    :cond_26
+    :cond_21
     sget-object v11, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
 
     const-string/jumbo v12, "file does not exist"
@@ -9719,7 +10682,7 @@
 
     iget-object v13, v0, Lcom/android/server/am/DynamicHiddenApp;->mInfo:Lcom/android/internal/util/MemInfoReader;
 
-    if-eqz v13, :cond_c
+    if-eqz v13, :cond_5
 
     move-object/from16 v0, p0
 
@@ -9747,82 +10710,28 @@
 
     sget-boolean v13, Lcom/android/server/am/DynamicHiddenApp;->LDHA_ES_ENABLE:Z
 
-    if-eqz v13, :cond_4
+    if-eqz v13, :cond_0
 
     move-object/from16 v0, p0
 
     iget v12, v0, Lcom/android/server/am/DynamicHiddenApp;->mMax_ES_Total:I
 
     :cond_0
-    :goto_0
-    move-object/from16 v0, p0
-
-    iget-wide v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mTotalMemMb:J
-
-    move-wide/from16 v20, v0
-
-    sget v13, Lcom/android/server/am/DynamicHiddenApp;->TOTAL_MEMORY:I
-
-    int-to-long v0, v13
-
-    move-wide/from16 v22, v0
-
-    cmp-long v13, v20, v22
-
-    if-lez v13, :cond_7
-
-    sget-boolean v13, Lcom/android/server/am/DynamicHiddenApp;->INFINITE_CACHED_ENABLE:Z
-
-    if-eqz v13, :cond_1
-
-    move-object/from16 v0, p0
-
-    iget v13, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
-
-    const/16 v20, 0x18
-
-    move/from16 v0, v20
-
-    if-le v13, v0, :cond_1
-
-    const/16 v13, 0x18
-
-    move-object/from16 v0, p0
-
-    iput v13, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
-
-    :cond_1
-    :goto_1
-    sget-boolean v13, Lcom/android/server/am/DynamicHiddenApp;->mSzILSFlag:Z
-
-    if-eqz v13, :cond_2
-
-    sget-boolean v13, Lcom/android/server/am/DynamicHiddenApp;->mILS_2nd_Enable:Z
-
-    if-eqz v13, :cond_2
-
-    sget v13, Lcom/android/server/am/DynamicHiddenApp;->MIN_CACHED_APPS:I
-
-    move-object/from16 v0, p0
-
-    iput v13, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
-
-    :cond_2
     sget-boolean v13, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
 
-    if-eqz v13, :cond_3
+    if-eqz v13, :cond_1
 
     const/4 v9, 0x0
 
     sget-boolean v13, Lcom/android/server/am/DynamicHiddenApp;->LDHA_ES_ENABLE:Z
 
-    if-eqz v13, :cond_8
+    if-eqz v13, :cond_2
 
     move-object/from16 v0, p0
 
     iget v9, v0, Lcom/android/server/am/DynamicHiddenApp;->mMax_ES_Total:I
 
-    :goto_2
+    :goto_0
     sget-object v13, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
 
     new-instance v20, Ljava/lang/StringBuilder;
@@ -9989,18 +10898,6 @@
 
     move-result-object v20
 
-    const-string/jumbo v21, ", ILS Flag: "
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    sget-boolean v21, Lcom/android/server/am/DynamicHiddenApp;->mSzILSFlag:Z
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
     invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v20
@@ -10009,122 +10906,16 @@
 
     invoke-static {v13, v0}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_3
+    :cond_1
     const-wide/16 v20, 0x0
 
     cmp-long v13, v18, v20
 
-    if-gtz v13, :cond_9
+    if-gtz v13, :cond_3
 
     return v12
 
-    :cond_4
-    sget-boolean v13, Lcom/android/server/am/DynamicHiddenApp;->INFINITE_CACHED_ENABLE:Z
-
-    if-eqz v13, :cond_5
-
-    move-object/from16 v0, p0
-
-    iget v13, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxEmpty:I
-
-    sget v20, Lcom/android/server/am/DynamicHiddenApp;->MAX_EMPTY_APPS:I
-
-    move/from16 v0, v20
-
-    if-lt v13, v0, :cond_5
-
-    sget v13, Lcom/android/server/am/DynamicHiddenApp;->MAX_CACHED_APPS:I
-
-    move/from16 v0, p1
-
-    if-lt v0, v13, :cond_5
-
-    move-object/from16 v0, p0
-
-    iget v13, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
-
-    move/from16 v0, p1
-
-    if-lt v0, v13, :cond_0
-
-    add-int/lit8 v13, p1, 0x1
-
-    move-object/from16 v0, p0
-
-    iput v13, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
-
-    goto/16 :goto_0
-
-    :cond_5
-    move-object/from16 v0, p0
-
-    iget v13, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxEmpty:I
-
-    div-int/lit8 v13, v13, 0x2
-
-    move-object/from16 v0, p0
-
-    iput v13, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
-
-    move-object/from16 v0, p0
-
-    iget v13, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
-
-    sget v20, Lcom/android/server/am/DynamicHiddenApp;->MIN_CACHED_APPS:I
-
-    move/from16 v0, v20
-
-    if-ge v13, v0, :cond_6
-
-    sget v13, Lcom/android/server/am/DynamicHiddenApp;->MIN_CACHED_APPS:I
-
-    move-object/from16 v0, p0
-
-    iput v13, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
-
-    :cond_6
-    move-object/from16 v0, p0
-
-    iget v13, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
-
-    sget v20, Lcom/android/server/am/DynamicHiddenApp;->MAX_CACHED_APPS:I
-
-    move/from16 v0, v20
-
-    if-le v13, v0, :cond_0
-
-    sget v13, Lcom/android/server/am/DynamicHiddenApp;->MAX_CACHED_APPS:I
-
-    move-object/from16 v0, p0
-
-    iput v13, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
-
-    goto/16 :goto_0
-
-    :cond_7
-    sget-boolean v13, Lcom/android/server/am/DynamicHiddenApp;->INFINITE_CACHED_ENABLE:Z
-
-    if-eqz v13, :cond_1
-
-    move-object/from16 v0, p0
-
-    iget v13, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
-
-    const/16 v20, 0x13
-
-    move/from16 v0, v20
-
-    if-le v13, v0, :cond_1
-
-    const/16 v13, 0x13
-
-    move-object/from16 v0, p0
-
-    iput v13, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
-
-    goto/16 :goto_1
-
-    :cond_8
+    :cond_2
     move-object/from16 v0, p0
 
     iget v13, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxEmpty:I
@@ -10137,26 +10928,13 @@
 
     add-int v9, v13, v20
 
-    goto/16 :goto_2
+    goto/16 :goto_0
 
-    :cond_9
+    :cond_3
     move-object/from16 v0, p0
 
     iget v8, v0, Lcom/android/server/am/DynamicHiddenApp;->mSzDHAThresholdRate:F
 
-    sget-boolean v13, Lcom/android/server/am/DynamicHiddenApp;->mSzILSFlag:Z
-
-    if-eqz v13, :cond_a
-
-    move-object/from16 v0, p0
-
-    iget v13, v0, Lcom/android/server/am/DynamicHiddenApp;->mSzDHAThresholdRate:F
-
-    sget v20, Lcom/android/server/am/DynamicHiddenApp;->mSzILSRate:F
-
-    mul-float v8, v13, v20
-
-    :cond_a
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mSzDHAThreshold:J
@@ -10175,7 +10953,7 @@
 
     sget-boolean v13, Lcom/android/server/am/DynamicHiddenApp;->LDHA_ES_ENABLE:Z
 
-    if-eqz v13, :cond_d
+    if-eqz v13, :cond_6
 
     add-int v5, p1, p2
 
@@ -10183,7 +10961,7 @@
 
     iget v4, v0, Lcom/android/server/am/DynamicHiddenApp;->mMax_ES_Total:I
 
-    :goto_3
+    :goto_1
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lcom/android/server/am/DynamicHiddenApp;->killingProcessesUssTotal:J
@@ -10198,7 +10976,7 @@
 
     cmpg-float v13, v13, v7
 
-    if-gez v13, :cond_f
+    if-gez v13, :cond_9
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
@@ -10206,7 +10984,7 @@
 
     sget-boolean v13, Lcom/android/server/am/MARsPolicyManager;->MARs_ENABLE:Z
 
-    if-eqz v13, :cond_b
+    if-eqz v13, :cond_4
 
     move-object/from16 v0, p0
 
@@ -10214,7 +10992,7 @@
 
     iget-object v13, v13, Lcom/android/server/am/ActivityManagerService;->mMARsPolicyManager:Lcom/android/server/am/MARsPolicyManager;
 
-    if-eqz v13, :cond_b
+    if-eqz v13, :cond_4
 
     move-object/from16 v0, p0
 
@@ -10230,7 +11008,7 @@
 
     move-result v13
 
-    if-eqz v13, :cond_b
+    if-eqz v13, :cond_4
 
     move-object/from16 v0, p0
 
@@ -10242,13 +11020,13 @@
 
     move-result v13
 
-    if-eqz v13, :cond_b
+    if-eqz v13, :cond_4
 
     move-object/from16 v0, p0
 
     iget-boolean v13, v0, Lcom/android/server/am/DynamicHiddenApp;->mDidStepUp:Z
 
-    if-eqz v13, :cond_b
+    if-eqz v13, :cond_4
 
     move-object/from16 v0, p0
 
@@ -10258,13 +11036,13 @@
 
     move/from16 v0, v20
 
-    if-gt v13, v0, :cond_b
+    if-gt v13, v0, :cond_4
 
     sget v13, Lcom/android/server/am/DynamicHiddenApp;->MIN_CACHED_APPS:I
 
     move/from16 v0, p1
 
-    if-gt v0, v13, :cond_b
+    if-gt v0, v13, :cond_4
 
     move-object/from16 v0, p0
 
@@ -10274,11 +11052,15 @@
 
     sub-long v20, v10, v20
 
-    const-wide/32 v22, 0xdbba0
+    sget v13, Lcom/android/server/am/DynamicHiddenApp;->AREs_EMERGENCY_TRIGGER_COOLTIME:I
+
+    int-to-long v0, v13
+
+    move-wide/from16 v22, v0
 
     cmp-long v13, v20, v22
 
-    if-ltz v13, :cond_b
+    if-ltz v13, :cond_4
 
     const/4 v13, 0x0
 
@@ -10314,10 +11096,10 @@
 
     invoke-virtual {v13, v6, v0}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
-    :cond_b
+    :cond_4
     sget-boolean v13, Lcom/android/server/am/DynamicHiddenApp;->LDHA_ES_ENABLE:Z
 
-    if-eqz v13, :cond_e
+    if-eqz v13, :cond_7
 
     move-object/from16 v0, p0
 
@@ -10329,78 +11111,138 @@
 
     move-result v12
 
-    :goto_4
+    :goto_2
     sget-boolean v13, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
 
-    if-eqz v13, :cond_c
+    if-eqz v13, :cond_5
 
-    sget-object v13, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
+    sget-object v20, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
 
-    new-instance v20, Ljava/lang/StringBuilder;
+    new-instance v13, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v21, "Decrease Hidden App Number from "
+    const-string/jumbo v21, "Decrease Slot Value : cached - "
 
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v21
 
-    move-result-object v20
+    invoke-virtual {v13, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    move/from16 v0, p1
+
+    invoke-virtual {v13, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v21, "("
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v13, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v21
+
+    move-object/from16 v0, p0
+
+    iget v13, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
+
+    move/from16 v0, p1
+
+    if-lt v13, v0, :cond_8
+
+    const/4 v13, 0x0
+
+    :goto_3
+    move-object/from16 v0, v21
+
+    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v21, "), empty - "
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v13, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    move/from16 v0, p2
+
+    invoke-virtual {v13, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v21, "("
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v13, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    sub-int v21, v12, p2
+
+    move/from16 v0, v21
+
+    invoke-virtual {v13, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v21, ")"
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v13, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
 
     move-object/from16 v0, v20
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-static {v0, v13}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v20
-
-    const-string/jumbo v21, "to "
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    move-object/from16 v0, v20
-
-    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v20
-
-    move-object/from16 v0, v20
-
-    invoke-static {v13, v0}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_c
-    :goto_5
+    :cond_5
+    :goto_4
     return v12
 
-    :cond_d
+    :cond_6
     move/from16 v5, p2
 
     move-object/from16 v0, p0
 
     iget v4, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxEmpty:I
 
-    goto/16 :goto_3
+    goto/16 :goto_1
 
-    :cond_e
+    :cond_7
     move-object/from16 v0, p0
 
-    iget v13, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxEmpty:I
+    move/from16 v1, p2
 
-    move-object/from16 v0, p0
+    move/from16 v2, p1
 
-    move/from16 v1, p1
-
-    invoke-virtual {v0, v13, v1}, Lcom/android/server/am/DynamicHiddenApp;->decrementEmptyAppCount(II)I
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/DynamicHiddenApp;->decrementEmptyAppCount(II)I
 
     move-result v12
 
-    goto :goto_4
+    goto :goto_2
 
-    :cond_f
+    :cond_8
+    move-object/from16 v0, p0
+
+    iget v13, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
+
+    sub-int v13, v13, p1
+
+    goto :goto_3
+
+    :cond_9
     long-to-float v13, v14
 
     sget-wide v20, Lcom/android/server/am/DynamicHiddenApp;->DHA_INCREASE_THRESHOLD:J
@@ -10415,15 +11257,24 @@
 
     cmpl-float v13, v13, v20
 
-    if-lez v13, :cond_c
+    if-lez v13, :cond_5
 
-    if-lt v5, v4, :cond_c
+    if-ge v5, v4, :cond_a
 
+    move-object/from16 v0, p0
+
+    iget v13, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
+
+    move/from16 v0, p1
+
+    if-lt v0, v13, :cond_5
+
+    :cond_a
     move-object/from16 v0, p0
 
     iget-boolean v13, v0, Lcom/android/server/am/DynamicHiddenApp;->mDidStepUp:Z
 
-    if-nez v13, :cond_10
+    if-nez v13, :cond_b
 
     const/4 v13, 0x1
 
@@ -10431,19 +11282,19 @@
 
     iput-boolean v13, v0, Lcom/android/server/am/DynamicHiddenApp;->mDidStepUp:Z
 
-    :cond_10
+    :cond_b
     sget-boolean v13, Lcom/android/server/am/DynamicHiddenApp;->LDHA_ES_ENABLE:Z
 
-    if-eqz v13, :cond_11
+    if-eqz v13, :cond_c
 
     invoke-virtual/range {p0 .. p1}, Lcom/android/server/am/DynamicHiddenApp;->increment_ES_AppCount(I)I
 
     move-result v12
 
-    :goto_6
+    :goto_5
     sget-boolean v13, Lcom/android/server/am/DynamicHiddenApp;->DEBUG:Z
 
-    if-eqz v13, :cond_c
+    if-eqz v13, :cond_5
 
     sget-object v13, Lcom/android/server/am/DynamicHiddenApp;->TAG:Ljava/lang/String;
 
@@ -10451,19 +11302,23 @@
 
     invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v21, "Increase Hidden App Number from "
+    const-string/jumbo v21, "Increase Slot Max : cached - "
 
     invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v20
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    iget v0, v0, Lcom/android/server/am/DynamicHiddenApp;->mMaxCached:I
+
+    move/from16 v21, v0
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v20
 
-    const-string/jumbo v21, "to "
+    const-string/jumbo v21, ", empty - "
 
     invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -10483,14 +11338,14 @@
 
     invoke-static {v13, v0}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_5
+    goto :goto_4
 
-    :cond_11
+    :cond_c
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/am/DynamicHiddenApp;->incrementEmptyAppCount()I
 
     move-result v12
 
-    goto :goto_6
+    goto :goto_5
 .end method
 
 .method final updateHotnessAdj(Lcom/android/server/am/ProcessRecord;I)V
@@ -10643,6 +11498,16 @@
 
     :cond_7
     :goto_0
+    iget-object v7, p1, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
+
+    iget-object v7, v7, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v3, v7}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->setPackageName(Ljava/lang/String;)V
+
+    iget v7, p1, Lcom/android/server/am/ProcessRecord;->uid:I
+
+    invoke-virtual {v3, v7}, Lcom/android/server/am/DynamicHiddenApp$HotnessValue;->setUid(I)V
+
     iget v7, p0, Lcom/android/server/am/DynamicHiddenApp;->hotnessCached:I
 
     if-lez v7, :cond_9
@@ -10880,7 +11745,7 @@
 
     const-string/jumbo v10, "hotness value reached MAX, the hotness value of all app will be tuned half"
 
-    invoke-static {v7, v10}, Landroid/util/Slog;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_b
     iget-object v7, p0, Lcom/android/server/am/DynamicHiddenApp;->mHotnessAdjMap:Ljava/util/HashMap;
@@ -10973,7 +11838,7 @@
 
     move-result-object v10
 
-    invoke-static {v7, v10}, Landroid/util/Slog;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -11129,7 +11994,7 @@
 
     move-result-object v9
 
-    invoke-static {v7, v9}, Landroid/util/Slog;->secV(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v9}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_11
     iget-object v7, p0, Lcom/android/server/am/DynamicHiddenApp;->mAm:Lcom/android/server/am/ActivityManagerService;
@@ -11233,7 +12098,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->secV(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
     return-void

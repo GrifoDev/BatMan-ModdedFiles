@@ -122,23 +122,23 @@
 .end method
 
 .method public getPrefix(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .locals 3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fNamespaceContext:Lmf/javax/xml/namespace/NamespaceContext;
+    iget-object v1, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fNamespaceContext:Lmf/javax/xml/namespace/NamespaceContext;
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    return-object v1
+    return-object v2
 
     :cond_0
     if-eqz p1, :cond_1
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fNamespaceContext:Lmf/javax/xml/namespace/NamespaceContext;
+    iget-object v1, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fNamespaceContext:Lmf/javax/xml/namespace/NamespaceContext;
 
-    invoke-interface {v0, p1}, Lmf/javax/xml/namespace/NamespaceContext;->getPrefix(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v1, p1}, Lmf/javax/xml/namespace/NamespaceContext;->getPrefix(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -151,10 +151,10 @@
 
     invoke-virtual {v0}, Ljava/lang/String;->intern()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     :goto_2
-    return-object v0
+    return-object v1
 
     :cond_1
     const-string/jumbo p1, ""
@@ -171,7 +171,7 @@
 
     invoke-virtual {v1, v0}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     goto :goto_2
 .end method
@@ -189,17 +189,17 @@
 
     const/4 v2, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fNamespaceContext:Lmf/javax/xml/namespace/NamespaceContext;
+    iget-object v1, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fNamespaceContext:Lmf/javax/xml/namespace/NamespaceContext;
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     :cond_0
     return-object v2
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fNamespaceContext:Lmf/javax/xml/namespace/NamespaceContext;
+    iget-object v1, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fNamespaceContext:Lmf/javax/xml/namespace/NamespaceContext;
 
-    invoke-interface {v0, p1}, Lmf/javax/xml/namespace/NamespaceContext;->getNamespaceURI(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v1, p1}, Lmf/javax/xml/namespace/NamespaceContext;->getNamespaceURI(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -219,17 +219,17 @@
 
     invoke-virtual {v0}, Ljava/lang/String;->intern()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     :goto_0
-    return-object v0
+    return-object v1
 
     :cond_2
     iget-object v1, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
     invoke-virtual {v1, v0}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     goto :goto_0
 .end method
@@ -259,48 +259,48 @@
 
     const/4 v3, 0x0
 
-    iget v0, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fCurrentContext:I
-
-    add-int/lit8 v0, v0, 0x1
-
-    iget-object v1, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fContext:[I
-
-    array-length v1, v1
-
-    if-eq v0, v1, :cond_0
-
-    :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fContext:[I
-
     iget v1, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fCurrentContext:I
 
     add-int/lit8 v1, v1, 0x1
 
-    iput v1, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fCurrentContext:I
+    iget-object v2, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fContext:[I
 
-    iget-object v2, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fAllPrefixes:Ljava/util/Vector;
+    array-length v2, v2
 
-    invoke-virtual {v2}, Ljava/util/Vector;->size()I
+    if-eq v1, v2, :cond_0
 
-    move-result v2
+    :goto_0
+    iget-object v1, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fContext:[I
 
-    aput v2, v0, v1
+    iget v2, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fCurrentContext:I
 
-    iget-object v0, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fPrefixes:Ljava/util/List;
+    add-int/lit8 v2, v2, 0x1
 
-    if-nez v0, :cond_1
+    iput v2, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fCurrentContext:I
+
+    iget-object v3, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fAllPrefixes:Ljava/util/Vector;
+
+    invoke-virtual {v3}, Ljava/util/Vector;->size()I
+
+    move-result v3
+
+    aput v3, v1, v2
+
+    iget-object v1, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fPrefixes:Ljava/util/List;
+
+    if-nez v1, :cond_1
 
     :goto_1
     return-void
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fContext:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fContext:[I
 
-    array-length v0, v0
+    array-length v1, v1
 
-    mul-int/lit8 v0, v0, 0x2
+    mul-int/lit8 v1, v1, 0x2
 
-    new-array v0, v0, [I
+    new-array v0, v1, [I
 
     iget-object v1, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fContext:[I
 
@@ -315,11 +315,11 @@
     goto :goto_0
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fAllPrefixes:Ljava/util/Vector;
+    iget-object v1, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fAllPrefixes:Ljava/util/Vector;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fPrefixes:Ljava/util/List;
+    iget-object v2, p0, Lmf/org/apache/xerces/util/JAXPNamespaceContextWrapper;->fPrefixes:Ljava/util/List;
 
-    invoke-virtual {v0, v1}, Ljava/util/Vector;->addAll(Ljava/util/Collection;)Z
+    invoke-virtual {v1, v2}, Ljava/util/Vector;->addAll(Ljava/util/Collection;)Z
 
     goto :goto_1
 .end method

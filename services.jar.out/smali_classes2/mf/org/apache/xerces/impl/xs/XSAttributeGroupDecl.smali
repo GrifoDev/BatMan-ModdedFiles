@@ -243,14 +243,14 @@
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeUses:[Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;
 
-    aget-object v0, v1, v0
+    aget-object v1, v1, v0
 
-    return-object v0
+    return-object v1
 
     :cond_2
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public getAttributeUseNoProhibited(Ljava/lang/String;Ljava/lang/String;)Lmf/org/apache/xerces/xs/XSAttributeUse;
@@ -301,14 +301,14 @@
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeUses:[Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;
 
-    aget-object v0, v1, v0
+    aget-object v1, v1, v0
 
-    return-object v0
+    return-object v1
 
     :cond_2
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public getAttributeUses()Lmf/org/apache/xerces/xs/XSObjectList;
@@ -378,39 +378,43 @@
 .end method
 
 .method public removeProhibitedAttrs()V
-    .locals 5
+    .locals 6
+
+    iget v4, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttrUseNum:I
+
+    if-eqz v4, :cond_0
 
     const/4 v0, 0x0
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttrUseNum:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttrUseNum:I
 
-    if-eqz v1, :cond_0
+    new-array v3, v4, [Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttrUseNum:I
+    const/4 v2, 0x0
 
-    new-array v3, v1, [Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;
-
-    move v2, v0
+    move v1, v0
 
     :goto_0
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttrUseNum:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttrUseNum:I
 
-    if-ge v2, v1, :cond_2
+    if-ge v2, v4, :cond_2
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeUses:[Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeUses:[Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;
 
-    aget-object v1, v1, v2
+    aget-object v4, v4, v2
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fUse:S
+    iget-short v4, v4, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fUse:S
 
-    const/4 v4, 0x2
+    const/4 v5, 0x2
 
-    if-ne v1, v4, :cond_1
+    if-ne v4, v5, :cond_1
+
+    move v0, v1
 
     :goto_1
-    add-int/lit8 v1, v2, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    move v2, v1
+    move v1, v0
 
     goto :goto_0
 
@@ -418,22 +422,20 @@
     return-void
 
     :cond_1
-    add-int/lit8 v1, v0, 0x1
+    add-int/lit8 v0, v1, 0x1
 
     iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeUses:[Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;
 
     aget-object v4, v4, v2
 
-    aput-object v4, v3, v0
-
-    move v0, v1
+    aput-object v4, v3, v1
 
     goto :goto_1
 
     :cond_2
     iput-object v3, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeUses:[Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttrUseNum:I
+    iput v1, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttrUseNum:I
 
     return-void
 .end method
@@ -471,39 +473,39 @@
 .end method
 
 .method public reset()V
-    .locals 4
+    .locals 3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fName:Ljava/lang/String;
 
-    iput-object v3, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fName:Ljava/lang/String;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fTargetNamespace:Ljava/lang/String;
 
-    iput-object v3, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fTargetNamespace:Ljava/lang/String;
-
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_0
-    iget v2, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttrUseNum:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttrUseNum:I
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v1, :cond_0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeUses:[Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeUses:[Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;
 
-    aput-object v3, v2, v0
+    aput-object v2, v1, v0
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
+    const/4 v1, 0x0
+
     iput v1, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttrUseNum:I
 
-    iput-object v3, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeWC:Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeWC:Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
 
-    iput-object v3, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAnnotations:Lmf/org/apache/xerces/xs/XSObjectList;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAnnotations:Lmf/org/apache/xerces/xs/XSObjectList;
 
-    iput-object v3, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fIDAttrName:Ljava/lang/String;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fIDAttrName:Ljava/lang/String;
 
     return-void
 .end method
@@ -519,451 +521,535 @@
 .method public validRestrictionOf(Ljava/lang/String;Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;)[Ljava/lang/Object;
     .locals 13
 
-    const/4 v12, 0x3
+    const/4 v6, 0x0
 
-    const/4 v11, 0x1
+    const/4 v1, 0x0
 
-    const/4 v10, 0x2
+    const/4 v0, 0x0
 
-    const/4 v9, 0x0
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
-    move v3, v4
+    const/4 v7, 0x0
 
     :goto_0
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttrUseNum:I
+    iget v10, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttrUseNum:I
 
-    if-ge v3, v0, :cond_e
+    if-ge v7, v10, :cond_e
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeUses:[Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;
+    iget-object v10, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeUses:[Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;
 
-    aget-object v5, v0, v3
+    aget-object v1, v10, v7
 
-    iget-object v6, v5, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fAttrDecl:Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
+    iget-object v0, v1, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fAttrDecl:Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
 
-    iget-object v0, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fTargetNamespace:Ljava/lang/String;
+    iget-object v10, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fTargetNamespace:Ljava/lang/String;
 
-    iget-object v1, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fName:Ljava/lang/String;
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fName:Ljava/lang/String;
 
-    invoke-virtual {p2, v0, v1}, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->getAttributeUse(Ljava/lang/String;Ljava/lang/String;)Lmf/org/apache/xerces/xs/XSAttributeUse;
+    invoke-virtual {p2, v10, v11}, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->getAttributeUse(Ljava/lang/String;Ljava/lang/String;)Lmf/org/apache/xerces/xs/XSAttributeUse;
 
-    move-result-object v0
+    move-result-object v3
 
-    check-cast v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;
+    check-cast v3, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;
 
-    if-nez v0, :cond_1
+    if-nez v3, :cond_1
 
-    iget-object v0, p2, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeWC:Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
+    iget-object v10, p2, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeWC:Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
 
-    if-eqz v0, :cond_b
+    if-eqz v10, :cond_b
 
-    iget-object v0, p2, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeWC:Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
+    iget-object v10, p2, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeWC:Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
 
-    iget-object v1, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fTargetNamespace:Ljava/lang/String;
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fTargetNamespace:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;->allowNamespace(Ljava/lang/String;)Z
+    invoke-virtual {v10, v11}, Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;->allowNamespace(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v10
 
-    if-eqz v0, :cond_c
+    if-eqz v10, :cond_c
 
     :cond_0
-    add-int/lit8 v0, v3, 0x1
-
-    move v3, v0
+    add-int/lit8 v7, v7, 0x1
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->getRequired()Z
+    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->getRequired()Z
 
-    move-result v1
+    move-result v10
 
-    if-nez v1, :cond_3
+    if-nez v10, :cond_3
 
     :cond_2
-    iget-short v1, v5, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fUse:S
+    iget-short v10, v1, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fUse:S
 
-    if-eq v1, v10, :cond_0
+    const/4 v11, 0x2
 
-    iget-object v7, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fAttrDecl:Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
+    if-eq v10, v11, :cond_0
 
-    iget-object v1, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+    iget-object v2, v3, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fAttrDecl:Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
 
-    iget-object v2, v7, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+    iget-object v10, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
 
-    iget-object v8, v7, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+    iget-object v11, v2, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
 
-    invoke-interface {v8}, Lmf/org/apache/xerces/impl/dv/XSSimpleType;->getFinal()S
+    iget-object v12, v2, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+
+    invoke-interface {v12}, Lmf/org/apache/xerces/impl/dv/XSSimpleType;->getFinal()S
+
+    move-result v12
+
+    invoke-static {v10, v11, v12}, Lmf/org/apache/xerces/impl/xs/XSConstraints;->checkSimpleDerivationOk(Lmf/org/apache/xerces/impl/dv/XSSimpleType;Lmf/org/apache/xerces/xs/XSTypeDefinition;S)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_5
+
+    iget-short v10, v3, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fConstraintType:S
+
+    if-nez v10, :cond_6
+
+    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->getConstraintType()S
+
+    move-result v4
+
+    :goto_1
+    iget-short v10, v1, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fConstraintType:S
+
+    if-nez v10, :cond_7
+
+    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->getConstraintType()S
 
     move-result v8
 
-    invoke-static {v1, v2, v8}, Lmf/org/apache/xerces/impl/xs/XSConstraints;->checkSimpleDerivationOk(Lmf/org/apache/xerces/impl/dv/XSSimpleType;Lmf/org/apache/xerces/xs/XSTypeDefinition;S)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_5
-
-    iget-short v1, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fConstraintType:S
-
-    if-nez v1, :cond_6
-
-    invoke-virtual {v7}, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->getConstraintType()S
-
-    move-result v1
-
-    :goto_1
-    iget-short v2, v5, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fConstraintType:S
-
-    if-nez v2, :cond_7
-
-    invoke-virtual {v6}, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->getConstraintType()S
-
-    move-result v2
-
     :goto_2
-    if-ne v1, v10, :cond_0
+    const/4 v10, 0x2
 
-    if-ne v2, v10, :cond_8
+    if-ne v4, v10, :cond_0
 
-    iget-object v1, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fDefault:Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+    const/4 v10, 0x2
 
-    if-nez v1, :cond_9
+    if-ne v8, v10, :cond_8
 
-    iget-object v0, v7, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fDefault:Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+    iget-object v10, v3, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fDefault:Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+
+    if-nez v10, :cond_9
+
+    iget-object v5, v2, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fDefault:Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
 
     :goto_3
-    iget-object v1, v5, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fDefault:Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+    iget-object v10, v1, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fDefault:Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
 
-    if-nez v1, :cond_a
+    if-nez v10, :cond_a
 
-    iget-object v1, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fDefault:Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+    iget-object v9, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fDefault:Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
 
     :goto_4
-    iget-object v2, v0, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValue:Ljava/lang/Object;
+    iget-object v10, v5, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValue:Ljava/lang/Object;
 
-    iget-object v5, v1, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValue:Ljava/lang/Object;
+    iget-object v11, v9, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValue:Ljava/lang/Object;
 
-    invoke-virtual {v2, v5}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v10, v11}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v10
 
-    if-nez v2, :cond_0
+    if-nez v10, :cond_0
 
-    const/4 v2, 0x5
+    const/4 v10, 0x5
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v6, v10, [Ljava/lang/Object;
 
-    aput-object p1, v2, v4
+    const/4 v10, 0x0
 
-    iget-object v3, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fName:Ljava/lang/String;
+    aput-object p1, v6, v10
 
-    aput-object v3, v2, v11
+    iget-object v10, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fName:Ljava/lang/String;
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->stringValue()Ljava/lang/String;
+    const/4 v11, 0x1
 
-    move-result-object v1
+    aput-object v10, v6, v11
 
-    aput-object v1, v2, v10
+    invoke-virtual {v9}, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->stringValue()Ljava/lang/String;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->stringValue()Ljava/lang/String;
+    move-result-object v10
 
-    move-result-object v0
+    const/4 v11, 0x2
 
-    aput-object v0, v2, v12
+    aput-object v10, v6, v11
 
-    const/4 v0, 0x4
+    const/4 v10, 0x3
 
-    const-string/jumbo v1, "derivation-ok-restriction.2.1.3.b"
+    invoke-virtual {v5}, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->stringValue()Ljava/lang/String;
 
-    aput-object v1, v2, v0
+    move-result-object v11
 
-    return-object v2
+    aput-object v11, v6, v10
+
+    const-string/jumbo v10, "derivation-ok-restriction.2.1.3.b"
+
+    const/4 v11, 0x4
+
+    aput-object v10, v6, v11
+
+    return-object v6
 
     :cond_3
-    invoke-virtual {v5}, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->getRequired()Z
+    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->getRequired()Z
 
-    move-result v1
+    move-result v10
 
-    if-nez v1, :cond_2
+    if-nez v10, :cond_2
 
-    const/4 v0, 0x4
+    const/4 v10, 0x4
 
-    new-array v1, v0, [Ljava/lang/Object;
+    new-array v6, v10, [Ljava/lang/Object;
 
-    aput-object p1, v1, v4
+    const/4 v10, 0x0
 
-    iget-object v0, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fName:Ljava/lang/String;
+    aput-object p1, v6, v10
 
-    aput-object v0, v1, v11
+    iget-object v10, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fName:Ljava/lang/String;
 
-    iget-short v0, v5, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fUse:S
+    const/4 v11, 0x1
 
-    if-eqz v0, :cond_4
+    aput-object v10, v6, v11
 
-    const-string/jumbo v0, "prohibited"
+    const/4 v11, 0x2
+
+    iget-short v10, v1, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fUse:S
+
+    if-eqz v10, :cond_4
+
+    const-string/jumbo v10, "prohibited"
 
     :goto_5
-    aput-object v0, v1, v10
+    aput-object v10, v6, v11
 
-    const-string/jumbo v0, "derivation-ok-restriction.2.1.1"
+    const/4 v10, 0x3
 
-    aput-object v0, v1, v12
+    const-string/jumbo v11, "derivation-ok-restriction.2.1.1"
 
-    return-object v1
+    aput-object v11, v6, v10
+
+    return-object v6
 
     :cond_4
-    const-string/jumbo v0, "optional"
+    const-string/jumbo v10, "optional"
 
     goto :goto_5
 
     :cond_5
-    const/4 v0, 0x5
+    const/4 v10, 0x5
 
-    new-array v0, v0, [Ljava/lang/Object;
+    new-array v6, v10, [Ljava/lang/Object;
 
-    aput-object p1, v0, v4
+    const/4 v10, 0x0
 
-    iget-object v1, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fName:Ljava/lang/String;
+    aput-object p1, v6, v10
 
-    aput-object v1, v0, v11
+    iget-object v10, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fName:Ljava/lang/String;
 
-    iget-object v1, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+    const/4 v11, 0x1
 
-    invoke-interface {v1}, Lmf/org/apache/xerces/impl/dv/XSSimpleType;->getName()Ljava/lang/String;
+    aput-object v10, v6, v11
 
-    move-result-object v1
+    iget-object v10, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
 
-    aput-object v1, v0, v10
+    invoke-interface {v10}, Lmf/org/apache/xerces/impl/dv/XSSimpleType;->getName()Ljava/lang/String;
 
-    iget-object v1, v7, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+    move-result-object v10
 
-    invoke-interface {v1}, Lmf/org/apache/xerces/impl/dv/XSSimpleType;->getName()Ljava/lang/String;
+    const/4 v11, 0x2
 
-    move-result-object v1
+    aput-object v10, v6, v11
 
-    aput-object v1, v0, v12
+    const/4 v10, 0x3
 
-    const/4 v1, 0x4
+    iget-object v11, v2, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
 
-    const-string/jumbo v2, "derivation-ok-restriction.2.1.2"
+    invoke-interface {v11}, Lmf/org/apache/xerces/impl/dv/XSSimpleType;->getName()Ljava/lang/String;
 
-    aput-object v2, v0, v1
+    move-result-object v11
 
-    return-object v0
+    aput-object v11, v6, v10
+
+    const-string/jumbo v10, "derivation-ok-restriction.2.1.2"
+
+    const/4 v11, 0x4
+
+    aput-object v10, v6, v11
+
+    return-object v6
 
     :cond_6
-    iget-short v1, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fConstraintType:S
+    iget-short v4, v3, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fConstraintType:S
 
     goto/16 :goto_1
 
     :cond_7
-    iget-short v2, v5, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fConstraintType:S
+    iget-short v8, v1, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fConstraintType:S
 
-    goto :goto_2
+    goto/16 :goto_2
 
     :cond_8
-    new-array v0, v12, [Ljava/lang/Object;
+    const/4 v10, 0x3
 
-    aput-object p1, v0, v4
+    new-array v6, v10, [Ljava/lang/Object;
 
-    iget-object v1, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fName:Ljava/lang/String;
+    const/4 v10, 0x0
 
-    aput-object v1, v0, v11
+    aput-object p1, v6, v10
 
-    const-string/jumbo v1, "derivation-ok-restriction.2.1.3.a"
+    iget-object v10, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fName:Ljava/lang/String;
 
-    aput-object v1, v0, v10
+    const/4 v11, 0x1
 
-    return-object v0
+    aput-object v10, v6, v11
+
+    const/4 v10, 0x2
+
+    const-string/jumbo v11, "derivation-ok-restriction.2.1.3.a"
+
+    aput-object v11, v6, v10
+
+    return-object v6
 
     :cond_9
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fDefault:Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+    iget-object v5, v3, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fDefault:Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
 
     goto/16 :goto_3
 
     :cond_a
-    iget-object v1, v5, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fDefault:Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+    iget-object v9, v1, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fDefault:Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
 
     goto/16 :goto_4
 
     :cond_b
-    new-array v0, v12, [Ljava/lang/Object;
+    const/4 v10, 0x3
 
-    aput-object p1, v0, v4
+    new-array v6, v10, [Ljava/lang/Object;
 
-    iget-object v1, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fName:Ljava/lang/String;
+    const/4 v10, 0x0
 
-    aput-object v1, v0, v11
+    aput-object p1, v6, v10
 
-    const-string/jumbo v1, "derivation-ok-restriction.2.2.a"
+    iget-object v10, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fName:Ljava/lang/String;
 
-    aput-object v1, v0, v10
+    const/4 v11, 0x1
 
-    return-object v0
+    aput-object v10, v6, v11
+
+    const/4 v10, 0x2
+
+    const-string/jumbo v11, "derivation-ok-restriction.2.2.a"
+
+    aput-object v11, v6, v10
+
+    return-object v6
 
     :cond_c
-    const/4 v0, 0x4
+    const/4 v10, 0x4
 
-    new-array v1, v0, [Ljava/lang/Object;
+    new-array v6, v10, [Ljava/lang/Object;
 
-    aput-object p1, v1, v4
+    const/4 v10, 0x0
 
-    iget-object v0, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fName:Ljava/lang/String;
+    aput-object p1, v6, v10
 
-    aput-object v0, v1, v11
+    iget-object v10, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fName:Ljava/lang/String;
 
-    iget-object v0, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fTargetNamespace:Ljava/lang/String;
+    const/4 v11, 0x1
 
-    if-eqz v0, :cond_d
+    aput-object v10, v6, v11
 
-    iget-object v0, v6, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fTargetNamespace:Ljava/lang/String;
+    const/4 v11, 0x2
+
+    iget-object v10, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fTargetNamespace:Ljava/lang/String;
+
+    if-eqz v10, :cond_d
+
+    iget-object v10, v0, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fTargetNamespace:Ljava/lang/String;
 
     :goto_6
-    aput-object v0, v1, v10
+    aput-object v10, v6, v11
 
-    const-string/jumbo v0, "derivation-ok-restriction.2.2.b"
+    const/4 v10, 0x3
 
-    aput-object v0, v1, v12
+    const-string/jumbo v11, "derivation-ok-restriction.2.2.b"
 
-    return-object v1
+    aput-object v11, v6, v10
+
+    return-object v6
 
     :cond_d
-    const-string/jumbo v0, ""
+    const-string/jumbo v10, ""
 
     goto :goto_6
 
     :cond_e
-    move v0, v4
+    const/4 v7, 0x0
 
     :goto_7
-    iget v1, p2, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttrUseNum:I
+    iget v10, p2, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttrUseNum:I
 
-    if-ge v0, v1, :cond_11
+    if-ge v7, v10, :cond_11
 
-    iget-object v1, p2, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeUses:[Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;
+    iget-object v10, p2, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeUses:[Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;
 
-    aget-object v1, v1, v0
+    aget-object v3, v10, v7
 
-    iget-short v2, v1, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fUse:S
+    iget-short v10, v3, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fUse:S
 
-    if-eq v2, v11, :cond_10
+    const/4 v11, 0x1
+
+    if-eq v10, v11, :cond_10
 
     :cond_f
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v7, v7, 0x1
 
     goto :goto_7
 
     :cond_10
-    iget-object v2, v1, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fAttrDecl:Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
+    iget-object v2, v3, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fAttrDecl:Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
 
-    iget-object v3, v2, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fTargetNamespace:Ljava/lang/String;
+    iget-object v10, v2, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fTargetNamespace:Ljava/lang/String;
 
-    iget-object v2, v2, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fName:Ljava/lang/String;
+    iget-object v11, v2, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fName:Ljava/lang/String;
 
-    invoke-virtual {p0, v3, v2}, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->getAttributeUse(Ljava/lang/String;Ljava/lang/String;)Lmf/org/apache/xerces/xs/XSAttributeUse;
+    invoke-virtual {p0, v10, v11}, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->getAttributeUse(Ljava/lang/String;Ljava/lang/String;)Lmf/org/apache/xerces/xs/XSAttributeUse;
 
-    move-result-object v2
+    move-result-object v10
 
-    if-nez v2, :cond_f
+    if-nez v10, :cond_f
 
-    new-array v0, v12, [Ljava/lang/Object;
+    const/4 v10, 0x3
 
-    aput-object p1, v0, v4
+    new-array v6, v10, [Ljava/lang/Object;
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fAttrDecl:Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
+    const/4 v10, 0x0
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fName:Ljava/lang/String;
+    aput-object p1, v6, v10
 
-    aput-object v1, v0, v11
+    iget-object v10, v3, Lmf/org/apache/xerces/impl/xs/XSAttributeUseImpl;->fAttrDecl:Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;
 
-    const-string/jumbo v1, "derivation-ok-restriction.3"
+    iget-object v10, v10, Lmf/org/apache/xerces/impl/xs/XSAttributeDecl;->fName:Ljava/lang/String;
 
-    aput-object v1, v0, v10
+    const/4 v11, 0x1
 
-    return-object v0
+    aput-object v10, v6, v11
+
+    const/4 v10, 0x2
+
+    const-string/jumbo v11, "derivation-ok-restriction.3"
+
+    aput-object v11, v6, v10
+
+    return-object v6
 
     :cond_11
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeWC:Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
+    iget-object v10, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeWC:Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
 
-    if-nez v0, :cond_13
+    if-nez v10, :cond_13
 
     :cond_12
-    return-object v9
+    const/4 v10, 0x0
+
+    return-object v10
 
     :cond_13
-    iget-object v0, p2, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeWC:Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
+    iget-object v10, p2, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeWC:Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
 
-    if-eqz v0, :cond_14
+    if-eqz v10, :cond_14
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeWC:Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
+    iget-object v10, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeWC:Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
 
-    iget-object v1, p2, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeWC:Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
+    iget-object v11, p2, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeWC:Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;->isSubsetOf(Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;)Z
+    invoke-virtual {v10, v11}, Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;->isSubsetOf(Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;)Z
 
-    move-result v0
+    move-result v10
 
-    if-eqz v0, :cond_15
+    if-eqz v10, :cond_15
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeWC:Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
+    iget-object v10, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeWC:Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
 
-    iget-object v1, p2, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeWC:Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
+    iget-object v11, p2, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeWC:Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;->weakerProcessContents(Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;)Z
+    invoke-virtual {v10, v11}, Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;->weakerProcessContents(Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;)Z
 
-    move-result v0
+    move-result v10
 
-    if-eqz v0, :cond_12
+    if-eqz v10, :cond_12
 
-    const/4 v0, 0x4
+    const/4 v10, 0x4
 
-    new-array v0, v0, [Ljava/lang/Object;
+    new-array v6, v10, [Ljava/lang/Object;
 
-    aput-object p1, v0, v4
+    const/4 v10, 0x0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeWC:Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
+    aput-object p1, v6, v10
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;->getProcessContentsAsString()Ljava/lang/String;
+    const/4 v10, 0x1
 
-    move-result-object v1
+    iget-object v11, p0, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeWC:Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
 
-    aput-object v1, v0, v11
+    invoke-virtual {v11}, Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;->getProcessContentsAsString()Ljava/lang/String;
 
-    iget-object v1, p2, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeWC:Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
+    move-result-object v11
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;->getProcessContentsAsString()Ljava/lang/String;
+    aput-object v11, v6, v10
 
-    move-result-object v1
+    const/4 v10, 0x2
 
-    aput-object v1, v0, v10
+    iget-object v11, p2, Lmf/org/apache/xerces/impl/xs/XSAttributeGroupDecl;->fAttributeWC:Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;
 
-    const-string/jumbo v1, "derivation-ok-restriction.4.3"
+    invoke-virtual {v11}, Lmf/org/apache/xerces/impl/xs/XSWildcardDecl;->getProcessContentsAsString()Ljava/lang/String;
 
-    aput-object v1, v0, v12
+    move-result-object v11
 
-    return-object v0
+    aput-object v11, v6, v10
+
+    const/4 v10, 0x3
+
+    const-string/jumbo v11, "derivation-ok-restriction.4.3"
+
+    aput-object v11, v6, v10
+
+    return-object v6
 
     :cond_14
-    new-array v0, v10, [Ljava/lang/Object;
+    const/4 v10, 0x2
 
-    aput-object p1, v0, v4
+    new-array v6, v10, [Ljava/lang/Object;
 
-    const-string/jumbo v1, "derivation-ok-restriction.4.1"
+    const/4 v10, 0x0
 
-    aput-object v1, v0, v11
+    aput-object p1, v6, v10
 
-    return-object v0
+    const-string/jumbo v10, "derivation-ok-restriction.4.1"
+
+    const/4 v11, 0x1
+
+    aput-object v10, v6, v11
+
+    return-object v6
 
     :cond_15
-    new-array v0, v10, [Ljava/lang/Object;
+    const/4 v10, 0x2
 
-    aput-object p1, v0, v4
+    new-array v6, v10, [Ljava/lang/Object;
 
-    const-string/jumbo v1, "derivation-ok-restriction.4.2"
+    const/4 v10, 0x0
 
-    aput-object v1, v0, v11
+    aput-object p1, v6, v10
 
-    return-object v0
+    const-string/jumbo v10, "derivation-ok-restriction.4.2"
+
+    const/4 v11, 0x1
+
+    aput-object v10, v6, v11
+
+    return-object v6
 .end method

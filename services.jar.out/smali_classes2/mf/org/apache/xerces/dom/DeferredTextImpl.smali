@@ -68,19 +68,17 @@
 
     invoke-virtual {v0, v3}, Lmf/org/apache/xerces/dom/DeferredDocumentImpl;->getNodeExtra(I)I
 
-    move-result v0
+    move-result v3
 
-    if-eq v0, v2, :cond_0
-
-    move v0, v1
+    if-eq v3, v2, :cond_0
 
     :goto_0
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DeferredTextImpl;->isIgnorableWhitespace(Z)V
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/DeferredTextImpl;->isIgnorableWhitespace(Z)V
 
     return-void
 
     :cond_0
-    move v0, v2
+    move v1, v2
 
     goto :goto_0
 .end method

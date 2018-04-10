@@ -3,17 +3,15 @@
 .source "AuthScheme.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract authenticate(Lorg/apache/http/auth/Credentials;Lorg/apache/http/HttpRequest;)Lorg/apache/http/Header;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/apache/http/auth/AuthenticationException;
         }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end method
 

@@ -4,7 +4,8 @@
 
 # interfaces
 .implements Lorg/apache/http/HttpClientConnection;
-.implements Lorg/apache/http/HttpInetConnection;
+.implements Lorg/apache/http/conn/HttpRoutedConnection;
+.implements Lorg/apache/http/conn/ManagedHttpClientConnection;
 .implements Lorg/apache/http/conn/ConnectionReleaseTrigger;
 
 

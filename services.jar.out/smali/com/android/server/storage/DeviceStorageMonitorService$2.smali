@@ -1,6 +1,9 @@
 .class Lcom/android/server/storage/DeviceStorageMonitorService$2;
-.super Landroid/content/BroadcastReceiver;
+.super Ljava/lang/Object;
 .source "DeviceStorageMonitorService.java"
+
+# interfaces
+.implements Lcom/android/server/storage/DeviceStorageMonitorInternal;
 
 
 # annotations
@@ -24,32 +27,95 @@
 
     iput-object p1, p0, Lcom/android/server/storage/DeviceStorageMonitorService$2;->this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public checkMemory()V
+    .locals 2
+
+    const/4 v1, 0x1
+
+    iget-object v0, p0, Lcom/android/server/storage/DeviceStorageMonitorService$2;->this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
+
+    invoke-static {v0}, Lcom/android/server/storage/DeviceStorageMonitorService;->-get0(Lcom/android/server/storage/DeviceStorageMonitorService;)Landroid/os/Handler;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
+
+    iget-object v0, p0, Lcom/android/server/storage/DeviceStorageMonitorService$2;->this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
+
+    invoke-static {v0}, Lcom/android/server/storage/DeviceStorageMonitorService;->-get0(Lcom/android/server/storage/DeviceStorageMonitorService;)Landroid/os/Handler;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+
+    return-void
+.end method
+
+.method public getMemoryLowThreshold()J
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/storage/DeviceStorageMonitorService$2;->this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
 
-    iget-boolean v0, v0, Lcom/android/server/storage/DeviceStorageMonitorService;->mLowMemFlag:Z
+    invoke-virtual {v0}, Lcom/android/server/storage/DeviceStorageMonitorService;->getContext()Landroid/content/Context;
 
-    if-eqz v0, :cond_0
+    move-result-object v0
 
-    const-string/jumbo v0, "DeviceStorageMonitorService"
+    const-class v1, Landroid/os/storage/StorageManager;
 
-    const-string/jumbo v1, "onReceive(): android.intent.action.LOCALE_CHANGED"
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v0
 
-    iget-object v0, p0, Lcom/android/server/storage/DeviceStorageMonitorService$2;->this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
+    check-cast v0, Landroid/os/storage/StorageManager;
 
-    invoke-static {v0}, Lcom/android/server/storage/DeviceStorageMonitorService;->-wrap0(Lcom/android/server/storage/DeviceStorageMonitorService;)V
+    invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/os/storage/StorageManager;->getStorageLowBytes(Ljava/io/File;)J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
+.method public isMemoryLow()Z
+    .locals 4
+
+    invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/io/File;->getUsableSpace()J
+
+    move-result-wide v0
+
+    invoke-virtual {p0}, Lcom/android/server/storage/DeviceStorageMonitorService$2;->getMemoryLowThreshold()J
+
+    move-result-wide v2
+
+    cmp-long v0, v0, v2
+
+    if-gez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
 
     :cond_0
-    return-void
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

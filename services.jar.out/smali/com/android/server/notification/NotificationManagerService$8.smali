@@ -1,11 +1,14 @@
 .class Lcom/android/server/notification/NotificationManagerService$8;
-.super Lcom/android/server/notification/ZenModeHelper$Callback;
+.super Ljava/lang/Object;
 .source "NotificationManagerService.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/notification/NotificationManagerService;->onStart()V
+    value = Lcom/android/server/notification/NotificationManagerService;->notifyZenPolicy()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,89 +27,77 @@
 
     iput-object p1, p0, Lcom/android/server/notification/NotificationManagerService$8;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    invoke-direct {p0}, Lcom/android/server/notification/ZenModeHelper$Callback;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onConfigChanged()V
-    .locals 1
+.method public run()V
+    .locals 5
 
-    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$8;->this$0:Lcom/android/server/notification/NotificationManagerService;
+    const/4 v3, 0x0
 
-    invoke-virtual {v0}, Lcom/android/server/notification/NotificationManagerService;->savePolicyFile()V
+    iget-object v2, p0, Lcom/android/server/notification/NotificationManagerService$8;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    return-void
-.end method
+    invoke-static {v2}, Lcom/android/server/notification/NotificationManagerService;->-get35(Lcom/android/server/notification/NotificationManagerService;)Lcom/android/server/notification/ZenModeHelper;
 
-.method onPolicyChanged()V
-    .locals 2
+    move-result-object v2
 
-    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$8;->this$0:Lcom/android/server/notification/NotificationManagerService;
+    invoke-virtual {v2}, Lcom/android/server/notification/ZenModeHelper;->getZenMode()I
 
-    const-string/jumbo v1, "android.app.action.NOTIFICATION_POLICY_CHANGED"
+    move-result v1
 
-    invoke-static {v0, v1}, Lcom/android/server/notification/NotificationManagerService;->-wrap32(Lcom/android/server/notification/NotificationManagerService;Ljava/lang/String;)V
+    const/4 v0, 0x0
 
-    return-void
-.end method
+    if-eqz v1, :cond_1
 
-.method onZenModeChanged()V
-    .locals 4
+    iget-object v2, p0, Lcom/android/server/notification/NotificationManagerService$8;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$8;->this$0:Lcom/android/server/notification/NotificationManagerService;
+    invoke-static {v2}, Lcom/android/server/notification/NotificationManagerService;->-get35(Lcom/android/server/notification/NotificationManagerService;)Lcom/android/server/notification/ZenModeHelper;
 
-    const-string/jumbo v1, "android.app.action.INTERRUPTION_FILTER_CHANGED"
+    move-result-object v2
 
-    invoke-static {v0, v1}, Lcom/android/server/notification/NotificationManagerService;->-wrap32(Lcom/android/server/notification/NotificationManagerService;Ljava/lang/String;)V
+    invoke-virtual {v2}, Lcom/android/server/notification/ZenModeHelper;->shouldSuppressWhenScreenOff()Z
 
-    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$8;->this$0:Lcom/android/server/notification/NotificationManagerService;
+    move-result v2
 
-    invoke-virtual {v0}, Lcom/android/server/notification/NotificationManagerService;->getContext()Landroid/content/Context;
+    if-eqz v2, :cond_2
 
-    move-result-object v0
+    const/4 v2, 0x1
 
-    new-instance v1, Landroid/content/Intent;
+    :goto_0
+    iget-object v4, p0, Lcom/android/server/notification/NotificationManagerService$8;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    const-string/jumbo v2, "android.app.action.INTERRUPTION_FILTER_CHANGED_INTERNAL"
+    invoke-static {v4}, Lcom/android/server/notification/NotificationManagerService;->-get35(Lcom/android/server/notification/NotificationManagerService;)Lcom/android/server/notification/ZenModeHelper;
 
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    move-result-object v4
 
-    const/high16 v2, 0x4000000
+    invoke-virtual {v4}, Lcom/android/server/notification/ZenModeHelper;->shouldSuppressWhenScreenOn()Z
 
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    move-result v4
 
-    move-result-object v1
+    if-eqz v4, :cond_0
 
-    sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+    const/4 v3, 0x2
 
-    const-string/jumbo v3, "android.permission.MANAGE_NOTIFICATIONS"
+    :cond_0
+    or-int v0, v2, v3
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
+    :cond_1
+    iget-object v2, p0, Lcom/android/server/notification/NotificationManagerService$8;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$8;->this$0:Lcom/android/server/notification/NotificationManagerService;
+    invoke-static {v2}, Lcom/android/server/notification/NotificationManagerService;->-get10(Lcom/android/server/notification/NotificationManagerService;)Lcom/samsung/android/edge/EdgeManagerInternal;
 
-    iget-object v1, v0, Lcom/android/server/notification/NotificationManagerService;->mNotificationList:Ljava/util/ArrayList;
+    move-result-object v2
 
-    monitor-enter v1
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$8;->this$0:Lcom/android/server/notification/NotificationManagerService;
-
-    invoke-static {v0}, Lcom/android/server/notification/NotificationManagerService;->-wrap34(Lcom/android/server/notification/NotificationManagerService;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit v1
+    invoke-virtual {v2, v0}, Lcom/samsung/android/edge/EdgeManagerInternal;->setSuppressed(I)V
 
     return-void
 
-    :catchall_0
-    move-exception v0
+    :cond_2
+    move v2, v3
 
-    monitor-exit v1
-
-    throw v0
+    goto :goto_0
 .end method

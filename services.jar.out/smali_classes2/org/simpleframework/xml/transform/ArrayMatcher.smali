@@ -22,18 +22,18 @@
 .end method
 
 .method private matchArray(Ljava/lang/Class;)Lorg/simpleframework/xml/transform/Transform;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    iget-object v0, p0, Lorg/simpleframework/xml/transform/ArrayMatcher;->primary:Lorg/simpleframework/xml/transform/Matcher;
+    iget-object v1, p0, Lorg/simpleframework/xml/transform/ArrayMatcher;->primary:Lorg/simpleframework/xml/transform/Matcher;
 
-    invoke-interface {v0, p1}, Lorg/simpleframework/xml/transform/Matcher;->match(Ljava/lang/Class;)Lorg/simpleframework/xml/transform/Transform;
+    invoke-interface {v1, p1}, Lorg/simpleframework/xml/transform/Matcher;->match(Ljava/lang/Class;)Lorg/simpleframework/xml/transform/Transform;
 
     move-result-object v0
 
@@ -46,7 +46,7 @@
     return-object v1
 
     :cond_0
-    return-object v1
+    return-object v2
 .end method
 
 
@@ -77,9 +77,9 @@
 
     invoke-direct {p0, v0}, Lorg/simpleframework/xml/transform/ArrayMatcher;->matchArray(Ljava/lang/Class;)Lorg/simpleframework/xml/transform/Transform;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
     new-instance v1, Lorg/simpleframework/xml/transform/CharacterArrayTransform;
@@ -96,9 +96,9 @@
     return-object v1
 
     :cond_2
-    new-instance v0, Lorg/simpleframework/xml/transform/StringArrayTransform;
+    new-instance v1, Lorg/simpleframework/xml/transform/StringArrayTransform;
 
-    invoke-direct {v0}, Lorg/simpleframework/xml/transform/StringArrayTransform;-><init>()V
+    invoke-direct {v1}, Lorg/simpleframework/xml/transform/StringArrayTransform;-><init>()V
 
-    return-object v0
+    return-object v1
 .end method

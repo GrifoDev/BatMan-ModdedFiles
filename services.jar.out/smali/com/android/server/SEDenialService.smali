@@ -6,8 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/SEDenialService$AuditFileObserver;,
-        Lcom/android/server/SEDenialService$WifiStateReceiver;
+        Lcom/android/server/SEDenialService$AuditFileObserver;
     }
 .end annotation
 
@@ -41,27 +40,11 @@
 
 .field private static final TAG:Ljava/lang/String; = "SecurityLogAgent:SEDenialService"
 
-.field private static final WIFI_RECEIVER_CLOSE_NOTIFICATION:Ljava/lang/String; = "samsung.intent.action.knox.WIFI_RECEIVER_CLOSE"
-
-.field private static final WIFI_STATE_CHANGED_INTENT:Ljava/lang/String; = "android.net.wifi.WIFI_STATE_CHANGED"
-
-.field private static final WIFI_STATE_CHANGED_NOTIFICATION:Ljava/lang/String; = "samsung.intent.action.knox.WIFI_STATE_CHANGED"
-
-.field private static final WIFI_STATE_DISABLED:I = 0x1
-
-.field private static final WIFI_STATE_DISABLING:I = 0x0
-
-.field private static final WIFI_STATE_ENABLED:I = 0x3
-
-.field private static final WIFI_STATE_ENABLING:I = 0x2
-
 
 # instance fields
 .field private auditObserver:Lcom/android/server/SEDenialService$AuditFileObserver;
 
 .field private final mContext:Landroid/content/Context;
-
-.field private mWifiStateReceiver:Lcom/android/server/SEDenialService$WifiStateReceiver;
 
 
 # direct methods
@@ -69,14 +52,6 @@
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/SEDenialService;->mContext:Landroid/content/Context;
-
-    return-object v0
-.end method
-
-.method static synthetic -get1(Lcom/android/server/SEDenialService;)Lcom/android/server/SEDenialService$WifiStateReceiver;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/SEDenialService;->mWifiStateReceiver:Lcom/android/server/SEDenialService$WifiStateReceiver;
 
     return-object v0
 .end method
@@ -107,12 +82,6 @@
     iget-object v0, p0, Lcom/android/server/SEDenialService;->auditObserver:Lcom/android/server/SEDenialService$AuditFileObserver;
 
     invoke-virtual {v0}, Lcom/android/server/SEDenialService$AuditFileObserver;->startWatching()V
-
-    new-instance v0, Lcom/android/server/SEDenialService$WifiStateReceiver;
-
-    invoke-direct {v0, p0}, Lcom/android/server/SEDenialService$WifiStateReceiver;-><init>(Lcom/android/server/SEDenialService;)V
-
-    iput-object v0, p0, Lcom/android/server/SEDenialService;->mWifiStateReceiver:Lcom/android/server/SEDenialService$WifiStateReceiver;
 
     return-void
 .end method

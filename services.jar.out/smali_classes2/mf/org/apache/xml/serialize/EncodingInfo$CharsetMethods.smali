@@ -45,81 +45,81 @@
     sput-boolean v7, Lmf/org/apache/xml/serialize/EncodingInfo$CharsetMethods;->fgNIOCharsetAvailable:Z
 
     :try_start_0
-    const-string/jumbo v0, "java.nio.charset.Charset"
+    const-string/jumbo v3, "java.nio.charset.Charset"
 
-    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-static {v3}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v0
 
-    const-string/jumbo v1, "java.nio.charset.CharsetEncoder"
+    const-string/jumbo v3, "java.nio.charset.CharsetEncoder"
 
-    invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-static {v3}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v1
-
-    const-string/jumbo v2, "forName"
 
     const/4 v3, 0x1
 
     new-array v3, v3, [Ljava/lang/Class;
 
-    const/4 v4, 0x0
+    const-class v4, Ljava/lang/String;
 
-    const-class v5, Ljava/lang/String;
+    const/4 v5, 0x0
 
-    aput-object v5, v3, v4
+    aput-object v4, v3, v5
 
-    invoke-virtual {v0, v2, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    const-string/jumbo v4, "forName"
 
-    move-result-object v2
+    invoke-virtual {v0, v4, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    sput-object v2, Lmf/org/apache/xml/serialize/EncodingInfo$CharsetMethods;->fgCharsetForNameMethod:Ljava/lang/reflect/Method;
+    move-result-object v3
 
-    const-string/jumbo v2, "canEncode"
-
-    const/4 v3, 0x0
-
-    new-array v3, v3, [Ljava/lang/Class;
-
-    invoke-virtual {v0, v2, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v2
-
-    sput-object v2, Lmf/org/apache/xml/serialize/EncodingInfo$CharsetMethods;->fgCharsetCanEncodeMethod:Ljava/lang/reflect/Method;
-
-    const-string/jumbo v2, "newEncoder"
+    sput-object v3, Lmf/org/apache/xml/serialize/EncodingInfo$CharsetMethods;->fgCharsetForNameMethod:Ljava/lang/reflect/Method;
 
     const/4 v3, 0x0
 
     new-array v3, v3, [Ljava/lang/Class;
 
-    invoke-virtual {v0, v2, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    const-string/jumbo v4, "canEncode"
 
-    move-result-object v0
+    invoke-virtual {v0, v4, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    sput-object v0, Lmf/org/apache/xml/serialize/EncodingInfo$CharsetMethods;->fgCharsetNewEncoderMethod:Ljava/lang/reflect/Method;
+    move-result-object v3
 
-    const-string/jumbo v0, "canEncode"
-
-    const/4 v2, 0x1
-
-    new-array v2, v2, [Ljava/lang/Class;
+    sput-object v3, Lmf/org/apache/xml/serialize/EncodingInfo$CharsetMethods;->fgCharsetCanEncodeMethod:Ljava/lang/reflect/Method;
 
     const/4 v3, 0x0
+
+    new-array v3, v3, [Ljava/lang/Class;
+
+    const-string/jumbo v4, "newEncoder"
+
+    invoke-virtual {v0, v4, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v3
+
+    sput-object v3, Lmf/org/apache/xml/serialize/EncodingInfo$CharsetMethods;->fgCharsetNewEncoderMethod:Ljava/lang/reflect/Method;
+
+    const/4 v3, 0x1
+
+    new-array v3, v3, [Ljava/lang/Class;
 
     sget-object v4, Ljava/lang/Character;->TYPE:Ljava/lang/Class;
 
-    aput-object v4, v2, v3
+    const/4 v5, 0x0
 
-    invoke-virtual {v1, v0, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    aput-object v4, v3, v5
 
-    move-result-object v0
+    const-string/jumbo v4, "canEncode"
 
-    sput-object v0, Lmf/org/apache/xml/serialize/EncodingInfo$CharsetMethods;->fgCharsetEncoderCanEncodeMethod:Ljava/lang/reflect/Method;
+    invoke-virtual {v1, v4, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    const/4 v0, 0x1
+    move-result-object v3
 
-    sput-boolean v0, Lmf/org/apache/xml/serialize/EncodingInfo$CharsetMethods;->fgNIOCharsetAvailable:Z
+    sput-object v3, Lmf/org/apache/xml/serialize/EncodingInfo$CharsetMethods;->fgCharsetEncoderCanEncodeMethod:Ljava/lang/reflect/Method;
+
+    const/4 v3, 0x1
+
+    sput-boolean v3, Lmf/org/apache/xml/serialize/EncodingInfo$CharsetMethods;->fgNIOCharsetAvailable:Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -127,7 +127,7 @@
     return-void
 
     :catch_0
-    move-exception v0
+    move-exception v2
 
     sput-object v6, Lmf/org/apache/xml/serialize/EncodingInfo$CharsetMethods;->fgCharsetForNameMethod:Ljava/lang/reflect/Method;
 

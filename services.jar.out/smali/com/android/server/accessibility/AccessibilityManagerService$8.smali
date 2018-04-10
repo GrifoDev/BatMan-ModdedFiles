@@ -41,7 +41,7 @@
 
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$8;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    invoke-static {v0, v2}, Lcom/android/server/accessibility/AccessibilityManagerService;->-wrap28(Lcom/android/server/accessibility/AccessibilityManagerService;Z)V
+    invoke-static {v0, v2}, Lcom/android/server/accessibility/AccessibilityManagerService;->-wrap31(Lcom/android/server/accessibility/AccessibilityManagerService;Z)V
 
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$8;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 

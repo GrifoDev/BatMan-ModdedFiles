@@ -60,37 +60,37 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    iget-object v3, p0, Lorg/simpleframework/xml/stream/PullReader;->parser:Lorg/xmlpull/v1/XmlPullParser;
 
-    iget-object v1, p0, Lorg/simpleframework/xml/stream/PullReader;->parser:Lorg/xmlpull/v1/XmlPullParser;
+    invoke-interface {v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
 
-    invoke-interface {v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeCount()I
+    move-result v0
 
-    move-result v1
+    const/4 v2, 0x0
 
     :goto_0
-    if-lt v0, v1, :cond_0
+    if-lt v2, v0, :cond_0
 
     return-object p1
 
     :cond_0
-    invoke-direct {p0, v0}, Lorg/simpleframework/xml/stream/PullReader;->attribute(I)Lorg/simpleframework/xml/stream/PullReader$Entry;
+    invoke-direct {p0, v2}, Lorg/simpleframework/xml/stream/PullReader;->attribute(I)Lorg/simpleframework/xml/stream/PullReader$Entry;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Lorg/simpleframework/xml/stream/PullReader$Entry;->isReserved()Z
+    invoke-virtual {v1}, Lorg/simpleframework/xml/stream/PullReader$Entry;->isReserved()Z
 
     move-result v3
 
     if-eqz v3, :cond_1
 
     :goto_1
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {p1, v2}, Lorg/simpleframework/xml/stream/PullReader$Start;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Lorg/simpleframework/xml/stream/PullReader$Start;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 .end method
@@ -120,9 +120,9 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/stream/PullReader;->parser:Lorg/xmlpull/v1/XmlPullParser;
+    iget-object v1, p0, Lorg/simpleframework/xml/stream/PullReader;->parser:Lorg/xmlpull/v1/XmlPullParser;
 
-    invoke-interface {v0}, Lorg/xmlpull/v1/XmlPullParser;->next()I
+    invoke-interface {v1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v0
 
@@ -130,9 +130,9 @@
 
     if-ne v0, v1, :cond_0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 
     :cond_0
     const/4 v1, 0x2
@@ -149,30 +149,30 @@
 
     invoke-direct {p0}, Lorg/simpleframework/xml/stream/PullReader;->read()Lorg/simpleframework/xml/stream/EventNode;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_1
     invoke-direct {p0}, Lorg/simpleframework/xml/stream/PullReader;->start()Lorg/simpleframework/xml/stream/PullReader$Start;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_2
     invoke-direct {p0}, Lorg/simpleframework/xml/stream/PullReader;->text()Lorg/simpleframework/xml/stream/PullReader$Text;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_3
     invoke-direct {p0}, Lorg/simpleframework/xml/stream/PullReader;->end()Lorg/simpleframework/xml/stream/PullReader$End;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method private start()Lorg/simpleframework/xml/stream/PullReader$Start;
@@ -200,9 +200,9 @@
     :cond_0
     invoke-direct {p0, v0}, Lorg/simpleframework/xml/stream/PullReader;->build(Lorg/simpleframework/xml/stream/PullReader$Start;)Lorg/simpleframework/xml/stream/PullReader$Start;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method private text()Lorg/simpleframework/xml/stream/PullReader$Text;

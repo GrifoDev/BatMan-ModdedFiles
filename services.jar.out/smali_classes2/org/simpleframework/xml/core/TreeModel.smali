@@ -143,84 +143,84 @@
 .end method
 
 .method private validateAttributes(Ljava/lang/Class;)V
-    .locals 5
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/TreeModel;->attributes:Lorg/simpleframework/xml/core/LabelMap;
+    iget-object v4, p0, Lorg/simpleframework/xml/core/TreeModel;->attributes:Lorg/simpleframework/xml/core/LabelMap;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/LabelMap;->keySet()Ljava/util/Set;
+    invoke-virtual {v4}, Lorg/simpleframework/xml/core/LabelMap;->keySet()Ljava/util/Set;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
     :cond_0
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result v4
 
-    if-nez v0, :cond_1
+    if-nez v4, :cond_1
 
     return-void
 
     :cond_1
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v3
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v3, Ljava/lang/String;
 
-    iget-object v1, p0, Lorg/simpleframework/xml/core/TreeModel;->attributes:Lorg/simpleframework/xml/core/LabelMap;
+    iget-object v4, p0, Lorg/simpleframework/xml/core/TreeModel;->attributes:Lorg/simpleframework/xml/core/LabelMap;
 
-    invoke-virtual {v1, v0}, Lorg/simpleframework/xml/core/LabelMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v3}, Lorg/simpleframework/xml/core/LabelMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Lorg/simpleframework/xml/core/Label;
+    check-cast v2, Lorg/simpleframework/xml/core/Label;
 
-    if-eqz v1, :cond_2
+    if-eqz v2, :cond_2
 
-    iget-object v1, p0, Lorg/simpleframework/xml/core/TreeModel;->expression:Lorg/simpleframework/xml/core/Expression;
+    iget-object v4, p0, Lorg/simpleframework/xml/core/TreeModel;->expression:Lorg/simpleframework/xml/core/Expression;
 
-    if-eqz v1, :cond_0
+    if-eqz v4, :cond_0
 
-    iget-object v1, p0, Lorg/simpleframework/xml/core/TreeModel;->expression:Lorg/simpleframework/xml/core/Expression;
+    iget-object v4, p0, Lorg/simpleframework/xml/core/TreeModel;->expression:Lorg/simpleframework/xml/core/Expression;
 
-    invoke-interface {v1, v0}, Lorg/simpleframework/xml/core/Expression;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v4, v3}, Lorg/simpleframework/xml/core/Expression;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_0
 
     :cond_2
-    new-instance v1, Lorg/simpleframework/xml/core/AttributeException;
+    new-instance v4, Lorg/simpleframework/xml/core/AttributeException;
 
-    const-string/jumbo v2, "Ordered attribute \'%s\' does not exist in %s"
+    const/4 v5, 0x2
 
-    const/4 v3, 0x2
+    new-array v5, v5, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    aput-object v3, v5, v6
 
-    aput-object v0, v3, v4
+    const/4 v6, 0x1
 
-    const/4 v0, 0x1
+    aput-object p1, v5, v6
 
-    aput-object p1, v3, v0
+    const-string/jumbo v6, "Ordered attribute \'%s\' does not exist in %s"
 
-    invoke-direct {v1, v2, v3}, Lorg/simpleframework/xml/core/AttributeException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v4, v6, v5}, Lorg/simpleframework/xml/core/AttributeException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    throw v1
+    throw v4
 .end method
 
 .method private validateElements(Ljava/lang/Class;)V
-    .locals 7
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -229,112 +229,112 @@
 
     const/4 v6, 0x2
 
-    const/4 v5, 0x1
+    const/4 v8, 0x1
 
-    const/4 v4, 0x0
+    const/4 v7, 0x0
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/TreeModel;->elements:Lorg/simpleframework/xml/core/LabelMap;
+    iget-object v5, p0, Lorg/simpleframework/xml/core/TreeModel;->elements:Lorg/simpleframework/xml/core/LabelMap;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/LabelMap;->keySet()Ljava/util/Set;
+    invoke-virtual {v5}, Lorg/simpleframework/xml/core/LabelMap;->keySet()Ljava/util/Set;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v3
-
     :cond_0
     :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result v5
 
-    if-nez v0, :cond_1
+    if-nez v5, :cond_1
 
     return-void
 
     :cond_1
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v4
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v4, Ljava/lang/String;
 
-    iget-object v1, p0, Lorg/simpleframework/xml/core/TreeModel;->models:Lorg/simpleframework/xml/core/ModelMap;
+    iget-object v5, p0, Lorg/simpleframework/xml/core/TreeModel;->models:Lorg/simpleframework/xml/core/ModelMap;
 
-    invoke-virtual {v1, v0}, Lorg/simpleframework/xml/core/ModelMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, v4}, Lorg/simpleframework/xml/core/ModelMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v3
 
-    check-cast v1, Lorg/simpleframework/xml/core/ModelList;
+    check-cast v3, Lorg/simpleframework/xml/core/ModelList;
 
-    iget-object v2, p0, Lorg/simpleframework/xml/core/TreeModel;->elements:Lorg/simpleframework/xml/core/LabelMap;
+    iget-object v5, p0, Lorg/simpleframework/xml/core/TreeModel;->elements:Lorg/simpleframework/xml/core/LabelMap;
 
-    invoke-virtual {v2, v0}, Lorg/simpleframework/xml/core/LabelMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, v4}, Lorg/simpleframework/xml/core/LabelMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lorg/simpleframework/xml/core/Label;
 
-    if-eqz v1, :cond_4
+    if-eqz v3, :cond_4
 
     :cond_2
-    if-nez v1, :cond_5
+    if-nez v3, :cond_5
 
     :cond_3
-    iget-object v1, p0, Lorg/simpleframework/xml/core/TreeModel;->expression:Lorg/simpleframework/xml/core/Expression;
+    iget-object v5, p0, Lorg/simpleframework/xml/core/TreeModel;->expression:Lorg/simpleframework/xml/core/Expression;
 
-    if-eqz v1, :cond_0
+    if-eqz v5, :cond_0
 
-    iget-object v1, p0, Lorg/simpleframework/xml/core/TreeModel;->expression:Lorg/simpleframework/xml/core/Expression;
+    iget-object v5, p0, Lorg/simpleframework/xml/core/TreeModel;->expression:Lorg/simpleframework/xml/core/Expression;
 
-    invoke-interface {v1, v0}, Lorg/simpleframework/xml/core/Expression;->getElement(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v5, v4}, Lorg/simpleframework/xml/core/Expression;->getElement(Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_0
 
     :cond_4
     if-nez v2, :cond_2
 
-    new-instance v1, Lorg/simpleframework/xml/core/ElementException;
+    new-instance v5, Lorg/simpleframework/xml/core/ElementException;
 
-    const-string/jumbo v2, "Ordered element \'%s\' does not exist in %s"
+    new-array v6, v6, [Ljava/lang/Object;
 
-    new-array v3, v6, [Ljava/lang/Object;
+    aput-object v4, v6, v7
 
-    aput-object v0, v3, v4
+    aput-object p1, v6, v8
 
-    aput-object p1, v3, v5
+    const-string/jumbo v7, "Ordered element \'%s\' does not exist in %s"
 
-    invoke-direct {v1, v2, v3}, Lorg/simpleframework/xml/core/ElementException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v5, v7, v6}, Lorg/simpleframework/xml/core/ElementException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    throw v1
+    throw v5
 
     :cond_5
     if-eqz v2, :cond_3
 
-    invoke-virtual {v1}, Lorg/simpleframework/xml/core/ModelList;->isEmpty()Z
+    invoke-virtual {v3}, Lorg/simpleframework/xml/core/ModelList;->isEmpty()Z
 
-    move-result v1
+    move-result v5
 
-    if-nez v1, :cond_3
+    if-nez v5, :cond_3
 
-    new-instance v1, Lorg/simpleframework/xml/core/ElementException;
+    new-instance v5, Lorg/simpleframework/xml/core/ElementException;
 
-    const-string/jumbo v2, "Element \'%s\' is also a path name in %s"
+    new-array v6, v6, [Ljava/lang/Object;
 
-    new-array v3, v6, [Ljava/lang/Object;
+    aput-object v4, v6, v7
 
-    aput-object v0, v3, v4
+    aput-object p1, v6, v8
 
-    aput-object p1, v3, v5
+    const-string/jumbo v7, "Element \'%s\' is also a path name in %s"
 
-    invoke-direct {v1, v2, v3}, Lorg/simpleframework/xml/core/ElementException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v5, v7, v6}, Lorg/simpleframework/xml/core/ElementException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    throw v1
+    throw v5
 .end method
 
 .method private validateExpression(Lorg/simpleframework/xml/core/Label;)V
-    .locals 6
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -345,256 +345,249 @@
 
     invoke-interface {p1}, Lorg/simpleframework/xml/core/Label;->getExpression()Lorg/simpleframework/xml/core/Expression;
 
-    move-result-object v0
+    move-result-object v1
 
-    iget-object v1, p0, Lorg/simpleframework/xml/core/TreeModel;->expression:Lorg/simpleframework/xml/core/Expression;
+    iget-object v3, p0, Lorg/simpleframework/xml/core/TreeModel;->expression:Lorg/simpleframework/xml/core/Expression;
 
-    if-nez v1, :cond_1
+    if-nez v3, :cond_1
 
-    iput-object v0, p0, Lorg/simpleframework/xml/core/TreeModel;->expression:Lorg/simpleframework/xml/core/Expression;
+    iput-object v1, p0, Lorg/simpleframework/xml/core/TreeModel;->expression:Lorg/simpleframework/xml/core/Expression;
 
     :cond_0
     return-void
 
     :cond_1
-    iget-object v1, p0, Lorg/simpleframework/xml/core/TreeModel;->expression:Lorg/simpleframework/xml/core/Expression;
+    iget-object v3, p0, Lorg/simpleframework/xml/core/TreeModel;->expression:Lorg/simpleframework/xml/core/Expression;
+
+    invoke-interface {v3}, Lorg/simpleframework/xml/core/Expression;->getPath()Ljava/lang/String;
+
+    move-result-object v2
 
     invoke-interface {v1}, Lorg/simpleframework/xml/core/Expression;->getPath()Ljava/lang/String;
 
-    move-result-object v1
-
-    invoke-interface {v0}, Lorg/simpleframework/xml/core/Expression;->getPath()Ljava/lang/String;
-
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_0
+    if-nez v3, :cond_0
 
-    new-instance v2, Lorg/simpleframework/xml/core/PathException;
-
-    const-string/jumbo v3, "Path \'%s\' does not match \'%s\' in %s"
+    new-instance v3, Lorg/simpleframework/xml/core/PathException;
 
     const/4 v4, 0x3
 
     new-array v4, v4, [Ljava/lang/Object;
 
-    aput-object v1, v4, v5
+    aput-object v2, v4, v5
 
-    const/4 v1, 0x1
+    const/4 v5, 0x1
 
-    aput-object v0, v4, v1
+    aput-object v0, v4, v5
 
-    const/4 v0, 0x2
+    iget-object v5, p0, Lorg/simpleframework/xml/core/TreeModel;->detail:Lorg/simpleframework/xml/core/Detail;
 
-    iget-object v1, p0, Lorg/simpleframework/xml/core/TreeModel;->detail:Lorg/simpleframework/xml/core/Detail;
+    const/4 v6, 0x2
 
-    aput-object v1, v4, v0
+    aput-object v5, v4, v6
 
-    invoke-direct {v2, v3, v4}, Lorg/simpleframework/xml/core/PathException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v5, "Path \'%s\' does not match \'%s\' in %s"
 
-    throw v2
+    invoke-direct {v3, v5, v4}, Lorg/simpleframework/xml/core/PathException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v3
 .end method
 
 .method private validateExpressions(Ljava/lang/Class;)V
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/TreeModel;->elements:Lorg/simpleframework/xml/core/LabelMap;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/TreeModel;->elements:Lorg/simpleframework/xml/core/LabelMap;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/LabelMap;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v2}, Lorg/simpleframework/xml/core/LabelMap;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v0
 
     :cond_0
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_2
+    if-nez v2, :cond_2
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/TreeModel;->attributes:Lorg/simpleframework/xml/core/LabelMap;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/TreeModel;->attributes:Lorg/simpleframework/xml/core/LabelMap;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/LabelMap;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v2}, Lorg/simpleframework/xml/core/LabelMap;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v0
 
     :cond_1
     :goto_1
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_3
+    if-nez v2, :cond_3
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/TreeModel;->text:Lorg/simpleframework/xml/core/Label;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/TreeModel;->text:Lorg/simpleframework/xml/core/Label;
 
-    if-nez v0, :cond_4
+    if-nez v2, :cond_4
 
     :goto_2
     return-void
 
     :cond_2
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lorg/simpleframework/xml/core/Label;
+    check-cast v1, Lorg/simpleframework/xml/core/Label;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    invoke-direct {p0, v0}, Lorg/simpleframework/xml/core/TreeModel;->validateExpression(Lorg/simpleframework/xml/core/Label;)V
+    invoke-direct {p0, v1}, Lorg/simpleframework/xml/core/TreeModel;->validateExpression(Lorg/simpleframework/xml/core/Label;)V
 
     goto :goto_0
 
     :cond_3
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lorg/simpleframework/xml/core/Label;
+    check-cast v1, Lorg/simpleframework/xml/core/Label;
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
-    invoke-direct {p0, v0}, Lorg/simpleframework/xml/core/TreeModel;->validateExpression(Lorg/simpleframework/xml/core/Label;)V
+    invoke-direct {p0, v1}, Lorg/simpleframework/xml/core/TreeModel;->validateExpression(Lorg/simpleframework/xml/core/Label;)V
 
     goto :goto_1
 
     :cond_4
-    iget-object v0, p0, Lorg/simpleframework/xml/core/TreeModel;->text:Lorg/simpleframework/xml/core/Label;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/TreeModel;->text:Lorg/simpleframework/xml/core/Label;
 
-    invoke-direct {p0, v0}, Lorg/simpleframework/xml/core/TreeModel;->validateExpression(Lorg/simpleframework/xml/core/Label;)V
+    invoke-direct {p0, v2}, Lorg/simpleframework/xml/core/TreeModel;->validateExpression(Lorg/simpleframework/xml/core/Label;)V
 
     goto :goto_2
 .end method
 
 .method private validateModels(Ljava/lang/Class;)V
-    .locals 9
+    .locals 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v2, 0x1
+    const/4 v10, 0x0
 
-    const/4 v8, 0x0
+    iget-object v8, p0, Lorg/simpleframework/xml/core/TreeModel;->models:Lorg/simpleframework/xml/core/ModelMap;
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/TreeModel;->models:Lorg/simpleframework/xml/core/ModelMap;
+    invoke-virtual {v8}, Lorg/simpleframework/xml/core/ModelMap;->iterator()Ljava/util/Iterator;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/ModelMap;->iterator()Ljava/util/Iterator;
-
-    move-result-object v4
+    move-result-object v2
 
     :cond_0
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result v8
 
-    if-nez v0, :cond_1
+    if-nez v8, :cond_1
 
     return-void
 
     :cond_1
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lorg/simpleframework/xml/core/ModelList;
-
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/ModelList;->iterator()Ljava/util/Iterator;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v5
 
-    move v1, v2
+    check-cast v5, Lorg/simpleframework/xml/core/ModelList;
 
-    :goto_0
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+    const/4 v0, 0x1
 
-    move-result v0
+    invoke-virtual {v5}, Lorg/simpleframework/xml/core/ModelList;->iterator()Ljava/util/Iterator;
 
-    if-eqz v0, :cond_0
-
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lorg/simpleframework/xml/core/Model;
-
-    if-nez v0, :cond_2
-
-    move v0, v1
-
-    :goto_1
-    move v1, v0
-
-    goto :goto_0
+    move-result-object v3
 
     :cond_2
-    invoke-interface {v0}, Lorg/simpleframework/xml/core/Model;->getName()Ljava/lang/String;
+    :goto_0
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_0
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v6
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/core/Model;->getIndex()I
+    check-cast v6, Lorg/simpleframework/xml/core/Model;
 
-    move-result v7
+    if-eqz v6, :cond_2
 
-    add-int/lit8 v3, v1, 0x1
+    invoke-interface {v6}, Lorg/simpleframework/xml/core/Model;->getName()Ljava/lang/String;
 
-    if-ne v7, v1, :cond_3
+    move-result-object v7
 
-    invoke-interface {v0, p1}, Lorg/simpleframework/xml/core/Model;->validate(Ljava/lang/Class;)V
+    invoke-interface {v6}, Lorg/simpleframework/xml/core/Model;->getIndex()I
 
-    move v0, v3
+    move-result v4
 
-    goto :goto_1
+    add-int/lit8 v1, v0, 0x1
+
+    if-ne v4, v0, :cond_3
+
+    invoke-interface {v6, p1}, Lorg/simpleframework/xml/core/Model;->validate(Ljava/lang/Class;)V
+
+    move v0, v1
+
+    goto :goto_0
 
     :cond_3
-    new-instance v0, Lorg/simpleframework/xml/core/ElementException;
+    new-instance v8, Lorg/simpleframework/xml/core/ElementException;
 
-    const-string/jumbo v1, "Path section \'%s[%s]\' is out of sequence in %s"
+    const/4 v9, 0x3
 
-    const/4 v3, 0x3
+    new-array v9, v9, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    aput-object v7, v9, v10
 
-    aput-object v6, v3, v8
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v10
 
-    move-result-object v4
+    const/4 v11, 0x1
 
-    aput-object v4, v3, v2
+    aput-object v10, v9, v11
 
-    const/4 v2, 0x2
+    const/4 v10, 0x2
 
-    aput-object p1, v3, v2
+    aput-object p1, v9, v10
 
-    invoke-direct {v0, v1, v3}, Lorg/simpleframework/xml/core/ElementException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v10, "Path section \'%s[%s]\' is out of sequence in %s"
 
-    throw v0
+    invoke-direct {v8, v10, v9}, Lorg/simpleframework/xml/core/ElementException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v8
 .end method
 
 .method private validateText(Ljava/lang/Class;)V
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v2, 0x2
+    const/4 v1, 0x2
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     iget-object v0, p0, Lorg/simpleframework/xml/core/TreeModel;->text:Lorg/simpleframework/xml/core/Label;
 
@@ -620,34 +613,34 @@
 
     new-instance v0, Lorg/simpleframework/xml/core/TextException;
 
-    const-string/jumbo v1, "Text annotation %s can not be used with paths in %s"
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/TreeModel;->text:Lorg/simpleframework/xml/core/Label;
 
-    iget-object v3, p0, Lorg/simpleframework/xml/core/TreeModel;->text:Lorg/simpleframework/xml/core/Label;
+    aput-object v2, v1, v3
 
-    aput-object v3, v2, v4
+    aput-object p1, v1, v4
 
-    aput-object p1, v2, v5
+    const-string/jumbo v2, "Text annotation %s can not be used with paths in %s"
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/core/TextException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v0, v2, v1}, Lorg/simpleframework/xml/core/TextException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
     throw v0
 
     :cond_2
     new-instance v0, Lorg/simpleframework/xml/core/TextException;
 
-    const-string/jumbo v1, "Text annotation %s used with elements in %s"
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/TreeModel;->text:Lorg/simpleframework/xml/core/Label;
 
-    iget-object v3, p0, Lorg/simpleframework/xml/core/TreeModel;->text:Lorg/simpleframework/xml/core/Label;
+    aput-object v2, v1, v3
 
-    aput-object v3, v2, v4
+    aput-object p1, v1, v4
 
-    aput-object p1, v2, v5
+    const-string/jumbo v2, "Text annotation %s used with elements in %s"
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/core/TextException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v0, v2, v1}, Lorg/simpleframework/xml/core/TextException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
     throw v0
 .end method
@@ -767,74 +760,72 @@
 .end method
 
 .method public isComposite()Z
-    .locals 5
+    .locals 7
 
-    const/4 v2, 0x1
+    const/4 v5, 0x1
 
-    const/4 v1, 0x0
+    const/4 v4, 0x0
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/TreeModel;->models:Lorg/simpleframework/xml/core/ModelMap;
+    iget-object v6, p0, Lorg/simpleframework/xml/core/TreeModel;->models:Lorg/simpleframework/xml/core/ModelMap;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/ModelMap;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v6}, Lorg/simpleframework/xml/core/ModelMap;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :cond_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v6
+
+    if-nez v6, :cond_1
+
+    iget-object v6, p0, Lorg/simpleframework/xml/core/TreeModel;->models:Lorg/simpleframework/xml/core/ModelMap;
+
+    invoke-virtual {v6}, Lorg/simpleframework/xml/core/ModelMap;->isEmpty()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_3
+
+    :goto_0
+    return v4
+
+    :cond_1
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lorg/simpleframework/xml/core/ModelList;
+
+    invoke-virtual {v2}, Lorg/simpleframework/xml/core/ModelList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :cond_2
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
-    :cond_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v3, Lorg/simpleframework/xml/core/Model;
 
-    move-result v0
+    if-eqz v3, :cond_2
 
-    if-nez v0, :cond_1
+    invoke-interface {v3}, Lorg/simpleframework/xml/core/Model;->isEmpty()Z
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/TreeModel;->models:Lorg/simpleframework/xml/core/ModelMap;
+    move-result v6
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/ModelMap;->isEmpty()Z
+    if-nez v6, :cond_2
 
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    move v0, v1
-
-    :goto_0
-    return v0
-
-    :cond_1
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lorg/simpleframework/xml/core/ModelList;
-
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/ModelList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v4
-
-    :cond_2
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lorg/simpleframework/xml/core/Model;
-
-    if-eqz v0, :cond_2
-
-    invoke-interface {v0}, Lorg/simpleframework/xml/core/Model;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    return v2
+    return v5
 
     :cond_3
-    move v0, v2
+    move v4, v5
 
     goto :goto_0
 .end method
@@ -913,7 +904,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -928,33 +919,33 @@
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/TreeModel;->order:Lorg/simpleframework/xml/core/TreeModel$OrderList;
+    iget-object v3, p0, Lorg/simpleframework/xml/core/TreeModel;->order:Lorg/simpleframework/xml/core/TreeModel$OrderList;
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/TreeModel$OrderList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v3}, Lorg/simpleframework/xml/core/TreeModel$OrderList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v0
 
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result v3
 
-    if-nez v0, :cond_0
+    if-nez v3, :cond_0
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object v3
 
-    return-object v0
+    return-object v3
 
     :cond_0
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v2, Ljava/lang/String;
 
-    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 .end method
@@ -972,58 +963,58 @@
 .end method
 
 .method public lookup(Lorg/simpleframework/xml/core/Expression;)Lorg/simpleframework/xml/core/Model;
-    .locals 3
+    .locals 5
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
     invoke-interface {p1}, Lorg/simpleframework/xml/core/Expression;->getFirst()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
     invoke-interface {p1}, Lorg/simpleframework/xml/core/Expression;->getIndex()I
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {p0, v0, v1}, Lorg/simpleframework/xml/core/TreeModel;->lookup(Ljava/lang/String;I)Lorg/simpleframework/xml/core/Model;
-
-    move-result-object v0
-
-    invoke-interface {p1}, Lorg/simpleframework/xml/core/Expression;->isPath()Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    :cond_0
-    return-object v0
-
-    :cond_1
-    const/4 v1, 0x1
-
-    invoke-interface {p1, v1, v2}, Lorg/simpleframework/xml/core/Expression;->getPath(II)Lorg/simpleframework/xml/core/Expression;
+    invoke-virtual {p0, v2, v0}, Lorg/simpleframework/xml/core/TreeModel;->lookup(Ljava/lang/String;I)Lorg/simpleframework/xml/core/Model;
 
     move-result-object v1
 
-    if-eqz v0, :cond_0
+    invoke-interface {p1}, Lorg/simpleframework/xml/core/Expression;->isPath()Z
 
-    invoke-interface {v0, v1}, Lorg/simpleframework/xml/core/Model;->lookup(Lorg/simpleframework/xml/core/Expression;)Lorg/simpleframework/xml/core/Model;
+    move-result v3
 
-    move-result-object v0
+    if-nez v3, :cond_1
 
-    return-object v0
+    :cond_0
+    return-object v1
+
+    :cond_1
+    const/4 v3, 0x1
+
+    invoke-interface {p1, v3, v4}, Lorg/simpleframework/xml/core/Expression;->getPath(II)Lorg/simpleframework/xml/core/Expression;
+
+    move-result-object p1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v1, p1}, Lorg/simpleframework/xml/core/Model;->lookup(Lorg/simpleframework/xml/core/Expression;)Lorg/simpleframework/xml/core/Model;
+
+    move-result-object v3
+
+    return-object v3
 .end method
 
 .method public register(Ljava/lang/String;Ljava/lang/String;I)Lorg/simpleframework/xml/core/Model;
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/TreeModel;->models:Lorg/simpleframework/xml/core/ModelMap;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/TreeModel;->models:Lorg/simpleframework/xml/core/ModelMap;
 
-    invoke-virtual {v0, p1, p3}, Lorg/simpleframework/xml/core/ModelMap;->lookup(Ljava/lang/String;I)Lorg/simpleframework/xml/core/Model;
+    invoke-virtual {v1, p1, p3}, Lorg/simpleframework/xml/core/ModelMap;->lookup(Ljava/lang/String;I)Lorg/simpleframework/xml/core/Model;
 
     move-result-object v0
 
@@ -1034,9 +1025,9 @@
     :cond_0
     invoke-direct {p0, p1, p2, p3}, Lorg/simpleframework/xml/core/TreeModel;->create(Ljava/lang/String;Ljava/lang/String;I)Lorg/simpleframework/xml/core/Model;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public register(Lorg/simpleframework/xml/core/Label;)V
@@ -1093,7 +1084,7 @@
 .end method
 
 .method public registerAttribute(Lorg/simpleframework/xml/core/Label;)V
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -1121,21 +1112,21 @@
     :cond_0
     new-instance v1, Lorg/simpleframework/xml/core/AttributeException;
 
-    const-string/jumbo v2, "Duplicate annotation of name \'%s\' on %s"
+    const/4 v2, 0x2
 
-    const/4 v3, 0x2
+    new-array v2, v2, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    aput-object v0, v2, v3
 
-    aput-object v0, v3, v4
+    const/4 v3, 0x1
 
-    const/4 v0, 0x1
+    aput-object p1, v2, v3
 
-    aput-object p1, v3, v0
+    const-string/jumbo v3, "Duplicate annotation of name \'%s\' on %s"
 
-    invoke-direct {v1, v2, v3}, Lorg/simpleframework/xml/core/AttributeException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v1, v3, v2}, Lorg/simpleframework/xml/core/AttributeException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
     throw v1
 .end method
@@ -1174,14 +1165,14 @@
 .end method
 
 .method public registerElement(Lorg/simpleframework/xml/core/Label;)V
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     invoke-interface {p1}, Lorg/simpleframework/xml/core/Label;->getName()Ljava/lang/String;
 
@@ -1220,19 +1211,19 @@
     :cond_0
     new-instance v1, Lorg/simpleframework/xml/core/ElementException;
 
-    const-string/jumbo v2, "Duplicate annotation of name \'%s\' on %s"
+    const/4 v2, 0x2
 
-    const/4 v3, 0x2
+    new-array v2, v2, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    aput-object v0, v2, v3
 
-    aput-object v0, v3, v4
+    const/4 v3, 0x1
 
-    const/4 v0, 0x1
+    aput-object p1, v2, v3
 
-    aput-object p1, v3, v0
+    const-string/jumbo v3, "Duplicate annotation of name \'%s\' on %s"
 
-    invoke-direct {v1, v2, v3}, Lorg/simpleframework/xml/core/ElementException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v1, v3, v2}, Lorg/simpleframework/xml/core/ElementException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
     throw v1
 
@@ -1250,7 +1241,7 @@
 .end method
 
 .method public registerText(Lorg/simpleframework/xml/core/Label;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -1268,47 +1259,47 @@
     :cond_0
     new-instance v0, Lorg/simpleframework/xml/core/TextException;
 
-    const-string/jumbo v1, "Duplicate text annotation on %s"
-
-    const/4 v2, 0x1
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    const/4 v3, 0x0
-
-    aput-object p1, v2, v3
-
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/core/TextException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
-
-    throw v0
-.end method
-
-.method public toString()Ljava/lang/String;
-    .locals 4
-
-    const-string/jumbo v0, "model \'%s[%s]\'"
-
-    const/4 v1, 0x2
+    const/4 v1, 0x1
 
     new-array v1, v1, [Ljava/lang/Object;
 
     const/4 v2, 0x0
 
-    iget-object v3, p0, Lorg/simpleframework/xml/core/TreeModel;->name:Ljava/lang/String;
+    aput-object p1, v1, v2
 
-    aput-object v3, v1, v2
+    const-string/jumbo v2, "Duplicate text annotation on %s"
+
+    invoke-direct {v0, v2, v1}, Lorg/simpleframework/xml/core/TextException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v0
+.end method
+
+.method public toString()Ljava/lang/String;
+    .locals 3
+
+    const/4 v0, 0x2
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    iget-object v1, p0, Lorg/simpleframework/xml/core/TreeModel;->name:Ljava/lang/String;
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    iget v1, p0, Lorg/simpleframework/xml/core/TreeModel;->index:I
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
 
     const/4 v2, 0x1
 
-    iget v3, p0, Lorg/simpleframework/xml/core/TreeModel;->index:I
+    aput-object v1, v0, v2
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const-string/jumbo v1, "model \'%s[%s]\'"
 
-    move-result-object v3
-
-    aput-object v3, v1, v2
-
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 

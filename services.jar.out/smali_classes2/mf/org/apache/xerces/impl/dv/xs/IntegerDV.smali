@@ -25,22 +25,20 @@
     const/4 v4, 0x1
 
     :try_start_0
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/DecimalDV$XDecimal;
+    new-instance v1, Lmf/org/apache/xerces/impl/dv/xs/DecimalDV$XDecimal;
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    invoke-direct {v0, p1, v1}, Lmf/org/apache/xerces/impl/dv/xs/DecimalDV$XDecimal;-><init>(Ljava/lang/String;Z)V
+    invoke-direct {v1, p1, v2}, Lmf/org/apache/xerces/impl/dv/xs/DecimalDV$XDecimal;-><init>(Ljava/lang/String;Z)V
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object v1
 
     :catch_0
     move-exception v0
 
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
-
-    const-string/jumbo v1, "cvc-datatype-valid.1.2.1"
+    new-instance v1, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
 
     const/4 v2, 0x2
 
@@ -54,7 +52,9 @@
 
     aput-object v3, v2, v4
 
-    invoke-direct {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v3, "cvc-datatype-valid.1.2.1"
 
-    throw v0
+    invoke-direct {v1, v3, v2}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v1
 .end method

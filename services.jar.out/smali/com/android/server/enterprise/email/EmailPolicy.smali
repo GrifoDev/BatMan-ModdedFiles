@@ -6,6 +6,14 @@
 .implements Lcom/android/server/enterprise/EnterpriseServiceCallback;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/server/enterprise/email/EmailPolicy$1;
+    }
+.end annotation
+
+
 # static fields
 .field private static final TAG:Ljava/lang/String; = "EmailPolicyService"
 
@@ -17,8 +25,18 @@
 
 .field mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
+.field private mUserRemovedReceiver:Landroid/content/BroadcastReceiver;
+
 
 # direct methods
+.method static synthetic -wrap0(Lcom/android/server/enterprise/email/EmailPolicy;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/enterprise/email/EmailPolicy;->onUserRemoved(I)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
 
@@ -27,6 +45,12 @@
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/enterprise/email/EmailPolicy;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
+
+    new-instance v0, Lcom/android/server/enterprise/email/EmailPolicy$1;
+
+    invoke-direct {v0, p0}, Lcom/android/server/enterprise/email/EmailPolicy$1;-><init>(Lcom/android/server/enterprise/email/EmailPolicy;)V
+
+    iput-object v0, p0, Lcom/android/server/enterprise/email/EmailPolicy;->mUserRemovedReceiver:Landroid/content/BroadcastReceiver;
 
     iput-object p1, p0, Lcom/android/server/enterprise/email/EmailPolicy;->mContext:Landroid/content/Context;
 
@@ -37,6 +61,8 @@
     invoke-direct {v0, v1}, Lcom/android/server/enterprise/storage/EdmStorageProvider;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/android/server/enterprise/email/EmailPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/email/EmailPolicy;->registerUserRemovedReceiver()V
 
     return-void
 .end method
@@ -207,11 +233,8 @@
 
     move-result v9
 
-    if-eqz v9, :cond_1
+    xor-int/lit8 v7, v9, 0x1
 
-    const/4 v7, 0x0
-
-    :goto_0
     if-eqz p2, :cond_0
 
     invoke-virtual {p2}, Ljava/lang/String;->isEmpty()Z
@@ -220,7 +243,7 @@
 
     if-nez v10, :cond_0
 
-    if-nez p3, :cond_2
+    if-nez p3, :cond_1
 
     :cond_0
     const-string/jumbo v10, "EmailPolicyService"
@@ -232,11 +255,6 @@
     return v9
 
     :cond_1
-    const/4 v7, 0x1
-
-    goto :goto_0
-
-    :cond_2
     invoke-virtual/range {p3 .. p3}, Ljava/lang/String;->isEmpty()Z
 
     move-result v10
@@ -247,7 +265,7 @@
 
     move-result v10
 
-    if-nez v10, :cond_3
+    if-nez v10, :cond_2
 
     const-string/jumbo v10, "EmailPolicyService"
 
@@ -257,7 +275,7 @@
 
     return v9
 
-    :cond_3
+    :cond_2
     const/4 v10, 0x1
 
     new-array v1, v10, [Ljava/lang/String;
@@ -303,15 +321,15 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_3
 
     invoke-interface {v8}, Ljava/util/List;->isEmpty()Z
 
     move-result v10
 
-    if-eqz v10, :cond_5
+    if-eqz v10, :cond_4
 
-    :cond_4
+    :cond_3
     return v9
 
     :catch_0
@@ -325,7 +343,7 @@
 
     return v9
 
-    :cond_5
+    :cond_4
     const-string/jumbo v10, "EmailPolicyService"
 
     const-string/jumbo v11, "getPolicyState() : keep going check result. "
@@ -336,12 +354,12 @@
 
     move-result-object v6
 
-    :cond_6
+    :cond_5
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_8
+    if-eqz v10, :cond_7
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -355,18 +373,18 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_5
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_6
 
     const-string/jumbo v10, "1"
 
-    :goto_1
+    :goto_0
     invoke-virtual {v3, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v10
 
-    if-eqz v10, :cond_6
+    if-eqz v10, :cond_5
 
     const-string/jumbo v10, "EmailPolicyService"
 
@@ -436,55 +454,77 @@
 
     return v7
 
-    :cond_7
+    :cond_6
     const-string/jumbo v10, "0"
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_8
-    const-string/jumbo v11, "EmailPolicyService"
+    :cond_7
+    const-string/jumbo v10, "EmailPolicyService"
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v12, "getPolicyState() : ret = "
 
-    invoke-virtual {v10, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v11
 
-    if-eqz v7, :cond_9
+    xor-int/lit8 v12, v7, 0x1
 
-    const/4 v10, 0x0
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    :goto_2
-    invoke-virtual {v12, v10}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-result-object v11
 
-    move-result-object v10
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v11
 
-    move-result-object v10
+    invoke-static {v10, v11}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-static {v11, v10}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
+    xor-int/lit8 v10, v7, 0x1
 
-    if-eqz v7, :cond_a
-
-    const/4 v10, 0x0
-
-    :goto_3
     return v10
+.end method
 
-    :cond_9
-    const/4 v10, 0x1
+.method private onUserRemoved(I)V
+    .locals 3
 
-    goto :goto_2
+    const-string/jumbo v0, "EmailPolicyService"
 
-    :cond_a
-    const/4 v10, 0x1
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    goto :goto_3
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "onUserRemoved() userId = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/server/enterprise/email/EmailPolicy;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v1, "content://com.sec.knox.provider2/EmailPolicy/isEmailNotificationsEnabled"
+
+    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/content/SecContentProvider;->notifyPolicyChangesAllUser(Landroid/content/Context;Landroid/net/Uri;)V
+
+    return-void
 .end method
 
 .method private putPolicyState(IILjava/lang/String;ZLjava/lang/String;)Z
@@ -688,6 +728,32 @@
     const-string/jumbo v3, "0"
 
     goto/16 :goto_0
+.end method
+
+.method private registerUserRemovedReceiver()V
+    .locals 6
+
+    const/4 v4, 0x0
+
+    new-instance v3, Landroid/content/IntentFilter;
+
+    invoke-direct {v3}, Landroid/content/IntentFilter;-><init>()V
+
+    const-string/jumbo v0, "android.intent.action.USER_REMOVED"
+
+    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/server/enterprise/email/EmailPolicy;->mContext:Landroid/content/Context;
+
+    iget-object v1, p0, Lcom/android/server/enterprise/email/EmailPolicy;->mUserRemovedReceiver:Landroid/content/BroadcastReceiver;
+
+    sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    move-object v5, v4
+
+    invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+
+    return-void
 .end method
 
 
@@ -1841,7 +1907,17 @@
 .end method
 
 .method public onAdminRemoved(I)V
-    .locals 0
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/enterprise/email/EmailPolicy;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v1, "content://com.sec.knox.provider2/EmailPolicy/isEmailNotificationsEnabled"
+
+    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/content/SecContentProvider;->notifyPolicyChangesAllUser(Landroid/content/Context;Landroid/net/Uri;)V
 
     return-void
 .end method
@@ -2149,7 +2225,7 @@
 
     iget-boolean v0, v6, Lcom/android/server/enterprise/email/AccountMetaData;->mIsEAS:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     :try_start_0
     const-string/jumbo v0, "eas_account_policy"
@@ -2162,7 +2238,7 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_2
 
     invoke-interface {v8, p1, p3, p4, p2}, Lcom/samsung/android/knox/accounts/IExchangeAccountPolicy;->setEmailNotificationsState(Lcom/samsung/android/knox/ContextInfo;JZ)Z
     :try_end_0
@@ -2236,9 +2312,22 @@
 
     invoke-static {v0, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v9
+    if-eqz v9, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/enterprise/email/EmailPolicy;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v3, "content://com.sec.knox.provider2/EmailPolicy/isEmailNotificationsEnabled"
+
+    invoke-static {v3}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-static {v0, v3}, Lcom/android/server/enterprise/content/SecContentProvider;->notifyPolicyChangesAllUser(Landroid/content/Context;Landroid/net/Uri;)V
 
     :cond_1
+    return v9
+
+    :cond_2
     const/4 v9, 0x0
 
     goto :goto_0
@@ -2256,7 +2345,7 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
     iget-object v3, v6, Lcom/android/server/enterprise/email/AccountMetaData;->mEmailAddress:Ljava/lang/String;
@@ -2275,7 +2364,17 @@
 .end method
 
 .method public systemReady()V
-    .locals 0
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/enterprise/email/EmailPolicy;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v1, "content://com.sec.knox.provider2/EmailPolicy/isEmailNotificationsEnabled"
+
+    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/content/SecContentProvider;->notifyPolicyChangesAllUser(Landroid/content/Context;Landroid/net/Uri;)V
 
     return-void
 .end method

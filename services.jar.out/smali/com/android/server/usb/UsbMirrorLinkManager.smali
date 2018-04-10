@@ -14,13 +14,7 @@
 # static fields
 .field private static final DEBUG:Z = true
 
-.field private static final MIRRORLINK_PERMISSION:Ljava/lang/String; = "com.samsung.android.permission.TMS_SERVICE_PERMISSION"
-
 .field private static final MIRRORLINK_START_ACTION:Ljava/lang/String; = "com.samsung.android.mirrorlink.action.ML_UEVENT"
-
-.field private static final ML_PKG_NAME:Ljava/lang/String; = "com.samsung.android.app.mirrorlink"
-
-.field private static final ML_UEVENT_RECEIVER:Ljava/lang/String; = "com.samsung.android.app.mirrorlink.NcmStartReceiver"
 
 .field private static final NCM_START_MATCH:Ljava/lang/String; = "DEVPATH=/devices/virtual/misc/usb_ncm"
 
@@ -70,14 +64,6 @@
     return-object p1
 .end method
 
-.method static synthetic -wrap0(Lcom/android/server/usb/UsbMirrorLinkManager;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/usb/UsbMirrorLinkManager;->sendMLBroadcast(Ljava/lang/String;)V
-
-    return-void
-.end method
-
 .method static constructor <clinit>()V
     .locals 1
 
@@ -114,54 +100,22 @@
     return-void
 .end method
 
-.method private sendMLBroadcast(Ljava/lang/String;)V
-    .locals 4
-
-    new-instance v0, Landroid/content/Intent;
-
-    const-string/jumbo v1, "com.samsung.android.mirrorlink.action.ML_UEVENT"
-
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    new-instance v1, Landroid/content/ComponentName;
-
-    const-string/jumbo v2, "com.samsung.android.app.mirrorlink"
-
-    const-string/jumbo v3, "com.samsung.android.app.mirrorlink.NcmStartReceiver"
-
-    invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
-
-    const-string/jumbo v1, "mirrorlink"
-
-    invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    iget-object v1, p0, Lcom/android/server/usb/UsbMirrorLinkManager;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v2, "com.samsung.android.permission.TMS_SERVICE_PERMISSION"
-
-    invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
-
-    return-void
-.end method
-
 
 # virtual methods
 .method public systemReady()V
-    .locals 13
+    .locals 14
 
-    new-instance v8, Ljava/lang/StringBuffer;
+    new-instance v9, Ljava/lang/StringBuffer;
 
-    const-string/jumbo v11, ""
+    const-string/jumbo v12, ""
 
-    invoke-direct {v8, v11}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
+    invoke-direct {v9, v12}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
     new-instance v5, Ljava/io/File;
 
-    const-string/jumbo v11, "/sys/class/android_usb/android0/terminal_version"
+    const-string/jumbo v12, "/sys/class/android_usb/android0/terminal_version"
 
-    invoke-direct {v5, v11}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5, v12}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     const/4 v3, 0x0
 
@@ -179,13 +133,13 @@
 
     move-result v0
 
-    const/4 v11, -0x1
+    const/4 v12, -0x1
 
-    if-eq v0, v11, :cond_2
+    if-eq v0, v12, :cond_2
 
-    int-to-char v11, v0
+    int-to-char v12, v0
 
-    invoke-virtual {v8, v11}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v9, v12}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
     :try_end_1
     .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_4
@@ -198,92 +152,104 @@
     move-object v3, v4
 
     :goto_1
-    sget-object v11, Lcom/android/server/usb/UsbMirrorLinkManager;->TAG:Ljava/lang/String;
+    sget-object v12, Lcom/android/server/usb/UsbMirrorLinkManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v12, "FileNotFoundException for not opening usb file"
+    const-string/jumbo v13, "FileNotFoundException for not opening usb file"
 
-    invoke-static {v11, v12}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v12, v13}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_2
-    new-instance v9, Ljava/util/StringTokenizer;
+    new-instance v10, Ljava/util/StringTokenizer;
 
-    invoke-virtual {v8}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    const-string/jumbo v13, " "
+
+    invoke-direct {v10, v12, v13}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v9, 0x0
+
+    invoke-virtual {v10}, Ljava/util/StringTokenizer;->hasMoreElements()Z
+
+    move-result v12
+
+    if-eqz v12, :cond_0
+
+    invoke-virtual {v10}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v11
 
-    const-string/jumbo v12, " "
+    const-string/jumbo v12, "major"
 
-    invoke-direct {v9, v11, v12}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v12, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const/4 v8, 0x0
+    move-result v12
 
-    invoke-virtual {v9}, Ljava/util/StringTokenizer;->hasMoreElements()Z
+    if-eqz v12, :cond_4
 
-    move-result v11
-
-    if-eqz v11, :cond_0
-
-    invoke-virtual {v9}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
-
-    move-result-object v10
-
-    const-string/jumbo v11, "major"
-
-    invoke-virtual {v11, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_4
-
-    invoke-virtual {v9}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v6
 
-    const-string/jumbo v11, "0"
+    const-string/jumbo v12, "0"
 
-    invoke-virtual {v11, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v12, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v11
+    move-result v12
 
-    if-eqz v11, :cond_3
+    if-eqz v12, :cond_3
 
-    invoke-virtual {v9}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v11
 
-    const-string/jumbo v11, "minor"
+    const-string/jumbo v12, "minor"
 
-    invoke-virtual {v11, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v12, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v11
+    move-result v12
 
-    if-eqz v11, :cond_0
+    if-eqz v12, :cond_0
 
-    invoke-virtual {v9}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v7
 
-    const-string/jumbo v11, "1"
+    const-string/jumbo v12, "1"
 
-    invoke-virtual {v11, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v12, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v11
+    move-result v12
 
-    if-eqz v11, :cond_0
+    if-eqz v12, :cond_0
 
-    sget-object v11, Lcom/android/server/usb/UsbMirrorLinkManager;->TAG:Ljava/lang/String;
+    sget-object v12, Lcom/android/server/usb/UsbMirrorLinkManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v12, "explicit systemReady terminal_version : major 0 minor 1"
+    const-string/jumbo v13, "systemReady terminal_version : major 0 minor 1"
 
-    invoke-static {v11, v12}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v12, v13}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v11, "START"
+    new-instance v8, Landroid/content/Intent;
 
-    invoke-direct {p0, v11}, Lcom/android/server/usb/UsbMirrorLinkManager;->sendMLBroadcast(Ljava/lang/String;)V
+    const-string/jumbo v12, "com.samsung.android.mirrorlink.action.ML_UEVENT"
+
+    invoke-direct {v8, v12}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v12, "mirrorlink"
+
+    const-string/jumbo v13, "START"
+
+    invoke-virtual {v8, v12, v13}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    iget-object v12, p0, Lcom/android/server/usb/UsbMirrorLinkManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v12, v8}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
     :cond_0
     :goto_3
-    const/4 v9, 0x0
+    const/4 v10, 0x0
 
     if-eqz v3, :cond_1
 
@@ -307,45 +273,57 @@
     move-exception v2
 
     :goto_5
-    sget-object v11, Lcom/android/server/usb/UsbMirrorLinkManager;->TAG:Ljava/lang/String;
+    sget-object v12, Lcom/android/server/usb/UsbMirrorLinkManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v12, "IOException for not opening usb file"
+    const-string/jumbo v13, "IOException for not opening usb file"
 
-    invoke-static {v11, v12}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v12, v13}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_2
 
     :cond_3
-    invoke-virtual {v9}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v11
 
-    const-string/jumbo v11, "minor"
+    const-string/jumbo v12, "minor"
 
-    invoke-virtual {v11, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v12, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v11
+    move-result v12
 
-    if-eqz v11, :cond_0
+    if-eqz v12, :cond_0
 
-    sget-object v11, Lcom/android/server/usb/UsbMirrorLinkManager;->TAG:Ljava/lang/String;
+    sget-object v12, Lcom/android/server/usb/UsbMirrorLinkManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v12, "explicit systemReady terminal_version : major 1 minor"
+    const-string/jumbo v13, "systemReady terminal_version : major 1 minor"
 
-    invoke-static {v11, v12}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v12, v13}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v11, "START"
+    new-instance v8, Landroid/content/Intent;
 
-    invoke-direct {p0, v11}, Lcom/android/server/usb/UsbMirrorLinkManager;->sendMLBroadcast(Ljava/lang/String;)V
+    const-string/jumbo v12, "com.samsung.android.mirrorlink.action.ML_UEVENT"
+
+    invoke-direct {v8, v12}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v12, "mirrorlink"
+
+    const-string/jumbo v13, "START"
+
+    invoke-virtual {v8, v12, v13}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    iget-object v12, p0, Lcom/android/server/usb/UsbMirrorLinkManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v12, v8}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
     goto :goto_3
 
     :cond_4
-    sget-object v11, Lcom/android/server/usb/UsbMirrorLinkManager;->TAG:Ljava/lang/String;
+    sget-object v12, Lcom/android/server/usb/UsbMirrorLinkManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v12, "systemReady major version is not present"
+    const-string/jumbo v13, "systemReady major version is not present"
 
-    invoke-static {v11, v12}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v12, v13}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_3
 

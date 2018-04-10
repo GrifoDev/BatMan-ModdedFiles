@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/server/input/InputManagerService$6;->this$0:Lcom/android/server/input/InputManagerService;
 
-    invoke-static {v0}, Lcom/android/server/input/InputManagerService;->-wrap17(Lcom/android/server/input/InputManagerService;)V
+    invoke-static {v0}, Lcom/android/server/input/InputManagerService;->-wrap26(Lcom/android/server/input/InputManagerService;)V
 
     return-void
 .end method

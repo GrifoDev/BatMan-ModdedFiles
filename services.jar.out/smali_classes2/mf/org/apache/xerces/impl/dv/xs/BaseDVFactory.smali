@@ -37,819 +37,1093 @@
 .end method
 
 .method static createBuiltInTypes(Lmf/org/apache/xerces/util/SymbolHash;)V
-    .locals 14
+    .locals 55
 
-    const-string/jumbo v0, "anySimpleType"
+    const-string/jumbo v27, "anySimpleType"
 
-    const-string/jumbo v0, "anyURI"
+    const-string/jumbo v28, "anyURI"
 
-    const-string/jumbo v0, "base64Binary"
+    const-string/jumbo v29, "base64Binary"
 
-    const-string/jumbo v0, "boolean"
+    const-string/jumbo v30, "boolean"
 
-    const-string/jumbo v0, "byte"
+    const-string/jumbo v31, "byte"
 
-    const-string/jumbo v0, "date"
+    const-string/jumbo v32, "date"
 
-    const-string/jumbo v0, "dateTime"
+    const-string/jumbo v33, "dateTime"
 
-    const-string/jumbo v0, "gDay"
+    const-string/jumbo v34, "gDay"
 
-    const-string/jumbo v0, "decimal"
+    const-string/jumbo v35, "decimal"
 
-    const-string/jumbo v0, "int"
+    const-string/jumbo v36, "int"
 
-    const-string/jumbo v0, "integer"
+    const-string/jumbo v37, "integer"
 
-    const-string/jumbo v0, "long"
+    const-string/jumbo v38, "long"
 
-    const-string/jumbo v0, "negativeInteger"
+    const-string/jumbo v41, "negativeInteger"
 
-    const-string/jumbo v0, "gMonth"
+    const-string/jumbo v39, "gMonth"
 
-    const-string/jumbo v0, "gMonthDay"
+    const-string/jumbo v40, "gMonthDay"
 
-    const-string/jumbo v0, "nonNegativeInteger"
+    const-string/jumbo v42, "nonNegativeInteger"
 
-    const-string/jumbo v0, "nonPositiveInteger"
+    const-string/jumbo v43, "nonPositiveInteger"
 
-    const-string/jumbo v0, "positiveInteger"
+    const-string/jumbo v44, "positiveInteger"
 
-    const-string/jumbo v0, "short"
+    const-string/jumbo v45, "short"
 
-    const-string/jumbo v0, "string"
+    const-string/jumbo v46, "string"
 
-    const-string/jumbo v0, "time"
+    const-string/jumbo v47, "time"
 
-    const-string/jumbo v0, "unsignedByte"
+    const-string/jumbo v48, "unsignedByte"
 
-    const-string/jumbo v0, "unsignedInt"
+    const-string/jumbo v49, "unsignedInt"
 
-    const-string/jumbo v0, "unsignedLong"
+    const-string/jumbo v50, "unsignedLong"
 
-    const-string/jumbo v0, "unsignedShort"
+    const-string/jumbo v51, "unsignedShort"
 
-    const-string/jumbo v0, "gYear"
+    const-string/jumbo v52, "gYear"
 
-    const-string/jumbo v0, "gYearMonth"
+    const-string/jumbo v53, "gYearMonth"
 
-    new-instance v12, Lmf/org/apache/xerces/impl/dv/XSFacets;
+    new-instance v54, Lmf/org/apache/xerces/impl/dv/XSFacets;
 
-    invoke-direct {v12}, Lmf/org/apache/xerces/impl/dv/XSFacets;-><init>()V
+    invoke-direct/range {v54 .. v54}, Lmf/org/apache/xerces/impl/dv/XSFacets;-><init>()V
 
-    sget-object v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fAnySimpleType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    sget-object v5, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fAnySimpleType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const-string/jumbo v0, "anySimpleType"
+    const-string/jumbo v20, "anySimpleType"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    move-object/from16 v0, p0
 
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v1, v20
 
-    const-string/jumbo v2, "string"
+    invoke-virtual {v0, v1, v5}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/4 v3, 0x1
+    new-instance v4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v4, 0x0
-
-    const/4 v5, 0x0
-
-    const/4 v6, 0x0
-
-    const/4 v7, 0x0
-
-    const/4 v8, 0x1
-
-    const/4 v9, 0x2
-
-    invoke-direct/range {v0 .. v9}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
-
-    const-string/jumbo v2, "string"
-
-    invoke-virtual {p0, v2, v0}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    const-string/jumbo v10, "boolean"
-
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    const-string/jumbo v2, "boolean"
-
-    const/4 v3, 0x2
-
-    const/4 v4, 0x0
-
-    const/4 v5, 0x0
-
-    const/4 v6, 0x1
-
-    const/4 v7, 0x0
-
-    const/4 v8, 0x1
-
-    const/4 v9, 0x3
-
-    invoke-direct/range {v0 .. v9}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
-
-    invoke-virtual {p0, v10, v0}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    const-string/jumbo v2, "decimal"
-
-    const/4 v3, 0x3
-
-    const/4 v4, 0x2
-
-    const/4 v5, 0x0
-
-    const/4 v6, 0x0
+    const-string/jumbo v6, "string"
 
     const/4 v7, 0x1
 
-    const/4 v8, 0x1
-
-    const/4 v9, 0x4
-
-    invoke-direct/range {v0 .. v9}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
-
-    const-string/jumbo v2, "decimal"
-
-    invoke-virtual {p0, v2, v0}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    const-string/jumbo v13, "anyURI"
-
-    new-instance v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    const-string/jumbo v4, "anyURI"
-
-    const/16 v5, 0x11
-
-    const/4 v6, 0x0
-
-    const/4 v7, 0x0
-
     const/4 v8, 0x0
 
     const/4 v9, 0x0
 
-    const/4 v10, 0x1
+    const/4 v10, 0x0
 
-    const/16 v11, 0x12
+    const/4 v11, 0x0
 
-    move-object v3, v1
+    const/4 v12, 0x1
 
-    invoke-direct/range {v2 .. v11}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
+    const/4 v13, 0x2
 
-    invoke-virtual {p0, v13, v2}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-direct/range {v4 .. v13}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
 
-    const-string/jumbo v13, "base64Binary"
+    const-string/jumbo v20, "string"
 
-    new-instance v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v4, "base64Binary"
+    move-object/from16 v1, v20
 
-    const/16 v5, 0x10
+    invoke-virtual {v0, v1, v4}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/4 v6, 0x0
+    new-instance v6, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v7, 0x0
+    const-string/jumbo v8, "boolean"
 
-    const/4 v8, 0x0
+    const/4 v9, 0x2
 
-    const/4 v9, 0x0
+    const/4 v10, 0x0
 
-    const/4 v10, 0x1
+    const/4 v11, 0x0
 
-    const/16 v11, 0x11
+    const/4 v12, 0x1
 
-    move-object v3, v1
+    const/4 v13, 0x0
 
-    invoke-direct/range {v2 .. v11}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
+    const/4 v14, 0x1
 
-    invoke-virtual {p0, v13, v2}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    const/4 v15, 0x3
 
-    const-string/jumbo v13, "dateTime"
+    move-object v7, v5
 
-    new-instance v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    invoke-direct/range {v6 .. v15}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
 
-    const-string/jumbo v4, "dateTime"
+    const-string/jumbo v20, "boolean"
 
-    const/4 v5, 0x7
+    move-object/from16 v0, p0
 
-    const/4 v6, 0x1
+    move-object/from16 v1, v20
 
-    const/4 v7, 0x0
+    invoke-virtual {v0, v1, v6}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/4 v8, 0x0
+    new-instance v6, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v9, 0x0
+    const-string/jumbo v8, "decimal"
 
-    const/4 v10, 0x1
+    const/4 v9, 0x3
 
-    const/16 v11, 0x8
+    const/4 v10, 0x2
 
-    move-object v3, v1
+    const/4 v11, 0x0
 
-    invoke-direct/range {v2 .. v11}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
+    const/4 v12, 0x0
 
-    invoke-virtual {p0, v13, v2}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    const/4 v13, 0x1
 
-    const-string/jumbo v13, "time"
+    const/4 v14, 0x1
 
-    new-instance v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    const/4 v15, 0x4
 
-    const-string/jumbo v4, "time"
+    move-object v7, v5
 
-    const/16 v5, 0x8
+    invoke-direct/range {v6 .. v15}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
 
-    const/4 v6, 0x1
+    const-string/jumbo v20, "decimal"
 
-    const/4 v7, 0x0
+    move-object/from16 v0, p0
 
-    const/4 v8, 0x0
+    move-object/from16 v1, v20
 
-    const/4 v9, 0x0
+    invoke-virtual {v0, v1, v6}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/4 v10, 0x1
+    new-instance v7, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/16 v11, 0x9
+    const-string/jumbo v9, "anyURI"
 
-    move-object v3, v1
+    const/16 v10, 0x11
 
-    invoke-direct/range {v2 .. v11}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
+    const/4 v11, 0x0
 
-    invoke-virtual {p0, v13, v2}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    const/4 v12, 0x0
 
-    const-string/jumbo v13, "date"
+    const/4 v13, 0x0
 
-    new-instance v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    const/4 v14, 0x0
 
-    const-string/jumbo v4, "date"
+    const/4 v15, 0x1
 
-    const/16 v5, 0x9
+    const/16 v16, 0x12
 
-    const/4 v6, 0x1
+    move-object v8, v5
 
-    const/4 v7, 0x0
+    invoke-direct/range {v7 .. v16}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
 
-    const/4 v8, 0x0
+    const-string/jumbo v20, "anyURI"
 
-    const/4 v9, 0x0
+    move-object/from16 v0, p0
 
-    const/4 v10, 0x1
+    move-object/from16 v1, v20
 
-    const/16 v11, 0xa
+    invoke-virtual {v0, v1, v7}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    move-object v3, v1
+    new-instance v7, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    invoke-direct/range {v2 .. v11}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
+    const-string/jumbo v9, "base64Binary"
 
-    invoke-virtual {p0, v13, v2}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    const/16 v10, 0x10
 
-    const-string/jumbo v13, "gYearMonth"
+    const/4 v11, 0x0
 
-    new-instance v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    const/4 v12, 0x0
 
-    const-string/jumbo v4, "gYearMonth"
+    const/4 v13, 0x0
 
-    const/16 v5, 0xa
+    const/4 v14, 0x0
 
-    const/4 v6, 0x1
+    const/4 v15, 0x1
 
-    const/4 v7, 0x0
+    const/16 v16, 0x11
 
-    const/4 v8, 0x0
+    move-object v8, v5
 
-    const/4 v9, 0x0
+    invoke-direct/range {v7 .. v16}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
 
-    const/4 v10, 0x1
+    const-string/jumbo v20, "base64Binary"
 
-    const/16 v11, 0xb
+    move-object/from16 v0, p0
 
-    move-object v3, v1
+    move-object/from16 v1, v20
 
-    invoke-direct/range {v2 .. v11}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
+    invoke-virtual {v0, v1, v7}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-virtual {p0, v13, v2}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    new-instance v7, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const-string/jumbo v13, "gYear"
+    const-string/jumbo v9, "dateTime"
 
-    new-instance v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    const/4 v10, 0x7
 
-    const-string/jumbo v4, "gYear"
+    const/4 v11, 0x1
 
-    const/16 v5, 0xb
+    const/4 v12, 0x0
 
-    const/4 v6, 0x1
+    const/4 v13, 0x0
 
-    const/4 v7, 0x0
+    const/4 v14, 0x0
 
-    const/4 v8, 0x0
+    const/4 v15, 0x1
 
-    const/4 v9, 0x0
+    const/16 v16, 0x8
 
-    const/4 v10, 0x1
+    move-object v8, v5
 
-    const/16 v11, 0xc
+    invoke-direct/range {v7 .. v16}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
 
-    move-object v3, v1
+    const-string/jumbo v20, "dateTime"
 
-    invoke-direct/range {v2 .. v11}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
+    move-object/from16 v0, p0
 
-    invoke-virtual {p0, v13, v2}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    move-object/from16 v1, v20
 
-    const-string/jumbo v13, "gMonthDay"
+    invoke-virtual {v0, v1, v7}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    new-instance v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    new-instance v7, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const-string/jumbo v4, "gMonthDay"
+    const-string/jumbo v9, "time"
 
-    const/16 v5, 0xc
+    const/16 v10, 0x8
 
-    const/4 v6, 0x1
+    const/4 v11, 0x1
 
-    const/4 v7, 0x0
+    const/4 v12, 0x0
 
-    const/4 v8, 0x0
+    const/4 v13, 0x0
 
-    const/4 v9, 0x0
+    const/4 v14, 0x0
 
-    const/4 v10, 0x1
+    const/4 v15, 0x1
 
-    const/16 v11, 0xd
+    const/16 v16, 0x9
 
-    move-object v3, v1
+    move-object v8, v5
 
-    invoke-direct/range {v2 .. v11}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
+    invoke-direct/range {v7 .. v16}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
 
-    invoke-virtual {p0, v13, v2}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    const-string/jumbo v20, "time"
 
-    const-string/jumbo v13, "gDay"
+    move-object/from16 v0, p0
 
-    new-instance v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v1, v20
 
-    const-string/jumbo v4, "gDay"
+    invoke-virtual {v0, v1, v7}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/16 v5, 0xd
+    new-instance v7, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v6, 0x1
+    const-string/jumbo v9, "date"
 
-    const/4 v7, 0x0
+    const/16 v10, 0x9
 
-    const/4 v8, 0x0
+    const/4 v11, 0x1
 
-    const/4 v9, 0x0
+    const/4 v12, 0x0
 
-    const/4 v10, 0x1
+    const/4 v13, 0x0
 
-    const/16 v11, 0xe
+    const/4 v14, 0x0
 
-    move-object v3, v1
+    const/4 v15, 0x1
 
-    invoke-direct/range {v2 .. v11}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
+    const/16 v16, 0xa
 
-    invoke-virtual {p0, v13, v2}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    move-object v8, v5
 
-    const-string/jumbo v13, "gMonth"
+    invoke-direct/range {v7 .. v16}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
 
-    new-instance v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    const-string/jumbo v20, "date"
 
-    const-string/jumbo v4, "gMonth"
+    move-object/from16 v0, p0
 
-    const/16 v5, 0xe
+    move-object/from16 v1, v20
 
-    const/4 v6, 0x1
+    invoke-virtual {v0, v1, v7}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/4 v7, 0x0
+    new-instance v7, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v8, 0x0
+    const-string/jumbo v9, "gYearMonth"
 
-    const/4 v9, 0x0
+    const/16 v10, 0xa
 
-    const/4 v10, 0x1
+    const/4 v11, 0x1
 
-    const/16 v11, 0xf
+    const/4 v12, 0x0
 
-    move-object v3, v1
+    const/4 v13, 0x0
 
-    invoke-direct/range {v2 .. v11}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
+    const/4 v14, 0x0
 
-    invoke-virtual {p0, v13, v2}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    const/4 v15, 0x1
 
-    new-instance v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    const/16 v16, 0xb
 
-    const-string/jumbo v3, "integer"
+    move-object v8, v5
 
-    const/16 v4, 0x18
+    invoke-direct/range {v7 .. v16}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
 
-    const/4 v5, 0x2
+    const-string/jumbo v20, "gYearMonth"
 
-    const/4 v6, 0x0
+    move-object/from16 v0, p0
 
-    const/4 v7, 0x0
+    move-object/from16 v1, v20
 
-    const/4 v8, 0x1
+    invoke-virtual {v0, v1, v7}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/4 v9, 0x1
+    new-instance v7, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/16 v10, 0x1e
+    const-string/jumbo v9, "gYear"
 
-    move-object v2, v0
+    const/16 v10, 0xb
 
-    invoke-direct/range {v1 .. v10}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
+    const/4 v11, 0x1
 
-    const-string/jumbo v0, "integer"
+    const/4 v12, 0x0
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    const/4 v13, 0x0
 
-    const-string/jumbo v0, "0"
+    const/4 v14, 0x0
 
-    iput-object v0, v12, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
+    const/4 v15, 0x1
 
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    const/16 v16, 0xc
 
-    const-string/jumbo v2, "nonPositiveInteger"
+    move-object v8, v5
 
-    const-string/jumbo v3, "http://www.w3.org/2001/XMLSchema"
+    invoke-direct/range {v7 .. v16}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
 
-    const/4 v4, 0x0
+    const-string/jumbo v20, "gYear"
 
-    const/4 v5, 0x0
+    move-object/from16 v0, p0
 
-    const/4 v6, 0x0
+    move-object/from16 v1, v20
 
-    const/16 v7, 0x1f
+    invoke-virtual {v0, v1, v7}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-direct/range {v0 .. v7}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLmf/org/apache/xerces/xs/XSObjectList;S)V
+    new-instance v7, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/16 v2, 0x20
+    const-string/jumbo v9, "gMonthDay"
 
-    const/4 v3, 0x0
+    const/16 v10, 0xc
 
-    invoke-virtual {v0, v12, v2, v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SS)V
+    const/4 v11, 0x1
 
-    const-string/jumbo v2, "nonPositiveInteger"
+    const/4 v12, 0x0
 
-    invoke-virtual {p0, v2, v0}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    const/4 v13, 0x0
 
-    const-string/jumbo v2, "-1"
+    const/4 v14, 0x0
 
-    iput-object v2, v12, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
+    const/4 v15, 0x1
 
-    new-instance v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    const/16 v16, 0xd
 
-    const-string/jumbo v4, "negativeInteger"
+    move-object v8, v5
 
-    const-string/jumbo v5, "http://www.w3.org/2001/XMLSchema"
+    invoke-direct/range {v7 .. v16}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
 
-    const/4 v6, 0x0
+    const-string/jumbo v20, "gMonthDay"
 
-    const/4 v7, 0x0
+    move-object/from16 v0, p0
 
-    const/4 v8, 0x0
+    move-object/from16 v1, v20
 
-    const/16 v9, 0x20
+    invoke-virtual {v0, v1, v7}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    move-object v3, v0
+    new-instance v7, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    invoke-direct/range {v2 .. v9}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLmf/org/apache/xerces/xs/XSObjectList;S)V
+    const-string/jumbo v9, "gDay"
 
-    const/16 v0, 0x20
+    const/16 v10, 0xd
 
-    const/4 v3, 0x0
+    const/4 v11, 0x1
 
-    invoke-virtual {v2, v12, v0, v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SS)V
+    const/4 v12, 0x0
 
-    const-string/jumbo v0, "negativeInteger"
+    const/4 v13, 0x0
 
-    invoke-virtual {p0, v0, v2}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    const/4 v14, 0x0
 
-    const-string/jumbo v0, "9223372036854775807"
+    const/4 v15, 0x1
 
-    iput-object v0, v12, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
+    const/16 v16, 0xe
 
-    const-string/jumbo v0, "-9223372036854775808"
+    move-object v8, v5
 
-    iput-object v0, v12, Lmf/org/apache/xerces/impl/dv/XSFacets;->minInclusive:Ljava/lang/String;
+    invoke-direct/range {v7 .. v16}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
 
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    const-string/jumbo v20, "gDay"
 
-    const-string/jumbo v2, "long"
+    move-object/from16 v0, p0
 
-    const-string/jumbo v3, "http://www.w3.org/2001/XMLSchema"
+    move-object/from16 v1, v20
 
-    const/4 v4, 0x0
+    invoke-virtual {v0, v1, v7}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/4 v5, 0x0
+    new-instance v7, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v6, 0x0
+    const-string/jumbo v9, "gMonth"
 
-    const/16 v7, 0x21
+    const/16 v10, 0xe
 
-    invoke-direct/range {v0 .. v7}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLmf/org/apache/xerces/xs/XSObjectList;S)V
+    const/4 v11, 0x1
 
-    const/16 v2, 0x120
+    const/4 v12, 0x0
 
-    const/4 v3, 0x0
+    const/4 v13, 0x0
 
-    invoke-virtual {v0, v12, v2, v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SS)V
+    const/4 v14, 0x0
 
-    const-string/jumbo v2, "long"
+    const/4 v15, 0x1
 
-    invoke-virtual {p0, v2, v0}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    const/16 v16, 0xf
 
-    const-string/jumbo v2, "2147483647"
+    move-object v8, v5
 
-    iput-object v2, v12, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
+    invoke-direct/range {v7 .. v16}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
 
-    const-string/jumbo v2, "-2147483648"
+    const-string/jumbo v20, "gMonth"
 
-    iput-object v2, v12, Lmf/org/apache/xerces/impl/dv/XSFacets;->minInclusive:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    new-instance v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v1, v20
 
-    const-string/jumbo v4, "int"
+    invoke-virtual {v0, v1, v7}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const-string/jumbo v5, "http://www.w3.org/2001/XMLSchema"
+    new-instance v7, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v6, 0x0
+    const-string/jumbo v9, "integer"
 
-    const/4 v7, 0x0
+    const/16 v10, 0x18
 
-    const/4 v8, 0x0
+    const/4 v11, 0x2
 
-    const/16 v9, 0x22
+    const/4 v12, 0x0
 
-    move-object v3, v0
+    const/4 v13, 0x0
 
-    invoke-direct/range {v2 .. v9}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLmf/org/apache/xerces/xs/XSObjectList;S)V
+    const/4 v14, 0x1
 
-    const/16 v0, 0x120
+    const/4 v15, 0x1
 
-    const/4 v3, 0x0
+    const/16 v16, 0x1e
 
-    invoke-virtual {v2, v12, v0, v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SS)V
+    move-object v8, v6
 
-    const-string/jumbo v0, "int"
+    invoke-direct/range {v7 .. v16}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
 
-    invoke-virtual {p0, v0, v2}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    const-string/jumbo v20, "integer"
 
-    const-string/jumbo v0, "32767"
+    move-object/from16 v0, p0
 
-    iput-object v0, v12, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
+    move-object/from16 v1, v20
 
-    const-string/jumbo v0, "-32768"
+    invoke-virtual {v0, v1, v7}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    iput-object v0, v12, Lmf/org/apache/xerces/impl/dv/XSFacets;->minInclusive:Ljava/lang/String;
+    const-string/jumbo v20, "0"
 
-    new-instance v3, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, v20
 
-    const-string/jumbo v5, "short"
+    move-object/from16 v1, v54
 
-    const-string/jumbo v6, "http://www.w3.org/2001/XMLSchema"
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
 
-    const/4 v7, 0x0
+    new-instance v8, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v8, 0x0
+    const-string/jumbo v10, "nonPositiveInteger"
 
-    const/4 v9, 0x0
+    const-string/jumbo v11, "http://www.w3.org/2001/XMLSchema"
 
-    const/16 v10, 0x23
+    const/4 v12, 0x0
 
-    move-object v4, v2
+    const/4 v13, 0x0
 
-    invoke-direct/range {v3 .. v10}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLmf/org/apache/xerces/xs/XSObjectList;S)V
+    const/4 v14, 0x0
 
-    const/16 v0, 0x120
+    const/16 v15, 0x1f
 
-    const/4 v2, 0x0
+    move-object v9, v7
 
-    invoke-virtual {v3, v12, v0, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SS)V
+    invoke-direct/range {v8 .. v15}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLmf/org/apache/xerces/xs/XSObjectList;S)V
 
-    const-string/jumbo v0, "short"
+    const/16 v20, 0x20
 
-    invoke-virtual {p0, v0, v3}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    const/16 v21, 0x0
 
-    const-string/jumbo v0, "127"
+    move-object/from16 v0, v54
 
-    iput-object v0, v12, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
+    move/from16 v1, v20
 
-    const-string/jumbo v0, "-128"
+    move/from16 v2, v21
 
-    iput-object v0, v12, Lmf/org/apache/xerces/impl/dv/XSFacets;->minInclusive:Ljava/lang/String;
+    invoke-virtual {v8, v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SS)V
 
-    new-instance v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    const-string/jumbo v20, "nonPositiveInteger"
 
-    const-string/jumbo v4, "byte"
+    move-object/from16 v0, p0
 
-    const-string/jumbo v5, "http://www.w3.org/2001/XMLSchema"
+    move-object/from16 v1, v20
 
-    const/4 v6, 0x0
+    invoke-virtual {v0, v1, v8}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/4 v7, 0x0
+    const-string/jumbo v20, "-1"
 
-    const/4 v8, 0x0
+    move-object/from16 v0, v20
 
-    const/16 v9, 0x24
+    move-object/from16 v1, v54
 
-    invoke-direct/range {v2 .. v9}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLmf/org/apache/xerces/xs/XSObjectList;S)V
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
 
-    const/16 v0, 0x120
+    new-instance v9, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v3, 0x0
+    const-string/jumbo v11, "negativeInteger"
 
-    invoke-virtual {v2, v12, v0, v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SS)V
+    const-string/jumbo v12, "http://www.w3.org/2001/XMLSchema"
 
-    const-string/jumbo v0, "byte"
+    const/4 v13, 0x0
 
-    invoke-virtual {p0, v0, v2}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    const/4 v14, 0x0
 
-    const-string/jumbo v0, "0"
+    const/4 v15, 0x0
 
-    iput-object v0, v12, Lmf/org/apache/xerces/impl/dv/XSFacets;->minInclusive:Ljava/lang/String;
+    const/16 v16, 0x20
 
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object v10, v8
 
-    const-string/jumbo v2, "nonNegativeInteger"
+    invoke-direct/range {v9 .. v16}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLmf/org/apache/xerces/xs/XSObjectList;S)V
 
-    const-string/jumbo v3, "http://www.w3.org/2001/XMLSchema"
+    const/16 v20, 0x20
 
-    const/4 v4, 0x0
+    const/16 v21, 0x0
 
-    const/4 v5, 0x0
+    move-object/from16 v0, v54
 
-    const/4 v6, 0x0
+    move/from16 v1, v20
 
-    const/16 v7, 0x25
+    move/from16 v2, v21
 
-    invoke-direct/range {v0 .. v7}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLmf/org/apache/xerces/xs/XSObjectList;S)V
+    invoke-virtual {v9, v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SS)V
 
-    const/16 v1, 0x100
+    const-string/jumbo v20, "negativeInteger"
 
-    const/4 v2, 0x0
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v12, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SS)V
+    move-object/from16 v1, v20
 
-    const-string/jumbo v1, "nonNegativeInteger"
+    invoke-virtual {v0, v1, v9}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-virtual {p0, v1, v0}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    const-string/jumbo v20, "9223372036854775807"
 
-    const-string/jumbo v1, "18446744073709551615"
+    move-object/from16 v0, v20
 
-    iput-object v1, v12, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
+    move-object/from16 v1, v54
 
-    new-instance v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
 
-    const-string/jumbo v3, "unsignedLong"
+    const-string/jumbo v20, "-9223372036854775808"
 
-    const-string/jumbo v4, "http://www.w3.org/2001/XMLSchema"
+    move-object/from16 v0, v20
 
-    const/4 v5, 0x0
+    move-object/from16 v1, v54
 
-    const/4 v6, 0x0
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/XSFacets;->minInclusive:Ljava/lang/String;
 
-    const/4 v7, 0x0
+    new-instance v10, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/16 v8, 0x26
+    const-string/jumbo v12, "long"
 
-    move-object v2, v0
+    const-string/jumbo v13, "http://www.w3.org/2001/XMLSchema"
 
-    invoke-direct/range {v1 .. v8}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLmf/org/apache/xerces/xs/XSObjectList;S)V
+    const/4 v14, 0x0
 
-    const/16 v2, 0x20
+    const/4 v15, 0x0
 
-    const/4 v3, 0x0
+    const/16 v16, 0x0
 
-    invoke-virtual {v1, v12, v2, v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SS)V
+    const/16 v17, 0x21
 
-    const-string/jumbo v2, "unsignedLong"
+    move-object v11, v7
 
-    invoke-virtual {p0, v2, v1}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-direct/range {v10 .. v17}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLmf/org/apache/xerces/xs/XSObjectList;S)V
 
-    const-string/jumbo v2, "4294967295"
+    const/16 v20, 0x120
 
-    iput-object v2, v12, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
+    const/16 v21, 0x0
 
-    new-instance v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, v54
 
-    const-string/jumbo v4, "unsignedInt"
+    move/from16 v1, v20
 
-    const-string/jumbo v5, "http://www.w3.org/2001/XMLSchema"
+    move/from16 v2, v21
 
-    const/4 v6, 0x0
+    invoke-virtual {v10, v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SS)V
 
-    const/4 v7, 0x0
+    const-string/jumbo v20, "long"
 
-    const/4 v8, 0x0
+    move-object/from16 v0, p0
 
-    const/16 v9, 0x27
+    move-object/from16 v1, v20
 
-    move-object v3, v1
+    invoke-virtual {v0, v1, v10}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-direct/range {v2 .. v9}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLmf/org/apache/xerces/xs/XSObjectList;S)V
+    const-string/jumbo v20, "2147483647"
 
-    const/16 v1, 0x20
+    move-object/from16 v0, v20
 
-    const/4 v3, 0x0
+    move-object/from16 v1, v54
 
-    invoke-virtual {v2, v12, v1, v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SS)V
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
 
-    const-string/jumbo v1, "unsignedInt"
+    const-string/jumbo v20, "-2147483648"
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    move-object/from16 v0, v20
 
-    const-string/jumbo v1, "65535"
+    move-object/from16 v1, v54
 
-    iput-object v1, v12, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/XSFacets;->minInclusive:Ljava/lang/String;
 
-    new-instance v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    new-instance v11, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const-string/jumbo v3, "unsignedShort"
+    const-string/jumbo v13, "int"
 
-    const-string/jumbo v4, "http://www.w3.org/2001/XMLSchema"
+    const-string/jumbo v14, "http://www.w3.org/2001/XMLSchema"
 
-    const/4 v5, 0x0
+    const/4 v15, 0x0
 
-    const/4 v6, 0x0
+    const/16 v16, 0x0
 
-    const/4 v7, 0x0
+    const/16 v17, 0x0
 
-    const/16 v8, 0x28
+    const/16 v18, 0x22
 
-    invoke-direct/range {v1 .. v8}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLmf/org/apache/xerces/xs/XSObjectList;S)V
+    move-object v12, v10
 
-    const/16 v2, 0x20
+    invoke-direct/range {v11 .. v18}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLmf/org/apache/xerces/xs/XSObjectList;S)V
 
-    const/4 v3, 0x0
+    const/16 v20, 0x120
 
-    invoke-virtual {v1, v12, v2, v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SS)V
+    const/16 v21, 0x0
 
-    const-string/jumbo v2, "unsignedShort"
+    move-object/from16 v0, v54
 
-    invoke-virtual {p0, v2, v1}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    move/from16 v1, v20
 
-    const-string/jumbo v2, "255"
+    move/from16 v2, v21
 
-    iput-object v2, v12, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
+    invoke-virtual {v11, v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SS)V
 
-    new-instance v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    const-string/jumbo v20, "int"
 
-    const-string/jumbo v4, "unsignedByte"
+    move-object/from16 v0, p0
 
-    const-string/jumbo v5, "http://www.w3.org/2001/XMLSchema"
+    move-object/from16 v1, v20
 
-    const/4 v6, 0x0
+    invoke-virtual {v0, v1, v11}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/4 v7, 0x0
+    const-string/jumbo v20, "32767"
 
-    const/4 v8, 0x0
+    move-object/from16 v0, v20
 
-    const/16 v9, 0x29
+    move-object/from16 v1, v54
 
-    move-object v3, v1
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
 
-    invoke-direct/range {v2 .. v9}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLmf/org/apache/xerces/xs/XSObjectList;S)V
+    const-string/jumbo v20, "-32768"
 
-    const/16 v1, 0x20
+    move-object/from16 v0, v20
 
-    const/4 v3, 0x0
+    move-object/from16 v1, v54
 
-    invoke-virtual {v2, v12, v1, v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SS)V
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/XSFacets;->minInclusive:Ljava/lang/String;
 
-    const-string/jumbo v1, "unsignedByte"
+    new-instance v12, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    const-string/jumbo v14, "short"
 
-    const-string/jumbo v1, "1"
+    const-string/jumbo v15, "http://www.w3.org/2001/XMLSchema"
 
-    iput-object v1, v12, Lmf/org/apache/xerces/impl/dv/XSFacets;->minInclusive:Ljava/lang/String;
+    const/16 v16, 0x0
 
-    new-instance v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    const/16 v17, 0x0
 
-    const-string/jumbo v3, "positiveInteger"
+    const/16 v18, 0x0
 
-    const-string/jumbo v4, "http://www.w3.org/2001/XMLSchema"
+    const/16 v19, 0x23
 
-    const/4 v5, 0x0
+    move-object v13, v11
 
-    const/4 v6, 0x0
+    invoke-direct/range {v12 .. v19}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLmf/org/apache/xerces/xs/XSObjectList;S)V
 
-    const/4 v7, 0x0
+    const/16 v20, 0x120
 
-    const/16 v8, 0x2a
+    const/16 v21, 0x0
 
-    move-object v2, v0
+    move-object/from16 v0, v54
 
-    invoke-direct/range {v1 .. v8}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLmf/org/apache/xerces/xs/XSObjectList;S)V
+    move/from16 v1, v20
 
-    const/16 v0, 0x100
+    move/from16 v2, v21
 
-    const/4 v2, 0x0
+    invoke-virtual {v12, v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SS)V
 
-    invoke-virtual {v1, v12, v0, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SS)V
+    const-string/jumbo v20, "short"
 
-    const-string/jumbo v0, "positiveInteger"
+    move-object/from16 v0, p0
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1, v12}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    const-string/jumbo v20, "127"
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v54
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
+
+    const-string/jumbo v20, "-128"
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v54
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/XSFacets;->minInclusive:Ljava/lang/String;
+
+    new-instance v13, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    const-string/jumbo v15, "byte"
+
+    const-string/jumbo v16, "http://www.w3.org/2001/XMLSchema"
+
+    const/16 v17, 0x0
+
+    const/16 v18, 0x0
+
+    const/16 v19, 0x0
+
+    const/16 v20, 0x24
+
+    move-object v14, v12
+
+    invoke-direct/range {v13 .. v20}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLmf/org/apache/xerces/xs/XSObjectList;S)V
+
+    const/16 v20, 0x120
+
+    const/16 v21, 0x0
+
+    move-object/from16 v0, v54
+
+    move/from16 v1, v20
+
+    move/from16 v2, v21
+
+    invoke-virtual {v13, v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SS)V
+
+    const-string/jumbo v20, "byte"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1, v13}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    const-string/jumbo v20, "0"
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v54
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/XSFacets;->minInclusive:Ljava/lang/String;
+
+    new-instance v14, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    const-string/jumbo v16, "nonNegativeInteger"
+
+    const-string/jumbo v17, "http://www.w3.org/2001/XMLSchema"
+
+    const/16 v18, 0x0
+
+    const/16 v19, 0x0
+
+    const/16 v20, 0x0
+
+    const/16 v21, 0x25
+
+    move-object v15, v7
+
+    invoke-direct/range {v14 .. v21}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLmf/org/apache/xerces/xs/XSObjectList;S)V
+
+    const/16 v20, 0x100
+
+    const/16 v21, 0x0
+
+    move-object/from16 v0, v54
+
+    move/from16 v1, v20
+
+    move/from16 v2, v21
+
+    invoke-virtual {v14, v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SS)V
+
+    const-string/jumbo v20, "nonNegativeInteger"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1, v14}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    const-string/jumbo v20, "18446744073709551615"
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v54
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
+
+    new-instance v15, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    const-string/jumbo v17, "unsignedLong"
+
+    const-string/jumbo v18, "http://www.w3.org/2001/XMLSchema"
+
+    const/16 v19, 0x0
+
+    const/16 v20, 0x0
+
+    const/16 v21, 0x0
+
+    const/16 v22, 0x26
+
+    move-object/from16 v16, v14
+
+    invoke-direct/range {v15 .. v22}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLmf/org/apache/xerces/xs/XSObjectList;S)V
+
+    const/16 v20, 0x20
+
+    const/16 v21, 0x0
+
+    move-object/from16 v0, v54
+
+    move/from16 v1, v20
+
+    move/from16 v2, v21
+
+    invoke-virtual {v15, v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SS)V
+
+    const-string/jumbo v20, "unsignedLong"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1, v15}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    const-string/jumbo v20, "4294967295"
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v54
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
+
+    new-instance v16, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    const-string/jumbo v18, "unsignedInt"
+
+    const-string/jumbo v19, "http://www.w3.org/2001/XMLSchema"
+
+    const/16 v20, 0x0
+
+    const/16 v21, 0x0
+
+    const/16 v22, 0x0
+
+    const/16 v23, 0x27
+
+    move-object/from16 v17, v15
+
+    invoke-direct/range {v16 .. v23}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLmf/org/apache/xerces/xs/XSObjectList;S)V
+
+    const/16 v20, 0x20
+
+    const/16 v21, 0x0
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v54
+
+    move/from16 v2, v20
+
+    move/from16 v3, v21
+
+    invoke-virtual {v0, v1, v2, v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SS)V
+
+    const-string/jumbo v20, "unsignedInt"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v16
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    const-string/jumbo v20, "65535"
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v54
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
+
+    new-instance v17, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    const-string/jumbo v19, "unsignedShort"
+
+    const-string/jumbo v20, "http://www.w3.org/2001/XMLSchema"
+
+    const/16 v21, 0x0
+
+    const/16 v22, 0x0
+
+    const/16 v23, 0x0
+
+    const/16 v24, 0x28
+
+    move-object/from16 v18, v16
+
+    invoke-direct/range {v17 .. v24}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLmf/org/apache/xerces/xs/XSObjectList;S)V
+
+    const/16 v20, 0x20
+
+    const/16 v21, 0x0
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v54
+
+    move/from16 v2, v20
+
+    move/from16 v3, v21
+
+    invoke-virtual {v0, v1, v2, v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SS)V
+
+    const-string/jumbo v20, "unsignedShort"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v17
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    const-string/jumbo v20, "255"
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v54
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
+
+    new-instance v18, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    const-string/jumbo v20, "unsignedByte"
+
+    const-string/jumbo v21, "http://www.w3.org/2001/XMLSchema"
+
+    const/16 v22, 0x0
+
+    const/16 v23, 0x0
+
+    const/16 v24, 0x0
+
+    const/16 v25, 0x29
+
+    move-object/from16 v19, v17
+
+    invoke-direct/range {v18 .. v25}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLmf/org/apache/xerces/xs/XSObjectList;S)V
+
+    const/16 v20, 0x20
+
+    const/16 v21, 0x0
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v54
+
+    move/from16 v2, v20
+
+    move/from16 v3, v21
+
+    invoke-virtual {v0, v1, v2, v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SS)V
+
+    const-string/jumbo v20, "unsignedByte"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v18
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    const-string/jumbo v20, "1"
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v54
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/XSFacets;->minInclusive:Ljava/lang/String;
+
+    new-instance v19, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    const-string/jumbo v21, "positiveInteger"
+
+    const-string/jumbo v22, "http://www.w3.org/2001/XMLSchema"
+
+    const/16 v23, 0x0
+
+    const/16 v24, 0x0
+
+    const/16 v25, 0x0
+
+    const/16 v26, 0x2a
+
+    move-object/from16 v20, v14
+
+    invoke-direct/range {v19 .. v26}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLmf/org/apache/xerces/xs/XSObjectList;S)V
+
+    const/16 v20, 0x100
+
+    const/16 v21, 0x0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v54
+
+    move/from16 v2, v20
+
+    move/from16 v3, v21
+
+    invoke-virtual {v0, v1, v2, v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SS)V
+
+    const-string/jumbo v20, "positiveInteger"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -905,15 +1179,15 @@
 .end method
 
 .method public createTypeUnion(Ljava/lang/String;Ljava/lang/String;S[Lmf/org/apache/xerces/impl/dv/XSSimpleType;Lmf/org/apache/xerces/xs/XSObjectList;)Lmf/org/apache/xerces/impl/dv/XSSimpleType;
-    .locals 6
+    .locals 7
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    array-length v0, p4
+    array-length v6, p4
 
-    new-array v4, v0, [Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    new-array v4, v6, [Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    invoke-static {p4, v1, v4, v1, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p4, v0, v4, v0, v6}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 

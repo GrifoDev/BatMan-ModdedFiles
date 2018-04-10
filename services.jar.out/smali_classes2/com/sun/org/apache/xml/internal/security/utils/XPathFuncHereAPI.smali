@@ -1,6 +1,5 @@
 .class public Lcom/sun/org/apache/xml/internal/security/utils/XPathFuncHereAPI;
 .super Ljava/lang/Object;
-.source "Unknown"
 
 
 # direct methods
@@ -28,7 +27,7 @@
 .end method
 
 .method public static eval(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)Lcom/sun/org/apache/xpath/internal/objects/XObject;
-    .locals 6
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljavax/xml/transform/TransformerException;
@@ -51,23 +50,23 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/sun/org/apache/xpath/internal/XPath;-><init>(Ljava/lang/String;Ljavax/xml/transform/SourceLocator;Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;ILjavax/xml/transform/ErrorListener;)V
 
-    new-instance v1, Lcom/sun/org/apache/xml/internal/security/transforms/implementations/FuncHereContext;
+    new-instance v6, Lcom/sun/org/apache/xml/internal/security/transforms/implementations/FuncHereContext;
 
-    invoke-direct {v1, p1}, Lcom/sun/org/apache/xml/internal/security/transforms/implementations/FuncHereContext;-><init>(Lorg/w3c/dom/Node;)V
+    invoke-direct {v6, p1}, Lcom/sun/org/apache/xml/internal/security/transforms/implementations/FuncHereContext;-><init>(Lorg/w3c/dom/Node;)V
 
-    invoke-virtual {v1, p0}, Lcom/sun/org/apache/xpath/internal/XPathContext;->getDTMHandleFromNode(Lorg/w3c/dom/Node;)I
+    invoke-virtual {v6, p0}, Lcom/sun/org/apache/xpath/internal/XPathContext;->getDTMHandleFromNode(Lorg/w3c/dom/Node;)I
 
-    move-result v2
+    move-result v7
 
-    invoke-virtual {v0, v1, v2, p2}, Lcom/sun/org/apache/xpath/internal/XPath;->execute(Lcom/sun/org/apache/xpath/internal/XPathContext;ILcom/sun/org/apache/xml/internal/utils/PrefixResolver;)Lcom/sun/org/apache/xpath/internal/objects/XObject;
+    invoke-virtual {v0, v6, v7, p2}, Lcom/sun/org/apache/xpath/internal/XPath;->execute(Lcom/sun/org/apache/xpath/internal/XPathContext;ILcom/sun/org/apache/xml/internal/utils/PrefixResolver;)Lcom/sun/org/apache/xpath/internal/objects/XObject;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 .end method
 
 .method public static eval(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lcom/sun/org/apache/xpath/internal/objects/XObject;
-    .locals 7
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljavax/xml/transform/TransformerException;
@@ -84,11 +83,11 @@
 
     invoke-interface {p2}, Lorg/w3c/dom/Node;->getNodeType()S
 
-    move-result v0
+    move-result v4
 
-    const/16 v1, 0x9
+    const/16 v5, 0x9
 
-    if-eq v0, v1, :cond_0
+    if-eq v4, v5, :cond_0
 
     :goto_0
     invoke-direct {v3, p2}, Lcom/sun/org/apache/xml/internal/utils/PrefixResolverDefault;-><init>(Lorg/w3c/dom/Node;)V
@@ -107,13 +106,13 @@
 
     invoke-virtual {v6, p0}, Lcom/sun/org/apache/xpath/internal/XPathContext;->getDTMHandleFromNode(Lorg/w3c/dom/Node;)I
 
-    move-result v1
+    move-result v7
 
-    invoke-virtual {v0, v6, v1, v3}, Lcom/sun/org/apache/xpath/internal/XPath;->execute(Lcom/sun/org/apache/xpath/internal/XPathContext;ILcom/sun/org/apache/xml/internal/utils/PrefixResolver;)Lcom/sun/org/apache/xpath/internal/objects/XObject;
+    invoke-virtual {v0, v6, v7, v3}, Lcom/sun/org/apache/xpath/internal/XPath;->execute(Lcom/sun/org/apache/xpath/internal/XPathContext;ILcom/sun/org/apache/xml/internal/utils/PrefixResolver;)Lcom/sun/org/apache/xpath/internal/objects/XObject;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 
     :cond_0
     check-cast p2, Lorg/w3c/dom/Document;
@@ -200,7 +199,7 @@
 .end method
 
 .method public static selectNodeIterator(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/traversal/NodeIterator;
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljavax/xml/transform/TransformerException;
@@ -213,9 +212,9 @@
 
     invoke-virtual {v0}, Lcom/sun/org/apache/xpath/internal/objects/XObject;->nodeset()Lorg/w3c/dom/traversal/NodeIterator;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public static selectNodeList(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/NodeList;
@@ -234,7 +233,7 @@
 .end method
 
 .method public static selectNodeList(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/NodeList;
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljavax/xml/transform/TransformerException;
@@ -247,9 +246,9 @@
 
     invoke-virtual {v0}, Lcom/sun/org/apache/xpath/internal/objects/XObject;->nodelist()Lorg/w3c/dom/NodeList;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public static selectSingleNode(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;
@@ -268,7 +267,7 @@
 .end method
 
 .method public static selectSingleNode(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljavax/xml/transform/TransformerException;
@@ -281,7 +280,7 @@
 
     invoke-interface {v0}, Lorg/w3c/dom/traversal/NodeIterator;->nextNode()Lorg/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method

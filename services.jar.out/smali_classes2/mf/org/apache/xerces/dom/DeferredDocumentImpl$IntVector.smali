@@ -34,32 +34,32 @@
 
     const/4 v3, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$IntVector;->data:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$IntVector;->data:[I
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$IntVector;->data:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$IntVector;->data:[I
 
-    array-length v0, v0
+    array-length v1, v1
 
-    if-gt p1, v0, :cond_1
+    if-gt p1, v1, :cond_1
 
     :goto_0
     return-void
 
     :cond_0
-    add-int/lit8 v0, p1, 0xf
+    add-int/lit8 v1, p1, 0xf
 
-    new-array v0, v0, [I
+    new-array v1, v1, [I
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$IntVector;->data:[I
+    iput-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$IntVector;->data:[I
 
     goto :goto_0
 
     :cond_1
-    add-int/lit8 v0, p1, 0xf
+    add-int/lit8 v1, p1, 0xf
 
-    new-array v0, v0, [I
+    new-array v0, v1, [I
 
     iget-object v1, p0, Lmf/org/apache/xerces/dom/DeferredDocumentImpl$IntVector;->data:[I
 

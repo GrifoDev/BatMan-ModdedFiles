@@ -80,8 +80,6 @@
 .method public cacheGrammars(Ljava/lang/String;[Lmf/org/apache/xerces/xni/grammars/Grammar;)V
     .locals 2
 
-    const/4 v0, 0x0
-
     iget-boolean v1, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fPoolIsLocked:Z
 
     if-eqz v1, :cond_1
@@ -89,42 +87,42 @@
     :cond_0
     return-void
 
+    :cond_1
+    const/4 v0, 0x0
+
     :goto_0
+    array-length v1, p2
+
+    if-ge v0, v1, :cond_0
+
     aget-object v1, p2, v0
 
     invoke-virtual {p0, v1}, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->putGrammar(Lmf/org/apache/xerces/xni/grammars/Grammar;)V
 
     add-int/lit8 v0, v0, 0x1
 
-    :cond_1
-    array-length v1, p2
-
-    if-ge v0, v1, :cond_0
-
     goto :goto_0
 .end method
 
 .method public clear()V
-    .locals 4
+    .locals 3
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    const/4 v1, 0x0
-
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_0
-    iget-object v2, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v1, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
-    array-length v2, v2
+    array-length v1, v1
 
-    if-ge v0, v2, :cond_1
+    if-ge v0, v1, :cond_1
 
-    iget-object v2, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v1, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
-    aget-object v2, v2, v0
+    aget-object v1, v1, v0
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
     :goto_1
     add-int/lit8 v0, v0, 0x1
@@ -132,92 +130,94 @@
     goto :goto_0
 
     :cond_0
-    iget-object v2, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v1, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
-    aget-object v2, v2, v0
+    aget-object v1, v1, v0
 
-    invoke-virtual {v2}, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->clear()V
+    invoke-virtual {v1}, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->clear()V
 
-    iget-object v2, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v1, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
-    aput-object v3, v2, v0
+    aput-object v2, v1, v0
 
     goto :goto_1
 
     :cond_1
+    const/4 v1, 0x0
+
     iput v1, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammarCount:I
 
     return-void
 .end method
 
 .method public containsGrammar(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Z
-    .locals 5
+    .locals 7
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v0, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
-    monitor-enter v1
+    monitor-enter v0
 
     :try_start_0
     invoke-virtual {p0, p1}, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->hashCode(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)I
 
     move-result v2
 
-    const v0, 0x7fffffff
+    const v4, 0x7fffffff
 
-    and-int/2addr v0, v2
+    and-int/2addr v4, v2
 
-    iget-object v3, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v5, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
-    array-length v3, v3
+    array-length v5, v5
 
-    rem-int/2addr v0, v3
+    rem-int v3, v4, v5
 
-    iget-object v3, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v4, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
-    aget-object v0, v3, v0
+    aget-object v1, v4, v3
 
     :goto_0
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
-    iget v3, v0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->hash:I
+    iget v4, v1, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->hash:I
 
-    if-eq v3, v2, :cond_1
+    if-eq v4, v2, :cond_1
 
     :cond_0
-    iget-object v0, v0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->next:Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v1, v1, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->next:Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
     goto :goto_0
 
     :cond_1
-    iget-object v3, v0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->desc:Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
+    iget-object v4, v1, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->desc:Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
 
-    invoke-virtual {p0, v3, p1}, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->equals(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Z
+    invoke-virtual {p0, v4, p1}, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->equals(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_0
+    if-eqz v4, :cond_0
 
-    monitor-exit v1
+    monitor-exit v0
 
-    const/4 v0, 0x1
-
-    return v0
-
-    :cond_2
-    monitor-exit v1
+    const/4 v4, 0x1
 
     return v4
 
-    :catchall_0
-    move-exception v0
+    :cond_2
+    monitor-exit v0
 
-    monitor-exit v1
+    return v6
+
+    :catchall_0
+    move-exception v4
+
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v4
 .end method
 
 .method public equals(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Z
@@ -231,73 +231,73 @@
 .end method
 
 .method public getGrammar(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Lmf/org/apache/xerces/xni/grammars/Grammar;
-    .locals 5
+    .locals 7
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v0, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
-    monitor-enter v1
+    monitor-enter v0
 
     :try_start_0
     invoke-virtual {p0, p1}, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->hashCode(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)I
 
     move-result v2
 
-    const v0, 0x7fffffff
+    const v4, 0x7fffffff
 
-    and-int/2addr v0, v2
+    and-int/2addr v4, v2
 
-    iget-object v3, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v5, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
-    array-length v3, v3
+    array-length v5, v5
 
-    rem-int/2addr v0, v3
+    rem-int v3, v4, v5
 
-    iget-object v3, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v4, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
-    aget-object v0, v3, v0
+    aget-object v1, v4, v3
 
     :goto_0
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
-    iget v3, v0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->hash:I
+    iget v4, v1, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->hash:I
 
-    if-eq v3, v2, :cond_1
+    if-eq v4, v2, :cond_1
 
     :cond_0
-    iget-object v0, v0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->next:Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v1, v1, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->next:Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
     goto :goto_0
 
     :cond_1
-    iget-object v3, v0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->desc:Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
+    iget-object v4, v1, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->desc:Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
 
-    invoke-virtual {p0, v3, p1}, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->equals(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Z
+    invoke-virtual {p0, v4, p1}, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->equals(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_0
+    if-eqz v4, :cond_0
 
-    iget-object v0, v0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->grammar:Lmf/org/apache/xerces/xni/grammars/Grammar;
+    iget-object v4, v1, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->grammar:Lmf/org/apache/xerces/xni/grammars/Grammar;
 
-    monitor-exit v1
-
-    return-object v0
-
-    :cond_2
-    monitor-exit v1
+    monitor-exit v0
 
     return-object v4
 
-    :catchall_0
-    move-exception v0
+    :cond_2
+    monitor-exit v0
 
-    monitor-exit v1
+    return-object v6
+
+    :catchall_0
+    move-exception v4
+
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v4
 .end method
 
 .method public hashCode(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)I
@@ -321,153 +321,149 @@
 .end method
 
 .method public putGrammar(Lmf/org/apache/xerces/xni/grammars/Grammar;)V
-    .locals 6
+    .locals 7
 
-    iget-boolean v0, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fPoolIsLocked:Z
+    iget-boolean v5, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fPoolIsLocked:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v5, :cond_0
 
     :goto_0
     return-void
 
     :cond_0
-    iget-object v1, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v0, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
-    monitor-enter v1
+    monitor-enter v0
 
     :try_start_0
     invoke-interface {p1}, Lmf/org/apache/xerces/xni/grammars/Grammar;->getGrammarDescription()Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->hashCode(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)I
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->hashCode(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)I
 
     move-result v3
 
-    const v0, 0x7fffffff
+    const v5, 0x7fffffff
 
-    and-int/2addr v0, v3
+    and-int/2addr v5, v3
 
-    iget-object v4, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v6, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
-    array-length v4, v4
+    array-length v6, v6
 
-    rem-int v4, v0, v4
+    rem-int v4, v5, v6
 
-    iget-object v0, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v5, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
-    aget-object v0, v0, v4
+    aget-object v2, v5, v4
 
     :goto_1
-    if-eqz v0, :cond_3
+    if-eqz v2, :cond_3
 
-    iget v5, v0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->hash:I
+    iget v5, v2, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->hash:I
 
     if-eq v5, v3, :cond_2
 
     :cond_1
-    iget-object v0, v0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->next:Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v2, v2, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->next:Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
     goto :goto_1
 
     :cond_2
-    iget-object v5, v0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->desc:Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
+    iget-object v5, v2, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->desc:Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
 
-    invoke-virtual {p0, v5, v2}, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->equals(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Z
+    invoke-virtual {p0, v5, v1}, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->equals(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Z
 
     move-result v5
 
     if-eqz v5, :cond_1
 
-    iput-object p1, v0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->grammar:Lmf/org/apache/xerces/xni/grammars/Grammar;
+    iput-object p1, v2, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->grammar:Lmf/org/apache/xerces/xni/grammars/Grammar;
 
-    monitor-exit v1
+    monitor-exit v0
 
     return-void
 
     :cond_3
-    new-instance v0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    new-instance v2, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
     iget-object v5, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
     aget-object v5, v5, v4
 
-    invoke-direct {v0, v3, v2, p1, v5}, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;-><init>(ILmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;Lmf/org/apache/xerces/xni/grammars/Grammar;Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;)V
+    invoke-direct {v2, v3, v1, p1, v5}, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;-><init>(ILmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;Lmf/org/apache/xerces/xni/grammars/Grammar;Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;)V
 
-    iget-object v2, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v5, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
-    aput-object v0, v2, v4
+    aput-object v2, v5, v4
 
-    iget v0, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammarCount:I
+    iget v5, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammarCount:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v5, v5, 0x1
 
-    iput v0, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammarCount:I
+    iput v5, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammarCount:I
 
-    monitor-exit v1
+    monitor-exit v0
 
     goto :goto_0
 
     :catchall_0
-    move-exception v0
+    move-exception v5
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v5
 .end method
 
 .method public removeGrammar(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Lmf/org/apache/xerces/xni/grammars/Grammar;
-    .locals 8
+    .locals 9
 
-    const/4 v1, 0x0
+    const/4 v8, 0x0
 
-    iget-object v3, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v0, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
-    monitor-enter v3
+    monitor-enter v0
 
     :try_start_0
     invoke-virtual {p0, p1}, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->hashCode(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)I
 
-    move-result v4
+    move-result v2
 
-    const v0, 0x7fffffff
+    const v6, 0x7fffffff
 
-    and-int/2addr v0, v4
+    and-int/2addr v6, v2
 
-    iget-object v2, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v7, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
-    array-length v2, v2
+    array-length v7, v7
 
-    rem-int v5, v0, v2
+    rem-int v3, v6, v7
 
-    iget-object v0, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v6, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
-    aget-object v2, v0, v5
+    aget-object v1, v6, v3
 
-    move-object v0, v1
+    const/4 v4, 0x0
 
     :goto_0
-    if-eqz v2, :cond_3
+    if-eqz v1, :cond_3
 
-    iget v6, v2, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->hash:I
+    iget v6, v1, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->hash:I
 
-    if-eq v6, v4, :cond_1
+    if-eq v6, v2, :cond_1
 
     :cond_0
-    iget-object v0, v2, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->next:Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    move-object v4, v1
 
-    move-object v7, v2
-
-    move-object v2, v0
-
-    move-object v0, v7
+    iget-object v1, v1, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->next:Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
     goto :goto_0
 
     :cond_1
-    iget-object v6, v2, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->desc:Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
+    iget-object v6, v1, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->desc:Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
 
     invoke-virtual {p0, v6, p1}, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->equals(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Z
 
@@ -475,54 +471,54 @@
 
     if-eqz v6, :cond_0
 
-    if-nez v0, :cond_2
+    if-nez v4, :cond_2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v6, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
-    iget-object v1, v2, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->next:Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v7, v1, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->next:Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
-    aput-object v1, v0, v5
+    aput-object v7, v6, v3
 
     :goto_1
-    iget-object v0, v2, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->grammar:Lmf/org/apache/xerces/xni/grammars/Grammar;
+    iget-object v5, v1, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->grammar:Lmf/org/apache/xerces/xni/grammars/Grammar;
 
-    const/4 v1, 0x0
+    const/4 v6, 0x0
 
-    iput-object v1, v2, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->grammar:Lmf/org/apache/xerces/xni/grammars/Grammar;
+    iput-object v6, v1, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->grammar:Lmf/org/apache/xerces/xni/grammars/Grammar;
 
-    iget v1, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammarCount:I
+    iget v6, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammarCount:I
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v6, v6, -0x1
 
-    iput v1, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammarCount:I
+    iput v6, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammarCount:I
 
-    monitor-exit v3
+    monitor-exit v0
 
-    return-object v0
+    return-object v5
 
     :cond_2
-    iget-object v1, v2, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->next:Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v6, v1, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->next:Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
-    iput-object v1, v0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->next:Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iput-object v6, v4, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->next:Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
     goto :goto_1
 
     :catchall_0
-    move-exception v0
+    move-exception v6
 
-    monitor-exit v3
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v6
 
     :cond_3
     :try_start_1
-    monitor-exit v3
+    monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    return-object v1
+    return-object v8
 .end method
 
 .method public retrieveGrammar(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Lmf/org/apache/xerces/xni/grammars/Grammar;
@@ -536,96 +532,98 @@
 .end method
 
 .method public retrieveInitialGrammarSet(Ljava/lang/String;)[Lmf/org/apache/xerces/xni/grammars/Grammar;
-    .locals 8
+    .locals 10
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
-    iget-object v4, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
-
-    monitor-enter v4
+    monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v8, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
-    array-length v5, v1
+    array-length v2, v8
 
-    iget v1, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammarCount:I
+    iget v8, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammarCount:I
 
-    new-array v6, v1, [Lmf/org/apache/xerces/xni/grammars/Grammar;
+    new-array v6, v8, [Lmf/org/apache/xerces/xni/grammars/Grammar;
 
-    move v1, v0
+    const/4 v4, 0x0
+
+    const/4 v3, 0x0
 
     :goto_0
-    if-ge v0, v5, :cond_2
+    if-ge v3, v2, :cond_2
 
-    iget-object v2, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v8, p0, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl;->fGrammars:[Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
-    aget-object v2, v2, v0
+    aget-object v1, v8, v3
+
+    move v5, v4
 
     :goto_1
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
-    iget-object v3, v2, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->desc:Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
+    iget-object v8, v1, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->desc:Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
 
-    invoke-interface {v3}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;->getGrammarType()Ljava/lang/String;
+    invoke-interface {v8}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;->getGrammarType()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v8
 
-    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v8
 
-    if-nez v3, :cond_0
+    if-nez v8, :cond_0
 
-    move v3, v1
+    move v4, v5
 
     :goto_2
-    iget-object v1, v2, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->next:Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
+    iget-object v1, v1, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->next:Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;
 
-    move-object v2, v1
-
-    move v1, v3
+    move v5, v4
 
     goto :goto_1
 
     :cond_0
-    add-int/lit8 v3, v1, 0x1
+    add-int/lit8 v4, v5, 0x1
 
-    iget-object v7, v2, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->grammar:Lmf/org/apache/xerces/xni/grammars/Grammar;
+    iget-object v8, v1, Lmf/org/apache/xerces/util/XMLGrammarPoolImpl$Entry;->grammar:Lmf/org/apache/xerces/xni/grammars/Grammar;
 
-    aput-object v7, v6, v1
+    aput-object v8, v6, v5
 
     goto :goto_2
 
     :catchall_0
-    move-exception v0
+    move-exception v8
 
-    monitor-exit v4
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v8
 
     :cond_1
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v3, v3, 0x1
+
+    move v4, v5
 
     goto :goto_0
 
     :cond_2
     :try_start_1
-    new-array v0, v1, [Lmf/org/apache/xerces/xni/grammars/Grammar;
+    new-array v7, v4, [Lmf/org/apache/xerces/xni/grammars/Grammar;
 
-    const/4 v2, 0x0
+    const/4 v8, 0x0
 
-    const/4 v3, 0x0
+    const/4 v9, 0x0
 
-    invoke-static {v6, v2, v0, v3, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v6, v8, v7, v9, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    monitor-exit v4
+    monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    return-object v0
+    return-object v7
 .end method
 
 .method public unlockPool()V

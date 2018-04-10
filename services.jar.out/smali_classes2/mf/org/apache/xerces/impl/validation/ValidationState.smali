@@ -114,43 +114,43 @@
 .method public checkIDRefID()Ljava/lang/String;
     .locals 3
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/validation/ValidationState;->fIdRefTable:Ljava/util/HashMap;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/validation/ValidationState;->fIdRefTable:Ljava/util/HashMap;
 
-    invoke-virtual {v0}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
+    invoke-virtual {v2}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    :cond_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
-    :cond_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/validation/ValidationState;->fIdTable:Ljava/util/HashMap;
 
-    invoke-virtual {v2, v0}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
     move-result v2
 
     if-nez v2, :cond_0
 
-    return-object v0
+    return-object v1
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    return-object v0
+    return-object v2
 .end method
 
 .method public getLocale()Ljava/util/Locale;

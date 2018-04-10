@@ -4,112 +4,189 @@
 
 # interfaces
 .implements Lorg/apache/http/auth/Credentials;
+.implements Ljava/io/Serializable;
 
 
 # annotations
-.annotation runtime Ljava/lang/Deprecated;
+.annotation build Lorg/apache/http/annotation/Contract;
+    threading = .enum Lorg/apache/http/annotation/ThreadingBehavior;->IMMUTABLE:Lorg/apache/http/annotation/ThreadingBehavior;
 .end annotation
+
+
+# static fields
+.field private static final serialVersionUID:J = 0x36087f34635c8cbL
+
+
+# instance fields
+.field private final password:Ljava/lang/String;
+
+.field private final principal:Lorg/apache/http/auth/BasicUserPrincipal;
 
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 2
+    .locals 3
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    const/4 v2, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const-string/jumbo v1, "Username:password string"
 
-    const-string/jumbo v1, "Stub!"
+    invoke-static {p1, v1}, Lorg/apache/http/util/Args;->notNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    const/16 v1, 0x3a
 
-    throw v0
+    invoke-virtual {p1, v1}, Ljava/lang/String;->indexOf(I)I
+
+    move-result v0
+
+    if-gez v0, :cond_0
+
+    new-instance v1, Lorg/apache/http/auth/BasicUserPrincipal;
+
+    invoke-direct {v1, p1}, Lorg/apache/http/auth/BasicUserPrincipal;-><init>(Ljava/lang/String;)V
+
+    iput-object v1, p0, Lorg/apache/http/auth/UsernamePasswordCredentials;->principal:Lorg/apache/http/auth/BasicUserPrincipal;
+
+    const/4 v1, 0x0
+
+    iput-object v1, p0, Lorg/apache/http/auth/UsernamePasswordCredentials;->password:Ljava/lang/String;
+
+    :goto_0
+    return-void
+
+    :cond_0
+    new-instance v1, Lorg/apache/http/auth/BasicUserPrincipal;
+
+    invoke-virtual {p1, v2, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Lorg/apache/http/auth/BasicUserPrincipal;-><init>(Ljava/lang/String;)V
+
+    iput-object v1, p0, Lorg/apache/http/auth/UsernamePasswordCredentials;->principal:Lorg/apache/http/auth/BasicUserPrincipal;
+
+    add-int/lit8 v1, v0, 0x1
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lorg/apache/http/auth/UsernamePasswordCredentials;->password:Ljava/lang/String;
+
+    goto :goto_0
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const-string/jumbo v0, "Username"
 
-    const-string/jumbo v1, "Stub!"
+    invoke-static {p1, v0}, Lorg/apache/http/util/Args;->notNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    new-instance v0, Lorg/apache/http/auth/BasicUserPrincipal;
 
-    throw v0
+    invoke-direct {v0, p1}, Lorg/apache/http/auth/BasicUserPrincipal;-><init>(Ljava/lang/String;)V
+
+    iput-object v0, p0, Lorg/apache/http/auth/UsernamePasswordCredentials;->principal:Lorg/apache/http/auth/BasicUserPrincipal;
+
+    iput-object p2, p0, Lorg/apache/http/auth/UsernamePasswordCredentials;->password:Ljava/lang/String;
+
+    return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .locals 5
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const/4 v4, 0x1
 
-    const-string/jumbo v1, "Stub!"
+    const/4 v3, 0x0
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    if-eq p0, p1, :cond_1
 
-    throw v0
+    instance-of v1, p1, Lorg/apache/http/auth/UsernamePasswordCredentials;
+
+    if-nez v1, :cond_2
+
+    :cond_0
+    return v3
+
+    :cond_1
+    return v4
+
+    :cond_2
+    move-object v0, p1
+
+    check-cast v0, Lorg/apache/http/auth/UsernamePasswordCredentials;
+
+    iget-object v1, p0, Lorg/apache/http/auth/UsernamePasswordCredentials;->principal:Lorg/apache/http/auth/BasicUserPrincipal;
+
+    iget-object v2, v0, Lorg/apache/http/auth/UsernamePasswordCredentials;->principal:Lorg/apache/http/auth/BasicUserPrincipal;
+
+    invoke-static {v1, v2}, Lorg/apache/http/util/LangUtils;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    return v4
 .end method
 
 .method public getPassword()Ljava/lang/String;
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/auth/UsernamePasswordCredentials;->password:Ljava/lang/String;
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-object v0
 .end method
 
 .method public getUserName()Ljava/lang/String;
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/auth/UsernamePasswordCredentials;->principal:Lorg/apache/http/auth/BasicUserPrincipal;
 
-    const-string/jumbo v1, "Stub!"
+    invoke-virtual {v0}, Lorg/apache/http/auth/BasicUserPrincipal;->getName()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    move-result-object v0
 
-    throw v0
+    return-object v0
 .end method
 
 .method public getUserPrincipal()Ljava/security/Principal;
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/auth/UsernamePasswordCredentials;->principal:Lorg/apache/http/auth/BasicUserPrincipal;
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-object v0
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/auth/UsernamePasswordCredentials;->principal:Lorg/apache/http/auth/BasicUserPrincipal;
 
-    const-string/jumbo v1, "Stub!"
+    invoke-virtual {v0}, Lorg/apache/http/auth/BasicUserPrincipal;->hashCode()I
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    move-result v0
 
-    throw v0
+    return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/auth/UsernamePasswordCredentials;->principal:Lorg/apache/http/auth/BasicUserPrincipal;
 
-    const-string/jumbo v1, "Stub!"
+    invoke-virtual {v0}, Lorg/apache/http/auth/BasicUserPrincipal;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    move-result-object v0
 
-    throw v0
+    return-object v0
 .end method

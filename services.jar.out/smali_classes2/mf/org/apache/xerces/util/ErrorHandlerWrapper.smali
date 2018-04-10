@@ -64,11 +64,11 @@
 .end method
 
 .method protected static createXMLParseException(Lorg/xml/sax/SAXParseException;)Lmf/org/apache/xerces/xni/parser/XMLParseException;
-    .locals 5
+    .locals 7
 
     invoke-virtual {p0}, Lorg/xml/sax/SAXParseException;->getPublicId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
     invoke-virtual {p0}, Lorg/xml/sax/SAXParseException;->getSystemId()Ljava/lang/String;
 
@@ -80,21 +80,21 @@
 
     invoke-virtual {p0}, Lorg/xml/sax/SAXParseException;->getColumnNumber()I
 
-    move-result v3
+    move-result v0
 
     new-instance v4, Lmf/org/apache/xerces/util/ErrorHandlerWrapper$1;
 
-    invoke-direct {v4, v0, v1, v3, v2}, Lmf/org/apache/xerces/util/ErrorHandlerWrapper$1;-><init>(Ljava/lang/String;Ljava/lang/String;II)V
+    invoke-direct {v4, v3, v1, v0, v2}, Lmf/org/apache/xerces/util/ErrorHandlerWrapper$1;-><init>(Ljava/lang/String;Ljava/lang/String;II)V
 
-    new-instance v0, Lmf/org/apache/xerces/xni/parser/XMLParseException;
+    new-instance v5, Lmf/org/apache/xerces/xni/parser/XMLParseException;
 
     invoke-virtual {p0}, Lorg/xml/sax/SAXParseException;->getMessage()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v6
 
-    invoke-direct {v0, v4, v1, p0}, Lmf/org/apache/xerces/xni/parser/XMLParseException;-><init>(Lmf/org/apache/xerces/xni/XMLLocator;Ljava/lang/String;Ljava/lang/Exception;)V
+    invoke-direct {v5, v4, v6, p0}, Lmf/org/apache/xerces/xni/parser/XMLParseException;-><init>(Lmf/org/apache/xerces/xni/XMLLocator;Ljava/lang/String;Ljava/lang/Exception;)V
 
-    return-object v0
+    return-object v5
 .end method
 
 .method protected static createXNIException(Lorg/xml/sax/SAXException;)Lmf/org/apache/xerces/xni/XNIException;
@@ -114,16 +114,16 @@
 
 # virtual methods
 .method public error(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xni/parser/XMLParseException;)V
-    .locals 2
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
 
-    iget-object v0, p0, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;->fErrorHandler:Lorg/xml/sax/ErrorHandler;
+    iget-object v3, p0, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;->fErrorHandler:Lorg/xml/sax/ErrorHandler;
 
-    if-nez v0, :cond_0
+    if-nez v3, :cond_0
 
     :goto_0
     return-void
@@ -131,12 +131,12 @@
     :cond_0
     invoke-static {p3}, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;->createSAXParseException(Lmf/org/apache/xerces/xni/parser/XMLParseException;)Lorg/xml/sax/SAXParseException;
 
-    move-result-object v0
+    move-result-object v2
 
     :try_start_0
-    iget-object v1, p0, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;->fErrorHandler:Lorg/xml/sax/ErrorHandler;
+    iget-object v3, p0, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;->fErrorHandler:Lorg/xml/sax/ErrorHandler;
 
-    invoke-interface {v1, v0}, Lorg/xml/sax/ErrorHandler;->error(Lorg/xml/sax/SAXParseException;)V
+    invoke-interface {v3, v2}, Lorg/xml/sax/ErrorHandler;->error(Lorg/xml/sax/SAXParseException;)V
     :try_end_0
     .catch Lorg/xml/sax/SAXParseException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Lorg/xml/sax/SAXException; {:try_start_0 .. :try_end_0} :catch_1
@@ -144,35 +144,35 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    invoke-static {v0}, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;->createXMLParseException(Lorg/xml/sax/SAXParseException;)Lmf/org/apache/xerces/xni/parser/XMLParseException;
+    invoke-static {v1}, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;->createXMLParseException(Lorg/xml/sax/SAXParseException;)Lmf/org/apache/xerces/xni/parser/XMLParseException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
+    throw v3
 
     :catch_1
     move-exception v0
 
     invoke-static {v0}, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;->createXNIException(Lorg/xml/sax/SAXException;)Lmf/org/apache/xerces/xni/XNIException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
+    throw v3
 .end method
 
 .method public fatalError(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xni/parser/XMLParseException;)V
-    .locals 2
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
 
-    iget-object v0, p0, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;->fErrorHandler:Lorg/xml/sax/ErrorHandler;
+    iget-object v3, p0, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;->fErrorHandler:Lorg/xml/sax/ErrorHandler;
 
-    if-nez v0, :cond_0
+    if-nez v3, :cond_0
 
     :goto_0
     return-void
@@ -180,12 +180,12 @@
     :cond_0
     invoke-static {p3}, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;->createSAXParseException(Lmf/org/apache/xerces/xni/parser/XMLParseException;)Lorg/xml/sax/SAXParseException;
 
-    move-result-object v0
+    move-result-object v2
 
     :try_start_0
-    iget-object v1, p0, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;->fErrorHandler:Lorg/xml/sax/ErrorHandler;
+    iget-object v3, p0, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;->fErrorHandler:Lorg/xml/sax/ErrorHandler;
 
-    invoke-interface {v1, v0}, Lorg/xml/sax/ErrorHandler;->fatalError(Lorg/xml/sax/SAXParseException;)V
+    invoke-interface {v3, v2}, Lorg/xml/sax/ErrorHandler;->fatalError(Lorg/xml/sax/SAXParseException;)V
     :try_end_0
     .catch Lorg/xml/sax/SAXParseException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Lorg/xml/sax/SAXException; {:try_start_0 .. :try_end_0} :catch_1
@@ -193,22 +193,22 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    invoke-static {v0}, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;->createXMLParseException(Lorg/xml/sax/SAXParseException;)Lmf/org/apache/xerces/xni/parser/XMLParseException;
+    invoke-static {v1}, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;->createXMLParseException(Lorg/xml/sax/SAXParseException;)Lmf/org/apache/xerces/xni/parser/XMLParseException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
+    throw v3
 
     :catch_1
     move-exception v0
 
     invoke-static {v0}, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;->createXNIException(Lorg/xml/sax/SAXException;)Lmf/org/apache/xerces/xni/XNIException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
+    throw v3
 .end method
 
 .method public getErrorHandler()Lorg/xml/sax/ErrorHandler;
@@ -228,16 +228,16 @@
 .end method
 
 .method public warning(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xni/parser/XMLParseException;)V
-    .locals 2
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
 
-    iget-object v0, p0, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;->fErrorHandler:Lorg/xml/sax/ErrorHandler;
+    iget-object v3, p0, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;->fErrorHandler:Lorg/xml/sax/ErrorHandler;
 
-    if-nez v0, :cond_0
+    if-nez v3, :cond_0
 
     :goto_0
     return-void
@@ -245,12 +245,12 @@
     :cond_0
     invoke-static {p3}, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;->createSAXParseException(Lmf/org/apache/xerces/xni/parser/XMLParseException;)Lorg/xml/sax/SAXParseException;
 
-    move-result-object v0
+    move-result-object v2
 
     :try_start_0
-    iget-object v1, p0, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;->fErrorHandler:Lorg/xml/sax/ErrorHandler;
+    iget-object v3, p0, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;->fErrorHandler:Lorg/xml/sax/ErrorHandler;
 
-    invoke-interface {v1, v0}, Lorg/xml/sax/ErrorHandler;->warning(Lorg/xml/sax/SAXParseException;)V
+    invoke-interface {v3, v2}, Lorg/xml/sax/ErrorHandler;->warning(Lorg/xml/sax/SAXParseException;)V
     :try_end_0
     .catch Lorg/xml/sax/SAXParseException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Lorg/xml/sax/SAXException; {:try_start_0 .. :try_end_0} :catch_1
@@ -258,20 +258,20 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    invoke-static {v0}, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;->createXMLParseException(Lorg/xml/sax/SAXParseException;)Lmf/org/apache/xerces/xni/parser/XMLParseException;
+    invoke-static {v1}, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;->createXMLParseException(Lorg/xml/sax/SAXParseException;)Lmf/org/apache/xerces/xni/parser/XMLParseException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
+    throw v3
 
     :catch_1
     move-exception v0
 
     invoke-static {v0}, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;->createXNIException(Lorg/xml/sax/SAXException;)Lmf/org/apache/xerces/xni/XNIException;
 
-    move-result-object v0
+    move-result-object v3
 
-    throw v0
+    throw v3
 .end method

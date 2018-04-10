@@ -19,11 +19,37 @@
 
     invoke-direct {p0}, Lorg/apache/http/impl/io/AbstractSessionOutputBuffer;-><init>()V
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const-string/jumbo v1, "Socket"
 
-    const-string/jumbo v1, "Stub!"
+    invoke-static {p1, v1}, Lorg/apache/http/util/Args;->notNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    move v0, p2
 
-    throw v0
+    if-ltz p2, :cond_0
+
+    :goto_0
+    const/16 v1, 0x400
+
+    if-lt v0, v1, :cond_1
+
+    :goto_1
+    invoke-virtual {p1}, Ljava/net/Socket;->getOutputStream()Ljava/io/OutputStream;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v1, v0, p3}, Lorg/apache/http/impl/io/SocketOutputBuffer;->init(Ljava/io/OutputStream;ILorg/apache/http/params/HttpParams;)V
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p1}, Ljava/net/Socket;->getSendBufferSize()I
+
+    move-result v0
+
+    goto :goto_0
+
+    :cond_1
+    const/16 v0, 0x400
+
+    goto :goto_1
 .end method

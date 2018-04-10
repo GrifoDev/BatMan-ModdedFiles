@@ -3,11 +3,6 @@
 .source "CredentialsProvider.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract clear()V
 .end method

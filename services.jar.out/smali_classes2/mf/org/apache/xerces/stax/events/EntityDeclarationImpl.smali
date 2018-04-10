@@ -94,62 +94,62 @@
     .end annotation
 
     :try_start_0
-    const-string/jumbo v0, "<!ENTITY "
+    const-string/jumbo v1, "<!ENTITY "
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/stax/events/EntityDeclarationImpl;->fName:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xerces/stax/events/EntityDeclarationImpl;->fName:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/stax/events/EntityDeclarationImpl;->fPublicId:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xerces/stax/events/EntityDeclarationImpl;->fPublicId:Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    const-string/jumbo v0, " SYSTEM \""
+    const-string/jumbo v1, " SYSTEM \""
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/stax/events/EntityDeclarationImpl;->fSystemId:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xerces/stax/events/EntityDeclarationImpl;->fSystemId:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    const/16 v0, 0x22
+    const/16 v1, 0x22
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(I)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(I)V
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/stax/events/EntityDeclarationImpl;->fNotationName:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xerces/stax/events/EntityDeclarationImpl;->fNotationName:Ljava/lang/String;
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     :goto_1
-    const/16 v0, 0x3e
+    const/16 v1, 0x3e
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(I)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(I)V
 
     return-void
 
     :cond_0
-    const-string/jumbo v0, " PUBLIC \""
+    const-string/jumbo v1, " PUBLIC \""
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/stax/events/EntityDeclarationImpl;->fPublicId:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xerces/stax/events/EntityDeclarationImpl;->fPublicId:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    const-string/jumbo v0, "\" \""
+    const-string/jumbo v1, "\" \""
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/stax/events/EntityDeclarationImpl;->fSystemId:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xerces/stax/events/EntityDeclarationImpl;->fSystemId:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    const/16 v0, 0x22
+    const/16 v1, 0x22
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(I)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(I)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -166,13 +166,13 @@
 
     :cond_1
     :try_start_1
-    const-string/jumbo v0, " NDATA "
+    const-string/jumbo v1, " NDATA "
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/stax/events/EntityDeclarationImpl;->fNotationName:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xerces/stax/events/EntityDeclarationImpl;->fNotationName:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 

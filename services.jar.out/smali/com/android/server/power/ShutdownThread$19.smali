@@ -1,97 +1,126 @@
-.class final Lcom/android/server/power/ShutdownThread$19;
-.super Ljava/lang/Object;
+.class Lcom/android/server/power/ShutdownThread$19;
+.super Ljava/lang/Thread;
 .source "ShutdownThread.java"
-
-# interfaces
-.implements Landroid/speech/tts/TextToSpeech$OnInitListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/power/ShutdownThread;->textToSpeech(Landroid/content/Context;Ljava/lang/String;)V
+    value = Lcom/android/server/power/ShutdownThread;->uncrypt()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x0
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic val$msg:Ljava/lang/String;
+.field final synthetic this$0:Lcom/android/server/power/ShutdownThread;
 
-.field final synthetic val$ttsVolume:D
+.field final synthetic val$done:[Z
+
+.field final synthetic val$progressListener:Landroid/os/RecoverySystem$ProgressListener;
 
 
 # direct methods
-.method constructor <init>(DLjava/lang/String;)V
-    .locals 1
+.method constructor <init>(Lcom/android/server/power/ShutdownThread;Landroid/os/RecoverySystem$ProgressListener;[Z)V
+    .locals 0
 
-    iput-wide p1, p0, Lcom/android/server/power/ShutdownThread$19;->val$ttsVolume:D
+    iput-object p1, p0, Lcom/android/server/power/ShutdownThread$19;->this$0:Lcom/android/server/power/ShutdownThread;
 
-    iput-object p3, p0, Lcom/android/server/power/ShutdownThread$19;->val$msg:Ljava/lang/String;
+    iput-object p2, p0, Lcom/android/server/power/ShutdownThread$19;->val$progressListener:Landroid/os/RecoverySystem$ProgressListener;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput-object p3, p0, Lcom/android/server/power/ShutdownThread$19;->val$done:[Z
+
+    invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onInit(I)V
-    .locals 5
+.method public run()V
+    .locals 8
 
-    const/4 v4, 0x0
+    const/4 v7, 0x0
 
-    if-nez p1, :cond_0
+    iget-object v4, p0, Lcom/android/server/power/ShutdownThread$19;->this$0:Lcom/android/server/power/ShutdownThread;
 
-    const-string/jumbo v1, "ShutdownThread"
+    invoke-static {v4}, Lcom/android/server/power/ShutdownThread;->-get9(Lcom/android/server/power/ShutdownThread;)Landroid/content/Context;
 
-    const-string/jumbo v2, "!@Text to speech"
+    move-result-object v4
 
-    invoke-static {v1, v2}, Lcom/android/server/power/ShutdownThread$Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v5, "recovery"
 
-    new-instance v0, Ljava/util/HashMap;
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    move-result-object v3
 
-    const-string/jumbo v1, "streamType"
+    check-cast v3, Landroid/os/RecoverySystem;
 
-    const/4 v2, 0x1
+    const/4 v1, 0x0
 
-    invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    const/4 v2, 0x2
 
-    move-result-object v2
+    :goto_0
+    if-lez v2, :cond_0
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_start_0
+    sget-object v4, Landroid/os/RecoverySystem;->UNCRYPT_PACKAGE_FILE:Ljava/io/File;
 
-    const-string/jumbo v1, "volume"
+    const/4 v5, 0x0
 
-    iget-wide v2, p0, Lcom/android/server/power/ShutdownThread$19;->val$ttsVolume:D
+    const/4 v6, 0x0
 
-    invoke-static {v2, v3}, Ljava/lang/String;->valueOf(D)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get16()Landroid/speech/tts/TextToSpeech;
+    invoke-static {v4, v5, v6}, Landroid/os/FileUtils;->readTextFile(Ljava/io/File;ILjava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/server/power/ShutdownThread$19;->val$msg:Ljava/lang/String;
+    iget-object v4, p0, Lcom/android/server/power/ShutdownThread$19;->this$0:Lcom/android/server/power/ShutdownThread;
 
-    invoke-virtual {v1, v2, v4, v0}, Landroid/speech/tts/TextToSpeech;->speak(Ljava/lang/String;ILjava/util/HashMap;)I
+    invoke-static {v4}, Lcom/android/server/power/ShutdownThread;->-get9(Lcom/android/server/power/ShutdownThread;)Landroid/content/Context;
 
-    :goto_0
-    return-void
+    move-result-object v4
+
+    new-instance v5, Ljava/io/File;
+
+    invoke-direct {v5, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    iget-object v6, p0, Lcom/android/server/power/ShutdownThread$19;->val$progressListener:Landroid/os/RecoverySystem$ProgressListener;
+
+    invoke-static {v4, v5, v6}, Landroid/os/RecoverySystem;->processPackage(Landroid/content/Context;Ljava/io/File;Landroid/os/RecoverySystem$ProgressListener;)V
+
+    const-string/jumbo v4, "ShutdownThread"
+
+    const-string/jumbo v5, "uncrypt finished. No need to retry uncrypt"
+
+    invoke-static {v4, v5}, Lcom/android/server/power/ShutdownThread$Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
-    const-string/jumbo v1, "ShutdownThread"
+    iget-object v4, p0, Lcom/android/server/power/ShutdownThread$19;->val$done:[Z
 
-    const-string/jumbo v2, "TTS init result fail"
+    const/4 v5, 0x1
 
-    invoke-static {v1, v2}, Lcom/android/server/power/ShutdownThread$Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    aput-boolean v5, v4, v7
+
+    const/4 v4, 0x2
+
+    invoke-static {v4}, Lcom/android/server/power/ShutdownThread;->-set16(I)I
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    add-int/lit8 v2, v2, -0x1
+
+    const-string/jumbo v4, "ShutdownThread"
+
+    const-string/jumbo v5, "Error uncrypting file"
+
+    invoke-static {v4, v5, v0}, Lcom/android/server/power/ShutdownThread$Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)I
 
     goto :goto_0
 .end method

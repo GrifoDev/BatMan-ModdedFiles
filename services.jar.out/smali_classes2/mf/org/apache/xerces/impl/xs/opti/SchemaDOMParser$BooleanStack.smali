@@ -34,36 +34,36 @@
 
     const/4 v3, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser$BooleanStack;->fData:[Z
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser$BooleanStack;->fData:[Z
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser$BooleanStack;->fData:[Z
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser$BooleanStack;->fData:[Z
 
-    array-length v0, v0
+    array-length v1, v1
 
-    if-le v0, p1, :cond_1
+    if-le v1, p1, :cond_1
 
     :goto_0
     return-void
 
     :cond_0
-    const/16 v0, 0x20
+    const/16 v1, 0x20
 
-    new-array v0, v0, [Z
+    new-array v1, v1, [Z
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser$BooleanStack;->fData:[Z
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser$BooleanStack;->fData:[Z
 
     goto :goto_0
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser$BooleanStack;->fData:[Z
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser$BooleanStack;->fData:[Z
 
-    array-length v0, v0
+    array-length v1, v1
 
-    mul-int/lit8 v0, v0, 0x2
+    mul-int/lit8 v1, v1, 0x2
 
-    new-array v0, v0, [Z
+    new-array v0, v1, [Z
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOMParser$BooleanStack;->fData:[Z
 

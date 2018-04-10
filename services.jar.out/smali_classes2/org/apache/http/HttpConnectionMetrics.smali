@@ -3,11 +3,6 @@
 .source "HttpConnectionMetrics.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract getMetric(Ljava/lang/String;)Ljava/lang/Object;
 .end method

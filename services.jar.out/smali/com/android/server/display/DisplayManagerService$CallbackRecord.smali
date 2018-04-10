@@ -49,7 +49,7 @@
 
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$CallbackRecord;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    invoke-static {v0, p0}, Lcom/android/server/display/DisplayManagerService;->-wrap16(Lcom/android/server/display/DisplayManagerService;Lcom/android/server/display/DisplayManagerService$CallbackRecord;)V
+    invoke-static {v0, p0}, Lcom/android/server/display/DisplayManagerService;->-wrap23(Lcom/android/server/display/DisplayManagerService;Lcom/android/server/display/DisplayManagerService$CallbackRecord;)V
 
     return-void
 .end method
@@ -156,13 +156,13 @@
     goto :goto_0
 .end method
 
-.method public notifyDisplayVolumeEventAsync(Landroid/os/Bundle;I)V
+.method public notifyDisplayVolumeEventAsync(ILandroid/os/Bundle;)V
     .locals 4
 
     :try_start_0
     iget-object v1, p0, Lcom/android/server/display/DisplayManagerService$CallbackRecord;->mCallback:Landroid/hardware/display/IDisplayManagerCallback;
 
-    invoke-interface {v1, p1, p2}, Landroid/hardware/display/IDisplayManagerCallback;->onDisplayVolumeEvent(Landroid/os/Bundle;I)V
+    invoke-interface {v1, p1, p2}, Landroid/hardware/display/IDisplayManagerCallback;->onDisplayVolumeEvent(ILandroid/os/Bundle;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -207,13 +207,13 @@
     goto :goto_0
 .end method
 
-.method public notifyDisplayVolumeKeyEventAsync(Landroid/os/Bundle;I)V
+.method public notifyDisplayVolumeKeyEventAsync(I)V
     .locals 4
 
     :try_start_0
     iget-object v1, p0, Lcom/android/server/display/DisplayManagerService$CallbackRecord;->mCallback:Landroid/hardware/display/IDisplayManagerCallback;
 
-    invoke-interface {v1, p1, p2}, Landroid/hardware/display/IDisplayManagerCallback;->onDisplayVolumeKeyEvent(Landroid/os/Bundle;I)V
+    invoke-interface {v1, p1}, Landroid/hardware/display/IDisplayManagerCallback;->onDisplayVolumeKeyEvent(I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 

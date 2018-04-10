@@ -60,9 +60,9 @@
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result v3
 
-    if-nez v0, :cond_1
+    if-nez v3, :cond_1
 
     return-void
 
@@ -81,15 +81,15 @@
 
     invoke-interface {v0}, Lorg/simpleframework/xml/stream/Attribute;->isReserved()Z
 
-    move-result v0
+    move-result v3
 
-    if-nez v0, :cond_0
+    if-nez v3, :cond_0
 
     invoke-virtual {v2}, Lorg/simpleframework/xml/stream/InputAttribute;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {p0, v0, v2}, Lorg/simpleframework/xml/stream/InputNodeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v3, v2}, Lorg/simpleframework/xml/stream/InputNodeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 .end method

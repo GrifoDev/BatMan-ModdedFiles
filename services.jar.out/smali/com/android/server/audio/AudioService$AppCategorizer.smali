@@ -54,7 +54,9 @@
 
     iput-object p2, p0, Lcom/android/server/audio/AudioService$AppCategorizer;->mContext:Landroid/content/Context;
 
-    invoke-static {p1}, Lcom/android/server/audio/AudioService;->-get65(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/AudioService$AudioSettingsDBHelper;
+    iget-object v0, p1, Lcom/android/server/audio/AudioService;->mSecGlobal:Lcom/android/server/audio/AudioService$SecGlobalVariable;
+
+    invoke-static {v0}, Lcom/android/server/audio/AudioService$SecGlobalVariable;->-get99(Lcom/android/server/audio/AudioService$SecGlobalVariable;)Lcom/android/server/audio/AudioService$AudioSettingsDBHelper;
 
     move-result-object v0
 

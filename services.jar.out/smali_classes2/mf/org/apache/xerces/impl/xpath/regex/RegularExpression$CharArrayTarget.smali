@@ -30,247 +30,275 @@
 .end method
 
 .method private final regionMatches(IIII)Z
-    .locals 6
+    .locals 7
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
+
+    move v0, p3
+
+    move v1, v0
+
+    move v3, p4
+
+    move v2, p1
 
     :goto_0
-    add-int/lit8 v1, p4, -0x1
+    add-int/lit8 p4, v3, -0x1
 
-    if-lez p4, :cond_1
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$CharArrayTarget;->target:[C
-
-    add-int/lit8 v2, p1, 0x1
-
-    aget-char v3, v0, p1
+    if-lez v3, :cond_1
 
     iget-object v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$CharArrayTarget;->target:[C
 
-    add-int/lit8 v0, p3, 0x1
+    add-int/lit8 p1, v2, 0x1
 
-    aget-char v4, v4, p3
+    aget-char v4, v4, v2
 
-    if-ne v3, v4, :cond_0
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$CharArrayTarget;->target:[C
 
-    move p3, v0
+    add-int/lit8 v0, v1, 0x1
 
-    move p4, v1
+    aget-char v5, v5, v1
 
-    move p1, v2
+    if-ne v4, v5, :cond_0
+
+    move v1, v0
+
+    move v3, p4
+
+    move v2, p1
 
     goto :goto_0
 
     :cond_0
-    return v5
+    return v6
 
     :cond_1
-    const/4 v0, 0x1
+    const/4 v4, 0x1
 
-    return v0
+    return v4
 .end method
 
 .method private final regionMatches(IILjava/lang/String;I)Z
-    .locals 6
+    .locals 7
 
-    const/4 v1, 0x0
+    const/4 v6, 0x0
 
-    move v0, v1
+    const/4 v0, 0x0
 
-    :goto_0
-    add-int/lit8 v3, p4, -0x1
+    move v1, v0
 
-    if-lez p4, :cond_1
+    move v3, p4
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$CharArrayTarget;->target:[C
-
-    add-int/lit8 v4, p1, 0x1
-
-    aget-char v5, v2, p1
-
-    add-int/lit8 v2, v0, 0x1
-
-    invoke-virtual {p3, v0}, Ljava/lang/String;->charAt(I)C
-
-    move-result v0
-
-    if-ne v5, v0, :cond_0
-
-    move v0, v2
-
-    move p4, v3
-
-    move p1, v4
-
-    goto :goto_0
-
-    :cond_0
-    return v1
-
-    :cond_1
-    const/4 v0, 0x1
-
-    return v0
-.end method
-
-.method private final regionMatchesIgnoreCase(IIII)Z
-    .locals 6
-
-    const/4 v5, 0x0
+    move v2, p1
 
     :goto_0
-    add-int/lit8 v1, p4, -0x1
+    add-int/lit8 p4, v3, -0x1
 
-    if-lez p4, :cond_3
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$CharArrayTarget;->target:[C
-
-    add-int/lit8 v2, p1, 0x1
-
-    aget-char v3, v0, p1
+    if-lez v3, :cond_1
 
     iget-object v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$CharArrayTarget;->target:[C
 
-    add-int/lit8 v0, p3, 0x1
+    add-int/lit8 p1, v2, 0x1
 
-    aget-char v4, v4, p3
+    aget-char v4, v4, v2
 
-    if-eq v3, v4, :cond_0
+    add-int/lit8 v0, v1, 0x1
 
-    invoke-static {v3}, Ljava/lang/Character;->toUpperCase(C)C
+    invoke-virtual {p3, v1}, Ljava/lang/String;->charAt(I)C
 
-    move-result v3
+    move-result v5
 
-    invoke-static {v4}, Ljava/lang/Character;->toUpperCase(C)C
+    if-ne v4, v5, :cond_0
 
-    move-result v4
+    move v1, v0
 
-    if-eq v3, v4, :cond_1
+    move v3, p4
 
-    invoke-static {v3}, Ljava/lang/Character;->toLowerCase(C)C
-
-    move-result v3
-
-    invoke-static {v4}, Ljava/lang/Character;->toLowerCase(C)C
-
-    move-result v4
-
-    if-ne v3, v4, :cond_2
-
-    move p3, v0
-
-    move p4, v1
-
-    move p1, v2
+    move v2, p1
 
     goto :goto_0
 
     :cond_0
-    move p3, v0
-
-    move p4, v1
-
-    move p1, v2
-
-    goto :goto_0
+    return v6
 
     :cond_1
-    move p3, v0
+    const/4 v4, 0x1
 
-    move p4, v1
-
-    move p1, v2
-
-    goto :goto_0
-
-    :cond_2
-    return v5
-
-    :cond_3
-    const/4 v0, 0x1
-
-    return v0
+    return v4
 .end method
 
-.method private final regionMatchesIgnoreCase(IILjava/lang/String;I)Z
-    .locals 6
+.method private final regionMatchesIgnoreCase(IIII)Z
+    .locals 11
 
-    const/4 v1, 0x0
+    const/4 v10, 0x0
 
-    move v0, v1
+    move v2, p3
+
+    move v3, v2
+
+    move v5, p4
+
+    move v4, p1
 
     :goto_0
-    add-int/lit8 v3, p4, -0x1
+    add-int/lit8 p4, v5, -0x1
 
-    if-lez p4, :cond_3
+    if-lez v5, :cond_3
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$CharArrayTarget;->target:[C
+    iget-object v8, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$CharArrayTarget;->target:[C
 
-    add-int/lit8 v4, p1, 0x1
+    add-int/lit8 p1, v4, 0x1
 
-    aget-char v5, v2, p1
+    aget-char v0, v8, v4
 
-    add-int/lit8 v2, v0, 0x1
+    iget-object v8, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$CharArrayTarget;->target:[C
 
-    invoke-virtual {p3, v0}, Ljava/lang/String;->charAt(I)C
+    add-int/lit8 v2, v3, 0x1
 
-    move-result v0
+    aget-char v1, v8, v3
 
-    if-eq v5, v0, :cond_0
-
-    invoke-static {v5}, Ljava/lang/Character;->toUpperCase(C)C
-
-    move-result v5
+    if-eq v0, v1, :cond_0
 
     invoke-static {v0}, Ljava/lang/Character;->toUpperCase(C)C
 
-    move-result v0
+    move-result v6
 
-    if-eq v5, v0, :cond_1
+    invoke-static {v1}, Ljava/lang/Character;->toUpperCase(C)C
 
-    invoke-static {v5}, Ljava/lang/Character;->toLowerCase(C)C
+    move-result v7
 
-    move-result v5
+    if-eq v6, v7, :cond_1
 
-    invoke-static {v0}, Ljava/lang/Character;->toLowerCase(C)C
+    invoke-static {v6}, Ljava/lang/Character;->toLowerCase(C)C
 
-    move-result v0
+    move-result v8
 
-    if-ne v5, v0, :cond_2
+    invoke-static {v7}, Ljava/lang/Character;->toLowerCase(C)C
 
-    move v0, v2
+    move-result v9
 
-    move p4, v3
+    if-ne v8, v9, :cond_2
 
-    move p1, v4
+    move v3, v2
+
+    move v5, p4
+
+    move v4, p1
 
     goto :goto_0
 
     :cond_0
-    move v0, v2
+    move v3, v2
 
-    move p4, v3
+    move v5, p4
 
-    move p1, v4
+    move v4, p1
 
     goto :goto_0
 
     :cond_1
-    move v0, v2
+    move v3, v2
 
-    move p4, v3
+    move v5, p4
 
-    move p1, v4
+    move v4, p1
 
     goto :goto_0
 
     :cond_2
-    return v1
+    return v10
 
     :cond_3
-    const/4 v0, 0x1
+    const/4 v8, 0x1
 
-    return v0
+    return v8
+.end method
+
+.method private final regionMatchesIgnoreCase(IILjava/lang/String;I)Z
+    .locals 11
+
+    const/4 v10, 0x0
+
+    const/4 v2, 0x0
+
+    move v3, v2
+
+    move v5, p4
+
+    move v4, p1
+
+    :goto_0
+    add-int/lit8 p4, v5, -0x1
+
+    if-lez v5, :cond_3
+
+    iget-object v8, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$CharArrayTarget;->target:[C
+
+    add-int/lit8 p1, v4, 0x1
+
+    aget-char v0, v8, v4
+
+    add-int/lit8 v2, v3, 0x1
+
+    invoke-virtual {p3, v3}, Ljava/lang/String;->charAt(I)C
+
+    move-result v1
+
+    if-eq v0, v1, :cond_0
+
+    invoke-static {v0}, Ljava/lang/Character;->toUpperCase(C)C
+
+    move-result v6
+
+    invoke-static {v1}, Ljava/lang/Character;->toUpperCase(C)C
+
+    move-result v7
+
+    if-eq v6, v7, :cond_1
+
+    invoke-static {v6}, Ljava/lang/Character;->toLowerCase(C)C
+
+    move-result v8
+
+    invoke-static {v7}, Ljava/lang/Character;->toLowerCase(C)C
+
+    move-result v9
+
+    if-ne v8, v9, :cond_2
+
+    move v3, v2
+
+    move v5, p4
+
+    move v4, p1
+
+    goto :goto_0
+
+    :cond_0
+    move v3, v2
+
+    move v5, p4
+
+    move v4, p1
+
+    goto :goto_0
+
+    :cond_1
+    move v3, v2
+
+    move v5, p4
+
+    move v4, p1
+
+    goto :goto_0
+
+    :cond_2
+    return v10
+
+    :cond_3
+    const/4 v8, 0x1
+
+    return v8
 .end method
 
 

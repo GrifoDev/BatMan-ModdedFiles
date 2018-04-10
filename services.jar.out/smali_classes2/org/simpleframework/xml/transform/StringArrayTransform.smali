@@ -52,20 +52,20 @@
 .end method
 
 .method private read(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
-    .locals 3
+    .locals 4
 
-    iget-object v0, p0, Lorg/simpleframework/xml/transform/StringArrayTransform;->pattern:Ljava/util/regex/Pattern;
+    iget-object v3, p0, Lorg/simpleframework/xml/transform/StringArrayTransform;->pattern:Ljava/util/regex/Pattern;
 
-    invoke-virtual {v0, p1}, Ljava/util/regex/Pattern;->split(Ljava/lang/CharSequence;)[Ljava/lang/String;
+    invoke-virtual {v3, p1}, Ljava/util/regex/Pattern;->split(Ljava/lang/CharSequence;)[Ljava/lang/String;
 
     move-result-object v1
 
     const/4 v0, 0x0
 
     :goto_0
-    array-length v2, v1
+    array-length v3, v1
 
-    if-lt v0, v2, :cond_0
+    if-lt v0, v3, :cond_0
 
     return-object v1
 
@@ -82,9 +82,9 @@
     :cond_1
     invoke-virtual {v2}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    aput-object v2, v1, v0
+    aput-object v3, v1, v0
 
     goto :goto_1
 .end method
@@ -92,27 +92,27 @@
 .method private write([Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 4
 
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
     const/4 v0, 0x0
 
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     :goto_0
-    array-length v2, p1
+    array-length v3, p1
 
-    if-lt v0, v2, :cond_0
+    if-lt v0, v3, :cond_0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    return-object v0
+    return-object v3
 
     :cond_0
-    aget-object v2, p1, v0
+    aget-object v1, p1, v0
 
-    if-nez v2, :cond_1
+    if-nez v1, :cond_1
 
     :goto_1
     add-int/lit8 v0, v0, 0x1
@@ -120,23 +120,23 @@
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->length()I
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->length()I
 
     move-result v3
 
     if-gtz v3, :cond_2
 
     :goto_2
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_1
 
     :cond_2
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const/16 v3, 0x20
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     goto :goto_2
 .end method

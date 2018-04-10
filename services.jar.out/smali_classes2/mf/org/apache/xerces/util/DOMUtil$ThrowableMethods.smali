@@ -22,40 +22,40 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
-
-    const/4 v6, 0x0
+    .locals 6
 
     const/4 v5, 0x0
 
-    sput-object v6, Lmf/org/apache/xerces/util/DOMUtil$ThrowableMethods;->fgThrowableInitCauseMethod:Ljava/lang/reflect/Method;
+    const/4 v4, 0x0
 
-    sput-boolean v5, Lmf/org/apache/xerces/util/DOMUtil$ThrowableMethods;->fgThrowableMethodsAvailable:Z
+    sput-object v5, Lmf/org/apache/xerces/util/DOMUtil$ThrowableMethods;->fgThrowableInitCauseMethod:Ljava/lang/reflect/Method;
+
+    sput-boolean v4, Lmf/org/apache/xerces/util/DOMUtil$ThrowableMethods;->fgThrowableMethodsAvailable:Z
+
+    const/4 v1, 0x1
 
     :try_start_0
-    const-class v0, Ljava/lang/Throwable;
+    new-array v1, v1, [Ljava/lang/Class;
 
-    const-string/jumbo v1, "initCause"
-
-    const/4 v2, 0x1
-
-    new-array v2, v2, [Ljava/lang/Class;
+    const-class v2, Ljava/lang/Throwable;
 
     const/4 v3, 0x0
 
-    const-class v4, Ljava/lang/Throwable;
+    aput-object v2, v1, v3
 
-    aput-object v4, v2, v3
+    const-class v2, Ljava/lang/Throwable;
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    const-string/jumbo v3, "initCause"
 
-    move-result-object v0
+    invoke-virtual {v2, v3, v1}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    sput-object v0, Lmf/org/apache/xerces/util/DOMUtil$ThrowableMethods;->fgThrowableInitCauseMethod:Ljava/lang/reflect/Method;
+    move-result-object v1
 
-    const/4 v0, 0x1
+    sput-object v1, Lmf/org/apache/xerces/util/DOMUtil$ThrowableMethods;->fgThrowableInitCauseMethod:Ljava/lang/reflect/Method;
 
-    sput-boolean v0, Lmf/org/apache/xerces/util/DOMUtil$ThrowableMethods;->fgThrowableMethodsAvailable:Z
+    const/4 v1, 0x1
+
+    sput-boolean v1, Lmf/org/apache/xerces/util/DOMUtil$ThrowableMethods;->fgThrowableMethodsAvailable:Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -65,9 +65,9 @@
     :catch_0
     move-exception v0
 
-    sput-object v6, Lmf/org/apache/xerces/util/DOMUtil$ThrowableMethods;->fgThrowableInitCauseMethod:Ljava/lang/reflect/Method;
+    sput-object v5, Lmf/org/apache/xerces/util/DOMUtil$ThrowableMethods;->fgThrowableInitCauseMethod:Ljava/lang/reflect/Method;
 
-    sput-boolean v5, Lmf/org/apache/xerces/util/DOMUtil$ThrowableMethods;->fgThrowableMethodsAvailable:Z
+    sput-boolean v4, Lmf/org/apache/xerces/util/DOMUtil$ThrowableMethods;->fgThrowableMethodsAvailable:Z
 
     goto :goto_0
 .end method

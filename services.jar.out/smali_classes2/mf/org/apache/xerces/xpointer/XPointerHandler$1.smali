@@ -41,7 +41,7 @@
         }
     .end annotation
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
     const/4 v4, 0x0
 
@@ -53,7 +53,7 @@
     return-void
 
     :cond_1
-    if-eq p2, v2, :cond_0
+    if-eq p2, v1, :cond_0
 
     const/4 v0, 0x3
 
@@ -69,17 +69,17 @@
 
     iget-object v0, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler$1;->this$0:Lmf/org/apache/xerces/xpointer/XPointerHandler;
 
-    const-string/jumbo v1, "InvalidXPointerToken"
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "InvalidXPointerToken"
 
     invoke-static {p1, p2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)Ljava/lang/String;
 
     move-result-object v3
 
-    aput-object v3, v2, v4
+    aput-object v3, v1, v4
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler;->access$0(Lmf/org/apache/xerces/xpointer/XPointerHandler;Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v0, v2, v1}, Lmf/org/apache/xerces/xpointer/XPointerHandler;->access$0(Lmf/org/apache/xerces/xpointer/XPointerHandler;Ljava/lang/String;[Ljava/lang/Object;)V
 
     return-void
 .end method

@@ -3,15 +3,16 @@
 .source "HTTP.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # static fields
 .field public static final ASCII:Ljava/lang/String; = "ASCII"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final CHARSET_PARAM:Ljava/lang/String; = "; charset="
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final CHUNK_CODING:Ljava/lang/String; = "chunked"
 
@@ -32,10 +33,23 @@
 .field public static final DATE_HEADER:Ljava/lang/String; = "Date"
 
 .field public static final DEFAULT_CONTENT_CHARSET:Ljava/lang/String; = "ISO-8859-1"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final DEFAULT_CONTENT_TYPE:Ljava/lang/String; = "application/octet-stream"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final DEFAULT_PROTOCOL_CHARSET:Ljava/lang/String; = "US-ASCII"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final DEF_CONTENT_CHARSET:Ljava/nio/charset/Charset;
+
+.field public static final DEF_PROTOCOL_CHARSET:Ljava/nio/charset/Charset;
 
 .field public static final EXPECT_CONTINUE:Ljava/lang/String; = "100-continue"
 
@@ -46,12 +60,21 @@
 .field public static final IDENTITY_CODING:Ljava/lang/String; = "identity"
 
 .field public static final ISO_8859_1:Ljava/lang/String; = "ISO-8859-1"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final LF:I = 0xa
 
 .field public static final OCTET_STREAM_TYPE:Ljava/lang/String; = "application/octet-stream"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final PLAIN_TEXT_TYPE:Ljava/lang/String; = "text/plain"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final SERVER_HEADER:Ljava/lang/String; = "Server"
 
@@ -64,35 +87,71 @@
 .field public static final USER_AGENT:Ljava/lang/String; = "User-Agent"
 
 .field public static final US_ASCII:Ljava/lang/String; = "US-ASCII"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final UTF_16:Ljava/lang/String; = "UTF-16"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final UTF_8:Ljava/lang/String; = "UTF-8"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 
 # direct methods
-.method constructor <init>()V
-    .locals 2
+.method static constructor <clinit>()V
+    .locals 1
+
+    sget-object v0, Lorg/apache/http/Consts;->ISO_8859_1:Ljava/nio/charset/Charset;
+
+    sput-object v0, Lorg/apache/http/protocol/HTTP;->DEF_CONTENT_CHARSET:Ljava/nio/charset/Charset;
+
+    sget-object v0, Lorg/apache/http/Consts;->ASCII:Ljava/nio/charset/Charset;
+
+    sput-object v0, Lorg/apache/http/protocol/HTTP;->DEF_PROTOCOL_CHARSET:Ljava/nio/charset/Charset;
+
+    return-void
+.end method
+
+.method private constructor <init>()V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 .method public static isWhitespace(C)Z
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const/16 v0, 0x20
 
-    const-string/jumbo v1, "Stub!"
+    if-ne p0, v0, :cond_1
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    :cond_0
+    const/4 v0, 0x1
 
-    throw v0
+    :goto_0
+    return v0
+
+    :cond_1
+    const/16 v0, 0x9
+
+    if-eq p0, v0, :cond_0
+
+    const/16 v0, 0xd
+
+    if-eq p0, v0, :cond_0
+
+    const/16 v0, 0xa
+
+    if-eq p0, v0, :cond_0
+
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

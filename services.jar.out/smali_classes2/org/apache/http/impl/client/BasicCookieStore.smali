@@ -4,11 +4,30 @@
 
 # interfaces
 .implements Lorg/apache/http/client/CookieStore;
+.implements Ljava/io/Serializable;
 
 
 # annotations
-.annotation runtime Ljava/lang/Deprecated;
+.annotation build Lorg/apache/http/annotation/Contract;
+    threading = .enum Lorg/apache/http/annotation/ThreadingBehavior;->SAFE:Lorg/apache/http/annotation/ThreadingBehavior;
 .end annotation
+
+
+# static fields
+.field private static final serialVersionUID:J = -0x69357431db388559L
+
+
+# instance fields
+.field private final cookies:Ljava/util/TreeSet;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/TreeSet",
+            "<",
+            "Lorg/apache/http/cookie/Cookie;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
@@ -17,32 +36,57 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v0, Ljava/util/TreeSet;
 
-    const-string/jumbo v1, "Stub!"
+    new-instance v1, Lorg/apache/http/cookie/CookieIdentityComparator;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1}, Lorg/apache/http/cookie/CookieIdentityComparator;-><init>()V
 
-    throw v0
+    invoke-direct {v0, v1}, Ljava/util/TreeSet;-><init>(Ljava/util/Comparator;)V
+
+    iput-object v0, p0, Lorg/apache/http/impl/client/BasicCookieStore;->cookies:Ljava/util/TreeSet;
+
+    return-void
 .end method
 
 
 # virtual methods
 .method public declared-synchronized addCookie(Lorg/apache/http/cookie/Cookie;)V
-    .locals 2
+    .locals 1
 
     monitor-enter p0
 
+    if-nez p1, :cond_1
+
+    :cond_0
+    :goto_0
+    monitor-exit p0
+
+    return-void
+
+    :cond_1
     :try_start_0
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/impl/client/BasicCookieStore;->cookies:Ljava/util/TreeSet;
 
-    const-string/jumbo v1, "Stub!"
+    invoke-virtual {v0, p1}, Ljava/util/TreeSet;->remove(Ljava/lang/Object;)Z
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    new-instance v0, Ljava/util/Date;
 
-    throw v0
+    invoke-direct {v0}, Ljava/util/Date;-><init>()V
+
+    invoke-interface {p1, v0}, Lorg/apache/http/cookie/Cookie;->isExpired(Ljava/util/Date;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lorg/apache/http/impl/client/BasicCookieStore;->cookies:Ljava/util/TreeSet;
+
+    invoke-virtual {v0, p1}, Ljava/util/TreeSet;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    goto :goto_0
 
     :catchall_0
     move-exception v0
@@ -53,44 +97,61 @@
 .end method
 
 .method public declared-synchronized addCookies([Lorg/apache/http/cookie/Cookie;)V
-    .locals 2
+    .locals 5
 
     monitor-enter p0
 
+    if-nez p1, :cond_1
+
+    :cond_0
+    monitor-exit p0
+
+    return-void
+
+    :cond_1
+    move-object v0, p1
+
     :try_start_0
-    new-instance v0, Ljava/lang/RuntimeException;
+    array-length v3, p1
 
-    const-string/jumbo v1, "Stub!"
+    const/4 v2, 0x0
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    :goto_0
+    if-ge v2, v3, :cond_0
 
-    throw v0
+    aget-object v1, p1, v2
+
+    invoke-virtual {p0, v1}, Lorg/apache/http/impl/client/BasicCookieStore;->addCookie(Lorg/apache/http/cookie/Cookie;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
     :catchall_0
-    move-exception v0
+    move-exception v4
 
     monitor-exit p0
 
-    throw v0
+    throw v4
 .end method
 
 .method public declared-synchronized clear()V
-    .locals 2
+    .locals 1
 
     monitor-enter p0
 
     :try_start_0
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/impl/client/BasicCookieStore;->cookies:Ljava/util/TreeSet;
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    invoke-virtual {v0}, Ljava/util/TreeSet;->clear()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return-void
 
     :catchall_0
     move-exception v0
@@ -101,27 +162,70 @@
 .end method
 
 .method public declared-synchronized clearExpired(Ljava/util/Date;)Z
-    .locals 2
+    .locals 3
+
+    const/4 v2, 0x0
 
     monitor-enter p0
 
+    if-eqz p1, :cond_1
+
+    const/4 v1, 0x0
+
     :try_start_0
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v2, p0, Lorg/apache/http/impl/client/BasicCookieStore;->cookies:Ljava/util/TreeSet;
 
-    const-string/jumbo v1, "Stub!"
+    invoke-virtual {v2}, Ljava/util/TreeSet;->iterator()Ljava/util/Iterator;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    move-result-object v0
 
-    throw v0
+    :cond_0
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_0
-    move-exception v0
+    move-result v2
+
+    if-nez v2, :cond_2
 
     monitor-exit p0
 
-    throw v0
+    return v1
+
+    :cond_1
+    monitor-exit p0
+
+    return v2
+
+    :cond_2
+    :try_start_1
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lorg/apache/http/cookie/Cookie;
+
+    invoke-interface {v2, p1}, Lorg/apache/http/cookie/Cookie;->isExpired(Ljava/util/Date;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->remove()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    const/4 v1, 0x1
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit p0
+
+    throw v2
 .end method
 
 .method public declared-synchronized getCookies()Ljava/util/List;
@@ -139,15 +243,17 @@
     monitor-enter p0
 
     :try_start_0
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v0, Ljava/util/ArrayList;
 
-    const-string/jumbo v1, "Stub!"
+    iget-object v1, p0, Lorg/apache/http/impl/client/BasicCookieStore;->cookies:Ljava/util/TreeSet;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return-object v0
 
     :catchall_0
     move-exception v0
@@ -157,14 +263,28 @@
     throw v0
 .end method
 
-.method public toString()Ljava/lang/String;
-    .locals 2
+.method public declared-synchronized toString()Ljava/lang/String;
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    monitor-enter p0
 
-    const-string/jumbo v1, "Stub!"
+    :try_start_0
+    iget-object v0, p0, Lorg/apache/http/impl/client/BasicCookieStore;->cookies:Ljava/util/TreeSet;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0}, Ljava/util/TreeSet;->toString()Ljava/lang/String;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v0
+
+    monitor-exit p0
+
+    return-object v0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
 
     throw v0
 .end method

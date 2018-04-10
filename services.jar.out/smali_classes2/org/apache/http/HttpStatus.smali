@@ -3,11 +3,6 @@
 .source "HttpStatus.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # static fields
 .field public static final SC_ACCEPTED:I = 0xca
 

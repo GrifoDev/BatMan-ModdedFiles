@@ -73,9 +73,9 @@
     .end annotation
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xerces/stax/events/DTDImpl;->fDTD:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xerces/stax/events/DTDImpl;->fDTD:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 

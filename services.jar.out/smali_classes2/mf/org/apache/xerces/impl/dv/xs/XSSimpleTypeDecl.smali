@@ -664,23 +664,23 @@
 
     aput-object v2, v0, v1
 
-    const/4 v1, 0x1
+    const-string/jumbo v1, "NMTOKEN"
 
-    const-string/jumbo v2, "NMTOKEN"
+    const/4 v2, 0x1
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x2
+    const-string/jumbo v1, "Name"
 
-    const-string/jumbo v2, "Name"
+    const/4 v2, 0x2
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x3
+    const-string/jumbo v1, "NCName"
 
-    const-string/jumbo v2, "NCName"
+    const/4 v2, 0x3
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     sput-object v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->SPECIAL_PATTERN_STRING:[Ljava/lang/String;
 
@@ -694,17 +694,17 @@
 
     aput-object v2, v0, v1
 
-    const/4 v1, 0x1
+    const-string/jumbo v1, "replace"
 
-    const-string/jumbo v2, "replace"
+    const/4 v2, 0x1
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x2
+    const-string/jumbo v1, "collapse"
 
-    const-string/jumbo v2, "collapse"
+    const/4 v2, 0x2
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     sput-object v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->WS_FACET_STRING:[Ljava/lang/String;
 
@@ -716,9 +716,9 @@
 
     new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const-string/jumbo v2, "anySimpleType"
-
     const/4 v1, 0x0
+
+    const-string/jumbo v2, "anySimpleType"
 
     const/4 v3, 0x0
 
@@ -1444,11 +1444,11 @@
 .method private appendEnumString(Ljava/lang/StringBuffer;)V
     .locals 2
 
-    const/4 v0, 0x0
-
     const/16 v1, 0x5b
 
     invoke-virtual {p1, v1}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+
+    const/4 v0, 0x0
 
     :goto_0
     iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumerationSize:I
@@ -1478,9 +1478,9 @@
     goto :goto_1
 
     :cond_1
-    const/16 v0, 0x5d
+    const/16 v1, 0x5d
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     return-void
 .end method
@@ -1500,123 +1500,127 @@
 .end method
 
 .method private checkExtraRules(Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)V
-    .locals 5
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
         }
     .end annotation
 
-    iget-object v0, p2, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValue:Ljava/lang/Object;
+    iget-object v5, p2, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValue:Ljava/lang/Object;
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
+    iget-short v7, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
 
-    const/4 v2, 0x1
+    const/4 v8, 0x1
 
-    if-eq v1, v2, :cond_0
+    if-eq v7, v8, :cond_0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
+    iget-short v7, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
 
-    const/4 v2, 0x2
+    const/4 v8, 0x2
 
-    if-eq v1, v2, :cond_1
+    if-eq v7, v8, :cond_1
 
-    iget-object v0, p2, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->memberType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+    iget-object v7, p2, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->memberType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
 
-    check-cast v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    check-cast v7, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    invoke-direct {v0, p1, p2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->checkExtraRules(Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)V
+    invoke-direct {v7, p1, p2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->checkExtraRules(Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)V
 
     :goto_0
     return-void
 
     :cond_0
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
+    iget-object v7, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
 
-    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    iget-short v8, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
-    aget-object v1, v1, v2
+    aget-object v7, v7, v8
 
-    invoke-virtual {v1, v0, p1}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->checkExtraRules(Ljava/lang/Object;Lmf/org/apache/xerces/impl/dv/ValidationContext;)V
+    invoke-virtual {v7, v5, p1}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->checkExtraRules(Ljava/lang/Object;Lmf/org/apache/xerces/impl/dv/ValidationContext;)V
 
     goto :goto_0
 
     :cond_1
-    check-cast v0, Lmf/org/apache/xerces/impl/dv/xs/ListDV$ListData;
+    move-object v6, v5
+
+    check-cast v6, Lmf/org/apache/xerces/impl/dv/xs/ListDV$ListData;
 
     iget-object v3, p2, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->memberType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/dv/xs/ListDV$ListData;->getLength()I
+    invoke-virtual {v6}, Lmf/org/apache/xerces/impl/dv/xs/ListDV$ListData;->getLength()I
 
     move-result v2
 
     :try_start_0
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fItemType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v7, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fItemType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
+    iget-short v7, v7, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
 
-    const/4 v4, 0x3
+    const/4 v8, 0x3
 
-    if-eq v1, v4, :cond_2
+    if-eq v7, v8, :cond_2
 
     add-int/lit8 v1, v2, -0x1
 
     :goto_1
     if-ltz v1, :cond_3
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/dv/xs/ListDV$ListData;->item(I)Ljava/lang/Object;
+    invoke-virtual {v6, v1}, Lmf/org/apache/xerces/impl/dv/xs/ListDV$ListData;->item(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v7
 
-    iput-object v2, p2, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValue:Ljava/lang/Object;
+    iput-object v7, p2, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValue:Ljava/lang/Object;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fItemType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v7, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fItemType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    invoke-direct {v2, p1, p2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->checkExtraRules(Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)V
+    invoke-direct {v7, p1, p2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->checkExtraRules(Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)V
 
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_1
 
     :cond_2
-    iget-object v1, p2, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->memberTypes:[Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+    iget-object v4, p2, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->memberTypes:[Lmf/org/apache/xerces/impl/dv/XSSimpleType;
 
-    check-cast v1, [Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    check-cast v4, [Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    add-int/lit8 v1, v2, -0x1
 
     :goto_2
-    add-int/lit8 v2, v2, -0x1
+    if-ltz v1, :cond_3
 
-    if-ltz v2, :cond_3
+    invoke-virtual {v6, v1}, Lmf/org/apache/xerces/impl/dv/xs/ListDV$ListData;->item(I)Ljava/lang/Object;
 
-    invoke-virtual {v0, v2}, Lmf/org/apache/xerces/impl/dv/xs/ListDV$ListData;->item(I)Ljava/lang/Object;
+    move-result-object v7
 
-    move-result-object v4
+    iput-object v7, p2, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValue:Ljava/lang/Object;
 
-    iput-object v4, p2, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValue:Ljava/lang/Object;
+    aget-object v7, v4, v1
 
-    aget-object v4, v1, v2
+    iput-object v7, p2, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->memberType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
 
-    iput-object v4, p2, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->memberType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+    iget-object v7, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fItemType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fItemType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    invoke-direct {v4, p1, p2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->checkExtraRules(Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)V
+    invoke-direct {v7, p1, p2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->checkExtraRules(Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    add-int/lit8 v1, v1, -0x1
 
     goto :goto_2
 
     :catchall_0
-    move-exception v1
+    move-exception v0
 
-    iput-object v0, p2, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValue:Ljava/lang/Object;
+    iput-object v6, p2, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValue:Ljava/lang/Object;
 
     iput-object v3, p2, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->memberType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
 
-    throw v1
+    throw v0
 
     :cond_3
-    iput-object v0, p2, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValue:Ljava/lang/Object;
+    iput-object v6, p2, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValue:Ljava/lang/Object;
 
     iput-object v3, p2, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->memberType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
 
@@ -1624,748 +1628,1140 @@
 .end method
 
 .method private checkFacets(Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)V
-    .locals 13
+    .locals 27
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
         }
     .end annotation
 
-    iget-object v4, p1, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValue:Ljava/lang/Object;
+    move-object/from16 v0, p1
 
-    iget-object v5, p1, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->normalizedValue:Ljava/lang/String;
+    iget-object v10, v0, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValue:Ljava/lang/Object;
 
-    iget-short v0, p1, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValueType:S
+    move-object/from16 v0, p1
 
-    iget-object v6, p1, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->itemValueTypes:Lmf/org/apache/xerces/xs/ShortList;
+    iget-object v3, v0, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->normalizedValue:Ljava/lang/String;
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    move-object/from16 v0, p1
 
-    const/16 v2, 0x12
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValueType:S
 
-    if-ne v1, v2, :cond_8
+    move/from16 v19, v0
+
+    move-object/from16 v0, p1
+
+    iget-object v7, v0, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->itemValueTypes:Lmf/org/apache/xerces/xs/ShortList;
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+
+    move/from16 v22, v0
+
+    const/16 v23, 0x12
+
+    move/from16 v0, v22
+
+    move/from16 v1, v23
+
+    if-ne v0, v1, :cond_8
 
     :cond_0
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit16 v1, v1, 0x800
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_d
+    move/from16 v22, v0
+
+    move/from16 v0, v22
+
+    and-int/lit16 v0, v0, 0x800
+
+    move/from16 v22, v0
+
+    if-nez v22, :cond_d
 
     :cond_1
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v22, v0
+
+    move/from16 v0, v22
 
     and-int/lit16 v0, v0, 0x400
 
-    if-nez v0, :cond_1e
+    move/from16 v22, v0
+
+    if-nez v22, :cond_1f
 
     :cond_2
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v22, v0
+
+    move/from16 v0, v22
 
     and-int/lit16 v0, v0, 0x200
 
-    if-nez v0, :cond_1f
+    move/from16 v22, v0
+
+    if-nez v22, :cond_20
 
     :cond_3
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v0, v0, 0x20
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v0, :cond_20
+    move/from16 v22, v0
+
+    and-int/lit8 v22, v22, 0x20
+
+    if-nez v22, :cond_21
 
     :cond_4
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v0, v0, 0x40
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v0, :cond_21
+    move/from16 v22, v0
+
+    and-int/lit8 v22, v22, 0x40
+
+    if-nez v22, :cond_22
 
     :cond_5
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v22, v0
+
+    move/from16 v0, v22
 
     and-int/lit16 v0, v0, 0x100
 
-    if-nez v0, :cond_22
+    move/from16 v22, v0
+
+    if-nez v22, :cond_23
 
     :cond_6
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v22, v0
+
+    move/from16 v0, v22
 
     and-int/lit16 v0, v0, 0x80
 
-    if-nez v0, :cond_23
+    move/from16 v22, v0
+
+    if-nez v22, :cond_24
 
     :cond_7
     return-void
 
     :cond_8
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    move-object/from16 v0, p0
 
-    const/16 v2, 0x14
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
-    if-eq v1, v2, :cond_0
+    move/from16 v22, v0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
+    const/16 v23, 0x14
 
-    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    move/from16 v0, v22
 
-    aget-object v1, v1, v2
+    move/from16 v1, v23
 
-    invoke-virtual {v1, v4}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->getDataLength(Ljava/lang/Object;)I
+    if-eq v0, v1, :cond_0
 
-    move-result v1
+    move-object/from16 v0, p0
 
-    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
 
-    and-int/lit8 v2, v2, 0x4
+    move-object/from16 v22, v0
 
-    if-nez v2, :cond_b
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+
+    move/from16 v23, v0
+
+    aget-object v22, v22, v23
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v0, v10}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->getDataLength(Ljava/lang/Object;)I
+
+    move-result v9
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v22, v0
+
+    and-int/lit8 v22, v22, 0x4
+
+    if-nez v22, :cond_b
 
     :cond_9
-    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v2, v2, 0x2
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v2, :cond_c
+    move/from16 v22, v0
+
+    and-int/lit8 v22, v22, 0x2
+
+    if-nez v22, :cond_c
 
     :cond_a
-    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v2, v2, 0x1
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-eqz v2, :cond_0
+    move/from16 v22, v0
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
+    and-int/lit8 v22, v22, 0x1
 
-    if-eq v1, v2, :cond_0
+    if-eqz v22, :cond_0
 
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v2, "cvc-length-valid"
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
 
-    const/4 v3, 0x4
+    move/from16 v22, v0
 
-    new-array v3, v3, [Ljava/lang/Object;
+    move/from16 v0, v22
 
-    const/4 v4, 0x0
+    if-eq v9, v0, :cond_0
 
-    aput-object v5, v3, v4
+    new-instance v22, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
 
-    const/4 v4, 0x1
+    const-string/jumbo v23, "cvc-length-valid"
 
-    invoke-static {v1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    const/16 v24, 0x4
 
-    move-result-object v1
+    move/from16 v0, v24
 
-    aput-object v1, v3, v4
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v1, 0x2
+    move-object/from16 v24, v0
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
+    const/16 v25, 0x0
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    aput-object v3, v24, v25
 
-    move-result-object v4
+    invoke-static {v9}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    aput-object v4, v3, v1
+    move-result-object v25
 
-    const/4 v1, 0x3
+    const/16 v26, 0x1
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    aput-object v25, v24, v26
 
-    aput-object v4, v3, v1
+    move-object/from16 v0, p0
 
-    invoke-direct {v0, v2, v3}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
 
-    throw v0
+    move/from16 v25, v0
+
+    invoke-static/range {v25 .. v25}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v25
+
+    const/16 v26, 0x2
+
+    aput-object v25, v24, v26
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v25, v0
+
+    const/16 v26, 0x3
+
+    aput-object v25, v24, v26
+
+    invoke-direct/range {v22 .. v24}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v22
 
     :cond_b
-    iget v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    move-object/from16 v0, p0
 
-    if-le v1, v2, :cond_9
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
 
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
+    move/from16 v22, v0
 
-    const-string/jumbo v2, "cvc-maxLength-valid"
+    move/from16 v0, v22
 
-    const/4 v3, 0x4
+    if-le v9, v0, :cond_9
 
-    new-array v3, v3, [Ljava/lang/Object;
+    new-instance v22, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
 
-    const/4 v4, 0x0
+    const-string/jumbo v23, "cvc-maxLength-valid"
 
-    aput-object v5, v3, v4
+    const/16 v24, 0x4
 
-    const/4 v4, 0x1
+    move/from16 v0, v24
 
-    invoke-static {v1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    move-result-object v1
+    move-object/from16 v24, v0
 
-    aput-object v1, v3, v4
+    const/16 v25, 0x0
 
-    const/4 v1, 0x2
+    aput-object v3, v24, v25
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    invoke-static {v9}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move-result-object v25
 
-    move-result-object v4
+    const/16 v26, 0x1
 
-    aput-object v4, v3, v1
+    aput-object v25, v24, v26
 
-    const/4 v1, 0x3
+    move-object/from16 v0, p0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
 
-    aput-object v4, v3, v1
+    move/from16 v25, v0
 
-    invoke-direct {v0, v2, v3}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static/range {v25 .. v25}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    throw v0
+    move-result-object v25
+
+    const/16 v26, 0x2
+
+    aput-object v25, v24, v26
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v25, v0
+
+    const/16 v26, 0x3
+
+    aput-object v25, v24, v26
+
+    invoke-direct/range {v22 .. v24}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v22
 
     :cond_c
-    iget v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    move-object/from16 v0, p0
 
-    if-ge v1, v2, :cond_a
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
 
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
+    move/from16 v22, v0
 
-    const-string/jumbo v2, "cvc-minLength-valid"
+    move/from16 v0, v22
 
-    const/4 v3, 0x4
+    if-ge v9, v0, :cond_a
 
-    new-array v3, v3, [Ljava/lang/Object;
+    new-instance v22, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
 
-    const/4 v4, 0x0
+    const-string/jumbo v23, "cvc-minLength-valid"
 
-    aput-object v5, v3, v4
+    const/16 v24, 0x4
 
-    const/4 v4, 0x1
+    move/from16 v0, v24
 
-    invoke-static {v1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    move-result-object v1
+    move-object/from16 v24, v0
 
-    aput-object v1, v3, v4
+    const/16 v25, 0x0
 
-    const/4 v1, 0x2
+    aput-object v3, v24, v25
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    invoke-static {v9}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move-result-object v25
 
-    move-result-object v4
+    const/16 v26, 0x1
 
-    aput-object v4, v3, v1
+    aput-object v25, v24, v26
 
-    const/4 v1, 0x3
+    move-object/from16 v0, p0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
 
-    aput-object v4, v3, v1
+    move/from16 v25, v0
 
-    invoke-direct {v0, v2, v3}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static/range {v25 .. v25}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    throw v0
+    move-result-object v25
+
+    const/16 v26, 0x2
+
+    aput-object v25, v24, v26
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v25, v0
+
+    const/16 v26, 0x3
+
+    aput-object v25, v24, v26
+
+    invoke-direct/range {v22 .. v24}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v22
 
     :cond_d
-    const/4 v2, 0x0
+    const/4 v11, 0x0
 
-    iget v7, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumerationSize:I
+    move-object/from16 v0, p0
 
-    invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->convertToPrimitiveKind(S)S
+    iget v5, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumerationSize:I
 
-    move-result v8
+    move-object/from16 v0, p0
 
-    const/4 v0, 0x0
+    move/from16 v1, v19
 
-    move v3, v0
+    invoke-direct {v0, v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->convertToPrimitiveKind(S)S
+
+    move-result v14
+
+    const/4 v6, 0x0
 
     :goto_0
-    if-ge v3, v7, :cond_24
+    if-ge v6, v5, :cond_17
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumeration:[Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+    move-object/from16 v0, p0
 
-    aget-object v0, v0, v3
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumeration:[Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+
+    move-object/from16 v22, v0
+
+    aget-object v22, v22, v6
+
+    move-object/from16 v0, v22
 
     iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValueType:S
 
-    invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->convertToPrimitiveKind(S)S
+    move/from16 v22, v0
 
-    move-result v0
+    move-object/from16 v0, p0
 
-    if-ne v8, v0, :cond_10
+    move/from16 v1, v22
+
+    invoke-direct {v0, v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->convertToPrimitiveKind(S)S
+
+    move-result v15
+
+    if-ne v14, v15, :cond_10
 
     :cond_e
     :goto_1
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumeration:[Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+    move-object/from16 v0, p0
 
-    aget-object v0, v0, v3
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumeration:[Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+
+    move-object/from16 v22, v0
+
+    aget-object v22, v22, v6
+
+    move-object/from16 v0, v22
 
     iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValue:Ljava/lang/Object;
 
-    invoke-virtual {v0, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v22, v0
 
-    move-result v0
+    move-object/from16 v0, v22
 
-    if-nez v0, :cond_13
+    invoke-virtual {v0, v10}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v22
+
+    if-nez v22, :cond_13
 
     :cond_f
     :goto_2
-    add-int/lit8 v0, v3, 0x1
-
-    move v3, v0
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
 
     :cond_10
-    const/4 v1, 0x1
+    const/16 v22, 0x1
 
-    if-eq v8, v1, :cond_12
+    move/from16 v0, v22
+
+    if-eq v14, v0, :cond_12
 
     :cond_11
-    const/4 v1, 0x2
+    const/16 v22, 0x2
 
-    if-ne v8, v1, :cond_f
+    move/from16 v0, v22
 
-    const/4 v1, 0x1
+    if-ne v14, v0, :cond_f
 
-    if-eq v0, v1, :cond_e
+    const/16 v22, 0x1
+
+    move/from16 v0, v22
+
+    if-eq v15, v0, :cond_e
 
     goto :goto_2
 
     :cond_12
-    const/4 v1, 0x2
+    const/16 v22, 0x2
 
-    if-ne v0, v1, :cond_11
+    move/from16 v0, v22
+
+    if-ne v15, v0, :cond_11
 
     goto :goto_1
 
     :cond_13
-    const/16 v0, 0x2c
+    const/16 v22, 0x2c
 
-    if-ne v8, v0, :cond_16
+    move/from16 v0, v22
+
+    if-ne v14, v0, :cond_16
 
     :cond_14
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumeration:[Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+    move-object/from16 v0, p0
 
-    aget-object v0, v0, v3
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumeration:[Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
 
-    iget-object v9, v0, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->itemValueTypes:Lmf/org/apache/xerces/xs/ShortList;
+    move-object/from16 v22, v0
 
-    if-nez v6, :cond_17
+    aget-object v22, v22, v6
 
-    const/4 v0, 0x0
+    move-object/from16 v0, v22
+
+    iget-object v4, v0, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->itemValueTypes:Lmf/org/apache/xerces/xs/ShortList;
+
+    if-nez v7, :cond_18
+
+    const/16 v20, 0x0
 
     :goto_3
-    if-nez v9, :cond_18
+    if-nez v4, :cond_19
 
-    const/4 v1, 0x0
+    const/16 v21, 0x0
 
     :goto_4
+    move/from16 v0, v20
+
+    move/from16 v1, v21
+
     if-ne v0, v1, :cond_f
 
-    const/4 v1, 0x0
+    const/4 v8, 0x0
 
     :goto_5
-    if-ge v1, v0, :cond_1b
+    move/from16 v0, v20
 
-    invoke-interface {v6, v1}, Lmf/org/apache/xerces/xs/ShortList;->item(I)S
+    if-ge v8, v0, :cond_1c
 
-    move-result v10
+    invoke-interface {v7, v8}, Lmf/org/apache/xerces/xs/ShortList;->item(I)S
 
-    invoke-direct {p0, v10}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->convertToPrimitiveKind(S)S
+    move-result v22
 
-    move-result v10
+    move-object/from16 v0, p0
 
-    invoke-interface {v9, v1}, Lmf/org/apache/xerces/xs/ShortList;->item(I)S
+    move/from16 v1, v22
 
-    move-result v11
+    invoke-direct {v0, v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->convertToPrimitiveKind(S)S
 
-    invoke-direct {p0, v11}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->convertToPrimitiveKind(S)S
+    move-result v12
 
-    move-result v11
+    invoke-interface {v4, v8}, Lmf/org/apache/xerces/xs/ShortList;->item(I)S
 
-    if-ne v10, v11, :cond_19
+    move-result v22
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v22
+
+    invoke-direct {v0, v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->convertToPrimitiveKind(S)S
+
+    move-result v13
+
+    if-ne v12, v13, :cond_1a
 
     :cond_15
     :goto_6
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v8, v8, 0x1
 
     goto :goto_5
 
     :cond_16
-    const/16 v0, 0x2b
+    const/16 v22, 0x2b
 
-    if-eq v8, v0, :cond_14
+    move/from16 v0, v22
 
-    const/4 v0, 0x1
+    if-eq v14, v0, :cond_14
 
-    :goto_7
-    if-nez v0, :cond_1
-
-    new-instance v0, Ljava/lang/StringBuffer;
-
-    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
-
-    invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->appendEnumString(Ljava/lang/StringBuffer;)V
-
-    new-instance v1, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
-
-    const-string/jumbo v2, "cvc-enumeration-valid"
-
-    const/4 v3, 0x2
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    const/4 v4, 0x0
-
-    aput-object v5, v3, v4
-
-    const/4 v4, 0x1
-
-    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    aput-object v0, v3, v4
-
-    invoke-direct {v1, v2, v3}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
-
-    throw v1
+    const/4 v11, 0x1
 
     :cond_17
-    invoke-interface {v6}, Lmf/org/apache/xerces/xs/ShortList;->getLength()I
+    :goto_7
+    if-nez v11, :cond_1
 
-    move-result v0
+    new-instance v16, Ljava/lang/StringBuffer;
+
+    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuffer;-><init>()V
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v16
+
+    invoke-direct {v0, v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->appendEnumString(Ljava/lang/StringBuffer;)V
+
+    new-instance v22, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
+
+    const-string/jumbo v23, "cvc-enumeration-valid"
+
+    const/16 v24, 0x2
+
+    move/from16 v0, v24
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v24, v0
+
+    const/16 v25, 0x0
+
+    aput-object v3, v24, v25
+
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v25
+
+    const/16 v26, 0x1
+
+    aput-object v25, v24, v26
+
+    invoke-direct/range {v22 .. v24}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v22
+
+    :cond_18
+    invoke-interface {v7}, Lmf/org/apache/xerces/xs/ShortList;->getLength()I
+
+    move-result v20
 
     goto :goto_3
 
-    :cond_18
-    invoke-interface {v9}, Lmf/org/apache/xerces/xs/ShortList;->getLength()I
+    :cond_19
+    invoke-interface {v4}, Lmf/org/apache/xerces/xs/ShortList;->getLength()I
 
-    move-result v1
+    move-result v21
 
     goto :goto_4
 
-    :cond_19
-    const/4 v12, 0x1
-
-    if-eq v10, v12, :cond_1c
-
     :cond_1a
-    const/4 v12, 0x2
+    const/16 v22, 0x1
 
-    if-eq v10, v12, :cond_1d
+    move/from16 v0, v22
+
+    if-eq v12, v0, :cond_1d
 
     :cond_1b
-    :goto_8
-    if-ne v1, v0, :cond_f
+    const/16 v22, 0x2
 
-    const/4 v0, 0x1
+    move/from16 v0, v22
+
+    if-eq v12, v0, :cond_1e
+
+    :cond_1c
+    :goto_8
+    move/from16 v0, v20
+
+    if-ne v8, v0, :cond_f
+
+    const/4 v11, 0x1
 
     goto :goto_7
 
-    :cond_1c
-    const/4 v12, 0x2
+    :cond_1d
+    const/16 v22, 0x2
 
-    if-ne v11, v12, :cond_1a
+    move/from16 v0, v22
+
+    if-ne v13, v0, :cond_1b
 
     goto :goto_6
 
-    :cond_1d
-    const/4 v10, 0x1
+    :cond_1e
+    const/16 v22, 0x1
 
-    if-eq v11, v10, :cond_15
+    move/from16 v0, v22
+
+    if-eq v13, v0, :cond_15
 
     goto :goto_8
 
-    :cond_1e
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
+    :cond_1f
+    move-object/from16 v0, p0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
 
-    aget-object v0, v0, v1
+    move-object/from16 v22, v0
 
-    invoke-virtual {v0, v4}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->getFractionDigits(Ljava/lang/Object;)I
+    move-object/from16 v0, p0
 
-    move-result v0
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+    move/from16 v23, v0
+
+    aget-object v22, v22, v23
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v0, v10}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->getFractionDigits(Ljava/lang/Object;)I
+
+    move-result v17
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+
+    move/from16 v22, v0
+
+    move/from16 v0, v17
+
+    move/from16 v1, v22
 
     if-le v0, v1, :cond_2
 
-    new-instance v1, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
+    new-instance v22, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
 
-    const-string/jumbo v2, "cvc-fractionDigits-valid"
+    const-string/jumbo v23, "cvc-fractionDigits-valid"
 
-    const/4 v3, 0x3
+    const/16 v24, 0x3
 
-    new-array v3, v3, [Ljava/lang/Object;
+    move/from16 v0, v24
 
-    const/4 v4, 0x0
+    new-array v0, v0, [Ljava/lang/Object;
 
-    aput-object v5, v3, v4
+    move-object/from16 v24, v0
 
-    const/4 v4, 0x1
+    const/16 v25, 0x0
 
-    invoke-static {v0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    aput-object v3, v24, v25
 
-    move-result-object v0
+    invoke-static/range {v17 .. v17}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    aput-object v0, v3, v4
+    move-result-object v25
 
-    const/4 v0, 0x2
+    const/16 v26, 0x1
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+    aput-object v25, v24, v26
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    move-result-object v4
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
 
-    aput-object v4, v3, v0
+    move/from16 v25, v0
 
-    invoke-direct {v1, v2, v3}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static/range {v25 .. v25}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    throw v1
+    move-result-object v25
 
-    :cond_1f
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
+    const/16 v26, 0x2
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    aput-object v25, v24, v26
 
-    aget-object v0, v0, v1
+    invoke-direct/range {v22 .. v24}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    invoke-virtual {v0, v4}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->getTotalDigits(Ljava/lang/Object;)I
+    throw v22
 
-    move-result v0
+    :cond_20
+    move-object/from16 v0, p0
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
+
+    move-object/from16 v22, v0
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+
+    move/from16 v23, v0
+
+    aget-object v22, v22, v23
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v0, v10}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->getTotalDigits(Ljava/lang/Object;)I
+
+    move-result v18
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
+
+    move/from16 v22, v0
+
+    move/from16 v0, v18
+
+    move/from16 v1, v22
 
     if-le v0, v1, :cond_3
 
-    new-instance v1, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
+    new-instance v22, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
 
-    const-string/jumbo v2, "cvc-totalDigits-valid"
+    const-string/jumbo v23, "cvc-totalDigits-valid"
 
-    const/4 v3, 0x3
+    const/16 v24, 0x3
 
-    new-array v3, v3, [Ljava/lang/Object;
+    move/from16 v0, v24
 
-    const/4 v4, 0x0
+    new-array v0, v0, [Ljava/lang/Object;
 
-    aput-object v5, v3, v4
+    move-object/from16 v24, v0
 
-    const/4 v4, 0x1
+    const/16 v25, 0x0
 
-    invoke-static {v0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    aput-object v3, v24, v25
 
-    move-result-object v0
+    invoke-static/range {v18 .. v18}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    aput-object v0, v3, v4
+    move-result-object v25
 
-    const/4 v0, 0x2
+    const/16 v26, 0x1
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
+    aput-object v25, v24, v26
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    move-result-object v4
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
 
-    aput-object v4, v3, v0
+    move/from16 v25, v0
 
-    invoke-direct {v1, v2, v3}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static/range {v25 .. v25}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    throw v1
+    move-result-object v25
 
-    :cond_20
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
+    const/16 v26, 0x2
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    aput-object v25, v24, v26
 
-    aget-object v0, v0, v1
+    invoke-direct/range {v22 .. v24}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
-
-    invoke-virtual {v0, v4, v1}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
-
-    move-result v0
-
-    const/4 v1, -0x1
-
-    if-eq v0, v1, :cond_4
-
-    if-eqz v0, :cond_4
-
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
-
-    const-string/jumbo v1, "cvc-maxInclusive-valid"
-
-    const/4 v2, 0x3
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    const/4 v3, 0x0
-
-    aput-object v5, v2, v3
-
-    const/4 v3, 0x1
-
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
-
-    aput-object v4, v2, v3
-
-    const/4 v3, 0x2
-
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
-
-    aput-object v4, v2, v3
-
-    invoke-direct {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
-
-    throw v0
+    throw v22
 
     :cond_21
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
+    move-object/from16 v0, p0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
 
-    aget-object v0, v0, v1
+    move-object/from16 v22, v0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4, v1}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
-    move-result v0
+    move/from16 v23, v0
 
-    const/4 v1, -0x1
+    aget-object v22, v22, v23
 
-    if-eq v0, v1, :cond_5
+    move-object/from16 v0, p0
 
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
 
-    const-string/jumbo v1, "cvc-maxExclusive-valid"
+    move-object/from16 v23, v0
 
-    const/4 v2, 0x3
+    move-object/from16 v0, v22
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move-object/from16 v1, v23
 
-    const/4 v3, 0x0
+    invoke-virtual {v0, v10, v1}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
-    aput-object v5, v2, v3
+    move-result v2
 
-    const/4 v3, 0x1
+    const/16 v22, -0x1
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
+    move/from16 v0, v22
 
-    aput-object v4, v2, v3
+    if-eq v2, v0, :cond_4
 
-    const/4 v3, 0x2
+    if-eqz v2, :cond_4
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    new-instance v22, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
 
-    aput-object v4, v2, v3
+    const-string/jumbo v23, "cvc-maxInclusive-valid"
 
-    invoke-direct {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/16 v24, 0x3
 
-    throw v0
+    move/from16 v0, v24
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v24, v0
+
+    const/16 v25, 0x0
+
+    aput-object v3, v24, v25
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
+
+    move-object/from16 v25, v0
+
+    const/16 v26, 0x1
+
+    aput-object v25, v24, v26
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v25, v0
+
+    const/16 v26, 0x2
+
+    aput-object v25, v24, v26
+
+    invoke-direct/range {v22 .. v24}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v22
 
     :cond_22
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
+    move-object/from16 v0, p0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
 
-    aget-object v0, v0, v1
+    move-object/from16 v22, v0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4, v1}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
-    move-result v0
+    move/from16 v23, v0
 
-    const/4 v1, 0x1
+    aget-object v22, v22, v23
 
-    if-eq v0, v1, :cond_6
+    move-object/from16 v0, p0
 
-    if-eqz v0, :cond_6
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
 
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
+    move-object/from16 v23, v0
 
-    const-string/jumbo v1, "cvc-minInclusive-valid"
+    move-object/from16 v0, v22
 
-    const/4 v2, 0x3
+    move-object/from16 v1, v23
 
-    new-array v2, v2, [Ljava/lang/Object;
+    invoke-virtual {v0, v10, v1}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
-    const/4 v3, 0x0
+    move-result v2
 
-    aput-object v5, v2, v3
+    const/16 v22, -0x1
 
-    const/4 v3, 0x1
+    move/from16 v0, v22
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
+    if-eq v2, v0, :cond_5
 
-    aput-object v4, v2, v3
+    new-instance v22, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
 
-    const/4 v3, 0x2
+    const-string/jumbo v23, "cvc-maxExclusive-valid"
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    const/16 v24, 0x3
 
-    aput-object v4, v2, v3
+    move/from16 v0, v24
 
-    invoke-direct {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    new-array v0, v0, [Ljava/lang/Object;
 
-    throw v0
+    move-object/from16 v24, v0
+
+    const/16 v25, 0x0
+
+    aput-object v3, v24, v25
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
+
+    move-object/from16 v25, v0
+
+    const/16 v26, 0x1
+
+    aput-object v25, v24, v26
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v25, v0
+
+    const/16 v26, 0x2
+
+    aput-object v25, v24, v26
+
+    invoke-direct/range {v22 .. v24}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v22
 
     :cond_23
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
+    move-object/from16 v0, p0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
 
-    aget-object v0, v0, v1
+    move-object/from16 v22, v0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4, v1}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
-    move-result v0
+    move/from16 v23, v0
 
-    const/4 v1, 0x1
+    aget-object v22, v22, v23
 
-    if-eq v0, v1, :cond_7
+    move-object/from16 v0, p0
 
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
 
-    const-string/jumbo v1, "cvc-minExclusive-valid"
+    move-object/from16 v23, v0
 
-    const/4 v2, 0x3
+    move-object/from16 v0, v22
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move-object/from16 v1, v23
 
-    const/4 v3, 0x0
+    invoke-virtual {v0, v10, v1}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
-    aput-object v5, v2, v3
+    move-result v2
 
-    const/4 v3, 0x1
+    const/16 v22, 0x1
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
+    move/from16 v0, v22
 
-    aput-object v4, v2, v3
+    if-eq v2, v0, :cond_6
 
-    const/4 v3, 0x2
+    if-eqz v2, :cond_6
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    new-instance v22, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
 
-    aput-object v4, v2, v3
+    const-string/jumbo v23, "cvc-minInclusive-valid"
 
-    invoke-direct {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/16 v24, 0x3
 
-    throw v0
+    move/from16 v0, v24
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v24, v0
+
+    const/16 v25, 0x0
+
+    aput-object v3, v24, v25
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
+
+    move-object/from16 v25, v0
+
+    const/16 v26, 0x1
+
+    aput-object v25, v24, v26
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v25, v0
+
+    const/16 v26, 0x2
+
+    aput-object v25, v24, v26
+
+    invoke-direct/range {v22 .. v24}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v22
 
     :cond_24
-    move v0, v2
+    move-object/from16 v0, p0
 
-    goto/16 :goto_7
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
+
+    move-object/from16 v22, v0
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+
+    move/from16 v23, v0
+
+    aget-object v22, v22, v23
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, v22
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v10, v1}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
+
+    move-result v2
+
+    const/16 v22, 0x1
+
+    move/from16 v0, v22
+
+    if-eq v2, v0, :cond_7
+
+    new-instance v22, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
+
+    const-string/jumbo v23, "cvc-minExclusive-valid"
+
+    const/16 v24, 0x3
+
+    move/from16 v0, v24
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v24, v0
+
+    const/16 v25, 0x0
+
+    aput-object v3, v24, v25
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
+
+    move-object/from16 v25, v0
+
+    const/16 v26, 0x1
+
+    aput-object v25, v24, v26
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v25, v0
+
+    const/16 v26, 0x2
+
+    aput-object v25, v24, v26
+
+    invoke-direct/range {v22 .. v24}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v22
 .end method
 
 .method private convertToPrimitiveKind(S)S
@@ -2400,7 +2796,7 @@
 .end method
 
 .method private getActualValue(Ljava/lang/Object;Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;Z)Ljava/lang/Object;
-    .locals 11
+    .locals 28
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
@@ -2409,618 +2805,989 @@
 
     if-nez p4, :cond_3
 
-    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual/range {p1 .. p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
-
-    move-object v1, v0
+    move-result-object v17
 
     :goto_0
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v0, v0, 0x8
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v0, :cond_4
+    move/from16 v23, v0
+
+    and-int/lit8 v23, v23, 0x8
+
+    if-nez v23, :cond_4
 
     :cond_0
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
+    move-object/from16 v0, p0
 
-    const/4 v2, 0x1
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
 
-    if-eq v0, v2, :cond_6
+    move/from16 v23, v0
 
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
+    const/16 v24, 0x1
 
-    const/4 v2, 0x2
+    move/from16 v0, v23
 
-    if-eq v0, v2, :cond_f
+    move/from16 v1, v24
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    if-eq v0, v1, :cond_6
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
+
+    move/from16 v23, v0
+
+    const/16 v24, 0x2
+
+    move/from16 v0, v23
+
+    move/from16 v1, v24
+
+    if-eq v0, v1, :cond_f
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, v23
 
     array-length v0, v0
 
-    const/4 v1, 0x1
+    move/from16 v23, v0
+
+    const/16 v24, 0x1
+
+    move/from16 v0, v23
+
+    move/from16 v1, v24
 
     if-gt v0, v1, :cond_18
 
     :cond_1
-    move-object v0, p1
+    move-object/from16 v6, p1
 
     :goto_1
-    const/4 v1, 0x0
+    const/4 v12, 0x0
 
     :goto_2
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    array-length v2, v2
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    if-ge v1, v2, :cond_1a
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, v23
+
+    array-length v0, v0
+
+    move/from16 v23, v0
+
+    move/from16 v0, v23
+
+    if-ge v12, v0, :cond_1a
 
     :try_start_0
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    aget-object v2, v2, v1
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v3, 0x1
+    move-object/from16 v23, v0
 
-    invoke-direct {v2, v0, p2, p3, v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getActualValue(Ljava/lang/Object;Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;Z)Ljava/lang/Object;
+    aget-object v23, v23, v12
 
-    move-result-object v2
+    const/16 v24, 0x1
 
-    invoke-interface {p2}, Lmf/org/apache/xerces/impl/dv/ValidationContext;->needFacetChecking()Z
+    move-object/from16 v0, v23
 
-    move-result v3
+    move-object/from16 v1, p2
 
-    if-nez v3, :cond_19
+    move-object/from16 v2, p3
+
+    move/from16 v3, v24
+
+    invoke-direct {v0, v6, v1, v2, v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getActualValue(Ljava/lang/Object;Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;Z)Ljava/lang/Object;
+
+    move-result-object v7
+
+    invoke-interface/range {p2 .. p2}, Lmf/org/apache/xerces/impl/dv/ValidationContext;->needFacetChecking()Z
+
+    move-result v23
+
+    if-nez v23, :cond_19
 
     :cond_2
     :goto_3
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    aget-object v3, v3, v1
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    iput-object v3, p3, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->memberType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+    move-object/from16 v23, v0
 
-    iput-object p0, p3, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+    aget-object v23, v23, v12
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, p3
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->memberType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p3
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
     :try_end_0
     .catch Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v2
+    return-object v7
 
     :cond_3
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
+    move-object/from16 v0, p0
 
-    invoke-virtual {p0, p1, v0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->normalize(Ljava/lang/Object;S)Ljava/lang/String;
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
 
-    move-result-object v0
+    move/from16 v23, v0
 
-    move-object v1, v0
+    move-object/from16 v0, p0
 
-    goto :goto_0
+    move-object/from16 v1, p1
+
+    move/from16 v2, v23
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->normalize(Ljava/lang/Object;S)Ljava/lang/String;
+
+    move-result-object v17
+
+    goto/16 :goto_0
 
     :cond_4
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPattern:Ljava/util/Vector;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Ljava/util/Vector;->size()I
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPattern:Ljava/util/Vector;
 
-    move-result v0
+    move-object/from16 v23, v0
 
-    add-int/lit8 v0, v0, -0x1
+    invoke-virtual/range {v23 .. v23}, Ljava/util/Vector;->size()I
 
-    move v2, v0
+    move-result v23
+
+    add-int/lit8 v13, v23, -0x1
 
     :goto_4
-    if-ltz v2, :cond_0
+    if-ltz v13, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPattern:Ljava/util/Vector;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPattern:Ljava/util/Vector;
 
-    move-result-object v0
+    move-object/from16 v23, v0
 
-    check-cast v0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression;
+    move-object/from16 v0, v23
+
+    invoke-virtual {v0, v13}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+
+    move-result-object v19
+
+    check-cast v19, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression;
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v17
 
     invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression;->matches(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v23
 
-    if-eqz v0, :cond_5
+    if-eqz v23, :cond_5
 
-    add-int/lit8 v0, v2, -0x1
-
-    move v2, v0
+    add-int/lit8 v13, v13, -0x1
 
     goto :goto_4
 
     :cond_5
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
+    new-instance v23, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
 
-    const-string/jumbo v1, "cvc-pattern-valid"
+    const-string/jumbo v24, "cvc-pattern-valid"
 
-    const/4 v3, 0x3
+    const/16 v25, 0x3
 
-    new-array v3, v3, [Ljava/lang/Object;
+    move/from16 v0, v25
 
-    const/4 v4, 0x0
+    new-array v0, v0, [Ljava/lang/Object;
 
-    aput-object p1, v3, v4
+    move-object/from16 v25, v0
 
-    const/4 v4, 0x1
+    const/16 v26, 0x0
 
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternStr:Ljava/util/Vector;
+    aput-object p1, v25, v26
 
-    invoke-virtual {v5, v2}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    const/16 v26, 0x1
 
-    move-result-object v2
+    move-object/from16 v0, p0
 
-    aput-object v2, v3, v4
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternStr:Ljava/util/Vector;
 
-    const/4 v2, 0x2
+    move-object/from16 v27, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move-object/from16 v0, v27
 
-    aput-object v4, v3, v2
+    invoke-virtual {v0, v13}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    invoke-direct {v0, v1, v3}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-result-object v27
 
-    throw v0
+    aput-object v27, v25, v26
+
+    const/16 v26, 0x2
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v27, v0
+
+    aput-object v27, v25, v26
+
+    invoke-direct/range {v23 .. v25}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v23
 
     :cond_6
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
+    move-object/from16 v0, p0
 
-    if-nez v0, :cond_8
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
+
+    move/from16 v23, v0
+
+    if-nez v23, :cond_8
 
     :cond_7
-    iput-object v1, p3, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->normalizedValue:Ljava/lang/String;
+    move-object/from16 v0, v17
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
+    move-object/from16 v1, p3
 
-    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->normalizedValue:Ljava/lang/String;
 
-    aget-object v0, v0, v2
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v1, p2}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->getActualValue(Ljava/lang/String;Lmf/org/apache/xerces/impl/dv/ValidationContext;)Ljava/lang/Object;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
 
-    move-result-object v0
+    move-object/from16 v23, v0
 
-    iput-object v0, p3, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValue:Ljava/lang/Object;
+    move-object/from16 v0, p0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBuiltInKind:S
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
-    int-to-short v1, v1
+    move/from16 v24, v0
 
-    iput-short v1, p3, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValueType:S
+    aget-object v23, v23, v24
 
-    iput-object p0, p3, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+    move-object/from16 v0, v23
 
-    return-object v0
+    move-object/from16 v1, v17
 
-    :cond_8
-    const/4 v0, 0x0
+    move-object/from16 v2, p2
 
-    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->getActualValue(Ljava/lang/String;Lmf/org/apache/xerces/impl/dv/ValidationContext;)Ljava/lang/Object;
 
-    const/4 v3, 0x1
+    move-result-object v8
 
-    if-eq v2, v3, :cond_9
+    move-object/from16 v0, p3
 
-    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
+    iput-object v8, v0, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValue:Ljava/lang/Object;
 
-    const/4 v3, 0x2
-
-    if-eq v2, v3, :cond_b
-
-    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
-
-    const/4 v3, 0x3
-
-    if-eq v2, v3, :cond_d
-
-    :goto_5
-    if-eqz v0, :cond_7
-
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
-
-    const-string/jumbo v2, "cvc-datatype-valid.1.2.1"
-
-    const/4 v3, 0x2
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    const/4 v4, 0x0
-
-    aput-object v1, v3, v4
-
-    const/4 v1, 0x1
-
-    sget-object v4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->SPECIAL_PATTERN_STRING:[Ljava/lang/String;
-
-    iget-short v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
-
-    aget-object v4, v4, v5
-
-    aput-object v4, v3, v1
-
-    invoke-direct {v0, v2, v3}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
-
-    throw v0
-
-    :cond_9
-    invoke-static {v1}, Lmf/org/apache/xerces/util/XMLChar;->isValidNmtoken(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_a
-
-    const/4 v0, 0x1
-
-    goto :goto_5
-
-    :cond_a
-    const/4 v0, 0x0
-
-    goto :goto_5
-
-    :cond_b
-    invoke-static {v1}, Lmf/org/apache/xerces/util/XMLChar;->isValidName(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_c
-
-    const/4 v0, 0x1
-
-    goto :goto_5
-
-    :cond_c
-    const/4 v0, 0x0
-
-    goto :goto_5
-
-    :cond_d
-    invoke-static {v1}, Lmf/org/apache/xerces/util/XMLChar;->isValidNCName(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_e
-
-    const/4 v0, 0x1
-
-    goto :goto_5
-
-    :cond_e
-    const/4 v0, 0x0
-
-    goto :goto_5
-
-    :cond_f
-    new-instance v5, Ljava/util/StringTokenizer;
-
-    const-string/jumbo v0, " "
-
-    invoke-direct {v5, v1, v0}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {v5}, Ljava/util/StringTokenizer;->countTokens()I
-
-    move-result v3
-
-    new-array v6, v3, [Ljava/lang/Object;
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fItemType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getVariety()S
-
-    move-result v0
-
-    const/4 v2, 0x3
-
-    if-eq v0, v2, :cond_11
-
-    const/4 v0, 0x0
-
-    move v2, v0
-
-    :goto_6
-    if-nez v2, :cond_12
-
-    const/4 v0, 0x1
-
-    :goto_7
-    new-array v7, v0, [S
-
-    if-eqz v2, :cond_13
-
-    :goto_8
-    new-array v8, v3, [Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    const/4 v0, 0x0
-
-    move v4, v0
-
-    :goto_9
-    if-ge v4, v3, :cond_16
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fItemType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    invoke-virtual {v5}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
-
-    move-result-object v9
-
-    const/4 v10, 0x0
-
-    invoke-direct {v0, v9, p2, p3, v10}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getActualValue(Ljava/lang/Object;Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;Z)Ljava/lang/Object;
-
-    move-result-object v0
-
-    aput-object v0, v6, v4
-
-    invoke-interface {p2}, Lmf/org/apache/xerces/impl/dv/ValidationContext;->needFacetChecking()Z
-
-    move-result v0
-
-    if-nez v0, :cond_14
-
-    :cond_10
-    :goto_a
-    iget-object v0, p3, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->memberType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
-
-    check-cast v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    aput-object v0, v8, v4
-
-    if-nez v2, :cond_15
-
-    :goto_b
-    add-int/lit8 v0, v4, 0x1
-
-    move v4, v0
-
-    goto :goto_9
-
-    :cond_11
-    const/4 v0, 0x1
-
-    move v2, v0
-
-    goto :goto_6
-
-    :cond_12
-    move v0, v3
-
-    goto :goto_7
-
-    :cond_13
-    const/4 v0, 0x0
-
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fItemType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    iget-short v4, v4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBuiltInKind:S
-
-    int-to-short v4, v4
-
-    aput-short v4, v7, v0
-
-    goto :goto_8
-
-    :cond_14
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fItemType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
-
-    if-eqz v0, :cond_10
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fItemType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
-
-    const/16 v9, 0x10
-
-    if-eq v0, v9, :cond_10
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fItemType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    invoke-direct {v0, p3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->checkFacets(Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)V
-
-    goto :goto_a
-
-    :cond_15
-    aget-object v0, v8, v4
+    move-object/from16 v0, p0
 
     iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBuiltInKind:S
 
+    move/from16 v23, v0
+
+    move/from16 v0, v23
+
     int-to-short v0, v0
 
-    aput-short v0, v7, v4
+    move/from16 v23, v0
+
+    move/from16 v0, v23
+
+    move-object/from16 v1, p3
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValueType:S
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p3
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+
+    return-object v8
+
+    :cond_8
+    const/16 v20, 0x0
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
+
+    move/from16 v23, v0
+
+    const/16 v24, 0x1
+
+    move/from16 v0, v23
+
+    move/from16 v1, v24
+
+    if-eq v0, v1, :cond_9
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
+
+    move/from16 v23, v0
+
+    const/16 v24, 0x2
+
+    move/from16 v0, v23
+
+    move/from16 v1, v24
+
+    if-eq v0, v1, :cond_b
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
+
+    move/from16 v23, v0
+
+    const/16 v24, 0x3
+
+    move/from16 v0, v23
+
+    move/from16 v1, v24
+
+    if-eq v0, v1, :cond_d
+
+    :goto_5
+    if-eqz v20, :cond_7
+
+    new-instance v23, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
+
+    const-string/jumbo v24, "cvc-datatype-valid.1.2.1"
+
+    const/16 v25, 0x2
+
+    move/from16 v0, v25
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v25, v0
+
+    const/16 v26, 0x0
+
+    aput-object v17, v25, v26
+
+    sget-object v26, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->SPECIAL_PATTERN_STRING:[Ljava/lang/String;
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
+
+    move/from16 v27, v0
+
+    aget-object v26, v26, v27
+
+    const/16 v27, 0x1
+
+    aput-object v26, v25, v27
+
+    invoke-direct/range {v23 .. v25}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v23
+
+    :cond_9
+    invoke-static/range {v17 .. v17}, Lmf/org/apache/xerces/util/XMLChar;->isValidNmtoken(Ljava/lang/String;)Z
+
+    move-result v23
+
+    if-nez v23, :cond_a
+
+    const/16 v20, 0x1
+
+    :goto_6
+    goto :goto_5
+
+    :cond_a
+    const/16 v20, 0x0
+
+    goto :goto_6
+
+    :cond_b
+    invoke-static/range {v17 .. v17}, Lmf/org/apache/xerces/util/XMLChar;->isValidName(Ljava/lang/String;)Z
+
+    move-result v23
+
+    if-nez v23, :cond_c
+
+    const/16 v20, 0x1
+
+    :goto_7
+    goto :goto_5
+
+    :cond_c
+    const/16 v20, 0x0
+
+    goto :goto_7
+
+    :cond_d
+    invoke-static/range {v17 .. v17}, Lmf/org/apache/xerces/util/XMLChar;->isValidNCName(Ljava/lang/String;)Z
+
+    move-result v23
+
+    if-nez v23, :cond_e
+
+    const/16 v20, 0x1
+
+    :goto_8
+    goto :goto_5
+
+    :cond_e
+    const/16 v20, 0x0
+
+    goto :goto_8
+
+    :cond_f
+    new-instance v18, Ljava/util/StringTokenizer;
+
+    const-string/jumbo v23, " "
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v17
+
+    move-object/from16 v2, v23
+
+    invoke-direct {v0, v1, v2}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual/range {v18 .. v18}, Ljava/util/StringTokenizer;->countTokens()I
+
+    move-result v10
+
+    new-array v9, v10, [Ljava/lang/Object;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fItemType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v23, v0
+
+    invoke-virtual/range {v23 .. v23}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getVariety()S
+
+    move-result v23
+
+    const/16 v24, 0x3
+
+    move/from16 v0, v23
+
+    move/from16 v1, v24
+
+    if-eq v0, v1, :cond_11
+
+    const/4 v14, 0x0
+
+    :goto_9
+    if-nez v14, :cond_12
+
+    const/16 v23, 0x1
+
+    :goto_a
+    move/from16 v0, v23
+
+    new-array v15, v0, [S
+
+    if-eqz v14, :cond_13
+
+    :goto_b
+    new-array v0, v10, [Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v16, v0
+
+    const/4 v12, 0x0
+
+    :goto_c
+    if-ge v12, v10, :cond_16
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fItemType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v23, v0
+
+    invoke-virtual/range {v18 .. v18}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
+
+    move-result-object v24
+
+    const/16 v25, 0x0
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v24
+
+    move-object/from16 v2, p2
+
+    move-object/from16 v3, p3
+
+    move/from16 v4, v25
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getActualValue(Ljava/lang/Object;Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;Z)Ljava/lang/Object;
+
+    move-result-object v23
+
+    aput-object v23, v9, v12
+
+    invoke-interface/range {p2 .. p2}, Lmf/org/apache/xerces/impl/dv/ValidationContext;->needFacetChecking()Z
+
+    move-result v23
+
+    if-nez v23, :cond_14
+
+    :cond_10
+    :goto_d
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->memberType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+
+    move-object/from16 v23, v0
+
+    check-cast v23, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    aput-object v23, v16, v12
+
+    if-nez v14, :cond_15
+
+    :goto_e
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_c
+
+    :cond_11
+    const/4 v14, 0x1
+
+    goto :goto_9
+
+    :cond_12
+    move/from16 v23, v10
+
+    goto :goto_a
+
+    :cond_13
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fItemType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, v23
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBuiltInKind:S
+
+    move/from16 v23, v0
+
+    move/from16 v0, v23
+
+    int-to-short v0, v0
+
+    move/from16 v23, v0
+
+    const/16 v24, 0x0
+
+    aput-short v23, v15, v24
 
     goto :goto_b
 
-    :cond_16
-    new-instance v3, Lmf/org/apache/xerces/impl/dv/xs/ListDV$ListData;
+    :cond_14
+    move-object/from16 v0, p0
 
-    invoke-direct {v3, v6}, Lmf/org/apache/xerces/impl/dv/xs/ListDV$ListData;-><init>([Ljava/lang/Object;)V
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fItemType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    iput-object v3, p3, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValue:Ljava/lang/Object;
+    move-object/from16 v23, v0
 
-    if-nez v2, :cond_17
+    move-object/from16 v0, v23
 
-    const/16 v0, 0x2c
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    :goto_c
+    move/from16 v23, v0
+
+    if-eqz v23, :cond_10
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fItemType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, v23
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v23, v0
+
+    const/16 v24, 0x10
+
+    move/from16 v0, v23
+
+    move/from16 v1, v24
+
+    if-eq v0, v1, :cond_10
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fItemType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, p3
+
+    invoke-direct {v0, v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->checkFacets(Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)V
+
+    goto :goto_d
+
+    :cond_15
+    aget-object v23, v16, v12
+
+    move-object/from16 v0, v23
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBuiltInKind:S
+
+    move/from16 v23, v0
+
+    move/from16 v0, v23
+
     int-to-short v0, v0
 
-    iput-short v0, p3, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValueType:S
+    move/from16 v23, v0
 
-    const/4 v0, 0x0
+    aput-short v23, v15, v12
 
-    iput-object v0, p3, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->memberType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+    goto :goto_e
 
-    iput-object v8, p3, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->memberTypes:[Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+    :cond_16
+    new-instance v22, Lmf/org/apache/xerces/impl/dv/xs/ListDV$ListData;
 
-    new-instance v0, Lmf/org/apache/xerces/impl/xs/util/ShortListImpl;
+    move-object/from16 v0, v22
 
-    array-length v2, v7
+    invoke-direct {v0, v9}, Lmf/org/apache/xerces/impl/dv/xs/ListDV$ListData;-><init>([Ljava/lang/Object;)V
 
-    invoke-direct {v0, v7, v2}, Lmf/org/apache/xerces/impl/xs/util/ShortListImpl;-><init>([SI)V
+    move-object/from16 v0, v22
 
-    iput-object v0, p3, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->itemValueTypes:Lmf/org/apache/xerces/xs/ShortList;
+    move-object/from16 v1, p3
 
-    iput-object v1, p3, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->normalizedValue:Ljava/lang/String;
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValue:Ljava/lang/Object;
 
-    iput-object p0, p3, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+    if-nez v14, :cond_17
 
-    return-object v3
+    const/16 v23, 0x2c
+
+    :goto_f
+    move/from16 v0, v23
+
+    int-to-short v0, v0
+
+    move/from16 v23, v0
+
+    move/from16 v0, v23
+
+    move-object/from16 v1, p3
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualValueType:S
+
+    const/16 v23, 0x0
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, p3
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->memberType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, p3
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->memberTypes:[Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+
+    new-instance v23, Lmf/org/apache/xerces/impl/xs/util/ShortListImpl;
+
+    array-length v0, v15
+
+    move/from16 v24, v0
+
+    move-object/from16 v0, v23
+
+    move/from16 v1, v24
+
+    invoke-direct {v0, v15, v1}, Lmf/org/apache/xerces/impl/xs/util/ShortListImpl;-><init>([SI)V
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, p3
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->itemValueTypes:Lmf/org/apache/xerces/xs/ShortList;
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, p3
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->normalizedValue:Ljava/lang/String;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p3
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->actualType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+
+    return-object v22
 
     :cond_17
-    const/16 v0, 0x2b
+    const/16 v23, 0x2b
 
-    goto :goto_c
+    goto :goto_f
 
     :cond_18
     if-eqz p1, :cond_1
 
-    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual/range {p1 .. p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v6
 
     goto/16 :goto_1
 
     :cond_19
     :try_start_1
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    aget-object v3, v3, v1
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    iget-short v3, v3, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v23, v0
 
-    if-eqz v3, :cond_2
+    aget-object v23, v23, v12
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, v23
 
-    aget-object v3, v3, v1
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    iget-short v3, v3, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move/from16 v23, v0
 
-    const/16 v4, 0x10
+    if-eqz v23, :cond_2
 
-    if-eq v3, v4, :cond_2
+    move-object/from16 v0, p0
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    aget-object v3, v3, v1
+    move-object/from16 v23, v0
 
-    invoke-direct {v3, p3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->checkFacets(Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)V
+    aget-object v23, v23, v12
+
+    move-object/from16 v0, v23
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v23, v0
+
+    const/16 v24, 0x10
+
+    move/from16 v0, v23
+
+    move/from16 v1, v24
+
+    if-eq v0, v1, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v23, v0
+
+    aget-object v23, v23, v12
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, p3
+
+    invoke-direct {v0, v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->checkFacets(Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)V
     :try_end_1
     .catch Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException; {:try_start_1 .. :try_end_1} :catch_0
 
     goto/16 :goto_3
 
     :catch_0
-    move-exception v2
+    move-exception v5
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v12, v12, 0x1
 
     goto/16 :goto_2
 
     :cond_1a
-    new-instance v1, Ljava/lang/StringBuffer;
+    new-instance v21, Ljava/lang/StringBuffer;
 
-    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuffer;-><init>()V
 
-    const/4 v0, 0x0
-
-    :goto_d
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    array-length v2, v2
-
-    if-ge v0, v2, :cond_1e
-
-    if-nez v0, :cond_1b
-
-    :goto_e
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    aget-object v2, v2, v0
-
-    iget-object v3, v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTargetNamespace:Ljava/lang/String;
-
-    if-nez v3, :cond_1c
-
-    :goto_f
-    iget-object v3, v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
-
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    iget-object v3, v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumeration:[Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
-
-    if-nez v3, :cond_1d
+    const/4 v12, 0x0
 
     :goto_10
-    add-int/lit8 v0, v0, 0x1
+    move-object/from16 v0, p0
 
-    goto :goto_d
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    :cond_1b
-    const-string/jumbo v2, " | "
+    move-object/from16 v23, v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-object/from16 v0, v23
 
-    goto :goto_e
+    array-length v0, v0
 
-    :cond_1c
-    const/16 v3, 0x7b
+    move/from16 v23, v0
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    move/from16 v0, v23
 
-    iget-object v3, v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTargetNamespace:Ljava/lang/String;
+    if-ge v12, v0, :cond_1e
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    if-nez v12, :cond_1b
 
-    const/16 v3, 0x7d
+    :goto_11
+    move-object/from16 v0, p0
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    goto :goto_f
+    move-object/from16 v23, v0
 
-    :cond_1d
-    const-string/jumbo v3, " : "
+    aget-object v11, v23, v12
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    iget-object v0, v11, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTargetNamespace:Ljava/lang/String;
 
-    invoke-direct {v2, v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->appendEnumString(Ljava/lang/StringBuffer;)V
+    move-object/from16 v23, v0
+
+    if-nez v23, :cond_1c
+
+    :goto_12
+    iget-object v0, v11, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    iget-object v0, v11, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumeration:[Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+
+    move-object/from16 v23, v0
+
+    if-nez v23, :cond_1d
+
+    :goto_13
+    add-int/lit8 v12, v12, 0x1
 
     goto :goto_10
 
+    :cond_1b
+    const-string/jumbo v23, " | "
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    goto :goto_11
+
+    :cond_1c
+    const/16 v23, 0x7b
+
+    move-object/from16 v0, v21
+
+    move/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+
+    iget-object v0, v11, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTargetNamespace:Ljava/lang/String;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    const/16 v23, 0x7d
+
+    move-object/from16 v0, v21
+
+    move/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+
+    goto :goto_12
+
+    :cond_1d
+    const-string/jumbo v23, " : "
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-object/from16 v0, v21
+
+    invoke-direct {v11, v0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->appendEnumString(Ljava/lang/StringBuffer;)V
+
+    goto :goto_13
+
     :cond_1e
-    new-instance v0, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
+    new-instance v23, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
 
-    const-string/jumbo v2, "cvc-datatype-valid.1.2.3"
+    const-string/jumbo v24, "cvc-datatype-valid.1.2.3"
 
-    const/4 v3, 0x3
+    const/16 v25, 0x3
 
-    new-array v3, v3, [Ljava/lang/Object;
+    move/from16 v0, v25
 
-    const/4 v4, 0x0
+    new-array v0, v0, [Ljava/lang/Object;
 
-    aput-object p1, v3, v4
+    move-object/from16 v25, v0
 
-    const/4 v4, 0x1
+    const/16 v26, 0x0
 
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    aput-object p1, v25, v26
 
-    aput-object v5, v3, v4
+    move-object/from16 v0, p0
 
-    const/4 v4, 0x2
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    move-object/from16 v26, v0
 
-    move-result-object v1
+    const/16 v27, 0x1
 
-    aput-object v1, v3, v4
+    aput-object v26, v25, v27
 
-    invoke-direct {v0, v2, v3}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    throw v0
+    move-result-object v26
+
+    const/16 v27, 0x2
+
+    aput-object v26, v25, v27
+
+    invoke-direct/range {v23 .. v25}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v23
 .end method
 
 .method protected static getGDVs()[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
@@ -3071,238 +3838,215 @@
 .end method
 
 .method private isDerivedByAny(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xs/XSTypeDefinition;)Z
-    .locals 5
+    .locals 7
 
-    const/4 v1, 0x0
+    const/4 v6, 0x1
 
-    const/4 v3, 0x1
+    const/4 v5, 0x0
+
+    const/4 v0, 0x0
 
     const/4 v2, 0x0
 
-    move-object v0, v1
-
-    move-object v1, p3
-
+    :cond_0
     :goto_0
-    if-nez v1, :cond_0
+    if-nez p3, :cond_2
 
-    move v0, v2
-
+    :cond_1
     :goto_1
     return v0
 
-    :cond_0
-    if-eq v1, v0, :cond_d
-
-    invoke-interface {v1}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getName()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_3
-
-    :cond_1
-    invoke-direct {p0, p1, p2, v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->isDerivedByRestriction(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xs/XSTypeDefinition;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_6
-
-    invoke-direct {p0, p1, p2, v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->isDerivedByList(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xs/XSTypeDefinition;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_7
-
-    invoke-direct {p0, p1, p2, v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->isDerivedByUnion(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xs/XSTypeDefinition;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_8
-
-    move-object v0, v1
-
-    check-cast v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getVariety()S
-
-    move-result v0
-
-    if-nez v0, :cond_9
-
     :cond_2
-    invoke-interface {v1}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getBaseType()Lmf/org/apache/xerces/xs/XSTypeDefinition;
+    if-eq p3, v2, :cond_1
+
+    invoke-interface {p3}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_5
+
+    :cond_3
+    invoke-direct {p0, p1, p2, p3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->isDerivedByRestriction(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xs/XSTypeDefinition;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_8
+
+    invoke-direct {p0, p1, p2, p3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->isDerivedByList(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xs/XSTypeDefinition;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_9
+
+    invoke-direct {p0, p1, p2, p3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->isDerivedByUnion(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xs/XSTypeDefinition;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_a
+
+    move-object v2, p3
+
+    move-object v3, p3
+
+    check-cast v3, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getVariety()S
+
+    move-result v3
+
+    if-nez v3, :cond_b
+
+    :cond_4
+    invoke-interface {p3}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getBaseType()Lmf/org/apache/xerces/xs/XSTypeDefinition;
 
     move-result-object p3
 
-    move-object v0, v1
-
-    move-object v1, p3
-
     goto :goto_0
 
-    :cond_3
-    if-eqz p1, :cond_5
+    :cond_5
+    if-eqz p1, :cond_7
 
-    :cond_4
-    if-eqz p1, :cond_1
+    :cond_6
+    if-eqz p1, :cond_3
 
-    invoke-interface {v1}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
+    invoke-interface {p3}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v3
 
-    if-eqz v0, :cond_1
+    if-eqz v3, :cond_3
 
     :goto_2
-    move v0, v3
+    const/4 v0, 0x1
 
     goto :goto_1
 
-    :cond_5
-    invoke-interface {v1}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
+    :cond_7
+    invoke-interface {p3}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    if-nez v0, :cond_4
+    if-nez v3, :cond_6
 
     goto :goto_2
 
-    :cond_6
-    return v3
-
-    :cond_7
-    return v3
-
     :cond_8
-    return v3
+    return v6
 
     :cond_9
-    move-object v0, v1
+    return v6
 
-    check-cast v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    :cond_a
+    return v6
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getVariety()S
+    :cond_b
+    move-object v3, p3
 
-    move-result v0
+    check-cast v3, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    if-eq v0, v3, :cond_2
+    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getVariety()S
 
-    move-object v0, v1
+    move-result v3
 
-    check-cast v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    if-eq v3, v6, :cond_4
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getVariety()S
+    move-object v3, p3
 
-    move-result v0
+    check-cast v3, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getVariety()S
+
+    move-result v3
 
     const/4 v4, 0x3
 
-    if-eq v0, v4, :cond_a
+    if-eq v3, v4, :cond_c
 
-    move-object v0, v1
+    move-object v3, p3
 
-    check-cast v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    check-cast v3, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getVariety()S
+    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getVariety()S
 
-    move-result v0
+    move-result v3
 
     const/4 v4, 0x2
 
-    if-eq v0, v4, :cond_c
+    if-ne v3, v4, :cond_0
 
-    move-object v0, v1
+    check-cast p3, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    goto :goto_0
-
-    :cond_a
-    move-object v0, v1
-
-    check-cast v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getMemberTypes()Lmf/org/apache/xerces/xs/XSObjectList;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSObjectList;->getLength()I
-
-    move-result v0
-
-    if-gtz v0, :cond_b
-
-    move-object v0, v1
-
-    goto :goto_0
-
-    :cond_b
-    check-cast v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getMemberTypes()Lmf/org/apache/xerces/xs/XSObjectList;
-
-    move-result-object v0
-
-    invoke-interface {v0, v2}, Lmf/org/apache/xerces/xs/XSObjectList;->item(I)Lmf/org/apache/xerces/xs/XSObject;
-
-    move-result-object v0
-
-    check-cast v0, Lmf/org/apache/xerces/xs/XSTypeDefinition;
-
-    invoke-direct {p0, p1, p2, v0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->isDerivedByAny(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xs/XSTypeDefinition;)Z
-
-    move-result v0
-
-    return v0
-
-    :cond_c
-    move-object v0, v1
-
-    check-cast v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getItemType()Lmf/org/apache/xerces/xs/XSSimpleTypeDefinition;
+    invoke-virtual {p3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getItemType()Lmf/org/apache/xerces/xs/XSSimpleTypeDefinition;
 
     move-result-object p3
 
-    move-object v0, v1
+    goto :goto_0
 
-    move-object v1, p3
+    :cond_c
+    const/4 v1, 0x0
 
-    goto/16 :goto_0
+    move-object v3, p3
 
-    :cond_d
-    move v0, v2
+    check-cast v3, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    goto/16 :goto_1
+    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getMemberTypes()Lmf/org/apache/xerces/xs/XSObjectList;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Lmf/org/apache/xerces/xs/XSObjectList;->getLength()I
+
+    move-result v3
+
+    if-lez v3, :cond_0
+
+    check-cast p3, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    invoke-virtual {p3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getMemberTypes()Lmf/org/apache/xerces/xs/XSObjectList;
+
+    move-result-object v3
+
+    invoke-interface {v3, v5}, Lmf/org/apache/xerces/xs/XSObjectList;->item(I)Lmf/org/apache/xerces/xs/XSObject;
+
+    move-result-object v3
+
+    check-cast v3, Lmf/org/apache/xerces/xs/XSTypeDefinition;
+
+    invoke-direct {p0, p1, p2, v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->isDerivedByAny(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xs/XSTypeDefinition;)Z
+
+    move-result v3
+
+    return v3
 .end method
 
 .method private isDerivedByList(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xs/XSTypeDefinition;)Z
-    .locals 3
+    .locals 4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     if-nez p3, :cond_1
 
     :cond_0
-    return v2
+    return v3
 
     :cond_1
-    move-object v0, p3
+    move-object v1, p3
 
-    check-cast v0, Lmf/org/apache/xerces/xs/XSSimpleTypeDefinition;
+    check-cast v1, Lmf/org/apache/xerces/xs/XSSimpleTypeDefinition;
 
-    invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSSimpleTypeDefinition;->getVariety()S
+    invoke-interface {v1}, Lmf/org/apache/xerces/xs/XSSimpleTypeDefinition;->getVariety()S
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x2
+    const/4 v2, 0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v2, :cond_0
 
     check-cast p3, Lmf/org/apache/xerces/xs/XSSimpleTypeDefinition;
 
@@ -3314,13 +4058,13 @@
 
     invoke-direct {p0, p1, p2, v0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->isDerivedByRestriction(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xs/XSTypeDefinition;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    return v0
+    return v1
 .end method
 
 .method private isDerivedByRestriction(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xs/XSTypeDefinition;)Z
@@ -3330,35 +4074,31 @@
 
     const/4 v0, 0x0
 
-    move-object v1, p3
-
     :goto_0
-    if-nez v1, :cond_1
+    if-nez p3, :cond_1
 
     :cond_0
     return v2
 
     :cond_1
-    if-eq v1, v0, :cond_0
+    if-eq p3, v0, :cond_0
 
-    invoke-interface {v1}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getName()Ljava/lang/String;
+    invoke-interface {p3}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_3
+    if-nez v1, :cond_3
 
     :cond_2
-    invoke-interface {v1}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getBaseType()Lmf/org/apache/xerces/xs/XSTypeDefinition;
+    move-object v0, p3
+
+    invoke-interface {p3}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getBaseType()Lmf/org/apache/xerces/xs/XSTypeDefinition;
 
     move-result-object p3
-
-    move-object v0, v1
-
-    move-object v1, p3
 
     goto :goto_0
 
@@ -3366,100 +4106,98 @@
     if-nez p1, :cond_5
 
     :cond_4
-    invoke-interface {v1}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
+    invoke-interface {p3}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-nez v0, :cond_2
+    if-nez v1, :cond_2
 
     if-nez p1, :cond_2
 
     :goto_1
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    return v0
+    return v1
 
     :cond_5
-    invoke-interface {v1}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
+    invoke-interface {p3}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_4
+    if-eqz v1, :cond_4
 
     goto :goto_1
 .end method
 
 .method private isDerivedByUnion(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xs/XSTypeDefinition;)Z
-    .locals 4
+    .locals 5
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
     if-nez p3, :cond_1
 
     :cond_0
-    return v2
+    return v4
 
     :cond_1
-    move-object v0, p3
+    move-object v2, p3
 
-    check-cast v0, Lmf/org/apache/xerces/xs/XSSimpleTypeDefinition;
+    check-cast v2, Lmf/org/apache/xerces/xs/XSSimpleTypeDefinition;
 
-    invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSSimpleTypeDefinition;->getVariety()S
+    invoke-interface {v2}, Lmf/org/apache/xerces/xs/XSSimpleTypeDefinition;->getVariety()S
 
-    move-result v0
+    move-result v2
 
-    const/4 v1, 0x3
+    const/4 v3, 0x3
 
-    if-ne v0, v1, :cond_0
+    if-ne v2, v3, :cond_0
 
     check-cast p3, Lmf/org/apache/xerces/xs/XSSimpleTypeDefinition;
 
     invoke-interface {p3}, Lmf/org/apache/xerces/xs/XSSimpleTypeDefinition;->getMemberTypes()Lmf/org/apache/xerces/xs/XSObjectList;
 
-    move-result-object v3
+    move-result-object v1
 
-    move v1, v2
+    const/4 v0, 0x0
 
     :goto_0
-    invoke-interface {v3}, Lmf/org/apache/xerces/xs/XSObjectList;->getLength()I
+    invoke-interface {v1}, Lmf/org/apache/xerces/xs/XSObjectList;->getLength()I
 
-    move-result v0
+    move-result v2
 
-    if-ge v1, v0, :cond_0
+    if-ge v0, v2, :cond_0
 
-    invoke-interface {v3, v1}, Lmf/org/apache/xerces/xs/XSObjectList;->item(I)Lmf/org/apache/xerces/xs/XSObject;
+    invoke-interface {v1, v0}, Lmf/org/apache/xerces/xs/XSObjectList;->item(I)Lmf/org/apache/xerces/xs/XSObject;
 
-    move-result-object v0
+    move-result-object v2
 
-    if-nez v0, :cond_3
+    if-nez v2, :cond_3
 
     :cond_2
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_3
-    invoke-interface {v3, v1}, Lmf/org/apache/xerces/xs/XSObjectList;->item(I)Lmf/org/apache/xerces/xs/XSObject;
+    invoke-interface {v1, v0}, Lmf/org/apache/xerces/xs/XSObjectList;->item(I)Lmf/org/apache/xerces/xs/XSObject;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Lmf/org/apache/xerces/xs/XSSimpleTypeDefinition;
+    check-cast v2, Lmf/org/apache/xerces/xs/XSSimpleTypeDefinition;
 
-    invoke-direct {p0, p1, p2, v0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->isDerivedByRestriction(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xs/XSTypeDefinition;)Z
+    invoke-direct {p0, p1, p2, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->isDerivedByRestriction(Ljava/lang/String;Ljava/lang/String;Lmf/org/apache/xerces/xs/XSTypeDefinition;)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_2
+    if-eqz v2, :cond_2
 
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    return v0
+    return v2
 .end method
 
 .method public static normalize(Ljava/lang/String;S)Ljava/lang/String;
@@ -3473,753 +4211,738 @@
 
     const/16 v6, 0x20
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
-    move-result v0
-
-    :goto_0
-    if-nez v0, :cond_2
+    move-result v3
 
     :cond_0
-    return-object p0
+    if-nez v3, :cond_2
 
     :cond_1
-    move v0, v1
-
-    goto :goto_0
+    return-object p0
 
     :cond_2
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     new-instance v4, Ljava/lang/StringBuffer;
 
     invoke-direct {v4}, Ljava/lang/StringBuffer;-><init>()V
 
+    const/4 v5, 0x1
+
+    if-eq p1, v5, :cond_5
+
     const/4 v2, 0x1
 
-    if-eq p1, v2, :cond_6
+    const/4 v1, 0x0
 
-    const/4 v2, 0x1
+    :goto_0
+    if-ge v1, v3, :cond_c
 
-    move v3, v1
+    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
-    :goto_1
-    if-ge v3, v0, :cond_d
+    move-result v0
 
-    invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
-
-    move-result v5
-
-    if-ne v5, v7, :cond_9
+    if-ne v0, v7, :cond_8
 
     :cond_3
-    :goto_2
-    add-int/lit8 v5, v0, -0x1
+    :goto_1
+    add-int/lit8 v5, v3, -0x1
 
-    if-ge v3, v5, :cond_c
+    if-ge v1, v5, :cond_b
 
-    add-int/lit8 v5, v3, 0x1
+    add-int/lit8 v5, v1, 0x1
 
     invoke-virtual {p0, v5}, Ljava/lang/String;->charAt(I)C
 
-    move-result v5
+    move-result v0
 
-    if-ne v5, v7, :cond_b
+    if-ne v0, v7, :cond_a
 
     :cond_4
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2
+    goto :goto_1
 
     :cond_5
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    const/4 v1, 0x0
+
+    :goto_2
+    if-ge v1, v3, :cond_c
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
+
+    move-result v0
+
+    if-ne v0, v7, :cond_7
+
+    :cond_6
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     :goto_3
     add-int/lit8 v1, v1, 0x1
 
-    :cond_6
-    if-ge v1, v0, :cond_d
-
-    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
-
-    move-result v2
-
-    if-ne v2, v7, :cond_8
+    goto :goto_2
 
     :cond_7
-    :goto_4
-    invoke-virtual {v4, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    if-eq v0, v8, :cond_6
+
+    if-eq v0, v9, :cond_6
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto :goto_3
 
     :cond_8
-    if-eq v2, v8, :cond_7
+    if-eq v0, v8, :cond_3
 
-    if-ne v2, v9, :cond_5
+    if-eq v0, v9, :cond_3
 
-    goto :goto_4
+    if-eq v0, v6, :cond_3
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+
+    const/4 v2, 0x0
 
     :cond_9
-    if-eq v5, v8, :cond_3
+    :goto_4
+    add-int/lit8 v1, v1, 0x1
 
-    if-eq v5, v9, :cond_3
-
-    if-eq v5, v6, :cond_3
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
-
-    move v2, v1
+    goto :goto_0
 
     :cond_a
-    :goto_5
-    add-int/lit8 v3, v3, 0x1
+    if-eq v0, v8, :cond_4
 
-    goto :goto_1
+    if-eq v0, v9, :cond_4
+
+    if-eq v0, v6, :cond_4
 
     :cond_b
-    if-eq v5, v8, :cond_4
+    add-int/lit8 v5, v3, -0x1
 
-    if-eq v5, v9, :cond_4
+    if-ge v1, v5, :cond_9
 
-    if-eq v5, v6, :cond_4
-
-    :cond_c
-    add-int/lit8 v5, v0, -0x1
-
-    if-ge v3, v5, :cond_a
-
-    if-nez v2, :cond_a
+    if-nez v2, :cond_9
 
     invoke-virtual {v4, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    goto :goto_5
+    goto :goto_4
 
-    :cond_d
+    :cond_c
     invoke-virtual {v4}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v5
 
-    return-object v0
+    return-object v5
 .end method
 
 .method private setBounded()V
-    .locals 6
+    .locals 7
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    const/4 v1, 0x0
+    const/4 v5, 0x0
 
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
+    iget-short v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
 
-    if-eq v0, v5, :cond_0
+    if-eq v3, v6, :cond_0
 
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
+    iget-short v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
 
-    const/4 v2, 0x2
+    const/4 v4, 0x2
 
-    if-eq v0, v2, :cond_5
+    if-eq v3, v4, :cond_5
 
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
+    iget-short v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
 
-    const/4 v2, 0x3
+    const/4 v4, 0x3
 
-    if-eq v0, v2, :cond_9
+    if-eq v3, v4, :cond_9
 
     :goto_0
     return-void
 
     :cond_0
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    and-int/lit16 v0, v0, 0x100
+    and-int/lit16 v3, v3, 0x100
 
-    if-eqz v0, :cond_3
+    if-eqz v3, :cond_3
 
     :cond_1
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    and-int/lit8 v0, v0, 0x20
+    and-int/lit8 v3, v3, 0x20
 
-    if-eqz v0, :cond_4
+    if-eqz v3, :cond_4
 
     :cond_2
-    iput-boolean v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBounded:Z
+    iput-boolean v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBounded:Z
 
     goto :goto_0
 
     :cond_3
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    and-int/lit16 v0, v0, 0x80
+    and-int/lit16 v3, v3, 0x80
 
-    if-nez v0, :cond_1
+    if-nez v3, :cond_1
 
     :goto_1
-    iput-boolean v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBounded:Z
-
-    goto :goto_0
-
-    :cond_4
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
-
-    and-int/lit8 v0, v0, 0x40
-
-    if-nez v0, :cond_2
-
-    goto :goto_1
-
-    :cond_5
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
-
-    and-int/lit8 v0, v0, 0x1
-
-    if-eqz v0, :cond_7
-
-    :cond_6
     iput-boolean v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBounded:Z
 
     goto :goto_0
 
+    :cond_4
+    iget-short v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    and-int/lit8 v3, v3, 0x40
+
+    if-nez v3, :cond_2
+
+    goto :goto_1
+
+    :cond_5
+    iget-short v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    and-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_7
+
+    :cond_6
+    iput-boolean v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBounded:Z
+
+    goto :goto_0
+
     :cond_7
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    and-int/lit8 v0, v0, 0x2
+    and-int/lit8 v3, v3, 0x2
 
-    if-nez v0, :cond_8
+    if-nez v3, :cond_8
 
     :goto_2
-    iput-boolean v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBounded:Z
+    iput-boolean v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBounded:Z
 
     goto :goto_0
 
     :cond_8
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    and-int/lit8 v0, v0, 0x4
+    and-int/lit8 v3, v3, 0x4
 
-    if-nez v0, :cond_6
+    if-nez v3, :cond_6
 
     goto :goto_2
 
     :cond_9
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    array-length v0, v3
+    const/4 v0, 0x0
 
-    if-gtz v0, :cond_b
+    array-length v3, v2
 
-    move v0, v1
+    if-gtz v3, :cond_b
 
     :goto_3
-    move v2, v1
+    const/4 v1, 0x0
 
     :goto_4
-    array-length v4, v3
+    array-length v3, v2
 
-    if-ge v2, v4, :cond_d
+    if-ge v1, v3, :cond_d
 
-    aget-object v4, v3, v2
+    aget-object v3, v2, v1
 
-    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getBounded()Z
+    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getBounded()Z
 
-    move-result v4
+    move-result v3
 
-    if-nez v4, :cond_c
+    if-nez v3, :cond_c
 
     :cond_a
-    iput-boolean v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBounded:Z
+    iput-boolean v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBounded:Z
 
     return-void
 
     :cond_b
-    aget-object v0, v3, v1
+    aget-object v3, v2, v5
 
-    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    iget-short v3, v3, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
-    invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getPrimitiveDV(S)S
+    invoke-direct {p0, v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getPrimitiveDV(S)S
 
     move-result v0
 
     goto :goto_3
 
     :cond_c
-    aget-object v4, v3, v2
+    aget-object v3, v2, v1
 
-    iget-short v4, v4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    iget-short v3, v3, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
-    invoke-direct {p0, v4}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getPrimitiveDV(S)S
+    invoke-direct {p0, v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getPrimitiveDV(S)S
 
-    move-result v4
+    move-result v3
 
-    if-ne v0, v4, :cond_a
+    if-ne v0, v3, :cond_a
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_4
 
     :cond_d
-    iput-boolean v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBounded:Z
+    iput-boolean v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBounded:Z
 
     goto :goto_0
 .end method
 
 .method private setCardinality()V
-    .locals 5
+    .locals 6
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    const/4 v1, 0x0
+    const/4 v4, 0x0
 
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
+    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
 
-    if-eq v0, v4, :cond_0
+    if-eq v2, v5, :cond_0
 
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
+    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
 
-    const/4 v2, 0x2
+    const/4 v3, 0x2
 
-    if-eq v0, v2, :cond_a
+    if-eq v2, v3, :cond_a
 
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
+    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
 
-    const/4 v2, 0x3
+    const/4 v3, 0x3
 
-    if-eq v0, v2, :cond_e
+    if-eq v2, v3, :cond_e
 
     :goto_0
     return-void
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    iget-boolean v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFinite:Z
+    iget-boolean v2, v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFinite:Z
 
-    if-nez v0, :cond_2
+    if-nez v2, :cond_2
 
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    and-int/lit8 v0, v0, 0x1
+    and-int/lit8 v2, v2, 0x1
 
-    if-eqz v0, :cond_3
+    if-eqz v2, :cond_3
 
     :cond_1
-    iput-boolean v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFinite:Z
+    iput-boolean v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFinite:Z
 
     goto :goto_0
 
     :cond_2
-    iput-boolean v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFinite:Z
+    iput-boolean v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFinite:Z
 
     goto :goto_0
 
     :cond_3
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    and-int/lit8 v0, v0, 0x4
+    and-int/lit8 v2, v2, 0x4
 
-    if-nez v0, :cond_1
+    if-nez v2, :cond_1
 
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    and-int/lit16 v0, v0, 0x200
+    and-int/lit16 v2, v2, 0x200
 
-    if-nez v0, :cond_1
+    if-nez v2, :cond_1
 
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    and-int/lit16 v0, v0, 0x100
+    and-int/lit16 v2, v2, 0x100
 
-    if-eqz v0, :cond_7
+    if-eqz v2, :cond_7
 
     :cond_4
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    and-int/lit8 v0, v0, 0x20
+    and-int/lit8 v2, v2, 0x20
 
-    if-eqz v0, :cond_8
+    if-eqz v2, :cond_8
 
     :cond_5
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    and-int/lit16 v0, v0, 0x400
+    and-int/lit16 v2, v2, 0x400
 
-    if-eqz v0, :cond_9
+    if-eqz v2, :cond_9
 
     :cond_6
-    iput-boolean v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFinite:Z
+    iput-boolean v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFinite:Z
 
     goto :goto_0
 
     :cond_7
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    and-int/lit16 v0, v0, 0x80
+    and-int/lit16 v2, v2, 0x80
 
-    if-nez v0, :cond_4
+    if-nez v2, :cond_4
 
     :goto_1
-    iput-boolean v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFinite:Z
+    iput-boolean v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFinite:Z
 
     goto :goto_0
 
     :cond_8
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    and-int/lit8 v0, v0, 0x40
+    and-int/lit8 v2, v2, 0x40
 
-    if-nez v0, :cond_5
+    if-nez v2, :cond_5
 
     goto :goto_1
 
     :cond_9
     invoke-direct {p0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->specialCardinalityCheck()Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_6
+    if-nez v2, :cond_6
 
-    iput-boolean v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFinite:Z
-
-    goto :goto_0
-
-    :cond_a
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
-
-    and-int/lit8 v0, v0, 0x1
-
-    if-eqz v0, :cond_c
-
-    :cond_b
     iput-boolean v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFinite:Z
 
     goto :goto_0
 
+    :cond_a
+    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    and-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_c
+
+    :cond_b
+    iput-boolean v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFinite:Z
+
+    goto :goto_0
+
     :cond_c
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    and-int/lit8 v0, v0, 0x2
+    and-int/lit8 v2, v2, 0x2
 
-    if-nez v0, :cond_d
+    if-nez v2, :cond_d
 
     :goto_2
-    iput-boolean v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFinite:Z
+    iput-boolean v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFinite:Z
 
     goto :goto_0
 
     :cond_d
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    and-int/lit8 v0, v0, 0x4
+    and-int/lit8 v2, v2, 0x4
 
-    if-nez v0, :cond_b
+    if-nez v2, :cond_b
 
     goto :goto_2
 
     :cond_e
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_3
-    array-length v3, v2
+    array-length v2, v1
 
-    if-ge v0, v3, :cond_10
+    if-ge v0, v2, :cond_10
 
-    aget-object v3, v2, v0
+    aget-object v2, v1, v0
 
-    invoke-interface {v3}, Lmf/org/apache/xerces/impl/dv/XSSimpleType;->getFinite()Z
+    invoke-interface {v2}, Lmf/org/apache/xerces/impl/dv/XSSimpleType;->getFinite()Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_f
+    if-eqz v2, :cond_f
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_3
 
     :cond_f
-    iput-boolean v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFinite:Z
+    iput-boolean v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFinite:Z
 
     return-void
 
     :cond_10
-    iput-boolean v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFinite:Z
+    iput-boolean v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFinite:Z
 
     goto :goto_0
 .end method
 
 .method private setNumeric()V
-    .locals 5
+    .locals 6
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    const/4 v1, 0x0
+    const/4 v4, 0x0
 
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
+    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
 
-    if-eq v0, v4, :cond_0
+    if-eq v2, v5, :cond_0
 
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
+    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
 
-    const/4 v2, 0x2
+    const/4 v3, 0x2
 
-    if-eq v0, v2, :cond_1
+    if-eq v2, v3, :cond_1
 
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
+    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
 
-    const/4 v2, 0x3
+    const/4 v3, 0x3
 
-    if-eq v0, v2, :cond_2
+    if-eq v2, v3, :cond_2
 
     :goto_0
     return-void
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    iget-boolean v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fNumeric:Z
+    iget-boolean v2, v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fNumeric:Z
 
-    iput-boolean v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fNumeric:Z
+    iput-boolean v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fNumeric:Z
 
     goto :goto_0
 
     :cond_1
-    iput-boolean v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fNumeric:Z
+    iput-boolean v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fNumeric:Z
 
     goto :goto_0
 
     :cond_2
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_1
-    array-length v3, v2
+    array-length v2, v1
 
-    if-ge v0, v3, :cond_4
+    if-ge v0, v2, :cond_4
 
-    aget-object v3, v2, v0
+    aget-object v2, v1, v0
 
-    invoke-interface {v3}, Lmf/org/apache/xerces/impl/dv/XSSimpleType;->getNumeric()Z
+    invoke-interface {v2}, Lmf/org/apache/xerces/impl/dv/XSSimpleType;->getNumeric()Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_3
+    if-eqz v2, :cond_3
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
     :cond_3
-    iput-boolean v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fNumeric:Z
+    iput-boolean v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fNumeric:Z
 
     return-void
 
     :cond_4
-    iput-boolean v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fNumeric:Z
+    iput-boolean v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fNumeric:Z
 
     goto :goto_0
 .end method
 
 .method private setOrdered()V
-    .locals 7
+    .locals 9
 
-    const/4 v2, 0x1
+    const/4 v6, 0x1
 
-    const/4 v1, 0x0
+    const/4 v5, 0x0
 
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
+    iget-short v7, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
 
-    if-eq v0, v2, :cond_0
+    if-eq v7, v6, :cond_0
 
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
+    iget-short v7, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
 
-    const/4 v3, 0x2
+    const/4 v8, 0x2
 
-    if-eq v0, v3, :cond_1
+    if-eq v7, v8, :cond_1
 
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
+    iget-short v7, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
 
-    const/4 v3, 0x3
+    const/4 v8, 0x3
 
-    if-eq v0, v3, :cond_2
+    if-eq v7, v8, :cond_2
 
     :goto_0
     return-void
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fOrdered:S
+    iget-short v5, v5, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fOrdered:S
 
-    int-to-short v0, v0
+    int-to-short v5, v5
 
-    iput-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fOrdered:S
+    iput-short v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fOrdered:S
 
     goto :goto_0
 
     :cond_1
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fOrdered:S
+    iput-short v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fOrdered:S
 
     goto :goto_0
 
     :cond_2
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v7, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    array-length v0, v0
+    array-length v4, v7
 
-    if-eqz v0, :cond_4
+    if-eqz v4, :cond_4
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v7, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    aget-object v0, v0, v1
+    aget-object v7, v7, v5
 
-    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    iget-short v7, v7, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
-    invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getPrimitiveDV(S)S
+    invoke-direct {p0, v7}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getPrimitiveDV(S)S
 
-    move-result v6
+    move-result v1
 
-    if-nez v6, :cond_5
+    if-nez v1, :cond_5
 
-    move v0, v1
+    move v2, v5
 
     :goto_1
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v7, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    aget-object v3, v3, v1
+    aget-object v7, v7, v5
 
-    iget-short v3, v3, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fOrdered:S
+    iget-short v7, v7, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fOrdered:S
 
-    if-eqz v3, :cond_6
+    if-eqz v7, :cond_6
 
-    move v3, v1
+    move v0, v5
 
     :goto_2
-    move v4, v2
+    const/4 v3, 0x1
 
     :goto_3
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v7, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    array-length v5, v5
+    array-length v7, v7
 
-    if-lt v4, v5, :cond_7
+    if-lt v3, v7, :cond_7
 
     :cond_3
-    if-nez v0, :cond_d
+    if-nez v2, :cond_d
 
-    if-nez v3, :cond_e
+    if-nez v0, :cond_e
 
-    iput-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fOrdered:S
+    iput-short v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fOrdered:S
 
     goto :goto_0
 
     :cond_4
-    iput-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fOrdered:S
+    iput-short v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fOrdered:S
 
     return-void
 
     :cond_5
-    move v0, v2
+    move v2, v6
 
     goto :goto_1
 
     :cond_6
-    move v3, v2
+    move v0, v6
 
     goto :goto_2
 
     :cond_7
-    if-eqz v0, :cond_c
+    if-eqz v2, :cond_c
 
     :goto_4
-    if-nez v0, :cond_8
-
-    move v5, v0
+    if-nez v2, :cond_8
 
     :goto_5
-    if-nez v3, :cond_a
-
-    move v0, v3
+    if-nez v0, :cond_a
 
     :goto_6
-    add-int/lit8 v3, v4, 0x1
-
-    move v4, v3
-
-    move v3, v0
-
-    move v0, v5
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_3
 
     :cond_8
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v7, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    aget-object v0, v0, v4
+    aget-object v7, v7, v3
 
-    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    iget-short v7, v7, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
-    invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getPrimitiveDV(S)S
+    invoke-direct {p0, v7}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getPrimitiveDV(S)S
 
-    move-result v0
+    move-result v7
 
-    if-eq v6, v0, :cond_9
+    if-eq v1, v7, :cond_9
 
-    move v0, v1
+    move v2, v5
 
     :goto_7
-    move v5, v0
-
     goto :goto_5
 
     :cond_9
-    move v0, v2
+    move v2, v6
 
     goto :goto_7
 
     :cond_a
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v7, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    aget-object v0, v0, v4
+    aget-object v7, v7, v3
 
-    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fOrdered:S
+    iget-short v7, v7, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fOrdered:S
 
-    if-eqz v0, :cond_b
+    if-eqz v7, :cond_b
 
-    move v0, v1
+    move v0, v5
 
+    :goto_8
     goto :goto_6
 
     :cond_b
-    move v0, v2
+    move v0, v6
 
-    goto :goto_6
+    goto :goto_8
 
     :cond_c
-    if-eqz v3, :cond_3
+    if-eqz v0, :cond_3
 
     goto :goto_4
 
     :cond_d
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    aget-object v0, v0, v1
+    aget-object v5, v6, v5
 
-    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fOrdered:S
+    iget-short v5, v5, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fOrdered:S
 
-    int-to-short v0, v0
+    int-to-short v5, v5
 
-    iput-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fOrdered:S
+    iput-short v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fOrdered:S
 
     goto :goto_0
 
     :cond_e
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fOrdered:S
+    iput-short v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fOrdered:S
 
     goto :goto_0
 .end method
@@ -4308,8 +5031,6 @@
 
     if-eqz p4, :cond_0
 
-    move-object v5, p4
-
     :goto_0
     const/4 v4, 0x0
 
@@ -4321,264 +5042,436 @@
 
     move v3, p3
 
+    move-object v5, p4
+
     invoke-virtual/range {v0 .. v5}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->applyFacets(Lmf/org/apache/xerces/impl/dv/XSFacets;SSSLmf/org/apache/xerces/impl/dv/ValidationContext;)V
 
     return-void
 
     :cond_0
-    sget-object v5, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEmptyContext:Lmf/org/apache/xerces/impl/dv/ValidationContext;
+    sget-object p4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEmptyContext:Lmf/org/apache/xerces/impl/dv/ValidationContext;
 
     goto :goto_0
 .end method
 
 .method applyFacets(Lmf/org/apache/xerces/impl/dv/XSFacets;SSSLmf/org/apache/xerces/impl/dv/ValidationContext;)V
-    .locals 12
+    .locals 23
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/dv/InvalidDatatypeFacetException;
         }
     .end annotation
 
-    iget-boolean v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fIsImmutable:Z
+    move-object/from16 v0, p0
 
-    if-nez v1, :cond_18
+    iget-boolean v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fIsImmutable:Z
 
-    new-instance v3, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+    move/from16 v19, v0
 
-    invoke-direct {v3}, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;-><init>()V
+    if-nez v19, :cond_18
 
-    const/4 v1, 0x0
+    new-instance v18, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    invoke-direct/range {v18 .. v18}, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;-><init>()V
 
-    const/4 v1, 0x0
+    const/16 v19, 0x0
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    move/from16 v0, v19
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
+    move-object/from16 v1, p0
 
-    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    aget-object v1, v1, v2
+    const/16 v19, 0x0
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->getAllowedFacets()S
+    move/from16 v0, v19
 
-    move-result v4
+    move-object/from16 v1, p0
 
-    and-int/lit8 v1, p2, 0x1
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
 
-    if-nez v1, :cond_19
+    const/16 v16, 0x0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+
+    move/from16 v20, v0
+
+    aget-object v19, v19, v20
+
+    invoke-virtual/range {v19 .. v19}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->getAllowedFacets()S
+
+    move-result v5
+
+    and-int/lit8 v19, p2, 0x1
+
+    if-nez v19, :cond_19
 
     :cond_0
     :goto_0
-    and-int/lit8 v1, p2, 0x2
+    and-int/lit8 v19, p2, 0x2
 
-    if-nez v1, :cond_1b
+    if-nez v19, :cond_1b
 
     :cond_1
     :goto_1
-    and-int/lit8 v1, p2, 0x4
+    and-int/lit8 v19, p2, 0x4
 
-    if-nez v1, :cond_1d
+    if-nez v19, :cond_1d
 
     :cond_2
     :goto_2
-    and-int/lit8 v1, p2, 0x8
+    and-int/lit8 v19, p2, 0x8
 
-    if-nez v1, :cond_1f
+    if-nez v19, :cond_1f
 
     :cond_3
     :goto_3
-    and-int/lit8 v1, p2, 0x10
+    and-int/lit8 v19, p2, 0x10
 
-    if-nez v1, :cond_21
+    if-nez v19, :cond_21
 
     :cond_4
     :goto_4
-    and-int/lit16 v1, p2, 0x800
+    move/from16 v0, p2
 
-    if-nez v1, :cond_23
+    and-int/lit16 v0, v0, 0x800
+
+    move/from16 v19, v0
+
+    if-nez v19, :cond_23
 
     :cond_5
     :goto_5
-    and-int/lit8 v1, p2, 0x20
+    and-int/lit8 v19, p2, 0x20
 
-    if-nez v1, :cond_27
+    if-nez v19, :cond_27
 
     :goto_6
-    const/4 v2, 0x1
+    const/4 v13, 0x1
 
-    and-int/lit8 v1, p2, 0x40
+    and-int/lit8 v19, p2, 0x40
 
-    if-nez v1, :cond_2c
+    if-nez v19, :cond_2c
 
     :cond_6
     :goto_7
-    const/4 v2, 0x1
+    const/4 v13, 0x1
 
-    and-int/lit16 v1, p2, 0x80
+    move/from16 v0, p2
 
-    if-nez v1, :cond_34
+    and-int/lit16 v0, v0, 0x80
+
+    move/from16 v19, v0
+
+    if-nez v19, :cond_34
 
     :cond_7
     :goto_8
-    and-int/lit16 v1, p2, 0x100
+    move/from16 v0, p2
 
-    if-nez v1, :cond_3c
+    and-int/lit16 v0, v0, 0x100
+
+    move/from16 v19, v0
+
+    if-nez v19, :cond_3c
 
     :goto_9
-    and-int/lit16 v1, p2, 0x200
+    move/from16 v0, p2
 
-    if-nez v1, :cond_41
+    and-int/lit16 v0, v0, 0x200
+
+    move/from16 v19, v0
+
+    if-nez v19, :cond_41
 
     :cond_8
     :goto_a
-    and-int/lit16 v1, p2, 0x400
+    move/from16 v0, p2
 
-    if-nez v1, :cond_43
+    and-int/lit16 v0, v0, 0x400
+
+    move/from16 v19, v0
+
+    if-nez v19, :cond_43
 
     :cond_9
     :goto_b
     if-nez p4, :cond_45
 
     :goto_c
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    if-nez v1, :cond_46
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v19, v0
+
+    if-nez v19, :cond_46
 
     :cond_a
     :goto_d
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v1, v1, 0x1
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-eqz v1, :cond_85
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x1
+
+    if-eqz v19, :cond_85
 
     :cond_b
     :goto_e
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v1, v1, 0x2
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-eqz v1, :cond_86
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x2
+
+    if-eqz v19, :cond_86
 
     :cond_c
     :goto_f
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v1, v1, 0x4
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-eqz v1, :cond_87
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x4
+
+    if-eqz v19, :cond_87
 
     :cond_d
     :goto_10
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit8 v1, v1, 0x8
+    move-object/from16 v19, v0
 
-    if-nez v1, :cond_88
+    move-object/from16 v0, v19
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x8
+
+    if-nez v19, :cond_88
 
     :cond_e
     :goto_11
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v1, v1, 0x10
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-eqz v1, :cond_8c
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x10
+
+    if-eqz v19, :cond_8c
 
     :cond_f
     :goto_12
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit16 v1, v1, 0x800
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-eqz v1, :cond_8d
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    and-int/lit16 v0, v0, 0x800
+
+    move/from16 v19, v0
+
+    if-eqz v19, :cond_8d
 
     :cond_10
     :goto_13
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit8 v1, v1, 0x40
+    move-object/from16 v19, v0
 
-    if-nez v1, :cond_8e
+    move-object/from16 v0, v19
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x40
+
+    if-nez v19, :cond_8e
 
     :cond_11
     :goto_14
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit8 v1, v1, 0x20
+    move-object/from16 v19, v0
 
-    if-nez v1, :cond_8f
+    move-object/from16 v0, v19
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x20
+
+    if-nez v19, :cond_8f
 
     :cond_12
     :goto_15
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit16 v1, v1, 0x80
+    move-object/from16 v19, v0
 
-    if-nez v1, :cond_90
+    move-object/from16 v0, v19
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    and-int/lit16 v0, v0, 0x80
+
+    move/from16 v19, v0
+
+    if-nez v19, :cond_90
 
     :cond_13
     :goto_16
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit16 v1, v1, 0x100
+    move-object/from16 v19, v0
 
-    if-nez v1, :cond_91
+    move-object/from16 v0, v19
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    and-int/lit16 v0, v0, 0x100
+
+    move/from16 v19, v0
+
+    if-nez v19, :cond_91
 
     :cond_14
     :goto_17
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit16 v1, v1, 0x200
+    move-object/from16 v19, v0
 
-    if-nez v1, :cond_92
+    move-object/from16 v0, v19
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    and-int/lit16 v0, v0, 0x200
+
+    move/from16 v19, v0
+
+    if-nez v19, :cond_92
 
     :cond_15
     :goto_18
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit16 v1, v1, 0x400
+    move-object/from16 v19, v0
 
-    if-nez v1, :cond_93
+    move-object/from16 v0, v19
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    and-int/lit16 v0, v0, 0x400
+
+    move/from16 v19, v0
+
+    if-nez v19, :cond_93
 
     :cond_16
     :goto_19
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
+    move-object/from16 v0, p0
 
-    if-eqz v1, :cond_94
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
+
+    move/from16 v19, v0
+
+    if-eqz v19, :cond_94
 
     :cond_17
     :goto_1a
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
 
-    iget-short v2, v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    move/from16 v19, v0
 
-    or-int/2addr v1, v2
+    move-object/from16 v0, p0
 
-    int-to-short v1, v1
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    int-to-short v1, v1
+    move-object/from16 v20, v0
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    move-object/from16 v0, v20
 
-    invoke-direct {p0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->calcFundamentalFacets()V
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+
+    move/from16 v20, v0
+
+    or-int v19, v19, v20
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+
+    invoke-direct/range {p0 .. p0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->calcFundamentalFacets()V
 
     return-void
 
@@ -4586,4236 +5479,8114 @@
     return-void
 
     :cond_19
-    and-int/lit8 v1, v4, 0x1
+    and-int/lit8 v19, v5, 0x1
 
-    if-eqz v1, :cond_1a
+    if-eqz v19, :cond_1a
 
-    iget v1, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->length:I
+    move-object/from16 v0, p1
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->length:I
 
-    iget-object v1, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->lengthAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move/from16 v19, v0
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->lengthAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move/from16 v0, v19
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v1, p0
 
-    or-int/lit8 v1, v1, 0x1
+    iput v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
 
-    int-to-short v1, v1
+    move-object/from16 v0, p1
 
-    int-to-short v1, v1
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->lengthAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v19, v0
 
-    and-int/lit8 v1, p3, 0x1
+    move-object/from16 v0, v19
 
-    if-eqz v1, :cond_0
+    move-object/from16 v1, p0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->lengthAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
-    or-int/lit8 v1, v1, 0x1
+    move-object/from16 v0, p0
 
-    int-to-short v1, v1
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    int-to-short v1, v1
+    move/from16 v19, v0
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    or-int/lit8 v19, v19, 0x1
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    and-int/lit8 v19, p3, 0x1
+
+    if-eqz v19, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+
+    move/from16 v19, v0
+
+    or-int/lit8 v19, v19, 0x1
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
 
     goto/16 :goto_0
 
     :cond_1a
-    const-string/jumbo v1, "cos-applicable-facets"
+    const/16 v19, 0x2
 
-    const/4 v2, 0x2
+    move/from16 v0, v19
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v5, 0x0
+    move-object/from16 v19, v0
 
-    const-string/jumbo v6, "length"
+    const-string/jumbo v20, "length"
 
-    aput-object v6, v2, v5
+    const/16 v21, 0x0
 
-    const/4 v5, 0x1
+    aput-object v20, v19, v21
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v6, v2, v5
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "cos-applicable-facets"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_0
 
     :cond_1b
-    and-int/lit8 v1, v4, 0x2
+    and-int/lit8 v19, v5, 0x2
 
-    if-eqz v1, :cond_1c
+    if-eqz v19, :cond_1c
 
-    iget v1, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->minLength:I
+    move-object/from16 v0, p1
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->minLength:I
 
-    iget-object v1, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->minLengthAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move/from16 v19, v0
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->minLengthAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move/from16 v0, v19
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v1, p0
 
-    or-int/lit8 v1, v1, 0x2
+    iput v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
 
-    int-to-short v1, v1
+    move-object/from16 v0, p1
 
-    int-to-short v1, v1
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->minLengthAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v19, v0
 
-    and-int/lit8 v1, p3, 0x2
+    move-object/from16 v0, v19
 
-    if-eqz v1, :cond_1
+    move-object/from16 v1, p0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->minLengthAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
-    or-int/lit8 v1, v1, 0x2
+    move-object/from16 v0, p0
 
-    int-to-short v1, v1
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    int-to-short v1, v1
+    move/from16 v19, v0
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    or-int/lit8 v19, v19, 0x2
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    and-int/lit8 v19, p3, 0x2
+
+    if-eqz v19, :cond_1
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+
+    move/from16 v19, v0
+
+    or-int/lit8 v19, v19, 0x2
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
 
     goto/16 :goto_1
 
     :cond_1c
-    const-string/jumbo v1, "cos-applicable-facets"
+    const/16 v19, 0x2
 
-    const/4 v2, 0x2
+    move/from16 v0, v19
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v5, 0x0
+    move-object/from16 v19, v0
 
-    const-string/jumbo v6, "minLength"
+    const-string/jumbo v20, "minLength"
 
-    aput-object v6, v2, v5
+    const/16 v21, 0x0
 
-    const/4 v5, 0x1
+    aput-object v20, v19, v21
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v6, v2, v5
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "cos-applicable-facets"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_1
 
     :cond_1d
-    and-int/lit8 v1, v4, 0x4
+    and-int/lit8 v19, v5, 0x4
 
-    if-eqz v1, :cond_1e
+    if-eqz v19, :cond_1e
 
-    iget v1, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxLength:I
+    move-object/from16 v0, p1
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxLength:I
 
-    iget-object v1, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxLengthAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move/from16 v19, v0
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->maxLengthAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move/from16 v0, v19
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v1, p0
 
-    or-int/lit8 v1, v1, 0x4
+    iput v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
 
-    int-to-short v1, v1
+    move-object/from16 v0, p1
 
-    int-to-short v1, v1
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxLengthAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v19, v0
 
-    and-int/lit8 v1, p3, 0x4
+    move-object/from16 v0, v19
 
-    if-eqz v1, :cond_2
+    move-object/from16 v1, p0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->maxLengthAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
-    or-int/lit8 v1, v1, 0x4
+    move-object/from16 v0, p0
 
-    int-to-short v1, v1
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    int-to-short v1, v1
+    move/from16 v19, v0
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    or-int/lit8 v19, v19, 0x4
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    and-int/lit8 v19, p3, 0x4
+
+    if-eqz v19, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+
+    move/from16 v19, v0
+
+    or-int/lit8 v19, v19, 0x4
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
 
     goto/16 :goto_2
 
     :cond_1e
-    const-string/jumbo v1, "cos-applicable-facets"
+    const/16 v19, 0x2
 
-    const/4 v2, 0x2
+    move/from16 v0, v19
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v5, 0x0
+    move-object/from16 v19, v0
 
-    const-string/jumbo v6, "maxLength"
+    const-string/jumbo v20, "maxLength"
 
-    aput-object v6, v2, v5
+    const/16 v21, 0x0
 
-    const/4 v5, 0x1
+    aput-object v20, v19, v21
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v6, v2, v5
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "cos-applicable-facets"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_2
 
     :cond_1f
-    and-int/lit8 v1, v4, 0x8
+    and-int/lit8 v19, v5, 0x8
 
-    if-eqz v1, :cond_20
+    if-eqz v19, :cond_20
 
-    iget-object v1, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->patternAnnotations:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+    move-object/from16 v0, p1
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->patternAnnotations:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->patternAnnotations:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
-    const/4 v2, 0x0
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->patternAnnotations:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+
+    const/4 v14, 0x0
 
     :try_start_0
-    new-instance v1, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression;
+    new-instance v15, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression;
 
-    iget-object v5, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->pattern:Ljava/lang/String;
+    move-object/from16 v0, p1
 
-    const-string/jumbo v6, "X"
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->pattern:Ljava/lang/String;
+
+    move-object/from16 v19, v0
 
     invoke-interface/range {p5 .. p5}, Lmf/org/apache/xerces/impl/dv/ValidationContext;->getLocale()Ljava/util/Locale;
 
-    move-result-object v7
+    move-result-object v20
 
-    invoke-direct {v1, v5, v6, v7}, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/util/Locale;)V
+    const-string/jumbo v21, "X"
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v21
+
+    move-object/from16 v2, v20
+
+    invoke-direct {v15, v0, v1, v2}, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/util/Locale;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    move-object v14, v15
+
     :goto_1b
-    if-eqz v1, :cond_3
+    if-eqz v14, :cond_3
 
-    new-instance v2, Ljava/util/Vector;
+    new-instance v19, Ljava/util/Vector;
 
-    invoke-direct {v2}, Ljava/util/Vector;-><init>()V
+    invoke-direct/range {v19 .. v19}, Ljava/util/Vector;-><init>()V
 
-    iput-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPattern:Ljava/util/Vector;
+    move-object/from16 v0, v19
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPattern:Ljava/util/Vector;
+    move-object/from16 v1, p0
 
-    invoke-virtual {v2, v1}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPattern:Ljava/util/Vector;
 
-    new-instance v1, Ljava/util/Vector;
+    move-object/from16 v0, p0
 
-    invoke-direct {v1}, Ljava/util/Vector;-><init>()V
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPattern:Ljava/util/Vector;
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternStr:Ljava/util/Vector;
+    move-object/from16 v19, v0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternStr:Ljava/util/Vector;
+    move-object/from16 v0, v19
 
-    iget-object v2, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->pattern:Ljava/lang/String;
+    invoke-virtual {v0, v14}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
 
-    invoke-virtual {v1, v2}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+    new-instance v19, Ljava/util/Vector;
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    invoke-direct/range {v19 .. v19}, Ljava/util/Vector;-><init>()V
 
-    or-int/lit8 v1, v1, 0x8
+    move-object/from16 v0, v19
 
-    int-to-short v1, v1
+    move-object/from16 v1, p0
 
-    int-to-short v1, v1
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternStr:Ljava/util/Vector;
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v1, p3, 0x8
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternStr:Ljava/util/Vector;
 
-    if-eqz v1, :cond_3
+    move-object/from16 v19, v0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    move-object/from16 v0, p1
 
-    or-int/lit8 v1, v1, 0x8
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->pattern:Ljava/lang/String;
 
-    int-to-short v1, v1
+    move-object/from16 v20, v0
 
-    int-to-short v1, v1
+    invoke-virtual/range {v19 .. v20}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v19, v0
+
+    or-int/lit8 v19, v19, 0x8
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    and-int/lit8 v19, p3, 0x8
+
+    if-eqz v19, :cond_3
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+
+    move/from16 v19, v0
+
+    or-int/lit8 v19, v19, 0x8
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
 
     goto/16 :goto_3
 
     :cond_20
-    const-string/jumbo v1, "cos-applicable-facets"
+    const/16 v19, 0x2
 
-    const/4 v2, 0x2
+    move/from16 v0, v19
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v5, 0x0
+    move-object/from16 v19, v0
 
-    const-string/jumbo v6, "pattern"
+    const-string/jumbo v20, "pattern"
 
-    aput-object v6, v2, v5
+    const/16 v21, 0x0
 
-    const/4 v5, 0x1
+    aput-object v20, v19, v21
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v6, v2, v5
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "cos-applicable-facets"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_3
 
     :catch_0
-    move-exception v1
+    move-exception v7
 
-    const-string/jumbo v5, "InvalidRegex"
+    const/16 v19, 0x2
 
-    const/4 v6, 0x2
+    move/from16 v0, v19
 
-    new-array v6, v6, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v7, 0x0
+    move-object/from16 v19, v0
 
-    iget-object v8, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->pattern:Ljava/lang/String;
+    move-object/from16 v0, p1
 
-    aput-object v8, v6, v7
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->pattern:Ljava/lang/String;
 
-    const/4 v7, 0x1
+    move-object/from16 v20, v0
 
-    invoke-virtual {v1}, Ljava/lang/Exception;->getLocalizedMessage()Ljava/lang/String;
+    const/16 v21, 0x0
 
-    move-result-object v1
+    aput-object v20, v19, v21
 
-    aput-object v1, v6, v7
+    invoke-virtual {v7}, Ljava/lang/Exception;->getLocalizedMessage()Ljava/lang/String;
 
-    invoke-virtual {p0, v5, v6}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-result-object v20
 
-    move-object v1, v2
+    const/16 v21, 0x1
 
-    goto :goto_1b
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "InvalidRegex"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    goto/16 :goto_1b
 
     :cond_21
-    and-int/lit8 v1, v4, 0x10
+    and-int/lit8 v19, v5, 0x10
 
-    if-eqz v1, :cond_22
+    if-eqz v19, :cond_22
 
-    iget-short v1, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->whiteSpace:S
+    move-object/from16 v0, p1
 
-    int-to-short v1, v1
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->whiteSpace:S
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
+    move/from16 v19, v0
 
-    iget-object v1, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->whiteSpaceAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move/from16 v0, v19
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->whiteSpaceAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    int-to-short v0, v0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move/from16 v19, v0
 
-    or-int/lit8 v1, v1, 0x10
+    move/from16 v0, v19
 
-    int-to-short v1, v1
+    move-object/from16 v1, p0
 
-    int-to-short v1, v1
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p1
 
-    and-int/lit8 v1, p3, 0x10
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->whiteSpaceAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
-    if-eqz v1, :cond_4
+    move-object/from16 v19, v0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    move-object/from16 v0, v19
 
-    or-int/lit8 v1, v1, 0x10
+    move-object/from16 v1, p0
 
-    int-to-short v1, v1
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->whiteSpaceAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
-    int-to-short v1, v1
+    move-object/from16 v0, p0
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v19, v0
+
+    or-int/lit8 v19, v19, 0x10
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    and-int/lit8 v19, p3, 0x10
+
+    if-eqz v19, :cond_4
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+
+    move/from16 v19, v0
+
+    or-int/lit8 v19, v19, 0x10
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
 
     goto/16 :goto_4
 
     :cond_22
-    const-string/jumbo v1, "cos-applicable-facets"
+    const/16 v19, 0x2
 
-    const/4 v2, 0x2
+    move/from16 v0, v19
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v5, 0x0
+    move-object/from16 v19, v0
 
-    const-string/jumbo v6, "whiteSpace"
+    const-string/jumbo v20, "whiteSpace"
 
-    aput-object v6, v2, v5
+    const/16 v21, 0x0
 
-    const/4 v5, 0x1
+    aput-object v20, v19, v21
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v6, v2, v5
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "cos-applicable-facets"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_4
 
     :cond_23
-    and-int/lit16 v1, v4, 0x800
+    and-int/lit16 v0, v5, 0x800
 
-    if-eqz v1, :cond_24
+    move/from16 v19, v0
 
-    iget-object v5, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->enumeration:Ljava/util/Vector;
+    if-eqz v19, :cond_24
 
-    invoke-virtual {v5}, Ljava/util/Vector;->size()I
+    move-object/from16 v0, p1
 
-    move-result v6
+    iget-object v9, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->enumeration:Ljava/util/Vector;
 
-    new-array v1, v6, [Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+    invoke-virtual {v9}, Ljava/util/Vector;->size()I
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumeration:[Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+    move-result v17
 
-    iget-object v7, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->enumNSDecls:Ljava/util/Vector;
+    move/from16 v0, v17
 
-    new-instance v8, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$ValidationContextImpl;
+    new-array v0, v0, [Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumeration:[Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+
+    move-object/from16 v0, p1
+
+    iget-object v8, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->enumNSDecls:Ljava/util/Vector;
+
+    new-instance v6, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$ValidationContextImpl;
 
     move-object/from16 v0, p5
 
-    invoke-direct {v8, v0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$ValidationContextImpl;-><init>(Lmf/org/apache/xerces/impl/dv/ValidationContext;)V
+    invoke-direct {v6, v0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$ValidationContextImpl;-><init>(Lmf/org/apache/xerces/impl/dv/ValidationContext;)V
 
-    iget-object v1, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->enumAnnotations:Lmf/org/apache/xerces/xs/XSObjectList;
+    move-object/from16 v0, p1
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->enumerationAnnotations:Lmf/org/apache/xerces/xs/XSObjectList;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->enumAnnotations:Lmf/org/apache/xerces/xs/XSObjectList;
 
-    const/4 v1, 0x0
+    move-object/from16 v19, v0
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumerationSize:I
+    move-object/from16 v0, v19
 
-    const/4 v1, 0x0
+    move-object/from16 v1, p0
 
-    move v2, v1
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->enumerationAnnotations:Lmf/org/apache/xerces/xs/XSObjectList;
+
+    const/16 v19, 0x0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumerationSize:I
+
+    const/4 v10, 0x0
 
     :goto_1c
-    if-ge v2, v6, :cond_26
+    move/from16 v0, v17
 
-    if-nez v7, :cond_25
+    if-ge v10, v0, :cond_26
+
+    if-nez v8, :cond_25
 
     :goto_1d
     :try_start_1
-    invoke-virtual {v5, v2}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v9, v10}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v19
 
-    check-cast v1, Ljava/lang/String;
+    check-cast v19, Ljava/lang/String;
 
-    const/4 v9, 0x0
+    const/16 v20, 0x0
 
-    invoke-virtual {p0, v1, v8, v9}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getActualEnumValue(Ljava/lang/String;Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+    move-object/from16 v0, p0
 
-    move-result-object v1
+    move-object/from16 v1, v19
 
-    iget-object v9, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumeration:[Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+    move-object/from16 v2, v20
 
-    iget v10, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumerationSize:I
+    invoke-virtual {v0, v1, v6, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getActualEnumValue(Ljava/lang/String;Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
 
-    add-int/lit8 v11, v10, 0x1
+    move-result-object v12
 
-    iput v11, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumerationSize:I
+    move-object/from16 v0, p0
 
-    aput-object v1, v9, v10
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumeration:[Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumerationSize:I
+
+    move/from16 v20, v0
+
+    add-int/lit8 v21, v20, 0x1
+
+    move/from16 v0, v21
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumerationSize:I
+
+    aput-object v12, v19, v20
     :try_end_1
     .catch Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException; {:try_start_1 .. :try_end_1} :catch_1
 
     :goto_1e
-    add-int/lit8 v1, v2, 0x1
-
-    move v2, v1
+    add-int/lit8 v10, v10, 0x1
 
     goto :goto_1c
 
     :cond_24
-    const-string/jumbo v1, "cos-applicable-facets"
+    const/16 v19, 0x2
 
-    const/4 v2, 0x2
+    move/from16 v0, v19
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v5, 0x0
+    move-object/from16 v19, v0
 
-    const-string/jumbo v6, "enumeration"
+    const-string/jumbo v20, "enumeration"
 
-    aput-object v6, v2, v5
+    const/16 v21, 0x0
 
-    const/4 v5, 0x1
+    aput-object v20, v19, v21
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v6, v2, v5
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "cos-applicable-facets"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_5
 
     :cond_25
-    invoke-virtual {v7, v2}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v8, v10}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v19
 
-    check-cast v1, Lmf/org/apache/xerces/xni/NamespaceContext;
+    check-cast v19, Lmf/org/apache/xerces/xni/NamespaceContext;
 
-    invoke-virtual {v8, v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$ValidationContextImpl;->setNSContext(Lmf/org/apache/xerces/xni/NamespaceContext;)V
+    move-object/from16 v0, v19
+
+    invoke-virtual {v6, v0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$ValidationContextImpl;->setNSContext(Lmf/org/apache/xerces/xni/NamespaceContext;)V
 
     goto :goto_1d
 
     :catch_1
-    move-exception v1
+    move-exception v11
 
-    const-string/jumbo v1, "enumeration-valid-restriction"
+    const/16 v19, 0x2
 
-    const/4 v9, 0x2
+    move/from16 v0, v19
 
-    new-array v9, v9, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v10, 0x0
+    move-object/from16 v19, v0
 
-    invoke-virtual {v5, v2}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v9, v10}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    move-result-object v11
+    move-result-object v20
 
-    aput-object v11, v9, v10
+    const/16 v21, 0x0
 
-    const/4 v10, 0x1
+    aput-object v20, v19, v21
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getBaseType()Lmf/org/apache/xerces/xs/XSTypeDefinition;
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getBaseType()Lmf/org/apache/xerces/xs/XSTypeDefinition;
 
-    move-result-object v11
+    move-result-object v20
 
-    invoke-interface {v11}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getName()Ljava/lang/String;
+    invoke-interface/range {v20 .. v20}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getName()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v20
 
-    aput-object v11, v9, v10
+    const/16 v21, 0x1
 
-    invoke-virtual {p0, v1, v9}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "enumeration-valid-restriction"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_1e
 
     :cond_26
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    or-int/lit16 v1, v1, 0x800
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    int-to-short v1, v1
+    move/from16 v19, v0
 
-    int-to-short v1, v1
+    move/from16 v0, v19
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    or-int/lit16 v0, v0, 0x800
 
-    and-int/lit16 v1, p3, 0x800
+    move/from16 v19, v0
 
-    if-eqz v1, :cond_5
+    move/from16 v0, v19
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    int-to-short v0, v0
 
-    or-int/lit16 v1, v1, 0x800
+    move/from16 v19, v0
 
-    int-to-short v1, v1
+    move/from16 v0, v19
 
-    int-to-short v1, v1
+    int-to-short v0, v0
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v0, p3
+
+    and-int/lit16 v0, v0, 0x800
+
+    move/from16 v19, v0
+
+    if-eqz v19, :cond_5
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    or-int/lit16 v0, v0, 0x800
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
 
     goto/16 :goto_5
 
     :cond_27
-    and-int/lit8 v1, v4, 0x20
+    and-int/lit8 v19, v5, 0x20
 
-    if-eqz v1, :cond_29
+    if-eqz v19, :cond_29
 
-    iget-object v1, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move-object/from16 v0, p1
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->maxInclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->maxInclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
     :try_start_2
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-object v2, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v5, 0x1
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, p5
+    move-object/from16 v0, p1
 
-    invoke-direct {v1, v2, v0, v3, v5}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getActualValue(Ljava/lang/Object;Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;Z)Ljava/lang/Object;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
 
-    move-result-object v1
+    move-object/from16 v20, v0
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
+    const/16 v21, 0x1
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, v19
 
-    or-int/lit8 v1, v1, 0x20
+    move-object/from16 v1, v20
 
-    int-to-short v1, v1
+    move-object/from16 v2, p5
 
-    int-to-short v1, v1
+    move-object/from16 v3, v18
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move/from16 v4, v21
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getActualValue(Ljava/lang/Object;Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;Z)Ljava/lang/Object;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v19, v0
+
+    or-int/lit8 v19, v19, 0x20
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
     :try_end_2
     .catch Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException; {:try_start_2 .. :try_end_2} :catch_3
 
-    and-int/lit8 v1, p3, 0x20
+    and-int/lit8 v19, p3, 0x20
 
-    if-nez v1, :cond_2a
+    if-nez v19, :cond_2a
 
     :goto_1f
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit8 v1, v1, 0x20
+    move-object/from16 v19, v0
 
-    if-nez v1, :cond_2b
+    move-object/from16 v0, v19
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x20
+
+    if-nez v19, :cond_2b
 
     :cond_28
     :goto_20
     :try_start_3
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    move-object/from16 v0, p5
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    invoke-virtual {v1, v0, v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->validate(Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)V
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p5
+
+    move-object/from16 v2, v18
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->validate(Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)V
     :try_end_3
     .catch Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException; {:try_start_3 .. :try_end_3} :catch_2
 
     goto/16 :goto_6
 
     :catch_2
-    move-exception v1
+    move-exception v11
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getKey()Ljava/lang/String;
+    invoke-virtual {v11}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getKey()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v19
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getArgs()[Ljava/lang/Object;
+    invoke-virtual {v11}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getArgs()[Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v20
 
-    invoke-virtual {p0, v2, v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v0, p0
 
-    const-string/jumbo v1, "FacetValueFromBase"
+    move-object/from16 v1, v19
 
-    const/4 v2, 0x4
+    move-object/from16 v2, v20
 
-    new-array v2, v2, [Ljava/lang/Object;
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    const/4 v5, 0x0
+    const/16 v19, 0x4
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move/from16 v0, v19
 
-    aput-object v6, v2, v5
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v5, 0x1
+    move-object/from16 v19, v0
 
-    iget-object v6, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v6, v2, v5
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    const/4 v5, 0x2
+    move-object/from16 v20, v0
 
-    const-string/jumbo v6, "maxInclusive"
+    const/16 v21, 0x0
 
-    aput-object v6, v2, v5
+    aput-object v20, v19, v21
 
-    const/4 v5, 0x3
+    move-object/from16 v0, p1
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
 
-    invoke-virtual {v6}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getName()Ljava/lang/String;
+    move-object/from16 v20, v0
 
-    move-result-object v6
+    const/16 v21, 0x1
 
-    aput-object v6, v2, v5
+    aput-object v20, v19, v21
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v20, "FacetValueFromBase"
+
+    const/16 v21, 0x2
+
+    const-string/jumbo v22, "maxInclusive"
+
+    aput-object v22, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v21, v0
+
+    invoke-virtual/range {v21 .. v21}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getName()Ljava/lang/String;
+
+    move-result-object v21
+
+    const/16 v22, 0x3
+
+    aput-object v21, v19, v22
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_6
 
     :cond_29
-    const-string/jumbo v1, "cos-applicable-facets"
+    const/16 v19, 0x2
 
-    const/4 v2, 0x2
+    move/from16 v0, v19
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v5, 0x0
+    move-object/from16 v19, v0
 
-    const-string/jumbo v6, "maxInclusive"
+    const-string/jumbo v20, "maxInclusive"
 
-    aput-object v6, v2, v5
+    const/16 v21, 0x0
 
-    const/4 v5, 0x1
+    aput-object v20, v19, v21
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v6, v2, v5
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "cos-applicable-facets"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_6
 
     :cond_2a
     :try_start_4
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    move-object/from16 v0, p0
 
-    or-int/lit8 v1, v1, 0x20
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
 
-    int-to-short v1, v1
+    move/from16 v19, v0
 
-    int-to-short v1, v1
+    or-int/lit8 v19, v19, 0x20
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
     :try_end_4
     .catch Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException; {:try_start_4 .. :try_end_4} :catch_3
 
-    goto :goto_1f
+    goto/16 :goto_1f
 
     :catch_3
-    move-exception v1
+    move-exception v11
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getKey()Ljava/lang/String;
+    invoke-virtual {v11}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getKey()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v19
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getArgs()[Ljava/lang/Object;
+    invoke-virtual {v11}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getArgs()[Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v20
 
-    invoke-virtual {p0, v2, v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v0, p0
 
-    const-string/jumbo v1, "FacetValueFromBase"
+    move-object/from16 v1, v19
 
-    const/4 v2, 0x4
+    move-object/from16 v2, v20
 
-    new-array v2, v2, [Ljava/lang/Object;
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    const/4 v5, 0x0
+    const/16 v19, 0x4
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move/from16 v0, v19
 
-    aput-object v6, v2, v5
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v5, 0x1
+    move-object/from16 v19, v0
 
-    iget-object v6, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v6, v2, v5
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    const/4 v5, 0x2
+    move-object/from16 v20, v0
 
-    const-string/jumbo v6, "maxInclusive"
+    const/16 v21, 0x0
 
-    aput-object v6, v2, v5
+    aput-object v20, v19, v21
 
-    const/4 v5, 0x3
+    move-object/from16 v0, p1
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxInclusive:Ljava/lang/String;
 
-    invoke-virtual {v6}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getName()Ljava/lang/String;
+    move-object/from16 v20, v0
 
-    move-result-object v6
+    const/16 v21, 0x1
 
-    aput-object v6, v2, v5
+    aput-object v20, v19, v21
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v20, "FacetValueFromBase"
+
+    const/16 v21, 0x2
+
+    const-string/jumbo v22, "maxInclusive"
+
+    aput-object v22, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v21, v0
+
+    invoke-virtual/range {v21 .. v21}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getName()Ljava/lang/String;
+
+    move-result-object v21
+
+    const/16 v22, 0x3
+
+    aput-object v21, v19, v22
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_1f
 
     :cond_2b
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit8 v1, v1, 0x20
+    move-object/from16 v19, v0
 
-    if-eqz v1, :cond_28
+    move-object/from16 v0, v19
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
 
-    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    move/from16 v19, v0
 
-    aget-object v1, v1, v2
+    and-int/lit8 v19, v19, 0x20
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
+    if-eqz v19, :cond_28
 
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-object v5, v5, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
 
-    invoke-virtual {v1, v2, v5}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    move-object/from16 v19, v0
 
-    move-result v1
+    move-object/from16 v0, p0
 
-    if-eqz v1, :cond_28
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
-    const-string/jumbo v1, "FixedFacetValue"
+    move/from16 v20, v0
 
-    const/4 v2, 0x4
+    aget-object v19, v19, v20
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move-object/from16 v0, p0
 
-    const/4 v5, 0x0
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
 
-    const-string/jumbo v6, "maxInclusive"
+    move-object/from16 v20, v0
 
-    aput-object v6, v2, v5
+    move-object/from16 v0, p0
 
-    const/4 v5, 0x1
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
+    move-object/from16 v21, v0
 
-    aput-object v6, v2, v5
+    move-object/from16 v0, v21
 
-    const/4 v5, 0x2
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v21, v0
 
-    iget-object v6, v6, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
+    invoke-virtual/range {v19 .. v21}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
-    aput-object v6, v2, v5
+    move-result v19
 
-    const/4 v5, 0x3
+    if-eqz v19, :cond_28
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    const/16 v19, 0x4
 
-    aput-object v6, v2, v5
+    move/from16 v0, v19
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v19, v0
+
+    const-string/jumbo v20, "maxInclusive"
+
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x3
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "FixedFacetValue"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_20
 
     :cond_2c
-    and-int/lit8 v1, v4, 0x40
+    and-int/lit8 v19, v5, 0x40
 
-    if-eqz v1, :cond_2d
+    if-eqz v19, :cond_2e
 
-    iget-object v1, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxExclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move-object/from16 v0, p1
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->maxExclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxExclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->maxExclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
     :try_start_5
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-object v5, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxExclusive:Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v6, 0x1
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, p5
+    move-object/from16 v0, p1
 
-    invoke-direct {v1, v5, v0, v3, v6}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getActualValue(Ljava/lang/Object;Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;Z)Ljava/lang/Object;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxExclusive:Ljava/lang/String;
 
-    move-result-object v1
+    move-object/from16 v20, v0
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
+    const/16 v21, 0x1
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, v19
 
-    or-int/lit8 v1, v1, 0x40
+    move-object/from16 v1, v20
 
-    int-to-short v1, v1
+    move-object/from16 v2, p5
 
-    int-to-short v1, v1
+    move-object/from16 v3, v18
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move/from16 v4, v21
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getActualValue(Ljava/lang/Object;Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;Z)Ljava/lang/Object;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v19, v0
+
+    or-int/lit8 v19, v19, 0x40
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
     :try_end_5
     .catch Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException; {:try_start_5 .. :try_end_5} :catch_4
 
-    and-int/lit8 v1, p3, 0x40
+    and-int/lit8 v19, p3, 0x40
 
-    if-nez v1, :cond_2e
+    if-nez v19, :cond_2f
 
     :goto_21
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit8 v1, v1, 0x40
+    move-object/from16 v19, v0
 
-    if-nez v1, :cond_2f
+    move-object/from16 v0, v19
 
-    move v1, v2
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    :goto_22
-    if-nez v1, :cond_33
+    move/from16 v19, v0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    and-int/lit8 v19, v19, 0x40
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
-
-    and-int/lit8 v1, v1, 0x20
-
-    if-eqz v1, :cond_6
-
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
-
-    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
-
-    aget-object v1, v1, v2
-
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
-
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    iget-object v5, v5, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
-
-    invoke-virtual {v1, v2, v5}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
-
-    move-result v1
-
-    if-lez v1, :cond_6
-
-    const-string/jumbo v1, "maxExclusive-valid-restriction.2"
-
-    const/4 v2, 0x2
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    const/4 v5, 0x0
-
-    iget-object v6, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxExclusive:Ljava/lang/String;
-
-    aput-object v6, v2, v5
-
-    const/4 v5, 0x1
-
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    iget-object v6, v6, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
-
-    aput-object v6, v2, v5
-
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
-
-    goto/16 :goto_7
+    if-nez v19, :cond_30
 
     :cond_2d
-    const-string/jumbo v1, "cos-applicable-facets"
+    :goto_22
+    if-nez v13, :cond_33
 
-    const/4 v2, 0x2
+    move-object/from16 v0, p0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v5, 0x0
+    move-object/from16 v19, v0
 
-    const-string/jumbo v6, "maxExclusive"
+    move-object/from16 v0, v19
 
-    aput-object v6, v2, v5
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    const/4 v5, 0x1
+    move/from16 v19, v0
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    and-int/lit8 v19, v19, 0x20
 
-    aput-object v6, v2, v5
+    if-eqz v19, :cond_6
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+
+    move/from16 v20, v0
+
+    aget-object v19, v19, v20
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, v21
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
+
+    move-object/from16 v21, v0
+
+    invoke-virtual/range {v19 .. v21}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
+
+    move-result v19
+
+    if-lez v19, :cond_6
+
+    const/16 v19, 0x2
+
+    move/from16 v0, v19
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxExclusive:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "maxExclusive-valid-restriction.2"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_7
 
     :cond_2e
+    const/16 v19, 0x2
+
+    move/from16 v0, v19
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v19, v0
+
+    const-string/jumbo v20, "maxExclusive"
+
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "cos-applicable-facets"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    goto/16 :goto_7
+
+    :cond_2f
     :try_start_6
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    move-object/from16 v0, p0
 
-    or-int/lit8 v1, v1, 0x40
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
 
-    int-to-short v1, v1
+    move/from16 v19, v0
 
-    int-to-short v1, v1
+    or-int/lit8 v19, v19, 0x40
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
     :try_end_6
     .catch Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException; {:try_start_6 .. :try_end_6} :catch_4
 
-    goto :goto_21
+    goto/16 :goto_21
 
     :catch_4
-    move-exception v1
+    move-exception v11
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getKey()Ljava/lang/String;
+    invoke-virtual {v11}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getKey()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v19
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getArgs()[Ljava/lang/Object;
+    invoke-virtual {v11}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getArgs()[Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v20
 
-    invoke-virtual {p0, v5, v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v0, p0
 
-    const-string/jumbo v1, "FacetValueFromBase"
+    move-object/from16 v1, v19
 
-    const/4 v5, 0x4
+    move-object/from16 v2, v20
 
-    new-array v5, v5, [Ljava/lang/Object;
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    const/4 v6, 0x0
+    const/16 v19, 0x4
 
-    iget-object v7, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move/from16 v0, v19
 
-    aput-object v7, v5, v6
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v6, 0x1
+    move-object/from16 v19, v0
 
-    iget-object v7, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxExclusive:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v7, v5, v6
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    const/4 v6, 0x2
+    move-object/from16 v20, v0
 
-    const-string/jumbo v7, "maxExclusive"
+    const/16 v21, 0x0
 
-    aput-object v7, v5, v6
+    aput-object v20, v19, v21
 
-    const/4 v6, 0x3
+    move-object/from16 v0, p1
 
-    iget-object v7, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxExclusive:Ljava/lang/String;
 
-    invoke-virtual {v7}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getName()Ljava/lang/String;
+    move-object/from16 v20, v0
 
-    move-result-object v7
+    const/16 v21, 0x1
 
-    aput-object v7, v5, v6
+    aput-object v20, v19, v21
 
-    invoke-virtual {p0, v1, v5}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v20, "FacetValueFromBase"
+
+    const/16 v21, 0x2
+
+    const-string/jumbo v22, "maxExclusive"
+
+    aput-object v22, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v21, v0
+
+    invoke-virtual/range {v21 .. v21}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getName()Ljava/lang/String;
+
+    move-result-object v21
+
+    const/16 v22, 0x3
+
+    aput-object v21, v19, v22
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_21
 
-    :cond_2f
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
-
-    iget-short v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
-
-    aget-object v1, v1, v5
-
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
-
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    iget-object v6, v6, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
-
-    invoke-virtual {v1, v5, v6}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
-
-    move-result v1
-
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    iget-short v5, v5, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
-
-    and-int/lit8 v5, v5, 0x40
-
-    if-nez v5, :cond_31
-
     :cond_30
-    :goto_23
-    if-eqz v1, :cond_32
+    move-object/from16 v0, p0
 
-    move v1, v2
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+
+    move/from16 v20, v0
+
+    aget-object v19, v19, v20
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, v21
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
+
+    move-object/from16 v21, v0
+
+    invoke-virtual/range {v19 .. v21}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
+
+    move-result v16
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x40
+
+    if-nez v19, :cond_32
+
+    :cond_31
+    :goto_23
+    if-nez v16, :cond_2d
+
+    const/4 v13, 0x0
 
     goto/16 :goto_22
 
-    :cond_31
-    if-eqz v1, :cond_30
+    :cond_32
+    if-eqz v16, :cond_31
 
-    const-string/jumbo v5, "FixedFacetValue"
+    const/16 v19, 0x4
 
-    const/4 v6, 0x4
+    move/from16 v0, v19
 
-    new-array v6, v6, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v7, 0x0
+    move-object/from16 v19, v0
 
-    const-string/jumbo v8, "maxExclusive"
+    const-string/jumbo v20, "maxExclusive"
 
-    aput-object v8, v6, v7
+    const/16 v21, 0x0
 
-    const/4 v7, 0x1
+    aput-object v20, v19, v21
 
-    iget-object v8, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxExclusive:Ljava/lang/String;
+    move-object/from16 v0, p1
 
-    aput-object v8, v6, v7
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxExclusive:Ljava/lang/String;
 
-    const/4 v7, 0x2
+    move-object/from16 v20, v0
 
-    iget-object v8, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    const/16 v21, 0x1
 
-    iget-object v8, v8, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
+    aput-object v20, v19, v21
 
-    aput-object v8, v6, v7
+    move-object/from16 v0, p0
 
-    const/4 v7, 0x3
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    iget-object v8, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move-object/from16 v20, v0
 
-    aput-object v8, v6, v7
+    move-object/from16 v0, v20
 
-    invoke-virtual {p0, v5, v6}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x3
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "FixedFacetValue"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_23
 
-    :cond_32
-    const/4 v1, 0x0
-
-    goto/16 :goto_22
-
     :cond_33
     :try_start_7
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    move-object/from16 v0, p5
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    invoke-virtual {v1, v0, v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->validate(Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)V
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p5
+
+    move-object/from16 v2, v18
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->validate(Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)V
     :try_end_7
     .catch Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException; {:try_start_7 .. :try_end_7} :catch_5
 
     goto/16 :goto_7
 
     :catch_5
-    move-exception v1
+    move-exception v11
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getKey()Ljava/lang/String;
+    invoke-virtual {v11}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getKey()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v19
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getArgs()[Ljava/lang/Object;
+    invoke-virtual {v11}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getArgs()[Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v20
 
-    invoke-virtual {p0, v2, v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v0, p0
 
-    const-string/jumbo v1, "FacetValueFromBase"
+    move-object/from16 v1, v19
 
-    const/4 v2, 0x4
+    move-object/from16 v2, v20
 
-    new-array v2, v2, [Ljava/lang/Object;
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    const/4 v5, 0x0
+    const/16 v19, 0x4
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move/from16 v0, v19
 
-    aput-object v6, v2, v5
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v5, 0x1
+    move-object/from16 v19, v0
 
-    iget-object v6, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxExclusive:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v6, v2, v5
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    const/4 v5, 0x2
+    move-object/from16 v20, v0
 
-    const-string/jumbo v6, "maxExclusive"
+    const/16 v21, 0x0
 
-    aput-object v6, v2, v5
+    aput-object v20, v19, v21
 
-    const/4 v5, 0x3
+    move-object/from16 v0, p1
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->maxExclusive:Ljava/lang/String;
 
-    invoke-virtual {v6}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getName()Ljava/lang/String;
+    move-object/from16 v20, v0
 
-    move-result-object v6
+    const/16 v21, 0x1
 
-    aput-object v6, v2, v5
+    aput-object v20, v19, v21
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v20, "FacetValueFromBase"
+
+    const/16 v21, 0x2
+
+    const-string/jumbo v22, "maxExclusive"
+
+    aput-object v22, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v21, v0
+
+    invoke-virtual/range {v21 .. v21}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getName()Ljava/lang/String;
+
+    move-result-object v21
+
+    const/16 v22, 0x3
+
+    aput-object v21, v19, v22
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_7
 
     :cond_34
-    and-int/lit16 v1, v4, 0x80
+    and-int/lit16 v0, v5, 0x80
 
-    if-eqz v1, :cond_35
+    move/from16 v19, v0
 
-    iget-object v1, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->minExclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    if-eqz v19, :cond_36
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->minExclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->minExclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->minExclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
     :try_start_8
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-object v5, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->minExclusive:Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v6, 0x1
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, p5
+    move-object/from16 v0, p1
 
-    invoke-direct {v1, v5, v0, v3, v6}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getActualValue(Ljava/lang/Object;Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;Z)Ljava/lang/Object;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->minExclusive:Ljava/lang/String;
 
-    move-result-object v1
+    move-object/from16 v20, v0
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
+    const/16 v21, 0x1
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, v19
 
-    or-int/lit16 v1, v1, 0x80
+    move-object/from16 v1, v20
 
-    int-to-short v1, v1
+    move-object/from16 v2, p5
 
-    int-to-short v1, v1
+    move-object/from16 v3, v18
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move/from16 v4, v21
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getActualValue(Ljava/lang/Object;Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;Z)Ljava/lang/Object;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    or-int/lit16 v0, v0, 0x80
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
     :try_end_8
     .catch Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException; {:try_start_8 .. :try_end_8} :catch_6
 
-    and-int/lit16 v1, p3, 0x80
+    move/from16 v0, p3
 
-    if-nez v1, :cond_36
+    and-int/lit16 v0, v0, 0x80
+
+    move/from16 v19, v0
+
+    if-nez v19, :cond_37
 
     :goto_24
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit16 v1, v1, 0x80
+    move-object/from16 v19, v0
 
-    if-nez v1, :cond_37
+    move-object/from16 v0, v19
 
-    move v1, v2
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    :goto_25
-    if-nez v1, :cond_3b
+    move/from16 v19, v0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move/from16 v0, v19
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    and-int/lit16 v0, v0, 0x80
 
-    and-int/lit16 v1, v1, 0x100
+    move/from16 v19, v0
 
-    if-eqz v1, :cond_7
-
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
-
-    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
-
-    aget-object v1, v1, v2
-
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
-
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    iget-object v5, v5, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
-
-    invoke-virtual {v1, v2, v5}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
-
-    move-result v1
-
-    if-gez v1, :cond_7
-
-    const-string/jumbo v1, "minExclusive-valid-restriction.3"
-
-    const/4 v2, 0x2
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    const/4 v5, 0x0
-
-    iget-object v6, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->minExclusive:Ljava/lang/String;
-
-    aput-object v6, v2, v5
-
-    const/4 v5, 0x1
-
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    iget-object v6, v6, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
-
-    aput-object v6, v2, v5
-
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
-
-    goto/16 :goto_8
+    if-nez v19, :cond_38
 
     :cond_35
-    const-string/jumbo v1, "cos-applicable-facets"
+    :goto_25
+    if-nez v13, :cond_3b
 
-    const/4 v2, 0x2
+    move-object/from16 v0, p0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v5, 0x0
+    move-object/from16 v19, v0
 
-    const-string/jumbo v6, "minExclusive"
+    move-object/from16 v0, v19
 
-    aput-object v6, v2, v5
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    const/4 v5, 0x1
+    move/from16 v19, v0
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move/from16 v0, v19
 
-    aput-object v6, v2, v5
+    and-int/lit16 v0, v0, 0x100
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move/from16 v19, v0
+
+    if-eqz v19, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+
+    move/from16 v20, v0
+
+    aget-object v19, v19, v20
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, v21
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
+
+    move-object/from16 v21, v0
+
+    invoke-virtual/range {v19 .. v21}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
+
+    move-result v19
+
+    if-gez v19, :cond_7
+
+    const/16 v19, 0x2
+
+    move/from16 v0, v19
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->minExclusive:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "minExclusive-valid-restriction.3"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_8
 
     :cond_36
+    const/16 v19, 0x2
+
+    move/from16 v0, v19
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v19, v0
+
+    const-string/jumbo v20, "minExclusive"
+
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "cos-applicable-facets"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    goto/16 :goto_8
+
+    :cond_37
     :try_start_9
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    move-object/from16 v0, p0
 
-    or-int/lit16 v1, v1, 0x80
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
 
-    int-to-short v1, v1
+    move/from16 v19, v0
 
-    int-to-short v1, v1
+    move/from16 v0, v19
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    or-int/lit16 v0, v0, 0x80
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
     :try_end_9
     .catch Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException; {:try_start_9 .. :try_end_9} :catch_6
 
-    goto :goto_24
+    goto/16 :goto_24
 
     :catch_6
-    move-exception v1
+    move-exception v11
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getKey()Ljava/lang/String;
+    invoke-virtual {v11}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getKey()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v19
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getArgs()[Ljava/lang/Object;
+    invoke-virtual {v11}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getArgs()[Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v20
 
-    invoke-virtual {p0, v5, v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v0, p0
 
-    const-string/jumbo v1, "FacetValueFromBase"
+    move-object/from16 v1, v19
 
-    const/4 v5, 0x4
+    move-object/from16 v2, v20
 
-    new-array v5, v5, [Ljava/lang/Object;
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    const/4 v6, 0x0
+    const/16 v19, 0x4
 
-    iget-object v7, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move/from16 v0, v19
 
-    aput-object v7, v5, v6
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v6, 0x1
+    move-object/from16 v19, v0
 
-    iget-object v7, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->minExclusive:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v7, v5, v6
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    const/4 v6, 0x2
+    move-object/from16 v20, v0
 
-    const-string/jumbo v7, "minExclusive"
+    const/16 v21, 0x0
 
-    aput-object v7, v5, v6
+    aput-object v20, v19, v21
 
-    const/4 v6, 0x3
+    move-object/from16 v0, p1
 
-    iget-object v7, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->minExclusive:Ljava/lang/String;
 
-    invoke-virtual {v7}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getName()Ljava/lang/String;
+    move-object/from16 v20, v0
 
-    move-result-object v7
+    const/16 v21, 0x1
 
-    aput-object v7, v5, v6
+    aput-object v20, v19, v21
 
-    invoke-virtual {p0, v1, v5}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v20, "FacetValueFromBase"
+
+    const/16 v21, 0x2
+
+    const-string/jumbo v22, "minExclusive"
+
+    aput-object v22, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v21, v0
+
+    invoke-virtual/range {v21 .. v21}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getName()Ljava/lang/String;
+
+    move-result-object v21
+
+    const/16 v22, 0x3
+
+    aput-object v21, v19, v22
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_24
 
-    :cond_37
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
-
-    iget-short v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
-
-    aget-object v1, v1, v5
-
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
-
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    iget-object v6, v6, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
-
-    invoke-virtual {v1, v5, v6}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
-
-    move-result v1
-
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    iget-short v5, v5, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
-
-    and-int/lit16 v5, v5, 0x80
-
-    if-nez v5, :cond_39
-
     :cond_38
-    :goto_26
-    if-eqz v1, :cond_3a
+    move-object/from16 v0, p0
 
-    move v1, v2
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+
+    move/from16 v20, v0
+
+    aget-object v19, v19, v20
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, v21
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
+
+    move-object/from16 v21, v0
+
+    invoke-virtual/range {v19 .. v21}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
+
+    move-result v16
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    and-int/lit16 v0, v0, 0x80
+
+    move/from16 v19, v0
+
+    if-nez v19, :cond_3a
+
+    :cond_39
+    :goto_26
+    if-nez v16, :cond_35
+
+    const/4 v13, 0x0
 
     goto/16 :goto_25
 
-    :cond_39
-    if-eqz v1, :cond_38
+    :cond_3a
+    if-eqz v16, :cond_39
 
-    const-string/jumbo v5, "FixedFacetValue"
+    const/16 v19, 0x4
 
-    const/4 v6, 0x4
+    move/from16 v0, v19
 
-    new-array v6, v6, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v7, 0x0
+    move-object/from16 v19, v0
 
-    const-string/jumbo v8, "minExclusive"
+    const-string/jumbo v20, "minExclusive"
 
-    aput-object v8, v6, v7
+    const/16 v21, 0x0
 
-    const/4 v7, 0x1
+    aput-object v20, v19, v21
 
-    iget-object v8, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->minExclusive:Ljava/lang/String;
+    move-object/from16 v0, p1
 
-    aput-object v8, v6, v7
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->minExclusive:Ljava/lang/String;
 
-    const/4 v7, 0x2
+    move-object/from16 v20, v0
 
-    iget-object v8, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    const/16 v21, 0x1
 
-    iget-object v8, v8, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
+    aput-object v20, v19, v21
 
-    aput-object v8, v6, v7
+    move-object/from16 v0, p0
 
-    const/4 v7, 0x3
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    iget-object v8, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move-object/from16 v20, v0
 
-    aput-object v8, v6, v7
+    move-object/from16 v0, v20
 
-    invoke-virtual {p0, v5, v6}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x3
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "FixedFacetValue"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_26
 
-    :cond_3a
-    const/4 v1, 0x0
-
-    goto/16 :goto_25
-
     :cond_3b
     :try_start_a
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    move-object/from16 v0, p5
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    invoke-virtual {v1, v0, v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->validate(Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)V
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p5
+
+    move-object/from16 v2, v18
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->validate(Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)V
     :try_end_a
     .catch Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException; {:try_start_a .. :try_end_a} :catch_7
 
     goto/16 :goto_8
 
     :catch_7
-    move-exception v1
+    move-exception v11
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getKey()Ljava/lang/String;
+    invoke-virtual {v11}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getKey()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v19
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getArgs()[Ljava/lang/Object;
+    invoke-virtual {v11}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getArgs()[Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v20
 
-    invoke-virtual {p0, v2, v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v0, p0
 
-    const-string/jumbo v1, "FacetValueFromBase"
+    move-object/from16 v1, v19
 
-    const/4 v2, 0x4
+    move-object/from16 v2, v20
 
-    new-array v2, v2, [Ljava/lang/Object;
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    const/4 v5, 0x0
+    const/16 v19, 0x4
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move/from16 v0, v19
 
-    aput-object v6, v2, v5
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v5, 0x1
+    move-object/from16 v19, v0
 
-    iget-object v6, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->minExclusive:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v6, v2, v5
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    const/4 v5, 0x2
+    move-object/from16 v20, v0
 
-    const-string/jumbo v6, "minExclusive"
+    const/16 v21, 0x0
 
-    aput-object v6, v2, v5
+    aput-object v20, v19, v21
 
-    const/4 v5, 0x3
+    move-object/from16 v0, p1
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->minExclusive:Ljava/lang/String;
 
-    invoke-virtual {v6}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getName()Ljava/lang/String;
+    move-object/from16 v20, v0
 
-    move-result-object v6
+    const/16 v21, 0x1
 
-    aput-object v6, v2, v5
+    aput-object v20, v19, v21
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v20, "FacetValueFromBase"
+
+    const/16 v21, 0x2
+
+    const-string/jumbo v22, "minExclusive"
+
+    aput-object v22, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v21, v0
+
+    invoke-virtual/range {v21 .. v21}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getName()Ljava/lang/String;
+
+    move-result-object v21
+
+    const/16 v22, 0x3
+
+    aput-object v21, v19, v22
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_8
 
     :cond_3c
-    and-int/lit16 v1, v4, 0x100
+    and-int/lit16 v0, v5, 0x100
 
-    if-eqz v1, :cond_3e
+    move/from16 v19, v0
 
-    iget-object v1, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->minInclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    if-eqz v19, :cond_3e
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->minInclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->minInclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->minInclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
     :try_start_b
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-object v2, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->minInclusive:Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v5, 0x1
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, p5
+    move-object/from16 v0, p1
 
-    invoke-direct {v1, v2, v0, v3, v5}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getActualValue(Ljava/lang/Object;Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;Z)Ljava/lang/Object;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->minInclusive:Ljava/lang/String;
 
-    move-result-object v1
+    move-object/from16 v20, v0
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
+    const/16 v21, 0x1
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, v19
 
-    or-int/lit16 v1, v1, 0x100
+    move-object/from16 v1, v20
 
-    int-to-short v1, v1
+    move-object/from16 v2, p5
 
-    int-to-short v1, v1
+    move-object/from16 v3, v18
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move/from16 v4, v21
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getActualValue(Ljava/lang/Object;Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;Z)Ljava/lang/Object;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    or-int/lit16 v0, v0, 0x100
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
     :try_end_b
     .catch Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException; {:try_start_b .. :try_end_b} :catch_9
 
-    and-int/lit16 v1, p3, 0x100
+    move/from16 v0, p3
 
-    if-nez v1, :cond_3f
+    and-int/lit16 v0, v0, 0x100
+
+    move/from16 v19, v0
+
+    if-nez v19, :cond_3f
 
     :goto_27
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit16 v1, v1, 0x100
+    move-object/from16 v19, v0
 
-    if-nez v1, :cond_40
+    move-object/from16 v0, v19
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    and-int/lit16 v0, v0, 0x100
+
+    move/from16 v19, v0
+
+    if-nez v19, :cond_40
 
     :cond_3d
     :goto_28
     :try_start_c
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    move-object/from16 v0, p5
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    invoke-virtual {v1, v0, v3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->validate(Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)V
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p5
+
+    move-object/from16 v2, v18
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->validate(Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)V
     :try_end_c
     .catch Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException; {:try_start_c .. :try_end_c} :catch_8
 
     goto/16 :goto_9
 
     :catch_8
-    move-exception v1
+    move-exception v11
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getKey()Ljava/lang/String;
+    invoke-virtual {v11}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getKey()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v19
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getArgs()[Ljava/lang/Object;
+    invoke-virtual {v11}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getArgs()[Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v20
 
-    invoke-virtual {p0, v2, v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v0, p0
 
-    const-string/jumbo v1, "FacetValueFromBase"
+    move-object/from16 v1, v19
 
-    const/4 v2, 0x4
+    move-object/from16 v2, v20
 
-    new-array v2, v2, [Ljava/lang/Object;
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    const/4 v3, 0x0
+    const/16 v19, 0x4
 
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move/from16 v0, v19
 
-    aput-object v5, v2, v3
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v3, 0x1
+    move-object/from16 v19, v0
 
-    iget-object v5, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->minInclusive:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v5, v2, v3
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    const/4 v3, 0x2
+    move-object/from16 v20, v0
 
-    const-string/jumbo v5, "minInclusive"
+    const/16 v21, 0x0
 
-    aput-object v5, v2, v3
+    aput-object v20, v19, v21
 
-    const/4 v3, 0x3
+    move-object/from16 v0, p1
 
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->minInclusive:Ljava/lang/String;
 
-    invoke-virtual {v5}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getName()Ljava/lang/String;
+    move-object/from16 v20, v0
 
-    move-result-object v5
+    const/16 v21, 0x1
 
-    aput-object v5, v2, v3
+    aput-object v20, v19, v21
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v20, "FacetValueFromBase"
+
+    const/16 v21, 0x2
+
+    const-string/jumbo v22, "minInclusive"
+
+    aput-object v22, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v21, v0
+
+    invoke-virtual/range {v21 .. v21}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getName()Ljava/lang/String;
+
+    move-result-object v21
+
+    const/16 v22, 0x3
+
+    aput-object v21, v19, v22
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_9
 
     :cond_3e
-    const-string/jumbo v1, "cos-applicable-facets"
+    const/16 v19, 0x2
 
-    const/4 v2, 0x2
+    move/from16 v0, v19
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    move-object/from16 v19, v0
 
-    const-string/jumbo v5, "minInclusive"
+    const-string/jumbo v20, "minInclusive"
 
-    aput-object v5, v2, v3
+    const/16 v21, 0x0
 
-    const/4 v3, 0x1
+    aput-object v20, v19, v21
 
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v5, v2, v3
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "cos-applicable-facets"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_9
 
     :cond_3f
     :try_start_d
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    move-object/from16 v0, p0
 
-    or-int/lit16 v1, v1, 0x100
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
 
-    int-to-short v1, v1
+    move/from16 v19, v0
 
-    int-to-short v1, v1
+    move/from16 v0, v19
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    or-int/lit16 v0, v0, 0x100
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
     :try_end_d
     .catch Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException; {:try_start_d .. :try_end_d} :catch_9
 
-    goto :goto_27
+    goto/16 :goto_27
 
     :catch_9
-    move-exception v1
+    move-exception v11
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getKey()Ljava/lang/String;
+    invoke-virtual {v11}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getKey()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v19
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getArgs()[Ljava/lang/Object;
+    invoke-virtual {v11}, Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;->getArgs()[Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v20
 
-    invoke-virtual {p0, v2, v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v0, p0
 
-    const-string/jumbo v1, "FacetValueFromBase"
+    move-object/from16 v1, v19
 
-    const/4 v2, 0x4
+    move-object/from16 v2, v20
 
-    new-array v2, v2, [Ljava/lang/Object;
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    const/4 v5, 0x0
+    const/16 v19, 0x4
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move/from16 v0, v19
 
-    aput-object v6, v2, v5
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v5, 0x1
+    move-object/from16 v19, v0
 
-    iget-object v6, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->minInclusive:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v6, v2, v5
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    const/4 v5, 0x2
+    move-object/from16 v20, v0
 
-    const-string/jumbo v6, "minInclusive"
+    const/16 v21, 0x0
 
-    aput-object v6, v2, v5
+    aput-object v20, v19, v21
 
-    const/4 v5, 0x3
+    move-object/from16 v0, p1
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->minInclusive:Ljava/lang/String;
 
-    invoke-virtual {v6}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getName()Ljava/lang/String;
+    move-object/from16 v20, v0
 
-    move-result-object v6
+    const/16 v21, 0x1
 
-    aput-object v6, v2, v5
+    aput-object v20, v19, v21
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v20, "FacetValueFromBase"
+
+    const/16 v21, 0x2
+
+    const-string/jumbo v22, "minInclusive"
+
+    aput-object v22, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v21, v0
+
+    invoke-virtual/range {v21 .. v21}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getName()Ljava/lang/String;
+
+    move-result-object v21
+
+    const/16 v22, 0x3
+
+    aput-object v21, v19, v22
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_27
 
     :cond_40
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit16 v1, v1, 0x100
+    move-object/from16 v19, v0
 
-    if-eqz v1, :cond_3d
+    move-object/from16 v0, v19
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
 
-    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    move/from16 v19, v0
 
-    aget-object v1, v1, v2
+    move/from16 v0, v19
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
+    and-int/lit16 v0, v0, 0x100
 
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move/from16 v19, v0
 
-    iget-object v5, v5, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
+    if-eqz v19, :cond_3d
 
-    invoke-virtual {v1, v2, v5}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    move-object/from16 v0, p0
 
-    move-result v1
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
 
-    if-eqz v1, :cond_3d
+    move-object/from16 v19, v0
 
-    const-string/jumbo v1, "FixedFacetValue"
+    move-object/from16 v0, p0
 
-    const/4 v2, 0x4
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move/from16 v20, v0
 
-    const/4 v5, 0x0
+    aget-object v19, v19, v20
 
-    const-string/jumbo v6, "minInclusive"
+    move-object/from16 v0, p0
 
-    aput-object v6, v2, v5
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
 
-    const/4 v5, 0x1
+    move-object/from16 v20, v0
 
-    iget-object v6, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->minInclusive:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v6, v2, v5
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v5, 0x2
+    move-object/from16 v21, v0
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, v21
 
-    iget-object v6, v6, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
 
-    aput-object v6, v2, v5
+    move-object/from16 v21, v0
 
-    const/4 v5, 0x3
+    invoke-virtual/range {v19 .. v21}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move-result v19
 
-    aput-object v6, v2, v5
+    if-eqz v19, :cond_3d
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/16 v19, 0x4
+
+    move/from16 v0, v19
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v19, v0
+
+    const-string/jumbo v20, "minInclusive"
+
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->minInclusive:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x3
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "FixedFacetValue"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_28
 
     :cond_41
-    and-int/lit16 v1, v4, 0x200
+    and-int/lit16 v0, v5, 0x200
 
-    if-eqz v1, :cond_42
+    move/from16 v19, v0
 
-    iget-object v1, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->totalDigitsAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    if-eqz v19, :cond_42
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->totalDigitsAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move-object/from16 v0, p1
 
-    iget v1, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->totalDigits:I
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->totalDigitsAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
+    move-object/from16 v19, v0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, v19
 
-    or-int/lit16 v1, v1, 0x200
+    move-object/from16 v1, p0
 
-    int-to-short v1, v1
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->totalDigitsAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
-    int-to-short v1, v1
+    move-object/from16 v0, p1
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->totalDigits:I
 
-    and-int/lit16 v1, p3, 0x200
+    move/from16 v19, v0
 
-    if-eqz v1, :cond_8
+    move/from16 v0, v19
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    move-object/from16 v1, p0
 
-    or-int/lit16 v1, v1, 0x200
+    iput v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
 
-    int-to-short v1, v1
+    move-object/from16 v0, p0
 
-    int-to-short v1, v1
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    or-int/lit16 v0, v0, 0x200
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v0, p3
+
+    and-int/lit16 v0, v0, 0x200
+
+    move/from16 v19, v0
+
+    if-eqz v19, :cond_8
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    or-int/lit16 v0, v0, 0x200
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
 
     goto/16 :goto_a
 
     :cond_42
-    const-string/jumbo v1, "cos-applicable-facets"
+    const/16 v19, 0x2
 
-    const/4 v2, 0x2
+    move/from16 v0, v19
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    move-object/from16 v19, v0
 
-    const-string/jumbo v5, "totalDigits"
+    const-string/jumbo v20, "totalDigits"
 
-    aput-object v5, v2, v3
+    const/16 v21, 0x0
 
-    const/4 v3, 0x1
+    aput-object v20, v19, v21
 
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v5, v2, v3
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "cos-applicable-facets"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_a
 
     :cond_43
-    and-int/lit16 v1, v4, 0x400
+    and-int/lit16 v0, v5, 0x400
 
-    if-eqz v1, :cond_44
+    move/from16 v19, v0
 
-    iget v1, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->fractionDigits:I
+    if-eqz v19, :cond_44
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+    move-object/from16 v0, p1
 
-    iget-object v1, p1, Lmf/org/apache/xerces/impl/dv/XSFacets;->fractionDigitsAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->fractionDigits:I
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fractionDigitsAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move/from16 v19, v0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move/from16 v0, v19
 
-    or-int/lit16 v1, v1, 0x400
+    move-object/from16 v1, p0
 
-    int-to-short v1, v1
+    iput v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
 
-    int-to-short v1, v1
+    move-object/from16 v0, p1
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/XSFacets;->fractionDigitsAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
-    and-int/lit16 v1, p3, 0x400
+    move-object/from16 v19, v0
 
-    if-eqz v1, :cond_9
+    move-object/from16 v0, v19
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    move-object/from16 v1, p0
 
-    or-int/lit16 v1, v1, 0x400
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fractionDigitsAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
-    int-to-short v1, v1
+    move-object/from16 v0, p0
 
-    int-to-short v1, v1
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    or-int/lit16 v0, v0, 0x400
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v0, p3
+
+    and-int/lit16 v0, v0, 0x400
+
+    move/from16 v19, v0
+
+    if-eqz v19, :cond_9
+
+    move-object/from16 v0, p0
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    or-int/lit16 v0, v0, 0x400
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
 
     goto/16 :goto_b
 
     :cond_44
-    const-string/jumbo v1, "cos-applicable-facets"
+    const/16 v19, 0x2
 
-    const/4 v2, 0x2
+    move/from16 v0, v19
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    move-object/from16 v19, v0
 
-    const-string/jumbo v4, "fractionDigits"
+    const-string/jumbo v20, "fractionDigits"
 
-    aput-object v4, v2, v3
+    const/16 v21, 0x0
 
-    const/4 v3, 0x1
+    aput-object v20, v19, v21
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v4, v2, v3
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "cos-applicable-facets"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_b
 
     :cond_45
     move/from16 v0, p4
 
-    int-to-short v1, v0
+    int-to-short v0, v0
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
 
     goto/16 :goto_c
 
     :cond_46
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v1, v1, 0x2
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_5c
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x2
+
+    if-nez v19, :cond_5c
 
     :cond_47
     :goto_29
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v1, v1, 0x40
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_5d
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x40
+
+    if-nez v19, :cond_5d
 
     :cond_48
     :goto_2a
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit16 v1, v1, 0x80
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_5e
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    and-int/lit16 v0, v0, 0x80
+
+    move/from16 v19, v0
+
+    if-nez v19, :cond_5e
 
     :cond_49
     :goto_2b
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v1, v1, 0x20
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_5f
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x20
+
+    if-nez v19, :cond_5f
 
     :cond_4a
     :goto_2c
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v1, v1, 0x40
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_60
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x40
+
+    if-nez v19, :cond_60
 
     :cond_4b
     :goto_2d
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v1, v1, 0x20
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_61
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x20
+
+    if-nez v19, :cond_61
 
     :cond_4c
     :goto_2e
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v1, v1, 0x40
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_62
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x40
+
+    if-nez v19, :cond_62
 
     :cond_4d
     :goto_2f
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit16 v1, v1, 0x400
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_63
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    and-int/lit16 v0, v0, 0x400
+
+    move/from16 v19, v0
+
+    if-nez v19, :cond_63
 
     :cond_4e
     :goto_30
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v1, v1, 0x1
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_64
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x1
+
+    if-nez v19, :cond_64
 
     :cond_4f
     :goto_31
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit8 v1, v1, 0x1
+    move-object/from16 v19, v0
 
-    if-eqz v1, :cond_69
+    move-object/from16 v0, v19
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x1
+
+    if-eqz v19, :cond_69
 
     :cond_50
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v1, v1, 0x2
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_6a
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x2
+
+    if-nez v19, :cond_6a
 
     :cond_51
     :goto_32
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v1, v1, 0x4
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_6d
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x4
+
+    if-nez v19, :cond_6d
 
     :cond_52
     :goto_33
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v1, v1, 0x2
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_70
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x2
+
+    if-nez v19, :cond_70
 
     :cond_53
     :goto_34
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v1, v1, 0x4
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_74
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x4
+
+    if-nez v19, :cond_74
 
     :cond_54
     :goto_35
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v1, v1, 0x4
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_75
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x4
+
+    if-nez v19, :cond_75
 
     :cond_55
     :goto_36
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit16 v1, v1, 0x200
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_78
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    and-int/lit16 v0, v0, 0x200
+
+    move/from16 v19, v0
+
+    if-nez v19, :cond_78
 
     :cond_56
     :goto_37
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit16 v1, v1, 0x400
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_7b
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    and-int/lit16 v0, v0, 0x400
+
+    move/from16 v19, v0
+
+    if-nez v19, :cond_7b
 
     :cond_57
     :goto_38
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit16 v1, v1, 0x400
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_7c
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    and-int/lit16 v0, v0, 0x400
+
+    move/from16 v19, v0
+
+    if-nez v19, :cond_7c
 
     :cond_58
     :goto_39
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v1, v1, 0x10
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-eqz v1, :cond_a
+    move/from16 v19, v0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    and-int/lit8 v19, v19, 0x10
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    if-eqz v19, :cond_a
 
-    and-int/lit8 v1, v1, 0x10
+    move-object/from16 v0, p0
 
-    if-eqz v1, :cond_a
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v19, v0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    move-object/from16 v0, v19
 
-    and-int/lit8 v1, v1, 0x10
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_82
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x10
+
+    if-eqz v19, :cond_a
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x10
+
+    if-nez v19, :cond_82
 
     :cond_59
     :goto_3a
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
+    move-object/from16 v0, p0
 
-    if-eqz v1, :cond_83
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
+
+    move/from16 v19, v0
+
+    if-eqz v19, :cond_83
 
     :cond_5a
     :goto_3b
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
+    move-object/from16 v0, p0
 
-    const/4 v2, 0x1
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
 
-    if-eq v1, v2, :cond_84
+    move/from16 v19, v0
+
+    const/16 v20, 0x1
+
+    move/from16 v0, v19
+
+    move/from16 v1, v20
+
+    if-eq v0, v1, :cond_84
 
     :cond_5b
     :goto_3c
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
+    move-object/from16 v0, p0
 
-    if-nez v1, :cond_a
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move/from16 v19, v0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
+    if-nez v19, :cond_a
 
-    const/4 v2, 0x1
+    move-object/from16 v0, p0
 
-    if-ne v1, v2, :cond_a
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const-string/jumbo v1, "whiteSpace-valid-restriction.2"
+    move-object/from16 v19, v0
 
-    const/4 v2, 0x1
+    move-object/from16 v0, v19
 
-    new-array v2, v2, [Ljava/lang/Object;
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
 
-    const/4 v3, 0x0
+    move/from16 v19, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    const/16 v20, 0x1
 
-    aput-object v4, v2, v3
+    move/from16 v0, v19
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move/from16 v1, v20
+
+    if-ne v0, v1, :cond_a
+
+    const/16 v19, 0x1
+
+    move/from16 v0, v19
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "whiteSpace-valid-restriction.2"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_d
 
     :cond_5c
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v1, v1, 0x4
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-eqz v1, :cond_47
+    move/from16 v19, v0
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    and-int/lit8 v19, v19, 0x4
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    if-eqz v19, :cond_47
 
-    if-le v1, v2, :cond_47
+    move-object/from16 v0, p0
 
-    const-string/jumbo v1, "minLength-less-than-equal-to-maxLength"
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
 
-    const/4 v2, 0x3
+    move/from16 v19, v0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move-object/from16 v0, p0
 
-    const/4 v3, 0x0
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    move/from16 v20, v0
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move/from16 v0, v19
 
-    move-result-object v4
+    move/from16 v1, v20
 
-    aput-object v4, v2, v3
+    if-le v0, v1, :cond_47
 
-    const/4 v3, 0x1
+    const/16 v19, 0x3
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    move/from16 v0, v19
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    move-result-object v4
+    move-object/from16 v19, v0
 
-    aput-object v4, v2, v3
+    move-object/from16 v0, p0
 
-    const/4 v3, 0x2
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move/from16 v20, v0
 
-    aput-object v4, v2, v3
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-result-object v20
+
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "minLength-less-than-equal-to-maxLength"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_29
 
     :cond_5d
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v1, v1, 0x20
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-eqz v1, :cond_48
+    move/from16 v19, v0
 
-    const-string/jumbo v1, "maxInclusive-maxExclusive"
+    and-int/lit8 v19, v19, 0x20
 
-    const/4 v2, 0x3
+    if-eqz v19, :cond_48
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const/16 v19, 0x3
 
-    const/4 v3, 0x0
+    move/from16 v0, v19
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    aput-object v4, v2, v3
+    move-object/from16 v19, v0
 
-    const/4 v3, 0x1
+    move-object/from16 v0, p0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
 
-    aput-object v4, v2, v3
+    move-object/from16 v20, v0
 
-    const/4 v3, 0x2
+    const/16 v21, 0x0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    aput-object v20, v19, v21
 
-    aput-object v4, v2, v3
+    move-object/from16 v0, p0
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "maxInclusive-maxExclusive"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_2a
 
     :cond_5e
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit16 v1, v1, 0x100
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-eqz v1, :cond_49
+    move/from16 v19, v0
 
-    const-string/jumbo v1, "minInclusive-minExclusive"
+    move/from16 v0, v19
 
-    const/4 v2, 0x3
+    and-int/lit16 v0, v0, 0x100
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move/from16 v19, v0
 
-    const/4 v3, 0x0
+    if-eqz v19, :cond_49
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
+    const/16 v19, 0x3
 
-    aput-object v4, v2, v3
+    move/from16 v0, v19
 
-    const/4 v3, 0x1
+    new-array v0, v0, [Ljava/lang/Object;
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
+    move-object/from16 v19, v0
 
-    aput-object v4, v2, v3
+    move-object/from16 v0, p0
 
-    const/4 v3, 0x2
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move-object/from16 v20, v0
 
-    aput-object v4, v2, v3
+    const/16 v21, 0x0
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "minInclusive-minExclusive"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_2b
 
     :cond_5f
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit16 v1, v1, 0x100
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-eqz v1, :cond_4a
+    move/from16 v19, v0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
+    move/from16 v0, v19
 
-    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    and-int/lit16 v0, v0, 0x100
 
-    aget-object v1, v1, v2
+    move/from16 v19, v0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
+    if-eqz v19, :cond_4a
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v1, v2, v3}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
 
-    move-result v1
+    move-object/from16 v19, v0
 
-    const/4 v2, -0x1
+    move-object/from16 v0, p0
 
-    if-eq v1, v2, :cond_4a
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
-    if-eqz v1, :cond_4a
+    move/from16 v20, v0
 
-    const-string/jumbo v1, "minInclusive-less-than-equal-to-maxInclusive"
+    aget-object v19, v19, v20
 
-    const/4 v2, 0x3
+    move-object/from16 v0, p0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    move-object/from16 v20, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
+    move-object/from16 v0, p0
 
-    aput-object v4, v2, v3
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
 
-    const/4 v3, 0x1
+    move-object/from16 v21, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
+    invoke-virtual/range {v19 .. v21}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
-    aput-object v4, v2, v3
+    move-result v16
 
-    const/4 v3, 0x2
+    const/16 v19, -0x1
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move/from16 v0, v16
 
-    aput-object v4, v2, v3
+    move/from16 v1, v19
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    if-eq v0, v1, :cond_4a
+
+    if-eqz v16, :cond_4a
+
+    const/16 v19, 0x3
+
+    move/from16 v0, v19
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "minInclusive-less-than-equal-to-maxInclusive"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_2c
 
     :cond_60
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit16 v1, v1, 0x80
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-eqz v1, :cond_4b
+    move/from16 v19, v0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
+    move/from16 v0, v19
 
-    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    and-int/lit16 v0, v0, 0x80
 
-    aget-object v1, v1, v2
+    move/from16 v19, v0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
+    if-eqz v19, :cond_4b
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v1, v2, v3}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
 
-    move-result v1
+    move-object/from16 v19, v0
 
-    const/4 v2, -0x1
+    move-object/from16 v0, p0
 
-    if-eq v1, v2, :cond_4b
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
-    if-eqz v1, :cond_4b
+    move/from16 v20, v0
 
-    const-string/jumbo v1, "minExclusive-less-than-equal-to-maxExclusive"
+    aget-object v19, v19, v20
 
-    const/4 v2, 0x3
+    move-object/from16 v0, p0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    move-object/from16 v20, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
+    move-object/from16 v0, p0
 
-    aput-object v4, v2, v3
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
 
-    const/4 v3, 0x1
+    move-object/from16 v21, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
+    invoke-virtual/range {v19 .. v21}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
-    aput-object v4, v2, v3
+    move-result v16
 
-    const/4 v3, 0x2
+    const/16 v19, -0x1
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move/from16 v0, v16
 
-    aput-object v4, v2, v3
+    move/from16 v1, v19
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    if-eq v0, v1, :cond_4b
+
+    if-eqz v16, :cond_4b
+
+    const/16 v19, 0x3
+
+    move/from16 v0, v19
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "minExclusive-less-than-equal-to-maxExclusive"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_2d
 
     :cond_61
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit16 v1, v1, 0x80
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-eqz v1, :cond_4c
+    move/from16 v19, v0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
+    move/from16 v0, v19
 
-    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    and-int/lit16 v0, v0, 0x80
 
-    aget-object v1, v1, v2
+    move/from16 v19, v0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
+    if-eqz v19, :cond_4c
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v1, v2, v3}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
 
-    move-result v1
+    move-object/from16 v19, v0
 
-    const/4 v2, -0x1
+    move-object/from16 v0, p0
 
-    if-eq v1, v2, :cond_4c
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
-    const-string/jumbo v1, "minExclusive-less-than-maxInclusive"
+    move/from16 v20, v0
 
-    const/4 v2, 0x3
+    aget-object v19, v19, v20
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move-object/from16 v0, p0
 
-    const/4 v3, 0x0
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
+    move-object/from16 v20, v0
 
-    aput-object v4, v2, v3
+    move-object/from16 v0, p0
 
-    const/4 v3, 0x1
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
+    move-object/from16 v21, v0
 
-    aput-object v4, v2, v3
+    invoke-virtual/range {v19 .. v21}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
-    const/4 v3, 0x2
+    move-result v19
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    const/16 v20, -0x1
 
-    aput-object v4, v2, v3
+    move/from16 v0, v19
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move/from16 v1, v20
+
+    if-eq v0, v1, :cond_4c
+
+    const/16 v19, 0x3
+
+    move/from16 v0, v19
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "minExclusive-less-than-maxInclusive"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_2e
 
     :cond_62
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit16 v1, v1, 0x100
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-eqz v1, :cond_4d
+    move/from16 v19, v0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
+    move/from16 v0, v19
 
-    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    and-int/lit16 v0, v0, 0x100
 
-    aget-object v1, v1, v2
+    move/from16 v19, v0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
+    if-eqz v19, :cond_4d
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v1, v2, v3}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVs:[Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;
 
-    move-result v1
+    move-object/from16 v19, v0
 
-    const/4 v2, -0x1
+    move-object/from16 v0, p0
 
-    if-eq v1, v2, :cond_4d
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
-    const-string/jumbo v1, "minInclusive-less-than-maxExclusive"
+    move/from16 v20, v0
 
-    const/4 v2, 0x3
+    aget-object v19, v19, v20
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move-object/from16 v0, p0
 
-    const/4 v3, 0x0
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
+    move-object/from16 v20, v0
 
-    aput-object v4, v2, v3
+    move-object/from16 v0, p0
 
-    const/4 v3, 0x1
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
+    move-object/from16 v21, v0
 
-    aput-object v4, v2, v3
+    invoke-virtual/range {v19 .. v21}, Lmf/org/apache/xerces/impl/dv/xs/TypeValidator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
-    const/4 v3, 0x2
+    move-result v19
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    const/16 v20, -0x1
 
-    aput-object v4, v2, v3
+    move/from16 v0, v19
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move/from16 v1, v20
+
+    if-eq v0, v1, :cond_4d
+
+    const/16 v19, 0x3
+
+    move/from16 v0, v19
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "minInclusive-less-than-maxExclusive"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_2f
 
     :cond_63
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit16 v1, v1, 0x200
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-eqz v1, :cond_4e
+    move/from16 v19, v0
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+    move/from16 v0, v19
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
+    and-int/lit16 v0, v0, 0x200
 
-    if-le v1, v2, :cond_4e
+    move/from16 v19, v0
 
-    const-string/jumbo v1, "fractionDigits-totalDigits"
+    if-eqz v19, :cond_4e
 
-    const/4 v2, 0x3
+    move-object/from16 v0, p0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
 
-    const/4 v3, 0x0
+    move/from16 v19, v0
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+    move-object/from16 v0, p0
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
 
-    move-result-object v4
+    move/from16 v20, v0
 
-    aput-object v4, v2, v3
+    move/from16 v0, v19
 
-    const/4 v3, 0x1
+    move/from16 v1, v20
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
+    if-le v0, v1, :cond_4e
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    const/16 v19, 0x3
 
-    move-result-object v4
+    move/from16 v0, v19
 
-    aput-object v4, v2, v3
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v3, 0x2
+    move-object/from16 v19, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v4, v2, v3
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "fractionDigits-totalDigits"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_30
 
     :cond_64
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit8 v1, v1, 0x2
+    move-object/from16 v19, v0
 
-    if-nez v1, :cond_67
+    move-object/from16 v0, v19
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x2
+
+    if-nez v19, :cond_67
 
     :cond_65
     :goto_3d
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit8 v1, v1, 0x4
+    move-object/from16 v19, v0
 
-    if-nez v1, :cond_68
+    move-object/from16 v0, v19
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x4
+
+    if-nez v19, :cond_68
 
     :cond_66
     :goto_3e
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit8 v1, v1, 0x1
+    move-object/from16 v19, v0
 
-    if-eqz v1, :cond_4f
+    move-object/from16 v0, v19
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move/from16 v19, v0
 
-    iget v2, v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
+    and-int/lit8 v19, v19, 0x1
 
-    if-eq v1, v2, :cond_4f
+    if-eqz v19, :cond_4f
 
-    const-string/jumbo v1, "length-valid-restriction"
+    move-object/from16 v0, p0
 
-    const/4 v2, 0x3
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move/from16 v19, v0
 
-    const/4 v3, 0x0
+    move-object/from16 v0, p0
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move-object/from16 v20, v0
 
-    move-result-object v4
+    move-object/from16 v0, v20
 
-    aput-object v4, v2, v3
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
 
-    const/4 v3, 0x1
+    move/from16 v20, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move/from16 v0, v19
 
-    iget v4, v4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
+    move/from16 v1, v20
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    if-eq v0, v1, :cond_4f
 
-    move-result-object v4
+    const/16 v19, 0x3
 
-    aput-object v4, v2, v3
+    move/from16 v0, v19
 
-    const/4 v3, 0x2
+    new-array v0, v0, [Ljava/lang/Object;
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move-object/from16 v19, v0
 
-    aput-object v4, v2, v3
+    move-object/from16 v0, p0
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "length-valid-restriction"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_31
 
     :cond_67
-    iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
 
-    iget v2, v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    move/from16 v19, v0
 
-    if-ge v1, v2, :cond_65
+    move-object/from16 v0, p0
 
-    const-string/jumbo v1, "length-minLength-maxLength.1.1"
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v2, 0x3
+    move-object/from16 v20, v0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move-object/from16 v0, v20
 
-    const/4 v3, 0x0
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move/from16 v20, v0
 
-    aput-object v4, v2, v3
+    move/from16 v0, v19
 
-    const/4 v3, 0x1
+    move/from16 v1, v20
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
+    if-ge v0, v1, :cond_65
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    const/16 v19, 0x3
 
-    move-result-object v4
+    move/from16 v0, v19
 
-    aput-object v4, v2, v3
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v3, 0x2
+    move-object/from16 v19, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget v4, v4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move-object/from16 v20, v0
 
-    move-result-object v4
+    const/16 v21, 0x0
 
-    aput-object v4, v2, v3
+    aput-object v20, v19, v21
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v0, p0
 
-    goto :goto_3d
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "length-minLength-maxLength.1.1"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    goto/16 :goto_3d
 
     :cond_68
-    iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
 
-    iget v2, v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    move/from16 v19, v0
 
-    if-le v1, v2, :cond_66
+    move-object/from16 v0, p0
 
-    const-string/jumbo v1, "length-minLength-maxLength.2.1"
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v2, 0x3
+    move-object/from16 v20, v0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move-object/from16 v0, v20
 
-    const/4 v3, 0x0
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move/from16 v20, v0
 
-    aput-object v4, v2, v3
+    move/from16 v0, v19
 
-    const/4 v3, 0x1
+    move/from16 v1, v20
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
+    if-le v0, v1, :cond_66
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    const/16 v19, 0x3
 
-    move-result-object v4
+    move/from16 v0, v19
 
-    aput-object v4, v2, v3
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v3, 0x2
+    move-object/from16 v19, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget v4, v4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move-object/from16 v20, v0
 
-    move-result-object v4
+    const/16 v21, 0x0
 
-    aput-object v4, v2, v3
+    aput-object v20, v19, v21
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "length-minLength-maxLength.2.1"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_3e
 
     :cond_69
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v1, v1, 0x1
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_50
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x1
+
+    if-nez v19, :cond_50
 
     goto/16 :goto_33
 
     :cond_6a
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    move-object/from16 v19, v0
 
-    if-lt v1, v2, :cond_6b
+    move-object/from16 v0, v19
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
+
+    move/from16 v19, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+
+    move/from16 v20, v0
+
+    move/from16 v0, v19
+
+    move/from16 v1, v20
+
+    if-lt v0, v1, :cond_6b
 
     :goto_3f
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit8 v1, v1, 0x2
+    move-object/from16 v19, v0
 
-    if-eqz v1, :cond_6c
+    move-object/from16 v0, v19
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x2
+
+    if-eqz v19, :cond_6c
 
     :goto_40
-    iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
 
-    iget v2, v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    move/from16 v19, v0
 
-    if-eq v1, v2, :cond_51
+    move-object/from16 v0, p0
 
-    const-string/jumbo v1, "length-minLength-maxLength.1.2.b"
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v2, 0x3
+    move-object/from16 v20, v0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move-object/from16 v0, v20
 
-    const/4 v3, 0x0
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move/from16 v20, v0
 
-    aput-object v4, v2, v3
+    move/from16 v0, v19
 
-    const/4 v3, 0x1
+    move/from16 v1, v20
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    if-eq v0, v1, :cond_51
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    const/16 v19, 0x3
 
-    move-result-object v4
+    move/from16 v0, v19
 
-    aput-object v4, v2, v3
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v3, 0x2
+    move-object/from16 v19, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget v4, v4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move-object/from16 v20, v0
 
-    move-result-object v4
+    const/16 v21, 0x0
 
-    aput-object v4, v2, v3
+    aput-object v20, v19, v21
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "length-minLength-maxLength.1.2.b"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_32
 
     :cond_6b
-    const-string/jumbo v1, "length-minLength-maxLength.1.1"
+    const/16 v19, 0x3
 
-    const/4 v2, 0x3
+    move/from16 v0, v19
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    move-object/from16 v19, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v4, v2, v3
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    const/4 v3, 0x1
+    move-object/from16 v20, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    const/16 v21, 0x0
 
-    iget v4, v4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
+    aput-object v20, v19, v21
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    move-result-object v4
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    aput-object v4, v2, v3
+    move-object/from16 v20, v0
 
-    const/4 v3, 0x2
+    move-object/from16 v0, v20
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move/from16 v20, v0
 
-    move-result-object v4
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    aput-object v4, v2, v3
+    move-result-object v20
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/16 v21, 0x1
 
-    goto :goto_3f
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "length-minLength-maxLength.1.1"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    goto/16 :goto_3f
 
     :cond_6c
-    const-string/jumbo v1, "length-minLength-maxLength.1.2.a"
+    const/16 v19, 0x1
 
-    const/4 v2, 0x1
+    move/from16 v0, v19
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    move-object/from16 v19, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v4, v2, v3
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v20, v0
 
-    goto :goto_40
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "length-minLength-maxLength.1.2.a"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    goto/16 :goto_40
 
     :cond_6d
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    move-object/from16 v19, v0
 
-    if-gt v1, v2, :cond_6e
+    move-object/from16 v0, v19
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
+
+    move/from16 v19, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+
+    move/from16 v20, v0
+
+    move/from16 v0, v19
+
+    move/from16 v1, v20
+
+    if-gt v0, v1, :cond_6e
 
     :goto_41
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit8 v1, v1, 0x4
+    move-object/from16 v19, v0
 
-    if-eqz v1, :cond_6f
+    move-object/from16 v0, v19
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x4
+
+    if-eqz v19, :cond_6f
 
     :goto_42
-    iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
 
-    iget v2, v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    move/from16 v19, v0
 
-    if-eq v1, v2, :cond_52
+    move-object/from16 v0, p0
 
-    const-string/jumbo v1, "length-minLength-maxLength.2.2.b"
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v2, 0x3
+    move-object/from16 v20, v0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move-object/from16 v0, v20
 
-    const/4 v3, 0x0
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move/from16 v20, v0
 
-    aput-object v4, v2, v3
+    move/from16 v0, v19
 
-    const/4 v3, 0x1
+    move/from16 v1, v20
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    if-eq v0, v1, :cond_52
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    const/16 v19, 0x3
 
-    move-result-object v4
+    move/from16 v0, v19
 
-    aput-object v4, v2, v3
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v3, 0x2
+    move-object/from16 v19, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-object v4, v4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    iget v4, v4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    move-object/from16 v20, v0
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    const/16 v21, 0x0
 
-    move-result-object v4
+    aput-object v20, v19, v21
 
-    aput-object v4, v2, v3
+    move-object/from16 v0, p0
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "length-minLength-maxLength.2.2.b"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_33
 
     :cond_6e
-    const-string/jumbo v1, "length-minLength-maxLength.2.1"
+    const/16 v19, 0x3
 
-    const/4 v2, 0x3
+    move/from16 v0, v19
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    move-object/from16 v19, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v4, v2, v3
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    const/4 v3, 0x1
+    move-object/from16 v20, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    const/16 v21, 0x0
 
-    iget v4, v4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
+    aput-object v20, v19, v21
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    move-result-object v4
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    aput-object v4, v2, v3
+    move-object/from16 v20, v0
 
-    const/4 v3, 0x2
+    move-object/from16 v0, v20
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move/from16 v20, v0
 
-    move-result-object v4
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    aput-object v4, v2, v3
+    move-result-object v20
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/16 v21, 0x1
 
-    goto :goto_41
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "length-minLength-maxLength.2.1"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    goto/16 :goto_41
 
     :cond_6f
-    const-string/jumbo v1, "length-minLength-maxLength.2.2.a"
+    const/16 v19, 0x1
 
-    const/4 v2, 0x1
+    move/from16 v0, v19
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    move-object/from16 v19, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v4, v2, v3
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v20, v0
 
-    goto :goto_42
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "length-minLength-maxLength.2.2.a"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    goto/16 :goto_42
 
     :cond_70
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit8 v1, v1, 0x4
+    move-object/from16 v19, v0
 
-    if-nez v1, :cond_72
+    move-object/from16 v0, v19
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move/from16 v19, v0
 
-    and-int/lit8 v1, v1, 0x2
+    and-int/lit8 v19, v19, 0x4
 
-    if-eqz v1, :cond_53
+    if-nez v19, :cond_72
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit8 v1, v1, 0x2
+    move-object/from16 v19, v0
 
-    if-nez v1, :cond_73
+    move-object/from16 v0, v19
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x2
+
+    if-eqz v19, :cond_53
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x2
+
+    if-nez v19, :cond_73
 
     :cond_71
     :goto_43
-    iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
 
-    iget v2, v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    move/from16 v19, v0
 
-    if-ge v1, v2, :cond_53
+    move-object/from16 v0, p0
 
-    const-string/jumbo v1, "minLength-valid-restriction"
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v2, 0x3
+    move-object/from16 v20, v0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move-object/from16 v0, v20
 
-    const/4 v3, 0x0
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    move/from16 v20, v0
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move/from16 v0, v19
 
-    move-result-object v4
+    move/from16 v1, v20
 
-    aput-object v4, v2, v3
+    if-ge v0, v1, :cond_53
 
-    const/4 v3, 0x1
+    const/16 v19, 0x3
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move/from16 v0, v19
 
-    iget v4, v4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    new-array v0, v0, [Ljava/lang/Object;
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move-object/from16 v19, v0
 
-    move-result-object v4
+    move-object/from16 v0, p0
 
-    aput-object v4, v2, v3
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
 
-    const/4 v3, 0x2
+    move/from16 v20, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    aput-object v4, v2, v3
+    move-result-object v20
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "minLength-valid-restriction"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_34
 
     :cond_72
-    iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
 
-    iget v2, v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    move/from16 v19, v0
 
-    if-le v1, v2, :cond_53
+    move-object/from16 v0, p0
 
-    const-string/jumbo v1, "minLength-less-than-equal-to-maxLength"
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v2, 0x3
+    move-object/from16 v20, v0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move-object/from16 v0, v20
 
-    const/4 v3, 0x0
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    move/from16 v20, v0
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move/from16 v0, v19
 
-    move-result-object v4
+    move/from16 v1, v20
 
-    aput-object v4, v2, v3
+    if-le v0, v1, :cond_53
 
-    const/4 v3, 0x1
+    const/16 v19, 0x3
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move/from16 v0, v19
 
-    iget v4, v4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    new-array v0, v0, [Ljava/lang/Object;
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move-object/from16 v19, v0
 
-    move-result-object v4
+    move-object/from16 v0, p0
 
-    aput-object v4, v2, v3
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
 
-    const/4 v3, 0x2
+    move/from16 v20, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    aput-object v4, v2, v3
+    move-result-object v20
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "minLength-less-than-equal-to-maxLength"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_34
 
     :cond_73
-    iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
 
-    iget v2, v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    move/from16 v19, v0
 
-    if-eq v1, v2, :cond_71
+    move-object/from16 v0, p0
 
-    const-string/jumbo v1, "FixedFacetValue"
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v2, 0x4
+    move-object/from16 v20, v0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move-object/from16 v0, v20
 
-    const/4 v3, 0x0
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
 
-    const-string/jumbo v4, "minLength"
+    move/from16 v20, v0
 
-    aput-object v4, v2, v3
+    move/from16 v0, v19
 
-    const/4 v3, 0x1
+    move/from16 v1, v20
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    if-eq v0, v1, :cond_71
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    const/16 v19, 0x4
 
-    move-result-object v4
+    move/from16 v0, v19
 
-    aput-object v4, v2, v3
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v3, 0x2
+    move-object/from16 v19, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    const-string/jumbo v20, "minLength"
 
-    iget v4, v4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    const/16 v21, 0x0
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    aput-object v20, v19, v21
 
-    move-result-object v4
+    move-object/from16 v0, p0
 
-    aput-object v4, v2, v3
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
 
-    const/4 v3, 0x3
+    move/from16 v20, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    aput-object v4, v2, v3
+    move-result-object v20
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x3
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "FixedFacetValue"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_43
 
     :cond_74
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit8 v1, v1, 0x2
+    move-object/from16 v19, v0
 
-    if-eqz v1, :cond_54
+    move-object/from16 v0, v19
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move/from16 v19, v0
 
-    iget v2, v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    and-int/lit8 v19, v19, 0x2
 
-    if-ge v1, v2, :cond_54
+    if-eqz v19, :cond_54
 
-    const-string/jumbo v1, "minLength-less-than-equal-to-maxLength"
+    move-object/from16 v0, p0
 
-    const/4 v2, 0x2
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move/from16 v19, v0
 
-    const/4 v3, 0x0
+    move-object/from16 v0, p0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    iget v4, v4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    move-object/from16 v20, v0
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move-object/from16 v0, v20
 
-    move-result-object v4
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
 
-    aput-object v4, v2, v3
+    move/from16 v20, v0
 
-    const/4 v3, 0x1
+    move/from16 v0, v19
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    move/from16 v1, v20
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    if-ge v0, v1, :cond_54
 
-    move-result-object v4
+    const/16 v19, 0x2
 
-    aput-object v4, v2, v3
+    move/from16 v0, v19
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "minLength-less-than-equal-to-maxLength"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_35
 
     :cond_75
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit8 v1, v1, 0x4
+    move-object/from16 v19, v0
 
-    if-eqz v1, :cond_55
+    move-object/from16 v0, v19
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    move/from16 v19, v0
 
-    and-int/lit8 v1, v1, 0x4
+    and-int/lit8 v19, v19, 0x4
 
-    if-nez v1, :cond_77
+    if-eqz v19, :cond_55
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+
+    move/from16 v19, v0
+
+    and-int/lit8 v19, v19, 0x4
+
+    if-nez v19, :cond_77
 
     :cond_76
     :goto_44
-    iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
 
-    iget v2, v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    move/from16 v19, v0
 
-    if-le v1, v2, :cond_55
+    move-object/from16 v0, p0
 
-    const-string/jumbo v1, "maxLength-valid-restriction"
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v2, 0x3
+    move-object/from16 v20, v0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move-object/from16 v0, v20
 
-    const/4 v3, 0x0
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    move/from16 v20, v0
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move/from16 v0, v19
 
-    move-result-object v4
+    move/from16 v1, v20
 
-    aput-object v4, v2, v3
+    if-le v0, v1, :cond_55
 
-    const/4 v3, 0x1
+    const/16 v19, 0x3
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move/from16 v0, v19
 
-    iget v4, v4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    new-array v0, v0, [Ljava/lang/Object;
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move-object/from16 v19, v0
 
-    move-result-object v4
+    move-object/from16 v0, p0
 
-    aput-object v4, v2, v3
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
 
-    const/4 v3, 0x2
+    move/from16 v20, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    aput-object v4, v2, v3
+    move-result-object v20
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "maxLength-valid-restriction"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_36
 
     :cond_77
-    iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
 
-    iget v2, v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    move/from16 v19, v0
 
-    if-eq v1, v2, :cond_76
+    move-object/from16 v0, p0
 
-    const-string/jumbo v1, "FixedFacetValue"
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v2, 0x4
+    move-object/from16 v20, v0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move-object/from16 v0, v20
 
-    const/4 v3, 0x0
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
 
-    const-string/jumbo v4, "maxLength"
+    move/from16 v20, v0
 
-    aput-object v4, v2, v3
+    move/from16 v0, v19
 
-    const/4 v3, 0x1
+    move/from16 v1, v20
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    if-eq v0, v1, :cond_76
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    const/16 v19, 0x4
 
-    move-result-object v4
+    move/from16 v0, v19
 
-    aput-object v4, v2, v3
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v3, 0x2
+    move-object/from16 v19, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    const-string/jumbo v20, "maxLength"
 
-    iget v4, v4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    const/16 v21, 0x0
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    aput-object v20, v19, v21
 
-    move-result-object v4
+    move-object/from16 v0, p0
 
-    aput-object v4, v2, v3
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
 
-    const/4 v3, 0x3
+    move/from16 v20, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    aput-object v4, v2, v3
+    move-result-object v20
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/16 v21, 0x1
 
-    goto :goto_44
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x3
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "FixedFacetValue"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    goto/16 :goto_44
 
     :cond_78
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit16 v1, v1, 0x200
+    move-object/from16 v19, v0
 
-    if-eqz v1, :cond_56
+    move-object/from16 v0, v19
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    move/from16 v19, v0
 
-    and-int/lit16 v1, v1, 0x200
+    move/from16 v0, v19
 
-    if-nez v1, :cond_7a
+    and-int/lit16 v0, v0, 0x200
+
+    move/from16 v19, v0
+
+    if-eqz v19, :cond_56
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    and-int/lit16 v0, v0, 0x200
+
+    move/from16 v19, v0
+
+    if-nez v19, :cond_7a
 
     :cond_79
     :goto_45
-    iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
 
-    iget v2, v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
+    move/from16 v19, v0
 
-    if-le v1, v2, :cond_56
+    move-object/from16 v0, p0
 
-    const-string/jumbo v1, "totalDigits-valid-restriction"
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v2, 0x3
+    move-object/from16 v20, v0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move-object/from16 v0, v20
 
-    const/4 v3, 0x0
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
+    move/from16 v20, v0
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move/from16 v0, v19
 
-    move-result-object v4
+    move/from16 v1, v20
 
-    aput-object v4, v2, v3
+    if-le v0, v1, :cond_56
 
-    const/4 v3, 0x1
+    const/16 v19, 0x3
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move/from16 v0, v19
 
-    iget v4, v4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
+    new-array v0, v0, [Ljava/lang/Object;
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move-object/from16 v19, v0
 
-    move-result-object v4
+    move-object/from16 v0, p0
 
-    aput-object v4, v2, v3
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
 
-    const/4 v3, 0x2
+    move/from16 v20, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    aput-object v4, v2, v3
+    move-result-object v20
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "totalDigits-valid-restriction"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_37
 
     :cond_7a
-    iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
 
-    iget v2, v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
+    move/from16 v19, v0
 
-    if-eq v1, v2, :cond_79
+    move-object/from16 v0, p0
 
-    const-string/jumbo v1, "FixedFacetValue"
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v2, 0x4
+    move-object/from16 v20, v0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move-object/from16 v0, v20
 
-    const/4 v3, 0x0
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
 
-    const-string/jumbo v4, "totalDigits"
+    move/from16 v20, v0
 
-    aput-object v4, v2, v3
+    move/from16 v0, v19
 
-    const/4 v3, 0x1
+    move/from16 v1, v20
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
+    if-eq v0, v1, :cond_79
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    const/16 v19, 0x4
 
-    move-result-object v4
+    move/from16 v0, v19
 
-    aput-object v4, v2, v3
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v3, 0x2
+    move-object/from16 v19, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    const-string/jumbo v20, "totalDigits"
 
-    iget v4, v4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
+    const/16 v21, 0x0
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    aput-object v20, v19, v21
 
-    move-result-object v4
+    move-object/from16 v0, p0
 
-    aput-object v4, v2, v3
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
 
-    const/4 v3, 0x3
+    move/from16 v20, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    aput-object v4, v2, v3
+    move-result-object v20
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/16 v21, 0x1
 
-    goto :goto_45
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x3
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "FixedFacetValue"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    goto/16 :goto_45
 
     :cond_7b
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit16 v1, v1, 0x200
+    move-object/from16 v19, v0
 
-    if-eqz v1, :cond_57
+    move-object/from16 v0, v19
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move/from16 v19, v0
 
-    iget v2, v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
+    move/from16 v0, v19
 
-    if-le v1, v2, :cond_57
+    and-int/lit16 v0, v0, 0x200
 
-    const-string/jumbo v1, "fractionDigits-totalDigits"
+    move/from16 v19, v0
 
-    const/4 v2, 0x3
+    if-eqz v19, :cond_57
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move-object/from16 v0, p0
 
-    const/4 v3, 0x0
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+    move/from16 v19, v0
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    move-result-object v4
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    aput-object v4, v2, v3
+    move-object/from16 v20, v0
 
-    const/4 v3, 0x1
+    move-object/from16 v0, v20
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move/from16 v20, v0
 
-    move-result-object v4
+    move/from16 v0, v19
 
-    aput-object v4, v2, v3
+    move/from16 v1, v20
 
-    const/4 v3, 0x2
+    if-le v0, v1, :cond_57
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    const/16 v19, 0x3
 
-    aput-object v4, v2, v3
+    move/from16 v0, v19
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "fractionDigits-totalDigits"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_38
 
     :cond_7c
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit16 v1, v1, 0x400
+    move-object/from16 v19, v0
 
-    if-nez v1, :cond_7d
+    move-object/from16 v0, v19
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    const/16 v2, 0x18
+    move/from16 v19, v0
 
-    if-ne v1, v2, :cond_58
+    move/from16 v0, v19
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+    and-int/lit16 v0, v0, 0x400
 
-    if-eqz v1, :cond_58
+    move/from16 v19, v0
 
-    const-string/jumbo v1, "FixedFacetValue"
+    if-nez v19, :cond_7d
 
-    const/4 v2, 0x4
+    move-object/from16 v0, p0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
-    const/4 v3, 0x0
+    move/from16 v19, v0
 
-    const-string/jumbo v4, "fractionDigits"
+    const/16 v20, 0x18
 
-    aput-object v4, v2, v3
+    move/from16 v0, v19
 
-    const/4 v3, 0x1
+    move/from16 v1, v20
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+    if-ne v0, v1, :cond_58
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    move-result-object v4
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
 
-    aput-object v4, v2, v3
+    move/from16 v19, v0
 
-    const/4 v3, 0x2
+    if-eqz v19, :cond_58
 
-    const-string/jumbo v4, "0"
+    const/16 v19, 0x4
 
-    aput-object v4, v2, v3
+    move/from16 v0, v19
 
-    const/4 v3, 0x3
+    new-array v0, v0, [Ljava/lang/Object;
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move-object/from16 v19, v0
 
-    aput-object v4, v2, v3
+    const-string/jumbo v20, "fractionDigits"
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "0"
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x3
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "FixedFacetValue"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_39
 
     :cond_7d
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit16 v1, v1, 0x400
+    move-object/from16 v19, v0
 
-    if-nez v1, :cond_7f
+    move-object/from16 v0, v19
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFixedFacet:S
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    and-int/lit16 v0, v0, 0x400
+
+    move/from16 v19, v0
+
+    if-nez v19, :cond_7f
 
     :cond_7e
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    move-object/from16 v0, p0
 
-    const/16 v2, 0x18
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
-    if-eq v1, v2, :cond_81
+    move/from16 v19, v0
+
+    const/16 v20, 0x18
+
+    move/from16 v0, v19
+
+    move/from16 v1, v20
+
+    if-eq v0, v1, :cond_81
 
     :goto_46
-    iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
 
-    iget v2, v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+    move/from16 v19, v0
 
-    if-le v1, v2, :cond_58
+    move-object/from16 v0, p0
 
-    const-string/jumbo v1, "fractionDigits-valid-restriction"
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v2, 0x3
+    move-object/from16 v20, v0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move-object/from16 v0, v20
 
-    const/4 v3, 0x0
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+    move/from16 v20, v0
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move/from16 v0, v19
 
-    move-result-object v4
+    move/from16 v1, v20
 
-    aput-object v4, v2, v3
+    if-le v0, v1, :cond_58
 
-    const/4 v3, 0x1
+    const/16 v19, 0x3
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move/from16 v0, v19
 
-    iget v4, v4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+    new-array v0, v0, [Ljava/lang/Object;
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move-object/from16 v19, v0
 
-    move-result-object v4
+    move-object/from16 v0, p0
 
-    aput-object v4, v2, v3
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
 
-    const/4 v3, 0x2
+    move/from16 v20, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    aput-object v4, v2, v3
+    move-result-object v20
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "fractionDigits-valid-restriction"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_39
 
     :cond_7f
-    iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
 
-    iget v2, v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+    move/from16 v19, v0
 
-    if-eq v1, v2, :cond_7e
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+
+    move/from16 v20, v0
+
+    move/from16 v0, v19
+
+    move/from16 v1, v20
+
+    if-eq v0, v1, :cond_7e
 
     :cond_80
-    const-string/jumbo v1, "FixedFacetValue"
+    const/16 v19, 0x4
 
-    const/4 v2, 0x4
+    move/from16 v0, v19
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    move-object/from16 v19, v0
 
-    const-string/jumbo v4, "fractionDigits"
+    const-string/jumbo v20, "fractionDigits"
 
-    aput-object v4, v2, v3
+    const/16 v21, 0x0
 
-    const/4 v3, 0x1
+    aput-object v20, v19, v21
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+    move-object/from16 v0, p0
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
 
-    move-result-object v4
+    move/from16 v20, v0
 
-    aput-object v4, v2, v3
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    const/4 v3, 0x2
+    move-result-object v20
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    const/16 v21, 0x1
 
-    iget v4, v4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+    aput-object v20, v19, v21
 
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    move-result-object v4
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    aput-object v4, v2, v3
+    move-object/from16 v20, v0
 
-    const/4 v3, 0x3
+    move-object/from16 v0, v20
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
 
-    aput-object v4, v2, v3
+    move/from16 v20, v0
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    goto :goto_46
+    move-result-object v20
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x3
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "FixedFacetValue"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    goto/16 :goto_46
 
     :cond_81
-    iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+    move-object/from16 v0, p0
 
-    if-nez v1, :cond_80
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
 
-    goto :goto_46
+    move/from16 v19, v0
+
+    if-nez v19, :cond_80
+
+    goto/16 :goto_46
 
     :cond_82
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
 
-    iget-short v2, v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
+    move/from16 v19, v0
 
-    if-eq v1, v2, :cond_59
+    move-object/from16 v0, p0
 
-    const-string/jumbo v1, "FixedFacetValue"
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v2, 0x4
+    move-object/from16 v20, v0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move-object/from16 v0, v20
 
-    const/4 v3, 0x0
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
 
-    const-string/jumbo v4, "whiteSpace"
+    move/from16 v20, v0
 
-    aput-object v4, v2, v3
+    move/from16 v0, v19
 
-    const/4 v3, 0x1
+    move/from16 v1, v20
 
-    iget-short v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
+    if-eq v0, v1, :cond_59
 
-    invoke-direct {p0, v4}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->whiteSpaceValue(S)Ljava/lang/String;
+    const/16 v19, 0x4
 
-    move-result-object v4
+    move/from16 v0, v19
 
-    aput-object v4, v2, v3
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v3, 0x2
+    move-object/from16 v19, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    const-string/jumbo v20, "whiteSpace"
 
-    iget-short v4, v4, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
+    const/16 v21, 0x0
 
-    invoke-direct {p0, v4}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->whiteSpaceValue(S)Ljava/lang/String;
+    aput-object v20, v19, v21
 
-    move-result-object v4
+    move-object/from16 v0, p0
 
-    aput-object v4, v2, v3
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
 
-    const/4 v3, 0x3
+    move/from16 v20, v0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v4, v2, v3
+    move/from16 v1, v20
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v0, v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->whiteSpaceValue(S)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
+
+    move/from16 v20, v0
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v20
+
+    invoke-direct {v0, v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->whiteSpaceValue(S)Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x3
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "FixedFacetValue"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_3a
 
     :cond_83
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v2, 0x2
+    move-object/from16 v19, v0
 
-    if-ne v1, v2, :cond_5a
+    move-object/from16 v0, v19
 
-    const-string/jumbo v1, "whiteSpace-valid-restriction.1"
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
 
-    const/4 v2, 0x2
+    move/from16 v19, v0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const/16 v20, 0x2
 
-    const/4 v3, 0x0
+    move/from16 v0, v19
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move/from16 v1, v20
 
-    aput-object v4, v2, v3
+    if-ne v0, v1, :cond_5a
 
-    const/4 v3, 0x1
+    const/16 v19, 0x2
 
-    const-string/jumbo v4, "preserve"
+    move/from16 v0, v19
 
-    aput-object v4, v2, v3
+    new-array v0, v0, [Ljava/lang/Object;
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "preserve"
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "whiteSpace-valid-restriction.1"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_3b
 
     :cond_84
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    const/4 v2, 0x2
+    move-object/from16 v19, v0
 
-    if-ne v1, v2, :cond_5b
+    move-object/from16 v0, v19
 
-    const-string/jumbo v1, "whiteSpace-valid-restriction.1"
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
 
-    const/4 v2, 0x2
+    move/from16 v19, v0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const/16 v20, 0x2
 
-    const/4 v3, 0x0
+    move/from16 v0, v19
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    move/from16 v1, v20
 
-    aput-object v4, v2, v3
+    if-ne v0, v1, :cond_5b
 
-    const/4 v3, 0x1
+    const/16 v19, 0x2
 
-    const-string/jumbo v4, "replace"
+    move/from16 v0, v19
 
-    aput-object v4, v2, v3
+    new-array v0, v0, [Ljava/lang/Object;
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "replace"
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "whiteSpace-valid-restriction.1"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v20
+
+    move-object/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_3c
 
     :cond_85
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit8 v1, v1, 0x1
+    move-object/from16 v19, v0
 
-    if-eqz v1, :cond_b
+    move-object/from16 v0, v19
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    or-int/lit8 v1, v1, 0x1
+    move/from16 v19, v0
 
-    int-to-short v1, v1
+    and-int/lit8 v19, v19, 0x1
 
-    int-to-short v1, v1
+    if-eqz v19, :cond_b
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    iget v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
+    move/from16 v19, v0
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
+    or-int/lit8 v19, v19, 0x1
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move/from16 v0, v19
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->lengthAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    int-to-short v0, v0
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->lengthAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->lengthAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->lengthAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
     goto/16 :goto_e
 
     :cond_86
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit8 v1, v1, 0x2
+    move-object/from16 v19, v0
 
-    if-eqz v1, :cond_c
+    move-object/from16 v0, v19
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    or-int/lit8 v1, v1, 0x2
+    move/from16 v19, v0
 
-    int-to-short v1, v1
+    and-int/lit8 v19, v19, 0x2
 
-    int-to-short v1, v1
+    if-eqz v19, :cond_c
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    iget v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    move/from16 v19, v0
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+    or-int/lit8 v19, v19, 0x2
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move/from16 v0, v19
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->minLengthAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    int-to-short v0, v0
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->minLengthAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->minLengthAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->minLengthAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
     goto/16 :goto_f
 
     :cond_87
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit8 v1, v1, 0x4
+    move-object/from16 v19, v0
 
-    if-eqz v1, :cond_d
+    move-object/from16 v0, v19
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    or-int/lit8 v1, v1, 0x4
+    move/from16 v19, v0
 
-    int-to-short v1, v1
+    and-int/lit8 v19, v19, 0x4
 
-    int-to-short v1, v1
+    if-eqz v19, :cond_d
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    iget v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    move/from16 v19, v0
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+    or-int/lit8 v19, v19, 0x4
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move/from16 v0, v19
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->maxLengthAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    int-to-short v0, v0
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->maxLengthAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->maxLengthAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->maxLengthAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
     goto/16 :goto_10
 
     :cond_88
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v1, v1, 0x8
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-eqz v1, :cond_89
+    move/from16 v19, v0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    and-int/lit8 v19, v19, 0x8
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPattern:Ljava/util/Vector;
+    if-eqz v19, :cond_89
 
-    invoke-virtual {v1}, Ljava/util/Vector;->size()I
+    move-object/from16 v0, p0
 
-    move-result v1
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPattern:Ljava/util/Vector;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Ljava/util/Vector;->size()I
+
+    move-result v19
+
+    add-int/lit8 v10, v19, -0x1
 
     :goto_47
-    add-int/lit8 v1, v1, -0x1
+    if-ltz v10, :cond_8a
 
-    if-ltz v1, :cond_8a
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPattern:Ljava/util/Vector;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPattern:Ljava/util/Vector;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v19, v0
 
-    iget-object v3, v3, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPattern:Ljava/util/Vector;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v3, v1}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    move-result-object v3
+    move-object/from16 v20, v0
 
-    invoke-virtual {v2, v3}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+    move-object/from16 v0, v20
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternStr:Ljava/util/Vector;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPattern:Ljava/util/Vector;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v20, v0
 
-    iget-object v3, v3, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternStr:Ljava/util/Vector;
+    move-object/from16 v0, v20
 
-    invoke-virtual {v3, v1}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v0, v10}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v20
 
-    invoke-virtual {v2, v3}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+    invoke-virtual/range {v19 .. v20}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternStr:Ljava/util/Vector;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternStr:Ljava/util/Vector;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v0, v10}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Ljava/util/Vector;->addElement(Ljava/lang/Object;)V
+
+    add-int/lit8 v10, v10, -0x1
 
     goto :goto_47
 
     :cond_89
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    or-int/lit8 v1, v1, 0x8
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    int-to-short v1, v1
+    move/from16 v19, v0
 
-    int-to-short v1, v1
+    or-int/lit8 v19, v19, 0x8
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move/from16 v0, v19
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    int-to-short v0, v0
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPattern:Ljava/util/Vector;
+    move/from16 v19, v0
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPattern:Ljava/util/Vector;
+    move/from16 v0, v19
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    int-to-short v0, v0
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternStr:Ljava/util/Vector;
+    move/from16 v19, v0
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternStr:Ljava/util/Vector;
+    move/from16 v0, v19
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v1, p0
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->patternAnnotations:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->patternAnnotations:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPattern:Ljava/util/Vector;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPattern:Ljava/util/Vector;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternStr:Ljava/util/Vector;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternStr:Ljava/util/Vector;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->patternAnnotations:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->patternAnnotations:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
     goto/16 :goto_11
 
     :cond_8a
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->patternAnnotations:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    if-eqz v1, :cond_e
+    move-object/from16 v19, v0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->patternAnnotations:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+    move-object/from16 v0, v19
 
-    if-nez v1, :cond_8b
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->patternAnnotations:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v19, v0
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->patternAnnotations:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+    if-eqz v19, :cond_e
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->patternAnnotations:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->patternAnnotations:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+
+    move-object/from16 v19, v0
+
+    if-nez v19, :cond_8b
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->patternAnnotations:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->patternAnnotations:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
     goto/16 :goto_11
 
     :cond_8b
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->patternAnnotations:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->getLength()I
+    move-object/from16 v19, v0
 
-    move-result v1
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->patternAnnotations:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->getLength()I
+
+    move-result v19
+
+    add-int/lit8 v10, v19, -0x1
 
     :goto_48
-    add-int/lit8 v1, v1, -0x1
+    if-ltz v10, :cond_e
 
-    if-ltz v1, :cond_e
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->patternAnnotations:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->patternAnnotations:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v19, v0
 
-    iget-object v3, v3, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->patternAnnotations:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v3, v1}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->item(I)Lmf/org/apache/xerces/xs/XSObject;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    move-result-object v3
+    move-object/from16 v20, v0
 
-    invoke-virtual {v2, v3}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->addXSObject(Lmf/org/apache/xerces/xs/XSObject;)V
+    move-object/from16 v0, v20
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->patternAnnotations:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v0, v10}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->item(I)Lmf/org/apache/xerces/xs/XSObject;
+
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->addXSObject(Lmf/org/apache/xerces/xs/XSObject;)V
+
+    add-int/lit8 v10, v10, -0x1
 
     goto :goto_48
 
     :cond_8c
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit8 v1, v1, 0x10
+    move-object/from16 v19, v0
 
-    if-eqz v1, :cond_f
+    move-object/from16 v0, v19
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    or-int/lit8 v1, v1, 0x10
+    move/from16 v19, v0
 
-    int-to-short v1, v1
+    and-int/lit8 v19, v19, 0x10
 
-    int-to-short v1, v1
+    if-eqz v19, :cond_f
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
+    move/from16 v19, v0
 
-    int-to-short v1, v1
+    or-int/lit8 v19, v19, 0x10
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
+    move/from16 v0, v19
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    int-to-short v0, v0
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->whiteSpaceAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move/from16 v19, v0
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->whiteSpaceAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fWhiteSpace:S
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->whiteSpaceAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->whiteSpaceAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
     goto/16 :goto_12
 
     :cond_8d
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    and-int/lit16 v1, v1, 0x800
+    move-object/from16 v19, v0
 
-    if-eqz v1, :cond_10
+    move-object/from16 v0, v19
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    or-int/lit16 v1, v1, 0x800
+    move/from16 v19, v0
 
-    int-to-short v1, v1
+    move/from16 v0, v19
 
-    int-to-short v1, v1
+    and-int/lit16 v0, v0, 0x800
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move/from16 v19, v0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    if-eqz v19, :cond_10
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumeration:[Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+    move-object/from16 v0, p0
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumeration:[Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move/from16 v19, v0
 
-    iget v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumerationSize:I
+    move/from16 v0, v19
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumerationSize:I
+    or-int/lit16 v0, v0, 0x800
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move/from16 v19, v0
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->enumerationAnnotations:Lmf/org/apache/xerces/xs/XSObjectList;
+    move/from16 v0, v19
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->enumerationAnnotations:Lmf/org/apache/xerces/xs/XSObjectList;
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumeration:[Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumeration:[Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumerationSize:I
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumerationSize:I
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->enumerationAnnotations:Lmf/org/apache/xerces/xs/XSObjectList;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->enumerationAnnotations:Lmf/org/apache/xerces/xs/XSObjectList;
 
     goto/16 :goto_13
 
     :cond_8e
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v1, v1, 0x40
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_11
+    move/from16 v19, v0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    and-int/lit8 v19, v19, 0x40
 
-    and-int/lit8 v1, v1, 0x20
+    if-nez v19, :cond_11
 
-    if-nez v1, :cond_11
+    move-object/from16 v0, p0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    or-int/lit8 v1, v1, 0x40
+    move/from16 v19, v0
 
-    int-to-short v1, v1
+    and-int/lit8 v19, v19, 0x20
 
-    int-to-short v1, v1
+    if-nez v19, :cond_11
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
+    move/from16 v19, v0
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
+    or-int/lit8 v19, v19, 0x40
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move/from16 v0, v19
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->maxExclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    int-to-short v0, v0
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->maxExclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->maxExclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->maxExclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
     goto/16 :goto_14
 
     :cond_8f
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit8 v1, v1, 0x40
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_12
+    move/from16 v19, v0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    and-int/lit8 v19, v19, 0x40
 
-    and-int/lit8 v1, v1, 0x20
+    if-nez v19, :cond_12
 
-    if-nez v1, :cond_12
+    move-object/from16 v0, p0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    or-int/lit8 v1, v1, 0x20
+    move/from16 v19, v0
 
-    int-to-short v1, v1
+    and-int/lit8 v19, v19, 0x20
 
-    int-to-short v1, v1
+    if-nez v19, :cond_12
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
+    move/from16 v19, v0
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
+    or-int/lit8 v19, v19, 0x20
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move/from16 v0, v19
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->maxInclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    int-to-short v0, v0
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->maxInclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->maxInclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->maxInclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
     goto/16 :goto_15
 
     :cond_90
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit16 v1, v1, 0x80
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_13
+    move/from16 v19, v0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move/from16 v0, v19
 
-    and-int/lit16 v1, v1, 0x100
+    and-int/lit16 v0, v0, 0x80
 
-    if-nez v1, :cond_13
+    move/from16 v19, v0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    if-nez v19, :cond_13
 
-    or-int/lit16 v1, v1, 0x80
+    move-object/from16 v0, p0
 
-    int-to-short v1, v1
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    int-to-short v1, v1
+    move/from16 v19, v0
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move/from16 v0, v19
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    and-int/lit16 v0, v0, 0x100
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
+    move/from16 v19, v0
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
+    if-nez v19, :cond_13
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->minExclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->minExclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    or-int/lit16 v0, v0, 0x80
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->minExclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->minExclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
     goto/16 :goto_16
 
     :cond_91
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit16 v1, v1, 0x80
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_14
+    move/from16 v19, v0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move/from16 v0, v19
 
-    and-int/lit16 v1, v1, 0x100
+    and-int/lit16 v0, v0, 0x80
 
-    if-nez v1, :cond_14
+    move/from16 v19, v0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    if-nez v19, :cond_14
 
-    or-int/lit16 v1, v1, 0x100
+    move-object/from16 v0, p0
 
-    int-to-short v1, v1
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    int-to-short v1, v1
+    move/from16 v19, v0
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move/from16 v0, v19
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    and-int/lit16 v0, v0, 0x100
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
+    move/from16 v19, v0
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
+    if-nez v19, :cond_14
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->minInclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->minInclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    or-int/lit16 v0, v0, 0x100
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->minInclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->minInclusiveAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
     goto/16 :goto_17
 
     :cond_92
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit16 v1, v1, 0x200
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_15
+    move/from16 v19, v0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move/from16 v0, v19
 
-    or-int/lit16 v1, v1, 0x200
+    and-int/lit16 v0, v0, 0x200
 
-    int-to-short v1, v1
+    move/from16 v19, v0
 
-    int-to-short v1, v1
+    if-nez v19, :cond_15
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    iget v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
+    move/from16 v19, v0
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
+    move/from16 v0, v19
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    or-int/lit16 v0, v0, 0x200
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->totalDigitsAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move/from16 v19, v0
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->totalDigitsAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->totalDigitsAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->totalDigitsAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
     goto/16 :goto_18
 
     :cond_93
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    and-int/lit16 v1, v1, 0x400
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-nez v1, :cond_16
+    move/from16 v19, v0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move/from16 v0, v19
 
-    or-int/lit16 v1, v1, 0x400
+    and-int/lit16 v0, v0, 0x400
 
-    int-to-short v1, v1
+    move/from16 v19, v0
 
-    int-to-short v1, v1
+    if-nez v19, :cond_16
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    move-object/from16 v0, p0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    iget v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+    move/from16 v19, v0
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+    move/from16 v0, v19
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    or-int/lit16 v0, v0, 0x400
 
-    iget-object v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fractionDigitsAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move/from16 v19, v0
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fractionDigitsAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fractionDigitsAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fractionDigitsAnnotation:Lmf/org/apache/xerces/xs/XSAnnotation;
 
     goto/16 :goto_19
 
     :cond_94
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, p0
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    if-eqz v1, :cond_17
+    move-object/from16 v19, v0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    move-object/from16 v0, v19
 
-    iget-short v1, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
 
-    int-to-short v1, v1
+    move/from16 v19, v0
 
-    iput-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
+    if-eqz v19, :cond_17
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-short v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    int-to-short v0, v0
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    iput-short v0, v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
 
     goto/16 :goto_1a
 .end method
 
 .method applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SS)V
-    .locals 6
+    .locals 7
 
     :try_start_0
     sget-object v5, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDummyContext:Lmf/org/apache/xerces/impl/dv/ValidationContext;
@@ -8841,7 +13612,7 @@
     return-void
 
     :catch_0
-    move-exception v0
+    move-exception v6
 
     new-instance v0, Ljava/lang/RuntimeException;
 
@@ -8853,7 +13624,7 @@
 .end method
 
 .method applyFacets1(Lmf/org/apache/xerces/impl/dv/XSFacets;SSS)V
-    .locals 6
+    .locals 7
 
     :try_start_0
     sget-object v5, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDummyContext:Lmf/org/apache/xerces/impl/dv/ValidationContext;
@@ -8879,7 +13650,7 @@
     return-void
 
     :catch_0
-    move-exception v0
+    move-exception v6
 
     new-instance v0, Ljava/lang/RuntimeException;
 
@@ -8891,58 +13662,60 @@
 .end method
 
 .method public derivedFrom(Ljava/lang/String;Ljava/lang/String;S)Z
-    .locals 3
+    .locals 4
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     if-eqz p2, :cond_2
 
-    const-string/jumbo v0, "http://www.w3.org/2001/XMLSchema"
+    const-string/jumbo v1, "http://www.w3.org/2001/XMLSchema"
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_3
+    if-nez v1, :cond_3
 
     :cond_0
+    move-object v0, p0
+
     :goto_0
-    invoke-interface {p0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getName()Ljava/lang/String;
+    invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_4
+    if-nez v1, :cond_4
 
     :cond_1
-    sget-object v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fAnySimpleType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    sget-object v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fAnySimpleType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    if-eq p0, v0, :cond_6
+    if-eq v0, v1, :cond_6
 
-    invoke-interface {p0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getBaseType()Lmf/org/apache/xerces/xs/XSTypeDefinition;
+    invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getBaseType()Lmf/org/apache/xerces/xs/XSTypeDefinition;
 
-    move-result-object p0
+    move-result-object v0
 
     goto :goto_0
 
     :cond_2
-    return v1
+    return v2
 
     :cond_3
-    const-string/jumbo v0, "anyType"
+    const-string/jumbo v1, "anyType"
 
-    invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    return v2
+    return v3
 
     :cond_4
     if-eqz p1, :cond_7
@@ -8950,35 +13723,35 @@
     :cond_5
     if-eqz p1, :cond_1
 
-    invoke-interface {p0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
+    invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
     :cond_6
     :goto_1
-    sget-object v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fAnySimpleType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    sget-object v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fAnySimpleType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    if-ne p0, v0, :cond_8
+    if-ne v0, v1, :cond_8
 
-    return v1
+    return v2
 
     :cond_7
-    invoke-interface {p0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
+    invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getNamespace()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-nez v0, :cond_5
+    if-nez v1, :cond_5
 
     goto :goto_1
 
     :cond_8
-    return v2
+    return v3
 .end method
 
 .method public derivedFromType(Lmf/org/apache/xerces/xs/XSTypeDefinition;S)Z
@@ -8990,16 +13763,14 @@
 
     if-eqz p1, :cond_0
 
-    move-object v0, p1
-
     :goto_0
-    instance-of v1, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDelegate;
+    instance-of v1, p1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDelegate;
 
     if-eqz v1, :cond_1
 
-    check-cast v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDelegate;
+    check-cast p1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDelegate;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDelegate;->type:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+    iget-object p1, p1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDelegate;->type:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
 
     goto :goto_0
 
@@ -9007,17 +13778,19 @@
     return v2
 
     :cond_1
-    invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getBaseType()Lmf/org/apache/xerces/xs/XSTypeDefinition;
+    invoke-interface {p1}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getBaseType()Lmf/org/apache/xerces/xs/XSTypeDefinition;
 
     move-result-object v1
 
-    if-eq v1, v0, :cond_3
+    if-eq v1, p1, :cond_3
+
+    move-object v0, p0
 
     :goto_1
-    if-ne p0, v0, :cond_4
+    if-ne v0, p1, :cond_4
 
     :cond_2
-    if-eq p0, v0, :cond_5
+    if-eq v0, p1, :cond_5
 
     return v2
 
@@ -9027,11 +13800,11 @@
     :cond_4
     sget-object v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fAnySimpleType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    if-eq p0, v1, :cond_2
+    if-eq v0, v1, :cond_2
 
-    invoke-interface {p0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getBaseType()Lmf/org/apache/xerces/xs/XSTypeDefinition;
+    invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSTypeDefinition;->getBaseType()Lmf/org/apache/xerces/xs/XSTypeDefinition;
 
-    move-result-object p0
+    move-result-object v0
 
     goto :goto_1
 
@@ -9228,25 +14001,25 @@
 .end method
 
 .method public getEnumerationTypeList()Lmf/org/apache/xerces/xs/ShortList;
-    .locals 3
+    .locals 4
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumerationTypeList:Lmf/org/apache/xerces/xs/ShortList;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumerationTypeList:Lmf/org/apache/xerces/xs/ShortList;
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumerationTypeList:Lmf/org/apache/xerces/xs/ShortList;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumerationTypeList:Lmf/org/apache/xerces/xs/ShortList;
 
-    return-object v0
+    return-object v2
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumeration:[Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumeration:[Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
 
-    if-eqz v0, :cond_1
+    if-eqz v2, :cond_1
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumerationSize:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumerationSize:I
 
-    new-array v1, v0, [S
+    new-array v1, v2, [S
 
     const/4 v0, 0x0
 
@@ -9270,82 +14043,78 @@
     goto :goto_1
 
     :cond_1
-    sget-object v0, Lmf/org/apache/xerces/impl/xs/util/ShortListImpl;->EMPTY_LIST:Lmf/org/apache/xerces/impl/xs/util/ShortListImpl;
+    sget-object v2, Lmf/org/apache/xerces/impl/xs/util/ShortListImpl;->EMPTY_LIST:Lmf/org/apache/xerces/impl/xs/util/ShortListImpl;
 
-    return-object v0
+    return-object v2
 
     :cond_2
-    new-instance v0, Lmf/org/apache/xerces/impl/xs/util/ShortListImpl;
+    new-instance v2, Lmf/org/apache/xerces/impl/xs/util/ShortListImpl;
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumerationSize:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumerationSize:I
 
-    invoke-direct {v0, v1, v2}, Lmf/org/apache/xerces/impl/xs/util/ShortListImpl;-><init>([SI)V
+    invoke-direct {v2, v1, v3}, Lmf/org/apache/xerces/impl/xs/util/ShortListImpl;-><init>([SI)V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumerationTypeList:Lmf/org/apache/xerces/xs/ShortList;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumerationTypeList:Lmf/org/apache/xerces/xs/ShortList;
 
     goto :goto_0
 .end method
 
 .method public getFacet(I)Lmf/org/apache/xerces/xs/XSObject;
-    .locals 4
+    .locals 5
 
-    const/4 v0, 0x0
+    const/16 v4, 0x800
 
-    const/16 v1, 0x800
-
-    if-ne p1, v1, :cond_1
+    if-ne p1, v4, :cond_1
 
     :cond_0
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getMultiValueFacets()Lmf/org/apache/xerces/xs/XSObjectList;
 
-    move-result-object v2
+    move-result-object v3
 
-    move v1, v0
+    const/4 v2, 0x0
 
     :goto_0
-    invoke-interface {v2}, Lmf/org/apache/xerces/xs/XSObjectList;->getLength()I
+    invoke-interface {v3}, Lmf/org/apache/xerces/xs/XSObjectList;->getLength()I
 
-    move-result v0
+    move-result v4
 
-    if-ge v1, v0, :cond_4
+    if-ge v2, v4, :cond_4
 
-    invoke-interface {v2, v1}, Lmf/org/apache/xerces/xs/XSObjectList;->item(I)Lmf/org/apache/xerces/xs/XSObject;
+    invoke-interface {v3, v2}, Lmf/org/apache/xerces/xs/XSObjectList;->item(I)Lmf/org/apache/xerces/xs/XSObject;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/org/apache/xerces/xs/XSMultiValueFacet;
+    check-cast v1, Lmf/org/apache/xerces/xs/XSMultiValueFacet;
 
-    invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSMultiValueFacet;->getFacetKind()S
+    invoke-interface {v1}, Lmf/org/apache/xerces/xs/XSMultiValueFacet;->getFacetKind()S
 
-    move-result v3
+    move-result v4
 
-    if-eq v3, p1, :cond_2
+    if-eq v4, p1, :cond_2
 
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/16 v1, 0x8
+    const/16 v4, 0x8
 
-    if-eq p1, v1, :cond_0
+    if-eq p1, v4, :cond_0
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getFacets()Lmf/org/apache/xerces/xs/XSObjectList;
 
-    move-result-object v2
+    move-result-object v3
 
-    move v1, v0
+    const/4 v2, 0x0
 
     :goto_1
-    invoke-interface {v2}, Lmf/org/apache/xerces/xs/XSObjectList;->getLength()I
+    invoke-interface {v3}, Lmf/org/apache/xerces/xs/XSObjectList;->getLength()I
 
-    move-result v0
+    move-result v4
 
-    if-ge v1, v0, :cond_4
+    if-ge v2, v4, :cond_4
 
-    invoke-interface {v2, v1}, Lmf/org/apache/xerces/xs/XSObjectList;->item(I)Lmf/org/apache/xerces/xs/XSObject;
+    invoke-interface {v3, v2}, Lmf/org/apache/xerces/xs/XSObjectList;->item(I)Lmf/org/apache/xerces/xs/XSObject;
 
     move-result-object v0
 
@@ -9353,30 +14122,28 @@
 
     invoke-interface {v0}, Lmf/org/apache/xerces/xs/XSFacet;->getFacetKind()S
 
-    move-result v3
+    move-result v4
 
-    if-eq v3, p1, :cond_3
+    if-eq v4, p1, :cond_3
 
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
     :cond_2
-    return-object v0
+    return-object v1
 
     :cond_3
     return-object v0
 
     :cond_4
-    const/4 v0, 0x0
+    const/4 v4, 0x0
 
-    return-object v0
+    return-object v4
 .end method
 
 .method public getFacets()Lmf/org/apache/xerces/xs/XSObjectList;
-    .locals 9
+    .locals 10
 
     iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacets:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
@@ -9385,7 +14152,7 @@
     :goto_0
     iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacets:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
-    if-nez v0, :cond_1b
+    if-nez v0, :cond_1a
 
     sget-object v0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->EMPTY_LIST:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
@@ -9395,86 +14162,85 @@
     :cond_0
     iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     :cond_1
     const/16 v0, 0xa
 
     new-array v8, v0, [Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$XSFacetImpl;
 
-    const/4 v0, 0x0
+    const/4 v7, 0x0
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    and-int/lit8 v1, v1, 0x10
+    and-int/lit8 v0, v0, 0x10
 
-    if-nez v1, :cond_3
+    if-nez v0, :cond_4
 
-    move v7, v0
-
+    :cond_2
     :goto_2
     iget v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_6
 
     :goto_3
     iget v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_9
+    if-ne v0, v1, :cond_8
 
     :goto_4
     iget v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_b
+    if-ne v0, v1, :cond_a
 
     :goto_5
     iget v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_d
+    if-ne v0, v1, :cond_c
 
     :goto_6
     iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
     const/16 v1, 0x18
 
-    if-eq v0, v1, :cond_f
+    if-eq v0, v1, :cond_e
 
     iget v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_10
+    if-ne v0, v1, :cond_f
 
     :goto_7
     iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_11
 
     :goto_8
     iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_13
 
     :goto_9
     iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_15
 
     :goto_a
     iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
 
-    if-nez v0, :cond_18
+    if-nez v0, :cond_17
 
     :goto_b
-    if-gtz v7, :cond_1a
+    if-gtz v7, :cond_19
 
     sget-object v0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->EMPTY_LIST:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
@@ -9483,7 +14249,7 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
     const/16 v1, 0x18
@@ -9492,28 +14258,18 @@
 
     goto :goto_0
 
-    :cond_3
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
-
-    if-nez v1, :cond_4
-
-    move v7, v0
-
-    goto :goto_2
-
     :cond_4
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
-    const/16 v2, 0x1d
+    if-eqz v0, :cond_2
 
-    if-ne v1, v2, :cond_5
+    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
-    move v7, v0
+    const/16 v1, 0x1d
 
-    goto :goto_2
+    if-eq v0, v1, :cond_2
 
-    :cond_5
-    const/4 v7, 0x0
+    const/4 v9, 0x0
 
     new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$XSFacetImpl;
 
@@ -9529,7 +14285,7 @@
 
     and-int/lit8 v1, v1, 0x10
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_5
 
     const/4 v5, 0x0
 
@@ -9542,20 +14298,18 @@
 
     invoke-direct/range {v0 .. v6}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$XSFacetImpl;-><init>(SLjava/lang/String;ILjava/lang/Object;ZLmf/org/apache/xerces/xs/XSAnnotation;)V
 
-    aput-object v0, v8, v7
+    aput-object v0, v8, v9
 
-    const/4 v0, 0x1
-
-    move v7, v0
+    const/4 v7, 0x1
 
     goto :goto_2
 
-    :cond_6
+    :cond_5
     const/4 v5, 0x1
 
     goto :goto_d
 
-    :cond_7
+    :cond_6
     new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$XSFacetImpl;
 
     iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLength:I
@@ -9570,7 +14324,7 @@
 
     and-int/lit8 v1, v1, 0x1
 
-    if-nez v1, :cond_8
+    if-nez v1, :cond_7
 
     const/4 v5, 0x0
 
@@ -9587,14 +14341,14 @@
 
     add-int/lit8 v7, v7, 0x1
 
-    goto/16 :goto_3
+    goto :goto_3
 
-    :cond_8
+    :cond_7
     const/4 v5, 0x1
 
     goto :goto_e
 
-    :cond_9
+    :cond_8
     new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$XSFacetImpl;
 
     iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinLength:I
@@ -9609,7 +14363,7 @@
 
     and-int/lit8 v1, v1, 0x2
 
-    if-nez v1, :cond_a
+    if-nez v1, :cond_9
 
     const/4 v5, 0x0
 
@@ -9628,12 +14382,12 @@
 
     goto/16 :goto_4
 
-    :cond_a
+    :cond_9
     const/4 v5, 0x1
 
     goto :goto_f
 
-    :cond_b
+    :cond_a
     new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$XSFacetImpl;
 
     iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxLength:I
@@ -9648,7 +14402,7 @@
 
     and-int/lit8 v1, v1, 0x4
 
-    if-nez v1, :cond_c
+    if-nez v1, :cond_b
 
     const/4 v5, 0x0
 
@@ -9667,12 +14421,12 @@
 
     goto/16 :goto_5
 
-    :cond_c
+    :cond_b
     const/4 v5, 0x1
 
     goto :goto_10
 
-    :cond_d
+    :cond_c
     new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$XSFacetImpl;
 
     iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTotalDigits:I
@@ -9687,7 +14441,7 @@
 
     and-int/lit16 v1, v1, 0x200
 
-    if-nez v1, :cond_e
+    if-nez v1, :cond_d
 
     const/4 v5, 0x0
 
@@ -9706,12 +14460,12 @@
 
     goto/16 :goto_6
 
-    :cond_e
+    :cond_d
     const/4 v5, 0x1
 
     goto :goto_11
 
-    :cond_f
+    :cond_e
     new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$XSFacetImpl;
 
     const-string/jumbo v2, "0"
@@ -9734,7 +14488,7 @@
 
     goto/16 :goto_7
 
-    :cond_10
+    :cond_f
     new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$XSFacetImpl;
 
     iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFractionDigits:I
@@ -9749,7 +14503,7 @@
 
     and-int/lit16 v1, v1, 0x400
 
-    if-nez v1, :cond_11
+    if-nez v1, :cond_10
 
     const/4 v5, 0x0
 
@@ -9768,12 +14522,12 @@
 
     goto/16 :goto_7
 
-    :cond_11
+    :cond_10
     const/4 v5, 0x1
 
     goto :goto_12
 
-    :cond_12
+    :cond_11
     new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$XSFacetImpl;
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxInclusive:Ljava/lang/Object;
@@ -9790,7 +14544,7 @@
 
     and-int/lit8 v1, v1, 0x20
 
-    if-nez v1, :cond_13
+    if-nez v1, :cond_12
 
     const/4 v5, 0x0
 
@@ -9807,12 +14561,12 @@
 
     goto/16 :goto_8
 
-    :cond_13
+    :cond_12
     const/4 v5, 0x1
 
     goto :goto_13
 
-    :cond_14
+    :cond_13
     new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$XSFacetImpl;
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMaxExclusive:Ljava/lang/Object;
@@ -9829,7 +14583,7 @@
 
     and-int/lit8 v1, v1, 0x40
 
-    if-nez v1, :cond_15
+    if-nez v1, :cond_14
 
     const/4 v5, 0x0
 
@@ -9846,12 +14600,12 @@
 
     goto/16 :goto_9
 
-    :cond_15
+    :cond_14
     const/4 v5, 0x1
 
     goto :goto_14
 
-    :cond_16
+    :cond_15
     new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$XSFacetImpl;
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinExclusive:Ljava/lang/Object;
@@ -9868,7 +14622,7 @@
 
     and-int/lit16 v1, v1, 0x80
 
-    if-nez v1, :cond_17
+    if-nez v1, :cond_16
 
     const/4 v5, 0x0
 
@@ -9885,12 +14639,12 @@
 
     goto/16 :goto_a
 
-    :cond_17
+    :cond_16
     const/4 v5, 0x1
 
     goto :goto_15
 
-    :cond_18
+    :cond_17
     new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$XSFacetImpl;
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMinInclusive:Ljava/lang/Object;
@@ -9907,7 +14661,7 @@
 
     and-int/lit16 v1, v1, 0x100
 
-    if-nez v1, :cond_19
+    if-nez v1, :cond_18
 
     const/4 v5, 0x0
 
@@ -9924,19 +14678,19 @@
 
     goto/16 :goto_b
 
-    :cond_19
+    :cond_18
     const/4 v5, 0x1
 
     goto :goto_16
 
-    :cond_1a
+    :cond_19
     new-instance v0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
     invoke-direct {v0, v8, v7}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;-><init>([Lmf/org/apache/xerces/xs/XSObject;I)V
 
     goto/16 :goto_c
 
-    :cond_1b
+    :cond_1a
     iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacets:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
     goto/16 :goto_1
@@ -10003,19 +14757,19 @@
 .method public getLexicalEnumeration()Lmf/org/apache/xerces/xs/StringList;
     .locals 4
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLexicalEnumeration:Lmf/org/apache/xerces/xs/StringList;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLexicalEnumeration:Lmf/org/apache/xerces/xs/StringList;
 
-    if-eqz v0, :cond_0
+    if-eqz v3, :cond_0
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLexicalEnumeration:Lmf/org/apache/xerces/xs/StringList;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLexicalEnumeration:Lmf/org/apache/xerces/xs/StringList;
 
-    return-object v0
+    return-object v3
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumeration:[Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumeration:[Lmf/org/apache/xerces/impl/dv/ValidatedInfo;
 
-    if-eqz v0, :cond_1
+    if-eqz v3, :cond_1
 
     iget v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEnumerationSize:I
 
@@ -10039,16 +14793,16 @@
     goto :goto_1
 
     :cond_1
-    sget-object v0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->EMPTY_LIST:Lmf/org/apache/xerces/impl/xs/util/StringListImpl;
+    sget-object v3, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->EMPTY_LIST:Lmf/org/apache/xerces/impl/xs/util/StringListImpl;
 
-    return-object v0
+    return-object v3
 
     :cond_2
-    new-instance v0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;
+    new-instance v3, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;
 
-    invoke-direct {v0, v2, v1}, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;-><init>([Ljava/lang/String;I)V
+    invoke-direct {v3, v2, v1}, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;-><init>([Ljava/lang/String;I)V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLexicalEnumeration:Lmf/org/apache/xerces/xs/StringList;
+    iput-object v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLexicalEnumeration:Lmf/org/apache/xerces/xs/StringList;
 
     goto :goto_0
 .end method
@@ -10242,167 +14996,153 @@
 .end method
 
 .method public getLexicalPattern()Lmf/org/apache/xerces/xs/StringList;
-    .locals 5
+    .locals 6
 
-    const/16 v4, 0x18
+    const/16 v5, 0x18
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
+    iget-short v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
 
-    if-eqz v0, :cond_1
+    if-eqz v3, :cond_1
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLexicalPattern:Lmf/org/apache/xerces/xs/StringList;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLexicalPattern:Lmf/org/apache/xerces/xs/StringList;
 
-    if-eqz v0, :cond_2
+    if-eqz v3, :cond_2
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLexicalPattern:Lmf/org/apache/xerces/xs/StringList;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLexicalPattern:Lmf/org/apache/xerces/xs/StringList;
 
-    return-object v0
+    return-object v3
 
     :cond_1
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    iget-short v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
-    if-eq v0, v4, :cond_0
+    if-eq v3, v5, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternStr:Ljava/util/Vector;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternStr:Ljava/util/Vector;
 
-    if-nez v0, :cond_0
+    if-nez v3, :cond_0
 
-    sget-object v0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->EMPTY_LIST:Lmf/org/apache/xerces/impl/xs/util/StringListImpl;
+    sget-object v3, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;->EMPTY_LIST:Lmf/org/apache/xerces/impl/xs/util/StringListImpl;
 
-    return-object v0
+    return-object v3
 
     :cond_2
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternStr:Ljava/util/Vector;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternStr:Ljava/util/Vector;
 
-    if-eqz v0, :cond_3
+    if-eqz v3, :cond_3
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternStr:Ljava/util/Vector;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternStr:Ljava/util/Vector;
 
-    invoke-virtual {v0}, Ljava/util/Vector;->size()I
+    invoke-virtual {v3}, Ljava/util/Vector;->size()I
 
-    move-result v0
+    move-result v1
 
-    move v1, v0
+    :cond_3
+    iget-short v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
+
+    const/4 v4, 0x1
+
+    if-eq v3, v4, :cond_4
+
+    iget-short v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
+
+    const/4 v4, 0x2
+
+    if-eq v3, v4, :cond_5
+
+    iget-short v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
+
+    const/4 v4, 0x3
+
+    if-eq v3, v4, :cond_6
+
+    iget-short v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+
+    if-eq v3, v5, :cond_7
+
+    new-array v2, v1, [Ljava/lang/String;
 
     :goto_1
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
-
-    const/4 v3, 0x1
-
-    if-eq v0, v3, :cond_4
-
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
-
-    const/4 v3, 0x2
-
-    if-eq v0, v3, :cond_5
-
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
-
-    const/4 v3, 0x3
-
-    if-eq v0, v3, :cond_6
-
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
-
-    if-eq v0, v4, :cond_7
-
-    new-array v0, v1, [Ljava/lang/String;
-
-    move-object v3, v0
+    const/4 v0, 0x0
 
     :goto_2
-    if-ge v2, v1, :cond_8
+    if-ge v0, v1, :cond_8
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternStr:Ljava/util/Vector;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternStr:Ljava/util/Vector;
 
-    invoke-virtual {v0, v2}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v3, v0}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v3
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v3, Ljava/lang/String;
 
-    aput-object v0, v3, v2
+    aput-object v3, v2, v0
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_2
 
-    :cond_3
-    move v1, v2
-
-    goto :goto_1
-
     :cond_4
-    add-int/lit8 v0, v1, 0x1
+    add-int/lit8 v3, v1, 0x1
 
-    new-array v0, v0, [Ljava/lang/String;
+    new-array v2, v3, [Ljava/lang/String;
 
     const-string/jumbo v3, "\\c+"
 
-    aput-object v3, v0, v1
+    aput-object v3, v2, v1
 
-    move-object v3, v0
-
-    goto :goto_2
+    goto :goto_1
 
     :cond_5
-    add-int/lit8 v0, v1, 0x1
+    add-int/lit8 v3, v1, 0x1
 
-    new-array v0, v0, [Ljava/lang/String;
+    new-array v2, v3, [Ljava/lang/String;
 
     const-string/jumbo v3, "\\i\\c*"
 
-    aput-object v3, v0, v1
+    aput-object v3, v2, v1
 
-    move-object v3, v0
-
-    goto :goto_2
+    goto :goto_1
 
     :cond_6
-    add-int/lit8 v0, v1, 0x2
+    add-int/lit8 v3, v1, 0x2
 
-    new-array v0, v0, [Ljava/lang/String;
+    new-array v2, v3, [Ljava/lang/String;
 
     const-string/jumbo v3, "\\i\\c*"
 
-    aput-object v3, v0, v1
+    aput-object v3, v2, v1
 
     add-int/lit8 v3, v1, 0x1
 
     const-string/jumbo v4, "[\\i-[:]][\\c-[:]]*"
 
-    aput-object v4, v0, v3
+    aput-object v4, v2, v3
 
-    move-object v3, v0
-
-    goto :goto_2
+    goto :goto_1
 
     :cond_7
-    add-int/lit8 v0, v1, 0x1
+    add-int/lit8 v3, v1, 0x1
 
-    new-array v0, v0, [Ljava/lang/String;
+    new-array v2, v3, [Ljava/lang/String;
 
     const-string/jumbo v3, "[\\-+]?[0-9]+"
 
-    aput-object v3, v0, v1
+    aput-object v3, v2, v1
 
-    move-object v3, v0
-
-    goto :goto_2
+    goto :goto_1
 
     :cond_8
-    new-instance v0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;
+    new-instance v3, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;
 
-    array-length v1, v3
+    array-length v4, v2
 
-    invoke-direct {v0, v3, v1}, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;-><init>([Ljava/lang/String;I)V
+    invoke-direct {v3, v2, v4}, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;-><init>([Ljava/lang/String;I)V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLexicalPattern:Lmf/org/apache/xerces/xs/StringList;
+    iput-object v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fLexicalPattern:Lmf/org/apache/xerces/xs/StringList;
 
     goto :goto_0
 .end method
@@ -10467,39 +15207,41 @@
 .end method
 
 .method public getMultiValueFacets()Lmf/org/apache/xerces/xs/XSObjectList;
-    .locals 7
+    .locals 8
 
     const/16 v3, 0x18
 
+    const/4 v7, 0x0
+
     const/4 v6, 0x0
 
-    const/4 v0, 0x0
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMultiValueFacets:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMultiValueFacets:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
-
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMultiValueFacets:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMultiValueFacets:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
-    if-nez v0, :cond_6
+    if-nez v2, :cond_6
 
-    sget-object v0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->EMPTY_LIST:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+    sget-object v2, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->EMPTY_LIST:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
     :goto_1
-    return-object v0
+    return-object v2
 
     :cond_0
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    and-int/lit16 v1, v1, 0x800
+    and-int/lit16 v2, v2, 0x800
 
-    if-eqz v1, :cond_3
+    if-eqz v2, :cond_3
 
     :cond_1
-    const/4 v1, 0x2
+    const/4 v2, 0x2
 
-    new-array v1, v1, [Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$XSMVFacetImpl;
+    new-array v1, v2, [Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$XSMVFacetImpl;
+
+    const/4 v0, 0x0
 
     iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
@@ -10518,9 +15260,9 @@
 
     const/16 v5, 0x8
 
-    invoke-direct {v2, v5, v3, v6, v4}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$XSMVFacetImpl;-><init>(SLmf/org/apache/xerces/xs/StringList;Lmf/org/apache/xerces/xs/datatypes/ObjectList;Lmf/org/apache/xerces/xs/XSObjectList;)V
+    invoke-direct {v2, v5, v3, v7, v4}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl$XSMVFacetImpl;-><init>(SLmf/org/apache/xerces/xs/StringList;Lmf/org/apache/xerces/xs/datatypes/ObjectList;Lmf/org/apache/xerces/xs/XSObjectList;)V
 
-    aput-object v2, v1, v0
+    aput-object v2, v1, v6
 
     const/4 v0, 0x1
 
@@ -10539,19 +15281,19 @@
     goto :goto_0
 
     :cond_3
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    and-int/lit8 v1, v1, 0x8
+    and-int/lit8 v2, v2, 0x8
 
-    if-nez v1, :cond_1
+    if-nez v2, :cond_1
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
+    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fPatternType:S
 
-    if-nez v1, :cond_1
+    if-nez v2, :cond_1
 
-    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
-    if-eq v1, v3, :cond_1
+    if-eq v2, v3, :cond_1
 
     goto :goto_0
 
@@ -10594,7 +15336,7 @@
     goto :goto_3
 
     :cond_6
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMultiValueFacets:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMultiValueFacets:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
     goto :goto_1
 .end method
@@ -10709,37 +15451,39 @@
 .end method
 
 .method public getPrimitiveType()Lmf/org/apache/xerces/xs/XSSimpleTypeDefinition;
-    .locals 2
+    .locals 3
 
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
+    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    if-eq v0, v1, :cond_1
+    if-eq v1, v2, :cond_1
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 
     :cond_1
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
+
+    move-object v0, p0
 
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v1, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    sget-object v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fAnySimpleType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    sget-object v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fAnySimpleType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    if-eq v0, v1, :cond_2
+    if-eq v1, v2, :cond_2
 
-    iget-object p0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fBase:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
     goto :goto_0
 
     :cond_2
-    return-object p0
+    return-object v0
 .end method
 
 .method public getType()S
@@ -10792,7 +15536,7 @@
 .end method
 
 .method public getWhitespace()S
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/dv/DatatypeException;
@@ -10812,19 +15556,19 @@
     :cond_0
     new-instance v0, Lmf/org/apache/xerces/impl/dv/DatatypeException;
 
-    const-string/jumbo v1, "dt-whitespace"
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
 
     const/4 v3, 0x0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fTypeName:Ljava/lang/String;
+    aput-object v2, v1, v3
 
-    aput-object v4, v2, v3
+    const-string/jumbo v2, "dt-whitespace"
 
-    invoke-direct {v0, v1, v2}, Lmf/org/apache/xerces/impl/dv/DatatypeException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v0, v2, v1}, Lmf/org/apache/xerces/impl/dv/DatatypeException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
     throw v0
 .end method
@@ -11109,66 +15853,66 @@
 .end method
 
 .method public isIDType()Z
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
+    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fVariety:S
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v1, :pswitch_data_0
 
     :cond_0
-    return v1
+    return v3
 
     :pswitch_0
-    iget-short v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    iget-short v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
     const/16 v2, 0x15
 
-    if-eq v0, v2, :cond_1
+    if-eq v1, v2, :cond_1
+
+    return v3
+
+    :cond_1
+    return v4
+
+    :pswitch_1
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fItemType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+
+    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->isIDType()Z
+
+    move-result v1
 
     return v1
 
-    :cond_1
-    return v3
-
-    :pswitch_1
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fItemType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->isIDType()Z
-
-    move-result v0
-
-    return v0
-
     :pswitch_2
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_0
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    array-length v2, v2
+    array-length v1, v1
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v1, :cond_0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fMemberTypes:[Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    aget-object v2, v2, v0
+    aget-object v1, v1, v0
 
-    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->isIDType()Z
+    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->isIDType()Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_2
+    if-nez v1, :cond_2
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_2
-    return v3
+    return v4
 
     nop
 
@@ -11204,34 +15948,26 @@
 .end method
 
 .method protected normalize(Ljava/lang/Object;S)Ljava/lang/String;
-    .locals 10
-
-    const/16 v9, 0xa
-
-    const/16 v8, 0x9
-
-    const/4 v0, 0x1
-
-    const/16 v7, 0x20
-
-    const/4 v1, 0x0
+    .locals 11
 
     if-eqz p1, :cond_3
 
-    iget-short v2, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
+    iget-short v9, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fFacetsDefined:S
 
-    and-int/lit8 v2, v2, 0x8
+    and-int/lit8 v9, v9, 0x8
 
-    if-eqz v2, :cond_4
+    if-eqz v9, :cond_4
 
     :cond_0
-    instance-of v2, p1, Ljava/lang/StringBuffer;
+    instance-of v9, p1, Ljava/lang/StringBuffer;
 
-    if-eqz v2, :cond_6
+    if-eqz v9, :cond_6
 
-    check-cast p1, Ljava/lang/StringBuffer;
+    move-object v7, p1
 
-    invoke-virtual {p1}, Ljava/lang/StringBuffer;->length()I
+    check-cast v7, Ljava/lang/StringBuffer;
+
+    invoke-virtual {v7}, Ljava/lang/StringBuffer;->length()I
 
     move-result v5
 
@@ -11239,191 +15975,212 @@
 
     if-eqz p2, :cond_8
 
-    if-eq p2, v0, :cond_a
+    const/4 v9, 0x1
 
-    move v2, v1
+    if-eq p2, v9, :cond_9
 
-    move v3, v1
+    const/4 v3, 0x0
+
+    const/4 v2, 0x1
+
+    const/4 v1, 0x0
+
+    move v4, v3
 
     :goto_0
-    if-ge v3, v5, :cond_12
+    if-ge v1, v5, :cond_11
 
-    invoke-virtual {p1, v3}, Ljava/lang/StringBuffer;->charAt(I)C
+    invoke-virtual {v7, v1}, Ljava/lang/StringBuffer;->charAt(I)C
 
-    move-result v4
+    move-result v0
 
-    if-ne v4, v8, :cond_d
+    const/16 v9, 0x9
+
+    if-ne v0, v9, :cond_c
 
     :cond_1
-    move v4, v3
-
     :goto_1
-    add-int/lit8 v3, v5, -0x1
+    add-int/lit8 v9, v5, -0x1
 
-    if-ge v4, v3, :cond_f
+    if-ge v1, v9, :cond_e
 
-    add-int/lit8 v3, v4, 0x1
+    add-int/lit8 v9, v1, 0x1
 
-    invoke-virtual {p1, v3}, Ljava/lang/StringBuffer;->charAt(I)C
+    invoke-virtual {v7, v9}, Ljava/lang/StringBuffer;->charAt(I)C
 
-    move-result v3
+    move-result v0
 
-    if-ne v3, v8, :cond_e
+    const/16 v9, 0x9
+
+    if-ne v0, v9, :cond_d
 
     :cond_2
-    add-int/lit8 v3, v4, 0x1
-
-    move v4, v3
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
     :cond_3
-    const/4 v0, 0x0
+    const/4 v9, 0x0
 
-    return-object v0
+    return-object v9
 
     :cond_4
-    sget-object v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVNormalizeType:[S
+    sget-object v9, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fDVNormalizeType:[S
 
-    iget-short v3, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
+    iget-short v10, p0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fValidationDV:S
 
-    aget-short v2, v2, v3
+    aget-short v6, v9, v10
 
-    if-eqz v2, :cond_5
+    if-eqz v6, :cond_5
 
-    if-ne v2, v0, :cond_0
+    const/4 v9, 0x1
+
+    if-ne v6, v9, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v9
 
-    invoke-static {v0}, Lmf/org/apache/xerces/util/XMLChar;->trim(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v9}, Lmf/org/apache/xerces/util/XMLChar;->trim(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v9
 
-    return-object v0
+    return-object v9
 
     :cond_5
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v9
 
-    return-object v0
+    return-object v9
 
     :cond_6
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v8
 
-    invoke-static {v0, p2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->normalize(Ljava/lang/String;S)Ljava/lang/String;
+    invoke-static {v8, p2}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->normalize(Ljava/lang/String;S)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v9
 
-    return-object v0
+    return-object v9
 
     :cond_7
-    const-string/jumbo v0, ""
+    const-string/jumbo v9, ""
 
-    return-object v0
+    return-object v9
 
     :cond_8
-    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v9
 
-    return-object v0
+    return-object v9
 
     :cond_9
-    const/16 v2, 0xd
-
-    if-eq v0, v2, :cond_b
+    const/4 v1, 0x0
 
     :goto_2
-    add-int/lit8 v1, v1, 0x1
+    if-ge v1, v5, :cond_12
 
-    :cond_a
-    if-ge v1, v5, :cond_13
-
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuffer;->charAt(I)C
+    invoke-virtual {v7, v1}, Ljava/lang/StringBuffer;->charAt(I)C
 
     move-result v0
 
-    if-ne v0, v8, :cond_c
+    const/16 v9, 0x9
 
-    :cond_b
+    if-ne v0, v9, :cond_b
+
+    :cond_a
+    const/16 v9, 0x20
+
+    invoke-virtual {v7, v1, v9}, Ljava/lang/StringBuffer;->setCharAt(IC)V
+
     :goto_3
-    invoke-virtual {p1, v1, v7}, Ljava/lang/StringBuffer;->setCharAt(IC)V
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_2
 
-    :cond_c
-    if-ne v0, v9, :cond_9
+    :cond_b
+    const/16 v9, 0xa
+
+    if-eq v0, v9, :cond_a
+
+    const/16 v9, 0xd
+
+    if-eq v0, v9, :cond_a
 
     goto :goto_3
 
-    :cond_d
-    if-eq v4, v9, :cond_1
+    :cond_c
+    const/16 v9, 0xa
 
-    const/16 v6, 0xd
+    if-eq v0, v9, :cond_1
 
-    if-eq v4, v6, :cond_1
+    const/16 v9, 0xd
 
-    if-eq v4, v7, :cond_1
+    if-eq v0, v9, :cond_1
 
-    add-int/lit8 v0, v2, 0x1
+    const/16 v9, 0x20
 
-    invoke-virtual {p1, v2, v4}, Ljava/lang/StringBuffer;->setCharAt(IC)V
+    if-eq v0, v9, :cond_1
 
-    move v2, v0
+    add-int/lit8 v3, v4, 0x1
 
-    move v0, v1
+    invoke-virtual {v7, v4, v0}, Ljava/lang/StringBuffer;->setCharAt(IC)V
+
+    const/4 v2, 0x0
 
     :goto_4
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v1, v1, 0x1
+
+    move v4, v3
 
     goto :goto_0
 
+    :cond_d
+    const/16 v9, 0xa
+
+    if-eq v0, v9, :cond_2
+
+    const/16 v9, 0xd
+
+    if-eq v0, v9, :cond_2
+
+    const/16 v9, 0x20
+
+    if-eq v0, v9, :cond_2
+
     :cond_e
-    if-eq v3, v9, :cond_2
+    add-int/lit8 v9, v5, -0x1
 
-    const/16 v6, 0xd
-
-    if-eq v3, v6, :cond_2
-
-    if-eq v3, v7, :cond_2
+    if-lt v1, v9, :cond_10
 
     :cond_f
-    add-int/lit8 v3, v5, -0x1
+    move v3, v4
 
-    if-lt v4, v3, :cond_11
+    goto :goto_4
 
     :cond_10
-    move v3, v4
+    if-nez v2, :cond_f
+
+    add-int/lit8 v3, v4, 0x1
+
+    const/16 v9, 0x20
+
+    invoke-virtual {v7, v4, v9}, Ljava/lang/StringBuffer;->setCharAt(IC)V
 
     goto :goto_4
 
     :cond_11
-    if-nez v0, :cond_10
-
-    add-int/lit8 v3, v2, 0x1
-
-    invoke-virtual {p1, v2, v7}, Ljava/lang/StringBuffer;->setCharAt(IC)V
-
-    move v2, v3
-
-    move v3, v4
-
-    goto :goto_4
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuffer;->setLength(I)V
 
     :cond_12
-    invoke-virtual {p1, v2}, Ljava/lang/StringBuffer;->setLength(I)V
+    invoke-virtual {v7}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    :cond_13
-    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    move-result-object v9
 
-    move-result-object v0
-
-    return-object v0
+    return-object v9
 .end method
 
 .method reportError(Ljava/lang/String;[Ljava/lang/Object;)V
@@ -11915,7 +16672,7 @@
 .end method
 
 .method public validate(Ljava/lang/Object;Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)Ljava/lang/Object;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
@@ -11924,14 +16681,14 @@
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     if-eqz p2, :cond_1
 
     :goto_0
     if-eqz p3, :cond_2
 
-    iput-object v1, p3, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->memberType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+    iput-object v2, p3, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->memberType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
 
     :goto_1
     if-nez p2, :cond_3
@@ -11942,11 +16699,11 @@
     :cond_0
     invoke-direct {p0, p1, p2, p3, v0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getActualValue(Ljava/lang/Object;Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;Z)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
     invoke-virtual {p0, p2, p3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->validate(Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)V
 
-    return-object v0
+    return-object v1
 
     :cond_1
     sget-object p2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEmptyContext:Lmf/org/apache/xerces/impl/dv/ValidationContext;
@@ -11963,15 +16720,15 @@
     :cond_3
     invoke-interface {p2}, Lmf/org/apache/xerces/impl/dv/ValidationContext;->needToNormalize()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
     goto :goto_2
 .end method
 
 .method public validate(Ljava/lang/String;Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)Ljava/lang/Object;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/impl/dv/InvalidDatatypeValueException;
@@ -11980,14 +16737,14 @@
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     if-eqz p2, :cond_1
 
     :goto_0
     if-eqz p3, :cond_2
 
-    iput-object v1, p3, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->memberType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
+    iput-object v2, p3, Lmf/org/apache/xerces/impl/dv/ValidatedInfo;->memberType:Lmf/org/apache/xerces/impl/dv/XSSimpleType;
 
     :goto_1
     if-nez p2, :cond_3
@@ -11998,11 +16755,11 @@
     :cond_0
     invoke-direct {p0, p1, p2, p3, v0}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->getActualValue(Ljava/lang/Object;Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;Z)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
     invoke-virtual {p0, p2, p3}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->validate(Lmf/org/apache/xerces/impl/dv/ValidationContext;Lmf/org/apache/xerces/impl/dv/ValidatedInfo;)V
 
-    return-object v0
+    return-object v1
 
     :cond_1
     sget-object p2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fEmptyContext:Lmf/org/apache/xerces/impl/dv/ValidationContext;
@@ -12019,9 +16776,9 @@
     :cond_3
     invoke-interface {p2}, Lmf/org/apache/xerces/impl/dv/ValidationContext;->needToNormalize()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
     goto :goto_2
 .end method

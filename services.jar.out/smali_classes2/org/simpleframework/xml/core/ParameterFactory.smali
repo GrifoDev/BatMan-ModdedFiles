@@ -38,7 +38,7 @@
         }
     .end annotation
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     instance-of v0, p1, Lorg/simpleframework/xml/Element;
 
@@ -78,15 +78,15 @@
 
     new-instance v0, Lorg/simpleframework/xml/core/PersistenceException;
 
-    const-string/jumbo v1, "Annotation %s not supported"
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    aput-object p1, v1, v2
 
-    aput-object p1, v2, v3
+    const-string/jumbo v2, "Annotation %s not supported"
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/core/PersistenceException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v0, v2, v1}, Lorg/simpleframework/xml/core/PersistenceException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
     throw v0
 
@@ -197,7 +197,7 @@
 .end method
 
 .method private getConstructor(Ljava/lang/annotation/Annotation;)Ljava/lang/reflect/Constructor;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -210,21 +210,21 @@
 
     invoke-virtual {v0}, Lorg/simpleframework/xml/core/ParameterFactory$ParameterBuilder;->getConstructor()Ljava/lang/reflect/Constructor;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Ljava/lang/reflect/Constructor;->isAccessible()Z
+    invoke-virtual {v1}, Ljava/lang/reflect/Constructor;->isAccessible()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
     :goto_0
-    return-object v0
+    return-object v1
 
     :cond_0
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->setAccessible(Z)V
+    invoke-virtual {v1, v2}, Ljava/lang/reflect/Constructor;->setAccessible(Z)V
 
     goto :goto_0
 .end method
@@ -290,11 +290,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lorg/simpleframework/xml/core/Parameter;
+    check-cast v1, Lorg/simpleframework/xml/core/Parameter;
 
-    return-object v0
+    return-object v1
 
     :cond_0
     const/4 v1, 0x5
@@ -319,9 +319,9 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lorg/simpleframework/xml/core/Parameter;
+    check-cast v1, Lorg/simpleframework/xml/core/Parameter;
 
-    return-object v0
+    return-object v1
 .end method

@@ -31,7 +31,7 @@
 .end method
 
 .method public static main([Ljava/lang/String;)V
-    .locals 13
+    .locals 30
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;,
@@ -39,1026 +39,1195 @@
         }
     .end annotation
 
-    const/4 v2, 0x1
+    const/4 v10, 0x0
 
-    const/4 v8, 0x0
+    new-instance v7, Ljava/util/Vector;
 
-    const/4 v9, 0x0
+    invoke-direct {v7}, Ljava/util/Vector;-><init>()V
 
-    new-instance v10, Ljava/util/Vector;
+    const/16 v18, 0x0
 
-    invoke-direct {v10}, Ljava/util/Vector;-><init>()V
+    const/16 v19, 0x0
 
-    move v0, v8
+    const/16 v16, 0x0
 
-    move v1, v8
+    const/16 v17, 0x0
 
-    move-object v3, v9
+    const/16 v24, 0x0
 
-    move-object v4, v9
+    const/16 v25, 0x0
 
-    move-object v5, v9
+    const/4 v5, 0x0
 
-    move-object v6, v9
-
-    move-object v7, v9
+    const/4 v15, 0x0
 
     :goto_0
-    array-length v11, p0
+    move-object/from16 v0, p0
 
-    if-ge v0, v11, :cond_8
+    array-length v0, v0
 
-    aget-object v11, p0, v0
+    move/from16 v27, v0
 
-    const-string/jumbo v12, "-c"
+    move/from16 v0, v27
 
-    invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-ge v15, v0, :cond_8
 
-    move-result v11
+    aget-object v27, p0, v15
 
-    if-nez v11, :cond_1
+    const-string/jumbo v28, "-c"
 
-    aget-object v11, p0, v0
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v12, "-p"
+    move-result v27
 
-    invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-nez v27, :cond_1
 
-    move-result v11
+    aget-object v27, p0, v15
 
-    if-nez v11, :cond_2
+    const-string/jumbo v28, "-p"
 
-    aget-object v11, p0, v0
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v12, "-s"
+    move-result v27
 
-    invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-nez v27, :cond_2
 
-    move-result v11
+    aget-object v27, p0, v15
 
-    if-nez v11, :cond_3
+    const-string/jumbo v28, "-s"
 
-    aget-object v11, p0, v0
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v12, "-n"
+    move-result v27
 
-    invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-nez v27, :cond_3
 
-    move-result v11
+    aget-object v27, p0, v15
 
-    if-nez v11, :cond_4
+    const-string/jumbo v28, "-n"
 
-    aget-object v11, p0, v0
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v12, "-u"
+    move-result v27
 
-    invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-nez v27, :cond_4
 
-    move-result v11
+    aget-object v27, p0, v15
 
-    if-nez v11, :cond_5
+    const-string/jumbo v28, "-u"
 
-    aget-object v11, p0, v0
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v12, "-a"
+    move-result v27
 
-    invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-nez v27, :cond_5
 
-    move-result v11
+    aget-object v27, p0, v15
 
-    if-nez v11, :cond_6
+    const-string/jumbo v28, "-a"
 
-    aget-object v11, p0, v0
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v12, "-d"
+    move-result v27
 
-    invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-nez v27, :cond_6
 
-    move-result v11
+    aget-object v27, p0, v15
 
-    if-nez v11, :cond_7
+    const-string/jumbo v28, "-d"
 
-    aget-object v7, p0, v0
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v27
+
+    if-nez v27, :cond_7
+
+    aget-object v19, p0, v15
 
     :cond_0
     :goto_1
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v15, v15, 0x1
 
     goto :goto_0
 
     :cond_1
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v15, v15, 0x1
 
-    aget-object v11, p0, v0
+    aget-object v27, p0, v15
 
-    invoke-virtual {v10, v11}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
+    move-object/from16 v0, v27
+
+    invoke-virtual {v7, v0}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
     :cond_2
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v15, v15, 0x1
 
-    aget-object v5, p0, v0
+    aget-object v17, p0, v15
 
     goto :goto_1
 
     :cond_3
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v15, v15, 0x1
 
-    aget-object v4, p0, v0
+    aget-object v24, p0, v15
 
     goto :goto_1
 
     :cond_4
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v15, v15, 0x1
 
-    aget-object v6, p0, v0
+    aget-object v16, p0, v15
 
     goto :goto_1
 
     :cond_5
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v15, v15, 0x1
 
-    aget-object v3, p0, v0
+    aget-object v25, p0, v15
 
     goto :goto_1
 
     :cond_6
-    move v1, v2
+    const/4 v5, 0x1
 
     goto :goto_1
 
     :cond_7
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v15, v15, 0x1
 
-    aget-object v11, p0, v0
+    aget-object v11, p0, v15
 
     :try_start_0
     invoke-static {v11}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v11
+    move-result v10
 
-    if-lez v11, :cond_0
+    if-lez v10, :cond_0
 
-    sget-object v12, Lmf/org/apache/xml/resolver/apps/resolver;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    sget-object v27, Lmf/org/apache/xml/resolver/apps/resolver;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    invoke-virtual {v12, v11}, Lmf/org/apache/xml/resolver/helpers/Debug;->setDebug(I)V
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v10}, Lmf/org/apache/xml/resolver/helpers/Debug;->setDebug(I)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_1
 
     :catch_0
-    move-exception v11
+    move-exception v4
 
     goto :goto_1
 
     :cond_8
-    if-eqz v7, :cond_9
+    if-eqz v19, :cond_a
 
     :goto_2
-    const-string/jumbo v0, "doctype"
+    const-string/jumbo v27, "doctype"
 
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-object/from16 v0, v19
 
-    move-result v0
+    move-object/from16 v1, v27
 
-    if-nez v0, :cond_a
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    const-string/jumbo v0, "document"
+    move-result v27
 
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    if-nez v27, :cond_b
 
-    move-result v0
+    const-string/jumbo v27, "document"
 
-    if-nez v0, :cond_d
+    move-object/from16 v0, v19
 
-    const-string/jumbo v0, "entity"
+    move-object/from16 v1, v27
 
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v27
 
-    if-nez v0, :cond_e
+    if-nez v27, :cond_c
 
-    const-string/jumbo v0, "notation"
+    const-string/jumbo v27, "entity"
 
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-object/from16 v0, v19
 
-    move-result v0
+    move-object/from16 v1, v27
 
-    if-nez v0, :cond_11
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    const-string/jumbo v0, "public"
+    move-result v27
 
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    if-nez v27, :cond_d
 
-    move-result v0
+    const-string/jumbo v27, "notation"
 
-    if-nez v0, :cond_14
+    move-object/from16 v0, v19
 
-    const-string/jumbo v0, "system"
+    move-object/from16 v1, v27
 
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v27
 
-    if-nez v0, :cond_16
+    if-nez v27, :cond_e
 
-    const-string/jumbo v0, "uri"
+    const-string/jumbo v27, "public"
 
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-object/from16 v0, v19
 
-    move-result v0
+    move-object/from16 v1, v27
 
-    if-nez v0, :cond_18
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    move-result v27
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    if-nez v27, :cond_f
 
-    invoke-static {v7}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    const-string/jumbo v27, "system"
 
-    move-result-object v7
+    move-object/from16 v0, v19
 
-    invoke-direct {v11, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    move-object/from16 v1, v27
 
-    const-string/jumbo v7, " is not a recognized keyword."
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v11, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v27
 
-    move-result-object v7
+    if-nez v27, :cond_10
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v27, "uri"
 
-    move-result-object v7
+    move-object/from16 v0, v19
 
-    invoke-virtual {v0, v7}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    move-object/from16 v1, v27
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v27
+
+    if-nez v27, :cond_11
+
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    new-instance v28, Ljava/lang/StringBuilder;
+
+    invoke-static/range {v19 .. v19}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v29
+
+    invoke-direct/range {v28 .. v29}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v29, " is not a recognized keyword."
+
+    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v28
+
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v28
+
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     invoke-static {}, Lmf/org/apache/xml/resolver/apps/resolver;->usage()V
 
-    move v7, v8
-
+    :cond_9
     :goto_3
-    if-nez v1, :cond_1a
+    if-nez v5, :cond_12
 
     :goto_4
-    new-instance v0, Lmf/org/apache/xml/resolver/tools/CatalogResolver;
+    new-instance v8, Lmf/org/apache/xml/resolver/tools/CatalogResolver;
 
-    invoke-direct {v0}, Lmf/org/apache/xml/resolver/tools/CatalogResolver;-><init>()V
+    invoke-direct {v8}, Lmf/org/apache/xml/resolver/tools/CatalogResolver;-><init>()V
 
-    invoke-virtual {v0}, Lmf/org/apache/xml/resolver/tools/CatalogResolver;->getCatalog()Lmf/org/apache/xml/resolver/Catalog;
+    invoke-virtual {v8}, Lmf/org/apache/xml/resolver/tools/CatalogResolver;->getCatalog()Lmf/org/apache/xml/resolver/Catalog;
 
-    move-result-object v1
+    move-result-object v20
+
+    const/4 v9, 0x0
 
     :goto_5
-    invoke-virtual {v10}, Ljava/util/Vector;->size()I
+    invoke-virtual {v7}, Ljava/util/Vector;->size()I
 
-    move-result v0
+    move-result v27
 
-    if-ge v8, v0, :cond_1b
+    move/from16 v0, v27
 
-    invoke-virtual {v10, v8}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    if-ge v9, v0, :cond_13
 
-    move-result-object v0
+    invoke-virtual {v7, v9}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/String;
+    move-result-object v14
 
-    invoke-virtual {v1, v0}, Lmf/org/apache/xml/resolver/Catalog;->parseCatalog(Ljava/lang/String;)V
+    check-cast v14, Ljava/lang/String;
 
-    add-int/lit8 v8, v8, 0x1
+    move-object/from16 v0, v20
+
+    invoke-virtual {v0, v14}, Lmf/org/apache/xml/resolver/Catalog;->parseCatalog(Ljava/lang/String;)V
+
+    add-int/lit8 v9, v9, 0x1
 
     goto :goto_5
 
-    :cond_9
+    :cond_a
     invoke-static {}, Lmf/org/apache/xml/resolver/apps/resolver;->usage()V
 
-    goto :goto_2
-
-    :cond_a
-    sget v0, Lmf/org/apache/xml/resolver/Catalog;->DOCTYPE:I
-
-    if-eqz v5, :cond_c
+    goto/16 :goto_2
 
     :cond_b
-    move v7, v0
+    sget v18, Lmf/org/apache/xml/resolver/Catalog;->DOCTYPE:I
+
+    if-nez v17, :cond_9
+
+    if-nez v24, :cond_9
+
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    const-string/jumbo v28, "DOCTYPE requires public or system identifier."
+
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    invoke-static {}, Lmf/org/apache/xml/resolver/apps/resolver;->usage()V
 
     goto :goto_3
 
     :cond_c
-    if-nez v4, :cond_b
-
-    sget-object v7, Ljava/lang/System;->out:Ljava/io/PrintStream;
-
-    const-string/jumbo v11, "DOCTYPE requires public or system identifier."
-
-    invoke-virtual {v7, v11}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
-
-    invoke-static {}, Lmf/org/apache/xml/resolver/apps/resolver;->usage()V
-
-    move v7, v0
+    sget v18, Lmf/org/apache/xml/resolver/Catalog;->DOCUMENT:I
 
     goto :goto_3
 
     :cond_d
-    sget v0, Lmf/org/apache/xml/resolver/Catalog;->DOCUMENT:I
+    sget v18, Lmf/org/apache/xml/resolver/Catalog;->ENTITY:I
 
-    move v7, v0
+    if-nez v17, :cond_9
+
+    if-nez v24, :cond_9
+
+    if-nez v16, :cond_9
+
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    const-string/jumbo v28, "ENTITY requires name or public or system identifier."
+
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    invoke-static {}, Lmf/org/apache/xml/resolver/apps/resolver;->usage()V
 
     goto :goto_3
 
     :cond_e
-    sget v0, Lmf/org/apache/xml/resolver/Catalog;->ENTITY:I
+    sget v18, Lmf/org/apache/xml/resolver/Catalog;->NOTATION:I
 
-    if-eqz v5, :cond_10
+    if-nez v17, :cond_9
+
+    if-nez v24, :cond_9
+
+    if-nez v16, :cond_9
+
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    const-string/jumbo v28, "NOTATION requires name or public or system identifier."
+
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    invoke-static {}, Lmf/org/apache/xml/resolver/apps/resolver;->usage()V
+
+    goto :goto_3
 
     :cond_f
-    move v7, v0
+    sget v18, Lmf/org/apache/xml/resolver/Catalog;->PUBLIC:I
+
+    if-nez v17, :cond_9
+
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    const-string/jumbo v28, "PUBLIC requires public identifier."
+
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    invoke-static {}, Lmf/org/apache/xml/resolver/apps/resolver;->usage()V
 
     goto :goto_3
 
     :cond_10
-    if-nez v4, :cond_f
+    sget v18, Lmf/org/apache/xml/resolver/Catalog;->SYSTEM:I
 
-    if-nez v6, :cond_f
+    if-nez v24, :cond_9
 
-    sget-object v7, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    const-string/jumbo v11, "ENTITY requires name or public or system identifier."
+    const-string/jumbo v28, "SYSTEM requires system identifier."
 
-    invoke-virtual {v7, v11}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     invoke-static {}, Lmf/org/apache/xml/resolver/apps/resolver;->usage()V
 
-    move v7, v0
-
-    goto :goto_3
+    goto/16 :goto_3
 
     :cond_11
-    sget v0, Lmf/org/apache/xml/resolver/Catalog;->NOTATION:I
+    sget v18, Lmf/org/apache/xml/resolver/Catalog;->URI:I
 
-    if-eqz v5, :cond_13
+    if-nez v25, :cond_9
+
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    const-string/jumbo v28, "URI requires a uri."
+
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    invoke-static {}, Lmf/org/apache/xml/resolver/apps/resolver;->usage()V
+
+    goto/16 :goto_3
 
     :cond_12
-    move v7, v0
+    const/4 v6, 0x0
 
-    goto :goto_3
+    const/16 v22, 0x0
 
-    :cond_13
-    if-nez v4, :cond_12
-
-    if-nez v6, :cond_12
-
-    sget-object v7, Ljava/lang/System;->out:Ljava/io/PrintStream;
-
-    const-string/jumbo v11, "NOTATION requires name or public or system identifier."
-
-    invoke-virtual {v7, v11}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
-
-    invoke-static {}, Lmf/org/apache/xml/resolver/apps/resolver;->usage()V
-
-    move v7, v0
-
-    goto :goto_3
-
-    :cond_14
-    sget v0, Lmf/org/apache/xml/resolver/Catalog;->PUBLIC:I
-
-    if-eqz v5, :cond_15
-
-    move v7, v0
-
-    goto :goto_3
-
-    :cond_15
-    sget-object v7, Ljava/lang/System;->out:Ljava/io/PrintStream;
-
-    const-string/jumbo v11, "PUBLIC requires public identifier."
-
-    invoke-virtual {v7, v11}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
-
-    invoke-static {}, Lmf/org/apache/xml/resolver/apps/resolver;->usage()V
-
-    move v7, v0
-
-    goto :goto_3
-
-    :cond_16
-    sget v0, Lmf/org/apache/xml/resolver/Catalog;->SYSTEM:I
-
-    if-eqz v4, :cond_17
-
-    move v7, v0
-
-    goto :goto_3
-
-    :cond_17
-    sget-object v7, Ljava/lang/System;->out:Ljava/io/PrintStream;
-
-    const-string/jumbo v11, "SYSTEM requires system identifier."
-
-    invoke-virtual {v7, v11}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
-
-    invoke-static {}, Lmf/org/apache/xml/resolver/apps/resolver;->usage()V
-
-    move v7, v0
-
-    goto/16 :goto_3
-
-    :cond_18
-    sget v0, Lmf/org/apache/xml/resolver/Catalog;->URI:I
-
-    if-eqz v3, :cond_19
-
-    move v7, v0
-
-    goto/16 :goto_3
-
-    :cond_19
-    sget-object v7, Ljava/lang/System;->out:Ljava/io/PrintStream;
-
-    const-string/jumbo v11, "URI requires a uri."
-
-    invoke-virtual {v7, v11}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
-
-    invoke-static {}, Lmf/org/apache/xml/resolver/apps/resolver;->usage()V
-
-    move v7, v0
-
-    goto/16 :goto_3
-
-    :cond_1a
     :try_start_1
-    const-string/jumbo v0, "basename"
+    const-string/jumbo v27, "basename"
 
-    invoke-static {v0}, Lmf/org/apache/xml/resolver/helpers/FileURL;->makeURL(Ljava/lang/String;)Ljava/net/URL;
+    invoke-static/range {v27 .. v27}, Lmf/org/apache/xml/resolver/helpers/FileURL;->makeURL(Ljava/lang/String;)Ljava/net/URL;
     :try_end_1
     .catch Ljava/net/MalformedURLException; {:try_start_1 .. :try_end_1} :catch_1
 
-    move-result-object v0
+    move-result-object v6
 
     :goto_6
     :try_start_2
-    new-instance v1, Ljava/net/URL;
+    new-instance v23, Ljava/net/URL;
 
-    invoke-direct {v1, v0, v4}, Ljava/net/URL;-><init>(Ljava/net/URL;Ljava/lang/String;)V
+    move-object/from16 v0, v23
 
-    invoke-virtual {v1}, Ljava/net/URL;->toString()Ljava/lang/String;
+    move-object/from16 v1, v24
+
+    invoke-direct {v0, v6, v1}, Ljava/net/URL;-><init>(Ljava/net/URL;Ljava/lang/String;)V
     :try_end_2
     .catch Ljava/net/MalformedURLException; {:try_start_2 .. :try_end_2} :catch_2
 
-    move-result-object v4
+    :try_start_3
+    invoke-virtual/range {v23 .. v23}, Ljava/net/URL;->toString()Ljava/lang/String;
+    :try_end_3
+    .catch Ljava/net/MalformedURLException; {:try_start_3 .. :try_end_3} :catch_4
+
+    move-result-object v24
 
     goto/16 :goto_4
 
     :catch_1
-    move-exception v0
+    move-exception v12
 
-    const-string/jumbo v0, "user.dir"
+    const-string/jumbo v27, "user.dir"
 
-    invoke-static {v0}, Ljava/lang/System;->getProperty(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v27 .. v27}, Ljava/lang/System;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v26
 
-    const/16 v1, 0x5c
+    const/16 v27, 0x5c
 
-    const/16 v11, 0x2f
+    const/16 v28, 0x2f
 
-    invoke-virtual {v0, v1, v11}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
+    invoke-virtual/range {v26 .. v28}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v26
 
-    sget-object v1, Lmf/org/apache/xml/resolver/apps/resolver;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    sget-object v27, Lmf/org/apache/xml/resolver/apps/resolver;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    const-string/jumbo v11, "Malformed URL on cwd"
+    const-string/jumbo v28, "Malformed URL on cwd"
 
-    invoke-virtual {v1, v2, v11, v0}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+    const/16 v29, 0x1
 
-    move-object v0, v9
+    move-object/from16 v0, v27
+
+    move/from16 v1, v29
+
+    move-object/from16 v2, v28
+
+    move-object/from16 v3, v26
+
+    invoke-virtual {v0, v1, v2, v3}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+
+    const/4 v6, 0x0
 
     goto :goto_6
 
     :catch_2
-    move-exception v0
+    move-exception v12
 
-    :try_start_3
-    new-instance v0, Ljava/net/URL;
+    :goto_7
+    :try_start_4
+    new-instance v22, Ljava/net/URL;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v27, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v11, "file:///"
+    const-string/jumbo v28, "file:///"
 
-    invoke-direct {v1, v11}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v27 .. v28}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v27
 
-    move-result-object v1
+    move-object/from16 v1, v24
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v27
+
+    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v27
+
+    move-object/from16 v0, v22
+
+    move-object/from16 v1, v27
 
     invoke-direct {v0, v1}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
-    :try_end_3
-    .catch Ljava/net/MalformedURLException; {:try_start_3 .. :try_end_3} :catch_3
+    :try_end_4
+    .catch Ljava/net/MalformedURLException; {:try_start_4 .. :try_end_4} :catch_3
 
     goto/16 :goto_4
 
     :catch_3
-    move-exception v0
+    move-exception v13
 
-    sget-object v0, Lmf/org/apache/xml/resolver/apps/resolver;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
+    sget-object v27, Lmf/org/apache/xml/resolver/apps/resolver;->debug:Lmf/org/apache/xml/resolver/helpers/Debug;
 
-    const-string/jumbo v1, "Malformed URL on system id"
+    const-string/jumbo v28, "Malformed URL on system id"
 
-    invoke-virtual {v0, v2, v1, v4}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
+    const/16 v29, 0x1
+
+    move-object/from16 v0, v27
+
+    move/from16 v1, v29
+
+    move-object/from16 v2, v28
+
+    move-object/from16 v3, v24
+
+    invoke-virtual {v0, v1, v2, v3}, Lmf/org/apache/xml/resolver/helpers/Debug;->message(ILjava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_4
 
-    :cond_1b
-    sget v0, Lmf/org/apache/xml/resolver/Catalog;->DOCTYPE:I
+    :cond_13
+    const/16 v21, 0x0
 
-    if-eq v7, v0, :cond_1c
+    sget v27, Lmf/org/apache/xml/resolver/Catalog;->DOCTYPE:I
 
-    sget v0, Lmf/org/apache/xml/resolver/Catalog;->DOCUMENT:I
+    move/from16 v0, v18
 
-    if-eq v7, v0, :cond_21
+    move/from16 v1, v27
 
-    sget v0, Lmf/org/apache/xml/resolver/Catalog;->ENTITY:I
+    if-eq v0, v1, :cond_14
 
-    if-eq v7, v0, :cond_22
+    sget v27, Lmf/org/apache/xml/resolver/Catalog;->DOCUMENT:I
 
-    sget v0, Lmf/org/apache/xml/resolver/Catalog;->NOTATION:I
+    move/from16 v0, v18
 
-    if-eq v7, v0, :cond_26
+    move/from16 v1, v27
 
-    sget v0, Lmf/org/apache/xml/resolver/Catalog;->PUBLIC:I
+    if-eq v0, v1, :cond_19
 
-    if-eq v7, v0, :cond_2a
+    sget v27, Lmf/org/apache/xml/resolver/Catalog;->ENTITY:I
 
-    sget v0, Lmf/org/apache/xml/resolver/Catalog;->SYSTEM:I
+    move/from16 v0, v18
 
-    if-eq v7, v0, :cond_2d
+    move/from16 v1, v27
 
-    sget v0, Lmf/org/apache/xml/resolver/Catalog;->URI:I
+    if-eq v0, v1, :cond_1a
 
-    if-eq v7, v0, :cond_2f
+    sget v27, Lmf/org/apache/xml/resolver/Catalog;->NOTATION:I
 
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    move/from16 v0, v18
 
-    const-string/jumbo v1, "resType is wrong!? This can\'t happen!"
+    move/from16 v1, v27
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    if-eq v0, v1, :cond_1e
+
+    sget v27, Lmf/org/apache/xml/resolver/Catalog;->PUBLIC:I
+
+    move/from16 v0, v18
+
+    move/from16 v1, v27
+
+    if-eq v0, v1, :cond_22
+
+    sget v27, Lmf/org/apache/xml/resolver/Catalog;->SYSTEM:I
+
+    move/from16 v0, v18
+
+    move/from16 v1, v27
+
+    if-eq v0, v1, :cond_25
+
+    sget v27, Lmf/org/apache/xml/resolver/Catalog;->URI:I
+
+    move/from16 v0, v18
+
+    move/from16 v1, v27
+
+    if-eq v0, v1, :cond_27
+
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    const-string/jumbo v28, "resType is wrong!? This can\'t happen!"
+
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     invoke-static {}, Lmf/org/apache/xml/resolver/apps/resolver;->usage()V
 
-    :goto_7
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    :goto_8
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v28, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "Result: "
+    const-string/jumbo v29, "Result: "
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v28 .. v29}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v28
 
-    move-result-object v1
+    move-object/from16 v1, v21
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v28
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v28
+
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     return-void
 
-    :cond_1c
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    :cond_14
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    const-string/jumbo v2, "Resolve DOCTYPE (name, publicid, systemid):"
+    const-string/jumbo v28, "Resolve DOCTYPE (name, publicid, systemid):"
 
-    invoke-virtual {v0, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    if-nez v6, :cond_1d
-
-    :goto_8
-    if-nez v5, :cond_1e
+    if-nez v16, :cond_15
 
     :goto_9
-    if-nez v4, :cond_1f
+    if-nez v17, :cond_16
 
     :goto_a
-    if-nez v3, :cond_20
+    if-nez v24, :cond_17
 
     :goto_b
-    invoke-virtual {v1, v6, v5, v4}, Lmf/org/apache/xml/resolver/Catalog;->resolveDoctype(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    if-nez v25, :cond_18
 
-    move-result-object v9
+    :goto_c
+    move-object/from16 v0, v20
 
-    goto :goto_7
+    move-object/from16 v1, v16
 
-    :cond_1d
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    move-object/from16 v2, v17
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    move-object/from16 v3, v24
 
-    const-string/jumbo v7, "       name: "
+    invoke-virtual {v0, v1, v2, v3}, Lmf/org/apache/xml/resolver/Catalog;->resolveDoctype(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-direct {v2, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v2, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    move-result-object v21
 
     goto :goto_8
 
-    :cond_1e
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    :cond_15
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v28, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v7, "  public id: "
+    const-string/jumbo v29, "       name: "
 
-    invoke-direct {v2, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v28 .. v29}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v28
 
-    move-result-object v2
+    move-object/from16 v1, v16
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v28
 
-    invoke-virtual {v0, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v28
+
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     goto :goto_9
 
-    :cond_1f
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    :cond_16
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v28, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v7, "  system id: "
+    const-string/jumbo v29, "  public id: "
 
-    invoke-direct {v2, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v28 .. v29}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v28
 
-    move-result-object v2
+    move-object/from16 v1, v17
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v28
 
-    invoke-virtual {v0, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v28
+
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     goto :goto_a
 
-    :cond_20
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    :cond_17
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v28, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v7, "        uri: "
+    const-string/jumbo v29, "  system id: "
 
-    invoke-direct {v2, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v28 .. v29}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v28
 
-    move-result-object v2
+    move-object/from16 v1, v24
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v28
 
-    invoke-virtual {v0, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v28
+
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     goto :goto_b
 
-    :cond_21
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    :cond_18
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    const-string/jumbo v2, "Resolve DOCUMENT ():"
+    new-instance v28, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    const-string/jumbo v29, "        uri: "
 
-    invoke-virtual {v1}, Lmf/org/apache/xml/resolver/Catalog;->resolveDocument()Ljava/lang/String;
+    invoke-direct/range {v28 .. v29}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    move-result-object v9
+    move-object/from16 v0, v28
 
-    goto/16 :goto_7
+    move-object/from16 v1, v25
 
-    :cond_22
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "Resolve ENTITY (name, publicid, systemid):"
+    move-result-object v28
 
-    invoke-virtual {v0, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    if-nez v6, :cond_23
+    move-result-object v28
 
-    :goto_c
-    if-nez v5, :cond_24
-
-    :goto_d
-    if-nez v4, :cond_25
-
-    :goto_e
-    invoke-virtual {v1, v6, v5, v4}, Lmf/org/apache/xml/resolver/Catalog;->resolveEntity(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v9
-
-    goto/16 :goto_7
-
-    :cond_23
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    const-string/jumbo v3, "       name: "
-
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v2, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     goto :goto_c
 
-    :cond_24
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    :cond_19
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    const-string/jumbo v28, "Resolve DOCUMENT ():"
 
-    const-string/jumbo v3, "  public id: "
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-virtual/range {v20 .. v20}, Lmf/org/apache/xml/resolver/Catalog;->resolveDocument()Ljava/lang/String;
 
-    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v21
 
-    move-result-object v2
+    goto/16 :goto_8
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    :cond_1a
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    move-result-object v2
+    const-string/jumbo v28, "Resolve ENTITY (name, publicid, systemid):"
 
-    invoke-virtual {v0, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    if-nez v16, :cond_1b
+
+    :goto_d
+    if-nez v17, :cond_1c
+
+    :goto_e
+    if-nez v24, :cond_1d
+
+    :goto_f
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v16
+
+    move-object/from16 v2, v17
+
+    move-object/from16 v3, v24
+
+    invoke-virtual {v0, v1, v2, v3}, Lmf/org/apache/xml/resolver/Catalog;->resolveEntity(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v21
+
+    goto/16 :goto_8
+
+    :cond_1b
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    new-instance v28, Ljava/lang/StringBuilder;
+
+    const-string/jumbo v29, "       name: "
+
+    invoke-direct/range {v28 .. v29}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v28
+
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v28
+
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     goto :goto_d
 
-    :cond_25
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    :cond_1c
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v28, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v3, "  system id: "
+    const-string/jumbo v29, "  public id: "
 
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v28 .. v29}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v28
 
-    move-result-object v2
+    move-object/from16 v1, v17
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v28
 
-    invoke-virtual {v0, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v28
+
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     goto :goto_e
 
-    :cond_26
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    :cond_1d
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    const-string/jumbo v2, "Resolve NOTATION (name, publicid, systemid):"
+    new-instance v28, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    const-string/jumbo v29, "  system id: "
 
-    if-nez v6, :cond_27
+    invoke-direct/range {v28 .. v29}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    :goto_f
-    if-nez v5, :cond_28
+    move-object/from16 v0, v28
 
-    :goto_10
-    if-nez v4, :cond_29
+    move-object/from16 v1, v24
 
-    :goto_11
-    invoke-virtual {v1, v6, v5, v4}, Lmf/org/apache/xml/resolver/Catalog;->resolveNotation(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v28
 
-    goto/16 :goto_7
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    :cond_27
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    move-result-object v28
 
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    const-string/jumbo v3, "       name: "
-
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v2, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     goto :goto_f
 
-    :cond_28
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    :cond_1e
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    const-string/jumbo v28, "Resolve NOTATION (name, publicid, systemid):"
 
-    const-string/jumbo v3, "  public id: "
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    if-nez v16, :cond_1f
 
-    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :goto_10
+    if-nez v17, :cond_20
 
-    move-result-object v2
+    :goto_11
+    if-nez v24, :cond_21
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    :goto_12
+    move-object/from16 v0, v20
 
-    move-result-object v2
+    move-object/from16 v1, v16
 
-    invoke-virtual {v0, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    move-object/from16 v2, v17
+
+    move-object/from16 v3, v24
+
+    invoke-virtual {v0, v1, v2, v3}, Lmf/org/apache/xml/resolver/Catalog;->resolveNotation(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v21
+
+    goto/16 :goto_8
+
+    :cond_1f
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    new-instance v28, Ljava/lang/StringBuilder;
+
+    const-string/jumbo v29, "       name: "
+
+    invoke-direct/range {v28 .. v29}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v28
+
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v28
+
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     goto :goto_10
 
-    :cond_29
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    :cond_20
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v28, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v3, "  system id: "
+    const-string/jumbo v29, "  public id: "
 
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v28 .. v29}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v28
 
-    move-result-object v2
+    move-object/from16 v1, v17
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v28
 
-    invoke-virtual {v0, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v28
+
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     goto :goto_11
 
-    :cond_2a
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    :cond_21
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    const-string/jumbo v2, "Resolve PUBLIC (publicid, systemid):"
+    new-instance v28, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    const-string/jumbo v29, "  system id: "
 
-    if-nez v5, :cond_2b
+    invoke-direct/range {v28 .. v29}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    :goto_12
-    if-nez v4, :cond_2c
+    move-object/from16 v0, v28
 
-    :goto_13
-    invoke-virtual {v1, v5, v4}, Lmf/org/apache/xml/resolver/Catalog;->resolvePublic(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v1, v24
 
-    move-result-object v9
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_7
+    move-result-object v28
 
-    :cond_2b
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    move-result-object v28
 
-    const-string/jumbo v3, "  public id: "
-
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     goto :goto_12
 
-    :cond_2c
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    :cond_22
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    const-string/jumbo v28, "Resolve PUBLIC (publicid, systemid):"
 
-    const-string/jumbo v3, "  system id: "
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    if-nez v17, :cond_23
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :goto_13
+    if-nez v24, :cond_24
 
-    move-result-object v2
+    :goto_14
+    move-object/from16 v0, v20
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-object/from16 v1, v17
 
-    move-result-object v2
+    move-object/from16 v2, v24
 
-    invoke-virtual {v0, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xml/resolver/Catalog;->resolvePublic(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v21
+
+    goto/16 :goto_8
+
+    :cond_23
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    new-instance v28, Ljava/lang/StringBuilder;
+
+    const-string/jumbo v29, "  public id: "
+
+    invoke-direct/range {v28 .. v29}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v28
+
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v28
+
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     goto :goto_13
 
-    :cond_2d
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    :cond_24
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    const-string/jumbo v2, "Resolve SYSTEM (systemid):"
+    new-instance v28, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    const-string/jumbo v29, "  system id: "
 
-    if-nez v4, :cond_2e
+    invoke-direct/range {v28 .. v29}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    :goto_14
-    invoke-virtual {v1, v4}, Lmf/org/apache/xml/resolver/Catalog;->resolveSystem(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v0, v28
 
-    move-result-object v9
+    move-object/from16 v1, v24
 
-    goto/16 :goto_7
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_2e
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    move-result-object v28
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string/jumbo v3, "  system id: "
+    move-result-object v28
 
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     goto :goto_14
 
-    :cond_2f
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    :cond_25
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    const-string/jumbo v2, "Resolve URI (uri):"
+    const-string/jumbo v28, "Resolve SYSTEM (systemid):"
 
-    invoke-virtual {v0, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    if-nez v3, :cond_30
+    if-nez v24, :cond_26
 
     :goto_15
-    invoke-virtual {v1, v3}, Lmf/org/apache/xml/resolver/Catalog;->resolveURI(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v0, v20
 
-    move-result-object v9
+    move-object/from16 v1, v24
 
-    goto/16 :goto_7
+    invoke-virtual {v0, v1}, Lmf/org/apache/xml/resolver/Catalog;->resolveSystem(Ljava/lang/String;)Ljava/lang/String;
 
-    :cond_30
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    move-result-object v21
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    goto/16 :goto_8
 
-    const-string/jumbo v4, "        uri: "
+    :cond_26
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    invoke-direct {v2, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    new-instance v28, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v29, "  system id: "
 
-    move-result-object v2
+    invoke-direct/range {v28 .. v29}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-object/from16 v0, v28
 
-    move-result-object v2
+    move-object/from16 v1, v24
 
-    invoke-virtual {v0, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v28
+
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v28
+
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     goto :goto_15
+
+    :cond_27
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    const-string/jumbo v28, "Resolve URI (uri):"
+
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    if-nez v25, :cond_28
+
+    :goto_16
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xml/resolver/Catalog;->resolveURI(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v21
+
+    goto/16 :goto_8
+
+    :cond_28
+    sget-object v27, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    new-instance v28, Ljava/lang/StringBuilder;
+
+    const-string/jumbo v29, "        uri: "
+
+    invoke-direct/range {v28 .. v29}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v28
+
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v28
+
+    invoke-virtual/range {v27 .. v28}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    goto :goto_16
+
+    :catch_4
+    move-exception v12
+
+    move-object/from16 v22, v23
+
+    goto/16 :goto_7
 .end method
 
 .method public static usage()V

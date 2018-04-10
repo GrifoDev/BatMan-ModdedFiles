@@ -33,25 +33,25 @@
 .method static createBuiltInTypes()V
     .locals 4
 
-    sget-object v0, Lmf/org/apache/xerces/impl/dv/dtd/DTDDVFactoryImpl;->fBuiltInTypes:Ljava/util/Hashtable;
-
-    const-string/jumbo v1, "string"
+    sget-object v1, Lmf/org/apache/xerces/impl/dv/dtd/DTDDVFactoryImpl;->fBuiltInTypes:Ljava/util/Hashtable;
 
     new-instance v2, Lmf/org/apache/xerces/impl/dv/dtd/StringDatatypeValidator;
 
     invoke-direct {v2}, Lmf/org/apache/xerces/impl/dv/dtd/StringDatatypeValidator;-><init>()V
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string/jumbo v3, "string"
 
-    sget-object v0, Lmf/org/apache/xerces/impl/dv/dtd/DTDDVFactoryImpl;->fBuiltInTypes:Ljava/util/Hashtable;
+    invoke-virtual {v1, v3, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v1, "ID"
+    sget-object v1, Lmf/org/apache/xerces/impl/dv/dtd/DTDDVFactoryImpl;->fBuiltInTypes:Ljava/util/Hashtable;
 
     new-instance v2, Lmf/org/apache/xerces/impl/dv/dtd/IDDatatypeValidator;
 
     invoke-direct {v2}, Lmf/org/apache/xerces/impl/dv/dtd/IDDatatypeValidator;-><init>()V
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string/jumbo v3, "ID"
+
+    invoke-virtual {v1, v3, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     new-instance v0, Lmf/org/apache/xerces/impl/dv/dtd/IDREFDatatypeValidator;
 
@@ -65,13 +65,13 @@
 
     sget-object v1, Lmf/org/apache/xerces/impl/dv/dtd/DTDDVFactoryImpl;->fBuiltInTypes:Ljava/util/Hashtable;
 
-    const-string/jumbo v2, "IDREFS"
+    new-instance v2, Lmf/org/apache/xerces/impl/dv/dtd/ListDatatypeValidator;
 
-    new-instance v3, Lmf/org/apache/xerces/impl/dv/dtd/ListDatatypeValidator;
+    invoke-direct {v2, v0}, Lmf/org/apache/xerces/impl/dv/dtd/ListDatatypeValidator;-><init>(Lmf/org/apache/xerces/impl/dv/DatatypeValidator;)V
 
-    invoke-direct {v3, v0}, Lmf/org/apache/xerces/impl/dv/dtd/ListDatatypeValidator;-><init>(Lmf/org/apache/xerces/impl/dv/DatatypeValidator;)V
+    const-string/jumbo v3, "IDREFS"
 
-    invoke-virtual {v1, v2, v3}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v3, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     new-instance v0, Lmf/org/apache/xerces/impl/dv/dtd/ENTITYDatatypeValidator;
 
@@ -79,33 +79,33 @@
 
     sget-object v1, Lmf/org/apache/xerces/impl/dv/dtd/DTDDVFactoryImpl;->fBuiltInTypes:Ljava/util/Hashtable;
 
-    const-string/jumbo v2, "ENTITY"
+    new-instance v2, Lmf/org/apache/xerces/impl/dv/dtd/ENTITYDatatypeValidator;
 
-    new-instance v3, Lmf/org/apache/xerces/impl/dv/dtd/ENTITYDatatypeValidator;
+    invoke-direct {v2}, Lmf/org/apache/xerces/impl/dv/dtd/ENTITYDatatypeValidator;-><init>()V
 
-    invoke-direct {v3}, Lmf/org/apache/xerces/impl/dv/dtd/ENTITYDatatypeValidator;-><init>()V
+    const-string/jumbo v3, "ENTITY"
 
-    invoke-virtual {v1, v2, v3}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v3, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sget-object v1, Lmf/org/apache/xerces/impl/dv/dtd/DTDDVFactoryImpl;->fBuiltInTypes:Ljava/util/Hashtable;
 
-    const-string/jumbo v2, "ENTITIES"
+    new-instance v2, Lmf/org/apache/xerces/impl/dv/dtd/ListDatatypeValidator;
 
-    new-instance v3, Lmf/org/apache/xerces/impl/dv/dtd/ListDatatypeValidator;
+    invoke-direct {v2, v0}, Lmf/org/apache/xerces/impl/dv/dtd/ListDatatypeValidator;-><init>(Lmf/org/apache/xerces/impl/dv/DatatypeValidator;)V
 
-    invoke-direct {v3, v0}, Lmf/org/apache/xerces/impl/dv/dtd/ListDatatypeValidator;-><init>(Lmf/org/apache/xerces/impl/dv/DatatypeValidator;)V
+    const-string/jumbo v3, "ENTITIES"
 
-    invoke-virtual {v1, v2, v3}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v3, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v0, Lmf/org/apache/xerces/impl/dv/dtd/DTDDVFactoryImpl;->fBuiltInTypes:Ljava/util/Hashtable;
-
-    const-string/jumbo v1, "NOTATION"
+    sget-object v1, Lmf/org/apache/xerces/impl/dv/dtd/DTDDVFactoryImpl;->fBuiltInTypes:Ljava/util/Hashtable;
 
     new-instance v2, Lmf/org/apache/xerces/impl/dv/dtd/NOTATIONDatatypeValidator;
 
     invoke-direct {v2}, Lmf/org/apache/xerces/impl/dv/dtd/NOTATIONDatatypeValidator;-><init>()V
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string/jumbo v3, "NOTATION"
+
+    invoke-virtual {v1, v3, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     new-instance v0, Lmf/org/apache/xerces/impl/dv/dtd/NMTOKENDatatypeValidator;
 
@@ -119,13 +119,13 @@
 
     sget-object v1, Lmf/org/apache/xerces/impl/dv/dtd/DTDDVFactoryImpl;->fBuiltInTypes:Ljava/util/Hashtable;
 
-    const-string/jumbo v2, "NMTOKENS"
+    new-instance v2, Lmf/org/apache/xerces/impl/dv/dtd/ListDatatypeValidator;
 
-    new-instance v3, Lmf/org/apache/xerces/impl/dv/dtd/ListDatatypeValidator;
+    invoke-direct {v2, v0}, Lmf/org/apache/xerces/impl/dv/dtd/ListDatatypeValidator;-><init>(Lmf/org/apache/xerces/impl/dv/DatatypeValidator;)V
 
-    invoke-direct {v3, v0}, Lmf/org/apache/xerces/impl/dv/dtd/ListDatatypeValidator;-><init>(Lmf/org/apache/xerces/impl/dv/DatatypeValidator;)V
+    const-string/jumbo v3, "NMTOKENS"
 
-    invoke-virtual {v1, v2, v3}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v3, v2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
 .end method

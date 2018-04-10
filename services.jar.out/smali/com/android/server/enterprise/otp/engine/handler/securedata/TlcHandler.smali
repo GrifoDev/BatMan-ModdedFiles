@@ -237,7 +237,7 @@
 .end method
 
 .method public static declared-synchronized getInstance()Lcom/android/server/enterprise/otp/engine/handler/securedata/TlcHandler;
-    .locals 4
+    .locals 5
 
     const-class v3, Lcom/android/server/enterprise/otp/engine/handler/securedata/TlcHandler;
 
@@ -277,6 +277,26 @@
     invoke-virtual {v2}, Lcom/android/server/enterprise/otp/engine/handler/securedata/TlcHandler;->setDbHmacKey()I
 
     move-result v1
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "TlcHandler::getInstance - New instance created = ret"
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/server/enterprise/otp/engine/common/Print;->i(Ljava/lang/String;)V
 
     :cond_0
     if-eqz v1, :cond_2
@@ -1472,13 +1492,20 @@
 
     const/4 v1, 0x0
 
+    :try_start_0
+    const-string/jumbo v2, "TlcHandler::getDbHmacKey - ENTER"
+
+    invoke-static {v2}, Lcom/android/server/enterprise/otp/engine/common/Print;->i(Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
     const/4 v2, 0x0
 
-    :try_start_0
+    :try_start_1
     invoke-static {v2}, Lcom/android/server/enterprise/otp/engine/handler/securedata/TlcHandler;->nativeGetDbHmacData(I)Ljava/lang/String;
-    :try_end_0
-    .catch Lcom/android/server/enterprise/otp/exceptions/OTPExceptions; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1
+    .catch Lcom/android/server/enterprise/otp/exceptions/OTPExceptions; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v1
 
@@ -1490,7 +1517,7 @@
     :catch_0
     move-exception v0
 
-    :try_start_1
+    :try_start_2
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -1514,8 +1541,8 @@
     move-result-object v2
 
     invoke-static {v2}, Lcom/android/server/enterprise/otp/engine/common/Print;->e(Ljava/lang/String;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_0
 

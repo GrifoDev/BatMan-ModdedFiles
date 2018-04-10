@@ -74,15 +74,15 @@
 .end method
 
 .method public cloneASObject(Z)Lmf/org/apache/xerces/dom3/as/ASObject;
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -96,20 +96,20 @@
 .end method
 
 .method public createASAttributeDeclaration(Ljava/lang/String;Ljava/lang/String;)Lmf/org/apache/xerces/dom3/as/ASAttributeDeclaration;
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/w3c/dom/DOMException;
         }
     .end annotation
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -123,20 +123,20 @@
 .end method
 
 .method public createASContentModel(IIS)Lmf/org/apache/xerces/dom3/as/ASContentModel;
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/dom3/as/DOMASException;
         }
     .end annotation
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -150,20 +150,20 @@
 .end method
 
 .method public createASElementDeclaration(Ljava/lang/String;Ljava/lang/String;)Lmf/org/apache/xerces/dom3/as/ASElementDeclaration;
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/w3c/dom/DOMException;
         }
     .end annotation
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -177,20 +177,20 @@
 .end method
 
 .method public createASEntityDeclaration(Ljava/lang/String;)Lmf/org/apache/xerces/dom3/as/ASEntityDeclaration;
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/w3c/dom/DOMException;
         }
     .end annotation
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -204,20 +204,20 @@
 .end method
 
 .method public createASNotationDeclaration(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lmf/org/apache/xerces/dom3/as/ASNotationDeclaration;
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/w3c/dom/DOMException;
         }
     .end annotation
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -231,15 +231,15 @@
 .end method
 
 .method public getASModels()Lmf/org/apache/xerces/dom3/as/ASObjectList;
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -253,15 +253,15 @@
 .end method
 
 .method public getAsHint()Ljava/lang/String;
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -275,15 +275,15 @@
 .end method
 
 .method public getAsLocation()Ljava/lang/String;
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -297,15 +297,15 @@
 .end method
 
 .method public getAsNodeType()S
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -319,15 +319,15 @@
 .end method
 
 .method public getAttributeDeclarations()Lmf/org/apache/xerces/dom3/as/ASNamedObjectMap;
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -358,15 +358,15 @@
 .end method
 
 .method public getContentModelDeclarations()Lmf/org/apache/xerces/dom3/as/ASNamedObjectMap;
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -380,15 +380,15 @@
 .end method
 
 .method public getElementDeclarations()Lmf/org/apache/xerces/dom3/as/ASNamedObjectMap;
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -402,15 +402,15 @@
 .end method
 
 .method public getEntityDeclarations()Lmf/org/apache/xerces/dom3/as/ASNamedObjectMap;
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -448,15 +448,15 @@
 .end method
 
 .method public getLocalName()Ljava/lang/String;
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -470,15 +470,15 @@
 .end method
 
 .method public getNamespaceURI()Ljava/lang/String;
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -492,15 +492,15 @@
 .end method
 
 .method public getNodeName()Ljava/lang/String;
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -514,15 +514,15 @@
 .end method
 
 .method public getNotationDeclarations()Lmf/org/apache/xerces/dom3/as/ASNamedObjectMap;
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -536,15 +536,15 @@
 .end method
 
 .method public getOwnerASModel()Lmf/org/apache/xerces/dom3/as/ASModel;
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -558,15 +558,15 @@
 .end method
 
 .method public getPrefix()Ljava/lang/String;
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -580,15 +580,15 @@
 .end method
 
 .method public getUsageLocation()S
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -602,15 +602,15 @@
 .end method
 
 .method public importASObject(Lmf/org/apache/xerces/dom3/as/ASObject;)V
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -624,15 +624,15 @@
 .end method
 
 .method public insertASObject(Lmf/org/apache/xerces/dom3/as/ASObject;)V
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -656,15 +656,15 @@
 .end method
 
 .method public setAsHint(Ljava/lang/String;)V
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -678,15 +678,15 @@
 .end method
 
 .method public setAsLocation(Ljava/lang/String;)V
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -708,15 +708,15 @@
 .end method
 
 .method public setLocalName(Ljava/lang/String;)V
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -730,15 +730,15 @@
 .end method
 
 .method public setNamespaceURI(Ljava/lang/String;)V
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -752,15 +752,15 @@
 .end method
 
 .method public setNodeName(Ljava/lang/String;)V
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -774,15 +774,15 @@
 .end method
 
 .method public setOwnerASModel(Lmf/org/apache/xerces/dom3/as/ASModel;)V
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -796,15 +796,15 @@
 .end method
 
 .method public setPrefix(Ljava/lang/String;)V
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -818,15 +818,15 @@
 .end method
 
 .method public validate()Z
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "http://www.w3.org/dom/DOMTR"
+    const-string/jumbo v1, "http://www.w3.org/dom/DOMTR"
 
-    const-string/jumbo v1, "NOT_SUPPORTED_ERR"
+    const-string/jumbo v2, "NOT_SUPPORTED_ERR"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 

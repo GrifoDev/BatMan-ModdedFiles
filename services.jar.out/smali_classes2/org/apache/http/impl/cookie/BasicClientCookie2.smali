@@ -6,32 +6,25 @@
 .implements Lorg/apache/http/cookie/SetCookie2;
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
+# static fields
+.field private static final serialVersionUID:J = -0x6b7a571e07b044e1L
+
+
+# instance fields
+.field private commentURL:Ljava/lang/String;
+
+.field private discard:Z
+
+.field private ports:[I
 
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
+    .locals 0
 
-    const/4 v1, 0x0
+    invoke-direct {p0, p1, p2}, Lorg/apache/http/impl/cookie/BasicClientCookie;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-object v0, v1
-
-    check-cast v0, Ljava/lang/String;
-
-    check-cast v1, Ljava/lang/String;
-
-    invoke-direct {p0, v0, v1}, Lorg/apache/http/impl/cookie/BasicClientCookie;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 
@@ -44,95 +37,119 @@
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    invoke-super {p0}, Lorg/apache/http/impl/cookie/BasicClientCookie;->clone()Ljava/lang/Object;
 
-    const-string/jumbo v1, "Stub!"
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    check-cast v0, Lorg/apache/http/impl/cookie/BasicClientCookie2;
 
-    throw v0
+    iget-object v1, p0, Lorg/apache/http/impl/cookie/BasicClientCookie2;->ports:[I
+
+    if-nez v1, :cond_0
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    iget-object v1, p0, Lorg/apache/http/impl/cookie/BasicClientCookie2;->ports:[I
+
+    invoke-virtual {v1}, Ljava/lang/Object;->clone()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, [I
+
+    iput-object v1, v0, Lorg/apache/http/impl/cookie/BasicClientCookie2;->ports:[I
+
+    goto :goto_0
 .end method
 
 .method public getCommentURL()Ljava/lang/String;
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/impl/cookie/BasicClientCookie2;->commentURL:Ljava/lang/String;
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-object v0
 .end method
 
 .method public getPorts()[I
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/impl/cookie/BasicClientCookie2;->ports:[I
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-object v0
 .end method
 
 .method public isExpired(Ljava/util/Date;)Z
     .locals 2
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const/4 v0, 0x0
 
-    const-string/jumbo v1, "Stub!"
+    iget-boolean v1, p0, Lorg/apache/http/impl/cookie/BasicClientCookie2;->discard:Z
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    if-eqz v1, :cond_1
 
-    throw v0
+    :cond_0
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_1
+    invoke-super {p0, p1}, Lorg/apache/http/impl/cookie/BasicClientCookie;->isExpired(Ljava/util/Date;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    goto :goto_0
 .end method
 
 .method public isPersistent()Z
     .locals 2
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const/4 v0, 0x0
 
-    const-string/jumbo v1, "Stub!"
+    iget-boolean v1, p0, Lorg/apache/http/impl/cookie/BasicClientCookie2;->discard:Z
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    if-eqz v1, :cond_1
 
-    throw v0
+    :cond_0
+    :goto_0
+    return v0
+
+    :cond_1
+    invoke-super {p0}, Lorg/apache/http/impl/cookie/BasicClientCookie;->isPersistent()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method
 
 .method public setCommentURL(Ljava/lang/String;)V
-    .locals 2
+    .locals 0
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iput-object p1, p0, Lorg/apache/http/impl/cookie/BasicClientCookie2;->commentURL:Ljava/lang/String;
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 .method public setDiscard(Z)V
-    .locals 2
+    .locals 0
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iput-boolean p1, p0, Lorg/apache/http/impl/cookie/BasicClientCookie2;->discard:Z
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 .method public setPorts([I)V
-    .locals 2
+    .locals 0
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iput-object p1, p0, Lorg/apache/http/impl/cookie/BasicClientCookie2;->ports:[I
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method

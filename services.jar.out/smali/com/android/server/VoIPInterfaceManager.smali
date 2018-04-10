@@ -5464,6 +5464,8 @@
 
     move-result-wide v8
 
+    if-eqz v0, :cond_0
+
     move-object v1, p1
 
     move-object v2, p2
@@ -5478,17 +5480,29 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    :goto_0
     invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    :goto_0
+    :goto_1
     return-void
+
+    :cond_0
+    :try_start_1
+    const-string/jumbo v1, "mTel is null"
+
+    invoke-direct {p0, v1}, Lcom/android/server/VoIPInterfaceManager;->log(Ljava/lang/String;)V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
 
     :catch_0
     move-exception v6
 
     invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    goto :goto_0
+    goto :goto_1
 
     :catchall_0
     move-exception v1

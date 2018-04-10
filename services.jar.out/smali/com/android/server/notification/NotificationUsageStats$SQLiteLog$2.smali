@@ -41,16 +41,6 @@
     return-void
 .end method
 
-.method public onOpen(Landroid/database/sqlite/SQLiteDatabase;)V
-    .locals 1
-
-    const-string/jumbo v0, "CREATE TABLE IF NOT EXISTS log (_id INTEGER PRIMARY KEY AUTOINCREMENT,event_user_id INT,event_type INT,event_time_ms INT,key TEXT,pkg TEXT,nid INT,tag TEXT,when_ms INT,defaults INT,flags INT,importance_request INT,importance_final INT,noisy INT,muted INT,demoted INT,category TEXT,action_count INT,posttime_ms INT,airtime_ms INT,first_expansion_time_ms INT,expansion_airtime_ms INT,expansion_count INT)"
-
-    invoke-virtual {p1, v0}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V
-
-    return-void
-.end method
-
 .method public onUpgrade(Landroid/database/sqlite/SQLiteDatabase;II)V
     .locals 1
 

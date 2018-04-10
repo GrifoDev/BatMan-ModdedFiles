@@ -3,6 +3,11 @@
 .source "HttpParams.java"
 
 
+# annotations
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
+
 # virtual methods
 .method public abstract copy()Lorg/apache/http/params/HttpParams;
 .end method

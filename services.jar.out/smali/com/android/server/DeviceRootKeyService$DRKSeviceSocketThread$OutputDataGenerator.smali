@@ -165,7 +165,7 @@
     invoke-static {v4, v6, v3, v7, v5}, Ljava/lang/System;->arraycopy([BI[BII)V
 
     :cond_0
-    const-string/jumbo v4, "DeviceRootKeyServiceSocket"
+    const-string/jumbo v4, "DeviceRootKeyServiceSocket(1.1.3)"
 
     new-instance v5, Ljava/lang/StringBuilder;
 

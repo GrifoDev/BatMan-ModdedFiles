@@ -275,7 +275,7 @@
 
     move-result v16
 
-    if-nez v16, :cond_2
+    if-nez v16, :cond_1
 
     const/16 v16, 0x0
 
@@ -301,11 +301,28 @@
 
     move-result v16
 
-    if-eqz v16, :cond_1
+    xor-int/lit8 v16, v16, 0x1
+
+    if-eqz v16, :cond_0
+
+    :goto_1
+    invoke-interface {v3}, Landroid/database/Cursor;->moveToNext()Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v16
+
+    invoke-interface {v3}, Landroid/database/Cursor;->close()V
+
+    throw v16
 
     :cond_0
     const/16 v16, 0x2
 
+    :try_start_1
     move/from16 v0, v16
 
     invoke-interface {v3, v0}, Landroid/database/Cursor;->getInt(I)I
@@ -391,22 +408,12 @@
     invoke-virtual {v14, v0, v6}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
     invoke-virtual {v7, v14}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_1
 
     :cond_1
-    invoke-interface {v3}, Landroid/database/Cursor;->moveToNext()Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    goto/16 :goto_0
-
-    :catchall_0
-    move-exception v16
-
-    invoke-interface {v3}, Landroid/database/Cursor;->close()V
-
-    throw v16
-
-    :cond_2
     invoke-interface {v3}, Landroid/database/Cursor;->close()V
 
     return-object v7
@@ -832,7 +839,7 @@
 
     const/4 v2, 0x1
 
-    if-ne p3, v2, :cond_0
+    if-ne p3, v2, :cond_1
 
     invoke-static {p4, v0}, Lcom/android/server/notification/NotificationUsageStats$SQLiteLog;->putNotificationDetails(Lcom/android/server/notification/NotificationRecord;Landroid/content/ContentValues;)V
 
@@ -847,8 +854,39 @@
 
     const/4 v3, 0x0
 
-    invoke-virtual {v1, v2, v3, v0}, Landroid/database/sqlite/SQLiteDatabase;->insertOrThrow(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)J
+    invoke-virtual {v1, v2, v3, v0}, Landroid/database/sqlite/SQLiteDatabase;->insert(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)J
 
+    move-result-wide v2
+
+    const-wide/16 v4, 0x0
+
+    cmp-long v2, v2, v4
+
+    if-gez v2, :cond_0
+
+    const-string/jumbo v2, "NotificationSQLiteLog"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Error while trying to insert values: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     sget-wide v2, Lcom/android/server/notification/NotificationUsageStats$SQLiteLog;->sNumWrites:J
 
     const-wide/16 v4, 0x1
@@ -861,7 +899,7 @@
 
     return-void
 
-    :cond_0
+    :cond_1
     invoke-static {p4, v0}, Lcom/android/server/notification/NotificationUsageStats$SQLiteLog;->putPosttimeVisibility(Lcom/android/server/notification/NotificationRecord;Landroid/content/ContentValues;)V
 
     goto :goto_0
@@ -1051,7 +1089,7 @@
 
     move-result v14
 
-    if-nez v14, :cond_2
+    if-nez v14, :cond_1
 
     const/4 v14, 0x0
 
@@ -1073,11 +1111,28 @@
 
     move-result v14
 
-    if-eqz v14, :cond_1
+    xor-int/lit8 v14, v14, 0x1
+
+    if-eqz v14, :cond_0
+
+    :goto_1
+    invoke-interface {v3}, Landroid/database/Cursor;->moveToNext()Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v14
+
+    invoke-interface {v3}, Landroid/database/Cursor;->close()V
+
+    throw v14
 
     :cond_0
     const/4 v14, 0x2
 
+    :try_start_1
     invoke-interface {v3, v14}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v4
@@ -1199,22 +1254,12 @@
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v14}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto/16 :goto_1
 
     :cond_1
-    invoke-interface {v3}, Landroid/database/Cursor;->moveToNext()Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    goto/16 :goto_0
-
-    :catchall_0
-    move-exception v14
-
-    invoke-interface {v3}, Landroid/database/Cursor;->close()V
-
-    throw v14
-
-    :cond_2
     invoke-interface {v3}, Landroid/database/Cursor;->close()V
 
     return-void

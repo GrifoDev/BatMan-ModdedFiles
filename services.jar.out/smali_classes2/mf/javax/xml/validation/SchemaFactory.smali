@@ -29,168 +29,170 @@
 .end method
 
 .method public static final newInstance(Ljava/lang/String;)Lmf/javax/xml/validation/SchemaFactory;
-    .locals 3
+    .locals 5
 
-    sget-object v0, Lmf/javax/xml/validation/SchemaFactory;->ss:Lmf/javax/xml/validation/SecuritySupport;
+    sget-object v2, Lmf/javax/xml/validation/SchemaFactory;->ss:Lmf/javax/xml/validation/SecuritySupport;
 
-    invoke-virtual {v0}, Lmf/javax/xml/validation/SecuritySupport;->getContextClassLoader()Ljava/lang/ClassLoader;
+    invoke-virtual {v2}, Lmf/javax/xml/validation/SecuritySupport;->getContextClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
     :goto_0
-    new-instance v1, Lmf/javax/xml/validation/SchemaFactoryFinder;
+    new-instance v2, Lmf/javax/xml/validation/SchemaFactoryFinder;
 
-    invoke-direct {v1, v0}, Lmf/javax/xml/validation/SchemaFactoryFinder;-><init>(Ljava/lang/ClassLoader;)V
+    invoke-direct {v2, v0}, Lmf/javax/xml/validation/SchemaFactoryFinder;-><init>(Ljava/lang/ClassLoader;)V
 
-    invoke-virtual {v1, p0}, Lmf/javax/xml/validation/SchemaFactoryFinder;->newFactory(Ljava/lang/String;)Lmf/javax/xml/validation/SchemaFactory;
+    invoke-virtual {v2, p0}, Lmf/javax/xml/validation/SchemaFactoryFinder;->newFactory(Ljava/lang/String;)Lmf/javax/xml/validation/SchemaFactory;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    const-class v0, Lmf/javax/xml/validation/SchemaFactory;
+    const-class v2, Lmf/javax/xml/validation/SchemaFactory;
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    invoke-virtual {v2}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v0
 
     goto :goto_0
 
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "No SchemaFactory that implements the schema language specified by: "
+    const-string/jumbo v4, "No SchemaFactory that implements the schema language specified by: "
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v3
 
-    const-string/jumbo v2, " could be loaded"
+    const-string/jumbo v4, " could be loaded"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v2
 .end method
 
 .method public static newInstance(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Lmf/javax/xml/validation/SchemaFactory;
-    .locals 4
+    .locals 5
+
+    move-object v0, p2
 
     if-eqz p2, :cond_0
 
     :goto_0
-    new-instance v0, Lmf/javax/xml/validation/SchemaFactoryFinder;
+    new-instance v2, Lmf/javax/xml/validation/SchemaFactoryFinder;
 
-    invoke-direct {v0, p2}, Lmf/javax/xml/validation/SchemaFactoryFinder;-><init>(Ljava/lang/ClassLoader;)V
+    invoke-direct {v2, v0}, Lmf/javax/xml/validation/SchemaFactoryFinder;-><init>(Ljava/lang/ClassLoader;)V
 
-    invoke-virtual {v0, p1}, Lmf/javax/xml/validation/SchemaFactoryFinder;->createInstance(Ljava/lang/String;)Lmf/javax/xml/validation/SchemaFactory;
+    invoke-virtual {v2, p1}, Lmf/javax/xml/validation/SchemaFactoryFinder;->createInstance(Ljava/lang/String;)Lmf/javax/xml/validation/SchemaFactory;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
-    invoke-virtual {v0, p0}, Lmf/javax/xml/validation/SchemaFactory;->isSchemaLanguageSupported(Ljava/lang/String;)Z
+    invoke-virtual {v1, p0}, Lmf/javax/xml/validation/SchemaFactory;->isSchemaLanguageSupported(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_2
+    if-nez v2, :cond_2
 
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v3, "Factory "
+    const-string/jumbo v4, "Factory "
 
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v4
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v4
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v3
 
-    const-string/jumbo v2, " does not implement the schema language specified by: "
+    const-string/jumbo v4, " does not implement the schema language specified by: "
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v2
 
     :cond_0
-    sget-object v0, Lmf/javax/xml/validation/SchemaFactory;->ss:Lmf/javax/xml/validation/SecuritySupport;
+    sget-object v2, Lmf/javax/xml/validation/SchemaFactory;->ss:Lmf/javax/xml/validation/SecuritySupport;
 
-    invoke-virtual {v0}, Lmf/javax/xml/validation/SecuritySupport;->getContextClassLoader()Ljava/lang/ClassLoader;
+    invoke-virtual {v2}, Lmf/javax/xml/validation/SecuritySupport;->getContextClassLoader()Ljava/lang/ClassLoader;
 
-    move-result-object p2
+    move-result-object v0
 
     goto :goto_0
 
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "Factory "
+    const-string/jumbo v4, "Factory "
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v3
 
-    const-string/jumbo v2, " could not be loaded to implement the schema language specified by: "
+    const-string/jumbo v4, " could not be loaded to implement the schema language specified by: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v2
 
     :cond_2
-    return-object v0
+    return-object v1
 .end method
 
 

@@ -3,11 +3,6 @@
 .source "HttpContext.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # static fields
 .field public static final RESERVED_PREFIX:Ljava/lang/String; = "http."
 

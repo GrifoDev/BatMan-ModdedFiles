@@ -3,11 +3,6 @@
 .source "HttpEntity.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract consumeContent()V
     .annotation system Ldalvik/annotation/Throws;
@@ -15,13 +10,16 @@
             Ljava/io/IOException;
         }
     .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract getContent()Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
-            Ljava/lang/IllegalStateException;
+            Ljava/lang/UnsupportedOperationException;
         }
     .end annotation
 .end method

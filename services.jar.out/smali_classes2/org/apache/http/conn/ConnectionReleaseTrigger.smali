@@ -3,11 +3,6 @@
 .source "ConnectionReleaseTrigger.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract abortConnection()V
     .annotation system Ldalvik/annotation/Throws;

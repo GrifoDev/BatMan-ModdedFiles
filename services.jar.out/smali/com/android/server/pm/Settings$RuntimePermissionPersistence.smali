@@ -71,7 +71,7 @@
 .method static synthetic -wrap0(Lcom/android/server/pm/Settings$RuntimePermissionPersistence;I)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/pm/Settings$RuntimePermissionPersistence;->onUserRemoved(I)V
+    invoke-direct {p0, p1}, Lcom/android/server/pm/Settings$RuntimePermissionPersistence;->onUserRemovedLPw(I)V
 
     return-void
 .end method
@@ -126,8 +126,8 @@
     return-void
 .end method
 
-.method private onUserRemoved(I)V
-    .locals 4
+.method private onUserRemovedLPw(I)V
+    .locals 3
 
     iget-object v2, p0, Lcom/android/server/pm/Settings$RuntimePermissionPersistence;->mHandler:Landroid/os/Handler;
 
@@ -193,35 +193,15 @@
     goto :goto_1
 
     :cond_1
-    iget-object v3, p0, Lcom/android/server/pm/Settings$RuntimePermissionPersistence;->mLock:Ljava/lang/Object;
-
-    monitor-enter v3
-
-    :try_start_0
     iget-object v2, p0, Lcom/android/server/pm/Settings$RuntimePermissionPersistence;->mDefaultPermissionsGranted:Landroid/util/SparseBooleanArray;
-
-    invoke-virtual {v2, p1}, Landroid/util/SparseBooleanArray;->delete(I)V
-
-    iget-object v2, p0, Lcom/android/server/pm/Settings$RuntimePermissionPersistence;->mWriteScheduled:Landroid/util/SparseBooleanArray;
 
     invoke-virtual {v2, p1}, Landroid/util/SparseBooleanArray;->delete(I)V
 
     iget-object v2, p0, Lcom/android/server/pm/Settings$RuntimePermissionPersistence;->mFingerprints:Landroid/util/SparseArray;
 
-    invoke-virtual {v2, p1}, Landroid/util/SparseArray;->delete(I)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit v3
+    invoke-virtual {v2, p1}, Landroid/util/SparseArray;->remove(I)V
 
     return-void
-
-    :catchall_0
-    move-exception v2
-
-    monitor-exit v3
-
-    throw v2
 .end method
 
 .method private parsePermissionsLPr(Lorg/xmlpull/v1/XmlPullParser;Lcom/android/server/pm/PermissionsState;I)V
@@ -2144,69 +2124,6 @@
     invoke-virtual {v0, p1}, Landroid/os/Handler;->removeMessages(I)V
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/Settings$RuntimePermissionPersistence;->writePermissionsSync(I)V
-
-    return-void
-.end method
-
-.method public writeRuntimePermissionsForShutdown()V
-    .locals 6
-
-    iget-object v4, p0, Lcom/android/server/pm/Settings$RuntimePermissionPersistence;->mLock:Ljava/lang/Object;
-
-    monitor-enter v4
-
-    :try_start_0
-    iget-object v3, p0, Lcom/android/server/pm/Settings$RuntimePermissionPersistence;->this$0:Lcom/android/server/pm/Settings;
-
-    invoke-virtual {v3}, Lcom/android/server/pm/Settings;->getAllUsers()Ljava/util/List;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :cond_0
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/content/pm/UserInfo;
-
-    iget-object v3, p0, Lcom/android/server/pm/Settings$RuntimePermissionPersistence;->mWriteScheduled:Landroid/util/SparseBooleanArray;
-
-    iget v5, v1, Landroid/content/pm/UserInfo;->id:I
-
-    invoke-virtual {v3, v5}, Landroid/util/SparseBooleanArray;->get(I)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    iget v3, v1, Landroid/content/pm/UserInfo;->id:I
-
-    invoke-virtual {p0, v3}, Lcom/android/server/pm/Settings$RuntimePermissionPersistence;->writePermissionsForUserSyncLPr(I)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v3
-
-    monitor-exit v4
-
-    throw v3
-
-    :cond_1
-    monitor-exit v4
 
     return-void
 .end method

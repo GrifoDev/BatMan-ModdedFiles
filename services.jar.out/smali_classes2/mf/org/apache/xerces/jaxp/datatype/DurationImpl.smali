@@ -166,579 +166,650 @@
 .end method
 
 .method protected constructor <init>(J)V
-    .locals 11
-
-    const-wide/16 v8, 0x18
-
-    const-wide/16 v6, 0x0
-
-    const/4 v3, 0x0
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
+    .locals 9
 
     invoke-direct {p0}, Lmf/javax/xml/datatype/Duration;-><init>()V
 
-    cmp-long v0, p1, v6
+    const/4 v0, 0x0
 
-    if-gtz v0, :cond_0
+    move-wide v2, p1
 
-    move v0, v1
+    const-wide/16 v4, 0x0
+
+    cmp-long v1, p1, v4
+
+    if-gtz v1, :cond_0
+
+    const/4 v1, 0x1
 
     :goto_0
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
+
+    const/4 v1, 0x1
 
     iput v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
 
-    move v0, v2
-
     :goto_1
-    iput-object v3, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->years:Ljava/math/BigInteger;
+    const/4 v1, 0x0
 
-    iput-object v3, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->months:Ljava/math/BigInteger;
+    iput-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->years:Ljava/math/BigInteger;
+
+    const/4 v1, 0x0
+
+    iput-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->months:Ljava/math/BigInteger;
 
     const-wide/32 v4, 0xea60
 
-    rem-long v4, p1, v4
+    rem-long v4, v2, v4
 
     if-nez v0, :cond_5
 
+    const/4 v1, 0x0
+
     :goto_2
-    int-to-long v0, v2
+    int-to-long v6, v1
 
-    add-long/2addr v0, v4
+    add-long/2addr v4, v6
 
-    const/4 v2, 0x3
+    const/4 v1, 0x3
 
-    invoke-static {v0, v1, v2}, Ljava/math/BigDecimal;->valueOf(JI)Ljava/math/BigDecimal;
+    invoke-static {v4, v5, v1}, Ljava/math/BigDecimal;->valueOf(JI)Ljava/math/BigDecimal;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
+    iput-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
 
-    const-wide/32 v0, 0xea60
+    const-wide/32 v4, 0xea60
 
-    div-long v4, p1, v0
+    div-long/2addr v2, v4
 
-    cmp-long v0, v4, v6
+    const-wide/16 v4, 0x0
 
-    if-nez v0, :cond_6
+    cmp-long v1, v2, v4
 
-    move-object v0, v3
+    if-nez v1, :cond_6
+
+    const/4 v1, 0x0
 
     :goto_3
-    iput-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->minutes:Ljava/math/BigInteger;
+    iput-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->minutes:Ljava/math/BigInteger;
 
-    const-wide/16 v0, 0x3c
+    const-wide/16 v4, 0x3c
 
-    div-long/2addr v4, v0
+    div-long/2addr v2, v4
 
-    cmp-long v0, v4, v6
+    const-wide/16 v4, 0x0
 
-    if-nez v0, :cond_7
+    cmp-long v1, v2, v4
 
-    move-object v0, v3
+    if-nez v1, :cond_7
+
+    const/4 v1, 0x0
 
     :goto_4
-    iput-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->hours:Ljava/math/BigInteger;
+    iput-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->hours:Ljava/math/BigInteger;
 
-    div-long v0, v4, v8
+    const-wide/16 v4, 0x18
 
-    cmp-long v2, v0, v6
+    div-long/2addr v2, v4
 
-    if-nez v2, :cond_8
+    const-wide/16 v4, 0x0
+
+    cmp-long v1, v2, v4
+
+    if-nez v1, :cond_8
+
+    const/4 v1, 0x0
 
     :goto_5
-    iput-object v3, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->days:Ljava/math/BigInteger;
+    iput-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->days:Ljava/math/BigInteger;
 
     return-void
 
     :cond_0
-    move v0, v2
+    const/4 v1, 0x0
 
     goto :goto_0
 
     :cond_1
-    cmp-long v0, p1, v6
+    const-wide/16 v4, 0x0
 
-    if-ltz v0, :cond_2
+    cmp-long v1, p1, v4
 
-    move v0, v1
+    if-ltz v1, :cond_3
+
+    const/4 v1, 0x1
 
     :goto_6
-    if-nez v0, :cond_4
+    if-nez v1, :cond_4
 
-    const/4 v0, -0x1
+    const/4 v1, -0x1
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
+    iput v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
 
     const-wide/high16 v4, -0x8000000000000000L
 
-    cmp-long v0, p1, v4
+    cmp-long v1, p1, v4
 
-    if-nez v0, :cond_3
+    if-nez v1, :cond_2
 
     const-wide/16 v4, 0x1
 
-    add-long/2addr p1, v4
+    add-long v2, p1, v4
 
-    move v0, v1
+    const/4 v0, 0x1
 
-    :goto_7
+    :cond_2
     const-wide/16 v4, -0x1
 
-    mul-long/2addr p1, v4
+    mul-long/2addr v2, v4
 
     goto :goto_1
 
-    :cond_2
-    move v0, v2
+    :cond_3
+    const/4 v1, 0x0
 
     goto :goto_6
 
-    :cond_3
-    move v0, v2
-
-    goto :goto_7
-
     :cond_4
-    iput v2, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
+    const/4 v1, 0x0
 
-    move v0, v2
+    iput v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
 
     goto :goto_1
 
     :cond_5
-    move v2, v1
+    const/4 v1, 0x1
 
     goto :goto_2
 
     :cond_6
-    const-wide/16 v0, 0x3c
+    const-wide/16 v4, 0x3c
 
-    rem-long v0, v4, v0
+    rem-long v4, v2, v4
 
-    invoke-static {v0, v1}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+    invoke-static {v4, v5}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
 
-    move-result-object v0
+    move-result-object v1
 
     goto :goto_3
 
     :cond_7
-    rem-long v0, v4, v8
+    const-wide/16 v4, 0x18
 
-    invoke-static {v0, v1}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+    rem-long v4, v2, v4
 
-    move-result-object v0
+    invoke-static {v4, v5}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+
+    move-result-object v1
 
     goto :goto_4
 
     :cond_8
-    invoke-static {v0, v1}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+    invoke-static {v2, v3}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
 
-    move-result-object v3
+    move-result-object v1
 
     goto :goto_5
 .end method
 
 .method protected constructor <init>(Ljava/lang/String;)V
-    .locals 12
+    .locals 17
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
         }
     .end annotation
 
-    invoke-direct {p0}, Lmf/javax/xml/datatype/Duration;-><init>()V
+    invoke-direct/range {p0 .. p0}, Lmf/javax/xml/datatype/Duration;-><init>()V
 
     if-eqz p1, :cond_6
 
-    const/4 v0, 0x1
+    move-object/from16 v8, p1
 
-    new-array v5, v0, [I
+    const/4 v14, 0x1
 
-    invoke-virtual {p1}, Ljava/lang/String;->length()I
+    new-array v5, v14, [I
+
+    invoke-virtual/range {p1 .. p1}, Ljava/lang/String;->length()I
 
     move-result v6
 
-    const/4 v3, 0x0
+    const/4 v13, 0x0
 
-    const/4 v0, 0x0
+    const/4 v14, 0x0
 
-    const/4 v1, 0x0
+    const/4 v15, 0x0
 
-    aput v1, v5, v0
+    aput v14, v5, v15
 
-    const/4 v0, 0x0
+    const/4 v14, 0x0
 
-    aget v0, v5, v0
+    aget v14, v5, v14
 
-    if-ne v6, v0, :cond_7
+    if-ne v6, v14, :cond_7
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 v7, 0x1
 
     :goto_0
-    const/4 v1, 0x0
+    const/4 v14, 0x0
 
-    aget v1, v5, v1
+    aget v14, v5, v14
 
-    if-ne v6, v1, :cond_8
+    if-ne v6, v14, :cond_8
 
     :cond_1
     const/4 v1, 0x0
 
-    const/4 v2, 0x3
+    const/4 v14, 0x3
 
-    new-array v7, v2, [Ljava/lang/String;
+    new-array v3, v14, [Ljava/lang/String;
 
-    const/4 v2, 0x3
+    const/4 v14, 0x3
 
-    new-array v8, v2, [I
+    new-array v4, v14, [I
+
+    move v2, v1
 
     :goto_1
-    const/4 v2, 0x0
+    const/4 v14, 0x0
 
-    aget v2, v5, v2
+    aget v14, v5, v14
 
-    if-ne v6, v2, :cond_a
+    if-ne v6, v14, :cond_a
 
     :cond_2
     :goto_2
-    const/4 v2, 0x0
+    const/4 v14, 0x0
 
-    aget v2, v5, v2
+    aget v14, v5, v14
 
-    if-ne v6, v2, :cond_b
-
-    move v2, v3
+    if-ne v6, v14, :cond_b
 
     :goto_3
-    const/4 v3, 0x0
+    const/4 v9, 0x0
 
-    const/4 v4, 0x3
+    const/4 v14, 0x3
 
-    new-array v9, v4, [Ljava/lang/String;
+    new-array v11, v14, [Ljava/lang/String;
 
-    const/4 v4, 0x3
+    const/4 v14, 0x3
 
-    new-array v10, v4, [I
+    new-array v12, v14, [I
+
+    move v10, v9
 
     :goto_4
-    const/4 v4, 0x0
+    const/4 v14, 0x0
 
-    aget v4, v5, v4
+    aget v14, v5, v14
 
-    if-ne v6, v4, :cond_e
+    if-ne v6, v14, :cond_e
 
     :cond_3
     :goto_5
-    if-nez v2, :cond_f
+    if-nez v13, :cond_f
 
     :cond_4
-    const/4 v2, 0x0
+    const/4 v14, 0x0
 
-    aget v2, v5, v2
+    aget v14, v5, v14
 
-    if-ne v6, v2, :cond_10
+    if-ne v6, v14, :cond_10
 
-    if-eqz v1, :cond_11
+    if-eqz v2, :cond_11
 
     :cond_5
-    const-string/jumbo v2, "YMD"
+    const-string/jumbo v14, "YMD"
 
-    invoke-static {p1, v7, v8, v1, v2}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->organizeParts(Ljava/lang/String;[Ljava/lang/String;[IILjava/lang/String;)V
+    move-object/from16 v0, p1
 
-    const-string/jumbo v1, "HMS"
+    invoke-static {v0, v3, v4, v2, v14}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->organizeParts(Ljava/lang/String;[Ljava/lang/String;[IILjava/lang/String;)V
 
-    invoke-static {p1, v9, v10, v3, v1}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->organizeParts(Ljava/lang/String;[Ljava/lang/String;[IILjava/lang/String;)V
+    const-string/jumbo v14, "HMS"
 
-    const/4 v1, 0x0
+    move-object/from16 v0, p1
 
-    aget-object v1, v7, v1
+    invoke-static {v0, v11, v12, v10, v14}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->organizeParts(Ljava/lang/String;[Ljava/lang/String;[IILjava/lang/String;)V
 
-    const/4 v2, 0x0
+    const/4 v14, 0x0
 
-    aget v2, v8, v2
+    aget-object v14, v3, v14
 
-    invoke-static {p1, v1, v2}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->parseBigInteger(Ljava/lang/String;Ljava/lang/String;I)Ljava/math/BigInteger;
+    const/4 v15, 0x0
 
-    move-result-object v1
+    aget v15, v4, v15
 
-    iput-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->years:Ljava/math/BigInteger;
+    move-object/from16 v0, p1
 
-    const/4 v1, 0x1
+    invoke-static {v0, v14, v15}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->parseBigInteger(Ljava/lang/String;Ljava/lang/String;I)Ljava/math/BigInteger;
 
-    aget-object v1, v7, v1
+    move-result-object v14
 
-    const/4 v2, 0x1
+    move-object/from16 v0, p0
 
-    aget v2, v8, v2
+    iput-object v14, v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->years:Ljava/math/BigInteger;
 
-    invoke-static {p1, v1, v2}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->parseBigInteger(Ljava/lang/String;Ljava/lang/String;I)Ljava/math/BigInteger;
+    const/4 v14, 0x1
 
-    move-result-object v1
+    aget-object v14, v3, v14
 
-    iput-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->months:Ljava/math/BigInteger;
+    const/4 v15, 0x1
 
-    const/4 v1, 0x2
+    aget v15, v4, v15
 
-    aget-object v1, v7, v1
+    move-object/from16 v0, p1
 
-    const/4 v2, 0x2
+    invoke-static {v0, v14, v15}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->parseBigInteger(Ljava/lang/String;Ljava/lang/String;I)Ljava/math/BigInteger;
 
-    aget v2, v8, v2
+    move-result-object v14
 
-    invoke-static {p1, v1, v2}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->parseBigInteger(Ljava/lang/String;Ljava/lang/String;I)Ljava/math/BigInteger;
+    move-object/from16 v0, p0
 
-    move-result-object v1
+    iput-object v14, v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->months:Ljava/math/BigInteger;
 
-    iput-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->days:Ljava/math/BigInteger;
+    const/4 v14, 0x2
 
-    const/4 v1, 0x0
+    aget-object v14, v3, v14
 
-    aget-object v1, v9, v1
+    const/4 v15, 0x2
 
-    const/4 v2, 0x0
+    aget v15, v4, v15
 
-    aget v2, v10, v2
+    move-object/from16 v0, p1
 
-    invoke-static {p1, v1, v2}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->parseBigInteger(Ljava/lang/String;Ljava/lang/String;I)Ljava/math/BigInteger;
+    invoke-static {v0, v14, v15}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->parseBigInteger(Ljava/lang/String;Ljava/lang/String;I)Ljava/math/BigInteger;
 
-    move-result-object v1
+    move-result-object v14
 
-    iput-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->hours:Ljava/math/BigInteger;
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x1
+    iput-object v14, v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->days:Ljava/math/BigInteger;
 
-    aget-object v1, v9, v1
+    const/4 v14, 0x0
 
-    const/4 v2, 0x1
+    aget-object v14, v11, v14
 
-    aget v2, v10, v2
+    const/4 v15, 0x0
 
-    invoke-static {p1, v1, v2}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->parseBigInteger(Ljava/lang/String;Ljava/lang/String;I)Ljava/math/BigInteger;
+    aget v15, v12, v15
 
-    move-result-object v1
+    move-object/from16 v0, p1
 
-    iput-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->minutes:Ljava/math/BigInteger;
+    invoke-static {v0, v14, v15}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->parseBigInteger(Ljava/lang/String;Ljava/lang/String;I)Ljava/math/BigInteger;
 
-    const/4 v1, 0x2
+    move-result-object v14
 
-    aget-object v1, v9, v1
+    move-object/from16 v0, p0
 
-    const/4 v2, 0x2
+    iput-object v14, v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->hours:Ljava/math/BigInteger;
 
-    aget v2, v10, v2
+    const/4 v14, 0x1
 
-    invoke-static {p1, v1, v2}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->parseBigDecimal(Ljava/lang/String;Ljava/lang/String;I)Ljava/math/BigDecimal;
+    aget-object v14, v11, v14
 
-    move-result-object v1
+    const/4 v15, 0x1
 
-    iput-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
+    aget v15, v12, v15
 
-    invoke-direct {p0, v0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->calcSignum(Z)I
+    move-object/from16 v0, p1
 
-    move-result v0
+    invoke-static {v0, v14, v15}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->parseBigInteger(Ljava/lang/String;Ljava/lang/String;I)Ljava/math/BigInteger;
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
+    move-result-object v14
+
+    move-object/from16 v0, p0
+
+    iput-object v14, v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->minutes:Ljava/math/BigInteger;
+
+    const/4 v14, 0x2
+
+    aget-object v14, v11, v14
+
+    const/4 v15, 0x2
+
+    aget v15, v12, v15
+
+    move-object/from16 v0, p1
+
+    invoke-static {v0, v14, v15}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->parseBigDecimal(Ljava/lang/String;Ljava/lang/String;I)Ljava/math/BigDecimal;
+
+    move-result-object v14
+
+    move-object/from16 v0, p0
+
+    iput-object v14, v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v7}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->calcSignum(Z)I
+
+    move-result v14
+
+    move-object/from16 v0, p0
+
+    iput v14, v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
 
     return-void
 
     :cond_6
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance v14, Ljava/lang/NullPointerException;
 
-    invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
+    invoke-direct {v14}, Ljava/lang/NullPointerException;-><init>()V
 
-    throw v0
+    throw v14
 
     :cond_7
-    const/4 v0, 0x0
+    const/4 v14, 0x0
 
-    aget v0, v5, v0
+    aget v14, v5, v14
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
+    move-object/from16 v0, p1
 
-    move-result v0
+    invoke-virtual {v0, v14}, Ljava/lang/String;->charAt(I)C
 
-    const/16 v1, 0x2d
+    move-result v14
 
-    if-ne v0, v1, :cond_0
+    const/16 v15, 0x2d
 
-    const/4 v0, 0x0
+    if-ne v14, v15, :cond_0
 
-    const/4 v1, 0x0
+    const/4 v14, 0x0
 
-    aget v1, v5, v1
+    aget v14, v5, v14
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v14, v14, 0x1
 
-    aput v1, v5, v0
+    const/4 v15, 0x0
 
-    const/4 v0, 0x0
+    aput v14, v5, v15
+
+    const/4 v7, 0x0
 
     goto/16 :goto_0
 
     :cond_8
-    const/4 v1, 0x0
+    const/4 v14, 0x0
 
-    aget v1, v5, v1
+    aget v14, v5, v14
 
-    const/4 v2, 0x0
+    add-int/lit8 v15, v14, 0x1
 
-    add-int/lit8 v4, v1, 0x1
+    const/16 v16, 0x0
 
-    aput v4, v5, v2
+    aput v15, v5, v16
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
+    move-object/from16 v0, p1
 
-    move-result v1
+    invoke-virtual {v0, v14}, Ljava/lang/String;->charAt(I)C
 
-    const/16 v2, 0x50
+    move-result v14
 
-    if-eq v1, v2, :cond_1
+    const/16 v15, 0x50
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    if-eq v14, v15, :cond_1
 
-    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    new-instance v14, Ljava/lang/IllegalArgumentException;
 
-    throw v0
+    move-object/from16 v0, p1
+
+    invoke-direct {v14, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v14
 
     :cond_9
-    const/4 v2, 0x3
+    const/4 v14, 0x3
 
-    if-ge v1, v2, :cond_2
+    if-ge v2, v14, :cond_2
 
-    const/4 v2, 0x0
+    const/4 v14, 0x0
 
-    aget v2, v5, v2
+    aget v14, v5, v14
 
-    aput v2, v8, v1
+    aput v14, v4, v2
 
-    add-int/lit8 v2, v1, 0x1
+    add-int/lit8 v1, v2, 0x1
 
-    invoke-static {p1, v5}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->parsePiece(Ljava/lang/String;[I)Ljava/lang/String;
+    move-object/from16 v0, p1
 
-    move-result-object v4
+    invoke-static {v0, v5}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->parsePiece(Ljava/lang/String;[I)Ljava/lang/String;
 
-    aput-object v4, v7, v1
+    move-result-object v14
 
-    move v1, v2
+    aput-object v14, v3, v2
+
+    move v2, v1
 
     goto/16 :goto_1
 
     :cond_a
-    const/4 v2, 0x0
+    const/4 v14, 0x0
 
-    aget v2, v5, v2
+    aget v14, v5, v14
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
+    move-object/from16 v0, p1
 
-    move-result v2
+    invoke-virtual {v0, v14}, Ljava/lang/String;->charAt(I)C
 
-    invoke-static {v2}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->isDigit(C)Z
+    move-result v14
 
-    move-result v2
+    invoke-static {v14}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->isDigit(C)Z
 
-    if-nez v2, :cond_9
+    move-result v14
+
+    if-nez v14, :cond_9
 
     goto/16 :goto_2
 
     :cond_b
-    const/4 v2, 0x0
+    const/4 v14, 0x0
 
-    aget v2, v5, v2
+    aget v14, v5, v14
 
-    const/4 v3, 0x0
+    add-int/lit8 v15, v14, 0x1
 
-    add-int/lit8 v4, v2, 0x1
+    const/16 v16, 0x0
 
-    aput v4, v5, v3
+    aput v15, v5, v16
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
+    move-object/from16 v0, p1
 
-    move-result v2
+    invoke-virtual {v0, v14}, Ljava/lang/String;->charAt(I)C
 
-    const/16 v3, 0x54
+    move-result v14
 
-    if-eq v2, v3, :cond_c
+    const/16 v15, 0x54
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    if-eq v14, v15, :cond_c
 
-    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    new-instance v14, Ljava/lang/IllegalArgumentException;
 
-    throw v0
+    move-object/from16 v0, p1
+
+    invoke-direct {v14, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v14
 
     :cond_c
-    const/4 v2, 0x1
+    const/4 v13, 0x1
 
     goto/16 :goto_3
 
     :cond_d
-    const/4 v4, 0x3
+    const/4 v14, 0x3
 
-    if-ge v3, v4, :cond_3
+    if-ge v10, v14, :cond_3
 
-    const/4 v4, 0x0
+    const/4 v14, 0x0
 
-    aget v4, v5, v4
+    aget v14, v5, v14
 
-    aput v4, v10, v3
+    aput v14, v12, v10
 
-    add-int/lit8 v4, v3, 0x1
+    add-int/lit8 v9, v10, 0x1
 
-    invoke-static {p1, v5}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->parsePiece(Ljava/lang/String;[I)Ljava/lang/String;
+    move-object/from16 v0, p1
 
-    move-result-object v11
+    invoke-static {v0, v5}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->parsePiece(Ljava/lang/String;[I)Ljava/lang/String;
 
-    aput-object v11, v9, v3
+    move-result-object v14
 
-    move v3, v4
+    aput-object v14, v11, v10
+
+    move v10, v9
 
     goto/16 :goto_4
 
     :cond_e
-    const/4 v4, 0x0
+    const/4 v14, 0x0
 
-    aget v4, v5, v4
+    aget v14, v5, v14
 
-    invoke-virtual {p1, v4}, Ljava/lang/String;->charAt(I)C
+    move-object/from16 v0, p1
 
-    move-result v4
+    invoke-virtual {v0, v14}, Ljava/lang/String;->charAt(I)C
 
-    invoke-static {v4}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->isDigitOrPeriod(C)Z
+    move-result v14
 
-    move-result v4
+    invoke-static {v14}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->isDigitOrPeriod(C)Z
 
-    if-nez v4, :cond_d
+    move-result v14
+
+    if-nez v14, :cond_d
 
     goto/16 :goto_5
 
     :cond_f
-    if-nez v3, :cond_4
+    if-nez v10, :cond_4
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v14, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-object/from16 v0, p1
 
-    throw v0
+    invoke-direct {v14, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v14
 
     :cond_10
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v14, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-object/from16 v0, p1
 
-    throw v0
+    invoke-direct {v14, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v14
 
     :cond_11
-    if-nez v3, :cond_5
+    if-nez v10, :cond_5
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v14, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-object/from16 v0, p1
 
-    throw v0
+    invoke-direct {v14, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v14
 .end method
 
 .method protected constructor <init>(ZIIIIII)V
@@ -868,107 +939,99 @@
 .method private static alignSigns([Ljava/math/BigDecimal;II)V
     .locals 8
 
-    const/4 v4, 0x0
+    const/4 v7, 0x0
 
     :cond_0
-    move v3, p1
+    const/4 v3, 0x0
 
-    move v2, v4
+    const/4 v2, 0x0
 
-    move v0, v4
+    move v1, p1
 
     :goto_0
-    if-ge v3, p2, :cond_4
+    if-ge v1, p2, :cond_4
 
-    aget-object v1, p0, v3
+    aget-object v4, p0, v1
 
-    invoke-virtual {v1}, Ljava/math/BigDecimal;->signum()I
+    invoke-virtual {v4}, Ljava/math/BigDecimal;->signum()I
 
-    move-result v1
+    move-result v4
 
-    mul-int/2addr v1, v2
+    mul-int/2addr v4, v2
 
-    if-ltz v1, :cond_1
+    if-ltz v4, :cond_1
 
     :goto_1
-    aget-object v1, p0, v3
+    aget-object v4, p0, v1
 
-    invoke-virtual {v1}, Ljava/math/BigDecimal;->signum()I
+    invoke-virtual {v4}, Ljava/math/BigDecimal;->signum()I
 
-    move-result v1
+    move-result v4
 
-    if-nez v1, :cond_3
-
-    move v1, v2
+    if-nez v4, :cond_3
 
     :goto_2
-    add-int/lit8 v2, v3, 0x1
-
-    move v3, v2
-
-    move v2, v1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
-    aget-object v0, p0, v3
+    aget-object v4, p0, v1
 
-    invoke-virtual {v0}, Ljava/math/BigDecimal;->abs()Ljava/math/BigDecimal;
+    invoke-virtual {v4}, Ljava/math/BigDecimal;->abs()Ljava/math/BigDecimal;
 
-    move-result-object v0
+    move-result-object v4
 
     sget-object v5, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->FACTORS:[Ljava/math/BigDecimal;
 
-    add-int/lit8 v6, v3, -0x1
+    add-int/lit8 v6, v1, -0x1
 
     aget-object v5, v5, v6
 
-    invoke-virtual {v0, v5, v4}, Ljava/math/BigDecimal;->divide(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
+    invoke-virtual {v4, v5, v7}, Ljava/math/BigDecimal;->divide(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
 
     move-result-object v0
 
-    aget-object v5, p0, v3
+    aget-object v4, p0, v1
 
-    invoke-virtual {v5}, Ljava/math/BigDecimal;->signum()I
+    invoke-virtual {v4}, Ljava/math/BigDecimal;->signum()I
 
-    move-result v5
+    move-result v4
 
-    if-gtz v5, :cond_2
+    if-gtz v4, :cond_2
 
     :goto_3
-    add-int/lit8 v5, v3, -0x1
+    add-int/lit8 v4, v1, -0x1
 
-    add-int/lit8 v6, v3, -0x1
+    add-int/lit8 v5, v1, -0x1
 
-    aget-object v6, p0, v6
+    aget-object v5, p0, v5
 
-    invoke-virtual {v6, v0}, Ljava/math/BigDecimal;->subtract(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+    invoke-virtual {v5, v0}, Ljava/math/BigDecimal;->subtract(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
 
-    move-result-object v6
+    move-result-object v5
 
-    aput-object v6, p0, v5
+    aput-object v5, p0, v4
 
-    aget-object v5, p0, v3
+    aget-object v4, p0, v1
 
-    sget-object v6, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->FACTORS:[Ljava/math/BigDecimal;
+    sget-object v5, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->FACTORS:[Ljava/math/BigDecimal;
 
-    add-int/lit8 v7, v3, -0x1
+    add-int/lit8 v6, v1, -0x1
 
-    aget-object v6, v6, v7
+    aget-object v5, v5, v6
 
-    invoke-virtual {v0, v6}, Ljava/math/BigDecimal;->multiply(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+    invoke-virtual {v0, v5}, Ljava/math/BigDecimal;->multiply(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-virtual {v5, v0}, Ljava/math/BigDecimal;->add(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+    invoke-virtual {v4, v5}, Ljava/math/BigDecimal;->add(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
 
-    move-result-object v0
+    move-result-object v4
 
-    aput-object v0, p0, v3
-
-    move v0, v1
+    aput-object v4, p0, v1
 
     goto :goto_1
 
@@ -980,16 +1043,16 @@
     goto :goto_3
 
     :cond_3
-    aget-object v1, p0, v3
+    aget-object v4, p0, v1
 
-    invoke-virtual {v1}, Ljava/math/BigDecimal;->signum()I
+    invoke-virtual {v4}, Ljava/math/BigDecimal;->signum()I
 
-    move-result v1
+    move-result v2
 
     goto :goto_2
 
     :cond_4
-    if-nez v0, :cond_0
+    if-nez v3, :cond_0
 
     return-void
 .end method
@@ -1109,156 +1172,160 @@
 .end method
 
 .method private compareDates(Lmf/javax/xml/datatype/Duration;Lmf/javax/xml/datatype/Duration;)I
-    .locals 6
+    .locals 9
 
-    const/4 v5, 0x3
+    const/4 v8, 0x3
 
-    const/4 v4, 0x1
+    const/4 v7, 0x1
 
-    const/4 v2, 0x0
+    const/4 v6, 0x0
 
-    const/4 v3, 0x2
+    const/4 v5, 0x2
 
-    sget-object v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->TEST_POINTS:[Lmf/javax/xml/datatype/XMLGregorianCalendar;
+    const/4 v0, 0x2
 
-    aget-object v0, v0, v2
+    const/4 v1, 0x2
 
-    invoke-virtual {v0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->clone()Ljava/lang/Object;
+    sget-object v4, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->TEST_POINTS:[Lmf/javax/xml/datatype/XMLGregorianCalendar;
 
-    move-result-object v0
+    aget-object v4, v4, v6
 
-    check-cast v0, Lmf/javax/xml/datatype/XMLGregorianCalendar;
+    invoke-virtual {v4}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->clone()Ljava/lang/Object;
 
-    sget-object v1, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->TEST_POINTS:[Lmf/javax/xml/datatype/XMLGregorianCalendar;
+    move-result-object v2
 
-    aget-object v1, v1, v2
+    check-cast v2, Lmf/javax/xml/datatype/XMLGregorianCalendar;
 
-    invoke-virtual {v1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->clone()Ljava/lang/Object;
+    sget-object v4, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->TEST_POINTS:[Lmf/javax/xml/datatype/XMLGregorianCalendar;
 
-    move-result-object v1
+    aget-object v4, v4, v6
 
-    check-cast v1, Lmf/javax/xml/datatype/XMLGregorianCalendar;
+    invoke-virtual {v4}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->clone()Ljava/lang/Object;
 
-    invoke-virtual {v0, p1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->add(Lmf/javax/xml/datatype/Duration;)V
+    move-result-object v3
 
-    invoke-virtual {v1, p2}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->add(Lmf/javax/xml/datatype/Duration;)V
+    check-cast v3, Lmf/javax/xml/datatype/XMLGregorianCalendar;
 
-    invoke-virtual {v0, v1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->compare(Lmf/javax/xml/datatype/XMLGregorianCalendar;)I
+    invoke-virtual {v2, p1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->add(Lmf/javax/xml/datatype/Duration;)V
 
-    move-result v2
+    invoke-virtual {v3, p2}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->add(Lmf/javax/xml/datatype/Duration;)V
 
-    if-eq v2, v3, :cond_0
-
-    sget-object v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->TEST_POINTS:[Lmf/javax/xml/datatype/XMLGregorianCalendar;
-
-    aget-object v0, v0, v4
-
-    invoke-virtual {v0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->clone()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lmf/javax/xml/datatype/XMLGregorianCalendar;
-
-    sget-object v1, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->TEST_POINTS:[Lmf/javax/xml/datatype/XMLGregorianCalendar;
-
-    aget-object v1, v1, v4
-
-    invoke-virtual {v1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->clone()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lmf/javax/xml/datatype/XMLGregorianCalendar;
-
-    invoke-virtual {v0, p1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->add(Lmf/javax/xml/datatype/Duration;)V
-
-    invoke-virtual {v1, p2}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->add(Lmf/javax/xml/datatype/Duration;)V
-
-    invoke-virtual {v0, v1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->compare(Lmf/javax/xml/datatype/XMLGregorianCalendar;)I
+    invoke-virtual {v2, v3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->compare(Lmf/javax/xml/datatype/XMLGregorianCalendar;)I
 
     move-result v0
 
-    invoke-direct {p0, v2, v0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->compareResults(II)I
+    if-eq v0, v5, :cond_0
 
-    move-result v2
+    sget-object v4, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->TEST_POINTS:[Lmf/javax/xml/datatype/XMLGregorianCalendar;
 
-    if-eq v2, v3, :cond_1
+    aget-object v4, v4, v7
 
-    sget-object v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->TEST_POINTS:[Lmf/javax/xml/datatype/XMLGregorianCalendar;
+    invoke-virtual {v4}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->clone()Ljava/lang/Object;
 
-    aget-object v0, v0, v3
+    move-result-object v2
 
-    invoke-virtual {v0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->clone()Ljava/lang/Object;
+    check-cast v2, Lmf/javax/xml/datatype/XMLGregorianCalendar;
 
-    move-result-object v0
+    sget-object v4, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->TEST_POINTS:[Lmf/javax/xml/datatype/XMLGregorianCalendar;
 
-    check-cast v0, Lmf/javax/xml/datatype/XMLGregorianCalendar;
+    aget-object v4, v4, v7
 
-    sget-object v1, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->TEST_POINTS:[Lmf/javax/xml/datatype/XMLGregorianCalendar;
+    invoke-virtual {v4}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->clone()Ljava/lang/Object;
 
-    aget-object v1, v1, v3
+    move-result-object v3
 
-    invoke-virtual {v1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->clone()Ljava/lang/Object;
+    check-cast v3, Lmf/javax/xml/datatype/XMLGregorianCalendar;
 
-    move-result-object v1
+    invoke-virtual {v2, p1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->add(Lmf/javax/xml/datatype/Duration;)V
 
-    check-cast v1, Lmf/javax/xml/datatype/XMLGregorianCalendar;
+    invoke-virtual {v3, p2}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->add(Lmf/javax/xml/datatype/Duration;)V
 
-    invoke-virtual {v0, p1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->add(Lmf/javax/xml/datatype/Duration;)V
+    invoke-virtual {v2, v3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->compare(Lmf/javax/xml/datatype/XMLGregorianCalendar;)I
 
-    invoke-virtual {v1, p2}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->add(Lmf/javax/xml/datatype/Duration;)V
+    move-result v1
 
-    invoke-virtual {v0, v1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->compare(Lmf/javax/xml/datatype/XMLGregorianCalendar;)I
-
-    move-result v0
-
-    invoke-direct {p0, v2, v0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->compareResults(II)I
-
-    move-result v2
-
-    if-eq v2, v3, :cond_2
-
-    sget-object v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->TEST_POINTS:[Lmf/javax/xml/datatype/XMLGregorianCalendar;
-
-    aget-object v0, v0, v5
-
-    invoke-virtual {v0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->clone()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lmf/javax/xml/datatype/XMLGregorianCalendar;
-
-    sget-object v1, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->TEST_POINTS:[Lmf/javax/xml/datatype/XMLGregorianCalendar;
-
-    aget-object v1, v1, v5
-
-    invoke-virtual {v1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->clone()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lmf/javax/xml/datatype/XMLGregorianCalendar;
-
-    invoke-virtual {v0, p1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->add(Lmf/javax/xml/datatype/Duration;)V
-
-    invoke-virtual {v1, p2}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->add(Lmf/javax/xml/datatype/Duration;)V
-
-    invoke-virtual {v0, v1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->compare(Lmf/javax/xml/datatype/XMLGregorianCalendar;)I
+    invoke-direct {p0, v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->compareResults(II)I
 
     move-result v0
 
-    invoke-direct {p0, v2, v0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->compareResults(II)I
+    if-eq v0, v5, :cond_1
+
+    sget-object v4, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->TEST_POINTS:[Lmf/javax/xml/datatype/XMLGregorianCalendar;
+
+    aget-object v4, v4, v5
+
+    invoke-virtual {v4}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->clone()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lmf/javax/xml/datatype/XMLGregorianCalendar;
+
+    sget-object v4, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->TEST_POINTS:[Lmf/javax/xml/datatype/XMLGregorianCalendar;
+
+    aget-object v4, v4, v5
+
+    invoke-virtual {v4}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->clone()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lmf/javax/xml/datatype/XMLGregorianCalendar;
+
+    invoke-virtual {v2, p1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->add(Lmf/javax/xml/datatype/Duration;)V
+
+    invoke-virtual {v3, p2}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->add(Lmf/javax/xml/datatype/Duration;)V
+
+    invoke-virtual {v2, v3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->compare(Lmf/javax/xml/datatype/XMLGregorianCalendar;)I
+
+    move-result v1
+
+    invoke-direct {p0, v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->compareResults(II)I
+
+    move-result v0
+
+    if-eq v0, v5, :cond_2
+
+    sget-object v4, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->TEST_POINTS:[Lmf/javax/xml/datatype/XMLGregorianCalendar;
+
+    aget-object v4, v4, v8
+
+    invoke-virtual {v4}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->clone()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lmf/javax/xml/datatype/XMLGregorianCalendar;
+
+    sget-object v4, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->TEST_POINTS:[Lmf/javax/xml/datatype/XMLGregorianCalendar;
+
+    aget-object v4, v4, v8
+
+    invoke-virtual {v4}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->clone()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lmf/javax/xml/datatype/XMLGregorianCalendar;
+
+    invoke-virtual {v2, p1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->add(Lmf/javax/xml/datatype/Duration;)V
+
+    invoke-virtual {v3, p2}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->add(Lmf/javax/xml/datatype/Duration;)V
+
+    invoke-virtual {v2, v3}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->compare(Lmf/javax/xml/datatype/XMLGregorianCalendar;)I
+
+    move-result v1
+
+    invoke-direct {p0, v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->compareResults(II)I
 
     move-result v0
 
     return v0
 
     :cond_0
-    return v3
+    return v5
 
     :cond_1
-    return v3
+    return v5
 
     :cond_2
-    return v3
+    return v5
 .end method
 
 .method private compareResults(II)I
@@ -1296,9 +1363,9 @@
 .method private getFieldAsBigDecimal(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/math/BigDecimal;
     .locals 2
 
-    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->SECONDS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v1, Lmf/javax/xml/datatype/DatatypeConstants;->SECONDS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v1, :cond_0
 
     invoke-virtual {p0, p1}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
 
@@ -1315,27 +1382,27 @@
     return-object v1
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
-    sget-object v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->ZERO:Ljava/math/BigDecimal;
+    sget-object v1, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->ZERO:Ljava/math/BigDecimal;
 
-    return-object v0
+    return-object v1
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
 
-    return-object v0
+    return-object v1
 
     :cond_2
-    sget-object v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->ZERO:Ljava/math/BigDecimal;
+    sget-object v1, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->ZERO:Ljava/math/BigDecimal;
 
-    return-object v0
+    return-object v1
 .end method
 
 .method private getInt(Lmf/javax/xml/datatype/DatatypeConstants$Field;)I
-    .locals 1
+    .locals 2
 
     invoke-virtual {p0, p1}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
 
@@ -1345,14 +1412,14 @@
 
     invoke-virtual {v0}, Ljava/lang/Number;->intValue()I
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return v0
+    return v1
 .end method
 
 .method private static isDigit(C)Z
@@ -1402,14 +1469,14 @@
 .end method
 
 .method private static organizeParts(Ljava/lang/String;[Ljava/lang/String;[IILjava/lang/String;)V
-    .locals 5
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
         }
     .end annotation
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
     invoke-virtual {p4}, Ljava/lang/String;->length()I
 
@@ -1420,83 +1487,81 @@
     :goto_0
     if-ltz v0, :cond_3
 
-    aget-object v2, p1, v0
+    aget-object v4, p1, v0
 
-    if-eqz v2, :cond_0
+    if-eqz v4, :cond_0
 
-    aget-object v2, p1, v0
+    aget-object v4, p1, v0
 
-    aget-object v3, p1, v0
+    aget-object v5, p1, v0
 
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
+
+    move-result v5
+
+    add-int/lit8 v5, v5, -0x1
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->charAt(I)C
+
+    move-result v4
+
+    add-int/lit8 v5, v1, -0x1
+
+    invoke-virtual {p4, v4, v5}, Ljava/lang/String;->lastIndexOf(II)I
 
     move-result v3
 
-    add-int/lit8 v3, v3, -0x1
+    const/4 v4, -0x1
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->charAt(I)C
+    if-eq v3, v4, :cond_1
 
-    move-result v2
-
-    add-int/lit8 v3, v1, -0x1
-
-    invoke-virtual {p4, v2, v3}, Ljava/lang/String;->lastIndexOf(II)I
-
-    move-result v2
-
-    const/4 v3, -0x1
-
-    if-eq v2, v3, :cond_1
-
-    add-int/lit8 v3, v2, 0x1
+    add-int/lit8 v2, v3, 0x1
 
     :goto_1
-    if-ge v3, v1, :cond_2
+    if-ge v2, v1, :cond_2
 
-    aput-object v4, p1, v3
+    aput-object v6, p1, v2
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v4, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v4
 
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v4, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v4
 
     :cond_2
-    aget-object v1, p1, v0
+    move v1, v3
 
-    aput-object v1, p1, v2
+    aget-object v4, p1, v0
 
-    aget v1, p2, v0
+    aput-object v4, p1, v3
 
-    aput v1, p2, v2
+    aget v4, p2, v0
+
+    aput v4, p2, v3
 
     add-int/lit8 v0, v0, -0x1
-
-    move v1, v2
 
     goto :goto_0
 
     :cond_3
-    add-int/lit8 v0, v1, -0x1
-
     :goto_2
-    if-ltz v0, :cond_4
+    add-int/lit8 v1, v1, -0x1
 
-    aput-object v4, p1, v0
+    if-ltz v1, :cond_4
 
-    add-int/lit8 v0, v0, -0x1
+    aput-object v6, p1, v1
 
     goto :goto_2
 
@@ -1516,23 +1581,23 @@
 
     if-eqz p1, :cond_0
 
-    const/4 v0, 0x0
-
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v0
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    invoke-virtual {p1, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    const/4 v1, 0x0
 
-    move-result-object v0
+    invoke-virtual {p1, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    new-instance v1, Ljava/math/BigDecimal;
+    move-result-object p1
 
-    invoke-direct {v1, v0}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;)V
+    new-instance v0, Ljava/math/BigDecimal;
 
-    return-object v1
+    invoke-direct {v0, p1}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;)V
+
+    return-object v0
 
     :cond_0
     return-object v0
@@ -1550,23 +1615,23 @@
 
     if-eqz p1, :cond_0
 
-    const/4 v0, 0x0
-
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v0
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    invoke-virtual {p1, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    const/4 v1, 0x0
 
-    move-result-object v0
+    invoke-virtual {p1, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    new-instance v1, Ljava/math/BigInteger;
+    move-result-object p1
 
-    invoke-direct {v1, v0}, Ljava/math/BigInteger;-><init>(Ljava/lang/String;)V
+    new-instance v0, Ljava/math/BigInteger;
 
-    return-object v1
+    invoke-direct {v0, p1}, Ljava/math/BigInteger;-><init>(Ljava/lang/String;)V
+
+    return-object v0
 
     :cond_0
     return-object v0
@@ -1612,9 +1677,9 @@
 
     invoke-virtual {p0, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_1
     aget v1, p1, v3
@@ -1638,11 +1703,11 @@
     goto :goto_0
 
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v1
 .end method
 
 .method static sanitize(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
@@ -1704,11 +1769,11 @@
 .end method
 
 .method private static testNonNegative(Ljava/math/BigDecimal;Lmf/javax/xml/datatype/DatatypeConstants$Field;)V
-    .locals 6
-
-    const/4 v5, 0x0
+    .locals 5
 
     const/4 v4, 0x0
+
+    const/4 v3, 0x0
 
     if-nez p0, :cond_1
 
@@ -1724,19 +1789,19 @@
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "NegativeField"
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
-
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/Object;
 
     invoke-virtual {p1}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    aput-object v3, v2, v4
+    aput-object v2, v1, v3
 
-    invoke-static {v5, v1, v2}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    const-string/jumbo v2, "NegativeField"
+
+    invoke-static {v4, v2, v1}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -1746,11 +1811,11 @@
 .end method
 
 .method private static testNonNegative(Ljava/math/BigInteger;Lmf/javax/xml/datatype/DatatypeConstants$Field;)V
-    .locals 6
-
-    const/4 v5, 0x0
+    .locals 5
 
     const/4 v4, 0x0
+
+    const/4 v3, 0x0
 
     if-nez p0, :cond_1
 
@@ -1766,19 +1831,19 @@
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "NegativeField"
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
-
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/Object;
 
     invoke-virtual {p1}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    aput-object v3, v2, v4
+    aput-object v2, v1, v3
 
-    invoke-static {v5, v1, v2}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    const-string/jumbo v2, "NegativeField"
+
+    invoke-static {v4, v2, v1}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -1812,101 +1877,101 @@
 .end method
 
 .method private toString(Ljava/math/BigDecimal;)Ljava/lang/String;
-    .locals 6
-
-    const/4 v1, 0x0
+    .locals 7
 
     invoke-virtual {p1}, Ljava/math/BigDecimal;->unscaledValue()Ljava/math/BigInteger;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-virtual {v0}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
     invoke-virtual {p1}, Ljava/math/BigDecimal;->scale()I
 
-    move-result v0
+    move-result v4
 
-    if-eqz v0, :cond_0
+    if-eqz v4, :cond_0
 
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
-
-    move-result v3
-
-    sub-int/2addr v3, v0
-
-    if-eqz v3, :cond_1
-
-    if-gtz v3, :cond_2
-
-    new-instance v0, Ljava/lang/StringBuffer;
-
-    rsub-int/lit8 v4, v3, 0x3
-
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
 
     move-result v5
 
-    add-int/2addr v4, v5
+    sub-int v2, v5, v4
 
-    invoke-direct {v0, v4}, Ljava/lang/StringBuffer;-><init>(I)V
+    if-eqz v2, :cond_1
 
-    const-string/jumbo v4, "0."
+    if-gtz v2, :cond_2
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    new-instance v0, Ljava/lang/StringBuffer;
+
+    rsub-int/lit8 v5, v2, 0x3
+
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
+
+    move-result v6
+
+    add-int/2addr v5, v6
+
+    invoke-direct {v0, v5}, Ljava/lang/StringBuffer;-><init>(I)V
+
+    const-string/jumbo v5, "0."
+
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    const/4 v1, 0x0
 
     :goto_0
-    neg-int v4, v3
+    neg-int v5, v2
 
-    if-ge v1, v4, :cond_3
+    if-ge v1, v5, :cond_3
 
-    const/16 v4, 0x30
+    const/16 v5, 0x30
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_0
-    return-object v2
+    return-object v3
 
     :cond_1
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "0."
+    const-string/jumbo v6, "0."
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v5
 
-    return-object v0
+    return-object v5
 
     :cond_2
     new-instance v0, Ljava/lang/StringBuffer;
 
-    invoke-direct {v0, v2}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v3}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
-    const/16 v1, 0x2e
+    const/16 v5, 0x2e
 
-    invoke-virtual {v0, v3, v1}, Ljava/lang/StringBuffer;->insert(IC)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v2, v5}, Ljava/lang/StringBuffer;->insert(IC)Ljava/lang/StringBuffer;
 
     :goto_1
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v5
 
-    return-object v0
+    return-object v5
 
     :cond_3
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_1
 .end method
@@ -1954,21 +2019,13 @@
 
 # virtual methods
 .method public add(Lmf/javax/xml/datatype/Duration;)Lmf/javax/xml/datatype/Duration;
-    .locals 14
+    .locals 12
 
-    const/4 v13, 0x5
-
-    const/4 v5, 0x2
-
-    const/4 v8, 0x1
-
-    const/4 v9, 0x0
-
-    const/4 v6, 0x0
+    move-object v10, p0
 
     const/4 v0, 0x6
 
-    new-array v10, v0, [Ljava/math/BigDecimal;
+    new-array v8, v0, [Ljava/math/BigDecimal;
 
     sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->YEARS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
@@ -1978,13 +2035,15 @@
 
     check-cast v0, Ljava/math/BigInteger;
 
+    const/4 v1, 0x0
+
     invoke-virtual {p0}, Lmf/javax/xml/datatype/Duration;->getSign()I
 
-    move-result v1
+    move-result v2
 
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigInteger;I)Ljava/math/BigDecimal;
+    invoke-static {v0, v2}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigInteger;I)Ljava/math/BigDecimal;
 
-    move-result-object v1
+    move-result-object v2
 
     sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->YEARS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
@@ -1996,17 +2055,17 @@
 
     invoke-virtual {p1}, Lmf/javax/xml/datatype/Duration;->getSign()I
 
-    move-result v2
+    move-result v3
 
-    invoke-static {v0, v2}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigInteger;I)Ljava/math/BigDecimal;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Ljava/math/BigDecimal;->add(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+    invoke-static {v0, v3}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigInteger;I)Ljava/math/BigDecimal;
 
     move-result-object v0
 
-    aput-object v0, v10, v6
+    invoke-virtual {v2, v0}, Ljava/math/BigDecimal;->add(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+
+    move-result-object v0
+
+    aput-object v0, v8, v1
 
     sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->MONTHS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
@@ -2016,13 +2075,15 @@
 
     check-cast v0, Ljava/math/BigInteger;
 
+    const/4 v1, 0x1
+
     invoke-virtual {p0}, Lmf/javax/xml/datatype/Duration;->getSign()I
 
-    move-result v1
+    move-result v2
 
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigInteger;I)Ljava/math/BigDecimal;
+    invoke-static {v0, v2}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigInteger;I)Ljava/math/BigDecimal;
 
-    move-result-object v1
+    move-result-object v2
 
     sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->MONTHS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
@@ -2034,17 +2095,17 @@
 
     invoke-virtual {p1}, Lmf/javax/xml/datatype/Duration;->getSign()I
 
-    move-result v2
+    move-result v3
 
-    invoke-static {v0, v2}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigInteger;I)Ljava/math/BigDecimal;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Ljava/math/BigDecimal;->add(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+    invoke-static {v0, v3}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigInteger;I)Ljava/math/BigDecimal;
 
     move-result-object v0
 
-    aput-object v0, v10, v8
+    invoke-virtual {v2, v0}, Ljava/math/BigDecimal;->add(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+
+    move-result-object v0
+
+    aput-object v0, v8, v1
 
     sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->DAYS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
@@ -2054,13 +2115,15 @@
 
     check-cast v0, Ljava/math/BigInteger;
 
+    const/4 v1, 0x2
+
     invoke-virtual {p0}, Lmf/javax/xml/datatype/Duration;->getSign()I
 
-    move-result v1
+    move-result v2
 
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigInteger;I)Ljava/math/BigDecimal;
+    invoke-static {v0, v2}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigInteger;I)Ljava/math/BigDecimal;
 
-    move-result-object v1
+    move-result-object v2
 
     sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->DAYS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
@@ -2072,28 +2135,28 @@
 
     invoke-virtual {p1}, Lmf/javax/xml/datatype/Duration;->getSign()I
 
-    move-result v2
+    move-result v3
 
-    invoke-static {v0, v2}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigInteger;I)Ljava/math/BigDecimal;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Ljava/math/BigDecimal;->add(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+    invoke-static {v0, v3}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigInteger;I)Ljava/math/BigDecimal;
 
     move-result-object v0
 
-    aput-object v0, v10, v5
+    invoke-virtual {v2, v0}, Ljava/math/BigDecimal;->add(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+
+    move-result-object v0
+
+    aput-object v0, v8, v1
+
+    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->HOURS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+
+    invoke-virtual {p0, v0}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/math/BigInteger;
 
     const/4 v1, 0x3
 
-    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->HOURS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
-
-    invoke-virtual {p0, v0}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/math/BigInteger;
-
     invoke-virtual {p0}, Lmf/javax/xml/datatype/Duration;->getSign()I
 
     move-result v2
@@ -2122,18 +2185,18 @@
 
     move-result-object v0
 
-    aput-object v0, v10, v1
+    aput-object v0, v8, v1
+
+    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->MINUTES:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+
+    invoke-virtual {p0, v0}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/math/BigInteger;
 
     const/4 v1, 0x4
 
-    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->MINUTES:Lmf/javax/xml/datatype/DatatypeConstants$Field;
-
-    invoke-virtual {p0, v0}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/math/BigInteger;
-
     invoke-virtual {p0}, Lmf/javax/xml/datatype/Duration;->getSign()I
 
     move-result v2
@@ -2162,7 +2225,7 @@
 
     move-result-object v0
 
-    aput-object v0, v10, v1
+    aput-object v0, v8, v1
 
     sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->SECONDS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
@@ -2172,69 +2235,73 @@
 
     check-cast v0, Ljava/math/BigDecimal;
 
+    const/4 v1, 0x5
+
     invoke-virtual {p0}, Lmf/javax/xml/datatype/Duration;->getSign()I
-
-    move-result v1
-
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
-
-    move-result-object v1
-
-    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->SECONDS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
-
-    invoke-virtual {p1, v0}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/math/BigDecimal;
-
-    invoke-virtual {p1}, Lmf/javax/xml/datatype/Duration;->getSign()I
 
     move-result v2
 
     invoke-static {v0, v2}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
 
+    move-result-object v2
+
+    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->SECONDS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+
+    invoke-virtual {p1, v0}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
+
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Ljava/math/BigDecimal;->add(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+    check-cast v0, Ljava/math/BigDecimal;
+
+    invoke-virtual {p1}, Lmf/javax/xml/datatype/Duration;->getSign()I
+
+    move-result v3
+
+    invoke-static {v0, v3}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
 
     move-result-object v0
 
-    aput-object v0, v10, v13
+    invoke-virtual {v2, v0}, Ljava/math/BigDecimal;->add(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
 
-    invoke-static {v10, v6, v5}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->alignSigns([Ljava/math/BigDecimal;II)V
+    move-result-object v0
 
-    const/4 v0, 0x6
+    aput-object v0, v8, v1
 
-    invoke-static {v10, v5, v0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->alignSigns([Ljava/math/BigDecimal;II)V
+    const/4 v0, 0x0
 
-    move v1, v6
+    const/4 v1, 0x2
 
-    move v7, v6
+    invoke-static {v8, v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->alignSigns([Ljava/math/BigDecimal;II)V
+
+    const/4 v0, 0x2
+
+    const/4 v1, 0x6
+
+    invoke-static {v8, v0, v1}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->alignSigns([Ljava/math/BigDecimal;II)V
+
+    const/4 v11, 0x0
+
+    const/4 v9, 0x0
 
     :goto_0
     const/4 v0, 0x6
 
-    if-ge v1, v0, :cond_2
+    if-ge v9, v0, :cond_2
 
-    aget-object v0, v10, v1
+    aget-object v0, v8, v9
 
     invoke-virtual {v0}, Ljava/math/BigDecimal;->signum()I
 
     move-result v0
 
-    mul-int/2addr v0, v7
+    mul-int/2addr v0, v11
 
     if-ltz v0, :cond_0
 
-    if-eqz v7, :cond_1
-
-    move v0, v7
+    if-eqz v11, :cond_1
 
     :goto_1
-    add-int/lit8 v1, v1, 0x1
-
-    move v7, v0
+    add-int/lit8 v9, v9, 0x1
 
     goto :goto_0
 
@@ -2246,25 +2313,27 @@
     throw v0
 
     :cond_1
-    aget-object v0, v10, v1
+    aget-object v0, v8, v9
 
     invoke-virtual {v0}, Ljava/math/BigDecimal;->signum()I
 
-    move-result v0
+    move-result v11
 
     goto :goto_1
 
     :cond_2
     new-instance v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;
 
-    if-gez v7, :cond_9
+    if-gez v11, :cond_9
 
-    move v1, v6
+    const/4 v1, 0x0
 
     :goto_2
-    aget-object v2, v10, v6
+    const/4 v2, 0x0
 
-    invoke-static {v2, v7}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
+    aget-object v2, v8, v2
+
+    invoke-static {v2, v11}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
 
     move-result-object v3
 
@@ -2277,16 +2346,18 @@
     if-eqz v2, :cond_a
 
     :cond_3
-    move v2, v6
+    const/4 v2, 0x0
 
     :goto_3
     invoke-static {v3, v2}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->toBigInteger(Ljava/math/BigDecimal;Z)Ljava/math/BigInteger;
 
     move-result-object v2
 
-    aget-object v3, v10, v8
+    const/4 v3, 0x1
 
-    invoke-static {v3, v7}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
+    aget-object v3, v8, v3
+
+    invoke-static {v3, v11}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
 
     move-result-object v4
 
@@ -2299,16 +2370,18 @@
     if-eqz v3, :cond_b
 
     :cond_4
-    move v3, v6
+    const/4 v3, 0x0
 
     :goto_4
     invoke-static {v4, v3}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->toBigInteger(Ljava/math/BigDecimal;Z)Ljava/math/BigInteger;
 
     move-result-object v3
 
-    aget-object v4, v10, v5
+    const/4 v4, 0x2
 
-    invoke-static {v4, v7}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
+    aget-object v4, v8, v4
+
+    invoke-static {v4, v11}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
 
     move-result-object v5
 
@@ -2321,7 +2394,7 @@
     if-eqz v4, :cond_c
 
     :cond_5
-    move v4, v6
+    const/4 v4, 0x0
 
     :goto_5
     invoke-static {v5, v4}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->toBigInteger(Ljava/math/BigDecimal;Z)Ljava/math/BigInteger;
@@ -2330,11 +2403,11 @@
 
     const/4 v5, 0x3
 
-    aget-object v5, v10, v5
+    aget-object v5, v8, v5
 
-    invoke-static {v5, v7}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
+    invoke-static {v5, v11}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
 
-    move-result-object v11
+    move-result-object v6
 
     sget-object v5, Lmf/javax/xml/datatype/DatatypeConstants;->HOURS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
@@ -2345,49 +2418,53 @@
     if-eqz v5, :cond_d
 
     :cond_6
-    move v5, v6
+    const/4 v5, 0x0
 
     :goto_6
-    invoke-static {v11, v5}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->toBigInteger(Ljava/math/BigDecimal;Z)Ljava/math/BigInteger;
+    invoke-static {v6, v5}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->toBigInteger(Ljava/math/BigDecimal;Z)Ljava/math/BigInteger;
 
     move-result-object v5
 
-    const/4 v11, 0x4
+    const/4 v6, 0x4
 
-    aget-object v11, v10, v11
+    aget-object v6, v8, v6
 
-    invoke-static {v11, v7}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
+    invoke-static {v6, v11}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
 
-    move-result-object v11
+    move-result-object v7
 
-    sget-object v12, Lmf/javax/xml/datatype/DatatypeConstants;->MINUTES:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v6, Lmf/javax/xml/datatype/DatatypeConstants;->MINUTES:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    invoke-virtual {p0, v12}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
-
-    move-result-object v12
-
-    if-eqz v12, :cond_e
-
-    :goto_7
-    move v8, v6
-
-    :cond_7
-    invoke-static {v11, v8}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->toBigInteger(Ljava/math/BigDecimal;Z)Ljava/math/BigInteger;
+    invoke-virtual {p0, v6}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
 
     move-result-object v6
 
-    aget-object v8, v10, v13
+    if-eqz v6, :cond_e
 
-    invoke-virtual {v8}, Ljava/math/BigDecimal;->signum()I
+    :cond_7
+    const/4 v6, 0x0
 
-    move-result v8
+    :goto_7
+    invoke-static {v7, v6}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->toBigInteger(Ljava/math/BigDecimal;Z)Ljava/math/BigInteger;
 
-    if-eqz v8, :cond_f
+    move-result-object v6
+
+    const/4 v7, 0x5
+
+    aget-object v7, v8, v7
+
+    invoke-virtual {v7}, Ljava/math/BigDecimal;->signum()I
+
+    move-result v7
+
+    if-eqz v7, :cond_f
 
     :cond_8
-    aget-object v8, v10, v13
+    const/4 v7, 0x5
 
-    invoke-static {v8, v7}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
+    aget-object v7, v8, v7
+
+    invoke-static {v7, v11}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->sanitize(Ljava/math/BigDecimal;I)Ljava/math/BigDecimal;
 
     move-result-object v7
 
@@ -2397,7 +2474,7 @@
     return-object v0
 
     :cond_9
-    move v1, v8
+    const/4 v1, 0x1
 
     goto :goto_2
 
@@ -2410,7 +2487,7 @@
 
     if-nez v2, :cond_3
 
-    move v2, v8
+    const/4 v2, 0x1
 
     goto :goto_3
 
@@ -2423,7 +2500,7 @@
 
     if-nez v3, :cond_4
 
-    move v3, v8
+    const/4 v3, 0x1
 
     goto :goto_4
 
@@ -2436,7 +2513,7 @@
 
     if-nez v4, :cond_5
 
-    move v4, v8
+    const/4 v4, 0x1
 
     goto :goto_5
 
@@ -2449,163 +2526,165 @@
 
     if-nez v5, :cond_6
 
-    move v5, v8
+    const/4 v5, 0x1
 
     goto :goto_6
 
     :cond_e
-    sget-object v12, Lmf/javax/xml/datatype/DatatypeConstants;->MINUTES:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v6, Lmf/javax/xml/datatype/DatatypeConstants;->MINUTES:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    invoke-virtual {p1, v12}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
+    invoke-virtual {p1, v6}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
 
-    move-result-object v12
+    move-result-object v6
 
-    if-eqz v12, :cond_7
+    if-nez v6, :cond_7
+
+    const/4 v6, 0x1
 
     goto :goto_7
 
     :cond_f
-    sget-object v8, Lmf/javax/xml/datatype/DatatypeConstants;->SECONDS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v7, Lmf/javax/xml/datatype/DatatypeConstants;->SECONDS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    invoke-virtual {p0, v8}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
+    invoke-virtual {p0, v7}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
 
-    move-result-object v8
+    move-result-object v7
 
-    if-nez v8, :cond_8
+    if-nez v7, :cond_8
 
-    sget-object v8, Lmf/javax/xml/datatype/DatatypeConstants;->SECONDS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v7, Lmf/javax/xml/datatype/DatatypeConstants;->SECONDS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    invoke-virtual {p1, v8}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
+    invoke-virtual {p1, v7}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
 
-    move-result-object v8
+    move-result-object v7
 
-    if-nez v8, :cond_8
+    if-nez v7, :cond_8
 
-    move-object v7, v9
+    const/4 v7, 0x0
 
     goto :goto_8
 .end method
 
 .method public addTo(Ljava/util/Calendar;)V
-    .locals 4
+    .locals 6
 
-    const/4 v3, 0x1
+    const/4 v5, 0x1
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getYears()I
 
-    move-result v0
+    move-result v2
 
-    iget v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
+    iget v3, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
 
-    mul-int/2addr v0, v1
+    mul-int/2addr v2, v3
 
-    invoke-virtual {p1, v3, v0}, Ljava/util/Calendar;->add(II)V
-
-    const/4 v0, 0x2
+    invoke-virtual {p1, v5, v2}, Ljava/util/Calendar;->add(II)V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getMonths()I
 
-    move-result v1
+    move-result v2
 
-    iget v2, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
+    iget v3, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
 
-    mul-int/2addr v1, v2
+    mul-int/2addr v2, v3
 
-    invoke-virtual {p1, v0, v1}, Ljava/util/Calendar;->add(II)V
+    const/4 v3, 0x2
 
-    const/4 v0, 0x5
+    invoke-virtual {p1, v3, v2}, Ljava/util/Calendar;->add(II)V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getDays()I
 
-    move-result v1
+    move-result v2
 
-    iget v2, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
+    iget v3, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
 
-    mul-int/2addr v1, v2
+    mul-int/2addr v2, v3
 
-    invoke-virtual {p1, v0, v1}, Ljava/util/Calendar;->add(II)V
+    const/4 v3, 0x5
 
-    const/16 v0, 0xa
+    invoke-virtual {p1, v3, v2}, Ljava/util/Calendar;->add(II)V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getHours()I
 
-    move-result v1
+    move-result v2
 
-    iget v2, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
+    iget v3, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
 
-    mul-int/2addr v1, v2
+    mul-int/2addr v2, v3
 
-    invoke-virtual {p1, v0, v1}, Ljava/util/Calendar;->add(II)V
+    const/16 v3, 0xa
 
-    const/16 v0, 0xc
+    invoke-virtual {p1, v3, v2}, Ljava/util/Calendar;->add(II)V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getMinutes()I
 
-    move-result v1
+    move-result v2
 
-    iget v2, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
+    iget v3, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
 
-    mul-int/2addr v1, v2
+    mul-int/2addr v2, v3
 
-    invoke-virtual {p1, v0, v1}, Ljava/util/Calendar;->add(II)V
+    const/16 v3, 0xc
 
-    const/16 v0, 0xd
+    invoke-virtual {p1, v3, v2}, Ljava/util/Calendar;->add(II)V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getSeconds()I
 
-    move-result v1
+    move-result v2
 
-    iget v2, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
+    iget v3, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
 
-    mul-int/2addr v1, v2
+    mul-int/2addr v2, v3
 
-    invoke-virtual {p1, v0, v1}, Ljava/util/Calendar;->add(II)V
+    const/16 v3, 0xd
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
+    invoke-virtual {p1, v3, v2}, Ljava/util/Calendar;->add(II)V
 
-    if-nez v0, :cond_0
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
+
+    if-nez v2, :cond_0
 
     :goto_0
     return-void
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
+    iget-object v3, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {v1, v2, v3}, Ljava/math/BigDecimal;->setScale(II)Ljava/math/BigDecimal;
+    invoke-virtual {v3, v4, v5}, Ljava/math/BigDecimal;->setScale(II)Ljava/math/BigDecimal;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v0, v1}, Ljava/math/BigDecimal;->subtract(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
-
-    move-result-object v0
-
-    const/4 v1, 0x3
-
-    invoke-virtual {v0, v1}, Ljava/math/BigDecimal;->movePointRight(I)Ljava/math/BigDecimal;
+    invoke-virtual {v2, v3}, Ljava/math/BigDecimal;->subtract(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/math/BigDecimal;->intValue()I
+    const/4 v2, 0x3
 
-    move-result v0
+    invoke-virtual {v0, v2}, Ljava/math/BigDecimal;->movePointRight(I)Ljava/math/BigDecimal;
 
-    const/16 v1, 0xe
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/math/BigDecimal;->intValue()I
+
+    move-result v1
 
     iget v2, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
 
-    mul-int/2addr v0, v2
+    mul-int/2addr v2, v1
 
-    invoke-virtual {p1, v1, v0}, Ljava/util/Calendar;->add(II)V
+    const/16 v3, 0xe
+
+    invoke-virtual {p1, v3, v2}, Ljava/util/Calendar;->add(II)V
 
     goto :goto_0
 .end method
 
 .method public addTo(Ljava/util/Date;)V
-    .locals 2
+    .locals 4
 
     new-instance v0, Ljava/util/GregorianCalendar;
 
@@ -2617,1146 +2696,1336 @@
 
     invoke-static {v0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getCalendarTimeInMillis(Ljava/util/Calendar;)J
 
-    move-result-wide v0
+    move-result-wide v2
 
-    invoke-virtual {p1, v0, v1}, Ljava/util/Date;->setTime(J)V
+    invoke-virtual {p1, v2, v3}, Ljava/util/Date;->setTime(J)V
 
     return-void
 .end method
 
 .method public compare(Lmf/javax/xml/datatype/Duration;)I
-    .locals 14
-
-    const/4 v13, 0x6
-
-    const/4 v12, 0x2
-
-    const/4 v4, 0x0
-
-    const/4 v1, 0x0
-
-    const/4 v2, 0x1
+    .locals 20
 
     const-wide/32 v6, 0x7fffffff
 
     invoke-static {v6, v7}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
 
-    move-result-object v3
+    move-result-object v12
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->years:Ljava/math/BigInteger;
+    move-object/from16 v0, p0
 
-    if-nez v0, :cond_c
+    iget-object v6, v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->years:Ljava/math/BigInteger;
+
+    if-nez v6, :cond_c
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->months:Ljava/math/BigInteger;
+    move-object/from16 v0, p0
 
-    if-nez v0, :cond_d
+    iget-object v6, v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->months:Ljava/math/BigInteger;
+
+    if-nez v6, :cond_d
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->days:Ljava/math/BigInteger;
+    move-object/from16 v0, p0
 
-    if-nez v0, :cond_e
+    iget-object v6, v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->days:Ljava/math/BigInteger;
+
+    if-nez v6, :cond_e
 
     :cond_2
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->hours:Ljava/math/BigInteger;
+    move-object/from16 v0, p0
 
-    if-nez v0, :cond_f
+    iget-object v6, v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->hours:Ljava/math/BigInteger;
+
+    if-nez v6, :cond_f
 
     :cond_3
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->minutes:Ljava/math/BigInteger;
+    move-object/from16 v0, p0
 
-    if-nez v0, :cond_10
+    iget-object v6, v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->minutes:Ljava/math/BigInteger;
+
+    if-nez v6, :cond_10
 
     :cond_4
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
+    move-object/from16 v0, p0
 
-    if-nez v0, :cond_11
+    iget-object v6, v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
+
+    if-nez v6, :cond_11
 
     :cond_5
-    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->YEARS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v6, Lmf/javax/xml/datatype/DatatypeConstants;->YEARS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    invoke-virtual {p1, v0}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
+    move-object/from16 v0, p1
 
-    move-result-object v0
+    invoke-virtual {v0, v6}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
 
-    check-cast v0, Ljava/math/BigInteger;
+    move-result-object v19
 
-    if-nez v0, :cond_12
+    check-cast v19, Ljava/math/BigInteger;
+
+    if-nez v19, :cond_12
 
     :cond_6
-    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->MONTHS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v6, Lmf/javax/xml/datatype/DatatypeConstants;->MONTHS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    invoke-virtual {p1, v0}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
+    move-object/from16 v0, p1
 
-    move-result-object v0
+    invoke-virtual {v0, v6}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
 
-    check-cast v0, Ljava/math/BigInteger;
+    move-result-object v16
 
-    if-nez v0, :cond_13
+    check-cast v16, Ljava/math/BigInteger;
+
+    if-nez v16, :cond_13
 
     :cond_7
-    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->DAYS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v6, Lmf/javax/xml/datatype/DatatypeConstants;->DAYS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    invoke-virtual {p1, v0}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
+    move-object/from16 v0, p1
 
-    move-result-object v0
+    invoke-virtual {v0, v6}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
 
-    check-cast v0, Ljava/math/BigInteger;
+    move-result-object v13
 
-    if-nez v0, :cond_14
+    check-cast v13, Ljava/math/BigInteger;
+
+    if-nez v13, :cond_14
 
     :cond_8
-    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->HOURS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v6, Lmf/javax/xml/datatype/DatatypeConstants;->HOURS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    invoke-virtual {p1, v0}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
+    move-object/from16 v0, p1
 
-    move-result-object v0
+    invoke-virtual {v0, v6}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
 
-    check-cast v0, Ljava/math/BigInteger;
+    move-result-object v14
 
-    if-nez v0, :cond_15
+    check-cast v14, Ljava/math/BigInteger;
+
+    if-nez v14, :cond_15
 
     :cond_9
-    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->MINUTES:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v6, Lmf/javax/xml/datatype/DatatypeConstants;->MINUTES:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    invoke-virtual {p1, v0}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
+    move-object/from16 v0, p1
 
-    move-result-object v0
+    invoke-virtual {v0, v6}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
 
-    check-cast v0, Ljava/math/BigInteger;
+    move-result-object v15
 
-    if-nez v0, :cond_16
+    check-cast v15, Ljava/math/BigInteger;
+
+    if-nez v15, :cond_16
 
     :cond_a
-    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->SECONDS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v6, Lmf/javax/xml/datatype/DatatypeConstants;->SECONDS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    invoke-virtual {p1, v0}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
+    move-object/from16 v0, p1
 
-    move-result-object v0
+    invoke-virtual {v0, v6}, Lmf/javax/xml/datatype/Duration;->getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
 
-    check-cast v0, Ljava/math/BigDecimal;
+    move-result-object v18
 
-    if-nez v0, :cond_17
+    check-cast v18, Ljava/math/BigDecimal;
 
-    move-object v0, v1
+    const/16 v17, 0x0
+
+    if-nez v18, :cond_17
 
     :goto_0
-    if-nez v0, :cond_18
+    if-nez v17, :cond_18
 
     :cond_b
-    new-instance v0, Ljava/util/GregorianCalendar;
+    new-instance v4, Ljava/util/GregorianCalendar;
 
-    const/16 v1, 0x7b2
+    const/16 v5, 0x7b2
 
-    move v3, v2
+    const/4 v6, 0x1
 
-    move v5, v4
+    const/4 v7, 0x1
 
-    move v6, v4
+    const/4 v8, 0x0
 
-    invoke-direct/range {v0 .. v6}, Ljava/util/GregorianCalendar;-><init>(IIIIII)V
+    const/4 v9, 0x0
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getYears()I
+    const/4 v10, 0x0
 
-    move-result v1
+    invoke-direct/range {v4 .. v10}, Ljava/util/GregorianCalendar;-><init>(IIIIII)V
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getSign()I
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getYears()I
 
-    move-result v3
+    move-result v6
 
-    mul-int/2addr v1, v3
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getSign()I
 
-    invoke-virtual {v0, v2, v1}, Ljava/util/GregorianCalendar;->add(II)V
+    move-result v7
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getMonths()I
+    mul-int/2addr v6, v7
 
-    move-result v1
+    const/4 v7, 0x1
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getSign()I
+    invoke-virtual {v4, v7, v6}, Ljava/util/GregorianCalendar;->add(II)V
 
-    move-result v3
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getMonths()I
 
-    mul-int/2addr v1, v3
+    move-result v6
 
-    invoke-virtual {v0, v12, v1}, Ljava/util/GregorianCalendar;->add(II)V
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getSign()I
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getDays()I
+    move-result v7
 
-    move-result v1
+    mul-int/2addr v6, v7
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getSign()I
+    const/4 v7, 0x2
 
-    move-result v3
+    invoke-virtual {v4, v7, v6}, Ljava/util/GregorianCalendar;->add(II)V
 
-    mul-int/2addr v1, v3
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getDays()I
 
-    invoke-virtual {v0, v13, v1}, Ljava/util/GregorianCalendar;->add(II)V
+    move-result v6
 
-    const/16 v1, 0xb
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getSign()I
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getHours()I
+    move-result v7
 
-    move-result v3
+    mul-int/2addr v6, v7
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getSign()I
+    const/4 v7, 0x6
 
-    move-result v5
+    invoke-virtual {v4, v7, v6}, Ljava/util/GregorianCalendar;->add(II)V
 
-    mul-int/2addr v3, v5
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getHours()I
 
-    invoke-virtual {v0, v1, v3}, Ljava/util/GregorianCalendar;->add(II)V
+    move-result v6
 
-    const/16 v1, 0xc
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getSign()I
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getMinutes()I
+    move-result v7
 
-    move-result v3
+    mul-int/2addr v6, v7
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getSign()I
+    const/16 v7, 0xb
 
-    move-result v5
+    invoke-virtual {v4, v7, v6}, Ljava/util/GregorianCalendar;->add(II)V
 
-    mul-int/2addr v3, v5
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getMinutes()I
 
-    invoke-virtual {v0, v1, v3}, Ljava/util/GregorianCalendar;->add(II)V
+    move-result v6
 
-    const/16 v1, 0xd
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getSign()I
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getSeconds()I
+    move-result v7
 
-    move-result v3
+    mul-int/2addr v6, v7
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getSign()I
+    const/16 v7, 0xc
 
-    move-result v5
+    invoke-virtual {v4, v7, v6}, Ljava/util/GregorianCalendar;->add(II)V
 
-    mul-int/2addr v3, v5
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getSeconds()I
 
-    invoke-virtual {v0, v1, v3}, Ljava/util/GregorianCalendar;->add(II)V
+    move-result v6
+
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getSign()I
+
+    move-result v7
+
+    mul-int/2addr v6, v7
+
+    const/16 v7, 0xd
+
+    invoke-virtual {v4, v7, v6}, Ljava/util/GregorianCalendar;->add(II)V
 
     new-instance v5, Ljava/util/GregorianCalendar;
 
     const/16 v6, 0x7b2
 
-    move v7, v2
+    const/4 v7, 0x1
 
-    move v8, v2
+    const/4 v8, 0x1
 
-    move v9, v4
+    const/4 v9, 0x0
 
-    move v10, v4
+    const/4 v10, 0x0
 
-    move v11, v4
+    const/4 v11, 0x0
 
     invoke-direct/range {v5 .. v11}, Ljava/util/GregorianCalendar;-><init>(IIIIII)V
 
-    invoke-virtual {p1}, Lmf/javax/xml/datatype/Duration;->getYears()I
+    invoke-virtual/range {p1 .. p1}, Lmf/javax/xml/datatype/Duration;->getYears()I
 
-    move-result v1
+    move-result v6
 
-    invoke-virtual {p1}, Lmf/javax/xml/datatype/Duration;->getSign()I
+    invoke-virtual/range {p1 .. p1}, Lmf/javax/xml/datatype/Duration;->getSign()I
 
-    move-result v3
+    move-result v7
 
-    mul-int/2addr v1, v3
+    mul-int/2addr v6, v7
 
-    invoke-virtual {v5, v2, v1}, Ljava/util/GregorianCalendar;->add(II)V
+    const/4 v7, 0x1
 
-    invoke-virtual {p1}, Lmf/javax/xml/datatype/Duration;->getMonths()I
+    invoke-virtual {v5, v7, v6}, Ljava/util/GregorianCalendar;->add(II)V
 
-    move-result v1
+    invoke-virtual/range {p1 .. p1}, Lmf/javax/xml/datatype/Duration;->getMonths()I
 
-    invoke-virtual {p1}, Lmf/javax/xml/datatype/Duration;->getSign()I
+    move-result v6
 
-    move-result v2
+    invoke-virtual/range {p1 .. p1}, Lmf/javax/xml/datatype/Duration;->getSign()I
 
-    mul-int/2addr v1, v2
+    move-result v7
 
-    invoke-virtual {v5, v12, v1}, Ljava/util/GregorianCalendar;->add(II)V
+    mul-int/2addr v6, v7
 
-    invoke-virtual {p1}, Lmf/javax/xml/datatype/Duration;->getDays()I
+    const/4 v7, 0x2
 
-    move-result v1
+    invoke-virtual {v5, v7, v6}, Ljava/util/GregorianCalendar;->add(II)V
 
-    invoke-virtual {p1}, Lmf/javax/xml/datatype/Duration;->getSign()I
+    invoke-virtual/range {p1 .. p1}, Lmf/javax/xml/datatype/Duration;->getDays()I
 
-    move-result v2
+    move-result v6
 
-    mul-int/2addr v1, v2
+    invoke-virtual/range {p1 .. p1}, Lmf/javax/xml/datatype/Duration;->getSign()I
 
-    invoke-virtual {v5, v13, v1}, Ljava/util/GregorianCalendar;->add(II)V
+    move-result v7
 
-    const/16 v1, 0xb
+    mul-int/2addr v6, v7
 
-    invoke-virtual {p1}, Lmf/javax/xml/datatype/Duration;->getHours()I
+    const/4 v7, 0x6
 
-    move-result v2
+    invoke-virtual {v5, v7, v6}, Ljava/util/GregorianCalendar;->add(II)V
 
-    invoke-virtual {p1}, Lmf/javax/xml/datatype/Duration;->getSign()I
+    invoke-virtual/range {p1 .. p1}, Lmf/javax/xml/datatype/Duration;->getHours()I
 
-    move-result v3
+    move-result v6
 
-    mul-int/2addr v2, v3
+    invoke-virtual/range {p1 .. p1}, Lmf/javax/xml/datatype/Duration;->getSign()I
 
-    invoke-virtual {v5, v1, v2}, Ljava/util/GregorianCalendar;->add(II)V
+    move-result v7
 
-    const/16 v1, 0xc
+    mul-int/2addr v6, v7
 
-    invoke-virtual {p1}, Lmf/javax/xml/datatype/Duration;->getMinutes()I
+    const/16 v7, 0xb
 
-    move-result v2
+    invoke-virtual {v5, v7, v6}, Ljava/util/GregorianCalendar;->add(II)V
 
-    invoke-virtual {p1}, Lmf/javax/xml/datatype/Duration;->getSign()I
+    invoke-virtual/range {p1 .. p1}, Lmf/javax/xml/datatype/Duration;->getMinutes()I
 
-    move-result v3
+    move-result v6
 
-    mul-int/2addr v2, v3
+    invoke-virtual/range {p1 .. p1}, Lmf/javax/xml/datatype/Duration;->getSign()I
 
-    invoke-virtual {v5, v1, v2}, Ljava/util/GregorianCalendar;->add(II)V
+    move-result v7
 
-    const/16 v1, 0xd
+    mul-int/2addr v6, v7
 
-    invoke-virtual {p1}, Lmf/javax/xml/datatype/Duration;->getSeconds()I
+    const/16 v7, 0xc
 
-    move-result v2
+    invoke-virtual {v5, v7, v6}, Ljava/util/GregorianCalendar;->add(II)V
 
-    invoke-virtual {p1}, Lmf/javax/xml/datatype/Duration;->getSign()I
+    invoke-virtual/range {p1 .. p1}, Lmf/javax/xml/datatype/Duration;->getSeconds()I
 
-    move-result v3
+    move-result v6
 
-    mul-int/2addr v2, v3
+    invoke-virtual/range {p1 .. p1}, Lmf/javax/xml/datatype/Duration;->getSign()I
 
-    invoke-virtual {v5, v1, v2}, Ljava/util/GregorianCalendar;->add(II)V
+    move-result v7
 
-    invoke-virtual {v0, v5}, Ljava/util/GregorianCalendar;->equals(Ljava/lang/Object;)Z
+    mul-int/2addr v6, v7
 
-    move-result v0
+    const/16 v7, 0xd
 
-    if-nez v0, :cond_19
+    invoke-virtual {v5, v7, v6}, Ljava/util/GregorianCalendar;->add(II)V
 
-    invoke-direct {p0, p0, p1}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->compareDates(Lmf/javax/xml/datatype/Duration;Lmf/javax/xml/datatype/Duration;)I
+    invoke-virtual {v4, v5}, Ljava/util/GregorianCalendar;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v6
 
-    return v0
+    if-nez v6, :cond_19
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p0
+
+    move-object/from16 v2, p1
+
+    invoke-direct {v0, v1, v2}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->compareDates(Lmf/javax/xml/datatype/Duration;Lmf/javax/xml/datatype/Duration;)I
+
+    move-result v6
+
+    return v6
 
     :cond_c
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->years:Ljava/math/BigInteger;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v3}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
+    iget-object v6, v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->years:Ljava/math/BigInteger;
 
-    move-result v0
+    invoke-virtual {v6, v12}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
 
-    if-ne v0, v2, :cond_0
+    move-result v6
 
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    const/4 v7, 0x1
 
-    const-string/jumbo v3, "TooLarge"
+    if-ne v6, v7, :cond_0
 
-    new-array v5, v12, [Ljava/lang/Object;
+    new-instance v6, Ljava/lang/UnsupportedOperationException;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v7, "TooLarge"
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    const/4 v8, 0x2
+
+    new-array v8, v8, [Ljava/lang/Object;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-virtual/range {p0 .. p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v10}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v10, "#compare(Duration duration)"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    sget-object v10, Lmf/javax/xml/datatype/DatatypeConstants;->YEARS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+
+    invoke-virtual {v10}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x0
+
+    aput-object v9, v8, v10
+
+    move-object/from16 v0, p0
+
+    iget-object v9, v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->years:Ljava/math/BigInteger;
+
+    invoke-virtual {v9}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x1
+
+    aput-object v9, v8, v10
+
+    const/4 v9, 0x0
+
+    invoke-static {v9, v7, v8}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-virtual {v7}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-direct {v6, v7}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    move-result-object v7
-
-    invoke-static {v7}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v7, "#compare(Duration duration)"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    sget-object v7, Lmf/javax/xml/datatype/DatatypeConstants;->YEARS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
-
-    invoke-virtual {v7}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    aput-object v6, v5, v4
-
-    iget-object v4, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->years:Ljava/math/BigInteger;
-
-    invoke-virtual {v4}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    aput-object v4, v5, v2
-
-    invoke-static {v1, v3, v5}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    throw v6
 
     :cond_d
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->months:Ljava/math/BigInteger;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v3}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
+    iget-object v6, v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->months:Ljava/math/BigInteger;
 
-    move-result v0
+    invoke-virtual {v6, v12}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
 
-    if-ne v0, v2, :cond_1
+    move-result v6
 
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    const/4 v7, 0x1
 
-    const-string/jumbo v3, "TooLarge"
+    if-ne v6, v7, :cond_1
 
-    new-array v5, v12, [Ljava/lang/Object;
+    new-instance v6, Ljava/lang/UnsupportedOperationException;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v7, "TooLarge"
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    const/4 v8, 0x2
+
+    new-array v8, v8, [Ljava/lang/Object;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-virtual/range {p0 .. p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v10}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v10, "#compare(Duration duration)"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    sget-object v10, Lmf/javax/xml/datatype/DatatypeConstants;->MONTHS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+
+    invoke-virtual {v10}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x0
+
+    aput-object v9, v8, v10
+
+    move-object/from16 v0, p0
+
+    iget-object v9, v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->months:Ljava/math/BigInteger;
+
+    invoke-virtual {v9}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x1
+
+    aput-object v9, v8, v10
+
+    const/4 v9, 0x0
+
+    invoke-static {v9, v7, v8}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-virtual {v7}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-direct {v6, v7}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    move-result-object v7
-
-    invoke-static {v7}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v7, "#compare(Duration duration)"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    sget-object v7, Lmf/javax/xml/datatype/DatatypeConstants;->MONTHS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
-
-    invoke-virtual {v7}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    aput-object v6, v5, v4
-
-    iget-object v4, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->months:Ljava/math/BigInteger;
-
-    invoke-virtual {v4}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    aput-object v4, v5, v2
-
-    invoke-static {v1, v3, v5}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    throw v6
 
     :cond_e
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->days:Ljava/math/BigInteger;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v3}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
+    iget-object v6, v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->days:Ljava/math/BigInteger;
 
-    move-result v0
+    invoke-virtual {v6, v12}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
 
-    if-ne v0, v2, :cond_2
+    move-result v6
 
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    const/4 v7, 0x1
 
-    const-string/jumbo v3, "TooLarge"
+    if-ne v6, v7, :cond_2
 
-    new-array v5, v12, [Ljava/lang/Object;
+    new-instance v6, Ljava/lang/UnsupportedOperationException;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v7, "TooLarge"
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    const/4 v8, 0x2
+
+    new-array v8, v8, [Ljava/lang/Object;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-virtual/range {p0 .. p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v10}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v10, "#compare(Duration duration)"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    sget-object v10, Lmf/javax/xml/datatype/DatatypeConstants;->DAYS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+
+    invoke-virtual {v10}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x0
+
+    aput-object v9, v8, v10
+
+    move-object/from16 v0, p0
+
+    iget-object v9, v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->days:Ljava/math/BigInteger;
+
+    invoke-virtual {v9}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x1
+
+    aput-object v9, v8, v10
+
+    const/4 v9, 0x0
+
+    invoke-static {v9, v7, v8}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-virtual {v7}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-direct {v6, v7}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    move-result-object v7
-
-    invoke-static {v7}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v7, "#compare(Duration duration)"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    sget-object v7, Lmf/javax/xml/datatype/DatatypeConstants;->DAYS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
-
-    invoke-virtual {v7}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    aput-object v6, v5, v4
-
-    iget-object v4, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->days:Ljava/math/BigInteger;
-
-    invoke-virtual {v4}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    aput-object v4, v5, v2
-
-    invoke-static {v1, v3, v5}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    throw v6
 
     :cond_f
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->hours:Ljava/math/BigInteger;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v3}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
+    iget-object v6, v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->hours:Ljava/math/BigInteger;
 
-    move-result v0
+    invoke-virtual {v6, v12}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
 
-    if-ne v0, v2, :cond_3
+    move-result v6
 
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    const/4 v7, 0x1
 
-    const-string/jumbo v3, "TooLarge"
+    if-ne v6, v7, :cond_3
 
-    new-array v5, v12, [Ljava/lang/Object;
+    new-instance v6, Ljava/lang/UnsupportedOperationException;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v7, "TooLarge"
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    const/4 v8, 0x2
+
+    new-array v8, v8, [Ljava/lang/Object;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-virtual/range {p0 .. p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v10}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v10, "#compare(Duration duration)"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    sget-object v10, Lmf/javax/xml/datatype/DatatypeConstants;->HOURS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+
+    invoke-virtual {v10}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x0
+
+    aput-object v9, v8, v10
+
+    move-object/from16 v0, p0
+
+    iget-object v9, v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->hours:Ljava/math/BigInteger;
+
+    invoke-virtual {v9}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x1
+
+    aput-object v9, v8, v10
+
+    const/4 v9, 0x0
+
+    invoke-static {v9, v7, v8}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-virtual {v7}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-direct {v6, v7}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    move-result-object v7
-
-    invoke-static {v7}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v7, "#compare(Duration duration)"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    sget-object v7, Lmf/javax/xml/datatype/DatatypeConstants;->HOURS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
-
-    invoke-virtual {v7}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    aput-object v6, v5, v4
-
-    iget-object v4, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->hours:Ljava/math/BigInteger;
-
-    invoke-virtual {v4}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    aput-object v4, v5, v2
-
-    invoke-static {v1, v3, v5}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    throw v6
 
     :cond_10
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->minutes:Ljava/math/BigInteger;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v3}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
+    iget-object v6, v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->minutes:Ljava/math/BigInteger;
 
-    move-result v0
+    invoke-virtual {v6, v12}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
 
-    if-ne v0, v2, :cond_4
+    move-result v6
 
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    const/4 v7, 0x1
 
-    const-string/jumbo v3, "TooLarge"
+    if-ne v6, v7, :cond_4
 
-    new-array v5, v12, [Ljava/lang/Object;
+    new-instance v6, Ljava/lang/UnsupportedOperationException;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v7, "TooLarge"
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    const/4 v8, 0x2
+
+    new-array v8, v8, [Ljava/lang/Object;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-virtual/range {p0 .. p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v10}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v10, "#compare(Duration duration)"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    sget-object v10, Lmf/javax/xml/datatype/DatatypeConstants;->MINUTES:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+
+    invoke-virtual {v10}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x0
+
+    aput-object v9, v8, v10
+
+    move-object/from16 v0, p0
+
+    iget-object v9, v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->minutes:Ljava/math/BigInteger;
+
+    invoke-virtual {v9}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x1
+
+    aput-object v9, v8, v10
+
+    const/4 v9, 0x0
+
+    invoke-static {v9, v7, v8}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-virtual {v7}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-direct {v6, v7}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    move-result-object v7
-
-    invoke-static {v7}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v7, "#compare(Duration duration)"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    sget-object v7, Lmf/javax/xml/datatype/DatatypeConstants;->MINUTES:Lmf/javax/xml/datatype/DatatypeConstants$Field;
-
-    invoke-virtual {v7}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    aput-object v6, v5, v4
-
-    iget-object v4, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->minutes:Ljava/math/BigInteger;
-
-    invoke-virtual {v4}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    aput-object v4, v5, v2
-
-    invoke-static {v1, v3, v5}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    throw v6
 
     :cond_11
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Ljava/math/BigDecimal;->toBigInteger()Ljava/math/BigInteger;
+    iget-object v6, v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
 
-    move-result-object v0
-
-    invoke-virtual {v0, v3}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
-
-    move-result v0
-
-    if-ne v0, v2, :cond_5
-
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
-
-    const-string/jumbo v3, "TooLarge"
-
-    new-array v5, v12, [Ljava/lang/Object;
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v7}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v7, "#compare(Duration duration)"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6}, Ljava/math/BigDecimal;->toBigInteger()Ljava/math/BigInteger;
 
     move-result-object v6
 
-    sget-object v7, Lmf/javax/xml/datatype/DatatypeConstants;->SECONDS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    invoke-virtual {v6, v12}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
 
-    invoke-virtual {v7}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
+    move-result v6
+
+    const/4 v7, 0x1
+
+    if-ne v6, v7, :cond_5
+
+    new-instance v6, Ljava/lang/UnsupportedOperationException;
+
+    const-string/jumbo v7, "TooLarge"
+
+    const/4 v8, 0x2
+
+    new-array v8, v8, [Ljava/lang/Object;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-virtual/range {p0 .. p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v10}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v10, "#compare(Duration duration)"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    sget-object v10, Lmf/javax/xml/datatype/DatatypeConstants;->SECONDS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+
+    invoke-virtual {v10}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x0
+
+    aput-object v9, v8, v10
+
+    move-object/from16 v0, p0
+
+    iget-object v9, v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v9}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->toString(Ljava/math/BigDecimal;)Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x1
+
+    aput-object v9, v8, v10
+
+    const/4 v9, 0x0
+
+    invoke-static {v9, v7, v8}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v6, v7}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    aput-object v6, v5, v4
-
-    iget-object v4, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
-
-    invoke-direct {p0, v4}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->toString(Ljava/math/BigDecimal;)Ljava/lang/String;
-
-    move-result-object v4
-
-    aput-object v4, v5, v2
-
-    invoke-static {v1, v3, v5}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    throw v6
 
     :cond_12
-    invoke-virtual {v0, v3}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
+    move-object/from16 v0, v19
 
-    move-result v5
+    invoke-virtual {v0, v12}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
 
-    if-ne v5, v2, :cond_6
+    move-result v6
 
-    new-instance v3, Ljava/lang/UnsupportedOperationException;
+    const/4 v7, 0x1
 
-    const-string/jumbo v5, "TooLarge"
+    if-ne v6, v7, :cond_6
 
-    new-array v6, v12, [Ljava/lang/Object;
+    new-instance v6, Ljava/lang/UnsupportedOperationException;
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    const-string/jumbo v7, "TooLarge"
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    const/4 v8, 0x2
 
-    move-result-object v8
+    new-array v8, v8, [Ljava/lang/Object;
 
-    invoke-virtual {v8}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    invoke-virtual/range {p0 .. p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-static {v8}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v10
 
-    move-result-object v8
+    invoke-virtual {v10}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    invoke-direct {v7, v8}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    move-result-object v10
 
-    const-string/jumbo v8, "#compare(Duration duration)"
+    invoke-static {v10}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v10
+
+    invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v10, "#compare(Duration duration)"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    sget-object v10, Lmf/javax/xml/datatype/DatatypeConstants;->YEARS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+
+    invoke-virtual {v10}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x0
+
+    aput-object v9, v8, v10
+
+    invoke-virtual/range {v19 .. v19}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x1
+
+    aput-object v9, v8, v10
+
+    const/4 v9, 0x0
+
+    invoke-static {v9, v7, v8}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v7
 
-    sget-object v8, Lmf/javax/xml/datatype/DatatypeConstants;->YEARS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    invoke-direct {v6, v7}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v8}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    aput-object v7, v6, v4
-
-    invoke-virtual {v0}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    aput-object v0, v6, v2
-
-    invoke-static {v1, v5, v6}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v3, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v3
+    throw v6
 
     :cond_13
-    invoke-virtual {v0, v3}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
+    move-object/from16 v0, v16
 
-    move-result v5
+    invoke-virtual {v0, v12}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
 
-    if-ne v5, v2, :cond_7
+    move-result v6
 
-    new-instance v3, Ljava/lang/UnsupportedOperationException;
+    const/4 v7, 0x1
 
-    const-string/jumbo v5, "TooLarge"
+    if-ne v6, v7, :cond_7
 
-    new-array v6, v12, [Ljava/lang/Object;
+    new-instance v6, Ljava/lang/UnsupportedOperationException;
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    const-string/jumbo v7, "TooLarge"
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    const/4 v8, 0x2
 
-    move-result-object v8
+    new-array v8, v8, [Ljava/lang/Object;
 
-    invoke-virtual {v8}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    invoke-virtual/range {p0 .. p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-static {v8}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v10
 
-    move-result-object v8
+    invoke-virtual {v10}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    invoke-direct {v7, v8}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    move-result-object v10
 
-    const-string/jumbo v8, "#compare(Duration duration)"
+    invoke-static {v10}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v10
+
+    invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v10, "#compare(Duration duration)"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    sget-object v10, Lmf/javax/xml/datatype/DatatypeConstants;->MONTHS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+
+    invoke-virtual {v10}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x0
+
+    aput-object v9, v8, v10
+
+    invoke-virtual/range {v16 .. v16}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x1
+
+    aput-object v9, v8, v10
+
+    const/4 v9, 0x0
+
+    invoke-static {v9, v7, v8}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v7
 
-    sget-object v8, Lmf/javax/xml/datatype/DatatypeConstants;->MONTHS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    invoke-direct {v6, v7}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v8}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    aput-object v7, v6, v4
-
-    invoke-virtual {v0}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    aput-object v0, v6, v2
-
-    invoke-static {v1, v5, v6}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v3, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v3
+    throw v6
 
     :cond_14
-    invoke-virtual {v0, v3}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
+    invoke-virtual {v13, v12}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
 
-    move-result v5
+    move-result v6
 
-    if-ne v5, v2, :cond_8
+    const/4 v7, 0x1
 
-    new-instance v3, Ljava/lang/UnsupportedOperationException;
+    if-ne v6, v7, :cond_8
 
-    const-string/jumbo v5, "TooLarge"
+    new-instance v6, Ljava/lang/UnsupportedOperationException;
 
-    new-array v6, v12, [Ljava/lang/Object;
+    const-string/jumbo v7, "TooLarge"
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    const/4 v8, 0x2
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    new-array v8, v8, [Ljava/lang/Object;
 
-    move-result-object v8
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual/range {p0 .. p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-static {v8}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-direct {v7, v8}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-static {v10}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    const-string/jumbo v8, "#compare(Duration duration)"
+    move-result-object v10
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v10, "#compare(Duration duration)"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    sget-object v10, Lmf/javax/xml/datatype/DatatypeConstants;->DAYS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+
+    invoke-virtual {v10}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x0
+
+    aput-object v9, v8, v10
+
+    invoke-virtual {v13}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x1
+
+    aput-object v9, v8, v10
+
+    const/4 v9, 0x0
+
+    invoke-static {v9, v7, v8}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v7
 
-    sget-object v8, Lmf/javax/xml/datatype/DatatypeConstants;->DAYS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    invoke-direct {v6, v7}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v8}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    aput-object v7, v6, v4
-
-    invoke-virtual {v0}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    aput-object v0, v6, v2
-
-    invoke-static {v1, v5, v6}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v3, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v3
+    throw v6
 
     :cond_15
-    invoke-virtual {v0, v3}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
+    invoke-virtual {v14, v12}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
 
-    move-result v5
+    move-result v6
 
-    if-ne v5, v2, :cond_9
+    const/4 v7, 0x1
 
-    new-instance v3, Ljava/lang/UnsupportedOperationException;
+    if-ne v6, v7, :cond_9
 
-    const-string/jumbo v5, "TooLarge"
+    new-instance v6, Ljava/lang/UnsupportedOperationException;
 
-    new-array v6, v12, [Ljava/lang/Object;
+    const-string/jumbo v7, "TooLarge"
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    const/4 v8, 0x2
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    new-array v8, v8, [Ljava/lang/Object;
 
-    move-result-object v8
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual/range {p0 .. p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-static {v8}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-direct {v7, v8}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-static {v10}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    const-string/jumbo v8, "#compare(Duration duration)"
+    move-result-object v10
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v10, "#compare(Duration duration)"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    sget-object v10, Lmf/javax/xml/datatype/DatatypeConstants;->HOURS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+
+    invoke-virtual {v10}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x0
+
+    aput-object v9, v8, v10
+
+    invoke-virtual {v14}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x1
+
+    aput-object v9, v8, v10
+
+    const/4 v9, 0x0
+
+    invoke-static {v9, v7, v8}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v7
 
-    sget-object v8, Lmf/javax/xml/datatype/DatatypeConstants;->HOURS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    invoke-direct {v6, v7}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v8}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    aput-object v7, v6, v4
-
-    invoke-virtual {v0}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    aput-object v0, v6, v2
-
-    invoke-static {v1, v5, v6}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v3, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v3
+    throw v6
 
     :cond_16
-    invoke-virtual {v0, v3}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
+    invoke-virtual {v15, v12}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
 
-    move-result v5
+    move-result v6
 
-    if-ne v5, v2, :cond_a
+    const/4 v7, 0x1
 
-    new-instance v3, Ljava/lang/UnsupportedOperationException;
+    if-ne v6, v7, :cond_a
 
-    const-string/jumbo v5, "TooLarge"
+    new-instance v6, Ljava/lang/UnsupportedOperationException;
 
-    new-array v6, v12, [Ljava/lang/Object;
+    const-string/jumbo v7, "TooLarge"
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    const/4 v8, 0x2
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    new-array v8, v8, [Ljava/lang/Object;
 
-    move-result-object v8
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual/range {p0 .. p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-static {v8}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-direct {v7, v8}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-static {v10}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    const-string/jumbo v8, "#compare(Duration duration)"
+    move-result-object v10
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v10, "#compare(Duration duration)"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    sget-object v10, Lmf/javax/xml/datatype/DatatypeConstants;->MINUTES:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+
+    invoke-virtual {v10}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x0
+
+    aput-object v9, v8, v10
+
+    invoke-virtual {v15}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x1
+
+    aput-object v9, v8, v10
+
+    const/4 v9, 0x0
+
+    invoke-static {v9, v7, v8}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v7
 
-    sget-object v8, Lmf/javax/xml/datatype/DatatypeConstants;->MINUTES:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    invoke-direct {v6, v7}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v8}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    aput-object v7, v6, v4
-
-    invoke-virtual {v0}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    aput-object v0, v6, v2
-
-    invoke-static {v1, v5, v6}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v3, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v3
+    throw v6
 
     :cond_17
-    invoke-virtual {v0}, Ljava/math/BigDecimal;->toBigInteger()Ljava/math/BigInteger;
+    invoke-virtual/range {v18 .. v18}, Ljava/math/BigDecimal;->toBigInteger()Ljava/math/BigInteger;
 
-    move-result-object v0
+    move-result-object v17
 
     goto/16 :goto_0
 
     :cond_18
-    invoke-virtual {v0, v3}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
+    move-object/from16 v0, v17
 
-    move-result v3
+    invoke-virtual {v0, v12}, Ljava/math/BigInteger;->compareTo(Ljava/math/BigInteger;)I
 
-    if-ne v3, v2, :cond_b
+    move-result v6
 
-    new-instance v3, Ljava/lang/UnsupportedOperationException;
+    const/4 v7, 0x1
 
-    const-string/jumbo v5, "TooLarge"
+    if-ne v6, v7, :cond_b
 
-    new-array v6, v12, [Ljava/lang/Object;
+    new-instance v6, Ljava/lang/UnsupportedOperationException;
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    const-string/jumbo v7, "TooLarge"
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    const/4 v8, 0x2
 
-    move-result-object v8
+    new-array v8, v8, [Ljava/lang/Object;
 
-    invoke-virtual {v8}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    invoke-virtual/range {p0 .. p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-static {v8}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v10
 
-    move-result-object v8
+    invoke-virtual {v10}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    invoke-direct {v7, v8}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    move-result-object v10
 
-    const-string/jumbo v8, "#compare(Duration duration)"
+    invoke-static {v10}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v10
+
+    invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v10, "#compare(Duration duration)"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    sget-object v10, Lmf/javax/xml/datatype/DatatypeConstants;->SECONDS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+
+    invoke-virtual {v10}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x0
+
+    aput-object v9, v8, v10
+
+    invoke-virtual/range {v17 .. v17}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    const/4 v10, 0x1
+
+    aput-object v9, v8, v10
+
+    const/4 v9, 0x0
+
+    invoke-static {v9, v7, v8}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v7
 
-    sget-object v8, Lmf/javax/xml/datatype/DatatypeConstants;->SECONDS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    invoke-direct {v6, v7}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v8}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    aput-object v7, v6, v4
-
-    invoke-virtual {v0}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    aput-object v0, v6, v2
-
-    invoke-static {v1, v5, v6}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v3, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v3
+    throw v6
 
     :cond_19
-    return v4
+    const/4 v6, 0x0
+
+    return v6
 .end method
 
 .method public getDays()I
@@ -3772,63 +4041,63 @@
 .end method
 
 .method public getField(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/lang/Number;
-    .locals 7
+    .locals 6
 
-    const/4 v6, 0x1
+    const/4 v5, 0x1
 
-    const/4 v5, 0x0
+    const/4 v3, 0x0
 
     const/4 v4, 0x0
 
     if-eqz p1, :cond_0
 
-    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->YEARS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v1, Lmf/javax/xml/datatype/DatatypeConstants;->YEARS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v1, :cond_1
 
-    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->MONTHS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v1, Lmf/javax/xml/datatype/DatatypeConstants;->MONTHS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    if-eq p1, v0, :cond_2
+    if-eq p1, v1, :cond_2
 
-    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->DAYS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v1, Lmf/javax/xml/datatype/DatatypeConstants;->DAYS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    if-eq p1, v0, :cond_3
+    if-eq p1, v1, :cond_3
 
-    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->HOURS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v1, Lmf/javax/xml/datatype/DatatypeConstants;->HOURS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    if-eq p1, v0, :cond_4
+    if-eq p1, v1, :cond_4
 
-    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->MINUTES:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v1, Lmf/javax/xml/datatype/DatatypeConstants;->MINUTES:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    if-eq p1, v0, :cond_5
+    if-eq p1, v1, :cond_5
 
-    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->SECONDS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v1, Lmf/javax/xml/datatype/DatatypeConstants;->SECONDS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    if-eq p1, v0, :cond_6
+    if-eq p1, v1, :cond_6
 
     const-string/jumbo v0, "javax.xml.datatype.Duration#(getSet(DatatypeConstants.Field field)"
 
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v2, "UnknownField"
+    const/4 v2, 0x2
 
-    const/4 v3, 0x2
+    new-array v2, v2, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
-
-    aput-object v0, v3, v5
+    aput-object v0, v2, v3
 
     invoke-virtual {p1}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    aput-object v0, v3, v6
+    aput-object v3, v2, v5
 
-    invoke-static {v4, v2, v3}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    const-string/jumbo v3, "UnknownField"
 
-    move-result-object v0
+    invoke-static {v4, v3, v2}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
@@ -3837,49 +4106,49 @@
 
     new-instance v1, Ljava/lang/NullPointerException;
 
-    const-string/jumbo v2, "FieldCannotBeNull"
+    new-array v2, v5, [Ljava/lang/Object;
 
-    new-array v3, v6, [Ljava/lang/Object;
+    aput-object v0, v2, v3
 
-    aput-object v0, v3, v5
+    const-string/jumbo v3, "FieldCannotBeNull"
 
-    invoke-static {v4, v2, v3}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v4, v3, v2}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-direct {v1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->years:Ljava/math/BigInteger;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->years:Ljava/math/BigInteger;
 
-    return-object v0
+    return-object v1
 
     :cond_2
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->months:Ljava/math/BigInteger;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->months:Ljava/math/BigInteger;
 
-    return-object v0
+    return-object v1
 
     :cond_3
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->days:Ljava/math/BigInteger;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->days:Ljava/math/BigInteger;
 
-    return-object v0
+    return-object v1
 
     :cond_4
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->hours:Ljava/math/BigInteger;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->hours:Ljava/math/BigInteger;
 
-    return-object v0
+    return-object v1
 
     :cond_5
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->minutes:Ljava/math/BigInteger;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->minutes:Ljava/math/BigInteger;
 
-    return-object v0
+    return-object v1
 
     :cond_6
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public getHours()I
@@ -3939,7 +4208,7 @@
 .end method
 
 .method public getTimeInMillis(Ljava/util/Calendar;)J
-    .locals 4
+    .locals 6
 
     invoke-virtual {p1}, Ljava/util/Calendar;->clone()Ljava/lang/Object;
 
@@ -3951,19 +4220,19 @@
 
     invoke-static {v0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getCalendarTimeInMillis(Ljava/util/Calendar;)J
 
-    move-result-wide v0
+    move-result-wide v2
 
     invoke-static {p1}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getCalendarTimeInMillis(Ljava/util/Calendar;)J
 
-    move-result-wide v2
+    move-result-wide v4
 
-    sub-long/2addr v0, v2
+    sub-long/2addr v2, v4
 
-    return-wide v0
+    return-wide v2
 .end method
 
 .method public getTimeInMillis(Ljava/util/Date;)J
-    .locals 4
+    .locals 6
 
     new-instance v0, Ljava/util/GregorianCalendar;
 
@@ -3975,15 +4244,15 @@
 
     invoke-static {v0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getCalendarTimeInMillis(Ljava/util/Calendar;)J
 
-    move-result-wide v0
+    move-result-wide v2
 
     invoke-virtual {p1}, Ljava/util/Date;->getTime()J
 
-    move-result-wide v2
+    move-result-wide v4
 
-    sub-long/2addr v0, v2
+    sub-long/2addr v2, v4
 
-    return-wide v0
+    return-wide v2
 .end method
 
 .method public getYears()I
@@ -3999,15 +4268,15 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .locals 4
 
-    sget-object v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->TEST_POINTS:[Lmf/javax/xml/datatype/XMLGregorianCalendar;
+    sget-object v1, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->TEST_POINTS:[Lmf/javax/xml/datatype/XMLGregorianCalendar;
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    aget-object v0, v0, v1
+    aget-object v1, v1, v2
 
-    invoke-virtual {v0}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->toGregorianCalendar()Ljava/util/GregorianCalendar;
+    invoke-virtual {v1}, Lmf/javax/xml/datatype/XMLGregorianCalendar;->toGregorianCalendar()Ljava/util/GregorianCalendar;
 
     move-result-object v0
 
@@ -4015,71 +4284,71 @@
 
     invoke-static {v0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getCalendarTimeInMillis(Ljava/util/Calendar;)J
 
-    move-result-wide v0
+    move-result-wide v2
 
-    long-to-int v0, v0
+    long-to-int v1, v2
 
-    return v0
+    return v1
 .end method
 
 .method public isSet(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Z
-    .locals 7
+    .locals 6
 
-    const/4 v6, 0x1
+    const/4 v5, 0x1
 
-    const/4 v5, 0x0
+    const/4 v3, 0x0
 
     const/4 v4, 0x0
 
     if-eqz p1, :cond_0
 
-    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->YEARS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v1, Lmf/javax/xml/datatype/DatatypeConstants;->YEARS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v1, :cond_1
 
-    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->MONTHS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v1, Lmf/javax/xml/datatype/DatatypeConstants;->MONTHS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    if-eq p1, v0, :cond_3
+    if-eq p1, v1, :cond_3
 
-    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->DAYS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v1, Lmf/javax/xml/datatype/DatatypeConstants;->DAYS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    if-eq p1, v0, :cond_5
+    if-eq p1, v1, :cond_5
 
-    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->HOURS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v1, Lmf/javax/xml/datatype/DatatypeConstants;->HOURS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    if-eq p1, v0, :cond_7
+    if-eq p1, v1, :cond_7
 
-    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->MINUTES:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v1, Lmf/javax/xml/datatype/DatatypeConstants;->MINUTES:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    if-eq p1, v0, :cond_9
+    if-eq p1, v1, :cond_9
 
-    sget-object v0, Lmf/javax/xml/datatype/DatatypeConstants;->SECONDS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    sget-object v1, Lmf/javax/xml/datatype/DatatypeConstants;->SECONDS:Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    if-eq p1, v0, :cond_b
+    if-eq p1, v1, :cond_b
 
     const-string/jumbo v0, "javax.xml.datatype.Duration#isSet(DatatypeConstants.Field field)"
 
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v2, "UnknownField"
+    const/4 v2, 0x2
 
-    const/4 v3, 0x2
+    new-array v2, v2, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
-
-    aput-object v0, v3, v5
+    aput-object v0, v2, v3
 
     invoke-virtual {p1}, Lmf/javax/xml/datatype/DatatypeConstants$Field;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    aput-object v0, v3, v6
+    aput-object v3, v2, v5
 
-    invoke-static {v4, v2, v3}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    const-string/jumbo v3, "UnknownField"
 
-    move-result-object v0
+    invoke-static {v4, v3, v2}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
@@ -4088,79 +4357,79 @@
 
     new-instance v1, Ljava/lang/NullPointerException;
 
-    const-string/jumbo v2, "FieldCannotBeNull"
+    new-array v2, v5, [Ljava/lang/Object;
 
-    new-array v3, v6, [Ljava/lang/Object;
+    aput-object v0, v2, v3
 
-    aput-object v0, v3, v5
+    const-string/jumbo v3, "FieldCannotBeNull"
 
-    invoke-static {v4, v2, v3}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v4, v3, v2}, Lmf/org/apache/xerces/util/DatatypeMessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-direct {v1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->years:Ljava/math/BigInteger;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->years:Ljava/math/BigInteger;
 
-    if-nez v0, :cond_2
+    if-nez v1, :cond_2
 
-    return v5
+    return v3
 
     :cond_2
-    return v6
+    return v5
 
     :cond_3
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->months:Ljava/math/BigInteger;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->months:Ljava/math/BigInteger;
 
-    if-nez v0, :cond_4
+    if-nez v1, :cond_4
 
-    return v5
+    return v3
 
     :cond_4
-    return v6
+    return v5
 
     :cond_5
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->days:Ljava/math/BigInteger;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->days:Ljava/math/BigInteger;
 
-    if-nez v0, :cond_6
+    if-nez v1, :cond_6
 
-    return v5
+    return v3
 
     :cond_6
-    return v6
+    return v5
 
     :cond_7
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->hours:Ljava/math/BigInteger;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->hours:Ljava/math/BigInteger;
 
-    if-nez v0, :cond_8
+    if-nez v1, :cond_8
 
-    return v5
+    return v3
 
     :cond_8
-    return v6
+    return v5
 
     :cond_9
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->minutes:Ljava/math/BigInteger;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->minutes:Ljava/math/BigInteger;
 
-    if-nez v0, :cond_a
+    if-nez v1, :cond_a
 
-    return v5
+    return v3
 
     :cond_a
-    return v6
-
-    :cond_b
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
-
-    if-nez v0, :cond_c
-
     return v5
 
+    :cond_b
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
+
+    if-nez v1, :cond_c
+
+    return v3
+
     :cond_c
-    return v6
+    return v5
 .end method
 
 .method public multiply(I)Lmf/javax/xml/datatype/Duration;
@@ -4182,84 +4451,84 @@
 .method public multiply(Ljava/math/BigDecimal;)Lmf/javax/xml/datatype/Duration;
     .locals 13
 
-    const/4 v12, 0x5
-
-    const/4 v8, 0x0
-
-    const/4 v7, 0x1
-
-    const/4 v6, 0x0
-
-    sget-object v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->ZERO:Ljava/math/BigDecimal;
+    sget-object v10, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->ZERO:Ljava/math/BigDecimal;
 
     invoke-virtual {p1}, Ljava/math/BigDecimal;->signum()I
 
-    move-result v2
+    move-result v11
 
     invoke-virtual {p1}, Ljava/math/BigDecimal;->abs()Ljava/math/BigDecimal;
 
-    move-result-object v3
+    move-result-object p1
 
-    const/4 v1, 0x6
+    const/4 v0, 0x6
 
-    new-array v9, v1, [Ljava/math/BigDecimal;
+    new-array v9, v0, [Ljava/math/BigDecimal;
 
-    move v1, v6
+    const/4 v12, 0x0
 
     :goto_0
-    if-ge v1, v12, :cond_2
+    const/4 v0, 0x5
 
-    sget-object v4, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->FIELDS:[Lmf/javax/xml/datatype/DatatypeConstants$Field;
+    if-ge v12, v0, :cond_2
 
-    aget-object v4, v4, v1
+    sget-object v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->FIELDS:[Lmf/javax/xml/datatype/DatatypeConstants$Field;
 
-    invoke-direct {p0, v4}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getFieldAsBigDecimal(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/math/BigDecimal;
+    aget-object v0, v0, v12
 
-    move-result-object v4
+    invoke-direct {p0, v0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getFieldAsBigDecimal(Lmf/javax/xml/datatype/DatatypeConstants$Field;)Ljava/math/BigDecimal;
 
-    invoke-virtual {v4, v3}, Ljava/math/BigDecimal;->multiply(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+    move-result-object v8
 
-    move-result-object v4
-
-    invoke-virtual {v4, v0}, Ljava/math/BigDecimal;->add(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+    invoke-virtual {v8, p1}, Ljava/math/BigDecimal;->multiply(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
 
     move-result-object v0
 
-    invoke-virtual {v0, v6, v7}, Ljava/math/BigDecimal;->setScale(II)Ljava/math/BigDecimal;
+    invoke-virtual {v0, v10}, Ljava/math/BigDecimal;->add(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
 
-    move-result-object v4
+    move-result-object v8
 
-    aput-object v4, v9, v1
+    const/4 v0, 0x0
 
-    aget-object v4, v9, v1
+    const/4 v1, 0x1
 
-    invoke-virtual {v0, v4}, Ljava/math/BigDecimal;->subtract(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
-
-    move-result-object v0
-
-    if-eq v1, v7, :cond_0
-
-    sget-object v4, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->FACTORS:[Ljava/math/BigDecimal;
-
-    aget-object v4, v4, v1
-
-    invoke-virtual {v0, v4}, Ljava/math/BigDecimal;->multiply(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+    invoke-virtual {v8, v0, v1}, Ljava/math/BigDecimal;->setScale(II)Ljava/math/BigDecimal;
 
     move-result-object v0
+
+    aput-object v0, v9, v12
+
+    aget-object v0, v9, v12
+
+    invoke-virtual {v8, v0}, Ljava/math/BigDecimal;->subtract(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+
+    move-result-object v8
+
+    const/4 v0, 0x1
+
+    if-eq v12, v0, :cond_0
+
+    sget-object v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->FACTORS:[Ljava/math/BigDecimal;
+
+    aget-object v0, v0, v12
+
+    invoke-virtual {v8, v0}, Ljava/math/BigDecimal;->multiply(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+
+    move-result-object v10
 
     :goto_1
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v12, v12, 0x1
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v0}, Ljava/math/BigDecimal;->signum()I
+    invoke-virtual {v8}, Ljava/math/BigDecimal;->signum()I
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    sget-object v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->ZERO:Ljava/math/BigDecimal;
+    sget-object v10, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->ZERO:Ljava/math/BigDecimal;
 
     goto :goto_1
 
@@ -4271,44 +4540,50 @@
     throw v0
 
     :cond_2
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
+    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
 
-    if-nez v1, :cond_4
+    if-nez v0, :cond_4
 
-    aput-object v0, v9, v12
+    const/4 v0, 0x5
+
+    aput-object v10, v9, v0
 
     :goto_2
     new-instance v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;
 
     iget v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
 
-    mul-int/2addr v1, v2
+    mul-int/2addr v1, v11
 
     if-gez v1, :cond_5
 
-    move v1, v6
+    const/4 v1, 0x0
 
     :goto_3
-    aget-object v3, v9, v6
+    const/4 v2, 0x0
+
+    aget-object v3, v9, v2
 
     iget-object v2, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->years:Ljava/math/BigInteger;
 
     if-eqz v2, :cond_6
 
-    move v2, v6
+    const/4 v2, 0x0
 
     :goto_4
     invoke-static {v3, v2}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->toBigInteger(Ljava/math/BigDecimal;Z)Ljava/math/BigInteger;
 
     move-result-object v2
 
-    aget-object v4, v9, v7
+    const/4 v3, 0x1
+
+    aget-object v4, v9, v3
 
     iget-object v3, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->months:Ljava/math/BigInteger;
 
     if-eqz v3, :cond_7
 
-    move v3, v6
+    const/4 v3, 0x0
 
     :goto_5
     invoke-static {v4, v3}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->toBigInteger(Ljava/math/BigDecimal;Z)Ljava/math/BigInteger;
@@ -4323,7 +4598,7 @@
 
     if-eqz v4, :cond_8
 
-    move v4, v6
+    const/4 v4, 0x0
 
     :goto_6
     invoke-static {v5, v4}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->toBigInteger(Ljava/math/BigDecimal;Z)Ljava/math/BigInteger;
@@ -4332,33 +4607,37 @@
 
     const/4 v5, 0x3
 
-    aget-object v10, v9, v5
+    aget-object v6, v9, v5
 
     iget-object v5, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->hours:Ljava/math/BigInteger;
 
     if-eqz v5, :cond_9
 
-    move v5, v6
+    const/4 v5, 0x0
 
     :goto_7
-    invoke-static {v10, v5}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->toBigInteger(Ljava/math/BigDecimal;Z)Ljava/math/BigInteger;
+    invoke-static {v6, v5}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->toBigInteger(Ljava/math/BigDecimal;Z)Ljava/math/BigInteger;
 
     move-result-object v5
 
-    const/4 v10, 0x4
+    const/4 v6, 0x4
 
-    aget-object v10, v9, v10
+    aget-object v7, v9, v6
 
-    iget-object v11, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->minutes:Ljava/math/BigInteger;
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->minutes:Ljava/math/BigInteger;
 
-    if-eqz v11, :cond_a
+    if-eqz v6, :cond_a
+
+    const/4 v6, 0x0
 
     :goto_8
-    invoke-static {v10, v6}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->toBigInteger(Ljava/math/BigDecimal;Z)Ljava/math/BigInteger;
+    invoke-static {v7, v6}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->toBigInteger(Ljava/math/BigDecimal;Z)Ljava/math/BigInteger;
 
     move-result-object v6
 
-    aget-object v7, v9, v12
+    const/4 v7, 0x5
+
+    aget-object v7, v9, v7
 
     invoke-virtual {v7}, Ljava/math/BigDecimal;->signum()I
 
@@ -4367,7 +4646,9 @@
     if-eqz v7, :cond_b
 
     :cond_3
-    aget-object v7, v9, v12
+    const/4 v7, 0x5
+
+    aget-object v7, v9, v7
 
     :goto_9
     invoke-direct/range {v0 .. v7}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;-><init>(ZLjava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigDecimal;)V
@@ -4375,47 +4656,49 @@
     return-object v0
 
     :cond_4
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
+    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->seconds:Ljava/math/BigDecimal;
 
-    invoke-virtual {v1, v3}, Ljava/math/BigDecimal;->multiply(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Ljava/math/BigDecimal;->add(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+    invoke-virtual {v0, p1}, Ljava/math/BigDecimal;->multiply(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
 
     move-result-object v0
 
-    aput-object v0, v9, v12
+    invoke-virtual {v0, v10}, Ljava/math/BigDecimal;->add(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+
+    move-result-object v0
+
+    const/4 v1, 0x5
+
+    aput-object v0, v9, v1
 
     goto :goto_2
 
     :cond_5
-    move v1, v7
+    const/4 v1, 0x1
 
     goto :goto_3
 
     :cond_6
-    move v2, v7
+    const/4 v2, 0x1
 
     goto :goto_4
 
     :cond_7
-    move v3, v7
+    const/4 v3, 0x1
 
     goto :goto_5
 
     :cond_8
-    move v4, v7
+    const/4 v4, 0x1
 
     goto :goto_6
 
     :cond_9
-    move v5, v7
+    const/4 v5, 0x1
 
     goto :goto_7
 
     :cond_a
-    move v6, v7
+    const/4 v6, 0x1
 
     goto :goto_8
 
@@ -4424,7 +4707,7 @@
 
     if-nez v7, :cond_3
 
-    move-object v7, v8
+    const/4 v7, 0x0
 
     goto :goto_9
 .end method
@@ -4464,55 +4747,55 @@
 .end method
 
 .method public normalizeWith(Ljava/util/Calendar;)Lmf/javax/xml/datatype/Duration;
-    .locals 8
-
-    const/4 v2, 0x0
+    .locals 12
 
     const/4 v3, 0x1
 
     const/4 v1, 0x0
 
+    const/4 v2, 0x0
+
     invoke-virtual {p1}, Ljava/util/Calendar;->clone()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v8
 
-    check-cast v0, Ljava/util/Calendar;
+    check-cast v8, Ljava/util/Calendar;
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getYears()I
 
-    move-result v4
+    move-result v0
 
-    iget v5, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
+    iget v4, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
 
-    mul-int/2addr v4, v5
+    mul-int/2addr v0, v4
 
-    invoke-virtual {v0, v3, v4}, Ljava/util/Calendar;->add(II)V
-
-    const/4 v4, 0x2
+    invoke-virtual {v8, v3, v0}, Ljava/util/Calendar;->add(II)V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getMonths()I
 
-    move-result v5
+    move-result v0
 
-    iget v6, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
+    iget v4, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
 
-    mul-int/2addr v5, v6
+    mul-int/2addr v0, v4
 
-    invoke-virtual {v0, v4, v5}, Ljava/util/Calendar;->add(II)V
+    const/4 v4, 0x2
 
-    const/4 v4, 0x5
+    invoke-virtual {v8, v4, v0}, Ljava/util/Calendar;->add(II)V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getDays()I
 
-    move-result v5
+    move-result v0
 
-    iget v6, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
+    iget v4, p0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->signum:I
 
-    mul-int/2addr v5, v6
+    mul-int/2addr v0, v4
 
-    invoke-virtual {v0, v4, v5}, Ljava/util/Calendar;->add(II)V
+    const/4 v4, 0x5
 
-    invoke-static {v0}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getCalendarTimeInMillis(Ljava/util/Calendar;)J
+    invoke-virtual {v8, v4, v0}, Ljava/util/Calendar;->add(II)V
+
+    invoke-static {v8}, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;->getCalendarTimeInMillis(Ljava/util/Calendar;)J
 
     move-result-wide v4
 
@@ -4520,20 +4803,20 @@
 
     move-result-wide v6
 
-    sub-long/2addr v4, v6
+    sub-long v10, v4, v6
 
-    const-wide/32 v6, 0x5265c00
+    const-wide/32 v4, 0x5265c00
 
-    div-long/2addr v4, v6
+    div-long v4, v10, v4
 
-    long-to-int v4, v4
+    long-to-int v9, v4
 
     new-instance v0, Lmf/org/apache/xerces/jaxp/datatype/DurationImpl;
 
-    if-gez v4, :cond_0
+    if-gez v9, :cond_0
 
     :goto_0
-    invoke-static {v4}, Ljava/lang/Math;->abs(I)I
+    invoke-static {v9}, Ljava/lang/Math;->abs(I)I
 
     move-result v3
 
@@ -4658,9 +4941,9 @@
     :goto_6
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_1
     const/16 v1, 0x2d

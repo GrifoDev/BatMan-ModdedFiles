@@ -88,7 +88,7 @@
 
     iget v1, p1, Landroid/os/Message;->arg1:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/LockSettingsStrongAuth;->handleStrongAuthFor24Hours(I)V
+    invoke-static {v0, v1}, Lcom/android/server/LockSettingsStrongAuth;->-wrap4(Lcom/android/server/LockSettingsStrongAuth;I)V
 
     goto :goto_0
 

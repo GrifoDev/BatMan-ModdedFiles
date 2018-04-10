@@ -104,69 +104,69 @@
     .end annotation
 
     :try_start_0
-    const-string/jumbo v0, "<?xml version=\""
+    const-string/jumbo v1, "<?xml version=\""
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/stax/events/StartDocumentImpl;->fVersion:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xerces/stax/events/StartDocumentImpl;->fVersion:Ljava/lang/String;
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     :cond_0
-    const-string/jumbo v0, "1.0"
+    const-string/jumbo v1, "1.0"
 
     :goto_0
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    const/16 v0, 0x22
+    const/16 v1, 0x22
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(I)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(I)V
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/stax/events/StartDocumentImpl;->encodingSet()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_2
+    if-nez v1, :cond_2
 
     :goto_1
     invoke-virtual {p0}, Lmf/org/apache/xerces/stax/events/StartDocumentImpl;->standaloneSet()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_3
+    if-nez v1, :cond_3
 
     :goto_2
-    const-string/jumbo v0, "?>"
+    const-string/jumbo v1, "?>"
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
     return-void
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/stax/events/StartDocumentImpl;->fVersion:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xerces/stax/events/StartDocumentImpl;->fVersion:Ljava/lang/String;
 
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v1
 
-    if-lez v0, :cond_0
+    if-lez v1, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/stax/events/StartDocumentImpl;->fVersion:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xerces/stax/events/StartDocumentImpl;->fVersion:Ljava/lang/String;
 
     goto :goto_0
 
     :cond_2
-    const-string/jumbo v0, " encoding=\""
+    const-string/jumbo v1, " encoding=\""
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/stax/events/StartDocumentImpl;->fCharEncoding:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xerces/stax/events/StartDocumentImpl;->fCharEncoding:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    const/16 v0, 0x22
+    const/16 v1, 0x22
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(I)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(I)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -183,27 +183,27 @@
 
     :cond_3
     :try_start_1
-    const-string/jumbo v0, " standalone=\""
+    const-string/jumbo v1, " standalone=\""
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    iget-boolean v0, p0, Lmf/org/apache/xerces/stax/events/StartDocumentImpl;->fIsStandalone:Z
+    iget-boolean v1, p0, Lmf/org/apache/xerces/stax/events/StartDocumentImpl;->fIsStandalone:Z
 
-    if-nez v0, :cond_4
+    if-nez v1, :cond_4
 
-    const-string/jumbo v0, "no"
+    const-string/jumbo v1, "no"
 
     :goto_3
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    const/16 v0, 0x22
+    const/16 v1, 0x22
 
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(I)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(I)V
 
     goto :goto_2
 
     :cond_4
-    const-string/jumbo v0, "yes"
+    const-string/jumbo v1, "yes"
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 

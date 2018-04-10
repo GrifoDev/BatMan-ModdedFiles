@@ -26,6 +26,10 @@
 
 
 # instance fields
+.field private final KDDI_SOURCE_CONNECT_SUCCESS_ACTION:Ljava/lang/String;
+
+.field private final KDDI_SOURCE_DISCONNECT_SUCCESS_ACTION:Ljava/lang/String;
+
 .field private final PRESENTATION_START_ACTION:Ljava/lang/String;
 
 .field private final PRESENTATION_STOP_ACTION:Ljava/lang/String;
@@ -53,6 +57,8 @@
 .field private mIsPortraitMode:Z
 
 .field private mIsSlideShowVideoPlaying:Z
+
+.field private mKDDIServiceConnected:Z
 
 .field private mNegRs_X:F
 
@@ -104,10 +110,10 @@
     return v0
 .end method
 
-.method static synthetic -get5(Lcom/android/server/display/WFDUibcManager;)F
+.method static synthetic -get5(Lcom/android/server/display/WFDUibcManager;)Z
     .locals 1
 
-    iget v0, p0, Lcom/android/server/display/WFDUibcManager;->mNegRs_X:F
+    iget-boolean v0, p0, Lcom/android/server/display/WFDUibcManager;->mKDDIServiceConnected:Z
 
     return v0
 .end method
@@ -115,12 +121,20 @@
 .method static synthetic -get6(Lcom/android/server/display/WFDUibcManager;)F
     .locals 1
 
+    iget v0, p0, Lcom/android/server/display/WFDUibcManager;->mNegRs_X:F
+
+    return v0
+.end method
+
+.method static synthetic -get7(Lcom/android/server/display/WFDUibcManager;)F
+    .locals 1
+
     iget v0, p0, Lcom/android/server/display/WFDUibcManager;->mNegRs_Y:F
 
     return v0
 .end method
 
-.method static synthetic -get7(Lcom/android/server/display/WFDUibcManager;)I
+.method static synthetic -get8(Lcom/android/server/display/WFDUibcManager;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/display/WFDUibcManager;->mPresentDisplayID:I
@@ -136,7 +150,15 @@
     return p1
 .end method
 
-.method static synthetic -set1(Lcom/android/server/display/WFDUibcManager;I)I
+.method static synthetic -set1(Lcom/android/server/display/WFDUibcManager;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/display/WFDUibcManager;->mKDDIServiceConnected:Z
+
+    return p1
+.end method
+
+.method static synthetic -set2(Lcom/android/server/display/WFDUibcManager;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/server/display/WFDUibcManager;->mPresentDisplayID:I
@@ -193,9 +215,15 @@
 
     iput v0, p0, Lcom/android/server/display/WFDUibcManager;->mNegRs_Y:F
 
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/android/server/display/WFDUibcManager;->mPresentDisplayID:I
+
     iput-boolean v1, p0, Lcom/android/server/display/WFDUibcManager;->mIsSlideShowVideoPlaying:Z
 
     iput-boolean v1, p0, Lcom/android/server/display/WFDUibcManager;->mIsPortraitMode:Z
+
+    iput-boolean v1, p0, Lcom/android/server/display/WFDUibcManager;->mKDDIServiceConnected:Z
 
     const-string/jumbo v0, "com.samsung.android.video.START_PRESENTATION"
 
@@ -224,6 +252,14 @@
     const-string/jumbo v0, "com.samsung.intent.action.SEC_UIBC_GET_FOCUS"
 
     iput-object v0, p0, Lcom/android/server/display/WFDUibcManager;->SEC_UIBC_GET_FOCUS:Ljava/lang/String;
+
+    const-string/jumbo v0, "com.kddi.android.sptab_source.SUCCESS_CONNECT_SOURCE"
+
+    iput-object v0, p0, Lcom/android/server/display/WFDUibcManager;->KDDI_SOURCE_CONNECT_SUCCESS_ACTION:Ljava/lang/String;
+
+    const-string/jumbo v0, "com.kddi.android.sptab_source.SUCCESS_DISCONNECT_SOURCE"
+
+    iput-object v0, p0, Lcom/android/server/display/WFDUibcManager;->KDDI_SOURCE_DISCONNECT_SUCCESS_ACTION:Ljava/lang/String;
 
     new-instance v0, Landroid/content/IntentFilter;
 
@@ -272,6 +308,18 @@
     iget-object v0, p0, Lcom/android/server/display/WFDUibcManager;->mIntentFilter:Landroid/content/IntentFilter;
 
     const-string/jumbo v1, "com.samsung.android.gallery.action.slideshow.finish"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/server/display/WFDUibcManager;->mIntentFilter:Landroid/content/IntentFilter;
+
+    const-string/jumbo v1, "com.kddi.android.sptab_source.SUCCESS_CONNECT_SOURCE"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/server/display/WFDUibcManager;->mIntentFilter:Landroid/content/IntentFilter;
+
+    const-string/jumbo v1, "com.kddi.android.sptab_source.SUCCESS_DISCONNECT_SOURCE"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
@@ -389,110 +437,102 @@
 .end method
 
 .method public stop()Z
-    .locals 7
+    .locals 6
 
-    const/4 v6, 0x1
-
-    const/4 v5, 0x0
+    const/4 v5, 0x1
 
     const/4 v4, 0x0
 
-    iget-object v2, p0, Lcom/android/server/display/WFDUibcManager;->mContext:Landroid/content/Context;
+    const/4 v3, 0x0
 
-    const-string/jumbo v3, "display"
+    iget-boolean v1, p0, Lcom/android/server/display/WFDUibcManager;->mKDDIServiceConnected:Z
 
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/display/WFDUibcManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
-    check-cast v1, Landroid/hardware/display/DisplayManager;
+    const-string/jumbo v2, "accelerometer_rotation"
 
-    invoke-virtual {v1}, Landroid/hardware/display/DisplayManager;->isAuSLServiceRunning()Z
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-nez v1, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/display/WFDUibcManager;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/server/display/WFDUibcManager;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v2
+    move-result-object v1
 
-    const-string/jumbo v3, "accelerometer_rotation"
+    const-string/jumbo v2, "user_rotation"
 
-    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/server/display/WFDUibcManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "user_rotation"
-
-    invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     :cond_0
-    iget-object v2, p0, Lcom/android/server/display/WFDUibcManager;->mEventDispatcher:Lcom/android/server/display/WFDUibcManager$EventDispatcher;
+    iget-object v1, p0, Lcom/android/server/display/WFDUibcManager;->mEventDispatcher:Lcom/android/server/display/WFDUibcManager$EventDispatcher;
 
-    if-nez v2, :cond_1
+    if-nez v1, :cond_1
 
-    return v6
+    return v5
 
     :cond_1
-    iget-object v2, p0, Lcom/android/server/display/WFDUibcManager;->mEventDispatcher:Lcom/android/server/display/WFDUibcManager$EventDispatcher;
+    iget-object v1, p0, Lcom/android/server/display/WFDUibcManager;->mEventDispatcher:Lcom/android/server/display/WFDUibcManager$EventDispatcher;
 
-    iput-boolean v4, v2, Lcom/android/server/display/WFDUibcManager$EventDispatcher;->running:Z
+    iput-boolean v3, v1, Lcom/android/server/display/WFDUibcManager$EventDispatcher;->running:Z
 
     invoke-static {}, Landroid/media/RemoteDisplay;->nativeStopUIBC()V
 
-    const-string/jumbo v2, "WFDUibcManager"
+    const-string/jumbo v1, "WFDUibcManager"
 
-    const-string/jumbo v3, "Going to stop Uibc manager"
+    const-string/jumbo v2, "Going to stop Uibc manager"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :try_start_0
-    iget-object v2, p0, Lcom/android/server/display/WFDUibcManager;->mEventDispatcherThread:Ljava/lang/Thread;
+    iget-object v1, p0, Lcom/android/server/display/WFDUibcManager;->mEventDispatcherThread:Ljava/lang/Thread;
 
-    invoke-virtual {v2}, Ljava/lang/Thread;->join()V
+    invoke-virtual {v1}, Ljava/lang/Thread;->join()V
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
-    const-string/jumbo v2, "WFDUibcManager"
+    const-string/jumbo v1, "WFDUibcManager"
 
-    const-string/jumbo v3, "Uibc manager stopped"
+    const-string/jumbo v2, "Uibc manager stopped"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    iput-object v5, p0, Lcom/android/server/display/WFDUibcManager;->mEventDispatcher:Lcom/android/server/display/WFDUibcManager$EventDispatcher;
+    iput-object v4, p0, Lcom/android/server/display/WFDUibcManager;->mEventDispatcher:Lcom/android/server/display/WFDUibcManager$EventDispatcher;
 
-    iput-object v5, p0, Lcom/android/server/display/WFDUibcManager;->mEventDispatcherThread:Ljava/lang/Thread;
+    iput-object v4, p0, Lcom/android/server/display/WFDUibcManager;->mEventDispatcherThread:Ljava/lang/Thread;
 
-    return v6
+    iput-boolean v3, p0, Lcom/android/server/display/WFDUibcManager;->mIsPortraitMode:Z
+
+    return v5
 
     :catch_0
     move-exception v0
 
-    const-string/jumbo v2, "WFDUibcManager"
+    const-string/jumbo v1, "WFDUibcManager"
 
-    const-string/jumbo v3, "Error joining event dispatcher thread"
+    const-string/jumbo v2, "Error joining event dispatcher thread"
 
-    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method
 
 .method public stop(I)Z
-    .locals 5
+    .locals 6
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
 
     const/4 v3, 0x0
 
@@ -500,14 +540,12 @@
 
     if-nez v1, :cond_0
 
-    return v4
+    return v5
 
     :cond_0
     iget-object v1, p0, Lcom/android/server/display/WFDUibcManager;->mEventDispatcher:Lcom/android/server/display/WFDUibcManager$EventDispatcher;
 
-    const/4 v2, 0x0
-
-    iput-boolean v2, v1, Lcom/android/server/display/WFDUibcManager$EventDispatcher;->running:Z
+    iput-boolean v4, v1, Lcom/android/server/display/WFDUibcManager$EventDispatcher;->running:Z
 
     const-string/jumbo v1, "WFDUibcManager"
 
@@ -533,7 +571,9 @@
 
     iput-object v3, p0, Lcom/android/server/display/WFDUibcManager;->mEventDispatcherThread:Ljava/lang/Thread;
 
-    return v4
+    iput-boolean v4, p0, Lcom/android/server/display/WFDUibcManager;->mIsPortraitMode:Z
+
+    return v5
 
     :catch_0
     move-exception v0

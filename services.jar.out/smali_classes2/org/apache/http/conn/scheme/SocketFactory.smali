@@ -3,6 +3,11 @@
 .source "SocketFactory.java"
 
 
+# annotations
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
+
 # virtual methods
 .method public abstract connectSocket(Ljava/net/Socket;Ljava/lang/String;ILjava/net/InetAddress;ILorg/apache/http/params/HttpParams;)Ljava/net/Socket;
     .annotation system Ldalvik/annotation/Throws;

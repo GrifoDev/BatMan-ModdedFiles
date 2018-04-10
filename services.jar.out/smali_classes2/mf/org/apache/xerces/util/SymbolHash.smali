@@ -69,121 +69,117 @@
 
 # virtual methods
 .method public clear()V
-    .locals 4
+    .locals 3
 
-    const/4 v1, 0x0
-
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_0
-    iget v2, p0, Lmf/org/apache/xerces/util/SymbolHash;->fTableSize:I
+    iget v1, p0, Lmf/org/apache/xerces/util/SymbolHash;->fTableSize:I
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v1, :cond_0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/util/SymbolHash;->fBuckets:[Lmf/org/apache/xerces/util/SymbolHash$Entry;
+    iget-object v1, p0, Lmf/org/apache/xerces/util/SymbolHash;->fBuckets:[Lmf/org/apache/xerces/util/SymbolHash$Entry;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    aput-object v3, v2, v0
+    aput-object v2, v1, v0
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
+    const/4 v1, 0x0
+
     iput v1, p0, Lmf/org/apache/xerces/util/SymbolHash;->fNum:I
 
     return-void
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .locals 5
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
     invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
 
-    move-result v0
+    move-result v2
 
-    const v1, 0x7fffffff
+    const v3, 0x7fffffff
 
-    and-int/2addr v0, v1
+    and-int/2addr v2, v3
 
-    iget v1, p0, Lmf/org/apache/xerces/util/SymbolHash;->fTableSize:I
+    iget v3, p0, Lmf/org/apache/xerces/util/SymbolHash;->fTableSize:I
 
-    rem-int/2addr v0, v1
+    rem-int v0, v2, v3
 
     invoke-virtual {p0, p1, v0}, Lmf/org/apache/xerces/util/SymbolHash;->search(Ljava/lang/Object;I)Lmf/org/apache/xerces/util/SymbolHash$Entry;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    return-object v2
+    return-object v4
 
     :cond_0
-    iget-object v0, v0, Lmf/org/apache/xerces/util/SymbolHash$Entry;->value:Ljava/lang/Object;
+    iget-object v2, v1, Lmf/org/apache/xerces/util/SymbolHash$Entry;->value:Ljava/lang/Object;
 
-    return-object v0
+    return-object v2
 .end method
 
 .method public getEntries()[Ljava/lang/Object;
     .locals 5
 
-    const/4 v0, 0x0
+    iget v4, p0, Lmf/org/apache/xerces/util/SymbolHash;->fNum:I
 
-    iget v1, p0, Lmf/org/apache/xerces/util/SymbolHash;->fNum:I
+    shl-int/lit8 v4, v4, 0x1
 
-    shl-int/lit8 v1, v1, 0x1
+    new-array v0, v4, [Ljava/lang/Object;
 
-    new-array v4, v1, [Ljava/lang/Object;
+    const/4 v2, 0x0
 
-    move v1, v0
+    const/4 v3, 0x0
 
     :goto_0
-    iget v2, p0, Lmf/org/apache/xerces/util/SymbolHash;->fTableSize:I
+    iget v4, p0, Lmf/org/apache/xerces/util/SymbolHash;->fTableSize:I
 
-    if-lt v1, v2, :cond_1
+    if-lt v2, v4, :cond_1
 
     :cond_0
-    return-object v4
+    return-object v0
 
     :cond_1
-    iget v2, p0, Lmf/org/apache/xerces/util/SymbolHash;->fNum:I
+    iget v4, p0, Lmf/org/apache/xerces/util/SymbolHash;->fNum:I
 
-    shl-int/lit8 v2, v2, 0x1
+    shl-int/lit8 v4, v4, 0x1
 
-    if-ge v0, v2, :cond_0
+    if-ge v3, v4, :cond_0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/util/SymbolHash;->fBuckets:[Lmf/org/apache/xerces/util/SymbolHash$Entry;
+    iget-object v4, p0, Lmf/org/apache/xerces/util/SymbolHash;->fBuckets:[Lmf/org/apache/xerces/util/SymbolHash$Entry;
 
-    aget-object v2, v2, v1
+    aget-object v1, v4, v2
 
     :goto_1
-    if-eqz v2, :cond_2
+    if-eqz v1, :cond_2
 
-    iget-object v3, v2, Lmf/org/apache/xerces/util/SymbolHash$Entry;->key:Ljava/lang/Object;
+    iget-object v4, v1, Lmf/org/apache/xerces/util/SymbolHash$Entry;->key:Ljava/lang/Object;
 
-    aput-object v3, v4, v0
+    aput-object v4, v0, v3
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v3, v3, 0x1
 
-    iget-object v3, v2, Lmf/org/apache/xerces/util/SymbolHash$Entry;->value:Ljava/lang/Object;
+    iget-object v4, v1, Lmf/org/apache/xerces/util/SymbolHash$Entry;->value:Ljava/lang/Object;
 
-    aput-object v3, v4, v0
+    aput-object v4, v0, v3
 
-    add-int/lit8 v3, v0, 0x1
+    add-int/lit8 v3, v3, 0x1
 
-    iget-object v0, v2, Lmf/org/apache/xerces/util/SymbolHash$Entry;->next:Lmf/org/apache/xerces/util/SymbolHash$Entry;
-
-    move-object v2, v0
-
-    move v0, v3
+    iget-object v1, v1, Lmf/org/apache/xerces/util/SymbolHash$Entry;->next:Lmf/org/apache/xerces/util/SymbolHash$Entry;
 
     goto :goto_1
 
     :cond_2
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 .end method
@@ -199,45 +195,41 @@
 .method public getValues([Ljava/lang/Object;I)I
     .locals 5
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    move v1, v0
+    const/4 v2, 0x0
 
     :goto_0
-    iget v2, p0, Lmf/org/apache/xerces/util/SymbolHash;->fTableSize:I
+    iget v3, p0, Lmf/org/apache/xerces/util/SymbolHash;->fTableSize:I
 
-    if-lt v1, v2, :cond_1
+    if-lt v1, v3, :cond_1
 
     :cond_0
-    iget v0, p0, Lmf/org/apache/xerces/util/SymbolHash;->fNum:I
+    iget v3, p0, Lmf/org/apache/xerces/util/SymbolHash;->fNum:I
 
-    return v0
+    return v3
 
     :cond_1
-    iget v2, p0, Lmf/org/apache/xerces/util/SymbolHash;->fNum:I
+    iget v3, p0, Lmf/org/apache/xerces/util/SymbolHash;->fNum:I
 
-    if-ge v0, v2, :cond_0
+    if-ge v2, v3, :cond_0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/util/SymbolHash;->fBuckets:[Lmf/org/apache/xerces/util/SymbolHash$Entry;
+    iget-object v3, p0, Lmf/org/apache/xerces/util/SymbolHash;->fBuckets:[Lmf/org/apache/xerces/util/SymbolHash$Entry;
 
-    aget-object v2, v2, v1
+    aget-object v0, v3, v1
 
     :goto_1
-    if-eqz v2, :cond_2
+    if-eqz v0, :cond_2
 
-    add-int v3, p2, v0
+    add-int v3, p2, v2
 
-    iget-object v4, v2, Lmf/org/apache/xerces/util/SymbolHash$Entry;->value:Ljava/lang/Object;
+    iget-object v4, v0, Lmf/org/apache/xerces/util/SymbolHash$Entry;->value:Ljava/lang/Object;
 
     aput-object v4, p1, v3
 
-    add-int/lit8 v3, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    iget-object v0, v2, Lmf/org/apache/xerces/util/SymbolHash$Entry;->next:Lmf/org/apache/xerces/util/SymbolHash$Entry;
-
-    move-object v2, v0
-
-    move v0, v3
+    iget-object v0, v0, Lmf/org/apache/xerces/util/SymbolHash$Entry;->next:Lmf/org/apache/xerces/util/SymbolHash$Entry;
 
     goto :goto_1
 
@@ -252,13 +244,13 @@
 
     new-instance v1, Lmf/org/apache/xerces/util/SymbolHash;
 
-    iget v0, p0, Lmf/org/apache/xerces/util/SymbolHash;->fTableSize:I
+    iget v2, p0, Lmf/org/apache/xerces/util/SymbolHash;->fTableSize:I
 
-    invoke-direct {v1, v0}, Lmf/org/apache/xerces/util/SymbolHash;-><init>(I)V
+    invoke-direct {v1, v2}, Lmf/org/apache/xerces/util/SymbolHash;-><init>(I)V
 
-    iget v0, p0, Lmf/org/apache/xerces/util/SymbolHash;->fNum:I
+    iget v2, p0, Lmf/org/apache/xerces/util/SymbolHash;->fNum:I
 
-    iput v0, v1, Lmf/org/apache/xerces/util/SymbolHash;->fNum:I
+    iput v2, v1, Lmf/org/apache/xerces/util/SymbolHash;->fNum:I
 
     const/4 v0, 0x0
 
@@ -298,19 +290,19 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 3
+    .locals 4
 
     invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
 
-    move-result v0
+    move-result v2
 
-    const v1, 0x7fffffff
+    const v3, 0x7fffffff
 
-    and-int/2addr v0, v1
+    and-int/2addr v2, v3
 
-    iget v1, p0, Lmf/org/apache/xerces/util/SymbolHash;->fTableSize:I
+    iget v3, p0, Lmf/org/apache/xerces/util/SymbolHash;->fTableSize:I
 
-    rem-int/2addr v0, v1
+    rem-int v0, v2, v3
 
     invoke-virtual {p0, p1, v0}, Lmf/org/apache/xerces/util/SymbolHash;->search(Ljava/lang/Object;I)Lmf/org/apache/xerces/util/SymbolHash$Entry;
 
@@ -330,11 +322,11 @@
 
     aput-object v1, v2, v0
 
-    iget v0, p0, Lmf/org/apache/xerces/util/SymbolHash;->fNum:I
+    iget v2, p0, Lmf/org/apache/xerces/util/SymbolHash;->fNum:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    iput v0, p0, Lmf/org/apache/xerces/util/SymbolHash;->fNum:I
+    iput v2, p0, Lmf/org/apache/xerces/util/SymbolHash;->fNum:I
 
     :goto_0
     return-void
@@ -350,9 +342,9 @@
 
     const/4 v2, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/util/SymbolHash;->fBuckets:[Lmf/org/apache/xerces/util/SymbolHash$Entry;
+    iget-object v1, p0, Lmf/org/apache/xerces/util/SymbolHash;->fBuckets:[Lmf/org/apache/xerces/util/SymbolHash$Entry;
 
-    aget-object v0, v0, p2
+    aget-object v0, v1, p2
 
     :goto_0
     if-eqz v0, :cond_1

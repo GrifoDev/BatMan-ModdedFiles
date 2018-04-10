@@ -173,7 +173,7 @@
 
     const-string/jumbo v8, "null bundle returned"
 
-    invoke-static {v7, v5, v10, v8}, Lcom/android/server/accounts/AccountManagerService;->-wrap15(Lcom/android/server/accounts/AccountManagerService;Landroid/accounts/IAccountManagerResponse;ILjava/lang/String;)V
+    invoke-static {v7, v5, v10, v8}, Lcom/android/server/accounts/AccountManagerService;->-wrap22(Lcom/android/server/accounts/AccountManagerService;Landroid/accounts/IAccountManagerResponse;ILjava/lang/String;)V
 
     return-void
 
@@ -204,7 +204,7 @@
 
     move-result-object v9
 
-    invoke-static {v7, v5, v8, v9}, Lcom/android/server/accounts/AccountManagerService;->-wrap15(Lcom/android/server/accounts/AccountManagerService;Landroid/accounts/IAccountManagerResponse;ILjava/lang/String;)V
+    invoke-static {v7, v5, v8, v9}, Lcom/android/server/accounts/AccountManagerService;->-wrap22(Lcom/android/server/accounts/AccountManagerService;Landroid/accounts/IAccountManagerResponse;ILjava/lang/String;)V
 
     return-void
 
@@ -271,7 +271,7 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_a
 
     const-string/jumbo v7, "accountType"
 
@@ -283,7 +283,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_9
+    if-nez v7, :cond_8
 
     iget-object v7, p0, Lcom/android/server/accounts/AccountManagerService$StartAccountSession;->mAccountType:Ljava/lang/String;
 
@@ -291,9 +291,18 @@
 
     move-result v7
 
+    xor-int/lit8 v7, v7, 0x1
+
     if-eqz v7, :cond_9
 
-    :goto_1
+    :cond_8
+    const-string/jumbo v7, "AccountManagerService"
+
+    const-string/jumbo v8, "Account type in session bundle doesn\'t match request."
+
+    invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_9
     const-string/jumbo v7, "accountType"
 
     iget-object v8, p0, Lcom/android/server/accounts/AccountManagerService$StartAccountSession;->mAccountType:Ljava/lang/String;
@@ -315,21 +324,12 @@
     :try_end_0
     .catch Ljava/security/GeneralSecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_8
+    :cond_a
     iget-object v7, p0, Lcom/android/server/accounts/AccountManagerService$StartAccountSession;->this$0:Lcom/android/server/accounts/AccountManagerService;
 
-    invoke-static {v7, v5, p1}, Lcom/android/server/accounts/AccountManagerService;->-wrap16(Lcom/android/server/accounts/AccountManagerService;Landroid/accounts/IAccountManagerResponse;Landroid/os/Bundle;)V
+    invoke-static {v7, v5, p1}, Lcom/android/server/accounts/AccountManagerService;->-wrap23(Lcom/android/server/accounts/AccountManagerService;Landroid/accounts/IAccountManagerResponse;Landroid/os/Bundle;)V
 
     return-void
-
-    :cond_9
-    const-string/jumbo v7, "AccountManagerService"
-
-    const-string/jumbo v8, "Account type in session bundle doesn\'t match request."
-
-    invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
 
     :catch_0
     move-exception v2
@@ -342,7 +342,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_b
 
     const-string/jumbo v7, "AccountManagerService"
 
@@ -350,12 +350,12 @@
 
     invoke-static {v7, v8, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_a
+    :cond_b
     iget-object v7, p0, Lcom/android/server/accounts/AccountManagerService$StartAccountSession;->this$0:Lcom/android/server/accounts/AccountManagerService;
 
     const-string/jumbo v8, "failed to encrypt session bundle"
 
-    invoke-static {v7, v5, v10, v8}, Lcom/android/server/accounts/AccountManagerService;->-wrap15(Lcom/android/server/accounts/AccountManagerService;Landroid/accounts/IAccountManagerResponse;ILjava/lang/String;)V
+    invoke-static {v7, v5, v10, v8}, Lcom/android/server/accounts/AccountManagerService;->-wrap22(Lcom/android/server/accounts/AccountManagerService;Landroid/accounts/IAccountManagerResponse;ILjava/lang/String;)V
 
     return-void
 .end method

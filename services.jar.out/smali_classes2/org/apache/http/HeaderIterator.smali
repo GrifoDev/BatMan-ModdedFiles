@@ -7,7 +7,14 @@
 
 
 # annotations
-.annotation runtime Ljava/lang/Deprecated;
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Ljava/util/Iterator",
+        "<",
+        "Ljava/lang/Object;",
+        ">;"
+    }
 .end annotation
 
 

@@ -49,7 +49,7 @@
 
     iget v1, p0, Lcom/android/server/input/InputManagerService$InputDevicesChangedListenerRecord;->mPid:I
 
-    invoke-static {v0, v1}, Lcom/android/server/input/InputManagerService;->-wrap15(Lcom/android/server/input/InputManagerService;I)V
+    invoke-static {v0, v1}, Lcom/android/server/input/InputManagerService;->-wrap16(Lcom/android/server/input/InputManagerService;I)V
 
     return-void
 .end method

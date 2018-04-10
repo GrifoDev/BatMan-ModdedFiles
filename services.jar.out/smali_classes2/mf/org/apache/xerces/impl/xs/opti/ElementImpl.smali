@@ -187,18 +187,18 @@
     :cond_0
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->attrs:[Lmf/org/w3c/dom/Attr;
 
-    aget-object v0, v1, v0
+    aget-object v1, v1, v0
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getValue()Ljava/lang/String;
+    invoke-interface {v1}, Lmf/org/w3c/dom/Attr;->getValue()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_1
-    const-string/jumbo v0, ""
+    const-string/jumbo v1, ""
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public getAttributeNS(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -249,18 +249,18 @@
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->attrs:[Lmf/org/w3c/dom/Attr;
 
-    aget-object v0, v1, v0
+    aget-object v1, v1, v0
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Attr;->getValue()Ljava/lang/String;
+    invoke-interface {v1}, Lmf/org/w3c/dom/Attr;->getValue()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_2
-    const-string/jumbo v0, ""
+    const-string/jumbo v1, ""
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public getAttributeNode(Ljava/lang/String;)Lmf/org/w3c/dom/Attr;
@@ -296,14 +296,14 @@
     :cond_0
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->attrs:[Lmf/org/w3c/dom/Attr;
 
-    aget-object v0, v1, v0
+    aget-object v1, v1, v0
 
-    return-object v0
+    return-object v1
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public getAttributeNodeNS(Ljava/lang/String;Ljava/lang/String;)Lmf/org/w3c/dom/Attr;
@@ -354,14 +354,14 @@
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->attrs:[Lmf/org/w3c/dom/Attr;
 
-    aget-object v0, v1, v0
+    aget-object v1, v1, v0
 
-    return-object v0
+    return-object v1
 
     :cond_2
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public getAttributes()Lmf/org/w3c/dom/NamedNodeMap;
@@ -426,40 +426,38 @@
 
     const/4 v3, 0x0
 
-    const/4 v1, 0x1
-
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->parentRow:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->parentRow:I
 
     const/4 v2, -0x1
 
-    if-eq v0, v2, :cond_0
+    if-eq v1, v2, :cond_0
 
-    move v0, v1
+    const/4 v0, 0x1
 
     :goto_0
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->schemaDOM:Lmf/org/apache/xerces/impl/xs/opti/SchemaDOM;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->schemaDOM:Lmf/org/apache/xerces/impl/xs/opti/SchemaDOM;
 
-    iget-object v2, v2, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOM;->relations:[[Lmf/org/apache/xerces/impl/xs/opti/NodeImpl;
+    iget-object v1, v1, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOM;->relations:[[Lmf/org/apache/xerces/impl/xs/opti/NodeImpl;
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->parentRow:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->parentRow:I
 
-    aget-object v2, v2, v3
+    aget-object v1, v1, v2
 
-    array-length v2, v2
+    array-length v1, v1
 
-    if-ge v0, v2, :cond_2
+    if-ge v0, v1, :cond_2
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->schemaDOM:Lmf/org/apache/xerces/impl/xs/opti/SchemaDOM;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->schemaDOM:Lmf/org/apache/xerces/impl/xs/opti/SchemaDOM;
 
-    iget-object v2, v2, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOM;->relations:[[Lmf/org/apache/xerces/impl/xs/opti/NodeImpl;
+    iget-object v1, v1, Lmf/org/apache/xerces/impl/xs/opti/SchemaDOM;->relations:[[Lmf/org/apache/xerces/impl/xs/opti/NodeImpl;
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->parentRow:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->parentRow:I
 
-    aget-object v2, v2, v3
+    aget-object v1, v1, v2
 
-    aget-object v2, v2, v0
+    aget-object v1, v1, v0
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
     add-int/lit8 v0, v0, 0x1
 
@@ -477,13 +475,15 @@
 
     aget-object v1, v1, v2
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 v2, v0, -0x1
 
-    aget-object v0, v1, v0
+    aget-object v1, v1, v2
 
-    return-object v0
+    return-object v1
 
     :cond_2
+    const/4 v1, 0x1
+
     if-eq v0, v1, :cond_3
 
     :goto_1
@@ -495,11 +495,11 @@
 
     aget-object v1, v1, v2
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 v2, v0, -0x1
 
-    aget-object v0, v1, v0
+    aget-object v1, v1, v2
 
-    return-object v0
+    return-object v1
 
     :cond_3
     add-int/lit8 v0, v0, 0x1
@@ -632,71 +632,71 @@
 .method public hasAttribute(Ljava/lang/String;)Z
     .locals 3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_0
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->attrs:[Lmf/org/w3c/dom/Attr;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->attrs:[Lmf/org/w3c/dom/Attr;
 
-    array-length v2, v2
+    array-length v1, v1
 
-    if-ge v0, v2, :cond_1
+    if-ge v0, v1, :cond_1
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->attrs:[Lmf/org/w3c/dom/Attr;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->attrs:[Lmf/org/w3c/dom/Attr;
 
-    aget-object v2, v2, v0
+    aget-object v1, v1, v0
 
-    invoke-interface {v2}, Lmf/org/w3c/dom/Attr;->getName()Ljava/lang/String;
+    invoke-interface {v1}, Lmf/org/w3c/dom/Attr;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    return v0
+    return v1
 
     :cond_1
-    return v1
+    return v2
 .end method
 
 .method public hasAttributeNS(Ljava/lang/String;Ljava/lang/String;)Z
     .locals 3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_0
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->attrs:[Lmf/org/w3c/dom/Attr;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->attrs:[Lmf/org/w3c/dom/Attr;
 
-    array-length v2, v2
+    array-length v1, v1
 
-    if-ge v0, v2, :cond_2
+    if-ge v0, v1, :cond_2
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->attrs:[Lmf/org/w3c/dom/Attr;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->attrs:[Lmf/org/w3c/dom/Attr;
 
-    aget-object v2, v2, v0
+    aget-object v1, v1, v0
 
-    invoke-interface {v2}, Lmf/org/w3c/dom/Attr;->getName()Ljava/lang/String;
+    invoke-interface {v1}, Lmf/org/w3c/dom/Attr;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_1
+    if-nez v1, :cond_1
 
     :cond_0
     add-int/lit8 v0, v0, 0x1
@@ -704,26 +704,26 @@
     goto :goto_0
 
     :cond_1
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->attrs:[Lmf/org/w3c/dom/Attr;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->attrs:[Lmf/org/w3c/dom/Attr;
 
-    aget-object v2, v2, v0
+    aget-object v1, v1, v0
 
-    invoke-interface {v2}, Lmf/org/w3c/dom/Attr;->getNamespaceURI()Ljava/lang/String;
+    invoke-interface {v1}, Lmf/org/w3c/dom/Attr;->getNamespaceURI()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v2, p1}, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->nsEquals(Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static {v1, p1}, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->nsEquals(Ljava/lang/String;Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    return v0
+    return v1
 
     :cond_2
-    return v1
+    return v2
 .end method
 
 .method public hasAttributes()Z
@@ -795,9 +795,9 @@
     :cond_0
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;->attrs:[Lmf/org/w3c/dom/Attr;
 
-    aget-object v0, v1, v0
+    aget-object v1, v1, v0
 
-    invoke-interface {v0, p2}, Lmf/org/w3c/dom/Attr;->setValue(Ljava/lang/String;)V
+    invoke-interface {v1, p2}, Lmf/org/w3c/dom/Attr;->setValue(Ljava/lang/String;)V
 
     return-void
 

@@ -51,47 +51,47 @@
 
     const/4 v4, 0x1
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    const/4 v0, 0x3
+    const/4 v2, 0x3
 
-    new-array v2, v0, [Ljava/lang/String;
+    new-array v1, v2, [Ljava/lang/String;
 
-    const-string/jumbo v0, ""
+    const-string/jumbo v2, ""
 
-    aput-object v0, v2, v1
+    aput-object v2, v1, v3
 
-    const-string/jumbo v0, ""
+    const-string/jumbo v2, ""
 
-    aput-object v0, v2, v4
+    aput-object v2, v1, v4
 
-    const-string/jumbo v0, ""
+    const-string/jumbo v2, ""
 
-    aput-object v0, v2, v5
+    aput-object v2, v1, v5
 
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_0
-    array-length v3, v2
+    array-length v2, v1
 
-    if-lt v0, v3, :cond_0
+    if-lt v0, v2, :cond_0
 
-    new-instance v0, Ljava/util/Locale;
+    new-instance v2, Ljava/util/Locale;
 
-    aget-object v1, v2, v1
+    aget-object v3, v1, v3
 
-    aget-object v3, v2, v4
+    aget-object v4, v1, v4
 
-    aget-object v2, v2, v5
+    aget-object v5, v1, v5
 
-    invoke-direct {v0, v1, v3, v2}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v2, v3, v4, v5}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    return-object v0
+    return-object v2
 
     :cond_0
-    array-length v3, p1
+    array-length v2, p1
 
-    if-lt v0, v3, :cond_1
+    if-lt v0, v2, :cond_1
 
     :goto_1
     add-int/lit8 v0, v0, 0x1
@@ -99,9 +99,9 @@
     goto :goto_0
 
     :cond_1
-    aget-object v3, p1, v0
+    aget-object v2, p1, v0
 
-    aput-object v3, v2, v0
+    aput-object v2, v1, v0
 
     goto :goto_1
 .end method
@@ -133,9 +133,9 @@
 
     const/4 v2, 0x1
 
-    iget-object v0, p0, Lorg/simpleframework/xml/transform/LocaleTransform;->pattern:Ljava/util/regex/Pattern;
+    iget-object v1, p0, Lorg/simpleframework/xml/transform/LocaleTransform;->pattern:Ljava/util/regex/Pattern;
 
-    invoke-virtual {v0, p1}, Ljava/util/regex/Pattern;->split(Ljava/lang/CharSequence;)[Ljava/lang/String;
+    invoke-virtual {v1, p1}, Ljava/util/regex/Pattern;->split(Ljava/lang/CharSequence;)[Ljava/lang/String;
 
     move-result-object v0
 
@@ -145,14 +145,12 @@
 
     invoke-direct {p0, v0}, Lorg/simpleframework/xml/transform/LocaleTransform;->read([Ljava/lang/String;)Ljava/util/Locale;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    new-instance v0, Lorg/simpleframework/xml/transform/InvalidFormatException;
-
-    const-string/jumbo v1, "Invalid locale %s"
+    new-instance v1, Lorg/simpleframework/xml/transform/InvalidFormatException;
 
     new-array v2, v2, [Ljava/lang/Object;
 
@@ -160,9 +158,11 @@
 
     aput-object p1, v2, v3
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/transform/InvalidFormatException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    const-string/jumbo v3, "Invalid locale %s"
 
-    throw v0
+    invoke-direct {v1, v3, v2}, Lorg/simpleframework/xml/transform/InvalidFormatException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v1
 .end method
 
 .method public bridge synthetic write(Ljava/lang/Object;)Ljava/lang/String;

@@ -6,6 +6,7 @@ isFrameworkApk: false
 packageInfo: null
 sdkInfo: null
 sharedLibrary: false
+sparseResources: false
 unknownFiles:
   com/sun/org/apache/xml/internal/security/resource/config.dtd: '8'
   com/sun/org/apache/xml/internal/security/resource/config.xml: '8'
@@ -47,6 +48,9 @@ unknownFiles:
   mf/org/apache/xml/resolver/NOTICE-resolver.txt: '8'
   mf/org/apache/xml/resolver/Version.src: '8'
   mf/org/apache/xml/serialize/HTMLEntities.res: '8'
+  mozilla/public-suffix-list.txt: '8'
+  org/apache/http/version.properties: '8'
+  org/apache/http/client/version.properties: '8'
 usesFramework: null
-version: 2.2.3
+version: 2.3.2
 versionInfo: null

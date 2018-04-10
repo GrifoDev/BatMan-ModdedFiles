@@ -26,7 +26,7 @@
 
 .field public static final HEXADECIMAL:I = 0x201
 
-.field public static final MAX_TOKENS_PER_DEVICE:I = 0xc
+.field public static final MAX_TOKENS_PER_DEVICE:I = 0x1e
 
 .field public static final MAX_VENDOR_TOKENID_SIZE:I = 0x400
 

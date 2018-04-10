@@ -51,52 +51,52 @@
 .end method
 
 .method private validate(Lorg/simpleframework/xml/stream/InputNode;Ljava/lang/String;)Z
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/CompositeValue;->style:Lorg/simpleframework/xml/stream/Style;
+    iget-object v3, p0, Lorg/simpleframework/xml/core/CompositeValue;->style:Lorg/simpleframework/xml/stream/Style;
 
-    invoke-interface {v0, p2}, Lorg/simpleframework/xml/stream/Style;->getElement(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-interface {p1, v0}, Lorg/simpleframework/xml/stream/InputNode;->getNext(Ljava/lang/String;)Lorg/simpleframework/xml/stream/InputNode;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lorg/simpleframework/xml/core/CompositeValue;->type:Lorg/simpleframework/xml/strategy/Type;
-
-    invoke-interface {v1}, Lorg/simpleframework/xml/strategy/Type;->getType()Ljava/lang/Class;
+    invoke-interface {v3, p2}, Lorg/simpleframework/xml/stream/Style;->getElement(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    if-eqz v0, :cond_0
+    invoke-interface {p1, v1}, Lorg/simpleframework/xml/stream/InputNode;->getNext(Ljava/lang/String;)Lorg/simpleframework/xml/stream/InputNode;
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/stream/InputNode;->isEmpty()Z
+    move-result-object v2
 
-    move-result v2
+    iget-object v3, p0, Lorg/simpleframework/xml/core/CompositeValue;->type:Lorg/simpleframework/xml/strategy/Type;
 
-    if-nez v2, :cond_1
+    invoke-interface {v3}, Lorg/simpleframework/xml/strategy/Type;->getType()Ljava/lang/Class;
 
-    iget-object v2, p0, Lorg/simpleframework/xml/core/CompositeValue;->root:Lorg/simpleframework/xml/core/Traverser;
+    move-result-object v0
 
-    invoke-virtual {v2, v0, v1}, Lorg/simpleframework/xml/core/Traverser;->validate(Lorg/simpleframework/xml/stream/InputNode;Ljava/lang/Class;)Z
+    if-eqz v2, :cond_0
 
-    move-result v0
+    invoke-interface {v2}, Lorg/simpleframework/xml/stream/InputNode;->isEmpty()Z
 
-    return v0
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    iget-object v3, p0, Lorg/simpleframework/xml/core/CompositeValue;->root:Lorg/simpleframework/xml/core/Traverser;
+
+    invoke-virtual {v3, v2, v0}, Lorg/simpleframework/xml/core/Traverser;->validate(Lorg/simpleframework/xml/stream/InputNode;Ljava/lang/Class;)Z
+
+    move-result v3
+
+    return v3
 
     :cond_0
-    return v3
+    return v4
 
     :cond_1
-    return v3
+    return v4
 .end method
 
 
@@ -113,17 +113,17 @@
 
     invoke-interface {p1}, Lorg/simpleframework/xml/stream/InputNode;->getNext()Lorg/simpleframework/xml/stream/InputNode;
 
-    move-result-object v0
-
-    iget-object v1, p0, Lorg/simpleframework/xml/core/CompositeValue;->type:Lorg/simpleframework/xml/strategy/Type;
-
-    invoke-interface {v1}, Lorg/simpleframework/xml/strategy/Type;->getType()Ljava/lang/Class;
-
     move-result-object v1
 
-    if-eqz v0, :cond_0
+    iget-object v2, p0, Lorg/simpleframework/xml/core/CompositeValue;->type:Lorg/simpleframework/xml/strategy/Type;
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/stream/InputNode;->isEmpty()Z
+    invoke-interface {v2}, Lorg/simpleframework/xml/strategy/Type;->getType()Ljava/lang/Class;
+
+    move-result-object v0
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v1}, Lorg/simpleframework/xml/stream/InputNode;->isEmpty()Z
 
     move-result v2
 
@@ -131,11 +131,11 @@
 
     iget-object v2, p0, Lorg/simpleframework/xml/core/CompositeValue;->root:Lorg/simpleframework/xml/core/Traverser;
 
-    invoke-virtual {v2, v0, v1}, Lorg/simpleframework/xml/core/Traverser;->read(Lorg/simpleframework/xml/stream/InputNode;Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {v2, v1, v0}, Lorg/simpleframework/xml/core/Traverser;->read(Lorg/simpleframework/xml/stream/InputNode;Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 
     :cond_0
     return-object v3
@@ -152,9 +152,9 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/CompositeValue;->type:Lorg/simpleframework/xml/strategy/Type;
+    iget-object v1, p0, Lorg/simpleframework/xml/core/CompositeValue;->type:Lorg/simpleframework/xml/strategy/Type;
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/strategy/Type;->getType()Ljava/lang/Class;
+    invoke-interface {v1}, Lorg/simpleframework/xml/strategy/Type;->getType()Ljava/lang/Class;
 
     move-result-object v0
 
@@ -162,74 +162,35 @@
 
     invoke-virtual {p0, p1}, Lorg/simpleframework/xml/core/CompositeValue;->read(Lorg/simpleframework/xml/stream/InputNode;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
     new-instance v1, Lorg/simpleframework/xml/core/PersistenceException;
 
-    const-string/jumbo v2, "Can not read value of %s for %s"
+    const/4 v2, 0x2
 
-    const/4 v3, 0x2
+    new-array v2, v2, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    aput-object v0, v2, v3
 
-    aput-object v0, v3, v4
+    iget-object v3, p0, Lorg/simpleframework/xml/core/CompositeValue;->entry:Lorg/simpleframework/xml/core/Entry;
 
-    const/4 v0, 0x1
+    const/4 v4, 0x1
 
-    iget-object v4, p0, Lorg/simpleframework/xml/core/CompositeValue;->entry:Lorg/simpleframework/xml/core/Entry;
+    aput-object v3, v2, v4
 
-    aput-object v4, v3, v0
+    const-string/jumbo v3, "Can not read value of %s for %s"
 
-    invoke-direct {v1, v2, v3}, Lorg/simpleframework/xml/core/PersistenceException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v1, v3, v2}, Lorg/simpleframework/xml/core/PersistenceException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
     throw v1
 .end method
 
 .method public validate(Lorg/simpleframework/xml/stream/InputNode;)Z
-    .locals 2
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
-
-    iget-object v0, p0, Lorg/simpleframework/xml/core/CompositeValue;->type:Lorg/simpleframework/xml/strategy/Type;
-
-    invoke-interface {v0}, Lorg/simpleframework/xml/strategy/Type;->getType()Ljava/lang/Class;
-
-    move-result-object v1
-
-    iget-object v0, p0, Lorg/simpleframework/xml/core/CompositeValue;->entry:Lorg/simpleframework/xml/core/Entry;
-
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/Entry;->getValue()Ljava/lang/String;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    :goto_0
-    invoke-direct {p0, p1, v0}, Lorg/simpleframework/xml/core/CompositeValue;->validate(Lorg/simpleframework/xml/stream/InputNode;Ljava/lang/String;)Z
-
-    move-result v0
-
-    return v0
-
-    :cond_0
-    iget-object v0, p0, Lorg/simpleframework/xml/core/CompositeValue;->context:Lorg/simpleframework/xml/core/Context;
-
-    invoke-interface {v0, v1}, Lorg/simpleframework/xml/core/Context;->getName(Ljava/lang/Class;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-.end method
-
-.method public write(Lorg/simpleframework/xml/stream/OutputNode;Ljava/lang/Object;)V
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -237,39 +198,78 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/CompositeValue;->type:Lorg/simpleframework/xml/strategy/Type;
+    iget-object v2, p0, Lorg/simpleframework/xml/core/CompositeValue;->type:Lorg/simpleframework/xml/strategy/Type;
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/strategy/Type;->getType()Ljava/lang/Class;
+    invoke-interface {v2}, Lorg/simpleframework/xml/strategy/Type;->getType()Ljava/lang/Class;
+
+    move-result-object v0
+
+    iget-object v2, p0, Lorg/simpleframework/xml/core/CompositeValue;->entry:Lorg/simpleframework/xml/core/Entry;
+
+    invoke-virtual {v2}, Lorg/simpleframework/xml/core/Entry;->getValue()Ljava/lang/String;
 
     move-result-object v1
 
-    iget-object v0, p0, Lorg/simpleframework/xml/core/CompositeValue;->entry:Lorg/simpleframework/xml/core/Entry;
-
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/Entry;->getValue()Ljava/lang/String;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     :goto_0
-    iget-object v2, p0, Lorg/simpleframework/xml/core/CompositeValue;->style:Lorg/simpleframework/xml/stream/Style;
+    invoke-direct {p0, p1, v1}, Lorg/simpleframework/xml/core/CompositeValue;->validate(Lorg/simpleframework/xml/stream/InputNode;Ljava/lang/String;)Z
 
-    invoke-interface {v2, v0}, Lorg/simpleframework/xml/stream/Style;->getElement(Ljava/lang/String;)Ljava/lang/String;
+    move-result v2
+
+    return v2
+
+    :cond_0
+    iget-object v2, p0, Lorg/simpleframework/xml/core/CompositeValue;->context:Lorg/simpleframework/xml/core/Context;
+
+    invoke-interface {v2, v0}, Lorg/simpleframework/xml/core/Context;->getName(Ljava/lang/Class;)Ljava/lang/String;
+
+    move-result-object v1
+
+    goto :goto_0
+.end method
+
+.method public write(Lorg/simpleframework/xml/stream/OutputNode;Ljava/lang/Object;)V
+    .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    iget-object v3, p0, Lorg/simpleframework/xml/core/CompositeValue;->type:Lorg/simpleframework/xml/strategy/Type;
+
+    invoke-interface {v3}, Lorg/simpleframework/xml/strategy/Type;->getType()Ljava/lang/Class;
 
     move-result-object v0
 
-    iget-object v2, p0, Lorg/simpleframework/xml/core/CompositeValue;->root:Lorg/simpleframework/xml/core/Traverser;
+    iget-object v3, p0, Lorg/simpleframework/xml/core/CompositeValue;->entry:Lorg/simpleframework/xml/core/Entry;
 
-    invoke-virtual {v2, p1, p2, v1, v0}, Lorg/simpleframework/xml/core/Traverser;->write(Lorg/simpleframework/xml/stream/OutputNode;Ljava/lang/Object;Ljava/lang/Class;Ljava/lang/String;)V
+    invoke-virtual {v3}, Lorg/simpleframework/xml/core/Entry;->getValue()Ljava/lang/String;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    :goto_0
+    iget-object v3, p0, Lorg/simpleframework/xml/core/CompositeValue;->style:Lorg/simpleframework/xml/stream/Style;
+
+    invoke-interface {v3, v1}, Lorg/simpleframework/xml/stream/Style;->getElement(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lorg/simpleframework/xml/core/CompositeValue;->root:Lorg/simpleframework/xml/core/Traverser;
+
+    invoke-virtual {v3, p1, p2, v0, v2}, Lorg/simpleframework/xml/core/Traverser;->write(Lorg/simpleframework/xml/stream/OutputNode;Ljava/lang/Object;Ljava/lang/Class;Ljava/lang/String;)V
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lorg/simpleframework/xml/core/CompositeValue;->context:Lorg/simpleframework/xml/core/Context;
+    iget-object v3, p0, Lorg/simpleframework/xml/core/CompositeValue;->context:Lorg/simpleframework/xml/core/Context;
 
-    invoke-interface {v0, v1}, Lorg/simpleframework/xml/core/Context;->getName(Ljava/lang/Class;)Ljava/lang/String;
+    invoke-interface {v3, v0}, Lorg/simpleframework/xml/core/Context;->getName(Ljava/lang/Class;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     goto :goto_0
 .end method

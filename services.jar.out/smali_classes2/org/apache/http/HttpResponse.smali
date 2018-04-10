@@ -6,11 +6,6 @@
 .implements Lorg/apache/http/HttpMessage;
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract getEntity()Lorg/apache/http/HttpEntity;
 .end method

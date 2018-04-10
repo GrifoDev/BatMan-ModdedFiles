@@ -40,25 +40,25 @@
 .end method
 
 .method private expandOffsets()[I
-    .locals 4
+    .locals 6
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$ClosureContext;->offsets:[I
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$ClosureContext;->offsets:[I
 
-    array-length v0, v0
+    array-length v0, v3
 
-    shl-int/lit8 v0, v0, 0x1
+    shl-int/lit8 v1, v0, 0x1
 
-    new-array v0, v0, [I
+    new-array v2, v1, [I
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$ClosureContext;->offsets:[I
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$ClosureContext;->offsets:[I
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$ClosureContext;->currentIndex:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$ClosureContext;->currentIndex:I
 
-    invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v3, v5, v2, v5, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    return-object v0
+    return-object v2
 .end method
 
 
@@ -98,33 +98,33 @@
 .end method
 
 .method contains(I)Z
-    .locals 3
+    .locals 2
 
-    const/4 v1, 0x0
-
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_0
-    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$ClosureContext;->currentIndex:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$ClosureContext;->currentIndex:I
 
-    if-ge v0, v2, :cond_1
+    if-ge v0, v1, :cond_1
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$ClosureContext;->offsets:[I
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$ClosureContext;->offsets:[I
 
-    aget v2, v2, v0
+    aget v1, v1, v0
 
-    if-eq v2, p1, :cond_0
+    if-eq v1, p1, :cond_0
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    return v0
+    return v1
 
     :cond_1
+    const/4 v1, 0x0
+
     return v1
 .end method
 

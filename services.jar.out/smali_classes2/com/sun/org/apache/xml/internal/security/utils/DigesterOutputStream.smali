@@ -1,6 +1,5 @@
 .class public Lcom/sun/org/apache/xml/internal/security/utils/DigesterOutputStream;
 .super Ljava/io/ByteArrayOutputStream;
-.source "Unknown"
 
 
 # static fields

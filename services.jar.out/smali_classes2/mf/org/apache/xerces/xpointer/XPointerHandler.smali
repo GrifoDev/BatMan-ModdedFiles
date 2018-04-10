@@ -311,9 +311,9 @@
         }
     .end annotation
 
-    const/4 v0, 0x1
-
     const/4 v1, 0x0
+
+    const/4 v0, 0x1
 
     invoke-virtual {p0, p1, v1, p2, v0}, Lmf/org/apache/xerces/xpointer/XPointerHandler;->resolveXPointer(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;I)Z
 
@@ -434,16 +434,16 @@
 .end method
 
 .method public isChildFragmentResolved()Z
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
 
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fXPointerPart:Lmf/org/apache/xerces/xpointer/XPointerPart;
+    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fXPointerPart:Lmf/org/apache/xerces/xpointer/XPointerPart;
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     const/4 v0, 0x0
 
@@ -451,9 +451,9 @@
     return v0
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fXPointerPart:Lmf/org/apache/xerces/xpointer/XPointerPart;
+    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fXPointerPart:Lmf/org/apache/xerces/xpointer/XPointerPart;
 
-    invoke-interface {v0}, Lmf/org/apache/xerces/xpointer/XPointerPart;->isChildFragmentResolved()Z
+    invoke-interface {v1}, Lmf/org/apache/xerces/xpointer/XPointerPart;->isChildFragmentResolved()Z
 
     move-result v0
 
@@ -483,9 +483,9 @@
     return v0
 
     :cond_0
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fXPointerPart:Lmf/org/apache/xerces/xpointer/XPointerPart;
+    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fXPointerPart:Lmf/org/apache/xerces/xpointer/XPointerPart;
 
-    invoke-interface {v0}, Lmf/org/apache/xerces/xpointer/XPointerPart;->isFragmentResolved()Z
+    invoke-interface {v1}, Lmf/org/apache/xerces/xpointer/XPointerPart;->isFragmentResolved()Z
 
     move-result v0
 
@@ -511,352 +511,454 @@
 .end method
 
 .method public parseXPointer(Ljava/lang/String;)V
-    .locals 11
+    .locals 22
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
 
-    const/4 v10, 0x2
+    invoke-virtual/range {p0 .. p0}, Lmf/org/apache/xerces/xpointer/XPointerHandler;->init()V
 
-    const/4 v1, 0x0
+    new-instance v3, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;
 
-    const/4 v6, 0x1
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
     const/4 v4, 0x0
 
-    invoke-virtual {p0}, Lmf/org/apache/xerces/xpointer/XPointerHandler;->init()V
+    move-object/from16 v0, p0
 
-    new-instance v2, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;
+    invoke-direct {v3, v0, v2, v4}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;-><init>(Lmf/org/apache/xerces/xpointer/XPointerHandler;Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)V
 
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    new-instance v1, Lmf/org/apache/xerces/xpointer/XPointerHandler$1;
 
-    invoke-direct {v2, p0, v0, v1}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;-><init>(Lmf/org/apache/xerces/xpointer/XPointerHandler;Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)V
+    move-object/from16 v0, p0
 
-    new-instance v0, Lmf/org/apache/xerces/xpointer/XPointerHandler$1;
+    iget-object v2, v0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    move-object/from16 v0, p0
 
-    invoke-direct {v0, p0, v1}, Lmf/org/apache/xerces/xpointer/XPointerHandler$1;-><init>(Lmf/org/apache/xerces/xpointer/XPointerHandler;Lmf/org/apache/xerces/util/SymbolTable;)V
+    invoke-direct {v1, v0, v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$1;-><init>(Lmf/org/apache/xerces/xpointer/XPointerHandler;Lmf/org/apache/xerces/util/SymbolTable;)V
 
-    invoke-virtual {p1}, Ljava/lang/String;->length()I
+    invoke-virtual/range {p1 .. p1}, Ljava/lang/String;->length()I
 
-    move-result v5
+    move-result v6
 
-    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    move-object/from16 v0, p0
 
-    move-object v3, p1
+    iget-object v2, v0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    invoke-static/range {v0 .. v5}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->access$1(Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;Ljava/lang/String;II)Z
+    const/4 v5, 0x0
 
-    move-result v0
+    move-object/from16 v4, p1
 
-    if-eqz v0, :cond_0
+    invoke-static/range {v1 .. v6}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->access$1(Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;Ljava/lang/String;II)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_0
 
     :goto_0
-    invoke-static {v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$4(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)Z
+    invoke-static {v3}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$4(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_9
+    if-eqz v2, :cond_9
 
-    invoke-static {v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
+    invoke-static {v3}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
 
-    move-result v0
+    move-result v20
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v20, :pswitch_data_0
 
-    const-string/jumbo v0, "InvalidXPointerExpression"
+    const-string/jumbo v2, "InvalidXPointerExpression"
 
-    new-array v1, v6, [Ljava/lang/Object;
+    const/4 v4, 0x1
 
-    aput-object p1, v1, v4
+    new-array v4, v4, [Ljava/lang/Object;
 
-    invoke-direct {p0, v0, v1}, Lmf/org/apache/xerces/xpointer/XPointerHandler;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/4 v5, 0x0
+
+    aput-object p1, v4, v5
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2, v4}, Lmf/org/apache/xerces/xpointer/XPointerHandler;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_0
 
     :cond_0
-    const-string/jumbo v0, "InvalidXPointerExpression"
+    const/4 v2, 0x1
 
-    new-array v1, v6, [Ljava/lang/Object;
+    new-array v2, v2, [Ljava/lang/Object;
 
-    aput-object p1, v1, v4
+    const/4 v4, 0x0
 
-    invoke-direct {p0, v0, v1}, Lmf/org/apache/xerces/xpointer/XPointerHandler;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    aput-object p1, v2, v4
+
+    const-string/jumbo v4, "InvalidXPointerExpression"
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v4, v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_0
 
     :pswitch_0
-    invoke-static {v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
+    invoke-static {v3}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
 
-    move-result v0
+    move-result v20
 
-    invoke-static {v2, v0}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)Ljava/lang/String;
+    move/from16 v0, v20
 
-    move-result-object v0
+    invoke-static {v3, v0}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    move-result-object v18
+
+    if-eqz v18, :cond_1
 
     :goto_1
-    new-instance v1, Lmf/org/apache/xerces/xpointer/ShortHandPointer;
+    new-instance v17, Lmf/org/apache/xerces/xpointer/ShortHandPointer;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    move-object/from16 v0, p0
 
-    invoke-direct {v1, v3}, Lmf/org/apache/xerces/xpointer/ShortHandPointer;-><init>(Lmf/org/apache/xerces/util/SymbolTable;)V
+    iget-object v2, v0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    invoke-interface {v1, v0}, Lmf/org/apache/xerces/xpointer/XPointerPart;->setSchemeName(Ljava/lang/String;)V
+    move-object/from16 v0, v17
 
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fXPointerParts:Ljava/util/ArrayList;
+    invoke-direct {v0, v2}, Lmf/org/apache/xerces/xpointer/ShortHandPointer;-><init>(Lmf/org/apache/xerces/util/SymbolTable;)V
 
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-interface/range {v17 .. v18}, Lmf/org/apache/xerces/xpointer/XPointerPart;->setSchemeName(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fXPointerParts:Ljava/util/ArrayList;
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     :cond_1
-    const-string/jumbo v1, "InvalidXPointerExpression"
+    const-string/jumbo v2, "InvalidXPointerExpression"
 
-    new-array v3, v6, [Ljava/lang/Object;
+    const/4 v4, 0x1
 
-    aput-object p1, v3, v4
+    new-array v4, v4, [Ljava/lang/Object;
 
-    invoke-direct {p0, v1, v3}, Lmf/org/apache/xerces/xpointer/XPointerHandler;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/4 v5, 0x0
+
+    aput-object p1, v4, v5
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2, v4}, Lmf/org/apache/xerces/xpointer/XPointerHandler;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_1
 
     :pswitch_1
-    invoke-static {v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
+    invoke-static {v3}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
 
-    move-result v0
+    move-result v20
 
-    invoke-static {v2, v0}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)Ljava/lang/String;
+    move/from16 v0, v20
 
-    move-result-object v0
+    invoke-static {v3, v0}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)Ljava/lang/String;
 
-    invoke-static {v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
+    move-result-object v14
 
-    move-result v1
+    invoke-static {v3}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
 
-    invoke-static {v2, v1}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)Ljava/lang/String;
+    move-result v20
 
-    move-result-object v1
+    move/from16 v0, v20
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-static {v3, v0}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)Ljava/lang/String;
 
-    invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v11
 
-    move-result-object v0
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-static {v14}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v0
+    invoke-direct {v2, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-static {v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result v0
+    move-result-object v16
 
-    invoke-static {v2, v0}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)Ljava/lang/String;
+    const/4 v13, 0x0
 
-    move-result-object v1
+    const/4 v8, 0x0
 
-    const-string/jumbo v5, "XPTRTOKEN_OPEN_PAREN"
+    invoke-static {v3}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
 
-    if-ne v1, v5, :cond_2
+    move-result v20
+
+    move/from16 v0, v20
+
+    invoke-static {v3, v0}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)Ljava/lang/String;
+
+    move-result-object v12
+
+    const-string/jumbo v2, "XPTRTOKEN_OPEN_PAREN"
+
+    if-ne v12, v2, :cond_2
 
     :goto_2
-    move v0, v6
+    const/4 v13, 0x1
+
+    const/4 v15, 0x0
 
     :goto_3
-    invoke-static {v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$4(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)Z
+    invoke-static {v3}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$4(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_4
+    if-eqz v2, :cond_4
 
-    invoke-static {v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
+    invoke-static {v3}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
 
-    move-result v1
+    move-result v20
 
-    invoke-static {v2, v1}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)Ljava/lang/String;
+    move/from16 v0, v20
 
-    move-result-object v1
+    invoke-static {v3, v0}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)Ljava/lang/String;
 
-    const-string/jumbo v5, "XPTRTOKEN_OPEN_PAREN"
+    move-result-object v15
 
-    if-ne v1, v5, :cond_4
+    const-string/jumbo v2, "XPTRTOKEN_OPEN_PAREN"
 
-    add-int/lit8 v0, v0, 0x1
+    if-ne v15, v2, :cond_4
+
+    add-int/lit8 v13, v13, 0x1
 
     goto :goto_3
 
     :cond_2
-    if-eq v0, v10, :cond_3
+    const/4 v2, 0x2
 
-    const-string/jumbo v0, "InvalidXPointerExpression"
+    move/from16 v0, v20
 
-    new-array v1, v6, [Ljava/lang/Object;
+    if-eq v0, v2, :cond_3
 
-    aput-object p1, v1, v4
+    const-string/jumbo v2, "InvalidXPointerExpression"
 
-    invoke-direct {p0, v0, v1}, Lmf/org/apache/xerces/xpointer/XPointerHandler;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/4 v4, 0x1
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    const/4 v5, 0x0
+
+    aput-object p1, v4, v5
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2, v4}, Lmf/org/apache/xerces/xpointer/XPointerHandler;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_2
 
     :cond_3
-    const-string/jumbo v0, "MultipleShortHandPointers"
+    const-string/jumbo v2, "MultipleShortHandPointers"
 
-    new-array v1, v6, [Ljava/lang/Object;
+    const/4 v4, 0x1
 
-    aput-object p1, v1, v4
+    new-array v4, v4, [Ljava/lang/Object;
 
-    invoke-direct {p0, v0, v1}, Lmf/org/apache/xerces/xpointer/XPointerHandler;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/4 v5, 0x0
+
+    aput-object p1, v4, v5
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2, v4}, Lmf/org/apache/xerces/xpointer/XPointerHandler;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_2
 
     :cond_4
-    invoke-static {v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
+    invoke-static {v3}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
 
-    move-result v1
+    move-result v20
 
-    invoke-static {v2, v1}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)Ljava/lang/String;
+    move/from16 v0, v20
 
-    move-result-object v5
+    invoke-static {v3, v0}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)Ljava/lang/String;
 
-    invoke-static {v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
+    move-result-object v15
 
-    move-result v1
+    invoke-static {v3}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
 
-    invoke-static {v2, v1}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)Ljava/lang/String;
+    move-result v20
 
-    move-result-object v1
+    move/from16 v0, v20
 
-    const-string/jumbo v7, "XPTRTOKEN_CLOSE_PAREN"
-
-    if-ne v1, v7, :cond_5
-
-    :goto_4
-    move v1, v6
-
-    :goto_5
-    invoke-static {v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$4(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_6
-
-    invoke-static {v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$6(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
-
-    move-result v7
-
-    invoke-static {v2, v7}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)Ljava/lang/String;
+    invoke-static {v3, v0}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)Ljava/lang/String;
 
     move-result-object v7
 
-    const-string/jumbo v8, "XPTRTOKEN_OPEN_PAREN"
+    const-string/jumbo v2, "XPTRTOKEN_CLOSE_PAREN"
 
-    if-ne v7, v8, :cond_6
+    if-ne v7, v2, :cond_5
 
-    add-int/lit8 v1, v1, 0x1
+    :goto_4
+    const/4 v8, 0x1
+
+    :goto_5
+    invoke-static {v3}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$4(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_6
+
+    invoke-static {v3}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$6(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
+
+    move-result v2
+
+    invoke-static {v3, v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string/jumbo v4, "XPTRTOKEN_OPEN_PAREN"
+
+    if-ne v2, v4, :cond_6
+
+    add-int/lit8 v8, v8, 0x1
 
     goto :goto_5
 
     :cond_5
-    const-string/jumbo v1, "SchemeDataNotFollowedByCloseParenthesis"
+    const-string/jumbo v2, "SchemeDataNotFollowedByCloseParenthesis"
 
-    new-array v7, v6, [Ljava/lang/Object;
+    const/4 v4, 0x1
 
-    aput-object p1, v7, v4
+    new-array v4, v4, [Ljava/lang/Object;
 
-    invoke-direct {p0, v1, v7}, Lmf/org/apache/xerces/xpointer/XPointerHandler;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/4 v5, 0x0
+
+    aput-object p1, v4, v5
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2, v4}, Lmf/org/apache/xerces/xpointer/XPointerHandler;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_4
 
     :cond_6
-    if-ne v0, v1, :cond_7
+    if-ne v13, v8, :cond_7
 
     :goto_6
-    const-string/jumbo v0, "element"
+    const-string/jumbo v2, "element"
 
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v0, v16
 
-    move-result v0
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-nez v0, :cond_8
+    move-result v2
 
-    const-string/jumbo v0, "SchemeUnsupported"
+    if-nez v2, :cond_8
 
-    new-array v1, v6, [Ljava/lang/Object;
+    const-string/jumbo v2, "SchemeUnsupported"
 
-    aput-object v3, v1, v4
+    const/4 v4, 0x1
 
-    invoke-direct {p0, v0, v1}, Lmf/org/apache/xerces/xpointer/XPointerHandler;->reportWarning(Ljava/lang/String;[Ljava/lang/Object;)V
+    new-array v4, v4, [Ljava/lang/Object;
+
+    const/4 v5, 0x0
+
+    aput-object v16, v4, v5
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2, v4}, Lmf/org/apache/xerces/xpointer/XPointerHandler;->reportWarning(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_0
 
     :cond_7
-    const-string/jumbo v7, "UnbalancedParenthesisInXPointerExpression"
+    const-string/jumbo v2, "UnbalancedParenthesisInXPointerExpression"
 
-    const/4 v8, 0x3
+    const/4 v4, 0x3
 
-    new-array v8, v8, [Ljava/lang/Object;
+    new-array v4, v4, [Ljava/lang/Object;
 
-    aput-object p1, v8, v4
+    const/4 v5, 0x0
 
-    new-instance v9, Ljava/lang/Integer;
+    aput-object p1, v4, v5
 
-    invoke-direct {v9, v0}, Ljava/lang/Integer;-><init>(I)V
+    const/4 v5, 0x1
 
-    aput-object v9, v8, v6
+    new-instance v21, Ljava/lang/Integer;
 
-    new-instance v0, Ljava/lang/Integer;
+    move-object/from16 v0, v21
 
-    invoke-direct {v0, v1}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v0, v13}, Ljava/lang/Integer;-><init>(I)V
 
-    aput-object v0, v8, v10
+    aput-object v21, v4, v5
 
-    invoke-direct {p0, v7, v8}, Lmf/org/apache/xerces/xpointer/XPointerHandler;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/4 v5, 0x2
+
+    new-instance v21, Ljava/lang/Integer;
+
+    move-object/from16 v0, v21
+
+    invoke-direct {v0, v8}, Ljava/lang/Integer;-><init>(I)V
+
+    aput-object v21, v4, v5
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2, v4}, Lmf/org/apache/xerces/xpointer/XPointerHandler;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_6
 
     :cond_8
-    new-instance v0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;
+    new-instance v10, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    move-object/from16 v0, p0
 
-    iget-object v7, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v2, v0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    invoke-direct {v0, v1, v7}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;-><init>(Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/impl/XMLErrorReporter;)V
+    move-object/from16 v0, p0
 
-    invoke-interface {v0, v3}, Lmf/org/apache/xerces/xpointer/XPointerPart;->setSchemeName(Ljava/lang/String;)V
+    iget-object v4, v0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    invoke-interface {v0, v5}, Lmf/org/apache/xerces/xpointer/XPointerPart;->setSchemeData(Ljava/lang/String;)V
+    invoke-direct {v10, v2, v4}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;-><init>(Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/impl/XMLErrorReporter;)V
+
+    move-object/from16 v0, v16
+
+    invoke-interface {v10, v0}, Lmf/org/apache/xerces/xpointer/XPointerPart;->setSchemeName(Ljava/lang/String;)V
+
+    invoke-interface {v10, v15}, Lmf/org/apache/xerces/xpointer/XPointerPart;->setSchemeData(Ljava/lang/String;)V
 
     :try_start_0
-    invoke-interface {v0, v5}, Lmf/org/apache/xerces/xpointer/XPointerPart;->parseXPointer(Ljava/lang/String;)V
+    invoke-interface {v10, v15}, Lmf/org/apache/xerces/xpointer/XPointerPart;->parseXPointer(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fXPointerParts:Ljava/util/ArrayList;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    iget-object v2, v0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fXPointerParts:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catch Lmf/org/apache/xerces/xni/XNIException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto/16 :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception v9
 
-    new-instance v1, Lmf/org/apache/xerces/xni/XNIException;
+    new-instance v2, Lmf/org/apache/xerces/xni/XNIException;
 
-    invoke-direct {v1, v0}, Lmf/org/apache/xerces/xni/XNIException;-><init>(Ljava/lang/Exception;)V
+    invoke-direct {v2, v9}, Lmf/org/apache/xerces/xni/XNIException;-><init>(Ljava/lang/Exception;)V
 
-    throw v1
+    throw v2
 
     :cond_9
     return-void
@@ -891,99 +993,87 @@
 .end method
 
 .method public resolveXPointer(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;I)Z
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
 
-    const/4 v2, 0x1
+    const/4 v1, 0x0
 
-    const/4 v0, 0x0
+    iget-boolean v2, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fFoundMatchingPtrPart:Z
 
-    iget-boolean v1, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fFoundMatchingPtrPart:Z
+    if-eqz v2, :cond_1
 
-    if-eqz v1, :cond_0
+    iget-object v2, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fXPointerPart:Lmf/org/apache/xerces/xpointer/XPointerPart;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fXPointerPart:Lmf/org/apache/xerces/xpointer/XPointerPart;
+    invoke-interface {v2, p1, p2, p3, p4}, Lmf/org/apache/xerces/xpointer/XPointerPart;->resolveXPointer(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;I)Z
 
-    invoke-interface {v1, p1, p2, p3, p4}, Lmf/org/apache/xerces/xpointer/XPointerPart;->resolveXPointer(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;I)Z
+    move-result v2
 
-    move-result v1
-
-    if-nez v1, :cond_3
-
-    :goto_0
-    iget-boolean v1, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fIsXPointerResolved:Z
-
-    if-eqz v1, :cond_4
-
-    :goto_1
-    return v0
+    if-nez v2, :cond_3
 
     :cond_0
-    move v3, v0
+    :goto_0
+    iget-boolean v2, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fIsXPointerResolved:Z
 
-    move v1, v0
+    if-eqz v2, :cond_4
+
+    :goto_1
+    return v1
+
+    :cond_1
+    const/4 v0, 0x0
 
     :goto_2
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fXPointerParts:Ljava/util/ArrayList;
+    iget-object v2, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fXPointerParts:Ljava/util/ArrayList;
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
-    move-result v0
+    move-result v2
 
-    if-ge v3, v0, :cond_2
+    if-ge v0, v2, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fXPointerParts:Ljava/util/ArrayList;
+    iget-object v2, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fXPointerParts:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Lmf/org/apache/xerces/xpointer/XPointerPart;
+    check-cast v2, Lmf/org/apache/xerces/xpointer/XPointerPart;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fXPointerPart:Lmf/org/apache/xerces/xpointer/XPointerPart;
+    iput-object v2, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fXPointerPart:Lmf/org/apache/xerces/xpointer/XPointerPart;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fXPointerPart:Lmf/org/apache/xerces/xpointer/XPointerPart;
+    iget-object v2, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fXPointerPart:Lmf/org/apache/xerces/xpointer/XPointerPart;
 
-    invoke-interface {v0, p1, p2, p3, p4}, Lmf/org/apache/xerces/xpointer/XPointerPart;->resolveXPointer(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;I)Z
+    invoke-interface {v2, p1, p2, p3, p4}, Lmf/org/apache/xerces/xpointer/XPointerPart;->resolveXPointer(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;I)Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_1
-
-    move v0, v1
+    if-nez v2, :cond_2
 
     :goto_3
-    add-int/lit8 v1, v3, 0x1
-
-    move v3, v1
-
-    move v1, v0
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_2
 
-    :cond_1
+    :cond_2
+    const/4 v2, 0x1
+
     iput-boolean v2, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fFoundMatchingPtrPart:Z
 
-    move v0, v2
+    const/4 v1, 0x1
 
     goto :goto_3
 
-    :cond_2
-    move v0, v1
-
-    goto :goto_0
-
     :cond_3
-    move v0, v2
+    const/4 v1, 0x1
 
     goto :goto_0
 
     :cond_4
-    iput-boolean v0, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fIsXPointerResolved:Z
+    iput-boolean v1, p0, Lmf/org/apache/xerces/xpointer/XPointerHandler;->fIsXPointerResolved:Z
 
     goto :goto_1
 .end method

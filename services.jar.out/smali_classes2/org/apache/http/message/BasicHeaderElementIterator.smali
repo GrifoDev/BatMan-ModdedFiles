@@ -6,86 +6,357 @@
 .implements Lorg/apache/http/HeaderElementIterator;
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
+# instance fields
+.field private buffer:Lorg/apache/http/util/CharArrayBuffer;
+
+.field private currentElement:Lorg/apache/http/HeaderElement;
+
+.field private cursor:Lorg/apache/http/message/ParserCursor;
+
+.field private final headerIt:Lorg/apache/http/HeaderIterator;
+
+.field private final parser:Lorg/apache/http/message/HeaderValueParser;
 
 
 # direct methods
 .method public constructor <init>(Lorg/apache/http/HeaderIterator;)V
-    .locals 2
+    .locals 1
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    sget-object v0, Lorg/apache/http/message/BasicHeaderValueParser;->INSTANCE:Lorg/apache/http/message/BasicHeaderValueParser;
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    invoke-direct {p0, p1, v0}, Lorg/apache/http/message/BasicHeaderElementIterator;-><init>(Lorg/apache/http/HeaderIterator;Lorg/apache/http/message/HeaderValueParser;)V
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 .method public constructor <init>(Lorg/apache/http/HeaderIterator;Lorg/apache/http/message/HeaderValueParser;)V
-    .locals 2
+    .locals 1
+
+    const/4 v0, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iput-object v0, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->currentElement:Lorg/apache/http/HeaderElement;
 
-    const-string/jumbo v1, "Stub!"
+    iput-object v0, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->buffer:Lorg/apache/http/util/CharArrayBuffer;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    iput-object v0, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->cursor:Lorg/apache/http/message/ParserCursor;
 
-    throw v0
+    const-string/jumbo v0, "Header iterator"
+
+    invoke-static {p1, v0}, Lorg/apache/http/util/Args;->notNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lorg/apache/http/HeaderIterator;
+
+    iput-object v0, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->headerIt:Lorg/apache/http/HeaderIterator;
+
+    const-string/jumbo v0, "Parser"
+
+    invoke-static {p2, v0}, Lorg/apache/http/util/Args;->notNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lorg/apache/http/message/HeaderValueParser;
+
+    iput-object v0, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->parser:Lorg/apache/http/message/HeaderValueParser;
+
+    return-void
+.end method
+
+.method private bufferHeaderValue()V
+    .locals 5
+
+    const/4 v2, 0x0
+
+    const/4 v4, 0x0
+
+    iput-object v2, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->cursor:Lorg/apache/http/message/ParserCursor;
+
+    iput-object v2, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->buffer:Lorg/apache/http/util/CharArrayBuffer;
+
+    :cond_0
+    iget-object v2, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->headerIt:Lorg/apache/http/HeaderIterator;
+
+    invoke-interface {v2}, Lorg/apache/http/HeaderIterator;->hasNext()Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    :goto_0
+    return-void
+
+    :cond_1
+    iget-object v2, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->headerIt:Lorg/apache/http/HeaderIterator;
+
+    invoke-interface {v2}, Lorg/apache/http/HeaderIterator;->nextHeader()Lorg/apache/http/Header;
+
+    move-result-object v0
+
+    instance-of v2, v0, Lorg/apache/http/FormattedHeader;
+
+    if-nez v2, :cond_2
+
+    invoke-interface {v0}, Lorg/apache/http/Header;->getValue()Ljava/lang/String;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    new-instance v2, Lorg/apache/http/util/CharArrayBuffer;
+
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    invoke-direct {v2, v3}, Lorg/apache/http/util/CharArrayBuffer;-><init>(I)V
+
+    iput-object v2, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->buffer:Lorg/apache/http/util/CharArrayBuffer;
+
+    iget-object v2, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->buffer:Lorg/apache/http/util/CharArrayBuffer;
+
+    invoke-virtual {v2, v1}, Lorg/apache/http/util/CharArrayBuffer;->append(Ljava/lang/String;)V
+
+    new-instance v2, Lorg/apache/http/message/ParserCursor;
+
+    iget-object v3, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->buffer:Lorg/apache/http/util/CharArrayBuffer;
+
+    invoke-virtual {v3}, Lorg/apache/http/util/CharArrayBuffer;->length()I
+
+    move-result v3
+
+    invoke-direct {v2, v4, v3}, Lorg/apache/http/message/ParserCursor;-><init>(II)V
+
+    iput-object v2, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->cursor:Lorg/apache/http/message/ParserCursor;
+
+    goto :goto_0
+
+    :cond_2
+    move-object v2, v0
+
+    check-cast v2, Lorg/apache/http/FormattedHeader;
+
+    invoke-interface {v2}, Lorg/apache/http/FormattedHeader;->getBuffer()Lorg/apache/http/util/CharArrayBuffer;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->buffer:Lorg/apache/http/util/CharArrayBuffer;
+
+    new-instance v2, Lorg/apache/http/message/ParserCursor;
+
+    iget-object v3, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->buffer:Lorg/apache/http/util/CharArrayBuffer;
+
+    invoke-virtual {v3}, Lorg/apache/http/util/CharArrayBuffer;->length()I
+
+    move-result v3
+
+    invoke-direct {v2, v4, v3}, Lorg/apache/http/message/ParserCursor;-><init>(II)V
+
+    iput-object v2, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->cursor:Lorg/apache/http/message/ParserCursor;
+
+    iget-object v2, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->cursor:Lorg/apache/http/message/ParserCursor;
+
+    check-cast v0, Lorg/apache/http/FormattedHeader;
+
+    invoke-interface {v0}, Lorg/apache/http/FormattedHeader;->getValuePos()I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Lorg/apache/http/message/ParserCursor;->updatePos(I)V
+
+    goto :goto_0
+.end method
+
+.method private parseNextElement()V
+    .locals 5
+
+    const/4 v4, 0x0
+
+    :cond_0
+    :goto_0
+    iget-object v1, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->headerIt:Lorg/apache/http/HeaderIterator;
+
+    invoke-interface {v1}, Lorg/apache/http/HeaderIterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    :cond_1
+    iget-object v1, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->cursor:Lorg/apache/http/message/ParserCursor;
+
+    if-nez v1, :cond_4
+
+    :cond_2
+    invoke-direct {p0}, Lorg/apache/http/message/BasicHeaderElementIterator;->bufferHeaderValue()V
+
+    :goto_1
+    iget-object v1, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->cursor:Lorg/apache/http/message/ParserCursor;
+
+    if-eqz v1, :cond_0
+
+    :goto_2
+    iget-object v1, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->cursor:Lorg/apache/http/message/ParserCursor;
+
+    invoke-virtual {v1}, Lorg/apache/http/message/ParserCursor;->atEnd()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    iget-object v1, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->cursor:Lorg/apache/http/message/ParserCursor;
+
+    invoke-virtual {v1}, Lorg/apache/http/message/ParserCursor;->atEnd()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iput-object v4, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->cursor:Lorg/apache/http/message/ParserCursor;
+
+    iput-object v4, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->buffer:Lorg/apache/http/util/CharArrayBuffer;
+
+    goto :goto_0
+
+    :cond_3
+    iget-object v1, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->cursor:Lorg/apache/http/message/ParserCursor;
+
+    if-nez v1, :cond_1
+
+    return-void
+
+    :cond_4
+    iget-object v1, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->cursor:Lorg/apache/http/message/ParserCursor;
+
+    invoke-virtual {v1}, Lorg/apache/http/message/ParserCursor;->atEnd()Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    goto :goto_1
+
+    :cond_5
+    iget-object v1, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->parser:Lorg/apache/http/message/HeaderValueParser;
+
+    iget-object v2, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->buffer:Lorg/apache/http/util/CharArrayBuffer;
+
+    iget-object v3, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->cursor:Lorg/apache/http/message/ParserCursor;
+
+    invoke-interface {v1, v2, v3}, Lorg/apache/http/message/HeaderValueParser;->parseHeaderElement(Lorg/apache/http/util/CharArrayBuffer;Lorg/apache/http/message/ParserCursor;)Lorg/apache/http/HeaderElement;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Lorg/apache/http/HeaderElement;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
+
+    move-result v1
+
+    if-eqz v1, :cond_7
+
+    :cond_6
+    iput-object v0, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->currentElement:Lorg/apache/http/HeaderElement;
+
+    return-void
+
+    :cond_7
+    invoke-interface {v0}, Lorg/apache/http/HeaderElement;->getValue()Ljava/lang/String;
+
+    move-result-object v1
+
+    if-nez v1, :cond_6
+
+    goto :goto_2
 .end method
 
 
 # virtual methods
 .method public hasNext()Z
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->currentElement:Lorg/apache/http/HeaderElement;
 
-    const-string/jumbo v1, "Stub!"
+    if-eqz v0, :cond_0
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    :goto_0
+    iget-object v0, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->currentElement:Lorg/apache/http/HeaderElement;
 
-    throw v0
+    if-nez v0, :cond_1
+
+    const/4 v0, 0x0
+
+    :goto_1
+    return v0
+
+    :cond_0
+    invoke-direct {p0}, Lorg/apache/http/message/BasicHeaderElementIterator;->parseNextElement()V
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x1
+
+    goto :goto_1
 .end method
 
 .method public final next()Ljava/lang/Object;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/util/NoSuchElementException;
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    invoke-virtual {p0}, Lorg/apache/http/message/BasicHeaderElementIterator;->nextElement()Lorg/apache/http/HeaderElement;
 
-    const-string/jumbo v1, "Stub!"
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-object v0
 .end method
 
 .method public nextElement()Lorg/apache/http/HeaderElement;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/util/NoSuchElementException;
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const/4 v2, 0x0
 
-    const-string/jumbo v1, "Stub!"
+    iget-object v1, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->currentElement:Lorg/apache/http/HeaderElement;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    if-eqz v1, :cond_0
 
-    throw v0
+    :goto_0
+    iget-object v1, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->currentElement:Lorg/apache/http/HeaderElement;
+
+    if-eqz v1, :cond_1
+
+    iget-object v0, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->currentElement:Lorg/apache/http/HeaderElement;
+
+    iput-object v2, p0, Lorg/apache/http/message/BasicHeaderElementIterator;->currentElement:Lorg/apache/http/HeaderElement;
+
+    return-object v0
+
+    :cond_0
+    invoke-direct {p0}, Lorg/apache/http/message/BasicHeaderElementIterator;->parseNextElement()V
+
+    goto :goto_0
+
+    :cond_1
+    new-instance v1, Ljava/util/NoSuchElementException;
+
+    const-string/jumbo v2, "No more header elements available"
+
+    invoke-direct {v1, v2}, Ljava/util/NoSuchElementException;-><init>(Ljava/lang/String;)V
+
+    throw v1
 .end method
 
 .method public remove()V
@@ -96,11 +367,11 @@
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
 
-    const-string/jumbo v1, "Stub!"
+    const-string/jumbo v1, "Remove not supported"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method

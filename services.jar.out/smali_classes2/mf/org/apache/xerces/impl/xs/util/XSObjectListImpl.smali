@@ -116,22 +116,27 @@
 
     const/4 v2, 0x0
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
 
-    :cond_0
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 v0, v1, -0x1
 
+    :goto_0
     if-ltz v0, :cond_1
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fArray:[Lmf/org/apache/xerces/xs/XSObject;
 
     aget-object v1, v1, v0
 
-    if-nez v1, :cond_0
+    if-eqz v1, :cond_0
 
-    const/4 v0, 0x1
+    add-int/lit8 v0, v0, -0x1
 
-    return v0
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x1
+
+    return v1
 
     :cond_1
     return v2
@@ -142,11 +147,11 @@
 
     const/4 v2, 0x0
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
 
-    :cond_0
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 v0, v1, -0x1
 
+    :goto_0
     if-ltz v0, :cond_1
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fArray:[Lmf/org/apache/xerces/xs/XSObject;
@@ -157,11 +162,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-nez v1, :cond_0
 
-    const/4 v0, 0x1
+    add-int/lit8 v0, v0, -0x1
 
-    return v0
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x1
+
+    return v1
 
     :cond_1
     return v2
@@ -226,33 +236,33 @@
 
     const/4 v3, 0x0
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
-
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fArray:[Lmf/org/apache/xerces/xs/XSObject;
-
-    array-length v1, v1
-
-    if-eq v0, v1, :cond_0
-
-    :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fArray:[Lmf/org/apache/xerces/xs/XSObject;
-
     iget v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
 
-    add-int/lit8 v2, v1, 0x1
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fArray:[Lmf/org/apache/xerces/xs/XSObject;
 
-    iput v2, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
+    array-length v2, v2
 
-    aput-object p1, v0, v1
+    if-eq v1, v2, :cond_0
+
+    :goto_0
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fArray:[Lmf/org/apache/xerces/xs/XSObject;
+
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
+
+    add-int/lit8 v3, v2, 0x1
+
+    iput v3, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
+
+    aput-object p1, v1, v2
 
     return-void
 
     :cond_0
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
 
-    add-int/lit8 v0, v0, 0x4
+    add-int/lit8 v1, v1, 0x4
 
-    new-array v0, v0, [Lmf/org/apache/xerces/xs/XSObject;
+    new-array v0, v1, [Lmf/org/apache/xerces/xs/XSObject;
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fArray:[Lmf/org/apache/xerces/xs/XSObject;
 
@@ -266,29 +276,29 @@
 .end method
 
 .method public clearXSObjectList()V
-    .locals 4
+    .locals 3
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    const/4 v1, 0x0
-
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_0
-    iget v2, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v1, :cond_0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fArray:[Lmf/org/apache/xerces/xs/XSObject;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fArray:[Lmf/org/apache/xerces/xs/XSObject;
 
-    aput-object v3, v2, v0
+    aput-object v2, v1, v0
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    iput-object v3, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fArray:[Lmf/org/apache/xerces/xs/XSObject;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fArray:[Lmf/org/apache/xerces/xs/XSObject;
+
+    const/4 v1, 0x0
 
     iput v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
 
@@ -456,11 +466,11 @@
 .end method
 
 .method public toArray()[Ljava/lang/Object;
-    .locals 1
+    .locals 2
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
 
-    new-array v0, v0, [Ljava/lang/Object;
+    new-array v0, v1, [Ljava/lang/Object;
 
     invoke-direct {p0, v0}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->toArray0([Ljava/lang/Object;)V
 
@@ -468,22 +478,22 @@
 .end method
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 2
+    .locals 4
 
-    array-length v0, p1
+    array-length v2, p1
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
 
-    if-lt v0, v1, :cond_0
+    if-lt v2, v3, :cond_0
 
     :goto_0
     invoke-direct {p0, p1}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->toArray0([Ljava/lang/Object;)V
 
-    array-length v0, p1
+    array-length v2, p1
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
 
-    if-gt v0, v1, :cond_1
+    if-gt v2, v3, :cond_1
 
     :goto_1
     return-object p1
@@ -495,26 +505,24 @@
 
     invoke-virtual {v0}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
 
-    invoke-static {v0, v1}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
+    invoke-static {v1, v2}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, [Ljava/lang/Object;
-
-    move-object p1, v0
+    check-cast p1, [Ljava/lang/Object;
 
     goto :goto_0
 
     :cond_1
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    aput-object v1, p1, v0
+    aput-object v3, p1, v2
 
     goto :goto_1
 .end method

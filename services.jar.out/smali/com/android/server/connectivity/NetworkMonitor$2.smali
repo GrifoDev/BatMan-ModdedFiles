@@ -42,15 +42,15 @@
 
     iget-object v2, p0, Lcom/android/server/connectivity/NetworkMonitor$2;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
-    invoke-static {v2, v7}, Lcom/android/server/connectivity/NetworkMonitor;->-wrap5(Lcom/android/server/connectivity/NetworkMonitor;I)V
+    invoke-static {v2, v7}, Lcom/android/server/connectivity/NetworkMonitor;->-wrap9(Lcom/android/server/connectivity/NetworkMonitor;I)V
 
     iget-object v2, p0, Lcom/android/server/connectivity/NetworkMonitor$2;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
-    invoke-static {v2, p2}, Lcom/android/server/connectivity/NetworkMonitor;->-set7(Lcom/android/server/connectivity/NetworkMonitor;I)I
+    invoke-static {v2, p2}, Lcom/android/server/connectivity/NetworkMonitor;->-set8(Lcom/android/server/connectivity/NetworkMonitor;I)I
 
     iget-object v2, p0, Lcom/android/server/connectivity/NetworkMonitor$2;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
-    invoke-static {v2, v6}, Lcom/android/server/connectivity/NetworkMonitor;->-set9(Lcom/android/server/connectivity/NetworkMonitor;I)I
+    invoke-static {v2, v6}, Lcom/android/server/connectivity/NetworkMonitor;->-set10(Lcom/android/server/connectivity/NetworkMonitor;I)I
 
     iget-object v2, p0, Lcom/android/server/connectivity/NetworkMonitor$2;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
@@ -58,11 +58,11 @@
 
     move-result-wide v4
 
-    invoke-static {v2, v4, v5}, Lcom/android/server/connectivity/NetworkMonitor;->-set6(Lcom/android/server/connectivity/NetworkMonitor;J)J
+    invoke-static {v2, v4, v5}, Lcom/android/server/connectivity/NetworkMonitor;->-set7(Lcom/android/server/connectivity/NetworkMonitor;J)J
 
     iget-object v2, p0, Lcom/android/server/connectivity/NetworkMonitor$2;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
-    invoke-static {v2}, Lcom/android/server/connectivity/NetworkMonitor;->-get8(Lcom/android/server/connectivity/NetworkMonitor;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/server/connectivity/NetworkMonitor;->-get11(Lcom/android/server/connectivity/NetworkMonitor;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -78,7 +78,7 @@
 
     iget-object v2, p0, Lcom/android/server/connectivity/NetworkMonitor$2;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
-    invoke-static {v2}, Lcom/android/server/connectivity/NetworkMonitor;->-get6(Lcom/android/server/connectivity/NetworkMonitor;)Landroid/net/ConnectivityManager;
+    invoke-static {v2}, Lcom/android/server/connectivity/NetworkMonitor;->-get9(Lcom/android/server/connectivity/NetworkMonitor;)Landroid/net/ConnectivityManager;
 
     move-result-object v2
 
@@ -88,7 +88,7 @@
 
     iget-object v2, p0, Lcom/android/server/connectivity/NetworkMonitor$2;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
-    invoke-static {v2}, Lcom/android/server/connectivity/NetworkMonitor;->-get8(Lcom/android/server/connectivity/NetworkMonitor;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/server/connectivity/NetworkMonitor;->-get11(Lcom/android/server/connectivity/NetworkMonitor;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -100,7 +100,7 @@
 
     check-cast v2, Landroid/net/ConnectivityManager;
 
-    invoke-static {v3, v2}, Lcom/android/server/connectivity/NetworkMonitor;->-set4(Lcom/android/server/connectivity/NetworkMonitor;Landroid/net/ConnectivityManager;)Landroid/net/ConnectivityManager;
+    invoke-static {v3, v2}, Lcom/android/server/connectivity/NetworkMonitor;->-set5(Lcom/android/server/connectivity/NetworkMonitor;Landroid/net/ConnectivityManager;)Landroid/net/ConnectivityManager;
 
     :cond_0
     invoke-static {}, Lcom/android/server/connectivity/NetworkMonitor;->-get0()Ljava/lang/String;
@@ -141,7 +141,7 @@
 
     move-result-object v3
 
-    const-string/jumbo v4, ", mIsCaptivePortalLoginActivityCreated:"
+    const-string/jumbo v4, ", mIsSmartDetectionActivityCreated:"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -149,7 +149,7 @@
 
     iget-object v4, p0, Lcom/android/server/connectivity/NetworkMonitor$2;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
-    invoke-static {v4}, Lcom/android/server/connectivity/NetworkMonitor;->-get21(Lcom/android/server/connectivity/NetworkMonitor;)Z
+    invoke-static {v4}, Lcom/android/server/connectivity/NetworkMonitor;->-get25(Lcom/android/server/connectivity/NetworkMonitor;)Z
 
     move-result v4
 
@@ -175,12 +175,16 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    iget-object v2, p0, Lcom/android/server/connectivity/NetworkMonitor$2;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
+
+    invoke-static {v2, v6}, Lcom/android/server/connectivity/NetworkMonitor;->-set13(Lcom/android/server/connectivity/NetworkMonitor;Z)Z
+
     return-void
 
     :cond_1
     iget-object v2, p0, Lcom/android/server/connectivity/NetworkMonitor$2;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
-    invoke-static {v2}, Lcom/android/server/connectivity/NetworkMonitor;->-get20(Lcom/android/server/connectivity/NetworkMonitor;)Z
+    invoke-static {v2}, Lcom/android/server/connectivity/NetworkMonitor;->-get22(Lcom/android/server/connectivity/NetworkMonitor;)Z
 
     move-result v2
 
@@ -196,7 +200,7 @@
 
     iget-object v2, p0, Lcom/android/server/connectivity/NetworkMonitor$2;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
-    invoke-static {v2, v6}, Lcom/android/server/connectivity/NetworkMonitor;->-set12(Lcom/android/server/connectivity/NetworkMonitor;Z)Z
+    invoke-static {v2, v6}, Lcom/android/server/connectivity/NetworkMonitor;->-set13(Lcom/android/server/connectivity/NetworkMonitor;Z)Z
 
     return-void
 
@@ -213,18 +217,18 @@
 
     const/4 v3, 0x1
 
-    invoke-static {v2, v3}, Lcom/android/server/connectivity/NetworkMonitor;->-set12(Lcom/android/server/connectivity/NetworkMonitor;Z)Z
+    invoke-static {v2, v3}, Lcom/android/server/connectivity/NetworkMonitor;->-set13(Lcom/android/server/connectivity/NetworkMonitor;Z)Z
 
     iget-object v2, p0, Lcom/android/server/connectivity/NetworkMonitor$2;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
     const v3, 0x82013
 
-    invoke-static {v2, v3}, Lcom/android/server/connectivity/NetworkMonitor;->-wrap5(Lcom/android/server/connectivity/NetworkMonitor;I)V
+    invoke-static {v2, v3}, Lcom/android/server/connectivity/NetworkMonitor;->-wrap9(Lcom/android/server/connectivity/NetworkMonitor;I)V
 
     :cond_3
     iget-object v2, p0, Lcom/android/server/connectivity/NetworkMonitor$2;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
-    invoke-static {v2}, Lcom/android/server/connectivity/NetworkMonitor;->-get21(Lcom/android/server/connectivity/NetworkMonitor;)Z
+    invoke-static {v2}, Lcom/android/server/connectivity/NetworkMonitor;->-get25(Lcom/android/server/connectivity/NetworkMonitor;)Z
 
     move-result v2
 
@@ -232,20 +236,35 @@
 
     iget-object v2, p0, Lcom/android/server/connectivity/NetworkMonitor$2;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
-    invoke-static {v2, v0}, Lcom/android/server/connectivity/NetworkMonitor;->-wrap1(Lcom/android/server/connectivity/NetworkMonitor;Ljava/lang/String;)Z
+    invoke-static {v2, v0}, Lcom/android/server/connectivity/NetworkMonitor;->-wrap2(Lcom/android/server/connectivity/NetworkMonitor;Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_7
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_4
+
+    iget-object v2, p0, Lcom/android/server/connectivity/NetworkMonitor$2;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
+
+    invoke-static {v2, v6}, Lcom/android/server/connectivity/NetworkMonitor;->-set4(Lcom/android/server/connectivity/NetworkMonitor;I)I
+
+    iget-object v2, p0, Lcom/android/server/connectivity/NetworkMonitor$2;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
+
+    const-wide/16 v4, 0x3e8
+
+    invoke-virtual {v2, v7, v4, v5}, Lcom/android/server/connectivity/NetworkMonitor;->sendMessageDelayed(IJ)V
+
+    iget-object v2, p0, Lcom/android/server/connectivity/NetworkMonitor$2;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
+
+    invoke-static {v2, v0}, Lcom/android/server/connectivity/NetworkMonitor;->-set23(Lcom/android/server/connectivity/NetworkMonitor;Ljava/lang/String;)Ljava/lang/String;
 
     :cond_4
-    :goto_0
     return-void
 
     :cond_5
     iget-object v2, p0, Lcom/android/server/connectivity/NetworkMonitor$2;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
-    invoke-static {v2}, Lcom/android/server/connectivity/NetworkMonitor;->-get33(Lcom/android/server/connectivity/NetworkMonitor;)Z
+    invoke-static {v2}, Lcom/android/server/connectivity/NetworkMonitor;->-get34(Lcom/android/server/connectivity/NetworkMonitor;)Z
 
     move-result v2
 
@@ -264,7 +283,7 @@
     :cond_6
     iget-object v2, p0, Lcom/android/server/connectivity/NetworkMonitor$2;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
-    invoke-static {v2}, Lcom/android/server/connectivity/NetworkMonitor;->-wrap0(Lcom/android/server/connectivity/NetworkMonitor;)Z
+    invoke-static {v2}, Lcom/android/server/connectivity/NetworkMonitor;->-wrap1(Lcom/android/server/connectivity/NetworkMonitor;)Z
 
     move-result v2
 
@@ -279,33 +298,15 @@
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
-
-    :cond_7
-    iget-object v2, p0, Lcom/android/server/connectivity/NetworkMonitor$2;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
-
-    invoke-static {v2, v6}, Lcom/android/server/connectivity/NetworkMonitor;->-set3(Lcom/android/server/connectivity/NetworkMonitor;I)I
-
-    iget-object v2, p0, Lcom/android/server/connectivity/NetworkMonitor$2;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
-
-    const-wide/16 v4, 0x3e8
-
-    invoke-virtual {v2, v7, v4, v5}, Lcom/android/server/connectivity/NetworkMonitor;->sendMessageDelayed(IJ)V
-
-    iget-object v2, p0, Lcom/android/server/connectivity/NetworkMonitor$2;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
-
-    invoke-static {v2, v0}, Lcom/android/server/connectivity/NetworkMonitor;->-set23(Lcom/android/server/connectivity/NetworkMonitor;Ljava/lang/String;)Ljava/lang/String;
-
-    goto :goto_0
 .end method
 
 .method public onProcessDied(II)V
     .locals 0
-
-    return-void
-.end method
-
-.method public onProcessStateChanged(III)V
-    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 
     return-void
 .end method

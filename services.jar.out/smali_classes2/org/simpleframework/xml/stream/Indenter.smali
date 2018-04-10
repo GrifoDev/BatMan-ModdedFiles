@@ -65,28 +65,28 @@
 .end method
 
 .method private create()Ljava/lang/String;
-    .locals 3
+    .locals 4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    iget v0, p0, Lorg/simpleframework/xml/stream/Indenter;->count:I
+    iget v2, p0, Lorg/simpleframework/xml/stream/Indenter;->count:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    new-array v1, v0, [C
+    new-array v1, v2, [C
 
-    iget v0, p0, Lorg/simpleframework/xml/stream/Indenter;->count:I
+    iget v2, p0, Lorg/simpleframework/xml/stream/Indenter;->count:I
 
-    if-gtz v0, :cond_0
+    if-gtz v2, :cond_0
 
-    const-string/jumbo v0, "\n"
+    const-string/jumbo v2, "\n"
 
-    return-object v0
+    return-object v2
 
     :cond_0
-    const/16 v0, 0xa
+    const/16 v2, 0xa
 
-    aput-char v0, v1, v2
+    aput-char v2, v1, v3
 
     const/4 v0, 0x1
 
@@ -95,11 +95,11 @@
 
     if-le v0, v2, :cond_1
 
-    new-instance v0, Ljava/lang/String;
+    new-instance v2, Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/String;-><init>([C)V
+    invoke-direct {v2, v1}, Ljava/lang/String;-><init>([C)V
 
-    return-object v0
+    return-object v2
 
     :cond_1
     const/16 v2, 0x20
@@ -114,19 +114,19 @@
 .method private indent(I)Ljava/lang/String;
     .locals 2
 
-    iget v0, p0, Lorg/simpleframework/xml/stream/Indenter;->indent:I
+    iget v1, p0, Lorg/simpleframework/xml/stream/Indenter;->indent:I
 
-    if-gtz v0, :cond_1
+    if-gtz v1, :cond_1
 
     :cond_0
-    const-string/jumbo v0, ""
+    const-string/jumbo v1, ""
 
-    return-object v0
+    return-object v1
 
     :cond_1
-    iget-object v0, p0, Lorg/simpleframework/xml/stream/Indenter;->cache:Lorg/simpleframework/xml/stream/Indenter$Cache;
+    iget-object v1, p0, Lorg/simpleframework/xml/stream/Indenter;->cache:Lorg/simpleframework/xml/stream/Indenter$Cache;
 
-    invoke-virtual {v0, p1}, Lorg/simpleframework/xml/stream/Indenter$Cache;->get(I)Ljava/lang/String;
+    invoke-virtual {v1, p1}, Lorg/simpleframework/xml/stream/Indenter$Cache;->get(I)Ljava/lang/String;
 
     move-result-object v0
 
@@ -160,13 +160,13 @@
 .method public pop()Ljava/lang/String;
     .locals 3
 
-    iget v0, p0, Lorg/simpleframework/xml/stream/Indenter;->index:I
+    iget v1, p0, Lorg/simpleframework/xml/stream/Indenter;->index:I
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 v1, v1, -0x1
 
-    iput v0, p0, Lorg/simpleframework/xml/stream/Indenter;->index:I
+    iput v1, p0, Lorg/simpleframework/xml/stream/Indenter;->index:I
 
-    invoke-direct {p0, v0}, Lorg/simpleframework/xml/stream/Indenter;->indent(I)Ljava/lang/String;
+    invoke-direct {p0, v1}, Lorg/simpleframework/xml/stream/Indenter;->indent(I)Ljava/lang/String;
 
     move-result-object v0
 
@@ -192,13 +192,13 @@
 .method public push()Ljava/lang/String;
     .locals 3
 
-    iget v0, p0, Lorg/simpleframework/xml/stream/Indenter;->index:I
+    iget v1, p0, Lorg/simpleframework/xml/stream/Indenter;->index:I
 
-    add-int/lit8 v1, v0, 0x1
+    add-int/lit8 v2, v1, 0x1
 
-    iput v1, p0, Lorg/simpleframework/xml/stream/Indenter;->index:I
+    iput v2, p0, Lorg/simpleframework/xml/stream/Indenter;->index:I
 
-    invoke-direct {p0, v0}, Lorg/simpleframework/xml/stream/Indenter;->indent(I)Ljava/lang/String;
+    invoke-direct {p0, v1}, Lorg/simpleframework/xml/stream/Indenter;->indent(I)Ljava/lang/String;
 
     move-result-object v0
 

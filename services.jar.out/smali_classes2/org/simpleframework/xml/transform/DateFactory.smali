@@ -46,11 +46,11 @@
 
     new-array v0, v0, [Ljava/lang/Class;
 
-    const/4 v1, 0x0
+    sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    sget-object v2, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
+    const/4 v2, 0x0
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     invoke-direct {p0, p1, v0}, Lorg/simpleframework/xml/transform/DateFactory;-><init>(Ljava/lang/Class;[Ljava/lang/Class;)V
 

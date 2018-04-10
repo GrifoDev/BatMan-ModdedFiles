@@ -154,7 +154,7 @@
 
     const-string/jumbo v1, "anySimpleType"
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->getGlobalTypeDecl(Ljava/lang/String;)Lmf/org/apache/xerces/xs/XSTypeDefinition;
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/impl/xs/SchemaGrammar$BuiltinSchemaGrammar;->getGlobalTypeDecl(Ljava/lang/String;)Lmf/org/apache/xerces/xs/XSTypeDefinition;
 
     move-result-object v0
 
@@ -462,370 +462,370 @@
 .end method
 
 .method public constructor <init>(Lmf/org/apache/xerces/impl/xs/SchemaGrammar;)V
-    .locals 5
+    .locals 7
 
-    const/16 v2, 0x10
+    const/16 v3, 0x10
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    const/4 v1, 0x0
+    const/4 v5, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object v4, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGrammarDescription:Lmf/org/apache/xerces/impl/xs/XSDDescription;
+    iput-object v6, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGrammarDescription:Lmf/org/apache/xerces/impl/xs/XSDDescription;
 
-    iput-object v4, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
+    iput-object v6, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
-    iput-object v4, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    iput-object v6, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    iput-object v4, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSAXParser:Ljava/lang/ref/SoftReference;
+    iput-object v6, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSAXParser:Ljava/lang/ref/SoftReference;
 
-    iput-object v4, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fDOMParser:Ljava/lang/ref/SoftReference;
+    iput-object v6, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fDOMParser:Ljava/lang/ref/SoftReference;
 
-    iput-boolean v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fIsImmutable:Z
+    iput-boolean v5, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fIsImmutable:Z
 
-    iput-object v4, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fImported:Ljava/util/Vector;
+    iput-object v6, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fImported:Ljava/util/Vector;
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fCTCount:I
+    iput v5, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fCTCount:I
 
-    new-array v0, v2, [Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
+    new-array v2, v3, [Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComplexTypeDecls:[Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComplexTypeDecls:[Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
 
-    new-array v0, v2, [Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
+    new-array v2, v3, [Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fCTLocators:[Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fCTLocators:[Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRGCount:I
+    iput v5, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRGCount:I
 
-    const/4 v0, 0x2
+    const/4 v2, 0x2
 
-    new-array v0, v0, [Lmf/org/apache/xerces/impl/xs/XSGroupDecl;
+    new-array v2, v2, [Lmf/org/apache/xerces/impl/xs/XSGroupDecl;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRedefinedGroupDecls:[Lmf/org/apache/xerces/impl/xs/XSGroupDecl;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRedefinedGroupDecls:[Lmf/org/apache/xerces/impl/xs/XSGroupDecl;
 
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    new-array v0, v0, [Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
+    new-array v2, v2, [Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRGLocators:[Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRGLocators:[Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
 
-    iput-boolean v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fFullChecked:Z
+    iput-boolean v5, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fFullChecked:Z
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSubGroupCount:I
+    iput v5, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSubGroupCount:I
 
-    new-array v0, v2, [Lmf/org/apache/xerces/impl/xs/XSElementDecl;
+    new-array v2, v3, [Lmf/org/apache/xerces/impl/xs/XSElementDecl;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSubGroups:[Lmf/org/apache/xerces/impl/xs/XSElementDecl;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSubGroups:[Lmf/org/apache/xerces/impl/xs/XSElementDecl;
 
-    iput-object v4, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComponents:[Lmf/org/apache/xerces/xs/XSNamedMap;
+    iput-object v6, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComponents:[Lmf/org/apache/xerces/xs/XSNamedMap;
 
-    iput-object v4, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComponentsExt:[Lmf/org/apache/xerces/xs/datatypes/ObjectList;
+    iput-object v6, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComponentsExt:[Lmf/org/apache/xerces/xs/datatypes/ObjectList;
 
-    iput-object v4, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fDocuments:Ljava/util/Vector;
+    iput-object v6, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fDocuments:Ljava/util/Vector;
 
-    iput-object v4, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fLocations:Ljava/util/Vector;
+    iput-object v6, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fLocations:Ljava/util/Vector;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fTargetNamespace:Ljava/lang/String;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fTargetNamespace:Ljava/lang/String;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fTargetNamespace:Ljava/lang/String;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fTargetNamespace:Ljava/lang/String;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGrammarDescription:Lmf/org/apache/xerces/impl/xs/XSDDescription;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGrammarDescription:Lmf/org/apache/xerces/impl/xs/XSDDescription;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xs/XSDDescription;->makeClone()Lmf/org/apache/xerces/impl/xs/XSDDescription;
+    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xs/XSDDescription;->makeClone()Lmf/org/apache/xerces/impl/xs/XSDDescription;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGrammarDescription:Lmf/org/apache/xerces/impl/xs/XSDDescription;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGrammarDescription:Lmf/org/apache/xerces/impl/xs/XSDDescription;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalAttrDecls:Lmf/org/apache/xerces/util/SymbolHash;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalAttrDecls:Lmf/org/apache/xerces/util/SymbolHash;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
+    invoke-virtual {v2}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalAttrDecls:Lmf/org/apache/xerces/util/SymbolHash;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalAttrDecls:Lmf/org/apache/xerces/util/SymbolHash;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalAttrGrpDecls:Lmf/org/apache/xerces/util/SymbolHash;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalAttrGrpDecls:Lmf/org/apache/xerces/util/SymbolHash;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
+    invoke-virtual {v2}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalAttrGrpDecls:Lmf/org/apache/xerces/util/SymbolHash;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalAttrGrpDecls:Lmf/org/apache/xerces/util/SymbolHash;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalElemDecls:Lmf/org/apache/xerces/util/SymbolHash;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalElemDecls:Lmf/org/apache/xerces/util/SymbolHash;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
+    invoke-virtual {v2}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalElemDecls:Lmf/org/apache/xerces/util/SymbolHash;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalElemDecls:Lmf/org/apache/xerces/util/SymbolHash;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalGroupDecls:Lmf/org/apache/xerces/util/SymbolHash;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalGroupDecls:Lmf/org/apache/xerces/util/SymbolHash;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
+    invoke-virtual {v2}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalGroupDecls:Lmf/org/apache/xerces/util/SymbolHash;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalGroupDecls:Lmf/org/apache/xerces/util/SymbolHash;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalNotationDecls:Lmf/org/apache/xerces/util/SymbolHash;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalNotationDecls:Lmf/org/apache/xerces/util/SymbolHash;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
+    invoke-virtual {v2}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalNotationDecls:Lmf/org/apache/xerces/util/SymbolHash;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalNotationDecls:Lmf/org/apache/xerces/util/SymbolHash;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalIDConstraintDecls:Lmf/org/apache/xerces/util/SymbolHash;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalIDConstraintDecls:Lmf/org/apache/xerces/util/SymbolHash;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
+    invoke-virtual {v2}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalIDConstraintDecls:Lmf/org/apache/xerces/util/SymbolHash;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalIDConstraintDecls:Lmf/org/apache/xerces/util/SymbolHash;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalTypeDecls:Lmf/org/apache/xerces/util/SymbolHash;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalTypeDecls:Lmf/org/apache/xerces/util/SymbolHash;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
+    invoke-virtual {v2}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalTypeDecls:Lmf/org/apache/xerces/util/SymbolHash;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalTypeDecls:Lmf/org/apache/xerces/util/SymbolHash;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalAttrDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalAttrDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
+    invoke-virtual {v2}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalAttrDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalAttrDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalAttrGrpDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalAttrGrpDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
+    invoke-virtual {v2}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalAttrGrpDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalAttrGrpDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalElemDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalElemDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
+    invoke-virtual {v2}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalElemDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalElemDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalGroupDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalGroupDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
+    invoke-virtual {v2}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalGroupDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalGroupDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalNotationDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalNotationDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
+    invoke-virtual {v2}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalNotationDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalNotationDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalIDConstraintDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalIDConstraintDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
+    invoke-virtual {v2}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalIDConstraintDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalIDConstraintDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalTypeDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalTypeDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
+    invoke-virtual {v2}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalTypeDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalTypeDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAllGlobalElemDecls:Lmf/org/apache/xerces/util/SymbolHash;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAllGlobalElemDecls:Lmf/org/apache/xerces/util/SymbolHash;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
+    invoke-virtual {v2}, Lmf/org/apache/xerces/util/SymbolHash;->makeClone()Lmf/org/apache/xerces/util/SymbolHash;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAllGlobalElemDecls:Lmf/org/apache/xerces/util/SymbolHash;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAllGlobalElemDecls:Lmf/org/apache/xerces/util/SymbolHash;
 
-    iget v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fNumAnnotations:I
+    iget v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fNumAnnotations:I
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fNumAnnotations:I
+    iput v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fNumAnnotations:I
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fNumAnnotations:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fNumAnnotations:I
 
-    if-gtz v0, :cond_2
+    if-gtz v2, :cond_2
 
     :goto_0
-    iget v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSubGroupCount:I
+    iget v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSubGroupCount:I
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSubGroupCount:I
+    iput v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSubGroupCount:I
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSubGroupCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSubGroupCount:I
 
-    if-gtz v0, :cond_3
+    if-gtz v2, :cond_3
 
     :goto_1
-    iget v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fCTCount:I
+    iget v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fCTCount:I
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fCTCount:I
+    iput v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fCTCount:I
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fCTCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fCTCount:I
 
-    if-gtz v0, :cond_4
+    if-gtz v2, :cond_4
 
     :goto_2
-    iget v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRGCount:I
+    iget v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRGCount:I
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRGCount:I
+    iput v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRGCount:I
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRGCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRGCount:I
 
-    if-gtz v0, :cond_5
+    if-gtz v2, :cond_5
 
     :goto_3
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fImported:Ljava/util/Vector;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fImported:Ljava/util/Vector;
 
-    if-nez v0, :cond_6
+    if-nez v2, :cond_6
 
     :cond_0
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fLocations:Ljava/util/Vector;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fLocations:Ljava/util/Vector;
 
-    if-nez v0, :cond_7
+    if-nez v2, :cond_7
 
     :cond_1
     return-void
 
     :cond_2
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
-    array-length v0, v0
+    array-length v2, v2
 
-    new-array v0, v0, [Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
+    new-array v2, v2, [Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fNumAnnotations:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fNumAnnotations:I
 
-    invoke-static {v0, v1, v2, v1, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v2, v5, v3, v5, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     goto :goto_0
 
     :cond_3
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSubGroups:[Lmf/org/apache/xerces/impl/xs/XSElementDecl;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSubGroups:[Lmf/org/apache/xerces/impl/xs/XSElementDecl;
 
-    array-length v0, v0
+    array-length v2, v2
 
-    new-array v0, v0, [Lmf/org/apache/xerces/impl/xs/XSElementDecl;
+    new-array v2, v2, [Lmf/org/apache/xerces/impl/xs/XSElementDecl;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSubGroups:[Lmf/org/apache/xerces/impl/xs/XSElementDecl;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSubGroups:[Lmf/org/apache/xerces/impl/xs/XSElementDecl;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSubGroups:[Lmf/org/apache/xerces/impl/xs/XSElementDecl;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSubGroups:[Lmf/org/apache/xerces/impl/xs/XSElementDecl;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSubGroups:[Lmf/org/apache/xerces/impl/xs/XSElementDecl;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSubGroups:[Lmf/org/apache/xerces/impl/xs/XSElementDecl;
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSubGroupCount:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSubGroupCount:I
 
-    invoke-static {v0, v1, v2, v1, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v2, v5, v3, v5, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     goto :goto_1
 
     :cond_4
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComplexTypeDecls:[Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComplexTypeDecls:[Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
 
-    array-length v0, v0
+    array-length v2, v2
 
-    new-array v0, v0, [Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
+    new-array v2, v2, [Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComplexTypeDecls:[Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComplexTypeDecls:[Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fCTLocators:[Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fCTLocators:[Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
 
-    array-length v0, v0
+    array-length v2, v2
 
-    new-array v0, v0, [Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
+    new-array v2, v2, [Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fCTLocators:[Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fCTLocators:[Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComplexTypeDecls:[Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComplexTypeDecls:[Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComplexTypeDecls:[Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComplexTypeDecls:[Lmf/org/apache/xerces/impl/xs/XSComplexTypeDecl;
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fCTCount:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fCTCount:I
 
-    invoke-static {v0, v1, v2, v1, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v2, v5, v3, v5, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fCTLocators:[Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fCTLocators:[Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fCTLocators:[Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fCTLocators:[Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fCTCount:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fCTCount:I
 
-    invoke-static {v0, v1, v2, v1, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v2, v5, v3, v5, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     goto :goto_2
 
     :cond_5
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRedefinedGroupDecls:[Lmf/org/apache/xerces/impl/xs/XSGroupDecl;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRedefinedGroupDecls:[Lmf/org/apache/xerces/impl/xs/XSGroupDecl;
 
-    array-length v0, v0
+    array-length v2, v2
 
-    new-array v0, v0, [Lmf/org/apache/xerces/impl/xs/XSGroupDecl;
+    new-array v2, v2, [Lmf/org/apache/xerces/impl/xs/XSGroupDecl;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRedefinedGroupDecls:[Lmf/org/apache/xerces/impl/xs/XSGroupDecl;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRedefinedGroupDecls:[Lmf/org/apache/xerces/impl/xs/XSGroupDecl;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRGLocators:[Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRGLocators:[Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
 
-    array-length v0, v0
+    array-length v2, v2
 
-    new-array v0, v0, [Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
+    new-array v2, v2, [Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRGLocators:[Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRGLocators:[Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRedefinedGroupDecls:[Lmf/org/apache/xerces/impl/xs/XSGroupDecl;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRedefinedGroupDecls:[Lmf/org/apache/xerces/impl/xs/XSGroupDecl;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRedefinedGroupDecls:[Lmf/org/apache/xerces/impl/xs/XSGroupDecl;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRedefinedGroupDecls:[Lmf/org/apache/xerces/impl/xs/XSGroupDecl;
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRGCount:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRGCount:I
 
-    invoke-static {v0, v1, v2, v1, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v2, v5, v3, v5, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRGLocators:[Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRGLocators:[Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRGLocators:[Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRGLocators:[Lmf/org/apache/xerces/impl/xs/util/SimpleLocator;
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRGCount:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fRGCount:I
 
-    invoke-static {v0, v1, v2, v1, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v2, v5, v3, v5, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     goto :goto_3
 
     :cond_6
-    new-instance v0, Ljava/util/Vector;
+    new-instance v2, Ljava/util/Vector;
 
-    invoke-direct {v0}, Ljava/util/Vector;-><init>()V
+    invoke-direct {v2}, Ljava/util/Vector;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fImported:Ljava/util/Vector;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fImported:Ljava/util/Vector;
 
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_4
     iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fImported:Ljava/util/Vector;
@@ -850,27 +850,29 @@
 
     goto :goto_4
 
+    :cond_7
+    const/4 v1, 0x0
+
     :goto_5
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fLocations:Ljava/util/Vector;
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fLocations:Ljava/util/Vector;
 
-    invoke-virtual {v0, v1}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+    invoke-virtual {v2}, Ljava/util/Vector;->size()I
 
-    move-result-object v0
+    move-result v2
 
-    check-cast v0, Ljava/lang/String;
+    if-ge v1, v2, :cond_1
 
-    invoke-virtual {p0, v4, v0}, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->addDocument(Ljava/lang/Object;Ljava/lang/String;)V
+    iget-object v2, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fLocations:Ljava/util/Vector;
+
+    invoke-virtual {v2, v1}, Ljava/util/Vector;->elementAt(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-virtual {p0, v6, v2}, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->addDocument(Ljava/lang/Object;Ljava/lang/String;)V
 
     add-int/lit8 v1, v1, 0x1
-
-    :cond_7
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fLocations:Ljava/util/Vector;
-
-    invoke-virtual {v0}, Ljava/util/Vector;->size()I
-
-    move-result v0
-
-    if-ge v1, v0, :cond_1
 
     goto :goto_5
 .end method
@@ -973,28 +975,28 @@
 
     if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
-
-    if-eqz v0, :cond_1
-
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fNumAnnotations:I
-
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
-    array-length v1, v1
-
-    if-eq v0, v1, :cond_2
-
-    :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
+    if-eqz v1, :cond_1
 
     iget v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fNumAnnotations:I
 
-    add-int/lit8 v2, v1, 0x1
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
-    iput v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fNumAnnotations:I
+    array-length v2, v2
 
-    aput-object p1, v0, v1
+    if-eq v1, v2, :cond_2
+
+    :goto_0
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
+
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fNumAnnotations:I
+
+    add-int/lit8 v3, v2, 0x1
+
+    iput v3, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fNumAnnotations:I
+
+    aput-object p1, v1, v2
 
     return-void
 
@@ -1002,20 +1004,20 @@
     return-void
 
     :cond_1
-    const/4 v0, 0x2
+    const/4 v1, 0x2
 
-    new-array v0, v0, [Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
+    new-array v1, v1, [Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
     goto :goto_0
 
     :cond_2
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fNumAnnotations:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fNumAnnotations:I
 
-    shl-int/lit8 v0, v0, 0x1
+    shl-int/lit8 v1, v1, 0x1
 
-    new-array v0, v0, [Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
+    new-array v0, v1, [Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
@@ -1959,21 +1961,19 @@
 
     const/16 v2, 0x10
 
-    const/4 v0, 0x0
-
     monitor-enter p0
 
     if-gtz p1, :cond_1
 
     :cond_0
     :try_start_0
-    sget-object v0, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->EMPTY_MAP:Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;
+    sget-object v1, Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;->EMPTY_MAP:Lmf/org/apache/xerces/impl/xs/util/XSNamedMapImpl;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return-object v0
+    return-object v1
 
     :cond_1
     if-gt p1, v2, :cond_0
@@ -1997,15 +1997,15 @@
     if-eqz v1, :cond_3
 
     :goto_1
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComponents:[Lmf/org/apache/xerces/xs/XSNamedMap;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComponents:[Lmf/org/apache/xerces/xs/XSNamedMap;
 
-    aget-object v0, v0, p1
+    aget-object v1, v1, p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     monitor-exit p0
 
-    return-object v0
+    return-object v1
 
     :cond_2
     const/16 v1, 0x11
@@ -2020,13 +2020,15 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
     monitor-exit p0
 
-    throw v0
+    throw v1
 
     :cond_3
+    const/4 v0, 0x0
+
     packed-switch p1, :pswitch_data_0
 
     :goto_2
@@ -2123,9 +2125,7 @@
 .end method
 
 .method public declared-synchronized getComponentsExt(S)Lmf/org/apache/xerces/xs/datatypes/ObjectList;
-    .locals 4
-
-    const/4 v0, 0x0
+    .locals 5
 
     monitor-enter p0
 
@@ -2133,121 +2133,123 @@
 
     :cond_0
     :try_start_0
-    sget-object v0, Lmf/org/apache/xerces/impl/xs/util/ObjectListImpl;->EMPTY_LIST:Lmf/org/apache/xerces/impl/xs/util/ObjectListImpl;
+    sget-object v2, Lmf/org/apache/xerces/impl/xs/util/ObjectListImpl;->EMPTY_LIST:Lmf/org/apache/xerces/impl/xs/util/ObjectListImpl;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return-object v0
+    return-object v2
 
     :cond_1
-    const/16 v1, 0x10
+    const/16 v2, 0x10
 
-    if-gt p1, v1, :cond_0
+    if-gt p1, v2, :cond_0
 
     :try_start_1
-    sget-object v1, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->GLOBAL_COMP:[Z
+    sget-object v2, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->GLOBAL_COMP:[Z
 
-    aget-boolean v1, v1, p1
+    aget-boolean v2, v2, p1
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComponentsExt:[Lmf/org/apache/xerces/xs/datatypes/ObjectList;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComponentsExt:[Lmf/org/apache/xerces/xs/datatypes/ObjectList;
 
-    if-eqz v1, :cond_2
+    if-eqz v2, :cond_2
 
     :goto_0
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComponentsExt:[Lmf/org/apache/xerces/xs/datatypes/ObjectList;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComponentsExt:[Lmf/org/apache/xerces/xs/datatypes/ObjectList;
 
-    aget-object v1, v1, p1
+    aget-object v2, v2, p1
 
-    if-eqz v1, :cond_3
+    if-eqz v2, :cond_3
 
     :goto_1
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComponentsExt:[Lmf/org/apache/xerces/xs/datatypes/ObjectList;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComponentsExt:[Lmf/org/apache/xerces/xs/datatypes/ObjectList;
 
-    aget-object v0, v0, p1
+    aget-object v2, v2, p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     monitor-exit p0
 
-    return-object v0
+    return-object v2
 
     :cond_2
-    const/16 v1, 0x11
+    const/16 v2, 0x11
 
     :try_start_2
-    new-array v1, v1, [Lmf/org/apache/xerces/xs/datatypes/ObjectList;
+    new-array v2, v2, [Lmf/org/apache/xerces/xs/datatypes/ObjectList;
 
-    iput-object v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComponentsExt:[Lmf/org/apache/xerces/xs/datatypes/ObjectList;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComponentsExt:[Lmf/org/apache/xerces/xs/datatypes/ObjectList;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_0
 
     :catchall_0
-    move-exception v0
+    move-exception v2
 
     monitor-exit p0
 
-    throw v0
+    throw v2
 
     :cond_3
+    const/4 v1, 0x0
+
     packed-switch p1, :pswitch_data_0
 
     :goto_2
     :pswitch_0
     :try_start_3
-    invoke-virtual {v0}, Lmf/org/apache/xerces/util/SymbolHash;->getEntries()[Ljava/lang/Object;
+    invoke-virtual {v1}, Lmf/org/apache/xerces/util/SymbolHash;->getEntries()[Ljava/lang/Object;
 
     move-result-object v0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComponentsExt:[Lmf/org/apache/xerces/xs/datatypes/ObjectList;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fComponentsExt:[Lmf/org/apache/xerces/xs/datatypes/ObjectList;
 
-    new-instance v2, Lmf/org/apache/xerces/impl/xs/util/ObjectListImpl;
+    new-instance v3, Lmf/org/apache/xerces/impl/xs/util/ObjectListImpl;
 
-    array-length v3, v0
+    array-length v4, v0
 
-    invoke-direct {v2, v0, v3}, Lmf/org/apache/xerces/impl/xs/util/ObjectListImpl;-><init>([Ljava/lang/Object;I)V
+    invoke-direct {v3, v0, v4}, Lmf/org/apache/xerces/impl/xs/util/ObjectListImpl;-><init>([Ljava/lang/Object;I)V
 
-    aput-object v2, v1, p1
+    aput-object v3, v2, p1
 
     goto :goto_1
 
     :pswitch_1
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalTypeDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalTypeDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
 
     goto :goto_2
 
     :pswitch_2
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalAttrDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalAttrDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
 
     goto :goto_2
 
     :pswitch_3
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalElemDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalElemDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
 
     goto :goto_2
 
     :pswitch_4
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalAttrGrpDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalAttrGrpDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
 
     goto :goto_2
 
     :pswitch_5
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalGroupDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalGroupDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
 
     goto :goto_2
 
     :pswitch_6
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalNotationDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalNotationDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
 
     goto :goto_2
 
     :pswitch_7
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalIDConstraintDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fGlobalIDConstraintDeclsExt:Lmf/org/apache/xerces/util/SymbolHash;
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -2277,33 +2279,33 @@
 .end method
 
 .method declared-synchronized getDOMParser()Lmf/org/apache/xerces/parsers/DOMParser;
-    .locals 3
+    .locals 4
 
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fDOMParser:Ljava/lang/ref/SoftReference;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fDOMParser:Ljava/lang/ref/SoftReference;
 
-    if-nez v0, :cond_1
+    if-nez v2, :cond_1
 
     :cond_0
     new-instance v0, Lmf/org/apache/xerces/parsers/XML11Configuration;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    invoke-direct {v0, v1}, Lmf/org/apache/xerces/parsers/XML11Configuration;-><init>(Lmf/org/apache/xerces/util/SymbolTable;)V
+    invoke-direct {v0, v2}, Lmf/org/apache/xerces/parsers/XML11Configuration;-><init>(Lmf/org/apache/xerces/util/SymbolTable;)V
 
-    const-string/jumbo v1, "http://xml.org/sax/features/namespaces"
+    const-string/jumbo v2, "http://xml.org/sax/features/namespaces"
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/parsers/XML11Configuration;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {v0, v2, v3}, Lmf/org/apache/xerces/parsers/XML11Configuration;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v1, "http://xml.org/sax/features/validation"
+    const-string/jumbo v2, "http://xml.org/sax/features/validation"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/parsers/XML11Configuration;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {v0, v2, v3}, Lmf/org/apache/xerces/parsers/XML11Configuration;->setFeature(Ljava/lang/String;Z)V
 
     new-instance v1, Lmf/org/apache/xerces/parsers/DOMParser;
 
@@ -2312,22 +2314,22 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
-    const-string/jumbo v0, "http://apache.org/xml/features/dom/defer-node-expansion"
+    const-string/jumbo v2, "http://apache.org/xml/features/dom/defer-node-expansion"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {v1, v0, v2}, Lmf/org/apache/xerces/parsers/DOMParser;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {v1, v2, v3}, Lmf/org/apache/xerces/parsers/DOMParser;->setFeature(Ljava/lang/String;Z)V
     :try_end_1
     .catch Lorg/xml/sax/SAXException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :goto_0
     :try_start_2
-    new-instance v0, Ljava/lang/ref/SoftReference;
+    new-instance v2, Ljava/lang/ref/SoftReference;
 
-    invoke-direct {v0, v1}, Ljava/lang/ref/SoftReference;-><init>(Ljava/lang/Object;)V
+    invoke-direct {v2, v1}, Ljava/lang/ref/SoftReference;-><init>(Ljava/lang/Object;)V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fDOMParser:Ljava/lang/ref/SoftReference;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fDOMParser:Ljava/lang/ref/SoftReference;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -2337,31 +2339,31 @@
 
     :cond_1
     :try_start_3
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fDOMParser:Ljava/lang/ref/SoftReference;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fDOMParser:Ljava/lang/ref/SoftReference;
 
-    invoke-virtual {v0}, Ljava/lang/ref/SoftReference;->get()Ljava/lang/Object;
+    invoke-virtual {v2}, Ljava/lang/ref/SoftReference;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/org/apache/xerces/parsers/DOMParser;
+    check-cast v1, Lmf/org/apache/xerces/parsers/DOMParser;
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     monitor-exit p0
 
-    return-object v0
+    return-object v1
 
     :catchall_0
-    move-exception v0
+    move-exception v2
 
     monitor-exit p0
 
-    throw v0
+    throw v2
 
     :catch_0
-    move-exception v0
+    move-exception v2
 
     goto :goto_0
 .end method
@@ -2904,43 +2906,43 @@
 .end method
 
 .method declared-synchronized getSAXParser()Lmf/org/apache/xerces/parsers/SAXParser;
-    .locals 3
+    .locals 4
 
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSAXParser:Ljava/lang/ref/SoftReference;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSAXParser:Ljava/lang/ref/SoftReference;
 
-    if-nez v0, :cond_1
+    if-nez v2, :cond_1
 
     :cond_0
     new-instance v0, Lmf/org/apache/xerces/parsers/XML11Configuration;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    invoke-direct {v0, v1}, Lmf/org/apache/xerces/parsers/XML11Configuration;-><init>(Lmf/org/apache/xerces/util/SymbolTable;)V
+    invoke-direct {v0, v2}, Lmf/org/apache/xerces/parsers/XML11Configuration;-><init>(Lmf/org/apache/xerces/util/SymbolTable;)V
 
-    const-string/jumbo v1, "http://xml.org/sax/features/namespaces"
+    const-string/jumbo v2, "http://xml.org/sax/features/namespaces"
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/parsers/XML11Configuration;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {v0, v2, v3}, Lmf/org/apache/xerces/parsers/XML11Configuration;->setFeature(Ljava/lang/String;Z)V
 
-    const-string/jumbo v1, "http://xml.org/sax/features/validation"
+    const-string/jumbo v2, "http://xml.org/sax/features/validation"
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/parsers/XML11Configuration;->setFeature(Ljava/lang/String;Z)V
+    invoke-virtual {v0, v2, v3}, Lmf/org/apache/xerces/parsers/XML11Configuration;->setFeature(Ljava/lang/String;Z)V
 
     new-instance v1, Lmf/org/apache/xerces/parsers/SAXParser;
 
     invoke-direct {v1, v0}, Lmf/org/apache/xerces/parsers/SAXParser;-><init>(Lmf/org/apache/xerces/xni/parser/XMLParserConfiguration;)V
 
-    new-instance v0, Ljava/lang/ref/SoftReference;
+    new-instance v2, Ljava/lang/ref/SoftReference;
 
-    invoke-direct {v0, v1}, Ljava/lang/ref/SoftReference;-><init>(Ljava/lang/Object;)V
+    invoke-direct {v2, v1}, Ljava/lang/ref/SoftReference;-><init>(Ljava/lang/Object;)V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSAXParser:Ljava/lang/ref/SoftReference;
+    iput-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSAXParser:Ljava/lang/ref/SoftReference;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -2950,28 +2952,28 @@
 
     :cond_1
     :try_start_1
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSAXParser:Ljava/lang/ref/SoftReference;
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->fSAXParser:Ljava/lang/ref/SoftReference;
 
-    invoke-virtual {v0}, Ljava/lang/ref/SoftReference;->get()Ljava/lang/Object;
+    invoke-virtual {v2}, Ljava/lang/ref/SoftReference;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/org/apache/xerces/parsers/SAXParser;
+    check-cast v1, Lmf/org/apache/xerces/parsers/SAXParser;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     monitor-exit p0
 
-    return-object v0
+    return-object v1
 
     :catchall_0
-    move-exception v0
+    move-exception v2
 
     monitor-exit p0
 
-    throw v0
+    throw v2
 .end method
 
 .method public getSchemaNamespace()Ljava/lang/String;
@@ -3290,87 +3292,80 @@
 .method public toXSModel([Lmf/org/apache/xerces/xni/grammars/XSGrammar;)Lmf/org/apache/xerces/xs/XSModel;
     .locals 5
 
-    const/4 v2, 0x0
-
     if-nez p1, :cond_1
 
     :cond_0
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;->toXSModel()Lmf/org/apache/xerces/xs/XSModel;
 
-    move-result-object v0
+    move-result-object v4
 
-    return-object v0
+    return-object v4
 
     :cond_1
-    array-length v0, p1
+    array-length v4, p1
 
-    if-eqz v0, :cond_0
+    if-eqz v4, :cond_0
 
-    array-length v1, p1
+    array-length v3, p1
 
-    move v0, v2
+    const/4 v1, 0x0
+
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v0, v1, :cond_6
+    if-ge v2, v3, :cond_3
 
-    aget-object v3, p1, v0
+    aget-object v4, p1, v2
 
-    if-eq v3, p0, :cond_2
+    if-eq v4, p0, :cond_2
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_2
-    const/4 v0, 0x1
-
-    move v3, v0
-
-    :goto_1
-    if-nez v3, :cond_3
-
-    add-int/lit8 v0, v1, 0x1
-
-    :goto_2
-    new-array v4, v0, [Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
-
-    :goto_3
-    if-ge v2, v1, :cond_4
-
-    aget-object v0, p1, v2
-
-    check-cast v0, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
-
-    aput-object v0, v4, v2
-
-    add-int/lit8 v0, v2, 0x1
-
-    move v2, v0
-
-    goto :goto_3
+    const/4 v1, 0x1
 
     :cond_3
-    move v0, v1
+    if-nez v1, :cond_4
+
+    add-int/lit8 v4, v3, 0x1
+
+    :goto_1
+    new-array v0, v4, [Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
+
+    const/4 v2, 0x0
+
+    :goto_2
+    if-ge v2, v3, :cond_5
+
+    aget-object v4, p1, v2
+
+    check-cast v4, Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
+
+    aput-object v4, v0, v2
+
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_2
 
     :cond_4
-    if-eqz v3, :cond_5
-
-    :goto_4
-    new-instance v0, Lmf/org/apache/xerces/impl/xs/XSModelImpl;
-
-    invoke-direct {v0, v4}, Lmf/org/apache/xerces/impl/xs/XSModelImpl;-><init>([Lmf/org/apache/xerces/impl/xs/SchemaGrammar;)V
-
-    return-object v0
-
-    :cond_5
-    aput-object p0, v4, v1
-
-    goto :goto_4
-
-    :cond_6
-    move v3, v2
+    move v4, v3
 
     goto :goto_1
+
+    :cond_5
+    if-eqz v1, :cond_6
+
+    :goto_3
+    new-instance v4, Lmf/org/apache/xerces/impl/xs/XSModelImpl;
+
+    invoke-direct {v4, v0}, Lmf/org/apache/xerces/impl/xs/XSModelImpl;-><init>([Lmf/org/apache/xerces/impl/xs/SchemaGrammar;)V
+
+    return-object v4
+
+    :cond_6
+    aput-object p0, v0, v3
+
+    goto :goto_3
 .end method

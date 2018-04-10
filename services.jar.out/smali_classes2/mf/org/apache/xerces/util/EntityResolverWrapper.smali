@@ -40,7 +40,7 @@
 .end method
 
 .method public resolveEntity(Lmf/org/apache/xerces/xni/XMLResourceIdentifier;)Lmf/org/apache/xerces/xni/parser/XMLInputSource;
-    .locals 7
+    .locals 14
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/org/apache/xerces/xni/XNIException;,
@@ -48,98 +48,101 @@
         }
     .end annotation
 
-    const/4 v3, 0x0
+    const/4 v13, 0x0
 
     invoke-interface {p1}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getPublicId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v7
 
     invoke-interface {p1}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getExpandedSystemId()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v9
 
-    if-eqz v0, :cond_2
+    if-eqz v7, :cond_2
 
     :cond_0
-    iget-object v2, p0, Lmf/org/apache/xerces/util/EntityResolverWrapper;->fEntityResolver:Lorg/xml/sax/EntityResolver;
+    iget-object v12, p0, Lmf/org/apache/xerces/util/EntityResolverWrapper;->fEntityResolver:Lorg/xml/sax/EntityResolver;
 
-    if-nez v2, :cond_3
+    if-nez v12, :cond_3
 
     :cond_1
-    return-object v3
+    return-object v13
 
     :cond_2
-    if-nez v1, :cond_0
+    if-nez v9, :cond_0
 
-    return-object v3
+    return-object v13
 
     :cond_3
     if-eqz p1, :cond_1
 
     :try_start_0
-    iget-object v2, p0, Lmf/org/apache/xerces/util/EntityResolverWrapper;->fEntityResolver:Lorg/xml/sax/EntityResolver;
+    iget-object v12, p0, Lmf/org/apache/xerces/util/EntityResolverWrapper;->fEntityResolver:Lorg/xml/sax/EntityResolver;
 
-    invoke-interface {v2, v0, v1}, Lorg/xml/sax/EntityResolver;->resolveEntity(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;
+    invoke-interface {v12, v7, v9}, Lorg/xml/sax/EntityResolver;->resolveEntity(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;
 
-    move-result-object v0
+    move-result-object v6
 
-    if-eqz v0, :cond_1
+    if-eqz v6, :cond_1
 
-    invoke-virtual {v0}, Lorg/xml/sax/InputSource;->getPublicId()Ljava/lang/String;
+    invoke-virtual {v6}, Lorg/xml/sax/InputSource;->getPublicId()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v8
 
-    invoke-virtual {v0}, Lorg/xml/sax/InputSource;->getSystemId()Ljava/lang/String;
+    invoke-virtual {v6}, Lorg/xml/sax/InputSource;->getSystemId()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v10
 
     invoke-interface {p1}, Lmf/org/apache/xerces/xni/XMLResourceIdentifier;->getBaseSystemId()Ljava/lang/String;
 
-    move-result-object v3
-
-    invoke-virtual {v0}, Lorg/xml/sax/InputSource;->getByteStream()Ljava/io/InputStream;
-
-    move-result-object v4
-
-    invoke-virtual {v0}, Lorg/xml/sax/InputSource;->getCharacterStream()Ljava/io/Reader;
-
-    move-result-object v5
-
-    invoke-virtual {v0}, Lorg/xml/sax/InputSource;->getEncoding()Ljava/lang/String;
-
     move-result-object v0
 
-    new-instance v6, Lmf/org/apache/xerces/xni/parser/XMLInputSource;
-
-    invoke-direct {v6, v1, v2, v3}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {v6, v4}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->setByteStream(Ljava/io/InputStream;)V
-
-    invoke-virtual {v6, v5}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->setCharacterStream(Ljava/io/Reader;)V
-
-    invoke-virtual {v6, v0}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->setEncoding(Ljava/lang/String;)V
-    :try_end_0
-    .catch Lorg/xml/sax/SAXException; {:try_start_0 .. :try_end_0} :catch_0
-
-    return-object v6
-
-    :catch_0
-    move-exception v0
-
-    invoke-virtual {v0}, Lorg/xml/sax/SAXException;->getException()Ljava/lang/Exception;
+    invoke-virtual {v6}, Lorg/xml/sax/InputSource;->getByteStream()Ljava/io/InputStream;
 
     move-result-object v1
 
-    if-eqz v1, :cond_4
+    invoke-virtual {v6}, Lorg/xml/sax/InputSource;->getCharacterStream()Ljava/io/Reader;
 
-    move-object v0, v1
+    move-result-object v2
+
+    invoke-virtual {v6}, Lorg/xml/sax/InputSource;->getEncoding()Ljava/lang/String;
+
+    move-result-object v4
+
+    new-instance v11, Lmf/org/apache/xerces/xni/parser/XMLInputSource;
+
+    invoke-direct {v11, v8, v10, v0}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v11, v1}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->setByteStream(Ljava/io/InputStream;)V
+
+    invoke-virtual {v11, v2}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->setCharacterStream(Ljava/io/Reader;)V
+
+    invoke-virtual {v11, v4}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->setEncoding(Ljava/lang/String;)V
+    :try_end_0
+    .catch Lorg/xml/sax/SAXException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object v11
+
+    :catch_0
+    move-exception v3
+
+    invoke-virtual {v3}, Lorg/xml/sax/SAXException;->getException()Ljava/lang/Exception;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_4
+
+    :goto_0
+    new-instance v12, Lmf/org/apache/xerces/xni/XNIException;
+
+    invoke-direct {v12, v5}, Lmf/org/apache/xerces/xni/XNIException;-><init>(Ljava/lang/Exception;)V
+
+    throw v12
 
     :cond_4
-    new-instance v1, Lmf/org/apache/xerces/xni/XNIException;
+    move-object v5, v3
 
-    invoke-direct {v1, v0}, Lmf/org/apache/xerces/xni/XNIException;-><init>(Ljava/lang/Exception;)V
-
-    throw v1
+    goto :goto_0
 .end method
 
 .method public setEntityResolver(Lorg/xml/sax/EntityResolver;)V

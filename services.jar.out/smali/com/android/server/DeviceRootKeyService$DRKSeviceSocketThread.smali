@@ -31,15 +31,21 @@
 
 .field private static final CMD_ID_CREATE_SERVICE_KEY_SESSION:I = 0x3
 
+.field private static final CMD_ID_GET_DRK_CERT:I = 0x8
+
 .field private static final CMD_ID_GET_DRK_UID:I = 0x2
 
 .field private static final CMD_ID_INIT_TLV:I = 0x5
 
 .field private static final CMD_ID_IS_EXIST_DRK:I = 0x1
 
+.field private static final CMD_ID_IS_SERVICE_READY:I = 0xa
+
+.field private static final CMD_ID_PSEUDO_AT_CMD:I = 0x7
+
 .field private static final CMD_ID_RELEASE_SERVICE_KEY_SESSION:I = 0x4
 
-.field private static final CMD_ID_SET_TEST_DRK:I = 0x7
+.field private static final CMD_ID_SELF_TEST_SERV_BLOB:I = 0x9
 
 .field private static final DRK_SERIVCE_SOCKET_NAME:Ljava/lang/String; = "DeviceRootKeyService"
 
@@ -134,336 +140,522 @@
     return v0
 .end method
 
-.method private executeCommand([BZ)[B
+.method private executeCommand([BII)[B
     .locals 12
 
-    const/4 v11, 0x6
+    new-instance v4, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;
+
+    invoke-direct {v4, p0}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;-><init>(Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;)V
+
+    new-instance v5, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;
+
+    invoke-direct {v5, p0}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;-><init>(Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;)V
+
+    invoke-virtual {v4, p1}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->ParserData([B)Z
+
+    move-result v8
+
+    if-nez v8, :cond_0
+
+    const-string/jumbo v8, "DeviceRootKeyServiceSocket(1.1.3)"
+
+    const-string/jumbo v9, "Parsing is failed."
+
+    invoke-static {v8, v9}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v8, 0x1
+
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setVersion(B)V
+
+    invoke-virtual {v4}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getCommandId()S
+
+    move-result v8
+
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setCommandID(S)V
+
+    const/4 v8, 0x1
+
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+
+    invoke-virtual {v5}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->getOutputStreamData()[B
+
+    move-result-object v8
+
+    return-object v8
+
+    :cond_0
+    invoke-virtual {v4}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getVersion()B
+
+    move-result v8
+
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setVersion(B)V
+
+    invoke-virtual {v4}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getCommandId()S
+
+    move-result v8
+
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setCommandID(S)V
+
+    invoke-virtual {v4}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getVersion()B
+
+    move-result v8
+
+    const/4 v9, 0x1
+
+    if-eq v8, v9, :cond_1
+
+    const-string/jumbo v8, "DeviceRootKeyServiceSocket(1.1.3)"
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "Version is not matched. Caller version : "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v4}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getVersion()B
+
+    move-result v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v8, 0x2
+
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+
+    invoke-virtual {v5}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->getOutputStreamData()[B
+
+    move-result-object v8
+
+    return-object v8
+
+    :cond_1
+    iget-object v8, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
+
+    invoke-virtual {v4}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getCommandId()S
+
+    move-result v9
+
+    invoke-direct {p0, v9}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->getSocketPermissionInfo(I)I
+
+    move-result v9
+
+    const/4 v10, 0x1
+
+    invoke-static {v8, p2, p3, v10, v9}, Lcom/android/server/DeviceRootKeyService;->-wrap0(Lcom/android/server/DeviceRootKeyService;IIZI)Z
+
+    move-result v8
+
+    if-nez v8, :cond_2
+
+    const-string/jumbo v8, "DeviceRootKeyServiceSocket(1.1.3)"
+
+    const-string/jumbo v9, "Permission denied."
+
+    invoke-static {v8, v9}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v8, 0x6
+
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+
+    invoke-virtual {v5}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->getOutputStreamData()[B
+
+    move-result-object v8
+
+    return-object v8
+
+    :cond_2
+    invoke-virtual {v4}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getCommandId()S
+
+    move-result v8
+
+    packed-switch v8, :pswitch_data_0
+
+    const/4 v8, 0x3
+
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+
+    :goto_0
+    invoke-virtual {v5}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->getOutputStreamData()[B
+
+    move-result-object v8
+
+    return-object v8
+
+    :pswitch_0
+    iget-object v8, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
+
+    invoke-virtual {v4}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getKeyType()I
+
+    move-result v9
+
+    invoke-virtual {v8, v9}, Lcom/android/server/DeviceRootKeyService;->isExistDeviceRootKey(I)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_3
 
     const/4 v8, 0x0
 
-    const/4 v10, 0x5
-
-    const/4 v7, 0x1
-
-    const/4 v9, 0x0
-
-    new-instance v2, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;
-
-    invoke-direct {v2, p0}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;-><init>(Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;)V
-
-    new-instance v3, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;
-
-    invoke-direct {v3, p0}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;-><init>(Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;)V
-
-    invoke-virtual {v2, p1}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->ParserData([B)Z
-
-    move-result v5
-
-    if-nez v5, :cond_0
-
-    const-string/jumbo v5, "DeviceRootKeyServiceSocket"
-
-    const-string/jumbo v6, "Parsing is failed."
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {v3, v7}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setVersion(B)V
-
-    invoke-virtual {v2}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getCommandId()S
-
-    move-result v5
-
-    invoke-virtual {v3, v5}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setCommandID(S)V
-
-    invoke-virtual {v3, v7}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
-
-    invoke-virtual {v3}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->getOutputStreamData()[B
-
-    move-result-object v5
-
-    return-object v5
-
-    :cond_0
-    invoke-virtual {v2}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getVersion()B
-
-    move-result v5
-
-    invoke-virtual {v3, v5}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setVersion(B)V
-
-    invoke-virtual {v2}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getCommandId()S
-
-    move-result v5
-
-    invoke-virtual {v3, v5}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setCommandID(S)V
-
-    invoke-virtual {v2}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getVersion()B
-
-    move-result v5
-
-    if-eq v5, v7, :cond_1
-
-    const-string/jumbo v5, "DeviceRootKeyServiceSocket"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "Version is not matched. Caller version : "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v2}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getVersion()B
-
-    move-result v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v5, 0x2
-
-    invoke-virtual {v3, v5}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
-
-    invoke-virtual {v3}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->getOutputStreamData()[B
-
-    move-result-object v5
-
-    return-object v5
-
-    :cond_1
-    if-nez p2, :cond_2
-
-    const-string/jumbo v5, "DeviceRootKeyServiceSocket"
-
-    const-string/jumbo v6, "Permission denied."
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {v3, v11}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
-
-    invoke-virtual {v3}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->getOutputStreamData()[B
-
-    move-result-object v5
-
-    return-object v5
-
-    :cond_2
-    invoke-virtual {v2}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getCommandId()S
-
-    move-result v5
-
-    packed-switch v5, :pswitch_data_0
-
-    const/4 v5, 0x3
-
-    invoke-virtual {v3, v5}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
-
-    :goto_0
-    invoke-virtual {v3}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->getOutputStreamData()[B
-
-    move-result-object v5
-
-    return-object v5
-
-    :pswitch_0
-    iget-object v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
-
-    invoke-virtual {v2}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getKeyType()I
-
-    move-result v6
-
-    invoke-virtual {v5, v6}, Lcom/android/server/DeviceRootKeyService;->isExistDeviceRootKey(I)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_3
-
-    invoke-virtual {v3, v9}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
 
     goto :goto_0
 
     :cond_3
-    const/4 v5, 0x4
+    const/4 v8, 0x4
 
-    invoke-virtual {v3, v5}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
 
     goto :goto_0
 
     :pswitch_1
-    iget-object v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
+    iget-object v8, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
 
-    invoke-virtual {v2}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getKeyType()I
+    invoke-virtual {v4}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getKeyType()I
 
-    move-result v6
+    move-result v9
 
-    invoke-virtual {v5, v6}, Lcom/android/server/DeviceRootKeyService;->getDeviceRootKeyUID(I)Ljava/lang/String;
+    invoke-virtual {v8, v9}, Lcom/android/server/DeviceRootKeyService;->getDeviceRootKeyUID(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    if-eqz v1, :cond_4
+    if-eqz v3, :cond_4
 
-    invoke-virtual {v3, v9}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+    const/4 v8, 0x0
 
-    invoke-virtual {v3, v1}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setRawData(Ljava/lang/String;)V
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+
+    invoke-virtual {v5, v3}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setRawData(Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_4
-    invoke-virtual {v3, v10}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+    const/4 v8, 0x5
+
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
 
     goto :goto_0
 
     :pswitch_2
-    iget-object v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
+    iget-object v8, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
 
-    invoke-static {v5, v7}, Lcom/android/server/DeviceRootKeyService;->-set1(Lcom/android/server/DeviceRootKeyService;Z)Z
+    const/4 v9, 0x1
 
-    invoke-virtual {v2}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getEnableTlv()Z
+    invoke-static {v8, v9}, Lcom/android/server/DeviceRootKeyService;->-set0(Lcom/android/server/DeviceRootKeyService;Z)Z
 
-    move-result v5
+    invoke-virtual {v4}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getEnableTlv()Z
 
-    if-eqz v5, :cond_5
+    move-result v8
 
-    iget-object v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
+    if-eqz v8, :cond_5
 
-    invoke-virtual {v2}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getServiceName()Ljava/lang/String;
+    iget-object v8, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
 
-    move-result-object v6
+    invoke-virtual {v4}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getServiceName()Ljava/lang/String;
 
-    invoke-virtual {v2}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getKeyType()I
+    move-result-object v9
 
-    move-result v7
+    invoke-virtual {v4}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getKeyType()I
 
-    iget-object v8, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->mTlv:Lcom/samsung/android/service/DeviceRootKeyService/Tlv;
+    move-result v10
 
-    invoke-virtual {v5, v6, v7, v8}, Lcom/android/server/DeviceRootKeyService;->createServiceKeySession(Ljava/lang/String;ILcom/samsung/android/service/DeviceRootKeyService/Tlv;)[B
+    iget-object v11, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->mTlv:Lcom/samsung/android/service/DeviceRootKeyService/Tlv;
 
-    move-result-object v4
+    invoke-virtual {v8, v9, v10, v11}, Lcom/android/server/DeviceRootKeyService;->createServiceKeySession(Ljava/lang/String;ILcom/samsung/android/service/DeviceRootKeyService/Tlv;)[B
+
+    move-result-object v7
 
     :goto_1
-    iget-object v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
+    iget-object v8, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
 
-    invoke-static {v5, v9}, Lcom/android/server/DeviceRootKeyService;->-set1(Lcom/android/server/DeviceRootKeyService;Z)Z
+    const/4 v9, 0x0
 
-    if-eqz v4, :cond_6
+    invoke-static {v8, v9}, Lcom/android/server/DeviceRootKeyService;->-set0(Lcom/android/server/DeviceRootKeyService;Z)Z
 
-    invoke-virtual {v3, v9}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+    if-eqz v7, :cond_6
 
-    invoke-virtual {v3, v4}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setRawData([B)V
+    const/4 v8, 0x0
+
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+
+    invoke-virtual {v5, v7}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setRawData([B)V
 
     goto :goto_0
 
     :cond_5
-    iget-object v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
+    iget-object v8, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
 
-    invoke-virtual {v2}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getServiceName()Ljava/lang/String;
+    invoke-virtual {v4}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getServiceName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v9
 
-    invoke-virtual {v2}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getKeyType()I
+    invoke-virtual {v4}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getKeyType()I
 
-    move-result v7
+    move-result v10
 
-    invoke-virtual {v5, v6, v7, v8}, Lcom/android/server/DeviceRootKeyService;->createServiceKeySession(Ljava/lang/String;ILcom/samsung/android/service/DeviceRootKeyService/Tlv;)[B
+    const/4 v11, 0x0
 
-    move-result-object v4
+    invoke-virtual {v8, v9, v10, v11}, Lcom/android/server/DeviceRootKeyService;->createServiceKeySession(Ljava/lang/String;ILcom/samsung/android/service/DeviceRootKeyService/Tlv;)[B
+
+    move-result-object v7
 
     goto :goto_1
 
     :cond_6
-    invoke-virtual {v3, v10}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+    const/4 v8, 0x5
+
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
 
     goto :goto_0
 
     :pswitch_3
-    iget-object v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
+    iget-object v8, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
 
-    invoke-virtual {v5}, Lcom/android/server/DeviceRootKeyService;->releaseServiceKeySession()I
+    invoke-virtual {v8}, Lcom/android/server/DeviceRootKeyService;->releaseServiceKeySession()I
 
-    invoke-virtual {v3, v9}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+    const/4 v8, 0x0
+
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
 
     goto :goto_0
 
     :pswitch_4
     invoke-direct {p0}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->initTlv()V
 
-    invoke-virtual {v3, v9}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+    const/4 v8, 0x0
 
-    goto :goto_0
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+
+    goto/16 :goto_0
 
     :pswitch_5
-    invoke-virtual {v2}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getTlvTag()I
+    invoke-virtual {v4}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getTlvTag()I
 
-    move-result v5
+    move-result v8
 
-    invoke-virtual {v2}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getTlvValue()[B
+    invoke-virtual {v4}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getTlvValue()[B
 
-    move-result-object v6
+    move-result-object v9
 
-    invoke-direct {p0, v5, v6}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->addTlv(I[B)Z
+    invoke-direct {p0, v8, v9}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->addTlv(I[B)Z
 
-    move-result v5
+    move-result v8
 
-    if-eqz v5, :cond_7
+    if-eqz v8, :cond_7
 
-    invoke-virtual {v3, v9}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+    const/4 v8, 0x0
+
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
 
     goto/16 :goto_0
 
     :cond_7
-    invoke-virtual {v3, v10}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+    const/4 v8, 0x5
+
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
 
     goto/16 :goto_0
 
     :pswitch_6
-    iget-object v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
+    iget-object v8, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
 
-    invoke-virtual {v2}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getRawData()[B
+    new-instance v9, Ljava/lang/String;
 
-    move-result-object v6
+    invoke-virtual {v4}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getRawData()[B
 
-    invoke-static {v5, v6}, Lcom/android/server/DeviceRootKeyService;->-wrap1(Lcom/android/server/DeviceRootKeyService;[B)[B
+    move-result-object v10
+
+    invoke-direct {v9, v10}, Ljava/lang/String;-><init>([B)V
+
+    invoke-static {v8, v9}, Lcom/android/server/DeviceRootKeyService;->-wrap2(Lcom/android/server/DeviceRootKeyService;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     if-eqz v0, :cond_9
 
-    iget-object v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
+    iget-object v8, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
 
-    invoke-static {v5, v9}, Lcom/android/server/DeviceRootKeyService;->-set0(Lcom/android/server/DeviceRootKeyService;Z)Z
+    invoke-static {v8, v0}, Lcom/android/server/DeviceRootKeyService;->-wrap1(Lcom/android/server/DeviceRootKeyService;Ljava/lang/String;)Ljava/lang/String;
 
-    iget-object v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
+    move-result-object v1
 
-    invoke-virtual {v5, v0}, Lcom/android/server/DeviceRootKeyService;->setDeviceRootKey([B)I
+    if-eqz v1, :cond_8
 
-    move-result v5
+    const/4 v8, 0x0
 
-    if-nez v5, :cond_8
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
 
-    invoke-virtual {v3, v9}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+    invoke-virtual {v5, v1}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setRawData(Ljava/lang/String;)V
 
     :goto_2
-    iget-object v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
+    const-string/jumbo v8, "DeviceRootKeyService(1.1.3)"
 
-    invoke-static {v5, v7}, Lcom/android/server/DeviceRootKeyService;->-set0(Lcom/android/server/DeviceRootKeyService;Z)Z
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "Respone :"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
     :cond_8
-    invoke-virtual {v3, v10}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+    const/4 v8, 0x5
+
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
 
     goto :goto_2
 
     :cond_9
-    invoke-virtual {v3, v11}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+    const/4 v8, 0x6
+
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+
+    goto/16 :goto_0
+
+    :pswitch_7
+    iget-object v8, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
+
+    invoke-virtual {v4}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getKeyType()I
+
+    move-result v9
+
+    invoke-virtual {v8, v9}, Lcom/android/server/DeviceRootKeyService;->getDeviceRootKeyCertificate(I)[B
+
+    move-result-object v2
+
+    if-eqz v2, :cond_a
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+
+    invoke-virtual {v5, v2}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setRawData([B)V
+
+    goto/16 :goto_0
+
+    :cond_a
+    const/4 v8, 0x5
+
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+
+    goto/16 :goto_0
+
+    :pswitch_8
+    iget-object v8, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
+
+    const/4 v9, 0x1
+
+    invoke-static {v8, v9}, Lcom/android/server/DeviceRootKeyService;->-set0(Lcom/android/server/DeviceRootKeyService;Z)Z
+
+    invoke-virtual {v4}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getEnableTlv()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_b
+
+    iget-object v8, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
+
+    invoke-virtual {v4}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getServiceName()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v4}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getKeyType()I
+
+    move-result v10
+
+    iget-object v11, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->mTlv:Lcom/samsung/android/service/DeviceRootKeyService/Tlv;
+
+    invoke-virtual {v8, v9, v10, v11}, Lcom/android/server/DeviceRootKeyService;->doSelfTestProvServiceBlob(Ljava/lang/String;ILcom/samsung/android/service/DeviceRootKeyService/Tlv;)[B
+
+    move-result-object v6
+
+    :goto_3
+    iget-object v8, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
+
+    const/4 v9, 0x0
+
+    invoke-static {v8, v9}, Lcom/android/server/DeviceRootKeyService;->-set0(Lcom/android/server/DeviceRootKeyService;Z)Z
+
+    if-eqz v6, :cond_c
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+
+    invoke-virtual {v5, v6}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setRawData([B)V
+
+    goto/16 :goto_0
+
+    :cond_b
+    iget-object v8, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
+
+    invoke-virtual {v4}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getServiceName()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v4}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->getKeyType()I
+
+    move-result v10
+
+    const/4 v11, 0x0
+
+    invoke-virtual {v8, v9, v10, v11}, Lcom/android/server/DeviceRootKeyService;->doSelfTestProvServiceBlob(Ljava/lang/String;ILcom/samsung/android/service/DeviceRootKeyService/Tlv;)[B
+
+    move-result-object v6
+
+    goto :goto_3
+
+    :cond_c
+    const/4 v8, 0x5
+
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+
+    goto/16 :goto_0
+
+    :pswitch_9
+    iget-object v8, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
+
+    invoke-virtual {v8}, Lcom/android/server/DeviceRootKeyService;->isServiceReady()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_d
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
+
+    goto/16 :goto_0
+
+    :cond_d
+    const/4 v8, 0x5
+
+    invoke-virtual {v5, v8}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$OutputDataGenerator;->setErrorCode(S)V
 
     goto/16 :goto_0
 
@@ -476,6 +668,62 @@
         :pswitch_4
         :pswitch_5
         :pswitch_6
+        :pswitch_7
+        :pswitch_8
+        :pswitch_9
+    .end packed-switch
+.end method
+
+.method private getSocketPermissionInfo(I)I
+    .locals 1
+
+    packed-switch p1, :pswitch_data_0
+
+    const/4 v0, 0x0
+
+    return v0
+
+    :pswitch_0
+    const/4 v0, 0x1
+
+    return v0
+
+    :pswitch_1
+    const/4 v0, 0x2
+
+    return v0
+
+    :pswitch_2
+    const/4 v0, 0x4
+
+    return v0
+
+    :pswitch_3
+    const/16 v0, 0x8
+
+    return v0
+
+    :pswitch_4
+    const/16 v0, 0x10
+
+    return v0
+
+    :pswitch_5
+    const/16 v0, 0x20
+
+    return v0
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_2
+        :pswitch_2
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
     .end packed-switch
 .end method
 
@@ -492,7 +740,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 10
+    .locals 8
 
     :try_start_0
     new-instance v5, Landroid/net/LocalServerSocket;
@@ -517,7 +765,7 @@
     if-eqz v5, :cond_2
 
     :try_start_1
-    const-string/jumbo v5, "DeviceRootKeyServiceSocket"
+    const-string/jumbo v5, "DeviceRootKeyServiceSocket(1.1.3)"
 
     const-string/jumbo v6, "Ready to connect."
 
@@ -553,7 +801,7 @@
 
     move-result v4
 
-    const-string/jumbo v5, "DeviceRootKeyServiceSocket"
+    const-string/jumbo v5, "DeviceRootKeyServiceSocket(1.1.3)"
 
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -587,23 +835,15 @@
 
     iget-object v5, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->input:[B
 
-    iget-object v6, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->this$0:Lcom/android/server/DeviceRootKeyService;
-
     invoke-virtual {v0}, Landroid/net/Credentials;->getPid()I
-
-    move-result v7
-
-    invoke-virtual {v0}, Landroid/net/Credentials;->getUid()I
-
-    move-result v8
-
-    const/4 v9, 0x1
-
-    invoke-static {v6, v7, v8, v9}, Lcom/android/server/DeviceRootKeyService;->-wrap0(Lcom/android/server/DeviceRootKeyService;IIZ)Z
 
     move-result v6
 
-    invoke-direct {p0, v5, v6}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->executeCommand([BZ)[B
+    invoke-virtual {v0}, Landroid/net/Credentials;->getUid()I
+
+    move-result v7
+
+    invoke-direct {p0, v5, v6, v7}, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread;->executeCommand([BII)[B
 
     move-result-object v5
 
@@ -617,7 +857,7 @@
 
     if-lez v4, :cond_0
 
-    const-string/jumbo v5, "DeviceRootKeyServiceSocket"
+    const-string/jumbo v5, "DeviceRootKeyServiceSocket(1.1.3)"
 
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -646,7 +886,7 @@
     :catch_0
     move-exception v1
 
-    const-string/jumbo v5, "DeviceRootKeyServiceSocket"
+    const-string/jumbo v5, "DeviceRootKeyServiceSocket(1.1.3)"
 
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -677,7 +917,7 @@
     :catch_1
     move-exception v1
 
-    const-string/jumbo v5, "DeviceRootKeyServiceSocket"
+    const-string/jumbo v5, "DeviceRootKeyServiceSocket(1.1.3)"
 
     const-string/jumbo v6, "Failed to excute socket service."
 
@@ -689,7 +929,7 @@
 
     :cond_1
     :try_start_2
-    const-string/jumbo v5, "DeviceRootKeyServiceSocket"
+    const-string/jumbo v5, "DeviceRootKeyServiceSocket(1.1.3)"
 
     const-string/jumbo v6, "Disconnected."
 
@@ -700,7 +940,7 @@
     goto/16 :goto_0
 
     :cond_2
-    const-string/jumbo v5, "DeviceRootKeyServiceSocket"
+    const-string/jumbo v5, "DeviceRootKeyServiceSocket(1.1.3)"
 
     const-string/jumbo v6, "Socket thread has been stopped."
 

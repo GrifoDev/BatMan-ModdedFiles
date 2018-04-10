@@ -51,11 +51,11 @@
 
     new-instance v0, Lmf/org/w3c/dom/DOMException;
 
-    const-string/jumbo v1, "Method not supported"
+    const/16 v1, 0x9
 
-    const/16 v2, 0x9
+    const-string/jumbo v2, "Method not supported"
 
-    invoke-direct {v0, v2, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
 
     throw v0
 .end method
@@ -70,11 +70,11 @@
 
     new-instance v0, Lmf/org/w3c/dom/DOMException;
 
-    const-string/jumbo v1, "Method not supported"
+    const/16 v1, 0x9
 
-    const/16 v2, 0x9
+    const-string/jumbo v2, "Method not supported"
 
-    invoke-direct {v0, v2, v1}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Lmf/org/w3c/dom/DOMException;-><init>(SLjava/lang/String;)V
 
     throw v0
 .end method
@@ -130,9 +130,9 @@
     :cond_3
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v3
 
-    if-eqz v0, :cond_0
+    if-eqz v3, :cond_0
 
     move v0, v1
 
@@ -151,29 +151,29 @@
     return v1
 
     :cond_5
-    const-string/jumbo v0, "1.0"
+    const-string/jumbo v3, "1.0"
 
-    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v3
 
-    if-nez v0, :cond_2
+    if-nez v3, :cond_2
 
-    const-string/jumbo v0, "2.0"
+    const-string/jumbo v3, "2.0"
 
-    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v3
 
-    if-nez v0, :cond_2
+    if-nez v3, :cond_2
 
-    const-string/jumbo v0, "3.0"
+    const-string/jumbo v3, "3.0"
 
-    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v3
 
-    if-nez v0, :cond_2
+    if-nez v3, :cond_2
 
     goto :goto_1
 .end method

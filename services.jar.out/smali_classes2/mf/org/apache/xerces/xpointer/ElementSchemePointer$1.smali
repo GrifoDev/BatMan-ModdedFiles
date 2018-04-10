@@ -41,11 +41,11 @@
         }
     .end annotation
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
     const/4 v4, 0x0
 
-    if-ne p2, v2, :cond_1
+    if-ne p2, v1, :cond_1
 
     :cond_0
     invoke-super {p0, p1, p2}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Scanner;->addToken(Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;I)V
@@ -57,17 +57,17 @@
 
     iget-object v0, p0, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$1;->this$0:Lmf/org/apache/xerces/xpointer/ElementSchemePointer;
 
-    const-string/jumbo v1, "InvalidElementSchemeToken"
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "InvalidElementSchemeToken"
 
     invoke-static {p1, p2}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;I)Ljava/lang/String;
 
     move-result-object v3
 
-    aput-object v3, v2, v4
+    aput-object v3, v1, v4
 
-    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-virtual {v0, v2, v1}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer;->reportError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     return-void
 .end method

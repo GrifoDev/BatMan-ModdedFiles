@@ -193,73 +193,75 @@
 .end method
 
 .method protected consumeBOM(Ljava/io/InputStream;Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    const/16 v6, 0xfe
+    const/16 v10, 0xfe
 
-    const/4 v5, 0x1
+    const/4 v9, 0x1
 
-    const/4 v4, 0x2
+    const/4 v8, 0x2
 
-    const/4 v3, 0x3
+    const/4 v7, 0x3
 
-    const/4 v2, 0x0
+    const/4 v6, 0x0
 
-    new-array v0, v3, [B
+    new-array v0, v7, [B
 
-    invoke-virtual {p1, v3}, Ljava/io/InputStream;->mark(I)V
+    const/4 v4, 0x0
 
-    const-string/jumbo v1, "UTF-8"
+    invoke-virtual {p1, v7}, Ljava/io/InputStream;->mark(I)V
 
-    invoke-virtual {p2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v5, "UTF-8"
 
-    move-result v1
+    invoke-virtual {p2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-nez v1, :cond_0
+    move-result v5
 
-    const-string/jumbo v1, "UTF-16"
+    if-nez v5, :cond_0
 
-    invoke-virtual {p2, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    const-string/jumbo v5, "UTF-16"
 
-    move-result v1
+    invoke-virtual {p2, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    if-nez v1, :cond_4
+    move-result v5
+
+    if-nez v5, :cond_4
 
     :goto_0
     return-object p2
 
     :cond_0
-    invoke-virtual {p1, v0, v2, v3}, Ljava/io/InputStream;->read([BII)I
+    invoke-virtual {p1, v0, v6, v7}, Ljava/io/InputStream;->read([BII)I
 
-    move-result v1
+    move-result v4
 
-    if-eq v1, v3, :cond_1
+    if-eq v4, v7, :cond_1
 
     invoke-virtual {p1}, Ljava/io/InputStream;->reset()V
 
     goto :goto_0
 
     :cond_1
-    aget-byte v1, v0, v2
+    aget-byte v5, v0, v6
 
-    and-int/lit16 v1, v1, 0xff
+    and-int/lit16 v1, v5, 0xff
 
-    aget-byte v2, v0, v5
+    aget-byte v5, v0, v9
 
-    and-int/lit16 v2, v2, 0xff
+    and-int/lit16 v2, v5, 0xff
 
-    aget-byte v0, v0, v4
+    aget-byte v5, v0, v8
 
-    and-int/lit16 v0, v0, 0xff
+    and-int/lit16 v3, v5, 0xff
 
-    const/16 v3, 0xef
+    const/16 v5, 0xef
 
-    if-eq v1, v3, :cond_3
+    if-eq v1, v5, :cond_3
 
     :cond_2
     invoke-virtual {p1}, Ljava/io/InputStream;->reset()V
@@ -267,22 +269,22 @@
     goto :goto_0
 
     :cond_3
-    const/16 v1, 0xbb
+    const/16 v5, 0xbb
 
-    if-ne v2, v1, :cond_2
+    if-ne v2, v5, :cond_2
 
-    const/16 v1, 0xbf
+    const/16 v5, 0xbf
 
-    if-ne v0, v1, :cond_2
+    if-ne v3, v5, :cond_2
 
     goto :goto_0
 
     :cond_4
-    invoke-virtual {p1, v0, v2, v4}, Ljava/io/InputStream;->read([BII)I
+    invoke-virtual {p1, v0, v6, v8}, Ljava/io/InputStream;->read([BII)I
 
-    move-result v1
+    move-result v4
 
-    if-eq v1, v4, :cond_6
+    if-eq v4, v8, :cond_6
 
     :cond_5
     invoke-virtual {p1}, Ljava/io/InputStream;->reset()V
@@ -290,124 +292,124 @@
     goto :goto_0
 
     :cond_6
-    aget-byte v1, v0, v2
+    aget-byte v5, v0, v6
 
-    and-int/lit16 v1, v1, 0xff
+    and-int/lit16 v1, v5, 0xff
 
-    aget-byte v0, v0, v5
+    aget-byte v5, v0, v9
 
-    and-int/lit16 v0, v0, 0xff
+    and-int/lit16 v2, v5, 0xff
 
-    if-eq v1, v6, :cond_8
+    if-eq v1, v10, :cond_8
 
     :cond_7
-    const/16 v2, 0xff
+    const/16 v5, 0xff
 
-    if-ne v1, v2, :cond_5
+    if-ne v1, v5, :cond_5
 
-    if-ne v0, v6, :cond_5
+    if-ne v2, v10, :cond_5
 
-    const-string/jumbo v0, "UTF-16LE"
+    const-string/jumbo v5, "UTF-16LE"
 
-    return-object v0
+    return-object v5
 
     :cond_8
-    const/16 v2, 0xff
+    const/16 v5, 0xff
 
-    if-ne v0, v2, :cond_7
+    if-ne v2, v5, :cond_7
 
-    const-string/jumbo v0, "UTF-16BE"
+    const-string/jumbo v5, "UTF-16BE"
 
-    return-object v0
+    return-object v5
 .end method
 
 .method protected getEncodingName(Ljava/io/InputStream;)Ljava/lang/String;
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    const/4 v3, 0x4
+    const/4 v4, 0x4
 
-    new-array v1, v3, [B
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, v3}, Ljava/io/InputStream;->mark(I)V
+    new-array v0, v4, [B
 
     const/4 v2, 0x0
 
-    invoke-virtual {p1, v1, v2, v3}, Ljava/io/InputStream;->read([BII)I
+    invoke-virtual {p1, v4}, Ljava/io/InputStream;->mark(I)V
 
-    move-result v2
+    const/4 v3, 0x0
+
+    invoke-virtual {p1, v0, v3, v4}, Ljava/io/InputStream;->read([BII)I
+
+    move-result v1
 
     invoke-virtual {p1}, Ljava/io/InputStream;->reset()V
 
-    if-eq v2, v3, :cond_0
+    if-eq v1, v4, :cond_0
 
     :goto_0
-    return-object v0
+    return-object v2
 
     :cond_0
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->getEncodingName([B)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->getEncodingName([B)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
     goto :goto_0
 .end method
 
 .method protected getEncodingName([B)Ljava/lang/String;
-    .locals 6
+    .locals 9
 
-    const/16 v3, 0xff
+    const/16 v8, 0xff
 
-    const/16 v2, 0xfe
+    const/16 v7, 0xfe
 
-    const/16 v5, 0x3f
+    const/16 v6, 0x3f
 
-    const/16 v4, 0x3c
+    const/16 v5, 0x3c
 
-    const/4 v0, 0x0
+    const/4 v4, 0x0
 
-    aget-byte v0, p1, v0
+    aget-byte v4, p1, v4
 
-    and-int/lit16 v0, v0, 0xff
+    and-int/lit16 v0, v4, 0xff
 
-    const/4 v1, 0x1
+    const/4 v4, 0x1
 
-    aget-byte v1, p1, v1
+    aget-byte v4, p1, v4
 
-    and-int/lit16 v1, v1, 0xff
+    and-int/lit16 v1, v4, 0xff
 
-    if-eq v0, v2, :cond_a
+    if-eq v0, v7, :cond_a
 
     :cond_0
-    if-eq v0, v3, :cond_b
+    if-eq v0, v8, :cond_b
 
     :cond_1
-    const/4 v2, 0x2
+    const/4 v4, 0x2
 
-    aget-byte v2, p1, v2
+    aget-byte v4, p1, v4
 
-    and-int/lit16 v2, v2, 0xff
+    and-int/lit16 v2, v4, 0xff
 
-    const/16 v3, 0xef
+    const/16 v4, 0xef
 
-    if-eq v0, v3, :cond_c
+    if-eq v0, v4, :cond_c
 
     :cond_2
-    const/4 v3, 0x3
+    const/4 v4, 0x3
 
-    aget-byte v3, p1, v3
+    aget-byte v4, p1, v4
 
-    and-int/lit16 v3, v3, 0xff
+    and-int/lit16 v3, v4, 0xff
 
     if-eqz v0, :cond_d
 
     :cond_3
-    if-eq v0, v4, :cond_e
+    if-eq v0, v5, :cond_e
 
     :cond_4
     if-eqz v0, :cond_f
@@ -419,7 +421,7 @@
     if-eqz v0, :cond_11
 
     :cond_7
-    if-eq v0, v4, :cond_12
+    if-eq v0, v5, :cond_12
 
     :cond_8
     const/16 v4, 0x4c
@@ -427,47 +429,47 @@
     if-eq v0, v4, :cond_13
 
     :cond_9
-    const/4 v0, 0x0
+    const/4 v4, 0x0
 
-    return-object v0
+    return-object v4
 
     :cond_a
-    if-ne v1, v3, :cond_0
+    if-ne v1, v8, :cond_0
 
-    const-string/jumbo v0, "UTF-16BE"
+    const-string/jumbo v4, "UTF-16BE"
 
-    return-object v0
+    return-object v4
 
     :cond_b
-    if-ne v1, v2, :cond_1
+    if-ne v1, v7, :cond_1
 
-    const-string/jumbo v0, "UTF-16LE"
+    const-string/jumbo v4, "UTF-16LE"
 
-    return-object v0
+    return-object v4
 
     :cond_c
-    const/16 v3, 0xbb
+    const/16 v4, 0xbb
 
-    if-ne v1, v3, :cond_2
+    if-ne v1, v4, :cond_2
 
-    const/16 v3, 0xbf
+    const/16 v4, 0xbf
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v4, :cond_2
 
-    const-string/jumbo v0, "UTF-8"
+    const-string/jumbo v4, "UTF-8"
 
-    return-object v0
+    return-object v4
 
     :cond_d
     if-nez v1, :cond_3
 
     if-nez v2, :cond_3
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v5, :cond_3
 
-    const-string/jumbo v0, "ISO-10646-UCS-4"
+    const-string/jumbo v4, "ISO-10646-UCS-4"
 
-    return-object v0
+    return-object v4
 
     :cond_e
     if-nez v1, :cond_4
@@ -476,557 +478,734 @@
 
     if-nez v3, :cond_4
 
-    const-string/jumbo v0, "ISO-10646-UCS-4"
+    const-string/jumbo v4, "ISO-10646-UCS-4"
 
-    return-object v0
+    return-object v4
 
     :cond_f
     if-nez v1, :cond_5
 
-    if-ne v2, v4, :cond_5
+    if-ne v2, v5, :cond_5
 
     if-nez v3, :cond_5
 
-    const-string/jumbo v0, "ISO-10646-UCS-4"
+    const-string/jumbo v4, "ISO-10646-UCS-4"
 
-    return-object v0
+    return-object v4
 
     :cond_10
-    if-ne v1, v4, :cond_6
+    if-ne v1, v5, :cond_6
 
     if-nez v2, :cond_6
 
     if-nez v3, :cond_6
 
-    const-string/jumbo v0, "ISO-10646-UCS-4"
+    const-string/jumbo v4, "ISO-10646-UCS-4"
 
-    return-object v0
+    return-object v4
 
     :cond_11
-    if-ne v1, v4, :cond_7
+    if-ne v1, v5, :cond_7
 
     if-nez v2, :cond_7
 
-    if-ne v3, v5, :cond_7
+    if-ne v3, v6, :cond_7
 
-    const-string/jumbo v0, "UTF-16BE"
+    const-string/jumbo v4, "UTF-16BE"
 
-    return-object v0
+    return-object v4
 
     :cond_12
     if-nez v1, :cond_8
 
-    if-ne v2, v5, :cond_8
+    if-ne v2, v6, :cond_8
 
     if-nez v3, :cond_8
 
-    const-string/jumbo v0, "UTF-16LE"
+    const-string/jumbo v4, "UTF-16LE"
 
-    return-object v0
+    return-object v4
 
     :cond_13
-    const/16 v0, 0x6f
+    const/16 v4, 0x6f
 
-    if-ne v1, v0, :cond_9
+    if-ne v1, v4, :cond_9
 
-    const/16 v0, 0xa7
+    const/16 v4, 0xa7
 
-    if-ne v2, v0, :cond_9
+    if-ne v2, v4, :cond_9
 
-    const/16 v0, 0x94
+    const/16 v4, 0x94
 
-    if-ne v3, v0, :cond_9
+    if-ne v3, v4, :cond_9
 
-    const-string/jumbo v0, "CP037"
+    const-string/jumbo v4, "CP037"
 
-    return-object v0
+    return-object v4
 .end method
 
 .method protected getReader(Lmf/org/apache/xerces/xni/parser/XMLInputSource;)Ljava/io/Reader;
-    .locals 11
+    .locals 26
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    const/16 v10, 0x22
+    invoke-virtual/range {p1 .. p1}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->getCharacterStream()Ljava/io/Reader;
 
-    const/4 v5, -0x1
+    move-result-object v22
 
-    const/4 v9, 0x1
+    if-nez v22, :cond_3
 
-    const/4 v6, 0x0
+    const/16 v17, 0x0
 
-    const/4 v8, 0x0
+    invoke-virtual/range {p1 .. p1}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->getEncoding()Ljava/lang/String;
 
-    invoke-virtual {p1}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->getCharacterStream()Ljava/io/Reader;
+    move-result-object v8
 
-    move-result-object v0
-
-    if-nez v0, :cond_4
-
-    invoke-virtual {p1}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->getEncoding()Ljava/lang/String;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_5
-
-    move-object v4, v0
+    if-eqz v8, :cond_4
 
     :goto_0
-    invoke-virtual {p1}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->getByteStream()Ljava/io/InputStream;
+    invoke-virtual/range {p1 .. p1}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->getByteStream()Ljava/io/InputStream;
 
-    move-result-object v0
+    move-result-object v22
 
-    if-nez v0, :cond_6
+    if-nez v22, :cond_5
 
-    invoke-virtual {p1}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->getSystemId()Ljava/lang/String;
+    invoke-virtual/range {p1 .. p1}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->getSystemId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v22
 
-    invoke-virtual {p1}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->getBaseSystemId()Ljava/lang/String;
+    invoke-virtual/range {p1 .. p1}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->getBaseSystemId()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v23
 
-    invoke-static {v0, v1, v8}, Lmf/org/apache/xerces/impl/XMLEntityManager;->expandSystemId(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;
+    const/16 v24, 0x0
 
-    move-result-object v0
+    invoke-static/range {v22 .. v24}, Lmf/org/apache/xerces/impl/XMLEntityManager;->expandSystemId(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;
 
-    new-instance v1, Ljava/net/URL;
+    move-result-object v10
 
-    invoke-direct {v1, v0}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
+    new-instance v19, Ljava/net/URL;
 
-    invoke-virtual {v1}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
+    move-object/from16 v0, v19
 
-    move-result-object v1
+    invoke-direct {v0, v10}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
 
-    instance-of v0, v1, Ljava/net/HttpURLConnection;
+    invoke-virtual/range {v19 .. v19}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
 
-    if-nez v0, :cond_7
+    move-result-object v20
+
+    move-object/from16 v0, v20
+
+    instance-of v0, v0, Ljava/net/HttpURLConnection;
+
+    move/from16 v22, v0
+
+    if-nez v22, :cond_6
 
     :cond_0
     :goto_1
-    new-instance v2, Ljava/io/BufferedInputStream;
+    new-instance v17, Ljava/io/BufferedInputStream;
 
-    invoke-virtual {v1}, Ljava/net/URLConnection;->getInputStream()Ljava/io/InputStream;
+    invoke-virtual/range {v20 .. v20}, Ljava/net/URLConnection;->getInputStream()Ljava/io/InputStream;
 
-    move-result-object v0
+    move-result-object v22
 
-    invoke-direct {v2, v0}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;)V
+    move-object/from16 v0, v17
 
-    invoke-virtual {v1}, Ljava/net/URLConnection;->getContentType()Ljava/lang/String;
+    move-object/from16 v1, v22
 
-    move-result-object v3
+    invoke-direct {v0, v1}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;)V
 
-    if-nez v3, :cond_9
+    invoke-virtual/range {v20 .. v20}, Ljava/net/URLConnection;->getContentType()Ljava/lang/String;
 
-    move v0, v5
+    move-result-object v16
+
+    if-nez v16, :cond_8
+
+    const/4 v13, -0x1
 
     :goto_2
-    if-ne v0, v5, :cond_a
+    const/4 v6, 0x0
 
-    invoke-virtual {v3}, Ljava/lang/String;->trim()Ljava/lang/String;
+    const/4 v5, 0x0
 
-    move-result-object v0
+    const/16 v22, -0x1
 
-    move-object v1, v0
+    move/from16 v0, v22
 
-    move-object v0, v6
+    if-ne v13, v0, :cond_9
+
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v6
 
     :cond_1
     :goto_3
-    const-string/jumbo v3, "text/xml"
+    const/4 v7, 0x0
 
-    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v22, "text/xml"
 
-    move-result v3
+    move-object/from16 v0, v22
 
-    if-nez v3, :cond_e
+    invoke-virtual {v6, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v3, "application/xml"
+    move-result v22
 
-    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-nez v22, :cond_d
 
-    move-result v3
+    const-string/jumbo v22, "application/xml"
 
-    if-nez v3, :cond_f
+    move-object/from16 v0, v22
 
-    const-string/jumbo v0, "+xml"
+    invoke-virtual {v6, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    move-result v22
 
-    move-result v0
+    if-nez v22, :cond_f
 
-    if-nez v0, :cond_10
+    const-string/jumbo v22, "+xml"
 
-    move-object v0, v6
+    move-object/from16 v0, v22
+
+    invoke-virtual {v6, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+
+    move-result v22
+
+    if-nez v22, :cond_11
+
+    :goto_4
+    if-nez v7, :cond_12
 
     :cond_2
-    :goto_4
-    if-nez v0, :cond_11
+    :goto_5
+    sget-object v22, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
-    move-object v0, v2
+    move-object/from16 v0, v22
+
+    invoke-virtual {v8, v0}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v8
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1, v8}, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->consumeBOM(Ljava/io/InputStream;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    const-string/jumbo v22, "UTF-8"
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v8, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v22
+
+    if-nez v22, :cond_13
+
+    const-string/jumbo v22, "UTF-16BE"
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v8, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v22
+
+    if-nez v22, :cond_14
+
+    const-string/jumbo v22, "UTF-16LE"
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v8, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v22
+
+    if-nez v22, :cond_15
+
+    invoke-static {v8}, Lmf/org/apache/xerces/util/EncodingMap;->getIANA2JavaMapping(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v14
+
+    if-eqz v14, :cond_16
+
+    const-string/jumbo v22, "ASCII"
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v14, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v22
+
+    if-nez v22, :cond_17
+
+    const-string/jumbo v22, "ISO8859_1"
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v14, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v22
+
+    if-nez v22, :cond_18
+
+    new-instance v22, Ljava/io/InputStreamReader;
+
+    move-object/from16 v0, v22
+
+    move-object/from16 v1, v17
+
+    invoke-direct {v0, v1, v14}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;Ljava/lang/String;)V
+
+    return-object v22
 
     :cond_3
-    :goto_5
-    sget-object v1, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+    invoke-virtual/range {p1 .. p1}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->getCharacterStream()Ljava/io/Reader;
 
-    invoke-virtual {v4, v1}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
+    move-result-object v22
 
-    move-result-object v1
-
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->consumeBOM(Ljava/io/InputStream;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "UTF-8"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_12
-
-    const-string/jumbo v2, "UTF-16BE"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_13
-
-    const-string/jumbo v2, "UTF-16LE"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_14
-
-    invoke-static {v1}, Lmf/org/apache/xerces/util/EncodingMap;->getIANA2JavaMapping(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_15
-
-    const-string/jumbo v1, "ASCII"
-
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_16
-
-    const-string/jumbo v1, "ISO8859_1"
-
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_17
-
-    new-instance v1, Ljava/io/InputStreamReader;
-
-    invoke-direct {v1, v0, v2}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;Ljava/lang/String;)V
-
-    return-object v1
+    return-object v22
 
     :cond_4
-    invoke-virtual {p1}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->getCharacterStream()Ljava/io/Reader;
-
-    move-result-object v0
-
-    return-object v0
-
-    :cond_5
-    const-string/jumbo v0, "UTF-8"
-
-    move-object v4, v0
+    const-string/jumbo v8, "UTF-8"
 
     goto/16 :goto_0
 
+    :cond_5
+    invoke-virtual/range {p1 .. p1}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->getByteStream()Ljava/io/InputStream;
+
+    move-result-object v17
+
+    move-object/from16 v0, v17
+
+    instance-of v0, v0, Ljava/io/BufferedInputStream;
+
+    move/from16 v22, v0
+
+    if-nez v22, :cond_2
+
+    new-instance v18, Ljava/io/BufferedInputStream;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
+
+    move-object/from16 v22, v0
+
+    move-object/from16 v0, v22
+
+    iget-object v0, v0, Lmf/org/apache/xerces/xni/XMLString;->ch:[C
+
+    move-object/from16 v22, v0
+
+    move-object/from16 v0, v22
+
+    array-length v0, v0
+
+    move/from16 v22, v0
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v17
+
+    move/from16 v2, v22
+
+    invoke-direct {v0, v1, v2}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;I)V
+
+    move-object/from16 v17, v18
+
+    goto/16 :goto_5
+
     :cond_6
-    invoke-virtual {p1}, Lmf/org/apache/xerces/xni/parser/XMLInputSource;->getByteStream()Ljava/io/InputStream;
+    move-object/from16 v0, p1
 
-    move-result-object v0
+    instance-of v0, v0, Lmf/org/apache/xerces/util/HTTPInputSource;
 
-    instance-of v1, v0, Ljava/io/BufferedInputStream;
+    move/from16 v22, v0
 
-    if-nez v1, :cond_3
+    if-eqz v22, :cond_0
 
-    new-instance v1, Ljava/io/BufferedInputStream;
+    move-object/from16 v21, v20
 
-    iget-object v2, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
+    check-cast v21, Ljava/net/HttpURLConnection;
 
-    iget-object v2, v2, Lmf/org/apache/xerces/xni/XMLString;->ch:[C
+    move-object/from16 v12, p1
 
-    array-length v2, v2
+    check-cast v12, Lmf/org/apache/xerces/util/HTTPInputSource;
 
-    invoke-direct {v1, v0, v2}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;I)V
+    invoke-virtual {v12}, Lmf/org/apache/xerces/util/HTTPInputSource;->getHTTPRequestProperties()Ljava/util/Iterator;
 
-    move-object v0, v1
-
-    goto :goto_5
-
-    :cond_7
-    instance-of v0, p1, Lmf/org/apache/xerces/util/HTTPInputSource;
-
-    if-eqz v0, :cond_0
-
-    move-object v0, v1
-
-    check-cast v0, Ljava/net/HttpURLConnection;
-
-    check-cast p1, Lmf/org/apache/xerces/util/HTTPInputSource;
-
-    invoke-virtual {p1}, Lmf/org/apache/xerces/util/HTTPInputSource;->getHTTPRequestProperties()Ljava/util/Iterator;
-
-    move-result-object v7
+    move-result-object v15
 
     :goto_6
-    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v22
 
-    if-eqz v2, :cond_8
+    if-eqz v22, :cond_7
 
-    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v9
 
-    check-cast v2, Ljava/util/Map$Entry;
+    check-cast v9, Ljava/util/Map$Entry;
 
-    invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {v9}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v22
 
-    check-cast v3, Ljava/lang/String;
+    check-cast v22, Ljava/lang/String;
 
-    invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {v9}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v23
 
-    check-cast v2, Ljava/lang/String;
+    check-cast v23, Ljava/lang/String;
 
-    invoke-virtual {v0, v3, v2}, Ljava/net/HttpURLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual/range {v21 .. v23}, Ljava/net/HttpURLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_6
 
-    :cond_8
-    invoke-virtual {p1}, Lmf/org/apache/xerces/util/HTTPInputSource;->getFollowHTTPRedirects()Z
+    :cond_7
+    invoke-virtual {v12}, Lmf/org/apache/xerces/util/HTTPInputSource;->getFollowHTTPRedirects()Z
 
-    move-result v2
+    move-result v11
 
-    if-nez v2, :cond_0
+    if-nez v11, :cond_0
 
-    invoke-virtual {v0, v2}, Ljava/net/HttpURLConnection;->setInstanceFollowRedirects(Z)V
+    move-object/from16 v0, v21
+
+    invoke-virtual {v0, v11}, Ljava/net/HttpURLConnection;->setInstanceFollowRedirects(Z)V
 
     goto/16 :goto_1
 
-    :cond_9
-    const/16 v0, 0x3b
+    :cond_8
+    const/16 v22, 0x3b
 
-    invoke-virtual {v3, v0}, Ljava/lang/String;->indexOf(I)I
+    move-object/from16 v0, v16
 
-    move-result v0
+    move/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->indexOf(I)I
+
+    move-result v13
 
     goto/16 :goto_2
 
-    :cond_a
-    invoke-virtual {v3, v8, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    :cond_9
+    const/16 v22, 0x0
 
-    move-result-object v1
+    move-object/from16 v0, v16
 
-    invoke-virtual {v1}, Ljava/lang/String;->trim()Ljava/lang/String;
+    move/from16 v1, v22
 
-    move-result-object v1
+    invoke-virtual {v0, v1, v13}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    add-int/lit8 v0, v0, 0x1
+    move-result-object v22
 
-    invoke-virtual {v3, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
+    add-int/lit8 v22, v13, 0x1
 
-    move-result-object v0
+    move-object/from16 v0, v16
 
-    const-string/jumbo v3, "charset="
+    move/from16 v1, v22
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result v3
+    move-result-object v22
 
-    if-nez v3, :cond_b
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-object v0, v6
+    move-result-object v5
+
+    const-string/jumbo v22, "charset="
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v5, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v22
+
+    if-nez v22, :cond_a
+
+    const/4 v5, 0x0
 
     goto/16 :goto_3
+
+    :cond_a
+    const/16 v22, 0x8
+
+    move/from16 v0, v22
+
+    invoke-virtual {v5, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v22
+
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v5
+
+    const/16 v22, 0x0
+
+    move/from16 v0, v22
+
+    invoke-virtual {v5, v0}, Ljava/lang/String;->charAt(I)C
+
+    move-result v22
+
+    const/16 v23, 0x22
+
+    move/from16 v0, v22
+
+    move/from16 v1, v23
+
+    if-eq v0, v1, :cond_c
 
     :cond_b
-    const/16 v3, 0x8
+    const/16 v22, 0x0
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    move/from16 v0, v22
 
-    move-result-object v0
+    invoke-virtual {v5, v0}, Ljava/lang/String;->charAt(I)C
 
-    invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
+    move-result v22
 
-    move-result-object v0
+    const/16 v23, 0x27
 
-    invoke-virtual {v0, v8}, Ljava/lang/String;->charAt(I)C
+    move/from16 v0, v22
 
-    move-result v3
+    move/from16 v1, v23
 
-    if-eq v3, v10, :cond_d
+    if-ne v0, v1, :cond_1
 
-    :cond_c
-    invoke-virtual {v0, v8}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
 
-    move-result v3
+    move-result v22
 
-    const/16 v5, 0x27
+    add-int/lit8 v22, v22, -0x1
 
-    if-ne v3, v5, :cond_1
+    move/from16 v0, v22
 
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    invoke-virtual {v5, v0}, Ljava/lang/String;->charAt(I)C
 
-    move-result v3
+    move-result v22
 
-    add-int/lit8 v3, v3, -0x1
+    const/16 v23, 0x27
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->charAt(I)C
+    move/from16 v0, v22
 
-    move-result v3
+    move/from16 v1, v23
 
-    const/16 v5, 0x27
-
-    if-ne v3, v5, :cond_1
+    if-ne v0, v1, :cond_1
 
     :goto_7
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
 
-    move-result v3
+    move-result v22
 
-    add-int/lit8 v3, v3, -0x1
+    add-int/lit8 v22, v22, -0x1
 
-    invoke-virtual {v0, v9, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    const/16 v23, 0x1
 
-    move-result-object v0
+    move/from16 v0, v23
+
+    move/from16 v1, v22
+
+    invoke-virtual {v5, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v5
 
     goto/16 :goto_3
 
-    :cond_d
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    :cond_c
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
 
-    move-result v3
+    move-result v22
 
-    add-int/lit8 v3, v3, -0x1
+    add-int/lit8 v22, v22, -0x1
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->charAt(I)C
+    move/from16 v0, v22
 
-    move-result v3
+    invoke-virtual {v5, v0}, Ljava/lang/String;->charAt(I)C
 
-    if-ne v3, v10, :cond_c
+    move-result v22
+
+    const/16 v23, 0x22
+
+    move/from16 v0, v22
+
+    move/from16 v1, v23
+
+    if-ne v0, v1, :cond_b
 
     goto :goto_7
 
-    :cond_e
-    if-nez v0, :cond_2
+    :cond_d
+    if-nez v5, :cond_e
 
-    const-string/jumbo v0, "US-ASCII"
+    const-string/jumbo v7, "US-ASCII"
+
+    goto/16 :goto_4
+
+    :cond_e
+    move-object v7, v5
 
     goto/16 :goto_4
 
     :cond_f
-    if-nez v0, :cond_2
+    if-nez v5, :cond_10
 
-    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->getEncodingName(Ljava/io/InputStream;)Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    move-result-object v0
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->getEncodingName(Ljava/io/InputStream;)Ljava/lang/String;
+
+    move-result-object v7
 
     goto/16 :goto_4
 
     :cond_10
-    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->getEncodingName(Ljava/io/InputStream;)Ljava/lang/String;
-
-    move-result-object v0
+    move-object v7, v5
 
     goto/16 :goto_4
 
     :cond_11
-    move-object v4, v0
+    move-object/from16 v0, p0
 
-    move-object v0, v2
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->getEncodingName(Ljava/io/InputStream;)Ljava/lang/String;
+
+    move-result-object v7
+
+    goto/16 :goto_4
+
+    :cond_12
+    move-object v8, v7
 
     goto/16 :goto_5
 
-    :cond_12
-    invoke-direct {p0, v0}, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->createUTF8Reader(Ljava/io/InputStream;)Ljava/io/Reader;
-
-    move-result-object v0
-
-    return-object v0
-
     :cond_13
-    invoke-direct {p0, v0, v9}, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->createUTF16Reader(Ljava/io/InputStream;Z)Ljava/io/Reader;
+    move-object/from16 v0, p0
 
-    move-result-object v0
+    move-object/from16 v1, v17
 
-    return-object v0
+    invoke-direct {v0, v1}, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->createUTF8Reader(Ljava/io/InputStream;)Ljava/io/Reader;
+
+    move-result-object v22
+
+    return-object v22
 
     :cond_14
-    invoke-direct {p0, v0, v8}, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->createUTF16Reader(Ljava/io/InputStream;Z)Ljava/io/Reader;
+    const/16 v22, 0x1
 
-    move-result-object v0
+    move-object/from16 v0, p0
 
-    return-object v0
+    move-object/from16 v1, v17
+
+    move/from16 v2, v22
+
+    invoke-direct {v0, v1, v2}, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->createUTF16Reader(Ljava/io/InputStream;Z)Ljava/io/Reader;
+
+    move-result-object v22
+
+    return-object v22
 
     :cond_15
-    iget-object v0, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    const/16 v22, 0x0
 
-    const-string/jumbo v2, "http://www.w3.org/TR/1998/REC-xml-19980210"
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v2}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->getMessageFormatter(Ljava/lang/String;)Lmf/org/apache/xerces/util/MessageFormatter;
+    move-object/from16 v1, v17
 
-    move-result-object v0
+    move/from16 v2, v22
 
-    iget-object v2, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    invoke-direct {v0, v1, v2}, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->createUTF16Reader(Ljava/io/InputStream;Z)Ljava/io/Reader;
 
-    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->getLocale()Ljava/util/Locale;
+    move-result-object v22
 
-    move-result-object v2
-
-    new-instance v3, Ljava/io/IOException;
-
-    const-string/jumbo v4, "EncodingDeclInvalid"
-
-    new-array v5, v9, [Ljava/lang/Object;
-
-    aput-object v1, v5, v8
-
-    invoke-interface {v0, v2, v4, v5}, Lmf/org/apache/xerces/util/MessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v3, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
-
-    throw v3
+    return-object v22
 
     :cond_16
-    invoke-direct {p0, v0}, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->createASCIIReader(Ljava/io/InputStream;)Ljava/io/Reader;
+    move-object/from16 v0, p0
 
-    move-result-object v0
+    iget-object v0, v0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    return-object v0
+    move-object/from16 v22, v0
+
+    const-string/jumbo v23, "http://www.w3.org/TR/1998/REC-xml-19980210"
+
+    invoke-virtual/range {v22 .. v23}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->getMessageFormatter(Ljava/lang/String;)Lmf/org/apache/xerces/util/MessageFormatter;
+
+    move-result-object v3
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+
+    move-object/from16 v22, v0
+
+    invoke-virtual/range {v22 .. v22}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->getLocale()Ljava/util/Locale;
+
+    move-result-object v4
+
+    new-instance v22, Ljava/io/IOException;
+
+    const-string/jumbo v23, "EncodingDeclInvalid"
+
+    const/16 v24, 0x1
+
+    move/from16 v0, v24
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v24, v0
+
+    const/16 v25, 0x0
+
+    aput-object v8, v24, v25
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v24
+
+    invoke-interface {v3, v4, v0, v1}, Lmf/org/apache/xerces/util/MessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v23
+
+    invoke-direct/range {v22 .. v23}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw v22
 
     :cond_17
-    invoke-direct {p0, v0}, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->createLatin1Reader(Ljava/io/InputStream;)Ljava/io/Reader;
+    move-object/from16 v0, p0
 
-    move-result-object v0
+    move-object/from16 v1, v17
 
-    return-object v0
+    invoke-direct {v0, v1}, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->createASCIIReader(Ljava/io/InputStream;)Ljava/io/Reader;
+
+    move-result-object v22
+
+    return-object v22
+
+    :cond_18
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v17
+
+    invoke-direct {v0, v1}, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->createLatin1Reader(Ljava/io/InputStream;)Ljava/io/Reader;
+
+    move-result-object v22
+
+    return-object v22
 .end method
 
 .method protected isValid(I)Z
@@ -1047,257 +1226,285 @@
         }
     .end annotation
 
-    const/4 v11, 0x0
+    iget-object v6, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fSource:Lmf/org/apache/xerces/xni/parser/XMLInputSource;
 
-    const/16 v10, 0x10
+    invoke-virtual {p0, v6}, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->getReader(Lmf/org/apache/xerces/xni/parser/XMLInputSource;)Ljava/io/Reader;
 
-    const/4 v9, 0x2
+    move-result-object v6
 
-    const/4 v8, 0x1
+    iput-object v6, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fReader:Ljava/io/Reader;
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fSource:Lmf/org/apache/xerces/xni/parser/XMLInputSource;
+    iput-object v6, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fSource:Lmf/org/apache/xerces/xni/parser/XMLInputSource;
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->getReader(Lmf/org/apache/xerces/xni/parser/XMLInputSource;)Ljava/io/Reader;
+    iget-object v6, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fReader:Ljava/io/Reader;
 
-    move-result-object v0
+    iget-object v7, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fReader:Ljava/io/Reader;
+    iget-object v7, v7, Lmf/org/apache/xerces/xni/XMLString;->ch:[C
 
-    iput-object v11, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fSource:Lmf/org/apache/xerces/xni/parser/XMLInputSource;
+    iget-object v8, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fReader:Ljava/io/Reader;
+    iget-object v8, v8, Lmf/org/apache/xerces/xni/XMLString;->ch:[C
 
-    iget-object v1, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
+    array-length v8, v8
 
-    iget-object v1, v1, Lmf/org/apache/xerces/xni/XMLString;->ch:[C
+    add-int/lit8 v8, v8, -0x1
 
-    iget-object v2, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
+    const/4 v9, 0x0
 
-    iget-object v2, v2, Lmf/org/apache/xerces/xni/XMLString;->ch:[C
+    invoke-virtual {v6, v7, v9, v8}, Ljava/io/Reader;->read([CII)I
 
-    array-length v2, v2
+    move-result v3
 
-    add-int/lit8 v2, v2, -0x1
+    iget-object v6, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fHandler:Lmf/org/apache/xerces/xinclude/XIncludeHandler;
 
-    invoke-virtual {v0, v1, v4, v2}, Ljava/io/Reader;->read([CII)I
+    const/4 v7, 0x1
 
-    move-result v0
-
-    iget-object v1, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fHandler:Lmf/org/apache/xerces/xinclude/XIncludeHandler;
-
-    iput-boolean v8, v1, Lmf/org/apache/xerces/xinclude/XIncludeHandler;->fHasIncludeReportedContent:Z
+    iput-boolean v7, v6, Lmf/org/apache/xerces/xinclude/XIncludeHandler;->fHasIncludeReportedContent:Z
 
     :goto_0
-    const/4 v1, -0x1
+    const/4 v6, -0x1
 
-    if-eq v0, v1, :cond_9
+    if-eq v3, v6, :cond_9
 
-    move v1, v0
+    const/4 v2, 0x0
 
-    move v0, v4
+    move v4, v3
 
     :goto_1
-    if-ge v0, v1, :cond_6
+    if-ge v2, v4, :cond_6
 
-    iget-object v2, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
+    iget-object v6, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
 
-    iget-object v2, v2, Lmf/org/apache/xerces/xni/XMLString;->ch:[C
+    iget-object v6, v6, Lmf/org/apache/xerces/xni/XMLString;->ch:[C
 
-    aget-char v5, v2, v0
+    aget-char v0, v6, v2
 
-    invoke-virtual {p0, v5}, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->isValid(I)Z
+    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->isValid(I)Z
 
-    move-result v2
+    move-result v6
 
-    if-eqz v2, :cond_0
+    if-eqz v6, :cond_1
 
+    move v3, v4
+
+    :cond_0
     :goto_2
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
+
+    move v4, v3
 
     goto :goto_1
 
-    :cond_0
-    invoke-static {v5}, Lmf/org/apache/xerces/util/XMLChar;->isHighSurrogate(I)Z
-
-    move-result v2
-
-    if-nez v2, :cond_1
-
-    iget-object v2, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
-
-    const-string/jumbo v3, "http://www.w3.org/TR/1998/REC-xml-19980210"
-
-    const-string/jumbo v6, "InvalidCharInContent"
-
-    new-array v7, v8, [Ljava/lang/Object;
-
-    invoke-static {v5, v10}, Ljava/lang/Integer;->toString(II)Ljava/lang/String;
-
-    move-result-object v5
-
-    aput-object v5, v7, v4
-
-    invoke-virtual {v2, v3, v6, v7, v9}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
-
-    goto :goto_2
-
     :cond_1
-    add-int/lit8 v3, v0, 0x1
+    invoke-static {v0}, Lmf/org/apache/xerces/util/XMLChar;->isHighSurrogate(I)Z
 
-    if-lt v3, v1, :cond_2
+    move-result v6
 
-    iget-object v0, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fReader:Ljava/io/Reader;
+    if-nez v6, :cond_2
 
-    invoke-virtual {v0}, Ljava/io/Reader;->read()I
+    iget-object v6, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    move-result v0
+    const-string/jumbo v7, "http://www.w3.org/TR/1998/REC-xml-19980210"
 
-    const/4 v2, -0x1
+    const-string/jumbo v8, "InvalidCharInContent"
 
-    if-ne v0, v2, :cond_3
+    const/4 v9, 0x1
 
-    :goto_3
-    invoke-static {v0}, Lmf/org/apache/xerces/util/XMLChar;->isLowSurrogate(I)Z
+    new-array v9, v9, [Ljava/lang/Object;
 
-    move-result v2
-
-    if-nez v2, :cond_4
-
-    iget-object v2, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
-
-    const-string/jumbo v5, "http://www.w3.org/TR/1998/REC-xml-19980210"
-
-    const-string/jumbo v6, "InvalidCharInContent"
-
-    new-array v7, v8, [Ljava/lang/Object;
+    const/16 v10, 0x10
 
     invoke-static {v0, v10}, Ljava/lang/Integer;->toString(II)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v10
 
-    aput-object v0, v7, v4
+    const/4 v11, 0x0
 
-    invoke-virtual {v2, v5, v6, v7, v9}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    aput-object v10, v9, v11
 
-    move v0, v3
+    const/4 v10, 0x2
+
+    invoke-virtual {v6, v7, v8, v9, v10}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+
+    move v3, v4
 
     goto :goto_2
 
     :cond_2
-    iget-object v0, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
+    add-int/lit8 v2, v2, 0x1
 
-    iget-object v0, v0, Lmf/org/apache/xerces/xni/XMLString;->ch:[C
+    if-lt v2, v4, :cond_3
 
-    aget-char v0, v0, v3
+    iget-object v6, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fReader:Ljava/io/Reader;
 
-    goto :goto_3
+    invoke-virtual {v6}, Ljava/io/Reader;->read()I
+
+    move-result v1
+
+    const/4 v6, -0x1
+
+    if-ne v1, v6, :cond_4
+
+    move v3, v4
+
+    :goto_3
+    invoke-static {v1}, Lmf/org/apache/xerces/util/XMLChar;->isLowSurrogate(I)Z
+
+    move-result v6
+
+    if-nez v6, :cond_5
+
+    iget-object v6, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+
+    const-string/jumbo v7, "http://www.w3.org/TR/1998/REC-xml-19980210"
+
+    const-string/jumbo v8, "InvalidCharInContent"
+
+    const/4 v9, 0x1
+
+    new-array v9, v9, [Ljava/lang/Object;
+
+    const/16 v10, 0x10
+
+    invoke-static {v1, v10}, Ljava/lang/Integer;->toString(II)Ljava/lang/String;
+
+    move-result-object v10
+
+    const/4 v11, 0x0
+
+    aput-object v10, v9, v11
+
+    const/4 v10, 0x2
+
+    invoke-virtual {v6, v7, v8, v9, v10}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+
+    goto :goto_2
 
     :cond_3
-    iget-object v2, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
+    iget-object v6, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
 
-    iget-object v6, v2, Lmf/org/apache/xerces/xni/XMLString;->ch:[C
+    iget-object v6, v6, Lmf/org/apache/xerces/xni/XMLString;->ch:[C
 
-    add-int/lit8 v2, v1, 0x1
+    aget-char v1, v6, v2
 
-    int-to-char v7, v0
-
-    int-to-char v7, v7
-
-    aput-char v7, v6, v1
-
-    move v1, v2
+    move v3, v4
 
     goto :goto_3
 
     :cond_4
-    int-to-char v0, v0
+    iget-object v6, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
 
-    invoke-static {v5, v0}, Lmf/org/apache/xerces/util/XMLChar;->supplemental(CC)I
+    iget-object v6, v6, Lmf/org/apache/xerces/xni/XMLString;->ch:[C
 
-    move-result v0
+    add-int/lit8 v3, v4, 0x1
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->isValid(I)Z
+    int-to-char v7, v1
 
-    move-result v2
+    int-to-char v7, v7
 
-    if-eqz v2, :cond_5
+    aput-char v7, v6, v4
 
-    move v0, v3
-
-    goto :goto_2
+    goto :goto_3
 
     :cond_5
-    iget-object v2, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    int-to-char v6, v1
 
-    const-string/jumbo v5, "http://www.w3.org/TR/1998/REC-xml-19980210"
+    invoke-static {v0, v6}, Lmf/org/apache/xerces/util/XMLChar;->supplemental(CC)I
 
-    const-string/jumbo v6, "InvalidCharInContent"
+    move-result v5
 
-    new-array v7, v8, [Ljava/lang/Object;
+    invoke-virtual {p0, v5}, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->isValid(I)Z
 
-    invoke-static {v0, v10}, Ljava/lang/Integer;->toString(II)Ljava/lang/String;
+    move-result v6
 
-    move-result-object v0
+    if-nez v6, :cond_0
 
-    aput-object v0, v7, v4
+    iget-object v6, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    invoke-virtual {v2, v5, v6, v7, v9}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    const-string/jumbo v7, "http://www.w3.org/TR/1998/REC-xml-19980210"
 
-    move v0, v3
+    const-string/jumbo v8, "InvalidCharInContent"
 
-    goto :goto_2
+    const/4 v9, 0x1
+
+    new-array v9, v9, [Ljava/lang/Object;
+
+    const/16 v10, 0x10
+
+    invoke-static {v5, v10}, Ljava/lang/Integer;->toString(II)Ljava/lang/String;
+
+    move-result-object v10
+
+    const/4 v11, 0x0
+
+    aput-object v10, v9, v11
+
+    const/4 v10, 0x2
+
+    invoke-virtual {v6, v7, v8, v9, v10}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+
+    goto/16 :goto_2
 
     :cond_6
-    iget-object v0, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fHandler:Lmf/org/apache/xerces/xinclude/XIncludeHandler;
+    iget-object v6, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fHandler:Lmf/org/apache/xerces/xinclude/XIncludeHandler;
 
-    if-nez v0, :cond_8
+    if-nez v6, :cond_8
 
     :cond_7
     :goto_4
-    iget-object v0, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fReader:Ljava/io/Reader;
+    iget-object v6, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fReader:Ljava/io/Reader;
 
-    iget-object v1, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
+    iget-object v7, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
 
-    iget-object v1, v1, Lmf/org/apache/xerces/xni/XMLString;->ch:[C
+    iget-object v7, v7, Lmf/org/apache/xerces/xni/XMLString;->ch:[C
 
-    iget-object v2, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
+    iget-object v8, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
 
-    iget-object v2, v2, Lmf/org/apache/xerces/xni/XMLString;->ch:[C
+    iget-object v8, v8, Lmf/org/apache/xerces/xni/XMLString;->ch:[C
 
-    array-length v2, v2
+    array-length v8, v8
 
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 v8, v8, -0x1
 
-    invoke-virtual {v0, v1, v4, v2}, Ljava/io/Reader;->read([CII)I
+    const/4 v9, 0x0
 
-    move-result v0
+    invoke-virtual {v6, v7, v9, v8}, Ljava/io/Reader;->read([CII)I
+
+    move-result v3
 
     goto/16 :goto_0
 
     :cond_8
-    if-lez v1, :cond_7
+    if-lez v4, :cond_7
 
-    iget-object v0, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
+    iget-object v6, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
 
-    iput v4, v0, Lmf/org/apache/xerces/xni/XMLString;->offset:I
+    const/4 v7, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
+    iput v7, v6, Lmf/org/apache/xerces/xni/XMLString;->offset:I
 
-    iput v1, v0, Lmf/org/apache/xerces/xni/XMLString;->length:I
+    iget-object v6, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fHandler:Lmf/org/apache/xerces/xinclude/XIncludeHandler;
+    iput v4, v6, Lmf/org/apache/xerces/xni/XMLString;->length:I
 
-    iget-object v1, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
+    iget-object v6, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fHandler:Lmf/org/apache/xerces/xinclude/XIncludeHandler;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fHandler:Lmf/org/apache/xerces/xinclude/XIncludeHandler;
+    iget-object v7, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
 
-    invoke-virtual {v2, v11, v8}, Lmf/org/apache/xerces/xinclude/XIncludeHandler;->modifyAugmentations(Lmf/org/apache/xerces/xni/Augmentations;Z)Lmf/org/apache/xerces/xni/Augmentations;
+    iget-object v8, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fHandler:Lmf/org/apache/xerces/xinclude/XIncludeHandler;
 
-    move-result-object v2
+    const/4 v9, 0x0
 
-    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/xinclude/XIncludeHandler;->characters(Lmf/org/apache/xerces/xni/XMLString;Lmf/org/apache/xerces/xni/Augmentations;)V
+    const/4 v10, 0x1
+
+    invoke-virtual {v8, v9, v10}, Lmf/org/apache/xerces/xinclude/XIncludeHandler;->modifyAugmentations(Lmf/org/apache/xerces/xni/Augmentations;Z)Lmf/org/apache/xerces/xni/Augmentations;
+
+    move-result-object v8
+
+    invoke-virtual {v6, v7, v8}, Lmf/org/apache/xerces/xinclude/XIncludeHandler;->characters(Lmf/org/apache/xerces/xni/XMLString;Lmf/org/apache/xerces/xni/Augmentations;)V
 
     goto :goto_4
 
@@ -1314,9 +1521,9 @@
 
     array-length v0, v0
 
-    add-int/lit8 v1, p1, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, p1, :cond_0
 
     :goto_0
     return-void
@@ -1324,7 +1531,7 @@
     :cond_0
     iget-object v0, p0, Lmf/org/apache/xerces/xinclude/XIncludeTextReader;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
 
-    new-array v1, v1, [C
+    new-array v1, p1, [C
 
     iput-object v1, v0, Lmf/org/apache/xerces/xni/XMLString;->ch:[C
 

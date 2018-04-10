@@ -29,8 +29,6 @@
 .method constructor <init>(Lmf/org/apache/xerces/util/AugmentationsImpl$SmallContainer;)V
     .locals 4
 
-    const/4 v0, 0x0
-
     iput-object p1, p0, Lmf/org/apache/xerces/util/AugmentationsImpl$SmallContainer$SmallContainerKeyEnumeration;->this$1:Lmf/org/apache/xerces/util/AugmentationsImpl$SmallContainer;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +39,11 @@
 
     iput-object v1, p0, Lmf/org/apache/xerces/util/AugmentationsImpl$SmallContainer$SmallContainerKeyEnumeration;->enumArray:[Ljava/lang/Object;
 
-    iput v0, p0, Lmf/org/apache/xerces/util/AugmentationsImpl$SmallContainer$SmallContainerKeyEnumeration;->next:I
+    const/4 v1, 0x0
+
+    iput v1, p0, Lmf/org/apache/xerces/util/AugmentationsImpl$SmallContainer$SmallContainerKeyEnumeration;->next:I
+
+    const/4 v0, 0x0
 
     :goto_0
     iget v1, p1, Lmf/org/apache/xerces/util/AugmentationsImpl$SmallContainer;->fNumEntries:I
@@ -92,19 +94,19 @@
 .method public nextElement()Ljava/lang/Object;
     .locals 4
 
-    iget v0, p0, Lmf/org/apache/xerces/util/AugmentationsImpl$SmallContainer$SmallContainerKeyEnumeration;->next:I
+    iget v1, p0, Lmf/org/apache/xerces/util/AugmentationsImpl$SmallContainer$SmallContainerKeyEnumeration;->next:I
+
+    iget-object v2, p0, Lmf/org/apache/xerces/util/AugmentationsImpl$SmallContainer$SmallContainerKeyEnumeration;->enumArray:[Ljava/lang/Object;
+
+    array-length v2, v2
+
+    if-ge v1, v2, :cond_0
 
     iget-object v1, p0, Lmf/org/apache/xerces/util/AugmentationsImpl$SmallContainer$SmallContainerKeyEnumeration;->enumArray:[Ljava/lang/Object;
 
-    array-length v1, v1
+    iget v2, p0, Lmf/org/apache/xerces/util/AugmentationsImpl$SmallContainer$SmallContainerKeyEnumeration;->next:I
 
-    if-ge v0, v1, :cond_0
-
-    iget-object v0, p0, Lmf/org/apache/xerces/util/AugmentationsImpl$SmallContainer$SmallContainerKeyEnumeration;->enumArray:[Ljava/lang/Object;
-
-    iget v1, p0, Lmf/org/apache/xerces/util/AugmentationsImpl$SmallContainer$SmallContainerKeyEnumeration;->next:I
-
-    aget-object v0, v0, v1
+    aget-object v0, v1, v2
 
     iget-object v1, p0, Lmf/org/apache/xerces/util/AugmentationsImpl$SmallContainer$SmallContainerKeyEnumeration;->enumArray:[Ljava/lang/Object;
 
@@ -123,9 +125,9 @@
     return-object v0
 
     :cond_0
-    new-instance v0, Ljava/util/NoSuchElementException;
+    new-instance v1, Ljava/util/NoSuchElementException;
 
-    invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
+    invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
 
-    throw v0
+    throw v1
 .end method

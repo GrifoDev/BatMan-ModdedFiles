@@ -44,18 +44,18 @@
 
     invoke-virtual {p0, v1}, Lorg/simpleframework/xml/stream/Stack;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public pop()Ljava/lang/Object;
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -68,18 +68,18 @@
 
     if-lez v0, :cond_0
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 v1, v0, -0x1
 
-    invoke-virtual {p0, v0}, Lorg/simpleframework/xml/stream/Stack;->remove(I)Ljava/lang/Object;
+    invoke-virtual {p0, v1}, Lorg/simpleframework/xml/stream/Stack;->remove(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public push(Ljava/lang/Object;)Ljava/lang/Object;
@@ -96,7 +96,7 @@
 .end method
 
 .method public top()Ljava/lang/Object;
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -109,16 +109,16 @@
 
     if-lez v0, :cond_0
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 v1, v0, -0x1
 
-    invoke-virtual {p0, v0}, Lorg/simpleframework/xml/stream/Stack;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, v1}, Lorg/simpleframework/xml/stream/Stack;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 .end method

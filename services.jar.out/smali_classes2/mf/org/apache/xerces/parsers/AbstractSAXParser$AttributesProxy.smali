@@ -178,11 +178,11 @@
 .end method
 
 .method public getURI(I)Ljava/lang/String;
-    .locals 1
+    .locals 2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/parsers/AbstractSAXParser$AttributesProxy;->fAttributes:Lmf/org/apache/xerces/xni/XMLAttributes;
+    iget-object v1, p0, Lmf/org/apache/xerces/parsers/AbstractSAXParser$AttributesProxy;->fAttributes:Lmf/org/apache/xerces/xni/XMLAttributes;
 
-    invoke-interface {v0, p1}, Lmf/org/apache/xerces/xni/XMLAttributes;->getURI(I)Ljava/lang/String;
+    invoke-interface {v1, p1}, Lmf/org/apache/xerces/xni/XMLAttributes;->getURI(I)Ljava/lang/String;
 
     move-result-object v0
 
@@ -291,7 +291,7 @@
 .end method
 
 .method public isDeclared(Ljava/lang/String;)Z
-    .locals 3
+    .locals 4
 
     invoke-virtual {p0, p1}, Lmf/org/apache/xerces/parsers/AbstractSAXParser$AttributesProxy;->getIndex(Ljava/lang/String;)I
 
@@ -307,30 +307,30 @@
 
     invoke-interface {v2, v0}, Lmf/org/apache/xerces/xni/XMLAttributes;->getAugmentations(I)Lmf/org/apache/xerces/xni/Augmentations;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-string/jumbo v2, "ATTRIBUTE_DECLARED"
+    const-string/jumbo v3, "ATTRIBUTE_DECLARED"
 
-    invoke-interface {v0, v2}, Lmf/org/apache/xerces/xni/Augmentations;->getItem(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-interface {v2, v3}, Lmf/org/apache/xerces/xni/Augmentations;->getItem(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v1, v0}, Ljava/lang/Boolean;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/Boolean;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v1
 .end method
 
 .method public isDeclared(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 3
+    .locals 4
 
     invoke-virtual {p0, p1, p2}, Lmf/org/apache/xerces/parsers/AbstractSAXParser$AttributesProxy;->getIndex(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -346,26 +346,26 @@
 
     invoke-interface {v2, v0}, Lmf/org/apache/xerces/xni/XMLAttributes;->getAugmentations(I)Lmf/org/apache/xerces/xni/Augmentations;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-string/jumbo v2, "ATTRIBUTE_DECLARED"
+    const-string/jumbo v3, "ATTRIBUTE_DECLARED"
 
-    invoke-interface {v0, v2}, Lmf/org/apache/xerces/xni/Augmentations;->getItem(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-interface {v2, v3}, Lmf/org/apache/xerces/xni/Augmentations;->getItem(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v1, v0}, Ljava/lang/Boolean;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/Boolean;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v1
 .end method
 
 .method public isSpecified(I)Z
@@ -413,16 +413,16 @@
 
     invoke-interface {v1, v0}, Lmf/org/apache/xerces/xni/XMLAttributes;->isSpecified(I)Z
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v1
 .end method
 
 .method public isSpecified(Ljava/lang/String;Ljava/lang/String;)Z
@@ -440,16 +440,16 @@
 
     invoke-interface {v1, v0}, Lmf/org/apache/xerces/xni/XMLAttributes;->isSpecified(I)Z
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v1
 .end method
 
 .method public setAttributes(Lmf/org/apache/xerces/xni/XMLAttributes;)V

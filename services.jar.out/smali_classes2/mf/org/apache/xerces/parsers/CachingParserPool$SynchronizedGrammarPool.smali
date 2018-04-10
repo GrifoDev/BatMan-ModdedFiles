@@ -37,159 +37,159 @@
 .method public cacheGrammars(Ljava/lang/String;[Lmf/org/apache/xerces/xni/grammars/Grammar;)V
     .locals 2
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/CachingParserPool$SynchronizedGrammarPool;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
-
-    monitor-enter v1
-
-    :try_start_0
     iget-object v0, p0, Lmf/org/apache/xerces/parsers/CachingParserPool$SynchronizedGrammarPool;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
 
-    invoke-interface {v0, p1, p2}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;->cacheGrammars(Ljava/lang/String;[Lmf/org/apache/xerces/xni/grammars/Grammar;)V
+    monitor-enter v0
 
-    monitor-exit v1
+    :try_start_0
+    iget-object v1, p0, Lmf/org/apache/xerces/parsers/CachingParserPool$SynchronizedGrammarPool;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
+
+    invoke-interface {v1, p1, p2}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;->cacheGrammars(Ljava/lang/String;[Lmf/org/apache/xerces/xni/grammars/Grammar;)V
+
+    monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v1
 .end method
 
 .method public clear()V
     .locals 2
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/CachingParserPool$SynchronizedGrammarPool;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
-
-    monitor-enter v1
-
-    :try_start_0
     iget-object v0, p0, Lmf/org/apache/xerces/parsers/CachingParserPool$SynchronizedGrammarPool;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
 
-    invoke-interface {v0}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;->clear()V
+    monitor-enter v0
 
-    monitor-exit v1
+    :try_start_0
+    iget-object v1, p0, Lmf/org/apache/xerces/parsers/CachingParserPool$SynchronizedGrammarPool;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
+
+    invoke-interface {v1}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;->clear()V
+
+    monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v1
 .end method
 
 .method public lockPool()V
     .locals 2
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/CachingParserPool$SynchronizedGrammarPool;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
-
-    monitor-enter v1
-
-    :try_start_0
     iget-object v0, p0, Lmf/org/apache/xerces/parsers/CachingParserPool$SynchronizedGrammarPool;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
 
-    invoke-interface {v0}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;->lockPool()V
+    monitor-enter v0
 
-    monitor-exit v1
+    :try_start_0
+    iget-object v1, p0, Lmf/org/apache/xerces/parsers/CachingParserPool$SynchronizedGrammarPool;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
+
+    invoke-interface {v1}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;->lockPool()V
+
+    monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v1
 .end method
 
 .method public retrieveGrammar(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Lmf/org/apache/xerces/xni/grammars/Grammar;
     .locals 2
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/CachingParserPool$SynchronizedGrammarPool;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
-
-    monitor-enter v1
-
-    :try_start_0
     iget-object v0, p0, Lmf/org/apache/xerces/parsers/CachingParserPool$SynchronizedGrammarPool;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
 
-    invoke-interface {v0, p1}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;->retrieveGrammar(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Lmf/org/apache/xerces/xni/grammars/Grammar;
+    monitor-enter v0
 
-    move-result-object v0
+    :try_start_0
+    iget-object v1, p0, Lmf/org/apache/xerces/parsers/CachingParserPool$SynchronizedGrammarPool;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
 
-    monitor-exit v1
+    invoke-interface {v1, p1}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;->retrieveGrammar(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Lmf/org/apache/xerces/xni/grammars/Grammar;
 
-    return-object v0
+    move-result-object v1
+
+    monitor-exit v0
+
+    return-object v1
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v1
 .end method
 
 .method public retrieveInitialGrammarSet(Ljava/lang/String;)[Lmf/org/apache/xerces/xni/grammars/Grammar;
     .locals 2
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/CachingParserPool$SynchronizedGrammarPool;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
-
-    monitor-enter v1
-
-    :try_start_0
     iget-object v0, p0, Lmf/org/apache/xerces/parsers/CachingParserPool$SynchronizedGrammarPool;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
 
-    invoke-interface {v0, p1}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;->retrieveInitialGrammarSet(Ljava/lang/String;)[Lmf/org/apache/xerces/xni/grammars/Grammar;
+    monitor-enter v0
 
-    move-result-object v0
+    :try_start_0
+    iget-object v1, p0, Lmf/org/apache/xerces/parsers/CachingParserPool$SynchronizedGrammarPool;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
 
-    monitor-exit v1
+    invoke-interface {v1, p1}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;->retrieveInitialGrammarSet(Ljava/lang/String;)[Lmf/org/apache/xerces/xni/grammars/Grammar;
 
-    return-object v0
+    move-result-object v1
+
+    monitor-exit v0
+
+    return-object v1
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v1
 .end method
 
 .method public unlockPool()V
     .locals 2
 
-    iget-object v1, p0, Lmf/org/apache/xerces/parsers/CachingParserPool$SynchronizedGrammarPool;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
-
-    monitor-enter v1
-
-    :try_start_0
     iget-object v0, p0, Lmf/org/apache/xerces/parsers/CachingParserPool$SynchronizedGrammarPool;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
 
-    invoke-interface {v0}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;->unlockPool()V
+    monitor-enter v0
 
-    monitor-exit v1
+    :try_start_0
+    iget-object v1, p0, Lmf/org/apache/xerces/parsers/CachingParserPool$SynchronizedGrammarPool;->fGrammarPool:Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;
+
+    invoke-interface {v1}, Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;->unlockPool()V
+
+    monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v1
 .end method

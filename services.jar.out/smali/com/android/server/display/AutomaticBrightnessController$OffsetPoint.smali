@@ -59,7 +59,7 @@
 
     iput v0, p0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mHighBoundary:F
 
-    invoke-static {p1}, Lcom/android/server/display/AutomaticBrightnessController;->-get6(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;
+    invoke-static {p1}, Lcom/android/server/display/AutomaticBrightnessController;->-get7(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;
 
     move-result-object v0
 

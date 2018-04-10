@@ -5,8 +5,3 @@
 # interfaces
 .implements Lorg/apache/http/HttpRequestInterceptor;
 .implements Lorg/apache/http/HttpResponseInterceptor;
-
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation

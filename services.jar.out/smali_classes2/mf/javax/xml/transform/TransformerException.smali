@@ -128,78 +128,78 @@
 .end method
 
 .method public getLocationAsString()Ljava/lang/String;
-    .locals 5
+    .locals 6
 
-    const/4 v1, 0x0
+    const/4 v5, 0x0
 
-    iget-object v0, p0, Lmf/javax/xml/transform/TransformerException;->locator:Lmf/javax/xml/transform/SourceLocator;
+    iget-object v4, p0, Lmf/javax/xml/transform/TransformerException;->locator:Lmf/javax/xml/transform/SourceLocator;
 
-    if-nez v0, :cond_0
+    if-nez v4, :cond_0
 
-    return-object v1
+    return-object v5
 
     :cond_0
-    new-instance v0, Ljava/lang/StringBuffer;
+    new-instance v2, Ljava/lang/StringBuffer;
 
-    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
 
-    iget-object v1, p0, Lmf/javax/xml/transform/TransformerException;->locator:Lmf/javax/xml/transform/SourceLocator;
+    iget-object v4, p0, Lmf/javax/xml/transform/TransformerException;->locator:Lmf/javax/xml/transform/SourceLocator;
 
-    invoke-interface {v1}, Lmf/javax/xml/transform/SourceLocator;->getSystemId()Ljava/lang/String;
+    invoke-interface {v4}, Lmf/javax/xml/transform/SourceLocator;->getSystemId()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    iget-object v2, p0, Lmf/javax/xml/transform/TransformerException;->locator:Lmf/javax/xml/transform/SourceLocator;
+    iget-object v4, p0, Lmf/javax/xml/transform/TransformerException;->locator:Lmf/javax/xml/transform/SourceLocator;
 
-    invoke-interface {v2}, Lmf/javax/xml/transform/SourceLocator;->getLineNumber()I
+    invoke-interface {v4}, Lmf/javax/xml/transform/SourceLocator;->getLineNumber()I
 
-    move-result v2
+    move-result v1
 
-    iget-object v3, p0, Lmf/javax/xml/transform/TransformerException;->locator:Lmf/javax/xml/transform/SourceLocator;
+    iget-object v4, p0, Lmf/javax/xml/transform/TransformerException;->locator:Lmf/javax/xml/transform/SourceLocator;
 
-    invoke-interface {v3}, Lmf/javax/xml/transform/SourceLocator;->getColumnNumber()I
+    invoke-interface {v4}, Lmf/javax/xml/transform/SourceLocator;->getColumnNumber()I
 
-    move-result v3
+    move-result v0
 
-    if-nez v1, :cond_1
+    if-nez v3, :cond_1
 
     :goto_0
-    if-nez v2, :cond_2
+    if-nez v1, :cond_2
 
     :goto_1
-    if-nez v3, :cond_3
+    if-nez v0, :cond_3
 
     :goto_2
-    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v4
 
-    return-object v0
+    return-object v4
 
     :cond_1
     const-string/jumbo v4, "; SystemID: "
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_0
 
     :cond_2
-    const-string/jumbo v1, "; Line#: "
+    const-string/jumbo v4, "; Line#: "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
     goto :goto_1
 
     :cond_3
-    const-string/jumbo v1, "; Column#: "
+    const-string/jumbo v4, "; Column#: "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
     goto :goto_2
 .end method
@@ -213,86 +213,86 @@
 .end method
 
 .method public getMessageAndLocation()Ljava/lang/String;
-    .locals 5
+    .locals 6
 
-    new-instance v0, Ljava/lang/StringBuffer;
+    new-instance v3, Ljava/lang/StringBuffer;
 
-    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuffer;-><init>()V
 
     invoke-super {p0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    if-nez v1, :cond_1
+    if-nez v2, :cond_1
 
     :goto_0
-    iget-object v1, p0, Lmf/javax/xml/transform/TransformerException;->locator:Lmf/javax/xml/transform/SourceLocator;
+    iget-object v5, p0, Lmf/javax/xml/transform/TransformerException;->locator:Lmf/javax/xml/transform/SourceLocator;
 
-    if-nez v1, :cond_2
+    if-nez v5, :cond_2
 
     :cond_0
     :goto_1
-    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v5
 
-    return-object v0
+    return-object v5
 
     :cond_1
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_0
 
     :cond_2
-    iget-object v1, p0, Lmf/javax/xml/transform/TransformerException;->locator:Lmf/javax/xml/transform/SourceLocator;
+    iget-object v5, p0, Lmf/javax/xml/transform/TransformerException;->locator:Lmf/javax/xml/transform/SourceLocator;
 
-    invoke-interface {v1}, Lmf/javax/xml/transform/SourceLocator;->getSystemId()Ljava/lang/String;
+    invoke-interface {v5}, Lmf/javax/xml/transform/SourceLocator;->getSystemId()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v4
 
-    iget-object v2, p0, Lmf/javax/xml/transform/TransformerException;->locator:Lmf/javax/xml/transform/SourceLocator;
+    iget-object v5, p0, Lmf/javax/xml/transform/TransformerException;->locator:Lmf/javax/xml/transform/SourceLocator;
 
-    invoke-interface {v2}, Lmf/javax/xml/transform/SourceLocator;->getLineNumber()I
+    invoke-interface {v5}, Lmf/javax/xml/transform/SourceLocator;->getLineNumber()I
 
-    move-result v2
+    move-result v1
 
-    iget-object v3, p0, Lmf/javax/xml/transform/TransformerException;->locator:Lmf/javax/xml/transform/SourceLocator;
+    iget-object v5, p0, Lmf/javax/xml/transform/TransformerException;->locator:Lmf/javax/xml/transform/SourceLocator;
 
-    invoke-interface {v3}, Lmf/javax/xml/transform/SourceLocator;->getColumnNumber()I
+    invoke-interface {v5}, Lmf/javax/xml/transform/SourceLocator;->getColumnNumber()I
 
-    move-result v3
+    move-result v0
 
-    if-nez v1, :cond_3
+    if-nez v4, :cond_3
 
     :goto_2
-    if-nez v2, :cond_4
+    if-nez v1, :cond_4
 
     :goto_3
-    if-eqz v3, :cond_0
+    if-eqz v0, :cond_0
 
-    const-string/jumbo v1, "; Column#: "
+    const-string/jumbo v5, "; Column#: "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
     goto :goto_1
 
     :cond_3
-    const-string/jumbo v4, "; SystemID: "
+    const-string/jumbo v5, "; SystemID: "
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_2
 
     :cond_4
-    const-string/jumbo v1, "; Line#: "
+    const-string/jumbo v5, "; Line#: "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
     goto :goto_3
 .end method
@@ -378,11 +378,7 @@
 .end method
 
 .method public printStackTrace(Ljava/io/PrintWriter;)V
-    .locals 7
-
-    const/4 v1, 0x0
-
-    const/4 v3, 0x0
+    .locals 14
 
     if-eqz p1, :cond_1
 
@@ -390,9 +386,9 @@
     :try_start_0
     invoke-virtual {p0}, Lmf/javax/xml/transform/TransformerException;->getLocationAsString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v7
 
-    if-nez v2, :cond_2
+    if-nez v7, :cond_2
 
     :goto_1
     invoke-super {p0, p1}, Ljava/lang/Exception;->printStackTrace(Ljava/io/PrintWriter;)V
@@ -402,14 +398,14 @@
     :goto_2
     invoke-virtual {p0}, Lmf/javax/xml/transform/TransformerException;->getException()Ljava/lang/Throwable;
 
-    move-result-object v2
+    move-result-object v3
 
-    move v4, v1
+    const/4 v4, 0x0
 
     :goto_3
-    const/16 v1, 0xa
+    const/16 v11, 0xa
 
-    if-lt v4, v1, :cond_3
+    if-lt v4, v11, :cond_3
 
     :cond_0
     invoke-virtual {p1}, Ljava/io/PrintWriter;->flush()V
@@ -419,141 +415,139 @@
     :cond_1
     new-instance p1, Ljava/io/PrintWriter;
 
-    sget-object v2, Ljava/lang/System;->err:Ljava/io/PrintStream;
+    sget-object v11, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
-    const/4 v4, 0x1
+    const/4 v12, 0x1
 
-    invoke-direct {p1, v2, v4}, Ljava/io/PrintWriter;-><init>(Ljava/io/OutputStream;Z)V
+    invoke-direct {p1, v11, v12}, Ljava/io/PrintWriter;-><init>(Ljava/io/OutputStream;Z)V
 
     goto :goto_0
 
     :cond_2
     :try_start_1
-    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, v7}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0
 
     goto :goto_1
 
     :catch_0
-    move-exception v2
+    move-exception v1
 
     goto :goto_2
 
     :cond_3
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
-    const-string/jumbo v1, "---------"
+    const-string/jumbo v11, "---------"
 
-    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, v11}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     :try_start_2
-    instance-of v1, v2, Lmf/javax/xml/transform/TransformerException;
+    instance-of v11, v3, Lmf/javax/xml/transform/TransformerException;
 
-    if-nez v1, :cond_5
+    if-nez v11, :cond_5
 
     :cond_4
     :goto_4
-    invoke-virtual {v2, p1}, Ljava/lang/Throwable;->printStackTrace(Ljava/io/PrintWriter;)V
+    invoke-virtual {v3, p1}, Ljava/lang/Throwable;->printStackTrace(Ljava/io/PrintWriter;)V
     :try_end_2
     .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_1
 
     :goto_5
     :try_start_3
-    invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object v11
 
-    const-string/jumbo v5, "getException"
+    const-string/jumbo v12, "getException"
 
-    const/4 v6, 0x0
+    const/4 v13, 0x0
 
-    invoke-virtual {v1, v5, v6}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {v11, v12, v13}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
     :try_end_3
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_3 .. :try_end_3} :catch_2
     .catch Ljava/lang/IllegalAccessException; {:try_start_3 .. :try_end_3} :catch_3
     .catch Ljava/lang/NoSuchMethodException; {:try_start_3 .. :try_end_3} :catch_4
 
-    move-result-object v1
+    move-result-object v8
 
-    if-nez v1, :cond_6
+    if-nez v8, :cond_6
 
-    move-object v1, v3
+    const/4 v3, 0x0
 
     :goto_6
-    add-int/lit8 v2, v4, 0x1
-
-    move v4, v2
-
-    move-object v2, v1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_3
 
     :cond_5
     :try_start_4
-    move-object v0, v2
+    move-object v0, v3
 
     check-cast v0, Lmf/javax/xml/transform/TransformerException;
 
-    move-object v1, v0
+    move-object v11, v0
 
-    invoke-virtual {v1}, Lmf/javax/xml/transform/TransformerException;->getLocationAsString()Ljava/lang/String;
+    invoke-virtual {v11}, Lmf/javax/xml/transform/TransformerException;->getLocationAsString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v7
 
-    if-eqz v1, :cond_4
+    if-eqz v7, :cond_4
 
-    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, v7}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
     :try_end_4
     .catch Ljava/lang/Throwable; {:try_start_4 .. :try_end_4} :catch_1
 
     goto :goto_4
 
     :catch_1
-    move-exception v1
+    move-exception v2
 
-    const-string/jumbo v1, "Could not print stack trace..."
+    const-string/jumbo v11, "Could not print stack trace..."
 
-    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, v11}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     goto :goto_5
 
     :cond_6
-    const/4 v5, 0x0
+    move-object v10, v3
+
+    const/4 v11, 0x0
 
     :try_start_5
-    invoke-virtual {v1, v2, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v8, v3, v11}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v3
 
-    check-cast v1, Ljava/lang/Throwable;
+    check-cast v3, Ljava/lang/Throwable;
     :try_end_5
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_5 .. :try_end_5} :catch_2
     .catch Ljava/lang/IllegalAccessException; {:try_start_5 .. :try_end_5} :catch_3
     .catch Ljava/lang/NoSuchMethodException; {:try_start_5 .. :try_end_5} :catch_4
 
-    if-eq v2, v1, :cond_0
+    if-eq v10, v3, :cond_0
 
     goto :goto_6
 
     :catch_2
-    move-exception v1
+    move-exception v6
 
-    move-object v1, v3
+    const/4 v3, 0x0
 
     goto :goto_6
 
     :catch_3
-    move-exception v1
+    move-exception v5
 
-    move-object v1, v3
+    const/4 v3, 0x0
 
     goto :goto_6
 
     :catch_4
-    move-exception v1
+    move-exception v9
 
-    move-object v1, v3
+    const/4 v3, 0x0
 
     goto :goto_6
 .end method

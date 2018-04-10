@@ -36,15 +36,15 @@
     .locals 4
 
     :try_start_0
-    const-string/jumbo v0, "http://java.sun.com/jaxp/xpath/dom"
+    const-string/jumbo v1, "http://java.sun.com/jaxp/xpath/dom"
 
-    invoke-static {v0}, Lmf/javax/xml/xpath/XPathFactory;->newInstance(Ljava/lang/String;)Lmf/javax/xml/xpath/XPathFactory;
+    invoke-static {v1}, Lmf/javax/xml/xpath/XPathFactory;->newInstance(Ljava/lang/String;)Lmf/javax/xml/xpath/XPathFactory;
     :try_end_0
     .catch Lmf/javax/xml/xpath/XPathFactoryConfigurationException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :catch_0
     move-exception v0
@@ -59,23 +59,23 @@
 
     invoke-virtual {v0}, Lmf/javax/xml/xpath/XPathFactoryConfigurationException;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v1
 .end method
 
 .method public static final newInstance(Ljava/lang/String;)Lmf/javax/xml/xpath/XPathFactory;
-    .locals 3
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/javax/xml/xpath/XPathFactoryConfigurationException;
@@ -86,201 +86,203 @@
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_1
+    if-eqz v2, :cond_1
 
-    sget-object v0, Lmf/javax/xml/xpath/XPathFactory;->ss:Lmf/javax/xml/xpath/SecuritySupport;
+    sget-object v2, Lmf/javax/xml/xpath/XPathFactory;->ss:Lmf/javax/xml/xpath/SecuritySupport;
 
-    invoke-virtual {v0}, Lmf/javax/xml/xpath/SecuritySupport;->getContextClassLoader()Ljava/lang/ClassLoader;
+    invoke-virtual {v2}, Lmf/javax/xml/xpath/SecuritySupport;->getContextClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v0
 
     if-eqz v0, :cond_2
 
     :goto_0
-    new-instance v1, Lmf/javax/xml/xpath/XPathFactoryFinder;
+    new-instance v2, Lmf/javax/xml/xpath/XPathFactoryFinder;
 
-    invoke-direct {v1, v0}, Lmf/javax/xml/xpath/XPathFactoryFinder;-><init>(Ljava/lang/ClassLoader;)V
+    invoke-direct {v2, v0}, Lmf/javax/xml/xpath/XPathFactoryFinder;-><init>(Ljava/lang/ClassLoader;)V
 
-    invoke-virtual {v1, p0}, Lmf/javax/xml/xpath/XPathFactoryFinder;->newFactory(Ljava/lang/String;)Lmf/javax/xml/xpath/XPathFactory;
+    invoke-virtual {v2, p0}, Lmf/javax/xml/xpath/XPathFactoryFinder;->newFactory(Ljava/lang/String;)Lmf/javax/xml/xpath/XPathFactory;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_3
+    if-eqz v1, :cond_3
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance v2, Ljava/lang/NullPointerException;
 
-    const-string/jumbo v1, "XPathFactory#newInstance(String uri) cannot be called with uri == null"
+    const-string/jumbo v3, "XPathFactory#newInstance(String uri) cannot be called with uri == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v2
 
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "XPathFactory#newInstance(String uri) cannot be called with uri == \"\""
+    const-string/jumbo v3, "XPathFactory#newInstance(String uri) cannot be called with uri == \"\""
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v2
 
     :cond_2
-    const-class v0, Lmf/javax/xml/xpath/XPathFactory;
+    const-class v2, Lmf/javax/xml/xpath/XPathFactory;
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    invoke-virtual {v2}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v0
 
     goto :goto_0
 
     :cond_3
-    new-instance v0, Lmf/javax/xml/xpath/XPathFactoryConfigurationException;
+    new-instance v2, Lmf/javax/xml/xpath/XPathFactoryConfigurationException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "No XPathFactory implementation found for the object model: "
+    const-string/jumbo v4, "No XPathFactory implementation found for the object model: "
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-direct {v0, v1}, Lmf/javax/xml/xpath/XPathFactoryConfigurationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Lmf/javax/xml/xpath/XPathFactoryConfigurationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v2
 .end method
 
 .method public static newInstance(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Lmf/javax/xml/xpath/XPathFactory;
-    .locals 3
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lmf/javax/xml/xpath/XPathFactoryConfigurationException;
         }
     .end annotation
 
+    move-object v0, p2
+
     if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_1
+    if-eqz v2, :cond_1
 
     if-eqz p2, :cond_2
 
     :goto_0
-    new-instance v0, Lmf/javax/xml/xpath/XPathFactoryFinder;
+    new-instance v2, Lmf/javax/xml/xpath/XPathFactoryFinder;
 
-    invoke-direct {v0, p2}, Lmf/javax/xml/xpath/XPathFactoryFinder;-><init>(Ljava/lang/ClassLoader;)V
+    invoke-direct {v2, v0}, Lmf/javax/xml/xpath/XPathFactoryFinder;-><init>(Ljava/lang/ClassLoader;)V
 
-    invoke-virtual {v0, p1}, Lmf/javax/xml/xpath/XPathFactoryFinder;->createInstance(Ljava/lang/String;)Lmf/javax/xml/xpath/XPathFactory;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_3
-
-    invoke-virtual {v0, p0}, Lmf/javax/xml/xpath/XPathFactory;->isObjectModelSupported(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_4
-
-    new-instance v0, Lmf/javax/xml/xpath/XPathFactoryConfigurationException;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    const-string/jumbo v2, "Factory "
-
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p1}, Lmf/javax/xml/xpath/XPathFactoryFinder;->createInstance(Ljava/lang/String;)Lmf/javax/xml/xpath/XPathFactory;
 
     move-result-object v1
 
-    const-string/jumbo v2, " doesn\'t support given "
+    if-eqz v1, :cond_3
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Lmf/javax/xml/xpath/XPathFactory;->isObjectModelSupported(Ljava/lang/String;)Z
 
-    move-result-object v1
+    move-result v2
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-nez v2, :cond_4
 
-    move-result-object v1
+    new-instance v2, Lmf/javax/xml/xpath/XPathFactoryConfigurationException;
 
-    const-string/jumbo v2, " object model"
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v4, "Factory "
 
-    move-result-object v1
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-direct {v0, v1}, Lmf/javax/xml/xpath/XPathFactoryConfigurationException;-><init>(Ljava/lang/String;)V
+    const-string/jumbo v4, " doesn\'t support given "
 
-    throw v0
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " object model"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-direct {v2, v3}, Lmf/javax/xml/xpath/XPathFactoryConfigurationException;-><init>(Ljava/lang/String;)V
+
+    throw v2
 
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance v2, Ljava/lang/NullPointerException;
 
-    const-string/jumbo v1, "XPathFactory#newInstance(String uri) cannot be called with uri == null"
+    const-string/jumbo v3, "XPathFactory#newInstance(String uri) cannot be called with uri == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v2
 
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "XPathFactory#newInstance(String uri) cannot be called with uri == \"\""
+    const-string/jumbo v3, "XPathFactory#newInstance(String uri) cannot be called with uri == \"\""
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v2
 
     :cond_2
-    sget-object v0, Lmf/javax/xml/xpath/XPathFactory;->ss:Lmf/javax/xml/xpath/SecuritySupport;
+    sget-object v2, Lmf/javax/xml/xpath/XPathFactory;->ss:Lmf/javax/xml/xpath/SecuritySupport;
 
-    invoke-virtual {v0}, Lmf/javax/xml/xpath/SecuritySupport;->getContextClassLoader()Ljava/lang/ClassLoader;
+    invoke-virtual {v2}, Lmf/javax/xml/xpath/SecuritySupport;->getContextClassLoader()Ljava/lang/ClassLoader;
 
-    move-result-object p2
+    move-result-object v0
 
     goto :goto_0
 
     :cond_3
-    new-instance v0, Lmf/javax/xml/xpath/XPathFactoryConfigurationException;
+    new-instance v2, Lmf/javax/xml/xpath/XPathFactoryConfigurationException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "No XPathFactory implementation found for the object model: "
+    const-string/jumbo v4, "No XPathFactory implementation found for the object model: "
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-direct {v0, v1}, Lmf/javax/xml/xpath/XPathFactoryConfigurationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Lmf/javax/xml/xpath/XPathFactoryConfigurationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v2
 
     :cond_4
-    return-object v0
+    return-object v1
 .end method
 
 

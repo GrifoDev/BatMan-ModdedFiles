@@ -47,42 +47,37 @@
 .end method
 
 .method public replace(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .locals 4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    iget-object v0, p0, Lorg/simpleframework/xml/filter/StackFilter;->stack:Ljava/util/Stack;
+    iget-object v2, p0, Lorg/simpleframework/xml/filter/StackFilter;->stack:Ljava/util/Stack;
 
-    invoke-virtual {v0}, Ljava/util/Stack;->size()I
+    invoke-virtual {v2}, Ljava/util/Stack;->size()I
 
     move-result v0
 
-    :goto_0
-    add-int/lit8 v1, v0, -0x1
-
-    if-gez v1, :cond_0
-
-    return-object v2
-
     :cond_0
-    iget-object v0, p0, Lorg/simpleframework/xml/filter/StackFilter;->stack:Ljava/util/Stack;
+    add-int/lit8 v0, v0, -0x1
 
-    invoke-virtual {v0, v1}, Ljava/util/Stack;->get(I)Ljava/lang/Object;
+    if-gez v0, :cond_1
 
-    move-result-object v0
-
-    check-cast v0, Lorg/simpleframework/xml/filter/Filter;
-
-    invoke-interface {v0, p1}, Lorg/simpleframework/xml/filter/Filter;->replace(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    if-nez v0, :cond_1
-
-    move v0, v1
-
-    goto :goto_0
+    return-object v3
 
     :cond_1
-    return-object v0
+    iget-object v2, p0, Lorg/simpleframework/xml/filter/StackFilter;->stack:Ljava/util/Stack;
+
+    invoke-virtual {v2, v0}, Ljava/util/Stack;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lorg/simpleframework/xml/filter/Filter;
+
+    invoke-interface {v2, p1}, Lorg/simpleframework/xml/filter/Filter;->replace(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    return-object v1
 .end method

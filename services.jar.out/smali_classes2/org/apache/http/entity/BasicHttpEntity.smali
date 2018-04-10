@@ -3,9 +3,10 @@
 .source "BasicHttpEntity.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
+# instance fields
+.field private content:Ljava/io/InputStream;
+
+.field private length:J
 
 
 # direct methods
@@ -14,34 +15,15 @@
 
     invoke-direct {p0}, Lorg/apache/http/entity/AbstractHttpEntity;-><init>()V
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const-wide/16 v0, -0x1
 
-    const-string/jumbo v1, "Stub!"
+    iput-wide v0, p0, Lorg/apache/http/entity/BasicHttpEntity;->length:J
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 
 # virtual methods
-.method public consumeContent()V
-    .locals 2
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
 .method public getContent()Ljava/io/InputStream;
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
@@ -50,88 +32,134 @@
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/entity/BasicHttpEntity;->content:Ljava/io/InputStream;
 
-    const-string/jumbo v1, "Stub!"
+    if-nez v0, :cond_0
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    const/4 v0, 0x0
 
-    throw v0
+    :goto_0
+    const-string/jumbo v1, "Content has not been provided"
+
+    invoke-static {v0, v1}, Lorg/apache/http/util/Asserts;->check(ZLjava/lang/String;)V
+
+    iget-object v0, p0, Lorg/apache/http/entity/BasicHttpEntity;->content:Ljava/io/InputStream;
+
+    return-object v0
+
+    :cond_0
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method
 
 .method public getContentLength()J
     .locals 2
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-wide v0, p0, Lorg/apache/http/entity/BasicHttpEntity;->length:J
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-wide v0
 .end method
 
 .method public isRepeatable()Z
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const/4 v0, 0x0
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return v0
 .end method
 
 .method public isStreaming()Z
     .locals 2
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/entity/BasicHttpEntity;->content:Ljava/io/InputStream;
 
-    const-string/jumbo v1, "Stub!"
+    if-nez v0, :cond_1
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    :cond_0
+    const/4 v0, 0x0
 
-    throw v0
+    :goto_0
+    return v0
+
+    :cond_1
+    iget-object v0, p0, Lorg/apache/http/entity/BasicHttpEntity;->content:Ljava/io/InputStream;
+
+    sget-object v1, Lorg/apache/http/impl/io/EmptyInputStream;->INSTANCE:Lorg/apache/http/impl/io/EmptyInputStream;
+
+    if-eq v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method
 
 .method public setContent(Ljava/io/InputStream;)V
-    .locals 2
+    .locals 0
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iput-object p1, p0, Lorg/apache/http/entity/BasicHttpEntity;->content:Ljava/io/InputStream;
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 .method public setContentLength(J)V
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iput-wide p1, p0, Lorg/apache/http/entity/BasicHttpEntity;->length:J
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 .method public writeTo(Ljava/io/OutputStream;)V
-    .locals 2
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const-string/jumbo v4, "Output stream"
 
-    const-string/jumbo v1, "Stub!"
+    invoke-static {p1, v4}, Lorg/apache/http/util/Args;->notNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0}, Lorg/apache/http/entity/BasicHttpEntity;->getContent()Ljava/io/InputStream;
+
+    move-result-object v1
+
+    const/16 v4, 0x1000
+
+    :try_start_0
+    new-array v3, v4, [B
+
+    :goto_0
+    invoke-virtual {v1, v3}, Ljava/io/InputStream;->read([B)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    const/4 v4, -0x1
+
+    if-ne v2, v4, :cond_0
+
+    invoke-virtual {v1}, Ljava/io/InputStream;->close()V
+
+    return-void
+
+    :cond_0
+    const/4 v4, 0x0
+
+    :try_start_1
+    invoke-virtual {p1, v3, v4, v2}, Ljava/io/OutputStream;->write([BII)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    invoke-virtual {v1}, Ljava/io/InputStream;->close()V
 
     throw v0
 .end method

@@ -26,9 +26,9 @@
 
     const/4 v2, 0x1
 
-    const-string/jumbo v0, "accesskey"
+    const-string/jumbo v1, "accesskey"
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/html/dom/HTMLAreaElementImpl;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Lmf/org/apache/html/dom/HTMLAreaElementImpl;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -230,13 +230,13 @@
 .method public setTabIndex(I)V
     .locals 2
 
-    const-string/jumbo v0, "tabindex"
-
     invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/html/dom/HTMLAreaElementImpl;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
+    const-string/jumbo v1, "tabindex"
+
+    invoke-virtual {p0, v1, v0}, Lmf/org/apache/html/dom/HTMLAreaElementImpl;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method

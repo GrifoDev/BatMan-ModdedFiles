@@ -48,62 +48,64 @@
 
 # virtual methods
 .method public contains(S)Z
-    .locals 3
+    .locals 2
 
-    const/4 v1, 0x0
-
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_0
-    iget v2, p0, Lmf/org/apache/xerces/impl/xs/util/ShortListImpl;->fLength:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/xs/util/ShortListImpl;->fLength:I
 
-    if-ge v0, v2, :cond_1
+    if-ge v0, v1, :cond_1
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/util/ShortListImpl;->fArray:[S
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/util/ShortListImpl;->fArray:[S
 
-    aget-short v2, v2, v0
+    aget-short v1, v1, v0
 
-    if-eq v2, p1, :cond_0
+    if-eq v1, p1, :cond_0
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    return v0
+    return v1
 
     :cond_1
+    const/4 v1, 0x0
+
     return v1
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .locals 5
 
-    const/4 v1, 0x0
+    const/4 v4, 0x0
 
     if-nez p1, :cond_1
 
     :cond_0
-    return v1
+    return v4
 
     :cond_1
-    instance-of v0, p1, Lmf/org/apache/xerces/xs/ShortList;
+    instance-of v2, p1, Lmf/org/apache/xerces/xs/ShortList;
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
-    check-cast p1, Lmf/org/apache/xerces/xs/ShortList;
+    move-object v1, p1
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/util/ShortListImpl;->fLength:I
+    check-cast v1, Lmf/org/apache/xerces/xs/ShortList;
 
-    invoke-interface {p1}, Lmf/org/apache/xerces/xs/ShortList;->getLength()I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/util/ShortListImpl;->fLength:I
 
-    move-result v2
+    invoke-interface {v1}, Lmf/org/apache/xerces/xs/ShortList;->getLength()I
 
-    if-ne v0, v2, :cond_2
+    move-result v3
 
-    move v0, v1
+    if-ne v2, v3, :cond_2
+
+    const/4 v0, 0x0
 
     :goto_0
     iget v2, p0, Lmf/org/apache/xerces/impl/xs/util/ShortListImpl;->fLength:I
@@ -114,7 +116,7 @@
 
     aget-short v2, v2, v0
 
-    invoke-interface {p1, v0}, Lmf/org/apache/xerces/xs/ShortList;->item(I)S
+    invoke-interface {v1, v0}, Lmf/org/apache/xerces/xs/ShortList;->item(I)S
 
     move-result v3
 
@@ -125,15 +127,15 @@
     goto :goto_0
 
     :cond_2
-    return v1
+    return v4
 
     :cond_3
-    return v1
+    return v4
 
     :cond_4
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    return v0
+    return v2
 .end method
 
 .method public get(I)Ljava/lang/Object;

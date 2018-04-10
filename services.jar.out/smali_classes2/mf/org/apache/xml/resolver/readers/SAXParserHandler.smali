@@ -165,43 +165,43 @@
 .end method
 
 .method public resolveEntity(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXParserHandler;->er:Lorg/xml/sax/EntityResolver;
+    iget-object v1, p0, Lmf/org/apache/xml/resolver/readers/SAXParserHandler;->er:Lorg/xml/sax/EntityResolver;
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    return-object v2
+    return-object v3
 
     :cond_0
     :try_start_0
-    iget-object v0, p0, Lmf/org/apache/xml/resolver/readers/SAXParserHandler;->er:Lorg/xml/sax/EntityResolver;
+    iget-object v1, p0, Lmf/org/apache/xml/resolver/readers/SAXParserHandler;->er:Lorg/xml/sax/EntityResolver;
 
-    invoke-interface {v0, p1, p2}, Lorg/xml/sax/EntityResolver;->resolveEntity(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;
+    invoke-interface {v1, p1, p2}, Lorg/xml/sax/EntityResolver;->resolveEntity(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :catch_0
     move-exception v0
 
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    const-string/jumbo v1, "resolveEntity threw IOException!"
+    const-string/jumbo v2, "resolveEntity threw IOException!"
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    return-object v2
+    return-object v3
 .end method
 
 .method public setContentHandler(Lorg/xml/sax/ContentHandler;)V

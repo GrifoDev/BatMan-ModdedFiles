@@ -43,13 +43,13 @@
 
     invoke-direct {p0, p1, p2, p3}, Lmf/org/apache/xerces/parsers/XIncludeAwareParserConfiguration;-><init>(Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xni/grammars/XMLGrammarPool;Lmf/org/apache/xerces/xni/parser/XMLComponentManager;)V
 
-    const-string/jumbo v0, "http://apache.org/xml/properties/security-manager"
+    new-instance v0, Lmf/org/apache/xerces/util/SecurityManager;
 
-    new-instance v1, Lmf/org/apache/xerces/util/SecurityManager;
+    invoke-direct {v0}, Lmf/org/apache/xerces/util/SecurityManager;-><init>()V
 
-    invoke-direct {v1}, Lmf/org/apache/xerces/util/SecurityManager;-><init>()V
+    const-string/jumbo v1, "http://apache.org/xml/properties/security-manager"
 
-    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/parsers/SecurityConfiguration;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v1, v0}, Lmf/org/apache/xerces/parsers/SecurityConfiguration;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
     return-void
 .end method

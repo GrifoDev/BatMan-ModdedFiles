@@ -26,7 +26,7 @@
 
 # virtual methods
 .method public build()Lorg/simpleframework/xml/core/ModelList;
-    .locals 3
+    .locals 4
 
     new-instance v1, Lorg/simpleframework/xml/core/ModelList;
 
@@ -34,69 +34,69 @@
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/core/ModelList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v0
 
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result v3
 
-    if-nez v0, :cond_0
+    if-nez v3, :cond_0
 
     return-object v1
 
     :cond_0
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Lorg/simpleframework/xml/core/Model;
+    check-cast v2, Lorg/simpleframework/xml/core/Model;
 
-    invoke-virtual {v1, v0}, Lorg/simpleframework/xml/core/ModelList;->register(Lorg/simpleframework/xml/core/Model;)V
+    invoke-virtual {v1, v2}, Lorg/simpleframework/xml/core/ModelList;->register(Lorg/simpleframework/xml/core/Model;)V
 
     goto :goto_0
 .end method
 
 .method public isEmpty()Z
-    .locals 3
+    .locals 4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/core/ModelList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
-
-    :cond_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    const/4 v0, 0x1
-
-    return v0
-
-    :cond_1
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
     move-result-object v0
 
-    check-cast v0, Lorg/simpleframework/xml/core/Model;
+    :cond_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    if-eqz v0, :cond_0
+    move-result v2
 
-    invoke-interface {v0}, Lorg/simpleframework/xml/core/Model;->isEmpty()Z
+    if-nez v2, :cond_1
 
-    move-result v0
-
-    if-nez v0, :cond_0
+    const/4 v2, 0x1
 
     return v2
+
+    :cond_1
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lorg/simpleframework/xml/core/Model;
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v1}, Lorg/simpleframework/xml/core/Model;->isEmpty()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    return v3
 .end method
 
 .method public lookup(I)Lorg/simpleframework/xml/core/Model;
-    .locals 1
+    .locals 2
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/core/ModelList;->size()I
 
@@ -104,20 +104,20 @@
 
     if-le p1, v0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    add-int/lit8 v0, p1, -0x1
+    add-int/lit8 v1, p1, -0x1
 
-    invoke-virtual {p0, v0}, Lorg/simpleframework/xml/core/ModelList;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, v1}, Lorg/simpleframework/xml/core/ModelList;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lorg/simpleframework/xml/core/Model;
+    check-cast v1, Lorg/simpleframework/xml/core/Model;
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public register(Lorg/simpleframework/xml/core/Model;)V
@@ -174,13 +174,13 @@
     :cond_0
     invoke-virtual {p0}, Lorg/simpleframework/xml/core/ModelList;->isEmpty()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 
     :cond_1
     invoke-virtual {p0, v2}, Lorg/simpleframework/xml/core/ModelList;->remove(I)Ljava/lang/Object;

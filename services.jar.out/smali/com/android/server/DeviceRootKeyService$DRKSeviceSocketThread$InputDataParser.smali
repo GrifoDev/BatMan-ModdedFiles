@@ -171,7 +171,7 @@
 
     iput-short v4, p0, Lcom/android/server/DeviceRootKeyService$DRKSeviceSocketThread$InputDataParser;->mCommandID:S
 
-    const-string/jumbo v4, "DeviceRootKeyServiceSocket"
+    const-string/jumbo v4, "DeviceRootKeyServiceSocket(1.1.3)"
 
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -327,6 +327,9 @@
         :pswitch_2
         :pswitch_3
         :pswitch_4
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method
 

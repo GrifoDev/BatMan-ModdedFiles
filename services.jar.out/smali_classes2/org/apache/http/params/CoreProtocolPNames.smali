@@ -13,6 +13,10 @@
 
 .field public static final HTTP_ELEMENT_CHARSET:Ljava/lang/String; = "http.protocol.element-charset"
 
+.field public static final HTTP_MALFORMED_INPUT_ACTION:Ljava/lang/String; = "http.malformed.input.action"
+
+.field public static final HTTP_UNMAPPABLE_INPUT_ACTION:Ljava/lang/String; = "http.unmappable.input.action"
+
 .field public static final ORIGIN_SERVER:Ljava/lang/String; = "http.origin-server"
 
 .field public static final PROTOCOL_VERSION:Ljava/lang/String; = "http.protocol.version"

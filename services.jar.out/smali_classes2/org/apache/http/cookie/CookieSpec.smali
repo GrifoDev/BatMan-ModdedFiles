@@ -3,11 +3,6 @@
 .source "CookieSpec.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract formatCookies(Ljava/util/List;)Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -26,9 +21,13 @@
 .end method
 
 .method public abstract getVersion()I
+    .annotation build Lorg/apache/http/annotation/Obsolete;
+    .end annotation
 .end method
 
 .method public abstract getVersionHeader()Lorg/apache/http/Header;
+    .annotation build Lorg/apache/http/annotation/Obsolete;
+    .end annotation
 .end method
 
 .method public abstract match(Lorg/apache/http/cookie/Cookie;Lorg/apache/http/cookie/CookieOrigin;)Z

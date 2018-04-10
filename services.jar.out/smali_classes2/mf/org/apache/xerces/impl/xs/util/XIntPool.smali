@@ -15,9 +15,9 @@
 
     const/16 v3, 0xa
 
-    new-array v0, v3, [Lmf/org/apache/xerces/impl/xs/util/XInt;
+    new-array v1, v3, [Lmf/org/apache/xerces/impl/xs/util/XInt;
 
-    sput-object v0, Lmf/org/apache/xerces/impl/xs/util/XIntPool;->fXIntPool:[Lmf/org/apache/xerces/impl/xs/util/XInt;
+    sput-object v1, Lmf/org/apache/xerces/impl/xs/util/XIntPool;->fXIntPool:[Lmf/org/apache/xerces/impl/xs/util/XInt;
 
     const/4 v0, 0x0
 

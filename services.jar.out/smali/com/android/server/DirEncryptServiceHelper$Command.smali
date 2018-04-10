@@ -19,8 +19,6 @@
 
 .field public static final ENCRYPT:I = 0x4
 
-.field public static final ENC_META_CHECK:I = 0x5
-
 .field public static final MOUNT_ECRYPTFS_STORAGE:I = 0x6
 
 .field public static final PASSWORD:I = 0x1

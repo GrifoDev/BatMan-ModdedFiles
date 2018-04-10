@@ -70,21 +70,13 @@
 .end method
 
 .method protected scanAttribute(Lmf/org/apache/xerces/util/XMLAttributesImpl;)V
-    .locals 12
+    .locals 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
             Lmf/org/apache/xerces/xni/XNIException;
         }
     .end annotation
-
-    const/4 v7, 0x0
-
-    const/4 v11, 0x2
-
-    const/4 v10, 0x1
-
-    const/4 v9, 0x0
 
     iget-object v0, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityScanner:Lmf/org/apache/xerces/impl/XMLEntityScanner;
 
@@ -117,23 +109,23 @@
 
     invoke-virtual {p1}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->getLength()I
 
-    move-result v1
+    move-result v9
 
     iget-object v0, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    sget-object v2, Lmf/org/apache/xerces/util/XMLSymbols;->fCDATASymbol:Ljava/lang/String;
+    sget-object v1, Lmf/org/apache/xerces/util/XMLSymbols;->fCDATASymbol:Ljava/lang/String;
 
-    invoke-virtual {p1, v0, v2, v7}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->addAttribute(Lmf/org/apache/xerces/xni/QName;Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v2, 0x0
 
-    move-result v0
+    invoke-virtual {p1, v0, v1, v2}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->addAttribute(Lmf/org/apache/xerces/xni/QName;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v6
 
     invoke-virtual {p1}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->getLength()I
 
-    move-result v2
+    move-result v0
 
-    if-eq v1, v2, :cond_3
-
-    move v6, v0
+    if-eq v9, v0, :cond_3
 
     :goto_1
     iget-object v1, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
@@ -154,20 +146,22 @@
 
     invoke-virtual/range {v0 .. v5}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->scanAttributeValue(Lmf/org/apache/xerces/xni/XMLString;Lmf/org/apache/xerces/xni/XMLString;Ljava/lang/String;ZLjava/lang/String;)Z
 
-    move-result v0
+    move-result v7
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
+    iget-object v0, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fTempString:Lmf/org/apache/xerces/xni/XMLString;
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/xni/XMLString;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Lmf/org/apache/xerces/xni/XMLString;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v12
 
-    invoke-virtual {p1, v6, v2}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->setValue(ILjava/lang/String;)V
+    invoke-virtual {p1, v6, v12}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->setValue(ILjava/lang/String;)V
 
-    if-eqz v0, :cond_4
+    if-eqz v7, :cond_4
 
     :goto_2
-    invoke-virtual {p1, v6, v10}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->setSpecified(IZ)V
+    const/4 v0, 0x1
+
+    invoke-virtual {p1, v6, v0}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->setSpecified(IZ)V
 
     iget-boolean v0, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fBindNamespaces:Z
 
@@ -180,19 +174,25 @@
     :cond_1
     const-string/jumbo v0, "EqRequiredInAttribute"
 
-    new-array v1, v11, [Ljava/lang/Object;
+    const/4 v1, 0x2
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fCurrentElement:Lmf/org/apache/xerces/xni/QName;
+    new-array v1, v1, [Ljava/lang/Object;
 
-    iget-object v2, v2, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+    const/4 v2, 0x0
 
-    aput-object v2, v1, v9
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fCurrentElement:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
 
-    iget-object v2, v2, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+    aput-object v3, v1, v2
 
-    aput-object v2, v1, v10
+    const/4 v2, 0x1
+
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+
+    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+
+    aput-object v3, v1, v2
 
     invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->reportFatalError(Ljava/lang/String;[Ljava/lang/Object;)V
 
@@ -201,38 +201,42 @@
     :cond_2
     invoke-virtual {p1}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->getLength()I
 
-    move-result v0
+    move-result v6
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v0, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    sget-object v2, Lmf/org/apache/xerces/util/XMLSymbols;->fCDATASymbol:Ljava/lang/String;
+    sget-object v1, Lmf/org/apache/xerces/util/XMLSymbols;->fCDATASymbol:Ljava/lang/String;
 
-    invoke-virtual {p1, v1, v2, v7}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->addAttributeNS(Lmf/org/apache/xerces/xni/QName;Ljava/lang/String;Ljava/lang/String;)V
+    const/4 v2, 0x0
 
-    move v6, v0
+    invoke-virtual {p1, v0, v1, v2}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->addAttributeNS(Lmf/org/apache/xerces/xni/QName;Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_1
 
     :cond_3
-    const-string/jumbo v1, "AttributeNotUnique"
+    const-string/jumbo v0, "AttributeNotUnique"
 
-    new-array v2, v11, [Ljava/lang/Object;
+    const/4 v1, 0x2
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
 
     iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fCurrentElement:Lmf/org/apache/xerces/xni/QName;
 
     iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
 
-    aput-object v3, v2, v9
+    aput-object v3, v1, v2
+
+    const/4 v2, 0x1
 
     iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
     iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
 
-    aput-object v3, v2, v10
+    aput-object v3, v1, v2
 
-    invoke-virtual {p0, v1, v2}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->reportFatalError(Ljava/lang/String;[Ljava/lang/Object;)V
-
-    move v6, v0
+    invoke-virtual {p0, v0, v1}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->reportFatalError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_1
 
@@ -250,68 +254,68 @@
     :cond_5
     iget-object v0, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v1, v0, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
+    iget-object v8, v0, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
 
     iget-object v0, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
     iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_a
 
-    sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v10, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
     :goto_4
-    sget-object v3, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
+    sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
 
-    if-ne v0, v3, :cond_a
+    if-ne v10, v0, :cond_b
 
     :cond_6
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
+    iget-object v0, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fSymbolTable:Lmf/org/apache/xerces/util/SymbolTable;
 
-    invoke-virtual {v3, v2}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v12}, Lmf/org/apache/xerces/util/SymbolTable;->addSymbol(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v11
 
-    sget-object v3, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
+    sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
 
-    if-eq v0, v3, :cond_c
+    if-eq v10, v0, :cond_d
 
     :cond_7
     :goto_5
     sget-object v0, Lmf/org/apache/xerces/xni/NamespaceContext;->XMLNS_URI:Ljava/lang/String;
 
-    if-eq v2, v0, :cond_d
+    if-eq v11, v0, :cond_e
 
     :goto_6
     sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XML:Ljava/lang/String;
 
-    if-eq v1, v0, :cond_e
+    if-eq v8, v0, :cond_f
 
     sget-object v0, Lmf/org/apache/xerces/xni/NamespaceContext;->XML_URI:Ljava/lang/String;
 
-    if-eq v2, v0, :cond_f
+    if-eq v11, v0, :cond_10
 
     :cond_8
     :goto_7
     sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
 
-    if-ne v1, v0, :cond_10
+    if-ne v8, v0, :cond_11
 
-    sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v10, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
     :goto_8
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
+    iget-object v0, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
 
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
+    invoke-virtual {v11}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    if-nez v1, :cond_11
+    if-nez v1, :cond_9
 
-    move-object v1, v7
+    const/4 v11, 0x0
 
-    :goto_9
-    invoke-interface {v3, v0, v1}, Lmf/org/apache/xerces/xni/NamespaceContext;->declarePrefix(Ljava/lang/String;Ljava/lang/String;)Z
+    :cond_9
+    invoke-interface {v0, v10, v11}, Lmf/org/apache/xerces/xni/NamespaceContext;->declarePrefix(Ljava/lang/String;Ljava/lang/String;)Z
 
     iget-object v0, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
 
@@ -325,19 +329,19 @@
 
     goto/16 :goto_3
 
-    :cond_9
+    :cond_a
     iget-object v0, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    iget-object v10, v0, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
 
     goto :goto_4
 
-    :cond_a
-    sget-object v3, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    :cond_b
+    sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    if-eq v0, v3, :cond_b
+    if-eq v10, v0, :cond_c
 
-    :goto_a
+    :goto_9
     iget-object v0, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
     iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
@@ -358,98 +362,117 @@
 
     goto/16 :goto_3
 
-    :cond_b
-    sget-object v3, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
-
-    if-eq v1, v3, :cond_6
-
-    goto :goto_a
-
     :cond_c
     sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
 
-    if-ne v1, v0, :cond_7
+    if-eq v8, v0, :cond_6
+
+    goto :goto_9
+
+    :cond_d
+    sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
+
+    if-ne v8, v0, :cond_7
 
     iget-object v0, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v3, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+    const-string/jumbo v1, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
 
-    const-string/jumbo v4, "CantBindXMLNS"
+    const-string/jumbo v2, "CantBindXMLNS"
 
-    new-array v5, v10, [Ljava/lang/Object;
+    const/4 v3, 0x1
 
-    iget-object v8, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    new-array v3, v3, [Ljava/lang/Object;
 
-    aput-object v8, v5, v9
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    invoke-virtual {v0, v3, v4, v5, v11}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    const/4 v5, 0x0
+
+    aput-object v4, v3, v5
+
+    const/4 v4, 0x2
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
 
     goto :goto_5
 
-    :cond_d
+    :cond_e
     iget-object v0, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v3, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+    const-string/jumbo v1, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
 
-    const-string/jumbo v4, "CantBindXMLNS"
+    const-string/jumbo v2, "CantBindXMLNS"
 
-    new-array v5, v10, [Ljava/lang/Object;
+    const/4 v3, 0x1
 
-    iget-object v8, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    new-array v3, v3, [Ljava/lang/Object;
 
-    aput-object v8, v5, v9
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    invoke-virtual {v0, v3, v4, v5, v11}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    const/4 v5, 0x0
+
+    aput-object v4, v3, v5
+
+    const/4 v4, 0x2
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
 
     goto :goto_6
 
-    :cond_e
+    :cond_f
     sget-object v0, Lmf/org/apache/xerces/xni/NamespaceContext;->XML_URI:Ljava/lang/String;
 
-    if-eq v2, v0, :cond_8
+    if-eq v11, v0, :cond_8
 
     iget-object v0, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v3, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+    const-string/jumbo v1, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
 
-    const-string/jumbo v4, "CantBindXML"
+    const-string/jumbo v2, "CantBindXML"
 
-    new-array v5, v10, [Ljava/lang/Object;
+    const/4 v3, 0x1
 
-    iget-object v8, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    new-array v3, v3, [Ljava/lang/Object;
 
-    aput-object v8, v5, v9
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    invoke-virtual {v0, v3, v4, v5, v11}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    const/4 v5, 0x0
 
-    goto :goto_7
+    aput-object v4, v3, v5
 
-    :cond_f
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    const/4 v4, 0x2
 
-    const-string/jumbo v3, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
-
-    const-string/jumbo v4, "CantBindXML"
-
-    new-array v5, v10, [Ljava/lang/Object;
-
-    iget-object v8, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
-
-    aput-object v8, v5, v9
-
-    invoke-virtual {v0, v3, v4, v5, v11}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    invoke-virtual {v0, v1, v2, v3, v4}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
 
     goto/16 :goto_7
 
     :cond_10
-    move-object v0, v1
+    iget-object v0, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    goto/16 :goto_8
+    const-string/jumbo v1, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+
+    const-string/jumbo v2, "CantBindXML"
+
+    const/4 v3, 0x1
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+
+    const/4 v5, 0x0
+
+    aput-object v4, v3, v5
+
+    const/4 v4, 0x2
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+
+    goto/16 :goto_7
 
     :cond_11
-    move-object v1, v2
+    move-object v10, v8
 
-    goto/16 :goto_9
+    goto/16 :goto_8
 .end method
 
 .method protected scanEndElement()I
@@ -600,7 +623,7 @@
 .end method
 
 .method protected scanStartElement()Z
-    .locals 15
+    .locals 17
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -608,595 +631,863 @@
         }
     .end annotation
 
-    const/4 v14, 0x3
+    move-object/from16 v0, p0
 
-    const/4 v13, 0x2
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityScanner:Lmf/org/apache/xerces/impl/XMLEntityScanner;
 
-    const/4 v12, 0x0
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x1
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    const/4 v2, 0x0
+    invoke-virtual {v11, v12}, Lmf/org/apache/xerces/impl/XMLEntityScanner;->scanQName(Lmf/org/apache/xerces/xni/QName;)Z
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityScanner:Lmf/org/apache/xerces/impl/XMLEntityScanner;
+    move-object/from16 v0, p0
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    invoke-virtual {v0, v3}, Lmf/org/apache/xerces/impl/XMLEntityScanner;->scanQName(Lmf/org/apache/xerces/xni/QName;)Z
+    iget-object v8, v11, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    move-object/from16 v0, p0
 
-    iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+    iget-boolean v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fBindNamespaces:Z
 
-    iget-boolean v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fBindNamespaces:Z
-
-    if-nez v3, :cond_3
+    if-nez v11, :cond_3
 
     :cond_0
     :goto_0
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementStack:Lmf/org/apache/xerces/impl/XMLDocumentFragmentScannerImpl$ElementStack;
+    move-object/from16 v0, p0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementStack:Lmf/org/apache/xerces/impl/XMLDocumentFragmentScannerImpl$ElementStack;
 
-    invoke-virtual {v3, v4}, Lmf/org/apache/xerces/impl/XMLDocumentFragmentScannerImpl$ElementStack;->pushElement(Lmf/org/apache/xerces/xni/QName;)Lmf/org/apache/xerces/xni/QName;
+    move-object/from16 v0, p0
 
-    move-result-object v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    iput-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fCurrentElement:Lmf/org/apache/xerces/xni/QName;
+    invoke-virtual {v11, v12}, Lmf/org/apache/xerces/impl/XMLDocumentFragmentScannerImpl$ElementStack;->pushElement(Lmf/org/apache/xerces/xni/QName;)Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+    move-result-object v11
 
-    invoke-virtual {v3}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->removeAllAttributes()V
+    move-object/from16 v0, p0
+
+    iput-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fCurrentElement:Lmf/org/apache/xerces/xni/QName;
+
+    const/4 v3, 0x0
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+
+    invoke-virtual {v11}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->removeAllAttributes()V
 
     :goto_1
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityScanner:Lmf/org/apache/xerces/impl/XMLEntityScanner;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/XMLEntityScanner;->skipSpaces()Z
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityScanner:Lmf/org/apache/xerces/impl/XMLEntityScanner;
 
-    move-result v3
+    invoke-virtual {v11}, Lmf/org/apache/xerces/impl/XMLEntityScanner;->skipSpaces()Z
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityScanner:Lmf/org/apache/xerces/impl/XMLEntityScanner;
+    move-result v9
 
-    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/XMLEntityScanner;->peekChar()I
+    move-object/from16 v0, p0
 
-    move-result v4
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityScanner:Lmf/org/apache/xerces/impl/XMLEntityScanner;
 
-    const/16 v5, 0x3e
+    invoke-virtual {v11}, Lmf/org/apache/xerces/impl/XMLEntityScanner;->peekChar()I
 
-    if-eq v4, v5, :cond_6
+    move-result v2
 
-    const/16 v5, 0x2f
+    const/16 v11, 0x3e
 
-    if-eq v4, v5, :cond_8
+    if-eq v2, v11, :cond_6
 
-    invoke-virtual {p0, v4}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->isValidNameStartChar(I)Z
+    const/16 v11, 0x2f
 
-    move-result v5
+    if-eq v2, v11, :cond_8
 
-    if-nez v5, :cond_a
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v2}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->isValidNameStartChar(I)Z
+
+    move-result v11
+
+    if-nez v11, :cond_a
 
     :cond_1
-    invoke-virtual {p0, v4}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->isValidNameStartHighSurrogate(I)Z
+    move-object/from16 v0, p0
 
-    move-result v4
+    invoke-virtual {v0, v2}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->isValidNameStartHighSurrogate(I)Z
 
-    if-nez v4, :cond_b
+    move-result v11
+
+    if-nez v11, :cond_b
 
     :cond_2
-    const-string/jumbo v3, "ElementUnterminated"
+    const-string/jumbo v11, "ElementUnterminated"
 
-    new-array v4, v1, [Ljava/lang/Object;
+    const/4 v12, 0x1
 
-    aput-object v0, v4, v2
+    new-array v12, v12, [Ljava/lang/Object;
 
-    invoke-virtual {p0, v3, v4}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->reportFatalError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/4 v13, 0x0
+
+    aput-object v8, v12, v13
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v11, v12}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->reportFatalError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     :goto_2
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+    move-object/from16 v0, p0
 
-    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->scanAttribute(Lmf/org/apache/xerces/util/XMLAttributesImpl;)V
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v11}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->scanAttribute(Lmf/org/apache/xerces/util/XMLAttributesImpl;)V
 
     goto :goto_1
 
     :cond_3
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
+    move-object/from16 v0, p0
 
-    invoke-interface {v3}, Lmf/org/apache/xerces/xni/NamespaceContext;->pushContext()V
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fScannerState:I
+    invoke-interface {v11}, Lmf/org/apache/xerces/xni/NamespaceContext;->pushContext()V
 
-    const/4 v4, 0x6
+    move-object/from16 v0, p0
 
-    if-ne v3, v4, :cond_0
+    iget v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fScannerState:I
 
-    iget-boolean v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fPerformValidation:Z
+    const/4 v12, 0x6
 
-    if-eqz v3, :cond_0
+    if-ne v11, v12, :cond_0
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v4, "http://www.w3.org/TR/1998/REC-xml-19980210"
+    iget-boolean v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fPerformValidation:Z
 
-    const-string/jumbo v5, "MSG_GRAMMAR_NOT_FOUND"
+    if-eqz v11, :cond_0
 
-    new-array v6, v1, [Ljava/lang/Object;
+    move-object/from16 v0, p0
 
-    aput-object v0, v6, v2
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    invoke-virtual {v3, v4, v5, v6, v1}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    const-string/jumbo v12, "http://www.w3.org/TR/1998/REC-xml-19980210"
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fDoctypeName:Ljava/lang/String;
+    const-string/jumbo v13, "MSG_GRAMMAR_NOT_FOUND"
 
-    if-nez v3, :cond_5
+    const/4 v14, 0x1
+
+    new-array v14, v14, [Ljava/lang/Object;
+
+    const/4 v15, 0x0
+
+    aput-object v8, v14, v15
+
+    const/4 v15, 0x1
+
+    invoke-virtual {v11, v12, v13, v14, v15}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fDoctypeName:Ljava/lang/String;
+
+    if-nez v11, :cond_5
 
     :cond_4
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v4, "http://www.w3.org/TR/1998/REC-xml-19980210"
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v5, "RootElementTypeMustMatchDoctypedecl"
+    const-string/jumbo v12, "http://www.w3.org/TR/1998/REC-xml-19980210"
 
-    new-array v6, v13, [Ljava/lang/Object;
+    const-string/jumbo v13, "RootElementTypeMustMatchDoctypedecl"
 
-    iget-object v7, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fDoctypeName:Ljava/lang/String;
+    const/4 v14, 0x2
 
-    aput-object v7, v6, v2
+    new-array v14, v14, [Ljava/lang/Object;
 
-    aput-object v0, v6, v1
+    move-object/from16 v0, p0
 
-    invoke-virtual {v3, v4, v5, v6, v1}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    iget-object v15, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fDoctypeName:Ljava/lang/String;
 
-    goto :goto_0
+    const/16 v16, 0x0
+
+    aput-object v15, v14, v16
+
+    const/4 v15, 0x1
+
+    aput-object v8, v14, v15
+
+    const/4 v15, 0x1
+
+    invoke-virtual {v11, v12, v13, v14, v15}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+
+    goto/16 :goto_0
 
     :cond_5
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fDoctypeName:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fDoctypeName:Ljava/lang/String;
 
-    move-result v3
+    invoke-virtual {v11, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v3, :cond_4
+    move-result v11
 
-    goto :goto_0
+    if-eqz v11, :cond_4
+
+    goto/16 :goto_0
 
     :cond_6
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityScanner:Lmf/org/apache/xerces/impl/XMLEntityScanner;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/XMLEntityScanner;->scanChar()I
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityScanner:Lmf/org/apache/xerces/impl/XMLEntityScanner;
 
-    move v0, v2
+    invoke-virtual {v11}, Lmf/org/apache/xerces/impl/XMLEntityScanner;->scanChar()I
 
     :goto_3
-    iget-boolean v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fBindNamespaces:Z
+    move-object/from16 v0, p0
 
-    if-nez v3, :cond_c
+    iget-boolean v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fBindNamespaces:Z
+
+    if-nez v11, :cond_c
 
     :cond_7
     :goto_4
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fDocumentHandler:Lmf/org/apache/xerces/xni/XMLDocumentHandler;
+    move-object/from16 v0, p0
 
-    if-nez v3, :cond_1a
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fDocumentHandler:Lmf/org/apache/xerces/xni/XMLDocumentHandler;
+
+    if-nez v11, :cond_1a
 
     :goto_5
-    return v0
+    return v3
 
     :cond_8
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityScanner:Lmf/org/apache/xerces/impl/XMLEntityScanner;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/XMLEntityScanner;->scanChar()I
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityScanner:Lmf/org/apache/xerces/impl/XMLEntityScanner;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityScanner:Lmf/org/apache/xerces/impl/XMLEntityScanner;
+    invoke-virtual {v11}, Lmf/org/apache/xerces/impl/XMLEntityScanner;->scanChar()I
 
-    const/16 v4, 0x3e
+    move-object/from16 v0, p0
 
-    invoke-virtual {v3, v4}, Lmf/org/apache/xerces/impl/XMLEntityScanner;->skipChar(I)Z
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityScanner:Lmf/org/apache/xerces/impl/XMLEntityScanner;
 
-    move-result v3
+    const/16 v12, 0x3e
 
-    if-eqz v3, :cond_9
+    invoke-virtual {v11, v12}, Lmf/org/apache/xerces/impl/XMLEntityScanner;->skipChar(I)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_9
 
     :goto_6
-    move v0, v1
+    const/4 v3, 0x1
 
     goto :goto_3
 
     :cond_9
-    const-string/jumbo v3, "ElementUnterminated"
+    const-string/jumbo v11, "ElementUnterminated"
 
-    new-array v4, v1, [Ljava/lang/Object;
+    const/4 v12, 0x1
 
-    aput-object v0, v4, v2
+    new-array v12, v12, [Ljava/lang/Object;
 
-    invoke-virtual {p0, v3, v4}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->reportFatalError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/4 v13, 0x0
+
+    aput-object v8, v12, v13
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v11, v12}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->reportFatalError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_6
 
     :cond_a
-    if-eqz v3, :cond_1
+    if-eqz v9, :cond_1
 
-    goto :goto_2
+    goto/16 :goto_2
 
     :cond_b
-    if-eqz v3, :cond_2
+    if-eqz v9, :cond_2
 
-    goto :goto_2
+    goto/16 :goto_2
 
     :cond_c
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    move-object/from16 v0, p0
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    sget-object v4, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
+    iget-object v11, v11, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
 
-    if-eq v3, v4, :cond_10
+    sget-object v12, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
+
+    if-eq v11, v12, :cond_10
 
     :goto_7
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    move-object/from16 v0, p0
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    if-nez v3, :cond_11
+    iget-object v11, v11, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
 
-    sget-object v3, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    if-nez v11, :cond_11
+
+    sget-object v7, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
     :goto_8
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    move-object/from16 v0, p0
 
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    invoke-interface {v5, v3}, Lmf/org/apache/xerces/xni/NamespaceContext;->getURI(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    move-result-object v3
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
 
-    iput-object v3, v4, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    invoke-interface {v12, v7}, Lmf/org/apache/xerces/xni/NamespaceContext;->getURI(Ljava/lang/String;)Ljava/lang/String;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fCurrentElement:Lmf/org/apache/xerces/xni/QName;
+    move-result-object v12
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    iput-object v12, v11, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
 
-    iget-object v4, v4, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    iput-object v4, v3, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fCurrentElement:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    move-object/from16 v0, p0
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    if-eqz v3, :cond_12
+    iget-object v12, v12, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+
+    iput-object v12, v11, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+
+    iget-object v11, v11, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+
+    if-eqz v11, :cond_12
 
     :cond_d
     :goto_9
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    move-object/from16 v0, p0
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    if-nez v3, :cond_13
+    iget-object v11, v11, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+
+    if-nez v11, :cond_13
 
     :cond_e
     :goto_a
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v3}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->getLength()I
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+
+    invoke-virtual {v11}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->getLength()I
 
     move-result v5
 
-    move v4, v2
+    const/4 v4, 0x0
 
     :goto_b
     if-ge v4, v5, :cond_18
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+    move-object/from16 v0, p0
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
 
-    invoke-virtual {v3, v4, v6}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->getName(ILmf/org/apache/xerces/xni/QName;)V
+    move-object/from16 v0, p0
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    invoke-virtual {v11, v4, v12}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->getName(ILmf/org/apache/xerces/xni/QName;)V
 
-    if-nez v3, :cond_14
+    move-object/from16 v0, p0
 
-    sget-object v3, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+
+    iget-object v11, v11, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+
+    if-nez v11, :cond_14
+
+    sget-object v1, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
     :goto_c
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
+    move-object/from16 v0, p0
 
-    invoke-interface {v6, v3}, Lmf/org/apache/xerces/xni/NamespaceContext;->getURI(Ljava/lang/String;)Ljava/lang/String;
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
 
-    move-result-object v6
+    invoke-interface {v11, v1}, Lmf/org/apache/xerces/xni/NamespaceContext;->getURI(Ljava/lang/String;)Ljava/lang/String;
 
-    iget-object v7, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    move-result-object v10
 
-    iget-object v7, v7, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    if-nez v7, :cond_15
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+
+    iget-object v11, v11, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+
+    if-nez v11, :cond_15
 
     :goto_d
-    sget-object v7, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v11, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    if-ne v3, v7, :cond_16
+    if-ne v1, v11, :cond_16
 
     :cond_f
     :goto_e
-    add-int/lit8 v3, v4, 0x1
-
-    move v4, v3
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_b
 
     :cond_10
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v4, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v5, "ElementXMLNSPrefix"
+    const-string/jumbo v12, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
 
-    new-array v6, v1, [Ljava/lang/Object;
+    const-string/jumbo v13, "ElementXMLNSPrefix"
 
-    iget-object v7, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    const/4 v14, 0x1
 
-    iget-object v7, v7, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+    new-array v14, v14, [Ljava/lang/Object;
 
-    aput-object v7, v6, v2
+    move-object/from16 v0, p0
 
-    invoke-virtual {v3, v4, v5, v6, v13}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    iget-object v15, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    goto :goto_7
+    iget-object v15, v15, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+
+    const/16 v16, 0x0
+
+    aput-object v15, v14, v16
+
+    const/4 v15, 0x2
+
+    invoke-virtual {v11, v12, v13, v14, v15}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+
+    goto/16 :goto_7
 
     :cond_11
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    move-object/from16 v0, p0
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    goto :goto_8
+    iget-object v7, v11, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+
+    goto/16 :goto_8
 
     :cond_12
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    move-object/from16 v0, p0
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    if-eqz v3, :cond_d
+    iget-object v11, v11, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    if-eqz v11, :cond_d
 
-    sget-object v4, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    iput-object v4, v3, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fCurrentElement:Lmf/org/apache/xerces/xni/QName;
+    sget-object v12, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    sget-object v4, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    iput-object v12, v11, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
 
-    iput-object v4, v3, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fCurrentElement:Lmf/org/apache/xerces/xni/QName;
+
+    sget-object v12, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+
+    iput-object v12, v11, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
 
     goto :goto_9
 
     :cond_13
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    move-object/from16 v0, p0
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    if-nez v3, :cond_e
+    iget-object v11, v11, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    if-nez v11, :cond_e
 
-    const-string/jumbo v4, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+    move-object/from16 v0, p0
 
-    const-string/jumbo v5, "ElementPrefixUnbound"
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    new-array v6, v13, [Ljava/lang/Object;
+    const-string/jumbo v12, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
 
-    iget-object v7, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    const-string/jumbo v13, "ElementPrefixUnbound"
 
-    iget-object v7, v7, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    const/4 v14, 0x2
 
-    aput-object v7, v6, v2
+    new-array v14, v14, [Ljava/lang/Object;
 
-    iget-object v7, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    const/4 v15, 0x0
 
-    iget-object v7, v7, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v7, v6, v1
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    invoke-virtual {v3, v4, v5, v6, v13}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    move-object/from16 v16, v0
 
-    goto :goto_a
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+
+    move-object/from16 v16, v0
+
+    aput-object v16, v14, v15
+
+    const/4 v15, 0x1
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+
+    move-object/from16 v16, v0
+
+    aput-object v16, v14, v15
+
+    const/4 v15, 0x2
+
+    invoke-virtual {v11, v12, v13, v14, v15}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+
+    goto/16 :goto_a
 
     :cond_14
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    move-object/from16 v0, p0
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    goto :goto_c
+    iget-object v1, v11, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+
+    goto/16 :goto_c
 
     :cond_15
-    iget-object v7, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    move-object/from16 v0, p0
 
-    iget-object v7, v7, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    if-eq v7, v6, :cond_f
+    iget-object v11, v11, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
 
-    goto :goto_d
+    if-eq v11, v10, :cond_f
+
+    goto/16 :goto_d
 
     :cond_16
-    iget-object v7, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    move-object/from16 v0, p0
 
-    iput-object v6, v7, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    if-eqz v6, :cond_17
+    iput-object v10, v11, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+
+    if-eqz v10, :cond_17
 
     :goto_f
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v3, v4, v6}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->setURI(ILjava/lang/String;)V
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
 
-    goto :goto_e
+    invoke-virtual {v11, v4, v10}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->setURI(ILjava/lang/String;)V
+
+    goto/16 :goto_e
 
     :cond_17
-    iget-object v7, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v8, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v9, "AttributePrefixUnbound"
+    const-string/jumbo v12, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
 
-    new-array v10, v14, [Ljava/lang/Object;
+    const-string/jumbo v13, "AttributePrefixUnbound"
 
-    iget-object v11, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    const/4 v14, 0x3
 
-    iget-object v11, v11, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+    new-array v14, v14, [Ljava/lang/Object;
 
-    aput-object v11, v10, v2
+    const/4 v15, 0x0
 
-    iget-object v11, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    move-object/from16 v0, p0
 
-    iget-object v11, v11, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    aput-object v11, v10, v1
+    move-object/from16 v16, v0
 
-    aput-object v3, v10, v13
+    move-object/from16 v0, v16
 
-    invoke-virtual {v7, v8, v9, v10, v13}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+
+    move-object/from16 v16, v0
+
+    aput-object v16, v14, v15
+
+    const/4 v15, 0x1
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+
+    move-object/from16 v16, v0
+
+    aput-object v16, v14, v15
+
+    const/4 v15, 0x2
+
+    aput-object v1, v14, v15
+
+    const/4 v15, 0x2
+
+    invoke-virtual {v11, v12, v13, v14, v15}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
 
     goto :goto_f
 
     :cond_18
-    if-le v5, v1, :cond_7
+    const/4 v11, 0x1
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+    if-le v5, v11, :cond_7
 
-    invoke-virtual {v3}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->checkDuplicatesNS()Lmf/org/apache/xerces/xni/QName;
+    move-object/from16 v0, p0
 
-    move-result-object v3
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
 
-    if-eqz v3, :cond_7
+    invoke-virtual {v11}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->checkDuplicatesNS()Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v4, v3, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    move-result-object v6
 
-    if-nez v4, :cond_19
+    if-eqz v6, :cond_7
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v11, v6, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
 
-    const-string/jumbo v5, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+    if-nez v11, :cond_19
 
-    const-string/jumbo v6, "AttributeNotUnique"
+    move-object/from16 v0, p0
 
-    new-array v7, v13, [Ljava/lang/Object;
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    iget-object v8, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    const-string/jumbo v12, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
 
-    iget-object v8, v8, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+    const-string/jumbo v13, "AttributeNotUnique"
 
-    aput-object v8, v7, v2
+    const/4 v14, 0x2
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+    new-array v14, v14, [Ljava/lang/Object;
 
-    aput-object v3, v7, v1
+    const/4 v15, 0x0
 
-    invoke-virtual {v4, v5, v6, v7, v13}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+
+    move-object/from16 v16, v0
+
+    aput-object v16, v14, v15
+
+    const/4 v15, 0x1
+
+    iget-object v0, v6, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+
+    move-object/from16 v16, v0
+
+    aput-object v16, v14, v15
+
+    const/4 v15, 0x2
+
+    invoke-virtual {v11, v12, v13, v14, v15}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
 
     goto/16 :goto_4
 
     :cond_19
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v5, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v6, "AttributeNSNotUnique"
+    const-string/jumbo v12, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
 
-    new-array v7, v14, [Ljava/lang/Object;
+    const-string/jumbo v13, "AttributeNSNotUnique"
 
-    iget-object v8, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    const/4 v14, 0x3
 
-    iget-object v8, v8, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+    new-array v14, v14, [Ljava/lang/Object;
 
-    aput-object v8, v7, v2
+    const/4 v15, 0x0
 
-    iget-object v8, v3, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v8, v7, v1
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    move-object/from16 v16, v0
 
-    aput-object v3, v7, v13
+    move-object/from16 v0, v16
 
-    invoke-virtual {v4, v5, v6, v7, v13}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+
+    move-object/from16 v16, v0
+
+    aput-object v16, v14, v15
+
+    const/4 v15, 0x1
+
+    iget-object v0, v6, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
+
+    move-object/from16 v16, v0
+
+    aput-object v16, v14, v15
+
+    const/4 v15, 0x2
+
+    iget-object v0, v6, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+
+    move-object/from16 v16, v0
+
+    aput-object v16, v14, v15
+
+    const/4 v15, 0x2
+
+    invoke-virtual {v11, v12, v13, v14, v15}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
 
     goto/16 :goto_4
 
     :cond_1a
-    if-nez v0, :cond_1b
+    if-nez v3, :cond_1b
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fDocumentHandler:Lmf/org/apache/xerces/xni/XMLDocumentHandler;
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fDocumentHandler:Lmf/org/apache/xerces/xni/XMLDocumentHandler;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+    move-object/from16 v0, p0
 
-    invoke-interface {v1, v2, v3, v12}, Lmf/org/apache/xerces/xni/XMLDocumentHandler;->startElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;)V
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+
+    const/4 v14, 0x0
+
+    invoke-interface {v11, v12, v13, v14}, Lmf/org/apache/xerces/xni/XMLDocumentHandler;->startElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;)V
 
     goto/16 :goto_5
 
     :cond_1b
-    iget v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fMarkupDepth:I
+    move-object/from16 v0, p0
 
-    add-int/lit8 v3, v3, -0x1
+    iget v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fMarkupDepth:I
 
-    iput v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fMarkupDepth:I
+    add-int/lit8 v11, v11, -0x1
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fMarkupDepth:I
+    move-object/from16 v0, p0
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityStack:[I
+    iput v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fMarkupDepth:I
 
-    iget v5, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityDepth:I
+    move-object/from16 v0, p0
 
-    add-int/lit8 v5, v5, -0x1
+    iget v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fMarkupDepth:I
 
-    aget v4, v4, v5
+    move-object/from16 v0, p0
 
-    if-lt v3, v4, :cond_1c
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityStack:[I
+
+    move-object/from16 v0, p0
+
+    iget v13, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityDepth:I
+
+    add-int/lit8 v13, v13, -0x1
+
+    aget v12, v12, v13
+
+    if-lt v11, v12, :cond_1c
 
     :goto_10
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fDocumentHandler:Lmf/org/apache/xerces/xni/XMLDocumentHandler;
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fDocumentHandler:Lmf/org/apache/xerces/xni/XMLDocumentHandler;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+    move-object/from16 v0, p0
 
-    invoke-interface {v1, v2, v3, v12}, Lmf/org/apache/xerces/xni/XMLDocumentHandler;->emptyElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;)V
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-boolean v1, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fBindNamespaces:Z
+    move-object/from16 v0, p0
 
-    if-nez v1, :cond_1d
+    iget-object v13, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+
+    const/4 v14, 0x0
+
+    invoke-interface {v11, v12, v13, v14}, Lmf/org/apache/xerces/xni/XMLDocumentHandler;->emptyElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;)V
+
+    move-object/from16 v0, p0
+
+    iget-boolean v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fBindNamespaces:Z
+
+    if-nez v11, :cond_1d
 
     :goto_11
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementStack:Lmf/org/apache/xerces/impl/XMLDocumentFragmentScannerImpl$ElementStack;
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementStack:Lmf/org/apache/xerces/impl/XMLDocumentFragmentScannerImpl$ElementStack;
 
-    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/impl/XMLDocumentFragmentScannerImpl$ElementStack;->popElement(Lmf/org/apache/xerces/xni/QName;)V
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+
+    invoke-virtual {v11, v12}, Lmf/org/apache/xerces/impl/XMLDocumentFragmentScannerImpl$ElementStack;->popElement(Lmf/org/apache/xerces/xni/QName;)V
 
     goto/16 :goto_5
 
     :cond_1c
-    const-string/jumbo v3, "ElementEntityMismatch"
+    const-string/jumbo v11, "ElementEntityMismatch"
 
-    new-array v1, v1, [Ljava/lang/Object;
+    const/4 v12, 0x1
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fCurrentElement:Lmf/org/apache/xerces/xni/QName;
+    new-array v12, v12, [Ljava/lang/Object;
 
-    iget-object v4, v4, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    aput-object v4, v1, v2
+    iget-object v13, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fCurrentElement:Lmf/org/apache/xerces/xni/QName;
 
-    invoke-virtual {p0, v3, v1}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->reportFatalError(Ljava/lang/String;[Ljava/lang/Object;)V
+    iget-object v13, v13, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+
+    const/4 v14, 0x0
+
+    aput-object v13, v12, v14
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v11, v12}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->reportFatalError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_10
 
     :cond_1d
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
+    move-object/from16 v0, p0
 
-    invoke-interface {v1}, Lmf/org/apache/xerces/xni/NamespaceContext;->popContext()V
+    iget-object v11, v0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
+
+    invoke-interface {v11}, Lmf/org/apache/xerces/xni/NamespaceContext;->popContext()V
 
     goto :goto_11
 .end method
@@ -1210,595 +1501,657 @@
         }
     .end annotation
 
-    const/4 v14, 0x3
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    const/4 v13, 0x2
+    iget-object v7, v9, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
 
-    const/4 v12, 0x0
+    iget-boolean v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fBindNamespaces:Z
 
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
-
-    iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
-
-    iget-boolean v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fBindNamespaces:Z
-
-    if-nez v3, :cond_3
+    if-nez v9, :cond_3
 
     :cond_0
     :goto_0
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementStack:Lmf/org/apache/xerces/impl/XMLDocumentFragmentScannerImpl$ElementStack;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementStack:Lmf/org/apache/xerces/impl/XMLDocumentFragmentScannerImpl$ElementStack;
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v10, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    invoke-virtual {v3, v4}, Lmf/org/apache/xerces/impl/XMLDocumentFragmentScannerImpl$ElementStack;->pushElement(Lmf/org/apache/xerces/xni/QName;)Lmf/org/apache/xerces/xni/QName;
+    invoke-virtual {v9, v10}, Lmf/org/apache/xerces/impl/XMLDocumentFragmentScannerImpl$ElementStack;->pushElement(Lmf/org/apache/xerces/xni/QName;)Lmf/org/apache/xerces/xni/QName;
 
-    move-result-object v3
+    move-result-object v9
 
-    iput-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fCurrentElement:Lmf/org/apache/xerces/xni/QName;
+    iput-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fCurrentElement:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+    const/4 v2, 0x0
 
-    invoke-virtual {v3}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->removeAllAttributes()V
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+
+    invoke-virtual {v9}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->removeAllAttributes()V
 
     :goto_1
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityScanner:Lmf/org/apache/xerces/impl/XMLEntityScanner;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityScanner:Lmf/org/apache/xerces/impl/XMLEntityScanner;
 
-    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/XMLEntityScanner;->peekChar()I
+    invoke-virtual {v9}, Lmf/org/apache/xerces/impl/XMLEntityScanner;->peekChar()I
 
-    move-result v3
+    move-result v1
 
-    const/16 v4, 0x3e
+    const/16 v9, 0x3e
 
-    if-eq v3, v4, :cond_6
+    if-eq v1, v9, :cond_6
 
-    const/16 v4, 0x2f
+    const/16 v9, 0x2f
 
-    if-eq v3, v4, :cond_8
+    if-eq v1, v9, :cond_8
 
-    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->isValidNameStartChar(I)Z
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->isValidNameStartChar(I)Z
 
-    move-result v4
+    move-result v9
 
-    if-nez v4, :cond_a
+    if-nez v9, :cond_a
 
     :cond_1
-    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->isValidNameStartHighSurrogate(I)Z
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->isValidNameStartHighSurrogate(I)Z
 
-    move-result v3
+    move-result v9
 
-    if-nez v3, :cond_b
+    if-nez v9, :cond_b
 
     :cond_2
-    const-string/jumbo v3, "ElementUnterminated"
+    const-string/jumbo v9, "ElementUnterminated"
 
-    new-array v4, v1, [Ljava/lang/Object;
+    const/4 v10, 0x1
 
-    aput-object v0, v4, v2
+    new-array v10, v10, [Ljava/lang/Object;
 
-    invoke-virtual {p0, v3, v4}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->reportFatalError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/4 v11, 0x0
+
+    aput-object v7, v10, v11
+
+    invoke-virtual {p0, v9, v10}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->reportFatalError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     :goto_2
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
 
-    invoke-virtual {p0, v3}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->scanAttribute(Lmf/org/apache/xerces/util/XMLAttributesImpl;)V
+    invoke-virtual {p0, v9}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->scanAttribute(Lmf/org/apache/xerces/util/XMLAttributesImpl;)V
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityScanner:Lmf/org/apache/xerces/impl/XMLEntityScanner;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityScanner:Lmf/org/apache/xerces/impl/XMLEntityScanner;
 
-    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/XMLEntityScanner;->skipSpaces()Z
+    invoke-virtual {v9}, Lmf/org/apache/xerces/impl/XMLEntityScanner;->skipSpaces()Z
 
-    move-result v3
+    move-result v9
 
-    iput-boolean v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fSawSpace:Z
+    iput-boolean v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fSawSpace:Z
 
     goto :goto_1
 
     :cond_3
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
 
-    invoke-interface {v3}, Lmf/org/apache/xerces/xni/NamespaceContext;->pushContext()V
+    invoke-interface {v9}, Lmf/org/apache/xerces/xni/NamespaceContext;->pushContext()V
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fScannerState:I
+    iget v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fScannerState:I
 
-    const/4 v4, 0x6
+    const/4 v10, 0x6
 
-    if-ne v3, v4, :cond_0
+    if-ne v9, v10, :cond_0
 
-    iget-boolean v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fPerformValidation:Z
+    iget-boolean v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fPerformValidation:Z
 
-    if-eqz v3, :cond_0
+    if-eqz v9, :cond_0
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v4, "http://www.w3.org/TR/1998/REC-xml-19980210"
+    const-string/jumbo v10, "http://www.w3.org/TR/1998/REC-xml-19980210"
 
-    const-string/jumbo v5, "MSG_GRAMMAR_NOT_FOUND"
+    const-string/jumbo v11, "MSG_GRAMMAR_NOT_FOUND"
 
-    new-array v6, v1, [Ljava/lang/Object;
+    const/4 v12, 0x1
 
-    aput-object v0, v6, v2
+    new-array v12, v12, [Ljava/lang/Object;
 
-    invoke-virtual {v3, v4, v5, v6, v1}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    const/4 v13, 0x0
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fDoctypeName:Ljava/lang/String;
+    aput-object v7, v12, v13
 
-    if-nez v3, :cond_5
+    const/4 v13, 0x1
+
+    invoke-virtual {v9, v10, v11, v12, v13}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fDoctypeName:Ljava/lang/String;
+
+    if-nez v9, :cond_5
 
     :cond_4
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v4, "http://www.w3.org/TR/1998/REC-xml-19980210"
+    const-string/jumbo v10, "http://www.w3.org/TR/1998/REC-xml-19980210"
 
-    const-string/jumbo v5, "RootElementTypeMustMatchDoctypedecl"
+    const-string/jumbo v11, "RootElementTypeMustMatchDoctypedecl"
 
-    new-array v6, v13, [Ljava/lang/Object;
+    const/4 v12, 0x2
 
-    iget-object v7, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fDoctypeName:Ljava/lang/String;
+    new-array v12, v12, [Ljava/lang/Object;
 
-    aput-object v7, v6, v2
+    iget-object v13, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fDoctypeName:Ljava/lang/String;
 
-    aput-object v0, v6, v1
+    const/4 v14, 0x0
 
-    invoke-virtual {v3, v4, v5, v6, v1}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    aput-object v13, v12, v14
+
+    const/4 v13, 0x1
+
+    aput-object v7, v12, v13
+
+    const/4 v13, 0x1
+
+    invoke-virtual {v9, v10, v11, v12, v13}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
 
     goto :goto_0
 
     :cond_5
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fDoctypeName:Ljava/lang/String;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fDoctypeName:Ljava/lang/String;
 
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v9
 
-    if-eqz v3, :cond_4
+    if-eqz v9, :cond_4
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_6
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityScanner:Lmf/org/apache/xerces/impl/XMLEntityScanner;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityScanner:Lmf/org/apache/xerces/impl/XMLEntityScanner;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/XMLEntityScanner;->scanChar()I
-
-    move v0, v2
+    invoke-virtual {v9}, Lmf/org/apache/xerces/impl/XMLEntityScanner;->scanChar()I
 
     :goto_3
-    iget-boolean v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fBindNamespaces:Z
+    iget-boolean v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fBindNamespaces:Z
 
-    if-nez v3, :cond_c
+    if-nez v9, :cond_c
 
     :cond_7
     :goto_4
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fDocumentHandler:Lmf/org/apache/xerces/xni/XMLDocumentHandler;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fDocumentHandler:Lmf/org/apache/xerces/xni/XMLDocumentHandler;
 
-    if-nez v3, :cond_1a
+    if-nez v9, :cond_1a
 
     :goto_5
-    return v0
+    return v2
 
     :cond_8
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityScanner:Lmf/org/apache/xerces/impl/XMLEntityScanner;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityScanner:Lmf/org/apache/xerces/impl/XMLEntityScanner;
 
-    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/XMLEntityScanner;->scanChar()I
+    invoke-virtual {v9}, Lmf/org/apache/xerces/impl/XMLEntityScanner;->scanChar()I
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityScanner:Lmf/org/apache/xerces/impl/XMLEntityScanner;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityScanner:Lmf/org/apache/xerces/impl/XMLEntityScanner;
 
-    const/16 v4, 0x3e
+    const/16 v10, 0x3e
 
-    invoke-virtual {v3, v4}, Lmf/org/apache/xerces/impl/XMLEntityScanner;->skipChar(I)Z
+    invoke-virtual {v9, v10}, Lmf/org/apache/xerces/impl/XMLEntityScanner;->skipChar(I)Z
 
-    move-result v3
+    move-result v9
 
-    if-eqz v3, :cond_9
+    if-eqz v9, :cond_9
 
     :goto_6
-    move v0, v1
+    const/4 v2, 0x1
 
     goto :goto_3
 
     :cond_9
-    const-string/jumbo v3, "ElementUnterminated"
+    const-string/jumbo v9, "ElementUnterminated"
 
-    new-array v4, v1, [Ljava/lang/Object;
+    const/4 v10, 0x1
 
-    aput-object v0, v4, v2
+    new-array v10, v10, [Ljava/lang/Object;
 
-    invoke-virtual {p0, v3, v4}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->reportFatalError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/4 v11, 0x0
+
+    aput-object v7, v10, v11
+
+    invoke-virtual {p0, v9, v10}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->reportFatalError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_6
 
     :cond_a
-    iget-boolean v4, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fSawSpace:Z
+    iget-boolean v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fSawSpace:Z
 
-    if-eqz v4, :cond_1
+    if-eqz v9, :cond_1
 
-    goto :goto_2
+    goto/16 :goto_2
 
     :cond_b
-    iget-boolean v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fSawSpace:Z
+    iget-boolean v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fSawSpace:Z
 
-    if-eqz v3, :cond_2
+    if-eqz v9, :cond_2
 
-    goto :goto_2
+    goto/16 :goto_2
 
     :cond_c
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    iget-object v9, v9, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
 
-    sget-object v4, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
+    sget-object v10, Lmf/org/apache/xerces/util/XMLSymbols;->PREFIX_XMLNS:Ljava/lang/String;
 
-    if-eq v3, v4, :cond_10
+    if-eq v9, v10, :cond_10
 
     :goto_7
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    iget-object v9, v9, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
 
-    if-nez v3, :cond_11
+    if-nez v9, :cond_11
 
-    sget-object v3, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v6, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
     :goto_8
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v5, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
+    iget-object v10, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
 
-    invoke-interface {v5, v3}, Lmf/org/apache/xerces/xni/NamespaceContext;->getURI(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v10, v6}, Lmf/org/apache/xerces/xni/NamespaceContext;->getURI(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v10
 
-    iput-object v3, v4, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    iput-object v10, v9, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fCurrentElement:Lmf/org/apache/xerces/xni/QName;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fCurrentElement:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v10, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v4, v4, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    iget-object v10, v10, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
 
-    iput-object v4, v3, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    iput-object v10, v9, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    iget-object v9, v9, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
 
-    if-eqz v3, :cond_12
+    if-eqz v9, :cond_12
 
     :cond_d
     :goto_9
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    iget-object v9, v9, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
 
-    if-nez v3, :cond_13
+    if-nez v9, :cond_13
 
     :cond_e
     :goto_a
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
 
-    invoke-virtual {v3}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->getLength()I
+    invoke-virtual {v9}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->getLength()I
 
-    move-result v5
+    move-result v4
 
-    move v4, v2
+    const/4 v3, 0x0
 
     :goto_b
-    if-ge v4, v5, :cond_18
+    if-ge v3, v4, :cond_18
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
 
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v10, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    invoke-virtual {v3, v4, v6}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->getName(ILmf/org/apache/xerces/xni/QName;)V
+    invoke-virtual {v9, v3, v10}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->getName(ILmf/org/apache/xerces/xni/QName;)V
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    iget-object v9, v9, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
 
-    if-nez v3, :cond_14
+    if-nez v9, :cond_14
 
-    sget-object v3, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v0, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
     :goto_c
-    iget-object v6, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
 
-    invoke-interface {v6, v3}, Lmf/org/apache/xerces/xni/NamespaceContext;->getURI(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v9, v0}, Lmf/org/apache/xerces/xni/NamespaceContext;->getURI(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v8
 
-    iget-object v7, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v7, v7, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    iget-object v9, v9, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
 
-    if-nez v7, :cond_15
+    if-nez v9, :cond_15
 
     :goto_d
-    sget-object v7, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v9, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    if-ne v3, v7, :cond_16
+    if-ne v0, v9, :cond_16
 
     :cond_f
     :goto_e
-    add-int/lit8 v3, v4, 0x1
-
-    move v4, v3
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_b
 
     :cond_10
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v4, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+    const-string/jumbo v10, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
 
-    const-string/jumbo v5, "ElementXMLNSPrefix"
+    const-string/jumbo v11, "ElementXMLNSPrefix"
 
-    new-array v6, v1, [Ljava/lang/Object;
+    const/4 v12, 0x1
 
-    iget-object v7, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    new-array v12, v12, [Ljava/lang/Object;
 
-    iget-object v7, v7, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+    iget-object v13, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    aput-object v7, v6, v2
+    iget-object v13, v13, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
 
-    invoke-virtual {v3, v4, v5, v6, v13}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    const/4 v14, 0x0
+
+    aput-object v13, v12, v14
+
+    const/4 v13, 0x2
+
+    invoke-virtual {v9, v10, v11, v12, v13}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
 
     goto :goto_7
 
     :cond_11
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    iget-object v6, v9, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
 
     goto :goto_8
 
     :cond_12
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    iget-object v9, v9, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
 
-    if-eqz v3, :cond_d
+    if-eqz v9, :cond_d
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    sget-object v4, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v10, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    iput-object v4, v3, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    iput-object v10, v9, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fCurrentElement:Lmf/org/apache/xerces/xni/QName;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fCurrentElement:Lmf/org/apache/xerces/xni/QName;
 
-    sget-object v4, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
+    sget-object v10, Lmf/org/apache/xerces/util/XMLSymbols;->EMPTY_STRING:Ljava/lang/String;
 
-    iput-object v4, v3, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    iput-object v10, v9, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
 
     goto :goto_9
 
     :cond_13
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    iget-object v9, v9, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
 
-    if-nez v3, :cond_e
+    if-nez v9, :cond_e
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v4, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+    const-string/jumbo v10, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
 
-    const-string/jumbo v5, "ElementPrefixUnbound"
+    const-string/jumbo v11, "ElementPrefixUnbound"
 
-    new-array v6, v13, [Ljava/lang/Object;
+    const/4 v12, 0x2
 
-    iget-object v7, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    new-array v12, v12, [Ljava/lang/Object;
 
-    iget-object v7, v7, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    const/4 v13, 0x0
 
-    aput-object v7, v6, v2
+    iget-object v14, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v7, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v14, v14, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
 
-    iget-object v7, v7, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+    aput-object v14, v12, v13
 
-    aput-object v7, v6, v1
+    const/4 v13, 0x1
 
-    invoke-virtual {v3, v4, v5, v6, v13}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    iget-object v14, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+
+    iget-object v14, v14, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+
+    aput-object v14, v12, v13
+
+    const/4 v13, 0x2
+
+    invoke-virtual {v9, v10, v11, v12, v13}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
 
     goto :goto_a
 
     :cond_14
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
+    iget-object v0, v9, Lmf/org/apache/xerces/xni/QName;->prefix:Ljava/lang/String;
 
     goto :goto_c
 
     :cond_15
-    iget-object v7, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v7, v7, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    iget-object v9, v9, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
 
-    if-eq v7, v6, :cond_f
+    if-eq v9, v8, :cond_f
 
     goto :goto_d
 
     :cond_16
-    iget-object v7, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    iput-object v6, v7, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    iput-object v8, v9, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
 
-    if-eqz v6, :cond_17
+    if-eqz v8, :cond_17
 
     :goto_f
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
 
-    invoke-virtual {v3, v4, v6}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->setURI(ILjava/lang/String;)V
+    invoke-virtual {v9, v3, v8}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->setURI(ILjava/lang/String;)V
 
     goto :goto_e
 
     :cond_17
-    iget-object v7, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v8, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+    const-string/jumbo v10, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
 
-    const-string/jumbo v9, "AttributePrefixUnbound"
+    const-string/jumbo v11, "AttributePrefixUnbound"
 
-    new-array v10, v14, [Ljava/lang/Object;
+    const/4 v12, 0x3
 
-    iget-object v11, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    new-array v12, v12, [Ljava/lang/Object;
 
-    iget-object v11, v11, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+    const/4 v13, 0x0
 
-    aput-object v11, v10, v2
+    iget-object v14, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v11, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v14, v14, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
 
-    iget-object v11, v11, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+    aput-object v14, v12, v13
 
-    aput-object v11, v10, v1
+    const/4 v13, 0x1
 
-    aput-object v3, v10, v13
+    iget-object v14, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributeQName:Lmf/org/apache/xerces/xni/QName;
 
-    invoke-virtual {v7, v8, v9, v10, v13}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    iget-object v14, v14, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+
+    aput-object v14, v12, v13
+
+    const/4 v13, 0x2
+
+    aput-object v0, v12, v13
+
+    const/4 v13, 0x2
+
+    invoke-virtual {v9, v10, v11, v12, v13}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
 
     goto :goto_f
 
     :cond_18
-    if-le v5, v1, :cond_7
+    const/4 v9, 0x1
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+    if-le v4, v9, :cond_7
 
-    invoke-virtual {v3}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->checkDuplicatesNS()Lmf/org/apache/xerces/xni/QName;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
 
-    move-result-object v3
+    invoke-virtual {v9}, Lmf/org/apache/xerces/util/XMLAttributesImpl;->checkDuplicatesNS()Lmf/org/apache/xerces/xni/QName;
 
-    if-eqz v3, :cond_7
+    move-result-object v5
 
-    iget-object v4, v3, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    if-eqz v5, :cond_7
 
-    if-nez v4, :cond_19
+    iget-object v9, v5, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    if-nez v9, :cond_19
 
-    const-string/jumbo v5, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v6, "AttributeNotUnique"
+    const-string/jumbo v10, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
 
-    new-array v7, v13, [Ljava/lang/Object;
+    const-string/jumbo v11, "AttributeNotUnique"
 
-    iget-object v8, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    const/4 v12, 0x2
 
-    iget-object v8, v8, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+    new-array v12, v12, [Ljava/lang/Object;
 
-    aput-object v8, v7, v2
+    const/4 v13, 0x0
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+    iget-object v14, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    aput-object v3, v7, v1
+    iget-object v14, v14, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
 
-    invoke-virtual {v4, v5, v6, v7, v13}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    aput-object v14, v12, v13
+
+    const/4 v13, 0x1
+
+    iget-object v14, v5, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+
+    aput-object v14, v12, v13
+
+    const/4 v13, 0x2
+
+    invoke-virtual {v9, v10, v11, v12, v13}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
 
     goto/16 :goto_4
 
     :cond_19
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    const-string/jumbo v5, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
+    const-string/jumbo v10, "http://www.w3.org/TR/1999/REC-xml-names-19990114"
 
-    const-string/jumbo v6, "AttributeNSNotUnique"
+    const-string/jumbo v11, "AttributeNSNotUnique"
 
-    new-array v7, v14, [Ljava/lang/Object;
+    const/4 v12, 0x3
 
-    iget-object v8, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    new-array v12, v12, [Ljava/lang/Object;
 
-    iget-object v8, v8, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+    const/4 v13, 0x0
 
-    aput-object v8, v7, v2
+    iget-object v14, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v8, v3, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
+    iget-object v14, v14, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
 
-    aput-object v8, v7, v1
+    aput-object v14, v12, v13
 
-    iget-object v3, v3, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+    const/4 v13, 0x1
 
-    aput-object v3, v7, v13
+    iget-object v14, v5, Lmf/org/apache/xerces/xni/QName;->localpart:Ljava/lang/String;
 
-    invoke-virtual {v4, v5, v6, v7, v13}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
+    aput-object v14, v12, v13
+
+    const/4 v13, 0x2
+
+    iget-object v14, v5, Lmf/org/apache/xerces/xni/QName;->uri:Ljava/lang/String;
+
+    aput-object v14, v12, v13
+
+    const/4 v13, 0x2
+
+    invoke-virtual {v9, v10, v11, v12, v13}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->reportError(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;S)Ljava/lang/String;
 
     goto/16 :goto_4
 
     :cond_1a
-    if-nez v0, :cond_1b
+    if-nez v2, :cond_1b
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fDocumentHandler:Lmf/org/apache/xerces/xni/XMLDocumentHandler;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fDocumentHandler:Lmf/org/apache/xerces/xni/XMLDocumentHandler;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v10, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+    iget-object v11, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
 
-    invoke-interface {v1, v2, v3, v12}, Lmf/org/apache/xerces/xni/XMLDocumentHandler;->startElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;)V
+    const/4 v12, 0x0
+
+    invoke-interface {v9, v10, v11, v12}, Lmf/org/apache/xerces/xni/XMLDocumentHandler;->startElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;)V
 
     goto/16 :goto_5
 
     :cond_1b
-    iget v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fMarkupDepth:I
+    iget v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fMarkupDepth:I
 
-    add-int/lit8 v3, v3, -0x1
+    add-int/lit8 v9, v9, -0x1
 
-    iput v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fMarkupDepth:I
+    iput v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fMarkupDepth:I
 
-    iget v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fMarkupDepth:I
+    iget v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fMarkupDepth:I
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityStack:[I
+    iget-object v10, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityStack:[I
 
-    iget v5, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityDepth:I
+    iget v11, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fEntityDepth:I
 
-    add-int/lit8 v5, v5, -0x1
+    add-int/lit8 v11, v11, -0x1
 
-    aget v4, v4, v5
+    aget v10, v10, v11
 
-    if-lt v3, v4, :cond_1c
+    if-lt v9, v10, :cond_1c
 
     :goto_10
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fDocumentHandler:Lmf/org/apache/xerces/xni/XMLDocumentHandler;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fDocumentHandler:Lmf/org/apache/xerces/xni/XMLDocumentHandler;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v10, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
+    iget-object v11, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fAttributes:Lmf/org/apache/xerces/util/XMLAttributesImpl;
 
-    invoke-interface {v1, v2, v3, v12}, Lmf/org/apache/xerces/xni/XMLDocumentHandler;->emptyElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;)V
+    const/4 v12, 0x0
 
-    iget-boolean v1, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fBindNamespaces:Z
+    invoke-interface {v9, v10, v11, v12}, Lmf/org/apache/xerces/xni/XMLDocumentHandler;->emptyElement(Lmf/org/apache/xerces/xni/QName;Lmf/org/apache/xerces/xni/XMLAttributes;Lmf/org/apache/xerces/xni/Augmentations;)V
 
-    if-nez v1, :cond_1d
+    iget-boolean v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fBindNamespaces:Z
+
+    if-nez v9, :cond_1d
 
     :goto_11
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementStack:Lmf/org/apache/xerces/impl/XMLDocumentFragmentScannerImpl$ElementStack;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementStack:Lmf/org/apache/xerces/impl/XMLDocumentFragmentScannerImpl$ElementStack;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
+    iget-object v10, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fElementQName:Lmf/org/apache/xerces/xni/QName;
 
-    invoke-virtual {v1, v2}, Lmf/org/apache/xerces/impl/XMLDocumentFragmentScannerImpl$ElementStack;->popElement(Lmf/org/apache/xerces/xni/QName;)V
+    invoke-virtual {v9, v10}, Lmf/org/apache/xerces/impl/XMLDocumentFragmentScannerImpl$ElementStack;->popElement(Lmf/org/apache/xerces/xni/QName;)V
 
     goto/16 :goto_5
 
     :cond_1c
-    const-string/jumbo v3, "ElementEntityMismatch"
+    const-string/jumbo v9, "ElementEntityMismatch"
 
-    new-array v1, v1, [Ljava/lang/Object;
+    const/4 v10, 0x1
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fCurrentElement:Lmf/org/apache/xerces/xni/QName;
+    new-array v10, v10, [Ljava/lang/Object;
 
-    iget-object v4, v4, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+    iget-object v11, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fCurrentElement:Lmf/org/apache/xerces/xni/QName;
 
-    aput-object v4, v1, v2
+    iget-object v11, v11, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
 
-    invoke-virtual {p0, v3, v1}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->reportFatalError(Ljava/lang/String;[Ljava/lang/Object;)V
+    const/4 v12, 0x0
+
+    aput-object v11, v10, v12
+
+    invoke-virtual {p0, v9, v10}, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->reportFatalError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_10
 
     :cond_1d
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
+    iget-object v9, p0, Lmf/org/apache/xerces/impl/XML11NSDocumentScannerImpl;->fNamespaceContext:Lmf/org/apache/xerces/xni/NamespaceContext;
 
-    invoke-interface {v1}, Lmf/org/apache/xerces/xni/NamespaceContext;->popContext()V
+    invoke-interface {v9}, Lmf/org/apache/xerces/xni/NamespaceContext;->popContext()V
 
     goto :goto_11
 .end method

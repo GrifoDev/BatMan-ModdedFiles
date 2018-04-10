@@ -91,13 +91,13 @@
 
     if-eq v3, v1, :cond_1
 
-    invoke-static {v1}, Lcom/android/server/net/NetworkPolicyManagerService;->-set5(Z)Z
+    invoke-static {v1}, Lcom/android/server/net/NetworkPolicyManagerService;->-set7(Z)Z
 
     invoke-static {}, Lcom/android/server/net/NetworkPolicyManagerService;->-get14()Z
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_3
 
     if-eqz v0, :cond_1
 
@@ -115,20 +115,19 @@
 
     if-eqz v4, :cond_0
 
-    iget-object v4, p0, Lcom/android/server/net/NetworkPolicyManagerService$2;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
+    iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService$2;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    invoke-static {v4}, Lcom/android/server/net/NetworkPolicyManagerService;->-get15(Lcom/android/server/net/NetworkPolicyManagerService;)Z
+    invoke-static {v2}, Lcom/android/server/net/NetworkPolicyManagerService;->-get16(Lcom/android/server/net/NetworkPolicyManagerService;)Z
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_3
+    xor-int/lit8 v2, v2, 0x1
 
     :cond_0
-    :goto_1
-    invoke-static {v3, v2}, Lcom/android/server/net/NetworkPolicyManagerService;->-wrap19(Lcom/android/server/net/NetworkPolicyManagerService;Z)V
+    invoke-static {v3, v2}, Lcom/android/server/net/NetworkPolicyManagerService;->-wrap22(Lcom/android/server/net/NetworkPolicyManagerService;Z)V
 
     :cond_1
-    :goto_2
+    :goto_1
     return-void
 
     :cond_2
@@ -137,14 +136,9 @@
     goto :goto_0
 
     :cond_3
-    const/4 v2, 0x1
-
-    goto :goto_1
-
-    :cond_4
     iget-object v3, p0, Lcom/android/server/net/NetworkPolicyManagerService$2;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    invoke-static {v3, v2}, Lcom/android/server/net/NetworkPolicyManagerService;->-wrap19(Lcom/android/server/net/NetworkPolicyManagerService;Z)V
+    invoke-static {v3, v2}, Lcom/android/server/net/NetworkPolicyManagerService;->-wrap22(Lcom/android/server/net/NetworkPolicyManagerService;Z)V
 
-    goto :goto_2
+    goto :goto_1
 .end method

@@ -218,29 +218,29 @@
 .end method
 
 .method protected getNodeNumber()I
-    .locals 1
+    .locals 2
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getOwnerDocument()Lmf/org/w3c/dom/Document;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    iget v0, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->doctypeNumber:I
+    iget v1, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->doctypeNumber:I
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
     :goto_0
-    iget v0, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->doctypeNumber:I
+    iget v1, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->doctypeNumber:I
 
-    return v0
+    return v1
 
     :cond_0
     invoke-super {p0}, Lmf/org/apache/xerces/dom/ParentNode;->getNodeNumber()I
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 
     :cond_1
     invoke-static {}, Lmf/org/apache/xerces/dom/CoreDOMImplementationImpl;->getDOMImplementation()Lmf/org/w3c/dom/DOMImplementation;
@@ -251,9 +251,9 @@
 
     invoke-virtual {v0}, Lmf/org/apache/xerces/dom/CoreDOMImplementationImpl;->assignDocTypeNumber()I
 
-    move-result v0
+    move-result v1
 
-    iput v0, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->doctypeNumber:I
+    iput v1, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->doctypeNumber:I
 
     goto :goto_0
 .end method
@@ -340,33 +340,35 @@
 .end method
 
 .method public getUserData(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 2
+    .locals 4
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->userData:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->userData:Ljava/util/Hashtable;
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->userData:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->userData:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     if-nez v0, :cond_1
 
-    return-object v1
+    return-object v3
 
     :cond_0
-    return-object v1
+    return-object v3
 
     :cond_1
-    check-cast v0, Lmf/org/apache/xerces/dom/ParentNode$UserDataRecord;
+    move-object v1, v0
 
-    iget-object v0, v0, Lmf/org/apache/xerces/dom/ParentNode$UserDataRecord;->fData:Ljava/lang/Object;
+    check-cast v1, Lmf/org/apache/xerces/dom/ParentNode$UserDataRecord;
 
-    return-object v0
+    iget-object v2, v1, Lmf/org/apache/xerces/dom/ParentNode$UserDataRecord;->fData:Ljava/lang/Object;
+
+    return-object v2
 .end method
 
 .method protected getUserDataRecord()Ljava/util/Hashtable;
@@ -378,128 +380,130 @@
 .end method
 
 .method public isEqualNode(Lmf/org/w3c/dom/Node;)Z
-    .locals 5
+    .locals 11
 
-    const/4 v2, 0x0
+    const/4 v10, 0x0
 
     invoke-super {p0, p1}, Lmf/org/apache/xerces/dom/ParentNode;->isEqualNode(Lmf/org/w3c/dom/Node;)Z
 
-    move-result v0
+    move-result v8
 
-    if-eqz v0, :cond_c
+    if-eqz v8, :cond_c
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->needsSyncData()Z
 
-    move-result v0
+    move-result v8
 
-    if-nez v0, :cond_d
+    if-nez v8, :cond_d
 
     :goto_0
-    check-cast p1, Lmf/org/apache/xerces/dom/DocumentTypeImpl;
+    move-object v0, p1
+
+    check-cast v0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getPublicId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v8
 
-    if-eqz v0, :cond_e
+    if-eqz v8, :cond_e
 
     :cond_0
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getPublicId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v8
 
-    if-nez v0, :cond_10
+    if-nez v8, :cond_10
 
     :cond_1
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getSystemId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v8
 
-    if-eqz v0, :cond_11
+    if-eqz v8, :cond_11
 
     :cond_2
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getSystemId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v8
 
-    if-nez v0, :cond_12
+    if-nez v8, :cond_12
 
     :cond_3
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getInternalSubset()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v8
 
-    if-eqz v0, :cond_13
+    if-eqz v8, :cond_13
 
     :cond_4
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getInternalSubset()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v8
 
-    if-nez v0, :cond_14
+    if-nez v8, :cond_14
 
     :goto_1
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getPublicId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v8
 
-    if-nez v0, :cond_15
+    if-nez v8, :cond_15
 
     :cond_5
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getSystemId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v8
 
-    if-nez v0, :cond_16
+    if-nez v8, :cond_16
 
     :cond_6
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getInternalSubset()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v8
 
-    if-nez v0, :cond_17
+    if-nez v8, :cond_17
 
     :cond_7
-    iget-object v3, p1, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->entities:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
+    iget-object v1, v0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->entities:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->entities:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->entities:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
 
-    if-eqz v0, :cond_18
+    if-eqz v8, :cond_18
 
     :cond_8
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->entities:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->entities:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
 
-    if-nez v0, :cond_1a
+    if-nez v8, :cond_1a
 
     :goto_2
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->entities:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->entities:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
 
-    if-nez v0, :cond_1b
+    if-nez v8, :cond_1b
 
     :cond_9
-    iget-object v3, p1, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->notations:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
+    iget-object v2, v0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->notations:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->notations:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->notations:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
 
-    if-eqz v0, :cond_1e
+    if-eqz v8, :cond_1e
 
     :cond_a
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->notations:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->notations:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
 
-    if-nez v0, :cond_20
+    if-nez v8, :cond_20
 
     :goto_3
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->notations:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->notations:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
 
-    if-nez v0, :cond_21
+    if-nez v8, :cond_21
 
     :cond_b
-    const/4 v0, 0x1
+    const/4 v8, 0x1
 
-    return v0
+    return v8
 
     :cond_c
-    return v2
+    return v10
 
     :cond_d
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->synchronizeData()V
@@ -507,253 +511,249 @@
     goto :goto_0
 
     :cond_e
-    invoke-virtual {p1}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getPublicId()Ljava/lang/String;
+    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getPublicId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v8
 
-    if-eqz v0, :cond_0
+    if-eqz v8, :cond_0
 
     :cond_f
     :goto_4
-    return v2
+    return v10
 
     :cond_10
-    invoke-virtual {p1}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getPublicId()Ljava/lang/String;
+    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getPublicId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v8
 
-    if-nez v0, :cond_1
+    if-nez v8, :cond_1
 
     goto :goto_4
 
     :cond_11
-    invoke-virtual {p1}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getSystemId()Ljava/lang/String;
+    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getSystemId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v8
 
-    if-eqz v0, :cond_2
+    if-eqz v8, :cond_2
 
     goto :goto_4
 
     :cond_12
-    invoke-virtual {p1}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getSystemId()Ljava/lang/String;
+    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getSystemId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v8
 
-    if-nez v0, :cond_3
+    if-nez v8, :cond_3
 
     goto :goto_4
 
     :cond_13
-    invoke-virtual {p1}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getInternalSubset()Ljava/lang/String;
+    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getInternalSubset()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v8
 
-    if-eqz v0, :cond_4
+    if-eqz v8, :cond_4
 
     goto :goto_4
 
     :cond_14
-    invoke-virtual {p1}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getInternalSubset()Ljava/lang/String;
+    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getInternalSubset()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v8
 
-    if-eqz v0, :cond_f
+    if-eqz v8, :cond_f
 
     goto :goto_1
 
     :cond_15
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getPublicId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v8
 
-    invoke-virtual {p1}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getPublicId()Ljava/lang/String;
+    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getPublicId()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v9
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v8
 
-    if-nez v0, :cond_5
+    if-nez v8, :cond_5
 
-    return v2
+    return v10
 
     :cond_16
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getSystemId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v8
 
-    invoke-virtual {p1}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getSystemId()Ljava/lang/String;
+    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getSystemId()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v9
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v8
 
-    if-nez v0, :cond_6
+    if-nez v8, :cond_6
 
-    return v2
+    return v10
 
     :cond_17
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getInternalSubset()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v8
 
-    invoke-virtual {p1}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getInternalSubset()Ljava/lang/String;
+    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->getInternalSubset()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v9
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v8
 
-    if-nez v0, :cond_7
+    if-nez v8, :cond_7
 
-    return v2
+    return v10
 
     :cond_18
-    if-eqz v3, :cond_8
+    if-eqz v1, :cond_8
 
     :cond_19
-    return v2
+    return v10
 
     :cond_1a
-    if-eqz v3, :cond_19
+    if-eqz v1, :cond_19
 
     goto :goto_2
 
     :cond_1b
-    if-eqz v3, :cond_9
+    if-eqz v1, :cond_9
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->entities:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->entities:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->getLength()I
+    invoke-virtual {v8}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->getLength()I
 
-    move-result v0
+    move-result v8
 
-    invoke-virtual {v3}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->getLength()I
+    invoke-virtual {v1}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->getLength()I
 
-    move-result v1
+    move-result v9
 
-    if-ne v0, v1, :cond_1c
+    if-ne v8, v9, :cond_1c
 
-    move v1, v2
+    const/4 v5, 0x0
 
     :goto_5
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->entities:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->entities:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->item(I)Lmf/org/w3c/dom/Node;
+    invoke-virtual {v8, v5}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->item(I)Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v8
 
-    if-eqz v0, :cond_9
+    if-eqz v8, :cond_9
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->entities:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->entities:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->item(I)Lmf/org/w3c/dom/Node;
+    invoke-virtual {v8, v5}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->item(I)Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNodeName()Ljava/lang/String;
+    invoke-interface {v3}, Lmf/org/w3c/dom/Node;->getNodeName()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v1, v8}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->getNamedItem(Ljava/lang/String;)Lmf/org/w3c/dom/Node;
 
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->getNamedItem(Ljava/lang/String;)Lmf/org/w3c/dom/Node;
+    check-cast v3, Lmf/org/apache/xerces/dom/NodeImpl;
 
-    move-result-object v4
+    invoke-virtual {v3, v4}, Lmf/org/apache/xerces/dom/NodeImpl;->isEqualNode(Lmf/org/w3c/dom/Node;)Z
 
-    check-cast v0, Lmf/org/apache/xerces/dom/NodeImpl;
+    move-result v8
 
-    invoke-virtual {v0, v4}, Lmf/org/apache/xerces/dom/NodeImpl;->isEqualNode(Lmf/org/w3c/dom/Node;)Z
+    if-eqz v8, :cond_1d
 
-    move-result v0
-
-    if-eqz v0, :cond_1d
-
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
+    add-int/lit8 v5, v5, 0x1
 
     goto :goto_5
 
     :cond_1c
-    return v2
+    return v10
 
     :cond_1d
-    return v2
+    return v10
 
     :cond_1e
-    if-eqz v3, :cond_a
+    if-eqz v2, :cond_a
 
     :cond_1f
-    return v2
+    return v10
 
     :cond_20
-    if-eqz v3, :cond_1f
+    if-eqz v2, :cond_1f
 
     goto/16 :goto_3
 
     :cond_21
-    if-eqz v3, :cond_b
+    if-eqz v2, :cond_b
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->notations:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->notations:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->getLength()I
+    invoke-virtual {v8}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->getLength()I
 
-    move-result v0
+    move-result v8
 
-    invoke-virtual {v3}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->getLength()I
+    invoke-virtual {v2}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->getLength()I
 
-    move-result v1
+    move-result v9
 
-    if-ne v0, v1, :cond_22
+    if-ne v8, v9, :cond_22
 
-    move v1, v2
+    const/4 v5, 0x0
 
     :goto_6
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->notations:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->notations:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->item(I)Lmf/org/w3c/dom/Node;
+    invoke-virtual {v8, v5}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->item(I)Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v8
 
-    if-eqz v0, :cond_b
+    if-eqz v8, :cond_b
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->notations:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
+    iget-object v8, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->notations:Lmf/org/apache/xerces/dom/NamedNodeMapImpl;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->item(I)Lmf/org/w3c/dom/Node;
+    invoke-virtual {v8, v5}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->item(I)Lmf/org/w3c/dom/Node;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-interface {v0}, Lmf/org/w3c/dom/Node;->getNodeName()Ljava/lang/String;
+    invoke-interface {v6}, Lmf/org/w3c/dom/Node;->getNodeName()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v8
 
-    invoke-virtual {v3, v4}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->getNamedItem(Ljava/lang/String;)Lmf/org/w3c/dom/Node;
+    invoke-virtual {v2, v8}, Lmf/org/apache/xerces/dom/NamedNodeMapImpl;->getNamedItem(Ljava/lang/String;)Lmf/org/w3c/dom/Node;
 
-    move-result-object v4
+    move-result-object v7
 
-    check-cast v0, Lmf/org/apache/xerces/dom/NodeImpl;
+    check-cast v6, Lmf/org/apache/xerces/dom/NodeImpl;
 
-    invoke-virtual {v0, v4}, Lmf/org/apache/xerces/dom/NodeImpl;->isEqualNode(Lmf/org/w3c/dom/Node;)Z
+    invoke-virtual {v6, v7}, Lmf/org/apache/xerces/dom/NodeImpl;->isEqualNode(Lmf/org/w3c/dom/Node;)Z
 
-    move-result v0
+    move-result v8
 
-    if-eqz v0, :cond_23
+    if-eqz v8, :cond_23
 
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
+    add-int/lit8 v5, v5, 0x1
 
     goto :goto_6
 
     :cond_22
-    return v2
+    return v10
 
     :cond_23
-    return v2
+    return v10
 .end method
 
 .method public setInternalSubset(Ljava/lang/String;)V
@@ -842,67 +842,71 @@
 .end method
 
 .method public setUserData(Ljava/lang/String;Ljava/lang/Object;Lmf/org/w3c/dom/UserDataHandler;)Ljava/lang/Object;
-    .locals 3
+    .locals 5
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->userData:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->userData:Ljava/util/Hashtable;
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
     :goto_0
     if-eqz p2, :cond_1
 
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->userData:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->userData:Ljava/util/Hashtable;
 
-    new-instance v1, Lmf/org/apache/xerces/dom/ParentNode$UserDataRecord;
+    new-instance v3, Lmf/org/apache/xerces/dom/ParentNode$UserDataRecord;
 
-    invoke-direct {v1, p0, p2, p3}, Lmf/org/apache/xerces/dom/ParentNode$UserDataRecord;-><init>(Lmf/org/apache/xerces/dom/ParentNode;Ljava/lang/Object;Lmf/org/w3c/dom/UserDataHandler;)V
+    invoke-direct {v3, p0, p2, p3}, Lmf/org/apache/xerces/dom/ParentNode$UserDataRecord;-><init>(Lmf/org/apache/xerces/dom/ParentNode;Ljava/lang/Object;Lmf/org/w3c/dom/UserDataHandler;)V
 
-    invoke-virtual {v0, p1, v1}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1, v3}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     if-nez v0, :cond_4
 
-    return-object v2
+    return-object v4
 
     :cond_0
-    new-instance v0, Ljava/util/Hashtable;
+    new-instance v2, Ljava/util/Hashtable;
 
-    invoke-direct {v0}, Ljava/util/Hashtable;-><init>()V
+    invoke-direct {v2}, Ljava/util/Hashtable;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->userData:Ljava/util/Hashtable;
+    iput-object v2, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->userData:Ljava/util/Hashtable;
 
     goto :goto_0
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->userData:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->userData:Ljava/util/Hashtable;
 
-    if-nez v0, :cond_3
+    if-nez v2, :cond_3
 
     :cond_2
-    return-object v2
+    return-object v4
 
     :cond_3
-    iget-object v0, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->userData:Ljava/util/Hashtable;
+    iget-object v2, p0, Lmf/org/apache/xerces/dom/DocumentTypeImpl;->userData:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p1}, Ljava/util/Hashtable;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1}, Ljava/util/Hashtable;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     if-eqz v0, :cond_2
 
-    check-cast v0, Lmf/org/apache/xerces/dom/ParentNode$UserDataRecord;
+    move-object v1, v0
 
-    iget-object v0, v0, Lmf/org/apache/xerces/dom/ParentNode$UserDataRecord;->fData:Ljava/lang/Object;
+    check-cast v1, Lmf/org/apache/xerces/dom/ParentNode$UserDataRecord;
 
-    return-object v0
+    iget-object v2, v1, Lmf/org/apache/xerces/dom/ParentNode$UserDataRecord;->fData:Ljava/lang/Object;
+
+    return-object v2
 
     :cond_4
-    check-cast v0, Lmf/org/apache/xerces/dom/ParentNode$UserDataRecord;
+    move-object v1, v0
 
-    iget-object v0, v0, Lmf/org/apache/xerces/dom/ParentNode$UserDataRecord;->fData:Ljava/lang/Object;
+    check-cast v1, Lmf/org/apache/xerces/dom/ParentNode$UserDataRecord;
 
-    return-object v0
+    iget-object v2, v1, Lmf/org/apache/xerces/dom/ParentNode$UserDataRecord;->fData:Ljava/lang/Object;
+
+    return-object v2
 .end method

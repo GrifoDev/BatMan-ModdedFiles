@@ -32,23 +32,23 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 8
+    .locals 7
 
-    const/4 v7, 0x4
+    const/4 v6, 0x5
 
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v4, "com.android.server.am.MARS_TRIGGER_UDS_POLICY"
+    const-string/jumbo v3, "com.android.server.am.MARS_TRIGGER_UDS_POLICY"
 
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_2
+    if-eqz v3, :cond_1
 
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
@@ -56,17 +56,23 @@
 
     if-eqz v1, :cond_0
 
-    const-string/jumbo v4, "PACKAGE_NAME"
+    const-string/jumbo v3, "PACKAGE_NAME"
 
-    invoke-virtual {v1, v4}, Landroid/os/Bundle;->getStringArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
+    invoke-virtual {v1, v3}, Landroid/os/Bundle;->getStringArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
 
-    move-result-object v3
+    move-result-object v2
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
+
+    iget-object v3, p0, Lcom/android/server/am/MARsTrigger$3;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v3, v3, Lcom/android/server/am/MARsTrigger;->mHandlerManager:Lcom/android/server/am/MARsHandler;
 
     iget-object v4, p0, Lcom/android/server/am/MARsTrigger$3;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    iget-object v4, v4, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+    invoke-static {v4, v0}, Lcom/android/server/am/MARsTrigger;->-wrap2(Lcom/android/server/am/MARsTrigger;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
 
     iget-object v5, p0, Lcom/android/server/am/MARsTrigger$3;->this$0:Lcom/android/server/am/MARsTrigger;
 
@@ -76,93 +82,65 @@
 
     move-result v5
 
-    invoke-virtual {v4, v3, v5}, Lcom/android/server/am/MARsPolicyManager;->updateUDSPackages(Ljava/util/ArrayList;I)V
+    invoke-virtual {v3, v6, v4, v5, v2}, Lcom/android/server/am/MARsHandler;->sendTriggerUDSPolicyMsgToMainHandler(ILjava/lang/String;ILjava/util/ArrayList;)V
 
     :cond_0
-    iget-object v4, p0, Lcom/android/server/am/MARsTrigger$3;->this$0:Lcom/android/server/am/MARsTrigger;
-
-    iget-object v5, p0, Lcom/android/server/am/MARsTrigger$3;->this$0:Lcom/android/server/am/MARsTrigger;
-
-    invoke-static {v5, v0}, Lcom/android/server/am/MARsTrigger;->-wrap2(Lcom/android/server/am/MARsTrigger;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v7, v5}, Lcom/android/server/am/MARsTrigger;->-wrap4(Lcom/android/server/am/MARsTrigger;ILjava/lang/String;)V
-
-    :cond_1
     :goto_0
     return-void
 
-    :cond_2
-    const-string/jumbo v4, "com.android.server.am.MARS_CANCEL_UDS_POLICY"
+    :cond_1
+    const-string/jumbo v3, "com.android.server.am.MARS_CANCEL_UDS_POLICY"
 
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_1
+    if-eqz v3, :cond_0
 
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
-    const-string/jumbo v4, "PACKAGE_NAME"
+    const-string/jumbo v3, "PACKAGE_NAME"
 
-    invoke-virtual {v1, v4}, Landroid/os/Bundle;->getStringArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
+    invoke-virtual {v1, v3}, Landroid/os/Bundle;->getStringArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
 
-    move-result-object v3
+    move-result-object v2
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_0
 
-    const/4 v2, 0x0
+    iget-object v3, p0, Lcom/android/server/am/MARsTrigger$3;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    :goto_1
-    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
+    iget-object v3, v3, Lcom/android/server/am/MARsTrigger;->mHandlerManager:Lcom/android/server/am/MARsHandler;
+
+    iget-object v4, p0, Lcom/android/server/am/MARsTrigger$3;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v4, v4, Lcom/android/server/am/MARsTrigger;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4}, Landroid/content/Context;->getUserId()I
 
     move-result v4
 
-    if-ge v2, v4, :cond_1
+    invoke-virtual {v3, v2, v6, v4}, Lcom/android/server/am/MARsHandler;->sendCancelUDSPolicyToMainHandler(Ljava/util/ArrayList;II)V
+
+    goto :goto_0
+
+    :cond_2
+    iget-object v3, p0, Lcom/android/server/am/MARsTrigger$3;->this$0:Lcom/android/server/am/MARsTrigger;
+
+    iget-object v3, v3, Lcom/android/server/am/MARsTrigger;->mHandlerManager:Lcom/android/server/am/MARsHandler;
 
     iget-object v4, p0, Lcom/android/server/am/MARsTrigger$3;->this$0:Lcom/android/server/am/MARsTrigger;
 
-    iget-object v5, v4, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
+    iget-object v4, v4, Lcom/android/server/am/MARsTrigger;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v4}, Landroid/content/Context;->getUserId()I
 
-    move-result-object v4
+    move-result v4
 
-    check-cast v4, Ljava/lang/String;
-
-    iget-object v6, p0, Lcom/android/server/am/MARsTrigger$3;->this$0:Lcom/android/server/am/MARsTrigger;
-
-    iget-object v6, v6, Lcom/android/server/am/MARsTrigger;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v6}, Landroid/content/Context;->getUserId()I
-
-    move-result v6
-
-    invoke-virtual {v5, v4, v7, v6}, Lcom/android/server/am/MARsPolicyManager;->cancelPolicy(Ljava/lang/String;II)V
-
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_1
-
-    :cond_3
-    iget-object v4, p0, Lcom/android/server/am/MARsTrigger$3;->this$0:Lcom/android/server/am/MARsTrigger;
-
-    iget-object v4, v4, Lcom/android/server/am/MARsTrigger;->mPolicyManager:Lcom/android/server/am/MARsPolicyManager;
-
-    iget-object v5, p0, Lcom/android/server/am/MARsTrigger$3;->this$0:Lcom/android/server/am/MARsTrigger;
-
-    iget-object v5, v5, Lcom/android/server/am/MARsTrigger;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v5}, Landroid/content/Context;->getUserId()I
-
-    move-result v5
-
-    invoke-virtual {v4, v6, v7, v5}, Lcom/android/server/am/MARsPolicyManager;->cancelPolicy(Ljava/lang/String;II)V
+    invoke-virtual {v3, v5, v6, v4}, Lcom/android/server/am/MARsHandler;->sendCancelPolicyMsgToMainHandler(Ljava/lang/String;II)V
 
     goto :goto_0
 .end method

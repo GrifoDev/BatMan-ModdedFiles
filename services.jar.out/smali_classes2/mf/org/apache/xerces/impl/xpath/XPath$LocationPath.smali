@@ -27,42 +27,38 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;->steps:[Lmf/org/apache/xerces/impl/xpath/XPath$Step;
+    iget-object v1, p1, Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;->steps:[Lmf/org/apache/xerces/impl/xpath/XPath$Step;
 
-    array-length v0, v0
+    array-length v1, v1
 
-    new-array v0, v0, [Lmf/org/apache/xerces/impl/xpath/XPath$Step;
+    new-array v1, v1, [Lmf/org/apache/xerces/impl/xpath/XPath$Step;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;->steps:[Lmf/org/apache/xerces/impl/xpath/XPath$Step;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;->steps:[Lmf/org/apache/xerces/impl/xpath/XPath$Step;
 
     const/4 v0, 0x0
 
-    move v1, v0
-
     :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;->steps:[Lmf/org/apache/xerces/impl/xpath/XPath$Step;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;->steps:[Lmf/org/apache/xerces/impl/xpath/XPath$Step;
 
-    array-length v0, v0
+    array-length v1, v1
 
-    if-ge v1, v0, :cond_0
+    if-ge v0, v1, :cond_0
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;->steps:[Lmf/org/apache/xerces/impl/xpath/XPath$Step;
 
-    iget-object v0, p1, Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;->steps:[Lmf/org/apache/xerces/impl/xpath/XPath$Step;
+    iget-object v1, p1, Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;->steps:[Lmf/org/apache/xerces/impl/xpath/XPath$Step;
 
-    aget-object v0, v0, v1
+    aget-object v1, v1, v0
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xpath/XPath$Step;->clone()Ljava/lang/Object;
+    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/xpath/XPath$Step;->clone()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lmf/org/apache/xerces/impl/xpath/XPath$Step;
+    check-cast v1, Lmf/org/apache/xerces/impl/xpath/XPath$Step;
 
-    aput-object v0, v2, v1
+    aput-object v1, v2, v0
 
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
@@ -97,11 +93,11 @@
 
     const/4 v4, 0x4
 
-    const/4 v0, 0x0
-
     new-instance v1, Ljava/lang/StringBuffer;
 
     invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
+
+    const/4 v0, 0x0
 
     :goto_0
     iget-object v2, p0, Lmf/org/apache/xerces/impl/xpath/XPath$LocationPath;->steps:[Lmf/org/apache/xerces/impl/xpath/XPath$Step;
@@ -160,7 +156,7 @@
     :cond_2
     invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    return-object v0
+    return-object v2
 .end method

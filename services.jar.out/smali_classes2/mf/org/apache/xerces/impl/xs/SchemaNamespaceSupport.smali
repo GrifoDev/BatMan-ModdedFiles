@@ -99,13 +99,13 @@
 .end method
 
 .method public constructor <init>(Lmf/org/w3c/dom/Element;Lmf/org/apache/xerces/util/SymbolTable;)V
-    .locals 1
+    .locals 2
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     invoke-direct {p0}, Lmf/org/apache/xerces/util/NamespaceSupport;-><init>()V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;->fSchemaRootContext:Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport$SchemaRootContext;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;->fSchemaRootContext:Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport$SchemaRootContext;
 
     if-nez p1, :cond_1
 
@@ -114,9 +114,9 @@
     return-void
 
     :cond_1
-    instance-of v0, p1, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;
+    instance-of v1, p1, Lmf/org/apache/xerces/impl/xs/opti/ElementImpl;
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     invoke-interface {p1}, Lmf/org/w3c/dom/Element;->getOwnerDocument()Lmf/org/w3c/dom/Document;
 
@@ -126,15 +126,15 @@
 
     invoke-interface {v0}, Lmf/org/w3c/dom/Document;->getDocumentElement()Lmf/org/w3c/dom/Element;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v1, :cond_0
 
-    new-instance v0, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport$SchemaRootContext;
+    new-instance v1, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport$SchemaRootContext;
 
-    invoke-direct {v0, p1, p2}, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport$SchemaRootContext;-><init>(Lmf/org/w3c/dom/Element;Lmf/org/apache/xerces/util/SymbolTable;)V
+    invoke-direct {v1, p1, p2}, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport$SchemaRootContext;-><init>(Lmf/org/w3c/dom/Element;Lmf/org/apache/xerces/util/SymbolTable;)V
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;->fSchemaRootContext:Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport$SchemaRootContext;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;->fSchemaRootContext:Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport$SchemaRootContext;
 
     goto :goto_0
 .end method
@@ -142,38 +142,38 @@
 
 # virtual methods
 .method public getEffectiveLocalContext()[Ljava/lang/String;
-    .locals 5
+    .locals 6
 
-    const/4 v2, 0x3
+    const/4 v5, 0x3
 
     const/4 v4, 0x0
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;->fCurrentContext:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;->fCurrentContext:I
 
-    if-ge v1, v2, :cond_1
+    if-ge v3, v5, :cond_1
 
     :cond_0
     :goto_0
-    return-object v0
+    return-object v2
 
     :cond_1
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;->fContext:[I
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;->fContext:[I
 
-    aget v1, v1, v2
+    aget v0, v3, v5
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;->fNamespaceSize:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;->fNamespaceSize:I
 
-    sub-int/2addr v2, v1
+    sub-int v1, v3, v0
 
-    if-lez v2, :cond_0
+    if-lez v1, :cond_0
 
-    new-array v0, v2, [Ljava/lang/String;
+    new-array v2, v1, [Ljava/lang/String;
 
     iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;->fNamespace:[Ljava/lang/String;
 
-    invoke-static {v3, v1, v0, v4, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v3, v0, v2, v4, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     goto :goto_0
 .end method
@@ -215,9 +215,9 @@
 
     if-nez v1, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;->fSchemaRootContext:Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport$SchemaRootContext;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;->fSchemaRootContext:Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport$SchemaRootContext;
 
-    invoke-virtual {v0, p1}, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport$SchemaRootContext;->getURI(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, p1}, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport$SchemaRootContext;->getURI(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -262,9 +262,9 @@
 .end method
 
 .method public setEffectiveContext([Ljava/lang/String;)V
-    .locals 5
+    .locals 6
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
     if-nez p1, :cond_1
 
@@ -272,32 +272,32 @@
     return-void
 
     :cond_1
-    array-length v0, p1
+    array-length v2, p1
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;->pushContext()V
-
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;->fNamespaceSize:I
-
-    array-length v1, p1
-
-    add-int/2addr v0, v1
-
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;->fNamespace:[Ljava/lang/String;
-
-    array-length v1, v1
-
-    if-lt v1, v0, :cond_2
-
-    :goto_0
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;->fNamespace:[Ljava/lang/String;
 
     iget v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;->fNamespaceSize:I
 
     array-length v3, p1
 
-    invoke-static {p1, v4, v1, v2, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    add-int v0, v2, v3
+
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;->fNamespace:[Ljava/lang/String;
+
+    array-length v2, v2
+
+    if-lt v2, v0, :cond_2
+
+    :goto_0
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;->fNamespace:[Ljava/lang/String;
+
+    iget v3, p0, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;->fNamespaceSize:I
+
+    array-length v4, p1
+
+    invoke-static {p1, v5, v2, v3, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     iput v0, p0, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;->fNamespaceSize:I
 
@@ -312,7 +312,7 @@
 
     array-length v3, v3
 
-    invoke-static {v2, v4, v1, v4, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v2, v5, v1, v5, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     iput-object v1, p0, Lmf/org/apache/xerces/impl/xs/SchemaNamespaceSupport;->fNamespace:[Ljava/lang/String;
 

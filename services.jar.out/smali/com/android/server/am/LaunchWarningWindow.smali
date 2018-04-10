@@ -13,7 +13,7 @@
 
     const/4 v7, 0x1
 
-    const v3, 0x103048d
+    const v3, 0x103043f
 
     invoke-direct {p0, p1, v3}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V
 
@@ -35,11 +35,11 @@
 
     invoke-virtual {v3, v4}, Landroid/view/Window;->addFlags(I)V
 
-    const v3, 0x1090087
+    const v3, 0x1090089
 
     invoke-virtual {p0, v3}, Lcom/android/server/am/LaunchWarningWindow;->setContentView(I)V
 
-    const v3, 0x10403b1
+    const v3, 0x1040496
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -71,7 +71,7 @@
 
     invoke-virtual {v3, v5, v4}, Landroid/view/Window;->setFeatureDrawableResource(II)V
 
-    const v3, 0x102041e
+    const v3, 0x1020431
 
     invoke-virtual {p0, v3}, Lcom/android/server/am/LaunchWarningWindow;->findViewById(I)Landroid/view/View;
 
@@ -93,7 +93,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    const v3, 0x102041f
+    const v3, 0x1020432
 
     invoke-virtual {p0, v3}, Lcom/android/server/am/LaunchWarningWindow;->findViewById(I)Landroid/view/View;
 
@@ -125,7 +125,7 @@
 
     aput-object v5, v4, v8
 
-    const v5, 0x10403b2
+    const v5, 0x1040495
 
     invoke-virtual {v3, v5, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -133,7 +133,7 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v3, 0x1020420
+    const v3, 0x10203d7
 
     invoke-virtual {p0, v3}, Lcom/android/server/am/LaunchWarningWindow;->findViewById(I)Landroid/view/View;
 
@@ -155,7 +155,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    const v3, 0x1020421
+    const v3, 0x10203d8
 
     invoke-virtual {p0, v3}, Lcom/android/server/am/LaunchWarningWindow;->findViewById(I)Landroid/view/View;
 
@@ -187,7 +187,7 @@
 
     aput-object v5, v4, v8
 
-    const v5, 0x10403b3
+    const v5, 0x1040494
 
     invoke-virtual {v3, v5, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

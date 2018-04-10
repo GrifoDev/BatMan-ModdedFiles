@@ -3,11 +3,6 @@
 .source "HttpClient.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract execute(Lorg/apache/http/HttpHost;Lorg/apache/http/HttpRequest;Lorg/apache/http/client/ResponseHandler;)Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -132,7 +127,11 @@
 .end method
 
 .method public abstract getConnectionManager()Lorg/apache/http/conn/ClientConnectionManager;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract getParams()Lorg/apache/http/params/HttpParams;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method

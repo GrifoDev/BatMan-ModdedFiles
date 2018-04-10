@@ -50,32 +50,32 @@
 .end method
 
 .method private resetCommon(I)V
-    .locals 3
+    .locals 4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$Context;->limit:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$Context;->limit:I
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$Context;->start:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$Context;->start:I
 
-    sub-int/2addr v0, v1
+    sub-int/2addr v1, v2
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$Context;->length:I
+    iput v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$Context;->length:I
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$Context;->setInUse(Z)V
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$Context;->setInUse(Z)V
 
-    iput-object v2, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$Context;->match:Lmf/org/apache/xerces/impl/xpath/regex/Match;
+    iput-object v3, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$Context;->match:Lmf/org/apache/xerces/impl/xpath/regex/Match;
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$Context;->closureContexts:[Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$ClosureContext;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$Context;->closureContexts:[Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$ClosureContext;
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     :cond_0
-    new-array v0, p1, [Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$ClosureContext;
+    new-array v1, p1, [Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$ClosureContext;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$Context;->closureContexts:[Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$ClosureContext;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$Context;->closureContexts:[Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$ClosureContext;
 
     :goto_0
     const/4 v0, 0x0
@@ -101,11 +101,11 @@
     goto :goto_1
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$Context;->closureContexts:[Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$ClosureContext;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$Context;->closureContexts:[Lmf/org/apache/xerces/impl/xpath/regex/RegularExpression$ClosureContext;
 
-    array-length v0, v0
+    array-length v1, v1
 
-    if-ne v0, p1, :cond_0
+    if-ne v1, p1, :cond_0
 
     goto :goto_0
 

@@ -32,29 +32,29 @@
 
 # virtual methods
 .method protected getErrorHandler()Lmf/org/apache/xerces/xni/parser/XMLErrorHandler;
-    .locals 2
+    .locals 3
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/JAXPValidatorComponent$2;->this$0:Lmf/org/apache/xerces/jaxp/JAXPValidatorComponent;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/JAXPValidatorComponent$2;->this$0:Lmf/org/apache/xerces/jaxp/JAXPValidatorComponent;
 
-    invoke-static {v0}, Lmf/org/apache/xerces/jaxp/JAXPValidatorComponent;->access$5(Lmf/org/apache/xerces/jaxp/JAXPValidatorComponent;)Lmf/org/apache/xerces/impl/XMLErrorReporter;
+    invoke-static {v1}, Lmf/org/apache/xerces/jaxp/JAXPValidatorComponent;->access$5(Lmf/org/apache/xerces/jaxp/JAXPValidatorComponent;)Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->getErrorHandler()Lmf/org/apache/xerces/xni/parser/XMLErrorHandler;
+    invoke-virtual {v1}, Lmf/org/apache/xerces/impl/XMLErrorReporter;->getErrorHandler()Lmf/org/apache/xerces/xni/parser/XMLErrorHandler;
 
     move-result-object v0
 
     if-nez v0, :cond_0
 
-    new-instance v0, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;
+    new-instance v1, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;
 
     invoke-static {}, Lmf/org/apache/xerces/jaxp/JAXPValidatorComponent$DraconianErrorHandler;->getInstance()Lmf/org/apache/xerces/jaxp/JAXPValidatorComponent$DraconianErrorHandler;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-direct {v0, v1}, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;-><init>(Lorg/xml/sax/ErrorHandler;)V
+    invoke-direct {v1, v2}, Lmf/org/apache/xerces/util/ErrorHandlerWrapper;-><init>(Lorg/xml/sax/ErrorHandler;)V
 
-    return-object v0
+    return-object v1
 
     :cond_0
     return-object v0

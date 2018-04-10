@@ -11,88 +11,71 @@
 .end annotation
 
 
+# instance fields
+.field private final context:Lorg/apache/http/protocol/HttpContext;
+
+
 # direct methods
 .method public constructor <init>(Lorg/apache/http/protocol/HttpContext;)V
-    .locals 2
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const-string/jumbo v0, "HTTP context"
 
-    const-string/jumbo v1, "Stub!"
+    invoke-static {p1, v0}, Lorg/apache/http/util/Args;->notNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    iput-object p1, p0, Lorg/apache/http/client/protocol/ClientContextConfigurer;->context:Lorg/apache/http/protocol/HttpContext;
 
-    throw v0
+    return-void
 .end method
 
 
 # virtual methods
-.method public setAuthSchemePref(Ljava/util/List;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;)V"
-        }
-    .end annotation
-
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
 .method public setAuthSchemeRegistry(Lorg/apache/http/auth/AuthSchemeRegistry;)V
     .locals 2
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/client/protocol/ClientContextConfigurer;->context:Lorg/apache/http/protocol/HttpContext;
 
-    const-string/jumbo v1, "Stub!"
+    const-string/jumbo v1, "http.authscheme-registry"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-interface {v0, v1, p1}, Lorg/apache/http/protocol/HttpContext;->setAttribute(Ljava/lang/String;Ljava/lang/Object;)V
 
-    throw v0
+    return-void
 .end method
 
 .method public setCookieSpecRegistry(Lorg/apache/http/cookie/CookieSpecRegistry;)V
     .locals 2
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/client/protocol/ClientContextConfigurer;->context:Lorg/apache/http/protocol/HttpContext;
 
-    const-string/jumbo v1, "Stub!"
+    const-string/jumbo v1, "http.cookiespec-registry"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-interface {v0, v1, p1}, Lorg/apache/http/protocol/HttpContext;->setAttribute(Ljava/lang/String;Ljava/lang/Object;)V
 
-    throw v0
+    return-void
 .end method
 
 .method public setCookieStore(Lorg/apache/http/client/CookieStore;)V
     .locals 2
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/client/protocol/ClientContextConfigurer;->context:Lorg/apache/http/protocol/HttpContext;
 
-    const-string/jumbo v1, "Stub!"
+    const-string/jumbo v1, "http.cookie-store"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-interface {v0, v1, p1}, Lorg/apache/http/protocol/HttpContext;->setAttribute(Ljava/lang/String;Ljava/lang/Object;)V
 
-    throw v0
+    return-void
 .end method
 
 .method public setCredentialsProvider(Lorg/apache/http/client/CredentialsProvider;)V
     .locals 2
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/client/protocol/ClientContextConfigurer;->context:Lorg/apache/http/protocol/HttpContext;
 
-    const-string/jumbo v1, "Stub!"
+    const-string/jumbo v1, "http.auth.credentials-provider"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-interface {v0, v1, p1}, Lorg/apache/http/protocol/HttpContext;->setAttribute(Ljava/lang/String;Ljava/lang/Object;)V
 
-    throw v0
+    return-void
 .end method

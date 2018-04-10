@@ -32,92 +32,115 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 5
+    .locals 7
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v2, "android.intent.action.PACKAGE_REPLACED"
+    const-string/jumbo v4, "android.intent.action.PACKAGE_REPLACED"
 
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v4
 
-    if-eqz v2, :cond_0
+    if-eqz v4, :cond_0
 
     invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_0
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
 
     move-result-object v2
 
     if-eqz v2, :cond_0
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
+    const-string/jumbo v4, "com.sec.downloadablekeystore"
 
-    move-result-object v2
+    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v2}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
+    move-result v4
 
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    const-string/jumbo v2, "com.sec.downloadablekeystore"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
+    if-eqz v4, :cond_0
 
     invoke-static {}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-get1()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "onReceive : "
+    const-string/jumbo v6, "onReceive : "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, " key : "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
     move-result-object v3
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :try_start_0
+    const-string/jumbo v4, "com.sec.downloadablekeystore"
 
-    move-result-object v3
+    const/4 v5, 0x1
 
-    const-string/jumbo v4, " key : "
+    const/4 v6, 0x0
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-interface {v3, v4, v5, v6}, Landroid/content/pm/IPackageManager;->setBlockUninstallForUser(Ljava/lang/String;ZI)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v3
+    :goto_0
+    iget-object v4, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService$2;->this$0:Lcom/android/server/enterprise/keystore/TimaKeystoreService;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v4}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-get2(Lcom/android/server/enterprise/keystore/TimaKeystoreService;)Lcom/samsung/android/knox/downloadablekeystore/IDownloadableKeystoreService;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    if-nez v4, :cond_0
 
-    move-result-object v3
+    iget-object v4, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService$2;->this$0:Lcom/android/server/enterprise/keystore/TimaKeystoreService;
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v5, 0x3
 
-    iget-object v2, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService$2;->this$0:Lcom/android/server/enterprise/keystore/TimaKeystoreService;
-
-    invoke-static {v2}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-get2(Lcom/android/server/enterprise/keystore/TimaKeystoreService;)Lcom/samsung/android/knox/downloadablekeystore/IDownloadableKeystoreService;
-
-    move-result-object v2
-
-    if-nez v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService$2;->this$0:Lcom/android/server/enterprise/keystore/TimaKeystoreService;
-
-    const/4 v3, 0x3
-
-    invoke-static {v2, v3}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-wrap6(Lcom/android/server/enterprise/keystore/TimaKeystoreService;I)V
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-wrap7(Lcom/android/server/enterprise/keystore/TimaKeystoreService;I)V
 
     :cond_0
     return-void
+
+    :catch_0
+    move-exception v1
+
+    invoke-virtual {v1}, Landroid/os/RemoteException;->printStackTrace()V
+
+    goto :goto_0
 .end method

@@ -49,56 +49,56 @@
 
     const/4 v5, 0x1
 
-    const/4 v1, 0x0
+    const/4 v4, 0x0
 
     if-eqz p1, :cond_0
 
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_0
-    iget v2, p0, Lmf/org/apache/xerces/impl/xs/PSVIErrorList;->fLength:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/xs/PSVIErrorList;->fLength:I
 
-    if-ge v0, v2, :cond_3
+    if-ge v0, v1, :cond_3
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/PSVIErrorList;->fArray:[Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/PSVIErrorList;->fArray:[Ljava/lang/String;
 
-    shl-int/lit8 v3, v0, 0x1
+    shl-int/lit8 v2, v0, 0x1
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/xs/PSVIErrorList;->fOffset:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xs/PSVIErrorList;->fOffset:I
 
-    add-int/2addr v3, v4
+    add-int/2addr v2, v3
 
-    aget-object v2, v2, v3
+    aget-object v1, v1, v2
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_2
+    if-nez v1, :cond_2
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_1
-    iget v2, p0, Lmf/org/apache/xerces/impl/xs/PSVIErrorList;->fLength:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/xs/PSVIErrorList;->fLength:I
 
-    if-ge v0, v2, :cond_3
+    if-ge v0, v1, :cond_3
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/PSVIErrorList;->fArray:[Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/PSVIErrorList;->fArray:[Ljava/lang/String;
 
-    shl-int/lit8 v3, v0, 0x1
+    shl-int/lit8 v2, v0, 0x1
 
-    iget v4, p0, Lmf/org/apache/xerces/impl/xs/PSVIErrorList;->fOffset:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xs/PSVIErrorList;->fOffset:I
 
-    add-int/2addr v3, v4
+    add-int/2addr v2, v3
 
-    aget-object v2, v2, v3
+    aget-object v1, v1, v2
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
     add-int/lit8 v0, v0, 0x1
 
@@ -111,7 +111,7 @@
     return v5
 
     :cond_3
-    return v1
+    return v4
 .end method
 
 .method public get(I)Ljava/lang/Object;

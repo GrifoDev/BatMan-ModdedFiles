@@ -34,7 +34,9 @@
 .method public enter()V
     .locals 3
 
-    const-string/jumbo v1, "Tethering"
+    invoke-static {}, Lcom/android/server/connectivity/Tethering;->-get0()Ljava/lang/String;
+
+    move-result-object v1
 
     const-string/jumbo v2, "Error in startTethering"
 
@@ -49,7 +51,7 @@
 
     iget-object v1, v1, Lcom/android/server/connectivity/Tethering$TetherMasterSM;->this$0:Lcom/android/server/connectivity/Tethering;
 
-    invoke-static {v1}, Lcom/android/server/connectivity/Tethering;->-get19(Lcom/android/server/connectivity/Tethering;)Landroid/os/INetworkManagementService;
+    invoke-static {v1}, Lcom/android/server/connectivity/Tethering;->-get18(Lcom/android/server/connectivity/Tethering;)Landroid/os/INetworkManagementService;
 
     move-result-object v1
 

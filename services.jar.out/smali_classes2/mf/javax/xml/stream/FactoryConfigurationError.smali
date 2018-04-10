@@ -97,21 +97,21 @@
     return-object v0
 
     :cond_2
-    iget-object v0, p0, Lmf/javax/xml/stream/FactoryConfigurationError;->nested:Ljava/lang/Exception;
+    iget-object v1, p0, Lmf/javax/xml/stream/FactoryConfigurationError;->nested:Ljava/lang/Exception;
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v0
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lmf/javax/xml/stream/FactoryConfigurationError;->nested:Ljava/lang/Exception;
+    iget-object v1, p0, Lmf/javax/xml/stream/FactoryConfigurationError;->nested:Ljava/lang/Exception;
 
-    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Ljava/lang/Class;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Class;->toString()Ljava/lang/String;
 
     move-result-object v0
 

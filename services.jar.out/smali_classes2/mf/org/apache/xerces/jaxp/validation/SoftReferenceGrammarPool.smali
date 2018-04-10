@@ -103,29 +103,29 @@
 .end method
 
 .method private clean()V
-    .locals 1
+    .locals 3
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fReferenceQueue:Ljava/lang/ref/ReferenceQueue;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fReferenceQueue:Ljava/lang/ref/ReferenceQueue;
 
-    invoke-virtual {v0}, Ljava/lang/ref/ReferenceQueue;->poll()Ljava/lang/ref/Reference;
+    invoke-virtual {v2}, Ljava/lang/ref/ReferenceQueue;->poll()Ljava/lang/ref/Reference;
 
-    move-result-object v0
+    move-result-object v1
 
     :goto_0
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
-    check-cast v0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$SoftGrammarReference;
+    check-cast v1, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$SoftGrammarReference;
 
-    iget-object v0, v0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$SoftGrammarReference;->entry:Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
+    iget-object v0, v1, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$SoftGrammarReference;->entry:Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
 
     if-nez v0, :cond_0
 
     :goto_1
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fReferenceQueue:Ljava/lang/ref/ReferenceQueue;
+    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fReferenceQueue:Ljava/lang/ref/ReferenceQueue;
 
-    invoke-virtual {v0}, Ljava/lang/ref/ReferenceQueue;->poll()Ljava/lang/ref/Reference;
+    invoke-virtual {v2}, Ljava/lang/ref/ReferenceQueue;->poll()Ljava/lang/ref/Reference;
 
-    move-result-object v0
+    move-result-object v1
 
     goto :goto_0
 
@@ -205,8 +205,6 @@
 .method public cacheGrammars(Ljava/lang/String;[Lmf/org/apache/xerces/xni/grammars/Grammar;)V
     .locals 2
 
-    const/4 v0, 0x0
-
     iget-boolean v1, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fPoolIsLocked:Z
 
     if-eqz v1, :cond_1
@@ -214,42 +212,42 @@
     :cond_0
     return-void
 
+    :cond_1
+    const/4 v0, 0x0
+
     :goto_0
+    array-length v1, p2
+
+    if-ge v0, v1, :cond_0
+
     aget-object v1, p2, v0
 
     invoke-virtual {p0, v1}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->putGrammar(Lmf/org/apache/xerces/xni/grammars/Grammar;)V
 
     add-int/lit8 v0, v0, 0x1
 
-    :cond_1
-    array-length v1, p2
-
-    if-ge v0, v1, :cond_0
-
     goto :goto_0
 .end method
 
 .method public clear()V
-    .locals 4
+    .locals 3
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    const/4 v1, 0x0
-
-    move v0, v1
+    const/4 v0, 0x0
 
     :goto_0
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
 
-    array-length v2, v2
+    array-length v1, v1
 
-    if-ge v0, v2, :cond_1
+    if-ge v0, v1, :cond_1
 
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
 
-    aget-object v2, v2, v0
+    aget-object v1, v1, v0
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
     :goto_1
     add-int/lit8 v0, v0, 0x1
@@ -257,76 +255,76 @@
     goto :goto_0
 
     :cond_0
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
 
-    aget-object v2, v2, v0
+    aget-object v1, v1, v0
 
-    invoke-virtual {v2}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->clear()V
+    invoke-virtual {v1}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->clear()V
 
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
+    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
 
-    aput-object v3, v2, v0
+    aput-object v2, v1, v0
 
     goto :goto_1
 
     :cond_1
+    const/4 v1, 0x0
+
     iput v1, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammarCount:I
 
     return-void
 .end method
 
 .method public containsGrammar(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Z
-    .locals 5
+    .locals 8
 
-    const/4 v4, 0x0
+    const/4 v7, 0x0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
+    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
 
-    monitor-enter v2
+    monitor-enter v0
 
     :try_start_0
     invoke-direct {p0}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->clean()V
 
     invoke-virtual {p0, p1}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->hashCode(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)I
 
-    move-result v3
+    move-result v2
 
-    const v0, 0x7fffffff
+    const v5, 0x7fffffff
 
-    and-int/2addr v0, v3
+    and-int/2addr v5, v2
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
 
-    array-length v1, v1
+    array-length v6, v6
 
-    rem-int/2addr v0, v1
+    rem-int v3, v5, v6
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
+    iget-object v5, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
 
-    aget-object v0, v1, v0
+    aget-object v1, v5, v3
 
     :goto_0
-    move-object v1, v0
-
     if-eqz v1, :cond_3
 
-    iget-object v0, v1, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->grammar:Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$SoftGrammarReference;
+    iget-object v5, v1, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->grammar:Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$SoftGrammarReference;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$SoftGrammarReference;->get()Ljava/lang/Object;
+    invoke-virtual {v5}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$SoftGrammarReference;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v4
 
-    check-cast v0, Lmf/org/apache/xerces/xni/grammars/Grammar;
+    check-cast v4, Lmf/org/apache/xerces/xni/grammars/Grammar;
 
-    if-eqz v0, :cond_1
+    if-eqz v4, :cond_1
 
-    iget v0, v1, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->hash:I
+    iget v5, v1, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->hash:I
 
-    if-eq v0, v3, :cond_2
+    if-eq v5, v2, :cond_2
 
     :cond_0
     :goto_1
-    iget-object v0, v1, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->next:Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
+    iget-object v1, v1, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->next:Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
 
     goto :goto_0
 
@@ -336,180 +334,182 @@
     goto :goto_1
 
     :catchall_0
-    move-exception v0
+    move-exception v5
 
-    monitor-exit v2
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v5
 
     :cond_2
     :try_start_1
-    iget-object v0, v1, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->desc:Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
+    iget-object v5, v1, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->desc:Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
 
-    invoke-virtual {p0, v0, p1}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->equals(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Z
+    invoke-virtual {p0, v5, p1}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->equals(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Z
 
-    move-result v0
+    move-result v5
 
-    if-eqz v0, :cond_0
+    if-eqz v5, :cond_0
 
-    monitor-exit v2
+    monitor-exit v0
 
-    const/4 v0, 0x1
+    const/4 v5, 0x1
 
-    return v0
+    return v5
 
     :cond_3
-    monitor-exit v2
+    monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    return v4
+    return v7
 .end method
 
 .method public equals(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Z
-    .locals 3
+    .locals 6
 
-    const/4 v2, 0x0
+    const/4 v5, 0x0
 
-    instance-of v0, p1, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;
+    instance-of v4, p1, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;
 
-    if-nez v0, :cond_0
+    if-nez v4, :cond_0
 
     invoke-virtual {p1, p2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v4
 
-    return v0
+    return v4
 
     :cond_0
-    instance-of v0, p2, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;
+    instance-of v4, p2, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;
 
-    if-eqz v0, :cond_3
+    if-eqz v4, :cond_3
 
-    check-cast p1, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;
+    move-object v1, p1
 
-    check-cast p2, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;
+    check-cast v1, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;
 
-    invoke-interface {p1}, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;->getTargetNamespace()Ljava/lang/String;
+    move-object v2, p2
 
-    move-result-object v0
+    check-cast v2, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;
 
-    if-nez v0, :cond_4
+    invoke-interface {v1}, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;->getTargetNamespace()Ljava/lang/String;
 
-    invoke-interface {p2}, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;->getTargetNamespace()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v0
+    if-nez v3, :cond_4
 
-    if-nez v0, :cond_5
+    invoke-interface {v2}, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;->getTargetNamespace()Ljava/lang/String;
+
+    move-result-object v4
+
+    if-nez v4, :cond_5
 
     :cond_1
-    invoke-interface {p1}, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;->getExpandedSystemId()Ljava/lang/String;
+    invoke-interface {v1}, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;->getExpandedSystemId()Ljava/lang/String;
 
     move-result-object v0
 
     if-nez v0, :cond_6
 
-    invoke-interface {p2}, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;->getExpandedSystemId()Ljava/lang/String;
+    invoke-interface {v2}, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;->getExpandedSystemId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v4
 
-    if-nez v0, :cond_7
+    if-nez v4, :cond_7
 
     :cond_2
-    const/4 v0, 0x1
+    const/4 v4, 0x1
 
-    return v0
+    return v4
 
     :cond_3
-    return v2
+    return v5
 
     :cond_4
-    invoke-interface {p2}, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;->getTargetNamespace()Ljava/lang/String;
+    invoke-interface {v2}, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;->getTargetNamespace()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v4
 
-    if-nez v0, :cond_1
+    if-nez v4, :cond_1
 
-    return v2
+    return v5
 
     :cond_5
-    return v2
+    return v5
 
     :cond_6
-    invoke-interface {p2}, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;->getExpandedSystemId()Ljava/lang/String;
+    invoke-interface {v2}, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;->getExpandedSystemId()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v4
 
-    if-nez v0, :cond_2
+    if-nez v4, :cond_2
 
-    return v2
+    return v5
 
     :cond_7
-    return v2
+    return v5
 .end method
 
 .method public getGrammar(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Lmf/org/apache/xerces/xni/grammars/Grammar;
-    .locals 6
+    .locals 8
 
-    const/4 v5, 0x0
+    const/4 v7, 0x0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
+    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
 
-    monitor-enter v2
+    monitor-enter v0
 
     :try_start_0
     invoke-direct {p0}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->clean()V
 
     invoke-virtual {p0, p1}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->hashCode(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)I
 
-    move-result v3
+    move-result v2
 
-    const v0, 0x7fffffff
+    const v5, 0x7fffffff
 
-    and-int/2addr v0, v3
+    and-int/2addr v5, v2
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
+    iget-object v6, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
 
-    array-length v1, v1
+    array-length v6, v6
 
-    rem-int/2addr v0, v1
+    rem-int v3, v5, v6
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
+    iget-object v5, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
 
-    aget-object v0, v1, v0
+    aget-object v1, v5, v3
 
     :goto_0
-    move-object v1, v0
-
     if-eqz v1, :cond_3
 
-    iget-object v0, v1, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->grammar:Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$SoftGrammarReference;
+    iget-object v5, v1, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->grammar:Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$SoftGrammarReference;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$SoftGrammarReference;->get()Ljava/lang/Object;
+    invoke-virtual {v5}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$SoftGrammarReference;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v4
 
-    check-cast v0, Lmf/org/apache/xerces/xni/grammars/Grammar;
+    check-cast v4, Lmf/org/apache/xerces/xni/grammars/Grammar;
 
-    if-eqz v0, :cond_1
+    if-eqz v4, :cond_1
 
-    iget v4, v1, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->hash:I
+    iget v5, v1, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->hash:I
 
-    if-eq v4, v3, :cond_2
+    if-eq v5, v2, :cond_2
 
     :cond_0
     :goto_1
-    iget-object v0, v1, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->next:Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
+    iget-object v1, v1, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->next:Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
 
     goto :goto_0
 
@@ -519,85 +519,87 @@
     goto :goto_1
 
     :catchall_0
-    move-exception v0
+    move-exception v5
 
-    monitor-exit v2
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v5
 
     :cond_2
     :try_start_1
-    iget-object v4, v1, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->desc:Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
+    iget-object v5, v1, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->desc:Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
 
-    invoke-virtual {p0, v4, p1}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->equals(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Z
+    invoke-virtual {p0, v5, p1}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->equals(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_0
+    if-eqz v5, :cond_0
 
-    monitor-exit v2
+    monitor-exit v0
 
-    return-object v0
+    return-object v4
 
     :cond_3
-    monitor-exit v2
+    monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    return-object v5
+    return-object v7
 .end method
 
 .method public hashCode(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)I
-    .locals 3
+    .locals 6
 
-    const/4 v1, 0x0
+    const/4 v4, 0x0
 
-    instance-of v0, p1, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;
+    instance-of v5, p1, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;
 
-    if-nez v0, :cond_0
+    if-nez v5, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
 
-    move-result v0
+    move-result v4
 
-    return v0
+    return v4
 
     :cond_0
-    check-cast p1, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;
+    move-object v2, p1
 
-    invoke-interface {p1}, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;->getTargetNamespace()Ljava/lang/String;
+    check-cast v2, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;
+
+    invoke-interface {v2}, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;->getTargetNamespace()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-interface {v2}, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;->getExpandedSystemId()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-interface {p1}, Lmf/org/apache/xerces/xni/grammars/XMLSchemaDescription;->getExpandedSystemId()Ljava/lang/String;
+    if-nez v3, :cond_1
 
-    move-result-object v2
-
-    if-nez v0, :cond_1
-
-    move v0, v1
+    move v1, v4
 
     :goto_0
-    if-nez v2, :cond_2
+    if-nez v0, :cond_2
 
     :goto_1
-    xor-int/2addr v0, v1
+    xor-int/2addr v1, v4
 
-    return v0
+    return v1
 
     :cond_1
-    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+    invoke-virtual {v3}, Ljava/lang/String;->hashCode()I
 
-    move-result v0
+    move-result v1
 
     goto :goto_0
 
     :cond_2
-    invoke-virtual {v2}, Ljava/lang/String;->hashCode()I
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
 
-    move-result v1
+    move-result v4
 
     goto :goto_1
 .end method
@@ -615,9 +617,9 @@
 .method public putGrammar(Lmf/org/apache/xerces/xni/grammars/Grammar;)V
     .locals 8
 
-    iget-boolean v0, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fPoolIsLocked:Z
+    iget-boolean v4, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fPoolIsLocked:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v4, :cond_0
 
     :goto_0
     return-void
@@ -638,19 +640,19 @@
 
     move-result v1
 
-    const v0, 0x7fffffff
+    const v4, 0x7fffffff
 
-    and-int/2addr v0, v1
+    and-int/2addr v4, v1
 
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
+    iget-object v5, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
 
-    array-length v2, v2
+    array-length v5, v5
 
-    rem-int v2, v0, v2
+    rem-int v2, v4, v5
 
-    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
+    iget-object v4, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
 
-    aget-object v0, v0, v2
+    aget-object v0, v4, v2
 
     :goto_1
     if-eqz v0, :cond_4
@@ -673,13 +675,13 @@
 
     if-eqz v4, :cond_1
 
-    iget-object v1, v0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->grammar:Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$SoftGrammarReference;
+    iget-object v4, v0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->grammar:Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$SoftGrammarReference;
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$SoftGrammarReference;->get()Ljava/lang/Object;
+    invoke-virtual {v4}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$SoftGrammarReference;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v4
 
-    if-ne v1, p1, :cond_3
+    if-ne v4, p1, :cond_3
 
     :goto_2
     monitor-exit v7
@@ -687,24 +689,24 @@
     return-void
 
     :cond_3
-    new-instance v1, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$SoftGrammarReference;
+    new-instance v4, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$SoftGrammarReference;
 
-    iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fReferenceQueue:Ljava/lang/ref/ReferenceQueue;
+    iget-object v5, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fReferenceQueue:Ljava/lang/ref/ReferenceQueue;
 
-    invoke-direct {v1, v0, p1, v2}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$SoftGrammarReference;-><init>(Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;Lmf/org/apache/xerces/xni/grammars/Grammar;Ljava/lang/ref/ReferenceQueue;)V
+    invoke-direct {v4, v0, p1, v5}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$SoftGrammarReference;-><init>(Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;Lmf/org/apache/xerces/xni/grammars/Grammar;Ljava/lang/ref/ReferenceQueue;)V
 
-    iput-object v1, v0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->grammar:Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$SoftGrammarReference;
+    iput-object v4, v0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->grammar:Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$SoftGrammarReference;
 
     goto :goto_2
 
     :catchall_0
-    move-exception v0
+    move-exception v4
 
     monitor-exit v7
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v4
 
     :cond_4
     :try_start_1
@@ -720,15 +722,15 @@
 
     invoke-direct/range {v0 .. v6}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;-><init>(IILmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;Lmf/org/apache/xerces/xni/grammars/Grammar;Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;Ljava/lang/ref/ReferenceQueue;)V
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
+    iget-object v4, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
 
-    aput-object v0, v1, v2
+    aput-object v0, v4, v2
 
-    iget v0, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammarCount:I
+    iget v4, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammarCount:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v4, v4, 0x1
 
-    iput v0, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammarCount:I
+    iput v4, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammarCount:I
 
     monitor-exit v7
     :try_end_1
@@ -738,13 +740,13 @@
 .end method
 
 .method public removeGrammar(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Lmf/org/apache/xerces/xni/grammars/Grammar;
-    .locals 5
+    .locals 7
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
+    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
 
-    monitor-enter v1
+    monitor-enter v0
 
     :try_start_0
     invoke-direct {p0}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->clean()V
@@ -753,62 +755,62 @@
 
     move-result v2
 
-    const v0, 0x7fffffff
+    const v4, 0x7fffffff
 
-    and-int/2addr v0, v2
+    and-int/2addr v4, v2
 
-    iget-object v3, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
+    iget-object v5, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
 
-    array-length v3, v3
+    array-length v5, v5
 
-    rem-int/2addr v0, v3
+    rem-int v3, v4, v5
 
-    iget-object v3, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
+    iget-object v4, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
 
-    aget-object v0, v3, v0
+    aget-object v1, v4, v3
 
     :goto_0
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
-    iget v3, v0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->hash:I
+    iget v4, v1, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->hash:I
 
-    if-eq v3, v2, :cond_1
+    if-eq v4, v2, :cond_1
 
     :cond_0
-    iget-object v0, v0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->next:Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
+    iget-object v1, v1, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->next:Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
 
     goto :goto_0
 
     :cond_1
-    iget-object v3, v0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->desc:Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
+    iget-object v4, v1, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;->desc:Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;
 
-    invoke-virtual {p0, v3, p1}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->equals(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Z
+    invoke-virtual {p0, v4, p1}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->equals(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_0
+    if-eqz v4, :cond_0
 
-    invoke-direct {p0, v0}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->removeEntry(Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;)Lmf/org/apache/xerces/xni/grammars/Grammar;
+    invoke-direct {p0, v1}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->removeEntry(Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;)Lmf/org/apache/xerces/xni/grammars/Grammar;
 
-    move-result-object v0
+    move-result-object v4
 
-    monitor-exit v1
-
-    return-object v0
-
-    :cond_2
-    monitor-exit v1
+    monitor-exit v0
 
     return-object v4
 
-    :catchall_0
-    move-exception v0
+    :cond_2
+    monitor-exit v0
 
-    monitor-exit v1
+    return-object v6
+
+    :catchall_0
+    move-exception v4
+
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v4
 .end method
 
 .method public retrieveGrammar(Lmf/org/apache/xerces/xni/grammars/XMLGrammarDescription;)Lmf/org/apache/xerces/xni/grammars/Grammar;
@@ -824,27 +826,27 @@
 .method public retrieveInitialGrammarSet(Ljava/lang/String;)[Lmf/org/apache/xerces/xni/grammars/Grammar;
     .locals 2
 
-    iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
+    iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->fGrammars:[Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool$Entry;
 
-    monitor-enter v1
+    monitor-enter v0
 
     :try_start_0
     invoke-direct {p0}, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->clean()V
 
-    sget-object v0, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->ZERO_LENGTH_GRAMMAR_ARRAY:[Lmf/org/apache/xerces/xni/grammars/Grammar;
+    sget-object v1, Lmf/org/apache/xerces/jaxp/validation/SoftReferenceGrammarPool;->ZERO_LENGTH_GRAMMAR_ARRAY:[Lmf/org/apache/xerces/xni/grammars/Grammar;
 
-    monitor-exit v1
+    monitor-exit v0
 
-    return-object v0
+    return-object v1
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v1
 .end method
 
 .method public unlockPool()V

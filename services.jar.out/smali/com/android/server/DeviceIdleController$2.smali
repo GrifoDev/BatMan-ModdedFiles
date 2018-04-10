@@ -107,11 +107,11 @@
 
     iget-object v6, p0, Lcom/android/server/DeviceIdleController$2;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v6}, Lcom/android/server/DeviceIdleController;->-wrap5(Lcom/android/server/DeviceIdleController;)V
+    invoke-static {v6}, Lcom/android/server/DeviceIdleController;->-wrap4(Lcom/android/server/DeviceIdleController;)V
 
     iget-object v6, p0, Lcom/android/server/DeviceIdleController$2;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v6}, Lcom/android/server/DeviceIdleController;->-wrap6(Lcom/android/server/DeviceIdleController;)V
+    invoke-static {v6}, Lcom/android/server/DeviceIdleController;->-wrap5(Lcom/android/server/DeviceIdleController;)V
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -178,7 +178,7 @@
 
     iget-object v6, p0, Lcom/android/server/DeviceIdleController$2;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v6}, Lcom/android/server/DeviceIdleController;->-get3(Lcom/android/server/DeviceIdleController;)Z
+    invoke-static {v6}, Lcom/android/server/DeviceIdleController;->-get4(Lcom/android/server/DeviceIdleController;)Z
 
     move-result v6
 
@@ -229,16 +229,16 @@
 
     iget-object v6, p0, Lcom/android/server/DeviceIdleController$2;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v6}, Lcom/android/server/DeviceIdleController;->-wrap4(Lcom/android/server/DeviceIdleController;)V
+    invoke-static {v6}, Lcom/android/server/DeviceIdleController;->-wrap3(Lcom/android/server/DeviceIdleController;)V
 
     :goto_1
     iget-object v6, p0, Lcom/android/server/DeviceIdleController$2;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v6}, Lcom/android/server/DeviceIdleController;->-wrap5(Lcom/android/server/DeviceIdleController;)V
+    invoke-static {v6}, Lcom/android/server/DeviceIdleController;->-wrap4(Lcom/android/server/DeviceIdleController;)V
 
     iget-object v6, p0, Lcom/android/server/DeviceIdleController$2;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v6}, Lcom/android/server/DeviceIdleController;->-wrap6(Lcom/android/server/DeviceIdleController;)V
+    invoke-static {v6}, Lcom/android/server/DeviceIdleController;->-wrap5(Lcom/android/server/DeviceIdleController;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 

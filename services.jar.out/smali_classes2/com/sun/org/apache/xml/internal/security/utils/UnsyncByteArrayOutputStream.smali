@@ -1,6 +1,5 @@
 .class public Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;
 .super Ljava/io/ByteArrayOutputStream;
-.source "Unknown"
 
 
 # instance fields
@@ -37,9 +36,9 @@
 
     const/4 v4, 0x0
 
-    iget v0, p0, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;->size:I
+    iget v2, p0, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;->size:I
 
-    shl-int/lit8 v0, v0, 0x2
+    shl-int/lit8 v0, v2, 0x2
 
     new-array v1, v0, [B
 
@@ -71,9 +70,9 @@
 
     const/4 v3, 0x0
 
-    iget v0, p0, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;->pos:I
+    iget v1, p0, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;->pos:I
 
-    new-array v0, v0, [B
+    new-array v0, v1, [B
 
     iget-object v1, p0, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;->buf:[B
 
@@ -119,26 +118,26 @@
 .method public write([B)V
     .locals 5
 
-    iget v0, p0, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;->pos:I
+    iget v1, p0, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;->pos:I
 
-    array-length v1, p1
+    array-length v2, p1
 
-    add-int/2addr v0, v1
+    add-int v0, v1, v2
 
     iget v1, p0, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;->size:I
 
     if-gt v0, v1, :cond_0
 
     :goto_0
-    const/4 v1, 0x0
+    iget-object v1, p0, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;->buf:[B
 
-    iget-object v2, p0, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;->buf:[B
+    iget v2, p0, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;->pos:I
 
-    iget v3, p0, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;->pos:I
+    array-length v3, p1
 
-    array-length v4, p1
+    const/4 v4, 0x0
 
-    invoke-static {p1, v1, v2, v3, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p1, v4, v1, v2, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     iput v0, p0, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;->pos:I
 
@@ -153,9 +152,9 @@
 .method public write([BII)V
     .locals 3
 
-    iget v0, p0, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;->pos:I
+    iget v1, p0, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;->pos:I
 
-    add-int/2addr v0, p3
+    add-int v0, v1, p3
 
     iget v1, p0, Lcom/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream;->size:I
 

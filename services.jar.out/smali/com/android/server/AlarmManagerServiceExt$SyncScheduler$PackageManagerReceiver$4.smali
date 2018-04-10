@@ -67,13 +67,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v1, :cond_0
 
-    :cond_1
     iget-object v1, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver$4;->this$2:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver;
 
     iget-object v1, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver;->this$1:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;
@@ -137,7 +134,8 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    :cond_0
+    return-void
 
     :catchall_0
     move-exception v1

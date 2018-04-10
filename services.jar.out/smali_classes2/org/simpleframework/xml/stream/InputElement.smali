@@ -263,23 +263,23 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .locals 3
 
-    const-string/jumbo v0, "element %s"
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    const/4 v2, 0x0
+    new-array v0, v0, [Ljava/lang/Object;
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/stream/InputElement;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    aput-object v3, v1, v2
+    const/4 v2, 0x0
 
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "element %s"
+
+    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 

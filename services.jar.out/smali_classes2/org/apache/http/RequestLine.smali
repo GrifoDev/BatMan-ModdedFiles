@@ -3,11 +3,6 @@
 .source "RequestLine.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract getMethod()Ljava/lang/String;
 .end method

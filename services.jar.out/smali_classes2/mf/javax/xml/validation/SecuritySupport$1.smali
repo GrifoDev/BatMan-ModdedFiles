@@ -35,13 +35,15 @@
 
 # virtual methods
 .method public run()Ljava/lang/Object;
-    .locals 1
+    .locals 2
+
+    const/4 v0, 0x0
 
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Ljava/lang/Thread;->getContextClassLoader()Ljava/lang/ClassLoader;
+    invoke-virtual {v1}, Ljava/lang/Thread;->getContextClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v0
 

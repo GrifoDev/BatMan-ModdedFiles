@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/display/WifiDisplayAdapter;->requestDisableWiFiP2P()V
+    value = Lcom/android/server/display/WifiDisplayAdapter;->requestConnectLocked(Ljava/lang/String;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,12 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
+.field final synthetic val$address:Ljava/lang/String;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/server/display/WifiDisplayAdapter;)V
+.method constructor <init>(Lcom/android/server/display/WifiDisplayAdapter;Ljava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/display/WifiDisplayAdapter$7;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
+
+    iput-object p2, p0, Lcom/android/server/display/WifiDisplayAdapter$7;->val$address:Ljava/lang/String;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -35,11 +39,11 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$7;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
-    invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->-get9(Lcom/android/server/display/WifiDisplayAdapter;)Lcom/android/server/display/WifiDisplayController;
+    invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->-get5(Lcom/android/server/display/WifiDisplayAdapter;)Lcom/android/server/display/WifiDisplayController;
 
     move-result-object v0
 
@@ -47,11 +51,13 @@
 
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$7;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
-    invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->-get9(Lcom/android/server/display/WifiDisplayAdapter;)Lcom/android/server/display/WifiDisplayController;
+    invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->-get5(Lcom/android/server/display/WifiDisplayAdapter;)Lcom/android/server/display/WifiDisplayController;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/server/display/WifiDisplayController;->requestDisableWiFiP2P()V
+    iget-object v1, p0, Lcom/android/server/display/WifiDisplayAdapter$7;->val$address:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/android/server/display/WifiDisplayController;->requestConnect(Ljava/lang/String;)V
 
     :cond_0
     return-void

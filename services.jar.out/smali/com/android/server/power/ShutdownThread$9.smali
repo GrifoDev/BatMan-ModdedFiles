@@ -17,15 +17,9 @@
 .end annotation
 
 
-# instance fields
-.field final synthetic val$ctx:Landroid/content/Context;
-
-
 # direct methods
-.method constructor <init>(Landroid/content/Context;)V
+.method constructor <init>()V
     .locals 0
-
-    iput-object p1, p0, Lcom/android/server/power/ShutdownThread$9;->val$ctx:Landroid/content/Context;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -35,13 +29,7 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/power/ShutdownThread$9;->val$ctx:Landroid/content/Context;
-
-    const/4 v1, 0x1
-
-    invoke-static {v0, v1}, Lcom/android/server/power/ShutdownThread;->-wrap9(Landroid/content/Context;Z)V
+    .locals 0
 
     return-void
 .end method

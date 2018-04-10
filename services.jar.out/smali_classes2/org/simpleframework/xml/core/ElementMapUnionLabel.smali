@@ -64,7 +64,7 @@
 .end method
 
 .method public getConverter(Lorg/simpleframework/xml/core/Context;)Lorg/simpleframework/xml/core/Converter;
-    .locals 5
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -90,23 +90,23 @@
     return-object v2
 
     :cond_0
-    new-instance v0, Lorg/simpleframework/xml/core/UnionException;
+    new-instance v2, Lorg/simpleframework/xml/core/UnionException;
 
-    const-string/jumbo v1, "Union %s was not declared on a field or method"
+    const/4 v3, 0x1
 
-    const/4 v2, 0x1
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    const/4 v3, 0x0
+    new-array v3, v3, [Ljava/lang/Object;
 
     iget-object v4, p0, Lorg/simpleframework/xml/core/ElementMapUnionLabel;->label:Lorg/simpleframework/xml/core/Label;
 
-    aput-object v4, v2, v3
+    const/4 v5, 0x0
 
-    invoke-direct {v0, v1, v2}, Lorg/simpleframework/xml/core/UnionException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    aput-object v4, v3, v5
 
-    throw v0
+    const-string/jumbo v4, "Union %s was not declared on a field or method"
+
+    invoke-direct {v2, v4, v3}, Lorg/simpleframework/xml/core/UnionException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v2
 .end method
 
 .method public getDecorator()Lorg/simpleframework/xml/core/Decorator;

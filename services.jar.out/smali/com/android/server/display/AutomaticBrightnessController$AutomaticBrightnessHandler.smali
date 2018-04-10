@@ -89,7 +89,7 @@
 
     iget-object v2, p0, Lcom/android/server/display/AutomaticBrightnessController$AutomaticBrightnessHandler;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    invoke-static {v2}, Lcom/android/server/display/AutomaticBrightnessController;->-get23(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/AutomaticBrightnessController$SettingsObserver;
+    invoke-static {v2}, Lcom/android/server/display/AutomaticBrightnessController;->-get24(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/AutomaticBrightnessController$SettingsObserver;
 
     move-result-object v2
 

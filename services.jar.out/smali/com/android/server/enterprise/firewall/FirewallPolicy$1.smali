@@ -48,7 +48,7 @@
 
     iget-object v1, p0, Lcom/android/server/enterprise/firewall/FirewallPolicy$1;->this$0:Lcom/android/server/enterprise/firewall/FirewallPolicy;
 
-    invoke-static {v1}, Lcom/android/server/enterprise/firewall/FirewallPolicy;->-wrap4(Lcom/android/server/enterprise/firewall/FirewallPolicy;)V
+    invoke-static {v1}, Lcom/android/server/enterprise/firewall/FirewallPolicy;->-wrap3(Lcom/android/server/enterprise/firewall/FirewallPolicy;)V
 
     invoke-static {}, Lcom/android/server/enterprise/firewall/FirewallPolicy;->-get0()Z
 

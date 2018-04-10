@@ -52,36 +52,34 @@
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DocumentFragmentImpl;->isNormalized()Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/dom/DocumentFragmentImpl;->needsSyncChildren()Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_1
+    if-nez v2, :cond_1
 
     :goto_0
-    iget-object v1, p0, Lmf/org/apache/xerces/dom/DocumentFragmentImpl;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v0, p0, Lmf/org/apache/xerces/dom/DocumentFragmentImpl;->firstChild:Lmf/org/apache/xerces/dom/ChildNode;
 
     :goto_1
-    if-eqz v1, :cond_7
+    if-eqz v0, :cond_7
 
-    iget-object v2, v1, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
+    iget-object v1, v0, Lmf/org/apache/xerces/dom/ChildNode;->nextSibling:Lmf/org/apache/xerces/dom/ChildNode;
 
-    invoke-virtual {v1}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeType()S
+    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeType()S
 
-    move-result v0
+    move-result v2
 
-    if-eq v0, v4, :cond_2
-
-    move-object v0, v2
+    if-eq v2, v4, :cond_2
 
     :goto_2
-    invoke-virtual {v1}, Lmf/org/apache/xerces/dom/ChildNode;->normalize()V
+    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/ChildNode;->normalize()V
 
-    move-object v1, v0
+    move-object v0, v1
 
     goto :goto_1
 
@@ -94,64 +92,60 @@
     goto :goto_0
 
     :cond_2
-    if-nez v2, :cond_5
+    if-nez v1, :cond_5
 
     :cond_3
-    invoke-virtual {v1}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeValue()Ljava/lang/String;
+    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeValue()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    if-nez v0, :cond_6
+    if-nez v2, :cond_6
 
     :cond_4
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/DocumentFragmentImpl;->removeChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
-
-    move-object v0, v2
+    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DocumentFragmentImpl;->removeChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
     goto :goto_2
 
     :cond_5
-    invoke-virtual {v2}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeType()S
+    invoke-virtual {v1}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeType()S
 
-    move-result v0
+    move-result v2
 
-    if-ne v0, v4, :cond_3
+    if-ne v2, v4, :cond_3
 
-    move-object v0, v1
+    move-object v2, v0
 
-    check-cast v0, Lmf/org/w3c/dom/Text;
+    check-cast v2, Lmf/org/w3c/dom/Text;
 
-    invoke-virtual {v2}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeValue()Ljava/lang/String;
+    invoke-virtual {v1}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeValue()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-interface {v0, v3}, Lmf/org/w3c/dom/Text;->appendData(Ljava/lang/String;)V
+    invoke-interface {v2, v3}, Lmf/org/w3c/dom/Text;->appendData(Ljava/lang/String;)V
 
-    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/dom/DocumentFragmentImpl;->removeChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
+    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/dom/DocumentFragmentImpl;->removeChild(Lmf/org/w3c/dom/Node;)Lmf/org/w3c/dom/Node;
 
-    move-object v0, v1
+    move-object v1, v0
 
     goto :goto_2
 
     :cond_6
-    invoke-virtual {v1}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeValue()Ljava/lang/String;
+    invoke-virtual {v0}, Lmf/org/apache/xerces/dom/ChildNode;->getNodeValue()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_4
-
-    move-object v0, v2
+    if-eqz v2, :cond_4
 
     goto :goto_2
 
     :cond_7
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    invoke-virtual {p0, v0}, Lmf/org/apache/xerces/dom/DocumentFragmentImpl;->isNormalized(Z)V
+    invoke-virtual {p0, v2}, Lmf/org/apache/xerces/dom/DocumentFragmentImpl;->isNormalized(Z)V
 
     return-void
 .end method

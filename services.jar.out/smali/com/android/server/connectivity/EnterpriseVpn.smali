@@ -1403,9 +1403,6 @@
 .method private native jniSetAddresses(Ljava/lang/String;Ljava/lang/String;)I
 .end method
 
-.method private native jniSetRoutes(Ljava/lang/String;Ljava/lang/String;)I
-.end method
-
 .method private sendInterfaceStateToKnoxVpn(I)V
     .locals 6
 
@@ -1665,11 +1662,11 @@
 .end method
 
 .method public createNotification(Landroid/app/PendingIntent;)Landroid/app/Notification;
-    .locals 5
+    .locals 6
 
     iget-object v3, p0, Lcom/android/server/connectivity/EnterpriseVpn;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040648
+    const v4, 0x1040489
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1677,7 +1674,7 @@
 
     iget-object v3, p0, Lcom/android/server/connectivity/EnterpriseVpn;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040649
+    const v4, 0x1040488
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1687,9 +1684,11 @@
 
     iget-object v4, p0, Lcom/android/server/connectivity/EnterpriseVpn;->mContext:Landroid/content/Context;
 
-    invoke-direct {v3, v4}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
+    sget-object v5, Lcom/android/internal/notification/SystemNotificationChannels;->VPN:Ljava/lang/String;
 
-    const v4, 0x1080b0e
+    invoke-direct {v3, v4, v5}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+
+    const v4, 0x1080b7e
 
     invoke-virtual {v3, v4}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -1739,7 +1738,7 @@
 .end method
 
 .method public declared-synchronized establish(Lcom/android/internal/net/VpnConfig;)Landroid/os/ParcelFileDescriptor;
-    .locals 31
+    .locals 32
 
     monitor-enter p0
 
@@ -1748,52 +1747,52 @@
 
     iget-object v0, v0, Lcom/android/server/connectivity/EnterpriseVpn;->mContext:Landroid/content/Context;
 
-    move-object/from16 v27, v0
+    move-object/from16 v28, v0
 
-    invoke-static/range {v27 .. v27}, Landroid/os/UserManager;->get(Landroid/content/Context;)Landroid/os/UserManager;
+    invoke-static/range {v28 .. v28}, Landroid/os/UserManager;->get(Landroid/content/Context;)Landroid/os/UserManager;
 
-    move-result-object v20
+    move-result-object v21
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/connectivity/EnterpriseVpn;->mContext:Landroid/content/Context;
 
-    move-object/from16 v27, v0
+    move-object/from16 v28, v0
 
-    invoke-virtual/range {v27 .. v27}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual/range {v28 .. v28}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    move-result-object v21
+    move-result-object v22
 
     const/4 v8, 0x0
 
     :try_start_1
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
-    move-result-object v27
+    move-result-object v28
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/connectivity/EnterpriseVpn;->mPackage:Ljava/lang/String;
 
-    move-object/from16 v28, v0
+    move-object/from16 v29, v0
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/connectivity/EnterpriseVpn;->mUserId:I
 
-    move/from16 v29, v0
+    move/from16 v30, v0
 
-    const/16 v30, 0x0
+    const/16 v31, 0x0
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v28
 
-    move-object/from16 v1, v28
+    move-object/from16 v1, v29
 
-    move/from16 v2, v30
+    move/from16 v2, v31
 
-    move/from16 v3, v29
+    move/from16 v3, v30
 
     invoke-interface {v0, v1, v2, v3}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
 
@@ -1803,46 +1802,46 @@
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v27
+    move-result v28
 
     iget v0, v8, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    move/from16 v28, v0
+    move/from16 v29, v0
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    move/from16 v0, v27
+    move/from16 v0, v28
 
-    move/from16 v1, v28
+    move/from16 v1, v29
 
     if-eq v0, v1, :cond_1
 
     :cond_0
-    const/16 v27, 0x0
+    const/16 v28, 0x0
 
     monitor-exit p0
 
-    return-object v27
+    return-object v28
 
     :catch_0
-    move-exception v12
+    move-exception v13
 
-    const/16 v27, 0x0
+    const/16 v28, 0x0
 
     monitor-exit p0
 
-    return-object v27
+    return-object v28
 
     :cond_1
     :try_start_2
-    new-instance v18, Landroid/content/Intent;
+    new-instance v19, Landroid/content/Intent;
 
-    const-string/jumbo v27, "android.net.VpnService"
+    const-string/jumbo v28, "android.net.VpnService"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v28
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
@@ -1850,19 +1849,19 @@
 
     iget-object v0, v0, Lcom/android/server/connectivity/EnterpriseVpn;->mPackage:Ljava/lang/String;
 
-    move-object/from16 v27, v0
+    move-object/from16 v28, v0
 
     move-object/from16 v0, p1
 
     iget-object v0, v0, Lcom/android/internal/net/VpnConfig;->user:Ljava/lang/String;
 
-    move-object/from16 v28, v0
+    move-object/from16 v29, v0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v28
 
-    move-object/from16 v2, v28
+    move-object/from16 v2, v29
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
@@ -1870,49 +1869,49 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    move-result-wide v22
+    move-result-wide v24
 
     :try_start_3
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/connectivity/EnterpriseVpn;->mUserId:I
 
-    move/from16 v27, v0
+    move/from16 v28, v0
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
-    move/from16 v1, v27
+    move/from16 v1, v28
 
     invoke-virtual {v0, v1}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
 
-    move-result-object v25
+    move-result-object v26
 
-    invoke-virtual/range {v25 .. v25}, Landroid/content/pm/UserInfo;->isRestricted()Z
+    invoke-virtual/range {v26 .. v26}, Landroid/content/pm/UserInfo;->isRestricted()Z
 
-    move-result v27
+    move-result v28
 
-    if-nez v27, :cond_2
+    if-nez v28, :cond_2
 
-    const-string/jumbo v27, "no_config_vpn"
+    const-string/jumbo v28, "no_config_vpn"
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v28
 
     invoke-virtual {v0, v1}, Landroid/os/UserManager;->hasUserRestriction(Ljava/lang/String;)Z
 
-    move-result v27
+    move-result v28
 
-    if-eqz v27, :cond_3
+    if-eqz v28, :cond_3
 
     :cond_2
-    new-instance v27, Ljava/lang/SecurityException;
+    new-instance v28, Ljava/lang/SecurityException;
 
-    const-string/jumbo v28, "Restricted users cannot establish VPNs"
+    const-string/jumbo v29, "Restricted users cannot establish VPNs"
 
-    invoke-direct/range {v27 .. v28}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v28 .. v29}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v27
+    throw v28
     :try_end_3
     .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_1
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
@@ -1921,269 +1920,286 @@
     move-exception v11
 
     :try_start_4
-    new-instance v27, Ljava/lang/SecurityException;
+    new-instance v28, Ljava/lang/SecurityException;
 
-    new-instance v28, Ljava/lang/StringBuilder;
+    new-instance v29, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v29, "Cannot find "
+    const-string/jumbo v30, "Cannot find "
 
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v28
+    move-result-object v29
 
     move-object/from16 v0, p1
 
     iget-object v0, v0, Lcom/android/internal/net/VpnConfig;->user:Ljava/lang/String;
 
-    move-object/from16 v29, v0
+    move-object/from16 v30, v0
 
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v28
+    move-result-object v29
 
-    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v28
+    move-result-object v29
 
-    invoke-direct/range {v27 .. v28}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v28 .. v29}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v27
+    throw v28
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     :catchall_0
-    move-exception v27
+    move-exception v28
 
     :try_start_5
-    invoke-static/range {v22 .. v23}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v24 .. v25}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v27
+    throw v28
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
     :catchall_1
-    move-exception v27
+    move-exception v28
 
     monitor-exit p0
 
-    throw v27
+    throw v28
 
     :cond_3
     :try_start_6
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
-    move-result-object v27
+    move-result-object v28
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/connectivity/EnterpriseVpn;->mUserId:I
 
-    move/from16 v28, v0
-
-    const/16 v29, 0x0
+    move/from16 v29, v0
 
     const/16 v30, 0x0
 
-    move-object/from16 v0, v27
-
-    move-object/from16 v1, v18
-
-    move-object/from16 v2, v29
-
-    move/from16 v3, v30
-
-    move/from16 v4, v28
-
-    invoke-interface {v0, v1, v2, v3, v4}, Landroid/content/pm/IPackageManager;->resolveService(Landroid/content/Intent;Ljava/lang/String;II)Landroid/content/pm/ResolveInfo;
-
-    move-result-object v17
-
-    if-nez v17, :cond_4
-
-    new-instance v27, Ljava/lang/SecurityException;
-
-    new-instance v28, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v29, "Cannot find "
-
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    move-object/from16 v0, p1
-
-    iget-object v0, v0, Lcom/android/internal/net/VpnConfig;->user:Ljava/lang/String;
-
-    move-object/from16 v29, v0
-
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v28
-
-    invoke-direct/range {v27 .. v28}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
-
-    throw v27
-
-    :cond_4
-    const-string/jumbo v27, "android.permission.BIND_VPN_SERVICE"
-
-    move-object/from16 v0, v17
-
-    iget-object v0, v0, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
-
-    move-object/from16 v28, v0
+    const/16 v31, 0x0
 
     move-object/from16 v0, v28
 
-    iget-object v0, v0, Landroid/content/pm/ServiceInfo;->permission:Ljava/lang/String;
+    move-object/from16 v1, v19
 
-    move-object/from16 v28, v0
+    move-object/from16 v2, v30
 
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move/from16 v3, v31
 
-    move-result v27
+    move/from16 v4, v29
 
-    if-nez v27, :cond_5
+    invoke-interface {v0, v1, v2, v3, v4}, Landroid/content/pm/IPackageManager;->resolveService(Landroid/content/Intent;Ljava/lang/String;II)Landroid/content/pm/ResolveInfo;
 
-    new-instance v27, Ljava/lang/SecurityException;
+    move-result-object v18
 
-    new-instance v28, Ljava/lang/StringBuilder;
+    if-nez v18, :cond_4
 
-    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v28, Ljava/lang/SecurityException;
+
+    new-instance v29, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v30, "Cannot find "
+
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v29
 
     move-object/from16 v0, p1
 
     iget-object v0, v0, Lcom/android/internal/net/VpnConfig;->user:Ljava/lang/String;
 
+    move-object/from16 v30, v0
+
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v29
+
+    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v29
+
+    invoke-direct/range {v28 .. v29}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+
+    throw v28
+
+    :cond_4
+    const-string/jumbo v28, "android.permission.BIND_VPN_SERVICE"
+
+    move-object/from16 v0, v18
+
+    iget-object v0, v0, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
+
     move-object/from16 v29, v0
 
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v29
 
-    move-result-object v28
+    iget-object v0, v0, Landroid/content/pm/ServiceInfo;->permission:Ljava/lang/String;
 
-    const-string/jumbo v29, " does not require "
+    move-object/from16 v29, v0
 
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v28 .. v29}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v28
+    move-result v28
 
-    const-string/jumbo v29, "android.permission.BIND_VPN_SERVICE"
+    if-nez v28, :cond_5
 
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-instance v28, Ljava/lang/SecurityException;
 
-    move-result-object v28
+    new-instance v29, Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v28
+    move-object/from16 v0, p1
 
-    invoke-direct/range {v27 .. v28}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+    iget-object v0, v0, Lcom/android/internal/net/VpnConfig;->user:Ljava/lang/String;
 
-    throw v27
+    move-object/from16 v30, v0
+
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v29
+
+    const-string/jumbo v30, " does not require "
+
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v29
+
+    const-string/jumbo v30, "android.permission.BIND_VPN_SERVICE"
+
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v29
+
+    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v29
+
+    invoke-direct/range {v28 .. v29}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+
+    throw v28
     :try_end_6
     .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_1
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     :cond_5
     :try_start_7
-    invoke-static/range {v22 .. v23}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v24 .. v25}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     move-object/from16 v0, p1
 
     iget-object v0, v0, Lcom/android/internal/net/VpnConfig;->session:Ljava/lang/String;
 
-    move-object/from16 v27, v0
+    move-object/from16 v28, v0
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v28
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/connectivity/EnterpriseVpn;->mProfileName:Ljava/lang/String;
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     invoke-virtual {v8, v0}, Landroid/content/pm/ApplicationInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
-    move-result-object v27
+    move-result-object v28
 
-    invoke-interface/range {v27 .. v27}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-interface/range {v28 .. v28}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v27
+    move-result-object v28
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v28
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/connectivity/EnterpriseVpn;->mLabel:Ljava/lang/String;
 
-    const/16 v26, -0x1
+    const/16 v27, -0x1
+
+    const/16 v16, -0x1
 
     const/4 v15, -0x1
 
-    const/4 v14, -0x1
-
-    const/16 v16, 0x0
+    const/16 v17, 0x0
 
     move-object/from16 v0, p1
 
     iget v0, v0, Lcom/android/internal/net/VpnConfig;->mtu:I
 
-    move/from16 v27, v0
+    move/from16 v28, v0
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/server/connectivity/EnterpriseVpn;->isMetaDataEnabled:Z
 
-    move/from16 v28, v0
+    move/from16 v29, v0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v27
+    move/from16 v1, v28
 
-    move/from16 v2, v28
+    move/from16 v2, v29
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/connectivity/EnterpriseVpn;->jniCreate(IZ)I
 
-    move-result v27
+    move-result v28
 
-    invoke-static/range {v27 .. v27}, Landroid/os/ParcelFileDescriptor;->adoptFd(I)Landroid/os/ParcelFileDescriptor;
+    invoke-static/range {v28 .. v28}, Landroid/os/ParcelFileDescriptor;->adoptFd(I)Landroid/os/ParcelFileDescriptor;
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
-    move-result-object v24
+    move-result-object v23
 
     :try_start_8
-    sget-object v27, Landroid/net/NetworkInfo$DetailedState;->CONNECTING:Landroid/net/NetworkInfo$DetailedState;
+    invoke-virtual/range {v23 .. v23}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
 
-    const-string/jumbo v28, "establish"
+    move-result-object v28
+
+    move-object/from16 v0, p1
+
+    iget-boolean v0, v0, Lcom/android/internal/net/VpnConfig;->blocking:Z
+
+    move/from16 v29, v0
+
+    invoke-static/range {v28 .. v29}, Llibcore/io/IoUtils;->setBlocking(Ljava/io/FileDescriptor;Z)V
+    :try_end_8
+    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_3
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_2
+    .catchall {:try_start_8 .. :try_end_8} :catchall_1
+
+    :try_start_9
+    sget-object v28, Landroid/net/NetworkInfo$DetailedState;->CONNECTING:Landroid/net/NetworkInfo$DetailedState;
+
+    const-string/jumbo v29, "establish"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v28
 
-    move-object/from16 v2, v28
+    move-object/from16 v2, v29
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/connectivity/EnterpriseVpn;->updateState(Landroid/net/NetworkInfo$DetailedState;Ljava/lang/String;)V
 
-    invoke-virtual/range {v24 .. v24}, Landroid/os/ParcelFileDescriptor;->getFd()I
+    invoke-virtual/range {v23 .. v23}, Landroid/os/ParcelFileDescriptor;->getFd()I
 
-    move-result v27
+    move-result v28
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v27
+    move/from16 v1, v28
 
     invoke-direct {v0, v1}, Lcom/android/server/connectivity/EnterpriseVpn;->jniGetName(I)Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v20
 
     new-instance v9, Ljava/lang/StringBuilder;
 
@@ -2193,18 +2209,18 @@
 
     iget-object v0, v0, Lcom/android/internal/net/VpnConfig;->addresses:Ljava/util/List;
 
-    move-object/from16 v27, v0
+    move-object/from16 v28, v0
 
-    invoke-interface/range {v27 .. v27}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v28 .. v28}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v7
 
     :goto_0
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v27
+    move-result v28
 
-    if-eqz v27, :cond_6
+    if-eqz v28, :cond_6
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2212,108 +2228,145 @@
 
     check-cast v6, Landroid/net/LinkAddress;
 
-    const-string/jumbo v27, " "
+    const-string/jumbo v28, " "
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v28
 
     invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v27
+    move-result-object v28
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v28
 
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-    :try_end_8
-    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_2
-    .catchall {:try_start_8 .. :try_end_8} :catchall_1
+    :try_end_9
+    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_2
+    .catchall {:try_start_9 .. :try_end_9} :catchall_1
 
     goto :goto_0
 
     :catch_2
-    move-exception v12
+    move-exception v13
 
-    :try_start_9
-    const-string/jumbo v27, "EnterpriseVpn"
+    :try_start_a
+    const-string/jumbo v28, "EnterpriseVpn"
 
-    new-instance v28, Ljava/lang/StringBuilder;
+    new-instance v29, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v29, "Exception in creating tun interface"
+    const-string/jumbo v30, "Exception in creating tun interface"
 
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    invoke-static {v12}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v29
 
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v13}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
 
-    move-result-object v28
+    move-result-object v30
 
-    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v28
+    move-result-object v29
 
-    invoke-static/range {v27 .. v28}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_1
+    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    :try_start_a
-    invoke-virtual/range {v24 .. v24}, Landroid/os/ParcelFileDescriptor;->close()V
+    move-result-object v29
+
+    invoke-static/range {v28 .. v29}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_a
-    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_a} :catch_3
     .catchall {:try_start_a .. :try_end_a} :catchall_1
 
+    :try_start_b
+    invoke-virtual/range {v23 .. v23}, Landroid/os/ParcelFileDescriptor;->close()V
+    :try_end_b
+    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_b} :catch_4
+    .catchall {:try_start_b .. :try_end_b} :catchall_1
+
     :goto_1
-    const/16 v27, 0x0
+    const/16 v28, 0x0
 
     monitor-exit p0
 
-    return-object v27
+    return-object v28
+
+    :catch_3
+    move-exception v12
+
+    :try_start_c
+    new-instance v28, Ljava/lang/IllegalStateException;
+
+    new-instance v29, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v30, "Cannot set tunnel\'s fd as blocking="
+
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v29
+
+    move-object/from16 v0, p1
+
+    iget-boolean v0, v0, Lcom/android/internal/net/VpnConfig;->blocking:Z
+
+    move/from16 v30, v0
+
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v29
+
+    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v29
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, v29
+
+    invoke-direct {v0, v1, v12}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v28
 
     :cond_6
-    :try_start_b
     invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v27
+    move-result-object v28
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
-    move-object/from16 v2, v27
+    move-object/from16 v2, v28
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/connectivity/EnterpriseVpn;->jniSetAddresses(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v27
+    move-result v28
 
-    const/16 v28, 0x1
+    const/16 v29, 0x1
 
-    move/from16 v0, v27
+    move/from16 v0, v28
 
-    move/from16 v1, v28
+    move/from16 v1, v29
 
     if-ge v0, v1, :cond_7
 
-    new-instance v27, Ljava/lang/IllegalArgumentException;
+    new-instance v28, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v28, "At least one address must be specified"
+    const-string/jumbo v29, "At least one address must be specified"
 
-    invoke-direct/range {v27 .. v28}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v28 .. v29}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v27
+    throw v28
 
     :cond_7
     new-instance v10, Lcom/android/server/connectivity/EnterpriseVpn$Connection;
 
-    const/16 v27, 0x0
+    const/16 v28, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v28
 
     invoke-direct {v10, v0, v1}, Lcom/android/server/connectivity/EnterpriseVpn$Connection;-><init>(Lcom/android/server/connectivity/EnterpriseVpn;Lcom/android/server/connectivity/EnterpriseVpn$Connection;)V
 
@@ -2321,119 +2374,132 @@
 
     iget-object v0, v0, Lcom/android/server/connectivity/EnterpriseVpn;->mContext:Landroid/content/Context;
 
-    move-object/from16 v27, v0
+    move-object/from16 v28, v0
 
-    new-instance v28, Landroid/os/UserHandle;
+    new-instance v29, Landroid/os/UserHandle;
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/connectivity/EnterpriseVpn;->mUserId:I
 
-    move/from16 v29, v0
+    move/from16 v30, v0
 
-    invoke-direct/range {v28 .. v29}, Landroid/os/UserHandle;-><init>(I)V
+    invoke-direct/range {v29 .. v30}, Landroid/os/UserHandle;-><init>(I)V
 
-    const/16 v29, 0x1
+    const v30, 0x4000001
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v28
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v19
 
-    move/from16 v2, v29
+    move/from16 v2, v30
 
-    move-object/from16 v3, v28
+    move-object/from16 v3, v29
 
     invoke-virtual {v0, v1, v10, v2, v3}, Landroid/content/Context;->bindServiceAsUser(Landroid/content/Intent;Landroid/content/ServiceConnection;ILandroid/os/UserHandle;)Z
 
-    move-result v27
+    move-result v28
 
-    if-nez v27, :cond_8
+    if-nez v28, :cond_8
 
-    new-instance v27, Ljava/lang/IllegalStateException;
+    new-instance v28, Ljava/lang/IllegalStateException;
 
-    new-instance v28, Ljava/lang/StringBuilder;
+    new-instance v29, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v29, "Cannot bind "
+    const-string/jumbo v30, "Cannot bind "
 
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v28
+    move-result-object v29
 
     move-object/from16 v0, p1
 
     iget-object v0, v0, Lcom/android/internal/net/VpnConfig;->user:Ljava/lang/String;
 
-    move-object/from16 v29, v0
+    move-object/from16 v30, v0
 
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v28
+    move-result-object v29
 
-    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v28
+    move-result-object v29
 
-    invoke-direct/range {v27 .. v28}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v28 .. v29}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v27
+    throw v28
 
     :cond_8
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/connectivity/EnterpriseVpn;->mConnection:Lcom/android/server/connectivity/EnterpriseVpn$Connection;
 
-    move-object/from16 v27, v0
+    move-object/from16 v28, v0
 
-    if-eqz v27, :cond_9
+    if-eqz v28, :cond_9
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/connectivity/EnterpriseVpn;->mContext:Landroid/content/Context;
 
-    move-object/from16 v27, v0
+    move-object/from16 v28, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/connectivity/EnterpriseVpn;->mConnection:Lcom/android/server/connectivity/EnterpriseVpn$Connection;
 
-    move-object/from16 v28, v0
+    move-object/from16 v29, v0
 
-    invoke-virtual/range {v27 .. v28}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
+    invoke-virtual/range {v28 .. v29}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
     :cond_9
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/connectivity/EnterpriseVpn;->mInterface:Ljava/lang/String;
 
-    move-object/from16 v27, v0
+    move-object/from16 v28, v0
 
-    if-eqz v27, :cond_a
+    if-eqz v28, :cond_a
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/connectivity/EnterpriseVpn;->mInterface:Ljava/lang/String;
 
-    move-object/from16 v27, v0
+    move-object/from16 v28, v0
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v28
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v27
+    move-result v28
 
-    if-eqz v27, :cond_b
+    xor-int/lit8 v28, v28, 0x1
+
+    if-eqz v28, :cond_a
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/connectivity/EnterpriseVpn;->mInterface:Ljava/lang/String;
+
+    move-object/from16 v28, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v28
+
+    invoke-direct {v0, v1}, Lcom/android/server/connectivity/EnterpriseVpn;->jniReset(Ljava/lang/String;)V
 
     :cond_a
-    :goto_2
     move-object/from16 v0, p0
 
     iput-object v10, v0, Lcom/android/server/connectivity/EnterpriseVpn;->mConnection:Lcom/android/server/connectivity/EnterpriseVpn$Connection;
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     move-object/from16 v1, p0
 
@@ -2443,9 +2509,9 @@
 
     iget-object v0, v0, Lcom/android/server/connectivity/EnterpriseVpn;->mPackage:Ljava/lang/String;
 
-    move-object/from16 v27, v0
+    move-object/from16 v28, v0
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v28
 
     move-object/from16 v1, p1
 
@@ -2455,9 +2521,9 @@
 
     iget-object v0, v0, Lcom/android/server/connectivity/EnterpriseVpn;->mInterface:Ljava/lang/String;
 
-    move-object/from16 v27, v0
+    move-object/from16 v28, v0
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v28
 
     move-object/from16 v1, p1
 
@@ -2483,11 +2549,11 @@
 
     iget-object v0, v0, Lcom/android/server/connectivity/EnterpriseVpn;->mInterface:Ljava/lang/String;
 
-    move-object/from16 v27, v0
+    move-object/from16 v28, v0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v28
 
     invoke-direct {v0, v1}, Lcom/android/server/connectivity/EnterpriseVpn;->agentConnect(Ljava/lang/String;)V
 
@@ -2495,128 +2561,109 @@
 
     iget-object v0, v0, Lcom/android/server/connectivity/EnterpriseVpn;->mConfig:Lcom/android/internal/net/VpnConfig;
 
-    move-object/from16 v27, v0
+    move-object/from16 v28, v0
+
+    const/16 v29, 0x1
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v28
+
+    move/from16 v2, v29
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/connectivity/EnterpriseVpn;->showNotification(Lcom/android/internal/net/VpnConfig;Z)V
 
     const/16 v28, 0x1
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v27
-
-    move/from16 v2, v28
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/connectivity/EnterpriseVpn;->showNotification(Lcom/android/internal/net/VpnConfig;Z)V
-
-    const/16 v27, 0x1
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v27
+    move/from16 v1, v28
 
     invoke-direct {v0, v1}, Lcom/android/server/connectivity/EnterpriseVpn;->sendInterfaceStateToKnoxVpn(I)V
-    :try_end_b
-    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_b} :catch_2
-    .catchall {:try_start_b .. :try_end_b} :catchall_1
+    :try_end_c
+    .catch Ljava/lang/Exception; {:try_start_c .. :try_end_c} :catch_2
+    .catchall {:try_start_c .. :try_end_c} :catchall_1
 
-    :try_start_c
-    const-string/jumbo v27, "EnterpriseVpn"
+    :try_start_d
+    const-string/jumbo v28, "EnterpriseVpn"
 
-    new-instance v28, Ljava/lang/StringBuilder;
+    new-instance v29, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v29, "Established by "
+    const-string/jumbo v30, "Established by "
 
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v28
+    move-result-object v29
 
     move-object/from16 v0, p1
 
     iget-object v0, v0, Lcom/android/internal/net/VpnConfig;->user:Ljava/lang/String;
 
-    move-object/from16 v29, v0
+    move-object/from16 v30, v0
 
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    const-string/jumbo v29, " on "
-
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/connectivity/EnterpriseVpn;->mInterface:Ljava/lang/String;
-
-    move-object/from16 v29, v0
-
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v28
-
-    invoke-static/range {v27 .. v28}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_c
-    .catchall {:try_start_c .. :try_end_c} :catchall_1
-
-    monitor-exit p0
-
-    return-object v24
-
-    :cond_b
-    :try_start_d
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/connectivity/EnterpriseVpn;->mInterface:Ljava/lang/String;
-
-    move-object/from16 v27, v0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v27
-
-    invoke-direct {v0, v1}, Lcom/android/server/connectivity/EnterpriseVpn;->jniReset(Ljava/lang/String;)V
-    :try_end_d
-    .catch Ljava/lang/Exception; {:try_start_d .. :try_end_d} :catch_2
-    .catchall {:try_start_d .. :try_end_d} :catchall_1
-
-    goto/16 :goto_2
-
-    :catch_3
-    move-exception v13
-
-    :try_start_e
-    const-string/jumbo v27, "EnterpriseVpn"
-
-    new-instance v28, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v29, "Exception in closing tun interface"
-
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v28
-
-    invoke-static {v12}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v29
 
-    invoke-virtual/range {v28 .. v29}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v30, " on "
 
-    move-result-object v28
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v28 .. v28}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v29
 
-    move-result-object v28
+    move-object/from16 v0, p0
 
-    invoke-static/range {v27 .. v28}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    iget-object v0, v0, Lcom/android/server/connectivity/EnterpriseVpn;->mInterface:Ljava/lang/String;
+
+    move-object/from16 v30, v0
+
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v29
+
+    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v29
+
+    invoke-static/range {v28 .. v29}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_d
+    .catchall {:try_start_d .. :try_end_d} :catchall_1
+
+    monitor-exit p0
+
+    return-object v23
+
+    :catch_4
+    move-exception v14
+
+    :try_start_e
+    const-string/jumbo v28, "EnterpriseVpn"
+
+    new-instance v29, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v30, "Exception in closing tun interface"
+
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v29
+
+    invoke-static {v13}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
+
+    move-result-object v30
+
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v29
+
+    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v29
+
+    invoke-static/range {v28 .. v29}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_e
     .catchall {:try_start_e .. :try_end_e} :catchall_1
 
@@ -2664,7 +2711,7 @@
 .end method
 
 .method public getPersonaUserIds()Ljava/util/ArrayList;
-    .locals 7
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2674,6 +2721,8 @@
             ">;"
         }
     .end annotation
+
+    const/4 v7, 0x0
 
     sget-boolean v4, Lcom/android/server/connectivity/EnterpriseVpn;->DBG:Z
 
@@ -2720,7 +2769,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v4}, Lcom/samsung/android/knox/SemPersonaManager;->getPersonas()Ljava/util/List;
+    invoke-virtual {v4, v7}, Lcom/samsung/android/knox/SemPersonaManager;->getKnoxIds(Z)Ljava/util/List;
 
     move-result-object v3
 
@@ -2777,13 +2826,15 @@
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v4
 
-    check-cast v1, Lcom/samsung/android/knox/SemPersonaInfo;
+    check-cast v4, Ljava/lang/Integer;
 
-    iget v4, v1, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
+    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
@@ -3646,7 +3697,7 @@
 
     iget-object v10, p0, Lcom/android/server/connectivity/EnterpriseVpn;->mContext:Landroid/content/Context;
 
-    const v11, 0x1040648
+    const v11, 0x1040489
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3654,7 +3705,7 @@
 
     iget-object v10, p0, Lcom/android/server/connectivity/EnterpriseVpn;->mContext:Landroid/content/Context;
 
-    const v11, 0x1040649
+    const v11, 0x1040488
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

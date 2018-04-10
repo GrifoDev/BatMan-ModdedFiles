@@ -17,61 +17,61 @@
 
     iput-object p1, p0, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;->_method:Ljava/lang/String;
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;->_method:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;->_method:Ljava/lang/String;
 
-    const-string/jumbo v1, "xml"
+    const-string/jumbo v2, "xml"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
     :cond_0
     return-void
 
     :cond_1
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;->_method:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;->_method:Ljava/lang/String;
 
-    const-string/jumbo v1, "html"
+    const-string/jumbo v2, "html"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;->_method:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;->_method:Ljava/lang/String;
 
-    const-string/jumbo v1, "xhtml"
+    const-string/jumbo v2, "xhtml"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;->_method:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;->_method:Ljava/lang/String;
 
-    const-string/jumbo v1, "text"
+    const-string/jumbo v2, "text"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    const-string/jumbo v0, "http://apache.org/xml/serializer"
+    const/4 v1, 0x1
 
-    const-string/jumbo v1, "MethodNotSupported"
+    new-array v1, v1, [Ljava/lang/Object;
 
-    const/4 v2, 0x1
+    aput-object p1, v1, v3
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string/jumbo v2, "http://apache.org/xml/serializer"
 
-    aput-object p1, v2, v3
+    const-string/jumbo v3, "MethodNotSupported"
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v2, v3, v1}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -83,63 +83,63 @@
 .end method
 
 .method private getSerializer(Lmf/org/apache/xml/serialize/OutputFormat;)Lmf/org/apache/xml/serialize/Serializer;
-    .locals 5
+    .locals 4
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;->_method:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;->_method:Ljava/lang/String;
 
-    const-string/jumbo v1, "xml"
+    const-string/jumbo v2, "xml"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;->_method:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;->_method:Ljava/lang/String;
 
-    const-string/jumbo v1, "html"
+    const-string/jumbo v2, "html"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;->_method:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;->_method:Ljava/lang/String;
 
-    const-string/jumbo v1, "xhtml"
+    const-string/jumbo v2, "xhtml"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_2
+    if-nez v1, :cond_2
 
-    iget-object v0, p0, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;->_method:Ljava/lang/String;
+    iget-object v1, p0, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;->_method:Ljava/lang/String;
 
-    const-string/jumbo v1, "text"
+    const-string/jumbo v2, "text"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_3
+    if-nez v1, :cond_3
 
-    const-string/jumbo v0, "http://apache.org/xml/serializer"
+    const/4 v1, 0x1
 
-    const-string/jumbo v1, "MethodNotSupported"
+    new-array v1, v1, [Ljava/lang/Object;
 
-    const/4 v2, 0x1
+    iget-object v2, p0, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;->_method:Ljava/lang/String;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    aput-object v2, v1, v3
 
-    iget-object v3, p0, Lmf/org/apache/xml/serialize/SerializerFactoryImpl;->_method:Ljava/lang/String;
+    const-string/jumbo v2, "http://apache.org/xml/serializer"
 
-    aput-object v3, v2, v4
+    const-string/jumbo v3, "MethodNotSupported"
 
-    invoke-static {v0, v1, v2}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v2, v3, v1}, Lmf/org/apache/xerces/dom/DOMMessageFormatter;->formatMessage(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -150,32 +150,32 @@
     throw v1
 
     :cond_0
-    new-instance v0, Lmf/org/apache/xml/serialize/XMLSerializer;
+    new-instance v1, Lmf/org/apache/xml/serialize/XMLSerializer;
 
-    invoke-direct {v0, p1}, Lmf/org/apache/xml/serialize/XMLSerializer;-><init>(Lmf/org/apache/xml/serialize/OutputFormat;)V
+    invoke-direct {v1, p1}, Lmf/org/apache/xml/serialize/XMLSerializer;-><init>(Lmf/org/apache/xml/serialize/OutputFormat;)V
 
-    return-object v0
+    return-object v1
 
     :cond_1
-    new-instance v0, Lmf/org/apache/xml/serialize/HTMLSerializer;
+    new-instance v1, Lmf/org/apache/xml/serialize/HTMLSerializer;
 
-    invoke-direct {v0, p1}, Lmf/org/apache/xml/serialize/HTMLSerializer;-><init>(Lmf/org/apache/xml/serialize/OutputFormat;)V
+    invoke-direct {v1, p1}, Lmf/org/apache/xml/serialize/HTMLSerializer;-><init>(Lmf/org/apache/xml/serialize/OutputFormat;)V
 
-    return-object v0
+    return-object v1
 
     :cond_2
-    new-instance v0, Lmf/org/apache/xml/serialize/XHTMLSerializer;
+    new-instance v1, Lmf/org/apache/xml/serialize/XHTMLSerializer;
 
-    invoke-direct {v0, p1}, Lmf/org/apache/xml/serialize/XHTMLSerializer;-><init>(Lmf/org/apache/xml/serialize/OutputFormat;)V
+    invoke-direct {v1, p1}, Lmf/org/apache/xml/serialize/XHTMLSerializer;-><init>(Lmf/org/apache/xml/serialize/OutputFormat;)V
 
-    return-object v0
+    return-object v1
 
     :cond_3
-    new-instance v0, Lmf/org/apache/xml/serialize/TextSerializer;
+    new-instance v1, Lmf/org/apache/xml/serialize/TextSerializer;
 
-    invoke-direct {v0}, Lmf/org/apache/xml/serialize/TextSerializer;-><init>()V
+    invoke-direct {v1}, Lmf/org/apache/xml/serialize/TextSerializer;-><init>()V
 
-    return-object v0
+    return-object v1
 .end method
 
 

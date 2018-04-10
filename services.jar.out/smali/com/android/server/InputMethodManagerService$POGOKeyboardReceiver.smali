@@ -98,6 +98,16 @@
 
     iget-object v1, p0, Lcom/android/server/InputMethodManagerService$POGOKeyboardReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
+    const-string/jumbo v2, "com.sec.android.inputmethod.iwnnime.japan/.standardcommon.IWnnLanguageSwitcher"
+
+    invoke-static {v1, v2}, Lcom/android/server/InputMethodManagerService;->-wrap2(Lcom/android/server/InputMethodManagerService;Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/server/InputMethodManagerService$POGOKeyboardReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
+
     invoke-virtual {v1}, Lcom/android/server/InputMethodManagerService;->setDefaultIMEforJapaneseKeyboard()V
 
     :goto_0

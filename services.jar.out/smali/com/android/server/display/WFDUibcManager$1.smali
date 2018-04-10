@@ -32,7 +32,11 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 6
+    .locals 8
+
+    const/4 v7, 0x1
+
+    const/4 v6, 0x0
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -94,7 +98,7 @@
 
     move-result v4
 
-    invoke-static {v3, v4}, Lcom/android/server/display/WFDUibcManager;->-set1(Lcom/android/server/display/WFDUibcManager;I)I
+    invoke-static {v3, v4}, Lcom/android/server/display/WFDUibcManager;->-set2(Lcom/android/server/display/WFDUibcManager;I)I
 
     invoke-static {}, Lcom/android/server/display/WFDUibcManager;->-get0()Z
 
@@ -126,7 +130,7 @@
 
     iget-object v5, p0, Lcom/android/server/display/WFDUibcManager$1;->this$0:Lcom/android/server/display/WFDUibcManager;
 
-    invoke-static {v5}, Lcom/android/server/display/WFDUibcManager;->-get7(Lcom/android/server/display/WFDUibcManager;)I
+    invoke-static {v5}, Lcom/android/server/display/WFDUibcManager;->-get8(Lcom/android/server/display/WFDUibcManager;)I
 
     move-result v5
 
@@ -158,14 +162,12 @@
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_6
 
     :cond_2
     iget-object v3, p0, Lcom/android/server/display/WFDUibcManager$1;->this$0:Lcom/android/server/display/WFDUibcManager;
 
-    const/4 v4, 0x1
-
-    invoke-static {v3, v4}, Lcom/android/server/display/WFDUibcManager;->-set0(Lcom/android/server/display/WFDUibcManager;Z)Z
+    invoke-static {v3, v7}, Lcom/android/server/display/WFDUibcManager;->-set0(Lcom/android/server/display/WFDUibcManager;Z)Z
 
     invoke-static {}, Lcom/android/server/display/WFDUibcManager;->-get0()Z
 
@@ -205,7 +207,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_5
 
     const-string/jumbo v3, "WFDUibcManager"
 
@@ -231,7 +233,7 @@
 
     iget-object v5, p0, Lcom/android/server/display/WFDUibcManager$1;->this$0:Lcom/android/server/display/WFDUibcManager;
 
-    invoke-static {v5}, Lcom/android/server/display/WFDUibcManager;->-get7(Lcom/android/server/display/WFDUibcManager;)I
+    invoke-static {v5}, Lcom/android/server/display/WFDUibcManager;->-get8(Lcom/android/server/display/WFDUibcManager;)I
 
     move-result v5
 
@@ -244,6 +246,13 @@
     move-result-object v4
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_5
+    iget-object v3, p0, Lcom/android/server/display/WFDUibcManager$1;->this$0:Lcom/android/server/display/WFDUibcManager;
+
+    const/4 v4, -0x1
+
+    invoke-static {v3, v4}, Lcom/android/server/display/WFDUibcManager;->-set2(Lcom/android/server/display/WFDUibcManager;I)I
     :try_end_1
     .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -280,14 +289,14 @@
 
     goto/16 :goto_0
 
-    :cond_5
+    :cond_6
     const-string/jumbo v3, "com.samsung.android.video.END_PRESENTATION"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_7
 
     const-string/jumbo v3, "com.samsung.android.gallery.action.slideshow.finish"
 
@@ -295,14 +304,12 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_8
 
-    :cond_6
+    :cond_7
     iget-object v3, p0, Lcom/android/server/display/WFDUibcManager$1;->this$0:Lcom/android/server/display/WFDUibcManager;
 
-    const/4 v4, 0x0
-
-    invoke-static {v3, v4}, Lcom/android/server/display/WFDUibcManager;->-set0(Lcom/android/server/display/WFDUibcManager;Z)Z
+    invoke-static {v3, v6}, Lcom/android/server/display/WFDUibcManager;->-set0(Lcom/android/server/display/WFDUibcManager;Z)Z
 
     invoke-static {}, Lcom/android/server/display/WFDUibcManager;->-get0()Z
 
@@ -313,6 +320,60 @@
     const-string/jumbo v3, "WFDUibcManager"
 
     const-string/jumbo v4, "SlideShow or Video playing with presentation : FALSE"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_1
+
+    :cond_8
+    const-string/jumbo v3, "com.kddi.android.sptab_source.SUCCESS_CONNECT_SOURCE"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_9
+
+    iget-object v3, p0, Lcom/android/server/display/WFDUibcManager$1;->this$0:Lcom/android/server/display/WFDUibcManager;
+
+    invoke-static {v3, v7}, Lcom/android/server/display/WFDUibcManager;->-set1(Lcom/android/server/display/WFDUibcManager;Z)Z
+
+    invoke-static {}, Lcom/android/server/display/WFDUibcManager;->-get0()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    const-string/jumbo v3, "WFDUibcManager"
+
+    const-string/jumbo v4, "received KDDI_SOURCE_CONNECT_SUCCESS_ACTION"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_1
+
+    :cond_9
+    const-string/jumbo v3, "com.kddi.android.sptab_source.SUCCESS_DISCONNECT_SOURCE"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    iget-object v3, p0, Lcom/android/server/display/WFDUibcManager$1;->this$0:Lcom/android/server/display/WFDUibcManager;
+
+    invoke-static {v3, v6}, Lcom/android/server/display/WFDUibcManager;->-set1(Lcom/android/server/display/WFDUibcManager;Z)Z
+
+    invoke-static {}, Lcom/android/server/display/WFDUibcManager;->-get0()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    const-string/jumbo v3, "WFDUibcManager"
+
+    const-string/jumbo v4, "received KDDI_SOURCE_DISCONNECT_SUCCESS_ACTION"
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 

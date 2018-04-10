@@ -68,13 +68,13 @@
     :cond_0
     invoke-virtual {p0, v1}, Lorg/simpleframework/xml/core/SignatureBuilder$ParameterTable;->get(I)Lorg/simpleframework/xml/core/SignatureBuilder$ParameterList;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Lorg/simpleframework/xml/core/SignatureBuilder$ParameterList;->size()I
+    invoke-virtual {v1}, Lorg/simpleframework/xml/core/SignatureBuilder$ParameterList;->size()I
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 .end method
 
 .method private width()I
@@ -116,22 +116,24 @@
 .end method
 
 .method public get(I)Lorg/simpleframework/xml/core/SignatureBuilder$ParameterList;
-    .locals 2
+    .locals 4
 
     invoke-virtual {p0}, Lorg/simpleframework/xml/core/SignatureBuilder$ParameterTable;->size()I
 
-    move-result v0
+    move-result v2
+
+    move v0, v2
 
     :goto_0
     if-le v0, p1, :cond_0
 
     invoke-super {p0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v3
 
-    check-cast v0, Lorg/simpleframework/xml/core/SignatureBuilder$ParameterList;
+    check-cast v3, Lorg/simpleframework/xml/core/SignatureBuilder$ParameterList;
 
-    return-object v0
+    return-object v3
 
     :cond_0
     new-instance v1, Lorg/simpleframework/xml/core/SignatureBuilder$ParameterList;

@@ -40,9 +40,9 @@
 
     if-nez v1, :cond_1
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return-object v0
+    return-object v1
 
     :cond_0
     return-object v0
@@ -80,11 +80,11 @@
     if-nez v2, :cond_1
 
     :goto_1
-    new-instance v0, Lmf/org/apache/xerces/dom/DOMImplementationListImpl;
+    new-instance v2, Lmf/org/apache/xerces/dom/DOMImplementationListImpl;
 
-    invoke-direct {v0, v1}, Lmf/org/apache/xerces/dom/DOMImplementationListImpl;-><init>(Ljava/util/ArrayList;)V
+    invoke-direct {v2, v1}, Lmf/org/apache/xerces/dom/DOMImplementationListImpl;-><init>(Ljava/util/ArrayList;)V
 
-    return-object v0
+    return-object v2
 
     :cond_0
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -100,120 +100,111 @@
 .method testImpl(Lmf/org/w3c/dom/DOMImplementation;Ljava/lang/String;)Z
     .locals 8
 
-    const/4 v2, 0x1
+    const/4 v7, 0x0
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
+
+    new-instance v3, Ljava/util/StringTokenizer;
+
+    invoke-direct {v3, p2}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;)V
 
     const/4 v1, 0x0
 
-    new-instance v6, Ljava/util/StringTokenizer;
+    const/4 v4, 0x0
 
-    invoke-direct {v6, p2}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v3}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
 
-    invoke-virtual {v6}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
+    move-result v5
 
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    move-object v3, v4
+    if-nez v5, :cond_0
 
     :goto_0
-    if-eqz v3, :cond_6
+    if-eqz v1, :cond_6
 
-    invoke-virtual {v6}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
+    const/4 v2, 0x0
 
-    move-result v0
+    invoke-virtual {v3}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
 
-    if-nez v0, :cond_1
+    move-result v5
 
-    move v5, v1
+    if-nez v5, :cond_1
 
-    move-object v0, v4
+    const/4 v4, 0x0
 
     :goto_1
-    if-nez v5, :cond_2
+    if-nez v2, :cond_2
 
-    invoke-interface {p1, v3, v4}, Lmf/org/w3c/dom/DOMImplementation;->hasFeature(Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-interface {p1, v1, v7}, Lmf/org/w3c/dom/DOMImplementation;->hasFeature(Ljava/lang/String;Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v5
 
-    if-eqz v3, :cond_5
+    if-eqz v5, :cond_5
 
-    move-object v3, v0
+    move-object v1, v4
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v6}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
-    move-result-object v0
-
-    move-object v3, v0
+    move-result-object v1
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v6}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5, v1}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v4, v6}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    move v0, v1
-
-    :goto_2
-    move v7, v0
-
-    move-object v0, v5
-
-    move v5, v7
-
     goto :goto_1
 
     :pswitch_0
-    move v0, v2
+    const/4 v2, 0x1
 
-    goto :goto_2
+    goto :goto_1
 
     :cond_2
-    invoke-interface {p1, v3, v0}, Lmf/org/w3c/dom/DOMImplementation;->hasFeature(Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-interface {p1, v1, v4}, Lmf/org/w3c/dom/DOMImplementation;->hasFeature(Ljava/lang/String;Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v5
 
-    if-eqz v0, :cond_3
+    if-eqz v5, :cond_3
 
-    invoke-virtual {v6}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
+    invoke-virtual {v3}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
 
-    move-result v0
+    move-result v5
 
-    if-nez v0, :cond_4
+    if-nez v5, :cond_4
 
-    move-object v3, v4
+    const/4 v1, 0x0
 
     goto :goto_0
 
     :cond_3
-    return v1
+    return v6
 
     :cond_4
-    invoke-virtual {v6}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
-    move-result-object v0
-
-    move-object v3, v0
+    move-result-object v1
 
     goto :goto_0
 
     :cond_5
-    return v1
+    return v6
 
     :cond_6
-    return v2
+    const/4 v5, 0x1
+
+    return v5
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x30

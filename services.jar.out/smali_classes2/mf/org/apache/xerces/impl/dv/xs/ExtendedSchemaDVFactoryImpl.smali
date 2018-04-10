@@ -31,47 +31,45 @@
 .end method
 
 .method static createBuiltInTypes()V
-    .locals 12
+    .locals 15
 
     const/4 v4, 0x1
 
     const/4 v5, 0x0
 
-    const-string/jumbo v0, "anyAtomicType"
+    const-string/jumbo v10, "anyAtomicType"
 
-    const-string/jumbo v0, "duration"
+    const-string/jumbo v12, "duration"
 
-    const-string/jumbo v0, "yearMonthDuration"
+    const-string/jumbo v13, "yearMonthDuration"
 
-    const-string/jumbo v0, "dayTimeDuration"
-
-    sget-object v0, Lmf/org/apache/xerces/impl/dv/xs/ExtendedSchemaDVFactoryImpl;->fBuiltInTypes:Lmf/org/apache/xerces/util/SymbolHash;
-
-    sget-object v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fAnyAtomicType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
-
-    invoke-static {v0, v1}, Lmf/org/apache/xerces/impl/dv/xs/ExtendedSchemaDVFactoryImpl;->createBuiltInTypes(Lmf/org/apache/xerces/util/SymbolHash;Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;)V
+    const-string/jumbo v11, "dayTimeDuration"
 
     sget-object v0, Lmf/org/apache/xerces/impl/dv/xs/ExtendedSchemaDVFactoryImpl;->fBuiltInTypes:Lmf/org/apache/xerces/util/SymbolHash;
-
-    const-string/jumbo v1, "anyAtomicType"
 
     sget-object v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fAnyAtomicType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    invoke-virtual {v0, v1, v2}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-static {v0, v2}, Lmf/org/apache/xerces/impl/dv/xs/ExtendedSchemaDVFactoryImpl;->createBuiltInTypes(Lmf/org/apache/xerces/util/SymbolHash;Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;)V
 
     sget-object v0, Lmf/org/apache/xerces/impl/dv/xs/ExtendedSchemaDVFactoryImpl;->fBuiltInTypes:Lmf/org/apache/xerces/util/SymbolHash;
 
-    const-string/jumbo v1, "duration"
+    sget-object v2, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;->fAnyAtomicType:Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    invoke-virtual {v0, v1}, Lmf/org/apache/xerces/util/SymbolHash;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    const-string/jumbo v3, "anyAtomicType"
+
+    invoke-virtual {v0, v3, v2}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    sget-object v0, Lmf/org/apache/xerces/impl/dv/xs/ExtendedSchemaDVFactoryImpl;->fBuiltInTypes:Lmf/org/apache/xerces/util/SymbolHash;
+
+    const-string/jumbo v2, "duration"
+
+    invoke-virtual {v0, v2}, Lmf/org/apache/xerces/util/SymbolHash;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
-    sget-object v10, Lmf/org/apache/xerces/impl/dv/xs/ExtendedSchemaDVFactoryImpl;->fBuiltInTypes:Lmf/org/apache/xerces/util/SymbolHash;
-
-    const-string/jumbo v11, "yearMonthDuration"
+    sget-object v14, Lmf/org/apache/xerces/impl/dv/xs/ExtendedSchemaDVFactoryImpl;->fBuiltInTypes:Lmf/org/apache/xerces/util/SymbolHash;
 
     new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
@@ -89,11 +87,11 @@
 
     invoke-direct/range {v0 .. v9}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
 
-    invoke-virtual {v10, v11, v0}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    const-string/jumbo v2, "yearMonthDuration"
 
-    sget-object v10, Lmf/org/apache/xerces/impl/dv/xs/ExtendedSchemaDVFactoryImpl;->fBuiltInTypes:Lmf/org/apache/xerces/util/SymbolHash;
+    invoke-virtual {v14, v2, v0}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const-string/jumbo v11, "dayTimeDuration"
+    sget-object v14, Lmf/org/apache/xerces/impl/dv/xs/ExtendedSchemaDVFactoryImpl;->fBuiltInTypes:Lmf/org/apache/xerces/util/SymbolHash;
 
     new-instance v0, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;
 
@@ -111,7 +109,9 @@
 
     invoke-direct/range {v0 .. v9}, Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;-><init>(Lmf/org/apache/xerces/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V
 
-    invoke-virtual {v10, v11, v0}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    const-string/jumbo v2, "dayTimeDuration"
+
+    invoke-virtual {v14, v2, v0}, Lmf/org/apache/xerces/util/SymbolHash;->put(Ljava/lang/Object;Ljava/lang/Object;)V
 
     return-void
 .end method

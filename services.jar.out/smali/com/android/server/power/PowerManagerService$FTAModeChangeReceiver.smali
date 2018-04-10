@@ -54,7 +54,7 @@
 
     iget-object v1, p0, Lcom/android/server/power/PowerManagerService$FTAModeChangeReceiver;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-get40(Lcom/android/server/power/PowerManagerService;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-get38(Lcom/android/server/power/PowerManagerService;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -73,7 +73,7 @@
 
     const/4 v3, 0x1
 
-    invoke-static {v1, v3}, Lcom/android/server/power/PowerManagerService;->-set14(Lcom/android/server/power/PowerManagerService;Z)Z
+    invoke-static {v1, v3}, Lcom/android/server/power/PowerManagerService;->-set13(Lcom/android/server/power/PowerManagerService;Z)Z
 
     const-string/jumbo v1, "PowerManagerService"
 
@@ -85,15 +85,17 @@
     :goto_0
     iget-object v1, p0, Lcom/android/server/power/PowerManagerService$FTAModeChangeReceiver;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    iget v3, v1, Lcom/android/server/power/PowerManagerService;->mDirty:I
+    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-get17(Lcom/android/server/power/PowerManagerService;)I
+
+    move-result v3
 
     or-int/lit8 v3, v3, 0x8
 
-    iput v3, v1, Lcom/android/server/power/PowerManagerService;->mDirty:I
+    invoke-static {v1, v3}, Lcom/android/server/power/PowerManagerService;->-set10(Lcom/android/server/power/PowerManagerService;I)I
 
     iget-object v1, p0, Lcom/android/server/power/PowerManagerService$FTAModeChangeReceiver;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-virtual {v1}, Lcom/android/server/power/PowerManagerService;->updatePowerStateLocked()V
+    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-wrap66(Lcom/android/server/power/PowerManagerService;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -115,7 +117,7 @@
 
     const/4 v3, 0x0
 
-    invoke-static {v1, v3}, Lcom/android/server/power/PowerManagerService;->-set14(Lcom/android/server/power/PowerManagerService;Z)Z
+    invoke-static {v1, v3}, Lcom/android/server/power/PowerManagerService;->-set13(Lcom/android/server/power/PowerManagerService;Z)Z
 
     const-string/jumbo v1, "PowerManagerService"
 

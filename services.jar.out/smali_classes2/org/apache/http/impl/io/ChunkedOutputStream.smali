@@ -3,152 +3,294 @@
 .source "ChunkedOutputStream.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
+# instance fields
+.field private final cache:[B
+
+.field private cachePosition:I
+
+.field private closed:Z
+
+.field private final out:Lorg/apache/http/io/SessionOutputBuffer;
+
+.field private wroteLastChunk:Z
 
 
 # direct methods
+.method public constructor <init>(ILorg/apache/http/io/SessionOutputBuffer;)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0}, Ljava/io/OutputStream;-><init>()V
+
+    iput v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->cachePosition:I
+
+    iput-boolean v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->wroteLastChunk:Z
+
+    iput-boolean v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->closed:Z
+
+    new-array v0, p1, [B
+
+    iput-object v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->cache:[B
+
+    iput-object p2, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->out:Lorg/apache/http/io/SessionOutputBuffer;
+
+    return-void
+.end method
+
 .method public constructor <init>(Lorg/apache/http/io/SessionOutputBuffer;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    invoke-direct {p0}, Ljava/io/OutputStream;-><init>()V
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const/16 v0, 0x800
 
-    const-string/jumbo v1, "Stub!"
+    invoke-direct {p0, v0, p1}, Lorg/apache/http/impl/io/ChunkedOutputStream;-><init>(ILorg/apache/http/io/SessionOutputBuffer;)V
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 .method public constructor <init>(Lorg/apache/http/io/SessionOutputBuffer;I)V
-    .locals 2
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    invoke-direct {p0}, Ljava/io/OutputStream;-><init>()V
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    invoke-direct {p0, p2, p1}, Lorg/apache/http/impl/io/ChunkedOutputStream;-><init>(ILorg/apache/http/io/SessionOutputBuffer;)V
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 
 # virtual methods
 .method public close()V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-boolean v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->closed:Z
 
-    const-string/jumbo v1, "Stub!"
+    if-eqz v0, :cond_0
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    :goto_0
+    return-void
 
-    throw v0
+    :cond_0
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->closed:Z
+
+    invoke-virtual {p0}, Lorg/apache/http/impl/io/ChunkedOutputStream;->finish()V
+
+    iget-object v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->out:Lorg/apache/http/io/SessionOutputBuffer;
+
+    invoke-interface {v0}, Lorg/apache/http/io/SessionOutputBuffer;->flush()V
+
+    goto :goto_0
 .end method
 
 .method public finish()V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-boolean v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->wroteLastChunk:Z
 
-    const-string/jumbo v1, "Stub!"
+    if-eqz v0, :cond_0
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    :goto_0
+    return-void
 
-    throw v0
+    :cond_0
+    invoke-virtual {p0}, Lorg/apache/http/impl/io/ChunkedOutputStream;->flushCache()V
+
+    invoke-virtual {p0}, Lorg/apache/http/impl/io/ChunkedOutputStream;->writeClosingChunk()V
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->wroteLastChunk:Z
+
+    goto :goto_0
 .end method
 
 .method public flush()V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    invoke-virtual {p0}, Lorg/apache/http/impl/io/ChunkedOutputStream;->flushCache()V
 
-    const-string/jumbo v1, "Stub!"
+    iget-object v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->out:Lorg/apache/http/io/SessionOutputBuffer;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-interface {v0}, Lorg/apache/http/io/SessionOutputBuffer;->flush()V
 
-    throw v0
+    return-void
 .end method
 
 .method protected flushCache()V
-    .locals 2
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const/4 v3, 0x0
 
-    const-string/jumbo v1, "Stub!"
+    iget v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->cachePosition:I
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    if-gtz v0, :cond_0
 
-    throw v0
+    :goto_0
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->out:Lorg/apache/http/io/SessionOutputBuffer;
+
+    iget v1, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->cachePosition:I
+
+    invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Lorg/apache/http/io/SessionOutputBuffer;->writeLine(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->out:Lorg/apache/http/io/SessionOutputBuffer;
+
+    iget-object v1, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->cache:[B
+
+    iget v2, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->cachePosition:I
+
+    invoke-interface {v0, v1, v3, v2}, Lorg/apache/http/io/SessionOutputBuffer;->write([BII)V
+
+    iget-object v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->out:Lorg/apache/http/io/SessionOutputBuffer;
+
+    const-string/jumbo v1, ""
+
+    invoke-interface {v0, v1}, Lorg/apache/http/io/SessionOutputBuffer;->writeLine(Ljava/lang/String;)V
+
+    iput v3, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->cachePosition:I
+
+    goto :goto_0
 .end method
 
 .method protected flushCacheWithAppend([BII)V
-    .locals 2
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const/4 v3, 0x0
 
-    const-string/jumbo v1, "Stub!"
+    iget-object v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->out:Lorg/apache/http/io/SessionOutputBuffer;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    iget v1, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->cachePosition:I
 
-    throw v0
+    add-int/2addr v1, p3
+
+    invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Lorg/apache/http/io/SessionOutputBuffer;->writeLine(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->out:Lorg/apache/http/io/SessionOutputBuffer;
+
+    iget-object v1, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->cache:[B
+
+    iget v2, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->cachePosition:I
+
+    invoke-interface {v0, v1, v3, v2}, Lorg/apache/http/io/SessionOutputBuffer;->write([BII)V
+
+    iget-object v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->out:Lorg/apache/http/io/SessionOutputBuffer;
+
+    invoke-interface {v0, p1, p2, p3}, Lorg/apache/http/io/SessionOutputBuffer;->write([BII)V
+
+    iget-object v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->out:Lorg/apache/http/io/SessionOutputBuffer;
+
+    const-string/jumbo v1, ""
+
+    invoke-interface {v0, v1}, Lorg/apache/http/io/SessionOutputBuffer;->writeLine(Ljava/lang/String;)V
+
+    iput v3, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->cachePosition:I
+
+    return-void
 .end method
 
 .method public write(I)V
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-boolean v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->closed:Z
 
-    const-string/jumbo v1, "Stub!"
+    if-nez v0, :cond_0
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    iget-object v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->cache:[B
+
+    iget v1, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->cachePosition:I
+
+    int-to-byte v2, p1
+
+    int-to-byte v2, v2
+
+    aput-byte v2, v0, v1
+
+    iget v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->cachePosition:I
+
+    add-int/lit8 v0, v0, 0x1
+
+    iput v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->cachePosition:I
+
+    iget v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->cachePosition:I
+
+    iget-object v1, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->cache:[B
+
+    array-length v1, v1
+
+    if-eq v0, v1, :cond_1
+
+    :goto_0
+    return-void
+
+    :cond_0
+    new-instance v0, Ljava/io/IOException;
+
+    const-string/jumbo v1, "Attempted write to closed stream."
+
+    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw v0
+
+    :cond_1
+    invoke-virtual {p0}, Lorg/apache/http/impl/io/ChunkedOutputStream;->flushCache()V
+
+    goto :goto_0
 .end method
 
 .method public write([B)V
@@ -159,13 +301,13 @@
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    array-length v0, p1
 
-    const-string/jumbo v1, "Stub!"
+    const/4 v1, 0x0
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0, p1, v1, v0}, Lorg/apache/http/impl/io/ChunkedOutputStream;->write([BII)V
 
-    throw v0
+    return-void
 .end method
 
 .method public write([BII)V
@@ -176,13 +318,48 @@
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-boolean v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->closed:Z
 
-    const-string/jumbo v1, "Stub!"
+    if-nez v0, :cond_0
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    iget-object v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->cache:[B
+
+    array-length v0, v0
+
+    iget v1, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->cachePosition:I
+
+    sub-int/2addr v0, v1
+
+    if-ge p3, v0, :cond_1
+
+    iget-object v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->cache:[B
+
+    iget v1, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->cachePosition:I
+
+    invoke-static {p1, p2, v0, v1, p3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+
+    iget v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->cachePosition:I
+
+    add-int/2addr v0, p3
+
+    iput v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->cachePosition:I
+
+    :goto_0
+    return-void
+
+    :cond_0
+    new-instance v0, Ljava/io/IOException;
+
+    const-string/jumbo v1, "Attempted write to closed stream."
+
+    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw v0
+
+    :cond_1
+    invoke-virtual {p0, p1, p2, p3}, Lorg/apache/http/impl/io/ChunkedOutputStream;->flushCacheWithAppend([BII)V
+
+    goto :goto_0
 .end method
 
 .method protected writeClosingChunk()V
@@ -193,11 +370,17 @@
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->out:Lorg/apache/http/io/SessionOutputBuffer;
 
-    const-string/jumbo v1, "Stub!"
+    const-string/jumbo v1, "0"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-interface {v0, v1}, Lorg/apache/http/io/SessionOutputBuffer;->writeLine(Ljava/lang/String;)V
 
-    throw v0
+    iget-object v0, p0, Lorg/apache/http/impl/io/ChunkedOutputStream;->out:Lorg/apache/http/io/SessionOutputBuffer;
+
+    const-string/jumbo v1, ""
+
+    invoke-interface {v0, v1}, Lorg/apache/http/io/SessionOutputBuffer;->writeLine(Ljava/lang/String;)V
+
+    return-void
 .end method

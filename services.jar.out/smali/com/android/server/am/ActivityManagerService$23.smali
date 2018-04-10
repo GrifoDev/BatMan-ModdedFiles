@@ -52,7 +52,7 @@
     :goto_0
     iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$23;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-static {v2}, Lcom/android/server/am/ActivityManagerService;->-get12(Lcom/android/server/am/ActivityManagerService;)Ljava/lang/StringBuilder;
+    invoke-static {v2}, Lcom/android/server/am/ActivityManagerService;->-get9(Lcom/android/server/am/ActivityManagerService;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
@@ -61,7 +61,7 @@
     :try_start_1
     iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$23;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-static {v2}, Lcom/android/server/am/ActivityManagerService;->-get12(Lcom/android/server/am/ActivityManagerService;)Ljava/lang/StringBuilder;
+    invoke-static {v2}, Lcom/android/server/am/ActivityManagerService;->-get9(Lcom/android/server/am/ActivityManagerService;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
@@ -90,13 +90,13 @@
     :try_start_2
     iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$23;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-static {v2}, Lcom/android/server/am/ActivityManagerService;->-get12(Lcom/android/server/am/ActivityManagerService;)Ljava/lang/StringBuilder;
+    invoke-static {v2}, Lcom/android/server/am/ActivityManagerService;->-get9(Lcom/android/server/am/ActivityManagerService;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
     iget-object v4, p0, Lcom/android/server/am/ActivityManagerService$23;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-static {v4}, Lcom/android/server/am/ActivityManagerService;->-get12(Lcom/android/server/am/ActivityManagerService;)Ljava/lang/StringBuilder;
+    invoke-static {v4}, Lcom/android/server/am/ActivityManagerService;->-get9(Lcom/android/server/am/ActivityManagerService;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
@@ -110,7 +110,7 @@
 
     iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$23;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-static {v2}, Lcom/android/server/am/ActivityManagerService;->-get12(Lcom/android/server/am/ActivityManagerService;)Ljava/lang/StringBuilder;
+    invoke-static {v2}, Lcom/android/server/am/ActivityManagerService;->-get9(Lcom/android/server/am/ActivityManagerService;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 

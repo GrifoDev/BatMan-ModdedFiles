@@ -76,7 +76,7 @@
 .end method
 
 .method public declared-synchronized read(Ljava/lang/String;)Ljava/util/Date;
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -100,38 +100,38 @@
 
     invoke-virtual {v0}, Ljava/util/Date;->getTime()J
 
-    move-result-wide v0
+    move-result-wide v2
 
-    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object v1
 
-    iget-object v1, p0, Lorg/simpleframework/xml/transform/DateTransform;->factory:Lorg/simpleframework/xml/transform/DateFactory;
+    iget-object v2, p0, Lorg/simpleframework/xml/transform/DateTransform;->factory:Lorg/simpleframework/xml/transform/DateFactory;
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v3, v3, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    aput-object v0, v2, v3
+    aput-object v1, v3, v4
 
-    invoke-virtual {v1, v2}, Lorg/simpleframework/xml/transform/DateFactory;->getInstance([Ljava/lang/Object;)Ljava/util/Date;
+    invoke-virtual {v2, v3}, Lorg/simpleframework/xml/transform/DateFactory;->getInstance([Ljava/lang/Object;)Ljava/util/Date;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result-object v0
+    move-result-object v2
 
     monitor-exit p0
 
-    return-object v0
+    return-object v2
 
     :catchall_0
-    move-exception v0
+    move-exception v2
 
     monitor-exit p0
 
-    throw v0
+    throw v2
 .end method
 
 .method public bridge synthetic write(Ljava/lang/Object;)Ljava/lang/String;

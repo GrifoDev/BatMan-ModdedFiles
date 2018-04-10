@@ -64,25 +64,25 @@
 
 # virtual methods
 .method public validate([Lmf/org/apache/xerces/xni/QName;II)I
-    .locals 4
+    .locals 5
 
     const/4 v2, 0x2
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
     iget v1, p0, Lmf/org/apache/xerces/impl/dtd/models/SimpleContentModel;->fOperator:I
 
     packed-switch v1, :pswitch_data_0
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v1, "ImplementationMessages.VAL_CST"
+    const-string/jumbo v2, "ImplementationMessages.VAL_CST"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v1
 
     :pswitch_0
     if-eqz p3, :cond_1
@@ -97,29 +97,29 @@
 
     if-ne v1, v2, :cond_2
 
-    if-gt p3, v3, :cond_3
+    if-gt p3, v4, :cond_3
 
     :cond_0
-    const/4 v0, -0x1
+    const/4 v1, -0x1
 
-    return v0
+    return v1
 
     :cond_1
-    return v0
+    return v3
 
     :cond_2
-    return v0
+    return v3
 
     :cond_3
-    return v3
+    return v4
 
     :pswitch_1
-    if-eq p3, v3, :cond_5
+    if-eq p3, v4, :cond_5
 
     :cond_4
-    if-le p3, v3, :cond_0
+    if-le p3, v4, :cond_0
 
-    return v3
+    return v4
 
     :cond_5
     aget-object v1, p1, p2
@@ -132,10 +132,12 @@
 
     if-eq v1, v2, :cond_4
 
-    return v0
+    return v3
 
     :pswitch_2
     if-lez p3, :cond_0
+
+    const/4 v0, 0x0
 
     :goto_0
     if-ge v0, p3, :cond_0
@@ -162,6 +164,8 @@
     :pswitch_3
     if-eqz p3, :cond_7
 
+    const/4 v0, 0x0
+
     :goto_1
     if-ge v0, p3, :cond_0
 
@@ -182,7 +186,7 @@
     goto :goto_1
 
     :cond_7
-    return v0
+    return v3
 
     :cond_8
     return v0
@@ -201,12 +205,12 @@
     if-ne v1, v2, :cond_b
 
     :cond_9
-    if-le p3, v3, :cond_0
+    if-le p3, v4, :cond_0
 
-    return v3
+    return v4
 
     :cond_a
-    return v0
+    return v3
 
     :cond_b
     aget-object v1, p1, p2
@@ -219,7 +223,7 @@
 
     if-eq v1, v2, :cond_9
 
-    return v0
+    return v3
 
     :pswitch_5
     if-eq p3, v2, :cond_c
@@ -239,22 +243,22 @@
 
     if-ne v1, v2, :cond_d
 
-    add-int/lit8 v0, p2, 0x1
+    add-int/lit8 v1, p2, 0x1
 
-    aget-object v0, p1, v0
-
-    iget-object v0, v0, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
-
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/dtd/models/SimpleContentModel;->fSecondChild:Lmf/org/apache/xerces/xni/QName;
+    aget-object v1, p1, v1
 
     iget-object v1, v1, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
 
-    if-eq v0, v1, :cond_0
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/dtd/models/SimpleContentModel;->fSecondChild:Lmf/org/apache/xerces/xni/QName;
 
-    return v3
+    iget-object v2, v2, Lmf/org/apache/xerces/xni/QName;->rawname:Ljava/lang/String;
+
+    if-eq v1, v2, :cond_0
+
+    return v4
 
     :cond_d
-    return v0
+    return v3
 
     :cond_e
     return v2

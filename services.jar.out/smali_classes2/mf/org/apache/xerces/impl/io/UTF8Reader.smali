@@ -27,17 +27,17 @@
 .method public constructor <init>(Ljava/io/InputStream;)V
     .locals 3
 
-    const/16 v0, 0x800
+    new-instance v0, Lmf/org/apache/xerces/impl/msg/XMLMessageFormatter;
 
-    new-instance v1, Lmf/org/apache/xerces/impl/msg/XMLMessageFormatter;
-
-    invoke-direct {v1}, Lmf/org/apache/xerces/impl/msg/XMLMessageFormatter;-><init>()V
+    invoke-direct {v0}, Lmf/org/apache/xerces/impl/msg/XMLMessageFormatter;-><init>()V
 
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {p0, p1, v0, v1, v2}, Lmf/org/apache/xerces/impl/io/UTF8Reader;-><init>(Ljava/io/InputStream;ILmf/org/apache/xerces/util/MessageFormatter;Ljava/util/Locale;)V
+    const/16 v2, 0x800
+
+    invoke-direct {p0, p1, v2, v0, v1}, Lmf/org/apache/xerces/impl/io/UTF8Reader;-><init>(Ljava/io/InputStream;ILmf/org/apache/xerces/util/MessageFormatter;Ljava/util/Locale;)V
 
     return-void
 .end method
@@ -104,21 +104,21 @@
 
     new-array v5, v5, [Ljava/lang/Object;
 
-    const/4 v6, 0x0
-
     invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    aput-object v7, v5, v6
+    const/4 v7, 0x0
 
-    const/4 v6, 0x1
+    aput-object v6, v5, v7
 
     invoke-static {p2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    aput-object v7, v5, v6
+    const/4 v7, 0x1
+
+    aput-object v6, v5, v7
 
     invoke-direct/range {v0 .. v5}, Lmf/org/apache/xerces/impl/io/MalformedByteSequenceException;-><init>(Lmf/org/apache/xerces/util/MessageFormatter;Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
 
@@ -147,21 +147,21 @@
 
     new-array v5, v5, [Ljava/lang/Object;
 
-    const/4 v6, 0x0
-
     invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    aput-object v7, v5, v6
+    const/4 v7, 0x0
 
-    const/4 v6, 0x1
+    aput-object v6, v5, v7
 
     invoke-static {p2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    aput-object v7, v5, v6
+    const/4 v7, 0x1
+
+    aput-object v6, v5, v7
 
     invoke-direct/range {v0 .. v5}, Lmf/org/apache/xerces/impl/io/MalformedByteSequenceException;-><init>(Lmf/org/apache/xerces/util/MessageFormatter;Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
 
@@ -190,13 +190,13 @@
 
     new-array v5, v5, [Ljava/lang/Object;
 
-    const/4 v6, 0x0
-
     invoke-static {p1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    aput-object v7, v5, v6
+    const/4 v7, 0x0
+
+    aput-object v6, v5, v7
 
     invoke-direct/range {v0 .. v5}, Lmf/org/apache/xerces/impl/io/MalformedByteSequenceException;-><init>(Lmf/org/apache/xerces/util/MessageFormatter;Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
 
@@ -221,7 +221,7 @@
 .end method
 
 .method public mark(I)V
-    .locals 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -234,25 +234,25 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fLocale:Ljava/util/Locale;
 
-    const-string/jumbo v3, "OperationNotSupported"
+    const/4 v3, 0x2
 
-    const/4 v4, 0x2
+    new-array v3, v3, [Ljava/lang/Object;
 
-    new-array v4, v4, [Ljava/lang/Object;
+    const-string/jumbo v4, "mark()"
 
     const/4 v5, 0x0
 
-    const-string/jumbo v6, "mark()"
+    aput-object v4, v3, v5
 
-    aput-object v6, v4, v5
+    const-string/jumbo v4, "UTF-8"
 
     const/4 v5, 0x1
 
-    const-string/jumbo v6, "UTF-8"
+    aput-object v4, v3, v5
 
-    aput-object v6, v4, v5
+    const-string/jumbo v4, "OperationNotSupported"
 
-    invoke-interface {v1, v2, v3, v4}, Lmf/org/apache/xerces/util/MessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-interface {v1, v2, v4, v3}, Lmf/org/apache/xerces/util/MessageFormatter;->formatMessage(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -270,1625 +270,2385 @@
 .end method
 
 .method public read()I
-    .locals 10
+    .locals 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    const/16 v8, 0x80
+    iget v4, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fSurrogate:I
 
-    const/4 v7, 0x2
+    iget v11, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fSurrogate:I
 
-    const/4 v1, 0x0
+    const/4 v12, -0x1
 
-    const/4 v5, 0x3
+    if-eq v11, v12, :cond_0
 
-    const/4 v6, -0x1
+    const/4 v11, -0x1
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fSurrogate:I
-
-    iget v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fSurrogate:I
-
-    if-eq v0, v6, :cond_0
-
-    iput v6, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fSurrogate:I
-
-    move v0, v2
+    iput v11, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fSurrogate:I
 
     :goto_0
-    return v0
+    return v4
 
     :cond_0
-    iget v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+    const/4 v6, 0x0
 
-    if-eqz v0, :cond_2
+    iget v11, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    if-eqz v11, :cond_2
 
-    const/4 v0, 0x1
+    iget-object v11, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    aget-byte v1, v3, v1
+    const/4 v12, 0x0
 
-    and-int/lit16 v1, v1, 0xff
+    const/4 v6, 0x1
+
+    aget-byte v11, v11, v12
+
+    and-int/lit16 v0, v11, 0xff
 
     :goto_1
-    if-eq v1, v6, :cond_3
+    const/4 v11, -0x1
 
-    if-lt v1, v8, :cond_4
+    if-eq v0, v11, :cond_3
 
-    and-int/lit16 v3, v1, 0xe0
+    const/16 v11, 0x80
 
-    const/16 v4, 0xc0
+    if-lt v0, v11, :cond_4
 
-    if-eq v3, v4, :cond_5
+    and-int/lit16 v11, v0, 0xe0
+
+    const/16 v12, 0xc0
+
+    if-eq v11, v12, :cond_5
 
     :cond_1
-    and-int/lit16 v3, v1, 0xf0
+    and-int/lit16 v11, v0, 0xf0
 
-    const/16 v4, 0xe0
+    const/16 v12, 0xe0
 
-    if-eq v3, v4, :cond_9
+    if-eq v11, v12, :cond_9
 
-    and-int/lit16 v3, v1, 0xf8
+    and-int/lit16 v11, v0, 0xf8
 
-    const/16 v4, 0xf0
+    const/16 v12, 0xf0
 
-    if-eq v3, v4, :cond_14
+    if-eq v11, v12, :cond_14
 
-    const/4 v0, 0x1
+    const/4 v11, 0x1
 
-    const/4 v3, 0x1
+    const/4 v12, 0x1
 
-    invoke-direct {p0, v0, v3, v1}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
-
-    move v0, v2
+    invoke-direct {p0, v11, v12, v0}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
 
     goto :goto_0
 
     :cond_2
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
+    iget-object v11, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
 
-    invoke-virtual {v0}, Ljava/io/InputStream;->read()I
+    invoke-virtual {v11}, Ljava/io/InputStream;->read()I
 
     move-result v0
-
-    move v9, v1
-
-    move v1, v0
-
-    move v0, v9
 
     goto :goto_1
 
     :cond_3
-    return v6
+    const/4 v11, -0x1
+
+    return v11
 
     :cond_4
-    int-to-char v0, v1
+    int-to-char v4, v0
 
     goto :goto_0
 
     :cond_5
-    and-int/lit8 v3, v1, 0x1e
+    and-int/lit8 v11, v0, 0x1e
 
-    if-eqz v3, :cond_1
+    if-eqz v11, :cond_1
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+    iget v11, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
 
-    if-eq v0, v2, :cond_6
+    if-eq v6, v11, :cond_6
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    iget-object v11, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    add-int/lit8 v3, v0, 0x1
+    add-int/lit8 v7, v6, 0x1
 
-    aget-byte v0, v2, v0
+    aget-byte v11, v11, v6
 
-    and-int/lit16 v0, v0, 0xff
+    and-int/lit16 v1, v11, 0xff
+
+    move v6, v7
 
     :goto_2
-    if-eq v0, v6, :cond_7
+    const/4 v11, -0x1
+
+    if-eq v1, v11, :cond_7
 
     :goto_3
-    and-int/lit16 v2, v0, 0xc0
+    and-int/lit16 v11, v1, 0xc0
 
-    if-ne v2, v8, :cond_8
+    const/16 v12, 0x80
+
+    if-ne v11, v12, :cond_8
 
     :goto_4
-    shl-int/lit8 v1, v1, 0x6
+    shl-int/lit8 v11, v0, 0x6
 
-    and-int/lit16 v1, v1, 0x7c0
+    and-int/lit16 v11, v11, 0x7c0
 
-    and-int/lit8 v0, v0, 0x3f
+    and-int/lit8 v12, v1, 0x3f
 
-    or-int/2addr v0, v1
+    or-int v4, v11, v12
 
     goto :goto_0
 
     :cond_6
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
+    iget-object v11, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
 
-    invoke-virtual {v0}, Ljava/io/InputStream;->read()I
+    invoke-virtual {v11}, Ljava/io/InputStream;->read()I
 
-    move-result v0
+    move-result v1
 
     goto :goto_2
 
     :cond_7
-    invoke-direct {p0, v7, v7}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->expectedByte(II)V
+    const/4 v11, 0x2
+
+    const/4 v12, 0x2
+
+    invoke-direct {p0, v11, v12}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->expectedByte(II)V
 
     goto :goto_3
 
     :cond_8
-    invoke-direct {p0, v7, v7, v0}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
+    const/4 v11, 0x2
+
+    const/4 v12, 0x2
+
+    invoke-direct {p0, v11, v12, v1}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
 
     goto :goto_4
 
     :cond_9
-    iget v2, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+    iget v11, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
 
-    if-eq v0, v2, :cond_c
+    if-eq v6, v11, :cond_c
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    iget-object v11, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    add-int/lit8 v2, v0, 0x1
+    add-int/lit8 v7, v6, 0x1
 
-    aget-byte v0, v3, v0
+    aget-byte v11, v11, v6
 
-    and-int/lit16 v0, v0, 0xff
+    and-int/lit16 v1, v11, 0xff
 
-    move v9, v2
-
-    move v2, v0
-
-    move v0, v9
+    move v6, v7
 
     :goto_5
-    if-eq v2, v6, :cond_d
+    const/4 v11, -0x1
+
+    if-eq v1, v11, :cond_d
 
     :goto_6
-    and-int/lit16 v3, v2, 0xc0
+    and-int/lit16 v11, v1, 0xc0
 
-    if-eq v3, v8, :cond_e
+    const/16 v12, 0x80
+
+    if-eq v11, v12, :cond_e
 
     :cond_a
     :goto_7
-    invoke-direct {p0, v7, v5, v2}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
+    const/4 v11, 0x2
+
+    const/4 v12, 0x3
+
+    invoke-direct {p0, v11, v12, v1}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
 
     :cond_b
     :goto_8
-    iget v3, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+    iget v11, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
 
-    if-eq v0, v3, :cond_11
+    if-eq v6, v11, :cond_11
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    iget-object v11, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    add-int/lit8 v4, v0, 0x1
+    add-int/lit8 v7, v6, 0x1
 
-    aget-byte v0, v3, v0
+    aget-byte v11, v11, v6
 
-    and-int/lit16 v0, v0, 0xff
+    and-int/lit16 v2, v11, 0xff
+
+    move v6, v7
 
     :goto_9
-    if-eq v0, v6, :cond_12
+    const/4 v11, -0x1
+
+    if-eq v2, v11, :cond_12
 
     :goto_a
-    and-int/lit16 v3, v0, 0xc0
+    and-int/lit16 v11, v2, 0xc0
 
-    if-ne v3, v8, :cond_13
+    const/16 v12, 0x80
+
+    if-ne v11, v12, :cond_13
 
     :goto_b
-    shl-int/lit8 v1, v1, 0xc
+    shl-int/lit8 v11, v0, 0xc
 
-    const v3, 0xf000
+    const v12, 0xf000
 
-    and-int/2addr v1, v3
+    and-int/2addr v11, v12
 
-    shl-int/lit8 v2, v2, 0x6
+    shl-int/lit8 v12, v1, 0x6
 
-    and-int/lit16 v2, v2, 0xfc0
+    and-int/lit16 v12, v12, 0xfc0
 
-    or-int/2addr v1, v2
+    or-int/2addr v11, v12
 
-    and-int/lit8 v0, v0, 0x3f
+    and-int/lit8 v12, v2, 0x3f
 
-    or-int/2addr v0, v1
+    or-int v4, v11, v12
 
     goto/16 :goto_0
 
     :cond_c
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
+    iget-object v11, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
 
-    invoke-virtual {v2}, Ljava/io/InputStream;->read()I
+    invoke-virtual {v11}, Ljava/io/InputStream;->read()I
 
-    move-result v2
+    move-result v1
 
     goto :goto_5
 
     :cond_d
-    invoke-direct {p0, v7, v5}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->expectedByte(II)V
+    const/4 v11, 0x2
+
+    const/4 v12, 0x3
+
+    invoke-direct {p0, v11, v12}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->expectedByte(II)V
 
     goto :goto_6
 
     :cond_e
-    const/16 v3, 0xed
+    const/16 v11, 0xed
 
-    if-eq v1, v3, :cond_10
+    if-eq v0, v11, :cond_10
 
     :cond_f
-    and-int/lit8 v3, v1, 0xf
+    and-int/lit8 v11, v0, 0xf
 
-    if-nez v3, :cond_b
+    if-nez v11, :cond_b
 
-    and-int/lit8 v3, v2, 0x20
+    and-int/lit8 v11, v1, 0x20
 
-    if-eqz v3, :cond_a
+    if-eqz v11, :cond_a
 
     goto :goto_8
 
     :cond_10
-    const/16 v3, 0xa0
+    const/16 v11, 0xa0
 
-    if-lt v2, v3, :cond_f
+    if-lt v1, v11, :cond_f
 
     goto :goto_7
 
     :cond_11
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
+    iget-object v11, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
 
-    invoke-virtual {v0}, Ljava/io/InputStream;->read()I
+    invoke-virtual {v11}, Ljava/io/InputStream;->read()I
 
-    move-result v0
+    move-result v2
 
     goto :goto_9
 
     :cond_12
-    invoke-direct {p0, v5, v5}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->expectedByte(II)V
+    const/4 v11, 0x3
+
+    const/4 v12, 0x3
+
+    invoke-direct {p0, v11, v12}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->expectedByte(II)V
 
     goto :goto_a
 
     :cond_13
-    invoke-direct {p0, v5, v5, v0}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
+    const/4 v11, 0x3
+
+    const/4 v12, 0x3
+
+    invoke-direct {p0, v11, v12, v2}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
 
     goto :goto_b
 
     :cond_14
-    iget v2, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+    iget v11, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
 
-    if-eq v0, v2, :cond_17
+    if-eq v6, v11, :cond_17
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    iget-object v11, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    add-int/lit8 v2, v0, 0x1
+    add-int/lit8 v7, v6, 0x1
 
-    aget-byte v0, v3, v0
+    aget-byte v11, v11, v6
 
-    and-int/lit16 v0, v0, 0xff
+    and-int/lit16 v1, v11, 0xff
 
-    move v9, v2
-
-    move v2, v0
-
-    move v0, v9
+    move v6, v7
 
     :goto_c
-    if-eq v2, v6, :cond_18
+    const/4 v11, -0x1
+
+    if-eq v1, v11, :cond_18
 
     :goto_d
-    and-int/lit16 v3, v2, 0xc0
+    and-int/lit16 v11, v1, 0xc0
 
-    if-eq v3, v8, :cond_19
+    const/16 v12, 0x80
+
+    if-eq v11, v12, :cond_19
 
     :cond_15
-    invoke-direct {p0, v7, v5, v2}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
+    const/4 v11, 0x2
+
+    const/4 v12, 0x3
+
+    invoke-direct {p0, v11, v12, v1}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
 
     :cond_16
     :goto_e
-    iget v3, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+    iget v11, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
 
-    if-eq v0, v3, :cond_1a
+    if-eq v6, v11, :cond_1a
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    iget-object v11, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    add-int/lit8 v3, v0, 0x1
+    add-int/lit8 v7, v6, 0x1
 
-    aget-byte v0, v4, v0
+    aget-byte v11, v11, v6
 
-    and-int/lit16 v0, v0, 0xff
+    and-int/lit16 v2, v11, 0xff
 
-    move v9, v3
-
-    move v3, v0
-
-    move v0, v9
+    move v6, v7
 
     :goto_f
-    if-eq v3, v6, :cond_1b
+    const/4 v11, -0x1
+
+    if-eq v2, v11, :cond_1b
 
     :goto_10
-    and-int/lit16 v4, v3, 0xc0
+    and-int/lit16 v11, v2, 0xc0
 
-    if-ne v4, v8, :cond_1c
+    const/16 v12, 0x80
+
+    if-ne v11, v12, :cond_1c
 
     :goto_11
-    iget v4, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+    iget v11, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
 
-    if-eq v0, v4, :cond_1d
+    if-eq v6, v11, :cond_1d
 
-    iget-object v4, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    iget-object v11, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    add-int/lit8 v5, v0, 0x1
+    add-int/lit8 v7, v6, 0x1
 
-    aget-byte v0, v4, v0
+    aget-byte v11, v11, v6
 
-    and-int/lit16 v0, v0, 0xff
+    and-int/lit16 v3, v11, 0xff
+
+    move v6, v7
 
     :goto_12
-    if-eq v0, v6, :cond_1e
+    const/4 v11, -0x1
+
+    if-eq v3, v11, :cond_1e
 
     :goto_13
-    and-int/lit16 v4, v0, 0xc0
+    and-int/lit16 v11, v3, 0xc0
 
-    if-ne v4, v8, :cond_1f
+    const/16 v12, 0x80
+
+    if-ne v11, v12, :cond_1f
 
     :goto_14
-    shl-int/lit8 v1, v1, 0x2
+    shl-int/lit8 v11, v0, 0x2
 
-    and-int/lit8 v1, v1, 0x1c
+    and-int/lit8 v11, v11, 0x1c
 
-    shr-int/lit8 v4, v2, 0x4
+    shr-int/lit8 v12, v1, 0x4
 
-    and-int/lit8 v4, v4, 0x3
+    and-int/lit8 v12, v12, 0x3
 
-    or-int/2addr v1, v4
+    or-int v9, v11, v12
 
-    const/16 v4, 0x10
+    const/16 v11, 0x10
 
-    if-gt v1, v4, :cond_20
+    if-gt v9, v11, :cond_20
 
     :goto_15
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v10, v9, -0x1
 
-    shl-int/lit8 v1, v1, 0x6
+    shl-int/lit8 v11, v10, 0x6
 
-    and-int/lit16 v1, v1, 0x3c0
+    and-int/lit16 v11, v11, 0x3c0
 
-    const v4, 0xd800
+    const v12, 0xd800
 
-    or-int/2addr v1, v4
+    or-int/2addr v11, v12
 
-    shl-int/lit8 v2, v2, 0x2
+    shl-int/lit8 v12, v1, 0x2
 
-    and-int/lit8 v2, v2, 0x3c
+    and-int/lit8 v12, v12, 0x3c
 
-    or-int/2addr v1, v2
+    or-int/2addr v11, v12
 
-    shr-int/lit8 v2, v3, 0x4
+    shr-int/lit8 v12, v2, 0x4
 
-    and-int/lit8 v2, v2, 0x3
+    and-int/lit8 v12, v12, 0x3
 
-    or-int/2addr v1, v2
+    or-int v5, v11, v12
 
-    shl-int/lit8 v2, v3, 0x6
+    shl-int/lit8 v11, v2, 0x6
 
-    and-int/lit16 v2, v2, 0x3c0
+    and-int/lit16 v11, v11, 0x3c0
 
-    const v3, 0xdc00
+    const v12, 0xdc00
 
-    or-int/2addr v2, v3
+    or-int/2addr v11, v12
 
-    and-int/lit8 v0, v0, 0x3f
+    and-int/lit8 v12, v3, 0x3f
 
-    or-int/2addr v0, v2
+    or-int v8, v11, v12
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fSurrogate:I
+    move v4, v5
 
-    move v0, v1
+    iput v8, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fSurrogate:I
 
     goto/16 :goto_0
 
     :cond_17
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
+    iget-object v11, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
 
-    invoke-virtual {v2}, Ljava/io/InputStream;->read()I
+    invoke-virtual {v11}, Ljava/io/InputStream;->read()I
 
-    move-result v2
+    move-result v1
 
     goto :goto_c
 
     :cond_18
-    const/4 v3, 0x4
+    const/4 v11, 0x2
 
-    invoke-direct {p0, v7, v3}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->expectedByte(II)V
+    const/4 v12, 0x4
+
+    invoke-direct {p0, v11, v12}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->expectedByte(II)V
 
     goto :goto_d
 
     :cond_19
-    and-int/lit8 v3, v2, 0x30
+    and-int/lit8 v11, v1, 0x30
 
-    if-nez v3, :cond_16
+    if-nez v11, :cond_16
 
-    and-int/lit8 v3, v1, 0x7
+    and-int/lit8 v11, v0, 0x7
 
-    if-eqz v3, :cond_15
+    if-eqz v11, :cond_15
 
     goto :goto_e
 
     :cond_1a
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
+    iget-object v11, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
 
-    invoke-virtual {v3}, Ljava/io/InputStream;->read()I
+    invoke-virtual {v11}, Ljava/io/InputStream;->read()I
 
-    move-result v3
+    move-result v2
 
     goto :goto_f
 
     :cond_1b
-    const/4 v4, 0x4
+    const/4 v11, 0x3
 
-    invoke-direct {p0, v5, v4}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->expectedByte(II)V
+    const/4 v12, 0x4
+
+    invoke-direct {p0, v11, v12}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->expectedByte(II)V
 
     goto :goto_10
 
     :cond_1c
-    invoke-direct {p0, v5, v5, v3}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
+    const/4 v11, 0x3
+
+    const/4 v12, 0x3
+
+    invoke-direct {p0, v11, v12, v2}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
 
     goto :goto_11
 
     :cond_1d
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
+    iget-object v11, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
 
-    invoke-virtual {v0}, Ljava/io/InputStream;->read()I
+    invoke-virtual {v11}, Ljava/io/InputStream;->read()I
 
-    move-result v0
+    move-result v3
 
     goto :goto_12
 
     :cond_1e
-    const/4 v4, 0x4
+    const/4 v11, 0x4
 
-    const/4 v5, 0x4
+    const/4 v12, 0x4
 
-    invoke-direct {p0, v4, v5}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->expectedByte(II)V
+    invoke-direct {p0, v11, v12}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->expectedByte(II)V
 
     goto :goto_13
 
     :cond_1f
-    const/4 v4, 0x4
+    const/4 v11, 0x4
 
-    const/4 v5, 0x4
+    const/4 v12, 0x4
 
-    invoke-direct {p0, v4, v5, v0}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
+    invoke-direct {p0, v11, v12, v3}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
 
     goto :goto_14
 
     :cond_20
-    invoke-direct {p0, v1}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidSurrogate(I)V
+    invoke-direct {p0, v9}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidSurrogate(I)V
 
     goto :goto_15
 .end method
 
 .method public read([CII)I
-    .locals 11
+    .locals 26
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+    move/from16 v15, p2
 
-    if-eqz v0, :cond_1
+    const/4 v11, 0x0
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x0
+    iget v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+    move/from16 v23, v0
 
-    move v1, p2
+    if-eqz v23, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget v11, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+
+    const/16 v23, 0x0
+
+    move/from16 v0, v23
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
 
     :goto_0
-    const/4 v2, 0x0
+    move/from16 v17, v11
 
-    move v4, v1
+    const/4 v8, 0x0
 
-    move v1, v2
+    const/4 v13, 0x0
+
+    move/from16 v16, v15
 
     :goto_1
-    if-ge v1, v0, :cond_6
+    move/from16 v0, v17
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    if-ge v13, v0, :cond_0
 
-    aget-byte v3, v2, v1
+    move-object/from16 v0, p0
 
-    if-gez v3, :cond_5
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    move v2, v0
+    move-object/from16 v23, v0
 
-    :goto_2
-    if-ge v1, v0, :cond_32
+    aget-byte v9, v23, v13
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
-
-    aget-byte v5, v3, v1
-
-    if-gez v5, :cond_7
-
-    and-int/lit16 v8, v5, 0xff
-
-    and-int/lit16 v3, v8, 0xe0
-
-    const/16 v5, 0xc0
-
-    if-eq v3, v5, :cond_8
+    if-gez v9, :cond_6
 
     :cond_0
-    and-int/lit16 v3, v8, 0xf0
+    :goto_2
+    move/from16 v0, v17
 
-    const/16 v5, 0xe0
+    if-ge v13, v0, :cond_32
 
-    if-eq v3, v5, :cond_e
+    move-object/from16 v0, p0
 
-    and-int/lit16 v3, v8, 0xf8
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    const/16 v5, 0xf0
+    move-object/from16 v23, v0
 
-    if-eq v3, v5, :cond_1d
+    aget-byte v9, v23, v13
 
-    if-gt v4, p2, :cond_31
+    if-gez v9, :cond_7
 
-    const/4 v3, 0x1
+    and-int/lit16 v4, v9, 0xff
 
-    const/4 v5, 0x1
+    and-int/lit16 v0, v4, 0xe0
 
-    invoke-direct {p0, v3, v5, v8}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
+    move/from16 v23, v0
 
-    move v3, v4
+    const/16 v24, 0xc0
+
+    move/from16 v0, v23
+
+    move/from16 v1, v24
+
+    if-eq v0, v1, :cond_8
+
+    :cond_1
+    and-int/lit16 v0, v4, 0xf0
+
+    move/from16 v23, v0
+
+    const/16 v24, 0xe0
+
+    move/from16 v0, v23
+
+    move/from16 v1, v24
+
+    if-eq v0, v1, :cond_e
+
+    and-int/lit16 v0, v4, 0xf8
+
+    move/from16 v23, v0
+
+    const/16 v24, 0xf0
+
+    move/from16 v0, v23
+
+    move/from16 v1, v24
+
+    if-eq v0, v1, :cond_1d
+
+    move/from16 v0, v16
+
+    move/from16 v1, p2
+
+    if-gt v0, v1, :cond_31
+
+    const/16 v23, 0x1
+
+    const/16 v24, 0x1
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v23
+
+    move/from16 v2, v24
+
+    invoke-direct {v0, v1, v2, v4}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
+
+    move/from16 v15, v16
 
     :goto_3
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v13, v13, 0x1
 
-    move v4, v3
+    move/from16 v16, v15
 
     goto :goto_2
 
-    :cond_1
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    :cond_2
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, v23
 
     array-length v0, v0
 
-    if-gt p3, v0, :cond_2
+    move/from16 v23, v0
+
+    move/from16 v0, p3
+
+    move/from16 v1, v23
+
+    if-gt v0, v1, :cond_3
 
     :goto_4
-    iget v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fSurrogate:I
+    move-object/from16 v0, p0
 
-    const/4 v1, -0x1
+    iget v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fSurrogate:I
 
-    if-ne v0, v1, :cond_3
+    move/from16 v23, v0
 
-    move v0, p2
+    const/16 v24, -0x1
+
+    move/from16 v0, v23
+
+    move/from16 v1, v24
+
+    if-ne v0, v1, :cond_4
 
     :goto_5
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
 
-    const/4 v3, 0x0
+    move-object/from16 v23, v0
 
-    invoke-virtual {v1, v2, v3, p3}, Ljava/io/InputStream;->read([BII)I
+    move-object/from16 v0, p0
 
-    move-result v1
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    const/4 v2, -0x1
+    move-object/from16 v24, v0
 
-    if-eq v1, v2, :cond_4
+    const/16 v25, 0x0
 
-    sub-int v2, v0, p2
+    move-object/from16 v0, v23
 
-    add-int/2addr v1, v2
+    move-object/from16 v1, v24
 
-    move v10, v1
+    move/from16 v2, v25
 
-    move v1, v0
+    move/from16 v3, p3
 
-    move v0, v10
+    invoke-virtual {v0, v1, v2, v3}, Ljava/io/InputStream;->read([BII)I
 
-    goto :goto_0
+    move-result v11
 
-    :cond_2
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    const/16 v23, -0x1
 
-    array-length p3, v0
+    move/from16 v0, v23
+
+    if-eq v11, v0, :cond_5
+
+    sub-int v23, v15, p2
+
+    add-int v11, v11, v23
+
+    goto/16 :goto_0
+
+    :cond_3
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, v23
+
+    array-length v0, v0
+
+    move/from16 p3, v0
 
     goto :goto_4
 
-    :cond_3
-    add-int/lit8 v0, p2, 0x1
+    :cond_4
+    add-int/lit8 v15, p2, 0x1
 
-    iget v1, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fSurrogate:I
+    move-object/from16 v0, p0
 
-    int-to-char v1, v1
+    iget v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fSurrogate:I
 
-    int-to-char v1, v1
+    move/from16 v23, v0
 
-    aput-char v1, p1, p2
+    move/from16 v0, v23
 
-    const/4 v1, -0x1
+    int-to-char v0, v0
 
-    iput v1, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fSurrogate:I
+    move/from16 v23, v0
+
+    move/from16 v0, v23
+
+    int-to-char v0, v0
+
+    move/from16 v23, v0
+
+    aput-char v23, p1, p2
+
+    const/16 v23, -0x1
+
+    move/from16 v0, v23
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fSurrogate:I
 
     add-int/lit8 p3, p3, -0x1
 
     goto :goto_5
 
-    :cond_4
-    const/4 v0, -0x1
-
-    return v0
-
     :cond_5
-    add-int/lit8 v2, v4, 0x1
+    const/16 v23, -0x1
 
-    int-to-char v3, v3
-
-    int-to-char v3, v3
-
-    aput-char v3, p1, v4
-
-    add-int/lit8 v1, v1, 0x1
-
-    move v4, v2
-
-    goto :goto_1
+    return v23
 
     :cond_6
-    move v2, v0
+    add-int/lit8 v15, v16, 0x1
 
-    goto :goto_2
+    int-to-char v0, v9
+
+    move/from16 v23, v0
+
+    move/from16 v0, v23
+
+    int-to-char v0, v0
+
+    move/from16 v23, v0
+
+    aput-char v23, p1, v16
+
+    add-int/lit8 v13, v13, 0x1
+
+    move/from16 v16, v15
+
+    goto/16 :goto_1
 
     :cond_7
-    add-int/lit8 v3, v4, 0x1
+    add-int/lit8 v15, v16, 0x1
 
-    int-to-char v5, v5
+    int-to-char v0, v9
 
-    int-to-char v5, v5
+    move/from16 v23, v0
 
-    aput-char v5, p1, v4
+    move/from16 v0, v23
 
-    goto :goto_3
+    int-to-char v0, v0
+
+    move/from16 v23, v0
+
+    aput-char v23, p1, v16
+
+    goto/16 :goto_3
 
     :cond_8
-    and-int/lit8 v3, v8, 0x1e
+    and-int/lit8 v23, v4, 0x1e
 
-    if-eqz v3, :cond_0
-
-    add-int/lit8 v1, v1, 0x1
-
-    if-lt v1, v0, :cond_9
-
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
-
-    invoke-virtual {v3}, Ljava/io/InputStream;->read()I
-
-    move-result v3
+    if-eqz v23, :cond_1
 
     const/4 v5, -0x1
 
-    if-eq v3, v5, :cond_a
+    add-int/lit8 v13, v13, 0x1
+
+    move/from16 v0, v17
+
+    if-lt v13, v0, :cond_9
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
+
+    move-object/from16 v23, v0
+
+    invoke-virtual/range {v23 .. v23}, Ljava/io/InputStream;->read()I
+
+    move-result v5
+
+    const/16 v23, -0x1
+
+    move/from16 v0, v23
+
+    if-eq v5, v0, :cond_a
 
     :goto_6
-    add-int/lit8 v2, v2, 0x1
-
-    move v5, v2
-
-    move v2, v3
+    add-int/lit8 v11, v11, 0x1
 
     :goto_7
-    and-int/lit16 v3, v2, 0xc0
+    and-int/lit16 v0, v5, 0xc0
 
-    const/16 v6, 0x80
+    move/from16 v23, v0
 
-    if-ne v3, v6, :cond_c
+    const/16 v24, 0x80
+
+    move/from16 v0, v23
+
+    move/from16 v1, v24
+
+    if-ne v0, v1, :cond_c
 
     :goto_8
-    shl-int/lit8 v3, v8, 0x6
+    shl-int/lit8 v23, v4, 0x6
 
-    and-int/lit16 v3, v3, 0x7c0
+    move/from16 v0, v23
 
-    and-int/lit8 v2, v2, 0x3f
+    and-int/lit16 v0, v0, 0x7c0
 
-    or-int/2addr v2, v3
+    move/from16 v23, v0
 
-    add-int/lit8 v3, v4, 0x1
+    and-int/lit8 v24, v5, 0x3f
 
-    int-to-char v2, v2
+    or-int v10, v23, v24
 
-    int-to-char v2, v2
+    add-int/lit8 v15, v16, 0x1
 
-    aput-char v2, p1, v4
+    int-to-char v0, v10
 
-    add-int/lit8 v2, v5, -0x1
+    move/from16 v23, v0
 
-    goto :goto_3
+    move/from16 v0, v23
+
+    int-to-char v0, v0
+
+    move/from16 v23, v0
+
+    aput-char v23, p1, v16
+
+    add-int/lit8 v11, v11, -0x1
+
+    goto/16 :goto_3
 
     :cond_9
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move-object/from16 v0, p0
 
-    aget-byte v3, v3, v1
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    and-int/lit16 v3, v3, 0xff
+    move-object/from16 v23, v0
 
-    move v5, v2
+    aget-byte v23, v23, v13
 
-    move v2, v3
+    move/from16 v0, v23
+
+    and-int/lit16 v5, v0, 0xff
 
     goto :goto_7
 
     :cond_a
-    if-gt v4, p2, :cond_b
+    move/from16 v0, v16
 
-    const/4 v5, 0x2
+    move/from16 v1, p2
 
-    const/4 v6, 0x2
+    if-gt v0, v1, :cond_b
 
-    invoke-direct {p0, v5, v6}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->expectedByte(II)V
+    const/16 v23, 0x2
+
+    const/16 v24, 0x2
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v23
+
+    move/from16 v2, v24
+
+    invoke-direct {v0, v1, v2}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->expectedByte(II)V
 
     goto :goto_6
 
     :cond_b
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x0
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    int-to-byte v2, v8
+    move-object/from16 v23, v0
 
-    int-to-byte v2, v2
+    int-to-byte v0, v4
 
-    aput-byte v2, v0, v1
+    move/from16 v24, v0
 
-    const/4 v0, 0x1
+    move/from16 v0, v24
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+    int-to-byte v0, v0
 
-    sub-int v0, v4, p2
+    move/from16 v24, v0
 
-    return v0
+    const/16 v25, 0x0
+
+    aput-byte v24, v23, v25
+
+    const/16 v23, 0x1
+
+    move/from16 v0, v23
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+
+    sub-int v23, v16, p2
+
+    return v23
 
     :cond_c
-    if-gt v4, p2, :cond_d
+    move/from16 v0, v16
 
-    const/4 v3, 0x2
+    move/from16 v1, p2
 
-    const/4 v6, 0x2
+    if-gt v0, v1, :cond_d
 
-    invoke-direct {p0, v3, v6, v2}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
+    const/16 v23, 0x2
+
+    const/16 v24, 0x2
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v23
+
+    move/from16 v2, v24
+
+    invoke-direct {v0, v1, v2, v5}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
 
     goto :goto_8
 
     :cond_d
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x0
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    int-to-byte v3, v8
+    move-object/from16 v23, v0
 
-    int-to-byte v3, v3
+    int-to-byte v0, v4
 
-    aput-byte v3, v0, v1
+    move/from16 v24, v0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move/from16 v0, v24
 
-    const/4 v1, 0x1
+    int-to-byte v0, v0
 
-    int-to-byte v2, v2
+    move/from16 v24, v0
 
-    int-to-byte v2, v2
+    const/16 v25, 0x0
 
-    aput-byte v2, v0, v1
+    aput-byte v24, v23, v25
 
-    const/4 v0, 0x2
+    move-object/from16 v0, p0
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    sub-int v0, v4, p2
+    move-object/from16 v23, v0
 
-    return v0
+    int-to-byte v0, v5
+
+    move/from16 v24, v0
+
+    move/from16 v0, v24
+
+    int-to-byte v0, v0
+
+    move/from16 v24, v0
+
+    const/16 v25, 0x1
+
+    aput-byte v24, v23, v25
+
+    const/16 v23, 0x2
+
+    move/from16 v0, v23
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+
+    sub-int v23, v16, p2
+
+    return v23
 
     :cond_e
-    add-int/lit8 v5, v1, 0x1
+    const/4 v5, -0x1
 
-    if-lt v5, v0, :cond_11
+    add-int/lit8 v13, v13, 0x1
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
+    move/from16 v0, v17
 
-    invoke-virtual {v1}, Ljava/io/InputStream;->read()I
+    if-lt v13, v0, :cond_11
 
-    move-result v1
+    move-object/from16 v0, p0
 
-    const/4 v3, -0x1
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
 
-    if-eq v1, v3, :cond_12
+    move-object/from16 v23, v0
+
+    invoke-virtual/range {v23 .. v23}, Ljava/io/InputStream;->read()I
+
+    move-result v5
+
+    const/16 v23, -0x1
+
+    move/from16 v0, v23
+
+    if-eq v5, v0, :cond_12
 
     :goto_9
-    add-int/lit8 v3, v2, 0x1
-
-    move v6, v1
+    add-int/lit8 v11, v11, 0x1
 
     :goto_a
-    and-int/lit16 v1, v6, 0xc0
+    and-int/lit16 v0, v5, 0xc0
 
-    const/16 v2, 0x80
+    move/from16 v23, v0
 
-    if-eq v1, v2, :cond_14
+    const/16 v24, 0x80
+
+    move/from16 v0, v23
+
+    move/from16 v1, v24
+
+    if-eq v0, v1, :cond_14
 
     :cond_f
     :goto_b
-    if-gt v4, p2, :cond_17
+    move/from16 v0, v16
 
-    const/4 v1, 0x2
+    move/from16 v1, p2
 
-    const/4 v2, 0x3
+    if-gt v0, v1, :cond_17
 
-    invoke-direct {p0, v1, v2, v6}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
+    const/16 v23, 0x2
+
+    const/16 v24, 0x3
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v23
+
+    move/from16 v2, v24
+
+    invoke-direct {v0, v1, v2, v5}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
 
     :cond_10
     :goto_c
-    add-int/lit8 v1, v5, 0x1
+    const/4 v6, -0x1
 
-    if-lt v1, v0, :cond_18
+    add-int/lit8 v13, v13, 0x1
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
+    move/from16 v0, v17
 
-    invoke-virtual {v2}, Ljava/io/InputStream;->read()I
+    if-lt v13, v0, :cond_18
 
-    move-result v2
+    move-object/from16 v0, p0
 
-    const/4 v5, -0x1
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
 
-    if-eq v2, v5, :cond_19
+    move-object/from16 v23, v0
+
+    invoke-virtual/range {v23 .. v23}, Ljava/io/InputStream;->read()I
+
+    move-result v6
+
+    const/16 v23, -0x1
+
+    move/from16 v0, v23
+
+    if-eq v6, v0, :cond_19
 
     :goto_d
-    add-int/lit8 v3, v3, 0x1
-
-    move v5, v3
+    add-int/lit8 v11, v11, 0x1
 
     :goto_e
-    and-int/lit16 v3, v2, 0xc0
+    and-int/lit16 v0, v6, 0xc0
 
-    const/16 v7, 0x80
+    move/from16 v23, v0
 
-    if-ne v3, v7, :cond_1b
+    const/16 v24, 0x80
+
+    move/from16 v0, v23
+
+    move/from16 v1, v24
+
+    if-ne v0, v1, :cond_1b
 
     :goto_f
-    shl-int/lit8 v3, v8, 0xc
+    shl-int/lit8 v23, v4, 0xc
 
-    const v7, 0xf000
+    const v24, 0xf000
 
-    and-int/2addr v3, v7
+    and-int v23, v23, v24
 
-    shl-int/lit8 v6, v6, 0x6
+    shl-int/lit8 v24, v5, 0x6
 
-    and-int/lit16 v6, v6, 0xfc0
+    move/from16 v0, v24
 
-    or-int/2addr v3, v6
+    and-int/lit16 v0, v0, 0xfc0
 
-    and-int/lit8 v2, v2, 0x3f
+    move/from16 v24, v0
 
-    or-int/2addr v2, v3
+    or-int v23, v23, v24
 
-    add-int/lit8 v3, v4, 0x1
+    and-int/lit8 v24, v6, 0x3f
 
-    int-to-char v2, v2
+    or-int v10, v23, v24
 
-    int-to-char v2, v2
+    add-int/lit8 v15, v16, 0x1
 
-    aput-char v2, p1, v4
+    int-to-char v0, v10
 
-    add-int/lit8 v2, v5, -0x2
+    move/from16 v23, v0
+
+    move/from16 v0, v23
+
+    int-to-char v0, v0
+
+    move/from16 v23, v0
+
+    aput-char v23, p1, v16
+
+    add-int/lit8 v11, v11, -0x2
 
     goto/16 :goto_3
 
     :cond_11
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move-object/from16 v0, p0
 
-    aget-byte v1, v1, v5
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    and-int/lit16 v1, v1, 0xff
+    move-object/from16 v23, v0
 
-    move v6, v1
+    aget-byte v23, v23, v13
 
-    move v3, v2
+    move/from16 v0, v23
+
+    and-int/lit16 v5, v0, 0xff
 
     goto :goto_a
 
     :cond_12
-    if-gt v4, p2, :cond_13
+    move/from16 v0, v16
 
-    const/4 v3, 0x2
+    move/from16 v1, p2
 
-    const/4 v6, 0x3
+    if-gt v0, v1, :cond_13
 
-    invoke-direct {p0, v3, v6}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->expectedByte(II)V
+    const/16 v23, 0x2
 
-    goto :goto_9
+    const/16 v24, 0x3
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v23
+
+    move/from16 v2, v24
+
+    invoke-direct {v0, v1, v2}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->expectedByte(II)V
+
+    goto/16 :goto_9
 
     :cond_13
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x0
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    int-to-byte v2, v8
+    move-object/from16 v23, v0
 
-    int-to-byte v2, v2
+    int-to-byte v0, v4
 
-    aput-byte v2, v0, v1
+    move/from16 v24, v0
 
-    const/4 v0, 0x1
+    move/from16 v0, v24
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+    int-to-byte v0, v0
 
-    sub-int v0, v4, p2
+    move/from16 v24, v0
 
-    return v0
+    const/16 v25, 0x0
+
+    aput-byte v24, v23, v25
+
+    const/16 v23, 0x1
+
+    move/from16 v0, v23
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+
+    sub-int v23, v16, p2
+
+    return v23
 
     :cond_14
-    const/16 v1, 0xed
+    const/16 v23, 0xed
 
-    if-eq v8, v1, :cond_16
+    move/from16 v0, v23
+
+    if-eq v4, v0, :cond_16
 
     :cond_15
-    and-int/lit8 v1, v8, 0xf
+    and-int/lit8 v23, v4, 0xf
 
-    if-nez v1, :cond_10
+    if-nez v23, :cond_10
 
-    and-int/lit8 v1, v6, 0x20
+    and-int/lit8 v23, v5, 0x20
 
-    if-eqz v1, :cond_f
+    if-eqz v23, :cond_f
 
-    goto :goto_c
+    goto/16 :goto_c
 
     :cond_16
-    const/16 v1, 0xa0
+    const/16 v23, 0xa0
 
-    if-lt v6, v1, :cond_15
+    move/from16 v0, v23
 
-    goto :goto_b
+    if-lt v5, v0, :cond_15
+
+    goto/16 :goto_b
 
     :cond_17
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x0
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    int-to-byte v2, v8
+    move-object/from16 v23, v0
 
-    int-to-byte v2, v2
+    int-to-byte v0, v4
 
-    aput-byte v2, v0, v1
+    move/from16 v24, v0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move/from16 v0, v24
 
-    const/4 v1, 0x1
+    int-to-byte v0, v0
 
-    int-to-byte v2, v6
+    move/from16 v24, v0
 
-    int-to-byte v2, v2
+    const/16 v25, 0x0
 
-    aput-byte v2, v0, v1
+    aput-byte v24, v23, v25
 
-    const/4 v0, 0x2
+    move-object/from16 v0, p0
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    sub-int v0, v4, p2
+    move-object/from16 v23, v0
 
-    return v0
+    int-to-byte v0, v5
+
+    move/from16 v24, v0
+
+    move/from16 v0, v24
+
+    int-to-byte v0, v0
+
+    move/from16 v24, v0
+
+    const/16 v25, 0x1
+
+    aput-byte v24, v23, v25
+
+    const/16 v23, 0x2
+
+    move/from16 v0, v23
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+
+    sub-int v23, v16, p2
+
+    return v23
 
     :cond_18
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move-object/from16 v0, p0
 
-    aget-byte v2, v2, v1
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    and-int/lit16 v2, v2, 0xff
+    move-object/from16 v23, v0
 
-    move v5, v3
+    aget-byte v23, v23, v13
 
-    goto :goto_e
+    move/from16 v0, v23
+
+    and-int/lit16 v6, v0, 0xff
+
+    goto/16 :goto_e
 
     :cond_19
-    if-gt v4, p2, :cond_1a
+    move/from16 v0, v16
 
-    const/4 v5, 0x3
+    move/from16 v1, p2
 
-    const/4 v7, 0x3
+    if-gt v0, v1, :cond_1a
 
-    invoke-direct {p0, v5, v7}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->expectedByte(II)V
+    const/16 v23, 0x3
 
-    goto :goto_d
+    const/16 v24, 0x3
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v23
+
+    move/from16 v2, v24
+
+    invoke-direct {v0, v1, v2}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->expectedByte(II)V
+
+    goto/16 :goto_d
 
     :cond_1a
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x0
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    int-to-byte v2, v8
+    move-object/from16 v23, v0
 
-    int-to-byte v2, v2
+    int-to-byte v0, v4
 
-    aput-byte v2, v0, v1
+    move/from16 v24, v0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move/from16 v0, v24
 
-    const/4 v1, 0x1
+    int-to-byte v0, v0
 
-    int-to-byte v2, v6
+    move/from16 v24, v0
 
-    int-to-byte v2, v2
+    const/16 v25, 0x0
 
-    aput-byte v2, v0, v1
+    aput-byte v24, v23, v25
 
-    const/4 v0, 0x2
+    move-object/from16 v0, p0
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    sub-int v0, v4, p2
+    move-object/from16 v23, v0
 
-    return v0
+    int-to-byte v0, v5
+
+    move/from16 v24, v0
+
+    move/from16 v0, v24
+
+    int-to-byte v0, v0
+
+    move/from16 v24, v0
+
+    const/16 v25, 0x1
+
+    aput-byte v24, v23, v25
+
+    const/16 v23, 0x2
+
+    move/from16 v0, v23
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+
+    sub-int v23, v16, p2
+
+    return v23
 
     :cond_1b
-    if-gt v4, p2, :cond_1c
+    move/from16 v0, v16
 
-    const/4 v3, 0x3
+    move/from16 v1, p2
 
-    const/4 v7, 0x3
+    if-gt v0, v1, :cond_1c
 
-    invoke-direct {p0, v3, v7, v2}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
+    const/16 v23, 0x3
+
+    const/16 v24, 0x3
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v23
+
+    move/from16 v2, v24
+
+    invoke-direct {v0, v1, v2, v6}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
 
     goto/16 :goto_f
 
     :cond_1c
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x0
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    int-to-byte v3, v8
+    move-object/from16 v23, v0
 
-    int-to-byte v3, v3
+    int-to-byte v0, v4
 
-    aput-byte v3, v0, v1
+    move/from16 v24, v0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move/from16 v0, v24
 
-    const/4 v1, 0x1
+    int-to-byte v0, v0
 
-    int-to-byte v3, v6
+    move/from16 v24, v0
 
-    int-to-byte v3, v3
+    const/16 v25, 0x0
 
-    aput-byte v3, v0, v1
+    aput-byte v24, v23, v25
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x2
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    int-to-byte v2, v2
+    move-object/from16 v23, v0
 
-    int-to-byte v2, v2
+    int-to-byte v0, v5
 
-    aput-byte v2, v0, v1
+    move/from16 v24, v0
 
-    const/4 v0, 0x3
+    move/from16 v0, v24
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+    int-to-byte v0, v0
 
-    sub-int v0, v4, p2
+    move/from16 v24, v0
 
-    return v0
+    const/16 v25, 0x1
+
+    aput-byte v24, v23, v25
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+
+    move-object/from16 v23, v0
+
+    int-to-byte v0, v6
+
+    move/from16 v24, v0
+
+    move/from16 v0, v24
+
+    int-to-byte v0, v0
+
+    move/from16 v24, v0
+
+    const/16 v25, 0x2
+
+    aput-byte v24, v23, v25
+
+    const/16 v23, 0x3
+
+    move/from16 v0, v23
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+
+    sub-int v23, v16, p2
+
+    return v23
 
     :cond_1d
-    add-int/lit8 v5, v1, 0x1
+    const/4 v5, -0x1
 
-    if-lt v5, v0, :cond_20
+    add-int/lit8 v13, v13, 0x1
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
+    move/from16 v0, v17
 
-    invoke-virtual {v1}, Ljava/io/InputStream;->read()I
+    if-lt v13, v0, :cond_20
 
-    move-result v1
+    move-object/from16 v0, p0
 
-    const/4 v3, -0x1
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
 
-    if-eq v1, v3, :cond_21
+    move-object/from16 v23, v0
+
+    invoke-virtual/range {v23 .. v23}, Ljava/io/InputStream;->read()I
+
+    move-result v5
+
+    const/16 v23, -0x1
+
+    move/from16 v0, v23
+
+    if-eq v5, v0, :cond_21
 
     :goto_10
-    add-int/lit8 v3, v2, 0x1
-
-    move v7, v1
+    add-int/lit8 v11, v11, 0x1
 
     :goto_11
-    and-int/lit16 v1, v7, 0xc0
+    and-int/lit16 v0, v5, 0xc0
 
-    const/16 v2, 0x80
+    move/from16 v23, v0
 
-    if-eq v1, v2, :cond_23
+    const/16 v24, 0x80
+
+    move/from16 v0, v23
+
+    move/from16 v1, v24
+
+    if-eq v0, v1, :cond_23
 
     :cond_1e
-    if-gt v4, p2, :cond_24
+    move/from16 v0, v16
 
-    const/4 v1, 0x2
+    move/from16 v1, p2
 
-    const/4 v2, 0x4
+    if-gt v0, v1, :cond_24
 
-    invoke-direct {p0, v1, v2, v7}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
+    const/16 v23, 0x2
+
+    const/16 v24, 0x4
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v23
+
+    move/from16 v2, v24
+
+    invoke-direct {v0, v1, v2, v5}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
 
     :cond_1f
     :goto_12
-    add-int/lit8 v2, v5, 0x1
+    const/4 v6, -0x1
 
-    if-lt v2, v0, :cond_25
+    add-int/lit8 v13, v13, 0x1
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
+    move/from16 v0, v17
 
-    invoke-virtual {v1}, Ljava/io/InputStream;->read()I
+    if-lt v13, v0, :cond_25
 
-    move-result v1
+    move-object/from16 v0, p0
 
-    const/4 v5, -0x1
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
 
-    if-eq v1, v5, :cond_26
+    move-object/from16 v23, v0
+
+    invoke-virtual/range {v23 .. v23}, Ljava/io/InputStream;->read()I
+
+    move-result v6
+
+    const/16 v23, -0x1
+
+    move/from16 v0, v23
+
+    if-eq v6, v0, :cond_26
 
     :goto_13
-    add-int/lit8 v3, v3, 0x1
-
-    move v6, v1
+    add-int/lit8 v11, v11, 0x1
 
     :goto_14
-    and-int/lit16 v1, v6, 0xc0
+    and-int/lit16 v0, v6, 0xc0
 
-    const/16 v5, 0x80
+    move/from16 v23, v0
 
-    if-ne v1, v5, :cond_28
+    const/16 v24, 0x80
+
+    move/from16 v0, v23
+
+    move/from16 v1, v24
+
+    if-ne v0, v1, :cond_28
 
     :goto_15
-    add-int/lit8 v1, v2, 0x1
+    const/4 v7, -0x1
 
-    if-lt v1, v0, :cond_2a
+    add-int/lit8 v13, v13, 0x1
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
+    move/from16 v0, v17
 
-    invoke-virtual {v2}, Ljava/io/InputStream;->read()I
+    if-lt v13, v0, :cond_2a
 
-    move-result v2
+    move-object/from16 v0, p0
 
-    const/4 v5, -0x1
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fInputStream:Ljava/io/InputStream;
 
-    if-eq v2, v5, :cond_2b
+    move-object/from16 v23, v0
+
+    invoke-virtual/range {v23 .. v23}, Ljava/io/InputStream;->read()I
+
+    move-result v7
+
+    const/16 v23, -0x1
+
+    move/from16 v0, v23
+
+    if-eq v7, v0, :cond_2b
 
     :goto_16
-    add-int/lit8 v3, v3, 0x1
-
-    move v5, v3
+    add-int/lit8 v11, v11, 0x1
 
     :goto_17
-    and-int/lit16 v3, v2, 0xc0
+    and-int/lit16 v0, v7, 0xc0
 
-    const/16 v9, 0x80
+    move/from16 v23, v0
 
-    if-ne v3, v9, :cond_2d
+    const/16 v24, 0x80
+
+    move/from16 v0, v23
+
+    move/from16 v1, v24
+
+    if-ne v0, v1, :cond_2d
 
     :goto_18
-    shl-int/lit8 v3, v8, 0x2
+    shl-int/lit8 v23, v4, 0x2
 
-    and-int/lit8 v3, v3, 0x1c
+    and-int/lit8 v23, v23, 0x1c
 
-    shr-int/lit8 v8, v7, 0x4
+    shr-int/lit8 v24, v5, 0x4
 
-    and-int/lit8 v8, v8, 0x3
+    and-int/lit8 v24, v24, 0x3
 
-    or-int/2addr v3, v8
+    or-int v18, v23, v24
 
-    const/16 v8, 0x10
+    const/16 v23, 0x10
 
-    if-gt v3, v8, :cond_2f
+    move/from16 v0, v18
+
+    move/from16 v1, v23
+
+    if-gt v0, v1, :cond_2f
 
     :goto_19
-    add-int/lit8 v3, v3, -0x1
+    add-int/lit8 v19, v18, -0x1
 
-    and-int/lit8 v7, v7, 0xf
+    and-int/lit8 v22, v5, 0xf
 
-    and-int/lit8 v6, v6, 0x3f
+    and-int/lit8 v21, v6, 0x3f
 
-    and-int/lit8 v2, v2, 0x3f
+    and-int/lit8 v20, v7, 0x3f
 
-    shl-int/lit8 v3, v3, 0x6
+    shl-int/lit8 v23, v19, 0x6
 
-    and-int/lit16 v3, v3, 0x3c0
+    move/from16 v0, v23
 
-    const v8, 0xd800
+    and-int/lit16 v0, v0, 0x3c0
 
-    or-int/2addr v3, v8
+    move/from16 v23, v0
 
-    shl-int/lit8 v7, v7, 0x2
+    const v24, 0xd800
 
-    or-int/2addr v3, v7
+    or-int v23, v23, v24
 
-    shr-int/lit8 v7, v6, 0x4
+    shl-int/lit8 v24, v22, 0x2
 
-    or-int/2addr v7, v3
+    or-int v23, v23, v24
 
-    shl-int/lit8 v3, v6, 0x6
+    shr-int/lit8 v24, v21, 0x4
 
-    and-int/lit16 v3, v3, 0x3c0
+    or-int v12, v23, v24
 
-    const v6, 0xdc00
+    shl-int/lit8 v23, v21, 0x6
 
-    or-int/2addr v3, v6
+    move/from16 v0, v23
 
-    or-int v6, v3, v2
+    and-int/lit16 v0, v0, 0x3c0
 
-    add-int/lit8 v3, v4, 0x1
+    move/from16 v23, v0
 
-    int-to-char v2, v7
+    const v24, 0xdc00
 
-    int-to-char v2, v2
+    or-int v23, v23, v24
 
-    aput-char v2, p1, v4
+    or-int v14, v23, v20
 
-    add-int/lit8 v2, v5, -0x2
+    add-int/lit8 v15, v16, 0x1
 
-    if-le v2, p3, :cond_30
+    int-to-char v0, v12
 
-    iput v6, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fSurrogate:I
+    move/from16 v23, v0
 
-    add-int/lit8 v2, v2, -0x1
+    move/from16 v0, v23
+
+    int-to-char v0, v0
+
+    move/from16 v23, v0
+
+    aput-char v23, p1, v16
+
+    add-int/lit8 v11, v11, -0x2
+
+    move/from16 v0, p3
+
+    if-le v11, v0, :cond_30
+
+    move-object/from16 v0, p0
+
+    iput v14, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fSurrogate:I
+
+    add-int/lit8 v11, v11, -0x1
 
     goto/16 :goto_3
 
     :cond_20
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move-object/from16 v0, p0
 
-    aget-byte v1, v1, v5
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    and-int/lit16 v1, v1, 0xff
+    move-object/from16 v23, v0
 
-    move v7, v1
+    aget-byte v23, v23, v13
 
-    move v3, v2
+    move/from16 v0, v23
 
-    goto :goto_11
+    and-int/lit16 v5, v0, 0xff
+
+    goto/16 :goto_11
 
     :cond_21
-    if-gt v4, p2, :cond_22
+    move/from16 v0, v16
 
-    const/4 v3, 0x2
+    move/from16 v1, p2
 
-    const/4 v6, 0x4
+    if-gt v0, v1, :cond_22
 
-    invoke-direct {p0, v3, v6}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->expectedByte(II)V
+    const/16 v23, 0x2
+
+    const/16 v24, 0x4
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v23
+
+    move/from16 v2, v24
+
+    invoke-direct {v0, v1, v2}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->expectedByte(II)V
 
     goto/16 :goto_10
 
     :cond_22
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x0
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    int-to-byte v2, v8
+    move-object/from16 v23, v0
 
-    int-to-byte v2, v2
+    int-to-byte v0, v4
 
-    aput-byte v2, v0, v1
+    move/from16 v24, v0
 
-    const/4 v0, 0x1
+    move/from16 v0, v24
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+    int-to-byte v0, v0
 
-    sub-int v0, v4, p2
+    move/from16 v24, v0
 
-    return v0
+    const/16 v25, 0x0
+
+    aput-byte v24, v23, v25
+
+    const/16 v23, 0x1
+
+    move/from16 v0, v23
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+
+    sub-int v23, v16, p2
+
+    return v23
 
     :cond_23
-    and-int/lit8 v1, v7, 0x30
+    and-int/lit8 v23, v5, 0x30
 
-    if-nez v1, :cond_1f
+    if-nez v23, :cond_1f
 
-    and-int/lit8 v1, v8, 0x7
+    and-int/lit8 v23, v4, 0x7
 
-    if-eqz v1, :cond_1e
+    if-eqz v23, :cond_1e
 
     goto/16 :goto_12
 
     :cond_24
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x0
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    int-to-byte v2, v8
+    move-object/from16 v23, v0
 
-    int-to-byte v2, v2
+    int-to-byte v0, v4
 
-    aput-byte v2, v0, v1
+    move/from16 v24, v0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move/from16 v0, v24
 
-    const/4 v1, 0x1
+    int-to-byte v0, v0
 
-    int-to-byte v2, v7
+    move/from16 v24, v0
 
-    int-to-byte v2, v2
+    const/16 v25, 0x0
 
-    aput-byte v2, v0, v1
+    aput-byte v24, v23, v25
 
-    const/4 v0, 0x2
+    move-object/from16 v0, p0
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    sub-int v0, v4, p2
+    move-object/from16 v23, v0
 
-    return v0
+    int-to-byte v0, v5
+
+    move/from16 v24, v0
+
+    move/from16 v0, v24
+
+    int-to-byte v0, v0
+
+    move/from16 v24, v0
+
+    const/16 v25, 0x1
+
+    aput-byte v24, v23, v25
+
+    const/16 v23, 0x2
+
+    move/from16 v0, v23
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+
+    sub-int v23, v16, p2
+
+    return v23
 
     :cond_25
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move-object/from16 v0, p0
 
-    aget-byte v1, v1, v2
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    and-int/lit16 v1, v1, 0xff
+    move-object/from16 v23, v0
 
-    move v6, v1
+    aget-byte v23, v23, v13
+
+    move/from16 v0, v23
+
+    and-int/lit16 v6, v0, 0xff
 
     goto/16 :goto_14
 
     :cond_26
-    if-gt v4, p2, :cond_27
+    move/from16 v0, v16
 
-    const/4 v5, 0x3
+    move/from16 v1, p2
 
-    const/4 v6, 0x4
+    if-gt v0, v1, :cond_27
 
-    invoke-direct {p0, v5, v6}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->expectedByte(II)V
+    const/16 v23, 0x3
+
+    const/16 v24, 0x4
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v23
+
+    move/from16 v2, v24
+
+    invoke-direct {v0, v1, v2}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->expectedByte(II)V
 
     goto/16 :goto_13
 
     :cond_27
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x0
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    int-to-byte v2, v8
+    move-object/from16 v23, v0
 
-    int-to-byte v2, v2
+    int-to-byte v0, v4
 
-    aput-byte v2, v0, v1
+    move/from16 v24, v0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move/from16 v0, v24
 
-    const/4 v1, 0x1
+    int-to-byte v0, v0
 
-    int-to-byte v2, v7
+    move/from16 v24, v0
 
-    int-to-byte v2, v2
+    const/16 v25, 0x0
 
-    aput-byte v2, v0, v1
+    aput-byte v24, v23, v25
 
-    const/4 v0, 0x2
+    move-object/from16 v0, p0
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    sub-int v0, v4, p2
+    move-object/from16 v23, v0
 
-    return v0
+    int-to-byte v0, v5
+
+    move/from16 v24, v0
+
+    move/from16 v0, v24
+
+    int-to-byte v0, v0
+
+    move/from16 v24, v0
+
+    const/16 v25, 0x1
+
+    aput-byte v24, v23, v25
+
+    const/16 v23, 0x2
+
+    move/from16 v0, v23
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+
+    sub-int v23, v16, p2
+
+    return v23
 
     :cond_28
-    if-gt v4, p2, :cond_29
+    move/from16 v0, v16
 
-    const/4 v1, 0x3
+    move/from16 v1, p2
 
-    const/4 v5, 0x4
+    if-gt v0, v1, :cond_29
 
-    invoke-direct {p0, v1, v5, v6}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
+    const/16 v23, 0x3
+
+    const/16 v24, 0x4
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v23
+
+    move/from16 v2, v24
+
+    invoke-direct {v0, v1, v2, v6}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
 
     goto/16 :goto_15
 
     :cond_29
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x0
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    int-to-byte v2, v8
+    move-object/from16 v23, v0
 
-    int-to-byte v2, v2
+    int-to-byte v0, v4
 
-    aput-byte v2, v0, v1
+    move/from16 v24, v0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move/from16 v0, v24
 
-    const/4 v1, 0x1
+    int-to-byte v0, v0
 
-    int-to-byte v2, v7
+    move/from16 v24, v0
 
-    int-to-byte v2, v2
+    const/16 v25, 0x0
 
-    aput-byte v2, v0, v1
+    aput-byte v24, v23, v25
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x2
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    int-to-byte v2, v6
+    move-object/from16 v23, v0
 
-    int-to-byte v2, v2
+    int-to-byte v0, v5
 
-    aput-byte v2, v0, v1
+    move/from16 v24, v0
 
-    const/4 v0, 0x3
+    move/from16 v0, v24
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+    int-to-byte v0, v0
 
-    sub-int v0, v4, p2
+    move/from16 v24, v0
 
-    return v0
+    const/16 v25, 0x1
+
+    aput-byte v24, v23, v25
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+
+    move-object/from16 v23, v0
+
+    int-to-byte v0, v6
+
+    move/from16 v24, v0
+
+    move/from16 v0, v24
+
+    int-to-byte v0, v0
+
+    move/from16 v24, v0
+
+    const/16 v25, 0x2
+
+    aput-byte v24, v23, v25
+
+    const/16 v23, 0x3
+
+    move/from16 v0, v23
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+
+    sub-int v23, v16, p2
+
+    return v23
 
     :cond_2a
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move-object/from16 v0, p0
 
-    aget-byte v2, v2, v1
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    and-int/lit16 v2, v2, 0xff
+    move-object/from16 v23, v0
 
-    move v5, v3
+    aget-byte v23, v23, v13
+
+    move/from16 v0, v23
+
+    and-int/lit16 v7, v0, 0xff
 
     goto/16 :goto_17
 
     :cond_2b
-    if-gt v4, p2, :cond_2c
+    move/from16 v0, v16
 
-    const/4 v5, 0x4
+    move/from16 v1, p2
 
-    const/4 v9, 0x4
+    if-gt v0, v1, :cond_2c
 
-    invoke-direct {p0, v5, v9}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->expectedByte(II)V
+    const/16 v23, 0x4
+
+    const/16 v24, 0x4
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v23
+
+    move/from16 v2, v24
+
+    invoke-direct {v0, v1, v2}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->expectedByte(II)V
 
     goto/16 :goto_16
 
     :cond_2c
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x0
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    int-to-byte v2, v8
+    move-object/from16 v23, v0
 
-    int-to-byte v2, v2
+    int-to-byte v0, v4
 
-    aput-byte v2, v0, v1
+    move/from16 v24, v0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move/from16 v0, v24
 
-    const/4 v1, 0x1
+    int-to-byte v0, v0
 
-    int-to-byte v2, v7
+    move/from16 v24, v0
 
-    int-to-byte v2, v2
+    const/16 v25, 0x0
 
-    aput-byte v2, v0, v1
+    aput-byte v24, v23, v25
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x2
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    int-to-byte v2, v6
+    move-object/from16 v23, v0
 
-    int-to-byte v2, v2
+    int-to-byte v0, v5
 
-    aput-byte v2, v0, v1
+    move/from16 v24, v0
 
-    const/4 v0, 0x3
+    move/from16 v0, v24
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+    int-to-byte v0, v0
 
-    sub-int v0, v4, p2
+    move/from16 v24, v0
 
-    return v0
+    const/16 v25, 0x1
+
+    aput-byte v24, v23, v25
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+
+    move-object/from16 v23, v0
+
+    int-to-byte v0, v6
+
+    move/from16 v24, v0
+
+    move/from16 v0, v24
+
+    int-to-byte v0, v0
+
+    move/from16 v24, v0
+
+    const/16 v25, 0x2
+
+    aput-byte v24, v23, v25
+
+    const/16 v23, 0x3
+
+    move/from16 v0, v23
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+
+    sub-int v23, v16, p2
+
+    return v23
 
     :cond_2d
-    if-gt v4, p2, :cond_2e
+    move/from16 v0, v16
 
-    const/4 v3, 0x4
+    move/from16 v1, p2
 
-    const/4 v9, 0x4
+    if-gt v0, v1, :cond_2e
 
-    invoke-direct {p0, v3, v9, v6}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
+    const/16 v23, 0x4
+
+    const/16 v24, 0x4
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v23
+
+    move/from16 v2, v24
+
+    invoke-direct {v0, v1, v2, v6}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidByte(III)V
 
     goto/16 :goto_18
 
     :cond_2e
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x0
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    int-to-byte v3, v8
+    move-object/from16 v23, v0
 
-    int-to-byte v3, v3
+    int-to-byte v0, v4
 
-    aput-byte v3, v0, v1
+    move/from16 v24, v0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move/from16 v0, v24
 
-    const/4 v1, 0x1
+    int-to-byte v0, v0
 
-    int-to-byte v3, v7
+    move/from16 v24, v0
 
-    int-to-byte v3, v3
+    const/16 v25, 0x0
 
-    aput-byte v3, v0, v1
+    aput-byte v24, v23, v25
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x2
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    int-to-byte v3, v6
+    move-object/from16 v23, v0
 
-    int-to-byte v3, v3
+    int-to-byte v0, v5
 
-    aput-byte v3, v0, v1
+    move/from16 v24, v0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move/from16 v0, v24
 
-    const/4 v1, 0x3
+    int-to-byte v0, v0
 
-    int-to-byte v2, v2
+    move/from16 v24, v0
 
-    int-to-byte v2, v2
+    const/16 v25, 0x1
 
-    aput-byte v2, v0, v1
+    aput-byte v24, v23, v25
 
-    const/4 v0, 0x4
+    move-object/from16 v0, p0
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    sub-int v0, v4, p2
+    move-object/from16 v23, v0
 
-    return v0
+    int-to-byte v0, v6
+
+    move/from16 v24, v0
+
+    move/from16 v0, v24
+
+    int-to-byte v0, v0
+
+    move/from16 v24, v0
+
+    const/16 v25, 0x2
+
+    aput-byte v24, v23, v25
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+
+    move-object/from16 v23, v0
+
+    int-to-byte v0, v7
+
+    move/from16 v24, v0
+
+    move/from16 v0, v24
+
+    int-to-byte v0, v0
+
+    move/from16 v24, v0
+
+    const/16 v25, 0x3
+
+    aput-byte v24, v23, v25
+
+    const/16 v23, 0x4
+
+    move/from16 v0, v23
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+
+    sub-int v23, v16, p2
+
+    return v23
 
     :cond_2f
-    invoke-direct {p0, v3}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidSurrogate(I)V
+    move-object/from16 v0, p0
+
+    move/from16 v1, v18
+
+    invoke-direct {v0, v1}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->invalidSurrogate(I)V
 
     goto/16 :goto_19
 
     :cond_30
-    add-int/lit8 v4, v3, 0x1
+    add-int/lit8 v16, v15, 0x1
 
-    int-to-char v5, v6
+    int-to-char v0, v14
 
-    int-to-char v5, v5
+    move/from16 v23, v0
 
-    aput-char v5, p1, v3
+    move/from16 v0, v23
 
-    move v3, v4
+    int-to-char v0, v0
+
+    move/from16 v23, v0
+
+    aput-char v23, p1, v15
+
+    move/from16 v15, v16
 
     goto/16 :goto_3
 
     :cond_31
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x0
+    iget-object v0, v0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    int-to-byte v2, v8
+    move-object/from16 v23, v0
 
-    int-to-byte v2, v2
+    int-to-byte v0, v4
 
-    aput-byte v2, v0, v1
+    move/from16 v24, v0
 
-    const/4 v0, 0x1
+    move/from16 v0, v24
 
-    iput v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+    int-to-byte v0, v0
 
-    sub-int v0, v4, p2
+    move/from16 v24, v0
 
-    return v0
+    const/16 v25, 0x0
+
+    aput-byte v24, v23, v25
+
+    const/16 v23, 0x1
+
+    move/from16 v0, v23
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fOffset:I
+
+    sub-int v23, v16, p2
+
+    return v23
 
     :cond_32
-    return v2
+    return v11
 .end method
 
 .method public ready()Z
@@ -1924,83 +2684,83 @@
 .end method
 
 .method public skip(J)J
-    .locals 9
+    .locals 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    const/4 v3, 0x1
+    const/4 v8, 0x1
 
-    const/4 v4, 0x0
+    const/4 v9, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
+    move-wide v4, p1
 
-    array-length v0, v0
+    iget-object v3, p0, Lmf/org/apache/xerces/impl/io/UTF8Reader;->fBuffer:[B
 
-    new-array v5, v0, [C
+    array-length v3, v3
 
-    move-wide v0, p1
+    new-array v0, v3, [C
 
     :cond_0
-    array-length v2, v5
+    array-length v3, v0
 
-    int-to-long v6, v2
+    int-to-long v10, v3
 
-    cmp-long v2, v6, v0
+    cmp-long v3, v10, v4
 
-    if-ltz v2, :cond_1
+    if-ltz v3, :cond_1
 
-    move v2, v3
+    move v3, v8
 
     :goto_0
-    if-nez v2, :cond_2
+    if-nez v3, :cond_2
 
-    array-length v2, v5
+    array-length v2, v0
 
     :goto_1
-    invoke-virtual {p0, v5, v4, v2}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->read([CII)I
+    invoke-virtual {p0, v0, v9, v2}, Lmf/org/apache/xerces/impl/io/UTF8Reader;->read([CII)I
 
-    move-result v2
+    move-result v1
 
-    if-gtz v2, :cond_3
+    if-gtz v1, :cond_3
 
     :goto_2
-    sub-long v0, p1, v0
+    sub-long v6, p1, v4
 
-    return-wide v0
+    return-wide v6
 
     :cond_1
-    move v2, v4
+    move v3, v9
 
     goto :goto_0
 
     :cond_2
-    long-to-int v2, v0
+    long-to-int v2, v4
 
     goto :goto_1
 
     :cond_3
-    int-to-long v6, v2
+    int-to-long v10, v1
 
-    sub-long/2addr v0, v6
+    sub-long/2addr v4, v10
 
-    const-wide/16 v6, 0x0
+    const-wide/16 v10, 0x0
 
-    cmp-long v2, v0, v6
+    cmp-long v3, v4, v10
 
-    if-lez v2, :cond_4
+    if-lez v3, :cond_4
 
-    move v2, v3
+    move v3, v8
 
     :goto_3
-    if-nez v2, :cond_0
+    if-nez v3, :cond_0
 
     goto :goto_2
 
     :cond_4
-    move v2, v4
+    move v3, v9
 
     goto :goto_3
 .end method

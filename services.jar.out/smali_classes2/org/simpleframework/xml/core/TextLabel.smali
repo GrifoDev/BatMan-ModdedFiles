@@ -83,7 +83,7 @@
 .end method
 
 .method public getConverter(Lorg/simpleframework/xml/core/Context;)Lorg/simpleframework/xml/core/Converter;
-    .locals 5
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -113,9 +113,7 @@
     return-object v2
 
     :cond_0
-    new-instance v0, Lorg/simpleframework/xml/core/TextException;
-
-    const-string/jumbo v2, "Cannot use %s to represent %s"
+    new-instance v2, Lorg/simpleframework/xml/core/TextException;
 
     const/4 v3, 0x2
 
@@ -123,15 +121,17 @@
 
     aput-object v1, v3, v4
 
-    const/4 v1, 0x1
-
     iget-object v4, p0, Lorg/simpleframework/xml/core/TextLabel;->label:Lorg/simpleframework/xml/Text;
 
-    aput-object v4, v3, v1
+    const/4 v5, 0x1
 
-    invoke-direct {v0, v2, v3}, Lorg/simpleframework/xml/core/TextException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    aput-object v4, v3, v5
 
-    throw v0
+    const-string/jumbo v4, "Cannot use %s to represent %s"
+
+    invoke-direct {v2, v4, v3}, Lorg/simpleframework/xml/core/TextException;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    throw v2
 .end method
 
 .method public getDecorator()Lorg/simpleframework/xml/core/Decorator;

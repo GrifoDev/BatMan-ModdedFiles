@@ -17,8 +17,6 @@
 # static fields
 .field public static final ENCRYPT:Ljava/lang/String; = "encrypt"
 
-.field public static final ENC_META_CHECK:Ljava/lang/String; = "encMetaCheck"
-
 .field public static final MOUNT:Ljava/lang/String; = "mount"
 
 .field public static final PASSWORD:Ljava/lang/String; = "password"

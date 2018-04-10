@@ -3,11 +3,6 @@
 .source "SM.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # static fields
 .field public static final COOKIE:Ljava/lang/String; = "Cookie"
 

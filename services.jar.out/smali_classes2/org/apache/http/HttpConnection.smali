@@ -2,10 +2,8 @@
 .super Ljava/lang/Object;
 .source "HttpConnection.java"
 
-
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
+# interfaces
+.implements Ljava/io/Closeable;
 
 
 # virtual methods

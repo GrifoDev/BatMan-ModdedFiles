@@ -40,9 +40,13 @@
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/os/PowerManagerInternal;->getLowPowerModeEnabled()Z
+    const/4 v4, 0x6
 
-    move-result v1
+    invoke-virtual {v3, v4}, Landroid/os/PowerManagerInternal;->getLowPowerState(I)Landroid/os/PowerSaveState;
+
+    move-result-object v3
+
+    iget-boolean v1, v3, Landroid/os/PowerSaveState;->batterySaverEnabled:Z
 
     const/4 v2, 0x0
 
@@ -122,7 +126,7 @@
 
     iget-object v3, p0, Lcom/android/server/net/NetworkPolicyManagerService$5;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    invoke-static {v3, v2}, Lcom/android/server/net/NetworkPolicyManagerService;->-set0(Lcom/android/server/net/NetworkPolicyManagerService;Z)Z
+    invoke-static {v3, v2}, Lcom/android/server/net/NetworkPolicyManagerService;->-set1(Lcom/android/server/net/NetworkPolicyManagerService;Z)Z
 
     if-eqz v1, :cond_1
 

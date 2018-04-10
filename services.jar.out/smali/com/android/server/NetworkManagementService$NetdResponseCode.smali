@@ -33,19 +33,19 @@
 
 .field public static final InterfaceListResult:I = 0x6e
 
-.field public static final InterfaceMessage:I = 0x26a
-
 .field public static final InterfaceRxCounterResult:I = 0xd8
 
 .field public static final InterfaceTxCounterResult:I = 0xd9
 
 .field public static final IpFwdStatusResult:I = 0xd3
 
+.field public static final QueryTimeResult:I = 0xc7
+
 .field public static final QuotaCounterResult:I = 0xdc
 
 .field public static final RouteChange:I = 0x268
 
-.field public static final SoftapEvent:I = 0x28b
+.field public static final SecSoftapEvent:I = 0x28b
 
 .field public static final SoftapStatusResult:I = 0xd6
 

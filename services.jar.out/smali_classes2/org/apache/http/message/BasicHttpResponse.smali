@@ -6,196 +6,415 @@
 .implements Lorg/apache/http/HttpResponse;
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
+# instance fields
+.field private code:I
+
+.field private entity:Lorg/apache/http/HttpEntity;
+
+.field private locale:Ljava/util/Locale;
+
+.field private final reasonCatalog:Lorg/apache/http/ReasonPhraseCatalog;
+
+.field private reasonPhrase:Ljava/lang/String;
+
+.field private statusline:Lorg/apache/http/StatusLine;
+
+.field private ver:Lorg/apache/http/ProtocolVersion;
 
 
 # direct methods
 .method public constructor <init>(Lorg/apache/http/ProtocolVersion;ILjava/lang/String;)V
     .locals 2
 
+    const/4 v1, 0x0
+
     invoke-direct {p0}, Lorg/apache/http/message/AbstractHttpMessage;-><init>()V
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const-string/jumbo v0, "Status code"
 
-    const-string/jumbo v1, "Stub!"
+    invoke-static {p2, v0}, Lorg/apache/http/util/Args;->notNegative(ILjava/lang/String;)I
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    iput-object v1, p0, Lorg/apache/http/message/BasicHttpResponse;->statusline:Lorg/apache/http/StatusLine;
 
-    throw v0
+    iput-object p1, p0, Lorg/apache/http/message/BasicHttpResponse;->ver:Lorg/apache/http/ProtocolVersion;
+
+    iput p2, p0, Lorg/apache/http/message/BasicHttpResponse;->code:I
+
+    iput-object p3, p0, Lorg/apache/http/message/BasicHttpResponse;->reasonPhrase:Ljava/lang/String;
+
+    iput-object v1, p0, Lorg/apache/http/message/BasicHttpResponse;->reasonCatalog:Lorg/apache/http/ReasonPhraseCatalog;
+
+    iput-object v1, p0, Lorg/apache/http/message/BasicHttpResponse;->locale:Ljava/util/Locale;
+
+    return-void
 .end method
 
 .method public constructor <init>(Lorg/apache/http/StatusLine;)V
     .locals 2
 
+    const/4 v1, 0x0
+
     invoke-direct {p0}, Lorg/apache/http/message/AbstractHttpMessage;-><init>()V
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const-string/jumbo v0, "Status line"
 
-    const-string/jumbo v1, "Stub!"
+    invoke-static {p1, v0}, Lorg/apache/http/util/Args;->notNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    move-result-object v0
 
-    throw v0
+    check-cast v0, Lorg/apache/http/StatusLine;
+
+    iput-object v0, p0, Lorg/apache/http/message/BasicHttpResponse;->statusline:Lorg/apache/http/StatusLine;
+
+    invoke-interface {p1}, Lorg/apache/http/StatusLine;->getProtocolVersion()Lorg/apache/http/ProtocolVersion;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lorg/apache/http/message/BasicHttpResponse;->ver:Lorg/apache/http/ProtocolVersion;
+
+    invoke-interface {p1}, Lorg/apache/http/StatusLine;->getStatusCode()I
+
+    move-result v0
+
+    iput v0, p0, Lorg/apache/http/message/BasicHttpResponse;->code:I
+
+    invoke-interface {p1}, Lorg/apache/http/StatusLine;->getReasonPhrase()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lorg/apache/http/message/BasicHttpResponse;->reasonPhrase:Ljava/lang/String;
+
+    iput-object v1, p0, Lorg/apache/http/message/BasicHttpResponse;->reasonCatalog:Lorg/apache/http/ReasonPhraseCatalog;
+
+    iput-object v1, p0, Lorg/apache/http/message/BasicHttpResponse;->locale:Ljava/util/Locale;
+
+    return-void
 .end method
 
 .method public constructor <init>(Lorg/apache/http/StatusLine;Lorg/apache/http/ReasonPhraseCatalog;Ljava/util/Locale;)V
-    .locals 2
+    .locals 1
 
     invoke-direct {p0}, Lorg/apache/http/message/AbstractHttpMessage;-><init>()V
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const-string/jumbo v0, "Status line"
 
-    const-string/jumbo v1, "Stub!"
+    invoke-static {p1, v0}, Lorg/apache/http/util/Args;->notNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    move-result-object v0
 
-    throw v0
+    check-cast v0, Lorg/apache/http/StatusLine;
+
+    iput-object v0, p0, Lorg/apache/http/message/BasicHttpResponse;->statusline:Lorg/apache/http/StatusLine;
+
+    invoke-interface {p1}, Lorg/apache/http/StatusLine;->getProtocolVersion()Lorg/apache/http/ProtocolVersion;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lorg/apache/http/message/BasicHttpResponse;->ver:Lorg/apache/http/ProtocolVersion;
+
+    invoke-interface {p1}, Lorg/apache/http/StatusLine;->getStatusCode()I
+
+    move-result v0
+
+    iput v0, p0, Lorg/apache/http/message/BasicHttpResponse;->code:I
+
+    invoke-interface {p1}, Lorg/apache/http/StatusLine;->getReasonPhrase()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lorg/apache/http/message/BasicHttpResponse;->reasonPhrase:Ljava/lang/String;
+
+    iput-object p2, p0, Lorg/apache/http/message/BasicHttpResponse;->reasonCatalog:Lorg/apache/http/ReasonPhraseCatalog;
+
+    iput-object p3, p0, Lorg/apache/http/message/BasicHttpResponse;->locale:Ljava/util/Locale;
+
+    return-void
 .end method
 
 
 # virtual methods
 .method public getEntity()Lorg/apache/http/HttpEntity;
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/message/BasicHttpResponse;->entity:Lorg/apache/http/HttpEntity;
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-object v0
 .end method
 
 .method public getLocale()Ljava/util/Locale;
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/message/BasicHttpResponse;->locale:Ljava/util/Locale;
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-object v0
 .end method
 
 .method public getProtocolVersion()Lorg/apache/http/ProtocolVersion;
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/message/BasicHttpResponse;->ver:Lorg/apache/http/ProtocolVersion;
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-object v0
 .end method
 
 .method protected getReason(I)Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const/4 v0, 0x0
 
-    const-string/jumbo v1, "Stub!"
+    iget-object v1, p0, Lorg/apache/http/message/BasicHttpResponse;->reasonCatalog:Lorg/apache/http/ReasonPhraseCatalog;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    if-nez v1, :cond_0
 
-    throw v0
+    :goto_0
+    return-object v0
+
+    :cond_0
+    iget-object v1, p0, Lorg/apache/http/message/BasicHttpResponse;->reasonCatalog:Lorg/apache/http/ReasonPhraseCatalog;
+
+    iget-object v0, p0, Lorg/apache/http/message/BasicHttpResponse;->locale:Ljava/util/Locale;
+
+    if-nez v0, :cond_1
+
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+
+    move-result-object v0
+
+    :goto_1
+    invoke-interface {v1, p1, v0}, Lorg/apache/http/ReasonPhraseCatalog;->getReason(ILjava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v0, p0, Lorg/apache/http/message/BasicHttpResponse;->locale:Ljava/util/Locale;
+
+    goto :goto_1
 .end method
 
 .method public getStatusLine()Lorg/apache/http/StatusLine;
-    .locals 2
+    .locals 4
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lorg/apache/http/message/BasicHttpResponse;->statusline:Lorg/apache/http/StatusLine;
 
-    const-string/jumbo v1, "Stub!"
+    if-eqz v0, :cond_0
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    :goto_0
+    iget-object v0, p0, Lorg/apache/http/message/BasicHttpResponse;->statusline:Lorg/apache/http/StatusLine;
 
-    throw v0
+    return-object v0
+
+    :cond_0
+    new-instance v2, Lorg/apache/http/message/BasicStatusLine;
+
+    iget-object v0, p0, Lorg/apache/http/message/BasicHttpResponse;->ver:Lorg/apache/http/ProtocolVersion;
+
+    if-nez v0, :cond_1
+
+    sget-object v0, Lorg/apache/http/HttpVersion;->HTTP_1_1:Lorg/apache/http/HttpVersion;
+
+    :goto_1
+    iget v3, p0, Lorg/apache/http/message/BasicHttpResponse;->code:I
+
+    iget-object v1, p0, Lorg/apache/http/message/BasicHttpResponse;->reasonPhrase:Ljava/lang/String;
+
+    if-nez v1, :cond_2
+
+    iget v1, p0, Lorg/apache/http/message/BasicHttpResponse;->code:I
+
+    invoke-virtual {p0, v1}, Lorg/apache/http/message/BasicHttpResponse;->getReason(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    :goto_2
+    invoke-direct {v2, v0, v3, v1}, Lorg/apache/http/message/BasicStatusLine;-><init>(Lorg/apache/http/ProtocolVersion;ILjava/lang/String;)V
+
+    iput-object v2, p0, Lorg/apache/http/message/BasicHttpResponse;->statusline:Lorg/apache/http/StatusLine;
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v0, p0, Lorg/apache/http/message/BasicHttpResponse;->ver:Lorg/apache/http/ProtocolVersion;
+
+    goto :goto_1
+
+    :cond_2
+    iget-object v1, p0, Lorg/apache/http/message/BasicHttpResponse;->reasonPhrase:Ljava/lang/String;
+
+    goto :goto_2
 .end method
 
 .method public setEntity(Lorg/apache/http/HttpEntity;)V
-    .locals 2
+    .locals 0
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    iput-object p1, p0, Lorg/apache/http/message/BasicHttpResponse;->entity:Lorg/apache/http/HttpEntity;
 
-    const-string/jumbo v1, "Stub!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-void
 .end method
 
 .method public setLocale(Ljava/util/Locale;)V
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const-string/jumbo v0, "Locale"
 
-    const-string/jumbo v1, "Stub!"
+    invoke-static {p1, v0}, Lorg/apache/http/util/Args;->notNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    move-result-object v0
 
-    throw v0
+    check-cast v0, Ljava/util/Locale;
+
+    iput-object v0, p0, Lorg/apache/http/message/BasicHttpResponse;->locale:Ljava/util/Locale;
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lorg/apache/http/message/BasicHttpResponse;->statusline:Lorg/apache/http/StatusLine;
+
+    return-void
 .end method
 
 .method public setReasonPhrase(Ljava/lang/String;)V
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const/4 v0, 0x0
 
-    const-string/jumbo v1, "Stub!"
+    iput-object v0, p0, Lorg/apache/http/message/BasicHttpResponse;->statusline:Lorg/apache/http/StatusLine;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    iput-object p1, p0, Lorg/apache/http/message/BasicHttpResponse;->reasonPhrase:Ljava/lang/String;
 
-    throw v0
+    return-void
 .end method
 
 .method public setStatusCode(I)V
     .locals 2
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const/4 v1, 0x0
 
-    const-string/jumbo v1, "Stub!"
+    const-string/jumbo v0, "Status code"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lorg/apache/http/util/Args;->notNegative(ILjava/lang/String;)I
 
-    throw v0
+    iput-object v1, p0, Lorg/apache/http/message/BasicHttpResponse;->statusline:Lorg/apache/http/StatusLine;
+
+    iput p1, p0, Lorg/apache/http/message/BasicHttpResponse;->code:I
+
+    iput-object v1, p0, Lorg/apache/http/message/BasicHttpResponse;->reasonPhrase:Ljava/lang/String;
+
+    return-void
 .end method
 
 .method public setStatusLine(Lorg/apache/http/ProtocolVersion;I)V
     .locals 2
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const/4 v1, 0x0
 
-    const-string/jumbo v1, "Stub!"
+    const-string/jumbo v0, "Status code"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-static {p2, v0}, Lorg/apache/http/util/Args;->notNegative(ILjava/lang/String;)I
 
-    throw v0
+    iput-object v1, p0, Lorg/apache/http/message/BasicHttpResponse;->statusline:Lorg/apache/http/StatusLine;
+
+    iput-object p1, p0, Lorg/apache/http/message/BasicHttpResponse;->ver:Lorg/apache/http/ProtocolVersion;
+
+    iput p2, p0, Lorg/apache/http/message/BasicHttpResponse;->code:I
+
+    iput-object v1, p0, Lorg/apache/http/message/BasicHttpResponse;->reasonPhrase:Ljava/lang/String;
+
+    return-void
 .end method
 
 .method public setStatusLine(Lorg/apache/http/ProtocolVersion;ILjava/lang/String;)V
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const-string/jumbo v0, "Status code"
 
-    const-string/jumbo v1, "Stub!"
+    invoke-static {p2, v0}, Lorg/apache/http/util/Args;->notNegative(ILjava/lang/String;)I
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    const/4 v0, 0x0
 
-    throw v0
+    iput-object v0, p0, Lorg/apache/http/message/BasicHttpResponse;->statusline:Lorg/apache/http/StatusLine;
+
+    iput-object p1, p0, Lorg/apache/http/message/BasicHttpResponse;->ver:Lorg/apache/http/ProtocolVersion;
+
+    iput p2, p0, Lorg/apache/http/message/BasicHttpResponse;->code:I
+
+    iput-object p3, p0, Lorg/apache/http/message/BasicHttpResponse;->reasonPhrase:Ljava/lang/String;
+
+    return-void
 .end method
 
 .method public setStatusLine(Lorg/apache/http/StatusLine;)V
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    const-string/jumbo v0, "Status line"
 
-    const-string/jumbo v1, "Stub!"
+    invoke-static {p1, v0}, Lorg/apache/http/util/Args;->notNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    move-result-object v0
 
-    throw v0
+    check-cast v0, Lorg/apache/http/StatusLine;
+
+    iput-object v0, p0, Lorg/apache/http/message/BasicHttpResponse;->statusline:Lorg/apache/http/StatusLine;
+
+    invoke-interface {p1}, Lorg/apache/http/StatusLine;->getProtocolVersion()Lorg/apache/http/ProtocolVersion;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lorg/apache/http/message/BasicHttpResponse;->ver:Lorg/apache/http/ProtocolVersion;
+
+    invoke-interface {p1}, Lorg/apache/http/StatusLine;->getStatusCode()I
+
+    move-result v0
+
+    iput v0, p0, Lorg/apache/http/message/BasicHttpResponse;->code:I
+
+    invoke-interface {p1}, Lorg/apache/http/StatusLine;->getReasonPhrase()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lorg/apache/http/message/BasicHttpResponse;->reasonPhrase:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public toString()Ljava/lang/String;
+    .locals 3
+
+    const/16 v2, 0x20
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {p0}, Lorg/apache/http/message/BasicHttpResponse;->getStatusLine()Lorg/apache/http/StatusLine;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    iget-object v1, p0, Lorg/apache/http/message/BasicHttpResponse;->headergroup:Lorg/apache/http/message/HeaderGroup;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    iget-object v1, p0, Lorg/apache/http/message/BasicHttpResponse;->entity:Lorg/apache/http/HttpEntity;
+
+    if-nez v1, :cond_0
+
+    :goto_0
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    return-object v1
+
+    :cond_0
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    iget-object v1, p0, Lorg/apache/http/message/BasicHttpResponse;->entity:Lorg/apache/http/HttpEntity;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    goto :goto_0
 .end method

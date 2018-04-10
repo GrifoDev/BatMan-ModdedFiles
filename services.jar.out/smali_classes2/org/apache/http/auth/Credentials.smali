@@ -3,11 +3,6 @@
 .source "Credentials.java"
 
 
-# annotations
-.annotation runtime Ljava/lang/Deprecated;
-.end annotation
-
-
 # virtual methods
 .method public abstract getPassword()Ljava/lang/String;
 .end method

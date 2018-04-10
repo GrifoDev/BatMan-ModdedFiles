@@ -38,33 +38,33 @@
 
     invoke-virtual {p0}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$UniqueValueStore;->contains()Z
 
-    move-result v0
+    move-result v4
 
-    if-nez v0, :cond_0
+    if-nez v4, :cond_0
 
     :goto_0
     return-void
 
     :cond_0
-    const-string/jumbo v0, "DuplicateUnique"
+    const-string/jumbo v1, "DuplicateUnique"
 
-    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$UniqueValueStore;->fLocalValues:[Ljava/lang/Object;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$UniqueValueStore;->fLocalValues:[Ljava/lang/Object;
 
-    invoke-virtual {p0, v1}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$UniqueValueStore;->toString([Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, v4}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$UniqueValueStore;->toString([Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$UniqueValueStore;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$UniqueValueStore;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
 
-    invoke-virtual {v2}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getElementName()Ljava/lang/String;
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getElementName()Ljava/lang/String;
 
     move-result-object v2
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$UniqueValueStore;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$UniqueValueStore;->fIdentityConstraint:Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;
 
-    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getIdentityConstraintName()Ljava/lang/String;
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->getIdentityConstraintName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
     iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$UniqueValueStore;->this$0:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
 
@@ -72,17 +72,17 @@
 
     new-array v5, v5, [Ljava/lang/Object;
 
-    aput-object v1, v5, v6
+    aput-object v3, v5, v6
 
-    const/4 v1, 0x1
+    const/4 v6, 0x1
 
-    aput-object v2, v5, v1
+    aput-object v2, v5, v6
 
-    const/4 v1, 0x2
+    const/4 v6, 0x2
 
-    aput-object v3, v5, v1
+    aput-object v0, v5, v6
 
-    invoke-virtual {v4, v0, v5}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-virtual {v4, v1, v5}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->reportSchemaError(Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_0
 .end method

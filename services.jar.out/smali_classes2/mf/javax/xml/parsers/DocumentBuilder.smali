@@ -155,7 +155,7 @@
 .end method
 
 .method public parse(Ljava/io/File;)Lmf/org/w3c/dom/Document;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;,
@@ -179,22 +179,22 @@
 
     invoke-virtual {p0, v0}, Lmf/javax/xml/parsers/DocumentBuilder;->parse(Lorg/xml/sax/InputSource;)Lmf/org/w3c/dom/Document;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "File cannot be null"
+    const-string/jumbo v2, "File cannot be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v1
 .end method
 
 .method public parse(Ljava/io/InputStream;)Lmf/org/w3c/dom/Document;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;,
@@ -210,22 +210,22 @@
 
     invoke-virtual {p0, v0}, Lmf/javax/xml/parsers/DocumentBuilder;->parse(Lorg/xml/sax/InputSource;)Lmf/org/w3c/dom/Document;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "InputStream cannot be null"
+    const-string/jumbo v2, "InputStream cannot be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v1
 .end method
 
 .method public parse(Ljava/io/InputStream;Ljava/lang/String;)Lmf/org/w3c/dom/Document;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;,
@@ -243,22 +243,22 @@
 
     invoke-virtual {p0, v0}, Lmf/javax/xml/parsers/DocumentBuilder;->parse(Lorg/xml/sax/InputSource;)Lmf/org/w3c/dom/Document;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "InputStream cannot be null"
+    const-string/jumbo v2, "InputStream cannot be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v1
 .end method
 
 .method public parse(Ljava/lang/String;)Lmf/org/w3c/dom/Document;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xml/sax/SAXException;,
@@ -274,18 +274,18 @@
 
     invoke-virtual {p0, v0}, Lmf/javax/xml/parsers/DocumentBuilder;->parse(Lorg/xml/sax/InputSource;)Lmf/org/w3c/dom/Document;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "URI cannot be null"
+    const-string/jumbo v2, "URI cannot be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v1
 .end method
 
 .method public abstract parse(Lorg/xml/sax/InputSource;)Lmf/org/w3c/dom/Document;

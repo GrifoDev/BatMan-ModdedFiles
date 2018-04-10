@@ -68,28 +68,28 @@
 
     if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
-
-    if-eqz v0, :cond_1
-
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fNumAnnotations:I
-
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
-    array-length v1, v1
-
-    if-eq v0, v1, :cond_2
-
-    :goto_0
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
+    if-eqz v1, :cond_1
 
     iget v1, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fNumAnnotations:I
 
-    add-int/lit8 v2, v1, 0x1
+    iget-object v2, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
-    iput v2, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fNumAnnotations:I
+    array-length v2, v2
 
-    aput-object p1, v0, v1
+    if-eq v1, v2, :cond_2
+
+    :goto_0
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
+
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fNumAnnotations:I
+
+    add-int/lit8 v3, v2, 0x1
+
+    iput v3, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fNumAnnotations:I
+
+    aput-object p1, v1, v2
 
     return-void
 
@@ -97,20 +97,20 @@
     return-void
 
     :cond_1
-    const/4 v0, 0x2
+    const/4 v1, 0x2
 
-    new-array v0, v0, [Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
+    new-array v1, v1, [Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
-    iput-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
+    iput-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
     goto :goto_0
 
     :cond_2
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fNumAnnotations:I
+    iget v1, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fNumAnnotations:I
 
-    shl-int/lit8 v0, v0, 0x1
+    shl-int/lit8 v1, v1, 0x1
 
-    new-array v0, v0, [Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
+    new-array v0, v1, [Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fAnnotations:[Lmf/org/apache/xerces/impl/xs/XSAnnotationImpl;
 
@@ -177,103 +177,103 @@
 .end method
 
 .method public equals(Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;)Z
-    .locals 5
+    .locals 6
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fIdentityConstraintName:Ljava/lang/String;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fIdentityConstraintName:Ljava/lang/String;
 
-    iget-object v3, p1, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fIdentityConstraintName:Ljava/lang/String;
+    iget-object v5, p1, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fIdentityConstraintName:Ljava/lang/String;
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fSelector:Lmf/org/apache/xerces/impl/xs/identity/Selector;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fSelector:Lmf/org/apache/xerces/impl/xs/identity/Selector;
 
-    invoke-virtual {v0}, Lmf/org/apache/xerces/impl/xs/identity/Selector;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xs/identity/Selector;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v4
 
-    iget-object v3, p1, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fSelector:Lmf/org/apache/xerces/impl/xs/identity/Selector;
+    iget-object v5, p1, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fSelector:Lmf/org/apache/xerces/impl/xs/identity/Selector;
 
-    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/xs/identity/Selector;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Lmf/org/apache/xerces/impl/xs/identity/Selector;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fFieldCount:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fFieldCount:I
 
-    iget v3, p1, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fFieldCount:I
+    iget v5, p1, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fFieldCount:I
 
-    if-eq v0, v3, :cond_2
+    if-eq v4, v5, :cond_2
 
-    move v0, v1
+    move v0, v2
 
     :goto_0
     if-eqz v0, :cond_3
 
-    move v0, v1
+    const/4 v1, 0x0
 
     :goto_1
-    iget v3, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fFieldCount:I
+    iget v4, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fFieldCount:I
 
-    if-ge v0, v3, :cond_5
+    if-ge v1, v4, :cond_5
 
-    iget-object v3, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fFields:[Lmf/org/apache/xerces/impl/xs/identity/Field;
+    iget-object v4, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fFields:[Lmf/org/apache/xerces/impl/xs/identity/Field;
 
-    aget-object v3, v3, v0
-
-    invoke-virtual {v3}, Lmf/org/apache/xerces/impl/xs/identity/Field;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    iget-object v4, p1, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fFields:[Lmf/org/apache/xerces/impl/xs/identity/Field;
-
-    aget-object v4, v4, v0
+    aget-object v4, v4, v1
 
     invoke-virtual {v4}, Lmf/org/apache/xerces/impl/xs/identity/Field;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    iget-object v5, p1, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fFields:[Lmf/org/apache/xerces/impl/xs/identity/Field;
 
-    move-result v3
+    aget-object v5, v5, v1
 
-    if-eqz v3, :cond_4
+    invoke-virtual {v5}, Lmf/org/apache/xerces/impl/xs/identity/Field;->toString()Ljava/lang/String;
 
-    add-int/lit8 v0, v0, 0x1
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
     :cond_0
-    return v1
+    return v2
 
     :cond_1
-    return v1
+    return v2
 
     :cond_2
-    move v0, v2
+    move v0, v3
 
     goto :goto_0
 
     :cond_3
-    return v1
+    return v2
 
     :cond_4
-    return v1
+    return v2
 
     :cond_5
-    return v2
+    return v3
 .end method
 
 .method public getAnnotations()Lmf/org/apache/xerces/xs/XSObjectList;
@@ -325,11 +325,11 @@
 .end method
 
 .method public getFieldStrs()Lmf/org/apache/xerces/xs/StringList;
-    .locals 3
+    .locals 4
 
-    iget v0, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fFieldCount:I
+    iget v2, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fFieldCount:I
 
-    new-array v1, v0, [Ljava/lang/String;
+    new-array v1, v2, [Ljava/lang/String;
 
     const/4 v0, 0x0
 
@@ -353,13 +353,13 @@
     goto :goto_0
 
     :cond_0
-    new-instance v0, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;
+    new-instance v2, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;
 
-    iget v2, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fFieldCount:I
+    iget v3, p0, Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;->fFieldCount:I
 
-    invoke-direct {v0, v1, v2}, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;-><init>([Ljava/lang/String;I)V
+    invoke-direct {v2, v1, v3}, Lmf/org/apache/xerces/impl/xs/util/StringListImpl;-><init>([Ljava/lang/String;I)V
 
-    return-object v0
+    return-object v2
 .end method
 
 .method public getIdentityConstraintName()Ljava/lang/String;
@@ -449,47 +449,47 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .locals 5
 
-    const/4 v2, -0x1
+    const/4 v4, -0x1
 
     invoke-super {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    const/16 v1, 0x24
+    const/16 v3, 0x24
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->lastIndexOf(I)I
+    invoke-virtual {v2, v3}, Ljava/lang/String;->lastIndexOf(I)I
+
+    move-result v0
+
+    if-ne v0, v4, :cond_0
+
+    const/16 v3, 0x2e
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->lastIndexOf(I)I
 
     move-result v1
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v4, :cond_1
 
-    const/16 v1, 0x2e
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->lastIndexOf(I)I
-
-    move-result v1
-
-    if-ne v1, v2, :cond_1
-
-    return-object v0
+    return-object v2
 
     :cond_0
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v3, v0, 0x1
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    return-object v0
+    return-object v3
 
     :cond_1
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v3, v1, 0x1
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    return-object v0
+    return-object v3
 .end method

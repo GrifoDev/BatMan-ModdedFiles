@@ -87,32 +87,28 @@
 .method public final setEntityState(Lmf/org/apache/xerces/impl/validation/EntityState;)V
     .locals 2
 
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/validation/ValidationManager;->fVSs:Ljava/util/ArrayList;
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/validation/ValidationManager;->fVSs:Ljava/util/ArrayList;
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
-    move-result v0
-
-    add-int/lit8 v0, v0, -0x1
-
-    move v1, v0
-
-    :goto_0
-    if-ltz v1, :cond_0
-
-    iget-object v0, p0, Lmf/org/apache/xerces/impl/validation/ValidationManager;->fVSs:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lmf/org/apache/xerces/impl/validation/ValidationState;
-
-    invoke-virtual {v0, p1}, Lmf/org/apache/xerces/impl/validation/ValidationState;->setEntityState(Lmf/org/apache/xerces/impl/validation/EntityState;)V
+    move-result v1
 
     add-int/lit8 v0, v1, -0x1
 
-    move v1, v0
+    :goto_0
+    if-ltz v0, :cond_0
+
+    iget-object v1, p0, Lmf/org/apache/xerces/impl/validation/ValidationManager;->fVSs:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lmf/org/apache/xerces/impl/validation/ValidationState;
+
+    invoke-virtual {v1, p1}, Lmf/org/apache/xerces/impl/validation/ValidationState;->setEntityState(Lmf/org/apache/xerces/impl/validation/EntityState;)V
+
+    add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 

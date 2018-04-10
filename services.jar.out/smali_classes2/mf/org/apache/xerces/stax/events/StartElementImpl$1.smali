@@ -29,34 +29,38 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 2
+    .locals 4
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
     invoke-virtual {p1, p2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
-    check-cast p1, Lmf/javax/xml/namespace/QName;
+    move-object v0, p1
 
-    check-cast p2, Lmf/javax/xml/namespace/QName;
+    check-cast v0, Lmf/javax/xml/namespace/QName;
 
-    invoke-virtual {p1}, Lmf/javax/xml/namespace/QName;->toString()Ljava/lang/String;
+    move-object v1, p2
 
-    move-result-object v0
+    check-cast v1, Lmf/javax/xml/namespace/QName;
 
-    invoke-virtual {p2}, Lmf/javax/xml/namespace/QName;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Lmf/javax/xml/namespace/QName;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
+    invoke-virtual {v1}, Lmf/javax/xml/namespace/QName;->toString()Ljava/lang/String;
 
-    move-result v0
+    move-result-object v3
 
-    return v0
+    invoke-virtual {v2, v3}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
+
+    move-result v2
+
+    return v2
 
     :cond_0
-    return v1
+    return v3
 .end method

@@ -73,83 +73,6 @@
 
     iget v2, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService$4;->val$val:I
 
-    const/4 v3, 0x1
-
-    if-ne v2, v3, :cond_1
-
-    iget-object v2, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService$4;->this$0:Lcom/android/server/enterprise/keystore/TimaKeystoreService;
-
-    invoke-static {v2}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-get2(Lcom/android/server/enterprise/keystore/TimaKeystoreService;)Lcom/samsung/android/knox/downloadablekeystore/IDownloadableKeystoreService;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService$4;->this$0:Lcom/android/server/enterprise/keystore/TimaKeystoreService;
-
-    invoke-static {v3}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-get4(Lcom/android/server/enterprise/keystore/TimaKeystoreService;)I
-
-    move-result v3
-
-    invoke-interface {v2, v3}, Lcom/samsung/android/knox/downloadablekeystore/IDownloadableKeystoreService;->onPreAdminRemoval(I)V
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    :cond_0
-    :goto_0
-    monitor-exit p0
-
-    return-void
-
-    :cond_1
-    :try_start_2
-    iget v2, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService$4;->val$val:I
-
-    const/4 v3, 0x2
-
-    if-ne v2, v3, :cond_2
-
-    iget-object v2, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService$4;->this$0:Lcom/android/server/enterprise/keystore/TimaKeystoreService;
-
-    invoke-static {v2}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-get2(Lcom/android/server/enterprise/keystore/TimaKeystoreService;)Lcom/samsung/android/knox/downloadablekeystore/IDownloadableKeystoreService;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService$4;->this$0:Lcom/android/server/enterprise/keystore/TimaKeystoreService;
-
-    invoke-static {v3}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-get3(Lcom/android/server/enterprise/keystore/TimaKeystoreService;)I
-
-    move-result v3
-
-    invoke-interface {v2, v3}, Lcom/samsung/android/knox/downloadablekeystore/IDownloadableKeystoreService;->onAdminRemoved(I)V
-    :try_end_2
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_2 .. :try_end_2} :catch_1
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    :try_start_3
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v2
-
-    monitor-exit p0
-
-    throw v2
-
-    :cond_2
-    :try_start_4
-    iget v2, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService$4;->val$val:I
-
     const/4 v3, 0x3
 
     if-ne v2, v3, :cond_0
@@ -163,20 +86,41 @@
     const/4 v3, 0x0
 
     invoke-interface {v2, v3}, Lcom/samsung/android/knox/downloadablekeystore/IDownloadableKeystoreService;->startTimaKeystoreServices(I)I
-    :try_end_4
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_4 .. :try_end_4} :catch_1
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :cond_0
+    :goto_0
+    monitor-exit p0
+
+    return-void
+
+    :catch_0
+    move-exception v1
+
+    :try_start_2
+    invoke-virtual {v1}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_0
 
-    :catch_1
-    move-exception v1
+    :catchall_0
+    move-exception v2
 
-    :try_start_5
-    invoke-virtual {v1}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+    monitor-exit p0
+
+    throw v2
+
+    :catch_1
+    move-exception v0
+
+    :try_start_3
+    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto :goto_0
 .end method
@@ -202,7 +146,7 @@
 
     const/4 v1, 0x3
 
-    invoke-static {v0, v1}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-wrap6(Lcom/android/server/enterprise/keystore/TimaKeystoreService;I)V
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->-wrap7(Lcom/android/server/enterprise/keystore/TimaKeystoreService;I)V
 
     return-void
 .end method
